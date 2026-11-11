@@ -2,6 +2,7 @@ import { createHash, randomBytes, randomInt } from "node:crypto";
 import { after } from "next/server";
 import { getSql, num, type Tx } from "@/lib/database/db";
 import { COMMAND_LABELS, isCommandAllowed } from "@/lib/game-engine/transitions";
+import { AUTO_MIN_PHASE_MS } from "@/lib/game-engine/autoplay";
 import { applyDelta, evaluateAnswer, PENALTY_STREAK, scoreAnswer } from "@/lib/game-engine/scoring";
 import { applyComeback, comebackRole, computeStake, scoreBet, type BetInput } from "@/lib/game-engine/special-rounds";
 import { rankParticipants } from "@/lib/game-engine/ranking";
@@ -221,6 +222,53 @@ export interface AutoTickResult {
   waiting: string | null;
 }
 
+/** Il TV si è fatto sentire entro questo tempo: si aspetta la fine delle sue battute. */
+export const TV_ALIVE_MS = 15_000;
+/** Attesa massima oltre l'orario previsto per un TV che sta ancora parlando. */
+export const TV_SPEECH_CAP_MS = 15_000;
+/** Il TV ha finito: il passo si può anticipare fino a tanto (attesa prudente delle clip non pronte). */
+export const TV_EARLY_MS = 10_000;
+/** Fasi in cui il passo segue solo il parlato (niente timer dei giocatori, media o puntate): si può anticipare. */
+const EARLY_PHASES: readonly GamePhase[] = ["ROUND_INTRO", "CATEGORY_RESULT", "SPECIAL_EVENT", "QUESTION_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL", "SCORE_REVEAL", "LEADERBOARD"];
+
+/**
+ * Il TV segnala a che punto è con le battute per la versione `version` dello stato:
+ * `speaking` = sta ancora parlando (o aspetta la clip), altrimenti ha finito.
+ * Quando ha finito: se il passo automatico è in programma per questa versione ed è già passata la
+ * durata minima della fase, il passo si anticipa (fino a TV_EARLY_MS), così non restano silenzi
+ * quando le clip erano già pronte; poi si prova subito il passo (autoTick).
+ */
+export async function reportTvSpeech(sessionId: string, version: number, speaking: boolean): Promise<AutoTickResult | null> {
+  const sql = getSql();
+  await sql`
+    insert into tv_presence (session_id, spoken_version, speaking_version, seen_at)
+    values (${sessionId}, ${speaking ? null : version}, ${speaking ? version : null}, clock_timestamp())
+    on conflict (session_id) do update set
+      seen_at = clock_timestamp(),
+      spoken_version = case when ${speaking}::boolean then tv_presence.spoken_version
+                            else greatest(coalesce(tv_presence.spoken_version, -1), ${version}::bigint) end,
+      speaking_version = case when ${speaking}::boolean then ${version}::bigint else tv_presence.speaking_version end`;
+  if (speaking) return null;
+  // passo anticipato (solo fasi "parlate", solo per questa versione, mai prima della durata minima)
+  const minMs = AUTO_MIN_PHASE_MS;
+  const [g] = await sql<{ phase: GamePhase; elapsed_ms: number; early_ms: number | null; media: string | null; round_kind: string | null }[]>`
+    select gs.phase, extract(epoch from (clock_timestamp() - gs.phase_started_at)) * 1000 as elapsed_ms,
+      extract(epoch from (gs.auto_next_at - clock_timestamp())) * 1000 as early_ms,
+      qs.media_kind::text as media, r.kind::text as round_kind
+    from game_state gs
+    left join question_snapshots qs on qs.session_question_id = gs.current_session_question_id
+    left join game_rounds r on r.id = gs.current_round_id
+    where gs.session_id = ${sessionId} and gs.version = ${version} and gs.auto_version = ${version}`;
+  // domanda: le risposte appena il presentatore ha finito di leggerla (non con audio/video da ascoltare o puntate da fare)
+  const questionWaits = g?.phase === "QUESTION_VISIBLE" && (g.media !== null || g.round_kind === "bet");
+  if (g && EARLY_PHASES.includes(g.phase) && !questionWaits && g.early_ms !== null && g.early_ms > 0 && g.early_ms <= TV_EARLY_MS && g.elapsed_ms >= (minMs[g.phase] ?? 0)) {
+    await sql`
+      update game_state set auto_next_at = least(auto_next_at, clock_timestamp())
+      where session_id = ${sessionId} and version = ${version} and auto_version = ${version}`;
+  }
+  return autoTick(sessionId);
+}
+
 /** commandId deterministico per (sessione, versione): più TV che chiamano insieme eseguono il passo una volta sola. */
 export function autoCommandId(sessionId: string, version: number): string {
   const h = createHash("sha256").update(`qz-auto|${sessionId}|${version}`).digest("hex");
@@ -238,9 +286,15 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
   const sql = getSql();
   const [g] = await sql<{ auto_command: string | null; auto_version: number | null; auto_next_at: Date | null; auto_waiting: string | null; due: boolean; enabled: boolean }[]>`
     select gs.auto_command, gs.auto_version, gs.auto_next_at, gs.auto_waiting,
-           coalesce(gs.auto_next_at <= clock_timestamp(), false) and gs.phase <> 'PAUSED' as due,
+           coalesce(gs.auto_next_at <= clock_timestamp(), false) and gs.phase <> 'PAUSED'
+             -- il TV sta ancora parlando per questa versione: si aspetta (al massimo TV_SPEECH_CAP oltre l'orario)
+             and (tp.session_id is null
+                  or tp.seen_at < clock_timestamp() - make_interval(secs => ${TV_ALIVE_MS / 1000}::float8)
+                  or coalesce(tp.spoken_version, -1) >= gs.auto_version
+                  or gs.auto_next_at < clock_timestamp() - make_interval(secs => ${TV_SPEECH_CAP_MS / 1000}::float8)) as due,
            coalesce(gs.auto_mode, s.settings->>'advanceMode' = 'auto') as enabled
     from game_state gs join game_sessions s on s.id = gs.session_id
+    left join tv_presence tp on tp.session_id = gs.session_id
     where gs.session_id = ${sessionId}`;
   if (!g) throw new GameError("NOT_FOUND", "Sessione non trovata o non pubblicata");
   const idle = (): AutoTickResult => ({

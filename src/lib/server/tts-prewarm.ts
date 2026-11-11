@@ -1,8 +1,8 @@
 import "server-only";
 import { after } from "next/server";
 import { getSql, type Db } from "@/lib/database/db";
-import type { GamePhase, PublicState } from "@/lib/game-engine/types";
-import { podiumLines, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
+import type { GamePhase, Presenter, PublicState, QuestionType } from "@/lib/game-engine/types";
+import { podiumLines, questionScriptLines, scriptQuestionFromCms, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
 import { standingsForShow } from "@/features/game/teams-view";
 import { cachedKeys, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 import { ensureLineClip, prewarmNumberClips } from "./tts-names";
@@ -26,12 +26,15 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     // al "mostra risposte" la voce parte subito e il server ne conosce la durata esatta.
     if (state.phase === "QUESTION_VISIBLE" && fromPhase !== state.phase && state.question?.id && ttsConfigured() && !process.env.VITEST) {
       const sqId = state.question.id;
+      const sessionId = state.sessionId;
       after(async () => {
         try {
           await ensureOptionsClip(sqId);
         } catch (e) {
           console.warn("[quizzone] pre-riscaldamento lettura risposte non riuscito", e instanceof Error ? e.message : e);
         }
+        // rete di sicurezza: anche la domanda successiva (lettura, risposte, soluzione)
+        await prewarmNextQuestion(sessionId).catch(() => undefined);
       });
       return;
     }
@@ -42,11 +45,14 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     // ruota: anche la battuta d'arrivo, che il TV dice quando la ruota si ferma
     const stop = state.phase === "WHEEL_SPIN" ? wheelStopLine(state) : null;
     if (stop) lines.push(stop);
-    if (lines.length === 0) return;
     const sessionId = state.sessionId;
+    const nextToo = state.phase === "SCORE_REVEAL" || state.phase === "LEADERBOARD";
+    if (lines.length === 0 && !nextToo) return;
     after(async () => {
       try {
         await warmLines(getSql(), lines, sessionId);
+        // dopo i punti: la domanda successiva, così compare e si legge senza attese
+        if (nextToo) await prewarmNextQuestion(sessionId);
       } catch (e) {
         console.warn("[quizzone] pre-riscaldamento voci non riuscito", e instanceof Error ? e.message : e);
       }
@@ -54,6 +60,34 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
   } catch {
     // fuori da una richiesta (script, test) o errore imprevisto: nessun pre-riscaldamento
   }
+}
+
+/**
+ * Domanda successiva della serata (la prima non ancora mostrata, in ordine di round e posizione):
+ * le sue battute fisse si preparano in anticipo, così lettura e risposte partono subito.
+ * Rete di sicurezza della preparazione dalla lobby (TV) e del "Prepara voci" della regia.
+ */
+export async function prewarmNextQuestion(sessionId: string): Promise<void> {
+  const db = getSql();
+  const [q] = await db<{ id: string; type: QuestionType; text: string; presenter: Presenter; media_kind: string | null; options: { position: number; text: string }[]; correct: number[] }[]>`
+    select qs.session_question_id as id, qs.type, qs.text, qs.presenter, qs.media_kind::text as media_kind, qs.options, qs.correct_positions as correct
+    from session_questions sq
+    join question_snapshots qs on qs.session_question_id = sq.id
+    join game_rounds r on r.id = sq.round_id
+    where sq.session_id = ${sessionId} and sq.shown_at is null and not sq.is_reserve
+    order by r.position, sq.position limit 1`;
+  if (!q) return;
+  const lines = questionScriptLines(
+    scriptQuestionFromCms({
+      id: q.id,
+      type: q.type,
+      text: q.text,
+      presenter: q.presenter,
+      mediaKind: q.media_kind,
+      options: q.options.map((o) => ({ position: o.position, text: o.text, isCorrect: q.correct.includes(o.position) })),
+    }),
+  );
+  await warmLines(db, lines, sessionId);
 }
 
 /** Genera le battute che mancano in archivio (le live con i nomi salvati della serata). */

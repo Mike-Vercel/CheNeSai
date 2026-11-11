@@ -70,6 +70,9 @@ const PHASE_CUES: Partial<Record<GamePhase, CueName>> = {
   PAUSED: "pause",
 };
 
+/** Respiro dopo l'ultima battuta prima di dire al server "ho finito" (il passo successivo parte subito dopo). */
+const SPOKEN_BREATH_MS = 350;
+
 /** Richiesta di attivare l'audio dai comandi dell'host (un clic: regola dei browser). */
 const ACTIVATE_EVENT = "qz:tv-activate-audio";
 
@@ -293,6 +296,37 @@ export function DisplayApp({
   // mentre il presentatore parla (o la sua clip sta arrivando) il TV non manda avanti la partita
   const voiceBusy = useCallback(() => voice.pending, [voice]);
   useAutoTick({ auto: state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
+
+  // Il TV dice al server quando ha finito di parlare per questo momento della partita: lo
+  // scorrimento automatico non taglia il presentatore e, appena ha finito, passa subito oltre
+  // (dopo un respiro breve) invece di aspettare la stima dal testo.
+  const autoOn = !!state?.auto;
+  const version = state?.version ?? null;
+  useEffect(() => {
+    if (!autoOn || version === null) return;
+    const url = `/api/display/${sessionId}/spoken?k=${encodeURIComponent(displayKey)}`;
+    const post = (speaking: boolean) => api(url, { method: "POST", json: { version, speaking }, timeoutMs: 20000 }).catch(() => undefined);
+    let toldSpeaking = false;
+    let idleSince: number | null = null;
+    let done = false;
+    const t = setInterval(() => {
+      if (done) return;
+      if (voice.pending) {
+        idleSince = null;
+        if (!toldSpeaking) {
+          toldSpeaking = true;
+          void post(true);
+        }
+        return;
+      }
+      idleSince ??= Date.now();
+      if (Date.now() - idleSince >= SPOKEN_BREATH_MS) {
+        done = true;
+        void post(false);
+      }
+    }, 100);
+    return () => clearInterval(t);
+  }, [autoOn, version, sessionId, displayKey, voice]);
 
   // QR code per la lobby
   const joinUrl = useMemo(() => {
