@@ -10,9 +10,11 @@ const PHASE_COMMANDS: Record<GamePhase, readonly GameCommand[]> = {
   READY: ["OPEN_LOBBY"],
   LOBBY: ["START_INTRO", "START_ROUND", "PAUSE", "FINISH"],
   INTRO: ["SKIP_INTRO", "START_ROUND", "PAUSE", "FINISH"],
-  ROUND_INTRO: ["SHOW_QUESTION", "START_VOTE", "ACTIVATE_EVENT", "SHOW_LEADERBOARD", "START_ROUND", "PAUSE", "FINISH"],
+  ROUND_INTRO: ["SHOW_QUESTION", "START_VOTE", "SPIN_WHEEL", "ACTIVATE_EVENT", "SHOW_LEADERBOARD", "START_ROUND", "PAUSE", "FINISH"],
   CATEGORY_VOTING: ["CLOSE_VOTE", "PAUSE", "FINISH"],
   CATEGORY_RESULT: ["SHOW_QUESTION", "ACTIVATE_EVENT", "SHOW_LEADERBOARD", "PAUSE", "FINISH"],
+  // la ruota gira e si ferma sulla categoria scelta dal server (il server rifiuta di andare avanti finché gira)
+  WHEEL_SPIN: ["SHOW_QUESTION", "ACTIVATE_EVENT", "SHOW_LEADERBOARD", "PAUSE", "FINISH"],
   SPECIAL_EVENT: ["SHOW_QUESTION", "PAUSE", "FINISH"],
   QUESTION_VISIBLE: ["SHOW_OPTIONS", "ACTIVATE_EVENT", "PAUSE", "FINISH"],
   OPTIONS_VISIBLE: ["CLOSE_ANSWERS", "REVEAL", "PAUSE", "FINISH"],
@@ -35,6 +37,7 @@ export const PHASE_CHANGING_COMMANDS: readonly GameCommand[] = [
   "START_ROUND",
   "START_VOTE",
   "CLOSE_VOTE",
+  "SPIN_WHEEL",
   "SHOW_QUESTION",
   "SHOW_OPTIONS",
   "CLOSE_ANSWERS",
@@ -84,6 +87,7 @@ export function canPause(phase: GamePhase): boolean {
 export interface NextActionContext {
   phase: GamePhase;
   roundKind: string | null;
+  /** Categoria del round già decisa (voto chiuso o ruota girata). */
   voteDone: boolean;
   hasNextQuestion: boolean;
   hasNextRound: boolean;
@@ -101,10 +105,12 @@ export function suggestNextCommand(ctx: NextActionContext): GameCommand | null {
       return "START_ROUND";
     case "ROUND_INTRO":
       if (ctx.roundKind === "category_vote" && !ctx.voteDone) return "START_VOTE";
+      if (ctx.roundKind === "category_wheel" && !ctx.voteDone) return "SPIN_WHEEL";
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : ctx.hasNextRound ? "START_ROUND" : "FINISH";
     case "CATEGORY_VOTING":
       return "CLOSE_VOTE";
     case "CATEGORY_RESULT":
+    case "WHEEL_SPIN":
     case "SPECIAL_EVENT":
       return "SHOW_QUESTION";
     case "QUESTION_VISIBLE":
@@ -135,6 +141,7 @@ export const COMMAND_LABELS: Record<GameCommand, string> = {
   START_ROUND: "INIZIA ROUND",
   START_VOTE: "AVVIA VOTAZIONE",
   CLOSE_VOTE: "CHIUDI VOTAZIONE",
+  SPIN_WHEEL: "GIRA LA RUOTA",
   SHOW_QUESTION: "MOSTRA DOMANDA",
   SHOW_OPTIONS: "MOSTRA RISPOSTE",
   CLOSE_ANSWERS: "CHIUDI RISPOSTE",
@@ -168,6 +175,7 @@ export const PHASE_LABELS: Record<GamePhase, string> = {
   LEADERBOARD: "Classifica",
   CATEGORY_VOTING: "Votazione in corso",
   CATEGORY_RESULT: "Categoria scelta",
+  WHEEL_SPIN: "Ruota impazzita",
   SPECIAL_EVENT: "Evento di Palmino",
   PAUSED: "In pausa",
   FINISHED: "Terminata",

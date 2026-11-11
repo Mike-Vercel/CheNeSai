@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { COMMANDS, PRESENTERS, QUESTION_TYPES, ROUND_KINDS, SPECIAL_EVENT_TYPES } from "@/lib/game-engine/types";
+import { COMMANDS, isCategoryRound, maxCategories, PRESENTERS, QUESTION_TYPES, ROUND_KINDS, SPECIAL_EVENT_TYPES } from "@/lib/game-engine/types";
 
 const uuid = z.uuid();
 
@@ -133,7 +133,17 @@ export const roundInputSchema = z.object({
   voteDurationSeconds: z.number().int().min(5).max(120).default(15),
   voteTieBreak: z.enum(["random", "admin", "first"]).default("random"),
   voteLiveResults: z.boolean().default(true),
-  voteOptions: z.array(z.string().trim().min(2).max(40)).max(4).default([]),
+  voteOptions: z.array(z.string().trim().min(2).max(40)).max(8).default([]),
+}).superRefine((r, ctx) => {
+  if (!isCategoryRound(r.kind)) return;
+  const max = maxCategories(r.kind);
+  if (r.voteOptions.length > max) {
+    ctx.addIssue({ code: "custom", path: ["voteOptions"], message: `Al massimo ${max} categorie per questo tipo di round` });
+  }
+  const keys = r.voteOptions.map((l) => l.toLocaleLowerCase("it-IT"));
+  if (new Set(keys).size !== keys.length) {
+    ctx.addIssue({ code: "custom", path: ["voteOptions"], message: "Le categorie devono essere diverse tra loro" });
+  }
 });
 export type RoundInput = z.infer<typeof roundInputSchema>;
 

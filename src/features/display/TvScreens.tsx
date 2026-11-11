@@ -31,7 +31,7 @@ import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoin
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
  * altrimenti l'illustrazione originale che "parla" a ritmo della voce.
  */
-function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
+export function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
   const { animation = "idle", ...imgProps } = props;
   const speaker = useSpeaker();
   const { mode, lowPower, fallback } = useCharacterMode();

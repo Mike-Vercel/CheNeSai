@@ -4,7 +4,9 @@
 import { clsx } from "clsx";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
-import type { GamePhase, LeaderboardEntry, PublicEvent, PublicQuestion, PublicVote } from "@/lib/game-engine/types";
+import type { GamePhase, LeaderboardEntry, PublicEvent, PublicQuestion, PublicVote, PublicWheel } from "@/lib/game-engine/types";
+import { spinElapsedMs } from "@/lib/game-engine/wheel";
+import { WheelGraphic, wheelColor } from "@/features/game/components/wheel";
 import { AnswerButton, ANSWER_STYLES, LETTERS, type AnswerVisual } from "@/features/game/components/answers";
 import { Character, Logo } from "@/features/game/components/brand";
 import { TimerBar } from "@/features/game/components/effects";
@@ -255,6 +257,45 @@ export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, e
       {myOptionId && !closed && <p className="text-center font-display text-xl text-[#bfffdc]">VOTO REGISTRATO!</p>}
       {!myOptionId && phase === "CATEGORY_VOTING" && remainingMs <= 0 && <p className="text-center font-bold text-white/80">Votazione chiusa</p>}
       {error && <p className="text-center text-sm font-bold text-[#ffc2cd]">{error}</p>}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Ruota impazzita: sul telefono niente animazione sincronizzata, solo l'attesa e il risultato
+// ---------------------------------------------------------------------------
+export function PhoneWheelView({ wheel, nowMs }: { wheel: PublicWheel; nowMs: number }) {
+  const spin = wheel.spin;
+  if (!spin) return null;
+  const stopped = spinElapsedMs(spin, nowMs) >= spin.durationMs;
+  const winner = wheel.segments[spin.winnerIndex];
+  const color = wheelColor(spin.winnerIndex);
+  const labels = wheel.segments.map((s) => s.label);
+  if (!stopped) {
+    return (
+      <div className="flex flex-1 flex-col items-center justify-center gap-5 text-center">
+        <div className="w-56 animate-spin motion-reduce:animate-none" style={{ animationDuration: "1.1s" }}>
+          <WheelGraphic labels={labels} calm showLabels={false} className="h-full w-full" />
+        </div>
+        <h1 className="font-display text-3xl leading-tight text-white [text-shadow:0_3px_0_rgba(0,0,0,.4)]">La ruota gira…</h1>
+        <p className="font-display text-2xl text-gold">Guarda il TV!</p>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center">
+      <Character who="palmino" small className="w-36 animate-float" />
+      <p className="font-display text-2xl text-white">La ruota ha scelto:</p>
+      <motion.div
+        initial={{ scale: 0.4, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 180, damping: 12 }}
+        className="max-w-full break-words rounded-3xl border-4 border-white px-6 py-4 font-display text-4xl leading-tight shadow-2xl"
+        style={{ background: color.bg, color: color.text }}
+      >
+        {winner?.label}
+      </motion.div>
+      <p className="font-bold text-white/80">Le prossime domande sono di questa categoria. Preparati!</p>
     </div>
   );
 }

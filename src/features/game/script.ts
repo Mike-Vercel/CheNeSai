@@ -99,6 +99,15 @@ export const FIXED_POOLS = {
       "[shouts] Tutti al voto! Palmino conta i voti con le dita… e ne ha solo dieci!",
     ],
   },
+  // partenza della Ruota impazzita (la battuta di arrivo dipende dalla categoria: wheelResultLine)
+  wheelSpin: {
+    who: "palmino",
+    texts: [
+      "[shouts] Gira, gira, gira la ruota! Dove si ferma, nessuno lo sa!",
+      "[giggles] Via! Che la Ruota impazzita decida per voi… io intanto tifo per lo spicchio più difficile!",
+      "[excited] Tenetevi forte: la ruota sta girando! Occhi sul TV!",
+    ],
+  },
   paused: {
     who: "regina",
     texts: [
@@ -330,6 +339,7 @@ export interface ScriptRound {
 
 export function roundIntroLine(r: ScriptRound): SpokenLine {
   if (r.kind === "category_vote") return { who: "palmino", text: `[giggles] Round ${r.index}: ${cleanSpeech(r.title)}. Adesso decidete voi… tanto vinco io!` };
+  if (r.kind === "category_wheel") return { who: "palmino", text: `[excited] Round ${r.index}: ${cleanSpeech(r.title)}. Arriva la Ruota impazzita: la categoria la sceglie lei!` };
   const extra =
     r.pointsMultiplier > 1 ? ` [excited] Attenzione: i punti valgono ${r.pointsMultiplier} volte!` : r.noPenalty ? " In questo round non si perdono punti. Osate!" : "";
   return {
@@ -340,6 +350,23 @@ export function roundIntroLine(r: ScriptRound): SpokenLine {
 
 export function categoryResultLine(label: string): SpokenLine {
   return { who: "palmino", text: `[shouts] Avete scelto: ${cleanSpeech(label)}!` };
+}
+
+/** Battuta all'arrivo della ruota (la dice il TV quando la ruota si ferma). */
+export function wheelResultLine(label: string): SpokenLine {
+  return { who: "palmino", text: `[shouts] La ruota si è fermata su: ${cleanSpeech(label)}!` };
+}
+
+/** Battuta di partenza del giro: stessa variante su ogni TV (dipende dal round). */
+export function wheelSpinLine(roundId: string): SpokenLine {
+  return fixedLine(FIXED_POOLS.wheelSpin, roundId);
+}
+
+/** Battuta di arrivo per lo stato corrente della ruota (null se non c'è un giro). */
+export function wheelStopLine(s: Pick<PublicState, "wheel">): SpokenLine | null {
+  const spin = s.wheel?.spin;
+  const seg = spin ? s.wheel?.segments[spin.winnerIndex] : undefined;
+  return seg ? wheelResultLine(seg.label) : null;
 }
 
 /** Evento speciale: l'annunciatore grida il titolo, Palmino dice lo slogan. */
@@ -632,6 +659,9 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       if (w) out.push(categoryResultLine(w.label));
       break;
     }
+    case "WHEEL_SPIN":
+      out.push(wheelSpinLine(s.round?.id ?? s.sessionId));
+      break;
     case "SPECIAL_EVENT":
       if (s.event) out.push(...eventLines(s.event));
       break;

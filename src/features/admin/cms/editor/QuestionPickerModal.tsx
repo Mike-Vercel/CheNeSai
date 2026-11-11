@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { useState } from "react";
 import { Badge, Button, EmptyState, Field, Input, Modal, Select } from "@/components/ui";
+import { isCategoryRound } from "@/lib/game-engine/types";
 import { errorMessage, qs, send, useApi } from "../api";
 import { Checkbox, ErrorBlock, InfoNote, LoadingBlock, MEDIA_ICON, Pager, Stars } from "../common";
 import { correctLetters, PRESENTER_LABEL, ROUND_KIND, TYPE_LABEL, plural } from "../format";
@@ -22,7 +23,7 @@ export function QuestionPickerModal({
   onClose: () => void;
   onAdded: (count: number) => void;
 }) {
-  const isVote = round.kind === "category_vote";
+  const isVote = isCategoryRound(round.kind);
   const [search, setSearch] = useState("");
   const [q, setQ] = useState("");
   const [category, setCategory] = useState("");
@@ -206,7 +207,10 @@ export function QuestionPickerModal({
 
         <div className="grid gap-3 rounded-xl border border-white/10 bg-[#0f0519] p-3 sm:grid-cols-2">
           {isVote && (
-            <Field label="Categoria votabile" hint="Le domande verranno giocate se vince questa categoria">
+            <Field
+              label={round.kind === "category_wheel" ? "Spicchio della ruota" : "Categoria votabile"}
+              hint={round.kind === "category_wheel" ? "Le domande verranno giocate se la ruota si ferma su questa categoria" : "Le domande verranno giocate se vince questa categoria"}
+            >
               {(id) => (
                 <Select id={id} value={voteOptionId} disabled={isReserve} onChange={(e) => setVoteOptionId(e.target.value)}>
                   {round.voteOptions.map((o) => (

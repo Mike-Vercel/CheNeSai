@@ -106,6 +106,7 @@ export const ROUND_KIND_LABEL: Record<string, string> = {
   image: "Immagini misteriose",
   video: "Manche video",
   category_vote: "Scegliete la categoria",
+  category_wheel: "Ruota impazzita",
   bonus: "Manche bonus",
   final: "Gran finale",
 };

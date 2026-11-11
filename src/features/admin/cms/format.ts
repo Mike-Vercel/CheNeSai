@@ -16,6 +16,7 @@ export const ROUND_KIND: Record<RoundKind, { label: string; icon: string; hint: 
   image: { label: "Immagini", icon: "🖼️", hint: "Domande con un'immagine" },
   video: { label: "Video", icon: "🎬", hint: "Domande con una clip video" },
   category_vote: { label: "Voto categoria", icon: "🗳️", hint: "Il pubblico vota la categoria, si gioca la scelta vincente" },
+  category_wheel: { label: "Ruota impazzita", icon: "🎡", hint: "Una ruota sceglie a caso la categoria, si giocano le sue domande" },
   bonus: { label: "Bonus", icon: "⭐", hint: "Round speciale con punteggi maggiorati" },
   final: { label: "Finale", icon: "🏁", hint: "Round conclusivo" },
 };
@@ -47,6 +48,7 @@ export const PHASE_LABEL: Partial<Record<GamePhase, string>> = {
   LEADERBOARD: "Classifica",
   CATEGORY_VOTING: "Votazione",
   CATEGORY_RESULT: "Esito votazione",
+  WHEEL_SPIN: "Ruota impazzita",
   SPECIAL_EVENT: "Evento Palmino",
   PAUSED: "In pausa",
   FINISHED: "Finita",

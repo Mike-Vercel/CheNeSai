@@ -8,6 +8,7 @@ import type {
   PublicRound,
   PublicState,
   PublicVote,
+  PublicWheel,
   PublicOption,
   Presenter,
   QuestionType,
@@ -31,6 +32,7 @@ export const QUESTION_PHASES: readonly GamePhase[] = [
 const OPTION_PHASES: readonly GamePhase[] = ["OPTIONS_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL", "SCORE_REVEAL"];
 const REVEAL_PHASES: readonly GamePhase[] = ["ANSWER_REVEAL", "SCORE_REVEAL"];
 const VOTE_PHASES: readonly GamePhase[] = ["ROUND_INTRO", "CATEGORY_VOTING", "CATEGORY_RESULT"];
+const WHEEL_PHASES: readonly GamePhase[] = ["ROUND_INTRO", "WHEEL_SPIN"];
 const LEADERBOARD_PHASES: readonly GamePhase[] = ["SCORE_REVEAL", "LEADERBOARD", "FINISHED"];
 const LOBBY_PHASES: readonly GamePhase[] = ["READY", "LOBBY", "INTRO"];
 
@@ -92,7 +94,7 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
 
   const [{ total_questions }] = await db<{ total_questions: number }[]>`
     select coalesce(sum(case
-        when r.kind = 'category_vote' then (
+        when r.kind::text in ('category_vote', 'category_wheel') then (
           select count(*) from session_questions q
           where q.round_id = r.id and not q.is_reserve
             and q.vote_option_id = coalesce(r.winning_option_id,
@@ -110,6 +112,10 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
   const showEvent = event && (vp === "SPECIAL_EVENT" || (question && event.targetQuestionId === question.id));
   const vote =
     round && round.kind === "category_vote" && VOTE_PHASES.includes(vp) ? await loadPublicVote(db, round.id, vp) : null;
+  const wheel =
+    round && round.kind === "category_wheel" && WHEEL_PHASES.includes(vp)
+      ? await loadPublicWheel(db, round.id, st.phase === "PAUSED" ? st.paused_at : null)
+      : null;
   const leaderboard = LEADERBOARD_PHASES.includes(vp) ? await loadLeaderboard(db, sessionId, vp === "SCORE_REVEAL" || vp === "FINISHED" ? 40 : 10) : null;
 
   let recentPlayers: string[] | null = null;
@@ -144,6 +150,7 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
     question,
     event: showEvent ? event : null,
     vote,
+    wheel,
     leaderboard,
     pausedFrom: st.phase === "PAUSED" ? st.paused_from_phase : null,
     recentPlayers,
@@ -345,6 +352,45 @@ export async function loadPublicVote(db: Db, roundId: string, vp: GamePhase): Pr
     tieBreak:
       closed && method && method !== "majority"
         ? { method: method as TieBreakMethod, tiedOptionIds: r.vote_result?.tied ?? [] }
+        : null,
+  };
+}
+
+interface StoredWheelSpin {
+  turns: number;
+  landing: number;
+  rotationDeg: number;
+  durationMs: number;
+  winnerIndex: number;
+  winnerOptionId: string;
+}
+
+/** Ruota del round: spicchi (ordine per position) e, dopo il comando, il giro deciso dal server. */
+export async function loadPublicWheel(db: Db, roundId: string, pausedAt: Date | null): Promise<PublicWheel | null> {
+  const [r] = await db<{ wheel_spun_at: Date | null; wheel_spin: StoredWheelSpin | null; frozen_ms: number | null }[]>`
+    select wheel_spun_at, wheel_spin,
+      case when ${pausedAt}::timestamptz is not null and wheel_spun_at is not null
+        then greatest(0, floor(extract(epoch from (${pausedAt}::timestamptz - wheel_spun_at)) * 1000))::int end as frozen_ms
+    from game_rounds where id = ${roundId}`;
+  if (!r) return null;
+  const segments = await db<{ id: string; position: number; label: string }[]>`
+    select id, position, label from category_vote_options where round_id = ${roundId} order by position`;
+  const p = r.wheel_spin;
+  return {
+    roundId,
+    segments: segments.map((o) => ({ id: o.id, position: o.position, label: o.label })),
+    spin:
+      r.wheel_spun_at && p
+        ? {
+            startedAt: iso(r.wheel_spun_at)!,
+            durationMs: p.durationMs,
+            turns: p.turns,
+            landing: p.landing,
+            rotationDeg: p.rotationDeg,
+            winnerIndex: p.winnerIndex,
+            winnerOptionId: p.winnerOptionId,
+            frozenElapsedMs: r.frozen_ms === null ? null : Math.min(r.frozen_ms, p.durationMs),
+          }
         : null,
   };
 }

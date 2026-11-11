@@ -19,6 +19,7 @@ export const GAME_PHASES = [
   "CATEGORY_VOTING",
   "CATEGORY_RESULT",
   "SPECIAL_EVENT",
+  "WHEEL_SPIN",
   "PAUSED",
   "FINISHED",
 ] as const;
@@ -27,8 +28,26 @@ export type GamePhase = (typeof GAME_PHASES)[number];
 export const PRESENTERS = ["professore", "regina", "palmino"] as const;
 export type Presenter = (typeof PRESENTERS)[number];
 
-export const ROUND_KINDS = ["standard", "music", "image", "video", "category_vote", "bonus", "final"] as const;
+export const ROUND_KINDS = ["standard", "music", "image", "video", "category_vote", "category_wheel", "bonus", "final"] as const;
 export type RoundKind = (typeof ROUND_KINDS)[number];
+
+/** Round con categorie (domande assegnate a una categoria; se ne gioca una sola). */
+export const CATEGORY_ROUND_KINDS: readonly RoundKind[] = ["category_vote", "category_wheel"];
+export function isCategoryRound(kind: RoundKind | string | null | undefined): boolean {
+  return kind === "category_vote" || kind === "category_wheel";
+}
+/** Numero massimo di categorie: 4 per la votazione (tasti A-D sul telefono), 8 spicchi per la ruota. */
+export function maxCategories(kind: RoundKind): number {
+  return kind === "category_wheel" ? 8 : 4;
+}
+export const MIN_CATEGORIES = 2;
+/**
+ * Tipo di round usato per le regole degli eventi speciali: la ruota segue le stesse
+ * regole del voto di categoria (allowed_round_kinds delle definizioni).
+ */
+export function eventRoundKind(kind: RoundKind): RoundKind {
+  return kind === "category_wheel" ? "category_vote" : kind;
+}
 
 export const QUESTION_TYPES = ["single", "multiple"] as const;
 export type QuestionType = (typeof QUESTION_TYPES)[number];
@@ -155,6 +174,35 @@ export interface PublicVote {
   tieBreak: { method: TieBreakMethod; tiedOptionIds: string[] } | null;
 }
 
+/** Spicchio della ruota (stesso ordine per position su server, TV e telefoni). */
+export interface PublicWheelSegment {
+  id: string;
+  position: number;
+  label: string;
+}
+
+/** Giro deciso dal server: ogni TV disegna la stessa animazione dagli stessi numeri. */
+export interface PublicWheelSpin {
+  /** Inizio dell'animazione (ora del server; può essere di poco nel futuro). */
+  startedAt: string;
+  durationMs: number;
+  turns: number;
+  /** Punto di arrivo dentro lo spicchio vincente (0..1). */
+  landing: number;
+  /** Rotazione finale totale in gradi (senso orario). */
+  rotationDeg: number;
+  winnerIndex: number;
+  winnerOptionId: string;
+  /** In pausa: millisecondi di giro già trascorsi (la ruota resta ferma lì). */
+  frozenElapsedMs: number | null;
+}
+
+export interface PublicWheel {
+  roundId: string;
+  segments: PublicWheelSegment[];
+  spin: PublicWheelSpin | null;
+}
+
 export interface LeaderboardEntry {
   participantId: string;
   rank: number;
@@ -193,6 +241,8 @@ export interface PublicState {
   question: PublicQuestion | null;
   event: PublicEvent | null;
   vote: PublicVote | null;
+  /** Ruota impazzita del round corrente (presentazione e giro). */
+  wheel: PublicWheel | null;
   leaderboard: LeaderboardEntry[] | null;
   pausedFrom: GamePhase | null;
   /** Ultimi nickname entrati (solo lobby). */
@@ -210,6 +260,7 @@ export const COMMANDS = [
   "START_ROUND",
   "START_VOTE",
   "CLOSE_VOTE",
+  "SPIN_WHEEL",
   "SHOW_QUESTION",
   "SHOW_OPTIONS",
   "CLOSE_ANSWERS",
@@ -237,6 +288,7 @@ export interface CommandError {
     | "NO_MORE_QUESTIONS"
     | "NO_MORE_ROUNDS"
     | "TIMER_RUNNING"
+    | "WHEEL_SPINNING"
     | "TIE_NEEDS_ADMIN"
     | "EVENT_NOT_ALLOWED"
     | "EVENT_LIMIT"

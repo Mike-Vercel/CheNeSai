@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { Badge, Button, useConfirm } from "@/components/ui";
 import { Character } from "@/features/game/components/brand";
+import { eventRoundKind, isCategoryRound } from "@/lib/game-engine/types";
 import { send, useRunner } from "../api";
 import { MEDIA_ICON, MiniSelect, Stars } from "../common";
 import { LETTERS, plural, PRESENTER_LABEL, ROUND_KIND, TYPE_LABEL } from "../format";
@@ -38,14 +39,15 @@ function moveInGroup(list: SessionQuestionItem[], id: string, dir: -1 | 1, same:
 }
 
 function schedulableFor(defs: EventDefinition[], kind: RoundDetail["kind"]) {
-  return defs.filter((d) => d.enabled && d.type !== "mystery_question" && d.type !== "palmino_decides" && d.allowedRoundKinds.includes(kind));
+  return defs.filter((d) => d.enabled && d.type !== "mystery_question" && d.type !== "palmino_decides" && d.allowedRoundKinds.includes(eventRoundKind(kind)));
 }
 
 export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eventCounts, onMoveRound, onEdit, onDelete, onAddQuestions, onPreview, onChanged }: Props) {
   const confirm = useConfirm();
   const { busy, run } = useRunner();
   const kind = ROUND_KIND[round.kind];
-  const isVote = round.kind === "category_vote";
+  const isVote = isCategoryRound(round.kind);
+  const isWheel = round.kind === "category_wheel";
   const questions = [...round.questions].sort((a, b) => a.position - b.position);
   const playable = questions.filter((q) => !q.isReserve);
   const reserves = questions.filter((q) => q.isReserve);
@@ -66,7 +68,7 @@ export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eve
     const r = await run(
       `to-${q.id}`,
       () => send(`/api/admin/rounds/${target.id}/questions`, "PUT", { order }),
-      target.kind === "category_vote" ? `Spostata in "${target.title}": assegnale una categoria` : `Spostata in "${target.title}"`,
+      isCategoryRound(target.kind) ? `Spostata in "${target.title}": assegnale una categoria` : `Spostata in "${target.title}"`,
     );
     if (r) onChanged();
   }
@@ -260,12 +262,17 @@ export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eve
         key: o.id,
         title: (
           <>
-            🗳️ {o.label} <span className="text-white/50">· {plural(items.length, "domanda", "domande")}</span>
-            {round.winningOptionId === o.id && <Badge color="green">Vincitrice</Badge>}
+            {isWheel ? "🎡" : "🗳️"} {o.label} <span className="text-white/50">· {plural(items.length, "domanda", "domande")}</span>
+            {round.winningOptionId === o.id && <Badge color="green">{isWheel ? "Estratta" : "Vincitrice"}</Badge>}
           </>
         ),
         items,
-        error: items.length === 0 ? `La categoria "${o.label}" non ha domande: non si può proporre al voto una categoria vuota.` : undefined,
+        error:
+          items.length === 0
+            ? isWheel
+              ? `La categoria "${o.label}" non ha domande: la ruota potrebbe fermarsi su uno spicchio vuoto.`
+              : `La categoria "${o.label}" non ha domande: non si può proporre al voto una categoria vuota.`
+            : undefined,
       });
     }
     const orphan = playable.filter((q) => !q.voteOptionId || !round.voteOptions.some((o) => o.id === q.voteOptionId));
@@ -320,7 +327,7 @@ export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eve
         {round.description && <p className="text-sm italic text-white/60">{round.description}</p>}
         {isVote && round.voteOptions.length < 2 && (
           <p className="rounded-xl border border-flame/50 bg-flame/15 px-3 py-2 text-sm font-bold text-[#ffc2cd]">
-            ⚠ Servono almeno 2 categorie votabili: modifica il round per aggiungerle.
+            ⚠ Servono almeno 2 categorie {isWheel ? "sulla ruota" : "votabili"}: modifica il round per aggiungerle.
           </p>
         )}
         {groups.map((g) => (

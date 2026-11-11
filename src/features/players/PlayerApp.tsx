@@ -19,6 +19,7 @@ import {
   PhoneShell,
   PhoneStandings,
   PhoneVoteView,
+  PhoneWheelView,
   type SubmitStatus,
 } from "./PlayerScreens";
 
@@ -103,7 +104,7 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     return () => clearInterval(id);
   }, [joined, code, q]);
 
-  const timerActive = state?.phase === "OPTIONS_VISIBLE" || state?.phase === "CATEGORY_VOTING";
+  const timerActive = state?.phase === "OPTIONS_VISIBLE" || state?.phase === "CATEGORY_VOTING" || state?.phase === "WHEEL_SPIN";
   useTicker(timerActive, 250);
 
   const toggle = (pos: number) => {
@@ -213,6 +214,16 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
         Sta per cominciare lo spettacolo. Tieni il telefono a portata di mano!
       </PhoneMessage>
     );
+  } else if (vp === "ROUND_INTRO" && state.round?.kind === "category_wheel") {
+    body = (
+      <PhoneMessage who="palmino" title={state.round.title}>
+        Round {state.round.index} di {state.round.total}
+        <p className="mt-2 font-display text-gold">Sta per girare la Ruota impazzita!</p>
+        {state.wheel && <p className="mt-1 text-base text-white/75">{state.wheel.segments.map((s) => s.label).join(" · ")}</p>}
+      </PhoneMessage>
+    );
+  } else if (vp === "WHEEL_SPIN" && state.wheel?.spin) {
+    body = <PhoneWheelView wheel={state.wheel} nowMs={now()} />;
   } else if (vp === "ROUND_INTRO" && state.round) {
     body = (
       <PhoneMessage who={state.round.kind === "category_vote" ? "palmino" : state.round.presenter} title={state.round.title}>

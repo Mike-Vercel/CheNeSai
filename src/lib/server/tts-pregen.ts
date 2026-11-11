@@ -4,6 +4,7 @@ import type { Db } from "@/lib/database/db";
 import type { MediaKind, Presenter, QuestionType } from "@/lib/game-engine/types";
 import {
   categoryResultLine,
+  wheelResultLine,
   dedupeLines,
   eventDefinitionScriptLines,
   eventLines,
@@ -77,6 +78,7 @@ export async function sessionLines(db: Db, sessionId: string): Promise<SpokenLin
   rounds.forEach((r, i) => {
     out.push(roundIntroLine({ index: i + 1, title: r.title, kind: r.kind, presenter: r.presenter, description: r.description, pointsMultiplier: r.pointsMultiplier, noPenalty: r.noPenalty }));
     if (r.kind === "category_vote") for (const o of r.voteOptions) out.push(categoryResultLine(o.label));
+    if (r.kind === "category_wheel") for (const o of r.voteOptions) out.push(wheelResultLine(o.label));
     for (const q of r.questions) {
       if (!q.questionId && !q.fromSnapshot) continue;
       questionCount++;

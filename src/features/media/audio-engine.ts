@@ -34,7 +34,8 @@ export type CueName =
   | "victory"
   | "applause"
   | "brake"
-  | "cheer";
+  | "cheer"
+  | "wheelTick";
 
 export interface AudioSettings {
   musicVolume: number; // 0..1
@@ -385,6 +386,11 @@ class SoundEngine {
         // frenata del podio: fruscio che scende + tonfo
         this.noiseBurst(t, 0.32, { freq: 2600, sweepTo: 350, q: 2.2, gain: 0.22 });
         this.tone(95, t + 0.04, 0.28, { type: "sine", gain: 0.32, slideTo: 55 });
+        break;
+      case "wheelTick":
+        // "clac" della linguetta della ruota: brevissimo, legnoso
+        this.tone(1900, t, 0.022, { type: "triangle", gain: 0.11, slideTo: 1100 });
+        this.noiseBurst(t, 0.025, { freq: 2500, q: 1.2, gain: 0.07 });
         break;
       case "applause":
         this.applause(t, 2.6, 1);

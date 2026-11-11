@@ -13,6 +13,7 @@ import {
   TvSpecialEventScreen,
   TvVotingScreen,
 } from "./TvScreens";
+import { TvWheelScreen } from "./TvWheel";
 
 export interface TvStageProps {
   state: PublicState | null;
@@ -27,16 +28,23 @@ export interface TvStageProps {
   now?: () => number;
   /** true sul TV: suoni e voci del podio (in regia solo immagini). */
   live?: boolean;
-  /** Coriandoli al vincitore. */
-  onCelebrate?: () => void;
+  /** Coriandoli (vincitore del podio, arrivo della ruota). */
+  onCelebrate?: (intensity?: number) => void;
+  /** Preferenze del TV: movimento ridotto e PC lento (la ruota rinuncia ad animazioni e bagliori). */
+  reducedMotion?: boolean;
+  lowPower?: boolean;
 }
 
 /** Sceglie la schermata TV in base alla fase (usato dal TV e dall'anteprima in regia). */
-export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate }: TvStageProps) {
+export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false }: TvStageProps) {
   if (!view) return <TvMessageScreen title="Collegamento allo studio…" />;
   const vp: GamePhase = view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase;
   if (vp === "DRAFT" || vp === "READY" || vp === "LOBBY") return <TvLobbyScreen state={view} qrDataUrl={qrDataUrl} joinUrl={joinUrl} />;
   if (vp === "INTRO") return <>{intro}</>;
+  // Ruota impazzita: presentazione del round con la ruota ferma, poi il giro deciso dal server
+  if ((vp === "ROUND_INTRO" || vp === "WHEEL_SPIN") && view.round?.kind === "category_wheel" && view.wheel) {
+    return <TvWheelScreen round={view.round} wheel={view.wheel} now={now} live={live} reducedMotion={reducedMotion} lowPower={lowPower} onCelebrate={onCelebrate} />;
+  }
   if ((vp === "ROUND_INTRO" || vp === "CATEGORY_VOTING" || vp === "CATEGORY_RESULT") && view.round) {
     if (vp !== "ROUND_INTRO" && view.vote) {
       const total = view.vote.closesAt && view.vote.openedAt ? Date.parse(view.vote.closesAt) - Date.parse(view.vote.openedAt) : 15000;
