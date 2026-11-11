@@ -21,7 +21,7 @@
         "modi-di-dire"
       ],
       "notes": "Darsi la zappa sui piedi: fare il proprio danno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "modi-di-dire"
       ],
       "notes": "Non avere peli sulla lingua: dire apertamente ciò che si pensa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "proverbi"
       ],
       "notes": "A caval donato non si guarda in bocca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "proverbi"
       ],
       "notes": "L'abito non fa il monaco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "latino"
       ],
       "notes": "Mea culpa: per mia colpa, dal Confiteor",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "versi-animali"
       ],
       "notes": "Il maiale grugnisce; l'asino raglia, il bue muggisce, la pecora bela",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "modi-di-dire"
       ],
       "notes": "Cadere dalle nuvole: mostrarsi stupiti, ignari di qualcosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "modi-di-dire"
       ],
       "notes": "Sudare sette camicie: fare una gran fatica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "verbi"
       ],
       "notes": "Aprire: aperto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "modi-di-dire"
       ],
       "notes": "Rimanere di stucco: restare impietriti per la sorpresa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -231,7 +231,7 @@
         "ortografia"
       ],
       "notes": "D'accordo, con l'apostrofo (di + accordo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -253,7 +253,7 @@
         "apostrofo"
       ],
       "notes": "Al maschile un non si apostrofa: un altro; al femminile sì: un'altra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -274,7 +274,7 @@
         "ortografia"
       ],
       "notes": "Sì avverbio di affermazione vuole l'accento; si pronome e nota no",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -295,7 +295,7 @@
         "plurali"
       ],
       "notes": "Cassaforte (nome + aggettivo): si pluralizzano entrambi, casseforti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -317,7 +317,7 @@
         "trabocchetto"
       ],
       "notes": "Il pigiama: maschile nonostante la -a",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -338,7 +338,7 @@
         "femminili"
       ],
       "notes": "Zar, femminile zarina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -359,7 +359,7 @@
         "verbi"
       ],
       "notes": "Fare: tu facesti (facessi è congiuntivo imperfetto)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -381,7 +381,7 @@
         "trabocchetto"
       ],
       "notes": "Gli aggettivi in -ro perdono la vocale davanti a -mente: leggermente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -402,7 +402,7 @@
         "modi-di-dire"
       ],
       "notes": "Nato con la camicia: fortunato (dalla membrana amniotica che talvolta avvolge il neonato)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -423,7 +423,7 @@
         "proverbi"
       ],
       "notes": "Moglie e buoi dei paesi tuoi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -444,7 +444,7 @@
         "alfabeto"
       ],
       "notes": "L'alfabeto italiano ha 21 lettere: J, K, W, X, Y sono straniere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -465,7 +465,7 @@
         "significati"
       ],
       "notes": "Anacronistico: non conforme all'epoca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -486,7 +486,7 @@
         "verbi"
       ],
       "notes": "Arrivare non regge un complemento oggetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -507,7 +507,7 @@
         "retorica"
       ],
       "notes": "Il \"come\" esplicito fa della frase una similitudine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "siciliano"
       ],
       "notes": "Nicu: piccolo (picciriddu nicu, bambino piccolo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "trabocchetto"
       ],
       "notes": "Bimestrale: ogni due mesi; due volte al mese è bimensile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "trabocchetto"
       ],
       "notes": "Fortuito: dovuto al caso, non necessariamente fortunato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "trabocchetto"
       ],
       "notes": "Inerme (lat. in-arma): senza armi, indifeso; da non confondere con inerte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "trabocchetto"
       ],
       "notes": "Mattone non è un accrescitivo di matto: è un falso alterato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +638,7 @@
         "trabocchetto"
       ],
       "notes": "Piog-gia: io è un dittongo e la i di gia serve solo a dare il suono dolce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -659,7 +659,7 @@
         "superlativi"
       ],
       "notes": "Alto: superiore, sommo (grande: maggiore, massimo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -680,7 +680,7 @@
         "linguistica"
       ],
       "notes": "Omofoni: stesso suono, grafia e significato diversi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -701,7 +701,7 @@
         "etimologia"
       ],
       "notes": "Dal francese cravate, cioè croate: la sciarpa dei cavalieri croati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -722,7 +722,7 @@
         "retorica"
       ],
       "notes": "L'eufemismo attenua un'espressione cruda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -744,7 +744,7 @@
         "trabocchetto"
       ],
       "notes": "Esilarante: che suscita ilarità; non vuol dire esaltante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "siciliano"
       ],
       "notes": "Camurrìa: fastidio, cosa noiosa (resa celebre da Camilleri)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -786,7 +786,7 @@
         "lingua-nel-mondo"
       ],
       "notes": "Il Ticino è monolingue italiano; i Grigioni sono trilingui",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -807,7 +807,7 @@
         "verbi"
       ],
       "notes": "Servili: dovere, potere, volere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -828,7 +828,7 @@
         "superlativi"
       ],
       "notes": "Integro, superlativo integerrimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -849,7 +849,7 @@
         "significati"
       ],
       "notes": "Panegirico: discorso celebrativo, elogio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -870,7 +870,7 @@
         "latino"
       ],
       "notes": "Motu proprio: di propria iniziativa, spontaneamente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -891,7 +891,7 @@
         "fonetica"
       ],
       "notes": "Pa-ù-ra: a e u accentata restano separate, iato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -913,7 +913,7 @@
         "sicilia"
       ],
       "notes": "Pantelleria: panteschi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -934,7 +934,7 @@
         "etimologia"
       ],
       "notes": "Treccani: da saboter, a sua volta da sabot, zoccolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -955,7 +955,7 @@
         "storia-lingua"
       ],
       "notes": "Il Cantico di frate Sole (1224 circa) è in volgare umbro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -976,7 +976,7 @@
         "femminili"
       ],
       "notes": "Abate, femminile badessa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -997,7 +997,7 @@
         "significati"
       ],
       "notes": "Pervicace: ostinato, caparbio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1008,7 +1008,7 @@
       "answers": [
         "Dogata",
         "Dogaressa",
-        "Dogessa",
+        "Dogatrice",
         "Dogina"
       ],
       "correct": [
@@ -1018,7 +1018,7 @@
         "femminili"
       ],
       "notes": "La moglie del doge era la dogaressa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1039,7 +1039,7 @@
         "storia-lingua"
       ],
       "notes": "Il frullone, il buratto per abburattare, è l'emblema dell'Accademia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1060,7 +1060,7 @@
         "latino"
       ],
       "notes": "Calamus è la penna: lapsus calami è lo scivolone della penna (lapsus linguae quello della lingua)",
-      "verified": false
+      "verified": true
     }
   ]
 }

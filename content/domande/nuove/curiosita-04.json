@@ -21,7 +21,7 @@
         "superstizioni"
       ],
       "notes": "La risposta tradizionale è \"crepi\" (il lupo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "venezia"
       ],
       "notes": "I vetrai furono trasferiti a Murano nel 1291",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "fumetti"
       ],
       "notes": "Gargamella vuole catturare i Puffi; il suo gatto in italiano si chiama Birba",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "mondo"
       ],
       "notes": "Il Capodanno cinese segue il calendario lunisolare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "tradizioni"
       ],
       "notes": "Si esprime un desiderio e si soffia sulle candeline",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "trabocchetto"
       ],
       "notes": "Un chilo è sempre un chilo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -138,9 +138,9 @@
       "difficulty": 1,
       "presenter": "palmino",
       "answers": [
-        "La cozza",
-        "La vongola",
-        "La lumaca di mare",
+        "Il polpo",
+        "La seppia",
+        "Il calamaro",
         "L'ostrica"
       ],
       "correct": [
@@ -150,8 +150,8 @@
         "gioielli",
         "mare"
       ],
-      "notes": "Le perle preziose nascono soprattutto nelle ostriche perlifere",
-      "verified": false
+      "notes": "Le perle preziose nascono soprattutto nelle ostriche perlifere; polpo, seppia e calamaro non hanno conchiglia esterna",
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "natale"
       ],
       "notes": "Santo Stefano, primo martire, si festeggia il giorno dopo Natale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "giochi"
       ],
       "notes": "Il giocatore bendato è la \"mosca cieca\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "fobie"
       ],
       "notes": "Dal latino claustrum, luogo chiuso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -237,7 +237,7 @@
         "laurea"
       ],
       "notes": "Il rosso richiama l'alloro e il colore della sapienza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -259,7 +259,7 @@
         "londra"
       ],
       "notes": "Il meridiano di Greenwich, fissato nel 1884",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -281,7 +281,7 @@
         "londra"
       ],
       "notes": "Dono di Oslo dal 1947, per ringraziare dell'aiuto in guerra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -303,7 +303,7 @@
         "fiori"
       ],
       "notes": "Hanami: la contemplazione dei fiori di ciliegio (sakura)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -325,7 +325,7 @@
         "roma"
       ],
       "notes": "Sotto il portico di Santa Maria in Cosmedin, a Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -335,9 +335,9 @@
       "presenter": "palmino",
       "answers": [
         "Grecia",
-        "Portogallo",
+        "Germania",
         "Spagna",
-        "Messico"
+        "Irlanda"
       ],
       "correct": [
         2
@@ -346,8 +346,8 @@
         "capodanno",
         "mondo"
       ],
-      "notes": "Las doce uvas de la suerte, tradizione spagnola",
-      "verified": false
+      "notes": "Las doce uvas de la suerte, tradizione spagnola (poi diffusa in America Latina)",
+      "verified": true
     },
     {
       "type": "single",
@@ -369,7 +369,7 @@
         "puglia"
       ],
       "notes": "Pietrelcina, in Campania, è il paese natale; il santuario è a San Giovanni Rotondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -391,7 +391,7 @@
         "trabocchetto"
       ],
       "notes": "Il cachemire viene dal sottovello della capra del Kashmir",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -413,7 +413,7 @@
         "italia"
       ],
       "notes": "Il calcio storico fiorentino si gioca in piazza Santa Croce a giugno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -435,7 +435,7 @@
         "trabocchetto"
       ],
       "notes": "La mina è grafite mescolata ad argilla: il piombo non c'è",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -457,7 +457,7 @@
         "mondo"
       ],
       "notes": "Rovaniemi, in Lapponia finlandese, sul Circolo polare artico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -478,7 +478,7 @@
         "fumetti"
       ],
       "notes": "Il loro villaggio è in Armorica, nella Gallia del 50 avanti Cristo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -500,7 +500,7 @@
         "napoli"
       ],
       "notes": "San Gregorio Armeno, nel centro storico di Napoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -522,7 +522,7 @@
         "mondo"
       ],
       "notes": "Holi, festa di primavera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -544,7 +544,7 @@
         "parigi"
       ],
       "notes": "Costruita per l'Expo che celebrava il centenario della Rivoluzione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -566,7 +566,7 @@
         "trabocchetto"
       ],
       "notes": "La Chiesa russa segue il calendario giuliano: Natale il 7 gennaio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -588,7 +588,7 @@
         "trabocchetto"
       ],
       "notes": "Sorge su Liberty Island, già Bedloe's Island; Ellis Island è l'isola degli immigrati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -610,7 +610,7 @@
         "mondo"
       ],
       "notes": "Sette raggi, per i sette mari e i sette continenti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -631,7 +631,7 @@
         "giocattoli"
       ],
       "notes": "Ruth Handler la chiamò come la figlia Barbara; Ken come il figlio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -653,7 +653,7 @@
         "palio"
       ],
       "notes": "Il Palio si corre il 2 luglio e il 16 agosto in piazza del Campo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +675,7 @@
         "tradizioni"
       ],
       "notes": "Si benedice la gola con due candele incrociate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +697,7 @@
         "pisa"
       ],
       "notes": "La torre pende verso sud per il terreno più cedevole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -719,7 +719,7 @@
         "italia"
       ],
       "notes": "La Fiera di Sant'Orso, artigianato valdostano, il 30 e 31 gennaio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,8 +740,8 @@
         "smorfia",
         "napoli"
       ],
-      "notes": "33 'e ccarte 'e Cristo: gli anni di Cristo",
-      "verified": false
+      "notes": "Nella smorfia napoletana il 33 sono gli anni di Cristo; 90 la paura, 48 il morto che parla, 1 l'Italia",
+      "verified": true
     },
     {
       "type": "single",
@@ -763,7 +763,7 @@
         "lira"
       ],
       "notes": "La mille lire Montessori circolò dal 1990 al 2002",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -785,7 +785,7 @@
         "papi"
       ],
       "notes": "Calendario gregoriano, bolla Inter gravissimas del 1582",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -807,7 +807,7 @@
         "trabocchetto"
       ],
       "notes": "Matteo parla di \"Magi\" senza numero; il tre viene dai tre doni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "tradizioni"
       ],
       "notes": "San Martino di Tours, 11 novembre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "fumetti"
       ],
       "notes": "In originale Milou, in italiano Milù",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "mondo"
       ],
       "notes": "L'ultimo mercoledì di agosto a Buñol, vicino a Valencia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -894,7 +894,7 @@
         "trabocchetto"
       ],
       "notes": "Il permesso era di vent'anni; fu salvata come antenna radiotelegrafica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +916,7 @@
         "codici"
       ],
       "notes": "Palermo 90100; Catania 95100, Messina 98100, Napoli 80100",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -938,7 +938,7 @@
         "trabocchetto"
       ],
       "notes": "In cinese hong cha, tè rosso, dal colore dell'infuso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -960,7 +960,7 @@
         "italia"
       ],
       "notes": "Il volto di Venere dal dipinto di Botticelli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -982,7 +982,7 @@
         "trabocchetto"
       ],
       "notes": "Gli anni secolari sono bisestili solo se divisibili per 400",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1004,7 +1004,7 @@
         "italia"
       ],
       "notes": "Martin Mystère, creato da Alfredo Castelli nel 1982",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1026,7 +1026,7 @@
         "toscana"
       ],
       "notes": "Burlamacco fu disegnato da Uberto Bonetti nel 1931",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1048,7 +1048,7 @@
         "palio"
       ],
       "notes": "Il drappellone, detto anche cencio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1069,7 +1069,7 @@
         "tarocchi"
       ],
       "notes": "Il Matto è senza numero o con lo zero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1091,7 +1091,7 @@
         "feste"
       ],
       "notes": "Prizzi, in provincia di Palermo",
-      "verified": false
+      "verified": true
     }
   ]
 }

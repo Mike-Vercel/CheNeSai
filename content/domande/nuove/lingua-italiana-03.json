@@ -22,7 +22,7 @@
         "articoli"
       ],
       "notes": "Davanti a parola maschile che inizia per z si usa uno: uno zio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere un diavolo per capello: essere di pessimo umore, furiosi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "proverbi"
       ],
       "notes": "Proverbio: chi va piano va sano e va lontano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "contrari"
       ],
       "notes": "Concavo (incavato) si oppone a convesso (bombato)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "latino"
       ],
       "notes": "Orazio, Odi I 11: carpe diem, cogli il giorno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -127,7 +127,7 @@
         "modi-di-dire"
       ],
       "notes": "Rompere il ghiaccio: avviare un rapporto o una conversazione superando l'imbarazzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -148,7 +148,7 @@
         "proverbi"
       ],
       "notes": "Il lupo perde il pelo ma non il vizio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "verbi"
       ],
       "notes": "Amavo: indicativo imperfetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "femminili"
       ],
       "notes": "Eroe, femminile eroina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "siciliano"
       ],
       "notes": "Carusu (caruso): ragazzo, giovanotto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "ortografia"
       ],
       "notes": "Si scrive eccezione, con due c e una sola z",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "trabocchetto"
       ],
       "notes": "Fa, monosillabo, non vuole l'accento (Treccani, Crusca); fa' con l'apostrofo è l'imperativo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -264,7 +264,7 @@
       "presenter": "professore",
       "answers": [
         "Li",
-        "Gli",
+        "Lo",
         "La",
         "Le"
       ],
@@ -275,8 +275,8 @@
         "grammatica",
         "pronomi"
       ],
-      "notes": "A lei si dice le; gli riferito a una donna è considerato errore nella lingua curata (Crusca)",
-      "verified": false
+      "notes": "A lei si dice le (Ho visto Anna e le ho detto ciao); gli riferito a una donna è sentito come errore nella lingua curata (Crusca), quindi tolto dalle opzioni",
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +297,7 @@
         "plurali"
       ],
       "notes": "Centinaio ha il plurale femminile centinaia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "trabocchetto"
       ],
       "notes": "La mano: nome femminile nonostante la desinenza in -o",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +340,7 @@
         "verbi"
       ],
       "notes": "Mettere: io misi, tu mettesti, egli mise",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -361,7 +361,7 @@
         "modi-di-dire"
       ],
       "notes": "Mosca bianca: persona o cosa rarissima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -382,7 +382,7 @@
         "proverbi"
       ],
       "notes": "Proverbio: chi la fa l'aspetti (chi fa un torto se lo aspetti a sua volta)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -403,7 +403,7 @@
         "latino"
       ],
       "notes": "Ad hoc: per questo, appositamente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -424,7 +424,7 @@
         "significati"
       ],
       "notes": "Lungimirante: che vede lontano, previdente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -445,7 +445,7 @@
         "dialetti"
       ],
       "notes": "Schei: soldi, dal tedesco Scheidemünze (moneta spicciola)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -466,7 +466,7 @@
         "dialetti"
       ],
       "notes": "Scugnizzo: ragazzo di strada napoletano, vivace e furbo (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -487,7 +487,7 @@
         "collettivi"
       ],
       "notes": "Stormo: gruppo di uccelli in volo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -508,7 +508,7 @@
         "etimologia"
       ],
       "notes": "Iulius, in onore di Giulio Cesare; agosto da Augusto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -529,7 +529,7 @@
         "verbi"
       ],
       "notes": "Parlerei: condizionale presente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "ortografia"
       ],
       "notes": "Accelerare, con una sola l (latino accelerare)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -571,7 +571,7 @@
         "verbi"
       ],
       "notes": "Redatto è il participio passato di redigere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -593,7 +593,7 @@
         "congiuntivo"
       ],
       "notes": "Benché vuole il congiuntivo; con il passato remoto nella principale: fosse",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -614,7 +614,7 @@
         "plurali"
       ],
       "notes": "Belga, plurale maschile belgi (eccezione ai nomi in -ga)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -636,7 +636,7 @@
         "trabocchetto"
       ],
       "notes": "La dinamo: femminile, come la radio e la moto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -657,7 +657,7 @@
         "verbi"
       ],
       "notes": "Nascere: io nacqui",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -678,7 +678,7 @@
         "significati"
       ],
       "notes": "Dalle Sibille, profetesse dai responsi oscuri: sibillino è enigmatico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -700,7 +700,7 @@
         "mitologia"
       ],
       "notes": "Cassandra, profetessa troiana condannata a non essere mai creduta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -721,7 +721,7 @@
         "modi-di-dire"
       ],
       "notes": "Ha la coda di paglia chi, sentendosi in colpa, si offende al minimo accenno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -742,7 +742,7 @@
         "latino"
       ],
       "notes": "Ex aequo: alla pari, a pari merito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -764,7 +764,7 @@
         "sicilia"
       ],
       "notes": "Acireale: acesi (Noto netini, Caltanissetta nisseni, Licata licatesi)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -785,7 +785,7 @@
         "etimologia"
       ],
       "notes": "Dal veneziano quarantena: i 40 giorni di isolamento imposti a navi e viaggiatori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -807,7 +807,7 @@
         "trabocchetto"
       ],
       "notes": "A-e-re-o: a ed e sono vocali forti in iato e stanno in sillabe diverse",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -828,8 +828,8 @@
         "plurali",
         "trabocchetto"
       ],
-      "notes": "Eco è femminile al singolare ma al plurale diventa maschile: gli echi (Treccani)",
-      "verified": false
+      "notes": "Treccani: eco s. f. o m., pl. echi, unicamente maschile: gli echi",
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "significati"
       ],
       "notes": "Pedissequo (lat. pedisequus, servo che segue): che segue o imita servilmente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "storia"
       ],
       "notes": "Nel 1077 l'imperatore Enrico IV si umiliò a Canossa davanti a papa Gregorio VII",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -893,7 +893,7 @@
         "retorica"
       ],
       "notes": "La sineddoche usa la parte per il tutto (vele per navi)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -914,7 +914,7 @@
         "demonimi"
       ],
       "notes": "Madagascar: malgasci (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "storia-lingua"
       ],
       "notes": "Il Galateo overo de' costumi di Giovanni Della Casa (1558), dedicato a Galeazzo (Galatheo) Florimonte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -957,7 +957,7 @@
         "siciliano"
       ],
       "notes": "Ammuttari: spingere (ammutta! = spingi!)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "trabocchetto"
       ],
       "notes": "Carponi è un avverbio di modo (camminare carponi), come ginocchioni e penzoloni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1000,7 +1000,7 @@
         "significati"
       ],
       "notes": "Dante, Paradiso XVII: \"ben tetragono ai colpi di ventura\", cioè saldo, incrollabile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1021,7 +1021,7 @@
         "retorica"
       ],
       "notes": "Ariosto: donne/amori e cavallier/arme si corrispondono a incrocio (chiasmo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1042,7 +1042,7 @@
         "demonimi"
       ],
       "notes": "Gubbio, l'antica Iguvium: eugubini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1063,7 @@
         "storia-lingua"
       ],
       "notes": "L'Istituto Giovanni Treccani fu fondato il 18 febbraio 1925",
-      "verified": false
+      "verified": true
     }
   ]
 }

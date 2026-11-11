@@ -22,7 +22,7 @@
     "marvel"
    ],
    "notes": "The Avengers (2012) e seguiti",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -44,7 +44,7 @@
     "animali"
    ],
    "notes": "Abu è la scimmietta ladruncola; Iago è il pappagallo di Jafar, Rajah la tigre di Jasmine",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -66,7 +66,7 @@
     "canzoni"
    ],
    "notes": "Hakuna matata, in lingua swahili, ne \"Il re leone\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -87,7 +87,7 @@
     "supereroi"
    ],
    "notes": "Batman e Robin, il \"dinamico duo\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -109,7 +109,7 @@
     "animazione"
    ],
    "notes": "Il Grillo Parlante (Jiminy Cricket) accompagna Pinocchio",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -131,7 +131,7 @@
     "marvel"
    ],
    "notes": "Peter Parker vive nel Queens, a New York",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -152,7 +152,7 @@
     "star wars"
    ],
    "notes": "I Sith usano spade laser rosse",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -174,7 +174,7 @@
     "animazione"
    ],
    "notes": "La principessa Jasmine in \"Aladdin\" (1992)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -196,7 +196,7 @@
     "canzoni"
    ],
    "notes": "La canzone di apertura de \"Il re leone\" (1994), di Elton John e Tim Rice",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -218,7 +218,7 @@
     "commedia"
    ],
    "notes": "I Minions, aiutanti di Gru",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -240,7 +240,7 @@
     "animazione"
    ],
    "notes": "Rex, il tirannosauro giocattolo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -262,7 +262,7 @@
     "animazione"
    ],
    "notes": "Ih-Oh (Eeyore); Tigro è la tigre, Pimpi il maialino, Tappo il coniglio",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -284,7 +284,7 @@
     "marvel"
    ],
    "notes": "Hugh Jackman, dal 2000",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -306,7 +306,7 @@
     "hollywood"
    ],
    "notes": "Eddie Murphy è il principe Akeem di Zamunda",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -328,7 +328,7 @@
     "romantici"
    ],
    "notes": "Rose DeWitt Bukater; Ruth è sua madre",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -350,7 +350,7 @@
     "marvel"
    ],
    "notes": "Chris Hemsworth; Evans è Capitan America, Pratt Star-Lord, Hiddleston Loki",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -372,7 +372,7 @@
     "benigni"
    ],
    "notes": "Johnny Stecchino (1991): Dante è il sosia del boss",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -394,7 +394,7 @@
     "animali"
    ],
    "notes": "Iago è un pappagallo; la scimmietta Abu è amica di Aladdin",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -416,7 +416,7 @@
     "hollywood"
    ],
    "notes": "Ace Ventura – L'acchiappanimali (1994)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -438,7 +438,7 @@
     "animazione"
    ],
    "notes": "Oceania (Moana), ambientato in Polinesia",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -460,11 +460,11 @@
     "fantascienza"
    ],
    "notes": "Jennifer Lawrence, dal 2012",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
-   "text": "Nel film Disney \"Encanto\", di quale zio \"non si nomina\" il nome?",
+   "text": "Nel film Disney \"Encanto\", di quale zio è meglio non parlare in famiglia?",
    "category": "Cinema",
    "difficulty": 2,
    "presenter": "palmino",
@@ -482,7 +482,7 @@
     "canzoni"
    ],
    "notes": "\"Non si nomina Bruno\", canzone di Lin-Manuel Miranda",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -504,7 +504,7 @@
     "battute"
    ],
    "notes": "Travis Bickle in Taxi Driver (1976) di Martin Scorsese",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -526,7 +526,7 @@
     "scuola"
    ],
    "notes": "In piedi sui banchi: \"O capitano! Mio capitano!\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -548,7 +548,7 @@
     "fiabe"
    ],
    "notes": "La Fata Smemorina trasforma una zucca in carrozza",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -570,7 +570,7 @@
     "hollywood"
    ],
    "notes": "Michael Keaton, con Jack Nicholson nel ruolo del Joker",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -592,7 +592,7 @@
     "trabocchetto"
    ],
    "notes": "Pandora è una luna del gigante gassoso Polifemo, non un pianeta",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -614,7 +614,7 @@
     "hollywood"
    ],
    "notes": "Greta Gerwig, con Margot Robbie e Ryan Gosling",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -636,7 +636,7 @@
     "sergio leone"
    ],
    "notes": "Con Claudia Cardinale, Henry Fonda e Charles Bronson",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -658,7 +658,7 @@
     "animazione"
    ],
    "notes": "Boo, che chiama Sulley \"Gattone\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -679,7 +679,7 @@
     "storia del cinema"
    ],
    "notes": "Il 28 dicembre 1895, al Grand Café di Parigi",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -701,7 +701,7 @@
     "animazione"
    ],
    "notes": "Toy Story della Pixar, regia di John Lasseter",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -723,7 +723,7 @@
     "cinema italiano"
    ],
    "notes": "Marco Tullio Giordana; il film è ambientato a Cinisi",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -745,7 +745,7 @@
     "toscana"
    ],
    "notes": "Ovosodo (1997) è il nome di un quartiere di Livorno, città di Virzì",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -767,7 +767,7 @@
     "musical"
    ],
    "notes": "Gentlemen Prefer Blondes (1953) di Howard Hawks",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -789,7 +789,7 @@
     "neorealismo"
    ],
    "notes": "Stromboli, terra di Dio (1950)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -811,7 +811,7 @@
     "saghe"
    ],
    "notes": "Quattro hobbit, Gandalf, Aragorn, Boromir, Legolas e Gimli",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -833,7 +833,7 @@
     "oscar"
    ],
    "notes": "Luca Guadagnino; James Ivory vinse l'Oscar per la sceneggiatura",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -855,7 +855,7 @@
     "fantascienza"
    ],
    "notes": "Fritz Lang, capolavoro dell'espressionismo tedesco",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -877,7 +877,7 @@
     "pixar"
    ],
    "notes": "Fabrizio Frizzi doppiò Woody nei primi tre film",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -899,7 +899,7 @@
     "disney"
    ],
    "notes": "Gigi Proietti doppiò il Genio di Robin Williams",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -921,7 +921,7 @@
     "classici"
    ],
    "notes": "La scalinata di Odessa, film di Ejzenštejn del 1925",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -943,13 +943,13 @@
     "cinema italiano"
    ],
    "notes": "I Nastri d'argento del Sindacato nazionale giornalisti cinematografici",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
    "text": "Quale festival del cinema per ragazzi si tiene ogni anno in provincia di Salerno?",
    "category": "Cinema",
-   "difficulty": 4,
+   "difficulty": 3,
    "presenter": "palmino",
    "answers": [
     "Taormina",
@@ -965,7 +965,7 @@
     "campania"
    ],
    "notes": "Il Giffoni Film Festival, a Giffoni Valle Piana, dal 1971",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -987,7 +987,7 @@
     "trabocchetto"
    ],
    "notes": "Schreck in tedesco (e in yiddish) vuol dire spavento, paura",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1009,7 +1009,7 @@
     "trabocchetto"
    ],
    "notes": "Prodotto dalla MGM ma girato a Cinecittà, compresa la corsa delle bighe",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1031,7 +1031,7 @@
     "animazione"
    ],
    "notes": "La bella e la bestia (1991), candidato agli Oscar del 1992",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1053,11 +1053,11 @@
     "trabocchetto"
    ],
    "notes": "David Prowse indossava il costume, la voce era di James Earl Jones",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
-   "text": "Quale scenografo italiano ha vinto tre Oscar, tra cui per \"The Aviator\"?",
+   "text": "Quale scenografo italiano ha vinto l'Oscar per \"The Aviator\", \"Sweeney Todd\" e \"Hugo Cabret\"?",
    "category": "Cinema",
    "difficulty": 5,
    "presenter": "regina",
@@ -1075,7 +1075,7 @@
     "italiani a hollywood"
    ],
    "notes": "Dante Ferretti: The Aviator, Sweeney Todd e Hugo Cabret, con Francesca Lo Schiavo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1097,7 +1097,7 @@
     "trabocchetto"
    ],
    "notes": "Silent Movie (1976): l'unica parola, \"Non!\", la dice proprio un mimo",
-   "verified": false
+   "verified": true
   }
  ]
 }

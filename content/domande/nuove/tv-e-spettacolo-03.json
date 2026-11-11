@@ -22,7 +22,7 @@
     "pupazzi"
    ],
    "notes": "Il Gabibbo, pupazzo rosso di Striscia dal 1990",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -44,7 +44,7 @@
     "looney tunes"
    ],
    "notes": "Bugs Bunny e la sua carota: \"Che succede, amico?\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -66,7 +66,7 @@
     "simpson"
    ],
    "notes": "Homer è addetto alla sicurezza della centrale nucleare di Springfield",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -88,7 +88,7 @@
     "bambini"
    ],
    "notes": "Bing è un coniglietto nero che vive con Flop",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -110,7 +110,7 @@
     "netflix"
    ],
    "notes": "Il Professore, interpretato da Álvaro Morte",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -132,7 +132,7 @@
     "simpson"
    ],
    "notes": "Lisa è una bravissima sassofonista",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -154,7 +154,7 @@
     "bambini"
    ],
    "notes": "Barbapapà è rosa, Barbamamma nera",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -176,7 +176,7 @@
     "curiosità"
    ],
    "notes": "Leonardo, Raffaello, Donatello e Michelangelo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -198,7 +198,7 @@
     "sicilia"
    ],
    "notes": "Andrea Camilleri, nato a Porto Empedocle",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -220,7 +220,7 @@
     "animali"
    ],
    "notes": "Flipper, il delfino amico della famiglia Ricks",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -242,11 +242,11 @@
     "trabocchetto"
    ],
    "notes": "Pippo è un cane, anche se cammina e parla come un uomo; Orazio è il cavallo, Clarabella la mucca",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
-   "text": "Quale capo di abbigliamento non porta mai Paperino?",
+   "text": "Nel suo abbigliamento classico, che cosa non porta mai Paperino?",
    "category": "TV e spettacolo",
    "difficulty": 2,
    "presenter": "palmino",
@@ -264,7 +264,7 @@
     "trabocchetto"
    ],
    "notes": "Paperino porta casacca da marinaio, cappello e fiocco, ma niente pantaloni",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -286,11 +286,11 @@
     "trabocchetto"
    ],
    "notes": "SpongeBob è una spugna marina, anche se sembra una spugna da cucina",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
-   "text": "Quale agente del commissario Montalbano storpia le parole e chiama tutti \"dottori\"?",
+   "text": "Quale agente del commissariato di Montalbano storpia le parole e i nomi delle persone?",
    "category": "TV e spettacolo",
    "difficulty": 2,
    "presenter": "regina",
@@ -308,7 +308,7 @@
     "sicilia"
    ],
    "notes": "Agatino Catarella, interpretato da Angelo Russo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -330,7 +330,7 @@
     "maschere"
    ],
    "notes": "Meneghino è milanese; Gianduia torinese, Stenterello fiorentino, Rugantino romano",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -352,7 +352,7 @@
     "fantasy"
    ],
    "notes": "Tyrion Lannister; Dinklage vinse quattro Emmy per il ruolo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -374,7 +374,7 @@
     "medical"
    ],
    "notes": "Hugh Laurie, nella serie dal 2004 al 2012",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -396,7 +396,7 @@
     "sitcom"
    ],
    "notes": "Jennifer Aniston; Cox era Monica, Kudrow Phoebe",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -417,7 +417,7 @@
     "serie tv"
    ],
    "notes": "Heisenberg, dal fisico tedesco del principio di indeterminazione",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -439,7 +439,7 @@
     "netflix"
    ],
    "notes": "Il primo gioco della serie coreana del 2021",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -461,7 +461,7 @@
     "simpson"
    ],
    "notes": "La taverna di Boe (Moe's Tavern)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -483,7 +483,7 @@
     "cartoni"
    ],
    "notes": "Sampei, il ragazzo pescatore (Tsurikichi Sanpei)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -505,7 +505,7 @@
     "fumetti italiani"
    ],
    "notes": "La Pimpa, nata nel 1975 sul Corriere dei Piccoli",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -527,7 +527,7 @@
     "cartoni"
    ],
    "notes": "Charlie Brown, protagonista dei Peanuts di Charles Schulz",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -549,7 +549,7 @@
     "letteratura"
    ],
    "notes": "Il Grande Fratello che sorveglia tutti è in \"1984\" di George Orwell",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -571,7 +571,7 @@
     "trabocchetto"
    ],
    "notes": "Rosario Fiorello è nato a Catania nel 1960 ed è cresciuto ad Augusta",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -593,7 +593,7 @@
     "rai"
    ],
    "notes": "Alice ed Ellen Kessler, star del varietà Rai anni Sessanta",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -615,7 +615,7 @@
     "anni ottanta"
    ],
    "notes": "Drive In (1983-1988), ideato da Antonio Ricci",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -637,7 +637,7 @@
     "calcio"
    ],
    "notes": "La Gialappa's Band: Carlo Taranto, Marco Santin e Giorgio Gherarducci",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -659,7 +659,7 @@
     "napoli"
    ],
    "notes": "La Smorfia, nata a Napoli negli anni Settanta",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -681,7 +681,7 @@
     "roma"
    ],
    "notes": "I Cesaroni (2006-2014) gestiscono una bottiglieria alla Garbatella",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -703,7 +703,7 @@
     "umbria"
    ],
    "notes": "Le prime otto stagioni a Gubbio, poi la serie si è spostata a Spoleto",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -725,7 +725,7 @@
     "basilicata"
    ],
    "notes": "Imma Tataranni, interpretata da Vanessa Scalera, lavora a Matera",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -747,7 +747,7 @@
     "netflix"
    ],
    "notes": "La Nevermore Academy, scuola per ragazzi \"diversi\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -769,7 +769,7 @@
     "hanna-barbera"
    ],
    "notes": "La Mystery Machine, furgone decorato a fiori",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -791,7 +791,7 @@
     "cartoni"
    ],
    "notes": "Sheila, Kelly e Tati, che gestiscono il bar Occhi di gatto",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -813,7 +813,7 @@
     "trabocchetto"
    ],
    "notes": "Nel Carosello l'Olandesina lo lava: \"Tu non sei nero, sei solo sporco\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -835,7 +835,7 @@
     "rai"
    ],
    "notes": "Canzonissima, legata alla lotteria nazionale",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -857,7 +857,7 @@
     "rai"
    ],
    "notes": "Il maestro Alberto Manzi, in onda dal 1960 al 1968",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -879,7 +879,7 @@
     "sicilia"
    ],
    "notes": "La casa di Marinella è a Punta Secca, in provincia di Ragusa",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -901,7 +901,7 @@
     "rai"
    ],
    "notes": "Michele Placido, nelle prime quattro stagioni; Remo Girone era Tano Cariddi",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -923,7 +923,7 @@
     "arbore"
    ],
    "notes": "Indietro tutta! (1987-1988), con Nino Frassica e le ragazze Coccodè",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -945,7 +945,7 @@
     "trabocchetto"
    ],
    "notes": "Pingu fu creato dallo svizzero Otmar Gutmann e prodotto in Svizzera dal 1990",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -967,7 +967,7 @@
     "trabocchetto"
    ],
    "notes": "Erik Weisz, poi Harry Houdini, nacque a Budapest nel 1874",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -989,7 +989,7 @@
     "sitcom"
    ],
    "notes": "Marcel, la scimmietta cappuccina della prima stagione",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1011,7 +1011,7 @@
     "rai"
    ],
    "notes": "Il gioco dei fagioli del programma di mezzogiorno di Raffaella Carrà (1983)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1033,11 +1033,11 @@
     "fumetti"
    ],
    "notes": "Il Grande Puffo ha 542 anni, secondo i fumetti di Peyo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
-   "text": "Quale ventriloquo dava la voce al pupazzo Provolino?",
+   "text": "Quale attore animava in TV il pupazzo Provolino?",
    "category": "TV e spettacolo",
    "difficulty": 5,
    "presenter": "regina",
@@ -1054,8 +1054,8 @@
     "pupazzi",
     "storia della tv"
    ],
-   "notes": "Raffaele Pisu e Provolino, in TV dagli anni Settanta",
-   "verified": false
+   "notes": "Raffaele Pisu animava Provolino (dal 1968); la voce era di Oreste Lionello",
+   "verified": true
   },
   {
    "type": "single",
@@ -1077,7 +1077,7 @@
     "comici"
    ],
    "notes": "\"Gli occhi del cuore\" e poi \"Gli occhi del cuore 2\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1099,7 +1099,7 @@
     "sicilia"
    ],
    "notes": "Angelo Musco (1872-1937), per cui scrissero anche Pirandello e Martoglio",
-   "verified": false
+   "verified": true
   }
  ]
 }

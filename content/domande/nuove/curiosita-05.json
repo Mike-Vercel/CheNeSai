@@ -22,7 +22,7 @@
         "tradizioni"
       ],
       "notes": "Scende dal camino con il sacco dei regali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "giochi da tavolo"
       ],
       "notes": "Nel Monopoli si comprano terreni e si costruiscono case e alberghi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "strade"
       ],
       "notes": "Nel Regno Unito si tiene la sinistra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "natale"
       ],
       "notes": "Rudolph nacque nel 1939 in un libretto americano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "tradizioni"
       ],
       "notes": "La ghirlanda natalizia, spesso di rami di abete o agrifoglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "portafortuna"
       ],
       "notes": "Il ferro di cavallo è un antico portafortuna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "italia"
       ],
       "notes": "La Milano Fashion Week è tra le quattro grandi del mondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "tradizioni"
       ],
       "notes": "La Befana vola a cavallo di una scopa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "trabocchetto"
       ],
       "notes": "Porta fortuna il quadrifoglio, raro, non il trifoglio comune a tre foglie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,7 +216,7 @@
         "tessuti"
       ],
       "notes": "La seta viene dal bozzolo del baco da seta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "tradizioni"
       ],
       "notes": "Il \"miracolo\" di San Gennaro si attende tre volte l'anno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "calendario"
       ],
       "notes": "Nel rito romano il Carnevale finisce il martedì grasso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -281,7 +281,7 @@
         "fumetti"
       ],
       "notes": "Grande Puffo ha 542 anni secondo il fumetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -303,7 +303,7 @@
         "sicilia"
       ],
       "notes": "Rosso e giallo divisi in diagonale, con la Trinacria al centro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -325,7 +325,7 @@
         "mercati"
       ],
       "notes": "Ballarò è a Palermo; la Boqueria è a Barcellona, Porta Palazzo a Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "venezia"
       ],
       "notes": "I merletti di Burano, ad ago",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -356,10 +356,10 @@
       "difficulty": 2,
       "presenter": "regina",
       "answers": [
-        "Genova",
-        "Amalfi",
+        "Trieste",
+        "Napoli",
         "Venezia",
-        "Pisa"
+        "Bari"
       ],
       "correct": [
         2
@@ -369,7 +369,7 @@
         "venezia"
       ],
       "notes": "La Regata storica sul Canal Grande, la prima domenica di settembre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -391,7 +391,7 @@
         "torino"
       ],
       "notes": "Gianduja, con il tricorno, dà nome ai gianduiotti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -413,7 +413,7 @@
         "animali"
       ],
       "notes": "La cicogna che porta i bambini viene dal folclore nordeuropeo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -435,7 +435,7 @@
         "carte"
       ],
       "notes": "Scala reale dal dieci all'asso dello stesso seme",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -457,7 +457,7 @@
         "superstizioni"
       ],
       "notes": "In Quaresima, col viola liturgico, gli spettacoli erano vietati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -478,7 +478,7 @@
         "numeri utili"
       ],
       "notes": "115 Vigili del fuoco; 113 Polizia, 118 emergenza sanitaria, 117 Guardia di Finanza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -500,7 +500,7 @@
         "trabocchetto"
       ],
       "notes": "I semi napoletani sono coppe, denari, spade e bastoni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -521,7 +521,7 @@
         "tempo"
       ],
       "notes": "L'ora solare torna l'ultima domenica di ottobre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -543,7 +543,7 @@
         "mondo"
       ],
       "notes": "Turkey vuol dire sia tacchino sia Turchia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -565,7 +565,7 @@
         "trabocchetto"
       ],
       "notes": "Nacquero in India e arrivarono in Europa tramite gli Arabi (Fibonacci, 1202)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -587,7 +587,7 @@
         "città"
       ],
       "notes": "La Basilica del Santo custodisce le spoglie di Sant'Antonio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -609,7 +609,7 @@
         "carnevale"
       ],
       "notes": "Ad Acireale sfilano carri allegorici e carri infiorati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -630,7 +630,7 @@
         "giocattoli"
       ],
       "notes": "Da un episodio di caccia del 1902 con Theodore \"Teddy\" Roosevelt",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -652,7 +652,7 @@
         "marche"
       ],
       "notes": "Le cartiere di Fabriano introdussero la filigrana nel Duecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -674,7 +674,7 @@
         "mondo"
       ],
       "notes": "Hanukkah dura otto giorni; il candelabro è la hanukkiah",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -696,11 +696,11 @@
         "mondo"
       ],
       "notes": "Le Fallas culminano il 19 marzo, festa di San Giuseppe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Come si chiamano le statuine di zucchero colorato tipiche della festa dei Morti in Sicilia?",
+      "text": "Come si chiamano le statuine dolci a forma di paladini e dame, tipiche della festa dei Morti in Sicilia?",
       "category": "Curiosità",
       "difficulty": 3,
       "presenter": "palmino",
@@ -718,7 +718,7 @@
         "tradizioni"
       ],
       "notes": "Detti anche pupaccena, raffigurano paladini e dame",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +740,7 @@
         "italia"
       ],
       "notes": "Corto Maltese esordì nel 1967 in \"Una ballata del mare salato\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -762,7 +762,7 @@
         "briscola"
       ],
       "notes": "Assi 11, tre 10, re 4, cavalli 3, fanti 2: 30 per seme, 120 in tutto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -784,7 +784,7 @@
         "trabocchetto"
       ],
       "notes": "Non ha sbocchi sul mare: è un lago salato tra Israele e Giordania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -806,7 +806,7 @@
         "tradizioni"
       ],
       "notes": "Santa Barbara protegge vigili del fuoco, artiglieri e minatori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -828,11 +828,11 @@
         "trabocchetto"
       ],
       "notes": "Rimontato a Lake Havasu City, Arizona, nel 1971",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale festa di origine celtica nasce in Irlanda come antenata di Halloween?",
+      "text": "Quale antica festa celtica, tra il 31 ottobre e il 1 novembre, è considerata un'antenata di Halloween?",
       "category": "Curiosità",
       "difficulty": 4,
       "presenter": "palmino",
@@ -849,8 +849,8 @@
         "calendario",
         "feste"
       ],
-      "notes": "Samhain segnava la fine del raccolto tra il 31 ottobre e il 1 novembre",
-      "verified": false
+      "notes": "Samhain, festa gaelica (Irlanda, Scozia, isola di Man) di fine raccolto e inizio dell'inverno",
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "mondo"
       ],
       "notes": "Era la pubblicità di un quartiere residenziale nel 1923; \"land\" fu tolto nel 1949",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -894,7 +894,7 @@
         "mondo"
       ],
       "notes": "Sinterklaas arriva in nave dalla Spagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +916,7 @@
         "mondo"
       ],
       "notes": "\"Ordem e Progresso\", ispirato ad Auguste Comte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -938,7 +938,7 @@
         "trabocchetto"
       ],
       "notes": "Lo stallo è patta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -959,7 +959,7 @@
         "giochi da tavolo"
       ],
       "notes": "Quindici pedine a testa su 24 punte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -981,7 +981,7 @@
         "carte"
       ],
       "notes": "22 arcani maggiori e 56 arcani minori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1002,7 +1002,7 @@
         "misure"
       ],
       "notes": "Una grossa è una dozzina di dozzine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1024,7 +1024,7 @@
         "piemonte"
       ],
       "notes": "La Vezzosa Mugnaia, che si ribellò al tiranno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1046,7 +1046,7 @@
         "santi"
       ],
       "notes": "San Bartolomeo apostolo, patrono di Lipari e delle Eolie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1068,7 +1068,7 @@
         "mondo"
       ],
       "notes": "Dodici mesi lunari, circa 354 giorni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1090,7 +1090,7 @@
         "gondola"
       ],
       "notes": "Sei denti per i sei sestieri di Venezia",
-      "verified": false
+      "verified": true
     }
   ]
 }

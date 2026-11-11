@@ -22,7 +22,7 @@
         "mondo"
       ],
       "notes": "Saint Patrick's Day, patrono d'Irlanda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "giochi"
       ],
       "notes": "La campana si gioca lanciando un sasso e saltando sulle caselle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "natale"
       ],
       "notes": "Vangelo di Matteo, capitolo 2",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "superstizioni"
       ],
       "notes": "Credenza popolare: sette anni di guai",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "giochi"
       ],
       "notes": "Per regolamento la prima mossa spetta al bianco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,7 +128,7 @@
         "giocattoli"
       ],
       "notes": "L'hula hoop di plastica divenne una moda nel 1958",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -150,7 +150,7 @@
         "mondo"
       ],
       "notes": "Il Día de Muertos messicano è patrimonio UNESCO",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -171,7 +171,7 @@
         "giochi da tavolo"
       ],
       "notes": "Lo Scarabeo è la versione italiana dei giochi di parole incrociate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "città"
       ],
       "notes": "Roma caput mundi, \"Urbs aeterna\" già per i poeti latini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -214,7 +214,7 @@
         "superstizioni"
       ],
       "notes": "Aprire l'ombrello in casa porta sfortuna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -236,7 +236,7 @@
         "cina"
       ],
       "notes": "Topo, bue, tigre, coniglio, drago, serpente, cavallo, capra, scimmia, gallo, cane, maiale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -258,7 +258,7 @@
         "giochi"
       ],
       "notes": "La donna si muove in ogni direzione per quante case vuole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -280,7 +280,7 @@
         "carte"
       ],
       "notes": "Il regolamento prevede sette carte a testa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -301,7 +301,7 @@
         "vaticano"
       ],
       "notes": "La Guardia Svizzera Pontificia recluta cittadini svizzeri cattolici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -323,7 +323,7 @@
         "tradizioni"
       ],
       "notes": "In Sicilia i defunti portano doni, frutta martorana e pupi di zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -333,7 +333,7 @@
       "presenter": "palmino",
       "answers": [
         "Sant'Ambrogio",
-        "San Carlo Borromeo",
+        "San Petronio",
         "San Siro",
         "San Giorgio"
       ],
@@ -344,8 +344,8 @@
         "santi",
         "città"
       ],
-      "notes": "Sant'Ambrogio si festeggia il 7 dicembre",
-      "verified": false
+      "notes": "Sant'Ambrogio si festeggia il 7 dicembre; San Petronio è il patrono di Bologna, San Siro di Pavia",
+      "verified": true
     },
     {
       "type": "single",
@@ -367,7 +367,7 @@
         "documenti"
       ],
       "notes": "Il codice fiscale delle persone fisiche ha 16 caratteri; la partita IVA 11 cifre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -389,7 +389,7 @@
         "tradizioni"
       ],
       "notes": "I carretti illustrano soprattutto le storie dei paladini di Francia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -411,7 +411,7 @@
         "città"
       ],
       "notes": "Furono portate da Myra a Bari nel 1087",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -433,7 +433,7 @@
         "matrimonio"
       ],
       "notes": "Numero dispari: cinque, per salute, felicità, fertilità, lunga vita e ricchezza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -455,7 +455,7 @@
         "matrimonio"
       ],
       "notes": "Something old, something new, something borrowed, something blue",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -477,7 +477,7 @@
         "toscana"
       ],
       "notes": "Il Carnevale di Viareggio esiste dal 1873",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -499,7 +499,7 @@
         "trabocchetto"
       ],
       "notes": "È la distanza percorsa dalla luce in un anno, circa 9.460 miliardi di chilometri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -521,7 +521,7 @@
         "mondo"
       ],
       "notes": "Encierro di Pamplona, dal 7 luglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -543,7 +543,7 @@
         "sicilia"
       ],
       "notes": "Palermo è l'unica ruota siciliana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -565,7 +565,7 @@
         "italia"
       ],
       "notes": "L'ispettore Ginko è il nemico storico di Diabolik",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -587,7 +587,7 @@
         "trabocchetto"
       ],
       "notes": "Da 0 a 36; la roulette americana ha anche il doppio zero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -609,7 +609,7 @@
         "tressette"
       ],
       "notes": "In presa l'ordine è tre, due, asso, re, cavallo, fante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -631,7 +631,7 @@
         "città"
       ],
       "notes": "Taranto si affaccia sul Mar Grande e sul Mar Piccolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -653,7 +653,7 @@
         "italia"
       ],
       "notes": "Il Colosseo è sui 5 centesimi; la Mole sui 2, Castel del Monte su 1",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +675,7 @@
         "città"
       ],
       "notes": "Molti dei Mille di Garibaldi venivano da Bergamo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +697,7 @@
         "etna"
       ],
       "notes": "Dal latino mons e dall'arabo gebel, entrambi \"monte\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -719,7 +719,7 @@
         "tradizioni"
       ],
       "notes": "San Cristoforo portò Gesù bambino attraverso un fiume",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +740,7 @@
         "numeri"
       ],
       "notes": "All'americana 3/14, come 3,14",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -761,7 +761,7 @@
         "alfabeti"
       ],
       "notes": "\"D come Domodossola\" nell'alfabeto telefonico italiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -783,7 +783,7 @@
         "trabocchetto"
       ],
       "notes": "Le corna sono un'invenzione dell'Ottocento, nata anche dai costumi delle opere di Wagner",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -805,7 +805,7 @@
         "feste"
       ],
       "notes": "Sagra del Mandorlo in fiore nella Valle dei Templi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -827,7 +827,7 @@
         "trabocchetto"
       ],
       "notes": "Il lato sinistro è più largo per compensare il peso del gondoliere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -848,7 +848,7 @@
         "calendario"
       ],
       "notes": "Dal 4 ottobre si passò direttamente al 15 ottobre 1582",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -870,7 +870,7 @@
         "palio"
       ],
       "notes": "Diciassette contrade, dieci delle quali corrono a ogni Palio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -892,7 +892,7 @@
         "soprannomi"
       ],
       "notes": "Felicissima urbs Panormus, antico titolo di Palermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -914,7 +914,7 @@
         "italia"
       ],
       "notes": "Cocco Bill, il cowboy che beve camomilla, nasce nel 1957",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "italia"
       ],
       "notes": "Lupo Alberto di Silver ama la gallina Marta della fattoria McKenzie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -958,7 +958,7 @@
         "cina"
       ],
       "notes": "Secondo la leggenda il topo vinse la gara salendo sul bue",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -980,7 +980,7 @@
         "trabocchetto"
       ],
       "notes": "Inventato nel 1979 da Howard Garns come \"Number Place\"; il nome giapponese arrivò dopo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1002,7 +1002,7 @@
         "russia"
       ],
       "notes": "Ded Moroz porta i doni a Capodanno con la nipote Snegurochka",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1023,7 +1023,7 @@
         "tarocchi"
       ],
       "notes": "Arcano tredici: la Morte; la Torre è il 16, il Diavolo il 15",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1045,7 +1045,7 @@
         "televisione"
       ],
       "notes": "Pio XII, 1958: vedeva la messa proiettata sul muro della sua cella",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1067,7 +1067,7 @@
         "palermo"
       ],
       "notes": "Detto anche Piazza Vigliena o Teatro del Sole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1089,7 +1089,7 @@
         "feste"
       ],
       "notes": "La Madonna della Lettera è la patrona di Messina",
-      "verified": false
+      "verified": true
     }
   ]
 }

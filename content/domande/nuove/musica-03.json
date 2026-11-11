@@ -21,7 +21,7 @@
         "strumenti"
       ],
       "notes": "La fisarmonica produce il suono con l'aria spinta da un mantice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "italia"
       ],
       "notes": "\"Fin che la barca va\" (1970) è il grande successo di Orietta Berti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "italia"
       ],
       "notes": "\"Certe notti\" (1995) è uno dei brani più noti di Ligabue, dall'album \"Buon compleanno Elvis\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "mondo"
       ],
       "notes": "\"Gangnam Style\" (2012) del rapper sudcoreano Psy",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "mondo"
       ],
       "notes": "\"Yellow\" (2000) e \"Viva la Vida\" (2008) sono dei Coldplay",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "italia"
       ],
       "notes": "\"Strani amori\" (1994) è uno dei primi successi di Laura Pausini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "italia"
       ],
       "notes": "La Fenice è il teatro d'opera di Venezia, inaugurato nel 1792",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "italia"
       ],
       "notes": "Brano e album del 1972 di Claudio Baglioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -197,7 +197,7 @@
         "mondo"
       ],
       "notes": "\"Imagine\" è il singolo solista di John Lennon del 1971",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "teoria"
       ],
       "notes": "Do, re, mi, fa, sol, la, si",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "italia"
       ],
       "notes": "L'Eurovision Song Contest 2022 si svolse al PalaOlimpico di Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "verdi"
       ],
       "notes": "\"La donna è mobile\" è l'aria del Duca di Mantova nel \"Rigoletto\" (1851)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -283,7 +283,7 @@
         "teoria"
       ],
       "notes": "Il diesis alza di un semitono, il bemolle abbassa, il bequadro annulla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -305,11 +305,11 @@
         "italia"
       ],
       "notes": "Gabbani vinse Sanremo 2017 con \"Occidentali's Karma\", quella della scimmia che balla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale cantautore romano era soprannominato \"il Califfo\"?",
+      "text": "Quale cantautore cantò \"Tutto il resto è noia\", nel 1977?",
       "category": "Musica",
       "difficulty": 2,
       "presenter": "regina",
@@ -326,8 +326,8 @@
         "cantautori",
         "italia"
       ],
-      "notes": "\"Il Califfo\" era Franco Califano, autore di \"Tutto il resto è noia\"",
-      "verified": false
+      "notes": "\"Tutto il resto è noia\" (1977) è di Franco Califano, detto \"il Califfo\"",
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "italia"
       ],
       "notes": "\"Margherita\" (1976) è di Riccardo Cocciante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -370,7 +370,7 @@
         "balletto"
       ],
       "notes": "\"Lo schiaccianoci\" (1892) inizia con la festa della vigilia di Natale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -391,7 +391,7 @@
         "classica"
       ],
       "notes": "\"Für Elise\" è una bagatella per pianoforte di Beethoven",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -413,7 +413,7 @@
         "trabocchetto"
       ],
       "notes": "\"Crescendo\" indica un aumento graduale dell'intensità sonora, non della velocità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -435,7 +435,7 @@
         "trabocchetto"
       ],
       "notes": "I Tre Tenori (dal 1990): Pavarotti, Domingo e Carreras. Bocelli non ne faceva parte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -456,7 +456,7 @@
         "strumenti"
       ],
       "notes": "Lo xilofono ha piastre di legno; vibrafono e glockenspiel le hanno di metallo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -478,7 +478,7 @@
         "italia"
       ],
       "notes": "\"50 Special\" (1999) dei Lùnapop di Cesare Cremonini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -500,7 +500,7 @@
         "italia"
       ],
       "notes": "Lo Zecchino d'Oro si tiene all'Antoniano di Bologna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "trabocchetto"
       ],
       "notes": "\"Tosca\" è di Giacomo Puccini (1900)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -545,7 +545,7 @@
         "italia"
       ],
       "notes": "Due successi del 1963 di Edoardo Vianello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -567,7 +567,7 @@
         "mondo"
       ],
       "notes": "\"The Final Countdown\" è degli svedesi Europe (1986)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -588,7 +588,7 @@
         "classica"
       ],
       "notes": "La Sinfonia in si minore \"Incompiuta\" è di Franz Schubert (1822)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -610,7 +610,7 @@
         "mondo"
       ],
       "notes": "Il trio dei Police (1977-1986)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -632,7 +632,7 @@
         "italia"
       ],
       "notes": "Fondato da Gian Carlo Menotti a Spoleto nel 1958",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -654,7 +654,7 @@
         "italia"
       ],
       "notes": "Donizetti nacque a Bergamo nel 1797",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -676,7 +676,7 @@
         "italia"
       ],
       "notes": "Roberto Vecchioni vinse Sanremo 2011",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -698,7 +698,7 @@
         "mondo"
       ],
       "notes": "Graceland, a Memphis, fu la casa di Elvis dal 1957",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -720,7 +720,7 @@
         "sanremo"
       ],
       "notes": "Luigi Tenco, Sanremo 1967 (in coppia con Dalida)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -742,7 +742,7 @@
         "mondo"
       ],
       "notes": "Bob Marley and the Wailers",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -764,7 +764,7 @@
         "italia"
       ],
       "notes": "Arturo Toscanini, nato a Parma, diresse la NBC Symphony Orchestra dal 1937",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -786,7 +786,7 @@
         "mondo"
       ],
       "notes": "\"Rhapsody in Blue\" (1924) è di George Gershwin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "italia"
       ],
       "notes": "Giorgia vinse Sanremo 1995 con \"Come saprei\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -830,7 +830,7 @@
         "trabocchetto"
       ],
       "notes": "La marcia è di Mendelssohn (1842); quella di Wagner è il coro nuziale del \"Lohengrin\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -852,7 +852,7 @@
         "italia"
       ],
       "notes": "Paolo Soprani avviò la produzione a Castelfidardo nel 1863",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -874,7 +874,7 @@
         "italia"
       ],
       "notes": "Gli Stadio, band bolognese, vinsero Sanremo 2016",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -896,7 +896,7 @@
         "trabocchetto"
       ],
       "notes": "La marcia (1848) è di Johann Strauss padre; il figlio è l'autore di \"Sul bel Danubio blu\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -918,7 +918,7 @@
         "italia"
       ],
       "notes": "Andrea Amati (XVI secolo) fondò la scuola liutaria cremonese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -940,7 +940,7 @@
         "italia"
       ],
       "notes": "Dopo la vittoria di Toto Cutugno, l'edizione 1991 si svolse a Roma, negli studi di Cinecittà",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -963,7 +963,7 @@
         "trabocchetto"
       ],
       "notes": "Elvis nacque a Tupelo, Mississippi (1935); si trasferì poi a Memphis, Tennessee",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -985,7 +985,7 @@
         "verdi"
       ],
       "notes": "\"Falstaff\" debuttò alla Scala il 9 febbraio 1893",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1007,7 +1007,7 @@
         "italia"
       ],
       "notes": "Mariele Ventre fondò il coro nel 1963 e lo diresse fino al 1995",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1029,7 +1029,7 @@
         "italia"
       ],
       "notes": "Gli album dal 1986 (\"Don Giovanni\") al 1994 hanno i testi di Pasquale Panella",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1052,7 +1052,7 @@
         "trabocchetto"
       ],
       "notes": "Era inno \"provvisorio\" dal 1946; è ufficiale con la legge n. 181 del 4 dicembre 2017",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1074,7 +1074,7 @@
         "trabocchetto"
       ],
       "notes": "Di Capua compose la melodia nel 1898 mentre era in tournée a Odessa, sul Mar Nero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1095,7 +1095,7 @@
         "lirica"
       ],
       "notes": "Carlo Broschi (1705-1782) era il celebre Farinelli",
-      "verified": false
+      "verified": true
     }
   ]
 }

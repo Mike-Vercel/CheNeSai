@@ -22,7 +22,7 @@
     "animazione"
    ],
    "notes": "Ariel, figlia di re Tritone",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -44,7 +44,7 @@
     "animazione"
    ],
    "notes": "Mulan (1998) prende il posto del padre nell'esercito",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -66,7 +66,7 @@
     "marvel"
    ],
    "notes": "Bruce Banner diventa Hulk quando perde la calma",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -88,7 +88,7 @@
     "classici"
    ],
    "notes": "Stanlio e Ollio; Gianni e Pinotto sono Abbott e Costello",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -110,7 +110,7 @@
     "hollywood"
    ],
    "notes": "Gli acchiappafantasmi di New York (1984)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -132,7 +132,7 @@
     "animazione"
    ],
    "notes": "Elsa; Anna è la sorella minore",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -154,7 +154,7 @@
     "animazione"
    ],
    "notes": "Rapunzel, film Disney del 2010",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -176,7 +176,7 @@
     "dreamworks"
    ],
    "notes": "Ciuchino è un asino parlante, che finisce per sposare la draghessa",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -198,7 +198,7 @@
     "commedia"
    ],
    "notes": "Il Grinch del Dr. Seuss, al cinema con Jim Carrey nel 2000",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -220,7 +220,7 @@
     "commedia"
    ],
    "notes": "Paddington, arrivato a Londra dal Perù; film del 2014",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -242,7 +242,7 @@
     "fantasy"
    ],
    "notes": "L'Uomo di latta vuole un cuore; lo Spaventapasseri è di paglia",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -264,7 +264,7 @@
     "animazione"
    ],
    "notes": "Cucciolo (Dopey) è muto nel film Disney del 1937",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -286,7 +286,7 @@
     "trabocchetto"
    ],
    "notes": "Dietro la tenda c'è un semplice uomo del Kansas che usa trucchi e macchinari",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -308,7 +308,7 @@
     "animazione"
    ],
    "notes": "Duchessa e i suoi gattini vivono a Parigi (1970)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -330,7 +330,7 @@
     "animazione"
    ],
    "notes": "Topolino con la scopa animata, sulla musica di Paul Dukas",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -352,7 +352,7 @@
     "hollywood"
    ],
    "notes": "Lady Gaga accanto a Bradley Cooper, anche regista; Oscar per la canzone \"Shallow\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -374,7 +374,7 @@
     "oscar"
    ],
    "notes": "Joaquin Phoenix vinse l'Oscar come miglior attore",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -396,7 +396,7 @@
     "hollywood"
    ],
    "notes": "Sandy Olsson, interpretata da Olivia Newton-John",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -418,7 +418,7 @@
     "biografie"
    ],
    "notes": "The Greatest Showman (2017)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -440,7 +440,7 @@
     "hollywood"
    ],
    "notes": "The Truman Show (1998) di Peter Weir",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -462,7 +462,7 @@
     "disney"
    ],
    "notes": "La Perla Nera, dalle vele nere",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -483,7 +483,7 @@
     "supereroi"
    ],
    "notes": "Gal Gadot, attrice israeliana",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -505,7 +505,7 @@
     "animali"
    ],
    "notes": "Sebastian è un granchio che canta \"In fondo al mar\"",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -527,7 +527,7 @@
     "hollywood"
    ],
    "notes": "Johnny Depp; Gene Wilder era Wonka nel film del 1971",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -549,7 +549,7 @@
     "commedia"
    ],
    "notes": "Salvo Ficarra e Valentino Picone, ambientato in un paese siciliano",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -571,7 +571,7 @@
     "musica"
    ],
    "notes": "Elton John vinse l'Oscar per \"Can You Feel the Love Tonight\"; Phil Collins scrisse le canzoni di Tarzan",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -592,7 +592,7 @@
     "cinema italiano"
    ],
    "notes": "L'ultimo bacio di Gabriele Muccino, con Stefano Accorsi",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -614,7 +614,7 @@
     "remake"
    ],
    "notes": "The Magnificent Seven di John Sturges (1960)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -636,7 +636,7 @@
     "arte"
    ],
    "notes": "La maschera Ghostface richiama \"L'urlo\" di Edvard Munch",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -658,7 +658,7 @@
     "festival"
    ],
    "notes": "La stanza del figlio; con Caro diario vinse il premio per la regia (1994)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -680,7 +680,7 @@
     "toto"
    ],
    "notes": "Felice Sciosciammocca in \"Miseria e nobiltà\" (1954), dalla commedia di Scarpetta",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -702,7 +702,7 @@
     "commedia"
    ],
    "notes": "La \"supercazzola prematurata\" di Ugo Tognazzi; le zingarate sono gli scherzi del gruppo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -724,7 +724,7 @@
     "visconti"
    ],
    "notes": "Alain Delon è Tancredi, accanto a Claudia Cardinale (Angelica)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -746,7 +746,7 @@
     "registi"
    ],
    "notes": "Guillermo del Toro, Oscar per La forma dell'acqua (2018)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -768,7 +768,7 @@
     "classici"
    ],
    "notes": "Rear Window (1954), con Grace Kelly",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -790,7 +790,7 @@
     "commedia"
    ],
    "notes": "Gigi Proietti è Bruno Fioretti detto Mandrake, scommettitore all'ippodromo",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -812,7 +812,7 @@
     "parigi"
    ],
    "notes": "Amélie fa la cameriera al Café des 2 Moulins, a Montmartre",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -834,7 +834,7 @@
     "location"
    ],
    "notes": "Esterni girati soprattutto a Skopelos, nelle Sporadi",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -856,7 +856,7 @@
     "commedia"
    ],
    "notes": "Gina Lollobrigida, accanto a Vittorio De Sica, regia di Luigi Comencini",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -878,7 +878,7 @@
     "animali"
    ],
    "notes": "Zazu è un bucero dal becco rosso",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -900,7 +900,7 @@
     "trabocchetto"
    ],
    "notes": "L'arena fu costruita a Forte Ricasoli, a Malta; in Marocco si girarono altre scene",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -922,7 +922,7 @@
     "trabocchetto"
    ],
    "notes": "Girate nel sud della Tunisia; la città di Tataouine diede il nome al pianeta",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -944,7 +944,7 @@
     "trabocchetto"
    ],
    "notes": "In Tempi moderni canta solo una canzone senza senso; il primo film parlato è Il grande dittatore (1940)",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -955,7 +955,7 @@
    "answers": [
     "Stati Uniti",
     "Regno Unito",
-    "Belgio",
+    "Germania",
     "Francia"
    ],
    "correct": [
@@ -966,7 +966,7 @@
     "trabocchetto"
    ],
    "notes": "Film francese di Michel Hazanavicius, con Jean Dujardin",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -988,7 +988,7 @@
     "hollywood"
    ],
    "notes": "Mel Brooks, con Gene Wilder e Marty Feldman",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1010,7 +1010,7 @@
     "puglia"
    ],
    "notes": "Mine vaganti (2010), girato e ambientato a Lecce",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1032,11 +1032,11 @@
     "trabocchetto"
    ],
    "notes": "Toto era interpretato da Terry, una femmina di cairn terrier",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
-   "text": "Quale costumista torinese ha vinto quattro Oscar, l'ultimo per \"Grand Budapest Hotel\"?",
+   "text": "Quale costumista torinese ha vinto l'Oscar sia per \"Barry Lyndon\" sia per \"Grand Budapest Hotel\"?",
    "category": "Cinema",
    "difficulty": 5,
    "presenter": "regina",
@@ -1053,8 +1053,8 @@
     "oscar",
     "italiani a hollywood"
    ],
-   "notes": "Barry Lyndon, Momenti di gloria, Marie Antoinette e Grand Budapest Hotel",
-   "verified": false
+   "notes": "Milena Canonero: Oscar per Barry Lyndon, Momenti di gloria, Marie Antoinette e Grand Budapest Hotel",
+   "verified": true
   },
   {
    "type": "single",
@@ -1076,7 +1076,7 @@
     "musica"
    ],
    "notes": "Oscar 1975 per Il Padrino Parte II; per il primo Padrino la candidatura fu revocata",
-   "verified": false
+   "verified": true
   },
   {
    "type": "single",
@@ -1098,7 +1098,7 @@
     "cinema italiano"
    ],
    "notes": "E. B. Clucher era il direttore della fotografia e regista Enzo Barboni",
-   "verified": false
+   "verified": true
   }
  ]
 }

@@ -22,7 +22,7 @@
         "regole"
       ],
       "notes": "L'ammonizione si segnala con il cartellino giallo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "olimpiadi"
       ],
       "notes": "I Giochi della XXVII Olimpiade si tennero a Sydney nel 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,8 +64,8 @@
         "calcio",
         "mondiali"
       ],
-      "notes": "L'Argentina battè la Francia ai rigori nella finale di Lusail",
-      "verified": false
+      "notes": "L'Argentina batté la Francia ai rigori nella finale di Lusail",
+      "verified": true
     },
     {
       "type": "single",
@@ -87,18 +87,18 @@
         "mondiali"
       ],
       "notes": "Messi alzò la Coppa del Mondo in Qatar il 18 dicembre 2022",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Le Olimpiadi invernali del 2026 si sono tenute a Milano e in quale altra località?",
+      "text": "Le Olimpiadi invernali del 2026 portano il nome di Milano e di quale altra località?",
       "category": "Sport",
       "difficulty": 1,
       "presenter": "palmino",
       "answers": [
         "Sestriere",
         "Courmayeur",
-        "Bormio",
+        "Madonna di Campiglio",
         "Cortina d'Ampezzo"
       ],
       "correct": [
@@ -108,8 +108,8 @@
         "olimpiadi",
         "italia"
       ],
-      "notes": "Milano Cortina 2026 (Bormio e Livigno ospitarono alcune gare, ma il nome ufficiale è Milano Cortina)",
-      "verified": false
+      "notes": "Il nome ufficiale è Milano Cortina 2026 (Bormio, Livigno, Anterselva e Val di Fiemme ospitarono altre gare)",
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "italia"
       ],
       "notes": "Gli Internazionali d'Italia si giocano al Foro Italico di Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "regole"
       ],
       "notes": "Una partita di basket si gioca in quattro quarti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "regole"
       ],
       "notes": "Il tiro da oltre la linea dei tre punti vale 3 punti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -197,7 +197,7 @@
         "italia"
       ],
       "notes": "Il derby della Mole è Juventus-Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -219,7 +219,7 @@
         "italia"
       ],
       "notes": "\"Er Pupone\" è il soprannome di Francesco Totti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -241,7 +241,7 @@
         "italia"
       ],
       "notes": "Berrettini perse la finale di Wimbledon 2021 contro Djokovic",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -263,7 +263,7 @@
         "italia"
       ],
       "notes": "\"Pecco\" Bagnaia riportò la Ducati al titolo dopo il 2007",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -285,7 +285,7 @@
         "italia"
       ],
       "notes": "La Lanterna è il faro di Genova: derby Genoa-Sampdoria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -307,7 +307,7 @@
         "regole"
       ],
       "notes": "Il libero è lo specialista della difesa con maglia di colore diverso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -329,7 +329,7 @@
         "italia"
       ],
       "notes": "Dal 2021 le ATP Finals si giocano al Pala Alpitour di Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -350,8 +350,8 @@
         "calcio",
         "mondiali"
       ],
-      "notes": "La Francia battè la Croazia 4-2 a Mosca",
-      "verified": false
+      "notes": "La Francia batté la Croazia 4-2 a Mosca",
+      "verified": true
     },
     {
       "type": "single",
@@ -372,7 +372,7 @@
         "f1"
       ],
       "notes": "Niki Lauda tornò in pista a Monza 42 giorni dopo l'incidente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -394,7 +394,7 @@
         "italia"
       ],
       "notes": "Fu l'avvocato Agnelli a chiamare Del Piero \"Pinturicchio\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -415,8 +415,8 @@
         "calcio",
         "mondiali"
       ],
-      "notes": "La Spagna battè l'Olanda 1-0 nei supplementari (gol di Iniesta)",
-      "verified": false
+      "notes": "La Spagna batté l'Olanda 1-0 nei supplementari (gol di Iniesta)",
+      "verified": true
     },
     {
       "type": "single",
@@ -439,7 +439,7 @@
         "italia"
       ],
       "notes": "Dino Zoff alzò la coppa a Madrid a 40 anni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "italia"
       ],
       "notes": "Pietro Mennea, nato a Barletta, oro nei 200 a Mosca 1980",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "italia"
       ],
       "notes": "Luciano Spalletti, poi diventato ct della nazionale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -506,7 +506,7 @@
         "mondiali"
       ],
       "notes": "Germania-Argentina 1-0, gol di Götze al Maracanã",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "italia"
       ],
       "notes": "\"La Beneamata\" è un soprannome storico dell'Inter",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "italia"
       ],
       "notes": "Cannavaro, capitano campione del mondo, vinse il Pallone d'oro 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -571,7 +571,7 @@
         "ciclismo"
       ],
       "notes": "Ogni tornante dell'Alpe d'Huez porta il nome di un vincitore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "trabocchetto"
       ],
       "notes": "La Gazzetta dello Sport, organizzatrice del Giro, è stampata su carta rosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "italia"
       ],
       "notes": "Lo stadio si chiamava Cibali, dal quartiere; fu intitolato a Massimino nel 2002",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +638,7 @@
         "trabocchetto"
       ],
       "notes": "Lo stile libero permette ogni stile, ma tutti usano il crawl, il più veloce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -661,7 +661,7 @@
         "trabocchetto"
       ],
       "notes": "Cortina 1956, Torino 2006 e Milano Cortina 2026",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -682,8 +682,8 @@
         "tennis",
         "italia"
       ],
-      "notes": "Nel novembre 2023 l'Italia battè l'Australia in finale, 47 anni dopo il 1976",
-      "verified": false
+      "notes": "Nel novembre 2023 l'Italia batté l'Australia in finale, 47 anni dopo il 1976",
+      "verified": true
     },
     {
       "type": "single",
@@ -706,7 +706,7 @@
         "italia"
       ],
       "notes": "Italia-Argentina 1-1, poi rigori, al San Paolo di Napoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -728,11 +728,11 @@
         "italia"
       ],
       "notes": "La Sampdoria di Vialli e Mancini vinse lo scudetto 1990-91",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "In quale città italiana si giocò la Ryder Cup di golf nel 2023?",
+      "text": "Vicino a quale città italiana si giocò la Ryder Cup di golf nel 2023?",
       "category": "Sport",
       "difficulty": 3,
       "presenter": "palmino",
@@ -749,8 +749,8 @@
         "golf",
         "italia"
       ],
-      "notes": "La Ryder Cup 2023 si giocò al Marco Simone Golf Club, vicino a Roma",
-      "verified": false
+      "notes": "La Ryder Cup 2023 si giocò al Marco Simone Golf Club di Guidonia Montecelio, vicino a Roma",
+      "verified": true
     },
     {
       "type": "single",
@@ -772,7 +772,7 @@
         "italia"
       ],
       "notes": "Valentino Mazzola, padre di Sandro, era il capitano del Grande Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -794,7 +794,7 @@
         "italia"
       ],
       "notes": "Gianni Brera coniò molti termini del calcio, tra cui \"Abatino\" per Rivera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -817,11 +817,11 @@
         "trabocchetto"
       ],
       "notes": "La Juventus giocò in rosa fino al 1903, poi adottò il bianconero ispirato al Notts County",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Con quale \"golden goal\" la Francia battè l'Italia nella finale degli Europei del 2000?",
+      "text": "Chi segnò il \"golden goal\" con cui la Francia batté l'Italia nella finale degli Europei del 2000?",
       "category": "Sport",
       "difficulty": 3,
       "presenter": "palmino",
@@ -836,11 +836,10 @@
       ],
       "tags": [
         "calcio",
-        "europei",
-        "trabocchetto"
+        "europei"
       ],
       "notes": "Wiltord pareggiò al 94', Trezeguet segnò il golden goal ai supplementari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -863,7 +862,7 @@
         "italia"
       ],
       "notes": "Klaus Dibiasi, oro a Città del Messico, Monaco e Montréal",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -885,8 +884,8 @@
         "coppe",
         "italia"
       ],
-      "notes": "La Lazio battè il Maiorca 2-1 a Birmingham nell'ultima edizione",
-      "verified": false
+      "notes": "La Lazio batté il Maiorca 2-1 a Birmingham nell'ultima edizione",
+      "verified": true
     },
     {
       "type": "single",
@@ -908,7 +907,7 @@
         "italia"
       ],
       "notes": "La Mille Miglia (1927-1957) partiva e arrivava a Brescia, passando per Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -930,7 +929,7 @@
         "italia"
       ],
       "notes": "Luigi Ganna vinse la prima edizione del Giro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -952,11 +951,11 @@
         "europei"
       ],
       "notes": "Panenka segnò il rigore decisivo della finale contro la Germania Ovest a Belgrado",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale nazionale battè l'Italia nella finale dei Mondiali del 1938, a Parigi?",
+      "text": "Quale nazionale batté l'Italia nella finale dei Mondiali del 1938, a Parigi?",
       "category": "Sport",
       "difficulty": 4,
       "presenter": "palmino",
@@ -975,7 +974,7 @@
         "italia"
       ],
       "notes": "Italia-Ungheria 4-2, secondo Mondiale consecutivo per gli azzurri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -998,7 +997,7 @@
         "trabocchetto"
       ],
       "notes": "Kilpin, di Nottingham, fondò il Milan Foot-Ball and Cricket Club: per questo si chiama \"Milan\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1020,7 +1019,7 @@
         "italia"
       ],
       "notes": "Omar Sívori, italo-argentino, Pallone d'oro 1961",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1040,7 @@
         "motori"
       ],
       "notes": "Ray Harroun vinse la prima edizione con la Marmon Wasp",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1062,7 +1061,7 @@
         "f1"
       ],
       "notes": "Il primo titolo costruttori andò alla britannica Vanwall",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1083,7 +1082,7 @@
         "ciclismo"
       ],
       "notes": "La Milano-Sanremo supera di solito i 290 km, la più lunga classica del calendario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1106,7 +1105,7 @@
         "italia"
       ],
       "notes": "La prima Coppa Italia fu vinta dal Vado, squadra ligure",
-      "verified": false
+      "verified": true
     }
   ]
 }

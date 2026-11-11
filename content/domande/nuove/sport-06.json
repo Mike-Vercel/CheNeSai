@@ -21,7 +21,7 @@
         "olimpiadi"
       ],
       "notes": "Parigi 2024, cento anni dopo i Giochi del 1924",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "mondo"
       ],
       "notes": "Jordan vinse sei titoli NBA con i Chicago Bulls (giocò anche a baseball, ma per poco)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "regole"
       ],
       "notes": "Si vince il set a 6 game con almeno due di scarto, o al tie-break sul 6 pari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "beach-volley"
       ],
       "notes": "Il beach volley si gioca due contro due",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "mondiali"
       ],
       "notes": "Zidane fu espulso nei supplementari della finale di Berlino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "tennis"
       ],
       "notes": "Il Roland Garros di Parigi si gioca sulla terra battuta rossa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "mondo"
       ],
       "notes": "Jordan vinse con i Bulls nel 1991-93 e nel 1996-98",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "mondo"
       ],
       "notes": "Gli All Blacks, per la divisa tutta nera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "regole"
       ],
       "notes": "Dalla stagione 1994-95 in Serie A la vittoria vale tre punti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -217,7 +217,7 @@
         "sicilia"
       ],
       "notes": "Palermo-Catania è il derby di Sicilia più sentito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,8 +238,8 @@
         "calcio",
         "europei"
       ],
-      "notes": "La Grecia battè il Portogallo padrone di casa 1-0 in finale",
-      "verified": false
+      "notes": "La Grecia batté il Portogallo padrone di casa 1-0 in finale",
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "hockey"
       ],
       "notes": "Il puck è il dischetto di gomma vulcanizzata dell'hockey su ghiaccio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -283,7 +283,7 @@
         "italia"
       ],
       "notes": "Il rigore decisivo di Berlino lo segnò Fabio Grosso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -305,7 +305,7 @@
         "olimpiadi"
       ],
       "notes": "Il primo \"Dream Team\" con Jordan, Magic Johnson e Larry Bird",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -328,7 +328,7 @@
         "trabocchetto"
       ],
       "notes": "Il cavallino nero è su sfondo giallo, colore della città di Modena",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -350,7 +350,7 @@
         "olimpiadi"
       ],
       "notes": "Owens vinse 100, 200, lungo e staffetta 4 per 100",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -373,7 +373,7 @@
         "sicilia"
       ],
       "notes": "\"Totò\" Schillaci, nato a Palermo, segnò 6 gol a Italia '90",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -395,7 +395,7 @@
         "italia"
       ],
       "notes": "Il Napoli di Spalletti vinse lo scudetto 2022-23, il terzo della sua storia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -417,7 +417,7 @@
         "italia"
       ],
       "notes": "Il \"Cinque Nazioni\" divenne \"Sei Nazioni\" con l'Italia nel 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -439,7 +439,7 @@
         "sicilia"
       ],
       "notes": "L'elefante (u Liotru) è simbolo di Catania e della sua squadra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "italia"
       ],
       "notes": "Le azzurre di Julio Velasco vinsero l'oro a Parigi 2024 battendo gli Stati Uniti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "sicilia"
       ],
       "notes": "L'aquila, dallo stemma della città: i giocatori rosanero sono detti \"le aquile\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -505,7 +505,7 @@
         "f1"
       ],
       "notes": "Il circuito cittadino del GP di Monaco attraversa Monte Carlo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "italia"
       ],
       "notes": "Dallo 0-3 al 3-3, poi il Liverpool vinse ai rigori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "mondo"
       ],
       "notes": "Platini vinse il Pallone d'oro nel 1983, 1984 e 1985",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -573,7 +573,7 @@
         "trabocchetto"
       ],
       "notes": "Il \"Maracanazo\": Uruguay-Brasile 2-1 nella partita decisiva",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -596,7 +596,7 @@
         "italia"
       ],
       "notes": "Sara Simeoni, oro a Mosca 1980",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -617,7 +617,7 @@
         "f1"
       ],
       "notes": "Schumacher vinse con la Benetton nel 1994 e nel 1995",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -640,7 +640,7 @@
         "italia"
       ],
       "notes": "Nino Benvenuti, oro nei welter a Roma 1960, mondiale dei medi nel 1967",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -662,8 +662,8 @@
         "champions",
         "italia"
       ],
-      "notes": "Il Milan di Sacchi battè lo Steaua Bucarest 4-0 a Barcellona",
-      "verified": false
+      "notes": "Il Milan di Sacchi batté lo Steaua Bucarest 4-0 a Barcellona",
+      "verified": true
     },
     {
       "type": "single",
@@ -685,7 +685,7 @@
         "sicilia"
       ],
       "notes": "Lo stadio San Filippo di Messina è intitolato all'allenatore Franco Scoglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -705,8 +705,8 @@
       "tags": [
         "pugilato"
       ],
-      "notes": "Ali battè Foreman per KO a Kinshasa, nell'allora Zaire",
-      "verified": false
+      "notes": "Ali batté Foreman per KO a Kinshasa, nell'allora Zaire",
+      "verified": true
     },
     {
       "type": "single",
@@ -729,7 +729,7 @@
         "trabocchetto"
       ],
       "notes": "15, 30, 40 e game: servono almeno quattro punti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -751,7 +751,7 @@
         "italia"
       ],
       "notes": "Velasco guidò la nazionale maschile campione del mondo nel 1990 e nel 1994",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -773,7 +773,7 @@
         "europei"
       ],
       "notes": "Olanda-URSS 2-0 a Monaco di Baviera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -795,7 +795,7 @@
         "italia"
       ],
       "notes": "Dorando Pietri, sorretto dai giudici dopo essere crollato, fu squalificato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -817,7 +817,7 @@
         "italia"
       ],
       "notes": "Luna Rossa vinse la Louis Vuitton Cup 2000 e sfidò New Zealand in Coppa America",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -840,7 +840,7 @@
         "italia"
       ],
       "notes": "L'Argentina di Ginóbili vinse l'oro, l'Italia l'argento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -863,7 +863,7 @@
         "italia"
       ],
       "notes": "Gelindo Bordin, oro nella maratona di Seul 1988",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -885,7 +885,7 @@
         "italia"
       ],
       "notes": "Thöni vinse la Coppa generale nel 1971, 1972, 1973 e 1975",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -907,7 +907,7 @@
         "italia"
       ],
       "notes": "La Lazio di Maestrelli e Chinaglia vinse lo scudetto 1973-74; il secondo nel 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -930,7 +930,7 @@
         "italia"
       ],
       "notes": "Italia-Cecoslovacchia 2-1 dopo i supplementari, allo stadio Nazionale di Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -953,7 +953,7 @@
         "sicilia"
       ],
       "notes": "Inter-Palermo 3-1 allo stadio Olimpico di Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -974,7 +974,7 @@
         "tennis"
       ],
       "notes": "Il \"Golden Slam\" di Steffi Graf nel 1988",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -995,7 +995,7 @@
         "atletica"
       ],
       "notes": "Il decathlon si chiude con i 1500 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1018,7 +1018,7 @@
         "trabocchetto"
       ],
       "notes": "Binda vinceva troppo: la Gazzetta gli pagò l'equivalente del premio per restare a casa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1040,7 +1040,7 @@
         "italia"
       ],
       "notes": "Binda vinse il primo Mondiale professionisti al Nürburgring nel 1927",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1062,7 +1062,7 @@
         "italia"
       ],
       "notes": "Il 14 luglio 1951 González vinse il GP di Gran Bretagna con la Ferrari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1084,7 +1084,7 @@
         "trabocchetto"
       ],
       "notes": "Coubertin vinse il concorso di letteratura di Stoccolma 1912 con l'\"Ode allo sport\", sotto pseudonimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1105,7 +1105,7 @@
         "ciclismo"
       ],
       "notes": "Il francese Lucien Petit-Breton vinse la prima edizione",
-      "verified": false
+      "verified": true
     }
   ]
 }

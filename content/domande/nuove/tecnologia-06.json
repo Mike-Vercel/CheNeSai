@@ -21,7 +21,7 @@
         "energia"
       ],
       "notes": "Eolico viene da Eolo, dio dei venti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "trasporti"
       ],
       "notes": "La metropolitana corre in gallerie sotterranee",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "internet"
       ],
       "notes": "Le emoji sono pittogrammi usati nei messaggi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "spazio"
       ],
       "notes": "NASA, fondata nel 1958; ESA è europea, ASI italiana, Roscosmos russa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "italia"
       ],
       "notes": "L'Ape Piaggio nasce nel 1948; la Lambretta era della Innocenti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -127,7 +127,7 @@
         "computer"
       ],
       "notes": "La stampante produce copie su carta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -148,7 +148,7 @@
         "aziende"
       ],
       "notes": "Il logo è una mela morsicata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "computer"
       ],
       "notes": "La chiavetta USB è una memoria flash portatile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "internet"
       ],
       "notes": "La password protegge l'accesso all'account",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "aviazione"
       ],
       "notes": "Le pale del rotore danno all'elicottero la spinta verso l'alto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -233,7 +233,7 @@
         "invenzioni"
       ],
       "notes": "Percy Spencer, Raytheon, brevetto del 1945",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "internet"
       ],
       "notes": "Podcast unisce iPod e broadcast",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -275,7 +275,7 @@
         "aviazione"
       ],
       "notes": "21 novembre 1783: Pilâtre de Rozier e d'Arlandes su una mongolfiera dei Montgolfier",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +297,7 @@
         "italia"
       ],
       "notes": "Varata nel 1931, è il veliero scuola più famoso della Marina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "trabocchetto"
       ],
       "notes": "È arancione o rossa fluorescente per essere ritrovata più facilmente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -341,7 +341,7 @@
         "elettronica"
       ],
       "notes": "Il primo Walkman, TPS-L2, uscì nel luglio 1979",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -364,7 +364,7 @@
         "trabocchetto"
       ],
       "notes": "Lamborghini Trattori fu fondata nel 1948, le auto arrivarono nel 1963",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -386,7 +386,7 @@
         "italia"
       ],
       "notes": "Italia +39; Francia +33, Spagna +34, Svizzera +41",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -408,7 +408,7 @@
         "invenzioni"
       ],
       "notes": "Prima proiezione pubblica a pagamento: 28 dicembre 1895, Grand Café di Parigi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -430,7 +430,7 @@
         "sport"
       ],
       "notes": "Brembo, fondata nel 1961, è specializzata in impianti frenanti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -451,7 +451,7 @@
         "computer"
       ],
       "notes": "F1 apre di solito l'aiuto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -472,7 +472,7 @@
         "spazio"
       ],
       "notes": "Lo Space Shuttle volò dal 1981 al 2011",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -493,7 +493,7 @@
         "televisione"
       ],
       "notes": "4K: circa 4000 pixel in orizzontale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -514,7 +514,7 @@
         "internet"
       ],
       "notes": "Il cancelletto davanti a una parola crea un hashtag",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -535,7 +535,7 @@
         "computer"
       ],
       "notes": "La mascotte di Android è un piccolo robot verde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -557,7 +557,7 @@
         "italia"
       ],
       "notes": "Parmitano uscì dalla Stazione spaziale il 9 luglio 2013",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -578,7 +578,7 @@
         "computer"
       ],
       "notes": "Il Commodore 64 aveva 64 kilobyte di RAM",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -599,7 +599,7 @@
         "telefonia"
       ],
       "notes": "Martin Cooper chiamò da un prototipo Motorola DynaTAC il 3 aprile 1973",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -620,7 +620,7 @@
         "telefonia"
       ],
       "notes": "L'IMEI è il numero di serie internazionale del dispositivo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -641,7 +641,7 @@
         "spazio"
       ],
       "notes": "La Mir fu fatta rientrare nel marzo 2001; Skylab era americana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -662,7 +662,7 @@
         "telefonia"
       ],
       "notes": "T9 significa text on 9 keys",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -683,7 +683,7 @@
         "computer"
       ],
       "notes": "Deep Blue vinse il match del maggio 1997 per 3,5 a 2,5",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -705,7 +705,7 @@
         "italia"
       ],
       "notes": "Malerba volò sullo Space Shuttle Atlantis, missione STS-46, nel 1992",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -727,11 +727,11 @@
         "italia"
       ],
       "notes": "Sono le antiche vie consolari romane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Da quale Paese arrivano gli uccellini del videogioco Angry Birds?",
+      "text": "In quale Paese è nato il videogioco Angry Birds?",
       "category": "Tecnologia",
       "difficulty": 3,
       "presenter": "regina",
@@ -748,7 +748,7 @@
         "videogiochi"
       ],
       "notes": "Angry Birds è della finlandese Rovio, 2009",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -770,7 +770,7 @@
         "trabocchetto"
       ],
       "notes": "Baikonur è in Kazakistan, affittato dalla Russia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -792,7 +792,7 @@
         "italia"
       ],
       "notes": "Chicago Pile-1, prima reazione a catena controllata il 2 dicembre 1942",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -814,7 +814,7 @@
         "trabocchetto"
       ],
       "notes": "Il Motorola DynaTAC 8000X: 30 minuti di conversazione, 10 ore di ricarica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -836,7 +836,7 @@
         "italia"
       ],
       "notes": "Il Pendolino fu sviluppato da Fiat Ferroviaria; l'ETR 450 entrò in servizio nel 1988",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -857,7 +857,7 @@
         "internet"
       ],
       "notes": "CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -878,7 +878,7 @@
         "trasporti"
       ],
       "notes": "La Stockton and Darlington Railway aprì il 27 settembre 1825",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -900,7 +900,7 @@
         "trabocchetto"
       ],
       "notes": "Volo di prova a Versailles il 19 settembre 1783, davanti a Luigi XVI",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -921,7 +921,7 @@
         "aviazione"
       ],
       "notes": "Volo New York-Parigi del 20-21 maggio 1927",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -943,7 +943,7 @@
         "italia"
       ],
       "notes": "Milano-Laghi 1924; Napoli-Pompei 1929, Torino-Milano e Firenze-Mare 1932-33",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -964,7 +964,7 @@
         "internet"
       ],
       "notes": "Wiki wiki in hawaiano significa veloce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -985,7 +985,7 @@
         "invenzioni"
       ],
       "notes": "I frutti uncinati della bardana gli si attaccavano ai vestiti e al cane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1006,7 +1006,7 @@
         "spazio"
       ],
       "notes": "Telstar 1, luglio 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1027,7 +1027,7 @@
         "commercio"
       ],
       "notes": "Gomme Juicy Fruit, supermercato Marsh di Troy (Ohio), 26 giugno 1974",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1049,7 +1049,7 @@
         "italia"
       ],
       "notes": "Brevetto del 1884, presentata all'Esposizione generale di Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1069,8 +1069,8 @@
       "tags": [
         "telecomunicazioni"
       ],
-      "notes": "\"What hath God wrought\", da Washington a Baltimora, 24 maggio 1844",
-      "verified": false
+      "notes": "\"What hath God wrought\" (Numeri 23,23; nella CEI \"che cosa opera Dio\"), da Washington a Baltimora, 24 maggio 1844",
+      "verified": true
     }
   ]
 }

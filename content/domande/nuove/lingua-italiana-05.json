@@ -21,7 +21,7 @@
         "modi-di-dire"
       ],
       "notes": "Tagliare la corda: andarsene di nascosto, svignarsela",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "modi-di-dire"
       ],
       "notes": "Essere al settimo cielo: al massimo della felicità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "proverbi"
       ],
       "notes": "L'erba del vicino è sempre più verde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "proverbi"
       ],
       "notes": "Can che abbaia non morde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "contrari"
       ],
       "notes": "Acerbo: non ancora maturo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "sinonimi"
       ],
       "notes": "Esausto: sfinito, privo di forze",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -148,7 +148,7 @@
         "mitologia"
       ],
       "notes": "Achille era invulnerabile tranne che nel tallone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "punteggiatura"
       ],
       "notes": "Il punto e virgola è un punto sovrapposto a una virgola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "grammatica"
       ],
       "notes": "Noi è pronome personale; nostro è possessivo, questo dimostrativo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "ortografia"
       ],
       "notes": "Aeroporto, da aero- (aria) e porto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -223,7 +223,7 @@
         "Soprattutto",
         "Sopprattutto",
         "Sopratuto",
-        "Sopratutto"
+        "Soprattuto"
       ],
       "correct": [
         0
@@ -232,7 +232,7 @@
         "ortografia"
       ],
       "notes": "Soprattutto, con raddoppiamento della t (sopra + tutto)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "trabocchetto"
       ],
       "notes": "Più vuole l'accento; blu, tre e qui no (tre sì solo nei composti come ventitré)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "congiuntivo"
       ],
       "notes": "Volere che regge il congiuntivo: voglio che tu venga",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +297,7 @@
         "plurali"
       ],
       "notes": "Nomi in -cia con consonante prima perdono la i: roccia, rocce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "trabocchetto"
       ],
       "notes": "Gru, monosillabo, è invariabile e senza accento: le gru",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +340,7 @@
         "femminili"
       ],
       "notes": "Celibe è l'uomo non sposato, nubile la donna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -361,7 +361,7 @@
         "verbi"
       ],
       "notes": "Vivere: io vissi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -382,7 +382,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere le mani in pasta: essere dentro una faccenda, conoscerla bene",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -403,7 +403,7 @@
         "proverbi"
       ],
       "notes": "Chi semina vento raccoglie tempesta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -424,7 +424,7 @@
         "latino"
       ],
       "notes": "Lapsus: errore involontario nel parlare o nello scrivere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -445,7 +445,7 @@
         "significati"
       ],
       "notes": "Obsoleto: antiquato, non più in uso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -466,7 +466,7 @@
         "sinonimi"
       ],
       "notes": "Esiguo: scarso, di piccola entità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -487,7 +487,7 @@
         "dialetti"
       ],
       "notes": "Sciura: signora (la sciura milanese)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -509,7 +509,7 @@
         "cinema"
       ],
       "notes": "Paparazzo è il fotografo de La dolce vita (1960)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -530,7 +530,7 @@
         "siciliano"
       ],
       "notes": "Travagghiari: lavorare (travagghiu, lavoro)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -552,7 +552,7 @@
         "trabocchetto"
       ],
       "notes": "Abbiente: che possiede beni, benestante (i non abbienti sono i poveri)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -574,7 +574,7 @@
         "trabocchetto"
       ],
       "notes": "Ventitré vuole l'accento acuto, come perché e né (Crusca)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -583,7 +583,7 @@
       "difficulty": 3,
       "presenter": "professore",
       "answers": [
-        "Capilavori",
+        "Capolavoro",
         "Capolavora",
         "Capilavoro",
         "Capolavori"
@@ -595,7 +595,7 @@
         "plurali"
       ],
       "notes": "Capolavoro, plurale capolavori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "verbi"
       ],
       "notes": "Difendere: difeso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "significati"
       ],
       "notes": "Ineffabile: indicibile, che non si può descrivere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -659,7 +659,7 @@
         "letteratura"
       ],
       "notes": "Dal dottor Azzecca-garbugli dei Promessi sposi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -680,7 +680,7 @@
         "modi-di-dire"
       ],
       "notes": "Fare il pesce in barile: non prendere posizione, fare finta di niente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -701,7 +701,7 @@
         "latino"
       ],
       "notes": "Condizione senza la quale non si può",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -723,7 +723,7 @@
         "trabocchetto"
       ],
       "notes": "Si pronuncia leccornìa (DOP, Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -744,7 +744,7 @@
         "versi-animali"
       ],
       "notes": "Frinire è il verso della cicala (e del grillo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "demonimi"
       ],
       "notes": "Mosca: moscoviti (Treccani, moscovita)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "trabocchetto"
       ],
       "notes": "L'anno romano più antico iniziava a marzo: september era il settimo mese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "grammatica"
       ],
       "notes": "Perché introduce una causale: congiunzione subordinante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "superlativi"
       ],
       "notes": "Acre, superlativo acerrimo (acerrimo nemico)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "significati"
       ],
       "notes": "Inveterato: radicato, ormai abituale (un vizio inveterato)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "letteratura"
       ],
       "notes": "Promessi sposi: \"Carneade! Chi era costui?\" si chiede don Abbondio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -893,7 +893,7 @@
         "retorica"
       ],
       "notes": "Climax: gradazione ascendente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -915,7 +915,7 @@
         "sicilia"
       ],
       "notes": "Caltagirone: calatini (Noto netini, Caltanissetta nisseni, Modica modicani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -937,7 +937,7 @@
         "trabocchetto"
       ],
       "notes": "Treccani: dalla città di Lavagna (Genova), dove si cavava l'ardesia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -946,7 +946,7 @@
       "difficulty": 4,
       "presenter": "professore",
       "answers": [
-        "Uncinate",
+        "Inglesi",
         "Caporali",
         "Apici",
         "Graffe"
@@ -957,8 +957,8 @@
       "tags": [
         "punteggiatura"
       ],
-      "notes": "Le virgolette basse « » si chiamano anche caporali",
-      "verified": false
+      "notes": "Le virgolette basse « » si chiamano caporali (o sergenti, francesi); le inglesi sono quelle alte",
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "siciliano"
       ],
       "notes": "Annacari è cullare, dondolare; annacarisi è dondolarsi, ancheggiare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1000,11 +1000,11 @@
         "significati"
       ],
       "notes": "Dalle Lamentazioni del profeta Geremia: piagnisteo lungo e noioso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Il griko, varietà di greco, si parla nel Salento e in quale altra regione?",
+      "text": "Le comunità di lingua greca d'Italia vivono nel Salento e in quale altra regione?",
       "category": "Lingua italiana",
       "difficulty": 5,
       "presenter": "professore",
@@ -1020,8 +1020,8 @@
       "tags": [
         "minoranze"
       ],
-      "notes": "Il griko è parlato nella Grecìa salentina e nell'area di Bova, in Calabria",
-      "verified": false
+      "notes": "Legge 482/1999: minoranza greca in Puglia (Grecìa salentina, griko) e in Calabria (area di Bova, grecanico)",
+      "verified": true
     },
     {
       "type": "single",
@@ -1042,7 +1042,7 @@
         "significati"
       ],
       "notes": "Da Stentore, guerriero omerico dalla voce fortissima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1063,7 @@
         "superlativi"
       ],
       "notes": "Salubre, superlativo saluberrimo",
-      "verified": false
+      "verified": true
     }
   ]
 }

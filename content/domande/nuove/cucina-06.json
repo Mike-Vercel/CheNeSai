@@ -21,7 +21,7 @@
         "frutta"
       ],
       "notes": "Anguria e cocomero sono due nomi dello stesso frutto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "pane"
       ],
       "notes": "La bruschetta è pane abbrustolito strofinato d'aglio e condito con olio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "vino"
       ],
       "notes": "Il vino è il prodotto della fermentazione del mosto d'uva",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "riso"
       ],
       "notes": "Il risotto si cuoce bagnando il riso con brodo caldo un mestolo alla volta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "bevande"
       ],
       "notes": "La limonata è succo di limone, acqua e zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "ortaggi"
       ],
       "notes": "La zucca intagliata (jack-o'-lantern) è il simbolo di Halloween",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "attrezzi"
       ],
       "notes": "La frusta incorpora aria nella panna fino a montarla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "pasta"
       ],
       "notes": "Il matterello serve a stendere la sfoglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "fumetti"
       ],
       "notes": "Braccio di Ferro (Popeye) ingoia scatolette di spinaci",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -212,7 +212,7 @@
         "giappone"
       ],
       "notes": "Il ramen è una zuppa di brodo e tagliolini di frumento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -234,7 +234,7 @@
         "sud"
       ],
       "notes": "Il caciocavallo stagiona appeso a coppie \"a cavallo\" di una pertica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -256,7 +256,7 @@
         "francia"
       ],
       "notes": "La crème brûlée è una crema cotta con zucchero bruciato in superficie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -277,7 +277,7 @@
         "cucina-mondo"
       ],
       "notes": "Il souvlaki è lo spiedino greco, spesso servito nella pita",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -298,7 +298,7 @@
         "formaggi"
       ],
       "notes": "La fondue al formaggio è considerata piatto nazionale svizzero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -320,7 +320,7 @@
         "tè"
       ],
       "notes": "Il matcha è tè verde macinato finissimo, usato nella cerimonia del tè",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -341,7 +341,7 @@
         "salse"
       ],
       "notes": "Besciamella: roux di burro e farina con latte; la vellutata usa il brodo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -362,7 +362,7 @@
         "liquori"
       ],
       "notes": "Il nocino si fa con mallo di noci acerbe, tradizionalmente raccolte per San Giovanni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -384,7 +384,7 @@
         "dolci"
       ],
       "notes": "Cantucci e vin santo sono l'abbinamento classico toscano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -406,7 +406,7 @@
         "pesce"
       ],
       "notes": "La mattanza è la fase finale della pesca del tonno nella \"camera della morte\" della tonnara",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -427,7 +427,7 @@
         "storia-cucina"
       ],
       "notes": "I fratelli Michelin, produttori di pneumatici, la crearono per invogliare i viaggi in auto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -448,7 +448,7 @@
         "storia-cucina"
       ],
       "notes": "Il peperoncino (Capsicum) è americano; melanzana, aglio e cipolla vengono dall'Asia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -470,7 +470,7 @@
         "leggi"
       ],
       "notes": "Il DPR 187/2001 impone semola di grano duro per la pasta secca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -491,7 +491,7 @@
         "formaggi"
       ],
       "notes": "Il Gouda prende il nome dalla città olandese di Gouda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -512,7 +512,7 @@
         "gelato"
       ],
       "notes": "Il sorbetto è a base di acqua, zucchero e frutta, senza latte né panna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -533,7 +533,7 @@
         "tecniche"
       ],
       "notes": "Flambé: si fiammeggia il piatto con un liquore incendiato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -555,7 +555,7 @@
         "dolci"
       ],
       "notes": "Le sfince di San Giuseppe sono frittelle di pasta choux farcite con crema di ricotta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -576,7 +576,7 @@
         "cucina-mondo"
       ],
       "notes": "La poutine nasce in Québec: patatine, formaggio in granuli e salsa gravy",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -597,7 +597,7 @@
         "cucina-mondo"
       ],
       "notes": "Il baba ganoush è una crema di melanzane arrostite con tahina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -618,7 +618,7 @@
         "spezie"
       ],
       "notes": "Lo zenzero che usiamo è il rizoma, un fusto sotterraneo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -639,7 +639,7 @@
         "farine"
       ],
       "notes": "00, 0, 1, 2, integrale indicano quanto la farina è raffinata (abburattata)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -660,7 +660,7 @@
         "formaggi"
       ],
       "notes": "Il provolone, come mozzarella e caciocavallo, è a pasta filata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -682,7 +682,7 @@
         "dolci"
       ],
       "notes": "La panna cotta è nell'elenco dei prodotti tradizionali del Piemonte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -704,7 +704,7 @@
         "dolci"
       ],
       "notes": "La torta sbrisolona è il dolce tradizionale di Mantova",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -726,7 +726,7 @@
         "vino"
       ],
       "notes": "Il Grillo è un'uva bianca, usata anche per il Marsala",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -748,7 +748,7 @@
         "trabocchetto"
       ],
       "notes": "Sono la stessa pianta: coperti di terra non vedono la luce e non fanno clorofilla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -770,7 +770,7 @@
         "trabocchetto"
       ],
       "notes": "Vengono entrambi dalla Camellia sinensis: il nero è ossidato, il verde no",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -792,7 +792,7 @@
         "trabocchetto"
       ],
       "notes": "L'astice ha grandi chele; l'aragosta ne è priva",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -814,7 +814,7 @@
         "trabocchetto"
       ],
       "notes": "Il colore sta nelle bucce: senza macerazione si ottiene un bianco (blanc de noirs)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -836,7 +836,7 @@
         "pasta"
       ],
       "notes": "Passatelli: pangrattato, uova, parmigiano e noce moscata, cotti in brodo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -858,7 +858,7 @@
         "pasta"
       ],
       "notes": "In piemontese plin è il pizzicotto con cui si chiude la pasta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -879,7 +879,7 @@
         "storia-cucina"
       ],
       "notes": "Unesco, novembre 2010: la dieta mediterranea entra nel patrimonio culturale immateriale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -900,7 +900,7 @@
         "spezie"
       ],
       "notes": "I chiodi di garofano sono boccioli fiorali essiccati di Syzygium aromaticum",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -922,7 +922,7 @@
         "trabocchetto"
       ],
       "notes": "La zona DOP comprende anche Mantova a destra del Po; Piacenza è zona del Grana Padano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -944,7 +944,7 @@
         "trabocchetto"
       ],
       "notes": "La De.Co. del Comune di Milano (2008) prevede la costoletta di vitello con l'osso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -966,7 +966,7 @@
         "trabocchetto"
       ],
       "notes": "Lo shoyu tradizionale si fa fermentando soia e frumento tostato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -988,7 +988,7 @@
         "trabocchetto"
       ],
       "notes": "L'anacardio pende sotto il \"pomo di acagiù\", un falso frutto carnoso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1010,7 +1010,7 @@
         "formaggi"
       ],
       "notes": "Il Castelmagno DOP è prodotto in alta Valle Grana, provincia di Cuneo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1032,7 +1032,7 @@
         "trabocchetto"
       ],
       "notes": "Il riso selvatico è Zizania, non Oryza: un'altra graminacea",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1054,7 +1054,7 @@
         "trabocchetto"
       ],
       "notes": "Il fico è un siconio, un'infruttescenza carnosa che racchiude tanti piccoli frutti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1076,7 +1076,7 @@
         "trabocchetto"
       ],
       "notes": "Prosecco è una frazione di Trieste: dal 2009 dà il nome alla DOC",
-      "verified": false
+      "verified": true
     }
   ]
 }

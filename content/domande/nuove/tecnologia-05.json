@@ -21,7 +21,7 @@
         "casa"
       ],
       "notes": "La lavatrice lava i panni; la lavastoviglie i piatti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "casa"
       ],
       "notes": "La radio trasmette solo suoni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,13 +63,13 @@
         "auto"
       ],
       "notes": "La spia della riserva indica che il carburante sta finendo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Chi fu il secondo uomo a camminare sulla Luna, subito dopo Armstrong?",
       "category": "Tecnologia",
-      "difficulty": 1,
+      "difficulty": 2,
       "presenter": "regina",
       "answers": [
         "Michael Collins",
@@ -84,7 +84,7 @@
         "spazio"
       ],
       "notes": "Aldrin scese dopo Armstrong; Collins restò in orbita",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "telefonia"
       ],
       "notes": "Touchscreen significa schermo a sfioramento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "ottica"
       ],
       "notes": "Il telescopio raccoglie la luce degli oggetti lontani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "computer"
       ],
       "notes": "I file cancellati finiscono nel cestino finché non lo si svuota",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "videogiochi"
       ],
       "notes": "Luigi è il fratello minore di Mario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "elettronica"
       ],
       "notes": "Il microfono capta il suono, l'altoparlante lo riproduce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "auto"
       ],
       "notes": "I motori diesel funzionano a gasolio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "computer"
       ],
       "notes": "PC significa Personal Computer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -253,7 +253,7 @@
         "trasporti"
       ],
       "notes": "L'Orient Express nacque nel 1883",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -274,7 +274,7 @@
         "reti"
       ],
       "notes": "Le fibre sono sottilissimi fili di vetro in cui viaggia la luce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -295,7 +295,7 @@
         "trasporti"
       ],
       "notes": "Galleria di 57 chilometri inaugurata nel 2016, tutta in Svizzera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -317,7 +317,7 @@
         "italia"
       ],
       "notes": "F.I.A.T., fondata a Torino nel 1899",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -339,7 +339,7 @@
         "italia"
       ],
       "notes": "La Fiat 500 A del 1936 era detta Topolino; la Balilla era la 508",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -360,7 +360,7 @@
         "internet"
       ],
       "notes": "Stream significa flusso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -382,7 +382,7 @@
         "trabocchetto"
       ],
       "notes": "Un televisore da 55 pollici ha la diagonale di circa 140 centimetri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -403,7 +403,7 @@
         "auto"
       ],
       "notes": "Il contagiri segna i giri del motore; il tachimetro la velocità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -424,7 +424,7 @@
         "fotografia"
       ],
       "notes": "La Polaroid Land Camera è del 1948",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -446,7 +446,7 @@
         "italia"
       ],
       "notes": "La benzina verde era quella senza piombo, introdotta negli anni Ottanta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -468,7 +468,7 @@
         "tastiera"
       ],
       "notes": "Sono i tasti di partenza degli indici nella dattilografia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -489,7 +489,7 @@
         "telefonia"
       ],
       "notes": "Gli smartphone usano batterie ricaricabili agli ioni di litio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -511,7 +511,7 @@
         "elettronica"
       ],
       "notes": "L'LP gira a 33 giri e un terzo; il 45 giri è il disco piccolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -533,7 +533,7 @@
         "elettronica"
       ],
       "notes": "Il lettore CD usa un laser; la puntina è dei dischi in vinile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -555,7 +555,7 @@
         "invenzioni"
       ],
       "notes": "Il fonografo a cilindro fu presentato da Edison nel 1877",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -576,7 +576,7 @@
         "invenzioni"
       ],
       "notes": "László Bíró, giornalista ungherese, brevetto del 1938",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -598,7 +598,7 @@
         "trabocchetto"
       ],
       "notes": "Emoji unisce i termini giapponesi \"e\" (immagine) e \"moji\" (carattere): non c'entra \"emotion\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -620,7 +620,7 @@
         "trabocchetto"
       ],
       "notes": "La Benz Patent-Motorwagen del 1886 era un triciclo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -641,7 +641,7 @@
         "videogiochi"
       ],
       "notes": "Il Nintendo DS uscì nel 2004; la PSP aveva un solo schermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -663,7 +663,7 @@
         "trabocchetto"
       ],
       "notes": "Brevetto britannico n. 12039 del 2 giugno 1896, chiesto a Londra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -684,7 +684,7 @@
         "computer"
       ],
       "notes": "Da al-Khwarizmi, matematico persiano del IX secolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -705,7 +705,7 @@
         "computer"
       ],
       "notes": "Bit è la contrazione di binary digit, cifra binaria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -726,7 +726,7 @@
         "elettricità"
       ],
       "notes": "In Europa la rete è a 50 hertz; negli Stati Uniti a 60",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -748,7 +748,7 @@
         "trabocchetto"
       ],
       "notes": "Tim Berners-Lee lo propose nel 1989 al CERN di Ginevra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -770,7 +770,7 @@
         "elettronica"
       ],
       "notes": "Il CD fu presentato da Philips e Sony; in commercio dal 1982",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -791,7 +791,7 @@
         "aviazione"
       ],
       "notes": "Blériot volò da Calais a Dover il 25 luglio 1909",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -812,7 +812,7 @@
         "banche"
       ],
       "notes": "IBAN italiano: IT, 2 cifre di controllo, CIN, ABI, CAB e conto = 27 caratteri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -835,7 +835,7 @@
         "trabocchetto"
       ],
       "notes": "Società Scientifica Radio Brevetti Ducati: condensatori per radio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -856,7 +856,7 @@
         "fotografia"
       ],
       "notes": "Il dagherrotipo di Louis Daguerre fu reso pubblico nel 1839",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -877,7 +877,7 @@
         "computer"
       ],
       "notes": "Legge di Moore, 1965",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -898,7 +898,7 @@
         "spazio"
       ],
       "notes": "Missione STS-1 del 12 aprile 1981",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -919,7 +919,7 @@
         "telecomunicazioni"
       ],
       "notes": "Le rune Hagall e Bjarkan, iniziali di Harald Blåtand",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -941,7 +941,7 @@
         "trabocchetto"
       ],
       "notes": "Unisce 1 (acceso) e 0 (spento) del sistema binario, norma IEC",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -963,7 +963,7 @@
         "trabocchetto"
       ],
       "notes": "Veicoli elettrici esistevano dagli anni 1830-1880; la Benz a benzina è del 1886",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -985,7 +985,7 @@
         "giappone"
       ],
       "notes": "Creato da Denso Wave, del gruppo Toyota, per la logistica dei ricambi auto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1007,11 +1007,11 @@
         "trabocchetto"
       ],
       "notes": "L'Osborne 1 pesava circa 10,7 chili",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale ingegnere torinese progettò la Fiat Topolino e la Nuova 500 del 1957?",
+      "text": "Quale ingegnere della Fiat progettò la Topolino e la Nuova 500 del 1957?",
       "category": "Tecnologia",
       "difficulty": 5,
       "presenter": "palmino",
@@ -1028,8 +1028,8 @@
         "auto",
         "italia"
       ],
-      "notes": "Giacosa progettò per Fiat la 500 Topolino (1936) e la Nuova 500 (1957)",
-      "verified": false
+      "notes": "Dante Giacosa (nato a Roma nel 1905, formato al Politecnico di Torino) progettò la 500 Topolino (1936) e la Nuova 500 (1957)",
+      "verified": true
     },
     {
       "type": "single",
@@ -1050,7 +1050,7 @@
         "internet"
       ],
       "notes": "Symbolics.com, registrato il 15 marzo 1985",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1072,7 +1072,7 @@
         "italia"
       ],
       "notes": "Il Rex attraversò l'Atlantico in 4 giorni e 13 ore nell'agosto 1933",
-      "verified": false
+      "verified": true
     }
   ]
 }

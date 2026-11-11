@@ -21,7 +21,7 @@
         "modi-di-dire"
       ],
       "notes": "Acqua in bocca: invito a non rivelare un segreto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "proverbi"
       ],
       "notes": "Non tutte le ciambelle riescono col buco: non sempre le cose vanno come previsto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "contrari"
       ],
       "notes": "Diurno (del giorno) si oppone a notturno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "sinonimi"
       ],
       "notes": "Astuto: furbo, scaltro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "modi-di-dire"
       ],
       "notes": "Cercare il pelo nell'uovo: essere pedanti, cercare difetti minimi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "verbi"
       ],
       "notes": "Mangiando: gerundio presente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "femminili"
       ],
       "notes": "Imperatore, femminile imperatrice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "etimologia"
       ],
       "notes": "Lunedì dal latino Lunae dies, giorno della Luna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "geografia"
       ],
       "notes": "Arcipelago: insieme di isole vicine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "alfabeto"
       ],
       "notes": "La lettera H si chiama acca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "ortografia"
       ],
       "notes": "Ingegnere, senza i dopo gn",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -244,17 +244,16 @@
         "Camicia",
         "Camicie",
         "Camicce",
-        "Camice"
+        "Camicii"
       ],
       "correct": [
         1
       ],
       "tags": [
-        "plurali",
-        "trabocchetto"
+        "plurali"
       ],
-      "notes": "Nei nomi in -cia preceduto da vocale la i resta: camicia, camicie (camice è un'altra parola)",
-      "verified": false
+      "notes": "Treccani: camicia, pl. camicie (nei nomi in -cia preceduto da vocale la i resta)",
+      "verified": true
     },
     {
       "type": "single",
@@ -275,7 +274,7 @@
         "ortografia"
       ],
       "notes": "Dà, verbo dare, vuole l'accento; da preposizione no",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +296,7 @@
         "periodo-ipotetico"
       ],
       "notes": "Periodo ipotetico: se + congiuntivo imperfetto, condizionale presente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -318,7 +317,7 @@
         "plurali"
       ],
       "notes": "Greco, plurale greci (come amico, amici)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +339,7 @@
         "trabocchetto"
       ],
       "notes": "Le parole straniere non adattate restano invariate al plurale: i film (Crusca)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -361,7 +360,7 @@
         "femminili"
       ],
       "notes": "Frate e suora: coppia di nomi indipendenti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -382,7 +381,7 @@
         "verbi"
       ],
       "notes": "Risolvere, participio risolto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -403,7 +402,7 @@
         "modi-di-dire"
       ],
       "notes": "Piantare in asso: lasciare qualcuno di colpo, nel momento del bisogno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -424,7 +423,7 @@
         "proverbi"
       ],
       "notes": "Paese che vai, usanza che trovi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -445,7 +444,7 @@
         "latino"
       ],
       "notes": "Una tantum: una sola volta (es. un contributo una tantum)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -466,7 +465,7 @@
         "significati"
       ],
       "notes": "Cicerone: guida turistica loquace, per antonomasia dal grande oratore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -487,7 +486,7 @@
         "contrari"
       ],
       "notes": "Nomade si oppone a sedentario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -508,7 +507,7 @@
         "versi-animali"
       ],
       "notes": "Tubare è il verso di colombi e tortore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -529,7 +528,7 @@
         "siciliano"
       ],
       "notes": "Accattari: comprare (dal latino accaptare)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -551,7 +550,7 @@
         "trabocchetto"
       ],
       "notes": "Beneficenza si scrive senza i, come beneficente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -573,7 +572,7 @@
         "periodo-ipotetico"
       ],
       "notes": "Periodo ipotetico dell'irrealtà: se avessi saputo, sarei venuto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +593,7 @@
         "ortografia"
       ],
       "notes": "Né congiunzione vuole l'accento acuto (chiuso); ne senza accento è pronome o avverbio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -615,7 +614,7 @@
         "plurali"
       ],
       "notes": "Il miglio (misura), plurale femminile le miglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -636,7 +635,7 @@
         "verbi"
       ],
       "notes": "Sapere: io seppi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -657,7 +656,7 @@
         "significati"
       ],
       "notes": "Dalla Laconia degli spartani, famosi per la brevità del parlare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -679,7 +678,7 @@
         "storia"
       ],
       "notes": "Pirro, re dell'Epiro, vinse i Romani ad Ascoli Satriano (279 a.C.) con perdite rovinose",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -700,7 +699,7 @@
         "latino"
       ],
       "notes": "Sui generis: del suo genere, unico nel suo genere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -722,7 +721,7 @@
         "trabocchetto"
       ],
       "notes": "Si pronuncia termòstato (DOP, Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +742,7 @@
         "fonetica"
       ],
       "notes": "Digrammi: gn, gl, sc, ch, gh, ci, gi davanti a vocale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +764,7 @@
         "trabocchetto"
       ],
       "notes": "Panico: il terrore improvviso attribuito al dio Pan (non c'entra il pane)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +786,7 @@
         "analisi-logica"
       ],
       "notes": "Nella frase passiva chi compie l'azione è complemento d'agente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +807,7 @@
         "prestiti"
       ],
       "notes": "Grattacielo traduce parola per parola l'inglese skyscraper",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -831,7 +830,7 @@
         "trabocchetto"
       ],
       "notes": "Treccani: ficodindia, plurale fichidindia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -852,7 +851,7 @@
         "significati"
       ],
       "notes": "Mellifluo: di dolcezza affettata, insincera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -874,7 +873,7 @@
         "storia"
       ],
       "notes": "Nel 49 a.C. Cesare varcò in armi il Rubicone: il dado è tratto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -895,7 +894,7 @@
         "retorica"
       ],
       "notes": "Inferno III: \"Per me si va\" ripetuto a inizio di tre versi, anafora",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -917,7 +916,7 @@
         "sicilia"
       ],
       "notes": "Piazza Armerina: piazzesi (Enna ennesi, Licata licatesi, Gela gelesi)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -938,7 +937,7 @@
         "etimologia"
       ],
       "notes": "Dal Ghetto di Venezia (1516), area dove sorgeva una fonderia, il \"getto\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -959,7 +958,7 @@
         "grammatica"
       ],
       "notes": "Questo: vicino a chi parla; codesto: vicino a chi ascolta; quello: lontano da entrambi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -980,7 +979,7 @@
         "storia-lingua"
       ],
       "notes": "Il motto della Crusca è un verso del Petrarca; \"Provando e riprovando\" era dell'Accademia del Cimento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1001,7 +1000,7 @@
         "significati"
       ],
       "notes": "Sinecura (lat. sine cura): ufficio che rende senza richiedere lavoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1022,7 +1021,7 @@
         "linguistica"
       ],
       "notes": "L'iperonimo ha significato più generale: fiore rispetto a rosa (rosa è iponimo di fiore)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1042,7 @@
         "demonimi"
       ],
       "notes": "Città di Castello, l'antica Tifernum: tifernati (Gubbio eugubini, Todi tudertini)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1064,7 +1063,7 @@
         "etimologia"
       ],
       "notes": "Treccani: dall'arabo hashishi, nome dato a una setta ismailita",
-      "verified": false
+      "verified": true
     }
   ]
 }

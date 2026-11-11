@@ -22,7 +22,7 @@
         "mondo"
       ],
       "notes": "Il sumo è la lotta tradizionale giapponese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "olimpiadi"
       ],
       "notes": "Rio 2016, le prime Olimpiadi in Sud America",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "italia"
       ],
       "notes": "Lo stadio San Paolo di Napoli fu intitolato a Maradona nel dicembre 2020",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "olimpiadi"
       ],
       "notes": "Marcell Jacobs vinse i 100 metri il 1° agosto 2021 in 9,80",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "italia"
       ],
       "notes": "Il derby d'Italia è Inter-Juventus",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "mondo"
       ],
       "notes": "Il Camp Nou è lo stadio del FC Barcelona",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "mondo"
       ],
       "notes": "\"O Rei\" è Pelé, tre volte campione del mondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "scherma"
       ],
       "notes": "Stoccata e affondo sono termini tecnici della scherma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -186,7 +186,7 @@
         "Lazio",
         "Roma",
         "Catanzaro",
-        "Lecce"
+        "Benevento"
       ],
       "correct": [
         1
@@ -195,8 +195,8 @@
         "calcio",
         "italia"
       ],
-      "notes": "La lupa capitolina è il simbolo dell'AS Roma, che veste giallorosso",
-      "verified": false
+      "notes": "La lupa capitolina è il simbolo dell'AS Roma, che veste giallorosso (anche il Lecce, giallorosso, ha un lupo nello stemma: tolto dalle opzioni)",
+      "verified": true
     },
     {
       "type": "single",
@@ -218,19 +218,19 @@
         "regole"
       ],
       "notes": "La sequenza è 15, 30, 40, game",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Nel rugby, in quale direzione si deve passare il pallone con le mani?",
+      "text": "Nel rugby, in quale direzione si può passare il pallone con le mani?",
       "category": "Sport",
       "difficulty": 2,
       "presenter": "palmino",
       "answers": [
-        "All'indietro",
+        "All'indietro o di lato",
         "In qualsiasi direzione",
-        "Solo di lato",
-        "In avanti"
+        "Solo in avanti",
+        "In avanti o di lato"
       ],
       "correct": [
         0
@@ -239,8 +239,8 @@
         "rugby",
         "regole"
       ],
-      "notes": "Nel rugby il passaggio con le mani deve andare all'indietro, altrimenti è \"in avanti\"",
-      "verified": false
+      "notes": "Nel rugby il passaggio con le mani non può andare in avanti: è valido all'indietro o in parallelo (di lato)",
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "italia"
       ],
       "notes": "\"Rombo di tuono\" è il soprannome dato da Gianni Brera a Gigi Riva",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -285,7 +285,7 @@
         "italia"
       ],
       "notes": "Nel 2010 l'Inter di Mourinho vinse scudetto, Coppa Italia e Champions League",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "golf"
       ],
       "notes": "L'\"hole in one\" (buca in uno) è la buca fatta al primo colpo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -329,7 +329,7 @@
         "trabocchetto"
       ],
       "notes": "Il \"rosso corsa\" era il colore delle auto italiane nelle gare internazionali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -352,7 +352,7 @@
         "italia"
       ],
       "notes": "Finale di Pasadena, Brasile-Italia 3-2 ai rigori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -374,7 +374,7 @@
         "italia"
       ],
       "notes": "La rivalità Coppi-Bartali divise l'Italia del dopoguerra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -395,7 +395,7 @@
         "ciclismo"
       ],
       "notes": "Al Tour la maglia verde va al leader della classifica a punti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -417,11 +417,11 @@
         "trabocchetto"
       ],
       "notes": "La bandiera olimpica ha cinque cerchi colorati su sfondo bianco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Nel rugby a 15, quanti punti vale un calcio piazzato?",
+      "text": "Nel rugby a 15, quanti punti vale un calcio di punizione che passa tra i pali?",
       "category": "Sport",
       "difficulty": 2,
       "presenter": "palmino",
@@ -438,8 +438,8 @@
         "rugby",
         "regole"
       ],
-      "notes": "Il calcio di punizione piazzato e il drop valgono 3 punti",
-      "verified": false
+      "notes": "Il calcio di punizione (e il drop) valgono 3 punti; la trasformazione dopo la meta ne vale 2",
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "italia"
       ],
       "notes": "Enzo Bearzot guidò gli azzurri al titolo di Madrid 1982",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -485,7 +485,7 @@
         "italia"
       ],
       "notes": "Jury Chechi, oro agli anelli ad Atlanta 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -507,7 +507,7 @@
         "mondiali"
       ],
       "notes": "Il Brasile è stato presente a tutte le 22 edizioni dal 1930 al 2022",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,8 +528,8 @@
         "rugby",
         "mondo"
       ],
-      "notes": "Il Sudafrica battè la Nuova Zelanda a Johannesburg; Mandela consegnò la coppa a Pienaar",
-      "verified": false
+      "notes": "Il Sudafrica batté la Nuova Zelanda a Johannesburg; Mandela consegnò la coppa a Pienaar",
+      "verified": true
     },
     {
       "type": "single",
@@ -551,7 +551,7 @@
         "mondo"
       ],
       "notes": "La haka (la più nota è \"Ka Mate\") precede le partite degli All Blacks",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -573,7 +573,7 @@
         "italia"
       ],
       "notes": "Alberto Ascari, due titoli con la Ferrari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "ciclismo"
       ],
       "notes": "La Parigi-Roubaix, per i suoi tratti di pavé",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "italia"
       ],
       "notes": "Il cavallino era dipinto sull'aereo dell'asso della Prima guerra mondiale Francesco Baracca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "scacchi"
       ],
       "notes": "La \"sfida del secolo\" di Reykjavík, vinta da Bobby Fischer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -659,7 +659,7 @@
         "mondo"
       ],
       "notes": "Van Basten, nato a Utrecht, era \"il Cigno di Utrecht\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -681,7 +681,7 @@
         "trabocchetto"
       ],
       "notes": "Per le Olimpiadi di Parigi il Tour 2024 finì con una cronometro a Nizza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -703,7 +703,7 @@
         "italia"
       ],
       "notes": "Giacomo Agostini vinse 8 titoli in 500 e 7 in 350",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -726,7 +726,7 @@
         "italia"
       ],
       "notes": "Donnarumma fu eletto miglior giocatore del torneo dalla UEFA",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -748,7 +748,7 @@
         "italia"
       ],
       "notes": "Jasmine Paolini perse le due finali contro Świątek e Krejčíková",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -771,7 +771,7 @@
         "trabocchetto"
       ],
       "notes": "Il pallone tradizionale ha 20 esagoni e 12 pentagoni: 32 facce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -793,7 +793,7 @@
         "olimpiadi"
       ],
       "notes": "Abebe Bikila vinse a piedi nudi la maratona di Roma 1960",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -815,7 +815,7 @@
         "trabocchetto"
       ],
       "notes": "Nell'antica Grecia l'olimpiade era il quadriennio fra due edizioni dei Giochi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -837,7 +837,7 @@
         "italia"
       ],
       "notes": "Belinelli fu il primo italiano campione NBA",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -859,7 +859,7 @@
         "italia"
       ],
       "notes": "L'autodromo di Monza fu inaugurato nel settembre 1922",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -881,7 +881,7 @@
         "italia"
       ],
       "notes": "Il trofeo FIFA attuale è opera del milanese Silvio Gazzaniga",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -903,7 +903,7 @@
         "trabocchetto"
       ],
       "notes": "Il tiro alla fune fu disciplina olimpica in cinque edizioni, dal 1900 al 1920",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -926,7 +926,7 @@
         "trabocchetto"
       ],
       "notes": "Il Giro 2018 partì con una cronometro a Gerusalemme",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -948,7 +948,7 @@
         "sicilia"
       ],
       "notes": "Gibilisco vinse l'asta ai Mondiali di Parigi 2003 con 5,90 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -970,7 +970,7 @@
         "trabocchetto"
       ],
       "notes": "Londra ospitò i Giochi nel 1908, 1948 e 2012",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -993,7 +993,7 @@
         "italia"
       ],
       "notes": "Il Parma vinse 3-0 a Mosca contro il Marsiglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1015,7 +1015,7 @@
         "storia"
       ],
       "notes": "La prima gara fu la corsa di uno stadio (circa 192 metri), vinta da Corebo di Elide",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1037,7 +1037,7 @@
         "italia"
       ],
       "notes": "Il 7 novembre 1942 al Vigorelli Coppi percorse 45,798 km",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1060,7 +1060,7 @@
         "trabocchetto"
       ],
       "notes": "Nel 1980, per i lavori a Monza, il GP d'Italia si disputò a Imola (vinse Piquet)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1082,7 +1082,7 @@
         "italia"
       ],
       "notes": "Il primo campionato a girone unico fu quello 1929-30, vinto dall'Ambrosiana-Inter",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1105,7 +1105,7 @@
         "italia"
       ],
       "notes": "Edoardo Mangiarotti, 6 ori, 5 argenti e 2 bronzi",
-      "verified": false
+      "verified": true
     }
   ]
 }

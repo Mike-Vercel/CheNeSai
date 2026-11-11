@@ -22,7 +22,7 @@
         "italia"
       ],
       "notes": "La Juventus è la squadra \"bianconera\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "tennis"
       ],
       "notes": "Wimbledon è il torneo dello Slam su erba",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "mondo"
       ],
       "notes": "L'FC Bayern München ha sede a Monaco di Baviera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "mondo"
       ],
       "notes": "Maradona era nato a Lanús, in Argentina, nel 1960",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "mondiali"
       ],
       "notes": "Italia '90, la cui canzone ufficiale era \"Un'estate italiana\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "ciclismo"
       ],
       "notes": "La Vuelta a España è il grande giro spagnolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "trabocchetto"
       ],
       "notes": "L'Atalanta Bergamasca Calcio, fondata nel 1907, è la squadra di Bergamo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -176,7 +176,7 @@
         "trabocchetto"
       ],
       "notes": "Solo il portiere, e solo dentro la propria area di rigore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -198,7 +198,7 @@
         "mondo"
       ],
       "notes": "Wembley è lo stadio nazionale inglese, a Londra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -219,7 +219,7 @@
         "pallavolo"
       ],
       "notes": "La schiacciata con le mani sopra la rete è il colpo d'attacco della pallavolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -242,7 +242,7 @@
         "italia"
       ],
       "notes": "Roberto Mancini, ct dal 2018 al 2023",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -264,7 +264,7 @@
         "regole"
       ],
       "notes": "Si vince il set a 25 punti con almeno due di scarto; il tie-break è a 15",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -286,7 +286,7 @@
         "trabocchetto"
       ],
       "notes": "In alto blu, nero e rosso; in basso giallo e verde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -309,7 +309,7 @@
         "italia"
       ],
       "notes": "Federica Pellegrini, oro nei 200 stile libero con record del mondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -330,7 +330,7 @@
         "f1"
       ],
       "notes": "Verstappen superò Hamilton nell'ultimo giro del GP di Abu Dhabi 2021",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -352,7 +352,7 @@
         "italia"
       ],
       "notes": "Il Napoli ha ritirato la maglia numero 10 nel 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -374,7 +374,7 @@
         "italia"
       ],
       "notes": "La zebra, per le strisce bianconere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -397,7 +397,7 @@
         "trabocchetto"
       ],
       "notes": "Il Sei Nazioni: Inghilterra, Francia, Galles, Scozia, Irlanda e Italia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -419,7 +419,7 @@
         "italia"
       ],
       "notes": "Il \"Settebello\", dai sette giocatori in acqua; la femminile è il \"Setterosa\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -431,7 +431,7 @@
         "Tennis",
         "Golf",
         "Cricket",
-        "Squash"
+        "Baseball"
       ],
       "correct": [
         0
@@ -440,8 +440,8 @@
         "tennis",
         "regole"
       ],
-      "notes": "Nel tennis \"love\" indica lo zero (es. \"15-love\")",
-      "verified": false
+      "notes": "Nel tennis \"love\" indica lo zero (es. \"15-love\"); squash tolto dalle opzioni perché usa anch'esso \"love\"",
+      "verified": true
     },
     {
       "type": "single",
@@ -462,8 +462,8 @@
         "calcio",
         "mondiali"
       ],
-      "notes": "L'Inghilterra battè la Germania Ovest 4-2 a Wembley",
-      "verified": false
+      "notes": "L'Inghilterra batté la Germania Ovest 4-2 a Wembley",
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "olimpiadi"
       ],
       "notes": "Barcellona 1992",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -506,7 +506,7 @@
         "olimpiadi"
       ],
       "notes": "Nadia Comăneci, 14 anni, alle parallele asimmetriche",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "italia"
       ],
       "notes": "Il biscione è la mascotte storica dell'Inter",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "regole"
       ],
       "notes": "Un giro della pista regolamentare è di 400 metri (corsia interna)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -573,7 +573,7 @@
         "italia"
       ],
       "notes": "Vittorio Pozzo è l'unico ct ad aver vinto due Mondiali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -595,7 +595,7 @@
         "italia"
       ],
       "notes": "La Roma di Capello vinse lo scudetto 2000-01",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,8 +616,8 @@
         "tennis",
         "italia"
       ],
-      "notes": "Pennetta battè Roberta Vinci nella finale di New York 2015",
-      "verified": false
+      "notes": "Pennetta batté Roberta Vinci nella finale di New York 2015",
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +638,7 @@
         "ciclismo"
       ],
       "notes": "Miguel Indurain, cinque Tour consecutivi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -660,7 +660,7 @@
         "trabocchetto"
       ],
       "notes": "Spa-Francorchamps è nelle Ardenne belghe, sede del GP del Belgio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -683,7 +683,7 @@
         "italia"
       ],
       "notes": "Il gol decisivo nei supplementari fu di Gianni Rivera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -705,7 +705,7 @@
         "trabocchetto"
       ],
       "notes": "L'autodromo José Carlos Pace (Interlagos) è a San Paolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -727,7 +727,7 @@
         "mondo"
       ],
       "notes": "L'Olanda di Cruijff e Michels era detta \"Arancia meccanica\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -749,7 +749,7 @@
         "italia"
       ],
       "notes": "Alberto Tomba vinse la Coppa generale nella stagione 1994-95",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -771,7 +771,7 @@
         "italia"
       ],
       "notes": "Felice Gimondi, di Sedrina (Bergamo), vinse il Tour 1965",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -792,7 +792,7 @@
         "tennis"
       ],
       "notes": "Björn Borg vinse Wimbledon cinque volte consecutive",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -815,7 +815,7 @@
         "trabocchetto"
       ],
       "notes": "La maglia nera (1946-1951) premiava l'ultimo della classifica generale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -837,7 +837,7 @@
         "italia"
       ],
       "notes": "Il serbo Vujadin Boškov guidò la Samp allo scudetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -858,7 +858,7 @@
         "f1"
       ],
       "notes": "Jody Scheckter, ultimo campione piloti Ferrari prima di Schumacher nel 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -879,7 +879,7 @@
         "tennis"
       ],
       "notes": "Dal grido \"tenez!\" (\"tenete!\") dei giocatori di jeu de paume al servizio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -903,7 +903,7 @@
         "trabocchetto"
       ],
       "notes": "L'Italia di Pozzo vinse l'oro battendo l'Austria 2-1 in finale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -925,7 +925,7 @@
         "mondo"
       ],
       "notes": "Lev Jašin, \"il Ragno nero\", unico portiere vincitore del premio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -947,7 +947,7 @@
         "italia"
       ],
       "notes": "La Pallacanestro Varese (Ignis) vinse nel 1970, 1972, 1973, 1975 e 1976",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -969,7 +969,7 @@
         "italia"
       ],
       "notes": "Le prime Paralimpiadi si tennero a Roma nel 1960, dopo le Olimpiadi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -990,7 +990,7 @@
         "badminton"
       ],
       "notes": "Badminton House, residenza dei duchi di Beaufort, dove il gioco si diffuse nell'Ottocento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1012,7 +1012,7 @@
         "sicilia"
       ],
       "notes": "Barone, Barzagli, Grosso e Zaccardo giocavano nel Palermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1033,7 +1033,7 @@
         "f1"
       ],
       "notes": "Rindt morì a Monza nelle prove; i punti già raccolti bastarono per il titolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1055,7 +1055,7 @@
         "italia"
       ],
       "notes": "La maglia rosa nacque nel 1931: il primo a indossarla fu Learco Guerra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1076,7 +1076,7 @@
         "tennis"
       ],
       "notes": "Gli Stati Uniti batterono le Isole britanniche a Boston nella prima edizione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1097,7 +1097,7 @@
         "tennis"
       ],
       "notes": "Spencer Gore vinse la prima edizione del 1877; Hadow vinse nel 1878",
-      "verified": false
+      "verified": true
     }
   ]
 }

@@ -21,7 +21,7 @@
         "videogiochi"
       ],
       "notes": "Pikachu è la mascotte della serie Pokémon",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "internet"
       ],
       "notes": "Online: collegati alla rete",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "computer"
       ],
       "notes": "La webcam riprende chi sta davanti al computer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "telefonia"
       ],
       "notes": "Snake era preinstallato sui Nokia dal 1997",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "computer"
       ],
       "notes": "Windows è di Microsoft dal 1985",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "trasporti"
       ],
       "notes": "Il tram corre su rotaie; il filobus ha le gomme",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "computer"
       ],
       "notes": "È il tasto più lungo, in basso al centro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "casa"
       ],
       "notes": "Il telecomando invia segnali, di solito a infrarossi, al televisore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "auto"
       ],
       "notes": "Il tachimetro segna la velocità; il contagiri i giri del motore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "telefonia"
       ],
       "notes": "Gli auricolari wireless usano il Bluetooth",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "sicurezza"
       ],
       "notes": "ABS: sistema antibloccaggio delle ruote",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -253,7 +253,7 @@
         "elettronica"
       ],
       "notes": "Il VHS di JVC prevalse sul Betamax di Sony negli anni Ottanta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -274,7 +274,7 @@
         "parole"
       ],
       "notes": "Wire significa filo, less senza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -296,7 +296,7 @@
         "italia"
       ],
       "notes": "Maserati nacque a Bologna nel 1914; il tridente fu disegnato da Mario Maserati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -317,7 +317,7 @@
         "elettricità"
       ],
       "notes": "La potenza si misura in watt, dal nome di James Watt",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -338,7 +338,7 @@
         "trasporti"
       ],
       "notes": "La Metropolitan Railway aprì il 10 gennaio 1863",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -359,7 +359,7 @@
         "auto"
       ],
       "notes": "Le auto ibride combinano motore termico ed elettrico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -380,7 +380,7 @@
         "videogiochi"
       ],
       "notes": "Kirby esordì nel 1992 su Game Boy",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -401,7 +401,7 @@
         "invenzioni"
       ],
       "notes": "Nobel brevettò la dinamite nel 1867",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -422,7 +422,7 @@
         "aviazione"
       ],
       "notes": "Zeppelin era tedesco, nato a Costanza nel 1838",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -444,7 +444,7 @@
         "trabocchetto"
       ],
       "notes": "Il kilowatt misura la potenza, il kilowattora l'energia consumata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -465,7 +465,7 @@
         "videogiochi"
       ],
       "notes": "Minecraft fu creato dallo svedese Markus Persson (Mojang)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -486,7 +486,7 @@
         "computer"
       ],
       "notes": "GB è il simbolo del gigabyte, unità di memoria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -508,7 +508,7 @@
         "italia"
       ],
       "notes": "La M1 di Milano fu inaugurata il 1 novembre 1964",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -529,7 +529,7 @@
         "telefonia"
       ],
       "notes": "L'USB-C si inserisce in entrambi i versi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "reti"
       ],
       "notes": "Il modem modula e demodula il segnale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "trabocchetto"
       ],
       "notes": "Prodotto da Research In Motion di Waterloo, in Ontario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -593,7 +593,7 @@
         "spazio"
       ],
       "notes": "Il Golden Record, con suoni e immagini della Terra, lanciato nel 1977",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -615,7 +615,7 @@
         "trabocchetto"
       ],
       "notes": "Da \"m'aider\" (aiutatemi), scelto nel 1923 a Londra-Croydon per il traffico con la Francia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "trabocchetto"
       ],
       "notes": "Spam è una carne in scatola, resa celebre da uno sketch dei Monty Python",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -658,7 +658,7 @@
         "elettricità"
       ],
       "notes": "La \"guerra delle correnti\": Tesla e Westinghouse contro la corrente continua di Edison",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -679,7 +679,7 @@
         "spazio"
       ],
       "notes": "Vostok 1, 12 aprile 1961; Mercury e Gemini erano americane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -700,7 +700,7 @@
         "trasporti"
       ],
       "notes": "Inaugurazione del 17 novembre 1869; il Canale di Panama è del 1914",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -722,7 +722,7 @@
         "italia"
       ],
       "notes": "La Olivetti fu fondata a Ivrea nel 1908 da Camillo Olivetti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +743,7 @@
         "spazio"
       ],
       "notes": "Lanciato il 25 dicembre 2021 dalla Guyana francese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "italia"
       ],
       "notes": "Nobel per la fisica 1909, con Ferdinand Braun, per la telegrafia senza fili",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -786,7 +786,7 @@
         "spazio"
       ],
       "notes": "\"The Eagle has landed\": Eagle era il modulo lunare, Columbia quello di comando",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "italia"
       ],
       "notes": "Il traforo del Frejus fu inaugurato nel 1871; Gottardo e Sempione vanno in Svizzera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -830,7 +830,7 @@
         "italia"
       ],
       "notes": "Nove aerei in formazione più il solista",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -851,7 +851,7 @@
         "internet"
       ],
       "notes": "Fahlman propose \":-)\" alla Carnegie Mellon il 19 settembre 1982",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "televisione"
       ],
       "notes": "Dimostrazione di Baird a Londra, 26 gennaio 1926",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -893,7 +893,7 @@
         "telefonia"
       ],
       "notes": "L'IBM Simon Personal Communicator fu venduto dal 1994",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -915,7 +915,7 @@
         "invenzioni"
       ],
       "notes": "Berliner brevettò il grammofono nel 1887; Edison aveva il fonografo a cilindro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -937,7 +937,7 @@
         "sicurezza"
       ],
       "notes": "Ideata da Nils Bohlin per Volvo, che lasciò libero il brevetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -958,7 +958,7 @@
         "aziende"
       ],
       "notes": "Sam (tre) e sung (stelle)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "navi"
       ],
       "notes": "Il Trieste di Auguste Piccard, costruito in parte a Trieste, scese il 23 gennaio 1960",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1000,7 +1000,7 @@
         "videogiochi"
       ],
       "notes": "Space Invaders di Tomohiro Nishikado per Taito; Pac-Man è di Namco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1022,7 +1022,7 @@
         "italia"
       ],
       "notes": "L'ETR 300 Settebello entrò in servizio nel 1953 sulla Roma-Milano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1044,7 +1044,7 @@
         "trabocchetto"
       ],
       "notes": "L'IBM 350 del sistema RAMAC pesava circa 970 chili e conteneva circa 5 milioni di caratteri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1066,7 +1066,7 @@
         "sicilia"
       ],
       "notes": "Il Cantiere Navale Rodriquez costruì aliscafi dagli anni Cinquanta",
-      "verified": false
+      "verified": true
     }
   ]
 }

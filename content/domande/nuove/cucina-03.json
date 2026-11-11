@@ -22,7 +22,7 @@
         "natale"
       ],
       "notes": "Il panettone, lievitato tipico di Milano, contiene uvetta e scorze di agrumi candite",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "ortaggi"
       ],
       "notes": "Tagliando la cipolla si liberano composti solforati volatili che irritano gli occhi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "francia"
       ],
       "notes": "La baguette è il pane lungo e sottile simbolo della Francia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "caffè"
       ],
       "notes": "La moka è la caffettiera italiana per fare il caffè sul fornello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "ortaggi"
       ],
       "notes": "La caponata siciliana è a base di melanzane fritte condite in agrodolce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "legumi"
       ],
       "notes": "Le lenticchie, simili a monetine, sono di buon augurio per i soldi nell'anno nuovo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "insalate"
       ],
       "notes": "Caprese: mozzarella, pomodoro, basilico e olio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "germania"
       ],
       "notes": "L'Oktoberfest si tiene ogni anno a Monaco di Baviera dal 1810",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -197,7 +197,7 @@
         "tecniche"
       ],
       "notes": "Al dente: pasta scolata quando è ancora consistente al morso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "cereali"
       ],
       "notes": "I popcorn si fanno con una varietà di mais i cui chicchi scoppiano col calore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -239,7 +239,7 @@
         "giappone"
       ],
       "notes": "Il wasabi è la pasta verde e piccante servita con sushi e sashimi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "spagna"
       ],
       "notes": "La tortilla de patatas è la classica frittata spagnola di patate e uova",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -281,7 +281,7 @@
         "liguria"
       ],
       "notes": "La farinata è una torta sottile di farina di ceci, acqua e olio cotta nel forno a legna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -303,7 +303,7 @@
         "emilia-romagna"
       ],
       "notes": "Il Lambrusco è il rosso frizzante tipico delle province di Modena e Reggio Emilia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -325,7 +325,7 @@
         "salse"
       ],
       "notes": "Pesto alla trapanese: pomodoro, basilico, aglio, mandorle e pecorino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "street-food"
       ],
       "notes": "Pani ca' meusa: panino con milza (e polmone) di vitello cotti nello strutto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -369,7 +369,7 @@
         "pasta"
       ],
       "notes": "Gnocchi alla sorrentina: gnocchi di patate con pomodoro, mozzarella e basilico, passati in forno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -390,7 +390,7 @@
         "piemonte"
       ],
       "notes": "Il vitel tonnè è un classico della cucina piemontese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -412,7 +412,7 @@
         "pesce"
       ],
       "notes": "Il cacciucco alla livornese è la zuppa di pesce misto simbolo di Livorno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -434,7 +434,7 @@
         "dolci"
       ],
       "notes": "La pastiera: frolla ripiena di ricotta, grano cotto nel latte, uova e acqua di fiori d'arancio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -456,7 +456,7 @@
         "carne"
       ],
       "notes": "Porceddu: maialino da latte cotto allo spiedo o al forno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -478,7 +478,7 @@
         "cioccolato"
       ],
       "notes": "Il gianduia è un impasto di cacao, zucchero e nocciole del Piemonte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -499,7 +499,7 @@
         "ristoranti"
       ],
       "notes": "La Guida Michelin assegna da una a tre stelle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -508,7 +508,7 @@
       "difficulty": 2,
       "presenter": "palmino",
       "answers": [
-        "Egitto",
+        "Turchia",
         "Marocco",
         "India",
         "Grecia"
@@ -520,7 +520,7 @@
         "cucina-mondo"
       ],
       "notes": "Il tajine è lo stufato marocchino cotto nell'omonima pentola con coperchio conico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -542,7 +542,7 @@
         "verdure"
       ],
       "notes": "I crauti sono cavolo cappuccio a striscioline fatto fermentare con il sale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -564,7 +564,7 @@
         "trabocchetto"
       ],
       "notes": "L'idromele è acqua e miele fermentati: le mele non c'entrano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -586,7 +586,7 @@
         "trabocchetto"
       ],
       "notes": "Gli gnocchi alla romana sono dischi di semolino cotto nel latte, gratinati con burro e formaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -608,7 +608,7 @@
         "legumi"
       ],
       "notes": "Il maccu è una purea di fave secche, spesso con finocchietto selvatico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -629,7 +629,7 @@
         "sicilia"
       ],
       "notes": "La scaccia è una sfoglia di pasta di semola ripiegata più volte e farcita, tipica di Ragusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -651,7 +651,7 @@
         "pasta"
       ],
       "notes": "Gricia: guanciale, pecorino e pepe; l'amatriciana aggiunge il pomodoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -672,7 +672,7 @@
         "veneto"
       ],
       "notes": "Risi e bisi: riso e piselli, piatto tradizionale di Venezia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -694,7 +694,7 @@
         "trabocchetto"
       ],
       "notes": "La genovese napoletana è un sugo di moltissime cipolle e carne cotte a lungo, senza pomodoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -716,7 +716,7 @@
         "agrumi"
       ],
       "notes": "L'essenza di bergamotto, prodotto quasi tutto nel Reggino, aromatizza il tè Earl Grey",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -738,7 +738,7 @@
         "pesce"
       ],
       "notes": "La bottarga è la sacca di uova di muggine o di tonno, salata e fatta essiccare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -760,7 +760,7 @@
         "trabocchetto"
       ],
       "notes": "Il banano non è un albero: è un'erba gigante e il suo \"tronco\" è fatto di guaine di foglie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -782,7 +782,7 @@
         "bevande"
       ],
       "notes": "Il bicerin è la bevanda storica di Torino, servita nel bicchierino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -803,7 +803,7 @@
         "cucina-mondo"
       ],
       "notes": "Il haggis è il piatto nazionale scozzese, servito nella Burns Night",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -825,7 +825,7 @@
         "trabocchetto"
       ],
       "notes": "Sono tutte bacche di Piper nigrum, raccolte a maturazione diversa e lavorate in modo diverso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -847,7 +847,7 @@
         "pesce"
       ],
       "notes": "Colatura di alici di Cetara DOP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -869,7 +869,7 @@
         "carne"
       ],
       "notes": "Il farsumagru è un grande involtino di carne farcito con uova sode, salumi e formaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -891,7 +891,7 @@
         "dolci"
       ],
       "notes": "La pignolata di Messina è ricoperta per metà di glassa al cioccolato e per metà al limone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -913,7 +913,7 @@
         "trabocchetto"
       ],
       "notes": "In Veneto \"bacalà\" indica lo stoccafisso, merluzzo essiccato all'aria e non salato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -935,7 +935,7 @@
         "salumi"
       ],
       "notes": "Il Ciauscolo IGP è un salame morbido da spalmare sul pane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -956,7 +956,7 @@
         "tecniche"
       ],
       "notes": "La brunoise è un taglio a dadini di uno o due millimetri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -978,7 +978,7 @@
         "salse"
       ],
       "notes": "Il mole poblano unisce peperoncini secchi, spezie, frutta secca e cioccolato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1000,7 +1000,7 @@
         "botanica"
       ],
       "notes": "Mandorlo e pesco appartengono allo stesso genere, Prunus",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1021,7 +1021,7 @@
         "storia-cucina"
       ],
       "notes": "Il fisiologo Ancel Keys studiò dagli anni Cinquanta la dieta del Sud Italia e visse poi a Pioppi, nel Cilento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1043,7 @@
         "vino"
       ],
       "notes": "L'Etna DOC fu riconosciuta nel 1968, prima DOC siciliana (la Marsala nel 1969)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "frutta"
       ],
       "notes": "I bastardoni sono fichi d'India di seconda fioritura, ottenuta con la scozzolatura, che maturano in autunno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1086,7 +1086,7 @@
         "storia-cucina"
       ],
       "notes": "Maestro Martino da Como scrisse il Libro de arte coquinaria nel XV secolo; Platina ne riprese le ricette nel De honesta voluptate",
-      "verified": false
+      "verified": true
     }
   ]
 }

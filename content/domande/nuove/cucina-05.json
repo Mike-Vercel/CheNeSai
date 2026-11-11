@@ -22,7 +22,7 @@
         "parole"
       ],
       "notes": "Spaghetto è diminutivo di spago (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "frutta"
       ],
       "notes": "L'ananas ha la buccia a squame e una corona di foglie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "uova"
       ],
       "notes": "Il tuorlo è la parte gialla, l'albume quella trasparente che diventa bianca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "stagioni"
       ],
       "notes": "Le castagne maturano tra settembre e novembre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "spagna"
       ],
       "notes": "La sangria classica è vino rosso con frutta, zucchero e spezie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "pasta"
       ],
       "notes": "I bucatini sono spaghetti grossi forati, classici dell'amatriciana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "pane"
       ],
       "notes": "Piadina Romagnola IGP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "pasta"
       ],
       "notes": "Nella carbonara la crema si fa con uova (tuorli) e pecorino, senza panna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "bevande"
       ],
       "notes": "La camomilla è un infuso di capolini di Matricaria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "regno-unito"
       ],
       "notes": "Fish and chips: merluzzo o eglefino fritto in pastella con patatine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -236,7 +236,7 @@
         "bevande"
       ],
       "notes": "Il rum è un distillato di melassa o succo di canna da zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -258,7 +258,7 @@
         "ungheria"
       ],
       "notes": "La paprika è polvere di peperoni essiccati, base del gulasch",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -280,7 +280,7 @@
         "asia"
       ],
       "notes": "Il tofu è il caglio del latte di soia pressato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -302,7 +302,7 @@
         "pasta"
       ],
       "notes": "Le trofie sono la pasta ligure tipica, condita col pesto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -323,7 +323,7 @@
         "trentino"
       ],
       "notes": "Canederli (Knödel): gnocchi di pane raffermo con speck, tipici del Trentino-Alto Adige",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -345,7 +345,7 @@
         "dolci"
       ],
       "notes": "Gli struffoli sono palline fritte legate con miele e decorate con confettini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -367,7 +367,7 @@
         "liquori"
       ],
       "notes": "Il mirto si ottiene dalle bacche dell'omonima pianta, tipico della Sardegna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -389,7 +389,7 @@
         "fritti"
       ],
       "notes": "Oliva Ascolana del Piceno DOP: ripiena di carne, impanata e fritta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -410,7 +410,7 @@
         "cucina-mondo"
       ],
       "notes": "Lo Stroganoff, manzo a striscioline con panna acida, è un classico della cucina russa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -431,7 +431,7 @@
         "cocktail"
       ],
       "notes": "Negroni: gin, vermut rosso e bitter in parti uguali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -452,7 +452,7 @@
         "gelato"
       ],
       "notes": "La stracciatella è fiordilatte con cioccolato fuso che si rapprende in scaglie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -474,7 +474,7 @@
         "dolci"
       ],
       "notes": "Panforte di Siena IGP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -495,7 +495,7 @@
         "pesce"
       ],
       "notes": "Si chiama caviale solo quello di storione; le altre sono uova di pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -517,7 +517,7 @@
         "street-food"
       ],
       "notes": "I cazzilli sono crocchette di patate, venduti con le panelle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -539,7 +539,7 @@
         "trabocchetto"
       ],
       "notes": "Il colore del guscio è un carattere genetico della razza, non indica qualità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -561,7 +561,7 @@
         "dolci"
       ],
       "notes": "Il pastel de nata è la tortina di sfoglia e crema tipica di Lisbona",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -583,7 +583,7 @@
         "carne"
       ],
       "notes": "Per la legge austriaca il Wiener Schnitzel è solo di vitello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -604,7 +604,7 @@
         "sicilia"
       ],
       "notes": "La brioscia \"col tuppo\": il tuppo è la crocchia, come quella dei capelli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -626,7 +626,7 @@
         "pasta"
       ],
       "notes": "I pici sono la pasta tipica del Senese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -648,7 +648,7 @@
         "salumi"
       ],
       "notes": "Zampone Modena IGP: impasto insaccato nella cotenna della zampa anteriore del maiale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -670,7 +670,7 @@
         "pesce"
       ],
       "notes": "Il saor è la marinatura veneziana con cipolle, aceto, uvetta e pinoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -692,7 +692,7 @@
         "trabocchetto"
       ],
       "notes": "Il carciofo è un'infiorescenza raccolta prima della fioritura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -714,7 +714,7 @@
         "trabocchetto"
       ],
       "notes": "L'acqua di cocco è il liquido interno; il latte si ottiene spremendo la polpa grattugiata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -736,7 +736,7 @@
         "dolci"
       ],
       "notes": "Il pasticciotto di Lecce è un tortino di frolla ripieno di crema pasticciera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -758,7 +758,7 @@
         "legumi"
       ],
       "notes": "Lenticchia di Castelluccio di Norcia IGP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -780,7 +780,7 @@
         "vino"
       ],
       "notes": "Malvasia delle Lipari DOC, prodotta nelle isole Eolie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -801,7 +801,7 @@
         "scienza-cucina"
       ],
       "notes": "L'umami, il gusto del glutammato, fu individuato da Kikunae Ikeda nel 1908; il piccante non è un gusto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -823,7 +823,7 @@
         "trabocchetto"
       ],
       "notes": "Il surimi è polpa di pesce bianco (spesso merluzzo d'Alaska) lavorata e aromatizzata al granchio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -845,7 +845,7 @@
         "pasta"
       ],
       "notes": "I pansoti, ravioli di erbe, si servono con la salsa di noci",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -867,7 +867,7 @@
         "ortaggi"
       ],
       "notes": "I lampascioni sono i bulbi amarognoli del Muscari comosum, un giacinto selvatico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -889,7 +889,7 @@
         "pasta"
       ],
       "notes": "I tajarin sono i tagliolini all'uovo delle Langhe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -911,7 +911,7 @@
         "carne"
       ],
       "notes": "La brasatura è una cottura lenta in recipiente chiuso con poco liquido",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -932,7 +932,7 @@
         "farine"
       ],
       "notes": "W misura la forza della farina, cioè la capacità dell'impasto di trattenere i gas",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -953,7 +953,7 @@
         "formaggi"
       ],
       "notes": "Lo Stilton è un formaggio blu inglese DOP (Derbyshire, Leicestershire, Nottinghamshire)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -975,7 +975,7 @@
         "pesce"
       ],
       "notes": "Il beccafico è un uccello: le sarde ripiene imitano la sua forma, piatto un tempo dei nobili",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -997,7 +997,7 @@
         "agrumi"
       ],
       "notes": "Arancia Rossa di Sicilia IGP: Tarocco, Moro, Sanguinello; la Navel è bionda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1019,7 +1019,7 @@
         "frutta-secca"
       ],
       "notes": "La Pizzuta d'Avola è la mandorla classica per i confetti; Tonda gentile è una nocciola, Nocellara un'oliva",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1041,7 @@
         "umbria"
       ],
       "notes": "Montefalco Sagrantino DOCG",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1063,7 @@
         "formaggi"
       ],
       "notes": "Il Ragusano DOP ha forma di parallelepipedo a sezione quadrata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1084,7 +1084,7 @@
         "giappone"
       ],
       "notes": "Il katsuobushi del dashi è tonnetto striato essiccato e affumicato",
-      "verified": false
+      "verified": true
     }
   ]
 }

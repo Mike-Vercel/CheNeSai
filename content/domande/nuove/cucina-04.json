@@ -22,7 +22,7 @@
         "grecia"
       ],
       "notes": "La feta, di latte di pecora (e capra), è il formaggio dell'insalata greca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "pasqua"
       ],
       "notes": "La colomba pasquale è ricoperta di glassa e mandorle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "pasta"
       ],
       "notes": "Le farfalle hanno la forma di un fiocco o di una farfalla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "spezie"
       ],
       "notes": "Il pepe in grani, nero o bianco, si macina al momento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "francia"
       ],
       "notes": "Lo Champagne si produce nella regione francese della Champagne",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "dolci"
       ],
       "notes": "Il babà è un dolce lievitato bagnato con sciroppo al rum",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "cocktail"
       ],
       "notes": "Mojito: rum, lime, zucchero, menta e soda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "caffè"
       ],
       "notes": "Il caffè corretto è un espresso con l'aggiunta di grappa o altro liquore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "cucina-mondo"
       ],
       "notes": "Il Canada (soprattutto il Québec) produce la gran parte dello sciroppo d'acero del mondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "dolci"
       ],
       "notes": "Il castagnaccio è una torta bassa di farina di castagne, con pinoli e rosmarino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -237,7 +237,7 @@
         "bevande"
       ],
       "notes": "Il sakè è una bevanda alcolica ottenuta dalla fermentazione del riso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -259,7 +259,7 @@
         "pane"
       ],
       "notes": "Il naan è il pane lievitato cotto nel forno tandoor, tipico della cucina indiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -280,7 +280,7 @@
         "cucina-mondo"
       ],
       "notes": "Il pad thai è uno dei piatti nazionali della Thailandia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -302,7 +302,7 @@
         "pasta"
       ],
       "notes": "Disciplinare dell'amatriciana: guanciale, pomodoro, pecorino (di Amatrice o romano)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -324,7 +324,7 @@
         "zuppe"
       ],
       "notes": "La ribollita è una zuppa contadina toscana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -346,7 +346,7 @@
         "salumi"
       ],
       "notes": "Lo speck dell'Alto Adige è una coscia di maiale salata, speziata e leggermente affumicata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -368,7 +368,7 @@
         "tradizioni"
       ],
       "notes": "San Giuseppe si festeggia il 19 marzo, festa del papà",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -390,7 +390,7 @@
         "ortaggi"
       ],
       "notes": "Cipolla rossa di Tropea Calabria IGP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -412,7 +412,7 @@
         "pane"
       ],
       "notes": "Altamura è in provincia di Bari: Pane di Altamura DOP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -434,7 +434,7 @@
         "salumi"
       ],
       "notes": "San Daniele del Friuli, in provincia di Udine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -456,7 +456,7 @@
         "tecniche"
       ],
       "notes": "La tempura giapponese è una frittura in pastella leggera di verdure e pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -478,7 +478,7 @@
         "gelato"
       ],
       "notes": "L'affogato è una pallina di gelato \"annegata\" in un caffè espresso caldo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -499,7 +499,7 @@
         "tecniche"
       ],
       "notes": "Julienne: taglio a bastoncini sottili",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -521,7 +521,7 @@
         "tecniche"
       ],
       "notes": "Il lievito madre è un impasto di farina e acqua con lieviti e batteri naturali, rinfrescato di continuo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -542,7 +542,7 @@
         "sicilia"
       ],
       "notes": "Le saline di Trapani e Marsala producono sale marino (Sale marino di Trapani IGP)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -563,7 +563,7 @@
         "bevande"
       ],
       "notes": "Lo Scotch single malt è prodotto solo con orzo maltato in una singola distilleria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -584,7 +584,7 @@
         "cucina-mondo"
       ],
       "notes": "Il Perù ha dichiarato il ceviche patrimonio culturale nazionale nel 2004",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -606,7 +606,7 @@
         "dolci"
       ],
       "notes": "La cuddura cu l'ova è un biscotto pasquale decorato con uova intere cotte nel forno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -628,7 +628,7 @@
         "street-food"
       ],
       "notes": "Le stigghiole sono budella di agnello o capretto avvolte su un cipollotto e arrostite",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -650,7 +650,7 @@
         "fritti"
       ],
       "notes": "Spezzando il supplì la mozzarella fila come il cavo di una cornetta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -672,7 +672,7 @@
         "riso"
       ],
       "notes": "Mantecare: a fuoco spento si incorporano burro e formaggio per rendere il risotto cremoso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -694,7 +694,7 @@
         "trabocchetto"
       ],
       "notes": "Patata e pomodoro sono Solanacee; la patata americana è una Convolvulacea",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -716,7 +716,7 @@
         "trabocchetto"
       ],
       "notes": "Dopo la fecondazione il fiore dell'arachide si piega e il baccello matura sottoterra (geocarpia)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -728,7 +728,7 @@
         "Miele",
         "Marmellata",
         "Cioccolato",
-        "Zucchero a velo"
+        "Panna montata"
       ],
       "correct": [
         0
@@ -738,7 +738,7 @@
         "dolci"
       ],
       "notes": "Le seadas sarde: pasta ripiena di formaggio fresco, fritta e servita con miele (spesso di corbezzolo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -759,7 +759,7 @@
         "lombardia"
       ],
       "notes": "La cassoeula è un piatto tradizionale lombardo di costine, cotenne e verza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -781,7 +781,7 @@
         "veneto"
       ],
       "notes": "Amarone della Valpolicella DOCG, da uve appassite, in provincia di Verona",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -803,7 +803,7 @@
         "salute"
       ],
       "notes": "Riso è senza glutine; farro, orzo e segale lo contengono",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -825,7 +825,7 @@
         "trabocchetto"
       ],
       "notes": "In siciliano \"mellone\" è l'anguria: il gelo è un budino di succo d'anguria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -847,7 +847,7 @@
         "pasta"
       ],
       "notes": "Le busiate trapanesi prendono il nome dalla \"busa\", il ferretto per arrotolarle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -869,7 +869,7 @@
         "trabocchetto"
       ],
       "notes": "Il Nobile si fa a Montepulciano (Siena) con il Sangiovese; il Montepulciano d'Abruzzo è un'altra cosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -890,7 +890,7 @@
         "basilicata"
       ],
       "notes": "Peperoni cruschi lucani, dal Peperone di Senise IGP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -912,7 +912,7 @@
         "salse"
       ],
       "notes": "La gremolata (gremolada) completa l'ossobuco alla milanese; la persillade francese non ha limone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -933,7 +933,7 @@
         "formaggi"
       ],
       "notes": "Il caglio si estrae dall'abomaso di vitelli, agnelli o capretti lattanti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -954,7 +954,7 @@
         "salse"
       ],
       "notes": "La salsa Worcestershire contiene acciughe fermentate, aceto, melassa e tamarindo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -976,7 +976,7 @@
         "trabocchetto"
       ],
       "notes": "La capsaicina si concentra nella placenta, il tessuto bianco a cui sono attaccati i semi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -998,7 +998,7 @@
         "trabocchetto"
       ],
       "notes": "La zona DOP del Gorgonzola comprende province lombarde e piemontesi (Novara, Cuneo, Vercelli…)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1020,7 +1020,7 @@
         "formaggi"
       ],
       "notes": "Vastedda della valle del Belìce DOP: unico formaggio ovino a pasta filata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1041,7 @@
         "storia-cucina"
       ],
       "notes": "Auguste Escoffier pubblicò Le Guide culinaire nel 1903",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1063,7 @@
         "campania"
       ],
       "notes": "Il Taurasi, in Irpinia, è un rosso da uve Aglianico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1085,7 +1085,7 @@
         "trabocchetto"
       ],
       "notes": "Il grano saraceno non è un cereale: è una Poligonacea come il rabarbaro e l'acetosa",
-      "verified": false
+      "verified": true
     }
   ]
 }
