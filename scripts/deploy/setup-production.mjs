@@ -108,11 +108,11 @@ async function main() {
     const orgs = Array.isArray(orgsRaw) ? orgsRaw : (orgsRaw.organizations ?? []);
     const org = orgs.find((o) => /mike/i.test(o.name)) ?? orgs[0];
     if (!org) fail("Nessuna organizzazione Supabase trovata.");
-    state.SUPABASE_DB_PASSWORD = randomBytes(20).toString("hex");
+    state.SUPABASE_DB_PASSWORD ||= randomBytes(20).toString("hex");
     saveState(state);
     console.log(`Creo "${PROJECT_NAME}" nell'organizzazione "${org.name}" (${REGION}, piano gratuito)…`);
     const created = parseJson(
-      sh(`npx supabase projects create ${PROJECT_NAME} --org-id ${org.id} --region ${REGION} --db-password ${state.SUPABASE_DB_PASSWORD} -o json`).out,
+      sh(`npx supabase projects create ${PROJECT_NAME} --org-id ${org.id} --region ${REGION} --db-password ${state.SUPABASE_DB_PASSWORD} --yes -o json`).out,
       "supabase projects create",
     );
     project = { ref: created.ref ?? created.id, name: PROJECT_NAME };
@@ -139,10 +139,10 @@ async function main() {
 
   // ---------------------------------------------------------------- 2. migrazioni
   step(2, "Struttura del database (migrazioni)");
-  sh(`npx supabase link --project-ref ${state.SUPABASE_PROJECT_REF} --password ${state.SUPABASE_DB_PASSWORD}`);
+  sh(`npx supabase link --project-ref ${state.SUPABASE_PROJECT_REF} --password ${state.SUPABASE_DB_PASSWORD} --yes`);
   sh(`npx supabase db push --linked --password ${state.SUPABASE_DB_PASSWORD} --include-all --yes`, { inherit: true });
 
-  const keysRaw = parseJson(sh(`npx supabase projects api-keys --project-ref ${state.SUPABASE_PROJECT_REF} --reveal -o json`).out, "api-keys");
+  const keysRaw = parseJson(sh(`npx supabase projects api-keys --project-ref ${state.SUPABASE_PROJECT_REF} --reveal --yes -o json`).out, "api-keys");
   const keys = Array.isArray(keysRaw) ? keysRaw : (keysRaw.keys ?? []);
   const pick = (types, names) => keys.find((k) => types.includes(k.type)) ?? keys.find((k) => names.includes(k.name));
   const publishable = pick(["publishable"], ["anon"]);
