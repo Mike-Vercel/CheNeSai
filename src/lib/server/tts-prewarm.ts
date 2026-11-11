@@ -2,7 +2,7 @@ import "server-only";
 import { after } from "next/server";
 import { getSql } from "@/lib/database/db";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
-import { podiumLines, speechFor } from "@/features/game/script";
+import { podiumLines, speechFor, type SpokenLine } from "@/features/game/script";
 import { cachedKeys, ensureClip, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 import { ensureOptionsClip } from "./read-time";
 import { runScopeBatch } from "./tts-pregen";
@@ -48,6 +48,29 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     });
   } catch {
     // fuori da una richiesta (script, test) o errore imprevisto: nessun pre-riscaldamento
+  }
+}
+
+/**
+ * Pre-riscalda battute live nate fuori da un comando di regia (es. saluti della lobby):
+ * stesse chiavi di cache che chiederà il TV (who, testo, live).
+ */
+export function prewarmLines(lines: SpokenLine[]): void {
+  try {
+    if (!ttsConfigured() || process.env.VITEST || lines.length === 0) return;
+    after(async () => {
+      try {
+        const db = getSql();
+        const cfg = await loadVoiceConfig(db);
+        const plans = lines.map((l) => planClip(cfg, l)).filter((p) => p !== null);
+        const cached = await cachedKeys(db, plans.map((p) => p.key));
+        await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, p.live ? "live" : "pregen", cfg)));
+      } catch (e) {
+        console.warn("[quizzone] pre-riscaldamento voci non riuscito", e instanceof Error ? e.message : e);
+      }
+    });
+  } catch {
+    // fuori da una richiesta: nessun pre-riscaldamento
   }
 }
 

@@ -171,6 +171,8 @@ export interface PublicShowLine {
   text: string;
   animation: string | null;
   event: string;
+  /** id nel registro delle battute (per riconoscere i saluti nuovi della lobby) */
+  id?: string;
 }
 
 export interface PublicState {
@@ -197,7 +199,7 @@ export interface PublicState {
   pausedFrom: GamePhase | null;
   /** Ultimi nickname entrati (solo lobby). */
   recentPlayers: string[] | null;
-  /** battute del regista automatico per il momento corrente (dopo i punti di una risposta) */
+  /** battute del regista automatico per il momento corrente: punti di una risposta, inizio finale, saluti in lobby */
   showLines: PublicShowLine[] | null;
 }
 

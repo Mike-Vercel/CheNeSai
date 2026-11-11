@@ -42,7 +42,7 @@ export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl
       const total = view.vote.closesAt && view.vote.openedAt ? Date.parse(view.vote.closesAt) - Date.parse(view.vote.openedAt) : 15000;
       return <TvVotingScreen vote={view.vote} remainingMs={remainingMs} totalMs={total} phase={vp} />;
     }
-    return <TvRoundIntroScreen round={view.round} vote={view.vote} />;
+    return <TvRoundIntroScreen round={view.round} vote={view.vote} showLines={vp === "ROUND_INTRO" ? view.showLines : null} />;
   }
   if (vp === "SPECIAL_EVENT" && view.event) return <TvSpecialEventScreen event={view.event} />;
   if (view.question && (vp === "QUESTION_VISIBLE" || vp === "OPTIONS_VISIBLE" || vp === "ANSWERS_LOCKED" || vp === "ANSWER_REVEAL")) {
@@ -64,8 +64,9 @@ export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl
   if (vp === "SCORE_REVEAL") {
     // a metà round solo i punti di questa risposta; all'ultima domanda del round la classifica totale
     const q = view.question;
-    if (q && q.positionInRound < q.totalInRound) return <TvAnswerPointsScreen entries={view.leaderboard ?? []} who={q.presenter} questionId={q.id} />;
-    return <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showDelta />;
+    // chi dice una battuta del regista entra in scena con la sua animazione (vedi presenter-cue.ts)
+    if (q && q.positionInRound < q.totalInRound) return <TvAnswerPointsScreen entries={view.leaderboard ?? []} who={q.presenter} questionId={q.id} showLines={view.showLines} />;
+    return <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showDelta showLines={view.showLines} />;
   }
   if (vp === "LEADERBOARD") return <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA" showDelta />;
   if (vp === "FINISHED")

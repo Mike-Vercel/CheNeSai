@@ -2,21 +2,23 @@
 /* eslint-disable @next/next/no-img-element -- media delle domande serviti tramite URL firmati temporanei */
 
 import { clsx } from "clsx";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type {
   GamePhase,
   LeaderboardEntry,
+  Presenter,
   PublicEvent,
   PublicQuestion,
   PublicRound,
+  PublicShowLine,
   PublicState,
   PublicVote,
 } from "@/lib/game-engine/types";
 import { AnswerBar, ANSWER_STYLES, LETTERS, type AnswerVisual } from "@/features/game/components/answers";
 import { Character, CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
-import { getVoice, useSpeaker } from "@/features/media/voice";
+import { getVoice, useHeldSpeech, useSpeaker } from "@/features/media/voice";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { podiumPlan, scoreQuipLine } from "@/features/game/script";
 import { bleedStyle, CharacterStage, type StageBleed } from "@/features/three/characters/CharacterStage";
@@ -26,6 +28,7 @@ const TV_BLEED: StageBleed = { left: 0.4, right: 0.25, top: 0.2 };
 import { useCharacterMode } from "@/features/three/characters/character-mode";
 import type { CharacterAnimation } from "@/features/three/characters/types";
 import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
+import { presenterCue, type PresenterCue } from "./presenter-cue";
 
 /**
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
@@ -47,6 +50,33 @@ function TalkingCharacter(props: React.ComponentProps<typeof Character> & { anim
   }
   const cls = (imgProps.className ?? "").replace(/animate-float\S*/g, talking ? "" : "$&");
   return <Character {...imgProps} className={clsx(cls, talking && "qz-talking")} />;
+}
+
+/** Chi è in scena durante i momenti del regista: chi dice la battuta, con la sua animazione. */
+function useDirectedCue(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined): PresenterCue {
+  return presenterCue(host, idle, lines, useHeldSpeech());
+}
+
+/**
+ * Personaggio nel suo riquadro: se la battuta è di un altro presentatore, il padrone di casa esce
+ * di lato ed entra l'ospite (stesso riquadro, quindi mai sopra testi o risposte); poi si torna.
+ */
+function CueCharacter({ cue, from, priority }: { cue: PresenterCue; from: "left" | "right"; priority?: boolean }) {
+  const off = from === "right" ? "45%" : "-45%";
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={cue.who}
+        initial={{ x: off, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: off, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 170, damping: 20 }}
+        className="w-full"
+      >
+        <TalkingCharacter who={cue.who} priority={priority} className="w-full" animation={cue.animation} />
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -349,9 +379,11 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl }: { state: PublicStat
 // ---------------------------------------------------------------------------
 // Presentazione round
 // ---------------------------------------------------------------------------
-export function TvRoundIntroScreen({ round, vote }: { round: PublicRound; vote: PublicVote | null }) {
+export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRound; vote: PublicVote | null; showLines?: readonly PublicShowLine[] | null }) {
   const presenter = round.kind === "category_vote" ? "palmino" : round.presenter;
   const c = CHARACTERS[presenter];
+  // inizio della finale: chi nomina primo e secondo entra in scena mentre lo dice
+  const cue = useDirectedCue(presenter, "intro", showLines);
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -363,7 +395,7 @@ export function TvRoundIntroScreen({ round, vote }: { round: PublicRound; vote: 
         transition={{ type: "spring", stiffness: 90, damping: 14 }}
         className="absolute bottom-0 left-[3cqw] w-[34cqw]"
       >
-        <TalkingCharacter who={presenter} priority className="w-full" animation="intro" />
+        <CueCharacter cue={cue} from="left" priority />
       </motion.div>
       <div className="absolute left-[40cqw] right-[4cqw] top-[22cqh] flex flex-col items-start gap-[2.4cqh]">
         <Pill tone="dark">
@@ -526,17 +558,28 @@ function Movement({ e }: { e: LeaderboardEntry }) {
 }
 
 /** Punti presi in QUESTA risposta (niente classifica totale): i migliori in alto. */
-export function TvAnswerPointsScreen({ entries, who, questionId }: { entries: LeaderboardEntry[]; who: "professore" | "regina" | "palmino"; questionId: string }) {
+export function TvAnswerPointsScreen({
+  entries,
+  who,
+  questionId,
+  showLines,
+}: {
+  entries: LeaderboardEntry[];
+  who: Presenter;
+  questionId: string;
+  showLines?: readonly PublicShowLine[] | null;
+}) {
   const rows = [...entries].sort((a, b) => b.lastDelta - a.lastDelta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 10);
-  // la stessa battuta che dice la voce
-  const quip = stripAudioTags(scoreQuipLine(who, questionId).text);
+  const cue = useDirectedCue(who, "point", showLines);
+  // la stessa battuta che dice la voce: quella del regista mentre la dice, altrimenti la battuta di rito
+  const quip = stripAudioTags(cue.line ? cue.line.text : scoreQuipLine(who, questionId).text);
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
       <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-        <TalkingCharacter who={who} className="w-full" animation="point" />
+        <CueCharacter cue={cue} from="right" />
         <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[30cqw] text-[2.8cqh] leading-tight">
           {quip}
         </SpeechBubble>
@@ -568,14 +611,31 @@ export function TvAnswerPointsScreen({ entries, who, questionId }: { entries: Le
   );
 }
 
-export function TvLeaderboardScreen({ entries, title, showDelta }: { entries: LeaderboardEntry[]; title: string; showDelta: boolean }) {
+export function TvLeaderboardScreen({
+  entries,
+  title,
+  showDelta,
+  showLines,
+}: {
+  entries: LeaderboardEntry[];
+  title: string;
+  showDelta: boolean;
+  showLines?: readonly PublicShowLine[] | null;
+}) {
+  const cue = useDirectedCue("professore", "point", showLines);
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
       <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-        <TalkingCharacter who="professore" className="w-full" animation="point" />
+        <CueCharacter cue={cue} from="right" />
+        {/* fumetto stretto sopra il personaggio, a destra della classifica (non la copre) */}
+        {cue.line && (
+          <SpeechBubble tail="right" className="absolute bottom-full right-[1cqw] mb-[1cqh] w-[22cqw] !px-[1.6cqh] !py-[1.2cqh] text-[2.4cqh] leading-tight">
+            {stripAudioTags(cue.line.text)}
+          </SpeechBubble>
+        )}
       </div>
       <div className="absolute left-[5cqw] right-[28cqw] top-[15.5cqh]">
         <h1 className="mb-[1.4cqh] font-display text-[5.4cqh] text-gold [text-shadow:0_0.5vh_0_#6b1020]">{title}</h1>

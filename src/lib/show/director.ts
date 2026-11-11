@@ -49,8 +49,10 @@ export function validateTemplate(t: Pick<DialogueTemplate, "event" | "text">): s
   return errors;
 }
 
-const names = (list: { nickname: string }[]) => {
-  const n = list.map((x) => cleanSpeech(x.nickname));
+/** "Vodka", "Vodka e Gigi", "Vodka, Gigi e Lalla"; con `others` > 0: "Vodka, Gigi e altri 3". */
+export const names = (list: { nickname: string }[], others = 0) => {
+  const n = list.map((x) => cleanSpeech(x.nickname)).filter((x) => x.length > 0);
+  if (others > 0 && n.length > 0) return `${n.join(", ")} e ${others === 1 ? "un altro" : `altri ${others}`}`;
   return n.length <= 1 ? (n[0] ?? "") : `${n.slice(0, -1).join(", ")} e ${n[n.length - 1]}`;
 };
 const secondsIt = (ms: number) => (Math.round(ms / 100) / 10).toFixed(1).replace(".", ",");
@@ -81,6 +83,10 @@ export function placeholderValues(e: ShowEvent): Record<string, string> {
       return { nome: names([e.who]), soglia: String(e.threshold) };
     case "ROUND_WINNER":
       return { nome_primo: names(e.leaders), punti_primo: String(e.points) };
+    case "PLAYERS_JOINED":
+      return { nomi: names(e.named, e.others) };
+    case "FINAL_ROUND_START":
+      return { nome_primo: names([e.leader]), nome_secondo: names([e.runnerUp]) };
     case "ALL_WRONG":
     case "ALL_CORRECT":
       return {};

@@ -40,6 +40,9 @@ const PROFILES: Record<TtsRole, CharacterVoice> = {
 
 const FEMALE = /(isabella|elsa|palmira|alice|federica|paola|carla|bianca|google italiano|female|donna)/i;
 
+/** Per quanto la battuta appena finita resta "in scena" (vedi heldSpeech). */
+const HELD_SPEECH_MS = 900;
+
 /** Se la clip ElevenLabs non è pronta entro questo tempo si parla con la voce del browser. */
 const CLIP_READY_TIMEOUT_MS = 2500;
 
@@ -141,14 +144,41 @@ class VoiceEngine {
     return () => this.listeners.delete(fn);
   }
 
-  private setSpeaking(who: Presenter | null, duck = who !== null) {
+  private setSpeaking(who: Presenter | null, duck = who !== null, text = "") {
     this.speakingWho = who;
+    // nuovo oggetto solo quando cambia davvero (snapshot stabile per useSyncExternalStore)
+    const next = who ? { who, text } : null;
+    if (next?.who !== this.speakingLine?.who || next?.text !== this.speakingLine?.text) this.speakingLine = next;
+    if (this.heldTimer) clearTimeout(this.heldTimer);
+    this.heldTimer = null;
+    if (this.speakingLine) this.heldLine = this.speakingLine;
+    else if (this.heldLine) {
+      // fra due battute consecutive (pausa di ~120 ms) chi ha parlato resta in scena
+      this.heldTimer = setTimeout(() => {
+        this.heldTimer = null;
+        this.heldLine = null;
+        for (const l of this.listeners) l(this.speakingWho);
+      }, HELD_SPEECH_MS);
+    }
     getSoundEngine().duck(duck);
     for (const l of this.listeners) l(who);
   }
 
   get speaking(): Presenter | null {
     return this.speakingWho;
+  }
+
+  /** Battuta in corso (chi parla e il testo passato a say), per animare chi la dice sul TV. */
+  private speakingLine: { who: Presenter; text: string } | null = null;
+  get speech(): { who: Presenter; text: string } | null {
+    return this.speakingLine;
+  }
+
+  private heldLine: { who: Presenter; text: string } | null = null;
+  private heldTimer: ReturnType<typeof setTimeout> | null = null;
+  /** Come `speech`, ma resta per un attimo dopo la fine della battuta (niente sfarfallii di scena). */
+  get heldSpeech(): { who: Presenter; text: string } | null {
+    return this.heldLine;
   }
 
   /**
@@ -344,7 +374,7 @@ class VoiceEngine {
       next.resolve();
       setTimeout(() => this.pump(), 120);
     };
-    el.onplaying = () => this.setSpeaking(mouthOf(next.who), true);
+    el.onplaying = () => this.setSpeaking(mouthOf(next.who), true, next.text);
     el.onended = () => done(false);
     el.onerror = () => done(true);
     void el.play().catch(() => done(true));
@@ -386,7 +416,7 @@ class VoiceEngine {
       else done();
     };
     watchdog = setTimeout(check, 1500 + spoken.length * 120);
-    u.onstart = () => this.setSpeaking(mouthOf(next.who), true);
+    u.onstart = () => this.setSpeaking(mouthOf(next.who), true, next.text);
     u.onboundary = () => {
       this.lastBoundary = performance.now();
     };
@@ -414,6 +444,18 @@ export function spokenLetter(i: number): string {
 /** Numeri grandi leggibili dalla sintesi ("12.400" → "12400"). */
 export function spokenPoints(n: number): string {
   return `${n}`;
+}
+
+/**
+ * Battuta in corso sul TV (chi parla e cosa), null in silenzio. Resta per ~0,9 s dopo la fine,
+ * così tra due battute consecutive dello stesso momento il personaggio non esce e rientra.
+ */
+export function useHeldSpeech(): { who: Presenter; text: string } | null {
+  return useSyncExternalStore(
+    (cb) => getVoice().subscribe(() => cb()),
+    () => getVoice().heldSpeech,
+    () => null,
+  );
 }
 
 /** Chi sta parlando in questo momento (per animare i personaggi). */

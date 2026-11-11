@@ -22,7 +22,7 @@ import { broadcastState } from "./realtime";
 import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } from "./settings";
 import { rulesForQuestion } from "./rules";
 import { optionsReadMs } from "./read-time";
-import { directAfterScore } from "./show";
+import { directAfterScore, directFinalRoundStart } from "./show";
 import { scheduleSessionPrep, schedulePrewarm } from "./tts-prewarm";
 import { PALMINO_DECIDES_PREFIX } from "@/features/game/script";
 
@@ -300,10 +300,21 @@ const HANDLERS: Record<GameCommand, Handler> = {
     }
     await tx`update game_rounds set started_at = clock_timestamp() where id = ${round.id}`;
     await tx`update game_sessions set started_at = coalesce(started_at, clock_timestamp()) where id = ${sessionId}`;
+    // Regia automatica: all'inizio della finale un presentatore nomina primo e secondo.
+    await tx`update game_state set show_lines = null where session_id = ${sessionId}`;
+    let showLines = 0;
+    if (round.kind === "final") {
+      try {
+        const r = round;
+        showLines = (await tx.savepoint((sp) => directFinalRoundStart(sp, sessionId, r.id))).length;
+      } catch (e) {
+        console.warn("[quizzone] regia automatica della finale non riuscita", e instanceof Error ? e.message : e);
+      }
+    }
     return {
       to: "ROUND_INTRO",
       patch: { current_round_id: round.id, current_session_question_id: null, forced_next_sq_id: null, active_event_id: null },
-      result: { roundId: round.id, title: round.title },
+      result: { roundId: round.id, title: round.title, showLines },
     };
   },
 

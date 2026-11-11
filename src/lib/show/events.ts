@@ -159,6 +159,10 @@ export function eventPlayers(e: ShowEvent): PlayerRef[] {
     case "ALL_WRONG":
     case "ALL_CORRECT":
       return [];
+    case "PLAYERS_JOINED":
+      return e.greeted;
+    case "FINAL_ROUND_START":
+      return [e.leader, e.runnerUp];
     default:
       return [e.who];
   }
