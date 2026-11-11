@@ -11,7 +11,15 @@
  * Nessun evento viene inventato: tutto nasce da dati del server (giocatori attivi, classifica).
  */
 import type { GamePhase } from "@/lib/game-engine/types";
-import { SCORE_EVENT_TYPES, type PlayerRef, type ShowEvent } from "./types";
+import {
+  FINISHED_MOMENT_EVENTS,
+  LEADERBOARD_MOMENT_EVENTS,
+  OPTIONS_MOMENT_EVENTS,
+  REVEAL_MOMENT_EVENTS,
+  SCORE_EVENT_TYPES,
+  type PlayerRef,
+  type ShowEvent,
+} from "./types";
 
 export interface LobbyGreetingConfig {
   /** distanza minima fra due saluti */
@@ -94,8 +102,22 @@ export function finalRoundStartEvent(standings: Standing[]): Extract<ShowEvent, 
  */
 export function showLinesForPhase<L extends { event: string }>(phase: GamePhase, lines: L[] | null | undefined): L[] | null {
   if (!Array.isArray(lines)) return null;
-  const allowed: ReadonlySet<string> | null =
-    phase === "SCORE_REVEAL" ? new Set(SCORE_EVENT_TYPES) : phase === "ROUND_INTRO" ? new Set(["FINAL_ROUND_START"]) : phase === "LOBBY" ? new Set(["PLAYERS_JOINED"]) : null;
+  const allowed = PHASE_EVENTS[phase];
   if (!allowed) return null;
   return lines.filter((l) => allowed.has(l.event));
 }
+
+/**
+ * Eventi validi per fase: punti di una risposta, inizio finale, lobby; con la libreria ufficiale
+ * anche la soluzione (reazioni), le risposte aperte (tempo che scade), la classifica generale e il
+ * podio (vincitore della serata: SOLO qui, mai prima).
+ */
+const PHASE_EVENTS: Partial<Record<GamePhase, ReadonlySet<string>>> = {
+  SCORE_REVEAL: new Set(SCORE_EVENT_TYPES),
+  ROUND_INTRO: new Set(["FINAL_ROUND_START"]),
+  LOBBY: new Set(["PLAYERS_JOINED"]),
+  ANSWER_REVEAL: new Set(REVEAL_MOMENT_EVENTS),
+  OPTIONS_VISIBLE: new Set(OPTIONS_MOMENT_EVENTS),
+  LEADERBOARD: new Set(LEADERBOARD_MOMENT_EVENTS),
+  FINISHED: new Set(FINISHED_MOMENT_EVENTS),
+};

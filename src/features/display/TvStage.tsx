@@ -104,6 +104,7 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
         questionsPlayed={view.questionsPlayed}
         totalQuestions={view.totalQuestions}
         audioState={audioState}
+        showLines={view.showLines}
       />
     );
   }
@@ -142,7 +143,7 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
   }
   if (vp === "LEADERBOARD") {
     const roundPoints = view.roundLeaderboard ? new Map(view.roundLeaderboard.map((r) => [r.participantId, r.points])) : null;
-    return teamBoard("CLASSIFICA GENERALE") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA GENERALE" showDelta roundPoints={roundPoints} />;
+    return teamBoard("CLASSIFICA GENERALE") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA GENERALE" showDelta roundPoints={roundPoints} showLines={view.showLines} />;
   }
   if (vp === "FINISHED")
     return (
@@ -151,6 +152,7 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
         entries={standingsForShow(view)}
         startedAt={view.phaseStartedAt}
         seed={view.sessionId}
+        showLines={view.showLines}
         now={now}
         live={live}
         onCelebrate={onCelebrate}

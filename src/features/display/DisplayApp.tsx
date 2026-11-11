@@ -13,7 +13,8 @@ import { Confetti } from "@/features/game/components/effects";
 import { Logo } from "@/features/game/components/brand";
 import { getVoice, useSilentLine, useVoicePreparing } from "@/features/media/voice";
 import { speechFor } from "@/features/game/speech";
-import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
+import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE, type SpokenLine } from "@/features/game/script";
+import { spokenMs, timeLineDue, timeLineStartMs } from "@/lib/show/library";
 import { questionMoment } from "@/features/game/moment";
 import { questionIntroMaxMs, questionIntroMs } from "@/features/game/question-intro";
 import { TvPauseOverlay } from "./TvScreens";
@@ -74,6 +75,12 @@ const PHASE_CUES: Partial<Record<GamePhase, CueName>> = {
   FINISHED: "leaderboard",
   PAUSED: "pause",
 };
+
+/** Opzioni di voce di una battuta del copione (libreria ufficiale: testo mostrato, battuta saltabile, scenetta). */
+const sayOpts = (l: SpokenLine) => ({ live: l.live, display: l.display, optional: l.optional, group: l.group });
+
+/** Tempo che scade: attesa massima della clip (è pre-generata; se non c'è, la battuta si salta). */
+const TIME_LINE_CLIP_WAIT_MS = 1200;
 
 /** Respiro dopo l'ultima battuta prima di dire al server "ho finito" (il passo successivo parte subito dopo). */
 const SPOKEN_BREATH_MS = 350;
@@ -327,7 +334,7 @@ export function DisplayApp({
         const wait = Math.max(0, questionIntroMs(questionMoment(s)) - elapsed);
         const pre = lines.filter((l) => l.beforeCard);
         const rest = lines.filter((l) => !l.beforeCard);
-        const said = pre.map((l) => voice.say(l.who, l.text, { live: l.live }));
+        const said = pre.map((l) => voice.say(l.who, l.text, sayOpts(l)));
         if (lines.length > 0 && voice.settings.enabled) {
           gateFor.current = qid;
           said.push(
@@ -337,10 +344,10 @@ export function DisplayApp({
             }),
           );
         }
-        said.push(...rest.map((l) => voice.say(l.who, l.text, { live: l.live })));
+        said.push(...rest.map((l) => voice.say(l.who, l.text, sayOpts(l))));
         spoken = Promise.all(said);
       } else {
-        spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { live: l.live })));
+        spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, sayOpts(l))));
       }
       // Lobby: saluti ai nuovi arrivati decisi dal server (solo quelli nuovi, mai dopo un ricaricamento)
       if (startedRef.current) for (const l of lobbyGreetingLines(s, prev)) void voice.say(l.who, l.text, { live: l.live });
@@ -495,6 +502,37 @@ export function DisplayApp({
       sound.play(s === 0 ? "tickFinal" : "tick");
     }
   }, [remainingMs, voting, sound]);
+
+  // Tempo che scade (libreria ufficiale): a volte (lo decide il server) una battuta negli ultimi secondi,
+  // solo se non hanno risposto tutti, mai sopra un'altra voce e in tempo per finire prima della chiusura.
+  const timeLine = view?.phase === "OPTIONS_VISIBLE" && view.question && !view.question.media ? ((view.showLines ?? []).find((l) => l.event === "TIME_RUNNING_OUT") ?? null) : null;
+  const timeFired = useRef<string | null>(null);
+  const timeQid = view?.question?.id ?? null;
+  const timeAnswered = view?.question?.answeredCount ?? null;
+  const timePlayers = view?.playerCount ?? 0;
+  useEffect(() => {
+    if (!timeLine || !started || !timeQid) return;
+    const key = `${timeQid}|${timeLine.id ?? timeLine.text}`;
+    if (timeFired.current === key) return;
+    const due = timeLineDue({
+      remainingMs,
+      startAtMs: timeLineStartMs(timeLine.display ?? timeLine.text, timeLine.tags),
+      textMs: spokenMs(timeLine.display ?? timeLine.text),
+      answered: timeAnswered,
+      players: timePlayers,
+      voiceBusy: voice.pending,
+    });
+    if (!due) return;
+    timeFired.current = key;
+    void voice.say(timeLine.who, timeLine.text, {
+      live: timeLine.live ?? false,
+      display: timeLine.display,
+      optional: true,
+      optionalWaitMs: TIME_LINE_CLIP_WAIT_MS,
+      // la fase è cambiata (tutti hanno risposto, tempo scaduto): non si dice più
+      skipIf: () => stateRef.current?.phase !== "OPTIONS_VISIBLE" || stateRef.current?.question?.id !== timeQid,
+    });
+  }, [timeLine, started, timeQid, remainingMs, timeAnswered, timePlayers, voice]);
 
   // "Tic-tac" dell'orologio mentre si risponde: da quando le risposte si aprono a quando si chiudono.
   // Si ferma subito quando la fase cambia (tutti hanno risposto, tempo scaduto, pausa).

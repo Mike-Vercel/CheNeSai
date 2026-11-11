@@ -33,11 +33,20 @@ import { broadcastState } from "./realtime";
 import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } from "./settings";
 import { rulesForQuestion } from "./rules";
 import { optionsReadMs } from "./read-time";
-import { directAfterScore, directFinalRoundStart } from "./show";
+import { directAfterReveal, directAfterScore, directFinalRoundStart, directFinish, directLeaderboard, directOptionsOpen } from "./show";
 import { computeSessionTeamStandings, rerankTeams } from "./teams";
 import { scheduleSessionPrep, schedulePrewarm } from "./tts-prewarm";
 import { PALMINO_DECIDES_PREFIX } from "@/features/game/script";
 import { INTRO_SKIP_REASON } from "@/lib/game-engine/intro-skip";
+
+/** Regia dei presentatori in un savepoint: un errore non deve mai far fallire il comando. */
+async function directSafely(tx: Tx, fn: (sp: Tx) => Promise<unknown>): Promise<void> {
+  try {
+    await tx.savepoint((sp) => fn(sp));
+  } catch (e) {
+    console.warn("[quizzone] regia automatica non riuscita (il comando prosegue)", e instanceof Error ? e.message : e);
+  }
+}
 
 export interface Actor {
   userId: string | null;
@@ -727,6 +736,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
     // Scommetti tutto: le puntate si chiudono insieme all'apertura delle risposte.
     if (rules.special?.kind === "bet") await lockBets(ctx.tx, ctx.sessionId, q.id, rules.special);
     const boosted = rules.special?.kind === "comeback" ? rules.special.boosted.length : undefined;
+    await directSafely(ctx.tx, (sp) => directOptionsOpen(sp, ctx.sessionId, q.id));
     return { to: "OPTIONS_VISIBLE", result: { durationSeconds: rules.durationSeconds, ...(boosted !== undefined ? { boosted } : {}) } };
   },
 
@@ -756,6 +766,8 @@ const HANDLERS: Record<GameCommand, Handler> = {
         where a.id = v.id`;
     }
     await tx`update session_questions set revealed_at = coalesce(revealed_at, clock_timestamp()) where id = ${q.id}`;
+    // libreria ufficiale: reazione all'esito vero della domanda (al posto della battuta di sempre)
+    await directSafely(tx, (sp) => directAfterReveal(sp, ctx.sessionId, q.id));
     return { to: "ANSWER_REVEAL", result: { answers: subs.length } };
   },
 
@@ -883,7 +895,8 @@ const HANDLERS: Record<GameCommand, Handler> = {
     return { to: "SCORE_REVEAL", result: { scored: players.length, correct: correctCount, showLines } };
   },
 
-  async SHOW_LEADERBOARD() {
+  async SHOW_LEADERBOARD({ tx, st, sessionId }) {
+    await directSafely(tx, (sp) => directLeaderboard(sp, sessionId, st.current_round_id, `${st.current_round_id ?? sessionId}|${st.questions_played}`));
     return { to: "LEADERBOARD" };
   },
 
@@ -1069,6 +1082,8 @@ const HANDLERS: Record<GameCommand, Handler> = {
     const teams = teamsEnabled(settings.teams.mode)
       ? (await computeSessionTeamStandings(tx, sessionId, settings.teams.aggregation)).standings.map((t) => ({ teamId: t.teamId, name: t.name, rank: t.rank, points: t.points, members: t.members }))
       : null;
+    // podio: battuta sul vincitore (detta solo DOPO la rivelazione del nome) e scenetta finale
+    await directSafely(tx, (sp) => directFinish(sp, sessionId));
     return {
       to: "FINISHED",
       patch: { paused_from_phase: null, paused_remaining_ms: null, paused_at: null, active_event_id: null },

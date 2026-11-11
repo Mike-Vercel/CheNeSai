@@ -13,8 +13,9 @@
  */
 import type { Presenter } from "@/lib/game-engine/types";
 import { cleanSpeech } from "@/features/game/script";
-import { lineFitsMoment, NO_MOMENT, type MomentContext } from "@/features/game/moment";
+import { NO_MOMENT, type MomentContext } from "@/features/game/moment";
 import { eventPlayers, eventTeams } from "./events";
+import { candidateLines, libraryCandidates, renderTemplate, SCENE_GAP_MS, voiceOptionsOf, type LibraryCandidate, type LineContext, type RenderedLine } from "./library";
 import {
   ALLOWED_PLACEHOLDERS,
   EVENT_PRIORITY,
@@ -47,6 +48,12 @@ export interface DirectInput {
    * domanda (e, sull'ultima della serata, quelle che danno per scontato che si continui).
    */
   moment?: MomentContext;
+  /** condizioni delle battute della libreria (modalità squadre, timer, difficoltà…) */
+  ctx?: LineContext;
+  /** battute dette nelle ultime serate dello stesso host (peso ridotto) */
+  elsewhere?: ReadonlySet<string>;
+  /** ultima scenetta della serata (ms): fra due scenette passa almeno SCENE_GAP_MS */
+  lastSceneMs?: number | null;
 }
 
 const PLACEHOLDER = /\{([a-z_]+)\}/g;
@@ -80,7 +87,13 @@ const secondsIt = (ms: number) => (Math.round(ms / 100) / 10).toFixed(1).replace
 export function placeholderValues(e: ShowEvent): Record<string, string> {
   switch (e.type) {
     case "LEADER_CHANGED":
-      return { nome_primo: names([e.leader]), nome_ex_primo: names([e.previous]), punti_primo: String(e.points) };
+      return {
+        nome_primo: names([e.leader]),
+        nome_nuovo_primo: names([e.leader]),
+        nome_ex_primo: names([e.previous]),
+        nome_primo_precedente: names([e.previous]),
+        punti_primo: String(e.points),
+      };
     case "LEADER_TIE":
       return { nomi_primi: names(e.leaders), punti_primo: String(e.points) };
     case "LEADER_KEPT":
@@ -88,16 +101,27 @@ export function placeholderValues(e: ShowEvent): Record<string, string> {
     case "OVERTAKE":
       return { nome_sorpasso: names([e.who]), nome_superato: names([e.overtaken]) };
     case "COMEBACK":
-      return { nome: names([e.who]), posizioni: String(e.positions) };
+      return { nome: names([e.who]), nome_rimonta: names([e.who]), posizioni: String(e.positions) };
     case "NEW_LAST":
       return { nome_ultimo: names([e.who]) };
     case "FASTEST_CORRECT":
-      return { nome: names([e.who]), secondi: secondsIt(e.ms) };
+      return { nome: names([e.who]), nome_piu_veloce: names([e.who]), secondi: secondsIt(e.ms) };
     case "CORRECT_STREAK":
     case "WRONG_STREAK":
       return { nome: names([e.who]), serie: String(e.streak) };
     case "ONLY_ONE_CORRECT":
-      return { nome: names([e.who]) };
+      return { nome: names([e.who]), nome_risposta_corretta: names([e.who]) };
+    case "ONLY_ONE_WRONG":
+      return { nome: names([e.who]), nome_risposta_errata: names([e.who]) };
+    case "PLAYER_NO_ANSWER":
+    case "NO_ANSWER_LEADER":
+    case "NO_ANSWER_LAST":
+    case "NO_ANSWER_STREAK":
+      return { nome: names([e.who]), nome_giocatore: names([e.who]), serie: String(e.streak) };
+    case "TEAM_NO_ANSWER":
+      return { nome_squadra: teamNames([e.team]) };
+    case "GAME_WINNER":
+      return { nome_vincitore: names([{ nickname: e.winner.name }]) };
     case "POINTS_MILESTONE":
       return { nome: names([e.who]), soglia: String(e.threshold) };
     case "ROUND_WINNER":
@@ -116,8 +140,27 @@ export function placeholderValues(e: ShowEvent): Record<string, string> {
       return e.about ? { nome: names([e.about]) } : {};
     case "ALL_WRONG":
     case "ALL_CORRECT":
+    case "ANSWER_WRONG":
+    case "EASY_WRONG":
+    case "ANSWER_CORRECT":
+    case "LOSE_PATIENCE":
+    case "TIME_RUNNING_OUT":
+    case "WHEEL_SPIN":
+    case "MANY_NO_ANSWER":
+    case "FILLER":
+    case "LEADERBOARD_QUIP":
+    case "GAME_END":
       return {};
   }
+}
+
+/**
+ * Battuta pronta per l'evento (testo per la voce, testo da mostrare): null se un segnaposto manca o
+ * non è ammesso. Le battute curate (libreria ufficiale, pannello) passano da renderTemplate.
+ */
+export function renderFor(t: DialogueTemplate, e: ShowEvent, config: Pick<DirectorConfig, "palminoAccent">): RenderedLine | null {
+  if (t.event !== e.type || validateTemplate(t).length > 0) return null;
+  return renderTemplate(t, placeholderValues(e), voiceOptionsOf(config));
 }
 
 /** Sostituisce i segnaposto; null se ne manca qualcuno o non è ammesso (battuta scartata). */
@@ -176,19 +219,23 @@ export function directShow(input: DirectInput): ShowLine[] {
     if (!exempt && players.some((p) => (history.mentionsThisRound.get(p.id) ?? 0) >= config.maxMentionsPerPlayerPerRound)) continue;
 
     const lastWho: Presenter | null = lines.length ? lines[lines.length - 1].who : null;
-    const candidates = candidatesFor(input, e, usedTemplates);
+    // scenetta: solo come prima cosa del momento (poi il momento finisce lì) e non troppo spesso
+    const scenes = lines.length === 0 && (input.lastSceneMs == null || input.nowMs - input.lastSceneMs >= SCENE_GAP_MS);
+    const candidates = candidatesFor(input, e, usedTemplates, scenes);
     if (candidates.length === 0) continue;
     // personaggio diverso dalla battuta precedente, se possibile
-    const pool = lastWho && candidates.some((c) => c.t.character !== lastWho) ? candidates.filter((c) => c.t.character !== lastWho) : candidates;
+    const pool = lastWho && candidates.some((c) => c.character !== lastWho) ? candidates.filter((c) => c.character !== lastWho) : candidates;
     const chosen = pickWeighted(pool, `${input.seed}|${e.type}|${lines.length}`);
-    lines.push({ templateId: chosen.t.id, event: e.type, who: chosen.t.character, text: chosen.text, animation: chosen.t.animation, mentions: players.map((p) => p.id) });
-    usedTemplates.add(chosen.t.id);
+    const said = candidateLines(chosen, e.type, players.map((p) => p.id), input.seed);
+    lines.push(...said);
+    for (const l of said) usedTemplates.add(l.templateId);
     for (const p of players) mentionedNow.add(p.id);
     for (const t of teams) teamsNow.add(t.id);
+    if (chosen.scene) break;
 
     // battibecco: dopo la prima battuta un altro presentatore può rispondere (e il momento finisce lì)
     if (lines.length === 1 && lines.length < config.maxLines) {
-      const retort = pickRetort(input, chosen.t.character, players[0] ?? null, usedTemplates, allowedEvents);
+      const retort = pickRetort(input, chosen.character, players[0] ?? null, usedTemplates, allowedEvents);
       if (retort) {
         lines.push(retort);
         break;
@@ -198,26 +245,33 @@ export function directShow(input: DirectInput): ShowLine[] {
   return lines;
 }
 
-type Candidate = { t: DialogueTemplate; text: string };
+type Candidate = LibraryCandidate;
 
-/** Battute utilizzabili per un evento: attive, non già usate ora, fuori cooldown, segnaposto risolti. */
-function candidatesFor(input: DirectInput, e: ShowEvent, usedTemplates: Set<string>): Candidate[] {
-  return input.templates
-    .filter((t) => t.enabled && t.event === e.type && !usedTemplates.has(t.id))
-    .filter((t) => {
-      const last = input.history.lastUsed.get(t.id);
-      return last === undefined || input.nowMs - last >= t.cooldownSec * 1000;
-    })
-    .map((t) => ({ t, text: resolveTemplate(t, e) }))
-    .filter((c): c is Candidate => c.text !== null && lineFitsMoment(c.text, input.moment ?? NO_MOMENT));
+/**
+ * Battute utilizzabili per un evento: attive, non già usate ora, fuori cooldown, segnaposto risolti,
+ * adatte al momento, al livello di comicità e alle condizioni della libreria (tags).
+ */
+function candidatesFor(input: DirectInput, e: ShowEvent, usedTemplates: Set<string>, scenes = false): Candidate[] {
+  return libraryCandidates({
+    templates: input.templates,
+    event: e.type,
+    render: (t) => renderFor(t, e, input.config),
+    comedyLevel: input.config.comedyLevel ?? "irriverente",
+    ctx: { ...input.ctx, moment: input.moment ?? input.ctx?.moment ?? NO_MOMENT },
+    lastUsed: input.history.lastUsed,
+    nowMs: input.nowMs,
+    used: usedTemplates,
+    allowScenes: scenes,
+    elsewhere: input.elsewhere,
+  });
 }
 
 /** Scelta pesata e deterministica (stesso seme → stessa battuta). */
 function pickWeighted(pool: Candidate[], seed: string): Candidate {
-  const total = pool.reduce((a, c) => a + Math.max(0.1, c.t.weight), 0);
+  const total = pool.reduce((a, c) => a + c.weight, 0);
   let r = seeded(seed) * total;
   for (const c of pool) {
-    r -= Math.max(0.1, c.t.weight);
+    r -= c.weight;
     if (r <= 0) return c;
   }
   return pool[pool.length - 1];
@@ -232,10 +286,10 @@ function pickRetort(input: DirectInput, to: Presenter, about: PlayerRef | null, 
   if (allowedEvents && !allowedEvents.has(type)) return null;
   const chance = Math.min(100, Math.max(0, input.config.banterPercent ?? 0));
   if (chance <= 0 || seeded(`${input.seed}|battibecco`) * 100 >= chance) return null;
-  const pool = candidatesFor(input, { type, about }, usedTemplates).filter((c) => c.t.character !== to);
+  const pool = candidatesFor(input, { type, about }, usedTemplates).filter((c) => c.character !== to);
   if (pool.length === 0) return null;
   const chosen = pickWeighted(pool, `${input.seed}|${type}`);
-  usedTemplates.add(chosen.t.id);
+  usedTemplates.add(chosen.id);
   // il concorrente era già nominato dalla battuta a cui si risponde: niente menzione in più
-  return { templateId: chosen.t.id, event: type, who: chosen.t.character, text: chosen.text, animation: chosen.t.animation, mentions: [] };
+  return candidateLines(chosen, type, [], input.seed)[0] ?? null;
 }

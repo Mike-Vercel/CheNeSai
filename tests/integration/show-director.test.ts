@@ -59,7 +59,10 @@ describe("regista automatico: battute con i nomi veri dagli eventi reali", () =>
     expect(lines.map((l) => l.event)).toEqual(expect.arrayContaining(["ONLY_ONE_CORRECT"]));
 
     // registrate per cooldown e limiti di menzioni
-    const log = await sql<{ n: number }[]>`select count(*)::int as n from show_dialogue_log where session_id = ${fx.sessionId}`;
+    // (la reazione alla soluzione della libreria ufficiale ha il suo momento: si contano solo quelle dei punti)
+    const log = await sql<{ n: number }[]>`
+      select count(*)::int as n from show_dialogue_log
+      where session_id = ${fx.sessionId} and event_type <> all(${sql.array(["ANSWER_WRONG", "EASY_WRONG", "ANSWER_CORRECT", "LOSE_PATIENCE", "TIME_RUNNING_OUT"])}::text[])`;
     expect(log[0].n).toBe(lines.length);
   });
 

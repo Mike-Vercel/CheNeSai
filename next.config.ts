@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
   // L'app è interamente dinamica (stato live): niente Cache Components.
   reactCompiler: true,
   poweredByHeader: false,
-  // libreria iniziale delle battute dei presentatori (importata alla prima serata se l'archivio è vuoto)
-  outputFileTracingIncludes: { "/api/**": ["./content/show/battute.json"] },
+  // libreria iniziale e libreria ufficiale delle battute dei presentatori (importate dalla regia se mancano)
+  outputFileTracingIncludes: { "/api/**": ["./content/show/battute.json", "./content/show/libreria-ufficiale.json"] },
   turbopack: {
     rules: {
       "*.css": {

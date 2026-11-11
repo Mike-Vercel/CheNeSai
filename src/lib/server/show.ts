@@ -7,19 +7,38 @@ import { aggregatePoints, teamsEnabled } from "@/lib/game-engine/teams";
 import type { SessionSettings } from "@/lib/validation/schemas";
 import { combineShowEvents, detectShowEvents, detectTeamEvents, type ShowPlayer, type ShowTeam } from "@/lib/show/events";
 import { teamSettingsOf } from "./settings";
-import { directShow, validateTemplate } from "@/lib/show/director";
+import { directShow, renderFor, validateTemplate } from "@/lib/show/director";
 import { finalRoundStartEvent, lobbyGreetingEvent } from "@/lib/show/moments";
-import { loadRoundStandingRows } from "./round-standings";
 import {
+  chance,
+  DISCONNECTED_AFTER_MS,
+  isComedyLevel,
+  nextNoAnswerStreak,
+  noAnswerEvent,
+  pickMomentLines,
+  revealChoice,
+  TIME_LINE_PERCENT,
+  type LineContext,
+  type NoAnswerPlayer,
+} from "@/lib/show/library";
+import type { MomentContext } from "@/features/game/moment";
+import { loadRoundStandingRows } from "./round-standings";
+import { computeSessionTeamStandings } from "./teams";
+import {
+  COMEDY_LEVELS,
   DEFAULT_DIRECTOR_CONFIG,
   isRetortEvent,
+  NO_ANSWER_EVENT_TYPES,
   SHOW_EVENT_TYPES,
+  TEMPLATE_ORIGINS,
   type CharacterAnimationName,
+  type ComedyLevel,
   type DialogueTemplate,
   type DirectorConfig,
   type ShowEvent,
   type ShowEventType,
   type ShowLine,
+  type TemplateOrigin,
 } from "@/lib/show/types";
 
 /**
@@ -36,6 +55,12 @@ export interface PublicShowLine {
   event: ShowEventType;
   /** id della riga nel registro (il TV riconosce i saluti nuovi della lobby senza ripeterli) */
   id?: string;
+  /** libreria ufficiale: testo da mostrare, frase fissa o live, battuta saltabile, scenetta */
+  display?: string;
+  live?: boolean;
+  optional?: boolean;
+  group?: string;
+  tags?: string[];
 }
 
 // ---------------------------------------------------------------------------
@@ -51,6 +76,9 @@ export async function loadDirectorConfig(db: Db | Tx): Promise<DirectorConfig> {
     maxMentionsPerPlayerPerRound: clampInt(v.maxMentionsPerPlayerPerRound, 1, 20, DEFAULT_DIRECTOR_CONFIG.maxMentionsPerPlayerPerRound),
     events,
     banterPercent: clampInt(v.banterPercent, 0, 100, DEFAULT_DIRECTOR_CONFIG.banterPercent),
+    comedyLevel: isComedyLevel(v.comedyLevel) ? v.comedyLevel : DEFAULT_DIRECTOR_CONFIG.comedyLevel,
+    noAnswerLines: typeof v.noAnswerLines === "boolean" ? v.noAnswerLines : DEFAULT_DIRECTOR_CONFIG.noAnswerLines,
+    palminoAccent: typeof v.palminoAccent === "boolean" ? v.palminoAccent : DEFAULT_DIRECTOR_CONFIG.palminoAccent,
   };
 }
 
@@ -62,6 +90,9 @@ export async function saveDirectorConfig(db: Db, patch: Partial<DirectorConfig>)
     maxMentionsPerPlayerPerRound: clampInt(patch.maxMentionsPerPlayerPerRound, 1, 20, cur.maxMentionsPerPlayerPerRound),
     events: Array.isArray(patch.events) ? patch.events.filter((e) => (SHOW_EVENT_TYPES as readonly string[]).includes(e)) : cur.events,
     banterPercent: clampInt(patch.banterPercent, 0, 100, cur.banterPercent),
+    comedyLevel: isComedyLevel(patch.comedyLevel) ? patch.comedyLevel : cur.comedyLevel,
+    noAnswerLines: typeof patch.noAnswerLines === "boolean" ? patch.noAnswerLines : cur.noAnswerLines,
+    palminoAccent: typeof patch.palminoAccent === "boolean" ? patch.palminoAccent : cur.palminoAccent,
   };
   await db`
     insert into application_settings (key, value) values ('show', ${db.json(JSON.parse(JSON.stringify(next)))})
@@ -87,36 +118,75 @@ interface LibraryFileLine {
   weight?: number;
   cooldownSec?: number;
   animation?: CharacterAnimationName | null;
+  level?: ComedyLevel;
+  tags?: string[];
+  scene?: { key: string; step: number };
+  origin?: TemplateOrigin;
 }
 
-/** Legge content/show/battute.json (libreria iniziale) e scarta le battute non valide. */
-export function readLibraryFile(): LibraryFileLine[] {
+/** File della libreria: quella iniziale di sempre e la libreria ufficiale scritta dall'utente. */
+export const LIBRARY_FILES = { base: "battute.json", ufficiale: "libreria-ufficiale.json" } as const;
+
+/** Legge un file della libreria (content/show) e scarta le battute non valide. */
+export function readLibraryFile(file: string = LIBRARY_FILES.base): LibraryFileLine[] {
   try {
-    const raw = JSON.parse(readFileSync(join(process.cwd(), "content", "show", "battute.json"), "utf8")) as { lines?: LibraryFileLine[] };
-    return (raw.lines ?? []).filter((l) => l && typeof l.id === "string" && validateTemplate({ event: l.event, text: l.text }).length === 0);
+    const raw = JSON.parse(readFileSync(join(process.cwd(), "content", "show", file), "utf8")) as { lines?: LibraryFileLine[]; origin?: string };
+    const origin: TemplateOrigin = (TEMPLATE_ORIGINS as readonly string[]).includes(raw.origin ?? "") ? (raw.origin as TemplateOrigin) : "base";
+    return (raw.lines ?? [])
+      .filter((l) => l && typeof l.id === "string" && validateTemplate({ event: l.event, text: l.text }).length === 0)
+      .map((l) => ({ ...l, origin }));
   } catch {
     return [];
   }
 }
 
+/** Libreria ufficiale (content/show/libreria-ufficiale.json). */
+export const readOfficialLibrary = () => readLibraryFile(LIBRARY_FILES.ufficiale);
+
 /** Importa nella tabella le battute della libreria che non ci sono ancora (non sovrascrive le modifiche). */
 export async function importLibrary(db: Db | Tx, lines: LibraryFileLine[] = readLibraryFile()): Promise<number> {
   let added = 0;
   for (const l of lines) {
+    const level = l.level && (COMEDY_LEVELS as readonly string[]).includes(l.level) ? l.level : "leggero";
     const r = await db`
-      insert into dialogue_templates (id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation)
+      insert into dialogue_templates (id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation,
+                                      level, origin, tags, scene_key, scene_step)
       values (${l.id}, ${l.character}, ${l.event}, ${l.text}, ${l.tone ?? "comico"}, ${l.intensity ?? 2}, ${l.priority ?? 50},
-              ${l.weight ?? 1}, ${l.cooldownSec ?? 120}, ${l.animation ?? null})
+              ${l.weight ?? 1}, ${l.cooldownSec ?? 120}, ${l.animation ?? null},
+              ${level}, ${l.origin ?? "base"}, ${db.array(l.tags ?? [])}::text[], ${l.scene?.key ?? null}, ${l.scene?.step ?? null})
       on conflict (id) do nothing returning id`;
     added += r.length;
   }
   return added;
 }
 
+/** Libreria iniziale + libreria ufficiale: solo le battute che mancano. */
+export async function importAllLibraries(db: Db | Tx): Promise<number> {
+  return (await importLibrary(db, readLibraryFile())) + (await importLibrary(db, readOfficialLibrary()));
+}
+
 export async function loadTemplates(db: Db | Tx): Promise<DialogueTemplate[]> {
   const rows = await db<
-    { id: string; character: Presenter; event_type: ShowEventType; text: string; tone: string; intensity: number; priority: number; weight: string; cooldown_sec: number; animation: CharacterAnimationName | null; enabled: boolean }[]
-  >`select id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation, enabled from dialogue_templates where enabled`;
+    {
+      id: string;
+      character: Presenter;
+      event_type: ShowEventType;
+      text: string;
+      tone: string;
+      intensity: number;
+      priority: number;
+      weight: string;
+      cooldown_sec: number;
+      animation: CharacterAnimationName | null;
+      enabled: boolean;
+      level: ComedyLevel;
+      origin: TemplateOrigin;
+      tags: string[];
+      scene_key: string | null;
+      scene_step: number | null;
+    }[]
+  >`select id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation, enabled, level, origin, tags, scene_key, scene_step
+    from dialogue_templates where enabled order by id`;
   return rows.map((r) => ({
     id: r.id,
     character: r.character,
@@ -129,7 +199,135 @@ export async function loadTemplates(db: Db | Tx): Promise<DialogueTemplate[]> {
     cooldownSec: r.cooldown_sec,
     animation: r.animation,
     enabled: r.enabled,
+    level: r.level,
+    origin: r.origin,
+    tags: r.tags ?? [],
+    sceneKey: r.scene_key,
+    sceneStep: r.scene_step,
   }));
+}
+
+/**
+ * Battute della libreria pronte (archivio creato prima di battibecchi o libreria ufficiale: si
+ * importano una volta sola, senza toccare quelle modificate dal pannello).
+ */
+async function ensureLibrary(tx: Tx): Promise<DialogueTemplate[]> {
+  let templates = await loadTemplates(tx);
+  if (templates.length === 0 && (await importLibrary(tx)) > 0) templates = await loadTemplates(tx);
+  const [{ retorts, official }] = await tx<{ retorts: number; official: number }[]>`
+    select count(*) filter (where starts_with(event_type, 'RETORT_'))::int as retorts,
+           count(*) filter (where origin = 'ufficiale')::int as official
+    from dialogue_templates`;
+  let added = 0;
+  if (retorts === 0) added += await importLibrary(tx, readLibraryFile().filter((l) => isRetortEvent(l.event)));
+  if (official === 0) added += await importLibrary(tx, readOfficialLibrary());
+  return added > 0 ? loadTemplates(tx) : templates;
+}
+
+// ---------------------------------------------------------------------------
+// Storia della serata (cooldown, menzioni, scenette, altre serate dello stesso host)
+// ---------------------------------------------------------------------------
+interface History {
+  lastUsed: Map<string, number>;
+  mentionsThisRound: Map<string, number>;
+  nowMs: number;
+  lastSceneMs: number | null;
+  /** battute dette nelle ultime serate dello stesso host */
+  elsewhere: Set<string>;
+}
+
+/** Ultime serate dello stesso host considerate per non ripetere le battute. */
+const HOST_SESSIONS = 5;
+
+async function loadHistory(tx: Tx, sessionId: string, roundId: string | null): Promise<History> {
+  const used = await tx<{ template_id: string; at: Date }[]>`
+    select template_id, max(created_at) as at from show_dialogue_log where session_id = ${sessionId} group by template_id`;
+  const mentions = await tx<{ pid: string; n: number }[]>`
+    select pid, count(*)::int as n from show_dialogue_log, unnest(participant_ids) as pid
+    where session_id = ${sessionId} and round_id is not distinct from ${roundId}
+    group by pid`;
+  const [{ now, scene }] = await tx<{ now: Date; scene: Date | null }[]>`
+    select clock_timestamp() as now,
+      (select max(l.created_at) from show_dialogue_log l join dialogue_templates t on t.id = l.template_id
+       where l.session_id = ${sessionId} and t.scene_key is not null) as scene`;
+  const elsewhere = await tx<{ template_id: string }[]>`
+    select distinct l.template_id from show_dialogue_log l
+    where l.session_id in (
+      select s2.id from game_sessions s1
+      join game_sessions s2 on coalesce(s2.host_user_id, s2.created_by) = coalesce(s1.host_user_id, s1.created_by)
+      where s1.id = ${sessionId} and s2.id <> s1.id and coalesce(s1.host_user_id, s1.created_by) is not null
+      order by s2.created_at desc limit ${HOST_SESSIONS})`;
+  return {
+    lastUsed: new Map(used.map((u) => [u.template_id, u.at.getTime()])),
+    mentionsThisRound: new Map(mentions.map((m) => [m.pid, m.n])),
+    nowMs: now.getTime(),
+    lastSceneMs: scene ? scene.getTime() : null,
+    elsewhere: new Set(elsewhere.map((e) => e.template_id)),
+  };
+}
+
+/** Posizione della domanda nel round e momento (ultima del round / della serata). */
+async function questionPosition(tx: Tx, sessionId: string, sqId: string): Promise<{ roundId: string | null; endOfRound: boolean; moment: MomentContext }> {
+  const [pos] = await tx<{ round_id: string; pos: number; tot: number }[]>`
+    select sq.round_id,
+      (select count(*)::int from session_questions x where x.round_id = sq.round_id and not x.is_reserve and x.shown_at is not null and x.shown_at <= coalesce(sq.shown_at, clock_timestamp())) as pos,
+      (select count(*)::int from session_questions x where x.round_id = sq.round_id and not x.is_reserve
+         and (sq.vote_option_id is null or x.vote_option_id = sq.vote_option_id)) as tot
+    from session_questions sq where sq.id = ${sqId}`;
+  const endOfRound = !!pos && pos.pos >= pos.tot;
+  const [{ more }] = pos
+    ? await tx<{ more: boolean }[]>`
+        select exists (
+          select 1 from game_rounds r where r.session_id = ${sessionId} and r.started_at is null
+            and r.position > (select position from game_rounds where id = ${pos.round_id})
+        ) as more`
+    : [{ more: true }];
+  return { roundId: pos?.round_id ?? null, endOfRound, moment: { lastOfRound: endOfRound, lastOfGame: endOfRound && !more } };
+}
+
+/** Condizioni della domanda per le battute della libreria (timer, difficoltà, opzioni). */
+async function questionFacts(tx: Tx, sqId: string): Promise<{ timerSeconds: number | null; difficulty: number; fourOptions: boolean; media: string | null }> {
+  const [q] = await tx<{ duration: number | null; difficulty: number; type: string; options: number; media: string | null }[]>`
+    select (sq.rules->>'durationSeconds')::int as duration, qs.difficulty, qs.type::text as type,
+           jsonb_array_length(qs.options)::int as options, qs.media_kind::text as media
+    from session_questions sq join question_snapshots qs on qs.session_question_id = sq.id
+    where sq.id = ${sqId}`;
+  return { timerSeconds: q?.duration ?? null, difficulty: q?.difficulty ?? 2, fourOptions: q?.type === "single" && q.options === 4, media: q?.media ?? null };
+}
+
+async function teamModeOf(tx: Tx, sessionId: string) {
+  const [sess] = await tx<{ settings: SessionSettings }[]>`select settings from game_sessions where id = ${sessionId}`;
+  return teamSettingsOf(sess?.settings);
+}
+
+const eventAllowed = (config: DirectorConfig, type: ShowEventType) => config.events.length === 0 || config.events.includes(type);
+
+/** Una battuta (o una scenetta) per un momento a sé: soluzione, timer, classifica, podio. */
+function momentLines(
+  config: DirectorConfig,
+  templates: DialogueTemplate[],
+  h: History,
+  event: ShowEvent,
+  seed: string,
+  ctx: LineContext,
+  opts: { scenes?: boolean; prefer?: Presenter | null; mentions?: string[]; filter?: (t: DialogueTemplate) => boolean } = {},
+): ShowLine[] {
+  if (!eventAllowed(config, event.type)) return [];
+  return pickMomentLines({
+    templates: opts.filter ? templates.filter(opts.filter) : templates,
+    event,
+    render: (t) => renderFor(t, event, config),
+    comedyLevel: config.comedyLevel,
+    ctx,
+    lastUsed: h.lastUsed,
+    nowMs: h.nowMs,
+    seed,
+    lastSceneMs: h.lastSceneMs,
+    elsewhere: h.elsewhere,
+    scenes: opts.scenes,
+    prefer: opts.prefer,
+    mentions: opts.mentions,
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -144,17 +342,41 @@ interface HistRow {
   correct: boolean;
 }
 
+/**
+ * Contatore delle mancate risposte consecutive (lato server, dentro la transazione dei punti):
+ * risponde → 0; non risponde con il telefono collegato → +1; non risponde da disconnesso → 0
+ * (al rientro si riparte da zero). Restituisce, per chi era in gioco, contatore e collegamento.
+ */
+export async function updateNoAnswerStreaks(tx: Tx, sessionId: string, sqId: string): Promise<Map<string, { streak: number; connected: boolean }>> {
+  const rows = await tx<{ id: string; streak: number; kind: string; connected: boolean }[]>`
+    select p.id, p.no_answer_streak as streak, se.kind::text as kind,
+           p.last_seen_at > clock_timestamp() - make_interval(secs => ${DISCONNECTED_AFTER_MS / 1000}::float8) as connected
+    from participants p join score_events se on se.participant_id = p.id and se.session_question_id = ${sqId} and se.kind in ('answer', 'no_answer')
+    where p.session_id = ${sessionId}`;
+  const out = new Map<string, { streak: number; connected: boolean }>();
+  for (const r of rows) out.set(r.id, { streak: nextNoAnswerStreak(r.streak, { answered: r.kind === "answer", connected: r.connected }), connected: r.connected });
+  if (rows.length > 0) {
+    await tx`
+      update participants p set no_answer_streak = v.streak
+      from unnest(${tx.array(rows.map((r) => r.id))}::uuid[], ${tx.array(rows.map((r) => out.get(r.id)!.streak))}::int[]) as v(id, streak)
+      where p.id = v.id`;
+  }
+  return out;
+}
+
+/** Riempitivo (tormentoni, scenette): raro, mai sull'ultima domanda del round, distanza minima. */
+const FILLER_PERCENT = 25;
+const FILLER_GAP_MS = 240_000;
+
 export async function directAfterScore(tx: Tx, sessionId: string, sqId: string): Promise<ShowLine[]> {
+  // il contatore delle mancate risposte vale anche con i commenti spenti
+  const silence = await updateNoAnswerStreaks(tx, sessionId, sqId);
   const config = await loadDirectorConfig(tx);
   if (!config.enabled) {
     await tx`update game_state set show_lines = '[]'::jsonb where session_id = ${sessionId}`;
     return [];
   }
-  let templates = await loadTemplates(tx);
-  if (templates.length === 0 && (await importLibrary(tx)) > 0) templates = await loadTemplates(tx);
-  // archivio creato prima dei battibecchi: si aggiungono solo quelle battute (una volta sola)
-  const [{ n: retorts }] = await tx<{ n: number }[]>`select count(*)::int as n from dialogue_templates where starts_with(event_type, 'RETORT_')`;
-  if (retorts === 0 && (await importLibrary(tx, readLibraryFile().filter((l) => isRetortEvent(l.event)))) > 0) templates = await loadTemplates(tx);
+  const templates = await ensureLibrary(tx);
 
   // storia ufficiale dei punti, domanda per domanda (ordine di assegnazione)
   const hist = await tx<HistRow[]>`
@@ -175,8 +397,8 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
   }
   const current = byQ.get(sqId) ?? new Map<string, HistRow>();
 
-  const people = await tx<{ id: string; nickname: string; points: number; team_id: string | null }[]>`
-    select p.id, p.nickname, t.points, p.team_id from participants p join score_totals t on t.participant_id = p.id
+  const people = await tx<{ id: string; nickname: string; points: number; team_id: string | null; rank: number | null }[]>`
+    select p.id, p.nickname, t.points, p.team_id, t.rank from participants p join score_totals t on t.participant_id = p.id
     where p.session_id = ${sessionId} and p.status = 'active'`;
   const answers = await tx<{ participant_id: string; response_ms: number }[]>`
     select participant_id, response_ms from answer_submissions where session_question_id = ${sqId}`;
@@ -231,22 +453,9 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
   const lastLeader = leaders[leaders.length - 1] ?? null;
   for (let i = leaders.length - 1; i >= 0 && lastLeader && leaders[i] === lastLeader; i--) leaderStreak++;
 
-  const [pos] = await tx<{ round_id: string; pos: number; tot: number }[]>`
-    select sq.round_id,
-      (select count(*)::int from session_questions x where x.round_id = sq.round_id and not x.is_reserve and x.shown_at is not null and x.shown_at <= coalesce(sq.shown_at, clock_timestamp())) as pos,
-      (select count(*)::int from session_questions x where x.round_id = sq.round_id and not x.is_reserve
-         and (sq.vote_option_id is null or x.vote_option_id = sq.vote_option_id)) as tot
-    from session_questions sq where sq.id = ${sqId}`;
-  const endOfRound = !!pos && pos.pos >= pos.tot;
-  // ultima domanda della serata: nessun round ancora da giocare dopo questo
-  const [{ more }] = pos
-    ? await tx<{ more: boolean }[]>`
-        select exists (
-          select 1 from game_rounds r where r.session_id = ${sessionId} and r.started_at is null
-            and r.position > (select position from game_rounds where id = ${pos.round_id})
-        ) as more`
-    : [{ more: true }];
-  const moment = { lastOfRound: endOfRound, lastOfGame: endOfRound && !more };
+  // ultima domanda del round / della serata (nessun round ancora da giocare dopo questo)
+  const { roundId, endOfRound, moment } = await questionPosition(tx, sessionId, sqId);
+  const pos = roundId ? { round_id: roundId } : null;
   // fine round: punti fatti NEL ROUND (il vincitore del round è chi ne ha fatti di più)
   const roundRows = endOfRound && pos ? await loadRoundStandingRows(tx, sessionId, pos.round_id) : null;
   const roundPoints = roundRows ? new Map(roundRows.map((r) => [r.participantId, r.points])) : undefined;
@@ -274,23 +483,56 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
   }
 
   const events = combineShowEvents(ts.mode, detectShowEvents({ players, leaderStreak, endOfRound, roundPoints }), teamEvents);
+  const h = await loadHistory(tx, sessionId, pos?.round_id ?? null);
 
-  const used = await tx<{ template_id: string; at: Date }[]>`
-    select template_id, max(created_at) as at from show_dialogue_log where session_id = ${sessionId} group by template_id`;
-  const mentions = await tx<{ pid: string; n: number }[]>`
-    select pid, count(*)::int as n from show_dialogue_log, unnest(participant_ids) as pid
-    where session_id = ${sessionId} and round_id is not distinct from ${pos?.round_id ?? null}
-    group by pid`;
-  const [{ now }] = await tx<{ now: Date }[]>`select clock_timestamp() as now`;
+  // mancate risposte (verificate dal server a tempo scaduto): al massimo un evento per domanda
+  if (config.noAnswerLines) {
+    const mocked = await tx<{ pid: string; at: Date }[]>`
+      select pid, max(created_at) as at from show_dialogue_log, unnest(participant_ids) as pid
+      where session_id = ${sessionId} and event_type = any(${tx.array([...NO_ANSWER_EVENT_TYPES])}::text[])
+      group by pid`;
+    const teamRows = teamsEnabled(ts.mode) ? await tx<{ id: string; name: string }[]>`select id, name from teams where session_id = ${sessionId} order by position` : [];
+    const ev = noAnswerEvent({
+      players: people.map(
+        (p): NoAnswerPlayer => ({
+          id: p.id,
+          nickname: p.nickname,
+          inPlay: current.has(p.id),
+          answered: current.get(p.id)?.kind === "answer",
+          connected: silence.get(p.id)?.connected ?? false,
+          rank: p.rank,
+          points: p.points,
+          streak: silence.get(p.id)?.streak ?? 0,
+          teamId: p.team_id,
+        }),
+      ),
+      mode: ts.mode,
+      teams: teamRows,
+      lastMocked: new Map(mocked.map((m) => [m.pid, m.at.getTime()])),
+      nowMs: h.nowMs,
+      seed: sqId,
+    });
+    if (ev) events.push(ev);
+  }
+  // riempitivo raro nei momenti tranquilli (mai sull'ultima domanda del round)
+  if (!endOfRound) {
+    const [{ last }] = await tx<{ last: Date | null }[]>`
+      select max(created_at) as last from show_dialogue_log where session_id = ${sessionId} and event_type = 'FILLER'`;
+    if ((!last || h.nowMs - last.getTime() >= FILLER_GAP_MS) && chance(`${sqId}|riempitivo`, FILLER_PERCENT)) events.push({ type: "FILLER" });
+  }
+  const facts = await questionFacts(tx, sqId);
 
   const lines = directShow({
     events,
     templates,
-    history: { lastUsed: new Map(used.map((u) => [u.template_id, u.at.getTime()])), mentionsThisRound: new Map(mentions.map((m) => [m.pid, m.n])) },
+    history: { lastUsed: h.lastUsed, mentionsThisRound: h.mentionsThisRound },
     config,
-    nowMs: now.getTime(),
+    nowMs: h.nowMs,
     seed: sqId,
     moment,
+    ctx: { mode: ts.mode, timerSeconds: facts.timerSeconds, difficulty: facts.difficulty, fourOptions: facts.fourOptions, moment },
+    elsewhere: h.elsewhere,
+    lastSceneMs: h.lastSceneMs,
   });
 
   await publishLines(tx, sessionId, await logLines(tx, sessionId, lines, { sqId, roundId: pos?.round_id ?? null }));
@@ -308,7 +550,13 @@ async function logLines(tx: Tx, sessionId: string, lines: ShowLine[], at: { sqId
       insert into show_dialogue_log (session_id, session_question_id, round_id, template_id, character, event_type, text, participant_ids)
       values (${sessionId}, ${at.sqId}, ${at.roundId}, ${l.templateId}, ${l.who}, ${l.event}, ${l.text}, ${tx.array(l.mentions)}::uuid[])
       returning id`;
-    out.push({ who: l.who, text: l.text, animation: l.animation, event: l.event, id: String(row.id) });
+    const pub: PublicShowLine = { who: l.who, text: l.text, animation: l.animation, event: l.event, id: String(row.id) };
+    if (l.display !== undefined) pub.display = l.display;
+    if (l.live !== undefined) pub.live = l.live;
+    if (l.optional) pub.optional = true;
+    if (l.group) pub.group = l.group;
+    if (l.tags?.length) pub.tags = l.tags;
+    out.push(pub);
   }
   return out;
 }
@@ -331,24 +579,152 @@ async function directMoment(tx: Tx, sessionId: string, event: ShowEvent, at: { s
   // evento nuovo per un archivio già popolato: si importano dal file solo le sue battute
   const [{ n }] = await tx<{ n: number }[]>`select count(*)::int as n from dialogue_templates where event_type = ${event.type}`;
   if (n === 0) await importLibrary(tx, readLibraryFile().filter((l) => l.event === event.type));
-  const templates = await loadTemplates(tx);
-  const used = await tx<{ template_id: string; at: Date }[]>`
-    select template_id, max(created_at) as at from show_dialogue_log where session_id = ${sessionId} group by template_id`;
-  const mentions = await tx<{ pid: string; n: number }[]>`
-    select pid, count(*)::int as n from show_dialogue_log, unnest(participant_ids) as pid
-    where session_id = ${sessionId} and round_id is not distinct from ${at.roundId}
-    group by pid`;
-  const [{ now }] = await tx<{ now: Date }[]>`select clock_timestamp() as now`;
+  const templates = await ensureLibrary(tx);
+  const h = await loadHistory(tx, sessionId, at.roundId);
   const lines = directShow({
     events: [event],
     templates,
-    history: { lastUsed: new Map(used.map((u) => [u.template_id, u.at.getTime()])), mentionsThisRound: new Map(mentions.map((m) => [m.pid, m.n])) },
+    history: { lastUsed: h.lastUsed, mentionsThisRound: h.mentionsThisRound },
     // un momento = una battuta sola (voce breve, costo contenuto)
     config: { ...config, maxLines: Math.min(1, config.maxLines) },
-    nowMs: now.getTime(),
+    nowMs: h.nowMs,
     seed: at.seed,
+    elsewhere: h.elsewhere,
+    // saluti e inizio finale: mai una scenetta
+    lastSceneMs: h.nowMs,
   });
   return logLines(tx, sessionId, lines, { sqId: null, roundId: at.roundId });
+}
+
+// ---------------------------------------------------------------------------
+// Libreria ufficiale: momenti a sé (dentro la transazione del comando, in un savepoint)
+// ---------------------------------------------------------------------------
+/** Prepara la regia di un momento: configurazione, libreria e storia (null = regia spenta). */
+async function prepareMoment(tx: Tx, sessionId: string, roundId: string | null) {
+  const config = await loadDirectorConfig(tx);
+  if (!config.enabled) return null;
+  const templates = await ensureLibrary(tx);
+  const h = await loadHistory(tx, sessionId, roundId);
+  return { config, templates, h };
+}
+
+/**
+ * Risposte aperte (SHOW_OPTIONS): a volte (raramente) una battuta sul tempo che scade. Il TV la dice
+ * solo negli ultimi secondi, solo se non hanno risposto tutti e mai sopra un'altra voce
+ * (timeLineDue); mai sulle domande con audio o video. "Trenta secondi" solo con il timer da 30.
+ */
+export async function directOptionsOpen(tx: Tx, sessionId: string, sqId: string): Promise<PublicShowLine[]> {
+  const facts = await questionFacts(tx, sqId);
+  let pub: PublicShowLine[] = [];
+  if (!facts.media && chance(`${sqId}|tempo`, TIME_LINE_PERCENT)) {
+    const { roundId, moment } = await questionPosition(tx, sessionId, sqId);
+    const m = await prepareMoment(tx, sessionId, roundId);
+    if (m) {
+      const ts = await teamModeOf(tx, sessionId);
+      const lines = momentLines(m.config, m.templates, m.h, { type: "TIME_RUNNING_OUT", durationSeconds: facts.timerSeconds ?? 0 }, sqId, {
+        mode: ts.mode,
+        timerSeconds: facts.timerSeconds,
+        difficulty: facts.difficulty,
+        fourOptions: facts.fourOptions,
+        moment,
+        // chi non ha ancora risposto: non si sa ancora, la battuta vale per il gruppo
+        group: null,
+      }, { scenes: false });
+      pub = await logLines(tx, sessionId, lines, { sqId, roundId });
+    }
+  }
+  await publishLines(tx, sessionId, pub.length ? pub : null);
+  return pub;
+}
+
+/**
+ * Soluzione (REVEAL): reazione all'esito VERO della domanda (sbagliata, sbagliata su una domanda
+ * facilissima, indovinata, perdere la pazienza), al posto della battuta di sempre. Niente nomi.
+ */
+export async function directAfterReveal(tx: Tx, sessionId: string, sqId: string): Promise<PublicShowLine[]> {
+  const [q] = await tx<{ players: number; answered: number; right: number; close: Date | null }[]>`
+    select
+      (select count(*)::int from participants p where p.session_id = ${sessionId} and p.status = 'active'
+         and p.joined_at <= coalesce(sq.answers_closed_at, sq.answers_close_at, clock_timestamp())) as players,
+      (select count(*)::int from answer_submissions a where a.session_question_id = sq.id) as answered,
+      (select count(*)::int from answer_submissions a where a.session_question_id = sq.id and a.is_correct) as right,
+      sq.answers_close_at as close
+    from session_questions sq where sq.id = ${sqId}`;
+  const facts = await questionFacts(tx, sqId);
+  const choice = q ? revealChoice({ players: q.players, answered: q.answered, right: q.right, difficulty: facts.difficulty, fourOptions: facts.fourOptions }, sqId) : null;
+  let pub: PublicShowLine[] = [];
+  if (choice) {
+    const { roundId, moment } = await questionPosition(tx, sessionId, sqId);
+    const m = await prepareMoment(tx, sessionId, roundId);
+    if (m) {
+      const ts = await teamModeOf(tx, sessionId);
+      const lines = momentLines(m.config, m.templates, m.h, choice.event, sqId, { ...choice.ctx, mode: ts.mode, timerSeconds: facts.timerSeconds, moment });
+      pub = await logLines(tx, sessionId, lines, { sqId, roundId });
+    }
+  }
+  await publishLines(tx, sessionId, pub.length ? pub : null);
+  return pub;
+}
+
+/** Probabilità della battuta di Palmino sulla classifica generale. */
+const LEADERBOARD_QUIP_PERCENT = 50;
+
+/** Classifica generale (SHOW_LEADERBOARD): a volte Palmino commenta (dopo la lettura della Regina). */
+export async function directLeaderboard(tx: Tx, sessionId: string, roundId: string | null, seed: string): Promise<PublicShowLine[]> {
+  let pub: PublicShowLine[] = [];
+  if (chance(`${seed}|classifica`, LEADERBOARD_QUIP_PERCENT)) {
+    const m = await prepareMoment(tx, sessionId, roundId);
+    if (m) {
+      const ts = await teamModeOf(tx, sessionId);
+      const [{ comeback }] = await tx<{ comeback: boolean }[]>`
+        select exists (select 1 from show_dialogue_log where session_id = ${sessionId} and round_id is not distinct from ${roundId}
+                         and event_type in ('COMEBACK', 'OVERTAKE')) as comeback`;
+      const lines = momentLines(m.config, m.templates, m.h, { type: "LEADERBOARD_QUIP" }, `${seed}|classifica`, { mode: ts.mode, comeback }, { scenes: false, prefer: "palmino" });
+      pub = await logLines(tx, sessionId, lines, { sqId: null, roundId });
+    }
+  }
+  await publishLines(tx, sessionId, pub.length ? pub : null);
+  return pub;
+}
+
+/** Probabilità della scenetta di chiusura al podio. */
+const GAME_END_SCENE_PERCENT = 70;
+
+/**
+ * Podio (FINISH): la battuta sul vincitore della serata e la scenetta finale. Il TV le dice SOLO dopo
+ * che il nome del vincitore è stato rivelato col rullo (vedi podiumPlan): mai prima.
+ * Squadre ("teams"): il vincitore è la squadra. Pari merito: niente battuta sul vincitore (sono al singolare).
+ */
+export async function directFinish(tx: Tx, sessionId: string): Promise<PublicShowLine[]> {
+  const m = await prepareMoment(tx, sessionId, null);
+  let pub: PublicShowLine[] = [];
+  if (m) {
+    const ts = await teamModeOf(tx, sessionId);
+    let top: { id: string; name: string; points: number }[];
+    if (ts.mode === "teams") {
+      const { standings } = await computeSessionTeamStandings(tx, sessionId, ts.aggregation);
+      top = standings.filter((t) => t.rank === 1).map((t) => ({ id: t.teamId, name: t.name, points: t.points }));
+    } else {
+      top = await tx<{ id: string; name: string; points: number }[]>`
+        select p.id, p.nickname as name, t.points from participants p join score_totals t on t.participant_id = p.id
+        where p.session_id = ${sessionId} and p.status = 'active' and t.rank = 1`;
+    }
+    const ctx: LineContext = { mode: ts.mode, moment: { lastOfRound: true, lastOfGame: true } };
+    const end = chance(`${sessionId}|finale`, GAME_END_SCENE_PERCENT) ? momentLines(m.config, m.templates, m.h, { type: "GAME_END" }, sessionId, ctx, { scenes: true }) : [];
+    let winner: ShowLine[] = [];
+    if (top.length === 1 && top[0].points > 0) {
+      const w = top[0];
+      winner = momentLines(m.config, m.templates, m.h, { type: "GAME_WINNER", winner: { id: w.id, name: w.name } }, sessionId, ctx, {
+        scenes: false,
+        mentions: ts.mode === "teams" ? [] : [w.id],
+        // la scenetta finale dice già "La conoscenza ha trionfato!": niente doppione
+        filter: end.length ? (t) => !/conoscenza ha/i.test(t.text) : undefined,
+      });
+    }
+    pub = await logLines(tx, sessionId, [...winner, ...end], { sqId: null, roundId: null });
+  }
+  await publishLines(tx, sessionId, pub.length ? pub : null);
+  return pub;
 }
 
 // ---------------------------------------------------------------------------

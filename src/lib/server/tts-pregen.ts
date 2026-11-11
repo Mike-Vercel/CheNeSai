@@ -14,13 +14,17 @@ import {
   questionScriptLines,
   roundIntroLine,
   scriptQuestionFromCms,
+  stripAudioTags,
   type SpokenLine,
 } from "@/features/game/script";
 import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
 import { CmsError } from "./audit";
 import { getSessionDetail } from "./cms/sessions";
 import { listQuestions } from "./cms/questions";
-import { appUsage, cachedKeys, ensureClip, loadVoiceConfig, planClip, TtsError, ttsConfigured, type PlannedClip, type TtsPriority } from "./tts";
+import { appUsage, cachedKeys, ensureClip, loadVoiceConfig, planClip, planPart, TtsError, ttsConfigured, type PlannedClip, type TtsPriority, type TtsSource, type VoiceConfig } from "./tts";
+import { splitByNames } from "@/features/game/name-segments";
+import { isCuratedTemplate, levelAllowed, renderTemplate, voiceOptionsOf } from "@/lib/show/library";
+import { loadDirectorConfig, loadTemplates } from "./show";
 
 /**
  * Pre-generazione delle voci a piccoli lotti (adatta a Vercel: nessun processo lungo).
@@ -49,6 +53,44 @@ export type PregenScope = z.infer<typeof pregenScopeSchema>;
 async function eventDefinitionLines(db: Db): Promise<SpokenLine[]> {
   const defs = await db<{ title: string; tagline: string }[]>`select title, tagline from special_event_definitions order by key`;
   return defs.flatMap((d) => eventDefinitionScriptLines(d));
+}
+
+/** Nome di prova per dividere le battute con i nomi: le parti fisse non dipendono dal nome. */
+const SAMPLE_NAME = "Gigi";
+
+/**
+ * Libreria ufficiale (e battute aggiunte dal pannello), al livello di comicità scelto:
+ * - battute senza nomi: frasi fisse, pre-generate una volta (modello di qualità, come il TV le chiede);
+ * - battute con i nomi: le PARTI FISSE dei "nomi salvati" (il nome si aggiunge a parte, già in archivio).
+ */
+export async function libraryVoicePlans(db: Db, cfg: VoiceConfig): Promise<{ lines: SpokenLine[]; parts: PlannedClip[] }> {
+  const config = await loadDirectorConfig(db);
+  const opts = voiceOptionsOf(config);
+  const templates = (await loadTemplates(db)).filter((t) => isCuratedTemplate(t) && levelAllowed(t.level, config.comedyLevel));
+  const lines: SpokenLine[] = [];
+  const parts: PlannedClip[] = [];
+  for (const t of templates) {
+    const ph = [...t.text.matchAll(/\{([a-z_]+)\}/g)].map((m) => m[1]);
+    if (ph.length === 0) {
+      const r = renderTemplate(t, {}, opts);
+      if (r) lines.push({ who: t.character, text: r.text, live: false });
+      continue;
+    }
+    const r = renderTemplate(t, Object.fromEntries(ph.map((k) => [k, SAMPLE_NAME])), opts);
+    const segments = r ? splitByNames(r.text, [SAMPLE_NAME]) : null;
+    const ctx = (list: { text: string }[]) => stripAudioTags(list.map((x) => x.text).join(" ")).slice(0, 200);
+    (segments ?? []).forEach((seg, i, all) => {
+      if (seg.kind !== "fixed") return;
+      const plan = planPart(cfg, t.character, seg.text, "segment");
+      if (!plan) return;
+      // intonazione: come nei "nomi salvati", la parte sa cosa viene prima e dopo (non entra nella chiave)
+      const previous = ctx(all.slice(0, i)).slice(-200);
+      const next = ctx(all.slice(i + 1));
+      plan.context = { ...(previous ? { previous } : {}), ...(next ? { next } : {}) };
+      parts.push(plan);
+    });
+  }
+  return { lines: dedupeLines(lines), parts };
 }
 
 /** Battute generiche: valgono per ogni serata. */
@@ -155,15 +197,33 @@ async function plan(db: Db, scope: PregenScope) {
   const cfg = await loadVoiceConfig(db);
   const lines = await linesForScope(db, scope);
   const plans = new Map<string, PlannedClip>();
+  /** origine in archivio delle clip che non sono frasi intere (parti fisse della libreria) */
+  const sources = new Map<string, TtsSource>();
   let noVoice = 0;
   for (const l of lines) {
     const p = planClip(cfg, l);
     if (!p) noVoice++;
     else plans.set(p.key, p);
   }
+  // battute della libreria ufficiale: valgono per ogni serata (ambiti "serata" e "generiche")
+  if (scope.kind !== "questions") {
+    try {
+      const lib = await libraryVoicePlans(db, cfg);
+      for (const l of lib.lines) {
+        const p = planClip(cfg, l);
+        if (p) plans.set(p.key, p);
+      }
+      for (const p of lib.parts) {
+        plans.set(p.key, p);
+        sources.set(p.key, "segment");
+      }
+    } catch (e) {
+      console.warn("[quizzone] libreria delle battute non disponibile per la pre-generazione", e instanceof Error ? e.message : e);
+    }
+  }
   const cached = await cachedKeys(db, [...plans.keys()]);
   const missing = [...plans.values()].filter((p) => !cached.has(p.key));
-  return { cfg, plans, missing, noVoice };
+  return { cfg, plans, missing, noVoice, sources };
 }
 
 async function progressOf(db: Db, total: number, missing: PlannedClip[], noVoice: number): Promise<PregenProgress> {
@@ -198,9 +258,9 @@ export interface PregenBatchResult extends PregenProgress {
 /** Genera al massimo `batch` battute mancanti (richiamare finché missing = 0). */
 export async function runScopeBatch(db: Db, scope: PregenScope, batch: number, opts: { priority?: TtsPriority } = {}): Promise<PregenBatchResult> {
   if (!ttsConfigured()) throw new TtsError("TTS_OFF", "Voce professionale non configurata (ELEVENLABS_API_KEY)");
-  const { cfg, plans, missing, noVoice } = await plan(db, scope);
+  const { cfg, plans, missing, noVoice, sources } = await plan(db, scope);
   const todo = missing.slice(0, Math.max(1, Math.min(10, batch)));
-  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "pregen", cfg, { priority: opts.priority })));
+  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, sources.get(p.key) ?? "pregen", cfg, { priority: opts.priority })));
   let generated = 0;
   let billedChars = 0;
   const errors: string[] = [];

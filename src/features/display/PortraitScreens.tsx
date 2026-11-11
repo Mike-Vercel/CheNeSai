@@ -8,11 +8,11 @@ import type { GamePhase, LeaderboardEntry, Presenter, PublicEvent, PublicQuestio
 import { AnswerButton, type AnswerVisual } from "@/features/game/components/answers";
 import { CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
-import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
+import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints } from "@/features/game/lines";
 import { useSeatContext } from "@/features/gioca/use-seat";
 import { fmt } from "@/lib/game-engine/special-rounds";
 import { presenterCue } from "./presenter-cue";
-import { Pill, TvFrame, useSpokenBubble } from "./TvScreens";
+import { Pill, showLineBubble, TvFrame, useSpokenBubble } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
 import { useHeldSpeech } from "@/features/media/voice";
 
@@ -419,7 +419,7 @@ export function PortraitLeaderboardScreen({
       title={title}
       rows={entries.slice(0, 7)}
       who="professore"
-      bubble={cue.line ? stripAudioTags(cue.line.text) : null}
+      bubble={cue.line ? showLineBubble(cue.line) : null}
       lines={showLines}
       rank
       value={value ?? ((e) => <span className="font-display text-[5cqw]">{formatPoints(e.points)}</span>)}

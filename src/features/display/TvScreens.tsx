@@ -22,7 +22,7 @@ import { Character, CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
 import { getVoice, useHeldSpeech, useSpeaker } from "@/features/media/voice";
 import { getSoundEngine } from "@/features/media/audio-engine";
-import { podiumPlan } from "@/features/game/script";
+import { podiumExtraLines, podiumPlan } from "@/features/game/script";
 import { BET_TIER_LABEL, fmt } from "@/lib/game-engine/special-rounds";
 import { bleedStyle, CharacterStage, type StageBleed } from "@/features/three/characters/CharacterStage";
 
@@ -67,10 +67,15 @@ export const TalkingCharacter = memo(function TalkingCharacter(props: React.Comp
  */
 export function useSpokenBubble(accept: (text: string, who: Presenter) => boolean = () => true): string | null {
   const speech = useHeldSpeech();
-  if (!speech || !accept(speech.text, speech.who)) return null;
-  const t = stripAudioTags(speech.text);
+  if (!speech) return null;
+  // battute della libreria ufficiale (reazioni, tempo che scade…): sempre nel fumetto, con il testo scritto dall'utente
+  if (speech.display === undefined && !accept(speech.text, speech.who)) return null;
+  const t = speech.display ?? stripAudioTags(speech.text);
   return t.length > 0 ? t : null;
 }
+
+/** Testo del fumetto per una battuta del regista: quello scritto (libreria ufficiale) o il parlato senza tag. */
+export const showLineBubble = (l: Pick<PublicShowLine, "text" | "display">) => l.display ?? stripAudioTags(l.text);
 
 /** Chi è in scena durante i momenti del regista: chi dice la battuta, con la sua animazione. */
 function useDirectedCue(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined): PresenterCue {
@@ -154,9 +159,11 @@ export interface TvQuestionProps {
   questionsPlayed: number;
   totalQuestions: number;
   audioState?: "idle" | "playing" | "done" | "error";
+  /** battute del regista della fase (soluzione: reazione con la sua animazione) */
+  showLines?: readonly PublicShowLine[] | null;
 }
 
-export function TvQuestionScreen({ question: q, round, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle" }: TvQuestionProps) {
+export function TvQuestionScreen({ question: q, round, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle", showLines }: TvQuestionProps) {
   const revealed = !!q.correctPositions;
   const optionsVisible = !!q.options;
   const hasImage = q.media?.kind === "image" && mediaUrl;
@@ -191,7 +198,7 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
           transition={{ type: "spring", stiffness: 120, damping: 16 }}
           className="absolute bottom-0 left-[0.5cqw] z-10 w-[32.5cqw]"
         >
-          <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} />
+          <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} lines={showLines} />
           {line && (
             <SpeechBubble className="absolute left-[3cqw] top-[-6cqh] max-w-[26cqw] text-[3cqh] leading-tight">{line}</SpeechBubble>
           )}
@@ -863,7 +870,7 @@ export function TvLeaderboardScreen({
         {/* fumetto stretto sopra il personaggio, a destra della classifica (non la copre) */}
         {cue.line && (
           <SpeechBubble tail="right" className="absolute bottom-full right-[1cqw] mb-[1cqh] w-[22cqw] !px-[1.6cqh] !py-[1.2cqh] text-[2.4cqh] leading-tight">
-            {stripAudioTags(cue.line.text)}
+            {showLineBubble(cue.line)}
           </SpeechBubble>
         )}
       </div>
@@ -921,9 +928,12 @@ export function TvPodiumScreen({
   titles = { pending: "LA CLASSIFICA FINALE", done: "I CAMPIONI DELLA SERATA" },
   banner,
   portrait = false,
+  showLines = null,
 }: {
   /** telefono in verticale (1080x1920): titolo e presentatori in alto, podio largo in basso */
   portrait?: boolean;
+  /** battute del regista della fase FINISHED (vincitore della serata, scenetta finale) */
+  showLines?: readonly PublicShowLine[] | null;
   entries: LeaderboardEntry[];
   /** titoli prima e dopo la rivelazione del vincitore (es. squadre) */
   titles?: { pending: string; done: string };
@@ -937,7 +947,9 @@ export function TvPodiumScreen({
   live?: boolean;
   onCelebrate?: () => void;
 }) {
-  const plan = useMemo(() => podiumPlan(entries, seed), [entries, seed]);
+  // libreria ufficiale: battuta sul vincitore e scenetta finale, SOLO dopo la rivelazione del nome
+  const extra = useMemo(() => podiumExtraLines({ showLines: showLines ? [...showLines] : null }), [showLines]);
+  const plan = useMemo(() => podiumPlan(entries, seed, extra), [entries, seed, extra]);
   const start = Date.parse(startedAt);
   const [t, setT] = useState(() => (now() - start) / 1000);
   useEffect(() => {
@@ -958,6 +970,7 @@ export function TvPodiumScreen({
       if (t > plan.rest.at + 1.5) f.add("rest");
       if (plan.tensionAt !== null && t > plan.tensionAt + 1.5) f.add("call");
       if (t > plan.closeAt + 1.5) f.add("close");
+      if (t > plan.winnerAt + 1.5) f.add("after");
       fired.current = f;
     }
     const f = fired.current;
@@ -1003,6 +1016,11 @@ export function TvPodiumScreen({
           if (st.rank === 1) onCelebrate?.();
         });
     }
+    // dopo il nome del vincitore (e il 2° posto, già in coda): battuta sul vincitore e scenetta finale
+    if (plan.after.length > 0 && t >= plan.winnerAt + 0.2)
+      once("after", () => {
+        for (const l of plan.after) void voice.say(l.who, l.text, { live: l.live, display: l.display, optional: l.optional, group: l.group });
+      });
     if (t >= plan.closeAt) once("close", () => void voice.say(plan.closing.who, plan.closing.text));
   }, [t, live, plan, onCelebrate, now, start]);
 

@@ -2,7 +2,7 @@ import "server-only";
 import { after } from "next/server";
 import { getSql, type Db } from "@/lib/database/db";
 import type { GamePhase, Presenter, PublicState, QuestionType } from "@/lib/game-engine/types";
-import { podiumLines, questionScriptLines, scriptQuestionFromCms, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
+import { directedLines, podiumExtraLines, podiumLines, questionScriptLines, scriptQuestionFromCms, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
 import { standingsForShow } from "@/features/game/teams-view";
 import { cachedKeys, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 import { ensureLineClip, prewarmNumberClips } from "./tts-names";
@@ -18,7 +18,7 @@ import { isPublicSession } from "./public-session";
  * Le battute live passano dai "nomi salvati" (tts-names): stesse parti e stessa clip finale
  * che chiederà il TV.
  */
-const PREWARM_PHASES: ReadonlySet<GamePhase> = new Set(["SCORE_REVEAL", "LEADERBOARD", "FINISHED", "CATEGORY_RESULT", "WHEEL_SPIN", "ROUND_INTRO", "SPECIAL_EVENT"]);
+const PREWARM_PHASES: ReadonlySet<GamePhase> = new Set(["SCORE_REVEAL", "LEADERBOARD", "FINISHED", "CATEGORY_RESULT", "WHEEL_SPIN", "ROUND_INTRO", "SPECIAL_EVENT", "ANSWER_REVEAL", "OPTIONS_VISIBLE"]);
 
 export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void {
   try {
@@ -41,7 +41,13 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     if (!ttsConfigured() || process.env.VITEST || !PREWARM_PHASES.has(state.phase) || fromPhase === state.phase) return;
     // readOptions non incide sulle fasi pre-riscaldate
     // a fine serata anche tutte le battute del podio (le dice il TV durante la rivelazione)
-    const lines = state.phase === "FINISHED" ? podiumLines(standingsForShow(state), state.sessionId) : speechFor(state, { phase: fromPhase }, { readOptions: true });
+    const lines =
+      state.phase === "FINISHED"
+        ? podiumLines(standingsForShow(state), state.sessionId, podiumExtraLines(state))
+        : // risposte aperte: solo l'eventuale battuta sul tempo che scade (le risposte sono già pronte)
+          state.phase === "OPTIONS_VISIBLE"
+          ? directedLines(state)
+          : speechFor(state, { phase: fromPhase }, { readOptions: true });
     // ruota: anche la battuta d'arrivo, che il TV dice quando la ruota si ferma
     const stop = state.phase === "WHEEL_SPIN" ? wheelStopLine(state) : null;
     if (stop) lines.push(stop);

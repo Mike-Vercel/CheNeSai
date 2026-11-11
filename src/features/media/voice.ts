@@ -56,6 +56,20 @@ const PREPARING_AFTER_MS = 700;
 /** Per quanto la battuta appena finita resta "in scena" (vedi heldSpeech). */
 const HELD_SPEECH_MS = 900;
 
+/**
+ * Battute "di contorno" (libreria ufficiale): attesa massima della clip quando arriva il loro turno.
+ * Oltre, la battuta si SALTA (niente sottotitolo muto, niente attese in più per lo show).
+ */
+export const OPTIONAL_CLIP_WAIT_MS = 2500;
+
+/** Battuta in scena: chi parla, testo detto (con i tag) e testo da mostrare. */
+export interface SpeechNowLine {
+  who: Presenter;
+  text: string;
+  /** testo per fumetto/sottotitolo (libreria ufficiale: quello scritto dall'utente) */
+  display?: string;
+}
+
 type SpeakingListener = (who: Presenter | null) => void;
 
 /** L'annunciatore è fuori campo: nessuna bocca si muove (ma la musica si abbassa). */
@@ -73,6 +87,12 @@ interface QueueItem {
   prefetch?: Promise<string | null>;
   /** battuta in diretta (nickname, punteggi) */
   live?: boolean;
+  /** testo da mostrare (assente = testo senza audio tag) */
+  display?: string;
+  /** battuta di contorno: attesa massima della clip, poi si salta */
+  optionalWaitMs?: number;
+  /** righe della stessa scenetta: se una salta, saltano anche le successive */
+  group?: string;
   /**
    * Battuta da saltare se, quando arriva il suo turno (o la sua clip), non è più il momento
    * (es. "E il vincitore è…" quando il vincitore è già sullo schermo).
@@ -190,10 +210,10 @@ class VoiceEngine {
     return () => this.listeners.delete(fn);
   }
 
-  private setSpeaking(who: Presenter | null, duck = who !== null, text = "") {
+  private setSpeaking(who: Presenter | null, duck = who !== null, text = "", display?: string) {
     this.speakingWho = who;
     // nuovo oggetto solo quando cambia davvero (snapshot stabile per useSyncExternalStore)
-    const next = who ? { who, text } : null;
+    const next: SpeechNowLine | null = who ? (display !== undefined ? { who, text, display } : { who, text }) : null;
     if (next?.who !== this.speakingLine?.who || next?.text !== this.speakingLine?.text) this.speakingLine = next;
     if (this.heldTimer) clearTimeout(this.heldTimer);
     this.heldTimer = null;
@@ -215,15 +235,15 @@ class VoiceEngine {
   }
 
   /** Battuta in corso (chi parla e il testo passato a say), per animare chi la dice sul TV. */
-  private speakingLine: { who: Presenter; text: string } | null = null;
-  get speech(): { who: Presenter; text: string } | null {
+  private speakingLine: SpeechNowLine | null = null;
+  get speech(): SpeechNowLine | null {
     return this.speakingLine;
   }
 
-  private heldLine: { who: Presenter; text: string } | null = null;
+  private heldLine: SpeechNowLine | null = null;
   private heldTimer: ReturnType<typeof setTimeout> | null = null;
   /** Come `speech`, ma resta per un attimo dopo la fine della battuta (niente sfarfallii di scena). */
-  get heldSpeech(): { who: Presenter; text: string } | null {
+  get heldSpeech(): SpeechNowLine | null {
     return this.heldLine;
   }
 
@@ -258,13 +278,40 @@ class VoiceEngine {
    * così quando arriva il suo turno l'audio parte senza pause.
    * `live` = battuta con nickname/punteggi (modello veloce lato server).
    */
-  say(who: TtsRole, text: string, opts: { live?: boolean; skipIf?: () => boolean } = {}): Promise<void> {
+  say(
+    who: TtsRole,
+    text: string,
+    opts: {
+      live?: boolean;
+      skipIf?: () => boolean;
+      /** testo per fumetto/sottotitolo */
+      display?: string;
+      /** battuta di contorno: se la clip non è pronta entro `optionalWaitMs` (o OPTIONAL_CLIP_WAIT_MS) si salta */
+      optional?: boolean;
+      optionalWaitMs?: number;
+      /** righe della stessa scenetta */
+      group?: string;
+    } = {},
+  ): Promise<void> {
     if (!this.settings.enabled || !text.trim()) return Promise.resolve();
     return new Promise((resolve) => {
-      this.queue.push({ who, text, resolve, live: !!opts.live, skipIf: opts.skipIf, prefetch: this.prefetchClip(who, text, !!opts.live) });
+      this.queue.push({
+        who,
+        text,
+        resolve,
+        live: !!opts.live,
+        skipIf: opts.skipIf,
+        display: opts.display,
+        optionalWaitMs: opts.optional ? (opts.optionalWaitMs ?? OPTIONAL_CLIP_WAIT_MS) : undefined,
+        group: opts.group,
+        prefetch: this.prefetchClip(who, text, !!opts.live),
+      });
       this.pump();
     });
   }
+
+  /** Scenette con una riga saltata: le righe successive non si dicono (mai un dialogo a metà). */
+  private deadGroups = new Set<string>();
 
   /**
    * Pausa muta in coda: le battute successive partono solo quando `until` si risolve (es. fine del
@@ -329,7 +376,7 @@ class VoiceEngine {
   }
 
   /** Battuta senza clip: voce del browser solo se consentita, altrimenti sottotitolo con il personaggio che parla. */
-  private fallback(line: { who: TtsRole; text: string; resolve: () => void }) {
+  private fallback(line: { who: TtsRole; text: string; display?: string; resolve: () => void }) {
     if (this.browserAllowed()) this.speakBrowser(line);
     else this.speakSilent(line);
   }
@@ -344,11 +391,11 @@ class VoiceEngine {
    * Battuta "muta": il personaggio parla (bocca e animazione) e il testo compare come sottotitolo
    * per il tempo che servirebbe a dirla; nessuna voce sintetica. Poi la coda prosegue.
    */
-  private speakSilent(next: { who: TtsRole; text: string; resolve: () => void }) {
-    const spoken = stripAudioTags(next.text);
+  private speakSilent(next: { who: TtsRole; text: string; display?: string; resolve: () => void }) {
+    const spoken = next.display ?? stripAudioTags(next.text);
     const my = ++this.turn;
     this.silent = { who: next.who, text: spoken };
-    this.setSpeaking(mouthOf(next.who), true, next.text);
+    this.setSpeaking(mouthOf(next.who), true, next.text, next.display);
     setTimeout(() => {
       if (my !== this.turn) {
         next.resolve();
@@ -454,7 +501,41 @@ class VoiceEngine {
       setTimeout(() => this.pump(), 0);
       return;
     }
-    const line = { who: next.who, text: next.text, resolve: next.resolve };
+    if (next.group && this.deadGroups.has(next.group)) {
+      // una riga prima di questa nella scenetta è saltata: niente dialogo a metà
+      this.busy = false;
+      next.resolve();
+      setTimeout(() => this.pump(), 0);
+      return;
+    }
+    const line = { who: next.who, text: next.text, display: next.display, resolve: next.resolve };
+    if (next.optionalWaitMs !== undefined) {
+      // battuta di contorno (libreria ufficiale): solo la voce professionale e solo se arriva in tempo;
+      // altrimenti si salta (mai voce del browser, mai sottotitolo muto, mai attese in più)
+      const epoch = this.queueEpoch;
+      const skip = () => {
+        if (next.group) this.deadGroups.add(next.group);
+        this.busy = false;
+        line.resolve();
+        setTimeout(() => this.pump(), 0);
+      };
+      if (!next.prefetch) {
+        skip();
+        return;
+      }
+      void waitForClip(next.prefetch, next.optionalWaitMs).then((url) => {
+        if (this.queueEpoch !== epoch) {
+          line.resolve();
+          return;
+        }
+        if (!url || next.skipIf?.()) {
+          skip();
+          return;
+        }
+        this.playRecorded({ ...next, resolve: line.resolve }, url);
+      });
+      return;
+    }
     if (next.prefetch) {
       // Voce professionale: si aspetta la clip anche se è lenta (generata al volo, fino a ~12 s, con
       // qualche nuovo tentativo). Se non arriva: MAI la voce del browser con ElevenLabs attivo,
@@ -556,7 +637,7 @@ class VoiceEngine {
       next.resolve();
       setTimeout(() => this.pump(), 120);
     };
-    this.setSpeaking(mouthOf(next.who), true, next.text);
+    this.setSpeaking(mouthOf(next.who), true, next.text, next.display);
     src.start();
   }
 
@@ -595,9 +676,11 @@ class VoiceEngine {
       this.current = null;
       this.analyser = null;
       const fb = next.clip ? this.clipFallback.get(next.clip) : next.who ? { who: next.who, text: next.text } : undefined;
-      if (fallback && fb && fb.text) {
+      if (fallback && next.group && next.optionalWaitMs !== undefined) this.deadGroups.add(next.group);
+      // battuta di contorno non riprodotta: si salta (niente sottotitolo muto)
+      if (fallback && fb && fb.text && next.optionalWaitMs === undefined) {
         // file/rete non disponibile: sottotitolo (o voce del browser solo se la voce professionale è spenta)
-        this.fallback({ who: fb.who, text: fb.text, resolve: next.resolve });
+        this.fallback({ who: fb.who, text: fb.text, display: next.clip ? undefined : next.display, resolve: next.resolve });
         return;
       }
       this.busy = false;
@@ -605,7 +688,7 @@ class VoiceEngine {
       next.resolve();
       setTimeout(() => this.pump(), 120);
     };
-    el.onplaying = () => this.setSpeaking(mouthOf(next.who), true, next.text);
+    el.onplaying = () => this.setSpeaking(mouthOf(next.who), true, next.text, next.display);
     el.onended = () => done(false);
     el.onerror = () => done(true);
     void el.play().catch(() => done(true));
@@ -681,7 +764,7 @@ export function spokenPoints(n: number): string {
  * Battuta in corso sul TV (chi parla e cosa), null in silenzio. Resta per ~0,9 s dopo la fine,
  * così tra due battute consecutive dello stesso momento il personaggio non esce e rientra.
  */
-export function useHeldSpeech(): { who: Presenter; text: string } | null {
+export function useHeldSpeech(): SpeechNowLine | null {
   return useSyncExternalStore(
     (cb) => getVoice().subscribe(() => cb()),
     () => getVoice().heldSpeech,

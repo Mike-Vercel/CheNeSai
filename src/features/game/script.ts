@@ -43,6 +43,12 @@ export interface SpokenLine {
    * domanda solo dopo queste battute (vedi DisplayApp e question-intro.ts).
    */
   beforeCard?: boolean;
+  /** testo da mostrare nel fumetto (libreria ufficiale: quello scritto dall'utente); assente = testo senza tag */
+  display?: string;
+  /** battuta di contorno: se la voce non arriva in tempo si salta (mai sottotitolo muto) */
+  optional?: boolean;
+  /** righe della stessa scenetta: se una salta, saltano le successive */
+  group?: string;
 }
 
 /** Lunghezza massima di una battuta (stesso limite dell'API /api/tts). */
@@ -619,6 +625,11 @@ export interface PodiumPlan {
   /** battuta di Palmino all'inizio della suspense (detta PRIMA che il vincitore compaia; null = nessun vincitore) */
   winnerCall: SpokenLine | null;
   winnerAt: number;
+  /**
+   * Libreria ufficiale: battuta sul vincitore della serata e scenetta finale, dette SOLO dopo la
+   * rivelazione del nome (subito dopo il 2° posto), prima dei saluti.
+   */
+  after: SpokenLine[];
   closing: SpokenLine;
   closeAt: number;
 }
@@ -632,7 +643,7 @@ const PODIUM_TENSION = 5.4;
 /** il rullo per il vincitore parte dopo l'annuncio di Palmino */
 const PODIUM_DRUM_AFTER = 2.2;
 
-export function podiumPlan(lb: LbSpeech[], seed: string): PodiumPlan {
+export function podiumPlan(lb: LbSpeech[], seed: string, extra: readonly SpokenLine[] = []): PodiumPlan {
   const groups = rankGroups(lb);
   const podium = groups.filter((g) => g[0].rank <= 3);
   // tutti gli altri, dal fondo al 4° posto
@@ -707,18 +718,25 @@ export function podiumPlan(lb: LbSpeech[], seed: string): PodiumPlan {
     tensionAt,
     winnerCall: winners ? fixedLine(FIXED_POOLS.podiumWinnerCall, seed) : null,
     winnerAt,
+    // senza vincitore rivelato niente battuta sul vincitore
+    after: winners ? [...extra] : [],
     closing: fixedLine(FIXED_POOLS.finishedClose, seed),
     closeAt: winnerAt + 9,
   };
+}
+
+/** Battute del podio decise dal server (libreria ufficiale), dallo stato della fase FINISHED. */
+export function podiumExtraLines(s: Pick<PublicState, "showLines">): SpokenLine[] {
+  return directedLines({ showLines: (s.showLines ?? []).filter((l) => l.event === "GAME_WINNER" || l.event === "GAME_END") });
 }
 
 /** Prima posizione davvero rivelata (per tenere coperto il podio finché non tocca a lui). */
 export const PODIUM_FIRST_AT = REST_AT;
 
 /** Tutte le battute del podio, nell'ordine in cui vengono dette (per il pre-riscaldamento delle voci). */
-export function podiumLines(lb: LbSpeech[], seed: string): SpokenLine[] {
-  const plan = podiumPlan(lb, seed);
-  return [plan.opening, ...(plan.rest.line ? [plan.rest.line] : []), ...(plan.winnerCall ? [plan.winnerCall] : []), ...plan.steps.map((st) => st.line), plan.closing];
+export function podiumLines(lb: LbSpeech[], seed: string, extra: readonly SpokenLine[] = []): SpokenLine[] {
+  const plan = podiumPlan(lb, seed, extra);
+  return [plan.opening, ...(plan.rest.line ? [plan.rest.line] : []), ...(plan.winnerCall ? [plan.winnerCall] : []), ...plan.steps.map((st) => st.line), ...plan.after, plan.closing];
 }
 
 // ---------------------------------------------------------------------------
@@ -769,7 +787,21 @@ export function dedupeLines(lines: SpokenLine[]): SpokenLine[] {
 // ---------------------------------------------------------------------------
 /** Battute del regista automatico per il momento corrente (sempre live: contengono nomi veri). */
 export function directedLines(s: Pick<PublicState, "showLines">): SpokenLine[] {
-  return (s.showLines ?? []).map((l) => ({ who: l.who, text: l.text, live: true }));
+  return (s.showLines ?? []).map((l) => {
+    const out: SpokenLine = { who: l.who, text: l.text, live: l.live ?? true };
+    if (l.display !== undefined) out.display = l.display;
+    if (l.optional) out.optional = true;
+    if (l.group) out.group = l.group;
+    return out;
+  });
+}
+
+/** Eventi della libreria detti in un momento preciso (non nel copione della fase). */
+const TIMED_EVENTS: ReadonlySet<string> = new Set(["TIME_RUNNING_OUT"]);
+
+/** Battute del regista che fanno parte del copione della fase (escluse quelle che il TV dice a tempo). */
+function phaseDirectedLines(s: Pick<PublicState, "showLines">): SpokenLine[] {
+  return directedLines({ showLines: (s.showLines ?? []).filter((l) => !TIMED_EVENTS.has(l.event)) });
 }
 
 /**
@@ -871,7 +903,10 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
         const total = pq.distribution?.reduce((a, b) => a + b, 0) ?? 0;
         const right = pq.distribution && q.correctPositions.length === 1 ? pq.distribution[q.correctPositions[0]] : null;
         const outcome = right !== null ? revealOutcome(right, total, s.playerCount) : null;
-        if (outcome) out.push(revealQuip(presenter, q.id, outcome, moment));
+        // libreria ufficiale: la reazione scelta dal server sull'esito vero (stesso spazio della battuta di sempre)
+        const reaction = phaseDirectedLines(s);
+        if (reaction.length > 0) out.push(...reaction);
+        else if (outcome) out.push(revealQuip(presenter, q.id, outcome, moment));
       }
       break;
     case "SCORE_REVEAL": {
@@ -901,6 +936,8 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
     case "LEADERBOARD": {
       const l = leaderboardLine(standingsForShow(s));
       if (l) out.push(l);
+      // a volte Palmino commenta la classifica (libreria ufficiale)
+      out.push(...phaseDirectedLines(s));
       break;
     }
     case "PAUSED":
@@ -927,7 +964,7 @@ export function sessionLinesFor(s: PublicState): SpokenLine[] {
   }
   out.push(...directedLines(s));
   const vp = s.phase === "PAUSED" && s.pausedFrom ? s.pausedFrom : s.phase;
-  if (vp === "FINISHED") out.push(...podiumLines(standingsForShow(s), s.sessionId));
+  if (vp === "FINISHED") out.push(...podiumLines(standingsForShow(s), s.sessionId, podiumExtraLines(s)));
   const stop = wheelStopLine(s);
   if (stop) out.push(stop);
   return dedupeLines([...genericScriptLines(), ...out]);

@@ -13,6 +13,7 @@
  * - FASTEST_CORRECT: la risposta giusta più veloce, se almeno 2 hanno risposto giusto.
  * - CORRECT_STREAK: 3, 5, 7, 10 risposte giuste di fila. WRONG_STREAK: 3 o 5 sbagliate di fila.
  * - ONLY_ONE_CORRECT: un solo giusto su almeno 3 risposte. ALL_WRONG: nessun giusto su almeno 2 risposte.
+ * - ONLY_ONE_WRONG: un solo sbagliato su almeno 3 risposte (gli altri tutti giusti).
  * - ALL_CORRECT: tutti i giocatori (almeno 3) hanno risposto giusto.
  * - POINTS_MILESTONE: superata una soglia (10.000, 20.000, 30.000, 50.000).
  * - ROUND_WINNER: all'ultima domanda del round, chi ha fatto più punti NEL ROUND (con `roundPoints`;
@@ -129,6 +130,8 @@ export function detectShowEvents(input: DetectInput): ShowEvent[] {
     if (fastest) out.push({ type: "FASTEST_CORRECT", who: ref(fastest), ms: fastest.responseMs! });
   }
   if (correct.length === 1 && answered.length >= 3) out.push({ type: "ONLY_ONE_CORRECT", who: ref(correct[0]) });
+  const wrong = answered.filter((p) => !p.correct);
+  if (wrong.length === 1 && answered.length >= 3) out.push({ type: "ONLY_ONE_WRONG", who: ref(wrong[0]) });
   if (correct.length === 0 && answered.length >= 2) out.push({ type: "ALL_WRONG" });
   if (players.length >= 3 && correct.length === players.length) out.push({ type: "ALL_CORRECT" });
 
@@ -214,6 +217,7 @@ export function combineShowEvents(mode: TeamMode, individual: ShowEvent[], team:
 export function eventTeams(e: ShowEvent): TeamRef[] {
   if (e.type === "TEAM_LEADER_CHANGED") return [e.team, e.previous];
   if (e.type === "TEAM_ROUND_WINNER") return e.teams;
+  if (e.type === "TEAM_NO_ANSWER") return [e.team];
   return [];
 }
 
@@ -243,6 +247,20 @@ export function eventPlayers(e: ShowEvent): PlayerRef[] {
     case "RETORT_REGINA":
     case "RETORT_PALMINO":
       return e.about ? [e.about] : [];
+    case "ANSWER_WRONG":
+    case "EASY_WRONG":
+    case "ANSWER_CORRECT":
+    case "LOSE_PATIENCE":
+    case "TIME_RUNNING_OUT":
+    case "WHEEL_SPIN":
+    case "MANY_NO_ANSWER":
+    case "TEAM_NO_ANSWER":
+    case "FILLER":
+    case "LEADERBOARD_QUIP":
+    case "GAME_END":
+      return [];
+    case "GAME_WINNER":
+      return [{ id: e.winner.id, nickname: e.winner.name }];
     default:
       return [e.who];
   }

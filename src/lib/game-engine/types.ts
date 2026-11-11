@@ -346,6 +346,16 @@ export interface PublicShowLine {
   event: string;
   /** id nel registro delle battute (per riconoscere i saluti nuovi della lobby) */
   id?: string;
+  /** testo da mostrare (libreria ufficiale: quello scritto dall'utente, con i nomi veri); assente = `text` senza audio tag */
+  display?: string;
+  /** false = frase fissa pre-generata (modello di qualità); assente = battuta live */
+  live?: boolean;
+  /** se la voce non arriva in tempo la battuta si salta (mai sottotitolo muto) */
+  optional?: boolean;
+  /** righe della stessa scenetta (se una salta, saltano le successive) */
+  group?: string;
+  /** tag della battuta utili al TV (es. "countdown" per il tempo che scade) */
+  tags?: string[];
 }
 
 export interface PublicState {

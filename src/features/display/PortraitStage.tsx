@@ -110,7 +110,7 @@ function PortraitScreen(props: TvStageProps) {
       />
     );
   }
-  if (vp === "FINISHED") return <TvPodiumScreen portrait entries={standingsForShow(view)} startedAt={view.phaseStartedAt} seed={view.sessionId} now={now} live={live} onCelebrate={onCelebrate} />;
+  if (vp === "FINISHED") return <TvPodiumScreen portrait entries={standingsForShow(view)} startedAt={view.phaseStartedAt} seed={view.sessionId} now={now} live={live} onCelebrate={onCelebrate} showLines={view.showLines} />;
   // votazione, ruota, puntate: la schermata del TV in una fascia
   return <Letterbox {...props} />;
 }
