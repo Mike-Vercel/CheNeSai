@@ -196,11 +196,11 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
           initial={{ x: "-30%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 120, damping: 16 }}
-          className="absolute bottom-0 left-[0.5cqw] z-10 w-[32.5cqw]"
+          className="absolute bottom-0 left-[-2cqw] z-10 w-[48cqw]"
         >
           <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} lines={showLines} />
           {line && (
-            <SpeechBubble className="absolute left-[3cqw] top-[-6cqh] max-w-[26cqw] text-[3cqh] leading-tight">{line}</SpeechBubble>
+            <SpeechBubble className="absolute left-[5cqw] top-[-4cqh] max-w-[30cqw] text-[3cqh] leading-tight">{line}</SpeechBubble>
           )}
         </motion.div>
       )}
@@ -223,7 +223,7 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
       )}
 
       {/* colonna domanda */}
-      <div className={clsx("absolute z-20 flex flex-col", visualMedia ? "left-[44cqw] right-[3cqw] top-[19cqh]" : "left-[34cqw] right-[3cqw] top-[19cqh]")}>
+      <div className={clsx("absolute z-20 flex flex-col", visualMedia ? "left-[44cqw] right-[3cqw] top-[19cqh]" : "left-[43cqw] right-[3cqw] top-[19cqh]")}>
         <div className="mb-[1.6cqh] flex flex-wrap items-center gap-[1.2cqh] pr-[22cqh]">
           <Pill>
             Domanda {q.number} di {Math.max(totalQuestions, q.number)}
