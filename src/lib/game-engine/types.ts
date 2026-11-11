@@ -273,6 +273,43 @@ export interface LeaderboardEntry {
   correctCount: number;
 }
 
+/** Riga della classifica del ROUND: punti fatti in questo round (e totale della serata, secondario). */
+export interface RoundLeaderboardEntry {
+  participantId: string;
+  rank: number;
+  nickname: string;
+  /** punti guadagnati (o persi) nel round */
+  points: number;
+  /** punti totali della serata */
+  total: number;
+}
+
+/** Classifica del round a squadre (stessa aggregazione della classifica a squadre). */
+export interface TeamRoundLeaderboardEntry {
+  teamId: string;
+  rank: number;
+  name: string;
+  color: string;
+  members: number;
+  points: number;
+  total: number;
+}
+
+/** Chi si gioca la vittoria all'ultima domanda della serata (per la suspense dei presentatori). */
+export interface PublicContender {
+  name: string;
+  points: number;
+}
+
+/** Voto per saltare l'intro (solo durante l'intro): si salta se votano TUTTI i giocatori. */
+export interface PublicIntroSkip {
+  votes: number;
+  /** giocatori attivi che contano (tutti devono votare) */
+  needed: number;
+  /** nomi di chi ha votato (al massimo 12) */
+  names: string[];
+}
+
 /** Squadra della serata (stato pubblico: nessun dato personale dei membri). */
 export interface PublicTeam {
   id: string;
@@ -338,6 +375,24 @@ export interface PublicState {
   teams: PublicTeamsInfo | null;
   /** classifica a squadre, nelle stesse fasi della classifica individuale */
   teamLeaderboard: TeamLeaderboardEntry[] | null;
+  /**
+   * Classifica del ROUND corrente (punti fatti nel round): ai punti dell'ultima domanda del round
+   * e nella classifica di fine round. Assente altrove.
+   */
+  roundLeaderboard?: RoundLeaderboardEntry[] | null;
+  /** classifica del round a squadre (modalità squadre), negli stessi momenti */
+  teamRoundLeaderboard?: TeamRoundLeaderboardEntry[] | null;
+  /** primi della classifica, solo mentre compare l'ultima domanda della serata (suspense) */
+  contenders?: PublicContender[] | null;
+  /** intro: quanti giocatori vogliono saltarla (null fuori dall'intro) */
+  introSkip?: PublicIntroSkip | null;
+  /** l'intro è stata saltata per voto unanime (presentazione del primo round) */
+  introSkipped?: boolean;
+  /**
+   * Dove si guarda lo show (gioco libero): "tv" = televisore, i telefoni dicono "Guarda il TV";
+   * "phone" = show sul telefono dell'host e su quello di OGNI giocatore (immagini e audio).
+   */
+  displayMode?: "tv" | "phone";
   pausedFrom: GamePhase | null;
   /** Ultimi nickname entrati (solo lobby). */
   recentPlayers: string[] | null;

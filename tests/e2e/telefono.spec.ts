@@ -89,8 +89,13 @@ async function createFromPhone(page: Page): Promise<string> {
 }
 
 test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo stesso schermo", async ({ browser }) => {
-  test.setTimeout(300_000);
+  test.setTimeout(420_000);
   const { ctx, page } = await phoneHost(browser);
+  // telefono lento: CPU rallentata 4× (lo show non deve mai bloccarsi né restare bianco)
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  const cdp = await ctx.newCDPSession(page);
+  await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
   const sessionId = await createFromPhone(page);
   await expect(page.getByRole("heading", { name: "Dove giochiamo?" })).toBeVisible();
   await shot(page, "B0-scelta-schermo");
@@ -114,6 +119,24 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   if (await audioBtn.isVisible()) await audioBtn.click();
   await shot(page, "B1-lobby-verticale");
 
+  // un amico entra dal SUO telefono: con lo show «Su questo telefono» vede lo show lì (non "Guarda il TV")
+  const sqlCode = postgres(process.env.DATABASE_URL!, { prepare: false, max: 1 });
+  const [{ code }] = await sqlCode<{ code: string }[]>`select code from game_sessions where id = ${sessionId}`;
+  const [{ display_mode }] = await sqlCode<{ display_mode: string }[]>`select display_mode from game_sessions where id = ${sessionId}`;
+  await sqlCode.end();
+  expect(display_mode).toBe("phone");
+  const friendCtx = await browser.newContext(PHONE);
+  const friend = await friendCtx.newPage();
+  const friendErrors: string[] = [];
+  friend.on("pageerror", (e) => friendErrors.push(e.message));
+  await friend.goto(`/play/${code}`);
+  await friend.getByLabel("Scegli il tuo nickname").fill("Amico");
+  await friend.getByRole("button", { name: "ENTRA E GIOCA!" }).click();
+  await friend.getByRole("button", { name: "ANDIAMO!" }).click();
+  await expect(friend.getByText(/Sei dentro come Amico/)).toBeVisible({ timeout: 30_000 });
+  await expect(friend.getByText("Guarda il TV!")).toHaveCount(0);
+  await shot(friend, "B1b-amico-lobby");
+
   // INIZIA PARTITA → intro ricomposta in verticale
   await page.getByRole("button", { name: /INIZIA PARTITA/ }).click();
   await expect(page.locator("[data-intro-mode]")).toBeVisible({ timeout: 30_000 });
@@ -123,6 +146,14 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   await shot(page, "B2b-intro-presentatori");
   await page.waitForTimeout(9_000);
   await shot(page, "B2c-intro-regole");
+  await shot(friend, "B2d-amico-intro");
+
+  // SALTA INTRO: si salta solo quando votano tutti (host + amico); il contatore compare sugli show
+  await friend.getByRole("button", { name: /SALTA INTRO/ }).click();
+  await expect(page.getByTestId("intro-skip-counter")).toContainText("1/2", { timeout: 20_000 });
+  await shot(page, "B2e-salta-intro-contatore");
+  await page.getByRole("button", { name: /SALTA INTRO/ }).click();
+  await expect(page.locator("[data-intro-mode]")).toHaveCount(0, { timeout: 30_000 });
 
   // "Avanti" dal menu fino alla prima domanda
   for (let i = 0; i < 4; i++) {
@@ -143,6 +174,13 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   await first.click();
   await expect(page.getByText("RISPOSTA REGISTRATA!")).toBeVisible({ timeout: 20_000 });
   await shot(page, "B4-risposta-data");
+  // l'amico vede la stessa domanda con le risposte sul suo telefono e risponde da lì
+  await expect(friend.getByText(/^1\/10$/)).toBeVisible({ timeout: 30_000 });
+  const friendFirst = friend.locator("button[aria-pressed]").nth(1);
+  await expect(friendFirst).toBeEnabled({ timeout: 30_000 });
+  await shot(friend, "B4b-amico-domanda");
+  await friendFirst.click();
+  await expect(friend.getByText("RISPOSTA REGISTRATA!")).toBeVisible({ timeout: 20_000 });
 
   // soluzione
   await page.getByRole("button", { name: "Impostazioni" }).click();
@@ -161,6 +199,11 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   await expect(page.getByText("I CAMPIONI DELLA SERATA")).toBeVisible({ timeout: 60_000 });
   await page.waitForTimeout(2500);
   await shot(page, "B6-podio-verticale");
+  await expect(friend.getByText(/I CAMPIONI DELLA SERATA|LA CLASSIFICA FINALE/)).toBeVisible({ timeout: 60_000 });
+  await shot(friend, "B6b-amico-podio");
+  expect(friendErrors, friendErrors.join("\n")).toEqual([]);
+  await friendCtx.close();
+  expect(errors, errors.join("\n")).toEqual([]);
 
   // anche a 1080×1920
   const big = await browser.newContext({ ...PHONE, viewport: { width: 360, height: 640 }, storageState: await ctx.storageState() });

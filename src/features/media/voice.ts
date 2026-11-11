@@ -50,6 +50,9 @@ const PROFILES: Record<TtsRole, CharacterVoice> = {
 
 const FEMALE = /(isabella|elsa|palmira|alice|federica|paola|carla|bianca|google italiano|female|donna)/i;
 
+/** Attesa della clip oltre la quale lo show mostra "sto preparando la voce". */
+const PREPARING_AFTER_MS = 700;
+
 /** Per quanto la battuta appena finita resta "in scena" (vedi heldSpeech). */
 const HELD_SPEECH_MS = 900;
 
@@ -70,6 +73,13 @@ interface QueueItem {
   prefetch?: Promise<string | null>;
   /** battuta in diretta (nickname, punteggi) */
   live?: boolean;
+  /**
+   * Battuta da saltare se, quando arriva il suo turno (o la sua clip), non è più il momento
+   * (es. "E il vincitore è…" quando il vincitore è già sullo schermo).
+   */
+  skipIf?: () => boolean;
+  /** Attesa muta in coda (es. il cartello "DOMANDA N. X"): la coda resta "occupata" finché non si risolve. */
+  gate?: Promise<unknown>;
   resolve: () => void;
 }
 
@@ -113,7 +123,18 @@ class VoiceEngine {
   /** Credenziali dello schermo TV per la voce professionale (servizio a pagamento lato server). */
   setDisplayCredentials(sessionId: string, displayKey: string) {
     this.creds = { s: sessionId, k: displayKey };
+    this.player = null;
   }
+
+  /**
+   * Telefono di un GIOCATORE con lo show sul telefono: le voci arrivano dal server solo per le
+   * battute della sua partita (cookie del giocatore, /api/play/tts).
+   */
+  setPlayerCredentials(code: string, slot: string | null) {
+    this.player = { code, slot };
+    this.creds = null;
+  }
+  private player: { code: string; slot: string | null } | null = null;
 
   init() {
     if (typeof window !== "undefined") {
@@ -237,10 +258,23 @@ class VoiceEngine {
    * così quando arriva il suo turno l'audio parte senza pause.
    * `live` = battuta con nickname/punteggi (modello veloce lato server).
    */
-  say(who: TtsRole, text: string, opts: { live?: boolean } = {}): Promise<void> {
+  say(who: TtsRole, text: string, opts: { live?: boolean; skipIf?: () => boolean } = {}): Promise<void> {
     if (!this.settings.enabled || !text.trim()) return Promise.resolve();
     return new Promise((resolve) => {
-      this.queue.push({ who, text, resolve, live: !!opts.live, prefetch: this.prefetchClip(who, text, !!opts.live) });
+      this.queue.push({ who, text, resolve, live: !!opts.live, skipIf: opts.skipIf, prefetch: this.prefetchClip(who, text, !!opts.live) });
+      this.pump();
+    });
+  }
+
+  /**
+   * Pausa muta in coda: le battute successive partono solo quando `until` si risolve (es. fine del
+   * cartello "DOMANDA N. X"). Nel frattempo la voce risulta "occupata" (pending), così il TV non
+   * dice al server di aver finito di parlare. Con la voce spenta si risolve subito.
+   */
+  gate(until: Promise<unknown>): Promise<void> {
+    if (!this.settings.enabled) return Promise.resolve();
+    return new Promise((resolve) => {
+      this.queue.push({ who: null, text: "", gate: until, resolve });
       this.pump();
     });
   }
@@ -252,14 +286,22 @@ class VoiceEngine {
    */
   private prefetchClip(who: TtsRole, text: string, live: boolean): Promise<string | null> {
     return this.providerReady.then(async (provider) => {
-      if (provider !== "elevenlabs" || !this.creds) return null;
-      const c = this.creds;
-      const qs = new URLSearchParams({ who, text, s: c.s, k: c.k, format: "json" });
-      if (live) qs.set("live", "1");
+      if (provider !== "elevenlabs" || (!this.creds && !this.player)) return null;
+      let endpoint: string;
+      if (this.player) {
+        const qs = new URLSearchParams({ code: this.player.code, who, text });
+        if (this.player.slot) qs.set("slot", this.player.slot);
+        endpoint = `/api/play/tts?${qs.toString()}`;
+      } else {
+        const c = this.creds!;
+        const qs = new URLSearchParams({ who, text, s: c.s, k: c.k, format: "json" });
+        if (live) qs.set("live", "1");
+        endpoint = `/api/tts?${qs.toString()}`;
+      }
       const until = Date.now() + clipWaitMs(live) - 500;
       for (let attempt = 0; ; attempt++) {
         try {
-          const r = await fetch(`/api/tts?${qs.toString()}`, { cache: "no-store" });
+          const r = await fetch(endpoint, { cache: "no-store" });
           if (r.ok) {
             const j = (await r.json()) as { url?: string };
             if (!j.url) return null;
@@ -345,8 +387,20 @@ class VoiceEngine {
     return this.busy || this.queue.length > 0;
   }
 
+  /** true mentre si aspetta una clip che il server sta ancora preparando ("Un attimo… sto preparando la voce"). */
+  private preparingClip = false;
+  get preparing(): boolean {
+    return this.preparingClip;
+  }
+  private setPreparing(on: boolean) {
+    if (this.preparingClip === on) return;
+    this.preparingClip = on;
+    for (const l of this.listeners) l(this.speakingWho);
+  }
+
   /** Interrompe tutto (es. cambio di fase improvviso). */
   stop() {
+    this.setPreparing(false);
     this.silent = null;
     this.queueEpoch++;
     this.turn++;
@@ -371,6 +425,24 @@ class VoiceEngine {
     const next = this.queue.shift();
     if (!next) return;
     this.busy = true;
+    if (next.gate) {
+      const epoch = this.queueEpoch;
+      const done = () => {
+        next.resolve();
+        if (this.queueEpoch !== epoch) return; // fermato nel frattempo: la coda è già ripartita
+        this.busy = false;
+        this.pump();
+      };
+      void next.gate.then(done, done);
+      return;
+    }
+    if (next.skipIf?.()) {
+      // non è più il momento: la battuta non si dice
+      this.busy = false;
+      next.resolve();
+      setTimeout(() => this.pump(), 0);
+      return;
+    }
     if (next.clip) {
       this.playRecorded(next, next.clip);
       return;
@@ -388,9 +460,20 @@ class VoiceEngine {
       // qualche nuovo tentativo). Se non arriva: MAI la voce del browser con ElevenLabs attivo,
       // la battuta compare come sottotitolo (vedi fallback).
       const epoch = this.queueEpoch;
+      // clip non ancora pronta (es. nome nuovo da generare): dopo un attimo lo show lo dice
+      const slow = setTimeout(() => this.setPreparing(true), PREPARING_AFTER_MS);
       void waitForClip(next.prefetch, clipWaitMs(!!next.live)).then((url) => {
+        clearTimeout(slow);
+        this.setPreparing(false);
         if (this.queueEpoch !== epoch) {
           line.resolve(); // fermato nel frattempo
+          return;
+        }
+        if (next.skipIf?.()) {
+          // la clip è arrivata tardi: il momento è passato, la battuta non si dice
+          this.busy = false;
+          line.resolve();
+          setTimeout(() => this.pump(), 0);
           return;
         }
         if (url) this.playRecorded(line, url);
@@ -621,5 +704,14 @@ export function useSpeaker(): Presenter | null {
     (cb) => getVoice().subscribe(() => cb()),
     () => getVoice().speaking,
     () => null,
+  );
+}
+
+/** Lo show sta aspettando una voce ancora in preparazione (indicatore "Un attimo…"). */
+export function useVoicePreparing(): boolean {
+  return useSyncExternalStore(
+    (cb) => getVoice().subscribe(() => cb()),
+    () => getVoice().preparing,
+    () => false,
   );
 }

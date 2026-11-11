@@ -1,7 +1,8 @@
 import type { GamePhase, LeaderboardEntry, MediaKind, Presenter, PublicBetHighlight, PublicState, QuestionType, RoundKind, RoundSpecialSettings } from "@/lib/game-engine/types";
 import { PRESENTERS } from "@/lib/game-engine/types";
-import { presenterLine, presenterLinePool, REVEAL_QUIPS, seededPick, stripAudioTags } from "./lines";
-import { standingsForShow } from "./teams-view";
+import { presenterLine, presenterLinePool, REVEAL_QUIPS, revealOutcome, seededPick, stripAudioTags, type RevealOutcome } from "./lines";
+import { lineFitsMoment, NO_MOMENT, pickForMoment, questionMoment, type MomentContext } from "./moment";
+import { roundStandingsForShow, standingsForShow } from "./teams-view";
 
 /**
  * Copione parlato dei presentatori: funzioni PURE condivise dal TV (speechFor)
@@ -37,6 +38,11 @@ export interface SpokenLine {
   text: string;
   /** Battuta con dati della serata (nickname, punti): modello veloce, generata al volo. */
   live?: boolean;
+  /**
+   * Detta durante il cartello "DOMANDA N. X" (prima che compaia la domanda): il TV mostra la
+   * domanda solo dopo queste battute (vedi DisplayApp e question-intro.ts).
+   */
+  beforeCard?: boolean;
 }
 
 /** Lunghezza massima di una battuta (stesso limite dell'API /api/tts). */
@@ -181,6 +187,39 @@ export const FIXED_POOLS = {
       "Chi insegue ha il turbo: occhio, primi della classe!",
     ],
   },
+  // ultima domanda del round (detta dall'annunciatore dopo "Domanda numero N")
+  lastOfRoundCall: {
+    who: "annunciatore",
+    texts: ["[excited] Ultima domanda del round!", "[shouts] Attenzione: ultima domanda del round!"],
+  },
+  // ultima domanda della serata: al posto di "Domanda numero N"
+  lastOfGameCall: {
+    who: "annunciatore",
+    texts: ["[shouts] Ultima domanda della serata!"],
+  },
+  // suspense prima dell'ultima domanda quando non ci sono (ancora) nomi da fare
+  lastOfGameSuspense: {
+    who: "regina",
+    texts: [
+      "[whispers] Ultima domanda. Tutto può ancora cambiare: respirate, concentratevi… e che vinca il migliore!",
+      "[excited] Siamo all'ultima domanda! La classifica può ancora ribaltarsi: occhi aperti!",
+    ],
+  },
+  // prima della soluzione dell'ultima domanda della serata
+  lastReveal: {
+    who: "professore",
+    texts: ["[whispers] Ultima soluzione della serata. Silenzio in sala…", "[whispers] Il momento della verità. Trattenete il respiro…"],
+  },
+  // salto dell'intro votato da tutti i giocatori
+  introSkipped: {
+    who: "regina",
+    texts: ["[laughs] Vedo che siete esperti: niente spiegazioni, si parte subito!", "[excited] Le regole le conoscete già? Benissimo: si parte subito!"],
+  },
+  // podio: Palmino annuncia il vincitore PRIMA che compaia (poi rullo di tamburi e il nome)
+  podiumWinnerCall: {
+    who: "palmino",
+    texts: ["[shouts] E il vincitore di stasera èèèèè…", "[excited] E il vincitore di stasera è…"],
+  },
   finishedOpen: {
     who: "professore",
     texts: ["[clears throat] Signore e signori, ecco i campioni della serata!", "[excited] Signore e signori, è il momento più atteso: il podio!"],
@@ -308,12 +347,15 @@ export function optionsLine(q: Pick<ScriptQuestion, "presenter" | "options">): S
   return { who: q.presenter, text: q.options.map((o) => `${LETTER[o.position]}: ${cleanSpeech(o.text)}.`).join(" ") };
 }
 
-export function optionsQuip(presenter: Presenter, seed: string): SpokenLine {
-  return { who: presenter, text: presenterLine("OPTIONS_VISIBLE", presenter, seed) ?? "Il tempo scorre!" };
+/** Filtro delle battute per il momento (ultima domanda: niente "la prossima…"). */
+const fitsFor = (m: MomentContext) => (text: string) => lineFitsMoment(text, m);
+
+export function optionsQuip(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT): SpokenLine {
+  return { who: presenter, text: presenterLine("OPTIONS_VISIBLE", presenter, seed, fitsFor(m)) ?? "Il tempo scorre!" };
 }
 
-export function lockedQuip(presenter: Presenter, seed: string): SpokenLine {
-  return { who: presenter, text: presenterLine("ANSWERS_LOCKED", presenter, seed) ?? "Risposte bloccate!" };
+export function lockedQuip(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT): SpokenLine {
+  return { who: presenter, text: presenterLine("ANSWERS_LOCKED", presenter, seed, fitsFor(m)) ?? "Risposte bloccate!" };
 }
 
 export function revealLine(q: Pick<ScriptQuestion, "presenter" | "options" | "correctPositions">): SpokenLine {
@@ -325,9 +367,11 @@ export function revealLine(q: Pick<ScriptQuestion, "presenter" | "options" | "co
 }
 
 /** Commento dopo la rivelazione: quasi tutti giusti, quasi tutti sbagliati, sala divisa. */
-export function revealQuip(presenter: Presenter, seed: string, pct: number): SpokenLine {
+export function revealQuip(presenter: Presenter, seed: string, outcome: RevealOutcome, m: MomentContext = NO_MOMENT): SpokenLine {
   const q = REVEAL_QUIPS[presenter];
-  const text = pct >= 0.7 ? seededPick(q.easy, seed) : pct <= 0.25 ? seededPick(q.hard, seed) : (presenterLine("ANSWER_REVEAL", presenter, seed) ?? "");
+  const pool =
+    outcome === "none" ? q.none : outcome === "few" ? [...q.few, ...q.hard] : outcome === "all" ? [...q.all, ...q.easy] : outcome === "most" ? [...q.most, ...q.easy] : null;
+  const text = pool ? pickForMoment(pool, seed, m) : (presenterLine("ANSWER_REVEAL", presenter, seed, fitsFor(m)) ?? "");
   return { who: presenter, text };
 }
 
@@ -438,9 +482,43 @@ export function eventLines(e: { title: string; tagline: string }): SpokenLine[] 
 type LbSpeech = Pick<LeaderboardEntry, "nickname" | "rank" | "points">;
 
 /** Battuta dopo i punti di una risposta (a metà round): stessa scelta su TV, fumetto e voce. */
-export function scoreQuipLine(presenter: Presenter, seed: string): SpokenLine {
+export function scoreQuipLine(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT): SpokenLine {
   const pool = presenter === "regina" ? FIXED_POOLS.scoreQuipRegina : presenter === "palmino" ? FIXED_POOLS.scoreQuipPalmino : FIXED_POOLS.scoreQuipProfessore;
-  return fixedLine(pool, seed);
+  return { who: pool.who, text: pickForMoment(pool.texts, seed, m) };
+}
+
+/** "Anna", "Anna e Bruno", "Anna, Bruno e Carla" (nomi qualsiasi: giocatori o squadre). */
+function joinPlain(list: readonly string[]): string {
+  const n = list.map((x) => cleanSpeech(x));
+  return n.length <= 1 ? (n[0] ?? "") : `${n.slice(0, -1).join(", ")} e ${n[n.length - 1]}`;
+}
+
+/**
+ * Suspense prima dell'ultima domanda della serata, con i nomi veri di chi si gioca la vittoria
+ * (`contenders`: i primi della classifica, solo in quel momento). Senza nomi: battuta fissa.
+ */
+export function lastQuestionSuspenseLine(contenders: readonly { name: string; points: number }[] | null | undefined, seed: string): SpokenLine {
+  const top = [...(contenders ?? [])].sort((a, b) => b.points - a.points);
+  if (top.length < 2 || top[0].points <= 0) return fixedLine(FIXED_POOLS.lastOfGameSuspense, seed);
+  const leaders = top.filter((c) => c.points === top[0].points);
+  if (leaders.length > 1) {
+    return { who: "regina", text: `[excited] Ultima domanda! ${joinPlain(leaders.map((c) => c.name))} sono appaiati in testa con ${top[0].points} punti: chi risponde giusto può vincere tutto!`, live: true };
+  }
+  const gap = top[0].points - top[1].points;
+  return {
+    who: "regina",
+    text: `[excited] Ultima domanda! In testa c'è ${cleanSpeech(top[0].name)} con ${top[0].points} punti, ma ${cleanSpeech(top[1].name)} è a ${gap} punti di distanza: tutto può ancora cambiare!`,
+    live: true,
+  };
+}
+
+/** Vincitore del ROUND (punti fatti in questo round), detto con la classifica del round. */
+export function roundWinnerLine(roundLb: readonly LbSpeech[], roundIndex: number | null): SpokenLine | null {
+  const top = rankGroups([...roundLb])[0];
+  if (!top || top[0].points <= 0) return null;
+  const which = roundIndex ? `Il round ${roundIndex}` : "Questo round";
+  if (top.length === 1) return { who: "professore", text: `[excited] ${which} lo vince ${cleanSpeech(top[0].nickname)}, con ${top[0].points} punti nel round! Applausi, prego.`, live: true };
+  return { who: "professore", text: `[excited] ${which} finisce a pari merito: ${joinNames(top)}, con ${top[0].points} punti ciascuno! Applausi, prego.`, live: true };
 }
 
 /** Chi ha preso più punti in QUESTA risposta (i pari merito insieme); nessuno → battuta di Palmino. */
@@ -465,7 +543,7 @@ export function betStarLine(wins: Pick<PublicBetHighlight, "nickname" | "tier" |
 }
 
 /** "Anna", "Anna e Bruno", "Anna, Bruno e Carla" */
-function joinNames(list: LbSpeech[]): string {
+function joinNames(list: readonly LbSpeech[]): string {
   const n = list.map((e) => cleanSpeech(e.nickname));
   return n.length <= 1 ? (n[0] ?? "") : `${n.slice(0, -1).join(", ")} e ${n[n.length - 1]}`;
 }
@@ -502,11 +580,11 @@ export function leaderboardLine(lb: LbSpeech[]): SpokenLine | null {
         return g.length === 1 ? `${one} ${cleanSpeech(g[0].nickname)}` : `${many} a pari merito ${joinNames(g)}`;
       });
     const text = parts.join(", ");
-    return { who: "regina", text: `[laughs] Ecco la classifica! ${text.charAt(0).toUpperCase()}${text.slice(1)}. Gli altri… ci stanno lavorando!`, live: true };
+    return { who: "regina", text: `[laughs] Ecco la classifica generale! ${text.charAt(0).toUpperCase()}${text.slice(1)}. Gli altri… ci stanno lavorando!`, live: true };
   }
   const top = groups[0];
-  if (top.length > 1) return { who: "regina", text: `[excited] Ecco la classifica! Al comando, a pari merito, ${joinNames(top)}!`, live: true };
-  return { who: "regina", text: `[excited] Ecco la classifica! Al comando c'è ${cleanSpeech(top[0].nickname)}!`, live: true };
+  if (top.length > 1) return { who: "regina", text: `[excited] Ecco la classifica generale! Al comando, a pari merito, ${joinNames(top)}!`, live: true };
+  return { who: "regina", text: `[excited] Ecco la classifica generale! Al comando c'è ${cleanSpeech(top[0].nickname)}!`, live: true };
 }
 
 /**
@@ -536,8 +614,10 @@ export interface PodiumPlan {
   opening: SpokenLine;
   rest: PodiumRest;
   steps: PodiumStep[];
-  /** "E il vincitore è…": luci basse e rullo lungo (null = nessun vincitore) */
+  /** "E il vincitore è…": luci basse, Palmino lo annuncia e poi il rullo lungo (null = nessun vincitore) */
   tensionAt: number | null;
+  /** battuta di Palmino all'inizio della suspense (detta PRIMA che il vincitore compaia; null = nessun vincitore) */
+  winnerCall: SpokenLine | null;
   winnerAt: number;
   closing: SpokenLine;
   closeAt: number;
@@ -547,7 +627,10 @@ const REST_AT = 4;
 const REST_PER_NAME = 0.9;
 /** oltre questi nomi la voce riassume ("e tutti gli altri"), lo schermo li mostra comunque */
 const REST_MAX_SPOKEN = 20;
-const PODIUM_TENSION = 5;
+/** suspense del vincitore: "E il vincitore di stasera è…" (~2,2 s), poi il rullo fino alla rivelazione */
+const PODIUM_TENSION = 5.4;
+/** il rullo per il vincitore parte dopo l'annuncio di Palmino */
+const PODIUM_DRUM_AFTER = 2.2;
 
 export function podiumPlan(lb: LbSpeech[], seed: string): PodiumPlan {
   const groups = rankGroups(lb);
@@ -591,15 +674,16 @@ export function podiumPlan(lb: LbSpeech[], seed: string): PodiumPlan {
   if (winners) {
     tensionAt = t - 1;
     winnerAt = tensionAt + PODIUM_TENSION;
+    // il nome lo grida Palmino nell'istante in cui compare (l'annuncio "E il vincitore è…" lo ha già fatto prima)
     steps.push({
       rank: 1,
       entries: winners,
-      drumAt: tensionAt,
+      drumAt: tensionAt + PODIUM_DRUM_AFTER,
       at: winnerAt,
       line:
         winners.length === 1
-          ? { who: "palmino", text: `[shouts] E il vincitore di stasera è… ${cleanSpeech(winners[0].nickname)}! [giggles] Complimentoni!`, live: true }
-          : { who: "palmino", text: `[shouts] E i vincitori di stasera, a pari merito, sono… ${joinNames(winners)}! [giggles] Complimentoni a tutti!`, live: true },
+          ? { who: "palmino", text: `[shouts] ${cleanSpeech(winners[0].nickname)}! Complimentoni!`, live: true }
+          : { who: "palmino", text: `[shouts] A pari merito: ${joinNames(winners)}! Complimentoni a tutti!`, live: true },
     });
   }
   // il 2° posto compare in automatico insieme al vincitore (la voce lo dice subito dopo)
@@ -621,6 +705,7 @@ export function podiumPlan(lb: LbSpeech[], seed: string): PodiumPlan {
     rest: { entries: restEntries, at: REST_AT, perName: REST_PER_NAME, line: restLine },
     steps,
     tensionAt,
+    winnerCall: winners ? fixedLine(FIXED_POOLS.podiumWinnerCall, seed) : null,
     winnerAt,
     closing: fixedLine(FIXED_POOLS.finishedClose, seed),
     closeAt: winnerAt + 9,
@@ -633,7 +718,7 @@ export const PODIUM_FIRST_AT = REST_AT;
 /** Tutte le battute del podio, nell'ordine in cui vengono dette (per il pre-riscaldamento delle voci). */
 export function podiumLines(lb: LbSpeech[], seed: string): SpokenLine[] {
   const plan = podiumPlan(lb, seed);
-  return [plan.opening, ...(plan.rest.line ? [plan.rest.line] : []), ...plan.steps.map((st) => st.line), plan.closing];
+  return [plan.opening, ...(plan.rest.line ? [plan.rest.line] : []), ...(plan.winnerCall ? [plan.winnerCall] : []), ...plan.steps.map((st) => st.line), plan.closing];
 }
 
 // ---------------------------------------------------------------------------
@@ -652,7 +737,7 @@ export function genericScriptLines(maxQuestionNumber = GENERIC_QUESTION_NUMBERS)
   for (const p of PRESENTERS) {
     out.push(multipleWarningLine(p));
     for (const phase of POOL_PHASES) for (const text of presenterLinePool(phase, p)) out.push({ who: p, text });
-    for (const text of [...REVEAL_QUIPS[p].easy, ...REVEAL_QUIPS[p].hard]) out.push({ who: p, text });
+    for (const pool of Object.values(REVEAL_QUIPS[p])) for (const text of pool) out.push({ who: p, text });
   }
   return dedupeLines(out);
 }
@@ -710,6 +795,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
   const out: SpokenLine[] = [];
   const pq = s.question;
   const presenter: Presenter = pq?.presenter ?? s.round?.presenter ?? "professore";
+  const moment = questionMoment(s);
   if (s.phase === prev.phase) return out;
   // ripresa dopo la pausa: nessuna rilettura di domanda/risposte
   if (prev.phase === "PAUSED" && s.phase !== "FINISHED") return [fixedLine(FIXED_POOLS.resume, s.phaseStartedAt)];
@@ -730,6 +816,8 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       if (prev.phase === "READY") out.push(fixedLine(FIXED_POOLS.lobby, s.sessionId));
       break;
     case "ROUND_INTRO":
+      // intro saltata a votazione: prima una battuta, poi il round
+      if (s.introSkipped) out.push(fixedLine(FIXED_POOLS.introSkipped, s.sessionId));
       if (s.round) out.push(roundIntroLine(s.round));
       // inizio della finale: il regista nomina primo e secondo (battuta live, nomi veri)
       out.push(...directedLines(s));
@@ -750,7 +838,14 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
     case "QUESTION_VISIBLE":
       if (q && pq) {
-        if (pq.number) out.push(questionNumberLine(pq.number));
+        // cartello "DOMANDA N. X": annuncio (e suspense sull'ultima), poi la domanda compare e si legge
+        if (moment.lastOfGame) {
+          out.push({ ...fixedLine(FIXED_POOLS.lastOfGameCall, q.id), beforeCard: true });
+          out.push({ ...lastQuestionSuspenseLine(s.contenders, q.id), beforeCard: true });
+        } else {
+          if (pq.number) out.push({ ...questionNumberLine(pq.number), beforeCard: true });
+          if (moment.lastOfRound) out.push({ ...fixedLine(FIXED_POOLS.lastOfRoundCall, q.id), beforeCard: true });
+        }
         out.push(questionTextLine(q));
         if (q.type === "multiple") out.push(multipleWarningLine(presenter));
         // manche speciali: invito a puntare / annuncio del boost (frasi fisse, pre-generate)
@@ -762,18 +857,21 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
     case "OPTIONS_VISIBLE":
       if (q && pq?.options) {
         if (opts.readOptions) out.push(optionsLine(q));
-        out.push(optionsQuip(presenter, q.id));
+        out.push(optionsQuip(presenter, q.id, moment));
       }
       break;
     case "ANSWERS_LOCKED":
-      out.push(lockedQuip(presenter, q?.id ?? "x"));
+      out.push(lockedQuip(presenter, q?.id ?? "x", moment));
       break;
     case "ANSWER_REVEAL":
       if (q && pq?.correctPositions && pq.options) {
+        // ultima soluzione della serata: un attimo di silenzio teatrale prima
+        if (moment.lastOfGame) out.push(fixedLine(FIXED_POOLS.lastReveal, q.id));
         out.push(revealLine(q));
         const total = pq.distribution?.reduce((a, b) => a + b, 0) ?? 0;
         const right = pq.distribution && q.correctPositions.length === 1 ? pq.distribution[q.correctPositions[0]] : null;
-        if (total > 0 && right !== null) out.push(revealQuip(presenter, q.id, right / total));
+        const outcome = right !== null ? revealOutcome(right, total, s.playerCount) : null;
+        if (outcome) out.push(revealQuip(presenter, q.id, outcome, moment));
       }
       break;
     case "SCORE_REVEAL": {
@@ -782,20 +880,21 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       if (directed.length > 0) {
         out.push(...directed);
         // a metà round, se il regista ha detto una sola cosa, ci sta anche una battuta
-        if (directed.length === 1 && pq && pq.positionInRound < pq.totalInRound) out.push(scoreQuipLine(presenter, pq.id));
+        if (directed.length === 1 && pq && pq.positionInRound < pq.totalInRound) out.push(scoreQuipLine(presenter, pq.id, moment));
         break;
       }
-      // senza eventi rilevanti: chi è in testa a fine round; prima, il colpo migliore e una battuta
+      // senza eventi rilevanti: a fine round chi ha vinto il ROUND; prima, il colpo migliore e una battuta
       if (!pq || pq.positionInRound >= pq.totalInRound) {
         const b = pq?.bets?.wins ? betStarLine(pq.bets.wins, presenter) : null;
         if (b) out.push(b);
-        // a squadre ("teams") si annuncia la squadra in testa
-        const l = scoreLeaderLine(standingsForShow(s));
+        // classifica del round (a squadre, "teams": la squadra); senza, chi è in testa
+        const round = roundStandingsForShow(s);
+        const l = round ? roundWinnerLine(round, s.round?.index ?? null) : scoreLeaderLine(standingsForShow(s));
         if (l) out.push(l);
       } else {
         // Scommetti tutto: il colpo migliore è la vincita più grande (con la quota puntata)
         out.push((pq.bets?.wins ? betStarLine(pq.bets.wins, presenter) : null) ?? answerStarLine(s.leaderboard ?? [], presenter, pq.id));
-        out.push(scoreQuipLine(presenter, pq.id));
+        out.push(scoreQuipLine(presenter, pq.id, moment));
       }
       break;
     }
@@ -813,4 +912,29 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
   }
   return out.filter((l) => l.text.trim().length > 0);
+}
+
+/**
+ * Tutte le battute che lo show può dire nello stato corrente (copione della fase, battute del
+ * regista, podio, arrivo della ruota) più le battute fisse generiche. Serve al server per dare le
+ * voci ai telefoni dei giocatori (show sul telefono) SOLO per le battute di quella partita:
+ * un giocatore non può far sintetizzare un testo qualsiasi.
+ */
+export function sessionLinesFor(s: PublicState): SpokenLine[] {
+  const out: SpokenLine[] = [];
+  for (const phase of ["DRAFT", "READY", "PAUSED"] as const) {
+    for (const readOptions of [true, false]) out.push(...speechFor(s, { phase }, { readOptions }));
+  }
+  out.push(...directedLines(s));
+  const vp = s.phase === "PAUSED" && s.pausedFrom ? s.pausedFrom : s.phase;
+  if (vp === "FINISHED") out.push(...podiumLines(standingsForShow(s), s.sessionId));
+  const stop = wheelStopLine(s);
+  if (stop) out.push(stop);
+  return dedupeLines([...genericScriptLines(), ...out]);
+}
+
+/** La battuta (chi + testo) è fra quelle consentite? Restituisce quella del copione (con il suo `live`). */
+export function findScriptLine(lines: readonly SpokenLine[], who: string, text: string): SpokenLine | null {
+  const t = ttsText(text);
+  return lines.find((l) => l.who === who && ttsText(l.text) === t) ?? null;
 }

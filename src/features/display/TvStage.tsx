@@ -15,9 +15,10 @@ import {
   TvVotingScreen,
 } from "./TvScreens";
 import { TvLobbyTeams, TvTeamLeaderboardScreen, TvWinningTeamBanner } from "./TvTeamScreens";
-import { leadingTeams, standingsForShow, teamMode } from "@/features/game/teams-view";
+import { leadingTeams, roundAsEntries, standingsForShow, teamMode } from "@/features/game/teams-view";
 import { TvWheelScreen } from "./TvWheel";
 import { TrioHost } from "./TvTrio";
+import { QuestionIntroScreen } from "./QuestionIntroScreen";
 
 export interface TvStageProps {
   state: PublicState | null;
@@ -37,6 +38,8 @@ export interface TvStageProps {
   /** Preferenze del TV: movimento ridotto e PC lento (la ruota rinuncia ad animazioni e bagliori). */
   reducedMotion?: boolean;
   lowPower?: boolean;
+  /** cartello "DOMANDA N. X" in scena: la domanda non è ancora comparsa */
+  questionIntro?: boolean;
 }
 
 /**
@@ -57,7 +60,7 @@ export function LandscapeScreen(props: TvStageProps) {
   return <StageScreen {...props} />;
 }
 
-function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false }: TvStageProps) {
+function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false, questionIntro = false }: TvStageProps) {
   if (!view) return <TvMessageScreen title="Collegamento allo studio…" />;
   const vp: GamePhase = view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase;
   const mode = teamMode(view);
@@ -87,6 +90,7 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
     return <TvRoundIntroScreen round={view.round} vote={view.vote} showLines={vp === "ROUND_INTRO" ? view.showLines : null} />;
   }
   if (vp === "SPECIAL_EVENT" && view.event) return <TvSpecialEventScreen event={view.event} />;
+  if (view.question && vp === "QUESTION_VISIBLE" && questionIntro) return <QuestionIntroScreen question={view.question} round={view.round} />;
   if (view.question && (vp === "QUESTION_VISIBLE" || vp === "OPTIONS_VISIBLE" || vp === "ANSWERS_LOCKED" || vp === "ANSWER_REVEAL")) {
     const m = view.question.media;
     return (
@@ -110,9 +114,36 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
     if (q?.bets?.locked) return <TvBetResultsScreen bets={q.bets} who={q.presenter} questionId={q.id} />;
     // chi dice una battuta del regista entra in scena con la sua animazione (vedi presenter-cue.ts)
     if (q && q.positionInRound < q.totalInRound) return <TvAnswerPointsScreen entries={view.leaderboard ?? []} who={q.presenter} questionId={q.id} showLines={view.showLines} />;
+    // ultima domanda del round: la classifica DEL ROUND (punti fatti in questo round)
+    const roundTitle = `CLASSIFICA DEL ROUND${view.round ? ` ${view.round.index}` : ""}`;
+    if (view.teams && mode !== "individual" && view.teamRoundLeaderboard) {
+      return (
+        <TvTeamLeaderboardScreen
+          teams={view.teamRoundLeaderboard.map((t) => ({ teamId: t.teamId, rank: t.rank, previousRank: null, name: t.name, color: t.color, members: t.members, points: t.points, lastDelta: 0 }))}
+          players={mode === "both" && view.roundLeaderboard ? roundAsEntries(view.roundLeaderboard) : null}
+          title={roundTitle}
+          showDelta={false}
+          aggregation={view.teams.aggregation}
+        />
+      );
+    }
+    if (view.roundLeaderboard) {
+      return (
+        <TvLeaderboardScreen
+          entries={roundAsEntries(view.roundLeaderboard)}
+          title={roundTitle}
+          showDelta={false}
+          showLines={view.showLines}
+          round={{ totals: new Map(view.roundLeaderboard.map((r) => [r.participantId, r.total])) }}
+        />
+      );
+    }
     return teamBoard("CLASSIFICA DI FINE ROUND") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showDelta showLines={view.showLines} />;
   }
-  if (vp === "LEADERBOARD") return teamBoard("CLASSIFICA") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA" showDelta />;
+  if (vp === "LEADERBOARD") {
+    const roundPoints = view.roundLeaderboard ? new Map(view.roundLeaderboard.map((r) => [r.participantId, r.points])) : null;
+    return teamBoard("CLASSIFICA GENERALE") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA GENERALE" showDelta roundPoints={roundPoints} />;
+  }
   if (vp === "FINISHED")
     return (
       <TvPodiumScreen

@@ -225,7 +225,7 @@ describe("scorrimento automatico (tick lato server)", () => {
       "SHOW_OPTIONS",
       "REVEAL",
       "SCORE",
-      "SHOW_LEADERBOARD",
+      // ultimo round: dalla classifica del round dritti al podio (niente classifica generale prima della suspense)
       "FINISH",
     ]);
     const r = await autoRow(fx.sessionId);

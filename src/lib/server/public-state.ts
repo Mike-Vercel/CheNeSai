@@ -27,6 +27,8 @@ import { showLinesForPhase } from "@/lib/show/moments";
 import { loadPublicTeams, loadTeamLeaderboard } from "./teams";
 import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
 import { BET_TIERS } from "@/lib/game-engine/types";
+import { loadRoundStandingRows, roundLeaderboardFrom, teamRoundLeaderboardFrom } from "./round-standings";
+import { loadIntroSkip } from "./intro-skip";
 
 export const QUESTION_PHASES: readonly GamePhase[] = [
   "QUESTION_VISIBLE",
@@ -70,6 +72,10 @@ export interface StateRow {
   auto_waiting: string | null;
   /** gioco libero: rivincita che ha preso il posto di questa partita */
   next_session_id: string | null;
+  /** intro saltata per voto unanime dei giocatori */
+  intro_skipped_at: Date | null;
+  /** dove si guarda lo show: televisore o telefoni dei giocatori */
+  display_mode: "tv" | "phone" | null;
   server_now: Date;
 }
 
@@ -81,7 +87,7 @@ export async function loadStateRow(db: Db, sessionId: string, lock: "update" | "
            gs.phase_started_at, gs.intro_started_at, gs.paused_from_phase, gs.paused_remaining_ms, gs.paused_at,
            gs.active_event_id, gs.show_lines,
            gs.auto_mode, gs.auto_next_at, gs.auto_command, gs.auto_version, gs.auto_waiting,
-           s.next_session_id,
+           s.next_session_id, gs.intro_skipped_at, s.display_mode,
            clock_timestamp() as server_now
     from game_state gs
     join game_sessions s on s.id = gs.session_id
@@ -137,6 +143,20 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
   // modalità squadre: elenco squadre sempre, classifica a squadre nelle stesse fasi di quella individuale
   const teams = await loadPublicTeams(db, sessionId, settings.teams);
   const teamLeaderboard = teams && LEADERBOARD_PHASES.includes(vp) ? await loadTeamLeaderboard(db, sessionId, settings.teams.aggregation) : null;
+  // classifica del ROUND: ai punti dell'ultima domanda del round e nella classifica di fine round
+  const lastOfRound = !!question && question.totalInRound > 0 && question.positionInRound >= question.totalInRound;
+  const roundRows = round && (vp === "LEADERBOARD" || (vp === "SCORE_REVEAL" && lastOfRound)) ? await loadRoundStandingRows(db, sessionId, round.id) : null;
+  const roundLeaderboard = roundRows ? roundLeaderboardFrom(roundRows, vp === "SCORE_REVEAL" ? 40 : 10) : null;
+  const teamRoundLeaderboard = roundRows && teams ? teamRoundLeaderboardFrom(roundRows, teams.list, settings.teams.aggregation) : null;
+  // ultima domanda della serata: chi si gioca la vittoria (per la suspense dei presentatori)
+  let contenders: PublicState["contenders"] = null;
+  if (vp === "QUESTION_VISIBLE" && lastOfRound && round && round.index >= round.total) {
+    contenders =
+      teams && settings.teams.mode === "teams"
+        ? (await loadTeamLeaderboard(db, sessionId, settings.teams.aggregation)).slice(0, 3).map((t) => ({ name: t.name, points: t.points }))
+        : (await loadLeaderboard(db, sessionId, 3)).map((e) => ({ name: e.nickname, points: e.points }));
+  }
+  const introSkip = vp === "INTRO" ? await loadIntroSkip(db, sessionId) : null;
 
   let recentPlayers: string[] | null = null;
   if (LOBBY_PHASES.includes(vp)) {
@@ -174,6 +194,12 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
     leaderboard,
     teams,
     teamLeaderboard,
+    roundLeaderboard,
+    teamRoundLeaderboard,
+    contenders,
+    introSkip,
+    introSkipped: !!st.intro_skipped_at && vp === "ROUND_INTRO" && round?.index === 1,
+    displayMode: st.display_mode === "phone" ? "phone" : "tv",
     pausedFrom: st.phase === "PAUSED" ? st.paused_from_phase : null,
     recentPlayers,
     showLines: showLinesForPhase(vp, st.show_lines),

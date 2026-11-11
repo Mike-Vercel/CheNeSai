@@ -123,8 +123,8 @@ export function suggestNextCommand(ctx: NextActionContext): GameCommand | null {
     case "ANSWER_REVEAL":
       return "SCORE";
     case "SCORE_REVEAL":
-      // la classifica si mostra solo a fine round: a metà round si passa alla domanda successiva
-      return ctx.hasNextQuestion ? "SHOW_QUESTION" : "SHOW_LEADERBOARD";
+      // a metà round la domanda successiva; a fine round la classifica generale; all'ultimo round il podio
+      return ctx.hasNextQuestion ? "SHOW_QUESTION" : ctx.hasNextRound ? "SHOW_LEADERBOARD" : "FINISH";
     case "LEADERBOARD":
       if (ctx.hasNextQuestion) return "SHOW_QUESTION";
       return ctx.hasNextRound ? "START_ROUND" : "FINISH";

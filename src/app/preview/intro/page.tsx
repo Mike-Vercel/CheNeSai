@@ -35,6 +35,7 @@ export default async function IntroPreviewPage({ searchParams }: { searchParams:
       muted={flag(sp.muted)}
       showUi={one(sp.ui) !== "0"}
       rules={one(sp.rules) !== "0"}
+      portrait={one(sp.layout) === "portrait"}
     />
     </CharacterModeProvider>
   );

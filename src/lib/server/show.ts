@@ -9,6 +9,7 @@ import { combineShowEvents, detectShowEvents, detectTeamEvents, type ShowPlayer,
 import { teamSettingsOf } from "./settings";
 import { directShow, validateTemplate } from "@/lib/show/director";
 import { finalRoundStartEvent, lobbyGreetingEvent } from "@/lib/show/moments";
+import { loadRoundStandingRows } from "./round-standings";
 import {
   DEFAULT_DIRECTOR_CONFIG,
   isRetortEvent,
@@ -237,6 +238,18 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
          and (sq.vote_option_id is null or x.vote_option_id = sq.vote_option_id)) as tot
     from session_questions sq where sq.id = ${sqId}`;
   const endOfRound = !!pos && pos.pos >= pos.tot;
+  // ultima domanda della serata: nessun round ancora da giocare dopo questo
+  const [{ more }] = pos
+    ? await tx<{ more: boolean }[]>`
+        select exists (
+          select 1 from game_rounds r where r.session_id = ${sessionId} and r.started_at is null
+            and r.position > (select position from game_rounds where id = ${pos.round_id})
+        ) as more`
+    : [{ more: true }];
+  const moment = { lastOfRound: endOfRound, lastOfGame: endOfRound && !more };
+  // fine round: punti fatti NEL ROUND (il vincitore del round è chi ne ha fatti di più)
+  const roundRows = endOfRound && pos ? await loadRoundStandingRows(tx, sessionId, pos.round_id) : null;
+  const roundPoints = roundRows ? new Map(roundRows.map((r) => [r.participantId, r.points])) : undefined;
 
   // modalità squadre: punteggi di squadra prima/dopo (stessa aggregazione della classifica a squadre)
   const [sess] = await tx<{ settings: SessionSettings }[]>`select settings from game_sessions where id = ${sessionId}`;
@@ -254,10 +267,13 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
         members: members.length,
       };
     });
-    teamEvents = detectTeamEvents({ mode: ts.mode, teams: showTeams, endOfRound });
+    const teamRoundPoints = roundRows
+      ? new Map(teamRows.map((t) => [t.id, aggregatePoints(roundRows.filter((r) => r.teamId === t.id).map((r) => r.points), ts.aggregation)]))
+      : undefined;
+    teamEvents = detectTeamEvents({ mode: ts.mode, teams: showTeams, endOfRound, roundPoints: teamRoundPoints });
   }
 
-  const events = combineShowEvents(ts.mode, detectShowEvents({ players, leaderStreak, endOfRound }), teamEvents);
+  const events = combineShowEvents(ts.mode, detectShowEvents({ players, leaderStreak, endOfRound, roundPoints }), teamEvents);
 
   const used = await tx<{ template_id: string; at: Date }[]>`
     select template_id, max(created_at) as at from show_dialogue_log where session_id = ${sessionId} group by template_id`;
@@ -274,6 +290,7 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
     config,
     nowMs: now.getTime(),
     seed: sqId,
+    moment,
   });
 
   await publishLines(tx, sessionId, await logLines(tx, sessionId, lines, { sqId, roundId: pos?.round_id ?? null }));

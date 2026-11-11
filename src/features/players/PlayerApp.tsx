@@ -15,6 +15,8 @@ import { podiumPlan } from "@/features/game/script";
 import { InstallHint } from "@/features/pwa/InstallHint";
 import { leadingTeams, standingsForShow, teamMode } from "@/features/game/teams-view";
 import { PhoneTeamBadge, PhoneTeamPicker, PhoneTeamStandings } from "./PhoneTeams";
+import { IntroSkipButton } from "./IntroSkip";
+import { PlayerPhoneShow } from "./PlayerPhoneShow";
 import {
   PhoneCard,
   PhoneHeader,
@@ -251,6 +253,8 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   if (!state || !self) {
     return <LoadingSplash label="Collegamento allo studio…" />;
   }
+  // show «Su questo telefono»: niente "Guarda il TV", lo show (immagini e audio) è qui, come sul telefono dell'host
+  if (state.displayMode === "phone") return <PlayerPhoneShow code={code} slot={slot} sessionId={state.sessionId} />;
 
   const vp: GamePhase = state.phase === "PAUSED" && state.pausedFrom ? state.pausedFrom : state.phase;
   // dopo una risposta a metà round: niente totali né posizione, solo i punti di quella risposta
@@ -281,9 +285,12 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     body = <LobbyView self={self} state={state} picker={teamPicker(false)} />;
   } else if (vp === "INTRO") {
     body = (
-      <PhoneMessage who="professore" title="Guarda il TV!">
-        Sta per cominciare lo spettacolo. Tieni il telefono a portata di mano!
-      </PhoneMessage>
+      <>
+        <PhoneMessage who="professore" title="Guarda il TV!">
+          Sta per cominciare lo spettacolo. Tieni il telefono a portata di mano!
+        </PhoneMessage>
+        {state.phase !== "PAUSED" && <IntroSkipButton code={code} slot={slot} skip={state.introSkip} nickname={self.nickname} className="mt-4" />}
+      </>
     );
   } else if (vp === "ROUND_INTRO" && state.round?.kind === "category_wheel") {
     body = (

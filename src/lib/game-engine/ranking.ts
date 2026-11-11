@@ -106,3 +106,33 @@ export function aggregateStandings(
     )
     .map(({ lastDate: _lastDate, ...rest }, i) => ({ ...rest, rank: i + 1 }));
 }
+
+export interface RoundRankInput {
+  participantId: string;
+  nickname: string;
+  /** punti fatti nel round */
+  points: number;
+  /** punti totali della serata */
+  total: number;
+  joinedAt: string;
+}
+
+/**
+ * Classifica del ROUND: ordine per punti fatti nel round (pari merito = stessa posizione: 1, 1, 3…);
+ * a parità si elenca prima chi ha più punti in totale, poi chi è entrato prima.
+ */
+export function rankRoundStandings<T extends RoundRankInput>(rows: T[]): (T & { rank: number })[] {
+  const sorted = [...rows].sort(
+    (a, b) =>
+      b.points - a.points ||
+      b.total - a.total ||
+      Date.parse(a.joinedAt) - Date.parse(b.joinedAt) ||
+      a.nickname.localeCompare(b.nickname, "it") ||
+      (a.participantId < b.participantId ? -1 : a.participantId > b.participantId ? 1 : 0),
+  );
+  let rank = 0;
+  return sorted.map((r, i) => {
+    if (i === 0 || r.points !== sorted[i - 1].points) rank = i + 1;
+    return { ...r, rank };
+  });
+}

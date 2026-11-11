@@ -331,6 +331,8 @@ export async function rematchPublicGame(host: HostUser, oldSessionId: string, ra
         archived_at = case when status = 'finished' then now() else archived_at end
       where id = ${oldSessionId}`;
     await tx`update game_sessions set code = ${old.code} where id = ${r.sessionId}`;
+    // la rivincita si guarda dove si guardava la partita (TV o telefoni)
+    await tx`update game_sessions set display_mode = (select display_mode from game_sessions where id = ${oldSessionId}) where id = ${r.sessionId}`;
 
     // giocatori: stesso nickname, punti a zero; il token del telefono passa al nuovo partecipante
     const players = await tx<{ id: string; identity_id: string | null; nickname: string; nickname_key: string; token_hash: string }[]>`

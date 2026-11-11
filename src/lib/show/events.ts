@@ -15,7 +15,8 @@
  * - ONLY_ONE_CORRECT: un solo giusto su almeno 3 risposte. ALL_WRONG: nessun giusto su almeno 2 risposte.
  * - ALL_CORRECT: tutti i giocatori (almeno 3) hanno risposto giusto.
  * - POINTS_MILESTONE: superata una soglia (10.000, 20.000, 30.000, 50.000).
- * - ROUND_WINNER: all'ultima domanda del round, chi è primo.
+ * - ROUND_WINNER: all'ultima domanda del round, chi ha fatto più punti NEL ROUND (con `roundPoints`;
+ *   senza, chi è primo in classifica).
  *
  * Solo in modalità squadre (detectTeamEvents, su punteggi di squadra somma/media):
  * - TEAM_LEADER_CHANGED: una sola squadra in testa che prima non lo era (prima c'era una sola squadra
@@ -45,6 +46,8 @@ export interface DetectInput {
   /** domande consecutive con lo stesso primo (compresa questa) */
   leaderStreak: number;
   endOfRound: boolean;
+  /** punti fatti nel round da ogni giocatore (vincitore del round = più punti nel round) */
+  roundPoints?: ReadonlyMap<string, number>;
 }
 
 export const POINT_MILESTONES = [10000, 20000, 30000, 50000];
@@ -144,9 +147,12 @@ export function detectShowEvents(input: DetectInput): ShowEvent[] {
     }
   }
 
-  // --- fine round ---
-  if (input.endOfRound && leaders.length > 0 && leaders[0].points > 0) {
-    out.push({ type: "ROUND_WINNER", leaders: leaders.map(ref), points: leaders[0].points });
+  // --- fine round: chi ha vinto il ROUND (punti fatti nel round) ---
+  if (input.endOfRound) {
+    const rp = input.roundPoints;
+    const score = (p: ShowPlayer) => (rp ? (rp.get(p.id) ?? 0) : p.points);
+    const top = Math.max(...players.map(score));
+    if (top > 0) out.push({ type: "ROUND_WINNER", leaders: players.filter((p) => score(p) === top).map(ref), points: top });
   }
   return out;
 }
@@ -165,6 +171,8 @@ export interface DetectTeamInput {
   mode: TeamMode;
   teams: ShowTeam[];
   endOfRound: boolean;
+  /** punti di squadra fatti nel round (vincitrice del round = più punti nel round) */
+  roundPoints?: ReadonlyMap<string, number>;
 }
 
 const teamRef = (t: ShowTeam): TeamRef => ({ id: t.id, name: t.name });
@@ -183,8 +191,11 @@ export function detectTeamEvents(input: DetectTeamInput): ShowEvent[] {
   if (leaders.length === 1 && prevLeaders.length === 1 && prevTop > 0 && prevLeaders[0].id !== leaders[0].id) {
     out.push({ type: "TEAM_LEADER_CHANGED", team: teamRef(leaders[0]), previous: teamRef(prevLeaders[0]), points: leaders[0].points });
   }
-  if (input.endOfRound && leaders[0].points > 0) {
-    out.push({ type: "TEAM_ROUND_WINNER", teams: leaders.map(teamRef), points: leaders[0].points });
+  if (input.endOfRound) {
+    const rp = input.roundPoints;
+    const score = (t: ShowTeam) => (rp ? (rp.get(t.id) ?? 0) : t.points);
+    const top = Math.max(...teams.map(score));
+    if (top > 0) out.push({ type: "TEAM_ROUND_WINNER", teams: teams.filter((t) => score(t) === top).map(teamRef), points: top });
   }
   return out;
 }

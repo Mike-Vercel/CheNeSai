@@ -8,12 +8,11 @@ import type { GamePhase, LeaderboardEntry, Presenter, PublicEvent, PublicQuestio
 import { AnswerButton, type AnswerVisual } from "@/features/game/components/answers";
 import { CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
-import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
-import { scoreQuipLine } from "@/features/game/script";
+import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { useSeatContext } from "@/features/gioca/use-seat";
 import { fmt } from "@/lib/game-engine/special-rounds";
 import { presenterCue } from "./presenter-cue";
-import { Pill, TvFrame } from "./TvScreens";
+import { Pill, TvFrame, useSpokenBubble } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
 import { useHeldSpeech } from "@/features/media/voice";
 
@@ -169,7 +168,8 @@ export function PortraitQuestionScreen({
   const listening = phase === "OPTIONS_VISIBLE" && startsInMs > 0;
   const open = phase === "OPTIONS_VISIBLE" && remainingMs > 0 && !listening;
   const hasImage = q.media?.kind === "image" && mediaUrl;
-  const line = presenterBubble(phase, q.presenter, q.id);
+  // fumetto solo mentre il presentatore dice un commento (mai prima, mai il testo della domanda)
+  const line = useSpokenBubble((text) => isQuestionQuip(text));
   const mine = seat?.selected ?? [];
   const locked = seat?.status === "recorded" || seat?.status === "sending";
   const multiple = q.type === "multiple";
@@ -219,8 +219,9 @@ export function PortraitQuestionScreen({
           </div>
         )}
 
-        {/* presentatori (o immagine della domanda) con il tempo accanto */}
-        <div className="relative flex shrink-0 justify-center">
+        {/* presentatori (o immagine della domanda) con il tempo accanto. I presentatori stanno DIETRO
+            al cartello della domanda: la parte bassa (gambe) è coperta dal cartello, niente taglio netto */}
+        <div className={clsx("relative flex shrink-0 justify-center", !hasImage && (optionsVisible ? "z-0 -mb-[4cqh]" : "z-0 -mb-[6cqh]"))}>
           {hasImage ? (
             <img src={mediaUrl} alt="Immagine della domanda" className="max-h-[22cqh] max-w-full rounded-[3cqw] border-[0.8cqw] border-gold bg-black object-contain" />
           ) : (
@@ -248,7 +249,7 @@ export function PortraitQuestionScreen({
           initial={{ y: -20, opacity: 0, scale: 0.97 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 160, damping: 18 }}
-          className="qz-question-card shrink-0 rounded-[4cqw] px-[4.5cqw] py-[3.5cqw] text-center"
+          className="qz-question-card relative z-10 shrink-0 rounded-[4cqw] px-[4.5cqw] py-[3.5cqw] text-center"
         >
           <p className={clsx("font-display leading-[1.12]", questionSize(q.text))}>{q.text}</p>
           {!optionsVisible && <p className="mt-[1.5cqw] text-[3.6cqw] font-extrabold text-ink/60">Le risposte stanno per arrivare…</p>}
@@ -381,10 +382,10 @@ function PortraitBoard({
   );
 }
 
-export function PortraitAnswerPointsScreen({ entries, who, questionId, showLines }: { entries: LeaderboardEntry[]; who: Presenter; questionId: string; showLines?: readonly PublicShowLine[] | null }) {
+export function PortraitAnswerPointsScreen({ entries, who, showLines }: { entries: LeaderboardEntry[]; who: Presenter; questionId?: string; showLines?: readonly PublicShowLine[] | null }) {
   const rows = [...entries].sort((a, b) => b.lastDelta - a.lastDelta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 7);
-  const cue = presenterCue(who, "point", showLines, useHeldSpeech());
-  const quip = stripAudioTags(cue.line ? cue.line.text : scoreQuipLine(who, questionId).text);
+  // fumetto solo mentre la voce dice la battuta (regista o battuta di rito)
+  const quip = useSpokenBubble();
   return (
     <PortraitBoard
       title="PUNTI DI QUESTA RISPOSTA"
@@ -400,7 +401,18 @@ export function PortraitAnswerPointsScreen({ entries, who, questionId, showLines
   );
 }
 
-export function PortraitLeaderboardScreen({ entries, title, showLines }: { entries: LeaderboardEntry[]; title: string; showLines?: readonly PublicShowLine[] | null }) {
+export function PortraitLeaderboardScreen({
+  entries,
+  title,
+  showLines,
+  value,
+}: {
+  entries: LeaderboardEntry[];
+  title: string;
+  showLines?: readonly PublicShowLine[] | null;
+  /** valore a destra di ogni riga (default: punti totali) */
+  value?: (e: LeaderboardEntry) => ReactNode;
+}) {
   const cue = presenterCue("professore", "point", showLines, useHeldSpeech());
   return (
     <PortraitBoard
@@ -410,7 +422,7 @@ export function PortraitLeaderboardScreen({ entries, title, showLines }: { entri
       bubble={cue.line ? stripAudioTags(cue.line.text) : null}
       lines={showLines}
       rank
-      value={(e) => <span className="font-display text-[5cqw]">{formatPoints(e.points)}</span>}
+      value={value ?? ((e) => <span className="font-display text-[5cqw]">{formatPoints(e.points)}</span>)}
     />
   );
 }

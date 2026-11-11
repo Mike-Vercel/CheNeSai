@@ -11,15 +11,19 @@ import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick
 import { getSoundEngine, type CueName } from "@/features/media/audio-engine";
 import { Confetti } from "@/features/game/components/effects";
 import { Logo } from "@/features/game/components/brand";
-import { getVoice, useSilentLine } from "@/features/media/voice";
+import { getVoice, useSilentLine, useVoicePreparing } from "@/features/media/voice";
 import { speechFor } from "@/features/game/speech";
 import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
+import { questionMoment } from "@/features/game/moment";
+import { questionIntroMaxMs, questionIntroMs } from "@/features/game/question-intro";
 import { TvPauseOverlay } from "./TvScreens";
 import { TvStage } from "./TvStage";
 import { PortraitStage } from "./PortraitStage";
 import { CharacterModeProvider } from "@/features/three/characters/character-mode";
 import { TvScreenAgent } from "./TvScreenControls";
 import { useTvPrefs, type TvPrefs } from "./tv-prefs";
+import { IntroSkipCounter } from "@/features/players/IntroSkip";
+import { StageBoundary } from "./StageBoundary";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -107,6 +111,25 @@ function SilentSubtitle({ portrait = false }: { portrait?: boolean }) {
   );
 }
 
+/** Voce ancora in preparazione (clip generata al momento, es. un nome nuovo): niente silenzio muto. */
+function VoicePreparing({ portrait = false }: { portrait?: boolean }) {
+  const on = useVoicePreparing();
+  if (!on) return null;
+  return (
+    <div className={portrait ? "pointer-events-none absolute inset-x-0 top-[13cqh] z-[45] flex justify-center" : "pointer-events-none absolute inset-x-0 bottom-[3cqh] z-[45] flex justify-center"} role="status" aria-live="polite">
+      <p className={portrait ? "flex items-center gap-[2cqw] rounded-full bg-black/75 px-[3.6cqw] py-[1.6cqw] text-[3.8cqw] font-extrabold text-white/90" : "flex items-center gap-[1.2cqh] rounded-full bg-black/70 px-[2.4cqh] py-[1cqh] text-[2.4cqh] font-extrabold text-white/90"}>
+        <span className="qz-wave flex items-end gap-[0.3em]" aria-hidden>
+          <i />
+          <i />
+          <i />
+          <i />
+        </span>
+        Un attimo… sto preparando la voce
+      </p>
+    </div>
+  );
+}
+
 export function DisplayApp({
   sessionId,
   displayKey,
@@ -114,7 +137,14 @@ export function DisplayApp({
   hostMode = false,
   layout = "landscape",
   onViewState,
+  viewer = null,
 }: {
+  /**
+   * Telefono di un GIOCATORE con lo show sul telefono: stesso show (immagini e audio) ma lo stato
+   * arriva con il cookie del giocatore, le voci solo per le battute della partita e mai lo
+   * scorrimento automatico (lo guida solo il telefono dell'host).
+   */
+  viewer?: { code: string; slot: string | null } | null;
   /**
    * "portrait": lo show sul telefono in verticale (1080×1920, gioco libero modalità B): schermate
    * e intro ricomposte in colonna. Default "landscape": il TV 16:9 di sempre.
@@ -138,6 +168,8 @@ export function DisplayApp({
   const [prefs, updatePrefs] = useTvPrefs();
   const setPrefs = useCallback((p: TvPrefs) => updatePrefs(p), [updatePrefs]);
   const [showSettings, setShowSettings] = useState(false);
+  /** una schermata è andata in errore: da qui in poi personaggi 2D (più leggeri), mai schermo bianco */
+  const [safe2d, setSafe2d] = useState(false);
   const [confetti, setConfetti] = useState(0);
   const [confettiIntensity, setConfettiIntensity] = useState(1);
   // coriandoli quando il podio rivela il vincitore
@@ -153,7 +185,14 @@ export function DisplayApp({
   const lastTick = useRef<number>(-1);
   const sound = getSoundEngine();
   const voice = getVoice();
-  useEffect(() => voice.setDisplayCredentials(sessionId, displayKey), [voice, sessionId, displayKey]);
+  const viewerCode = viewer?.code ?? null;
+  const viewerSlot = viewer?.slot ?? null;
+  useEffect(() => {
+    if (viewerCode) voice.setPlayerCredentials(viewerCode, viewerSlot);
+    else voice.setDisplayCredentials(sessionId, displayKey);
+  }, [voice, sessionId, displayKey, viewerCode, viewerSlot]);
+  /** tocco sullo schermo per l'audio (niente schermata "ATTIVA AUDIO"): host del gioco libero e telefoni dei giocatori */
+  const tapToStart = hostMode || !!viewerCode;
   const prefsRef = useRef(prefs);
   const startedRef = useRef(false);
 
@@ -164,7 +203,16 @@ export function DisplayApp({
     prefsRef.current = prefs;
   }, [prefs, sound, voice, hostMode]);
 
-  const mediaUrl = useCallback((id: string) => `/api/display/${sessionId}/media/${id}?k=${encodeURIComponent(displayKey)}`, [sessionId, displayKey]);
+  const mediaUrl = useCallback(
+    (id: string) => (viewerCode ? `/api/play/${viewerCode}/media/${id}` : `/api/display/${sessionId}/media/${id}?k=${encodeURIComponent(displayKey)}`),
+    [sessionId, displayKey, viewerCode],
+  );
+
+  // ---------------------------------------------------------------- cartello "DOMANDA N. X"
+  // La domanda compare quando finisce il cartello (tempo minimo e battute d'apertura dette):
+  // `cardFor` = id della domanda già mostrata; `gateFor` = domanda il cui cartello aspetta la voce.
+  const [cardFor, setCardFor] = useState<string | null>(null);
+  const gateFor = useRef<string | null>(null);
 
   // ---------------------------------------------------------------- audio clip
   const stopClip = useCallback(() => {
@@ -237,7 +285,15 @@ export function DisplayApp({
         if (s.phase === "ANSWER_REVEAL") {
           setConfettiIntensity(0.5);
           setConfetti((c) => c + 1);
+          // applauso leggero se qualcuno ci ha preso
+          const right = s.question?.correctPositions?.reduce((a, p) => a + (s.question?.distribution?.[p] ?? 0), 0) ?? 0;
+          if (right > 0) setTimeout(() => sound.applause("light"), 650);
         }
+        // fine dell'intro: applauso del pubblico; classifica del round: applauso al vincitore del round
+        if (s.phase === "ROUND_INTRO" && prev.phase === "INTRO") sound.applause("medium");
+        if (s.phase === "SCORE_REVEAL" && s.roundLeaderboard?.length) setTimeout(() => sound.applause("medium"), 900);
+        // ultima domanda della serata: rullo di tamburi sotto il cartello
+        if (s.phase === "QUESTION_VISIBLE" && questionMoment(s).lastOfGame) setTimeout(() => sound.drumroll(3), 300);
         if (s.phase === "CATEGORY_RESULT" || s.phase === "SPECIAL_EVENT") {
           setConfettiIntensity(0.8);
           setConfetti((c) => c + 1);
@@ -245,6 +301,11 @@ export function DisplayApp({
         if (s.phase === "OPTIONS_VISIBLE" || s.phase === "ANSWER_REVEAL") stopClip();
       }
       if (questionChanged) setAudioState("idle");
+      // lobby: chi entra viene accolto (suono e un applauso appena accennato)
+      if (!phaseChanged && s.phase === "LOBBY" && s.playerCount > prev.playerCount) {
+        sound.play("join");
+        sound.applause("tiny");
+      }
       const p = prefsRef.current;
       // Sigla della serata
       if (phaseChanged && s.phase !== "PAUSED") {
@@ -254,9 +315,33 @@ export function DisplayApp({
       }
       // Voce dei presentatori
       const lines = startedRef.current ? speechFor(s, prev, { readOptions: p.readOptions }) : [];
-      // all'avvio dell'intro nessuna battuta rimasta in coda (es. un saluto della lobby in attesa della clip)
-      if (phaseChanged && (lines.length > 0 || s.phase === "INTRO")) voice.stop();
-      const spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { live: l.live })));
+      // all'avvio dell'intro nessuna battuta rimasta in coda (es. un saluto della lobby in attesa della clip);
+      // sui telefoni dei giocatori mai battute vecchie: a ogni cambio di fase la coda si svuota
+      if (phaseChanged && (lines.length > 0 || s.phase === "INTRO" || viewerCode)) voice.stop();
+      let spoken: Promise<unknown>;
+      if (s.phase === "QUESTION_VISIBLE" && s.question && (phaseChanged || questionChanged)) {
+        // cartello "DOMANDA N. X": annuncio (e suspense), una pausa muta fino al tempo minimo, poi la
+        // domanda compare e il presentatore la legge (la voce resta "occupata": niente passo anticipato)
+        const qid = s.question.id;
+        const elapsed = Math.max(0, Date.parse(s.serverNow) - Date.parse(s.phaseStartedAt));
+        const wait = Math.max(0, questionIntroMs(questionMoment(s)) - elapsed);
+        const pre = lines.filter((l) => l.beforeCard);
+        const rest = lines.filter((l) => !l.beforeCard);
+        const said = pre.map((l) => voice.say(l.who, l.text, { live: l.live }));
+        if (lines.length > 0 && voice.settings.enabled) {
+          gateFor.current = qid;
+          said.push(
+            voice.gate(new Promise((r) => setTimeout(r, wait))).then(() => {
+              setCardFor(qid);
+              sound.play("whoosh");
+            }),
+          );
+        }
+        said.push(...rest.map((l) => voice.say(l.who, l.text, { live: l.live })));
+        spoken = Promise.all(said);
+      } else {
+        spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { live: l.live })));
+      }
       // Lobby: saluti ai nuovi arrivati decisi dal server (solo quelli nuovi, mai dopo un ricaricamento)
       if (startedRef.current) for (const l of lobbyGreetingLines(s, prev)) void voice.say(l.who, l.text, { live: l.live });
       // Manche musicale: il TV riproduce l'estratto dopo la presentazione (una sola volta).
@@ -275,11 +360,15 @@ export function DisplayApp({
         }
       }
     },
-    [playClip, sound, stopClip, voice, startedRef],
+    [playClip, sound, stopClip, voice, startedRef, viewerCode],
   );
 
   const { state, status, now } = useGameState({
     fetchSnapshot: async () => {
+      if (viewerCode) {
+        const r = await api<{ state: PublicState }>(`/api/play/${viewerCode}/me${viewerSlot ? `?slot=${viewerSlot}` : ""}`);
+        return r.state;
+      }
       const r = await api<DisplayResponse>(`/api/display/${sessionId}/state?k=${encodeURIComponent(displayKey)}`);
       setNextMedia(r.nextMedia);
       return r.state;
@@ -306,12 +395,13 @@ export function DisplayApp({
   );
   // mentre il presentatore parla (o la sua clip sta arrivando) il TV non manda avanti la partita
   const voiceBusy = useCallback(() => voice.pending, [voice]);
-  useAutoTick({ auto: state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
+  // solo lo schermo dell'host guida la partita (mai i telefoni dei giocatori)
+  useAutoTick({ auto: viewerCode ? null : state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
 
   // Il TV dice al server quando ha finito di parlare per questo momento della partita: lo
   // scorrimento automatico non taglia il presentatore e, appena ha finito, passa subito oltre
   // (dopo un respiro breve) invece di aspettare la stima dal testo.
-  const autoOn = !!state?.auto;
+  const autoOn = !!state?.auto && !viewerCode;
   const version = state?.version ?? null;
   useEffect(() => {
     if (!autoOn || version === null) return;
@@ -391,23 +481,64 @@ export function DisplayApp({
     };
   }, [started]);
 
-  // Countdown: tick negli ultimi 5 secondi
+  // Countdown della votazione: tick negli ultimi 5 secondi
   const timerActive = view?.phase === "OPTIONS_VISIBLE" || view?.phase === "CATEGORY_VOTING";
   useTicker(timerActive, 200);
   const closesAt = view?.phase === "CATEGORY_VOTING" ? view.vote?.closesAt : view?.question?.closesAt;
   const remainingMs = closesAt ? Math.max(0, Date.parse(closesAt) - now()) : 0;
+  const voting = view?.phase === "CATEGORY_VOTING";
   useEffect(() => {
-    if (!timerActive) return;
+    if (!voting) return;
     const s = Math.ceil(remainingMs / 1000);
     if (s !== lastTick.current && s <= 5 && s >= 0) {
       lastTick.current = s;
       sound.play(s === 0 ? "tickFinal" : "tick");
     }
-  }, [remainingMs, timerActive, sound]);
+  }, [remainingMs, voting, sound]);
+
+  // "Tic-tac" dell'orologio mentre si risponde: da quando le risposte si aprono a quando si chiudono.
+  // Si ferma subito quando la fase cambia (tutti hanno risposto, tempo scaduto, pausa).
+  const answering = view?.phase === "OPTIONS_VISIBLE" && view.question?.closesAt ? view.question : null;
+  const clockKey = answering && started ? `${answering.id}|${answering.openedAt}|${answering.closesAt}` : null;
+  useEffect(() => {
+    if (!clockKey) return;
+    const [, opened, closes] = clockKey.split("|");
+    const t = now();
+    sound.startClock((opened && opened !== "null" ? Date.parse(opened) : t) - t, Date.parse(closes) - t);
+    return () => sound.stopClock();
+  }, [clockKey, now, sound]);
+
+  // Sigla in lobby (anche sullo show del telefono): parte appena l'audio è attivo, anche se lo stato
+  // è arrivato dopo il tocco; si spegne se la si disattiva dalle impostazioni.
+  const themePhase = view ? (view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase) : null;
+  useEffect(() => {
+    if (!started || !themePhase) return;
+    const th = themeFor(themePhase);
+    if (!prefs.theme) {
+      if (themePhase !== "INTRO") sound.stopTheme(600);
+      return;
+    }
+    if (th && !sound.themePlaying && themePhase !== "FINISHED") sound.playTheme({ loop: th.loop, volume: th.volume });
+  }, [started, themePhase, prefs.theme, sound]);
+
+  // cartello "DOMANDA N. X": la domanda compare al più tardi dopo il tempo minimo (senza voce) o il tetto di sicurezza
+  const introQid = view?.phase === "QUESTION_VISIBLE" ? (view.question?.id ?? null) : null;
+  const introMoment = view ? questionMoment(view) : null;
+  const introStart = view ? Date.parse(view.phaseStartedAt) : 0;
+  useEffect(() => {
+    if (!introQid || cardFor === introQid || !introMoment) return;
+    const elapsed = now() - introStart;
+    const limit = gateFor.current === introQid ? questionIntroMaxMs(introMoment) : questionIntroMs(introMoment);
+    const t = setTimeout(() => setCardFor(introQid), Math.max(0, limit - elapsed));
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- il momento dipende solo dalla domanda
+  }, [introQid, cardFor, introStart, now]);
+  const questionIntro = !!introQid && cardFor !== introQid && !!introMoment && now() - introStart < questionIntroMaxMs(introMoment);
 
   async function start() {
     if (startedRef.current) return;
     await sound.unlock();
+    sound.preloadSfx();
     sound.play("join");
     startedRef.current = true;
     const th = view ? themeFor(view.phase) : null;
@@ -432,7 +563,7 @@ export function DisplayApp({
   // l'audio parte da solo; altrimenti il primo clic sul TV lo attiva.
   const autoStarted = useRef(false);
   useEffect(() => {
-    if (!hostMode || autoStarted.current) return;
+    if (!tapToStart || autoStarted.current) return;
     autoStarted.current = true;
     const ua = (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation;
     if (!ua?.hasBeenActive) return;
@@ -440,6 +571,7 @@ export function DisplayApp({
       void (async () => {
         if (!(await sound.unlock())) return;
         startedRef.current = true;
+        sound.preloadSfx();
         sound.play("join");
         const p = prefsRef.current;
         const th = stateRef.current ? themeFor(stateRef.current.phase) : null;
@@ -449,9 +581,9 @@ export function DisplayApp({
       })();
     }, 0);
     return () => clearTimeout(t);
-  }, [hostMode, sound, voice]);
+  }, [tapToStart, sound, voice]);
   useEffect(() => {
-    if (!hostMode || started) return;
+    if (!tapToStart || started) return;
     const onTap = () => void start();
     window.addEventListener("pointerdown", onTap);
     window.addEventListener("keydown", onTap);
@@ -474,7 +606,8 @@ export function DisplayApp({
   // ---------------------------------------------------------------- render
   const Stage = layout === "portrait" ? PortraitStage : TvStage;
   const screen = (
-    <CharacterModeProvider prefer3d={prefs.characters3d} lowPower={prefs.lowPower}>
+    <StageBoundary portrait={layout === "portrait"} onError={() => setSafe2d(true)}>
+    <CharacterModeProvider prefer3d={prefs.characters3d && !safe2d} lowPower={prefs.lowPower}>
     <Stage
       state={view}
       now={now}
@@ -487,6 +620,7 @@ export function DisplayApp({
       qrDataUrl={qr}
       joinUrl={joinUrl}
       audioState={audioState}
+      questionIntro={questionIntro}
       intro={
         view?.intro ? (
           <IntroSequence
@@ -505,15 +639,18 @@ export function DisplayApp({
       }
     />
     </CharacterModeProvider>
+    </StageBoundary>
   );
 
   return (
-    <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={hostMode ? undefined : () => setShowSettings((s) => !s)}>
+    <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={tapToStart ? undefined : () => setShowSettings((s) => !s)}>
       {screen}
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
       <SilentSubtitle portrait={layout === "portrait"} />
-      {(started || hostMode) && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
-      {(started || hostMode) && renderOverlay?.(view, overlayCtx)}
+      <VoicePreparing portrait={layout === "portrait"} />
+      {themePhase === "INTRO" && <IntroSkipCounter skip={view?.introSkip} portrait={layout === "portrait"} />}
+      {(started || hostMode) && !viewerCode && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
+      {(started || tapToStart) && renderOverlay?.(view, overlayCtx)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />
 
       {status !== "live" && started && (
@@ -522,7 +659,7 @@ export function DisplayApp({
         </div>
       )}
 
-      {!started && !hostMode && (
+      {!started && !tapToStart && (
         <div className="absolute inset-0 z-[60] grid place-items-center bg-night/85 backdrop-blur">
           <div className="flex flex-col items-center gap-6 text-center">
             <Logo size="lg" />
@@ -539,7 +676,7 @@ export function DisplayApp({
         </div>
       )}
 
-      {showSettings && !hostMode && (
+      {showSettings && !tapToStart && (
         <div className="absolute bottom-4 right-4 z-[70] w-80 rounded-2xl border-2 border-gold/60 bg-[#1d0c30] p-4 text-sm text-white shadow-2xl" onDoubleClick={(e) => e.stopPropagation()}>
           <p className="mb-2 font-display text-lg text-gold">Impostazioni schermo</p>
           <label className="flex items-center justify-between gap-2 py-1">

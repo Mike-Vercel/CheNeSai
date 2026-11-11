@@ -25,6 +25,8 @@ export interface IntroPreviewOptions {
   rules: boolean;
   /** Nasconde i controlli (?ui=0). */
   showUi: boolean;
+  /** Show sul telefono in verticale (?layout=portrait). */
+  portrait?: boolean;
 }
 
 /**
@@ -72,8 +74,9 @@ export function IntroPreview(opts: IntroPreviewOptions) {
   const chip = (on: boolean) => `${btn} ${on ? "!bg-[#FFD43B] !text-[#170824] !border-[#FFD43B]" : ""}`;
 
   return (
-    <div className="fixed inset-0 bg-black">
+    <div className={opts.portrait ? "fixed inset-0 bg-black [container-type:size]" : "fixed inset-0 bg-black"}>
       <IntroSequenceView
+        portrait={opts.portrait}
         key={`${fallback}-${lowPower}-${rules}`}
         startedAtMs={startedAtMs}
         now={now}

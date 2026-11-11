@@ -37,6 +37,7 @@ import { directAfterScore, directFinalRoundStart } from "./show";
 import { computeSessionTeamStandings, rerankTeams } from "./teams";
 import { scheduleSessionPrep, schedulePrewarm } from "./tts-prewarm";
 import { PALMINO_DECIDES_PREFIX } from "@/features/game/script";
+import { INTRO_SKIP_REASON } from "@/lib/game-engine/intro-skip";
 
 export interface Actor {
   userId: string | null;
@@ -584,6 +585,10 @@ const HANDLERS: Record<GameCommand, Handler> = {
       if (!round) throw new GameError("NO_MORE_ROUNDS", "Non ci sono altri round: puoi terminare la partita");
     }
     await tx`update game_rounds set started_at = clock_timestamp() where id = ${round.id}`;
+    // intro saltata per voto unanime dei giocatori: la presentazione del primo round lo dice
+    if (st.phase === "INTRO" && args.reason === INTRO_SKIP_REASON) {
+      await tx`update game_state set intro_skipped_at = clock_timestamp() where session_id = ${sessionId}`;
+    }
     await tx`update game_sessions set started_at = coalesce(started_at, clock_timestamp()) where id = ${sessionId}`;
     // Regia automatica: all'inizio della finale un presentatore nomina primo e secondo.
     await tx`update game_state set show_lines = null where session_id = ${sessionId}`;
@@ -1171,7 +1176,8 @@ const HANDLERS: Record<GameCommand, Handler> = {
       update game_rounds set started_at = null, vote_opened_at = null, vote_closes_at = null, vote_closed_at = null,
         winning_option_id = null, vote_result = null, wheel_spun_at = null, wheel_spin = null
       where session_id = ${sessionId}`;
-    await tx`update game_state set intro_started_at = null where session_id = ${sessionId}`;
+    await tx`update game_state set intro_started_at = null, intro_skipped_at = null where session_id = ${sessionId}`;
+    await tx`delete from intro_skip_votes where session_id = ${sessionId}`;
     await tx`update teams set rank = null, previous_rank = null where session_id = ${sessionId}`;
     await tx`update game_sessions set status = 'live', finished_at = null where id = ${sessionId}`;
     await tx`select set_config('qz.allow_reset', 'off', true)`;
