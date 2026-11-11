@@ -411,7 +411,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
             )}
           </div>
 
-          {live.isTest && <TestTools send={send} pending={!!pending} allowed={allowed} />}
+          {live.isTest && <TestTools send={send} pending={!!pending} allowed={allowed} betRound={st.round?.kind === "bet"} />}
 
           <PresentersLivePanel sessionId={sessionId} version={live.public.version} />
           <RoundsOverview live={live} currentRoundId={currentRound?.id ?? null} />
@@ -601,7 +601,18 @@ function RoundsOverview({ live, currentRoundId }: { live: AdminLiveState; curren
   );
 }
 
-function TestTools({ send, pending, allowed }: { send: (c: GameCommand, a?: Args, o?: { skipConfirm?: boolean }) => Promise<boolean>; pending: boolean; allowed: Set<GameCommand> }) {
+function TestTools({
+  send,
+  pending,
+  allowed,
+  betRound = false,
+}: {
+  send: (c: GameCommand, a?: Args, o?: { skipConfirm?: boolean }) => Promise<boolean>;
+  pending: boolean;
+  allowed: Set<GameCommand>;
+  /** round corrente "Scommetti tutto": i bot possono puntare */
+  betRound?: boolean;
+}) {
   const [count, setCount] = useState(10);
   return (
     <div className="rounded-2xl border-2 border-violet/60 bg-violet/10 p-4">
@@ -617,6 +628,11 @@ function TestTools({ send, pending, allowed }: { send: (c: GameCommand, a?: Args
         <Button variant="ghost" disabled={pending || !allowed.has("SIM_BOTS_VOTE")} onClick={() => void send("SIM_BOTS_VOTE")}>
           Bot: vota
         </Button>
+        {betRound && (
+          <Button variant="ghost" disabled={pending || !allowed.has("SIM_BOTS_BET")} onClick={() => void send("SIM_BOTS_BET")}>
+            Bot: punta
+          </Button>
+        )}
         <Button variant="danger" disabled={pending || !allowed.has("RESET_TEST")} onClick={() => void send("RESET_TEST")}>
           Reset simulazione
         </Button>

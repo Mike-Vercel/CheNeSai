@@ -27,8 +27,38 @@ export type GamePhase = (typeof GAME_PHASES)[number];
 export const PRESENTERS = ["professore", "regina", "palmino"] as const;
 export type Presenter = (typeof PRESENTERS)[number];
 
-export const ROUND_KINDS = ["standard", "music", "image", "video", "category_vote", "bonus", "final"] as const;
+export const ROUND_KINDS = ["standard", "music", "image", "video", "category_vote", "bonus", "final", "bet", "comeback"] as const;
 export type RoundKind = (typeof ROUND_KINDS)[number];
+
+/** Quote di puntata della manche "Scommetti tutto" (percentuale dei propri punti). */
+export const BET_TIERS = [0, 25, 50, 100] as const;
+export type BetTier = (typeof BET_TIERS)[number];
+
+/** Impostazioni di una manche speciale (annunciate all'inizio del round). */
+export type RoundSpecialSettings =
+  | { kind: "bet"; minStake: number; defaultTier: BetTier }
+  | { kind: "comeback"; boostMultiplier: number; leaderPenaltyMultiplier: number };
+
+export interface SpecialPlayerRef {
+  participantId: string;
+  nickname: string;
+}
+
+/**
+ * Regole speciali della domanda, congelate con le altre regole a MOSTRA RISPOSTE.
+ * - bet: la posta la sceglie ogni giocatore (giusta +posta, sbagliata o nessuna risposta −posta);
+ * - comeback: chi insegue (metà bassa della classifica) ha il BOOST sui punti guadagnati,
+ *   il capolista (se configurato) una penalità maggiorata.
+ */
+export type SpecialRules =
+  | { kind: "bet"; minStake: number; defaultTier: BetTier }
+  | {
+      kind: "comeback";
+      boostMultiplier: number;
+      leaderPenaltyMultiplier: number;
+      boosted: SpecialPlayerRef[];
+      leaders: SpecialPlayerRef[];
+    };
 
 export const QUESTION_TYPES = ["single", "multiple"] as const;
 export type QuestionType = (typeof QUESTION_TYPES)[number];
@@ -71,6 +101,8 @@ export interface QuestionRules {
   allowNegative: boolean;
   /** Etichette leggibili delle modifiche applicate (round + eventi). */
   modifiers: string[];
+  /** Manche speciale (Scommetti tutto, Grande ribaltone); assente nelle domande normali. */
+  special?: SpecialRules | null;
 }
 
 export interface PublicOption {
@@ -109,6 +141,31 @@ export interface PublicQuestion {
   distribution: number[] | null;
   answeredCount: number | null;
   animation: string | null;
+  /** Solo nella manche "Scommetti tutto". */
+  bets?: PublicBets | null;
+}
+
+export interface PublicBetHighlight {
+  participantId: string;
+  nickname: string;
+  tier: BetTier;
+  stake: number;
+  delta: number;
+}
+
+/** Puntate della domanda: mai la posta dei singoli prima della chiusura, solo conteggi. */
+export interface PublicBets {
+  /** puntate scelte dai giocatori (quelle predefinite non contano) */
+  placed: number;
+  /** chiuse a MOSTRA RISPOSTE */
+  locked: boolean;
+  /** quanti giocatori per quota (dopo la chiusura) */
+  distribution: { tier: BetTier; count: number }[] | null;
+  /** posta totale in gioco (dopo la chiusura) */
+  totalStake: number | null;
+  /** grandi vincite e grandi perdite (dopo i punti) */
+  wins: PublicBetHighlight[] | null;
+  losses: PublicBetHighlight[] | null;
 }
 
 export interface PublicRound {
@@ -122,6 +179,8 @@ export interface PublicRound {
   pointsMultiplier: number;
   penaltyMultiplier: number;
   noPenalty: boolean;
+  /** Impostazioni della manche speciale (null nei round normali). */
+  special?: RoundSpecialSettings | null;
 }
 
 export interface PublicEvent {
@@ -227,6 +286,7 @@ export const COMMANDS = [
   "SIM_ADD_BOTS",
   "SIM_BOTS_ANSWER",
   "SIM_BOTS_VOTE",
+  "SIM_BOTS_BET",
 ] as const;
 export type GameCommand = (typeof COMMANDS)[number];
 

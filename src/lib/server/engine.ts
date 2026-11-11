@@ -2,10 +2,13 @@ import { randomBytes, randomInt } from "node:crypto";
 import { getSql, num, type Tx } from "@/lib/database/db";
 import { isCommandAllowed } from "@/lib/game-engine/transitions";
 import { applyDelta, evaluateAnswer, scoreAnswer } from "@/lib/game-engine/scoring";
+import { applyComeback, comebackRole, computeStake, scoreBet, type BetInput } from "@/lib/game-engine/special-rounds";
 import { rankParticipants } from "@/lib/game-engine/ranking";
 import { tallyVotes } from "@/lib/game-engine/voting";
 import {
+  BET_TIERS,
   GameError,
+  type BetTier,
   type GameCommand,
   type GamePhase,
   type PublicState,
@@ -13,6 +16,7 @@ import {
   type QuestionType,
   type RoundKind,
   type SpecialEventParams,
+  type SpecialRules,
   type SpecialEventType,
   type TieBreakMethod,
 } from "@/lib/game-engine/types";
@@ -228,6 +232,30 @@ async function lockAnswers(tx: Tx, sqId: string) {
     where id = ${sqId}`;
 }
 
+/**
+ * Scommetti tutto: chiusura delle puntate (a MOSTRA RISPOSTE). La posta di ognuno viene
+ * ricalcolata sui punti del server in questo momento; chi non ha scelto riceve la quota predefinita.
+ * Serializzata con ADJUST_SCORE e con le puntate dal telefono dal lock su game_state.
+ */
+async function lockBets(tx: Tx, sessionId: string, sqId: string, special: Extract<SpecialRules, { kind: "bet" }>) {
+  const rows = await tx<{ pid: string; points: number; tier: number | null }[]>`
+    select p.id as pid, t.points, b.tier
+    from participants p
+    join score_totals t on t.participant_id = p.id
+    left join bets b on b.participant_id = p.id and b.session_question_id = ${sqId}
+    where p.session_id = ${sessionId} and p.status = 'active'`;
+  if (rows.length === 0) return;
+  const tiers = rows.map((r) => (r.tier ?? special.defaultTier) as BetTier);
+  const stakes = rows.map((r, i) => computeStake(r.points, tiers[i], special.minStake));
+  await tx`
+    insert into bets (session_id, session_question_id, participant_id, tier, stake, points_at_bet, is_default, locked_at, points_at_lock)
+    select ${sessionId}, ${sqId}, v.pid, v.tier, v.stake, v.points, true, clock_timestamp(), v.points
+    from unnest(${tx.array(rows.map((r) => r.pid))}::uuid[], ${tx.array(tiers)}::smallint[], ${tx.array(stakes)}::int[],
+                ${tx.array(rows.map((r) => r.points))}::int[]) as v(pid, tier, stake, points)
+    on conflict (session_question_id, participant_id) do update
+      set stake = excluded.stake, points_at_lock = excluded.points_at_lock, locked_at = excluded.locked_at`;
+}
+
 /** Ricalcola le posizioni in classifica (criteri deterministici). */
 export async function rerank(tx: Tx, sessionId: string): Promise<void> {
   const rows = await tx<
@@ -397,7 +425,10 @@ const HANDLERS: Record<GameCommand, Handler> = {
         answers_close_at = clock_timestamp() + make_interval(secs => ${readSec + rules.durationSeconds}::float8)
       where id = ${q.id}`;
     await ctx.tx`update special_events set status = 'applied' where target_session_question_id = ${q.id} and status = 'announced'`;
-    return { to: "OPTIONS_VISIBLE", result: { durationSeconds: rules.durationSeconds } };
+    // Scommetti tutto: le puntate si chiudono insieme all'apertura delle risposte.
+    if (rules.special?.kind === "bet") await lockBets(ctx.tx, ctx.sessionId, q.id, rules.special);
+    const boosted = rules.special?.kind === "comeback" ? rules.special.boosted.length : undefined;
+    return { to: "OPTIONS_VISIBLE", result: { durationSeconds: rules.durationSeconds, ...(boosted !== undefined ? { boosted } : {}) } };
   },
 
   async CLOSE_ANSWERS(ctx) {
@@ -447,13 +478,25 @@ const HANDLERS: Record<GameCommand, Handler> = {
     const answers = await tx<{ participant_id: string; selected_positions: number[]; response_ms: number }[]>`
       select participant_id, selected_positions, response_ms from answer_submissions where session_question_id = ${q.id}`;
     const byPlayer = new Map(answers.map((a) => [a.participant_id, a]));
+    const special = rules.special ?? null;
+    // Scommetti tutto: solo le puntate chiuse a MOSTRA RISPOSTE (chi è entrato dopo non ha posta).
+    const bets = new Map<string, BetInput>();
+    if (special?.kind === "bet") {
+      const rows = await tx<{ participant_id: string; tier: BetTier; stake: number; is_default: boolean }[]>`
+        select participant_id, tier, stake, is_default from bets where session_question_id = ${q.id} and locked_at is not null`;
+      for (const b of rows) bets.set(b.participant_id, { tier: b.tier, stake: b.stake, isDefault: b.is_default });
+    }
 
     const ev = { pid: [] as string[], kind: [] as string[], before: [] as number[], delta: [] as number[], after: [] as number[], reason: [] as string[], details: [] as string[] };
     const tot = { pid: [] as string[], points: [] as number[], correct: [] as number[], answered: [] as number[], ms: [] as number[], last: [] as number[] };
     let correctCount = 0;
     for (const p of players) {
       const a = byPlayer.get(p.id);
-      const outcome = scoreAnswer(rules, q.correct_positions, a ? { selectedPositions: a.selected_positions, responseMs: a.response_ms } : null);
+      const input = a ? { selectedPositions: a.selected_positions, responseMs: a.response_ms } : null;
+      const bet = bets.get(p.id) ?? null;
+      let outcome = special?.kind === "bet" ? scoreBet(rules, q.correct_positions, input, bet) : scoreAnswer(rules, q.correct_positions, input);
+      const role = comebackRole(special, p.id);
+      if (special?.kind === "comeback") outcome = applyComeback(outcome, role, special);
       const applied = applyDelta(p.points, outcome.delta, rules.allowNegative);
       ev.pid.push(p.id);
       ev.kind.push(outcome.kind);
@@ -472,6 +515,8 @@ const HANDLERS: Record<GameCommand, Handler> = {
           partial: outcome.partial,
           clamped: applied.delta !== outcome.delta,
           modifiers: rules.modifiers,
+          ...(special?.kind === "bet" ? { bet: bet ? { tier: bet.tier, stake: bet.stake, default: !!bet.isDefault } : null } : {}),
+          ...(role ? { comeback: role } : {}),
         }),
       );
       tot.pid.push(p.id);
@@ -560,6 +605,9 @@ const HANDLERS: Record<GameCommand, Handler> = {
 
     const [{ kind: targetKind }] = await tx<{ kind: RoundKind }[]>`
       select r.kind from session_questions sq join game_rounds r on r.id = sq.round_id where sq.id = ${target}`;
+    if (targetKind === "bet") {
+      throw new GameError("EVENT_NOT_ALLOWED", "Nella manche Scommetti tutto la posta la decidono i giocatori: niente eventi speciali");
+    }
 
     let chosen = def;
     let source: "manual" | "palmino_decides" = "manual";
@@ -731,6 +779,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
     await tx`select set_config('qz.allow_reset', 'on', true)`;
     await tx`delete from leaderboards where session_id = ${sessionId}`;
     await tx`delete from category_votes where session_id = ${sessionId}`;
+    await tx`delete from bets where session_id = ${sessionId}`;
     await tx`delete from score_events where session_id = ${sessionId}`;
     await tx`delete from participants where session_id = ${sessionId}`;
     await tx`delete from special_events where session_id = ${sessionId} and source <> 'scheduled'`;
@@ -806,6 +855,27 @@ const HANDLERS: Record<GameCommand, Handler> = {
       }
     }
     return { to: ctx.st.phase, result: { answered: bots.length } };
+  },
+
+  async SIM_BOTS_BET(ctx) {
+    const { tx, sessionId } = ctx;
+    const q = await requireCurrentQuestion(ctx);
+    if (q.options_opened_at) throw new GameError("INVALID_TRANSITION", "Le puntate sono già chiuse");
+    const rules = await rulesForQuestion(tx, q.id, ctx.settings.allowNegative);
+    if (rules?.special?.kind !== "bet") throw new GameError("INVALID_TRANSITION", "La domanda corrente non prevede puntate");
+    const minStake = rules.special.minStake;
+    const bots = await tx<{ id: string; points: number }[]>`
+      select p.id, t.points from participants p join score_totals t on t.participant_id = p.id
+      where p.session_id = ${sessionId} and p.is_bot and p.status = 'active'
+        and not exists (select 1 from bets b where b.participant_id = p.id and b.session_question_id = ${q.id})`;
+    for (const b of bots) {
+      const tier = BET_TIERS[randomInt(0, BET_TIERS.length)];
+      await tx`
+        insert into bets (session_id, session_question_id, participant_id, tier, stake, points_at_bet, client_request_id)
+        values (${sessionId}, ${q.id}, ${b.id}, ${tier}, ${computeStake(b.points, tier, minStake)}, ${b.points}, gen_random_uuid())
+        on conflict do nothing`;
+    }
+    return { to: ctx.st.phase, result: { bets: bots.length } };
   },
 
   async SIM_BOTS_VOTE({ tx, st, sessionId }) {

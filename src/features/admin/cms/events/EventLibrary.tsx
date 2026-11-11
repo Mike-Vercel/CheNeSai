@@ -149,7 +149,8 @@ function EventCard({ def, onSaved }: { def: EventDefinition; onSaved: () => void
         <fieldset>
           <legend className="mb-1 text-sm font-bold text-white/80">Round in cui è ammesso</legend>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {ROUND_KINDS.map((k) => (
+            {/* Scommetti tutto: la posta la decidono i giocatori, gli eventi non sono ammessi */}
+            {ROUND_KINDS.filter((k) => k !== "bet").map((k) => (
               <Checkbox
                 key={k}
                 checked={kinds.includes(k)}

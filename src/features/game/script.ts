@@ -1,4 +1,4 @@
-import type { GamePhase, LeaderboardEntry, MediaKind, Presenter, PublicState, QuestionType, RoundKind } from "@/lib/game-engine/types";
+import type { GamePhase, LeaderboardEntry, MediaKind, Presenter, PublicBetHighlight, PublicState, QuestionType, RoundKind, RoundSpecialSettings } from "@/lib/game-engine/types";
 import { PRESENTERS } from "@/lib/game-engine/types";
 import { presenterLine, presenterLinePool, REVEAL_QUIPS, seededPick, stripAudioTags } from "./lines";
 
@@ -151,6 +151,24 @@ export const FIXED_POOLS = {
     texts: [
       "[laughs] Zero punti per tutti! Palmino è sconvolto: ma stasera avete studiato?",
       "[giggles] Nessuno l'ha presa! Palmino si toglie gli occhiali per lo stupore!",
+    ],
+  },
+  // Scommetti tutto: si apre la domanda, si punta dal telefono (prima delle risposte)
+  betOpen: {
+    who: "palmino",
+    texts: [
+      "[excited] Fate il vostro gioco! Puntate dal telefono prima che arrivino le risposte!",
+      "[giggles] Quanto vi fidate di voi stessi? Puntate adesso: niente, un quarto, metà… o tutto!",
+      "[shouts] Puntate, puntate! Chi ha coraggio va all in!",
+    ],
+  },
+  // Grande ribaltone: chi insegue ha il boost su questa domanda
+  comebackBoost: {
+    who: "regina",
+    texts: [
+      "[excited] Chi è indietro ha il boost! È il momento della rimonta!",
+      "[laughs] Ultimi della classifica, svegliatevi: su questa domanda i vostri punti valgono di più!",
+      "Chi insegue ha il turbo: occhio, primi della classe!",
     ],
   },
   finishedOpen: {
@@ -326,12 +344,46 @@ export interface ScriptRound {
   description: string | null;
   pointsMultiplier: number;
   noPenalty: boolean;
+  special?: RoundSpecialSettings | null;
+}
+
+/** "2", "1,5" (come si dice a voce) */
+function spokenNumber(n: number): string {
+  return Number.isInteger(n) ? String(n) : String(Math.round(n * 10) / 10).replace(".", " virgola ");
+}
+
+/** Spiegazione delle regole di una manche speciale (detta nella presentazione del round). */
+export function specialRulesSpeech(kind: RoundKind, special: RoundSpecialSettings | null | undefined): string {
+  if (kind === "bet") {
+    const min = special?.kind === "bet" ? special.minStake : 0;
+    return (
+      " [excited] Scommetti tutto! Prima delle risposte puntate dal telefono una parte dei vostri punti: niente, un quarto, metà o tutto." +
+      " Se indovinate la posta è vostra, se sbagliate la perdete!" +
+      (min > 0 ? ` Chi ha pochi punti può puntare comunque ${min}.` : "")
+    );
+  }
+  if (kind === "comeback") {
+    const boost = special?.kind === "comeback" ? special.boostMultiplier : 2;
+    const penalty = special?.kind === "comeback" ? special.leaderPenaltyMultiplier : 1;
+    return (
+      " [excited] Grande ribaltone!" +
+      (boost > 1 ? ` Chi è nella metà bassa della classifica prende i punti moltiplicati per ${spokenNumber(boost)}!` : "") +
+      (penalty > 1 ? ` E chi è in testa, se sbaglia, perde ${spokenNumber(penalty)} volte tanto!` : "")
+    );
+  }
+  return "";
 }
 
 export function roundIntroLine(r: ScriptRound): SpokenLine {
   if (r.kind === "category_vote") return { who: "palmino", text: `[giggles] Round ${r.index}: ${cleanSpeech(r.title)}. Adesso decidete voi… tanto vinco io!` };
-  const extra =
-    r.pointsMultiplier > 1 ? ` [excited] Attenzione: i punti valgono ${r.pointsMultiplier} volte!` : r.noPenalty ? " In questo round non si perdono punti. Osate!" : "";
+  const special = specialRulesSpeech(r.kind, r.special);
+  const extra = special
+    ? special
+    : r.pointsMultiplier > 1
+      ? ` [excited] Attenzione: i punti valgono ${r.pointsMultiplier} volte!`
+      : r.noPenalty
+        ? " In questo round non si perdono punti. Osate!"
+        : "";
   return {
     who: r.presenter,
     text: `${ROUND_LEAD[r.presenter]} Round ${r.index}: ${cleanSpeech(r.title)}!${r.description ? " " + cleanSpeech(r.description) : ""}${extra}`,
@@ -372,6 +424,16 @@ export function answerStarLine(lb: Pick<LeaderboardEntry, "nickname" | "lastDelt
   return top.length === 1
     ? { who: presenter, text: `[excited] Il colpo migliore è di ${names}: più ${best} punti!`, live: true }
     : { who: presenter, text: `[excited] Colpo migliore a pari merito per ${names}: più ${best} punti!`, live: true };
+}
+
+/** Scommetti tutto: la vincita più grande della domanda (con il nome vero). */
+export function betStarLine(wins: Pick<PublicBetHighlight, "nickname" | "tier" | "delta">[], presenter: Presenter): SpokenLine | null {
+  const best = wins[0];
+  if (!best || best.delta <= 0) return null;
+  const name = cleanSpeech(best.nickname);
+  return best.tier === 100
+    ? { who: presenter, text: `[excited] ${name} ha puntato tutto e ha vinto ${best.delta} punti! Che fegato!`, live: true }
+    : { who: presenter, text: `[excited] La vincita più grande è di ${name}: più ${best.delta} punti!`, live: true };
 }
 
 /** "Anna", "Anna e Bruno", "Anna, Bruno e Carla" */
@@ -640,6 +702,10 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
         if (pq.number) out.push(questionNumberLine(pq.number));
         out.push(questionTextLine(q));
         if (q.type === "multiple") out.push(multipleWarningLine(presenter));
+        // manche speciali: invito a puntare / annuncio del boost (frasi fisse, pre-generate)
+        const special = pq.rules.special;
+        if (special?.kind === "bet") out.push(fixedLine(FIXED_POOLS.betOpen, q.id));
+        if (special?.kind === "comeback" && special.boosted.length > 0) out.push(fixedLine(FIXED_POOLS.comebackBoost, q.id));
       }
       break;
     case "OPTIONS_VISIBLE":
@@ -670,10 +736,13 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       }
       // senza eventi rilevanti: chi è in testa a fine round; prima, il colpo migliore e una battuta
       if (!pq || pq.positionInRound >= pq.totalInRound) {
+        const b = pq?.bets?.wins ? betStarLine(pq.bets.wins, presenter) : null;
+        if (b) out.push(b);
         const l = scoreLeaderLine(s.leaderboard ?? []);
         if (l) out.push(l);
       } else {
-        out.push(answerStarLine(s.leaderboard ?? [], presenter, pq.id));
+        // Scommetti tutto: il colpo migliore è la vincita più grande (con la quota puntata)
+        out.push((pq.bets?.wins ? betStarLine(pq.bets.wins, presenter) : null) ?? answerStarLine(s.leaderboard ?? [], presenter, pq.id));
         out.push(scoreQuipLine(presenter, pq.id));
       }
       break;

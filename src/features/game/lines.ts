@@ -108,6 +108,8 @@ export const ROUND_KIND_LABEL: Record<string, string> = {
   category_vote: "Scegliete la categoria",
   bonus: "Manche bonus",
   final: "Gran finale",
+  bet: "Scommetti tutto",
+  comeback: "Grande ribaltone",
 };
 
 export const EVENT_ICON: Record<string, string> = {

@@ -1,6 +1,6 @@
 import { randomInt } from "node:crypto";
 import { getSql, iso, num, type Db, type Tx } from "@/lib/database/db";
-import type { GamePhase, Presenter, QuestionType, RoundKind, SessionStatus } from "@/lib/game-engine/types";
+import type { BetTier, GamePhase, Presenter, QuestionType, RoundKind, SessionStatus } from "@/lib/game-engine/types";
 import {
   roundInputSchema,
   sessionInputSchema,
@@ -91,6 +91,12 @@ export interface RoundDetail {
   voteTieBreak: "random" | "admin" | "first";
   voteLiveResults: boolean;
   voteOptions: { id: string; position: number; label: string; questions: number }[];
+  /** Scommetti tutto: puntata minima e quota predefinita per chi non sceglie. */
+  betMinStake: number;
+  betDefaultTier: BetTier;
+  /** Grande ribaltone: BOOST di chi insegue e penalità del capolista (1 = spento). */
+  comebackMultiplier: number;
+  comebackLeaderPenalty: number;
   winningOptionId: string | null;
   startedAt: string | null;
   questions: SessionQuestionItem[];
@@ -202,6 +208,10 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       vote_duration_seconds: number;
       vote_tie_break: "random" | "admin" | "first";
       vote_live_results: boolean;
+      bet_min_stake: number;
+      bet_default_tier: BetTier;
+      comeback_multiplier: string;
+      comeback_leader_penalty: string;
       winning_option_id: string | null;
       started_at: Date | null;
     }[]
@@ -286,6 +296,10 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
     voteTieBreak: r.vote_tie_break,
     voteLiveResults: r.vote_live_results,
     voteOptions: voteOptions.filter((o) => o.round_id === r.id).map((o) => ({ id: o.id, position: o.position, label: o.label, questions: o.questions })),
+    betMinStake: r.bet_min_stake,
+    betDefaultTier: r.bet_default_tier,
+    comebackMultiplier: num(r.comeback_multiplier),
+    comebackLeaderPenalty: num(r.comeback_leader_penalty),
     winningOptionId: r.winning_option_id,
     startedAt: iso(r.started_at),
     questions: questions
@@ -439,9 +453,11 @@ export async function duplicateSession(id: string, actor: Actor, opts: { title?:
     for (const r of rounds) {
       const [nr] = await tx<{ id: string }[]>`
         insert into game_rounds (session_id, position, title, kind, presenter, description, points_multiplier, penalty_multiplier,
-          no_penalty, correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results)
+          no_penalty, correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
+          bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
         select ${n.id}, position, title, kind, presenter, description, points_multiplier, penalty_multiplier, no_penalty,
-          correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results
+          correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
+          bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty
         from game_rounds where id = ${r.id} returning id`;
       roundMap.set(r.id, nr.id);
       const opts2 = await tx<{ id: string; position: number; label: string }[]>`select id, position, label from category_vote_options where round_id = ${r.id}`;
@@ -505,6 +521,7 @@ export async function validateForPublish(db: Db, sessionId: string): Promise<Pub
     } else if (playable.length === 0) {
       issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": nessuna domanda` });
     }
+    issues.push(...specialRoundIssues(r, detail.roundsDetail[0]?.id === r.id));
     for (const q of r.questions) {
       if (!q.questionId) {
         issues.push({ level: "error", sessionQuestionId: q.id, message: `Round "${r.title}": una domanda è stata eliminata dall'archivio` });
@@ -523,6 +540,30 @@ export async function validateForPublish(db: Db, sessionId: string): Promise<Pub
     issues.push({ level: "error", message: `"${u.text.slice(0, 60)}": il media audio/video non ha l'autorizzazione/licenza confermata` });
   }
   return issues;
+}
+
+/** Controlli delle manche speciali (Scommetti tutto, Grande ribaltone). */
+export function specialRoundIssues(r: RoundDetail, isFirstRound: boolean): PublishIssue[] {
+  const out: PublishIssue[] = [];
+  if (r.kind === "bet") {
+    if (isFirstRound && r.betMinStake === 0) {
+      out.push({ level: "error", roundId: r.id, message: `Round "${r.title}": è il primo round e tutti hanno 0 punti, con puntata minima 0 nessuno potrebbe puntare` });
+    } else if (isFirstRound) {
+      out.push({ level: "warning", roundId: r.id, message: `Round "${r.title}": è il primo round, all'inizio si potrà puntare solo la puntata minima (${r.betMinStake})` });
+    }
+    if (r.betMinStake === 0) out.push({ level: "warning", roundId: r.id, message: `Round "${r.title}": puntata minima 0, chi ha 0 punti o meno non potrà puntare` });
+    const withEvents = r.questions.filter((q) => q.scheduledEvent);
+    if (withEvents.length > 0) {
+      out.push({ level: "error", roundId: r.id, message: `Round "${r.title}": niente eventi speciali nella manche Scommetti tutto (${withEvents.length} programmati)` });
+    }
+  }
+  if (r.kind === "comeback") {
+    if (r.comebackMultiplier <= 1 && r.comebackLeaderPenalty <= 1) {
+      out.push({ level: "error", roundId: r.id, message: `Round "${r.title}": Grande ribaltone senza BOOST né penalità del capolista, imposta almeno uno dei due` });
+    }
+    if (isFirstRound) out.push({ level: "warning", roundId: r.id, message: `Round "${r.title}": è il primo round, alla prima domanda sono tutti a pari punti e il BOOST non scatta` });
+  }
+  return out;
 }
 
 export async function publishSession(sessionId: string, actor: Actor): Promise<{ issues: PublishIssue[] }> {
@@ -611,15 +652,24 @@ export async function createRound(sessionId: string, raw: unknown, actor: Actor)
     const r = p.data;
     const [row] = await tx<{ id: string }[]>`
       insert into game_rounds (session_id, position, title, kind, presenter, description, points_multiplier, penalty_multiplier, no_penalty,
-        correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results)
+        correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
+        bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
       values (${sessionId}, ${pos}, ${r.title}, ${r.kind}, ${r.presenter}, ${r.description ?? null}, ${r.pointsMultiplier},
         ${r.penaltyMultiplier}, ${r.noPenalty}, ${r.correctPoints ?? null}, ${r.wrongPenalty ?? null}, ${r.durationSeconds ?? null},
-        ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults})
+        ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults},
+        ${r.betMinStake}, ${r.betDefaultTier}, ${r.comebackMultiplier}, ${r.comebackLeaderPenalty})
       returning id`;
+    if (r.kind === "bet") await dropScheduledEvents(tx, row.id);
     if (r.kind === "category_vote") await syncVoteOptions(tx, row.id, r.voteOptions);
     await audit(tx, actor, "round.create", { sessionId, type: "round", id: row.id });
     return row.id;
   });
+}
+
+async function dropScheduledEvents(tx: Tx, roundId: string) {
+  await tx`
+    delete from special_events e using session_questions sq
+    where sq.id = e.target_session_question_id and sq.round_id = ${roundId} and e.source = 'scheduled'`;
 }
 
 async function syncVoteOptions(tx: Tx, roundId: string, labels: string[]) {
@@ -650,8 +700,11 @@ export async function updateRound(roundId: string, raw: unknown, actor: Actor): 
         points_multiplier = ${r.pointsMultiplier}, penalty_multiplier = ${r.penaltyMultiplier}, no_penalty = ${r.noPenalty},
         correct_points = ${r.correctPoints ?? null}, wrong_penalty = ${r.wrongPenalty ?? null}, duration_seconds = ${r.durationSeconds ?? null},
         speed_bonus_max = ${r.speedBonusMax}, vote_duration_seconds = ${r.voteDurationSeconds}, vote_tie_break = ${r.voteTieBreak},
-        vote_live_results = ${r.voteLiveResults}
+        vote_live_results = ${r.voteLiveResults}, bet_min_stake = ${r.betMinStake}, bet_default_tier = ${r.betDefaultTier},
+        comeback_multiplier = ${r.comebackMultiplier}, comeback_leader_penalty = ${r.comebackLeaderPenalty}
       where id = ${roundId}`;
+    // Scommetti tutto non ammette eventi speciali: quelli programmati sulle sue domande si tolgono.
+    if (r.kind === "bet") await dropScheduledEvents(tx, roundId);
     await syncVoteOptions(tx, roundId, r.kind === "category_vote" ? r.voteOptions : []);
     await audit(tx, actor, "round.update", { sessionId: r0.session_id, type: "round", id: roundId });
   });
@@ -791,6 +844,7 @@ export async function scheduleEvent(sessionId: string, raw: unknown, actor: Acto
       select r.kind::text from session_questions sq join game_rounds r on r.id = sq.round_id
       where sq.id = ${p.data.targetSessionQuestionId} and sq.session_id = ${sessionId}`;
     if (!q) throw new CmsError("Domanda non trovata nella sessione", 404);
+    if (q.kind === "bet") throw new CmsError("Nella manche Scommetti tutto non sono previsti eventi speciali", 422);
     if (!def.allowed.includes(q.kind)) throw new CmsError("Evento non compatibile con il tipo di round", 422);
     await tx`delete from special_events where target_session_question_id = ${p.data.targetSessionQuestionId} and source = 'scheduled'`;
     const [e] = await tx<{ id: string }[]>`

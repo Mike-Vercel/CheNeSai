@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import {
   TvAnswerPointsScreen,
+  TvBetResultsScreen,
   TvLeaderboardScreen,
   TvLobbyScreen,
   TvMessageScreen,
@@ -64,6 +65,8 @@ export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl
   if (vp === "SCORE_REVEAL") {
     // a metà round solo i punti di questa risposta; all'ultima domanda del round la classifica totale
     const q = view.question;
+    // Scommetti tutto: grandi vincite e grandi perdite (la classifica arriva con MOSTRA CLASSIFICA)
+    if (q?.bets?.locked) return <TvBetResultsScreen bets={q.bets} who={q.presenter} questionId={q.id} />;
     if (q && q.positionInRound < q.totalInRound) return <TvAnswerPointsScreen entries={view.leaderboard ?? []} who={q.presenter} questionId={q.id} />;
     return <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showDelta />;
   }

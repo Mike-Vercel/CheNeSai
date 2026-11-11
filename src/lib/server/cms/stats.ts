@@ -159,6 +159,7 @@ export async function exportSessionBackup(sessionId: string) {
     score_totals: sql`select * from score_totals where session_id = ${sessionId}`,
     special_events: sql`select * from special_events where session_id = ${sessionId}`,
     category_votes: sql`select * from category_votes where session_id = ${sessionId}`,
+    bets: sql`select * from bets where session_id = ${sessionId}`,
     leaderboards: sql`select * from leaderboards where session_id = ${sessionId}`,
     game_events: sql`select * from game_events where session_id = ${sessionId} order by id`,
     game_state: sql`select * from game_state where session_id = ${sessionId}`,

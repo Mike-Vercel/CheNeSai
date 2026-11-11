@@ -134,6 +134,12 @@ export const roundInputSchema = z.object({
   voteTieBreak: z.enum(["random", "admin", "first"]).default("random"),
   voteLiveResults: z.boolean().default(true),
   voteOptions: z.array(z.string().trim().min(2).max(40)).max(4).default([]),
+  // Scommetti tutto
+  betMinStake: z.number().int().min(0).max(100000).default(500),
+  betDefaultTier: z.union([z.literal(0), z.literal(25), z.literal(50), z.literal(100)]).default(0),
+  // Grande ribaltone (1 = disattivato)
+  comebackMultiplier: z.number().min(1).max(10).default(2),
+  comebackLeaderPenalty: z.number().min(1).max(10).default(1),
 });
 export type RoundInput = z.infer<typeof roundInputSchema>;
 
@@ -197,6 +203,14 @@ export const answerSchema = z.object({
   code: z.string().trim().toUpperCase().regex(/^[A-Z0-9]{4,8}$/),
   sessionQuestionId: uuid,
   positions: z.array(z.number().int().min(0).max(3)).min(1).max(4),
+  requestId: uuid,
+  slot: z.string().regex(/^[a-z0-9]{1,8}$/).optional(),
+});
+
+export const betSchema = z.object({
+  code: z.string().trim().toUpperCase().regex(/^[A-Z0-9]{4,8}$/),
+  sessionQuestionId: uuid,
+  tier: z.union([z.literal(0), z.literal(25), z.literal(50), z.literal(100)]),
   requestId: uuid,
   slot: z.string().regex(/^[a-z0-9]{1,8}$/).optional(),
 });

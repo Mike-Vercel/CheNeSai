@@ -7,6 +7,8 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type {
   GamePhase,
   LeaderboardEntry,
+  PublicBetHighlight,
+  PublicBets,
   PublicEvent,
   PublicQuestion,
   PublicRound,
@@ -18,7 +20,8 @@ import { Character, CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
 import { getVoice, useSpeaker } from "@/features/media/voice";
 import { getSoundEngine } from "@/features/media/audio-engine";
-import { podiumPlan, scoreQuipLine } from "@/features/game/script";
+import { betStarLine, podiumPlan, scoreQuipLine } from "@/features/game/script";
+import { BET_TIER_LABEL, fmt } from "@/lib/game-engine/special-rounds";
 import { bleedStyle, CharacterStage, type StageBleed } from "@/features/three/characters/CharacterStage";
 
 /** Spazio di disegno attorno al personaggio del TV: braccia e gesti non vengono tagliati. */
@@ -117,6 +120,8 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
   // Fumetto: stessa battuta della voce, senza audio tag
   const line = presenterBubble(phase, q.presenter, q.id);
   const totalAnswers = q.distribution?.reduce((a, b) => a + b, 0) ?? 0;
+  const special = q.rules.special ?? null;
+  const isBet = special?.kind === "bet";
 
   const visualFor = (pos: number): AnswerVisual => {
     if (!revealed) return "idle";
@@ -193,7 +198,7 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
               {audioState === "playing" ? "Ascoltate bene…" : audioState === "error" ? "Audio dalla regia" : "In ascolto"}
             </div>
           )}
-          {!optionsVisible && !isMusic && (
+          {!optionsVisible && !isMusic && !isBet && (
             <p className="mt-[1.6cqh] text-[2.6cqh] font-extrabold text-ink/60">Le risposte stanno per arrivare…</p>
           )}
         </motion.div>
@@ -212,8 +217,15 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
           </div>
         )}
 
+        {/* manche speciali: puntate (Scommetti tutto) e BOOST (Grande ribaltone) */}
+        {isBet && !optionsVisible && <TvBetOpenPanel placed={q.bets?.placed ?? 0} />}
+        {isBet && optionsVisible && q.bets?.distribution && <TvBetDistribution bets={q.bets} compact />}
+        {special?.kind === "comeback" && !revealed && (
+          <TvComebackStrip boost={special.boostMultiplier} boosted={special.boosted.map((b) => b.nickname)} penalty={special.leaderPenaltyMultiplier} leaders={special.leaders.map((l) => l.nickname)} compact={optionsVisible} />
+        )}
+
         {/* regole annunciate (eventi, moltiplicatori) */}
-        {!optionsVisible && (q.rules.modifiers.length > 0 || q.rules.correctPoints !== 1000) && (
+        {!optionsVisible && !special && (q.rules.modifiers.length > 0 || q.rules.correctPoints !== 1000) && (
           <div className="mt-[2cqh] flex flex-wrap gap-[1.2cqh]">
             <Pill tone="dark">Vale {formatPoints(q.rules.correctPoints + q.rules.bonusPoints)} punti</Pill>
             {q.rules.wrongPenalty === 0 ? <Pill tone="dark">Nessuna penalità</Pill> : <Pill tone="dark">Errore −{formatPoints(q.rules.wrongPenalty)}</Pill>}
@@ -243,7 +255,166 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
       </div>
 
       {/* barra inferiore */}
-      <BottomTicker left={round ? `${round.title} · Round ${round.index}/${round.total}` : ""} right={q.answeredCount !== null && !revealed ? `${q.answeredCount} risposte ricevute` : `Domande giocate: ${questionsPlayed}`} />
+      <BottomTicker
+        left={round ? `${round.title} · Round ${round.index}/${round.total}` : ""}
+        right={
+          isBet && !optionsVisible
+            ? `${q.bets?.placed ?? 0} puntate ricevute`
+            : q.answeredCount !== null && !revealed
+              ? `${q.answeredCount} risposte ricevute`
+              : `Domande giocate: ${questionsPlayed}`
+        }
+      />
+    </TvFrame>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Manche speciali
+// ---------------------------------------------------------------------------
+const BET_PILL: Record<number, string> = {
+  0: "border-white/40 bg-black/55 text-white",
+  25: "border-cyan bg-[#063a46] text-white",
+  50: "border-violet bg-[#2a0f5c] text-white",
+  100: "border-[#ff4fa3] bg-[#7a0b45] text-[#ffd1e8]",
+};
+
+/** Scommetti tutto, prima delle risposte: si punta dal telefono. */
+function TvBetOpenPanel({ placed }: { placed: number }) {
+  return (
+    <motion.div
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 140, damping: 14 }}
+      className="mt-[2.4cqh] flex items-center gap-[3cqh] rounded-[3cqh] border-[0.5cqh] border-[#ff4fa3] bg-gradient-to-r from-[#3d0623]/95 to-[#1d0c30]/95 px-[3cqh] py-[2cqh] shadow-[0_0_5cqh_rgba(255,79,163,.45)]"
+    >
+      <span className="text-[9cqh] leading-none">🎰</span>
+      <div className="flex-1">
+        <p className="font-display text-[5.4cqh] leading-none text-gold">FATE IL VOSTRO GIOCO!</p>
+        <p className="mt-[1cqh] text-[2.8cqh] font-extrabold text-white/90">
+          Puntate dal telefono: niente, 25%, 50% o ALL IN. Giusta = vincete la posta, sbagliata = la perdete!
+        </p>
+      </div>
+      <div className="grid h-[15cqh] w-[15cqh] shrink-0 place-items-center rounded-full border-[0.5cqh] border-gold bg-night text-center">
+        <span className="font-display text-[5cqh] leading-none text-gold">
+          {placed}
+          <span className="block text-[1.8cqh] text-white/80">puntate</span>
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+/** Quanti hanno puntato cosa e la posta totale in gioco (dopo la chiusura delle puntate). */
+export function TvBetDistribution({ bets, compact = false }: { bets: PublicBets; compact?: boolean }) {
+  if (!bets.distribution) return null;
+  return (
+    <div className={clsx("flex flex-wrap items-center gap-[1.2cqh]", compact ? "mt-[1.6cqh]" : "mt-[2cqh]")}>
+      {bets.distribution.map((d) => (
+        <span key={d.tier} className={clsx("inline-flex items-center gap-[1cqh] rounded-full border-[0.35cqh] px-[1.8cqh] py-[0.4cqh] font-display shadow-lg", BET_PILL[d.tier], compact ? "text-[2.4cqh]" : "text-[3cqh]")}>
+          {d.tier === 0 ? "Non punto" : BET_TIER_LABEL[d.tier]}
+          <span className="text-gold">{d.count}</span>
+        </span>
+      ))}
+      {bets.totalStake !== null && (
+        <span className={clsx("rounded-full border-[0.35cqh] border-gold bg-gradient-to-b from-[#fff2a8] to-gold px-[1.8cqh] py-[0.4cqh] font-display text-ink shadow-lg", compact ? "text-[2.4cqh]" : "text-[3cqh]")}>
+          In gioco {formatPoints(bets.totalStake)}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/** Grande ribaltone: chi ha il BOOST su questa domanda (e la penalità del capolista). */
+function TvComebackStrip({ boost, boosted, penalty, leaders, compact }: { boost: number; boosted: string[]; penalty: number; leaders: string[]; compact: boolean }) {
+  const shown = boosted.slice(0, compact ? 6 : 12);
+  const more = boosted.length - shown.length;
+  if (boosted.length === 0 && leaders.length === 0) {
+    return (
+      <div className="mt-[2cqh] flex flex-wrap gap-[1.2cqh]">
+        <Pill tone="violet">🚀 Grande ribaltone: tutti a pari punti, nessun BOOST</Pill>
+      </div>
+    );
+  }
+  return (
+    <motion.div
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className={clsx("flex flex-wrap items-center gap-[1cqh] rounded-[2.4cqh] border-[0.4cqh] border-lime/80 bg-[#0b3a22]/85", compact ? "mt-[1.6cqh] px-[1.6cqh] py-[0.8cqh]" : "mt-[2.4cqh] px-[2.4cqh] py-[1.6cqh]")}
+    >
+      {boosted.length > 0 && (
+        <span className={clsx("font-display text-[#bfffdc]", compact ? "text-[2.8cqh]" : "text-[4cqh]")}>🚀 BOOST ×{fmt(boost)}</span>
+      )}
+      {shown.map((n) => (
+        <span key={n} className={clsx("rounded-full border-[0.3cqh] border-lime/70 bg-black/40 px-[1.4cqh] py-[0.3cqh] font-extrabold text-white", compact ? "text-[2.2cqh]" : "text-[2.8cqh]")}>
+          {n}
+        </span>
+      ))}
+      {more > 0 && <span className={clsx("font-extrabold text-white/80", compact ? "text-[2.2cqh]" : "text-[2.8cqh]")}>+{more}</span>}
+      {leaders.length > 0 && penalty > 1 && (
+        <span className={clsx("ml-auto rounded-full border-[0.3cqh] border-gold bg-[#3a2b05] px-[1.4cqh] py-[0.3cqh] font-display text-gold", compact ? "text-[2.2cqh]" : "text-[2.8cqh]")}>
+          👑 {leaders.slice(0, 2).join(", ")}: errori ×{fmt(penalty)}
+        </span>
+      )}
+    </motion.div>
+  );
+}
+
+function BetRow({ e, i, win }: { e: PublicBetHighlight; i: number; win: boolean }) {
+  return (
+    <motion.div
+      initial={{ x: win ? -40 : 40, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: 0.15 + i * 0.08, type: "spring", stiffness: 150, damping: 18 }}
+      className={clsx(
+        "flex items-center gap-[1.4cqh] rounded-[1.6cqh] border-[0.3cqh] px-[1.8cqh] py-[0.5cqh]",
+        win ? "border-[#5dffab]/70 bg-[#0b3a22]/85" : "border-[#ff8098]/60 bg-[#3d0914]/80",
+      )}
+    >
+      <span className="min-w-0 flex-1 truncate font-display text-[3cqh] text-white">{e.nickname}</span>
+      <span className={clsx("rounded-full border-[0.3cqh] px-[1.2cqh] font-display text-[2cqh]", BET_PILL[e.tier])}>{e.tier === 0 ? "—" : BET_TIER_LABEL[e.tier]}</span>
+      <span className={clsx("w-[14cqh] text-right font-display text-[3.2cqh]", win ? "text-[#5dffab]" : "text-[#ff8098]")}>{signedPoints(e.delta)}</span>
+    </motion.div>
+  );
+}
+
+/** Scommetti tutto dopo i punti: grandi vincite e grandi perdite della domanda. */
+export function TvBetResultsScreen({ bets, who, questionId }: { bets: PublicBets; who: "professore" | "regina" | "palmino"; questionId: string }) {
+  const wins = bets.wins ?? [];
+  const losses = bets.losses ?? [];
+  const star = betStarLine(wins, who);
+  const quip = stripAudioTags((star ?? scoreQuipLine(who, questionId)).text);
+  return (
+    <TvFrame>
+      <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
+        <Logo size="tv" />
+      </div>
+      <div className="absolute bottom-0 right-[1cqw] w-[22cqw]">
+        <TalkingCharacter who={who} className="w-full" animation={wins.length > 0 ? "celebrate" : "surprised"} />
+        <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[28cqw] text-[2.8cqh] leading-tight">
+          {quip}
+        </SpeechBubble>
+      </div>
+      <div className="absolute left-[5cqw] right-[37cqw] top-[20cqh]">
+        <h1 className="font-display text-[5cqh] text-gold [text-shadow:0_0.5vh_0_#6b1020]">🎰 SCOMMETTI TUTTO: COM&apos;È ANDATA</h1>
+        <TvBetDistribution bets={bets} />
+        <div className="mt-[2.4cqh] grid grid-cols-2 gap-[2.4cqh]">
+          <div className="flex flex-col gap-[0.8cqh]">
+            <p className="font-display text-[3.4cqh] text-[#5dffab]">💰 GRANDI VINCITE</p>
+            {wins.map((e, i) => (
+              <BetRow key={e.participantId} e={e} i={i} win />
+            ))}
+            {wins.length === 0 && <p className="text-[2.6cqh] font-extrabold text-white/70">Nessuno ha vinto la posta!</p>}
+          </div>
+          <div className="flex flex-col gap-[0.8cqh]">
+            <p className="font-display text-[3.4cqh] text-[#ff8098]">💥 CHE BATOSTA</p>
+            {losses.map((e, i) => (
+              <BetRow key={e.participantId} e={e} i={i} win={false} />
+            ))}
+            {losses.length === 0 && <p className="text-[2.6cqh] font-extrabold text-white/70">Nessuna perdita: tutti prudenti… o tutti bravi!</p>}
+          </div>
+        </div>
+      </div>
     </TvFrame>
   );
 }
@@ -381,11 +552,31 @@ export function TvRoundIntroScreen({ round, vote }: { round: PublicRound; vote: 
           {round.kind === "category_vote" ? "ADESSO DECIDETE VOI!" : ROUND_KIND_LABEL[round.kind]}
         </p>
         {round.description && <p className="max-w-[50cqw] text-[3.2cqh] font-extrabold text-white/90">{round.description}</p>}
-        <div className="flex flex-wrap gap-[1.2cqh]">
-          {round.pointsMultiplier !== 1 && <Pill tone="fuchsia">Punti ×{round.pointsMultiplier}</Pill>}
-          {round.noPenalty && <Pill tone="cyan">Nessuna penalità</Pill>}
-          {round.penaltyMultiplier > 1 && !round.noPenalty && <Pill tone="violet">Penalità ×{round.penaltyMultiplier}</Pill>}
-        </div>
+        {round.special?.kind === "bet" ? (
+          <div className="flex flex-col gap-[1.2cqh]">
+            <p className="max-w-[52cqw] text-[3.2cqh] font-extrabold text-white/90">
+              🎰 Prima delle risposte puntate dal telefono 0%, 25%, 50% o tutto dei vostri punti. Giusta: la posta è vostra. Sbagliata: la perdete!
+            </p>
+            <div className="flex flex-wrap gap-[1.2cqh]">
+              <Pill tone="fuchsia">ALL IN = 100% dei punti</Pill>
+              {round.special.minStake > 0 && <Pill tone="cyan">Puntata minima {formatPoints(round.special.minStake)}</Pill>}
+            </div>
+          </div>
+        ) : round.special?.kind === "comeback" ? (
+          <div className="flex flex-col gap-[1.2cqh]">
+            <p className="max-w-[52cqw] text-[3.2cqh] font-extrabold text-white/90">🚀 A ogni domanda chi insegue in classifica riceve il BOOST: è il momento della rimonta!</p>
+            <div className="flex flex-wrap gap-[1.2cqh]">
+              {round.special.boostMultiplier > 1 && <Pill tone="fuchsia">BOOST ×{fmt(round.special.boostMultiplier)} alla metà bassa</Pill>}
+              {round.special.leaderPenaltyMultiplier > 1 && <Pill tone="violet">Capolista: errori ×{fmt(round.special.leaderPenaltyMultiplier)}</Pill>}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-wrap gap-[1.2cqh]">
+            {round.pointsMultiplier !== 1 && <Pill tone="fuchsia">Punti ×{round.pointsMultiplier}</Pill>}
+            {round.noPenalty && <Pill tone="cyan">Nessuna penalità</Pill>}
+            {round.penaltyMultiplier > 1 && !round.noPenalty && <Pill tone="violet">Penalità ×{round.penaltyMultiplier}</Pill>}
+          </div>
+        )}
         {vote && (
           <div className="mt-[1cqh] grid grid-cols-2 gap-[1.6cqh]">
             {vote.options.map((o) => (

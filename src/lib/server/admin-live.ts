@@ -174,6 +174,10 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
   if (offline > 0 && st.phase !== "LOBBY") warnings.push(`${offline} giocatori non si fanno sentire da oltre 60 secondi`);
   if (next?.mediaKind === "audio") warnings.push("La prossima domanda ha un audio: verifica che l'audio del TV sia attivo");
   if (vp === "CATEGORY_VOTING" && counts.players > 0 && voted === 0) warnings.push("Ancora nessun voto ricevuto");
+  const bets = pub.question?.bets;
+  if (vp === "QUESTION_VISIBLE" && bets && !bets.locked) {
+    warnings.push(`Scommetti tutto: ${bets.placed}/${counts.players} puntate ricevute. MOSTRA RISPOSTE chiude le puntate (chi non ha scelto punta la quota predefinita)`);
+  }
   if (pub.joinLocked) warnings.push("Ingressi bloccati");
   const anomalies = participants.reduce((a, p) => a + p.anomalies, 0);
   if (anomalies > 0) warnings.push(`${anomalies} anomalie registrate (risposte tardive o doppie): vedi Giocatori`);

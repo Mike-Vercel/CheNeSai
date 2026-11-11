@@ -49,6 +49,7 @@ const PLAYER_STATUS: Record<PlayerError["code"], number> = {
   WRONG_QUESTION: 409,
   TOO_LATE: 409,
   ALREADY_ANSWERED: 409,
+  ALREADY_BET: 409,
   INVALID_ANSWER: 422,
   RATE_LIMITED: 429,
 };

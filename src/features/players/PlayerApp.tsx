@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { GamePhase, PublicState } from "@/lib/game-engine/types";
+import type { BetTier, GamePhase, PublicState } from "@/lib/game-engine/types";
+import { fmt } from "@/lib/game-engine/special-rounds";
 import type { PlayerSelf } from "@/lib/server/players";
 import { api, ApiError, uuid, withRetry } from "@/lib/realtime/api-client";
 import { useGameState, useTicker } from "@/lib/realtime/use-game-state";
@@ -19,6 +20,7 @@ import {
   PhoneShell,
   PhoneStandings,
   PhoneVoteView,
+  type PhoneBetProps,
   type SubmitStatus,
 } from "./PlayerScreens";
 
@@ -27,6 +29,14 @@ interface LocalAnswer {
   selected: number[];
   status: SubmitStatus;
   error: string | null;
+}
+
+interface LocalBet {
+  qid: string | null;
+  selected: BetTier | null;
+  status: SubmitStatus;
+  error: string | null;
+  confirmed: { tier: BetTier; stake: number } | null;
 }
 
 interface MeResponse {
@@ -56,6 +66,7 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   const [voteSending, setVoteSending] = useState(false);
   const [voteError, setVoteError] = useState<string | null>(null);
   const [localVote, setLocalVote] = useState<{ roundId: string; optionId: string } | null>(null);
+  const [localBet, setLocalBet] = useState<LocalBet>({ qid: null, selected: null, status: "idle", error: null, confirmed: null });
 
   const fetchSnapshot = useCallback(async () => {
     try {
@@ -75,7 +86,11 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
       // jitter: evita che 200 telefoni interroghino il server nello stesso istante
       setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);
     }
-    if (prev && s.phase !== prev.phase && s.phase === "OPTIONS_VISIBLE") vibrate(40);
+    if (prev && s.phase !== prev.phase && s.phase === "OPTIONS_VISIBLE") {
+      vibrate(40);
+      // Scommetti tutto: la posta definitiva (ricalcolata alla chiusura delle puntate)
+      if (s.question?.rules.special?.kind === "bet") setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);
+    }
   }, []);
 
   const { state, status, now, refresh } = useGameState({ fetchSnapshot, safetyPollMs: 20000, enabled: joined !== "no" && !kicked, onState });
@@ -91,6 +106,42 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   const submitStatus: SubmitStatus = serverAnswer ? "recorded" : mine.status;
   const submitError = mine.error;
   const patchLocal = (p: Partial<LocalAnswer>) => setLocal((l) => ({ ...(l.qid === qid ? l : { qid, selected: [], status: "idle" as SubmitStatus, error: null }), ...p }));
+
+  // Puntata (Scommetti tutto), legata alla domanda corrente come la risposta
+  const myBet: LocalBet = localBet.qid === qid ? localBet : { qid, selected: null, status: "idle", error: null, confirmed: null };
+  const serverBet = self?.currentBet && self.currentBet.sessionQuestionId === qid ? self.currentBet : null;
+  const patchBet = (p: Partial<LocalBet>) =>
+    setLocalBet((b) => ({ ...(b.qid === qid ? b : { qid, selected: null, status: "idle" as SubmitStatus, error: null, confirmed: null }), ...p }));
+
+  const placeBet = async () => {
+    const qn = state?.question;
+    const tier = myBet.selected;
+    if (!qn || tier === null) return;
+    const key = `qz.bet.${qn.id}`;
+    let requestId: string;
+    try {
+      requestId = sessionStorage.getItem(key) ?? uuid();
+      sessionStorage.setItem(key, requestId);
+    } catch {
+      requestId = uuid();
+    }
+    patchBet({ status: "sending", error: null });
+    try {
+      const r = await withRetry(() =>
+        api<{ tier: BetTier; stake: number }>("/api/play/bet", { method: "POST", json: { code, sessionQuestionId: qn.id, tier, requestId, ...(slot ? { slot } : {}) } }),
+      );
+      patchBet({ status: "recorded", confirmed: { tier: r.tier, stake: r.stake } });
+      vibrate([30, 40, 30]);
+    } catch (e) {
+      if (e instanceof ApiError && e.code === "ALREADY_BET") {
+        const d = e.details as { tier?: BetTier; stake?: number } | undefined;
+        patchBet({ status: "recorded", ...(d?.tier !== undefined && d.stake !== undefined ? { confirmed: { tier: d.tier, stake: d.stake } } : {}) });
+        void refresh();
+        return;
+      }
+      patchBet({ status: "error", error: e instanceof ApiError ? e.message : "Puntata non inviata, riprova" });
+    }
+  };
 
   // Battito di presenza (leggero)
   useEffect(() => {
@@ -217,8 +268,28 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     body = (
       <PhoneMessage who={state.round.kind === "category_vote" ? "palmino" : state.round.presenter} title={state.round.title}>
         Round {state.round.index} di {state.round.total}
-        {state.round.pointsMultiplier !== 1 && <p className="mt-2 font-display text-gold">Punti ×{state.round.pointsMultiplier}</p>}
-        {state.round.noPenalty && <p className="mt-1 font-display text-cyan">Nessuna penalità!</p>}
+        {state.round.special?.kind === "bet" ? (
+          <>
+            <p className="mt-2 font-display text-2xl text-gold">🎰 SCOMMETTI TUTTO</p>
+            <p className="mt-1 text-base">Prima delle risposte punta 0%, 25%, 50% o tutto dei tuoi punti. Giusta: vinci la posta. Sbagliata: la perdi!</p>
+            {state.round.special.minStake > 0 && <p className="mt-1 text-sm text-white/70">Puntata minima {formatPoints(state.round.special.minStake)}: gioca anche chi ha pochi punti</p>}
+          </>
+        ) : state.round.special?.kind === "comeback" ? (
+          <>
+            <p className="mt-2 font-display text-2xl text-gold">🚀 GRANDE RIBALTONE</p>
+            {state.round.special.boostMultiplier > 1 && (
+              <p className="mt-1 text-base">Chi è nella metà bassa della classifica prende i punti ×{fmt(state.round.special.boostMultiplier)}!</p>
+            )}
+            {state.round.special.leaderPenaltyMultiplier > 1 && (
+              <p className="mt-1 text-base">Chi è in testa, se sbaglia, perde ×{fmt(state.round.special.leaderPenaltyMultiplier)}.</p>
+            )}
+          </>
+        ) : (
+          <>
+            {state.round.pointsMultiplier !== 1 && <p className="mt-2 font-display text-gold">Punti ×{state.round.pointsMultiplier}</p>}
+            {state.round.noPenalty && <p className="mt-1 font-display text-cyan">Nessuna penalità!</p>}
+          </>
+        )}
       </PhoneMessage>
     );
   } else if ((vp === "CATEGORY_VOTING" || vp === "CATEGORY_RESULT") && state.vote) {
@@ -234,6 +305,29 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     );
   } else if (state.question && ["QUESTION_VISIBLE", "OPTIONS_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL"].includes(vp)) {
     const m = state.question.media;
+    const sp = state.question.rules.special;
+    const bet: PhoneBetProps | null =
+      sp?.kind === "bet"
+        ? {
+            points: self.points,
+            minStake: sp.minStake,
+            defaultTier: sp.defaultTier,
+            selected: myBet.selected,
+            // la posta chiusa dal server ha la precedenza; prima vale la conferma appena ricevuta
+            confirmed: serverBet
+              ? { tier: serverBet.tier, stake: serverBet.stake, isDefault: serverBet.isDefault, locked: serverBet.locked }
+              : myBet.confirmed
+                ? { ...myBet.confirmed, isDefault: false, locked: false }
+                : null,
+            status: serverBet && !serverBet.isDefault ? "recorded" : myBet.status,
+            error: myBet.error,
+            onSelect: (tier) => {
+              vibrate(10);
+              patchBet({ selected: tier, error: null });
+            },
+            onConfirm: () => void placeBet(),
+          }
+        : null;
     body = (
       <PhoneQuestionView
         question={state.question}
@@ -248,6 +342,8 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
         result={result}
         onToggle={toggle}
         onConfirm={() => void confirm()}
+        bet={bet}
+        me={self.participantId}
       />
     );
   } else if (vp === "SCORE_REVEAL" || vp === "LEADERBOARD") {
