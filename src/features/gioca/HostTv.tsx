@@ -50,6 +50,23 @@ export function HostTv({ sessionId, displayKey, canCreateMore }: { sessionId: st
 
 const PINNED: readonly string[] = ["READY", "LOBBY", "PAUSED", "FINISHED"];
 
+/** Il TV è a schermo intero? (anche F11 conta: finestra grande quanto lo schermo) */
+function useFullscreen(): boolean {
+  const [fs, setFs] = useState(true);
+  useEffect(() => {
+    const sync = () => setFs(!!document.fullscreenElement || (window.innerHeight >= screen.height - 2 && window.innerWidth >= screen.width - 2));
+    const t = setTimeout(sync, 0);
+    document.addEventListener("fullscreenchange", sync);
+    window.addEventListener("resize", sync);
+    return () => {
+      clearTimeout(t);
+      document.removeEventListener("fullscreenchange", sync);
+      window.removeEventListener("resize", sync);
+    };
+  }, []);
+  return fs;
+}
+
 function GearIcon() {
   return (
     <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -69,6 +86,7 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
   const prep = useVoicePrep({ sessionId, displayKey, active: !!state && phase !== "FINISHED" });
   const [status, refreshStatus] = useHostStatus(sessionId, sheet ? state : null);
   const start = useHostCommand(sessionId);
+  const fullscreen = useFullscreen();
 
   useEffect(() => {
     const wake = () => {
@@ -126,13 +144,18 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
       </div>
 
       {/* audio non ancora attivo (finestra aperta senza clic): un clic ovunque lo attiva */}
-      {!ctx.audioOn && (
+      {/* TV non ancora a schermo intero o senza audio (pagina aperta senza un clic, regola dei browser):
+          un solo pulsante grande che fa tutto, mai una finestra a metà */}
+      {(!ctx.audioOn || !fullscreen) && (
         <button
           type="button"
-          onClick={ctx.activateAudio}
-          className="absolute left-1/2 top-[5cqh] z-[67] -translate-x-1/2 animate-pulse rounded-full bg-gold px-6 py-3 font-display text-xl text-ink shadow-[0_6px_0_#9a5d00]"
+          onClick={() => {
+            if (!document.fullscreenElement) void document.documentElement.requestFullscreen?.().catch(() => undefined);
+            ctx.activateAudio();
+          }}
+          className="absolute left-1/2 top-[5cqh] z-[67] -translate-x-1/2 rounded-full bg-gold px-8 py-4 font-display text-[clamp(1.2rem,2.2cqw,2.2rem)] text-ink shadow-[0_6px_0_#9a5d00] transition hover:bg-white"
         >
-          🔊 Clicca per attivare l&apos;audio
+          {!fullscreen && !ctx.audioOn ? "▶ AVVIA IL TV (schermo intero e audio)" : !fullscreen ? "⛶ SCHERMO INTERO" : "🔊 ATTIVA L'AUDIO"}
         </button>
       )}
 
