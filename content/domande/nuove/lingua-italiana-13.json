@@ -1,0 +1,1068 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere in gamba\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere bravi e capaci",
+        "Camminare molto",
+        "Essere alti",
+        "Avere fretta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Essere in gamba: essere abili, capaci, svegli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"chiudere un occhio\" su un errore?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Addormentarsi",
+        "Essere indulgenti",
+        "Mirare con precisione",
+        "Arrabbiarsi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Chiudere un occhio: fingere di non vedere, essere tolleranti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Il buongiorno si vede dal…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sole",
+        "Mattino",
+        "Caffè",
+        "Cielo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Il buongiorno si vede dal mattino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Batti il ferro finché è…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Duro",
+        "Caldo",
+        "Nuovo",
+        "Lucido"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Batti il ferro finché è caldo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"A buon intenditor poche…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Prove",
+        "Righe",
+        "Parole",
+        "Domande"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "A buon intenditor poche parole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"piangere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Piansito",
+        "Pianguto",
+        "Piangiuto",
+        "Pianto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Piangere, participio passato pianto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"medico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Medicii",
+        "Medichi",
+        "Medicie",
+        "Medici"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Medico, plurale medici",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il gerundio di \"fare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fando",
+        "Facendo",
+        "Farendo",
+        "Fattendo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Fare deriva dal latino facere: gerundio facendo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"indorare la pillola\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Fare un regalo prezioso",
+        "Prendere una medicina",
+        "Rendere meno sgradita una cosa spiacevole",
+        "Esagerare i fatti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Indorare la pillola: presentare in modo gradevole una cosa spiacevole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere grilli per la testa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avere idee strane e capricci",
+        "Avere mal di testa",
+        "Sentire dei rumori",
+        "Essere molto intelligenti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere grilli per la testa: avere fantasie, capricci",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare il palo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Giocare in porta",
+        "Piantare una tenda",
+        "Essere magrissimi",
+        "Fare da sentinella durante un furto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare il palo: sorvegliare mentre i complici compiono un furto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare la parte del leone\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Recitare a teatro",
+        "Fare il coraggioso",
+        "Urlare forte",
+        "Prendersi la parte più grossa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare la parte del leone: prendersi la parte maggiore o migliore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare fiasco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fare festa",
+        "Ubriacarsi",
+        "Fallire",
+        "Risparmiare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare fiasco: fallire clamorosamente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"andare per la maggiore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Diventare maggiorenne",
+        "Seguire il fratello maggiore",
+        "Fare carriera nell'esercito",
+        "Avere molto successo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Andare per la maggiore: essere di moda, avere successo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"togliersi un sassolino dalla scarpa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Riposarsi",
+        "Dire finalmente ciò che pesava",
+        "Cambiare strada",
+        "Fare pace"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Togliersi un sassolino dalla scarpa: prendersi una rivincita dicendo ciò che si teneva dentro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi va al mulino s'…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Addormenta",
+        "Arricchisce",
+        "Affatica",
+        "Infarina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi va al mulino s'infarina: chi frequenta certi ambienti ne porta i segni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Aprile, ogni goccia un…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Raccolto",
+        "Fiore",
+        "Barile",
+        "Ombrello"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Aprile, ogni goccia un barile: le piogge di aprile sono preziose",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"indefesso\", come in \"lavoratore indefesso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Instancabile",
+        "Indifeso",
+        "Indeciso",
+        "Inesperto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Indefesso: che non si stanca, instancabile (non indifeso)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un casanova?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un bugiardo",
+        "Un uomo molto ricco",
+        "Un viaggiatore instancabile",
+        "Un seduttore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Da Giacomo Casanova, avventuriero veneziano celebre per le sue conquiste amorose",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"mischinu\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Avaro",
+        "Poverino",
+        "Mescolato",
+        "Furbo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Mischinu: poverino, poveretto; non vuol dire gretto come l'italiano meschino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è la \"muddica\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La mollica o il pangrattato",
+        "La mosca",
+        "Il fango",
+        "La muffa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Muddica: mollica, pangrattato (pasta ca muddica)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di aggettivo è \"questo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Possessivo",
+        "Dimostrativo",
+        "Indefinito",
+        "Qualificativo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Questo, codesto, quello sono aggettivi dimostrativi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Vado a Roma\", che complemento è \"a Roma\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Termine",
+        "Stato in luogo",
+        "Moto da luogo",
+        "Moto a luogo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "A Roma, con un verbo di movimento, è complemento di moto a luogo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il comparativo di maggioranza organico di \"grande\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Massimo",
+        "Maggiore",
+        "Grandissimo",
+        "Superiore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Grande: comparativo maggiore, superlativo massimo (superiore è di alto)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le consonanti dell'alfabeto italiano tradizionale di 21 lettere?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "15",
+        "14",
+        "16",
+        "17"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "21 lettere di cui 5 vocali: 16 consonanti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola è un sinonimo di \"diafano\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Scuro",
+        "Robusto",
+        "Trasparente",
+        "Profumato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sinonimi"
+      ],
+      "notes": "Diafano: che lascia passare la luce, trasparente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"esimio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Illustre, eccellente",
+        "Molto magro",
+        "Malaticcio",
+        "Giovanissimo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Esimio: insigne, eccellente; dal latino eximius, da eximere, trarre fuori (cioè scelto, fuori dal comune)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"esautorare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Autorizzare",
+        "Esaurire le forze",
+        "Togliere l'autorità",
+        "Rendere famoso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Esautorare: privare qualcuno della sua autorità o del suo potere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione \"deus ex machina\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Chi risolve all'improvviso una situazione",
+        "Un inventore geniale",
+        "Un dio della guerra",
+        "Un'intelligenza artificiale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Nel teatro antico un dio calato con una macchina scioglieva l'intreccio: chi risolve una situazione intricata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la locuzione \"ante litteram\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Senza saper leggere",
+        "Prima della risposta",
+        "In anticipo sui tempi",
+        "Alla lettera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Ante litteram: prima che esistesse il nome, in anticipo sui tempi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la locuzione latina \"de visu\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Con i propri occhi",
+        "Per sentito dire",
+        "In sogno",
+        "Di nascosto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "De visu: per averlo visto di persona",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo l'etimologia, che cosa significa \"utopia\", parola coniata da Tommaso Moro?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nessun luogo",
+        "Luogo antico",
+        "Città alta",
+        "Grande sogno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal greco ou (non) e topos (luogo)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un volo pindarico in un discorso?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Una citazione latina",
+        "Una lunga pausa",
+        "Un brusco salto da un argomento all'altro",
+        "Un elogio esagerato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Volo pindarico: passaggio brusco e arbitrario, come nelle odi di Pindaro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è un \"marcantonio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un innamorato",
+        "Un abile oratore",
+        "Un traditore",
+        "Un uomo grande e grosso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Marcantonio: persona di corporatura grande e robusta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è il \"tabbutu\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il tavolo",
+        "La bara",
+        "Il tabacco",
+        "Il tamburo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Tabbutu: la bara, dall'arabo tābūt",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"scantarisi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Scaldarsi",
+        "Scansarsi",
+        "Mettersi a cantare",
+        "Spaventarsi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Scantarisi: spaventarsi (scantu = spavento)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"espellere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Espellito",
+        "Espelluto",
+        "Espulso",
+        "Espeso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Espellere, participio passato espulso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"inviso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Malvisto, antipatico",
+        "Invisibile",
+        "Invitato",
+        "Inatteso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Inviso: malvisto, odiato (inviso al popolo)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica dice il contrario di ciò che intende, come \"che bella giornata\" sotto la pioggia?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Litote",
+        "Antifrasi",
+        "Iperbole",
+        "Eufemismo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Antifrasi: uso di una parola o frase in senso opposto al suo, spesso ironico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indicava in greco la parola da cui viene \"idiota\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un privato cittadino",
+        "Un pazzo",
+        "Uno schiavo",
+        "Uno straniero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Idiōtēs: il privato cittadino, poi l'inesperto, l'ignorante",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era nel Settecento il cicisbeo?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un servitore di cucina",
+        "Un buffone di corte",
+        "Un maestro di danza",
+        "Il cavalier servente di una dama"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "Cicisbeo: il cavalier servente che accompagnava una signora sposata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è una \"vanedda\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Una ventola",
+        "Una vanga",
+        "Un vicolo",
+        "Un baccello di vaniglia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Vanedda: vicolo, stradina stretta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"scindere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Scinto",
+        "Scinduto",
+        "Sciso",
+        "Scisso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Scindere, participio passato scisso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In diritto, che cos'è il peculato?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Furto di bestiame",
+        "Appropriazione di denaro pubblico",
+        "Falso in bilancio",
+        "Corruzione di un giudice"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Peculato: il pubblico ufficiale che si appropria di denaro o beni pubblici di cui ha disponibilità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la locuzione latina \"obtorto collo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Controvoglia",
+        "Con il collo rigido",
+        "Di nascosto",
+        "Con grande fatica"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Obtorto collo: col collo torto, cioè per forza, malvolentieri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura in cui il discorso si interrompe lasciando intendere il resto?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Preterizione",
+        "Reticenza",
+        "Ellissi",
+        "Litote"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Reticenza o aposiopesi: interruzione volontaria del discorso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua arriva la parola \"bailamme\", gran confusione?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Turco",
+        "Arabo",
+        "Spagnolo",
+        "Francese"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Treccani: dal turco bayram, festa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Montepulciano?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Aretini",
+        "Senesi",
+        "Poliziani",
+        "Volterrani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "abitanti"
+      ],
+      "notes": "Poliziani, dal latino Mons Politianus; da qui il nome dell'umanista Poliziano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale parola deriva, attraverso il francese, \"cretino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Cristiano",
+        "Cretese",
+        "Creta, l'argilla",
+        "Crescere"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Treccani: dal francese crétin, voce dialettale della Svizzera francese che significava cristiano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"palingenesi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Studio dei fossili",
+        "Origine della Terra",
+        "Rinascita, rinnovamento radicale",
+        "Ritorno al passato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Palingenesi: rinascita, profondo rinnovamento",
+      "verified": true
+    }
+  ]
+}

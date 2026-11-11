@@ -1,0 +1,1098 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale tennista americana, sorella di Venus, ha vinto 23 tornei del Grande Slam?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Serena Williams",
+        "Martina Navratilova",
+        "Chris Evert",
+        "Steffi Graf"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Serena Williams ha vinto 23 Slam in singolare; si è ritirata nel 2022",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale squadra NBA ha giocato per tutta la carriera Kobe Bryant?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Chicago Bulls",
+        "Boston Celtics",
+        "Los Angeles Lakers",
+        "Miami Heat"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "nba"
+      ],
+      "notes": "Kobe Bryant giocò vent'anni con i Lakers (1996-2016)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra NBA ha sede a Boston?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Celtics",
+        "Knicks",
+        "Nets",
+        "Bulls"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "basket",
+        "nba"
+      ],
+      "notes": "I Boston Celtics; Knicks e Nets sono di New York, i Bulls di Chicago",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sport olimpico consiste nel saltare in acqua da un trampolino o da una piattaforma?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tuffi",
+        "Nuoto artistico",
+        "Pallanuoto",
+        "Salto con l'asta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sport-acquatici"
+      ],
+      "notes": "I tuffi si fanno dal trampolino da 3 metri e dalla piattaforma da 10",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si gioca la Premier League di calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Inghilterra",
+        "Spagna",
+        "Germania",
+        "Francia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "inghilterra"
+      ],
+      "notes": "La Premier League è il massimo campionato inglese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, che cos'è un autogol?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un gol nella propria porta",
+        "Un gol di testa",
+        "Un gol su rigore",
+        "Un gol in rovesciata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "L'autogol è la rete segnata involontariamente nella propria porta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport è una campionessa Simone Biles?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nuoto",
+        "Atletica leggera",
+        "Tennis",
+        "Ginnastica artistica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ginnastica"
+      ],
+      "notes": "Simone Biles, ginnasta americana plurimedagliata olimpica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra gioca le partite in casa a San Siro, insieme al Milan?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Inter",
+        "Atalanta",
+        "Juventus",
+        "Monza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Milan e Inter condividono lo stadio Giuseppe Meazza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale altro nome è conosciuto il tennistavolo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Badminton",
+        "Squash",
+        "Ping pong",
+        "Paddle"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennistavolo"
+      ],
+      "notes": "\"Ping pong\" è il nome popolare del tennistavolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come chiamano gli americani il gioco del calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Football",
+        "Kickball",
+        "Soccer",
+        "Rugby"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "curiosita",
+        "trabocchetto"
+      ],
+      "notes": "Negli Stati Uniti \"football\" è il football americano; il calcio si chiama \"soccer\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante del Milan era soprannominato \"Super Pippo\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Filippo Inzaghi",
+        "Simone Inzaghi",
+        "Christian Vieri",
+        "Andriy Shevchenko"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "\"Super Pippo\" è Filippo Inzaghi; il fratello Simone era \"Inzaghino\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale Paese il Giappone organizzò i Mondiali di calcio del 2002?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Corea del Sud",
+        "Cina",
+        "Australia",
+        "Thailandia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Corea-Giappone 2002, primo Mondiale in Asia e con due Paesi ospitanti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante squadre partecipano alla Serie A dalla stagione 2004-05?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "16",
+        "18",
+        "20",
+        "22"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Dal 2004-05 la Serie A è a 20 squadre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante svedese ha giocato in Juventus, Inter e Milan?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Henrik Larsson",
+        "Tomas Brolin",
+        "Kennet Andersson",
+        "Zlatan Ibrahimović"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Ibrahimović giocò nella Juventus (2004-06), nell'Inter (2006-09) e nel Milan",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel football americano, come si chiama il giocatore che lancia la palla e guida l'attacco?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Running back",
+        "Quarterback",
+        "Linebacker",
+        "Kicker"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "football-americano"
+      ],
+      "notes": "Il quarterback è il regista dell'attacco",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le armi della scherma olimpica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scherma"
+      ],
+      "notes": "Fioretto, spada e sciabola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport gareggia Dominik Paris?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Snowboard",
+        "Biathlon",
+        "Bob",
+        "Sci alpino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "Dominik Paris, altoatesino, è uno specialista di discesa libera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sport è chiamato \"la nobile arte\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lotta",
+        "Judo",
+        "Pugilato",
+        "Karate"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pugilato"
+      ],
+      "notes": "\"Nobile arte\" è il nome tradizionale del pugilato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale complesso sportivo di Roma si trova lo Stadio Olimpico?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Foro Italico",
+        "Eur",
+        "Tor Vergata",
+        "Ostiense"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "stadi",
+        "roma"
+      ],
+      "notes": "Lo Stadio Olimpico sorge nel Foro Italico, come i campi degli Internazionali di tennis",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese viene il taekwondo, arte marziale olimpica dal 2000?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Corea del Sud",
+        "Cina",
+        "Thailandia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "arti-marziali",
+        "olimpiadi"
+      ],
+      "notes": "Il taekwondo è coreano ed è sport olimpico da Sydney 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport è stato una leggenda il canadese Wayne Gretzky?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Football americano",
+        "Baseball",
+        "Hockey su ghiaccio",
+        "Pallacanestro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "hockey"
+      ],
+      "notes": "Wayne Gretzky, \"The Great One\" dell'hockey NHL",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale disciplina è diventato famoso Tony Hawk?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Surf",
+        "Snowboard",
+        "BMX",
+        "Skateboard"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "skateboard"
+      ],
+      "notes": "Tony Hawk, primo a chiudere il \"900\" in gara nel 1999",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse gli Europei di calcio del 2016, in Francia?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Portogallo",
+        "Francia",
+        "Galles",
+        "Germania"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Portogallo-Francia 1-0 ai supplementari, gol di Éder",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come viene chiamata in Brasile la nazionale di calcio?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Albiceleste",
+        "Celeste",
+        "Roja",
+        "Seleção"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Seleção è il Brasile; Albiceleste l'Argentina, Celeste l'Uruguay, Roja la Spagna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome il rugby?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Da un inventore scozzese",
+        "Da una scuola inglese",
+        "Da una parola gallese",
+        "Da un villaggio irlandese"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rugby",
+        "storia"
+      ],
+      "notes": "Il gioco prende il nome dalla Rugby School, nella città inglese di Rugby",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale scuderia Giuseppe Farina vinse il primo Mondiale di Formula 1, nel 1950?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ferrari",
+        "Alfa Romeo",
+        "Maserati",
+        "Mercedes"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula-1",
+        "storia"
+      ],
+      "notes": "Farina vinse il titolo 1950 con l'Alfa Romeo 158",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città asiatica si corre dal 2008 il primo Gran Premio notturno della Formula 1?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Singapore",
+        "Abu Dhabi",
+        "Kuala Lumpur",
+        "Shanghai"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Il GP di Singapore del 2008 fu la prima gara notturna della F1",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale casa motociclistica ha sede a Borgo Panigale, a Bologna?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Aprilia",
+        "Moto Guzzi",
+        "Ducati",
+        "Benelli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "La Ducati ha sede a Borgo Panigale dal 1935",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel salto in alto, dopo quanti errori consecutivi un atleta viene eliminato?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "regole"
+      ],
+      "notes": "Tre errori consecutivi, a qualsiasi misura, eliminano il saltatore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale altezza si tuffano gli atleti dalla piattaforma olimpica?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "10 metri",
+        "5 metri",
+        "7 metri",
+        "15 metri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tuffi"
+      ],
+      "notes": "La piattaforma olimpica è alta 10 metri; il trampolino 3",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella pallavolo, si può toccare il pallone con un piede?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "No, è sempre fallo",
+        "Solo il libero",
+        "Sì, con qualsiasi parte del corpo",
+        "Solo in difesa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pallavolo",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Il regolamento FIVB (regola 9.2.1) permette di toccare la palla con qualsiasi parte del corpo, piedi compresi, dalla metà degli anni Novanta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città ospitò le Olimpiadi invernali del 2002?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Calgary",
+        "Salt Lake City",
+        "Vancouver",
+        "Lake Placid"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "sport-invernali"
+      ],
+      "notes": "I Giochi invernali 2002 si tennero a Salt Lake City, nello Utah",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio Arechi?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Avellino",
+        "Salerno",
+        "Benevento",
+        "Caserta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "L'Arechi è lo stadio della Salernitana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore, detto \"il Mago\", guidava la Grande Inter degli anni Sessanta?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Nereo Rocco",
+        "Fulvio Bernardini",
+        "Helenio Herrera",
+        "Nils Liedholm"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "allenatori"
+      ],
+      "notes": "Helenio Herrera vinse con l'Inter tre scudetti e due Coppe dei Campioni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale difensore segnò il gol dell'Italia nella finale dell'Europeo giocata a Wembley nel 2021?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giorgio Chiellini",
+        "Alessandro Bastoni",
+        "Francesco Acerbi",
+        "Leonardo Bonucci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Italia-Inghilterra 1-1 (Euro 2020, giocato nel 2021): Bonucci pareggiò il gol di Shaw, l'Italia vinse ai rigori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa usò James Naismith come primi canestri, nel 1891?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Secchi di metallo",
+        "Reti da pesca",
+        "Cesti per le pesche",
+        "Cerchi di botte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Naismith appese due cesti da pesche: per recuperare il pallone serviva una scala",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto dura più o meno una corsa del Palio di Siena?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Circa dieci minuti",
+        "Mezz'ora",
+        "Un'ora",
+        "Poco più di un minuto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "palio",
+        "tradizioni",
+        "trabocchetto"
+      ],
+      "notes": "Tre giri di piazza del Campo in circa 75-90 secondi; la festa invece dura giorni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Contro quale pugile combatté Muhammad Ali nel \"Thrilla in Manila\" del 1975?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "George Foreman",
+        "Sonny Liston",
+        "Ken Norton",
+        "Joe Frazier"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pugilato"
+      ],
+      "notes": "Terzo e ultimo incontro tra Ali e Frazier, a Manila nel 1975",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazione ha vinto più medaglie nella storia delle Olimpiadi invernali?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Stati Uniti",
+        "Norvegia",
+        "Russia",
+        "Germania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "sport-invernali",
+        "trabocchetto"
+      ],
+      "notes": "La Norvegia guida il medagliere storico dei Giochi invernali",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Gli Utah Jazz devono il loro nome alla città in cui nacquero: quale?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Chicago",
+        "Memphis",
+        "Kansas City",
+        "New Orleans"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "nba",
+        "trabocchetto"
+      ],
+      "notes": "Nati come New Orleans Jazz nel 1974, si trasferirono a Salt Lake City nel 1979 tenendo il nome",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cestista italiano fu la prima scelta assoluta del draft NBA del 2006?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Danilo Gallinari",
+        "Marco Belinelli",
+        "Gigi Datome",
+        "Andrea Bargnani"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "nba"
+      ],
+      "notes": "Bargnani fu scelto per primo dai Toronto Raptors nel 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di basket è soprannominata \"le Scarpette Rosse\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Virtus Bologna",
+        "Olimpia Milano",
+        "Pallacanestro Varese",
+        "Fortitudo Bologna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "basket",
+        "soprannomi"
+      ],
+      "notes": "\"Scarpette Rosse\" è lo storico soprannome dell'Olimpia Milano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale squadra siciliana giocava Totò Schillaci prima di passare alla Juventus?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Palermo",
+        "Catania",
+        "Messina",
+        "Trapani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Schillaci giocò nel Messina dal 1982 al 1989, poi andò alla Juventus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La frase \"clamoroso al Cibali\" ricorda una vittoria del Catania su quale squadra, nel 1961?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Juventus",
+        "Milan",
+        "Roma",
+        "Inter"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Catania-Inter 2-0 del 4 giugno 1961, che costò lo scudetto ai nerazzurri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio Oreste Granillo?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cosenza",
+        "Reggio Calabria",
+        "Catanzaro",
+        "Crotone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Il Granillo è lo stadio della Reggina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale località si svolsero le gare di sci alpino maschile delle Olimpiadi di Milano Cortina 2026?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Bormio",
+        "Cortina d'Ampezzo",
+        "Livigno",
+        "Sestriere"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "sci"
+      ],
+      "notes": "Gli uomini gareggiarono sulla Stelvio di Bormio, le donne a Cortina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era il commissario tecnico dell'Italia finalista ai Mondiali del 1970?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Edmondo Fabbri",
+        "Enzo Bearzot",
+        "Helenio Herrera",
+        "Ferruccio Valcareggi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Valcareggi guidò l'Italia del 4-3 alla Germania e della finale persa con il Brasile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana si trova lo stadio Esseneto?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Caltanissetta",
+        "Agrigento",
+        "Trapani",
+        "Ragusa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "sicilia",
+        "stadi"
+      ],
+      "notes": "L'Esseneto è lo stadio dell'Akragas, ad Agrigento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nuova prova sostituirà l'equitazione nel pentathlon moderno, da Los Angeles 2028?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Ciclismo",
+        "Canottaggio",
+        "Percorso a ostacoli",
+        "Tiro con l'arco"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "pentathlon"
+      ],
+      "notes": "La federazione ha sostituito l'equitazione con una prova a ostacoli in stile \"ninja\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale squadra argentina cominciò la carriera Diego Armando Maradona?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Boca Juniors",
+        "Argentinos Juniors",
+        "River Plate",
+        "Newell's Old Boys"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Maradona esordì con l'Argentinos Juniors nel 1976; al Boca e al Newell's giocò dopo",
+      "verified": true
+    }
+  ]
+}

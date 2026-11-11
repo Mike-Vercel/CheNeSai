@@ -1,0 +1,1091 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Di quali monete in euro l'Italia ha sospeso il conio dal 2018?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Quelle da 1 e 2 centesimi",
+        "Quelle da 5 centesimi",
+        "Quelle da 2 euro",
+        "Quelle da 50 centesimi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monete",
+        "italia"
+      ],
+      "notes": "Dal 1 gennaio 2018 è sospeso il conio delle monete da 1 e 2 centesimi (decreto-legge 50/2017, art. 13-quater); restano valide.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su un tavolo ci sono tre mele e tu ne prendi due: quante mele hai tu?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "1",
+        "3",
+        "5",
+        "2"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Hai le due che hai preso.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel Palio di Siena, può vincere un cavallo che arriva senza fantino?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "No, la corsa si ripete",
+        "No, è squalificato",
+        "Sì, vince anche scosso",
+        "Sì, ma solo a pari merito"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Al Palio vince il cavallo, non il fantino: vale anche il cavallo scosso, come Zio Frac dell'Oca nell'agosto 2023.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale paese trapanese si allestisce un celebre presepe vivente nella Grotta Mangiapane?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Erice",
+        "Custonaci",
+        "San Vito Lo Capo",
+        "Castellammare del Golfo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "sicilia"
+      ],
+      "notes": "Il presepe vivente di Custonaci, nella frazione di Scurati.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il calendario con le finestrelle da aprire ogni giorno fino a Natale?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Calendario lunare",
+        "Calendario dell'Avvento",
+        "Calendario perpetuo",
+        "Calendario dell'Epifania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale"
+      ],
+      "notes": "Il calendario dell'Avvento conta i giorni che mancano a Natale.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore sono le strisce dei parcheggi riservati alle persone con disabilità?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Blu",
+        "Bianche",
+        "Rosse",
+        "Gialle"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "italia",
+        "strada"
+      ],
+      "notes": "Gli stalli riservati sono delimitati in giallo, con il simbolo apposito.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama nei Paesi anglosassoni il giorno dopo Natale?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Boxing Day",
+        "Black Friday",
+        "Thanksgiving",
+        "Twelfth Night"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "Il Boxing Day è il 26 dicembre, il nostro Santo Stefano.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la molla giocattolo che scende le scale da sola?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Yo-yo",
+        "Tamagotchi",
+        "Slinky",
+        "Hula hoop"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Lo Slinky fu inventato nel 1943 dall'ingegnere Richard James.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco bisogna far indovinare una parola senza pronunciare quelle vietate sulla carta?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Pictionary",
+        "Scarabeo",
+        "Indovina chi",
+        "Taboo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "In Taboo le parole proibite sono scritte sotto la parola da far indovinare.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nelle isole Shetland, quale festa d'inverno finisce con l'incendio di una nave vichinga?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Hogmanay",
+        "Beltane",
+        "Up Helly Aa",
+        "Samhain"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Up Helly Aa si tiene a Lerwick l'ultimo martedì di gennaio.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è vietato vendere gomme da masticare, salvo eccezioni, dal 1992?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Singapore",
+        "Giappone",
+        "Svizzera",
+        "Corea del Sud"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mondo",
+        "leggi"
+      ],
+      "notes": "Il divieto di vendita a Singapore è del 1992; dal 2004 sono ammesse quelle terapeutiche.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova la statua della pescivendola Molly Malone?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Edimburgo",
+        "Dublino",
+        "Liverpool",
+        "Glasgow"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "città",
+        "mondo"
+      ],
+      "notes": "La statua di Molly Malone, eroina di una canzone popolare, è a Dublino.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti numeri bisogna indovinare al Superenalotto per vincere il jackpot?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "7",
+        "10",
+        "6"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "italia"
+      ],
+      "notes": "Il jackpot del Superenalotto va a chi indovina il 6.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si scambiano i bambini dicendo celo, celo, manca?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Le figurine",
+        "Le biglie",
+        "I francobolli",
+        "Le carte da gioco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "italia"
+      ],
+      "notes": "Celo (ce l'ho) e manca: la formula classica dello scambio di figurine.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il celebre francobollo italiano del 1961, ritirato per un errore nei confini del Perù?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Penny Black",
+        "Gronchi rosa",
+        "Trinacria blu",
+        "Leone di San Marco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "francobolli",
+        "italia"
+      ],
+      "notes": "Emesso per il viaggio del presidente Gronchi in Sud America, fu ritirato per la mappa sbagliata.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco si cerca di affondare la flotta avversaria indicando le caselle di una griglia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il Risiko",
+        "La dama",
+        "La battaglia navale",
+        "Il Forza quattro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Nella battaglia navale si dicono coordinate come B5 per colpire le navi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gesto con la mano si fa in Italia per scacciare la sfortuna?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il pollice in su",
+        "Le corna",
+        "Il segno della vittoria",
+        "Il pugno chiuso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superstizioni",
+        "italia"
+      ],
+      "notes": "Fare le corna (indice e mignolo tesi) è il gesto scaramantico per eccellenza.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore catanese era raffigurato sulla banconota da cinquemila lire?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giuseppe Verdi",
+        "Gioachino Rossini",
+        "Pietro Mascagni",
+        "Vincenzo Bellini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "monete",
+        "sicilia"
+      ],
+      "notes": "La 5000 lire con Bellini circolò dal 1985 fino all'euro.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale provincia si trova San Biagio Platani, famosa per gli Archi di Pasqua fatti di canne e pane?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Agrigento",
+        "Caltanissetta",
+        "Palermo",
+        "Enna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "sicilia"
+      ],
+      "notes": "San Biagio Platani è in provincia di Agrigento.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gioco da tavolo a domande ha sei categorie e spicchi colorati da conquistare?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Taboo",
+        "Pictionary",
+        "Trivial Pursuit",
+        "Cluedo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Trivial Pursuit (1981): sei categorie, sei spicchi da raccogliere.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su che cosa si scommetteva con il Totip?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sulle partite di calcio",
+        "Sulle gare di Formula 1",
+        "Sulle corse dei cavalli",
+        "Sulle regate"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "italia"
+      ],
+      "notes": "Il Totip, nato nel 1948, era il concorso sulle corse ippiche.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale Paese ha la bandiera nazionale considerata la più antica ancora in uso?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Danimarca",
+        "Regno Unito",
+        "Francia",
+        "Svizzera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bandiere"
+      ],
+      "notes": "Il Dannebrog danese è considerato la più antica bandiera nazionale in uso continuo.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha le lancette ma non ha le mani?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il calendario",
+        "L'orologio",
+        "Lo specchio",
+        "La candela"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "indovinelli"
+      ],
+      "notes": "Indovinello classico: le lancette dell'orologio.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si fa nel gioco Pictionary?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Si mima una parola",
+        "Si scrivono parole crociate",
+        "Si indovinano canzoni",
+        "Si disegna per far indovinare parole"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "In Pictionary si disegnano le parole da far indovinare alla squadra.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il papero più fortunato di Paperopoli, cugino di Paperino?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gastone",
+        "Paperoga",
+        "Paperinik",
+        "Archimede"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Gastone Paperone, creato da Carl Barks nel 1948, è il fortunatissimo cugino.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante carte ha un mazzo di carte francesi con i due jolly?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "52",
+        "56",
+        "54",
+        "40"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "52 carte più due jolly.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante settimane ci sono, più o meno, in un anno?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "48",
+        "56",
+        "60",
+        "52"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "365 giorni diviso 7 fa 52 settimane e un giorno.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura simbolo di Palermo, un vecchio con un serpente che gli morde il petto?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Il Gigante di Palermo",
+        "Il Genio di Palermo",
+        "Il Moro di Palermo",
+        "Il Saggio di Palermo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "leggende"
+      ],
+      "notes": "Il Genio, nume tutelare della città, ha diverse statue tra cui quella di Palazzo Pretorio.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto dura più o meno la corsa del Palio di Siena?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Circa un minuto e mezzo",
+        "Circa dieci minuti",
+        "Circa mezz'ora",
+        "Circa un'ora"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Tre giri di Piazza del Campo, in circa 75-90 secondi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città piemontese nacque nel 1857 il cappello Borsalino?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Biella",
+        "Asti",
+        "Alessandria",
+        "Cuneo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "moda",
+        "italia"
+      ],
+      "notes": "Giuseppe Borsalino fondò il cappellificio ad Alessandria nel 1857.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è lo storico numero di soccorso della Polizia di Stato?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "112",
+        "113",
+        "115",
+        "117"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "italia"
+      ],
+      "notes": "113 Polizia, 112 Carabinieri, 115 Vigili del fuoco, 117 Guardia di Finanza.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città toscana si tiene la Luminara di San Ranieri, la sera del 16 giugno?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Firenze",
+        "Lucca",
+        "Arezzo",
+        "Pisa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "A Pisa migliaia di lumini illuminano i palazzi del lungarno.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in Italia il gioco da tavolo in cui si riportano a casa quattro pedine tirando il dado?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Non t'arrabbiare",
+        "Gioco dell'oca",
+        "Dama cinese",
+        "Forza quattro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Versione italiana del tedesco Mensch ärgere Dich nicht, simile al Ludo.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fumetto di Leo Ortolani parodia i supereroi con un protagonista mascherato da topo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Cattivik",
+        "Lupo Alberto",
+        "Rat-Man",
+        "Sturmtruppen"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Rat-Man nacque nel 1989.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è il patrono di Trieste?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "San Marco",
+        "San Vito",
+        "San Rocco",
+        "San Giusto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "santi",
+        "italia"
+      ],
+      "notes": "San Giusto, martire, festeggiato il 3 novembre, dà il nome anche alla cattedrale.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è la valuta del Regno Unito?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "L'euro",
+        "La sterlina",
+        "Il dollaro",
+        "Il franco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete",
+        "mondo"
+      ],
+      "notes": "Il Regno Unito usa la sterlina britannica e non ha mai adottato l'euro.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa lasciano i bambini americani a Babbo Natale la notte della vigilia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vino e panettone",
+        "Caffè e cornetti",
+        "Tè e pasticcini",
+        "Latte e biscotti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "Negli Stati Uniti si lasciano per tradizione latte e biscotti accanto al camino.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la copertina del passaporto italiano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Bordeaux",
+        "Blu",
+        "Verde",
+        "Nero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "italia"
+      ],
+      "notes": "Il passaporto italiano, come quelli dell'Unione Europea, è bordeaux.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore era raffigurato sulla banconota da centomila lire degli anni Novanta?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Tiziano",
+        "Leonardo da Vinci",
+        "Caravaggio",
+        "Giotto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "monete",
+        "italia"
+      ],
+      "notes": "Le 100.000 lire di tipo 1983 e 1994 portavano il ritratto di Caravaggio.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, che cosa porta il vino versato a tavola, al contrario dell'olio?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sfortuna",
+        "Allegria",
+        "Pioggia",
+        "Litigi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superstizioni",
+        "italia"
+      ],
+      "notes": "Vino versato porta allegria; olio versato porta sfortuna.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo della città di Berna?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "L'aquila",
+        "Il leone",
+        "Il toro",
+        "L'orso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "città",
+        "mondo"
+      ],
+      "notes": "L'orso è nello stemma e nel nome stesso di Berna; c'è anche il parco degli orsi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è la valuta del Giappone?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Lo yuan",
+        "Lo yen",
+        "Il won",
+        "Il baht"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete",
+        "mondo"
+      ],
+      "notes": "Lo yen è la moneta giapponese; yuan è cinese, won coreano, baht thailandese.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco con carta e penna, scelta una lettera, si cercano parole per categorie come fiori e animali?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nomi, cose, città",
+        "Scarabeo",
+        "Paroliere",
+        "L'impiccato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Nomi, cose, città: una parola per categoria con la lettera estratta.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, su quale casa si mette la donna all'inizio della partita?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sempre su una casa nera",
+        "Sempre a destra del re",
+        "Su una casa del suo stesso colore",
+        "Nell'angolo della scacchiera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "scacchi"
+      ],
+      "notes": "Regola: la donna bianca su casa bianca, quella nera su casa nera.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella smorfia napoletana, quale numero corrisponde al caffè?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "24",
+        "42",
+        "33",
+        "77"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "smorfia",
+        "italia"
+      ],
+      "notes": "42 'o ccafè.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel gioco del Memory, che cosa bisogna trovare girando le tessere?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Le coppie di figure uguali",
+        "La tessera più alta",
+        "Le figure dello stesso colore",
+        "La tessera nascosta sotto le altre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Nel Memory si girano due tessere alla volta per trovare le coppie identiche.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la festa indù delle luci, con lampade a olio accese ovunque?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Holi",
+        "Vesak",
+        "Ramadan",
+        "Diwali"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Diwali, in autunno; Holi è la festa dei colori.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indicano le strisce blu che delimitano un posto auto?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Che è riservato ai disabili",
+        "Che è riservato al carico e scarico",
+        "Che la sosta è a pagamento",
+        "Che la sosta è vietata"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "italia",
+        "strada"
+      ],
+      "notes": "Codice della strada: strisce blu sosta a pagamento, gialle riservate, bianche libere.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il commissario di polizia di Topolinia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Manetta",
+        "Basettoni",
+        "Ginko",
+        "Gambadilegno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Il commissario Basettoni, aiutato dall'ispettore Manetta.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Un mattone pesa un chilo più mezzo mattone: quanto pesa un mattone intero?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1 chilo e mezzo",
+        "1 chilo",
+        "2 chili",
+        "3 chili"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Se mezzo mattone pesa un chilo, il mattone intero ne pesa due.",
+      "verified": true
+    }
+  ]
+}

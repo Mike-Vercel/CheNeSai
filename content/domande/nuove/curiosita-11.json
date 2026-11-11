@@ -1,0 +1,1093 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Di che colori sono le due chiavi incrociate nello stemma della Santa Sede?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Oro e bronzo",
+        "Argento e rame",
+        "Oro e argento",
+        "Rosso e oro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vaticano"
+      ],
+      "notes": "Le chiavi di San Pietro: d'oro e d'argento.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco di carte si prende tutto il mucchietto dell'avversario con una carta dello stesso valore?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Briscola",
+        "Rubamazzo",
+        "Tressette",
+        "Scala quaranta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Nel rubamazzo si ruba il mazzetto avversario calando una carta uguale a quella in cima.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel gioco un, due, tre, stella, che cosa devono fare i giocatori quando chi conta si gira?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sedersi a terra",
+        "Battere le mani",
+        "Cambiare posto",
+        "Restare immobili"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Chi viene visto muoversi quando chi conta si volta torna al punto di partenza.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la zucca intagliata con una candela dentro, simbolo di Halloween?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Jack-o'-lantern",
+        "Will-o'-the-wisp",
+        "Trick or treat",
+        "Pumpkin pie"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "La leggenda irlandese di Jack, condannato a vagare con una lanterna.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha il cappello ma non ha la testa?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il fungo",
+        "Il chiodo",
+        "Il bottone",
+        "Il tavolo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello: il fungo ha il cappello; il chiodo invece ha proprio la testa.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è il patrono di Caltanissetta?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "San Calogero",
+        "San Corrado",
+        "Sant'Agata",
+        "San Michele Arcangelo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "santi",
+        "sicilia"
+      ],
+      "notes": "San Michele Arcangelo, festeggiato il 29 settembre.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, che cosa si fa sotto il vischio durante le feste?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Si esprime un desiderio",
+        "Si brinda",
+        "Ci si bacia",
+        "Ci si scambia un regalo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "tradizioni"
+      ],
+      "notes": "Baciarsi sotto il vischio porta fortuna e amore.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, che cosa non deve vedere lo sposo prima delle nozze?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Le fedi nuziali",
+        "L'abito della sposa",
+        "La chiesa addobbata",
+        "La torta nuziale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "matrimonio",
+        "superstizioni"
+      ],
+      "notes": "Si dice che porti sfortuna se lo sposo vede l'abito prima della cerimonia.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti numeri vengono estratti su ogni ruota del Lotto?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "10",
+        "5",
+        "3"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "italia"
+      ],
+      "notes": "Si estraggono cinque numeri da 1 a 90 per ogni ruota.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Una mazza e una palla costano un euro e dieci, e la mazza costa un euro più della palla. Quanto costa la palla?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "10 centesimi",
+        "1 centesimo",
+        "15 centesimi",
+        "5 centesimi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Palla 0,05 e mazza 1,05: totale 1,10.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale città francese prende il nome il tessuto denim?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Lione",
+        "Nîmes",
+        "Marsiglia",
+        "Lilla"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "moda",
+        "parole"
+      ],
+      "notes": "Denim viene da serge de Nîmes.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Più è caldo e più è fresco: che cos'è?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il pane",
+        "Il gelato",
+        "Il ghiaccio",
+        "Il vento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello: il pane appena sfornato è caldo e fresco.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti sono i Capitani reggenti che guidano insieme la Repubblica di San Marino?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "7"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo",
+        "italia"
+      ],
+      "notes": "Due Capitani reggenti, eletti ogni sei mesi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacquero nel 1961 le figurine Panini?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bologna",
+        "Parma",
+        "Reggio Emilia",
+        "Modena"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "italia"
+      ],
+      "notes": "I fratelli Panini pubblicarono il primo album di calciatori a Modena nel 1961.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo un proverbio, in quali giorni non ci si sposa e non si parte?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Venerdì e martedì",
+        "Lunedì e giovedì",
+        "Sabato e domenica",
+        "Mercoledì e venerdì"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superstizioni",
+        "proverbi"
+      ],
+      "notes": "Di Venere e di Marte non ci si sposa né si parte.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante cifre ha il codice di avviamento postale italiano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "6",
+        "5",
+        "3"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "italia"
+      ],
+      "notes": "Il CAP italiano, introdotto nel 1967, ha cinque cifre.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo spiritello vestito da frate delle leggende napoletane?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pulcinella",
+        "Munaciello",
+        "Pazzariello",
+        "Sciosciammocca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "leggende",
+        "italia"
+      ],
+      "notes": "'O munaciello, folletto dispettoso e a volte generoso del folclore napoletano.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale santo si festeggia il 31 dicembre?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "San Silvestro",
+        "Santo Stefano",
+        "San Giovanni",
+        "San Biagio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "santi",
+        "calendario"
+      ],
+      "notes": "San Silvestro papa, morto il 31 dicembre 335.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella tombola, quanti numeri ci sono su ogni riga di una cartella?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "natale"
+      ],
+      "notes": "Tre righe da cinque numeri: quindici per cartella.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si celebra a Venezia con la Festa della Sensa?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "La fondazione della città",
+        "La vittoria di Lepanto",
+        "La fine della peste",
+        "Lo sposalizio del mare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Nel giorno dell'Ascensione il doge gettava un anello in mare.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali monete in euro sono fatte di due metalli di colori diversi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Quelle da 1 e 2 euro",
+        "Quelle da 50 centesimi e 1 euro",
+        "Solo quella da 2 euro",
+        "Quelle da 10 e 20 centesimi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "Solo le monete da 1 e 2 euro sono bimetalliche.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella scopa, quante carte si mettono scoperte sul tavolo all'inizio della partita?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Si danno tre carte a testa e se ne scoprono quattro in tavola.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa colleziona chi pratica la tegestologia?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Tappi di bottiglia",
+        "Bustine di zucchero",
+        "Sottobicchieri",
+        "Lattine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "collezionismo"
+      ],
+      "notes": "Tegestologia: collezionismo di sottobicchieri da birra.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato il personaggio di Paperinik?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Stati Uniti",
+        "Danimarca",
+        "Francia",
+        "Italia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fumetti",
+        "trabocchetto"
+      ],
+      "notes": "Paperinik nacque su Topolino nel 1969, ideato da Elisa Penna, Guido Martina e Giovan Battista Carpi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il primo gennaio cade sempre nello stesso giorno della settimana di quale data dell'anno appena finito?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il 25 dicembre",
+        "Il 24 dicembre",
+        "Il 26 dicembre",
+        "Il 31 dicembre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario",
+        "trabocchetto"
+      ],
+      "notes": "Tra il 25 dicembre e il 1 gennaio passano esattamente sette giorni.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa trovano nella calza della Befana i bambini che non sono stati buoni?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Le noci",
+        "I bottoni",
+        "Il carbone",
+        "Le monete"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "tradizioni"
+      ],
+      "notes": "Per tradizione la Befana porta carbone (oggi di zucchero) ai bambini cattivi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese i Maori si salutano toccandosi naso e fronte, con l'hongi?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Australia",
+        "Samoa",
+        "Figi",
+        "Nuova Zelanda"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mondo",
+        "tradizioni"
+      ],
+      "notes": "L'hongi è il saluto tradizionale dei Maori della Nuova Zelanda.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova la Fontana delle novantanove cannelle?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Perugia",
+        "L'Aquila",
+        "Ascoli Piceno",
+        "Viterbo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "italia",
+        "città"
+      ],
+      "notes": "La fontana della Rivera, del 1272, simbolo dell'Aquila.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante pedine ha ogni giocatore all'inizio di una partita a dama italiana?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "12",
+        "16",
+        "8"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Nella dama italiana ognuno ha 12 pedine sulla scacchiera da 64 case.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le bambole russe di legno che si infilano una dentro l'altra?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Matrioske",
+        "Kokeshi",
+        "Pigotte",
+        "Marionette"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "mondo"
+      ],
+      "notes": "Le matrioske russe nacquero alla fine dell'Ottocento; le kokeshi sono bambole giapponesi.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale santo si festeggia a Cagliari il primo maggio con una lunga processione in costume sardo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "San Saturnino",
+        "San Gavino",
+        "Sant'Antioco",
+        "Sant'Efisio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "La festa di Sant'Efisio, sciolta da un voto del 1652, parte da Cagliari il 1 maggio.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, che cosa si dà in cambio a chi ti regala un coltello?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un fiore",
+        "Un bacio",
+        "Una moneta",
+        "Un pizzico di sale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Si paga il coltello con una monetina per non tagliare l'amicizia.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il cappotto con gli alamari che porta il nome di un generale britannico?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Loden",
+        "Montgomery",
+        "Trench",
+        "Paletot"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "moda"
+      ],
+      "notes": "In Italia il duffle coat si chiama montgomery, dal feldmaresciallo che lo indossava.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che ora segnano di solito gli orologi a lancette nelle foto pubblicitarie?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Le dieci e dieci",
+        "Mezzogiorno in punto",
+        "Le tre in punto",
+        "Le sei e mezza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "Le 10:10 incorniciano il marchio e danno l'idea di un sorriso.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa annuncia la fumata bianca che esce dal comignolo della Cappella Sistina?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "L'apertura del Giubileo",
+        "La nomina di un santo",
+        "L'elezione del nuovo papa",
+        "La fine della Quaresima"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vaticano"
+      ],
+      "notes": "Durante il conclave la fumata bianca segnala che il papa è stato eletto.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo il galateo, con che cosa si mangiano gli spaghetti?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Con forchetta e cucchiaio",
+        "Con forchetta e coltello",
+        "Con le bacchette",
+        "Solo con la forchetta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "galateo",
+        "trabocchetto"
+      ],
+      "notes": "Il galateo italiano vuole solo la forchetta: il cucchiaio è un'usanza straniera.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città sfilano le scuole di samba nel Sambodromo progettato da Oscar Niemeyer?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Rio de Janeiro",
+        "Buenos Aires",
+        "Lisbona",
+        "L'Avana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Il Sambódromo da Marquês de Sapucaí di Rio fu progettato da Niemeyer (1984).",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale festa giapponese del 3 marzo è dedicata alle bambine, con bambole esposte in casa?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Hanami",
+        "Tanabata",
+        "Obon",
+        "Hinamatsuri"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Hinamatsuri, la festa delle bambole.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In Islanda, quanti sono i folletti di Natale che portano i doni ai bambini?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "7",
+        "12",
+        "13",
+        "24"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "I tredici Jólasveinar arrivano uno per notte prima di Natale.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale animale si ricava la lana d'angora?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dalla capra",
+        "Dal coniglio",
+        "Dalla pecora",
+        "Dal lama"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "moda",
+        "trabocchetto"
+      ],
+      "notes": "L'angora viene dal coniglio d'angora; dalla capra d'angora si ottiene invece il mohair.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti giorni ha febbraio negli anni bisestili?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "29",
+        "28",
+        "30",
+        "31"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Negli anni bisestili si aggiunge il 29 febbraio.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti pollici ci sono in un piede inglese?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "10",
+        "12",
+        "16",
+        "24"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "1 piede = 12 pollici.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Mentre in Italia si tocca ferro, che cosa si tocca per scaramanzia nei Paesi anglosassoni?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "L'oro",
+        "Il vetro",
+        "La pietra",
+        "Il legno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "superstizioni",
+        "mondo"
+      ],
+      "notes": "Touch wood o knock on wood.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale creatura leggendaria vivrebbe tra le nevi dell'Himalaya?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il Bigfoot",
+        "Il Chupacabra",
+        "Lo Yeti",
+        "Il Kraken"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "leggende"
+      ],
+      "notes": "Lo Yeti, o abominevole uomo delle nevi, è la creatura del folclore himalayano.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo il galateo tradizionale, chi entra per primo al ristorante, tra un uomo e una donna?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "L'uomo",
+        "La donna",
+        "Il più anziano",
+        "Chi ha prenotato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "galateo",
+        "trabocchetto"
+      ],
+      "notes": "Il galateo vuole che l'uomo preceda la donna al ristorante, per aprirle la strada.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo una superstizione, con quale bevanda non si deve mai brindare?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il vino",
+        "Lo spumante",
+        "L'acqua",
+        "La birra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Brindare con l'acqua porta sfortuna, secondo la credenza popolare.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo le leggende irlandesi, che cosa si trova alla fine dell'arcobaleno?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un castello di cristallo",
+        "Una fata addormentata",
+        "Un drago",
+        "Una pentola d'oro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "leggende",
+        "mondo"
+      ],
+      "notes": "La pentola d'oro del leprecauno.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il tipico berretto di panno della tradizione siciliana?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Basco",
+        "Coppola",
+        "Bombetta",
+        "Colbacco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "moda"
+      ],
+      "notes": "La coppola è il berretto piatto con visiera tipico della Sicilia.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa dicono i bambini bussando alle porte la notte di Halloween?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Dolcetto o scherzetto",
+        "Buona sera a tutti",
+        "Apriti sesamo",
+        "Tanti auguri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Trick or treat: dolcetto o scherzetto.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire in Italia fare il ponte?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fare un viaggio in nave",
+        "Lavorare di notte",
+        "Unire con le ferie una festa e il fine settimana",
+        "Saltare una lezione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "italia",
+        "tradizioni"
+      ],
+      "notes": "Si prende un giorno di ferie tra un festivo e il fine settimana.",
+      "verified": true
+    }
+  ]
+}

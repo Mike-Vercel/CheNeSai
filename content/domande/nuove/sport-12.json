@@ -1,0 +1,1091 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale sport si pratica con una canna, un mulinello e un'esca?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tiro a volo",
+        "Golf",
+        "Canoa",
+        "Pesca sportiva"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pesca"
+      ],
+      "notes": "La pesca sportiva si pratica con canna, mulinello ed esca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale salto dell'atletica si fa con tre balzi consecutivi prima di atterrare nella sabbia?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Salto in lungo",
+        "Salto in alto",
+        "Salto con l'asta",
+        "Salto triplo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Il triplo è composto da hop, step e jump",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, come si riprende il gioco quando il pallone esce da uno dei lati lunghi del campo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Calcio d'angolo",
+        "Rimessa dal fondo",
+        "Rimessa laterale",
+        "Calcio di punizione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Si batte la rimessa laterale con le mani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fuoriclasse portoghese ha giocato nella Juventus dal 2018 al 2021?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cristiano Ronaldo",
+        "Luís Figo",
+        "Rui Costa",
+        "Bernardo Silva"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Cristiano Ronaldo arrivò dal Real Madrid nel 2018 e lasciò Torino nel 2021",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale specialità dello sci si pratica su percorsi in piano e in salita, spingendosi con i bastoncini?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sci alpino",
+        "Snowboard",
+        "Salto con gli sci",
+        "Sci di fondo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "Lo sci di fondo si pratica su piste pianeggianti e ondulate",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa lanciano davvero gli atleti nel lancio del martello?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un martello da fabbro",
+        "Un disco di legno",
+        "Un'asta di metallo",
+        "Una sfera di metallo legata a un cavo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica",
+        "trabocchetto"
+      ],
+      "notes": "Il \"martello\" è una sfera d'acciaio collegata a una maniglia da un cavo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, che cosa assegna l'arbitro per un fallo della difesa dentro la propria area di rigore?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Calcio d'angolo",
+        "Rimessa laterale",
+        "Rimessa dal fondo",
+        "Calcio di rigore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Un fallo da punizione diretta in area vale il rigore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città ospitò le Olimpiadi estive del 2004?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sydney",
+        "Pechino",
+        "Atene",
+        "Barcellona"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "I Giochi del 2004 tornarono ad Atene, sede delle prime Olimpiadi moderne",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama chi monta i cavalli nelle corse al galoppo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Stalliere",
+        "Fantino",
+        "Maniscalco",
+        "Allenatore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ippica"
+      ],
+      "notes": "Il fantino monta il cavallo in corsa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport sul ghiaccio gli atleti eseguono salti e trottole a ritmo di musica?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Hockey su ghiaccio",
+        "Curling",
+        "Pattinaggio artistico",
+        "Short track"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sport-invernali"
+      ],
+      "notes": "Salti e trottole sono elementi del pattinaggio artistico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale numero di maglia è diventato celebre Michael Jordan nei Chicago Bulls?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "8",
+        "10",
+        "23",
+        "33"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "nba"
+      ],
+      "notes": "Jordan giocò quasi sempre con il 23 (per breve tempo il 45)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città ha sede l'Ajax, la squadra di Johan Cruijff?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rotterdam",
+        "Eindhoven",
+        "Amsterdam",
+        "L'Aia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "europa"
+      ],
+      "notes": "L'Ajax è di Amsterdam; Rotterdam ha il Feyenoord, Eindhoven il PSV",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si riprende il gioco quando un attaccante manda il pallone oltre la linea di fondo, fuori dalla porta?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rimessa dal fondo",
+        "Calcio d'angolo",
+        "Rimessa laterale",
+        "Calcio di rigore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Se l'ultimo tocco è dell'attaccante si batte la rimessa dal fondo; se è del difensore, il calcio d'angolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore italiano portò il Leicester a vincere il campionato inglese nel 2016?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Antonio Conte",
+        "Roberto Mancini",
+        "Claudio Ranieri",
+        "Carlo Ancelotti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "allenatori"
+      ],
+      "notes": "Il Leicester di Ranieri vinse la Premier League 2015-16",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante argentino era soprannominato \"Batigol\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Hernán Crespo",
+        "Gabriel Batistuta",
+        "Abel Balbo",
+        "Claudio Caniggia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Batistuta, bomber di Fiorentina e Roma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, come si dice quando un giocatore vince il primo punto dopo la parità?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Vantaggio",
+        "Deuce",
+        "Ace",
+        "Love"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Dopo il 40 pari (deuce) chi vince il punto va in vantaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota spagnolo vinse i Mondiali di Formula 1 del 2005 e del 2006 con la Renault?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fernando Alonso",
+        "Carlos Sainz",
+        "Pedro de la Rosa",
+        "Jaime Alguersuari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Fernando Alonso, campione 2005 e 2006 con la Renault",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale località italiana ospitò le Olimpiadi invernali del 1956?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Sestriere",
+        "Cortina d'Ampezzo",
+        "Bormio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "sport-invernali"
+      ],
+      "notes": "Cortina 1956 furono i primi Giochi invernali in Italia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Oggi, in quale mese si gioca di solito il Super Bowl?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Febbraio",
+        "Gennaio",
+        "Dicembre",
+        "Marzo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "football-americano",
+        "trabocchetto"
+      ],
+      "notes": "Dal 2004 il Super Bowl si gioca a febbraio, anche se chiude la stagione dell'anno prima",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse tre Champions League di fila, dal 2016 al 2018?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Real Madrid",
+        "Barcellona",
+        "Bayern Monaco",
+        "Liverpool"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "coppe-europee"
+      ],
+      "notes": "Il Real Madrid di Zidane vinse nel 2016, 2017 e 2018",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana vinse l'Europa League nel 2024, battendo il Bayer Leverkusen a Dublino?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Atalanta",
+        "Fiorentina",
+        "Juventus"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "coppe-europee"
+      ],
+      "notes": "Atalanta-Bayer Leverkusen 3-0, tripletta di Lookman",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella pallacanestro FIBA, quanti minuti dura ciascun quarto?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "8",
+        "10",
+        "12",
+        "15"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Con le regole FIBA i quarti durano 10 minuti; nella NBA 12",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella pallavolo, come si chiama il giocatore che alza la palla agli attaccanti?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Libero",
+        "Palleggiatore",
+        "Opposto",
+        "Schiacciatore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallavolo"
+      ],
+      "notes": "Il palleggiatore (alzatore) costruisce il gioco",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante volte all'anno si corre di norma il Palio di Siena?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "palio",
+        "tradizioni"
+      ],
+      "notes": "Il 2 luglio e il 16 agosto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come gareggiavano gli atleti delle antiche Olimpiadi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nudi",
+        "Con una tunica bianca",
+        "Con un'armatura leggera",
+        "Con una toga"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Nell'antica Grecia gli atleti olimpici gareggiavano nudi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse la finale di Wimbledon del 2008 contro Roger Federer, una delle più belle di sempre?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Novak Djokovic",
+        "Rafael Nadal",
+        "Andy Murray",
+        "Andy Roddick"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Nadal batté Federer 9-7 al quinto set",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiana perse la finale degli US Open 2015 contro Flavia Pennetta?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sara Errani",
+        "Francesca Schiavone",
+        "Roberta Vinci",
+        "Camila Giorgi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Finale tutta italiana Pennetta-Vinci a New York, 2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Prima di dedicarsi al tennis, in quale sport Jannik Sinner era un campione giovanile?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Hockey su ghiaccio",
+        "Sci alpino",
+        "Sci di fondo",
+        "Biathlon"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis",
+        "sci",
+        "trabocchetto"
+      ],
+      "notes": "Da bambino Sinner vinse titoli italiani giovanili di slalom gigante",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota argentino vinse cinque Mondiali di Formula 1 negli anni Cinquanta?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "José Froilán González",
+        "Carlos Reutemann",
+        "Onofre Marimón",
+        "Juan Manuel Fangio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Fangio fu campione nel 1951, 1954, 1955, 1956 e 1957",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale moto Valentino Rossi vinse il Mondiale del 2004, al primo anno con la nuova squadra?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Yamaha",
+        "Honda",
+        "Ducati",
+        "Suzuki"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "Lasciata la Honda, Rossi vinse subito il titolo 2004 con la Yamaha",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Al Giro d'Italia, a chi spetta la maglia bianca?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Al miglior scalatore",
+        "All'ultimo in classifica",
+        "Al più combattivo",
+        "Al miglior giovane"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo",
+        "giro-d-italia"
+      ],
+      "notes": "La maglia bianca premia il miglior giovane; gli scalatori vestono l'azzurro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale atleta keniano corse una maratona in meno di due ore a Vienna, nel 2019, in una prova non ufficiale?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Paul Tergat",
+        "Haile Gebrselassie",
+        "Eliud Kipchoge",
+        "Kenenisa Bekele"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Kipchoge corse in 1h59'40\" il 12 ottobre 2019",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nello skeleton, in che posizione scende l'atleta sulla slitta?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "A pancia in giù, testa avanti",
+        "Supino, piedi avanti",
+        "Seduto, piedi avanti",
+        "In ginocchio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sport-invernali",
+        "trabocchetto"
+      ],
+      "notes": "Nello skeleton si scende proni a testa avanti; nello slittino supini a piedi avanti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio Via del Mare?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Lecce",
+        "Bari",
+        "Pescara",
+        "Taranto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Il Via del Mare è lo stadio del Lecce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra siciliana è soprannominata \"i Peloritani\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Palermo",
+        "Trapani",
+        "Messina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Il Messina prende il soprannome dai monti Peloritani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Contro quale nazionale l'Italia perse la finale degli Europei del 2012?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Germania",
+        "Francia",
+        "Portogallo",
+        "Spagna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Spagna-Italia 4-0 a Kiev; l'Italia aveva battuto la Germania in semifinale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato si corre il Gran Premio di San Marino del motomondiale?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "San Marino",
+        "Italia",
+        "Svizzera",
+        "Francia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motociclismo",
+        "trabocchetto"
+      ],
+      "notes": "Si corre al circuito di Misano Adriatico, in provincia di Rimini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama oggi la competizione a squadre femminile di tennis, un tempo chiamata Fed Cup?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Hopman Cup",
+        "Billie Jean King Cup",
+        "Laver Cup",
+        "Wightman Cup"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Dal 2020 la Fed Cup si chiama Billie Jean King Cup",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota spagnolo vinse il Mondiale MotoGP del 2024 con una Ducati del team Pramac?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Marc Márquez",
+        "Álex Márquez",
+        "Maverick Viñales",
+        "Jorge Martín"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "Jorge Martín fu campione MotoGP 2024 davanti a Bagnaia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale casa motociclistica Giacomo Agostini vinse la maggior parte dei suoi titoli?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "MV Agusta",
+        "Yamaha",
+        "Ducati",
+        "Honda"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "Tredici dei quindici titoli di Agostini arrivarono con la MV Agusta, due con la Yamaha",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista trentino vinse la Parigi-Roubaix tre volte di fila, dal 1978 al 1980?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giuseppe Saronni",
+        "Francesco Moser",
+        "Gianni Bugno",
+        "Felice Gimondi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Francesco Moser vinse la Roubaix nel 1978, 1979 e 1980",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista italiano era soprannominato \"el Diablo\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Marco Pantani",
+        "Gianni Bugno",
+        "Mario Cipollini",
+        "Claudio Chiappucci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo",
+        "soprannomi"
+      ],
+      "notes": "\"El Diablo\" era Claudio Chiappucci; Pantani era \"il Pirata\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse lo scudetto 1963-64, battendo l'Inter in uno spareggio?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Milan",
+        "Juventus",
+        "Bologna",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Bologna-Inter 2-0 nello spareggio dell'Olimpico, 7 giugno 1964",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale portiere dell'Italia rimase imbattuto per 517 minuti ai Mondiali del 1990?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Stefano Tacconi",
+        "Gianluca Pagliuca",
+        "Giovanni Galli",
+        "Walter Zenga"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Il record di Zenga finì con il gol di Caniggia in semifinale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Gli Harlem Globetrotters, nonostante il nome, sono nati in quale città?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "New York",
+        "Detroit",
+        "Chicago",
+        "Filadelfia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "trabocchetto"
+      ],
+      "notes": "La squadra nacque a Chicago a fine anni Venti; \"Harlem\" fu scelto per richiamare il quartiere afroamericano di New York",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La Parigi-Roubaix, nonostante il nome, da quale città parte oggi?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Parigi",
+        "Compiègne",
+        "Lille",
+        "Amiens"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "trabocchetto"
+      ],
+      "notes": "Dal 1977 la corsa parte da Compiègne, a nord di Parigi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale arbitro italiano diresse la finale dei Mondiali del 1978?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Sergio Gonella",
+        "Concetto Lo Bello",
+        "Paolo Casarin",
+        "Luigi Agnolin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "arbitri"
+      ],
+      "notes": "Sergio Gonella arbitrò Argentina-Olanda a Buenos Aires",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana si trova lo stadio Nicola De Simone?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Siracusa",
+        "Ragusa",
+        "Trapani",
+        "Agrigento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "sicilia",
+        "stadi"
+      ],
+      "notes": "Il De Simone è lo stadio del Siracusa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale edizione dei Giochi la maratona femminile entrò nel programma olimpico?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Montréal 1976",
+        "Los Angeles 1984",
+        "Mosca 1980",
+        "Seul 1988"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "atletica"
+      ],
+      "notes": "La prima maratona olimpica femminile la vinse Joan Benoit a Los Angeles 1984",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola latina fu aggiunta nel 2021 al motto olimpico \"Citius, Altius, Fortius\"?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Semper",
+        "Fortiter",
+        "Communiter",
+        "Pariter"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Dal 2021 il motto è \"Citius, Altius, Fortius - Communiter\" (insieme)",
+      "verified": true
+    }
+  ]
+}

@@ -1,0 +1,1084 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale pasta corta ha la forma di una spirale?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Paccheri",
+        "Penne",
+        "Ditalini",
+        "Fusilli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "I fusilli sono avvolti a spirale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il panino allungato con dentro un würstel, simbolo del cibo di strada americano?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Hot dog",
+        "Hamburger",
+        "Burrito",
+        "Kebab"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-americana"
+      ],
+      "notes": "Hot dog: panino morbido con würstel, senape e ketchup",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pane a forma di ciambella si mangia a New York con il formaggio spalmabile?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Muffin",
+        "Baguette",
+        "Croissant",
+        "Bagel"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pane",
+        "cucina-americana"
+      ],
+      "notes": "Il bagel, bollito e poi cotto in forno, è tipico di New York",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il caffè espresso allungato con acqua calda e servito in tazza grande?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Macchiato",
+        "Americano",
+        "Ristretto",
+        "Corretto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "Il caffè americano è un espresso diluito con acqua calda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ortaggio verde ha la forma di un piccolo albero?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cetriolo",
+        "Broccolo",
+        "Sedano",
+        "Porro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verdure"
+      ],
+      "notes": "Il broccolo ha un'infiorescenza a forma di alberello",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Golden, Fuji e Granny Smith sono varietà di quale frutto?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pera",
+        "Susina",
+        "Mela",
+        "Pesca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "Golden Delicious, Fuji e Granny Smith sono varietà di mela",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il pane piatto mediorientale con una tasca da farcire?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tortilla",
+        "Naan",
+        "Pita",
+        "Piadina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pane",
+        "cucina-mediorientale"
+      ],
+      "notes": "La pita è un pane piatto che in cottura forma una tasca interna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le uova sbattute e mescolate in padella mentre si rapprendono?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Uova strapazzate",
+        "Uova in camicia",
+        "Uova alla coque",
+        "Uova sode"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uova"
+      ],
+      "notes": "Le uova strapazzate si mescolano in padella mentre cuociono",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è l'uvetta usata nei dolci?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Uva sotto spirito",
+        "Uva candita nello zucchero",
+        "Uva essiccata",
+        "Uva acerba"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "frutta-secca"
+      ],
+      "notes": "L'uvetta o uva passa è uva lasciata appassire ed essiccare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale agrume si spreme tradizionalmente sul pesce fritto?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Limone",
+        "Arancia",
+        "Pompelmo",
+        "Mandarino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesce"
+      ],
+      "notes": "Una spruzzata di limone accompagna il fritto di pesce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il fiordilatte, la mozzarella più diffusa, si fa con il latte di quale animale?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bufala",
+        "Mucca",
+        "Capra",
+        "Pecora"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "trabocchetto"
+      ],
+      "notes": "Il fiordilatte è mozzarella di latte vaccino; quella di bufala è un'altra cosa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale formaggio si mangiano a Roma le fave fresche, il primo maggio?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gorgonzola",
+        "Parmigiano",
+        "Pecorino",
+        "Mozzarella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-romana",
+        "tradizioni"
+      ],
+      "notes": "Fave e pecorino romano sono il rito del primo maggio a Roma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Williams, Abate e Conference sono varietà di quale frutto?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Mela",
+        "Prugna",
+        "Pera",
+        "Albicocca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "William, Abate Fetel e Conference sono varietà di pera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio francese a crosta bianca è un parente stretto del camembert?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roquefort",
+        "Brie",
+        "Comté",
+        "Emmental"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "cucina-francese"
+      ],
+      "notes": "Brie e camembert sono formaggi molli a crosta fiorita bianca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pasta lunga e piatta, tipica della Liguria, si condisce tradizionalmente con il pesto?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bucatini",
+        "Pappardelle",
+        "Trenette",
+        "Pici"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasta",
+        "cucina-ligure"
+      ],
+      "notes": "Trenette al pesto, spesso con patate e fagiolini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il pinzimonio?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un brodo di carne",
+        "Un sugo di pomodoro piccante",
+        "Un dolce di pinoli",
+        "Verdure crude da intingere in olio e sale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "antipasti"
+      ],
+      "notes": "Il pinzimonio: verdure crude intinte in olio, sale e pepe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da chi prende il nome il sandwich?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Da un conte inglese",
+        "Da un cuoco francese",
+        "Da una città scozzese",
+        "Da un re danese"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia",
+        "storia-della-cucina"
+      ],
+      "notes": "Da John Montagu, quarto conte di Sandwich, nel Settecento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, a che cosa si ispira il nome della pasta alla Norma?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "A una nave da crociera",
+        "A una nonna catanese",
+        "A una santa siciliana",
+        "A un'opera di Bellini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primi",
+        "sicilia"
+      ],
+      "notes": "A Catania si diceva 'è una Norma' per una cosa eccellente, in onore dell'opera di Vincenzo Bellini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La crema pasticciera classica contiene panna?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sì, è la base",
+        "Sì, insieme al burro",
+        "Solo quella al cioccolato",
+        "No: latte, uova, zucchero e farina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "La crema pasticciera si fa con latte, tuorli, zucchero e farina o amido",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'asado, grande grigliata di carne, è un rito di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Messico",
+        "Argentina",
+        "Cuba",
+        "Perù"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-sudamericana"
+      ],
+      "notes": "L'asado è la grigliata tradizionale argentina (e uruguaiana)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è la guarnizione classica del cocktail Martini?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Una fetta d'arancia",
+        "Una ciliegina",
+        "Un'oliva",
+        "Una foglia di menta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Il Martini (gin e vermut dry) si guarnisce con un'oliva o una scorza di limone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le olive taggiasche sono tipiche di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Liguria",
+        "Puglia",
+        "Calabria",
+        "Marche"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "prodotti-tipici"
+      ],
+      "notes": "La taggiasca prende il nome da Taggia, in provincia di Imperia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la tartare di manzo?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Carne bollita a fette",
+        "Carne cruda tritata e condita",
+        "Uno spezzatino al vino",
+        "Un hamburger alla griglia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "secondi"
+      ],
+      "notes": "La tartare è carne cruda tritata al coltello, condita a freddo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A Napoli, che cosa sono i friarielli?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Zucchine fritte",
+        "Broccoletti saltati in padella",
+        "Pesciolini fritti",
+        "Frittelle di alghe"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verdure",
+        "cucina-campana"
+      ],
+      "notes": "A Napoli i friarielli sono le infiorescenze della cima di rapa saltate con aglio e peperoncino (in altre zone della Campania la parola indica anche i peperoncini verdi da friggere)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il pane di Matera IGP, a forma di cornetto, è tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Puglia",
+        "Calabria",
+        "Basilicata",
+        "Molise"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pane",
+        "prodotti-tipici"
+      ],
+      "notes": "Pane di Matera IGP, di semola di grano duro, Basilicata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è l'amuse-bouche nei ristoranti?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Il pane servito in tavola",
+        "Il dolce di fine pasto",
+        "La lista dei vini",
+        "Un assaggio offerto prima del pasto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ristorazione"
+      ],
+      "notes": "L'amuse-bouche è un piccolo stuzzichino offerto dallo chef prima delle portate",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La Nocellara del Belice è una celebre varietà siciliana di quale frutto?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Nocciola",
+        "Mandorla",
+        "Oliva",
+        "Pistacchio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "prodotti-tipici",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Nocellara del Belice DOP: oliva da tavola della valle del Belice",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Lacryma Christi si produce alle pendici di quale vulcano?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vesuvio",
+        "Etna",
+        "Stromboli",
+        "Vulture"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino",
+        "cucina-campana"
+      ],
+      "notes": "Lacryma Christi del Vesuvio DOC",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale vino siciliano si usa nello zabaione classico?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Etna rosso",
+        "Nero d'Avola",
+        "Marsala",
+        "Grillo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "vino"
+      ],
+      "notes": "Zabaione: tuorli, zucchero e Marsala",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La coda di rospo che si compra in pescheria è la coda di quale animale?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Di un rospo di fiume",
+        "Della rana pescatrice",
+        "Di una razza",
+        "Di un'anguilla"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pesce",
+        "trabocchetto"
+      ],
+      "notes": "Coda di rospo è il nome commerciale della rana pescatrice (Lophius), un pesce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per la botanica, che cosa sono i chicchi di caffè?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Frutti secchi come le noci",
+        "Radici essiccate",
+        "Gemme di un arbusto",
+        "Semi di un frutto rosso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "caffè",
+        "trabocchetto"
+      ],
+      "notes": "I chicchi sono i semi delle drupe rosse della pianta del caffè",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale operazione del casaro si riferisce il nome della mozzarella?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Alla mungitura",
+        "Al taglio della pasta filata",
+        "Alla salatura",
+        "Alla stagionatura"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "etimologia"
+      ],
+      "notes": "Treccani: diminutivo di mozza, da mozzare: la pasta filata viene mozzata a pezzi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali dolci fritti con l'uvetta sono tipici del Carnevale veneziano?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Zeppole",
+        "Struffoli",
+        "Fritole",
+        "Cassatelle"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "cucina-veneta"
+      ],
+      "notes": "Le fritole veneziane sono frittelle con uvetta e pinoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il biryani, riso speziato con carne o verdure, appartiene a quale cucina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giapponese",
+        "Indiana",
+        "Messicana",
+        "Greca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-indiana"
+      ],
+      "notes": "Il biryani è un piatto di riso speziato del subcontinente indiano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono le puntarelle, tipiche di Roma?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pezzetti di pane fritto",
+        "Piccoli carciofi",
+        "Asparagi selvatici",
+        "Germogli di cicoria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verdure",
+        "cucina-romana"
+      ],
+      "notes": "Le puntarelle sono i germogli della cicoria catalogna, condite con acciughe e aglio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa c'è dentro il casu marzu, pecorino sardo molto particolare?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Miele",
+        "Larve di mosca",
+        "Vino rosso",
+        "Tartufo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "sardegna"
+      ],
+      "notes": "Il casu marzu è pecorino in cui si sviluppano le larve della mosca del formaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da chi prende il nome il cocktail Negroni?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Da un pittore",
+        "Da un barista veneziano",
+        "Da un tenore",
+        "Da un conte fiorentino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Versione più accreditata: il conte Camillo Negroni, fiorentino, che a Firenze (1919 circa) chiese di rinforzare l'Americano con il gin",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Cirò è un vino di quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Puglia",
+        "Calabria",
+        "Basilicata",
+        "Molise"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Cirò DOC, provincia di Crotone, Calabria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con che cosa si prepara la frittola, cibo di strada palermitano?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ceci schiacciati e fritti",
+        "Interiora di pesce spada",
+        "Ritagli di vitello bolliti e fritti",
+        "Pane raffermo e strutto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cibo-di-strada",
+        "sicilia"
+      ],
+      "notes": "Frittola: scarti della macellazione del vitello bolliti e fritti nello strutto, con alloro e pepe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le crispelle di riso catanesi, fritte, si ricoprono di che cosa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ricotta",
+        "Glassa al limone",
+        "Cioccolato",
+        "Miele"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "Crispelle di riso alla catanese: bastoncini di riso fritti e coperti di miele",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Picolit è un vino dolce di quale regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Friuli-Venezia Giulia",
+        "Sicilia",
+        "Piemonte",
+        "Umbria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Colli Orientali del Friuli Picolit DOCG",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'Asiago DOP si produce in Veneto e in quale altra regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Lombardia",
+        "Friuli-Venezia Giulia",
+        "Trentino-Alto Adige",
+        "Emilia-Romagna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Zona di produzione: province di Vicenza, Trento, Padova e Treviso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I garganelli, maccheroncini rigati arrotolati su un pettine, sono tipici di quale zona?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Romagna",
+        "Sardegna",
+        "Calabria",
+        "Valle d'Aosta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "I garganelli sono pasta all'uovo tipica della Romagna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i mondeghili milanesi?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Polpette di carne",
+        "Biscotti al burro",
+        "Gnocchi di zucca",
+        "Frittelle di riso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-lombarda"
+      ],
+      "notes": "I mondeghili sono polpette milanesi, fatte con carne avanzata come il bollito",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La pearà, salsa veronese per il bollito, prende il nome da quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pepe",
+        "Pera",
+        "Prezzemolo",
+        "Pane"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "salse",
+        "cucina-veneta"
+      ],
+      "notes": "Pearà da pévare, pepe in veronese: pane, midollo, brodo e tanto pepe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In Sicilia, con che cosa si fa la granita di ceusi?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Melograno",
+        "Fichi d'India",
+        "Carrube",
+        "More di gelso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "I ceusi sono i frutti del gelso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il tonno di coniglio, specialità piemontese?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Un formaggio di capra",
+        "Tonno cotto nel vino",
+        "Una trota di torrente",
+        "Carne bianca lessata e messa sott'olio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-piemontese",
+        "trabocchetto"
+      ],
+      "notes": "È coniglio lessato, sfilacciato e conservato sott'olio con aglio e salvia, come il tonno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Lagrein è un vitigno rosso autoctono di quale regione?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Sicilia",
+        "Trentino-Alto Adige",
+        "Puglia",
+        "Marche"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Lagrein, vitigno tipico dell'Alto Adige (zona di Bolzano)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La Vernaccia di Serrapetrona, nelle Marche, è uno spumante di quale colore?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Bianco",
+        "Ambrato",
+        "Rosato",
+        "Rosso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vino",
+        "trabocchetto"
+      ],
+      "notes": "Vernaccia di Serrapetrona DOCG: spumante rosso, a differenza della Vernaccia bianca di San Gimignano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I cjarsons, agnolotti dal ripieno dolce e salato, sono tipici di quale zona?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Carnia",
+        "Lunigiana",
+        "Irpinia",
+        "Garfagnana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta",
+        "cucina-friulana"
+      ],
+      "notes": "I cjarsons sono la pasta ripiena tipica della Carnia, in Friuli",
+      "verified": true
+    }
+  ]
+}

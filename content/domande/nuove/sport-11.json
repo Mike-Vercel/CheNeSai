@@ -1,0 +1,1090 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Come si chiama lo sport in cui si scendono le rapide di un fiume a bordo di un gommone?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Canottaggio",
+        "Surf",
+        "Vela",
+        "Rafting"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sport-acquatici",
+        "avventura"
+      ],
+      "notes": "Il rafting è la discesa delle rapide su un gommone con pagaie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sport invernale si gioca facendo scivolare pesanti pietre di granito sul ghiaccio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bob",
+        "Biathlon",
+        "Curling",
+        "Hockey su ghiaccio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sport-invernali"
+      ],
+      "notes": "Nel curling si lanciano stone di granito verso un bersaglio sul ghiaccio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, con quante ammonizioni nella stessa partita un giocatore viene espulso?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Il secondo cartellino giallo nella stessa gara comporta il rosso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Tra quali squadre si gioca \"el Clásico\" del calcio spagnolo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Real Madrid e Barcellona",
+        "Real Madrid e Atlético Madrid",
+        "Barcellona ed Espanyol",
+        "Siviglia e Betis"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "spagna"
+      ],
+      "notes": "El Clásico è la sfida tra Real Madrid e Barcellona; le altre sono derby cittadini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sport si pratica sull'acqua stando in piedi su una tavola con una vela?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Surf",
+        "Canottaggio",
+        "Sci nautico",
+        "Windsurf"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vela",
+        "sport-acquatici"
+      ],
+      "notes": "Il windsurf unisce tavola e vela; è olimpico dal 1984",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sport si gioca in piscina, con una palla e due porte?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pallamano",
+        "Pallanuoto",
+        "Nuoto artistico",
+        "Tuffi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sport-acquatici"
+      ],
+      "notes": "La pallanuoto si gioca in acqua tra due squadre con porte alle estremità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali sono i colori sociali del Milan?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rosso e nero",
+        "Bianco e nero",
+        "Nero e azzurro",
+        "Giallo e rosso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Il Milan è la squadra rossonera dal 1899",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la partita di calcio tra Roma e Lazio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Derby della Madonnina",
+        "Derby della Mole",
+        "Derby della Capitale",
+        "Derby d'Italia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Roma-Lazio è il derby della Capitale; la Madonnina è Milan-Inter, la Mole Juventus-Torino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si giocarono i Mondiali di calcio del 2014?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Brasile",
+        "Argentina",
+        "Sudafrica",
+        "Germania"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "I Mondiali 2014 si giocarono in Brasile e li vinse la Germania",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport è una campionessa Paola Egonu?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pallacanestro",
+        "Atletica",
+        "Pallavolo",
+        "Tennis"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pallavolo"
+      ],
+      "notes": "Paola Egonu, opposto della nazionale, oro olimpico a Parigi 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota tedesco vinse quattro Mondiali di Formula 1 di fila con la Red Bull, dal 2010 al 2013?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nico Rosberg",
+        "Sebastian Vettel",
+        "Michael Schumacher",
+        "Nico Hülkenberg"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Sebastian Vettel fu campione con la Red Bull dal 2010 al 2013",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra inglese è soprannominata \"the Gunners\", i cannonieri?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Chelsea",
+        "Arsenal",
+        "Tottenham",
+        "West Ham"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "inghilterra"
+      ],
+      "notes": "L'Arsenal nacque tra gli operai dell'arsenale di Woolwich: da qui il cannone nello stemma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, quanto dura ciascuno dei due tempi supplementari?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "15 minuti",
+        "10 minuti",
+        "20 minuti",
+        "30 minuti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "I supplementari sono due tempi da 15 minuti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore italiano ha vinto la Champions League sia con il Milan sia con il Real Madrid?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fabio Capello",
+        "Arrigo Sacchi",
+        "Marcello Lippi",
+        "Carlo Ancelotti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "allenatori"
+      ],
+      "notes": "Ancelotti l'ha vinta con il Milan (2003, 2007) e con il Real Madrid (2014, 2022, 2024)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale arbitro italiano diresse la finale dei Mondiali di calcio del 2002?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nicola Rizzoli",
+        "Roberto Rosetti",
+        "Gianluca Rocchi",
+        "Pierluigi Collina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "arbitri"
+      ],
+      "notes": "Collina arbitrò Germania-Brasile a Yokohama nel 2002; Rizzoli diresse quella del 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città australiana si gioca l'Australian Open di tennis?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Perth"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "L'Australian Open si gioca a Melbourne Park",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, come si chiama il gioco decisivo che si disputa sul sei pari?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Match point",
+        "Set point",
+        "Killer point",
+        "Tie-break"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Sul 6-6 il set si decide al tie-break",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti titoli mondiali di Formula 1 vinse Michael Schumacher?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Due con la Benetton (1994-95) e cinque con la Ferrari (2000-2004)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trova il circuito di Suzuka?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Corea del Sud",
+        "Cina",
+        "Malesia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Suzuka ospita il Gran Premio del Giappone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la maglia indossata dal campione del mondo di ciclismo su strada?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Maglia iridata",
+        "Maglia tricolore",
+        "Maglia nera",
+        "Maglia a pois"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "La maglia iridata, bianca con le strisce dei colori dell'arcobaleno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto è lunga una mezza maratona?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Poco più di 21 chilometri",
+        "Esattamente 20 chilometri",
+        "25 chilometri",
+        "30 chilometri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "La mezza maratona misura 21,0975 km, metà della maratona",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto è lunga una vasca corta da competizione nel nuoto?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "20 metri",
+        "25 metri",
+        "33 metri",
+        "40 metri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "nuoto"
+      ],
+      "notes": "La vasca corta misura 25 metri, quella olimpionica 50",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale specialità dello sci alpino si passa tra porte molto ravvicinate?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Discesa libera",
+        "Supergigante",
+        "Slalom gigante",
+        "Slalom speciale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "Lo slalom speciale ha le porte più ravvicinate di tutte le specialità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'unica città ad aver ospitato sia le Olimpiadi estive sia quelle invernali?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tokyo",
+        "Los Angeles",
+        "Pechino",
+        "Londra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Pechino ha ospitato i Giochi estivi del 2008 e quelli invernali del 2022",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si giocarono i Mondiali di calcio del 1994?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Messico",
+        "Francia",
+        "Brasile",
+        "Stati Uniti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "USA 1994, finale persa dall'Italia ai rigori con il Brasile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante volte Rafael Nadal ha vinto il Roland Garros?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Nadal vinse il Roland Garros 14 volte tra il 2005 e il 2022; si è ritirato nel 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è il centro del bersaglio nel tiro con l'arco?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rosso",
+        "Giallo",
+        "Nero",
+        "Blu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tiro-con-l-arco",
+        "trabocchetto"
+      ],
+      "notes": "I due anelli centrali del bersaglio sono gialli (oro), poi rosso, blu, nero e bianco",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota finlandese vinse i Mondiali di Formula 1 del 1998 e del 1999 con la McLaren?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Kimi Räikkönen",
+        "Mika Häkkinen",
+        "Valtteri Bottas",
+        "Keke Rosberg"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula-1"
+      ],
+      "notes": "Mika Häkkinen fu campione nel 1998 e 1999 con la McLaren-Mercedes",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore erano tradizionalmente le auto da corsa britanniche?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Verde",
+        "Blu",
+        "Bianco",
+        "Argento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motori"
+      ],
+      "notes": "Il \"British racing green\"; l'Italia correva in rosso, la Francia in blu",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante tappe ha di solito il Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "18",
+        "21",
+        "24",
+        "30"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "giro-d-italia"
+      ],
+      "notes": "Il Giro si corre in 21 tappe in tre settimane, con due giorni di riposo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nuotatore italiano vinse l'oro olimpico nei 1500 stile libero a Rio 2016?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gregorio Paltrinieri",
+        "Gabriele Detti",
+        "Filippo Magnini",
+        "Massimiliano Rosolino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi"
+      ],
+      "notes": "Paltrinieri vinse l'oro, Detti il bronzo nella stessa gara",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio Ennio Tardini?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Reggio Emilia",
+        "Parma",
+        "Modena",
+        "Piacenza"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Il Tardini è lo stadio del Parma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio è soprannominata \"il Grifone\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Genoa",
+        "Sampdoria",
+        "Torino",
+        "Spezia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Il grifone è il simbolo del Genoa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana vinse la Coppa dei Campioni nel 1964 e nel 1965?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Milan",
+        "Juventus",
+        "Torino",
+        "Inter"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "coppe-europee"
+      ],
+      "notes": "La Grande Inter di Helenio Herrera vinse due Coppe dei Campioni di fila",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale difensore segnò il gol dell'Italia nei tempi regolamentari della finale dei Mondiali 2006?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fabio Cannavaro",
+        "Gianluca Zambrotta",
+        "Alessandro Nesta",
+        "Marco Materazzi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Materazzi pareggiò di testa il rigore di Zidane; finì 1-1 e l'Italia vinse ai rigori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti set deve vincere un tennista per aggiudicarsi una partita maschile di un torneo del Grande Slam?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Si gioca al meglio dei cinque set: vince chi ne conquista tre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città ha sede il Comitato Olimpico Internazionale?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ginevra",
+        "Losanna",
+        "Atene",
+        "Parigi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Il CIO ha sede a Losanna, in Svizzera, dal 1915",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante volte Roger Federer ha vinto il torneo di Wimbledon?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "7",
+        "8",
+        "9"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Federer vinse Wimbledon 8 volte (2003-2007, 2009, 2012, 2017); si è ritirato nel 2022",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo italiano a vincere un torneo del Grande Slam in singolare, al Roland Garros del 1959?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Adriano Panatta",
+        "Corrado Barazzutti",
+        "Nicola Pietrangeli",
+        "Fausto Gardini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Pietrangeli vinse il singolare a Parigi nel 1959 e nel 1960; nel 1959 vinse anche il doppio con Orlando Sirola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Monte Carlo Masters di tennis si gioca in un circolo che si trova in quale Stato?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Principato di Monaco",
+        "Italia",
+        "Svizzera",
+        "Francia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "trabocchetto"
+      ],
+      "notes": "Il Monte-Carlo Country Club è nel comune francese di Roquebrune-Cap-Martin",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti Giri d'Italia vinse Fausto Coppi?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "7"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "giro-d-italia"
+      ],
+      "notes": "Coppi vinse il Giro nel 1940, 1947, 1949, 1952 e 1953",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista italiano, detto \"il Grillo\", vinse l'oro olimpico su strada ad Atene 2004?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mario Cipollini",
+        "Michele Bartoli",
+        "Paolo Bettini",
+        "Davide Rebellin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "olimpiadi"
+      ],
+      "notes": "Paolo Bettini, oro nella prova in linea di Atene 2004",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti ostacoli si saltano nei 110 metri ostacoli?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "8",
+        "10",
+        "11",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Nei 110 hs (come nei 100 e 400 hs) gli ostacoli sono dieci",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale stagione la Fiorentina vinse il suo primo scudetto?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1968-69",
+        "1949-50",
+        "1960-61",
+        "1955-56"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Primo scudetto viola nel 1955-56, il secondo nel 1968-69",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi segnò il terzo gol dell'Italia nella finale dei Mondiali del 1982?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Alessandro Altobelli",
+        "Paolo Rossi",
+        "Marco Tardelli",
+        "Bruno Conti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Italia-Germania Ovest 3-1: Rossi, Tardelli e Altobelli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In una partita NBA, dopo quanti falli personali un giocatore deve lasciare il campo?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Nella NBA si esce al sesto fallo; con le regole FIBA al quinto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Inter vinse il suo primo scudetto?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1910",
+        "1920",
+        "1930",
+        "1938"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "storia"
+      ],
+      "notes": "L'Inter, fondata nel 1908, vinse il campionato 1909-10",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi segnò il gol decisivo ai supplementari della finale dei Mondiali del 1934?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Angelo Schiavio",
+        "Giuseppe Meazza",
+        "Raimundo Orsi",
+        "Silvio Piola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Italia-Cecoslovacchia 2-1: Orsi pareggiò, Schiavio segnò ai supplementari",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori ha ogni squadra nel calcio storico fiorentino?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "11",
+        "15",
+        "21",
+        "27"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tradizioni",
+        "firenze"
+      ],
+      "notes": "Nel calcio storico ogni squadra schiera 27 \"calcianti\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel judo, di che colore è la cintura dei gradi più alti, come il decimo dan?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Nera",
+        "Marrone",
+        "Rossa",
+        "Viola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "judo",
+        "trabocchetto"
+      ],
+      "notes": "Nono e decimo dan portano la cintura rossa, non la nera",
+      "verified": true
+    }
+  ]
+}

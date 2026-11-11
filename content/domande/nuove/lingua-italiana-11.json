@@ -1,0 +1,1066 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Al cuor non si…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Comanda",
+        "Mente",
+        "Ragiona",
+        "Rinuncia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Al cuor non si comanda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Occhio non vede, cuore non…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Batte",
+        "Duole",
+        "Trema",
+        "Ama"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Occhio non vede, cuore non duole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere la puzza sotto il naso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere altezzosi",
+        "Avere il raffreddore",
+        "Essere sospettosi",
+        "Avere fame"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere la puzza sotto il naso: essere schifiltosi, altezzosi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere la luna storta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avere sonno",
+        "Essere di cattivo umore",
+        "Essere distratti",
+        "Sognare a occhi aperti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere la luna storta: essere di cattivo umore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Davanti a quali lettere si scrive m invece di n, come in \"campo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "S e Z",
+        "T e D",
+        "B e P",
+        "C e G"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Regola ortografica: davanti a b e p si scrive m (campo, ambo)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"padrino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Balia",
+        "Padrona",
+        "Matrigna",
+        "Madrina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Padrino / madrina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"scoprire l'acqua calda\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Imparare a cucinare",
+        "Fare una grande scoperta",
+        "Accendere il riscaldamento",
+        "Presentare come nuova una cosa ovvia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Scoprire l'acqua calda: credere di aver scoperto una cosa che tutti sanno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi di spada ferisce, di spada…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Perisce",
+        "Guarisce",
+        "Fugge",
+        "Vince"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi di spada ferisce, di spada perisce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire che un prodotto \"va a ruba\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Viene rubato",
+        "Si vende in fretta",
+        "Va fuori moda",
+        "Si rompe subito"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Andare a ruba: essere venduto rapidamente, essere molto richiesto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere sale in zucca\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere testardi",
+        "Essere giudiziosi",
+        "Avere mal di testa",
+        "Essere golosi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere sale in zucca: avere senno, giudizio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Reggio Calabria?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Reggiani",
+        "Reggini",
+        "Reggesi",
+        "Regginesi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "abitanti",
+        "trabocchetto"
+      ],
+      "notes": "Reggini sono quelli di Reggio Calabria; reggiani quelli di Reggio Emilia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "\"Qualche\" si accompagna a nomi singolari o plurali?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Solo maschili",
+        "Solo plurali",
+        "A entrambi",
+        "Solo singolari"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Qualche è invariabile e si unisce solo a nomi al singolare: qualche libro, non qualche libri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il maschile di \"giraffa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giraffo",
+        "Giraffone",
+        "Giraffiere",
+        "La giraffa maschio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Giraffa è un nome di genere promiscuo: il maschio si indica con la giraffa maschio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare il diavolo a quattro\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ingannare quattro persone",
+        "Giocare a carte",
+        "Fare gran baccano e agitarsi",
+        "Lavorare per quattro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare il diavolo a quattro: fare chiasso, agitarsi molto per ottenere qualcosa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere voce in capitolo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cantare bene",
+        "Avere autorità per decidere",
+        "Scrivere un libro",
+        "Parlare troppo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere voce in capitolo: avere autorità, il diritto di dire la propria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere di manica larga\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Vestire comodi",
+        "Essere bugiardi",
+        "Essere indulgenti",
+        "Essere disordinati"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Essere di manica larga: essere indulgenti, poco severi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Acqua cheta rompe i…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Argini",
+        "Ponti",
+        "Sassi",
+        "Vasi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Acqua cheta rompe (o rovina) i ponti: diffidare di chi sembra tranquillo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi si loda s'…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Imbroglia",
+        "Inganna",
+        "Annoia",
+        "Imbroda"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi si loda s'imbroda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"repetita iuvant\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ripetere è inutile",
+        "Le cose ripetute giovano",
+        "Chi ripete sbaglia",
+        "Ogni cosa ritorna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Repetita iuvant: le cose ripetute giovano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa il motto latino \"verba volant, scripta manent\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Le parole valgono più degli scritti",
+        "Le parole volano, gli scritti restano",
+        "Chi scrive vola alto",
+        "Le promesse vanno mantenute"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Verba volant, scripta manent: le parole volano, gli scritti rimangono",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il turpiloquio?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un balbettio",
+        "Un discorso noioso",
+        "Un linguaggio volgare",
+        "Una chiacchiera inutile"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Turpiloquio: il parlare sconcio, volgare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"astutari\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Spegnere",
+        "Accendere",
+        "Studiare",
+        "Ingannare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Astutari: spegnere (la luce, il fuoco); niente a che vedere con astuto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"trasiri\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Trascinare",
+        "Uscire",
+        "Tradire",
+        "Entrare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Trasiri: entrare (trasi! = entra!)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale parola è l'abbreviazione \"cinema\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cineteca",
+        "Cinescopio",
+        "Cinematografo",
+        "Cinestesia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "parole"
+      ],
+      "notes": "Cinema è la forma accorciata di cinematografo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale bramisce?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Delfino",
+        "Asino",
+        "Gallo",
+        "Cervo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Bramire: il verso del cervo in amore, il bramito",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Mi piace la pizza\", che cosa fa da soggetto?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ciò che piace",
+        "Chi prova il piacere",
+        "Il verbo",
+        "Non c'è soggetto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Il soggetto è la pizza (è lei che piace); mi è complemento di termine",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il pronome \"ognuno\" ha un plurale?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sì, ogniuni",
+        "Sì, ognuni",
+        "No, si usa solo al singolare",
+        "Sì, gli ognuno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Ognuno è un pronome indefinito usato solo al singolare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica coordina le parole senza congiunzioni, al contrario del polisindeto?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ellissi",
+        "Anastrofe",
+        "Epifora",
+        "Asindeto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Asindeto: accostamento di elementi senza congiunzioni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono delle risate omeriche?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Risate trattenute",
+        "Risate amare",
+        "Risate fragorose",
+        "Risate finte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Riso omerico: fragoroso, irrefrenabile, come quello degli dei in Omero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare un quarantotto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Fare una gran confusione",
+        "Ripetere tutto da capo",
+        "Vincere al lotto",
+        "Sbagliare i conti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare un quarantotto: provocare un gran trambusto, dai moti del 1848",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo l'etimologia tradizionale, che cosa si rompeva al banchiere fallito, da cui la parola \"bancarotta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il sigillo",
+        "Il banco",
+        "La bilancia",
+        "Il registro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Treccani: bancarotta, comp. di banca e rotta, perché anticamente al banchiere fallito veniva rotto il banco",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua arriva la parola \"magazzino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Francese",
+        "Tedesco",
+        "Arabo",
+        "Spagnolo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Magazzino: dall'arabo makhāzin, depositi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"apocrifo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Non autentico",
+        "Molto antico",
+        "Sacro",
+        "Elegante"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Apocrifo: falsamente attribuito, non autentico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"ammucciari\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ammorbidire",
+        "Ammucchiare",
+        "Nascondere",
+        "Bagnare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Ammucciari: nascondere (ammucciuni = di nascosto)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"lezioso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Affettato e smanceroso",
+        "Molto istruito",
+        "Pigro",
+        "Pieno di lezioni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Lezioso: che ha modi affettati, smancerosi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti sono i modi finiti del verbo italiano?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "5",
+        "3",
+        "4",
+        "7"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Indicativo, congiuntivo, condizionale e imperativo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa il detto latino \"in medio stat virtus\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il coraggio sta nel cuore",
+        "La virtù sta nel mezzo",
+        "La virtù è rara",
+        "Nel dubbio astieniti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "In medio stat virtus: la virtù sta nel mezzo, nell'equilibrio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua viene, attraverso l'inglese, la parola \"pigiama\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Portoghese",
+        "Giapponese",
+        "Russo",
+        "Hindi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Treccani: dall'inglese pyjamas, dall'hindi pāy-jāma, calzoni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola fu proposta durante il fascismo, senza fortuna, al posto di \"bar\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Quisibeve",
+        "Bevibene",
+        "Sorseria",
+        "Dissetatoio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "Quisibeve fu tra le proposte per italianizzare i forestierismi negli anni Trenta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ubertoso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ombroso",
+        "Sassoso",
+        "Superbo",
+        "Fertile"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Ubertoso: fertile, fecondo (terre ubertose)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"querulo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lamentoso",
+        "Silenzioso",
+        "Curioso",
+        "Allegro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Querulo: che si lamenta, lamentoso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Pozzuoli?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Partenopei",
+        "Puteolani",
+        "Stabiesi",
+        "Ercolanesi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "abitanti"
+      ],
+      "notes": "Puteolani, dall'antico nome Puteoli; stabiesi sono quelli di Castellammare, partenopei i napoletani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica si rivolge direttamente a una persona o a una cosa personificata, come in \"Ahi serva Italia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ipallage",
+        "Anastrofe",
+        "Epifora",
+        "Apostrofe"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Apostrofe: ci si rivolge direttamente a persona assente o cosa personificata (Purgatorio, canto sesto)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"cum grano salis\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Con generosità",
+        "Con molto sale",
+        "Con discernimento",
+        "In fretta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Cum grano salis: con un granello di sale, cioè con giudizio e misura",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua viene la parola \"zecca\", l'officina che conia le monete?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Tedesco",
+        "Greco",
+        "Arabo",
+        "Latino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Zecca: dall'arabo sikka, conio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"cercare Maria per Roma\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Cercare marito",
+        "Fare un pellegrinaggio",
+        "Chiedere scusa",
+        "Cercare una cosa introvabile"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Cercare Maria per Roma (o per Ravenna): cercare una cosa impossibile da trovare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale basilica di Roma un affresco dell'undicesimo secolo contiene una delle prime scritte in volgare italiano?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Santa Sabina",
+        "Santa Maria in Trastevere",
+        "San Giovanni in Laterano",
+        "San Clemente"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "L'iscrizione di San Clemente (fine XI secolo), nella basilica inferiore, con battute in volgare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale linguista fu il primo direttore del Grande dizionario della lingua italiana della UTET?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Bruno Migliorini",
+        "Salvatore Battaglia",
+        "Tullio De Mauro",
+        "Giacomo Devoto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "Il GDLI, detto il Battaglia, fu avviato nel 1961 sotto la direzione di Salvatore Battaglia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"resipiscenza\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ravvedimento",
+        "Resistenza",
+        "Rassegnazione",
+        "Rimpianto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Resipiscenza: il riconoscere il proprio errore, ravvedimento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica inverte l'ordine logico dei fatti, come in \"moriamo e gettiamoci nella mischia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ipallage",
+        "Anacoluto",
+        "Hysteron proteron",
+        "Chiasmo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Hysteron proteron: si dice prima ciò che logicamente viene dopo (Virgilio, Eneide)",
+      "verified": true
+    }
+  ]
+}
