@@ -1,0 +1,1088 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Come si chiama il bastone con cui si colpiscono le biglie nel biliardo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Stecca",
+        "Mazza",
+        "Racchetta",
+        "Asta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "biliardo"
+      ],
+      "notes": "Nel biliardo si gioca con la stecca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sport si gioca con una palla ovale cercando di segnare una meta?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Hockey su prato",
+        "Pallamano",
+        "Rugby",
+        "Lacrosse"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby"
+      ],
+      "notes": "La meta è il punto principale del rugby",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la maglia del Torino calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Viola",
+        "Granata",
+        "Rossonera",
+        "Gialloblù"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "colori"
+      ],
+      "notes": "Il Torino è la squadra granata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio ha la maglia \"blucerchiata\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cagliari",
+        "Genoa",
+        "Atalanta",
+        "Sampdoria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "colori"
+      ],
+      "notes": "La Sampdoria: maglia blu con fascia orizzontale bianca, rossa e nera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sport si pratica in piedi su una tavola, cavalcando le onde?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vela",
+        "Sci nautico",
+        "Canottaggio",
+        "Surf"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sport-acquatici"
+      ],
+      "notes": "Il surf nasce nelle isole Hawaii",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel basket, quanti punti vale un normale canestro su azione, da dentro l'arco?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Canestro su azione 2 punti, da oltre l'arco 3, tiro libero 1",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore azzurro esultò con un urlo diventato leggendario nella finale dei Mondiali del 1982?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Marco Tardelli",
+        "Paolo Rossi",
+        "Bruno Conti",
+        "Alessandro Altobelli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "L'urlo di Tardelli dopo il gol del 2-0 alla Germania Ovest",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale medaglia ricevono gli atleti arrivati terzi alle Olimpiadi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rame",
+        "Argento",
+        "Bronzo",
+        "Ferro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Oro al primo, argento al secondo, bronzo al terzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel judo, di che colore è la cintura dei principianti?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bianca",
+        "Nera",
+        "Gialla",
+        "Marrone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "arti-marziali"
+      ],
+      "notes": "Si comincia con la cintura bianca; la nera indica i gradi dan",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, il portiere può segnare un gol?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Solo su rigore",
+        "No, mai",
+        "Sì, come ogni altro giocatore",
+        "Solo di testa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Il portiere può segnare in qualsiasi modo valido, anche su rinvio diretto nella porta avversaria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra inglese è soprannominata \"i Red Devils\", i diavoli rossi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Liverpool",
+        "Manchester United",
+        "Arsenal",
+        "Manchester City"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Il Manchester United ha un diavolo rosso nello stemma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel baseball, come si chiama il giocatore che lancia la palla al battitore?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Esterno",
+        "Ricevitore",
+        "Interbase",
+        "Lanciatore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "baseball"
+      ],
+      "notes": "Il lanciatore (pitcher) lancia dal monte verso il battitore; il ricevitore è dietro casa base",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia italiana vinse l'oro olimpico nel doppio femminile di tennis a Parigi 2024?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Camila Giorgi e Martina Trevisan",
+        "Flavia Pennetta e Roberta Vinci",
+        "Francesca Schiavone e Roberta Vinci",
+        "Sara Errani e Jasmine Paolini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "olimpiadi"
+      ],
+      "notes": "Errani e Paolini vinsero il primo oro olimpico del tennis italiano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di basket americana è famosa per le esibizioni comiche e spettacolari in tutto il mondo?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Chicago Bulls",
+        "Harlem Globetrotters",
+        "Boston Celtics",
+        "New York Knicks"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "basket"
+      ],
+      "notes": "Gli Harlem Globetrotters, fondati nel 1926",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse la Coppa Italia del 2025, battendo il Milan in finale?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bologna",
+        "Atalanta",
+        "Fiorentina",
+        "Lazio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "coppe"
+      ],
+      "notes": "Milan-Bologna 0-1 a Roma, gol di Ndoye, 14 maggio 2025",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 1998, giocati in casa?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Italia",
+        "Brasile",
+        "Francia",
+        "Germania"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Francia-Brasile 3-0 allo Stade de France, doppietta di Zidane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale sport Arianna Fontana ha vinto tante medaglie olimpiche?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Short track",
+        "Biathlon",
+        "Sci di fondo",
+        "Snowboard"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi-invernali"
+      ],
+      "notes": "Arianna Fontana, pattinaggio di velocità su pista corta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale campionessa del salto in lungo è la madre di Larissa Iapichino?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Antonella Capriotti",
+        "Sara Simeoni",
+        "Fiona May",
+        "Valentina Vezzali"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Fiona May, campionessa del mondo nel 1995 e 2001; il padre è Gianni Iapichino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno Jannik Sinner diventò per la prima volta numero 1 del mondo?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Sinner diventò numero 1 il 10 giugno 2024, primo italiano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese è il ciclista Tadej Pogačar?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Austria",
+        "Croazia",
+        "Slovacchia",
+        "Slovenia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Pogačar è nato a Komenda, in Slovenia, nel 1998",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali animali sono Tina e Milo, mascotte delle Olimpiadi di Milano Cortina 2026?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Volpi",
+        "Stambecchi",
+        "Marmotte",
+        "Ermellini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi-invernali"
+      ],
+      "notes": "Tina e Milo sono due ermellini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel basket, una partita può finire in pareggio?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sì, come nel calcio",
+        "No, si giocano i supplementari",
+        "Sì, ma solo in campionato",
+        "No, si tirano i rigori"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "basket",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "In caso di parità si giocano tempi supplementari di 5 minuti fino a un vincitore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa in latino il nome \"Juventus\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gioventù",
+        "Vittoria",
+        "Amicizia",
+        "Forza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "lingua"
+      ],
+      "notes": "Juventus = gioventù: fu fondata nel 1897 da studenti del liceo D'Azeglio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse la prima Coppa del mondo di rugby, nel 1987?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Inghilterra",
+        "Australia",
+        "Nuova Zelanda",
+        "Sudafrica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby"
+      ],
+      "notes": "Gli All Blacks vinsero in casa battendo la Francia in finale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il distintivo tricolore rotondo che porta sulla maglia chi vince la Coppa Italia?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Coccarda",
+        "Scudetto",
+        "Stella",
+        "Fascia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "La coccarda tricolore spetta ai detentori della Coppa Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale coppa europea vinse il Napoli di Maradona nel 1989?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Coppa delle Coppe",
+        "Coppa dei Campioni",
+        "Coppa UEFA",
+        "Supercoppa europea"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "coppe"
+      ],
+      "notes": "Doppia finale contro lo Stoccarda, maggio 1989",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale sport Armin Zöggeler vinse medaglie in sei Olimpiadi consecutive?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bob",
+        "Slittino",
+        "Skeleton",
+        "Biathlon"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi-invernali"
+      ],
+      "notes": "Zöggeler, slittino, medaglie da Lillehammer 1994 a Sochi 2014, ori nel 2002 e 2006",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese altoatesino è nato Jannik Sinner?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vipiteno",
+        "Brunico",
+        "Merano",
+        "San Candido"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Sinner è nato a San Candido nel 2001 ed è cresciuto a Sesto Pusteria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maratoneta italiano vinse l'oro olimpico ad Atene 2004?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giacomo Leone",
+        "Gelindo Bordin",
+        "Daniele Meucci",
+        "Stefano Baldini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Baldini vinse la maratona arrivando nello stadio Panathinaiko",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi corse l'ultima frazione della staffetta quattro per cento italiana, d'oro a Tokyo 2020?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marcell Jacobs",
+        "Filippo Tortu",
+        "Lorenzo Patta",
+        "Fausto Desalu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Patta, Jacobs, Desalu e Tortu, che vinse il testa a testa con la Gran Bretagna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista vinse il Giro d'Italia del 2025?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Simon Yates",
+        "Isaac del Toro",
+        "Richard Carapaz",
+        "Primož Roglič"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Simon Yates ribaltò la classifica sul Colle delle Finestre; del Toro fu secondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale moto Marc Márquez vinse il Mondiale MotoGP del 2025?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Yamaha",
+        "Honda",
+        "Ducati",
+        "Aprilia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "Márquez vinse il titolo 2025 con la Ducati ufficiale; i titoli precedenti erano con la Honda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove si tenne la cerimonia di chiusura delle Olimpiadi di Milano Cortina 2026?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Arena di Verona",
+        "Stadio di San Siro",
+        "Cortina d'Ampezzo",
+        "Piazza del Duomo a Milano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi-invernali",
+        "trabocchetto"
+      ],
+      "notes": "Apertura a San Siro il 6 febbraio, chiusura all'Arena di Verona il 22 febbraio 2026",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ricorda il nome \"Internazionale\" dell'Inter?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un torneo per nazioni",
+        "Le vittorie all'estero",
+        "L'apertura ai giocatori stranieri",
+        "La sede vicino a un aeroporto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "trabocchetto"
+      ],
+      "notes": "Nel 1908 alcuni soci lasciarono il Milan per fondare un club aperto anche agli stranieri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché il Genoa si scrive con la grafia inglese?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Per un errore di stampa",
+        "Fu fondato da inglesi",
+        "Per un gemellaggio",
+        "Per il porto commerciale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "trabocchetto"
+      ],
+      "notes": "Nel 1893 nacque come Genoa Cricket and Athletic Club, fondato da inglesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel tennistavolo, a quanti punti si vince oggi un set?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "7",
+        "11",
+        "15",
+        "21"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennistavolo",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Dal 2001 si gioca a 11 punti (prima a 21), con almeno due di scarto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché le palline da golf sono piene di fossette?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Per tradizione estetica",
+        "Per pesare meno",
+        "Per essere più morbide",
+        "Per volare più lontano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "golf",
+        "scienza",
+        "trabocchetto"
+      ],
+      "notes": "Le fossette riducono la resistenza dell'aria e una pallina liscia vola molto meno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana gioca la storica squadra di pallanuoto Ortigia?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Siracusa",
+        "Palermo",
+        "Trapani"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallanuoto",
+        "sicilia"
+      ],
+      "notes": "Ortigia è l'isola del centro storico di Siracusa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante catanese, poi bandiera della Juventus, segnò nella finale degli Europei del 1968?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pietro Anastasi",
+        "Pierino Prati",
+        "Roberto Boninsegna",
+        "Gianni Rivera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Nella finale ripetuta Italia-Jugoslavia 2-0 (10 giugno 1968) segnarono Riva e Anastasi, che passò dal Varese alla Juventus quell'estate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiana vinse gli Internazionali d'Italia nel 2025, quarant'anni dopo Raffaella Reggi?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Lucia Bronzetti",
+        "Elisabetta Cocciaretto",
+        "Jasmine Paolini",
+        "Martina Trevisan"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Paolini batté Coco Gauff in finale; l'ultima italiana a vincere a Roma era stata Reggi nel 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale squadra italiana giocò il brasiliano Zico, dal 1983 al 1985?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Udinese",
+        "Roma",
+        "Fiorentina",
+        "Napoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Zico giocò due stagioni all'Udinese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazione era John Charles, \"il gigante buono\" della Juventus?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Irlanda",
+        "Scozia",
+        "Galles",
+        "Inghilterra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "John Charles, gallese di Swansea, alla Juve dal 1957 al 1962",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto è profonda l'area di rigore di un campo da calcio?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "11 metri",
+        "16,5 metri",
+        "20 metri",
+        "5,5 metri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "L'area di rigore si estende per 16,5 metri (18 iarde) dalla linea di porta; l'area piccola 5,5",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama nel calcio il tiro fatto incrociando la gamba dietro quella d'appoggio?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tacco",
+        "Rovesciata",
+        "Cucchiaio",
+        "Rabona"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "La rabona, dal nome di un'espressione argentina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Verso quale città arriva la storica regata velica che parte ogni estate da Palermo?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Malta",
+        "Cagliari",
+        "Marsiglia",
+        "Montecarlo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vela",
+        "sicilia"
+      ],
+      "notes": "La regata Palermo-Montecarlo, organizzata dal Circolo della Vela Sicilia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il celebre trottatore italiano che vinse il Prix d'Amérique nel 2001 e nel 2002?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ribot",
+        "Varenne",
+        "Tornese",
+        "Nearco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ippica"
+      ],
+      "notes": "Varenne, \"il Capitano\", trottatore campione mondiale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sciatore italiano vinse lo slalom speciale alle Olimpiadi di Innsbruck 1976?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Piero Gros",
+        "Gustav Thöni",
+        "Alberto Tomba",
+        "Paolo De Chiesa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sci",
+        "olimpiadi"
+      ],
+      "notes": "Oro di Piero Gros davanti a Gustav Thöni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale atleta italiano vinse i diecimila metri alle Olimpiadi di Los Angeles 1984?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Francesco Panetta",
+        "Stefano Mei",
+        "Alberto Cova",
+        "Gelindo Bordin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Alberto Cova, campione europeo, mondiale e olimpico dei 10.000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale marciatore italiano vinse la 20 chilometri alle Olimpiadi di Mosca 1980?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Maurizio Damilano",
+        "Ivano Brugnetti",
+        "Alex Schwazer",
+        "Massimo Stano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Maurizio Damilano, oro nella 20 km di marcia a Mosca 1980",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale imbarcazione Josefa Idem vinse l'oro olimpico a Sydney 2000?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Singolo di canottaggio",
+        "Canoa canadese",
+        "Kayak",
+        "Windsurf"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canoa",
+        "olimpiadi"
+      ],
+      "notes": "Josefa Idem, nata in Germania, vinse il K1 500 metri a Sydney 2000 per l'Italia",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1075 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Secondo un celebre indovinello, quale parola è scritta in modo errato in ogni dizionario?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Errore",
+        "Dizionario",
+        "Ortografia",
+        "Sbagliata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello: la parola \"sbagliata\" è sempre scritta così",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città giapponese c'è la statua del fedele cane Hachiko?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Osaka",
+        "Tokyo",
+        "Kyoto",
+        "Hiroshima"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "Davanti alla stazione di Shibuya, a Tokyo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi creò il personaggio di Diabolik nel 1962?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Magnus e Bunker",
+        "Le sorelle Giussani",
+        "Bonelli padre e figlio",
+        "Hugo Pratt"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Angela e Luciana Giussani, Milano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'assistente di Dylan Dog, sosia di un celebre comico?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Groucho",
+        "Chaplin",
+        "Stanlio",
+        "Totò"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Groucho, ispirato a Groucho Marx",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il ponte levatoio di Londra con due torri, spesso chiamato per errore London Bridge?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Westminster Bridge",
+        "Millennium Bridge",
+        "Tower Bridge",
+        "Waterloo Bridge"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "città",
+        "trabocchetto"
+      ],
+      "notes": "Tower Bridge, 1894; il London Bridge è un ponte molto più semplice",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante punte ha la stella di David?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "5",
+        "7",
+        "8",
+        "6"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "simboli"
+      ],
+      "notes": "Due triangoli sovrapposti, sei punte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale figura delle carte francesi manca nelle carte napoletane?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il re",
+        "Il fante",
+        "L'asso",
+        "La donna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "Nelle napoletane ci sono fante, cavallo e re; nelle francesi fante, donna e re",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa lasciano i bambini sotto il cuscino per la fatina o il topino dei denti?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Una caramella",
+        "Il dentino caduto",
+        "Una lettera",
+        "Un biscotto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tradizioni"
+      ],
+      "notes": "In cambio del dente il mattino trovano una moneta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel gioco del tris, quante caselle ha la griglia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "9",
+        "6",
+        "12",
+        "16"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Griglia tre per tre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti metri misura un miglio marino?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "1609",
+        "1000",
+        "1852",
+        "2000"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Un primo d'arco di meridiano; il miglio terrestre misura 1609 metri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella scopa, quale carta conta di più nel calcolo della primiera?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "L'asso",
+        "Il re",
+        "Il sei",
+        "Il sette"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "Il sette vale 21 punti di primiera, il sei 18, l'asso 16",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Un pastore ha 17 pecore: muoiono tutte tranne 9. Quante ne restano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "9",
+        "8",
+        "17",
+        "0"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "\"Tutte tranne 9\" vuol dire che ne restano 9",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo, patrono d'Italia insieme a santa Caterina da Siena, si festeggia il 4 ottobre?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "San Benedetto",
+        "Sant'Antonio di Padova",
+        "San Francesco d'Assisi",
+        "San Gennaro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "santi"
+      ],
+      "notes": "Patroni d'Italia proclamati da Pio Dodicesimo nel 1939",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese dell'Etna si tiene ogni anno l'Ottobrata con i prodotti tipici del vulcano?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Nicolosi",
+        "Zafferana Etnea",
+        "Bronte",
+        "Linguaglossa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Le domeniche di ottobre a Zafferana Etnea",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa lancia la sposa alle amiche nubili alla fine della festa di nozze?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Il bouquet",
+        "Il velo",
+        "Le scarpe",
+        "La giarrettiera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "matrimonio"
+      ],
+      "notes": "Chi prende il bouquet, per tradizione, sarà la prossima sposa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa c'è esattamente in mezzo al mare?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un'isola",
+        "Un faro",
+        "Una nave",
+        "La lettera R"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Gioco di parole: ma-R-e",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa studia l'araldica?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Le bandiere",
+        "Gli stemmi",
+        "Le monete",
+        "Le firme"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "simboli"
+      ],
+      "notes": "Scienza degli stemmi nobiliari e civici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli orari inglesi, che cosa indica la sigla a.m.?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Dopo mezzogiorno",
+        "Di notte",
+        "Prima di mezzogiorno",
+        "Ora legale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tempo"
+      ],
+      "notes": "Ante meridiem; p.m. = post meridiem",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale costume da bagno prende il nome da un atollo del Pacifico?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Trikini",
+        "Bikini",
+        "Tankini",
+        "Monokini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "moda"
+      ],
+      "notes": "Il bikini, lanciato da Louis Réard nel 1946, dall'atollo di Bikini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le ruote del Lotto, compresa quella nazionale?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "10",
+        "12",
+        "9",
+        "11"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "lotto"
+      ],
+      "notes": "Dieci città più la Ruota nazionale, dal 2005",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti puntini ci sono in tutto sulle sei facce di un dado?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "36",
+        "18",
+        "21",
+        "24"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "numeri"
+      ],
+      "notes": "1+2+3+4+5+6 = 21",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si prepara in molte case siciliane per San Giuseppe, offrendo cibo ai poveri?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Le tavolate di San Giuseppe",
+        "Il presepe vivente",
+        "I fuochi di Natale",
+        "L'albero di maggio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Altari e tavole imbandite il 19 marzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i due servi comici dell'Opera dei pupi palermitana?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Peppe e Nappa",
+        "Giufà e Colapesce",
+        "Ciccio e Franco",
+        "Nofriu e Virticchiu"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "pupi"
+      ],
+      "notes": "Personaggi comici del repertorio palermitano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale bambina dei fumetti argentini odia la minestra e si preoccupa per il mondo?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mafalda",
+        "Lulù",
+        "Candy",
+        "Heidi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Mafalda, di Quino, dal 1964",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante dita ha Topolino per ogni mano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "4",
+        "3",
+        "6"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti",
+        "trabocchetto"
+      ],
+      "notes": "Tre dita più il pollice, come quasi tutti i personaggi Disney",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale anno uscì il primo numero del Topolino libretto, in Italia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "1932",
+        "1960",
+        "1949",
+        "1972"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "trabocchetto"
+      ],
+      "notes": "Aprile 1949, Mondadori; il Topolino giornale esisteva già dal 1932",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel poker, come si chiama la combinazione di un tris e una coppia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Colore",
+        "Scala",
+        "Full",
+        "Poker"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "Full house",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese non si lascia di solito la mancia al ristorante, perché è considerata scortese?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Stati Uniti",
+        "Canada",
+        "Messico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "In Giappone il servizio è incluso e la mancia può imbarazzare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti pezzi compongono il rompicapo cinese del tangram?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "9",
+        "12",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Cinque triangoli, un quadrato e un parallelogramma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la moneta della Spagna prima dell'euro?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Escudo",
+        "Peseta",
+        "Dracma",
+        "Fiorino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "L'escudo era portoghese, la dracma greca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, quante persone a tavola portano sfortuna?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "17",
+        "7",
+        "13",
+        "11"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Tredici a tavola, come all'Ultima Cena",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il numero civico della Casa Bianca su Pennsylvania Avenue?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "10",
+        "1600",
+        "1",
+        "221"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "politica",
+        "mondo"
+      ],
+      "notes": "1600 Pennsylvania Avenue, Washington",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gioco di carte collezionabili fu il primo del genere, nel 1993?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Magic: The Gathering",
+        "Pokémon",
+        "Yu-Gi-Oh!",
+        "Dungeons & Dragons"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Magic di Richard Garfield, Wizards of the Coast, 1993",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che giorno si fanno gli scherzi del pesce d'aprile?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "15 aprile",
+        "30 aprile",
+        "25 aprile",
+        "1 aprile"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "Il primo giorno di aprile",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il fidanzato di Barbie?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bob",
+        "Max",
+        "Ken",
+        "Tom"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giocattoli"
+      ],
+      "notes": "Ken Carson, introdotto dalla Mattel nel 1961",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel Monopoly classico, quante stazioni ci sono sul tabellone?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "6"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Una per lato del tabellone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, che cos'è la presa en passant?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un arrocco lungo",
+        "Lo scambio delle donne",
+        "Una patta per ripetizione",
+        "Una cattura speciale del pedone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scacchi"
+      ],
+      "notes": "Il pedone cattura quello avversario appena avanzato di due case",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale torre di Bologna gli studenti evitano di salire, per paura di non laurearsi?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Torre degli Asinelli",
+        "Torre Prendiparte",
+        "Torre Azzoguidi",
+        "Torre dell'Orologio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bologna",
+        "superstizioni"
+      ],
+      "notes": "Superstizione universitaria bolognese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale regista francese, autore del film Il palloncino rosso, inventò il gioco da cui nacque il Risiko?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Jacques Tati",
+        "François Truffaut",
+        "Jean Renoir",
+        "Albert Lamorisse"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "francia"
+      ],
+      "notes": "La conquête du monde, 1957",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali animali corrono nel Palio di Alba, nato come sfida ironica al Palio di Asti?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "I cavalli",
+        "Gli asini",
+        "I buoi",
+        "Le capre"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "piemonte",
+        "feste"
+      ],
+      "notes": "Il Palio degli asini di Alba, dal 1932",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il celebre orologio astronomico medievale con gli apostoli che sfilano?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vienna",
+        "Berna",
+        "Praga",
+        "Budapest"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "città",
+        "mondo"
+      ],
+      "notes": "L'orologio astronomico della piazza della Città Vecchia, 1410",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si accendono falò e fuochi d'artificio il 5 novembre, per la Notte di Guy Fawkes?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Regno Unito",
+        "Francia",
+        "Spagna",
+        "Stati Uniti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Bonfire Night ricorda la Congiura delle polveri del 1605",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quanti anni si diventa maggiorenni in Italia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "16",
+        "18",
+        "21",
+        "20"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "numeri"
+      ],
+      "notes": "Maggiore età a 18 anni dal 1975",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale isola siciliana è chiamata la figlia del vento?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Favignana",
+        "Ustica",
+        "Pantelleria",
+        "Linosa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "Dall'arabo Bint al-Riyah",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città, a Capodanno, si guarda scendere una grande sfera luminosa a mezzanotte?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Londra",
+        "Sydney",
+        "Tokyo",
+        "New York"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "capodanno",
+        "mondo"
+      ],
+      "notes": "La Ball Drop di Times Square, dal 1907",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era raffigurato sulla banconota da 500.000 lire?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Raffaello",
+        "Michelangelo",
+        "Leonardo da Vinci",
+        "Tiziano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "Banconota del 1997, con la Scuola di Atene sul retro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella smorfia napoletana, quale numero corrisponde all'Italia?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "1",
+        "90",
+        "33",
+        "47"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "smorfia",
+        "napoli"
+      ],
+      "notes": "Il numero 1 è \"l'Italia\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, che cosa non si deve mai appoggiare sul letto?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Le scarpe da ginnastica",
+        "Il cappello",
+        "Un libro",
+        "Un cuscino in più"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Il cappello sul letto è legato ai preti che portavano l'estrema unzione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante lire valeva un euro, secondo il cambio fissato?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "1000",
+        "2000",
+        "1500",
+        "1936,27"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "monete",
+        "storia"
+      ],
+      "notes": "Tasso fisso dal 1999: 1 euro = 1936,27 lire",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale giorno della settimana cade sempre la Pasqua?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sabato",
+        "Venerdì",
+        "Domenica",
+        "Lunedì"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasqua"
+      ],
+      "notes": "Pasqua è la prima domenica dopo il primo plenilunio di primavera",
+      "verified": false
+    }
+  ]
+}

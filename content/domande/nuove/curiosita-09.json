@@ -1,0 +1,1083 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Di quale colore è tradizionalmente l'abito della sposa in Cina?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bianco",
+        "Rosso",
+        "Nero",
+        "Verde"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "matrimonio",
+        "mondo"
+      ],
+      "notes": "In Cina il rosso è il colore della festa e della fortuna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale parola latina, che significa \"ho vissuto\", si ottiene anagrammando il 17 scritto in numeri romani?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Vixi",
+        "Vale",
+        "Vidi",
+        "Vici"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superstizioni",
+        "numeri"
+      ],
+      "notes": "XVII anagrammato dà VIXI: per questo il 17 è sfortunato in Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Più ne togli e più diventa grande: che cos'è?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un debito",
+        "Un albero",
+        "Un pallone",
+        "Una buca"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello classico: togliendo terra la buca cresce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella tombola, come si chiama la vincita con due numeri sulla stessa riga?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Terno",
+        "Cinquina",
+        "Ambo",
+        "Quaterna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "natale"
+      ],
+      "notes": "Ambo, terno, quaterna, cinquina, tombola",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città marchigiana si corre la Quintana, giostra cavalleresca in costume del Quattrocento?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ascoli Piceno",
+        "Macerata",
+        "Urbino",
+        "Fermo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "marche",
+        "feste"
+      ],
+      "notes": "La Quintana di Ascoli Piceno, a luglio e agosto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni di matrimonio si festeggiano con le nozze d'argento?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "40",
+        "15",
+        "25"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "matrimonio"
+      ],
+      "notes": "Nozze d'argento 25, d'oro 50, di diamante 60",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota dei fumetti Bonelli vive avventure in Amazzonia?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Martin Mystère",
+        "Nathan Never",
+        "Mister No",
+        "Ken Parker"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Mister No, di Guido Nolitta, dal 1975",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa studia la vessillologia?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Le campane",
+        "Le bandiere",
+        "Le vele",
+        "Le farfalle"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "simboli"
+      ],
+      "notes": "Da vexillum, stendardo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica il numero 750 inciso su un gioiello d'oro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Il peso in milligrammi",
+        "Che è oro a 18 carati",
+        "Il prezzo in euro",
+        "L'anno di produzione"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "gioielli"
+      ],
+      "notes": "750 millesimi di oro, cioè 18 carati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nell'alfabeto fonetico internazionale della NATO, quale parola corrisponde alla lettera G?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gamma",
+        "Genova",
+        "Golf",
+        "George"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "Alfa, Bravo, Charlie... Golf, Hotel",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città veneta si gioca ogni due anni una partita a scacchi con personaggi viventi?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marostica",
+        "Bassano del Grappa",
+        "Asolo",
+        "Cittadella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "veneto"
+      ],
+      "notes": "Partita a scacchi di Marostica, negli anni pari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana cresce spontaneo il papiro, lungo il fiume Ciane?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Ragusa",
+        "Marsala",
+        "Siracusa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "natura"
+      ],
+      "notes": "Una delle poche colonie spontanee di papiro in Europa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cittadina siciliana è detta la Perla dello Ionio?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Taormina",
+        "Cefalù",
+        "Siracusa",
+        "Acireale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "Taormina, sopra Giardini Naxos",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale Madonna è la patrona degli aviatori?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Madonna di Pompei",
+        "Madonna di Lourdes",
+        "Madonna di Loreto",
+        "Madonna di Fatima"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "santi"
+      ],
+      "notes": "Proclamata da Benedetto Quindicesimo nel 1920, per la leggenda della Santa Casa in volo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è nato il 29 febbraio e ha appena festeggiato il quarto compleanno nella data esatta, quanti anni ha?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "16",
+        "8",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "compleanni",
+        "trabocchetto"
+      ],
+      "notes": "Il 29 febbraio torna ogni quattro anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'abito tradizionale giapponese a forma di T, con le maniche larghe?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Sari",
+        "Poncho",
+        "Caftano",
+        "Kimono"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "moda",
+        "mondo"
+      ],
+      "notes": "Il sari è indiano, il poncho sudamericano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale vulcano gli eoliani chiamano semplicemente Iddu, cioè lui?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vulcano",
+        "Etna",
+        "Lipari",
+        "Stromboli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "Iddu è lo Stromboli, sempre attivo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il numero di pubblica utilità della Guardia di Finanza?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "112",
+        "117",
+        "113",
+        "118"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "numeri utili"
+      ],
+      "notes": "117 Guardia di Finanza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti carati ha l'oro puro?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "18",
+        "14",
+        "24",
+        "100"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "gioielli"
+      ],
+      "notes": "L'oro puro è a 24 carati; il 18 carati contiene il 75 per cento d'oro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale colore ci si veste tradizionalmente in Italia in segno di lutto?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nero",
+        "Bianco",
+        "Rosso",
+        "Giallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni"
+      ],
+      "notes": "Il nero è il colore del lutto nella tradizione italiana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti quadratini colorati si vedono su ogni faccia del cubo di Rubik classico?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "9",
+        "12",
+        "16"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Ogni faccia è una griglia tre per tre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero vale la lettera M nei numeri romani?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mille",
+        "Cento",
+        "Cinquecento",
+        "Cinquanta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "numeri"
+      ],
+      "notes": "M = 1000, D = 500, C = 100, L = 50",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella morra cinese, che cosa batte la carta?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il sasso",
+        "Il fuoco",
+        "L'acqua",
+        "Le forbici"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Forbici tagliano carta, carta avvolge sasso, sasso rompe forbici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nell'alfabeto telefonico italiano, quale città indica la lettera Z?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Zurigo",
+        "Zagarolo",
+        "Zara",
+        "Zafferana"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alfabeto",
+        "trabocchetto"
+      ],
+      "notes": "\"Zeta come Zara\", città dalmata oggi croata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Durante la festa di quale santo, ad Agrigento, si lanciano pagnotte dai balconi?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "San Calogero",
+        "San Gerlando",
+        "Santa Rosalia",
+        "San Giorgio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Festa di San Calogero, luglio, con il lancio del pane votivo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale divinità prende il nome il venerdì?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Vesta",
+        "Vulcano",
+        "Diana",
+        "Venere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Veneris dies, giorno di Venere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si fa germogliare al buio per adornare i Sepolcri del Giovedì santo in Sicilia?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Basilico",
+        "Grano e legumi",
+        "Rosmarino",
+        "Margherite"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "pasqua"
+      ],
+      "notes": "I \"lavureddi\", piatti di grano germogliato al buio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante uova si possono mangiare a stomaco vuoto?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nessuno",
+        "Tre",
+        "Uno solo",
+        "Sei"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Dopo il primo lo stomaco non è più vuoto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, che cosa succede a un pedone che arriva sull'ultima traversa?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Viene promosso a un altro pezzo",
+        "Torna al punto di partenza",
+        "Esce dalla scacchiera",
+        "Diventa un re"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scacchi"
+      ],
+      "notes": "Promozione: di solito diventa donna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale data i palermitani salgono a piedi al Monte Pellegrino per Santa Rosalia?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "15 luglio",
+        "8 dicembre",
+        "4 settembre",
+        "25 aprile"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "palermo"
+      ],
+      "notes": "La \"acchianata\" nella notte tra il 3 e il 4 settembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore si regala per tradizione a San Valentino?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Il crisantemo",
+        "La mimosa",
+        "Il garofano bianco",
+        "La rosa rossa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "La rosa rossa simbolo dell'amore; la mimosa è dell'8 marzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa veneziana di luglio si celebra con fuochi d'artificio e un ponte di barche sulla Giudecca?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Regata storica",
+        "Festa del Redentore",
+        "Festa della Sensa",
+        "Carnevale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "venezia",
+        "feste"
+      ],
+      "notes": "Ricorda la fine della peste del 1577",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la tenuta presidenziale sul litorale romano, tra Ostia e Castel Fusano?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Castel Gandolfo",
+        "Villa Rosebery",
+        "Castelporziano",
+        "San Rossore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "istituzioni"
+      ],
+      "notes": "Tenuta di Castelporziano; Castel Gandolfo è del Papa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, in quale città nacque la tombola, nel Settecento?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Napoli",
+        "Palermo",
+        "Roma",
+        "Genova"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "napoli"
+      ],
+      "notes": "Nel 1734 il lotto fu vietato nei giorni di Natale e i napoletani lo giocarono in casa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la banda di ladri che assalta il deposito di Zio Paperone?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cagnotti",
+        "Rapinatori Neri",
+        "Lupetti",
+        "Bassotti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "La banda Bassotti, creata da Carl Barks nel 1951",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale, secondo la tradizione americana, il 2 febbraio annuncia se l'inverno durerà ancora?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "L'orso",
+        "La marmotta",
+        "Lo scoiattolo",
+        "Il cervo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Groundhog Day, a Punxsutawney in Pennsylvania",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese il Giorno del Ringraziamento si celebra a ottobre?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Canada",
+        "Regno Unito",
+        "Australia",
+        "Irlanda"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Secondo lunedì di ottobre in Canada",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo della città di Torino?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il leone",
+        "L'aquila",
+        "Il lupo",
+        "Il toro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "simboli",
+        "città"
+      ],
+      "notes": "Il toro rampante dello stemma, nome \"parlante\" di Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore era il simbolo dei re di Francia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "La rosa",
+        "Il giglio",
+        "Il tulipano",
+        "La viola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "simboli",
+        "storia"
+      ],
+      "notes": "Il fleur-de-lis, giglio araldico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno Ernő Rubik inventò il suo cubo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1964",
+        "1984",
+        "1974",
+        "1990"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Il prototipo è del 1974, in vendita dal 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il gioco da spiaggia con due racchette di legno e una pallina?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Badminton",
+        "Racchettoni",
+        "Squash",
+        "Hockey"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "estate"
+      ],
+      "notes": "I racchettoni, o \"tamburelli\" nella versione con racchette a tamburo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire, in Italia, l'espressione \"fare tredici\"?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Avere un colpo di fortuna",
+        "Arrivare tredicesimi",
+        "Sbagliare tutto",
+        "Restare senza soldi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "calcio"
+      ],
+      "notes": "Indovinare tutti i 13 risultati della schedina del Totocalcio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni di matrimonio si festeggiano con le nozze di perla?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "20",
+        "35",
+        "45",
+        "30"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "matrimonio"
+      ],
+      "notes": "Nozze di perla al trentesimo anniversario",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il più antico casinò del mondo ancora in attività?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Sanremo",
+        "Montecarlo",
+        "Venezia",
+        "Baden-Baden"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "venezia"
+      ],
+      "notes": "Il Ridotto di Venezia aprì nel 1638",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale insetto rosso a puntini neri è considerato un portafortuna?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cimice",
+        "Lucciola",
+        "Formica",
+        "Coccinella"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "La coccinella, che si posa addosso porta fortuna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti numeri ci sono su ogni cartella della tombola?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "12",
+        "15",
+        "18"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "natale"
+      ],
+      "notes": "Tre righe da cinque numeri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha il collo ma non ha la testa?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La giraffa",
+        "La bottiglia",
+        "Il cigno",
+        "La chitarra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello classico; la chitarra ha il manico, giraffa e cigno hanno la testa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Entri al buio con un solo fiammifero: c'è una candela, una lampada a olio e un camino. Che cosa accendi per primo?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il fiammifero",
+        "La candela",
+        "La lampada",
+        "Il camino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Prima bisogna accendere il fiammifero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale Stato americano è l'unico con il nome di una sola sillaba?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Texas",
+        "Utah",
+        "Ohio",
+        "Maine"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "Maine, nel New England",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la leggenda palermitana, chi raffigurano i vasi in ceramica detti teste di moro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un moro e la ragazza che lo decapitò",
+        "Due re normanni",
+        "Un pirata e un pescatore",
+        "Due santi patroni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "leggende"
+      ],
+      "notes": "Lei scoprì che il moro aveva moglie in Oriente e lo decapitò nel sonno",
+      "verified": false
+    }
+  ]
+}

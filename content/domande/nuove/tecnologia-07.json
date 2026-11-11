@@ -1,0 +1,1068 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "A quale velocità massima viaggia il Frecciarossa in servizio commerciale in Italia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "200 chilometri orari",
+        "250 chilometri orari",
+        "300 chilometri orari",
+        "400 chilometri orari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "treni",
+        "italia"
+      ],
+      "notes": "Massima commerciale sulle linee AV: 300 chilometri orari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Rispetto a un foglio A4, quanto è grande un foglio A3?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il doppio",
+        "La metà",
+        "Il triplo",
+        "Uguale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ufficio"
+      ],
+      "notes": "A3 = due fogli A4 affiancati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire formattare un disco?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ordinarne i file per nome",
+        "Prepararlo cancellando i dati",
+        "Copiarne il contenuto",
+        "Collegarlo a Internet"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "La formattazione crea un nuovo file system, cancellando l'indice dei dati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale impianto porta in montagna con cabine appese a un cavo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Funicolare",
+        "Cremagliera",
+        "Monorotaia",
+        "Funivia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "La funicolare corre su rotaie, la funivia è sospesa a funi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale accessorio si collega alla presa di corrente per ricaricare il telefono?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Router",
+        "Decoder",
+        "Modem",
+        "Caricabatterie"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Il caricabatterie (alimentatore) trasforma la corrente di casa per la batteria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città fu accesa nel 1883 la centrale elettrica di Santa Radegonda, tra le prime d'Europa?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Milano",
+        "Torino",
+        "Roma",
+        "Napoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "elettricità",
+        "italia"
+      ],
+      "notes": "Centrale Edison di Santa Radegonda, vicino al Duomo, che illuminò anche la Scala",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica ha come logo una stella a tre punte in un cerchio?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Audi",
+        "Mercedes-Benz",
+        "Opel",
+        "Renault"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "La stella a tre punte simboleggia terra, mare e cielo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale celebre servizio di Google mostra le strade fotografate a 360 gradi?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Google Earth",
+        "Google Lens",
+        "Street View",
+        "Google Drive"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Street View, lanciato nel 2007",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la prima console per videogiochi da collegare alla TV, del 1972?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Atari 2600",
+        "Intellivision",
+        "ColecoVision",
+        "Magnavox Odyssey"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Progettata da Ralph Baer, uscì nel 1972",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nata l'azienda di elettrodomestici Smeg?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Svezia",
+        "Germania",
+        "Italia",
+        "Stati Uniti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "elettrodomestici",
+        "trabocchetto"
+      ],
+      "notes": "Smeg = Smalterie Metallurgiche Emiliane Guastalla, provincia di Reggio Emilia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo strumento che misura la profondità del mare con le onde sonore?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ecoscandaglio",
+        "Periscopio",
+        "Barometro",
+        "Anemometro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "navi"
+      ],
+      "notes": "L'ecoscandaglio misura il tempo di ritorno dell'eco dal fondale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale carrozzeria piemontese firmò il disegno della Ferrari Testarossa?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bertone",
+        "Pininfarina",
+        "Zagato",
+        "Vignale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Testarossa del 1984 disegnata da Pininfarina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale accessorio dell'auto brevettò l'americana Mary Anderson nel 1903?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il tergicristallo",
+        "La cintura di sicurezza",
+        "Lo specchietto retrovisore",
+        "Il clacson"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Mary Anderson brevettò un tergicristallo a manovella nel 1903",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su una tastiera, quale tasto si tiene premuto per scrivere una sola lettera maiuscola?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Tab",
+        "Shift",
+        "Esc",
+        "Canc"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Il tasto Shift (Maiuscolo); il Bloc Maiusc invece resta attivo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il veicolo a due ruote senza pedali, spinto con i piedi, inventato da Karl Drais nel 1817?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Triciclo",
+        "Monociclo",
+        "Draisina",
+        "Biciclo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "La draisina o macchina da corsa di Drais, antenata della bicicletta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque nel 1959 la piccola automobile Mini?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Germania",
+        "Italia",
+        "Francia",
+        "Regno Unito"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "La Mini fu progettata da Alec Issigonis per la British Motor Corporation; BMW ne rilevò il marchio molto dopo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gioco di carte arrivò sui computer con Windows 3.0, nel 1990?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Scopa",
+        "Burraco",
+        "Poker",
+        "Solitario"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Il Solitario era incluso in Windows 3.0, uscito nel maggio 1990",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi brevettò nel 1901, in Inghilterra, uno dei primi aspirapolvere a motore?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "James Dyson",
+        "William Hoover",
+        "Hubert Cecil Booth",
+        "Thomas Edison"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Booth costruì il \"Puffing Billy\", che girava per le strade su un carro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale elemento sono fatti soprattutto i chip dei computer?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Silicio",
+        "Silicone",
+        "Rame",
+        "Carbonio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "I chip sono in silicio; il silicone è un polimero, da qui il nome Silicon Valley",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sigla inglese si scrive in chat per indicare una grande risata?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "OMG",
+        "LOL",
+        "BTW",
+        "ASAP"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "internet"
+      ],
+      "notes": "LOL = laughing out loud",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante lettere ci sono nelle targhe delle auto italiane di oggi?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "5",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Dal 1994 il formato è due lettere, tre cifre, due lettere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In un'auto, che cosa vuol dire la sigla GPL su un serbatoio?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gasolio per lunghe percorrenze",
+        "Generatore a pile",
+        "Gas di petrolio liquefatto",
+        "Guida per principianti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il GPL è una miscela di propano e butano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il robot bambino sviluppato dall'Istituto Italiano di Tecnologia di Genova?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "iCub",
+        "Pepper",
+        "Nao",
+        "Sophia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "robot",
+        "italia"
+      ],
+      "notes": "iCub, umanoide open source dell'IIT",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama, sui social, chi segue il profilo di qualcuno?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Admin",
+        "Follower",
+        "Hater",
+        "Moderatore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "Follower, dall'inglese \"to follow\", seguire",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sport praticò l'astronauta Alan Shepard sulla Luna nel 1971?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Baseball",
+        "Golf",
+        "Calcio",
+        "Tennis"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Durante Apollo 14 Shepard colpì due palline da golf",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scrittore inventò le tre leggi della robotica?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Isaac Asimov",
+        "Jules Verne",
+        "Philip K. Dick",
+        "Arthur C. Clarke"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "robot"
+      ],
+      "notes": "Isaac Asimov, nel racconto \"Circolo vizioso\" del 1942",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa trasforma la marmitta catalitica di un'auto?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il rumore in energia",
+        "Il carburante in vapore",
+        "L'olio in benzina",
+        "I gas di scarico più nocivi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il catalizzatore riduce monossido di carbonio, idrocarburi e ossidi di azoto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché il logo della Yamaha mostra tre diapason incrociati?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il fondatore era un direttore d'orchestra",
+        "Rappresentano tre pistoni",
+        "L'azienda nacque facendo strumenti musicali",
+        "È il simbolo di una città"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "moto"
+      ],
+      "notes": "Yamaha nacque nel 1887 costruendo organi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale programma di Google DeepMind sconfisse nel 2016 il campione di Go Lee Sedol?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Deep Blue",
+        "Watson",
+        "AlphaGo",
+        "Stockfish"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "intelligenza artificiale"
+      ],
+      "notes": "AlphaGo vinse 4 a 1 a Seul nel marzo 2016",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti valori diversi può rappresentare un singolo byte?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "8",
+        "128",
+        "1024",
+        "256"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Otto bit danno 2 alla ottava, cioè 256 combinazioni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale auto fu eletta Auto dell'anno in Europa nel 1984?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Fiat Panda",
+        "Fiat Uno",
+        "Fiat Ritmo",
+        "Lancia Delta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "La Fiat Uno vinse il premio Car of the Year 1984",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il razzo leggero europeo costruito dall'italiana Avio a Colleferro?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Vega",
+        "Ariane",
+        "Soyuz",
+        "Falcon"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Vega, in servizio dal 2012",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la sigla GPT di ChatGPT?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "General Purpose Technology",
+        "Global Processing Tool",
+        "Graphic Pattern Translator",
+        "Generative Pre-trained Transformer"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "intelligenza artificiale"
+      ],
+      "notes": "Generative Pre-trained Transformer, modelli di OpenAI",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il grande aereo di linea a due piani prodotto dalla Airbus?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "A320",
+        "A380",
+        "A330",
+        "A350"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aerei"
+      ],
+      "notes": "L'Airbus A380 ha due ponti per tutta la lunghezza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero si chiamava in Italia per sapere l'ora esatta?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "161",
+        "12",
+        "101",
+        "176"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia",
+        "italia"
+      ],
+      "notes": "Il servizio \"ora esatta\" della SIP e poi di Telecom rispondeva al 161",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo le buone maniere della rete, che cosa vuol dire scrivere tutto in maiuscolo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Sussurrare",
+        "Scherzare",
+        "Urlare",
+        "Ringraziare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Netiquette: il maiuscolo equivale a gridare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama chi riesce a entrare di nascosto nei computer altrui superando le protezioni?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Blogger",
+        "Gamer",
+        "Hacker",
+        "Youtuber"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicurezza",
+        "internet"
+      ],
+      "notes": "Nell'uso comune \"hacker\" è chi forza i sistemi informatici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo si usa in casa per allungare la portata del Wi-Fi nelle stanze lontane?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ripetitore",
+        "Decoder",
+        "Alimentatore",
+        "Scanner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il ripetitore Wi-Fi rilancia il segnale del router",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale videogioco di calcio della Konami era il grande rivale di FIFA?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Football Manager",
+        "Sensible Soccer",
+        "Rocket League",
+        "Pro Evolution Soccer"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "PES, Pro Evolution Soccer, oggi eFootball",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale videogioco del 2017 ha reso famosi la modalità battle royale e i balletti dei personaggi?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Minecraft",
+        "Fortnite",
+        "Tetris",
+        "Pac-Man"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Fortnite Battle Royale di Epic Games, 2017",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tecnologia ha sostituito in Italia la TV analogica, rendendo necessario il decoder?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Televideo",
+        "Videoregistratore",
+        "Teletext a colori",
+        "Digitale terrestre"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tv"
+      ],
+      "notes": "Passaggio al digitale terrestre completato in Italia nel 2012",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quali parole sta la sigla IA, di cui si parla tanto oggi?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Intelligenza artificiale",
+        "Informatica avanzata",
+        "Internet aperto",
+        "Interfaccia automatica"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "intelligenza artificiale"
+      ],
+      "notes": "IA = intelligenza artificiale (in inglese AI)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa vengono i colori bianco e azzurro del logo della BMW?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Da un'elica che gira nel cielo",
+        "Dalla bandiera della Baviera",
+        "Dai colori della Grecia",
+        "Dal mare e dalla neve"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "La BMW smentisce il mito dell'elica, nato da una pubblicità del 1929",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante cifre ha il codice a barre EAN dei prodotti del supermercato?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "10",
+        "12",
+        "13",
+        "16"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "codici"
+      ],
+      "notes": "Codice EAN-13, tredici cifre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali tre colori formano ogni pixel di uno schermo a colori?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Rosso, giallo e blu",
+        "Bianco, nero e grigio",
+        "Rosso, verde e blu",
+        "Ciano, magenta e giallo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "smartphone",
+        "trabocchetto"
+      ],
+      "notes": "Sintesi additiva RGB; rosso-giallo-blu sono i primari dei pittori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fibra sintetica fu inventata nei laboratori DuPont negli anni Trenta?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Kevlar",
+        "Lycra",
+        "Gore-Tex",
+        "Nylon"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Il nylon fu sviluppato da Wallace Carothers alla DuPont",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'era il cosiddetto millennium bug?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un virus nato nel 2000",
+        "Un problema con le date a due cifre",
+        "Un guasto dei satelliti",
+        "Un errore delle calcolatrici"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Molti programmi scrivevano l'anno con due cifre: il 2000 rischiava di diventare 1900",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si usa per scrivere sullo schermo di un tablet al posto del dito?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Un pennino",
+        "Un mouse",
+        "Un joystick",
+        "Una trackball"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Il pennino, o stilo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale termine matematico deriva il nome Google?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gauss",
+        "Googleplex",
+        "Googol",
+        "Gigabit"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Googol è il numero 1 seguito da 100 zeri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica francese ha un leone nel logo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Peugeot",
+        "Renault",
+        "Citroën",
+        "Bugatti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il leone Peugeot è il simbolo del marchio dal 1858",
+      "verified": false
+    }
+  ]
+}

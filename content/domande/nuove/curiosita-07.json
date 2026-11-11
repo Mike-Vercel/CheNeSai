@@ -1,0 +1,1083 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In India, quale mano si evita per tradizione quando si mangia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "La destra",
+        "La sinistra",
+        "Nessuna delle due",
+        "Quella col braccialetto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "La mano sinistra è considerata impura",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il palazzo romano dove risiede il Presidente della Repubblica?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Montecitorio",
+        "Palazzo Chigi",
+        "Quirinale",
+        "Palazzo Madama"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "istituzioni"
+      ],
+      "notes": "Montecitorio è la Camera, Palazzo Chigi il governo, Palazzo Madama il Senato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "È vero che fu la Coca-Cola a vestire di rosso Babbo Natale?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "No, era già vestito di rosso prima",
+        "Sì, nel 1931",
+        "Sì, prima era verde",
+        "Sì, prima era blu"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "Illustrazioni in rosso esistevano già nell'Ottocento; la Coca-Cola ne diffuse l'immagine dagli anni Trenta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il comune italiano più piccolo per superficie?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Ne",
+        "Fiera di Primiero",
+        "Morterone",
+        "Atrani"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "italia"
+      ],
+      "notes": "Atrani, sulla costiera amalfitana, circa 0,12 chilometri quadrati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Un gallo depone un uovo sulla punta di un tetto: da che parte cade?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Verso destra",
+        "Da nessuna, i galli non fanno uova",
+        "Verso sinistra",
+        "Dalla parte del vento"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello: solo le galline depongono uova",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Se ieri era domenica, che giorno sarà dopodomani?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Martedì",
+        "Giovedì",
+        "Lunedì",
+        "Mercoledì"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Oggi è lunedì, dopodomani mercoledì",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il gioco del 1904 da cui nacque il Monopoly?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il gioco dell'oca",
+        "Business",
+        "The Landlord's Game",
+        "Città d'America"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "trabocchetto"
+      ],
+      "notes": "Inventato da Elizabeth Magie per criticare la rendita fondiaria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le palline con le figurine dei ciclisti che i bambini fanno correre su piste di sabbia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Biglie",
+        "Bocce",
+        "Birilli",
+        "Trottole"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "estate"
+      ],
+      "notes": "Le biglie, gioco da spiaggia italiano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco da tavolo bisogna scoprire l'assassino, l'arma e la stanza del delitto?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Risiko",
+        "Cluedo",
+        "Monopoli",
+        "Scarabeo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Cluedo, inventato in Inghilterra negli anni Quaranta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale stilista calabrese scelse la testa di Medusa come simbolo della sua maison?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Versace",
+        "Giorgio Armani",
+        "Valentino Garavani",
+        "Gianfranco Ferré"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "moda"
+      ],
+      "notes": "Gianni Versace, nato a Reggio Calabria, fondò la maison nel 1978",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il numero storico dell'emergenza sanitaria in Italia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "113",
+        "115",
+        "117",
+        "118"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "numeri utili"
+      ],
+      "notes": "118 soccorso sanitario; 113 polizia, 115 vigili del fuoco, 117 Guardia di Finanza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel blackjack, quale punteggio non si deve superare?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "31",
+        "18",
+        "21",
+        "24"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Chi supera 21 \"sballa\" e perde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese, a Santa Lucia, le ragazze sfilano con una corona di candele in testa?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Grecia",
+        "Svezia",
+        "Irlanda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Luciadagen, 13 dicembre, in Svezia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'occhio blu di vetro che in Turchia protegge dal malocchio?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Hamsa",
+        "Ankh",
+        "Mandala",
+        "Nazar"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "superstizioni",
+        "mondo"
+      ],
+      "notes": "Il nazar boncuğu; la hamsa è la mano di Fatima",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in Scozia la festa di Capodanno?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Hogmanay",
+        "Halloween",
+        "Samhain",
+        "Beltane"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "capodanno",
+        "mondo"
+      ],
+      "notes": "Hogmanay, con il canto \"Auld Lang Syne\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella briscola, quanti punti vale il tre?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "11",
+        "10",
+        "4",
+        "3"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "Asso 11, tre 10, re 4, cavallo 3, fante 2",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Se oggi è venerdì, che giorno sarà fra 100 giorni?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Venerdì",
+        "Sabato",
+        "Domenica",
+        "Lunedì"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "100 diviso 7 dà resto 2: venerdì più due giorni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti sono i gruppi statuari della processione dei Misteri di Trapani?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "12",
+        "20",
+        "7",
+        "33"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "pasqua"
+      ],
+      "notes": "Venti gruppi lignei portati dalle maestranze cittadine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era raffigurato sull'ultima banconota da 10.000 lire?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Guglielmo Marconi",
+        "Galileo Galilei",
+        "Enrico Fermi",
+        "Alessandro Volta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "Serie del 1984 con Alessandro Volta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti centimetri misura un piede inglese?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "30,48",
+        "25",
+        "33,3",
+        "40"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Dodici pollici da 2,54 centimetri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese dell'Etna, a Pasqua, si rappresenta la Diavolata?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Paternò",
+        "Adrano",
+        "Biancavilla",
+        "Bronte"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "pasqua"
+      ],
+      "notes": "Diavolata di Adrano, con diavoli e l'arcangelo Michele",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fumetto di Magnus e Bunker racconta gli squattrinati agenti segreti del Gruppo TNT?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Kriminal",
+        "Satanik",
+        "Corto Maltese",
+        "Alan Ford"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Alan Ford, dal 1969",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco si sfilano blocchetti di legno da una torre, senza farla crollare?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Domino",
+        "Mikado",
+        "Jenga",
+        "Shanghai"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Jenga, ideato da Leslie Scott negli anni Ottanta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale divinità romana, il dio delle porte, prende il nome gennaio?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giano",
+        "Giove",
+        "Marte",
+        "Saturno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Ianuarius, mese di Giano bifronte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale città viene il gioco del Lotto, nato dalle scommesse sull'elezione dei senatori?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Venezia",
+        "Napoli",
+        "Firenze",
+        "Genova"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "lotto"
+      ],
+      "notes": "Il \"gioco del Seminario\" genovese, Cinquecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale eroe dei fumetti Bonelli è detto \"lo Spirito con la scure\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Zagor",
+        "Tex Willer",
+        "Mister No",
+        "Dylan Dog"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Zagor, creato da Guido Nolitta e Gallieno Ferri nel 1961",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama ufficialmente il lunedì dopo Pasqua, la Pasquetta?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Lunedì grasso",
+        "Lunedì dell'Angelo",
+        "Lunedì santo",
+        "Lunedì dei Magi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasqua"
+      ],
+      "notes": "Ricorda l'angelo che annunciò la Risurrezione; il lunedì santo viene prima di Pasqua",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si corre la Giostra del Saracino, con cavalieri che colpiscono un fantoccio?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Siena",
+        "Lucca",
+        "Arezzo",
+        "Pistoia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "toscana",
+        "feste"
+      ],
+      "notes": "Giostra del Saracino di Arezzo, a giugno e settembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si rompe appena lo si nomina?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il ghiaccio",
+        "Il vetro",
+        "Una promessa",
+        "Il silenzio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello classico: basta dire \"silenzio\" per romperlo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il cappello a tesa larghissima tipico del Messico?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Borsalino",
+        "Basco",
+        "Sombrero",
+        "Panama"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "moda",
+        "mondo"
+      ],
+      "notes": "Il sombrero, da \"sombra\", ombra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese il giorno sfortunato è martedì 13, invece di venerdì?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Germania",
+        "Regno Unito"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superstizioni",
+        "trabocchetto"
+      ],
+      "notes": "In Spagna \"martes y trece, ni te cases ni te embarques\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'inventore di Paperopoli, aiutato dal piccolo Edi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Archimede Pitagorico",
+        "Pico de Paperis",
+        "Gastone",
+        "Ciccio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Archimede Pitagorico (Gyro Gearloose), di Carl Barks",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale amuleto rosso della tradizione napoletana protegge dal malocchio?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il quadrifoglio",
+        "La coccinella",
+        "Il cornetto",
+        "Il ferro di cavallo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "superstizioni",
+        "napoli"
+      ],
+      "notes": "Il cornicello rosso, di corallo o di altro materiale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante ore di differenza ci sono fra l'Italia e il Regno Unito?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "0",
+        "3",
+        "1"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tempo"
+      ],
+      "notes": "Il Regno Unito è un'ora indietro, sia con l'ora solare sia con la legale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti animali di ogni specie portò Mosè sull'arca?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nessuno: l'arca era di Noè",
+        "Due",
+        "Sette",
+        "Uno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello: l'arca è quella di Noè",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero civico è la residenza del primo ministro britannico in Downing Street?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "1",
+        "10",
+        "11",
+        "221"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "politica",
+        "mondo"
+      ],
+      "notes": "10 Downing Street; all'11 vive il Cancelliere dello Scacchiere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è la maschera della Commedia dell'arte simbolo di Firenze?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Stenterello",
+        "Burlamacco",
+        "Meneghino",
+        "Gianduia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "maschere",
+        "toscana"
+      ],
+      "notes": "Stenterello, creato da Luigi Del Buono nel Settecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante volte si può sottrarre 5 da 25?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "4",
+        "Una volta sola",
+        "Infinite volte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Dopo la prima volta non si sottrae più da 25, ma da 20",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santa è la patrona dei musicisti?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Santa Chiara",
+        "Santa Rita",
+        "Santa Barbara",
+        "Santa Cecilia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "santi",
+        "musica"
+      ],
+      "notes": "Santa Cecilia, festa il 22 novembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città, per fortuna, si fa un giro sul tallone sopra il toro del mosaico in Galleria?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Milano",
+        "Bologna",
+        "Roma"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superstizioni",
+        "trabocchetto"
+      ],
+      "notes": "Galleria Vittorio Emanuele: il toro è lo stemma di Torino, ma il mosaico è a Milano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città sarda si corre a Carnevale la Sartiglia, giostra a cavallo per infilare una stella?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cagliari",
+        "Sassari",
+        "Oristano",
+        "Nuoro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sardegna",
+        "feste"
+      ],
+      "notes": "La Sartiglia di Oristano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale anno l'Italia adotta l'ora legale tutti gli anni senza interruzioni?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1916",
+        "1966",
+        "1946",
+        "1980"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tempo"
+      ],
+      "notes": "Introdotta nel 1916, sospesa più volte, stabile dal 1966",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale, nel presepe, scalda Gesù Bambino insieme all'asinello?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il cavallo",
+        "La pecora",
+        "Il cammello",
+        "Il bue"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale"
+      ],
+      "notes": "Il bue e l'asinello, dalla tradizione popolare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante volte compare la cifra 9 scrivendo tutti i numeri da 1 a 100?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "20",
+        "10",
+        "11",
+        "19"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Dieci volte come unità e dieci come decine (90-99)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale indumento di lana prende il nome da un conte inglese della guerra di Crimea?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pullover",
+        "Dolcevita",
+        "Gilet",
+        "Cardigan"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "moda"
+      ],
+      "notes": "James Brudenell, settimo conte di Cardigan",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le renne di Babbo Natale nella tradizione classica, senza contare Rudolph?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "9",
+        "8",
+        "12"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale"
+      ],
+      "notes": "Dalla poesia \"A Visit from St. Nicholas\" del 1823",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti litri contiene un ettolitro?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "100",
+        "10",
+        "1000",
+        "50"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Etto = cento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il numero blu della Guardia costiera per le emergenze in mare?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "1515",
+        "1530",
+        "1522",
+        "1500"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "numeri utili",
+        "mare"
+      ],
+      "notes": "1530, numero gratuito per il soccorso in mare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero è considerato molto fortunato in Cina?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "8",
+        "4",
+        "13",
+        "7"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monete",
+        "mondo"
+      ],
+      "notes": "In cinese \"otto\" suona simile a \"prosperare\"; le Olimpiadi di Pechino iniziarono l'8 agosto 2008",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale nazione si trova il villaggio dal nome lunghissimo Llanfairpwllgwyngyll?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Scozia",
+        "Irlanda",
+        "Galles",
+        "Islanda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "Il nome completo ha 58 lettere, sull'isola di Anglesey",
+      "verified": false
+    }
+  ]
+}

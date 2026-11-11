@@ -1,0 +1,1067 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"prendere lucciole per lanterne\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Spendere troppo",
+        "Lavorare di notte",
+        "Essere molto ottimisti",
+        "Sbagliarsi grossolanamente"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Prendere lucciole per lanterne: scambiare una cosa per un'altra, prendere un abbaglio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Il mattino ha l'oro in…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mano",
+        "Tasca",
+        "Bocca",
+        "Testa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Il mattino ha l'oro in bocca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale squittisce?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gatto",
+        "Pecora",
+        "Cane",
+        "Topo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Squittire è il verso acuto dei topi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di mucche al pascolo?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Flotta",
+        "Stormo",
+        "Mandria",
+        "Sciame"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "nomi-collettivi"
+      ],
+      "notes": "Una mandria di bovini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale divinità romana prende il nome il mercoledì?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Mercurio",
+        "Marte",
+        "Giove",
+        "Saturno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Mercoledì: dal latino Mercurii dies, giorno di Mercurio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere in alto mare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere in vacanza",
+        "Avere il mal di mare",
+        "Essere molto felici",
+        "Essere lontani dalla conclusione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Essere in alto mare: essere ancora lontani dal finire qualcosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Tanto va la gatta al lardo che ci lascia lo…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Baffo",
+        "Pelo",
+        "Codino",
+        "Zampino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Tanto va la gatta al lardo che ci lascia lo zampino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama, in italiano, la lettera K?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ka",
+        "Cappa",
+        "Chi",
+        "Kei"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "La K si chiama cappa (o kappa)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"sputare il rospo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Dire una parolaccia",
+        "Lamentarsi di continuo",
+        "Confessare qualcosa tenuto nascosto",
+        "Mangiare qualcosa di cattivo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Sputare il rospo: decidersi a dire ciò che si teneva dentro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"affabile\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Timido",
+        "Cortese e cordiale",
+        "Facile da rompere",
+        "Affamato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Affabile: gentile e alla mano nel trattare con gli altri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"ridere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Risato",
+        "Ridito",
+        "Riduto",
+        "Riso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi",
+        "trabocchetto"
+      ],
+      "notes": "Ridere, participio passato riso: uguale al cereale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi monosillabi si scrive senza accento?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Qua",
+        "Può",
+        "Già",
+        "Ciò"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Qui e qua non vogliono mai l'accento; ciò, già e può sì",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sillabe ha la parola \"scienza\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sillabe",
+        "trabocchetto"
+      ],
+      "notes": "Scien-za: sci è un trigramma che rende un solo suono, la i non fa sillaba",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ameno\", detto di un luogo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lontano",
+        "Piacevole",
+        "Pericoloso",
+        "Desolato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Ameno: piacevole, gradevole alla vista",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"redarguire\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Riassumere",
+        "Rinviare",
+        "Ripetere",
+        "Rimproverare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Redarguire: riprendere, rimproverare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"conoscere i propri polli\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sapere bene con chi si ha a che fare",
+        "Cucinare bene",
+        "Essere un bravo allevatore",
+        "Avere molti amici"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Conoscere i propri polli: conoscere bene le persone con cui si tratta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"salvare capra e cavoli\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Conciliare due esigenze opposte",
+        "Risparmiare denaro",
+        "Aiutare i più deboli",
+        "Fuggire appena in tempo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Dall'indovinello del lupo, della capra e dei cavoli da traghettare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale personaggio deriva l'espressione \"lavarsene le mani\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nerone",
+        "Giuda",
+        "Ponzio Pilato",
+        "Erode"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Nel Vangelo di Matteo Pilato si lava le mani davanti alla folla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"mentore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un bugiardo abituale",
+        "Un nemico nascosto",
+        "Una guida saggia e fidata",
+        "Un servitore fedele"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Da Mentore, l'amico di Ulisse sotto il cui aspetto Atena consiglia Telemaco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare la gavetta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fare un lungo apprendistato partendo dal basso",
+        "Cambiare spesso lavoro",
+        "Risparmiare denaro",
+        "Mangiare in fretta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "La gavetta era la scodella dei soldati semplici: fare la gavetta è salire di grado partendo dal fondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Pessimo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Brutto",
+        "Peggiore",
+        "Cattivo",
+        "Basso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Cattivo: peggiore, pessimo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che tempo verbale è \"avevo detto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Trapassato remoto",
+        "Imperfetto",
+        "Passato prossimo",
+        "Trapassato prossimo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Imperfetto dell'ausiliare più participio: trapassato prossimo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa con il congiuntivo: \"Spero che tu mi … una mano\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Dai",
+        "Dia",
+        "Daresti",
+        "Dessi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Congiuntivo presente di dare: che tu dia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"compare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Comparessa",
+        "Compagna",
+        "Comare",
+        "Comparella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Compare e comare: padrino e madrina, o amici intimi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"gaudio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fatica",
+        "Rumore",
+        "Gioia",
+        "Dolore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Gaudio: gioia, allegrezza, come in \"mal comune mezzo gaudio\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Mi piace il gelato\", che funzione ha \"mi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Complemento oggetto",
+        "Complemento di termine",
+        "Soggetto",
+        "Complemento di specificazione"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "analisi-logica",
+        "trabocchetto"
+      ],
+      "notes": "Mi vale a me: complemento di termine; il soggetto è il gelato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sillabe ha la parola \"aiuola\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sillabe",
+        "trabocchetto"
+      ],
+      "notes": "A-iuo-la: iuo è un trittongo e forma una sola sillaba",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Infimo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Basso",
+        "Cattivo",
+        "Inferiore",
+        "Brutto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Basso: inferiore, infimo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il tifo dei sostenitori sportivi prende il nome da che cosa?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Da un grido di guerra",
+        "Da un dio greco",
+        "Da una malattia",
+        "Da un'antica danza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Dal tifo, malattia febbrile: l'esaltazione dei fan paragonata al delirio della febbre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"acrimonia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Avarizia",
+        "Astio, rancore",
+        "Tristezza",
+        "Ironia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Acrimonia: asprezza d'animo, astio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"sedicente\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Che parla troppo",
+        "Che sta sempre seduto",
+        "Che ha sedici anni",
+        "Che si attribuisce falsamente un titolo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Sedicente: che dice di essere ciò che non è, come un sedicente medico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica si usa dando del \"Giuda\" a un traditore?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Antonomasia",
+        "Metafora",
+        "Litote",
+        "Sineddoche"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Antonomasia: un nome proprio usato come nome comune, o viceversa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il segno formato da due puntini sopra una vocale, come in \"poëta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Dieresi",
+        "Circonflesso",
+        "Tilde",
+        "Cediglia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "segni"
+      ],
+      "notes": "La dieresi indica che due vocali vicine vanno pronunciate separate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In Toscana, che cosa vuol dire \"sciocco\" detto di un cibo?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Senza sale",
+        "Troppo cotto",
+        "Piccante",
+        "Andato a male"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dialetti",
+        "trabocchetto"
+      ],
+      "notes": "In Toscana sciocco vuol dire insipido: il pane toscano è sciocco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Alla corte di quale sovrano nacque la Scuola siciliana, prima poesia d'arte in volgare?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Federico II di Svevia",
+        "Ruggero II",
+        "Carlo d'Angiò",
+        "Guglielmo il Buono"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "La Scuola poetica siciliana fiorì alla corte di Federico II, nella prima metà del Duecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"compagno\" in origine indicava chi divideva con un altro che cosa?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il pane",
+        "La spada",
+        "La casa",
+        "Il letto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal latino tardo companio: cum e panis, chi mangia lo stesso pane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale linguista scrisse nel 1963 la \"Storia linguistica dell'Italia unita\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giacomo Devoto",
+        "Bruno Migliorini",
+        "Tullio De Mauro",
+        "Luca Serianni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "Tullio De Mauro, Storia linguistica dell'Italia unita, Laterza 1963",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica unisce sensi diversi, come in \"urlo nero\" o \"voce calda\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Anafora",
+        "Ossimoro",
+        "Iperbole",
+        "Sinestesia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Sinestesia: accosta parole riferite a sfere sensoriali diverse",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale antico testo, forse dell'VIII o IX secolo, paragona lo scrivere all'arare un campo?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Placito capuano",
+        "Cantico delle creature",
+        "Indovinello veronese",
+        "Postilla amiatina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "Se pareba boves: i buoi sono le dita, l'aratro la penna, il seme l'inchiostro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"tulipano\" viene da un termine turco che significa?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Turbante",
+        "Coppa",
+        "Fiore",
+        "Stella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal turco tülbend, turbante, per la forma del fiore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi comuni siciliani parla un dialetto gallo-italico?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Bagheria",
+        "San Fratello",
+        "Ragusa",
+        "Trapani"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "A San Fratello, Nicosia, Piazza Armerina e altri centri si parlano dialetti portati da coloni dell'Italia settentrionale nel Medioevo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"pletora\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lamentela",
+        "Sovrabbondanza",
+        "Mancanza",
+        "Lentezza"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Pletora: quantità eccessiva, come una pletora di impiegati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Noto?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Netini",
+        "Notini",
+        "Notesi",
+        "Notani"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "abitanti",
+        "sicilia"
+      ],
+      "notes": "Gli abitanti di Noto sono i netini, dall'antica Netum",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Estremo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ultimo",
+        "Finale",
+        "Lontano",
+        "Esterno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Esterno: esteriore, estremo (come interno: interiore, intimo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"pagare a babbo morto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pagare in contanti",
+        "Pagare in un futuro lontano e incerto",
+        "Pagare un funerale",
+        "Pagare il doppio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Pagare quando si riceverà l'eredità del padre, cioè chissà quando",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"silhouette\" deriva dal cognome di chi?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Di un fotografo",
+        "Di un ministro francese",
+        "Di un pittore olandese",
+        "Di un sarto parigino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Da Étienne de Silhouette, controllore generale delle finanze di Luigi XV",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale, secondo i dizionari, \"blatera\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Asino",
+        "Cammello",
+        "Rana",
+        "Capra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "versi-animali",
+        "trabocchetto"
+      ],
+      "notes": "Blaterare indica in origine il verso del cammello; poi parlare a vanvera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in enigmistica una frase che contiene tutte le lettere dell'alfabeto?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Anagramma",
+        "Tautogramma",
+        "Pangramma",
+        "Lipogramma"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "enigmistica"
+      ],
+      "notes": "Pangramma: frase con tutte le lettere; lipogramma: testo senza una lettera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Ivrea?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ivresi",
+        "Ivritani",
+        "Ivreani",
+        "Eporediesi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "abitanti"
+      ],
+      "notes": "Dall'antico nome latino della città, Eporedia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"irrefragabile\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Che non si può ripetere",
+        "Che non si può contestare",
+        "Che non si può rimandare",
+        "Che non si può riparare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Irrefragabile: inconfutabile, come una prova irrefragabile",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1068 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In quale celebre videogioco si costruiscono mondi fatti di cubi, scavando e raccogliendo materiali?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tetris",
+        "Pong",
+        "Minecraft",
+        "Fortnite"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Minecraft, nato nel 2009",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nelle moto da 125 o da 250, che cosa indica quel numero?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La velocità massima",
+        "Il peso in chili",
+        "I cavalli",
+        "La cilindrata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Cilindrata in centimetri cubici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu presentato il primo iPad?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "2010",
+        "2005",
+        "2007",
+        "2013"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Steve Jobs lo presentò il 27 gennaio 2010",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero si chiamava in Italia per gli elenchi abbonati, fino al 2005?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "113",
+        "161",
+        "12",
+        "186"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telefonia",
+        "italia"
+      ],
+      "notes": "Il servizio 12 fu sostituito dai numeri 12xy nel 2005",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale designer italiano disegnò la prima Volkswagen Golf, del 1974?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Marcello Gandini",
+        "Giorgetto Giugiaro",
+        "Battista Pininfarina",
+        "Ettore Sottsass"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Giugiaro con Italdesign",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Delle quattro ciminiere del Titanic, quante scaricavano davvero il fumo delle caldaie?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "2",
+        "1",
+        "3"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "navi",
+        "trabocchetto"
+      ],
+      "notes": "La quarta ciminiera serviva alla ventilazione e all'estetica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire che un programma è open source?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Che è gratis solo un mese",
+        "Che il suo codice è pubblico",
+        "Che funziona senza Internet",
+        "Che è senza pubblicità"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Open source: codice sorgente aperto, consultabile e modificabile",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti caratteri può contenere al massimo un singolo SMS classico?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "140",
+        "100",
+        "200",
+        "160"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Standard GSM: 160 caratteri a 7 bit",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa contiene di solito un file con estensione zip?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Altri file compressi",
+        "Una sola canzone",
+        "Un film in alta definizione",
+        "Una pagina web"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Lo zip è un archivio compresso che contiene uno o più file",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi diresse lo spot \"1984\" del Macintosh, trasmesso durante il Super Bowl?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Steven Spielberg",
+        "George Lucas",
+        "Ridley Scott",
+        "Stanley Kubrick"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Ridley Scott, appena reduce da \"Blade Runner\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città fu installato nel 1967 il primo sportello bancomat?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "New York",
+        "Parigi",
+        "Zurigo",
+        "Londra"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "banche"
+      ],
+      "notes": "27 giugno 1967, Barclays di Enfield, Londra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il lettore musicale portatile lanciato da Apple nel 2001?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "iMac",
+        "iPod",
+        "iPad",
+        "Walkman"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musica"
+      ],
+      "notes": "L'iPod fu presentato nell'ottobre 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Prima di diventare idraulico, che mestiere aveva Mario al suo debutto nel 1981?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Carpentiere",
+        "Cuoco",
+        "Postino",
+        "Pompiere"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi",
+        "trabocchetto"
+      ],
+      "notes": "In Donkey Kong era un carpentiere chiamato Jumpman",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana sono stati costruiti molti moduli abitabili della Stazione spaziale internazionale?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Napoli",
+        "Bari",
+        "Torino",
+        "Genova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Thales Alenia Space di Torino ha costruito Columbus (struttura), Harmony, Tranquility e la Cupola",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa costruiva la Toyota prima di produrre automobili?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Telai per la tessitura",
+        "Biciclette",
+        "Macchine da cucire",
+        "Radio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aziende",
+        "trabocchetto"
+      ],
+      "notes": "Sakichi Toyoda inventò telai automatici; il reparto auto nacque negli anni Trenta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale componente della bicicletta brevettò Tullio Campagnolo nel 1930?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Il campanello",
+        "Il freno a disco",
+        "La catena",
+        "Lo sgancio rapido delle ruote"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "biciclette",
+        "italia"
+      ],
+      "notes": "Il bloccaggio rapido, nato dopo una corsa con le mani gelate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale carta di credito nacque nel 1950 dopo una cena al ristorante pagata con difficoltà?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "American Express",
+        "Diners Club",
+        "Visa",
+        "Mastercard"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "banche"
+      ],
+      "notes": "Frank McNamara, New York, 1950",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la sigla GTA della celebre serie di videogiochi?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Great Tour of America",
+        "Game To Attack",
+        "Grand Theft Auto",
+        "Giant Truck Action"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Grand Theft Auto, Rockstar Games",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tensione hanno le prese elettriche di casa in Italia?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "110 volt",
+        "400 volt",
+        "12 volt",
+        "230 volt"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "Tensione nominale europea 230 volt a 50 hertz (un tempo si diceva 220)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale agenzia spaziale ha la sua sede centrale a Parigi?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "NASA",
+        "Roscosmos",
+        "Agenzia spaziale europea",
+        "JAXA"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "L'ESA ha sede a Parigi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le centrali che producono elettricità sfruttando la caduta dell'acqua?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Geotermiche",
+        "Idroelettriche",
+        "Termoelettriche",
+        "Nucleari"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "energia"
+      ],
+      "notes": "Le centrali idroelettriche usano dighe e condotte forzate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale app di video brevi in verticale appartiene all'azienda cinese ByteDance?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "TikTok",
+        "Instagram",
+        "YouTube",
+        "Snapchat"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "TikTok è di ByteDance, Pechino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indicava il simbolo della chiocciola in una lettera di un mercante fiorentino del 1536?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Un indirizzo",
+        "Un'anfora di vino",
+        "Una moneta d'oro",
+        "Una nave"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Francesco Lapi scrisse da Siviglia usando la chiocciola per l'anfora, misura di capacità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale tecnologia viaggia il treno Maglev di Shanghai, senza toccare i binari?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Levitazione magnetica",
+        "Cuscino d'aria",
+        "Ruote di gomma",
+        "Propulsione a vapore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "treni"
+      ],
+      "notes": "Maglev = magnetic levitation, oltre 400 chilometri orari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il programma che si usa per visitare i siti web?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Compilatore",
+        "Driver",
+        "Browser",
+        "Firewall"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Chrome, Firefox, Safari ed Edge sono browser",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale barista milanese brevettò nel 1938 la macchina per l'espresso che crea la crema?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Angelo Moriondo",
+        "Alfonso Bialetti",
+        "Luigi Bezzera",
+        "Achille Gaggia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Gaggia brevettò il sistema a pistone; la macchina a leva arrivò nel 1947",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella radio, che cosa vuol dire la sigla FM?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Modulazione di frequenza",
+        "Frequenza media",
+        "Forte modulazione",
+        "Filo magnetico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "radio"
+      ],
+      "notes": "FM = Frequency Modulation; AM è modulazione di ampiezza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale transatlantico italiano affondò nel 1956 dopo una collisione al largo di New York?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Rex",
+        "Michelangelo",
+        "Raffaello",
+        "Andrea Doria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "navi",
+        "italia"
+      ],
+      "notes": "L'Andrea Doria fu speronato dalla Stockholm il 25 luglio 1956",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose il suono di avvio di Windows 95?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Jean-Michel Jarre",
+        "Vangelis",
+        "Brian Eno",
+        "Hans Zimmer"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Brian Eno creò il \"Microsoft Sound\", lungo poco più di tre secondi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nei videogiochi Pokémon, di quali tipi sono di solito i tre Pokémon iniziali tra cui scegliere?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Elettro, roccia e volante",
+        "Erba, fuoco e acqua",
+        "Ghiaccio, buio e psico",
+        "Normale, veleno e drago"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Da Rosso e Blu in poi i tre iniziali sono di tipo erba, fuoco e acqua",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale automobile fu lanciata nello spazio da SpaceX nel 2018, con un manichino al volante?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una Ford Mustang",
+        "Una Fiat 500",
+        "Una Tesla Roadster",
+        "Una Volkswagen Golf"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Volo inaugurale del Falcon Heavy, febbraio 2018",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piattaforma online si usa per guardare film e serie in streaming con un abbonamento?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Wikipedia",
+        "LinkedIn",
+        "Dropbox",
+        "Netflix"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Netflix è un servizio di streaming video in abbonamento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale app di messaggistica ha come logo una cornetta bianca dentro un fumetto verde?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Telegram",
+        "WhatsApp",
+        "Messenger",
+        "Viber"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Telegram ha un aeroplanino azzurro, Viber è viola",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la G di 4G e 5G?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Generazione",
+        "Giga",
+        "Gigahertz",
+        "Globale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia",
+        "trabocchetto"
+      ],
+      "notes": "4G e 5G = quarta e quinta generazione di reti mobili",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale supporto ha preso il posto della videocassetta VHS?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il floppy disk",
+        "Il disco in vinile",
+        "La musicassetta",
+        "Il DVD"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "video"
+      ],
+      "notes": "Il DVD, dalla fine degli anni Novanta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cifra iniziano i codici a barre dei prodotti registrati in Italia?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "3",
+        "0",
+        "8",
+        "9"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "codici",
+        "italia"
+      ],
+      "notes": "I prefissi GS1 Italia vanno da 800 a 839",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale console Nintendo del 2017 si usa sia attaccata alla TV sia come portatile?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Switch",
+        "Wii",
+        "GameCube",
+        "Nintendo 64"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Nintendo Switch, console ibrida uscita nel marzo 2017",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale browser ha come simbolo una bussola?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Chrome",
+        "Safari",
+        "Firefox",
+        "Opera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Safari di Apple",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il piccolo elicottero della NASA che nel 2021 volò per la prima volta su Marte?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Perseverance",
+        "Opportunity",
+        "Spirit",
+        "Ingenuity"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Ingenuity, arrivato col rover Perseverance",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali lettere non si usano nelle targhe italiane, per non confonderle con numeri o altre lettere?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "A, E, I e O",
+        "I, O, Q e U",
+        "K, W, X e Y",
+        "B, D, P e R"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Nelle targhe italiane mancano I, O, Q e U",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il disegno che si traccia unendo dei puntini per sbloccare il telefono?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Codice QR",
+        "Codice a barre",
+        "Sequenza di sblocco",
+        "Firma digitale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Gli smartphone si sbloccano con PIN, sequenza, impronta o volto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi browser è nato per primo?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Opera",
+        "Firefox",
+        "Chrome",
+        "Safari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "Opera 1995, Safari 2003, Firefox 2004, Chrome 2008",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale disco ottico ad alta definizione vinse la sfida con l'HD DVD?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Laserdisc",
+        "Minidisc",
+        "Video CD",
+        "Blu-ray"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "video"
+      ],
+      "notes": "Nel 2008 Toshiba abbandonò l'HD DVD, vinse il Blu-ray",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su Windows, quale lettera si preme insieme a Ctrl per annullare l'ultima azione?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Y",
+        "Z",
+        "X",
+        "A"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Ctrl più Z annulla; Ctrl più Y ripete, Ctrl più X taglia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'insieme delle regole di buona educazione su Internet?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Netiquette",
+        "Netflix",
+        "Netbook",
+        "Network"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Netiquette, da net ed etiquette",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa fu comprato nel 2010 con diecimila bitcoin, nel primo acquisto famoso con la criptovaluta?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un'automobile",
+        "Un computer",
+        "Due pizze",
+        "Una casa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "criptovalute"
+      ],
+      "notes": "22 maggio 2010, \"Bitcoin Pizza Day\": due pizze per 10.000 bitcoin",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su Instagram, come si chiamano i contenuti che spariscono dopo 24 ore?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Reel",
+        "Storie",
+        "Post",
+        "Didascalie"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "Le Storie restano visibili 24 ore, salvo metterle in evidenza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la principessa del Regno dei Funghi che Mario deve spesso salvare?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Zelda",
+        "Aurora",
+        "Sakura",
+        "Peach"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Principessa Peach, Nintendo (Zelda è di un'altra saga)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco Nintendo si vive in un villaggio abitato da animali parlanti?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Pikmin",
+        "Splatoon",
+        "Animal Crossing",
+        "Metroid"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Animal Crossing, nato nel 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica il valore ISO in una macchina fotografica?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "La sensibilità alla luce",
+        "La distanza di messa a fuoco",
+        "La grandezza del sensore",
+        "La durata della batteria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "foto"
+      ],
+      "notes": "Più alto l'ISO, più il sensore è sensibile (con più rumore)",
+      "verified": false
+    }
+  ]
+}

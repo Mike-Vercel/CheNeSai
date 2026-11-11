@@ -1,0 +1,1071 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale bevanda calda unisce caffè, whiskey irlandese, zucchero e panna?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Espresso martini",
+        "Caffè corretto",
+        "Caffè shakerato",
+        "Irish coffee"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Irish coffee: caffè, whiskey, zucchero e panna leggermente montata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Porto è un vino liquoroso tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Grecia",
+        "Francia",
+        "Portogallo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Il Porto si produce nella valle del Douro, in Portogallo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il soffritto in cucina?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un trito di verdure rosolato",
+        "Un dolce fritto di Carnevale",
+        "Un pane abbrustolito",
+        "Una salsa cruda di pomodoro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Il soffritto è un trito di cipolla, sedano e carota rosolato in olio o burro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oltre al cioccolato, quale frutto caratterizza la torta Foresta Nera?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lamponi",
+        "Ciliegie",
+        "Fragole",
+        "Albicocche"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "La Foresta Nera unisce cioccolato, panna, ciliegie e kirsch",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le crêpes, sottili frittatine dolci o salate, sono tipiche di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Germania",
+        "Spagna",
+        "Grecia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-francese"
+      ],
+      "notes": "Specialità francese, soprattutto della Bretagna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si ottiene scaldando lo zucchero finché diventa bruno e liquido?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Glassa",
+        "Meringa",
+        "Caramello",
+        "Zucchero a velo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Il caramello è zucchero cotto fino a imbrunire",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un caffè macchiato?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un caffè freddo con ghiaccio",
+        "Un caffè con un goccio di liquore",
+        "Un espresso con un po' di latte",
+        "Un caffè lungo all'americana"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "Il macchiato è un espresso macchiato con poco latte o schiuma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce spagnolo al cucchiaio ha una crosticina di zucchero bruciato in superficie?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Crema catalana",
+        "Panna cotta",
+        "Tiramisù",
+        "Churros"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dolci",
+        "cucina-spagnola"
+      ],
+      "notes": "La crema catalana si caramella in superficie con un ferro rovente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia profuma il vin brulè, insieme ai chiodi di garofano?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Curcuma",
+        "Zafferano",
+        "Paprika",
+        "Cannella"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Vin brulè: vino rosso caldo con zucchero, cannella, chiodi di garofano e scorza d'arancia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oltre a rum e crema di cocco, quale frutto c'è nella piña colada?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mango",
+        "Ananas",
+        "Banana",
+        "Fragola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Piña colada: rum, crema di cocco e succo d'ananas",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella ricetta classica, quale frutto si usa per la tarte Tatin, torta cotta capovolta?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pesche",
+        "Fichi",
+        "Prugne",
+        "Mele"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "cucina-francese"
+      ],
+      "notes": "La tarte Tatin classica è di mele caramellate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La bouillabaisse, zuppa di pesce provenzale, è tipica di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Marsiglia",
+        "Bordeaux",
+        "Parigi",
+        "Lione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-francese"
+      ],
+      "notes": "La bouillabaisse è la zuppa di pesce di Marsiglia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La quiche lorraine, torta salata con uova, panna e pancetta, prende il nome da quale regione francese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Borgogna",
+        "Normandia",
+        "Lorena",
+        "Alsazia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-francese"
+      ],
+      "notes": "Lorraine in francese è la Lorena",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il croque-monsieur francese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un dolce di pasta sfoglia",
+        "Una zuppa di cipolle",
+        "Un toast con prosciutto e formaggio",
+        "Una crêpe al cioccolato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-francese"
+      ],
+      "notes": "Pane in cassetta con prosciutto cotto e formaggio, gratinato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I pierogi, grossi ravioli ripieni di patate, formaggio o carne, sono il piatto simbolo di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grecia",
+        "Polonia",
+        "Portogallo",
+        "Irlanda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-europea"
+      ],
+      "notes": "I pierogi sono il piatto nazionale polacco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il bibimbap, ciotola di riso con verdure, carne e uovo, è un piatto tipico di quale cucina?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giapponese",
+        "Vietnamita",
+        "Indiana",
+        "Coreana"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-asiatica"
+      ],
+      "notes": "Il bibimbap è un piatto della cucina coreana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le moules-frites, cozze con patatine fritte, sono un piatto simbolo di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Danimarca",
+        "Belgio",
+        "Austria",
+        "Svizzera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-europea"
+      ],
+      "notes": "Le moules-frites sono considerate il piatto nazionale del Belgio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la pizza piegata in quattro che a Napoli si mangia per strada?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pizza a portafoglio",
+        "Pizza al taglio",
+        "Pinsa",
+        "Calzone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pizza"
+      ],
+      "notes": "La pizza a portafoglio si piega a libretto e si mangia passeggiando",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il sartù napoletano è un ricco timballo a base di quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Patate",
+        "Pasta",
+        "Riso",
+        "Melanzane"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-campana"
+      ],
+      "notes": "Il sartù di riso nacque alla corte borbonica di Napoli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La porchetta di Ariccia IGP è una specialità di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Umbria",
+        "Lazio",
+        "Toscana",
+        "Marche"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salumi"
+      ],
+      "notes": "Ariccia è uno dei Castelli Romani, nel Lazio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La coda alla vaccinara è un piatto tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Firenze",
+        "Bologna",
+        "Milano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-romana"
+      ],
+      "notes": "Piatto del quinto quarto della cucina romana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piatto di grano bollito si mangia in Sicilia il 13 dicembre, per Santa Lucia?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cuccìa",
+        "Buccellato",
+        "Pignolata",
+        "Cassata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "La cuccìa è grano bollito servito con ricotta o crema, per Santa Lucia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali biscotti duri e bianchi si preparano in Sicilia per la festa del 2 novembre?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Baci di dama",
+        "Cantucci",
+        "Ossa di morto",
+        "Brutti ma buoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "dolci"
+      ],
+      "notes": "Le ossa di morto si preparano per la festa dei Morti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la carne alla pizzaiola?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Carne impanata e fritta",
+        "Carne cotta nel forno a legna",
+        "Carne cotta con pomodoro e origano",
+        "Carne servita sopra una pizza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "secondi",
+        "trabocchetto"
+      ],
+      "notes": "Fettine cotte in padella con pomodoro, aglio e origano: della pizza ha solo il condimento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nonostante il nome, da dove arrivò in Europa il granturco?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Dall'India",
+        "Dall'Africa",
+        "Dalla Turchia",
+        "Dalle Americhe"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-del-cibo",
+        "trabocchetto"
+      ],
+      "notes": "Il mais arrivò dalle Americhe; turco indicava genericamente qualcosa di esotico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Gli ziti napoletani devono il nome alla tradizione di servirli in quale occasione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Alla vigilia di Natale",
+        "Ai funerali",
+        "Ai pranzi di nozze",
+        "Alla festa del patrono"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "Da zita, la sposa in napoletano: erano la pasta dei banchetti di nozze",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le mafalde, pasta lunga dai bordi ondulati, devono il nome a chi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "A una principessa di casa Savoia",
+        "A una famosa attrice",
+        "A una cuoca napoletana",
+        "A una santa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "Dedicate alla principessa Mafalda di Savoia, nata nel 1902",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La tiella barese mette in teglia riso, patate e quali frutti di mare?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gamberi",
+        "Calamari",
+        "Vongole",
+        "Cozze"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-pugliese"
+      ],
+      "notes": "Tiella barese: riso, patate e cozze",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale radice è famosa la Calabria, con un prodotto DOP?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Curcuma",
+        "Liquirizia",
+        "Zenzero",
+        "Rafano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calabria"
+      ],
+      "notes": "Liquirizia di Calabria DOP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale soprannome ha il pane carasau sardo, per quanto è sottile?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Velo di sposa",
+        "Foglio d'oro",
+        "Pane di vetro",
+        "Carta da musica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pane",
+        "sardegna"
+      ],
+      "notes": "Il carasau è detto carta da musica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove stagiona il formaggio di fossa di Sogliano al Rubicone?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "In buche scavate nella roccia",
+        "In grotte marine",
+        "Sotto la cenere",
+        "Tra le foglie di noce"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Formaggio di fossa DOP: stagiona in fosse scavate nell'arenaria, chiuse per settimane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale impasto si preparano i bignè da farcire?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pasta brisée",
+        "Pasta sfoglia",
+        "Pasta frolla",
+        "Pasta choux"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pasticceria"
+      ],
+      "notes": "I bignè si fanno con la pâte à choux, cotta in pentola e poi in forno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa nasi goreng, nome di un celebre piatto indonesiano?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Pollo arrosto",
+        "Spaghetti piccanti",
+        "Zuppa di pesce",
+        "Riso fritto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-asiatica"
+      ],
+      "notes": "In indonesiano nasi è riso cotto e goreng fritto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa si nutrono i maiali del jamón ibérico de bellota?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ghiande",
+        "Fichi",
+        "Mais",
+        "Castagne"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "salumi",
+        "cucina-spagnola"
+      ],
+      "notes": "Bellota in spagnolo significa ghianda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per la botanica, che tipo di frutto è la noce di cocco?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un legume",
+        "Una drupa",
+        "Una bacca",
+        "Una vera noce"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "botanica",
+        "trabocchetto"
+      ],
+      "notes": "Il cocco è una drupa fibrosa, come la pesca e l'oliva, non una vera noce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianta si ricava il karkadè?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Tè",
+        "Malva",
+        "Rosa canina",
+        "Ibisco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande",
+        "trabocchetto"
+      ],
+      "notes": "Il karkadè è un infuso di calici di ibisco: non contiene tè",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale continente arrivano in origine i fagioli borlotti?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Europa",
+        "Asia",
+        "America",
+        "Africa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-del-cibo",
+        "trabocchetto"
+      ],
+      "notes": "Phaseolus vulgaris, la specie dei borlotti, è originaria delle Americhe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La gubana, dolce a spirale ripieno di frutta secca, è tipica di quale regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Liguria",
+        "Sardegna",
+        "Marche",
+        "Friuli-Venezia Giulia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Gubana delle Valli del Natisone e di Cividale del Friuli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La jota, minestra di fagioli, patate e crauti, è tipica di quale città?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Genova",
+        "Trieste",
+        "Aosta",
+        "Bolzano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-friulana"
+      ],
+      "notes": "La jota è la minestra simbolo di Trieste",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oltre al cioccolato, quale ingrediente sorprendente c'è nelle 'mpanatigghi di Modica?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pesce spada",
+        "Peperoncino",
+        "Carne di manzo",
+        "Formaggio di capra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Le 'mpanatigghi sono dolci di frolla ripieni di carne macinata, cioccolato, mandorle e spezie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il mandarino tardivo di Ciaculli si coltiva vicino a quale città?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Siracusa",
+        "Catania",
+        "Messina",
+        "Palermo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "frutta"
+      ],
+      "notes": "Ciaculli è una borgata di Palermo, Presidio Slow Food",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pepe rosa viene dalla stessa pianta del pepe nero?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "No, da un albero diverso",
+        "Sì, sono bacche più mature",
+        "Sì, sono bacche essiccate al sole",
+        "Sì, ma di una varietà indiana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spezie",
+        "trabocchetto"
+      ],
+      "notes": "Il pepe rosa è la bacca dello Schinus, albero sudamericano, non del Piper nigrum",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è l'okonomiyaki giapponese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Una frittella salata alla piastra",
+        "Una zuppa di alghe",
+        "Un liquore di prugne",
+        "Un dolce di riso glutinoso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "Pastella con cavolo e altri ingredienti cotta alla piastra, tipica di Osaka e Hiroshima",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il rendang, carne cotta a lungo nel latte di cocco e spezie, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Marocco",
+        "Perù",
+        "Indonesia",
+        "Messico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-asiatica"
+      ],
+      "notes": "Il rendang nasce tra i Minangkabau di Sumatra, in Indonesia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lo Stollen, pane dolce natalizio con canditi e uvetta, è legato a quale città tedesca?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Francoforte",
+        "Dresda",
+        "Colonia",
+        "Amburgo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Il Dresdner Christstollen è lo Stollen più celebre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il vino greco retsina deve il suo sapore particolare a che cosa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Alla salsedine",
+        "Alla resina di pino",
+        "Ai petali di rosa",
+        "Al miele"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Al mosto si aggiunge resina di pino d'Aleppo, uso antichissimo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il limone Interdonato, tipico del Messinese, è un incrocio tra limone e quale altro agrume?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Bergamotto",
+        "Pompelmo",
+        "Cedro",
+        "Arancia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "frutta"
+      ],
+      "notes": "Limone Interdonato Messina IGP: ibrido di limone e cedro ottenuto dal colonnello Interdonato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il bobotie, pasticcio di carne speziata con copertura d'uovo, è il piatto nazionale di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Cile",
+        "Sudafrica",
+        "Argentina",
+        "Australia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-africana"
+      ],
+      "notes": "Il bobotie è un piatto della cucina sudafricana del Capo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i missoltini del lago di Como?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Biscotti all'anice",
+        "Pesci essiccati e salati",
+        "Formaggi di capra",
+        "Gnocchi di castagne"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pesce",
+        "lombardia"
+      ],
+      "notes": "I missoltini sono agoni essiccati al sole e pressati con sale e alloro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il costoso caffè kopi luwak si ottiene da chicchi passati per l'intestino di quale animale?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Zibetto",
+        "Scimmia",
+        "Pipistrello",
+        "Tapiro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "Il kopi luwak indonesiano si ricava dalle feci dello zibetto delle palme",
+      "verified": false
+    }
+  ]
+}

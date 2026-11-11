@@ -1,0 +1,1084 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Nel Cluedo classico, chi è la vittima?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Il colonnello Mustard",
+        "Il professor Plum",
+        "Il dottor Black",
+        "La signora Peacock"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Il dottor Black (negli Stati Uniti Mr. Boddy)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale porta le uova di Pasqua ai bambini in Germania e negli Stati Uniti?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La gallina",
+        "Il coniglio",
+        "L'agnello",
+        "La cicogna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasqua",
+        "mondo"
+      ],
+      "notes": "L'Easter Bunny, l'Osterhase tedesco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cifra, capovolta, aumenta di tre?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "9",
+        "8",
+        "6",
+        "1"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Il 6 capovolto diventa 9",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la borsa di pelle che si porta davanti al kilt scozzese?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Tartan",
+        "Sporran",
+        "Glengarry",
+        "Sgian-dubh"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "moda"
+      ],
+      "notes": "Lo sporran; tartan è il tessuto, glengarry il berretto, sgian-dubh il coltellino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola delle Canarie si usa ancora una lingua fischiata, il silbo?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Tenerife",
+        "Lanzarote",
+        "Fuerteventura",
+        "La Gomera"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mondo",
+        "lingua"
+      ],
+      "notes": "Il silbo gomero, patrimonio Unesco dal 2009",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa colleziona un cartofilo?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Cartoline",
+        "Carte da gioco",
+        "Carte geografiche",
+        "Biglietti del treno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monete",
+        "collezionismo"
+      ],
+      "notes": "Cartofilia = collezionismo di cartoline",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti metri quadrati misura un ettaro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "10.000",
+        "1000",
+        "100",
+        "100.000"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Un ettaro è un quadrato di 100 metri di lato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto vince il Signor Bonaventura alla fine di ogni storia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mille lire",
+        "Un milione",
+        "Un'automobile",
+        "Una casa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Il Signor Bonaventura di Sergio Tofano vince sempre un milione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In Italia, in quale giorno di maggio cade la Festa della mamma?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il primo sabato",
+        "L'ultimo lunedì",
+        "La seconda domenica",
+        "Il 15 maggio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "Seconda domenica di maggio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le maschere nere con i campanacci del Carnevale di Mamoiada?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Issohadores",
+        "Boes",
+        "Thurpos",
+        "Mamuthones"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sardegna",
+        "maschere"
+      ],
+      "notes": "Gli issohadores accompagnano i mamuthones con la fune; boes e thurpos sono di altri paesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si bagna sempre di più mentre asciuga?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il phon",
+        "L'asciugamano",
+        "Il sole",
+        "Lo stendino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello classico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si dice per tradizione in Italia a chi starnutisce?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Auguri",
+        "Grazie",
+        "Buon appetito",
+        "Salute"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tradizioni"
+      ],
+      "notes": "Si augura \"salute!\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacquero i tarocchi, nel Quattrocento?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Italia",
+        "Egitto",
+        "Francia",
+        "India"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "trabocchetto"
+      ],
+      "notes": "Nelle corti di Milano e Ferrara; l'origine egizia è una leggenda del Settecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è considerato il patrono degli innamorati?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "San Giuseppe",
+        "San Francesco",
+        "San Valentino",
+        "San Martino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "Festa il 14 febbraio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che giorno si festeggia la Candelora?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "2 febbraio",
+        "2 gennaio",
+        "2 marzo",
+        "2 novembre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "Presentazione di Gesù al Tempio, quaranta giorni dopo Natale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore sono i pantaloncini di Topolino nel suo aspetto classico?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Blu",
+        "Verdi",
+        "Rossi",
+        "Gialli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Pantaloncini rossi con due bottoni bianchi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque il gioco del mahjong?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Cina",
+        "Corea",
+        "India"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "mondo"
+      ],
+      "notes": "Il mahjong nacque in Cina nell'Ottocento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello compare sulla moneta greca da un euro?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Aquila",
+        "Colomba",
+        "Gabbiano",
+        "Civetta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "monete",
+        "mondo"
+      ],
+      "notes": "La civetta di Atena, dalle antiche tetradracme ateniesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il segno zodiacale di chi nasce il giorno di Natale?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sagittario",
+        "Acquario",
+        "Capricorno",
+        "Pesci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "zodiaco"
+      ],
+      "notes": "Capricorno, dal 22 dicembre al 20 gennaio circa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città toscana si tiene ogni autunno una grande fiera di fumetti e giochi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pisa",
+        "Lucca",
+        "Livorno",
+        "Arezzo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "toscana",
+        "fumetti"
+      ],
+      "notes": "Lucca Comics & Games, tra fine ottobre e inizio novembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali segni si scrivevano nella schedina del Totocalcio?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "A, B e C",
+        "Sì e no",
+        "Più e meno",
+        "1, X e 2"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "calcio"
+      ],
+      "notes": "1 vittoria in casa, X pareggio, 2 vittoria in trasferta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indossano in testa i neolaureati italiani il giorno della laurea?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Una corona d'alloro",
+        "Un cappello a punta",
+        "Una fascia tricolore",
+        "Un tocco nero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni",
+        "scuola"
+      ],
+      "notes": "La corona d'alloro, simbolo di gloria; il tocco è della tradizione anglosassone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali santi, patroni di Roma, si festeggiano il 29 giugno?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cosma e Damiano",
+        "Pietro e Paolo",
+        "Cirillo e Metodio",
+        "Gervasio e Protasio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "santi",
+        "roma"
+      ],
+      "notes": "Santi Pietro e Paolo, festa a Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per tradizione, a quale seme delle carte francesi corrispondono i denari?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Cuori",
+        "Picche",
+        "Quadri",
+        "Fiori"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "Denari-quadri, coppe-cuori, spade-picche, bastoni-fiori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel burraco, quante carte servono almeno per calare un burraco?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "6",
+        "10",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "Il burraco è una combinazione di almeno sette carte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è il fiocco appeso alla porta per la nascita di un maschietto?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Azzurro",
+        "Rosa",
+        "Giallo",
+        "Verde"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni"
+      ],
+      "notes": "Fiocco azzurro per i maschi, rosa per le femmine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale animale è la pelliccia dei colbacchi delle guardie di Buckingham Palace?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Volpe",
+        "Castoro",
+        "Lupo",
+        "Orso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "città",
+        "londra"
+      ],
+      "notes": "I \"bearskin\" sono di pelliccia d'orso nero canadese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese dei Nebrodi, durante la Settimana Santa, sfilano i Giudei con maschere rosse?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "San Fratello",
+        "Cesarò",
+        "Mistretta",
+        "Tortorici"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "pasqua"
+      ],
+      "notes": "I Giudei di San Fratello, Giovedì e Venerdì santo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale di questi Paesi si guida a sinistra?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Germania",
+        "Giappone",
+        "Spagna",
+        "Brasile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "In Giappone si tiene la sinistra, come nel Regno Unito",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolge il Gioco del Ponte, sfida di spinta su un carrello?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Firenze",
+        "Lucca",
+        "Pisa",
+        "Livorno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "toscana",
+        "feste"
+      ],
+      "notes": "L'ultimo sabato di giugno sul Ponte di Mezzo, a Pisa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il cestino da cui si estraggono i numeri nella tombola napoletana?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tamburello",
+        "Panariello",
+        "Cofanetto",
+        "Bussola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "napoli",
+        "natale"
+      ],
+      "notes": "Il panariello, piccolo paniere di vimini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, perché un cornetto porti davvero fortuna deve essere...?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Comprato da sé",
+        "Trovato per strada",
+        "Benedetto",
+        "Regalato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "superstizioni",
+        "napoli"
+      ],
+      "notes": "Il cornetto non va comprato per sé: deve essere un dono",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In una corsa sorpassi il concorrente in seconda posizione: dove ti ritrovi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Al secondo posto",
+        "Al primo posto",
+        "Al terzo posto",
+        "All'ultimo posto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Prendi il suo posto, il secondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale lettera dell'alfabeto non compare nel nome di nessuno Stato degli Stati Uniti?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Z",
+        "J",
+        "Q",
+        "X"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "La Z è in Arizona, la J in New Jersey, la X in Texas",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti mesi dell'anno hanno 31 giorni?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "7",
+        "6",
+        "5",
+        "8"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Gennaio, marzo, maggio, luglio, agosto, ottobre, dicembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese annuire con la testa vuol dire no?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Svezia",
+        "Bulgaria",
+        "Portogallo",
+        "Canada"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "In Bulgaria i gesti del sì e del no sono invertiti rispetto ai nostri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacquero gli scacchi, secondo la tesi più accreditata?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Persia",
+        "Cina",
+        "India",
+        "Egitto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "storia"
+      ],
+      "notes": "Il chaturanga indiano, intorno al sesto secolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese il calendario tradizionale ha tredici mesi?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Egitto",
+        "Marocco",
+        "Turchia",
+        "Etiopia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario",
+        "mondo"
+      ],
+      "notes": "Dodici mesi di 30 giorni più uno di cinque o sei",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo il galateo, da che lato del piatto si mette la forchetta?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "A destra",
+        "Sopra il piatto",
+        "A sinistra",
+        "Dentro il piatto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "galateo"
+      ],
+      "notes": "Forchetta a sinistra, coltello e cucchiaio a destra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Ogni quanti anni si celebra il Giubileo ordinario?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "50",
+        "10",
+        "100",
+        "25"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "religione",
+        "roma"
+      ],
+      "notes": "Dal 1475 la cadenza ordinaria è di 25 anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale lingua minoritaria si parla ancora a Contessa Entellina, in provincia di Palermo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Albanese",
+        "Greco",
+        "Catalano",
+        "Maltese"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "lingua"
+      ],
+      "notes": "La comunità arbëreshë, arrivata nel Quattrocento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale edificio torinese compare sulla moneta italiana da 2 centesimi di euro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Palazzo Madama",
+        "Mole Antonelliana",
+        "Basilica di Superga",
+        "Lingotto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "La Mole Antonelliana, simbolo di Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti grammi pesa circa un'oncia?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "50",
+        "100",
+        "28",
+        "10"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "L'oncia avoirdupois vale 28,35 grammi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni dura il mandato del Presidente della Repubblica italiana?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "7",
+        "5",
+        "4",
+        "6"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "istituzioni"
+      ],
+      "notes": "Articolo 85 della Costituzione: sette anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città è chiamata Ville Lumière, la città delle luci?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Londra",
+        "Vienna",
+        "Bruxelles",
+        "Parigi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "città"
+      ],
+      "notes": "Parigi, per l'illuminazione pubblica e il ruolo nell'Illuminismo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maschera veneziana della Commedia dell'arte è un vecchio mercante avaro?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Brighella",
+        "Pantalone",
+        "Pulcinella",
+        "Balanzone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "maschere",
+        "venezia"
+      ],
+      "notes": "Pantalone de' Bisognosi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale dito si porta di solito la fede nuziale in Italia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Indice",
+        "Medio",
+        "Anulare",
+        "Mignolo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "matrimonio"
+      ],
+      "notes": "Anulare della mano sinistra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si brucia nella Giubiana, festa lombarda di fine gennaio?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un fantoccio di strega",
+        "Un albero di Natale",
+        "Una barca di legno",
+        "Un carro di paglia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lombardia",
+        "feste"
+      ],
+      "notes": "Il rogo della Giubiana scaccia l'inverno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale catena di pollo fritto è diventata la cena di Natale tradizionale in Giappone?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "McDonald's",
+        "KFC",
+        "Burger King",
+        "Subway"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "Campagna \"Kentucky for Christmas\" del 1974",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto fa la somma di tutti i numeri della roulette, da 0 a 36?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "360",
+        "500",
+        "720",
+        "666"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "numeri",
+        "giochi"
+      ],
+      "notes": "Somma dei numeri da 1 a 36 = 666",
+      "verified": false
+    }
+  ]
+}

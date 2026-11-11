@@ -1,0 +1,1098 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"Bad Guy\", nel 2019?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Billie Eilish",
+        "Ariana Grande",
+        "Katy Perry",
+        "Lady Gaga"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Bad Guy\" di Billie Eilish, 2019, scritta con il fratello Finneas",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"La canzone del sole\", quella delle \"bionde trecce\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Fabrizio De André",
+        "Gianni Morandi",
+        "Lucio Battisti",
+        "Francesco Guccini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"La canzone del sole\" (1971) di Mogol e Battisti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Cose della vita\", del 1993?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Biagio Antonacci",
+        "Eros Ramazzotti",
+        "Luca Carboni",
+        "Raf"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Cose della vita\" di Eros Ramazzotti, dall'album \"Tutte storie\" (1993)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante romano ha inciso \"Il triangolo\", nel 1978?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Franco Califano",
+        "Claudio Baglioni",
+        "Antonello Venditti",
+        "Renato Zero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Il triangolo\" di Renato Zero, 1978",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo americano cantava \"YMCA\", nel 1978?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Earth, Wind & Fire",
+        "Bee Gees",
+        "Kool & the Gang",
+        "Village People"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "disco",
+        "anni-70"
+      ],
+      "notes": "\"YMCA\" dei Village People, 1978",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Ragazzo fortunato\", del 1992?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Max Pezzali",
+        "Jovanotti",
+        "Nek",
+        "Ligabue"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Ragazzo fortunato\" di Jovanotti, dall'album \"Lorenzo 1992\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Una vita da mediano\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Luciano Ligabue",
+        "Vasco Rossi",
+        "Gianna Nannini",
+        "Edoardo Bennato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "Canzone di Ligabue del 1999 dedicata al mediano Lele Oriali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Waka Waka\", la canzone dei Mondiali di calcio del 2010?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rihanna",
+        "Jennifer Lopez",
+        "Shakira",
+        "Beyoncé"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "mondiali"
+      ],
+      "notes": "\"Waka Waka (This Time for Africa)\" di Shakira, inno di Sudafrica 2010",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento si suona con le bacchette e ha tamburi e piatti?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Batteria",
+        "Arpa",
+        "Fisarmonica",
+        "Tromba"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "La batteria unisce tamburi, grancassa e piatti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché il pianoforte si chiama così?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ha la forma di un piano",
+        "Si suona piano piano",
+        "Può suonare sia piano sia forte",
+        "Lo inventò un certo Piano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Cristofori lo chiamò \"gravicembalo col piano e forte\": i martelletti permettono di variare il volume",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale duo britannico incise \"Last Christmas\", nel 1984?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Pet Shop Boys",
+        "Wham!",
+        "Tears for Fears",
+        "Eurythmics"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "natale"
+      ],
+      "notes": "\"Last Christmas\" degli Wham! di George Michael, 1984",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americano, cieco fin da bambino, incise \"Georgia on My Mind\" nel 1960?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "James Brown",
+        "Nat King Cole",
+        "Marvin Gaye",
+        "Ray Charles"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "soul",
+        "mondo"
+      ],
+      "notes": "La versione di Ray Charles del 1960 divenne l'inno ufficiale della Georgia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cantante Andrea Bocelli incise \"Vivo per lei\", nel 1995?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fiorella Mannoia",
+        "Elisa",
+        "Arisa",
+        "Giorgia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Vivo per lei\", duetto di Bocelli e Giorgia nell'album \"Bocelli\" (1995)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il bouzouki, strumento a corde dal manico lungo, è tipico della musica di quale Paese?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Turchia",
+        "Grecia",
+        "Portogallo",
+        "Ungheria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "Il bouzouki è lo strumento simbolo del rebetiko e del sirtaki greci",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su uno spartito, che cosa indica la parola \"allegro\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un tempo veloce",
+        "Un volume forte",
+        "Un tono maggiore",
+        "Una pausa lunga"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Allegro è un'indicazione di tempo (andamento veloce), non di carattere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana incise \"Wrecking Ball\", nel 2013?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Selena Gomez",
+        "Taylor Swift",
+        "Miley Cyrus",
+        "Demi Lovato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Wrecking Ball\" di Miley Cyrus, 2013",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Simon Le Bon è il cantante di quale band inglese degli anni Ottanta?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Duran Duran",
+        "Spandau Ballet",
+        "Depeche Mode",
+        "Culture Club"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "Simon Le Bon, voce dei Duran Duran (il libro \"Sposerò Simon Le Bon\" è del 1985)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Happy\", tormentone del 2013?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Justin Timberlake",
+        "Bruno Mars",
+        "Pharrell Williams",
+        "Will.i.am"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Happy\" di Pharrell Williams, dal film \"Cattivissimo me 2\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana incise \"I Will Survive\", nel 1978?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Donna Summer",
+        "Gloria Gaynor",
+        "Diana Ross",
+        "Tina Turner"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "disco",
+        "anni-70"
+      ],
+      "notes": "\"I Will Survive\" di Gloria Gaynor, 1978",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire suonare il violino \"pizzicato\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Usare due archetti",
+        "Suonare molto veloce",
+        "Suonare piano",
+        "Pizzicare le corde con le dita"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teoria",
+        "strumenti"
+      ],
+      "notes": "Il pizzicato si esegue con le dita invece che con l'arco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale grande canzone natalizia cantò Bing Crosby nel film \"La taverna dell'allegria\", del 1942?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Silent Night",
+        "Jingle Bells",
+        "Let It Snow",
+        "White Christmas"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "\"White Christmas\" di Irving Berlin, dal film \"Holiday Inn\" (1942)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapper pugliese ha inciso \"Fuori dal tunnel\", nel 2003?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fabri Fibra",
+        "Caparezza",
+        "J-Ax",
+        "Frankie hi-nrg mc"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rap",
+        "italia"
+      ],
+      "notes": "Caparezza, di Molfetta, dall'album \"Verità supposte\" (2003)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale isola dei Caraibi viene la cantante Rihanna?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Barbados",
+        "Giamaica",
+        "Cuba",
+        "Trinidad"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "Rihanna è nata a Saint Michael, Barbados, nel 1988",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"Firework\", nel 2010?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Kesha",
+        "Lady Gaga",
+        "Katy Perry",
+        "Pink"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Firework\" di Katy Perry, dall'album \"Teenage Dream\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi rappresentò l'Italia all'Eurovision 2025 con \"Volevo essere un duro\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Corsi",
+        "Olly",
+        "Achille Lauro",
+        "Mahmood"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "eurovision",
+        "italia"
+      ],
+      "notes": "Olly, vincitore di Sanremo 2025, rinunciò; andò il secondo classificato Lucio Corsi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band incise \"Seven Nation Army\", diventata il coro \"po po po\" degli stadi?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Arctic Monkeys",
+        "The Strokes",
+        "The White Stripes",
+        "Franz Ferdinand"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "stadi"
+      ],
+      "notes": "\"Seven Nation Army\" dei White Stripes (2003), cantata dai tifosi italiani ai Mondiali 2006",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Puccini si canta \"O mio babbino caro\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Tosca",
+        "Gianni Schicchi",
+        "Manon Lescaut",
+        "La fanciulla del West"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "puccini"
+      ],
+      "notes": "Aria di Lauretta nel \"Gianni Schicchi\" (1918)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band incise \"Eye of the Tiger\", colonna sonora di un film di Rocky?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Europe",
+        "Toto",
+        "Journey",
+        "Survivor"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "cinema"
+      ],
+      "notes": "\"Eye of the Tiger\" dei Survivor, per \"Rocky III\" (1982)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo lanciò la canzone \"Rasputin\", nel 1978?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Baccara",
+        "ABBA",
+        "Village People",
+        "Boney M."
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "disco",
+        "anni-70"
+      ],
+      "notes": "\"Rasputin\" dei Boney M., gruppo creato in Germania da Frank Farian",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante era soprannominato \"il padrino del soul\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ray Charles",
+        "James Brown",
+        "Otis Redding",
+        "Marvin Gaye"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "soul",
+        "soprannomi"
+      ],
+      "notes": "James Brown, \"The Godfather of Soul\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale canzone napoletana del 1915 è diventata il coro dei tifosi del Napoli?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "'O surdato 'nnammurato",
+        "'O sole mio",
+        "Funiculì funiculà",
+        "Santa Lucia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "napoli",
+        "calcio"
+      ],
+      "notes": "\"'O surdato 'nnammurato\" di Califano e Cannio, 1915, cantata al Maradona",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si assegna il Premio Tenco per la canzone d'autore?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Milano",
+        "Genova",
+        "Sanremo",
+        "Bologna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Il Premio Tenco del Club Tenco si tiene a Sanremo dal 1974",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale soprano inglese Andrea Bocelli incise \"Time to Say Goodbye\", nel 1996?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sarah Brightman",
+        "Kiri Te Kanawa",
+        "Katherine Jenkins",
+        "Joan Sutherland"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "opera"
+      ],
+      "notes": "Versione in duetto di \"Con te partirò\" con Sarah Brightman (1996)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il vero cognome, di origine italiana, della cantante Lady Gaga?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bongiovi",
+        "Ciccone",
+        "Germanotta",
+        "Crocetti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "nomi"
+      ],
+      "notes": "Stefani Joanne Angelina Germanotta; Ciccone è Madonna, Crocetti Dean Martin",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella \"Cavalleria rusticana\" di Mascagni, in quale giorno di festa si svolge la vicenda?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Natale",
+        "Pasqua",
+        "Ferragosto",
+        "Capodanno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "sicilia"
+      ],
+      "notes": "L'opera si svolge in un villaggio siciliano la mattina di Pasqua",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Live Aid del 1985 si tenne a Londra e in quale città americana?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Chicago",
+        "New York",
+        "Los Angeles",
+        "Filadelfia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "eventi"
+      ],
+      "notes": "13 luglio 1985: Wembley a Londra e JFK Stadium a Filadelfia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa suona il pianista nel brano \"4 minuti e 33 secondi\" di John Cage?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Una scala cromatica",
+        "Una sola nota",
+        "Tutti i tasti",
+        "Niente, resta in silenzio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "In \"4′33″\" (1952) l'esecutore non suona: la musica sono i rumori dell'ambiente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a percussione dell'orchestra si accorda su note precise?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Grancassa",
+        "Timpani",
+        "Rullante",
+        "Piatti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "orchestra"
+      ],
+      "notes": "I timpani hanno altezza definita e si accordano con viti o pedali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città morì Giacomo Puccini, nel 1924?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Bruxelles",
+        "Lucca",
+        "Milano",
+        "Viareggio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "puccini",
+        "trabocchetto"
+      ],
+      "notes": "Puccini morì in una clinica di Bruxelles il 29 novembre 1924",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore completò la \"Turandot\", rimasta incompiuta alla morte di Puccini?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Arturo Toscanini",
+        "Pietro Mascagni",
+        "Franco Alfano",
+        "Ottorino Respighi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "puccini"
+      ],
+      "notes": "Il finale fu completato da Franco Alfano; Toscanini diresse la prima nel 1926",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lungo quale fiume fu suonata la prima volta la \"Musica sull'acqua\" di Händel, nel 1717?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Tamigi",
+        "Reno",
+        "Danubio",
+        "Senna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "barocco"
+      ],
+      "notes": "Eseguita su una chiatta sul Tamigi per re Giorgio Primo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo lanciò il tormentone \"Lambada\", nel 1989?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Los del Río",
+        "Gipsy Kings",
+        "Kaoma",
+        "Las Ketchup"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tormentoni"
+      ],
+      "notes": "\"Lambada\" dei Kaoma, gruppo franco-brasiliano, 1989",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale opera di Amilcare Ponchielli viene la celebre \"Danza delle ore\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "I Lituani",
+        "La Gioconda",
+        "Il figliuol prodigo",
+        "Marion Delorme"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera"
+      ],
+      "notes": "Balletto del terzo atto de \"La Gioconda\" (1876)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come chiamava il bluesman B.B. King le sue chitarre?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Peggy Sue",
+        "Mary Lou",
+        "Sweet Jane",
+        "Lucille"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "blues"
+      ],
+      "notes": "B.B. King chiamava Lucille tutte le sue chitarre, dopo un incendio in un locale nel 1949",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La marcia nuziale suonata all'ingresso della sposa viene da un'opera di quale compositore?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Johann Strauss",
+        "Felix Mendelssohn",
+        "Giuseppe Verdi",
+        "Richard Wagner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "È il coro nuziale del \"Lohengrin\" di Wagner; la marcia di Mendelssohn si suona di solito all'uscita",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il corno inglese, nonostante il nome, a quale famiglia di strumenti appartiene?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ottoni",
+        "Legni",
+        "Archi",
+        "Percussioni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Il corno inglese è un oboe contralto ad ancia doppia, quindi un legno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale canzone italiana vinse il primo Grammy come disco dell'anno, nel 1959?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Nel blu dipinto di blu",
+        "Arrivederci Roma",
+        "Ciao ciao bambina",
+        "Come prima"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "italia",
+        "premi"
+      ],
+      "notes": "Ai primi Grammy (1959) \"Nel blu dipinto di blu\" di Modugno fu disco e canzone dell'anno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "L'\"Aria sulla quarta corda\" di Bach si suona tutta su quale corda del violino?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "La",
+        "Re",
+        "Sol",
+        "Mi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "strumenti"
+      ],
+      "notes": "Nella trascrizione di Wilhelmj (1871) dell'Aria di Bach si usa solo la corda di sol, la più grave",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ideò il Festivalbar, nel 1964?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Vittorio Salvetti",
+        "Gianni Ravera",
+        "Ezio Radaelli",
+        "Pippo Baudo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tv",
+        "italia"
+      ],
+      "notes": "Il Festivalbar nacque nel 1964 da Vittorio Salvetti; Radaelli creò il Cantagiro, Ravera organizzò Sanremo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore lucchese scrisse il celebre \"Minuetto\" del Quintetto in mi maggiore?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Alfredo Catalani",
+        "Giacomo Puccini",
+        "Luigi Boccherini",
+        "Francesco Geminiani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Il Minuetto è dal Quintetto per archi opera 11 numero 5 (1771) di Boccherini; Puccini è l'altro lucchese famoso",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1062 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere un pesce fuor d'acqua\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Sentirsi a disagio",
+        "Avere molta sete",
+        "Sentirsi liberi",
+        "Saper nuotare bene"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Essere come un pesce fuor d'acqua: trovarsi in un ambiente estraneo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare un buco nell'acqua\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Fallire un tentativo",
+        "Nuotare sott'acqua",
+        "Scavare un pozzo",
+        "Sprecare acqua"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare un buco nell'acqua: non ottenere alcun risultato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi fa da sé fa per…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Dieci",
+        "Due",
+        "Tre",
+        "Cento"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi fa da sé fa per tre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Patti chiari, amicizia…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lunga",
+        "Vera",
+        "Sincera",
+        "Felice"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Patti chiari, amicizia lunga",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi va con lo zoppo impara a…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Zoppicare",
+        "Cadere",
+        "Camminare",
+        "Correre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi va con lo zoppo impara a zoppicare: le cattive compagnie si imitano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"pittore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Pittrice",
+        "Pittatrice",
+        "Pittorina",
+        "Pittoressa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Pittore, pittrice: come attore e attrice",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, una \"Cenerentola\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Chi arriva sempre tardi",
+        "Chi fa le pulizie di casa",
+        "Chi è trascurato e messo in disparte",
+        "Chi è sempre elegante"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Dalla fiaba: la Cenerentola di un gruppo è chi viene ignorato o sottovalutato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"codardo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Testardo",
+        "Coraggioso",
+        "Vigliacco",
+        "Cordiale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Codardo: vile, pauroso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"post scriptum\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Scritto a mano",
+        "Scritto in fretta",
+        "Scritto dopo",
+        "Scritto prima"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Post scriptum: aggiunta scritta dopo la firma di una lettera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"cane\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Canessa",
+        "Cana",
+        "Canina",
+        "Cagna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Il cane, la cagna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"il gioco non vale la candela\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bisogna risparmiare",
+        "Il gioco è truccato",
+        "Non ne vale la pena",
+        "Ormai è troppo tardi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Un tempo si giocava a lume di candela: se la vincita valeva meno della candela, non conveniva",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"tirare l'acqua al proprio mulino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Aiutare gli altri",
+        "Fare il proprio interesse",
+        "Lavorare sodo",
+        "Sprecare risorse"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Tirare l'acqua al proprio mulino: badare solo al proprio tornaconto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare buon viso a cattivo gioco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Barare al gioco",
+        "Sorridere a tutti",
+        "Accettare una situazione sgradita senza darlo a vedere",
+        "Truccarsi con cura"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare buon viso a cattivo gioco: sopportare con apparente serenità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"andare in brodo di giuggiole\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ammalarsi",
+        "Confondersi",
+        "Mangiare troppo",
+        "Essere al colmo della contentezza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Andare in brodo di giuggiole: provare grande compiacimento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"L'ospite è come il pesce: dopo tre giorni…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Annoia",
+        "Si cuoce",
+        "Se ne va",
+        "Puzza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "L'ospite è come il pesce: dopo tre giorni puzza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Campa cavallo che l'erba…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Arriva",
+        "Fiorisce",
+        "Matura",
+        "Cresce"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Campa cavallo che l'erba cresce: si dice di attese troppo lunghe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"sagace\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Acuto e perspicace",
+        "Sazio",
+        "Selvaggio",
+        "Sacro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Sagace: accorto, che capisce al volo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"reticente\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Che si ritira",
+        "Che ritarda sempre",
+        "Che ripete tutto",
+        "Che tace volutamente qualcosa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Reticente: che non dice tutto ciò che sa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"frugale\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ricco",
+        "Fruttato",
+        "Semplice e sobrio",
+        "Rapido"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Frugale: parco, modesto, come un pasto frugale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"Cerbero\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un uomo con tre figli",
+        "Un medico famoso",
+        "Un guardiano severo e intrattabile",
+        "Un cuoco abilissimo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Dal cane a tre teste che custodisce l'Ade: un custode arcigno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"in extremis\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Al massimo grado",
+        "In punta di piedi",
+        "All'ultimo momento",
+        "In terra straniera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "In extremis: all'ultimo istante, in punto di morte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica \"il capitale\", al maschile?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un patrimonio in denaro",
+        "Un capitello",
+        "Una lettera maiuscola",
+        "La città principale di uno Stato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Il capitale è il patrimonio; la capitale è la città sede del governo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"il brindisi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "I brindisii",
+        "I brindisi",
+        "I brindisini",
+        "Le brindise"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Brindisi è invariabile: un brindisi, due brindisi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"La vedo spesso\", che cos'è \"la\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un articolo",
+        "Un avverbio",
+        "Un pronome",
+        "Una nota musicale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Qui la sostituisce un nome (lei): è un pronome personale complemento oggetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il singolare di \"spaghetti\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Spaghetta",
+        "Spaghettone",
+        "Spago",
+        "Spaghetto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Spaghetto è il singolare, diminutivo di spago",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"ipse dixit\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "L'ha detto lui in persona",
+        "Lo dico io",
+        "Nessuno l'ha detto",
+        "L'ha detto un dio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Ipse dixit: formula dei pitagorici per citare il maestro, poi per ogni autorità indiscussa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di proposizione è \"benché piova\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Temporale",
+        "Causale",
+        "Finale",
+        "Concessiva"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "analisi-del-periodo"
+      ],
+      "notes": "Benché introduce una concessiva: un fatto che non impedisce quello della principale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"alacre\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Arrabbiato",
+        "Acido",
+        "Lento",
+        "Pronto e operoso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Alacre: svelto e volenteroso nel lavoro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"emaciato\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Emancipato",
+        "Magrissimo e sciupato",
+        "Abbronzato",
+        "Emozionato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Emaciato: smagrito, deperito",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"perentorio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Temporaneo",
+        "Perenne",
+        "Che non ammette repliche",
+        "Pericoloso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Perentorio: deciso e categorico, come un ordine perentorio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"prodigo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Miracoloso",
+        "Pentito",
+        "Avaro",
+        "Che spende senza misura"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Prodigo: che dà o spende largamente, fino allo spreco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"Creso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un grande condottiero",
+        "Un uomo ricchissimo",
+        "Un saggio filosofo",
+        "Un uomo molto credulone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Creso, re della Lidia nel VI secolo avanti Cristo, era proverbiale per le sue ricchezze",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura che usa un giro di parole, come \"l'astro del giorno\" per il Sole?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Chiasmo",
+        "Perifrasi",
+        "Anafora",
+        "Litote"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Perifrasi: indicare qualcosa con più parole invece che con il nome proprio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura che ripete le congiunzioni, come in \"e mangia e beve e dorme\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Asindeto",
+        "Polisindeto",
+        "Chiasmo",
+        "Litote"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Polisindeto: molte congiunzioni; asindeto: nessuna congiunzione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"zero\", diffusa in Europa da Fibonacci, viene da quale lingua?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Latino",
+        "Arabo",
+        "Greco",
+        "Ebraico"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dall'arabo sifr, vuoto, attraverso il latino medievale zephirum",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire mangiare \"a ufo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Di nascosto",
+        "Gratis, a spese altrui",
+        "A caso",
+        "In fretta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "A ufo: senza pagare, a scrocco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sillabe ha la parola \"gioia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "3",
+        "4",
+        "2",
+        "1"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sillabe",
+        "trabocchetto"
+      ],
+      "notes": "Gio-ia: la i di gio serve solo a rendere dolce la g",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "L'espressione \"scacco matto\" deriva dal persiano: che cosa significa?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il re è salvo",
+        "Il re è morto",
+        "La regina vince",
+        "La torre cade"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal persiano shah mat, il re è morto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"sosia\" viene da un personaggio di quale autore latino?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Plauto",
+        "Ovidio",
+        "Seneca",
+        "Terenzio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Nell'Anfitrione di Plauto il dio Mercurio prende l'aspetto del servo Sosia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"Pigmalione\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un uomo senza scrupoli",
+        "Un innamorato respinto",
+        "Chi forma e guida un'altra persona",
+        "Un artista vanitoso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Dallo scultore del mito che si innamora della statua da lui creata; poi la commedia di Shaw",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"rodomonte\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un vagabondo",
+        "Uno spaccone",
+        "Un avaro",
+        "Un traditore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Rodomonte, guerriero saraceno di Boiardo e Ariosto, celebre per la sua superbia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Iglesias?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Iglesienti",
+        "Iglesiani",
+        "Iglesiesi",
+        "Iglesini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "abitanti",
+        "sardegna"
+      ],
+      "notes": "Gli abitanti di Iglesias sono gli iglesienti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi verbi è difettivo, perché non ha il participio passato?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Volere",
+        "Vertere",
+        "Vedere",
+        "Vivere"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Vertere manca del participio passato e quindi dei tempi composti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il maschio della scrofa, usato per la riproduzione?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Torello",
+        "Montone",
+        "Becco",
+        "Verro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Verro: maiale maschio destinato alla monta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello crocida?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Passero",
+        "Gallina",
+        "Oca",
+        "Corvo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Crocidare è il verso del corvo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un testo scritto evitando apposta una lettera dell'alfabeto?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lipogramma",
+        "Calligramma",
+        "Acrostico",
+        "Pangramma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "enigmistica"
+      ],
+      "notes": "Lipogramma: dal greco lipo, mancare, e gramma, lettera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"sicofante\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Mangiatore di fichi",
+        "Avvelenatore",
+        "Indovino",
+        "Delatore, calunniatore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Sicofante: nell'antica Atene chi denunciava per lucro; poi spia, calunniatore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"acribia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Avarizia",
+        "Rancore profondo",
+        "Acidità di stomaco",
+        "Scrupolosa precisione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Acribia: rigore minuzioso, soprattutto negli studi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura in cui un verbo regge due termini ma si adatta a uno solo, come \"parlare e lagrimar vedrai insieme\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Zeugma",
+        "Chiasmo",
+        "Ipallage",
+        "Endiadi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Zeugma: in Dante (Inferno 33) vedrai si adatta a lagrimar ma non a parlare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Salò?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Salodiani",
+        "Saloesi",
+        "Salini",
+        "Salotini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "abitanti"
+      ],
+      "notes": "Gli abitanti di Salò sono i salodiani",
+      "verified": false
+    }
+  ]
+}

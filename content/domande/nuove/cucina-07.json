@@ -1,0 +1,1071 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale frutto secco è l'ingrediente principale del marzapane?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Arachidi",
+        "Nocciole",
+        "Mandorle",
+        "Noci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Il marzapane è un impasto di mandorle tritate e zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale zucchero è contenuto naturalmente nel latte?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fruttosio",
+        "Saccarosio",
+        "Maltosio",
+        "Lattosio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scienza-in-cucina"
+      ],
+      "notes": "Il lattosio è lo zucchero tipico del latte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale distillato si mescola con la cola nel Cuba libre?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gin",
+        "Vodka",
+        "Rum",
+        "Tequila"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Il Cuba libre è rum, cola e lime",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire cuocere un cibo al cartoccio?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Friggerlo nell'olio bollente",
+        "Marinarlo e servirlo crudo",
+        "Arrostirlo sulla brace scoperta",
+        "Cuocerlo chiuso in un involucro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Al cartoccio: cotto avvolto in carta da forno o alluminio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si mette al posto della carne nel salame di cioccolato?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pane raffermo",
+        "Castagne lesse",
+        "Biscotti secchi",
+        "Prosciutto cotto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "Il salame di cioccolato è un dolce di cacao, burro, zucchero e biscotti spezzettati: niente carne",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "L'anatra laccata è una celebre specialità di quale città?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pechino",
+        "Tokyo",
+        "Seul",
+        "Bangkok"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-cinese"
+      ],
+      "notes": "L'anatra laccata è detta anche anatra alla pechinese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il würstel è una salsiccia tipica di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Germania",
+        "Grecia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salumi"
+      ],
+      "notes": "Würstel è il diminutivo tedesco di Wurst, salsiccia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Cannonau è un vino rosso tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Calabria",
+        "Sicilia",
+        "Sardegna",
+        "Liguria"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Cannonau di Sardegna DOC",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce spagnolo è un bastoncino di pasta fritta, spesso inzuppato nella cioccolata?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Polvorón",
+        "Crema catalana",
+        "Turrón",
+        "Churros"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-spagnola"
+      ],
+      "notes": "I churros fritti si servono con la cioccolata calda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce si ottiene montando a neve gli albumi con lo zucchero e asciugandoli in forno?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bignè",
+        "Cannolo",
+        "Crostata",
+        "Meringa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "La meringa è fatta di albumi montati e zucchero cotti a bassa temperatura",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale erba aromatica si preparano i saltimbocca alla romana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Basilico",
+        "Salvia",
+        "Rosmarino",
+        "Origano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-romana"
+      ],
+      "notes": "Saltimbocca: fettine di vitello con prosciutto crudo e una foglia di salvia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I carciofi alla giudia, fritti interi, appartengono alla tradizione ebraica di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ferrara",
+        "Roma",
+        "Torino",
+        "Venezia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-romana"
+      ],
+      "notes": "Specialità della cucina giudaico-romanesca del Ghetto di Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I grissini, sottili bastoncini di pane croccante, sono nati in quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Milano",
+        "Bologna",
+        "Torino",
+        "Genova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pane"
+      ],
+      "notes": "Tradizionalmente nati a Torino nel Seicento, attribuiti al fornaio Antonio Brunero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A Venezia, che cos'è un'ombra da bere?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un bicchiere di vino",
+        "Un caffè freddo",
+        "Una birra piccola",
+        "Un liquore all'anice"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-veneta"
+      ],
+      "notes": "L'ombra è il bicchiere di vino dei bacari veneziani, da bere con i cicchetti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale attrezzo a fili tesi si tagliano i maccheroni abruzzesi?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Chitarra",
+        "Torchio",
+        "Rotella",
+        "Mattarello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta",
+        "abruzzo"
+      ],
+      "notes": "Maccheroni alla chitarra: la sfoglia si taglia premendola su fili d'acciaio tesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Gli spaghetti con le grosse polpette, piatto simbolo dei film americani, di quale cucina sono tipici?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Romana",
+        "Siciliana",
+        "Italoamericana",
+        "Napoletana"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasta",
+        "trabocchetto"
+      ],
+      "notes": "Spaghetti and meatballs nasce tra gli immigrati italiani negli Stati Uniti; in Italia le polpette grosse si servono come secondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale salsa argentina a base di prezzemolo, aglio, aceto e olio accompagna la carne alla griglia?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Guacamole",
+        "Chimichurri",
+        "Tzatziki",
+        "Pico de gallo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-argentina"
+      ],
+      "notes": "Il chimichurri accompagna l'asado argentino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale distillato brasiliano di canna da zucchero è la base della caipirinha?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rum",
+        "Cachaça",
+        "Mezcal",
+        "Pisco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Caipirinha: cachaça, lime e zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'erba aromatica più abbondante nel tabbouleh libanese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Aneto",
+        "Prezzemolo",
+        "Coriandolo",
+        "Basilico"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mediorientale"
+      ],
+      "notes": "Il tabbouleh è soprattutto prezzemolo tritato con bulgur, pomodoro, cipolla e menta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quali semi si prepara la tahina, crema usata anche nell'hummus?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Girasole",
+        "Sesamo",
+        "Zucca",
+        "Lino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mediorientale"
+      ],
+      "notes": "La tahina è una crema di semi di sesamo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolcetto inzuppato nel tè risveglia i ricordi del narratore nella Recherche di Proust?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Croissant",
+        "Madeleine",
+        "Macaron",
+        "Savoiardo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "letteratura"
+      ],
+      "notes": "La madeleine compare in Dalla parte di Swann",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il casatiello, pane rustico ripieno di salumi e uova, è tipico di quale festa napoletana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ferragosto",
+        "Carnevale",
+        "Pasqua",
+        "Natale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-campana"
+      ],
+      "notes": "Il casatiello si prepara per Pasqua, con le uova intere incastonate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale città umbra deriva il nome dei norcini, esperti nella lavorazione del maiale?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gubbio",
+        "Norcia",
+        "Todi",
+        "Spoleto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salumi",
+        "umbria"
+      ],
+      "notes": "Norcino: macellaio e salumiere, dal nome di Norcia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale vitigno è alla base del Chianti?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sangiovese",
+        "Barbera",
+        "Aglianico",
+        "Nebbiolo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Il disciplinare del Chianti prevede soprattutto Sangiovese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il ghee della cucina indiana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Formaggio fresco",
+        "Yogurt colato",
+        "Olio di cocco",
+        "Burro chiarificato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-indiana"
+      ],
+      "notes": "Il ghee è burro chiarificato, base di molta cucina indiana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il lampredotto fiorentino si ricava da quale parte del bovino?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il fegato",
+        "La lingua",
+        "La coda",
+        "Uno degli stomaci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-toscana"
+      ],
+      "notes": "Il lampredotto è l'abomaso, il quarto stomaco dei bovini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome lo stracchino?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Da un paese lombardo",
+        "Dalle mucche stanche",
+        "Dal suo inventore",
+        "Dalla forma quadrata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Dal lombardo stracch: le vacche stanche al ritorno dagli alpeggi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oggi la maggior parte del Pecorino Romano DOP si produce in quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Campania",
+        "Sicilia",
+        "Sardegna",
+        "Lazio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi",
+        "trabocchetto"
+      ],
+      "notes": "Oltre il 90% del Pecorino Romano DOP è prodotto in Sardegna (Consorzio di tutela)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il bagnet verd, salsa piemontese per il bollito, è a base di quale erba?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rucola",
+        "Basilico",
+        "Spinaci",
+        "Prezzemolo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-piemontese"
+      ],
+      "notes": "Il bagnet verd è prezzemolo tritato con aglio, acciughe, mollica, aceto e olio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è lo Yorkshire pudding inglese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un budino al cioccolato",
+        "Un tortino salato di pastella",
+        "Una crema alla vaniglia",
+        "Una torta di frutta secca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-inglese",
+        "trabocchetto"
+      ],
+      "notes": "Nonostante il nome è una pastella salata cotta in forno, servita con l'arrosto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in Russia l'insalata che in Italia chiamiamo russa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Insalata Romanov",
+        "Insalata Olivier",
+        "Insalata Stroganoff",
+        "Insalata Puškin"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-russa",
+        "trabocchetto"
+      ],
+      "notes": "Prende il nome dal cuoco Lucien Olivier, che la creò a Mosca nell'Ottocento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il caffè decaffeinato contiene caffeina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sì, ma in piccolissima quantità",
+        "Solo se è macinato fine",
+        "Solo se è di qualità arabica",
+        "No, nemmeno una traccia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "caffè",
+        "trabocchetto"
+      ],
+      "notes": "La decaffeinizzazione non è totale: per legge ne resta al massimo lo 0,1% nel caffè crudo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In cucina, che cos'è un fumetto?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un brodo concentrato di pesce",
+        "Un dolce soffiato al forno",
+        "Un taglio di carne di maiale",
+        "Un liquore affumicato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Fumetto: fondo di cottura a base di lische e teste di pesce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale vitigno si produce il Barolo?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dolcetto",
+        "Barbera",
+        "Sangiovese",
+        "Nebbiolo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Il Barolo DOCG è ottenuto al 100% da uve Nebbiolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il gravlax, salmone crudo marinato con sale, zucchero e aneto, è tipico di quale area?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Scozia",
+        "Scandinavia",
+        "Canada",
+        "Giappone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-nordica"
+      ],
+      "notes": "Il gravlax è una preparazione tradizionale svedese e norvegese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale specie di caffè contiene più caffeina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Excelsa",
+        "Arabica",
+        "Liberica",
+        "Robusta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "La Robusta ha circa il doppio della caffeina dell'Arabica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città lombarda, patria dei violini, è famosa anche per il torrone?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pavia",
+        "Lodi",
+        "Brescia",
+        "Cremona"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "lombardia"
+      ],
+      "notes": "Cremona: Stradivari e la tradizionale Festa del torrone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale albero delle Madonie si ricava la manna, incidendone la corteccia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Frassino",
+        "Carrubo",
+        "Castagno",
+        "Sughero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "La manna di Castelbuono e Pollina è la linfa solidificata del frassino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il vino Montepulciano d'Abruzzo prende il nome da che cosa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Da un vitigno",
+        "Da un fiume abruzzese",
+        "Da un comune toscano",
+        "Da una famiglia nobile"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino",
+        "trabocchetto"
+      ],
+      "notes": "Montepulciano è il nome del vitigno; il Vino Nobile di Montepulciano toscano è un'altra cosa (Sangiovese)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire raclette, nome del celebre formaggio fuso svizzero?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Raschiare",
+        "Mucca",
+        "Sciogliere",
+        "Montagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Dal francese racler: si raschia il formaggio fuso dalla forma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cereale si prepara tradizionalmente l'injera, il pane spugnoso dell'Etiopia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Teff",
+        "Segale",
+        "Avena",
+        "Riso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-africana"
+      ],
+      "notes": "L'injera si fa con farina di teff fermentata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale metodo si rende spumante, di solito, il Prosecco?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "In bottiglia",
+        "In anfore di terracotta",
+        "In autoclave",
+        "In botti di legno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Metodo Martinotti-Charmat: rifermentazione in grandi recipienti chiusi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa caratterizza la salsiccia di Bra?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "È al peperoncino",
+        "È di carne d'asino",
+        "È affumicata",
+        "È di carne di vitello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "salumi",
+        "piemonte"
+      ],
+      "notes": "La salsiccia di Bra è di vitello con poco grasso suino, e si mangia anche cruda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque nel 1786 il vermut, vino aromatizzato con erbe?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Milano",
+        "Firenze",
+        "Venezia",
+        "Torino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "liquori"
+      ],
+      "notes": "Antonio Benedetto Carpano creò il vermut a Torino nel 1786",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa Theobroma, nome scientifico della pianta del cacao?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Seme prezioso",
+        "Frutto amaro",
+        "Cibo degli dei",
+        "Albero nero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cioccolato"
+      ],
+      "notes": "Linneo: dal greco theos, dio, e broma, cibo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i masculini della cucina catanese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Alici",
+        "Sardine",
+        "Totani",
+        "Sgombri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesce",
+        "sicilia"
+      ],
+      "notes": "I masculini da magghia sono le acciughe pescate a Catania con la rete",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Primitivo pugliese è geneticamente identico a quale vitigno coltivato in California?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Zinfandel",
+        "Pinot nero",
+        "Cabernet sauvignon",
+        "Merlot"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "L'analisi del DNA ha dimostrato che Primitivo e Zinfandel sono lo stesso vitigno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la ricetta depositata a Bologna, quanto è larga una tagliatella cotta?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "3 millimetri",
+        "12 millimetri",
+        "5 millimetri",
+        "8 millimetri"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "Ricetta depositata alla Camera di Commercio di Bologna nel 1972: 8 mm da cotta, la 12270esima parte della Torre degli Asinelli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il violino di capra della Valchiavenna?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Un dolce di castagne",
+        "Un liquore d'erbe",
+        "Un prosciutto di capra",
+        "Un formaggio a forma di violino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salumi",
+        "lombardia"
+      ],
+      "notes": "Coscia di capra salata e stagionata, affettata appoggiandola alla spalla come un violino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha di particolare la coltivazione della pesca di Leonforte?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Si raccoglie solo di notte",
+        "Ogni frutto è chiuso in un sacchetto",
+        "Matura sotto la neve",
+        "Cresce su alberi senza foglie"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "frutta"
+      ],
+      "notes": "Pesca di Leonforte IGP: ogni frutto è insacchettato sull'albero e raccolto tardi, tra settembre e ottobre",
+      "verified": false
+    }
+  ]
+}
