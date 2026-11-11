@@ -1,6 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
+import { ScreenChoiceField } from "@/features/display/TvScreenControls";
 import { useEffect, useState } from "react";
 import { Badge, Button, Field, Input, Modal, Select } from "@/components/ui";
 import { DIFFICULTY_MIX_LABEL, DIFFICULTY_MIXES, splitQuestions, type DifficultyMix } from "@/lib/game-engine/compose";
@@ -11,7 +12,7 @@ import { fmtNum, fromLocalInput, plural } from "../format";
 import type { CategoryCount } from "../types";
 import { difficultyLabel } from "@/lib/game-engine/difficulty";
 
-const FRESH_LABEL = { nuova: "mai giocata", giocata: "già giocata", prenotata: "in un'altra serata" } as const;
+const FRESH_LABEL = { nuova: "mai giocata", giocata: "già giocata", prenotata: "in un'altra serata", vista: "già vista dall'host" } as const;
 
 function todayTitle() {
   return `Serata rapida del ${new Date().toLocaleDateString("it-IT", { day: "numeric", month: "long" })}`;
@@ -177,6 +178,7 @@ export function QuickSessionModal({ onClose, onCreated }: { onClose: () => void;
             label="Serata di prova"
             hint="Non entra nelle classifiche e non consuma le domande: restano «mai giocate» anche dopo averla giocata."
           />
+          <ScreenChoiceField className="rounded-xl border border-white/10 bg-white/5 p-3" />
           <div>
             <p className="mb-1.5 text-sm font-bold text-white/90">
               Categorie <span className="font-normal text-white/55">({categories.length === 0 ? "tutte" : plural(categories.length, "scelta", "scelte")})</span>

@@ -23,24 +23,24 @@ export async function dashboardStats() {
     }[]
   >`
     select
-      (select count(*)::int from game_sessions where not is_test) as sessions_total,
-      (select count(*)::int from game_sessions where not is_test and status in ('finished','archived')) as sessions_finished,
-      (select count(*)::int from game_sessions where status in ('draft','ready') and (scheduled_at is null or scheduled_at > now() - interval '1 day')) as sessions_upcoming,
+      (select count(*)::int from game_sessions where not is_test and host_user_id is null) as sessions_total,
+      (select count(*)::int from game_sessions where not is_test and host_user_id is null and status in ('finished','archived')) as sessions_finished,
+      (select count(*)::int from game_sessions where host_user_id is null and status in ('draft','ready') and (scheduled_at is null or scheduled_at > now() - interval '1 day')) as sessions_upcoming,
       (select count(*)::int from question_bank where status = 'approved') as questions_approved,
       (select count(*)::int from question_bank where status = 'draft') as questions_draft,
       (select count(*)::int from game_rounds) as rounds,
       (select count(*)::int from special_event_definitions where enabled) as events_enabled,
-      (select count(*)::int from participants p join game_sessions s on s.id = p.session_id where not s.is_test and not p.is_bot) as players_total,
+      (select count(*)::int from participants p join game_sessions s on s.id = p.session_id where not s.is_test and s.host_user_id is null and not p.is_bot) as players_total,
       (select count(*)::int from player_identities) as identities,
-      (select count(*)::int from answer_submissions a join game_sessions s on s.id = a.session_id where not s.is_test) as answers_total,
+      (select count(*)::int from answer_submissions a join game_sessions s on s.id = a.session_id where not s.is_test and s.host_user_id is null) as answers_total,
       (select round(100.0 * avg(case when a.is_correct then 1 else 0 end), 1)::float8 from answer_submissions a
-         join game_sessions s on s.id = a.session_id where not s.is_test and a.is_correct is not null) as correct_pct`;
+         join game_sessions s on s.id = a.session_id where not s.is_test and s.host_user_id is null and a.is_correct is not null) as correct_pct`;
   const history = await sql<{ id: string; title: string; date: Date | null; players: number; winner: string | null; top: number | null }[]>`
     select s.id, s.title, coalesce(s.scheduled_at, s.started_at) as date,
       (select count(*)::int from participants p where p.session_id = s.id and not p.is_bot) as players,
       (select nickname from leaderboards l where l.session_id = s.id order by final_rank limit 1) as winner,
       (select points from leaderboards l where l.session_id = s.id order by final_rank limit 1) as top
-    from game_sessions s where s.status in ('finished','archived') and not s.is_test
+    from game_sessions s where s.status in ('finished','archived') and not s.is_test and s.host_user_id is null
     order by coalesce(s.scheduled_at, s.started_at) desc nulls last limit 12`;
   return { totals, history: history.map((h) => ({ ...h, date: iso(h.date) })) };
 }

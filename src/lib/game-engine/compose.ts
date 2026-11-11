@@ -6,7 +6,9 @@
  *  1. prima le domande MAI giocate in una serata reale e non prenotate in
  *     altre serate in programma;
  *  2. poi quelle giocate meno di recente (finestra delle più vecchie);
- *  3. per ultime quelle già inserite in un'altra serata reale in programma;
+ *  3. poi quelle già inserite in un'altra serata reale in programma;
+ *  4. per ultime (solo partite libere) quelle che l'account host ha già visto
+ *     in una sua partita precedente;
  * a parità di freschezza: niente stessa categoria due volte di fila,
  * difficoltà secondo il mix scelto (il round finale è più difficile),
  * categorie distribuite tra i round. Deterministica a parità di `seed`.
@@ -67,16 +69,19 @@ export interface ComposeCandidate {
   lastPlayedAt: string | null;
   /** Già inserita in un'altra serata reale in programma (non ancora mostrata). */
   plannedElsewhere: boolean;
+  /** Partite libere: già uscita in una partita precedente dello stesso account host. */
+  seenByHost?: boolean;
 }
 
-export type Freshness = "nuova" | "giocata" | "prenotata";
+export type Freshness = "nuova" | "giocata" | "prenotata" | "vista";
 
-export function freshnessOf(c: Pick<ComposeCandidate, "lastPlayedAt" | "plannedElsewhere">): Freshness {
+export function freshnessOf(c: Pick<ComposeCandidate, "lastPlayedAt" | "plannedElsewhere" | "seenByHost">): Freshness {
+  if (c.seenByHost) return "vista";
   if (c.plannedElsewhere) return "prenotata";
   return c.lastPlayedAt ? "giocata" : "nuova";
 }
 
-const TIER: Record<Freshness, number> = { nuova: 0, giocata: 1, prenotata: 2 };
+const TIER: Record<Freshness, number> = { nuova: 0, giocata: 1, prenotata: 2, vista: 3 };
 
 export interface ComposeRoundSpec {
   /** Quante domande servono in questo gruppo. */
@@ -118,6 +123,8 @@ export interface ComposeSummary {
   repeats: number;
   /** Domande già inserite in un'altra serata in programma. */
   planned: number;
+  /** Partite libere: domande già viste dall'account host (ultima scelta possibile). */
+  seen: number;
   /** Domande scelte fuori dalla fascia di difficoltà richiesta. */
   offBand: number;
 }
@@ -182,14 +189,14 @@ export function composeQuestions(input: ComposeInput): ComposeResult {
     }));
 
   // Per ogni livello di freschezza, candidati ordinati dal giocato meno di recente.
-  const tiers: Cand[][] = [[], [], []];
+  const tiers: Cand[][] = [[], [], [], []];
   for (const c of pool) tiers[c.tier].push(c);
   for (const t of tiers) t.sort((a, b) => a.playedMs - b.playedMs || a.rand - b.rand);
 
   const sessionCats = new Map<string, number>(Object.entries(input.sessionCategoryCounts ?? {}));
   const requested = input.rounds.reduce((s, r) => s + Math.max(0, r.count), 0);
   let remainingSlots = requested;
-  const summary: ComposeSummary = { requested, picked: 0, missing: 0, fresh: 0, repeats: 0, planned: 0, offBand: 0 };
+  const summary: ComposeSummary = { requested, picked: 0, missing: 0, fresh: 0, repeats: 0, planned: 0, seen: 0, offBand: 0 };
 
   const rounds: ComposedPick[][] = input.rounds.map((spec) => {
     const bands = roundBands(input.mix, Math.max(0, spec.count), spec.harder);
@@ -233,7 +240,8 @@ export function composeQuestions(input: ComposeInput): ComposeResult {
       const freshness = freshnessOf(c);
       if (freshness === "nuova") summary.fresh++;
       else if (freshness === "giocata") summary.repeats++;
-      else summary.planned++;
+      else if (freshness === "prenotata") summary.planned++;
+      else summary.seen++;
       if (c.band !== target) summary.offBand++;
       summary.picked++;
       picks.push({
@@ -258,6 +266,8 @@ export interface PoolStats {
   fresh: number;
   played: number;
   planned: number;
+  /** Partite libere: già viste dall'account host. */
+  seen: number;
   byBand: Record<DifficultyBand, { usable: number; fresh: number }>;
 }
 
@@ -268,6 +278,7 @@ export function poolStats(candidates: ComposeCandidate[], excludeIds: Iterable<s
     fresh: 0,
     played: 0,
     planned: 0,
+    seen: 0,
     byBand: { facile: { usable: 0, fresh: 0 }, media: { usable: 0, fresh: 0 }, difficile: { usable: 0, fresh: 0 } },
   };
   for (const c of candidates) {
@@ -280,7 +291,8 @@ export function poolStats(candidates: ComposeCandidate[], excludeIds: Iterable<s
       out.fresh++;
       b.fresh++;
     } else if (f === "giocata") out.played++;
-    else out.planned++;
+    else if (f === "prenotata") out.planned++;
+    else out.seen++;
   }
   return out;
 }

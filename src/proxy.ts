@@ -4,11 +4,23 @@ import { AUTH_COOKIE_NAME } from "@/lib/supabase/shared";
 
 /**
  * Proxy (ex middleware): mantiene aggiornati i cookie di sessione Supabase
- * per l'area admin e reindirizza al login chi non è autenticato.
+ * (area admin e account host del gioco libero) e reindirizza al login chi non è autenticato.
  * È solo un controllo "ottimistico": l'autorizzazione vera avviene in ogni
- * endpoint con requireAdmin().
+ * endpoint con requireAdmin() / requireHostUser().
+ *
+ * Il cookie dura 400 giorni (@supabase/ssr) e il refresh token di Supabase non scade:
+ * finché l'account viene usato almeno ogni tanto, non serve rifare l'accesso.
  */
 export async function proxy(request: NextRequest) {
+  const path = request.nextUrl.pathname;
+  const isAdminArea = path.startsWith("/admin") || path.startsWith("/api/admin");
+  // Fuori dall'area admin: senza cookie di sessione non c'è nulla da rinnovare (i giocatori non hanno account).
+  const hasSession = request.cookies.getAll().some((c) => c.name.startsWith(AUTH_COOKIE_NAME));
+  if (!isAdminArea && !hasSession) {
+    if (path.startsWith("/gioca")) return toLogin(request, "/accedi");
+    return NextResponse.next({ request });
+  }
+
   let response = NextResponse.next({ request });
   const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!, {
     cookieOptions: { name: AUTH_COOKIE_NAME },
@@ -22,20 +34,23 @@ export async function proxy(request: NextRequest) {
     },
   });
   const { data } = await supabase.auth.getUser();
-  const path = request.nextUrl.pathname;
   const isLogin = path === "/admin/login";
   if (!data.user && path.startsWith("/api/admin")) {
     return NextResponse.json({ error: { code: "UNAUTHENTICATED", message: "Sessione scaduta: rifai il login" } }, { status: 401 });
   }
-  if (!data.user && path.startsWith("/admin") && !isLogin) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/admin/login";
-    url.searchParams.set("next", path);
-    return NextResponse.redirect(url);
-  }
+  if (!data.user && path.startsWith("/admin") && !isLogin) return toLogin(request, "/admin/login");
+  if (!data.user && path.startsWith("/gioca")) return toLogin(request, "/accedi");
   return response;
 }
 
+function toLogin(request: NextRequest, loginPath: string) {
+  const url = request.nextUrl.clone();
+  url.pathname = loginPath;
+  url.search = "";
+  url.searchParams.set("next", request.nextUrl.pathname);
+  return NextResponse.redirect(url);
+}
+
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*"],
+  matcher: ["/", "/admin/:path*", "/api/admin/:path*", "/gioca/:path*", "/accedi/:path*", "/api/account/:path*", "/api/gioca/:path*"],
 };

@@ -23,7 +23,8 @@ export type PlayerErrorCode =
   | "ALREADY_ANSWERED"
   | "ALREADY_BET"
   | "INVALID_ANSWER"
-  | "RATE_LIMITED";
+  | "RATE_LIMITED"
+  | "GAME_FULL";
 
 export class PlayerError extends Error {
   readonly code: PlayerErrorCode;
@@ -188,6 +189,12 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
     if (settings.joinLocked) throw new PlayerError("JOIN_LOCKED", "Gli ingressi sono chiusi in questo momento");
     if (!EARLY_JOIN_PHASES.includes(s.phase) && !settings.allowLateJoin) {
       throw new PlayerError("JOIN_LOCKED", "La partita è già iniziata e gli ingressi tardivi non sono consentiti");
+    }
+
+    if (settings.maxPlayers !== null) {
+      const [{ n }] = await tx<{ n: number }[]>`
+        select count(*)::int as n from participants where session_id = ${s.id} and status = 'active' and not is_bot`;
+      if (n >= settings.maxPlayers) throw new PlayerError("GAME_FULL", `La partita è al completo (massimo ${settings.maxPlayers} giocatori)`);
     }
 
     const v = validateNickname(input.nickname, { minLength: settings.nicknameMinLength, maxLength: settings.nicknameMaxLength });

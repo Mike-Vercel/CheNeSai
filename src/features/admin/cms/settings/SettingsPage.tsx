@@ -119,6 +119,23 @@ function GlobalSettingsForm({ initial, canEdit, onSaved }: { initial: GlobalSett
         onChange={(v) => setS({ ...s, events: { autoEventsEnabled: v } })}
         label="Eventi di Palmino programmati automatici (interruttore generale)"
       />
+      <fieldset className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <legend className="mb-2 font-bold text-white/85">Gioco libero (partite create dal pubblico)</legend>
+        <div className="flex items-end pb-2 sm:col-span-2 lg:col-span-3">
+          <Toggle
+            checked={s.publicGames.enabled}
+            disabled={dis}
+            onChange={(v) => setS({ ...s, publicGames: { ...s.publicGames, enabled: v } })}
+            label="Gioco libero aperto al pubblico (chi ha un account può creare partite da /gioca)"
+          />
+        </div>
+        <Field label="Partite per account" error={e("publicGames.gamesPerAccount")} hint="0 = illimitate. Admin e super admin non hanno limiti.">
+          {(id) => <Input id={id} type="number" min={0} max={1000} disabled={dis} value={s.publicGames.gamesPerAccount} onChange={(ev) => num("publicGames", "gamesPerAccount", ev.target.value)} />}
+        </Field>
+        <Field label="Giocatori massimi per partita" error={e("publicGames.maxPlayers")} hint="Vale per le nuove partite libere (2–200)">
+          {(id) => <Input id={id} type="number" min={2} max={200} disabled={dis} value={s.publicGames.maxPlayers} onChange={(ev) => num("publicGames", "maxPlayers", ev.target.value)} />}
+        </Field>
+      </fieldset>
       <p className="text-xs text-white/50">Le serate già pubblicate mantengono i punteggi congelati al momento della pubblicazione.</p>
       {error && <InfoNote tone="danger">{error}</InfoNote>}
       {canEdit && (

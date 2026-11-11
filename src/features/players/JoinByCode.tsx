@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export function JoinByCode() {
+export function JoinByCode({ cta = "GIOCA", inputId = "code", autoFocus }: { cta?: string; inputId?: string; autoFocus?: boolean } = {}) {
   const router = useRouter();
   const [code, setCode] = useState("");
   const valid = /^[A-Z0-9]{4,8}$/.test(code);
@@ -15,11 +15,12 @@ export function JoinByCode() {
         if (valid) router.push(`/play/${code}`);
       }}
     >
-      <label htmlFor="code" className="sr-only">
+      <label htmlFor={inputId} className="sr-only">
         Codice partita
       </label>
       <input
-        id="code"
+        id={inputId}
+        autoFocus={autoFocus}
         value={code}
         onChange={(e) => setCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8))}
         placeholder="CODICE"
@@ -33,7 +34,7 @@ export function JoinByCode() {
         disabled={!valid}
         className="h-14 shrink-0 rounded-2xl border-[3px] border-[#b8770a] bg-gradient-to-b from-[#ffe680] to-gold-deep px-5 font-display text-xl text-ink shadow-[0_4px_0_#9a5d00] disabled:opacity-50"
       >
-        GIOCA
+        {cta}
       </button>
     </form>
   );

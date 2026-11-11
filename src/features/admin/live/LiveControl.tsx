@@ -15,6 +15,7 @@ import { LETTERS } from "@/features/game/components/answers";
 import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
 import { TvStage } from "@/features/display/TvStage";
 import { TvMessageScreen } from "@/features/display/TvScreens";
+import { OpenTvButton } from "@/features/display/TvScreenControls";
 import { useCan } from "@/features/admin/AdminShell";
 import { computeLiveTiming } from "@/lib/show/running-order";
 import { TimingBadge, TimingPanel } from "./TimingPanel";
@@ -231,8 +232,9 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
             👥 {live.counts.players} ({live.counts.online} online)
           </Badge>
           <TimingBadge timing={timing} />
-          <a href={displayUrl} target="_blank" rel="noopener" className="rounded-lg bg-electric px-3 py-1.5 text-sm font-extrabold">
-            📺 Apri schermo TV
+          <OpenTvButton url={displayUrl} sessionId={sessionId} compact />
+          <a href={displayUrl} target="_blank" rel="noopener" className="rounded-lg bg-white/10 px-3 py-1.5 text-sm font-bold" title="Apri il TV in una scheda normale">
+            Link TV ↗
           </a>
           <button
             className="rounded-lg bg-white/10 px-3 py-1.5 text-sm font-bold"

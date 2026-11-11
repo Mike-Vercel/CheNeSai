@@ -130,6 +130,8 @@ export const sessionSettingsSchema = z.object({
   runningOrder: runningOrderSchema.nullable().optional(),
   /** scorrimento della serata: "manual" (predefinito, la regia preme ogni passo) o "auto" (va da sola) */
   advanceMode: z.enum(ADVANCE_MODES).nullable().optional(),
+  /** giocatori massimi (partite libere; assente = nessun limite) */
+  maxPlayers: z.number().int().min(2).max(500).nullable().optional(),
   /** modalità squadre (assente = individuale) */
   teams: z
     .object({
