@@ -43,8 +43,11 @@ const FEMALE = /(isabella|elsa|palmira|alice|federica|paola|carla|bianca|google 
 /** Per quanto la battuta appena finita resta "in scena" (vedi heldSpeech). */
 const HELD_SPEECH_MS = 900;
 
-/** Se la clip ElevenLabs non è pronta entro questo tempo si parla con la voce del browser. */
-const CLIP_READY_TIMEOUT_MS = 2500;
+/**
+ * Attesa massima della clip ElevenLabs (generata al momento sul server, anche 3-6 s su Vercel).
+ * Solo oltre questo tempo, o se il server risponde con un errore, si ripiega sulla voce del browser.
+ */
+const CLIP_READY_TIMEOUT_MS = 10000;
 
 type SpeakingListener = (who: Presenter | null) => void;
 
@@ -295,7 +298,7 @@ class VoiceEngine {
     }
     const line = { who: next.who, text: next.text, resolve: next.resolve };
     if (next.prefetch) {
-      // Voce professionale: si aspetta l'URL al massimo ~2,5 s, poi si ripiega sul browser.
+      // Voce professionale: si aspetta l'URL al massimo ~10 s (errore del server = browser subito).
       const epoch = this.queueEpoch;
       let timer: ReturnType<typeof setTimeout> | undefined;
       const timeout = new Promise<null>((r) => {
