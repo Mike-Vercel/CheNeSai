@@ -27,7 +27,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
         <div className="qz-vignette absolute inset-0" />
       </div>
 
-      <header className="flex h-16 items-center justify-between gap-4 px-4 md:h-20 md:px-10">
+      <header className="qz-safe-header flex h-16 items-center justify-between gap-4 px-4 md:h-20 md:px-10">
         <Link href="/" className="font-display text-2xl leading-none tracking-tight text-white md:text-3xl">
           {PLATFORM_NAME}
         </Link>

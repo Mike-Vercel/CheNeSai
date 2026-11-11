@@ -13,6 +13,7 @@ import { Character, Logo } from "@/features/game/components/brand";
 import { TimerBar } from "@/features/game/components/effects";
 import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 export function PhoneShell({ children, header }: { children: ReactNode; header?: ReactNode }) {
   return (
@@ -42,6 +43,7 @@ export function PhoneHeader({
 }) {
   return (
     <header className="relative z-20 mx-auto flex w-full max-w-md items-center gap-2 px-4 pt-3">
+      <ExitButton size="sm" className="!h-10 !px-2.5" />
       <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border-2 border-gold/70 bg-black/50 px-3 py-1.5">
         <span
           className={clsx("h-2.5 w-2.5 shrink-0 rounded-full", status === "live" ? "bg-lime" : status === "offline" ? "bg-flame" : "animate-pulse bg-gold")}

@@ -38,7 +38,7 @@ export default async function Home() {
 
       {/* ------------------------------------------------ gioco in primo piano: palco buio, luci sul logo */}
       <section aria-labelledby="featured-title" className="relative isolate overflow-hidden">
-        <div className="relative flex flex-col items-center px-4 pb-10 pt-[4.5rem] md:pt-24 lg:min-h-[max(38rem,calc(100svh-5.5rem))] lg:justify-center lg:pb-8 lg:pt-20">
+        <div className="relative flex flex-col items-center px-4 pb-10 pt-[calc(4.5rem+env(safe-area-inset-top))] md:pt-[calc(6rem+env(safe-area-inset-top))] lg:min-h-[max(38rem,calc(100svh-5.5rem))] lg:justify-center lg:pb-8 lg:pt-20">
           <div aria-hidden className="qz-spotlight qz-breathe absolute inset-0 -z-20 motion-reduce:animate-none" />
 
           {/* presentatori ai lati, ciascuno con la sua luce a terra (da tablet in su) */}

@@ -16,6 +16,7 @@ import { IntroSkipButton } from "@/features/players/IntroSkip";
 import { SeatContext, useSeat } from "./use-seat";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 const DisplayApp = dynamic(() => import("@/features/display/DisplayApp").then((m) => m.DisplayApp), {
   ssr: false,
@@ -181,11 +182,21 @@ function PhoneShowOverlay({
               <MenuIcon />
             </button>
           </div>
+          <div className="flex justify-center">
+            <ExitButton size="sm" />
+          </div>
           {(start.error || state.playerCount < 1) && (
             <p role={start.error ? "alert" : undefined} className={clsx("text-center text-xs font-bold", start.error ? "text-[#ffb3c1]" : "text-white/70")}>
               {start.error ?? "Entra tu o fai entrare almeno un amico per iniziare."}
             </p>
           )}
+        </div>
+      )}
+
+      {/* in partita: in basso a sinistra (a destra c'è il menu); durante l'intro in alto (in basso c'è "Salta intro") */}
+      {!lobby && !sheet && (
+        <div className={clsx("absolute left-3 z-[66]", phase === "INTRO" ? "top-3" : "bottom-3")} style={phase === "INTRO" ? { marginTop: "env(safe-area-inset-top)" } : { marginBottom: "env(safe-area-inset-bottom)" }}>
+          <ExitButton size="sm" className="!h-12" />
         </div>
       )}
 
@@ -277,6 +288,7 @@ function PhoneShowOverlay({
               <Link href={`/gioca/schermo/${sessionId}`} className="w-fit text-sm font-bold text-white/70 underline underline-offset-4">
                 Passa al televisore
               </Link>
+              <ExitButton size="md" className="self-start" />
             </div>
           </aside>
         </>

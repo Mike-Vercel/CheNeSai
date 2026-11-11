@@ -14,6 +14,7 @@ import { InviteButton } from "./InviteButton";
 import { RematchControls } from "./RematchControls";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 const DisplayApp = dynamic(() => import("@/features/display/DisplayApp").then((m) => m.DisplayApp), {
   ssr: false,
@@ -133,6 +134,7 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
       {/* in alto a destra: voci della serata (in lobby) e ingranaggio */}
       <div className={clsx("absolute right-[1.2cqw] top-[1.6cqh] z-[68] flex items-center gap-3 transition-opacity duration-300", showGear ? "opacity-100" : "pointer-events-none opacity-0")}>
         {(lobby || sheet) && <VoicesProgress prep={prep} compact />}
+        <ExitButton size="lg" />
         <button
           type="button"
           aria-label="Impostazioni"
