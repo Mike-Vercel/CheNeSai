@@ -1,0 +1,839 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è il mammifero più grande del mondo?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Elefante africano",
+        "Capodoglio",
+        "Balenottera azzurra",
+        "Orca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "mare"
+      ],
+      "notes": "Può superare i 25 metri di lunghezza"
+    },
+    {
+      "type": "single",
+      "text": "Quante zampe ha un ragno?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "10",
+        "8",
+        "12"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aracnidi"
+      ],
+      "notes": "Gli aracnidi hanno otto zampe"
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'animale terrestre più veloce?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Leone",
+        "Gazzella",
+        "Cavallo",
+        "Ghepardo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "velocità"
+      ],
+      "notes": "Il ghepardo supera i 100 km/h nello scatto"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il cucciolo della mucca?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Puledro",
+        "Agnello",
+        "Capretto",
+        "Vitello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cuccioli",
+        "fattoria"
+      ],
+      "notes": "Il vitello è il piccolo del bovino"
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo del WWF?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Koala",
+        "Orso polare",
+        "Panda gigante",
+        "Tigre"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "simboli",
+        "mammiferi"
+      ],
+      "notes": "Il panda è nel logo dal 1961"
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa si nutre principalmente il koala?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bambù",
+        "Foglie di eucalipto",
+        "Insetti",
+        "Frutta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "australia",
+        "alimentazione"
+      ],
+      "notes": "Dieta quasi esclusiva di eucalipto"
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello incapace di volare vive in Antartide?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Struzzo",
+        "Kiwi",
+        "Pinguino",
+        "Emù"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "uccelli",
+        "antartide"
+      ],
+      "notes": "I pinguini vivono nell'emisfero australe"
+    },
+    {
+      "type": "single",
+      "text": "Quale insetto produce il miele?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vespa",
+        "Ape",
+        "Calabrone",
+        "Formica"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "L'ape mellifera produce il miele dal nettare"
+    },
+    {
+      "type": "single",
+      "text": "La foglia di quale albero compare sulla bandiera del Canada?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Quercia",
+        "Betulla",
+        "Acero",
+        "Pino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alberi",
+        "simboli"
+      ],
+      "notes": "Bandiera adottata nel 1965"
+    },
+    {
+      "type": "single",
+      "text": "Quale mammifero marino ha due lunghe zanne d'avorio?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tricheco",
+        "Foca",
+        "Lamantino",
+        "Otaria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi",
+        "mare"
+      ],
+      "notes": "Le zanne del tricheco sono canini superiori allungati"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la trasformazione del bruco in farfalla?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Muta",
+        "Metamorfosi",
+        "Mitosi",
+        "Fotosintesi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "insetti",
+        "biologia"
+      ],
+      "notes": "Metamorfosi completa: uovo, larva, pupa, adulto"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il verso del cavallo?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nitrito",
+        "Raglio",
+        "Barrito",
+        "Muggito"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "versi",
+        "mammiferi"
+      ],
+      "notes": "Raglio dell'asino, barrito dell'elefante, muggito del bue"
+    },
+    {
+      "type": "single",
+      "text": "Quale rettile cambia colore e ha una lingua lunghissima?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Camaleonte",
+        "Geco",
+        "Iguana",
+        "Varano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rettili"
+      ],
+      "notes": "La lingua può superare la lunghezza del corpo"
+    },
+    {
+      "type": "single",
+      "text": "In quale regione del pianeta vive l'orso polare?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Antartide",
+        "Artico",
+        "Himalaya",
+        "Ande"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "poli"
+      ],
+      "notes": "L'orso polare vive solo nell'Artico"
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello, alto fino a 2,5 metri, è il più grande vivente?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Emù",
+        "Struzzo",
+        "Condor",
+        "Albatro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "Può superare i 2,5 metri di altezza"
+    },
+    {
+      "type": "single",
+      "text": "Con che cosa respira il delfino?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Branchie",
+        "Pelle",
+        "Spiracoli",
+        "Polmoni"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "mare"
+      ],
+      "notes": "È un mammifero e respira aria dallo sfiatatoio"
+    },
+    {
+      "type": "single",
+      "text": "Quale animale costruisce dighe sui fiumi con rami e fango?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lontra",
+        "Nutria",
+        "Ondatra",
+        "Castoro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "fiumi"
+      ],
+      "notes": "Le dighe creano laghetti attorno alla tana"
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore è il simbolo dei Paesi Bassi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa",
+        "Girasole",
+        "Tulipano",
+        "Giglio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fiori",
+        "simboli"
+      ],
+      "notes": "Coltivato in Olanda dal XVI secolo"
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi animali è un anfibio?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lucertola",
+        "Tartaruga",
+        "Salamandra",
+        "Serpente"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anfibi"
+      ],
+      "notes": "Gli altri sono rettili"
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi animali mangia solo vegetali?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Iena",
+        "Lince",
+        "Zebra",
+        "Orca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "alimentazione"
+      ],
+      "notes": "La zebra si nutre di erba"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il gruppo di lupi che vive e caccia insieme?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Stormo",
+        "Sciame",
+        "Banco",
+        "Branco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "lessico"
+      ],
+      "notes": "Stormo per gli uccelli, sciame per gli insetti, banco per i pesci"
+    },
+    {
+      "type": "single",
+      "text": "Quale albero produce le ghiande?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Castagno",
+        "Faggio",
+        "Noce",
+        "Quercia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "alberi"
+      ],
+      "notes": "Le ghiande sono i frutti della quercia"
+    },
+    {
+      "type": "single",
+      "text": "Quanti cuori ha un polpo?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "1",
+        "2",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "molluschi",
+        "curiosità"
+      ],
+      "notes": "Due branchiali e uno sistemico"
+    },
+    {
+      "type": "single",
+      "text": "Quanto dura circa la gravidanza di un'elefantessa?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "9 mesi",
+        "22 mesi",
+        "12 mesi",
+        "36 mesi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "riproduzione"
+      ],
+      "notes": "La più lunga tra i mammiferi terrestri"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la pianta carnivora che chiude le foglie a tagliola?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dionea",
+        "Nepente",
+        "Drosera",
+        "Aloe"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "piante"
+      ],
+      "notes": "Dionaea muscipula, detta acchiappamosche"
+    },
+    {
+      "type": "single",
+      "text": "Quale rettile può superare i 6 metri ed è il più grande vivente?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Coccodrillo marino",
+        "Drago di Komodo",
+        "Anaconda verde",
+        "Tartaruga liuto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rettili"
+      ],
+      "notes": "Il coccodrillo marino supera i 6 metri"
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'unico mammifero capace di volare davvero, non solo planare?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pipistrello",
+        "Scoiattolo volante",
+        "Colugo",
+        "Petauro dello zucchero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi",
+        "volo"
+      ],
+      "notes": "Gli altri planano grazie a membrane"
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello può volare anche all'indietro?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Colibrì",
+        "Rondine",
+        "Martin pescatore",
+        "Passero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uccelli",
+        "volo"
+      ],
+      "notes": "Il colibrì batte le ali fino a 80 volte al secondo"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi animali sono marsupiali? (più risposte)",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Panda rosso",
+        "Ornitorinco",
+        "Canguro",
+        "Vombato"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "australia",
+        "mammiferi"
+      ],
+      "notes": "L'ornitorinco è un monotremo, il panda rosso un ailuride"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la scienza che studia gli uccelli?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Entomologia",
+        "Erpetologia",
+        "Ittiologia",
+        "Ornitologia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scienze",
+        "uccelli"
+      ],
+      "notes": "Entomologia: insetti; erpetologia: rettili; ittiologia: pesci"
+    },
+    {
+      "type": "single",
+      "text": "Quale crostaceo vive dentro le conchiglie vuote di altri molluschi?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Granchio",
+        "Aragosta",
+        "Gambero",
+        "Paguro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "crostacei",
+        "mare"
+      ],
+      "notes": "Il paguro protegge l'addome molle nella conchiglia"
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola vivono i lemuri allo stato selvatico?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Borneo",
+        "Madagascar",
+        "Sumatra",
+        "Sri Lanka"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "primati",
+        "isole"
+      ],
+      "notes": "Lemuri endemici del Madagascar (e Comore)"
+    },
+    {
+      "type": "single",
+      "text": "Quale animale ha impronte digitali quasi identiche a quelle umane?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Scimpanzé",
+        "Gorilla",
+        "Koala",
+        "Orango"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "curiosità"
+      ],
+      "notes": "Studio dell'Università di Adelaide, 1996"
+    },
+    {
+      "type": "single",
+      "text": "Quante paia di ali ha un'ape?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "Due paia, agganciate in volo"
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste conifere perde gli aghi in inverno?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Abete rosso",
+        "Pino silvestre",
+        "Cipresso",
+        "Larice"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "alberi",
+        "montagna"
+      ],
+      "notes": "Il larice è l'unica conifera caducifoglia delle Alpi"
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello che non vola è il simbolo della Nuova Zelanda?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Emù",
+        "Kiwi",
+        "Casuario",
+        "Nandù"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli",
+        "oceania"
+      ],
+      "notes": "I neozelandesi sono soprannominati \"kiwi\""
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi animali sono mammiferi? (più risposte)",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Squalo bianco",
+        "Orca",
+        "Pinguino imperatore",
+        "Lamantino"
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "mare"
+      ],
+      "notes": "Lo squalo è un pesce, il pinguino un uccello"
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di animale è l'axolotl?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pesce",
+        "Anfibio",
+        "Rettile",
+        "Crostaceo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "anfibi",
+        "curiosità"
+      ],
+      "notes": "Salamandra messicana che resta allo stadio larvale"
+    },
+    {
+      "type": "single",
+      "text": "Quale animale marino ha il sangue azzurro e viene detto \"fossile vivente\"?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Limulo",
+        "Celacanto",
+        "Storione",
+        "Squalo goblin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mare",
+        "fossili viventi"
+      ],
+      "notes": "Sangue blu per l'emocianina; esiste da oltre 400 milioni di anni"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il genere della pianta rampicante che produce il kiwi?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Annona",
+        "Actinidia",
+        "Feijoa",
+        "Passiflora"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "piante",
+        "frutti"
+      ],
+      "notes": "Actinidia deliciosa, originaria della Cina"
+    }
+  ]
+}

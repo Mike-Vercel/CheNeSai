@@ -1,0 +1,840 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente principale del guacamole?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Pomodoro",
+        "Zucchina",
+        "Avocado",
+        "Peperone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina messicana",
+        "salse"
+      ],
+      "notes": "Salsa messicana a base di avocado"
+    },
+    {
+      "type": "single",
+      "text": "In quale città è nata la pizza Margherita?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Roma",
+        "Palermo",
+        "Bari",
+        "Napoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pizza",
+        "napoli"
+      ],
+      "notes": "Dedicata per tradizione alla regina Margherita nel 1889"
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio cremoso si usa nel tiramisù?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Ricotta",
+        "Stracchino",
+        "Robiola",
+        "Mascarpone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "formaggi"
+      ],
+      "notes": "Crema di mascarpone, uova e zucchero"
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente rende nero il risotto al nero?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Nero di seppia",
+        "Tartufo nero",
+        "Olive nere",
+        "Carbone vegetale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "primi",
+        "pesce"
+      ],
+      "notes": "L'inchiostro della seppia"
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese proviene il sushi?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Giappone",
+        "Cina",
+        "Corea del Sud",
+        "Thailandia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina giapponese"
+      ],
+      "notes": "Il sushi è un piatto tipico giapponese"
+    },
+    {
+      "type": "single",
+      "text": "Con quale legume si prepara l'hummus?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Lenticchie",
+        "Ceci",
+        "Fagioli",
+        "Piselli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina mediorientale",
+        "legumi"
+      ],
+      "notes": "Crema di ceci e tahina"
+    },
+    {
+      "type": "single",
+      "text": "Oltre al basilico, quale frutto secco si usa nel pesto alla genovese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Noci",
+        "Pinoli",
+        "Mandorle",
+        "Nocciole"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salse",
+        "liguria"
+      ],
+      "notes": "Basilico, pinoli, aglio, olio, formaggi"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la scorza fritta siciliana ripiena di ricotta?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Cassata",
+        "Cannolo",
+        "Sfogliatella",
+        "Babà"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "Il cannolo siciliano"
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio si grattugia sulla pasta alla Norma?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Parmigiano",
+        "Pecorino romano",
+        "Caciocavallo",
+        "Ricotta salata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primi",
+        "sicilia"
+      ],
+      "notes": "Melanzane fritte, pomodoro, basilico e ricotta salata"
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia dà il colore giallo al risotto alla milanese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Curcuma",
+        "Paprika",
+        "Curry",
+        "Zafferano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primi",
+        "spezie"
+      ],
+      "notes": "Lo zafferano è l'ingrediente simbolo"
+    },
+    {
+      "type": "single",
+      "text": "Le orecchiette con le cime di rapa sono un piatto tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Calabria",
+        "Puglia",
+        "Campania",
+        "Molise"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "primi",
+        "regioni"
+      ],
+      "notes": "Piatto simbolo della cucina pugliese"
+    },
+    {
+      "type": "single",
+      "text": "La paella è originaria di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Portogallo",
+        "Messico",
+        "Argentina",
+        "Spagna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina spagnola"
+      ],
+      "notes": "Piatto originario di Valencia"
+    },
+    {
+      "type": "single",
+      "text": "Quale salume ha reso famosa la città di Parma?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mortadella",
+        "Speck",
+        "Prosciutto crudo",
+        "Bresaola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salumi",
+        "emilia"
+      ],
+      "notes": "Prosciutto di Parma DOP"
+    },
+    {
+      "type": "single",
+      "text": "Di quale città è tipica la mortadella?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bologna",
+        "Modena",
+        "Parma",
+        "Ferrara"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "salumi",
+        "emilia"
+      ],
+      "notes": "Mortadella Bologna IGP"
+    },
+    {
+      "type": "single",
+      "text": "In quale regione si produce il vino Chianti?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Toscana",
+        "Piemonte",
+        "Veneto",
+        "Umbria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vini",
+        "toscana"
+      ],
+      "notes": "Tra Firenze e Siena"
+    },
+    {
+      "type": "single",
+      "text": "Con quale farina si prepara la polenta classica?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Farina di riso",
+        "Farina di mais",
+        "Farina di farro",
+        "Farina di castagne"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "primi",
+        "nord italia"
+      ],
+      "notes": "Farina di granoturco"
+    },
+    {
+      "type": "single",
+      "text": "Il limoncello è un liquore tipico di quale costa?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Riviera ligure",
+        "Costa Smeralda",
+        "Riviera romagnola",
+        "Costiera amalfitana"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "liquori",
+        "campania"
+      ],
+      "notes": "Con i limoni di Amalfi e Sorrento"
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce napoletano ha la forma di una conchiglia?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Babà",
+        "Sfogliatella",
+        "Pastiera",
+        "Zeppola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "napoli"
+      ],
+      "notes": "Sfogliatella riccia"
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio si usa nella cacio e pepe tradizionale?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Parmigiano Reggiano",
+        "Grana Padano",
+        "Provolone",
+        "Pecorino romano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primi",
+        "lazio"
+      ],
+      "notes": "Pecorino romano e pepe nero"
+    },
+    {
+      "type": "single",
+      "text": "Il gulasch è il piatto nazionale di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Polonia",
+        "Austria",
+        "Ungheria",
+        "Romania"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina europea"
+      ],
+      "notes": "Gulyás, zuppa di manzo e paprika"
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente base della panzanella toscana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Riso",
+        "Pasta corta",
+        "Pane raffermo",
+        "Patate"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "toscana",
+        "piatti poveri"
+      ],
+      "notes": "Pane raffermo, pomodoro, cipolla e basilico"
+    },
+    {
+      "type": "single",
+      "text": "Quale ortaggio è il protagonista della parmigiana classica?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Melanzana",
+        "Zucchina",
+        "Peperone",
+        "Carciofo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "secondi",
+        "ortaggi"
+      ],
+      "notes": "Parmigiana di melanzane"
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio valdostano è alla base della fonduta?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Gorgonzola",
+        "Fontina",
+        "Asiago",
+        "Taleggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "valle d'aosta"
+      ],
+      "notes": "Fontina DOP"
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente base dello tzatziki greco?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Maionese",
+        "Panna acida",
+        "Yogurt",
+        "Ricotta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina greca",
+        "salse"
+      ],
+      "notes": "Yogurt, cetriolo e aglio"
+    },
+    {
+      "type": "single",
+      "text": "Quale pasta ripiena è tipica di Bologna e si serve in brodo?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Agnolotti",
+        "Ravioli",
+        "Tortellini",
+        "Cappellacci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "emilia"
+      ],
+      "notes": "Tortellini in brodo"
+    },
+    {
+      "type": "single",
+      "text": "Il kimchi, a base di verdure fermentate, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Giappone",
+        "Cina",
+        "Vietnam",
+        "Corea"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina coreana"
+      ],
+      "notes": "Verdure fermentate, simbolo della Corea"
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia si ricava dalla corteccia di un albero?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Noce moscata",
+        "Chiodi di garofano",
+        "Cannella",
+        "Pepe nero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "Corteccia di piante del genere Cinnamomum"
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce siciliano unisce ricotta, pan di Spagna e frutta candita?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Cassata",
+        "Pastiera",
+        "Zuppa inglese",
+        "Torta caprese"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "Cassata siciliana"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi formaggi sono erborinati, cioè con muffe blu? (più risposte)",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pecorino",
+        "Emmental",
+        "Gorgonzola",
+        "Roquefort"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Le venature blu sono muffe del genere Penicillium"
+    },
+    {
+      "type": "single",
+      "text": "Quale vino piemontese è chiamato \"il re dei vini\"?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Barolo",
+        "Amarone",
+        "Brunello",
+        "Sagrantino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vini",
+        "piemonte"
+      ],
+      "notes": "Barolo DOCG, dalle Langhe"
+    },
+    {
+      "type": "single",
+      "text": "Con quale farina si preparano i pizzoccheri della Valtellina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Farina di mais",
+        "Farina di castagne",
+        "Farina di grano saraceno",
+        "Semola di grano duro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "lombardia"
+      ],
+      "notes": "Pasta di grano saraceno con verze, patate e formaggio"
+    },
+    {
+      "type": "single",
+      "text": "Quale piatto provenzale è uno stufato di verdure?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bouillabaisse",
+        "Cassoulet",
+        "Coq au vin",
+        "Ratatouille"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina francese"
+      ],
+      "notes": "Melanzane, zucchine, peperoni, pomodori"
+    },
+    {
+      "type": "single",
+      "text": "Che cos'era il garum degli antichi Romani?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Vino speziato",
+        "Salsa di pesce fermentato",
+        "Pane di farro",
+        "Formaggio di capra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia",
+        "antica roma"
+      ],
+      "notes": "Condimento diffusissimo nella cucina romana"
+    },
+    {
+      "type": "single",
+      "text": "Quale salsa francese si prepara con burro, tuorli, scalogno e dragoncello?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Bernese",
+        "Olandese",
+        "Besciamella",
+        "Vellutata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "salse",
+        "cucina francese"
+      ],
+      "notes": "La salsa olandese non ha dragoncello né scalogno"
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianta si ricava la tapioca?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Patata dolce",
+        "Manioca",
+        "Riso",
+        "Mais"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ingredienti"
+      ],
+      "notes": "Amido della radice di manioca"
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il \"mirepoix\" della cucina francese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Burro e farina",
+        "Un mazzetto di erbe",
+        "Sedano, carota e cipolla",
+        "Un brodo di ossa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tecniche",
+        "cucina francese"
+      ],
+      "notes": "Base aromatica tritata"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi sono tipi di pasta ripiena? (più risposte)",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Bucatini",
+        "Casoncelli",
+        "Culurgiones",
+        "Trofie"
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "tags": [
+        "primi",
+        "regioni"
+      ],
+      "notes": "Casoncelli lombardi e culurgiones sardi"
+    },
+    {
+      "type": "single",
+      "text": "Di quale città è originaria la Sachertorte?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Salisburgo",
+        "Vienna",
+        "Monaco di Baviera",
+        "Praga"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "austria"
+      ],
+      "notes": "Creata a Vienna da Franz Sacher nel 1832"
+    },
+    {
+      "type": "single",
+      "text": "Quale muffa si usa per produrre il gorgonzola?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Penicillium",
+        "Aspergillus",
+        "Botrytis",
+        "Saccharomyces"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi",
+        "microbi"
+      ],
+      "notes": "Penicillium roqueforti / glaucum"
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura la scala di Scoville?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "La piccantezza",
+        "La dolcezza",
+        "L'acidità",
+        "La sapidità"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spezie",
+        "misure"
+      ],
+      "notes": "Ideata da Wilbur Scoville nel 1912"
+    }
+  ]
+}

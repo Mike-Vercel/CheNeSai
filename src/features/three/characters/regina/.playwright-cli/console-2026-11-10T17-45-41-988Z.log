@@ -1,0 +1,14 @@
+[     405ms] [LOG] [Fast Refresh] done in 1270ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[    1346ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[    1400ms] [LOG] [HMR] connected @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[    1780ms] [WARNING] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   39935ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   40227ms] [LOG] [Fast Refresh] done in 396ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   40443ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   42400ms] [LOG] [Fast Refresh] done in 2060ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   54222ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   59129ms] [LOG] [Fast Refresh] done in 5007ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   75475ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   76923ms] [LOG] [Fast Refresh] done in 1556ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   77131ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   78569ms] [LOG] [Fast Refresh] done in 1539ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760

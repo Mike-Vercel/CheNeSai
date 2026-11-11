@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+!.env.example
+
+# materiale di riferimento originale (WhatsApp) e output dei test
+/REFERENCE/
+/test-results/
+/playwright-report/
+/supabase/.temp/
+/.playwright-cli/
+/backups/
+
+# strumenti locali
+/.serena/

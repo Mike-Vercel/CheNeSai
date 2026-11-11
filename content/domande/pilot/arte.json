@@ -1,0 +1,842 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi ha dipinto la Gioconda?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Michelangelo",
+        "Raffaello",
+        "Leonardo da Vinci",
+        "Sandro Botticelli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pittura",
+        "rinascimento"
+      ],
+      "notes": "La Gioconda, circa 1503-1519"
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scolpito il David conservato alla Galleria dell'Accademia di Firenze?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Donatello",
+        "Gian Lorenzo Bernini",
+        "Michelangelo",
+        "Antonio Canova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "scultura",
+        "rinascimento"
+      ],
+      "notes": "Scolpito tra il 1501 e il 1504"
+    },
+    {
+      "type": "single",
+      "text": "Chi ha dipinto \"Notte stellata\"?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Claude Monet",
+        "Paul Cézanne",
+        "Paul Gauguin",
+        "Vincent van Gogh"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "ottocento"
+      ],
+      "notes": "Dipinto nel 1889 a Saint-Rémy"
+    },
+    {
+      "type": "single",
+      "text": "In quale museo è esposta la Gioconda?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Uffizi",
+        "Prado",
+        "Ermitage",
+        "Louvre"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musei",
+        "parigi"
+      ],
+      "notes": "Al Louvre di Parigi"
+    },
+    {
+      "type": "single",
+      "text": "Quale colore si ottiene mescolando blu e giallo?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Viola",
+        "Verde",
+        "Arancione",
+        "Marrone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "colori"
+      ],
+      "notes": "Mescolanza sottrattiva: blu + giallo = verde"
+    },
+    {
+      "type": "single",
+      "text": "Chi ha dipinto \"La nascita di Venere\"?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Tiziano",
+        "Raffaello",
+        "Giotto",
+        "Sandro Botticelli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "rinascimento"
+      ],
+      "notes": "Conservata agli Uffizi di Firenze"
+    },
+    {
+      "type": "single",
+      "text": "Chi ha dipinto \"L'urlo\"?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Edvard Munch",
+        "Gustav Klimt",
+        "Egon Schiele",
+        "Vasilij Kandinskij"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pittura",
+        "espressionismo"
+      ],
+      "notes": "Prima versione del 1893"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore surrealista dipinse gli orologi molli?",
+      "category": "Arte",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Salvador Dalí",
+        "René Magritte",
+        "Max Ernst",
+        "Joan Miró"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pittura",
+        "surrealismo"
+      ],
+      "notes": "La persistenza della memoria, 1931"
+    },
+    {
+      "type": "single",
+      "text": "Quale artista fondò il cubismo insieme a Georges Braque?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Salvador Dalí",
+        "Joan Miró",
+        "Pablo Picasso",
+        "Henri Matisse"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pittura",
+        "cubismo"
+      ],
+      "notes": "Picasso e Braque, dal 1907-1908"
+    },
+    {
+      "type": "single",
+      "text": "Quale artista pop dipinse le lattine di zuppa Campbell?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Roy Lichtenstein",
+        "Keith Haring",
+        "Andy Warhol",
+        "Jackson Pollock"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop art"
+      ],
+      "notes": "Campbell's Soup Cans, 1962"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il Cenacolo di Leonardo?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Milano",
+        "Firenze",
+        "Roma",
+        "Venezia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pittura",
+        "città"
+      ],
+      "notes": "Santa Maria delle Grazie, Milano"
+    },
+    {
+      "type": "single",
+      "text": "Chi dipinse \"Il bacio\" con il celebre sfondo dorato?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Egon Schiele",
+        "Alfons Mucha",
+        "Oskar Kokoschka",
+        "Gustav Klimt"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "secessione"
+      ],
+      "notes": "Dipinto nel 1907-1908, a Vienna"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore impressionista dipinse la celebre serie delle \"Ninfee\"?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Claude Monet",
+        "Édouard Manet",
+        "Edgar Degas",
+        "Pierre-Auguste Renoir"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pittura",
+        "impressionismo"
+      ],
+      "notes": "Ninfee del giardino di Giverny"
+    },
+    {
+      "type": "single",
+      "text": "Chi affrescò la Cappella degli Scrovegni a Padova?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cimabue",
+        "Giotto",
+        "Masaccio",
+        "Duccio di Buoninsegna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pittura",
+        "affreschi"
+      ],
+      "notes": "Affreschi del 1303-1305 circa"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore olandese dipinse \"La ragazza con l'orecchino di perla\"?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Rembrandt",
+        "Frans Hals",
+        "Jan Steen",
+        "Jan Vermeer"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "seicento"
+      ],
+      "notes": "Circa 1665, Mauritshuis dell'Aia"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il Museo del Prado?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Madrid",
+        "Barcellona",
+        "Lisbona",
+        "Siviglia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musei",
+        "spagna"
+      ],
+      "notes": "Il Prado è a Madrid dal 1819"
+    },
+    {
+      "type": "single",
+      "text": "Quale artista livornese è famoso per i ritratti dai colli allungati?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Giorgio de Chirico",
+        "Umberto Boccioni",
+        "Giorgio Morandi",
+        "Amedeo Modigliani"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "novecento"
+      ],
+      "notes": "Modigliani nacque a Livorno nel 1884"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore dipinse la \"Vocazione di San Matteo\" con forti contrasti di luce?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Annibale Carracci",
+        "Guido Reni",
+        "Artemisia Gentileschi",
+        "Caravaggio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "barocco"
+      ],
+      "notes": "San Luigi dei Francesi, Roma"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la tecnica di pittura su intonaco ancora fresco?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Affresco",
+        "Tempera",
+        "Acquerello",
+        "Olio su tela"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Il colore si fissa asciugando con l'intonaco"
+    },
+    {
+      "type": "single",
+      "text": "Quale architetto progettò la Sagrada Família di Barcellona?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Le Corbusier",
+        "Frank Lloyd Wright",
+        "Antoni Gaudí",
+        "Renzo Piano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "architettura"
+      ],
+      "notes": "Gaudí vi lavorò dal 1883"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova la Galleria Borghese?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Firenze",
+        "Roma",
+        "Milano",
+        "Torino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musei",
+        "italia"
+      ],
+      "notes": "Nella villa Borghese di Roma"
+    },
+    {
+      "type": "single",
+      "text": "Quale movimento artistico lanciò Marinetti con il manifesto del 1909?",
+      "category": "Arte",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cubismo",
+        "Futurismo",
+        "Dadaismo",
+        "Surrealismo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "avanguardie"
+      ],
+      "notes": "Manifesto pubblicato su Le Figaro nel 1909"
+    },
+    {
+      "type": "single",
+      "text": "Chi progettò il colonnato di Piazza San Pietro?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Francesco Borromini",
+        "Michelangelo",
+        "Donato Bramante",
+        "Gian Lorenzo Bernini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "architettura",
+        "barocco"
+      ],
+      "notes": "Realizzato tra il 1656 e il 1667"
+    },
+    {
+      "type": "single",
+      "text": "Quale scultore neoclassico realizzò \"Amore e Psiche\"?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Gian Lorenzo Bernini",
+        "Antonio Canova",
+        "Bertel Thorvaldsen",
+        "Benvenuto Cellini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scultura",
+        "neoclassicismo"
+      ],
+      "notes": "Versione celebre al Louvre, 1787-1793"
+    },
+    {
+      "type": "single",
+      "text": "Chi dipinse \"La Scuola di Atene\" nei Palazzi Vaticani?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Raffaello",
+        "Michelangelo",
+        "Perugino",
+        "Pinturicchio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pittura",
+        "rinascimento"
+      ],
+      "notes": "Stanza della Segnatura, 1509-1511"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore americano dipingeva facendo gocciolare il colore sulla tela?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mark Rothko",
+        "Jackson Pollock",
+        "Willem de Kooning",
+        "Roy Lichtenstein"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pittura",
+        "astrattismo"
+      ],
+      "notes": "Tecnica del dripping"
+    },
+    {
+      "type": "single",
+      "text": "Chi dipinse \"Il Quarto Stato\"?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Giovanni Segantini",
+        "Giovanni Fattori",
+        "Giuseppe Pellizza da Volpedo",
+        "Telemaco Signorini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pittura",
+        "ottocento"
+      ],
+      "notes": "Completato nel 1901"
+    },
+    {
+      "type": "single",
+      "text": "Chi progettò la cupola di Santa Maria del Fiore a Firenze?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Leon Battista Alberti",
+        "Filippo Brunelleschi",
+        "Arnolfo di Cambio",
+        "Michelozzo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "architettura",
+        "rinascimento"
+      ],
+      "notes": "Cupola costruita tra il 1420 e il 1436"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi pittori erano impressionisti? (più risposte)",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Gustave Courbet",
+        "Jacques-Louis David",
+        "Edgar Degas",
+        "Camille Pissarro"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "pittura",
+        "impressionismo"
+      ],
+      "notes": "Courbet realista, David neoclassico"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova \"La ronda di notte\" di Rembrandt?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "L'Aia",
+        "Rotterdam",
+        "Amsterdam",
+        "Bruxelles"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musei",
+        "pittura"
+      ],
+      "notes": "Al Rijksmuseum di Amsterdam"
+    },
+    {
+      "type": "single",
+      "text": "Quale artista italiano è famoso per i \"tagli\" sulla tela?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Fontana",
+        "Alberto Burri",
+        "Piero Manzoni",
+        "Mimmo Rotella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "arte contemporanea"
+      ],
+      "notes": "Serie dei Concetti spaziali"
+    },
+    {
+      "type": "single",
+      "text": "Chi dipinse \"Il giardino delle delizie\"?",
+      "category": "Arte",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pieter Bruegel il Vecchio",
+        "Jan van Eyck",
+        "Hieronymus Bosch",
+        "Albrecht Dürer"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pittura",
+        "fiamminghi"
+      ],
+      "notes": "Trittico al Prado, inizio XVI secolo"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore metafisico dipinse \"Le muse inquietanti\"?",
+      "category": "Arte",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Carlo Carrà",
+        "Mario Sironi",
+        "Felice Casorati",
+        "Giorgio de Chirico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pittura",
+        "metafisica"
+      ],
+      "notes": "Dipinto nel 1917-1918"
+    },
+    {
+      "type": "single",
+      "text": "Chi realizzò il \"Perseo\" in bronzo nella Loggia dei Lanzi a Firenze?",
+      "category": "Arte",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Giambologna",
+        "Benvenuto Cellini",
+        "Donatello",
+        "Andrea del Verrocchio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scultura",
+        "firenze"
+      ],
+      "notes": "Completato nel 1554"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il Mausoleo di Galla Placidia con i suoi mosaici?",
+      "category": "Arte",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Venezia",
+        "Ravenna",
+        "Aquileia",
+        "Palermo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mosaici",
+        "italia"
+      ],
+      "notes": "Ravenna, V secolo"
+    },
+    {
+      "type": "single",
+      "text": "Chi dipinse \"La Tempesta\", oggi alle Gallerie dell'Accademia di Venezia?",
+      "category": "Arte",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Giorgione",
+        "Tiziano",
+        "Tintoretto",
+        "Paolo Veronese"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pittura",
+        "venezia"
+      ],
+      "notes": "Dipinto intorno al 1505-1508"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste opere sono di Caravaggio? (più risposte)",
+      "category": "Arte",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Canestra di frutta",
+        "Bacchino malato",
+        "Venere di Urbino",
+        "Primavera"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "tags": [
+        "pittura",
+        "barocco"
+      ],
+      "notes": "Venere di Urbino è di Tiziano, Primavera di Botticelli"
+    },
+    {
+      "type": "single",
+      "text": "Quale pittore fiammingo dipinse il \"Ritratto dei coniugi Arnolfini\"?",
+      "category": "Arte",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Rogier van der Weyden",
+        "Jan van Eyck",
+        "Hans Memling",
+        "Petrus Christus"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pittura",
+        "fiamminghi"
+      ],
+      "notes": "National Gallery di Londra, 1434"
+    },
+    {
+      "type": "single",
+      "text": "Quale futurista dipinse \"La città che sale\" (1910)?",
+      "category": "Arte",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Giacomo Balla",
+        "Gino Severini",
+        "Umberto Boccioni",
+        "Carlo Carrà"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "futurismo",
+        "pittura"
+      ],
+      "notes": "Conservato al MoMA di New York"
+    },
+    {
+      "type": "single",
+      "text": "Chi realizzò la \"Porta del Paradiso\" del Battistero di Firenze?",
+      "category": "Arte",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Lorenzo Ghiberti",
+        "Andrea Pisano",
+        "Filippo Brunelleschi",
+        "Donatello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scultura",
+        "firenze"
+      ],
+      "notes": "Nome attribuito per tradizione a Michelangelo; 1425-1452"
+    }
+  ]
+}

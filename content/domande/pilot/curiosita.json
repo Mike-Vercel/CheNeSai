@@ -1,0 +1,833 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quanti giorni ha un anno bisestile?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "365",
+        "364",
+        "367",
+        "366"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Il 29 febbraio si aggiunge ogni quattro anni circa"
+    },
+    {
+      "type": "single",
+      "text": "Quante facce ha un classico dado da gioco?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "8",
+        "4",
+        "12"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Il dado classico è un cubo"
+    },
+    {
+      "type": "single",
+      "text": "Quale festa si celebra la notte del 31 ottobre?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ognissanti",
+        "Carnevale",
+        "Epifania",
+        "Halloween"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "Ognissanti è il 1° novembre"
+    },
+    {
+      "type": "single",
+      "text": "Quante carte ha un mazzo da poker senza jolly?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "54",
+        "52",
+        "40",
+        "48"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "carte",
+        "giochi"
+      ],
+      "notes": "Quattro semi da 13 carte"
+    },
+    {
+      "type": "single",
+      "text": "Quante erano le meraviglie del mondo antico?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "7",
+        "9",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia",
+        "monumenti"
+      ],
+      "notes": "Elenco classico di sette meraviglie"
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni di matrimonio si festeggiano con le nozze d'oro?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "50",
+        "25",
+        "40",
+        "60"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "anniversari"
+      ],
+      "notes": "25 argento, 60 diamante"
+    },
+    {
+      "type": "single",
+      "text": "Chi porta le calze piene di dolci ai bambini la notte del 6 gennaio?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La Befana",
+        "Babbo Natale",
+        "Santa Lucia",
+        "San Nicola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "tradizioni"
+      ],
+      "notes": "Tradizione dell'Epifania"
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento indica il Nord grazie a un ago magnetico?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sestante",
+        "Astrolabio",
+        "Cronometro",
+        "Bussola"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "L'ago si orienta col campo magnetico terrestre"
+    },
+    {
+      "type": "single",
+      "text": "Sotto quale segno zodiacale è nato chi festeggia il compleanno a Ferragosto?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Vergine",
+        "Cancro",
+        "Bilancia",
+        "Leone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "zodiaco"
+      ],
+      "notes": "Il Leone va dal 23 luglio al 22 agosto circa"
+    },
+    {
+      "type": "single",
+      "text": "Quante caselle ha una scacchiera?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "81",
+        "64",
+        "100",
+        "49"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "scacchi"
+      ],
+      "notes": "8 righe per 8 colonne"
+    },
+    {
+      "type": "single",
+      "text": "Nel Monopoly classico italiano, qual è la casella più costosa?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Viale dei Giardini",
+        "Corso Magellano",
+        "Parco della Vittoria",
+        "Largo Colombo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "monopoly"
+      ],
+      "notes": "Parco della Vittoria è l'equivalente di Boardwalk"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si visita la casa di Giulietta con il famoso balcone?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Mantova",
+        "Padova",
+        "Verona",
+        "Vicenza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "luoghi",
+        "italia"
+      ],
+      "notes": "Via Cappello, Verona"
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco con le carte napoletane si cerca di prendere il \"settebello\"?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Briscola",
+        "Tressette",
+        "Burraco",
+        "Scopa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carte",
+        "giochi"
+      ],
+      "notes": "Il settebello è il sette di denari e vale un punto"
+    },
+    {
+      "type": "single",
+      "text": "In che giorno si festeggia San Valentino?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "14 marzo",
+        "13 febbraio",
+        "14 febbraio",
+        "1 febbraio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste"
+      ],
+      "notes": "Festa degli innamorati"
+    },
+    {
+      "type": "single",
+      "text": "Quale animale compare nel logo della Lamborghini?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cavallo",
+        "Toro",
+        "Giaguaro",
+        "Aquila"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "Ferruccio Lamborghini era del segno del Toro"
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità è l'inventore del celebre cubo di Rubik?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Russo",
+        "Ungherese",
+        "Ceco",
+        "Polacco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "invenzioni"
+      ],
+      "notes": "Ernő Rubik, Budapest, 1974"
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore si regala tradizionalmente in Italia l'8 marzo?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa",
+        "Mimosa",
+        "Margherita",
+        "Tulipano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "fiori"
+      ],
+      "notes": "Tradizione italiana dal 1946"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il fedele maggiordomo di Batman?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Jarvis",
+        "Sebastian",
+        "Alfred",
+        "Hobson"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "personaggi"
+      ],
+      "notes": "Alfred Pennyworth"
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco da tavolo si mangiano le pedine saltandole in diagonale?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Scacchi",
+        "Backgammon",
+        "Go",
+        "Dama"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Nella dama si muove e si cattura in diagonale"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il sistema di scrittura in rilievo per i non vedenti?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Morse",
+        "Braille",
+        "Stenografia",
+        "Esperanto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scrittura",
+        "invenzioni"
+      ],
+      "notes": "Ideato da Louis Braille nel 1824"
+    },
+    {
+      "type": "single",
+      "text": "Che cosa colleziona un filatelico?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Francobolli",
+        "Monete",
+        "Cartoline",
+        "Farfalle"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "collezionismo"
+      ],
+      "notes": "Le monete sono materia del numismatico"
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova la statuetta del Manneken Pis?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Amsterdam",
+        "Bruxelles",
+        "Anversa",
+        "Berna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "luoghi",
+        "europa"
+      ],
+      "notes": "Simbolo di Bruxelles dal 1619"
+    },
+    {
+      "type": "single",
+      "text": "Quante tessere ha un domino classico doppio-sei?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "24",
+        "32",
+        "28",
+        "36"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Tutte le combinazioni da 0-0 a 6-6"
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni dura un lustro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "4",
+        "5",
+        "100"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tempo",
+        "lessico"
+      ],
+      "notes": "Un lustro è un periodo di cinque anni"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la valuta ufficiale della Svizzera?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Euro",
+        "Corona",
+        "Marco",
+        "Franco svizzero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "valute",
+        "europa"
+      ],
+      "notes": "La Svizzera non fa parte dell'Eurozona"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la paura dei ragni?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Agorafobia",
+        "Aracnofobia",
+        "Claustrofobia",
+        "Acrofobia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fobie"
+      ],
+      "notes": "Dal greco arachne, ragno"
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianeta prende il nome il martedì?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marte",
+        "Mercurio",
+        "Giove",
+        "Venere"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario",
+        "etimologia"
+      ],
+      "notes": "Dal latino Martis dies"
+    },
+    {
+      "type": "single",
+      "text": "In quale città il Carnevale si apre con il \"volo dell'angelo\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Viareggio",
+        "Venezia",
+        "Ivrea",
+        "Putignano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "tradizioni"
+      ],
+      "notes": "Discesa dal campanile di San Marco"
+    },
+    {
+      "type": "single",
+      "text": "Nelle carte francesi, quale seme ha la forma di una foglia nera a punta?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Picche",
+        "Fiori",
+        "Quadri",
+        "Cuori"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "carte"
+      ],
+      "notes": "In inglese spades"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi numeri sono primi? (più risposte)",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "21",
+        "27",
+        "17",
+        "23"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "numeri",
+        "matematica"
+      ],
+      "notes": "21 = 3×7, 27 = 3×9"
+    },
+    {
+      "type": "single",
+      "text": "Chi creò Topolino nel 1928 insieme a Ub Iwerks?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Walt Disney",
+        "Carl Barks",
+        "Floyd Gottfredson",
+        "Romano Scarpa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti",
+        "disney"
+      ],
+      "notes": "Debutto in Steamboat Willie, 1928"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il ponte più antico di Firenze, pieno di botteghe orafe?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ponte Santa Trinita",
+        "Ponte alle Grazie",
+        "Ponte Vecchio",
+        "Ponte alla Carraia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "luoghi",
+        "firenze"
+      ],
+      "notes": "Ricostruito nel 1345"
+    },
+    {
+      "type": "single",
+      "text": "Quante facce ha un icosaedro regolare?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "12",
+        "16",
+        "24",
+        "20"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "geometria"
+      ],
+      "notes": "Venti facce triangolari"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in italiano il simbolo \"&\"?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "E commerciale",
+        "Chiocciola",
+        "Cancelletto",
+        "Asterisco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "simboli"
+      ],
+      "notes": "Detta anche ampersand"
+    },
+    {
+      "type": "single",
+      "text": "Quale città è soprannominata \"la Superba\"?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Venezia",
+        "Napoli",
+        "Genova",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "soprannomi",
+        "città"
+      ],
+      "notes": "Definizione resa celebre da Petrarca"
+    },
+    {
+      "type": "single",
+      "text": "In navigazione, che cosa misura il nodo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Distanza",
+        "Profondità",
+        "Velocità",
+        "Peso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mare",
+        "misure"
+      ],
+      "notes": "Un nodo è un miglio nautico all'ora"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste sono costellazioni dello zodiaco? (più risposte)",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Scorpione",
+        "Capricorno",
+        "Orione",
+        "Cassiopea"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "zodiaco"
+      ],
+      "notes": "Orione e Cassiopea non sono zodiacali"
+    },
+    {
+      "type": "single",
+      "text": "Quante stelle ci sono sulla bandiera dell'Unione Europea?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "15",
+        "27",
+        "10",
+        "12"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bandiere",
+        "europa"
+      ],
+      "notes": "Il numero è fisso e non dipende dagli Stati membri"
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in francese la gabbietta metallica che trattiene il tappo dello champagne?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Muselet",
+        "Bouchon",
+        "Capsule",
+        "Collerette"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino",
+        "lessico"
+      ],
+      "notes": "Muselet, brevettato nel 1844 da Adolphe Jacquesson"
+    },
+    {
+      "type": "single",
+      "text": "Quale anno si scrive in numeri romani MCMLXIX?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1969",
+        "1959",
+        "1971",
+        "1949"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "numeri romani"
+      ],
+      "notes": "M=1000, CM=900, LX=60, IX=9"
+    }
+  ]
+}

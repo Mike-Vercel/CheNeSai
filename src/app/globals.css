@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
+/* =====================================================================
+   CHE NE SAI?! – identità visiva
+   Energia da show televisivo: oro, fucsia, blu elettrico, viola, verde.
+   Le aree di lettura (domande/risposte) restano sempre ad alto contrasto.
+   ===================================================================== */
+
+@theme {
+  --color-gold: #ffd43b;
+  --color-gold-deep: #ffb800;
+  --color-fuchsia: #ff1493;
+  --color-flame: #f72545;
+  --color-electric: #087cff;
+  --color-cyan: #00d9ff;
+  --color-lime: #00d46a;
+  --color-violet: #832bff;
+  --color-night: #170824;
+  --color-night-2: #22103a;
+  --color-night-3: #2e1650;
+  --color-ink: #1b0b2b;
+  --color-cream: #fff8e6;
+
+  /* colori di posizione delle risposte (NON indicano la soluzione) */
+  --color-ans-a: #00b85c;
+  --color-ans-b: #e8173e;
+  --color-ans-c: #0a6fe6;
+  --color-ans-d: #7a22f0;
+
+  --font-display: var(--font-lilita), "Lilita One", "Arial Black", system-ui, sans-serif;
+  --font-sans: var(--font-nunito), "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-gold: 0 0 0 3px #ffd43b, 0 0 24px rgba(255, 212, 59, 0.55);
+  --shadow-panel: 0 18px 50px -12px rgba(0, 0, 0, 0.65);
+
+  --animate-pulse-glow: pulse-glow 1.6s ease-in-out infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-marquee: marquee 1.2s steps(2) infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-pop-in: pop-in 0.45s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 212, 59, 0.45)); }
+  50% { filter: drop-shadow(0 0 22px rgba(255, 212, 59, 0.95)); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes marquee {
+  0% { opacity: 1; }
+  100% { opacity: 0.35; }
+}
+@keyframes pop-in {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --bg: #170824;
+  --fg: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Sfondo "studio" riutilizzabile: raggi colorati + vignettatura */
+.qz-stage {
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(255, 20, 147, 0.35), transparent 60%),
+    radial-gradient(ellipse at 10% -10%, rgba(8, 124, 255, 0.35), transparent 55%),
+    radial-gradient(ellipse at 90% -10%, rgba(131, 43, 255, 0.45), transparent 55%),
+    conic-gradient(from 180deg at 50% 110%, #2a0d45, #45106b, #6a0f6e, #2a0d45, #1a3a8a, #2a0d45),
+    #170824;
+}
+
+.qz-rays {
+  background: repeating-conic-gradient(from 0deg at 50% 100%, rgba(255, 255, 255, 0.06) 0deg 6deg, transparent 6deg 14deg);
+}
+
+.qz-panel {
+  background: linear-gradient(180deg, rgba(46, 22, 80, 0.92), rgba(23, 8, 36, 0.94));
+  border: 2px solid rgba(255, 212, 59, 0.55);
+  box-shadow: var(--shadow-panel), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Cartiglio domanda: crema con bordo oro, massimo contrasto */
+.qz-question-card {
+  background: linear-gradient(180deg, #fffdf6, #fff1cc);
+  color: #1b0b2b;
+  border: 4px solid #ffd43b;
+  box-shadow: 0 0 0 4px #b8770a, 0 0 40px rgba(255, 212, 59, 0.5), 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.qz-gold-text {
+  background: linear-gradient(180deg, #fff6c2 0%, #ffd43b 45%, #ffb800 60%, #c97c00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  filter: drop-shadow(0 3px 0 #6b2a00) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+}
+
+.qz-bulbs {
+  background-image: radial-gradient(circle, #fff3b0 0 3px, #ffb800 4px, transparent 5px);
+  background-size: 22px 22px;
+}
+
+.qz-safe {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Modalità movimento ridotto / prestazioni */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+:focus-visible {
+  outline: 3px solid #00d9ff;
+  outline-offset: 2px;
+}
+
+/* Area admin: tema più sobrio e leggibile per lavorare */
+.qz-admin {
+  background: #120620;
+}
+.qz-admin input,
+.qz-admin select,
+.qz-admin textarea {
+  color-scheme: dark;
+}
+
+/* Personaggio che parla (voce dei presentatori) */
+@keyframes qz-talk {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-0.6%) rotate(-0.8deg) scale(1.012); }
+  50% { transform: translateY(0.2%) rotate(0.5deg) scale(0.995); }
+  75% { transform: translateY(-0.4%) rotate(-0.3deg) scale(1.008); }
+}
+.qz-talking {
+  animation: qz-talk 0.42s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+
+/* Barra della schermata di caricamento */
+@keyframes qz-loading {
+  0% { width: 8%; margin-left: 0; }
+  50% { width: 70%; margin-left: 10%; }
+  100% { width: 8%; margin-left: 92%; }
+}
+.qz-loading-bar {
+  animation: qz-loading 1.6s ease-in-out infinite;
 }

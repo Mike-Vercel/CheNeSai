@@ -1,10 +1,18 @@
 import type { NextConfig } from "next";
 
+const securityHeaders = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+];
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // L'app è interamente dinamica (stato live): niente Cache Components.
   reactCompiler: true,
+  poweredByHeader: false,
+  // libreria iniziale delle battute dei presentatori (importata alla prima serata se l'archivio è vuoto)
+  outputFileTracingIncludes: { "/api/**": ["./content/show/battute.json"] },
   turbopack: {
     rules: {
       "*.css": {
@@ -12,6 +20,15 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  async headers() {
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      {
+        source: "/characters/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+    ];
   },
 };
 

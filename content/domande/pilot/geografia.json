@@ -1,0 +1,849 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è il fiume più lungo d'Italia?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Po",
+        "Tevere",
+        "Adige",
+        "Arno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fiumi",
+        "italia"
+      ],
+      "notes": "Il Po è lungo circa 652 km, primo in Italia"
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana svetta la Mole Antonelliana?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Milano",
+        "Genova",
+        "Bologna",
+        "Torino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "città",
+        "italia",
+        "monumenti"
+      ],
+      "notes": "La Mole Antonelliana è il simbolo di Torino"
+    },
+    {
+      "type": "single",
+      "text": "Qual è il vulcano attivo più alto d'Europa, che domina Catania?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Vesuvio",
+        "Stromboli",
+        "Vulcano",
+        "Etna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vulcani",
+        "sicilia"
+      ],
+      "notes": "L'Etna (oltre 3.300 m) è il più alto vulcano attivo d'Europa"
+    },
+    {
+      "type": "single",
+      "text": "Quale oceano bagna le coste del Portogallo?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Oceano Pacifico",
+        "Oceano Indiano",
+        "Oceano Atlantico",
+        "Oceano Artico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "oceani",
+        "europa"
+      ],
+      "notes": "Il Portogallo si affaccia sull'Atlantico"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la capitale del Giappone?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Kyoto",
+        "Osaka",
+        "Tokyo",
+        "Hiroshima"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "capitali",
+        "asia"
+      ],
+      "notes": "Tokyo è la capitale del Giappone"
+    },
+    {
+      "type": "single",
+      "text": "Quale catena montuosa separa l'Italia dal resto d'Europa?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Appennini",
+        "Pirenei",
+        "Carpazi",
+        "Alpi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "montagne",
+        "italia"
+      ],
+      "notes": "Le Alpi formano il confine settentrionale dell'Italia"
+    },
+    {
+      "type": "single",
+      "text": "Su quale fiume si affaccia la Torre Eiffel di Parigi?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Senna",
+        "Loira",
+        "Rodano",
+        "Garonna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fiumi",
+        "europa"
+      ],
+      "notes": "La Senna attraversa Parigi"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la montagna più alta del mondo?",
+      "category": "Geografia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "K2",
+        "Monte Bianco",
+        "Kilimangiaro",
+        "Everest"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "montagne",
+        "mondo"
+      ],
+      "notes": "L'Everest supera gli 8.800 m"
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le regioni italiane?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "18",
+        "20",
+        "21",
+        "22"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "regioni",
+        "italia"
+      ],
+      "notes": "L'Italia è divisa in 20 regioni"
+    },
+    {
+      "type": "single",
+      "text": "In quale regione si trova Matera, la città dei Sassi?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Puglia",
+        "Basilicata",
+        "Calabria",
+        "Campania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "città",
+        "italia"
+      ],
+      "notes": "Matera è capoluogo di provincia in Basilicata"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la capitale federale dell'Australia?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Canberra",
+        "Sydney",
+        "Melbourne",
+        "Perth"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "capitali",
+        "oceania"
+      ],
+      "notes": "Canberra è capitale federale dal 1913"
+    },
+    {
+      "type": "single",
+      "text": "Quale stretto separa la Sicilia dalla Calabria?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Stretto di Messina",
+        "Stretto di Bonifacio",
+        "Stretto di Gibilterra",
+        "Canale d'Otranto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mari",
+        "sicilia"
+      ],
+      "notes": "Lo Stretto di Messina separa Sicilia e Calabria"
+    },
+    {
+      "type": "single",
+      "text": "Qual è il lago più esteso d'Italia?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lago Maggiore",
+        "Lago di Como",
+        "Lago di Garda",
+        "Lago Trasimeno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "laghi",
+        "italia"
+      ],
+      "notes": "Il Garda (circa 370 km²) è il lago più esteso d'Italia"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la capitale del Canada?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ottawa",
+        "Toronto",
+        "Montréal",
+        "Vancouver"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "capitali",
+        "america"
+      ],
+      "notes": "Ottawa è la capitale del Canada"
+    },
+    {
+      "type": "single",
+      "text": "Quale fiume attraversa Firenze?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tevere",
+        "Po",
+        "Adige",
+        "Arno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fiumi",
+        "italia"
+      ],
+      "notes": "L'Arno attraversa Firenze e Pisa"
+    },
+    {
+      "type": "single",
+      "text": "Qual è il Paese più grande del mondo per superficie?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Canada",
+        "Russia",
+        "Cina",
+        "Stati Uniti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "stati",
+        "mondo"
+      ],
+      "notes": "La Russia supera i 17 milioni di km²"
+    },
+    {
+      "type": "single",
+      "text": "Marrakech, con la piazza Jemaa el-Fna, è una città di quale Paese?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tunisia",
+        "Algeria",
+        "Egitto",
+        "Marocco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "città",
+        "africa"
+      ],
+      "notes": "Marrakech è una delle città imperiali del Marocco"
+    },
+    {
+      "type": "single",
+      "text": "Quale mare bagna Venezia?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mar Tirreno",
+        "Mar Ionio",
+        "Mar Adriatico",
+        "Mar Ligure"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mari",
+        "italia"
+      ],
+      "notes": "Venezia sorge nella laguna sull'Adriatico"
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trovano i fiordi di Geiranger e del Sogn?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Svezia",
+        "Finlandia",
+        "Norvegia",
+        "Danimarca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fiordi",
+        "europa"
+      ],
+      "notes": "Geirangerfjord e Sognefjord sono in Norvegia"
+    },
+    {
+      "type": "single",
+      "text": "Qual è il capoluogo del Trentino-Alto Adige?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Trento",
+        "Bolzano",
+        "Rovereto",
+        "Merano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "capoluoghi",
+        "italia"
+      ],
+      "notes": "Trento è capoluogo della regione; Bolzano della sua provincia"
+    },
+    {
+      "type": "single",
+      "text": "L'Andalusia è una regione di quale Paese?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Portogallo",
+        "Spagna",
+        "Francia",
+        "Grecia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "regioni",
+        "europa"
+      ],
+      "notes": "L'Andalusia è una comunità autonoma della Spagna"
+    },
+    {
+      "type": "single",
+      "text": "Quale deserto occupa gran parte del Nord Africa?",
+      "category": "Geografia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gobi",
+        "Kalahari",
+        "Atacama",
+        "Sahara"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "deserti",
+        "africa"
+      ],
+      "notes": "Il Sahara è il più grande deserto caldo del mondo"
+    },
+    {
+      "type": "single",
+      "text": "Quale Stato americano è soprannominato \"Sunshine State\"?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "California",
+        "Texas",
+        "Hawaii",
+        "Florida"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "usa",
+        "soprannomi"
+      ],
+      "notes": "Sunshine State è il soprannome ufficiale della Florida"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la capitale della Nuova Zelanda?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Auckland",
+        "Wellington",
+        "Christchurch",
+        "Queenstown"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "capitali",
+        "oceania"
+      ],
+      "notes": "Wellington è capitale dal 1865"
+    },
+    {
+      "type": "single",
+      "text": "Quale grande fiume attraversa Budapest?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Reno",
+        "Elba",
+        "Danubio",
+        "Vistola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fiumi",
+        "europa"
+      ],
+      "notes": "Il Danubio divide Buda da Pest"
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola si trova la città di Ajaccio?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sardegna",
+        "Elba",
+        "Corsica",
+        "Maiorca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "isole",
+        "europa"
+      ],
+      "notes": "Ajaccio, capoluogo della Corsica, città natale di Napoleone"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi Paesi non hanno sbocco sul mare? (più risposte)",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Portogallo",
+        "Croazia",
+        "Svizzera",
+        "Austria"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "confini",
+        "europa"
+      ],
+      "notes": "Svizzera e Austria sono Paesi senza sbocco al mare"
+    },
+    {
+      "type": "single",
+      "text": "Le isole Eolie fanno parte di quale città metropolitana siciliana?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Messina",
+        "Palermo",
+        "Catania",
+        "Trapani"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "isole",
+        "sicilia"
+      ],
+      "notes": "Le Eolie appartengono alla città metropolitana di Messina"
+    },
+    {
+      "type": "single",
+      "text": "Quale Paese ha una bandiera formata da due triangoli sovrapposti?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nepal",
+        "Bhutan",
+        "Sri Lanka",
+        "Bangladesh"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bandiere",
+        "asia"
+      ],
+      "notes": "Quella del Nepal è l'unica bandiera nazionale non quadrilatera"
+    },
+    {
+      "type": "single",
+      "text": "Quale città è la capitale della Scozia?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Glasgow",
+        "Edimburgo",
+        "Aberdeen",
+        "Inverness"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "capitali",
+        "europa"
+      ],
+      "notes": "Edimburgo è la capitale della Scozia"
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trova la cittadella inca di Machu Picchu?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Perù",
+        "Bolivia",
+        "Cile",
+        "Ecuador"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monumenti",
+        "america"
+      ],
+      "notes": "Machu Picchu si trova sulle Ande peruviane"
+    },
+    {
+      "type": "single",
+      "text": "Quale canale collega il Mar Mediterraneo al Mar Rosso?",
+      "category": "Geografia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Canale di Panama",
+        "Canale di Suez",
+        "Canale di Corinto",
+        "Canale di Kiel"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "canali",
+        "mondo"
+      ],
+      "notes": "Il Canale di Suez fu inaugurato nel 1869"
+    },
+    {
+      "type": "single",
+      "text": "Quale lago italiano raggiunge la maggiore profondità, oltre 400 metri?",
+      "category": "Geografia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lago d'Iseo",
+        "Lago d'Orta",
+        "Lago di Bolsena",
+        "Lago di Como"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "laghi",
+        "italia"
+      ],
+      "notes": "Il Lago di Como supera i 400 m di profondità massima"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la vetta più alta degli Appennini?",
+      "category": "Geografia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Monte Vettore",
+        "Monte Cimone",
+        "Corno Grande",
+        "Monte Amaro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "montagne",
+        "italia"
+      ],
+      "notes": "Il Corno Grande del Gran Sasso misura 2.912 m"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la capitale della Mongolia?",
+      "category": "Geografia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Astana",
+        "Ulan Bator",
+        "Biškek",
+        "Tashkent"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "capitali",
+        "asia"
+      ],
+      "notes": "Ulan Bator è la capitale della Mongolia"
+    },
+    {
+      "type": "single",
+      "text": "Addis Abeba è la capitale di quale Stato africano?",
+      "category": "Geografia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Kenya",
+        "Eritrea",
+        "Etiopia",
+        "Somalia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "capitali",
+        "africa"
+      ],
+      "notes": "Addis Abeba è la capitale dell'Etiopia"
+    },
+    {
+      "type": "single",
+      "text": "Quale lago africano è il più vasto del continente?",
+      "category": "Geografia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lago Vittoria",
+        "Lago Tanganica",
+        "Lago Malawi",
+        "Lago Ciad"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "laghi",
+        "africa"
+      ],
+      "notes": "Il Lago Vittoria è il più esteso del continente africano"
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste città sono capoluogo di regione? (più risposte)",
+      "category": "Geografia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Matera",
+        "Pescara",
+        "Potenza",
+        "Campobasso"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "capoluoghi",
+        "italia"
+      ],
+      "notes": "Potenza (Basilicata) e Campobasso (Molise); Abruzzo ha L'Aquila"
+    },
+    {
+      "type": "single",
+      "text": "Qual è la capitale del Burkina Faso?",
+      "category": "Geografia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Bamako",
+        "Ouagadougou",
+        "Niamey",
+        "Lomé"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "capitali",
+        "africa"
+      ],
+      "notes": "Ouagadougou è la capitale del Burkina Faso"
+    },
+    {
+      "type": "single",
+      "text": "Quale Stato africano è interamente circondato dal Sudafrica?",
+      "category": "Geografia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Eswatini",
+        "Lesotho",
+        "Botswana",
+        "Namibia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "stati",
+        "africa"
+      ],
+      "notes": "Il Lesotho è un'enclave nel Sudafrica; l'Eswatini confina anche col Mozambico"
+    }
+  ]
+}

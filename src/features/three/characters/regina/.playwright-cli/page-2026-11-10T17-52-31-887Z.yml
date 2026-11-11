@@ -1,0 +1,4 @@
+- generic [active] [ref=f11e1]:
+  - generic [ref=f11e2]: Caricamento della Regina…
+  - button "Open Next.js Dev Tools" [ref=f11e8] [cursor=pointer]
+  - alert [ref=f11e12]

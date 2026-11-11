@@ -1,0 +1,14 @@
+[     479ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[     501ms] [LOG] [HMR] connected @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[     742ms] [WARNING] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[    6692ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[    6747ms] [LOG] [Fast Refresh] done in 161ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   10749ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   11543ms] [LOG] [Fast Refresh] done in 905ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   14941ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   16820ms] [LOG] [Fast Refresh] done in 1980ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   19545ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   19744ms] [LOG] [Fast Refresh] done in 303ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   49826ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   49828ms] [LOG] [Fast Refresh] done in 111ms @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
+[   57866ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3200/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js:760
