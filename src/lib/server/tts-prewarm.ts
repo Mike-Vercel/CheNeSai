@@ -1,10 +1,11 @@
 import "server-only";
 import { after } from "next/server";
-import { getSql } from "@/lib/database/db";
+import { getSql, type Db } from "@/lib/database/db";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import { podiumLines, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
 import { standingsForShow } from "@/features/game/teams-view";
-import { cachedKeys, ensureClip, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
+import { cachedKeys, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
+import { ensureLineClip } from "./tts-names";
 import { ensureOptionsClip } from "./read-time";
 import { runScopeBatch } from "./tts-pregen";
 
@@ -13,6 +14,8 @@ import { runScopeBatch } from "./tts-pregen";
  * costruiscono le battute del nuovo stato con lo stesso copione del TV e si
  * generano in background (after), così l'audio è pronto quando il TV lo chiede.
  * Non blocca né fa fallire mai il comando.
+ * Le battute live passano dai "nomi salvati" (tts-names): stesse parti e stessa clip finale
+ * che chiederà il TV.
  */
 const PREWARM_PHASES: ReadonlySet<GamePhase> = new Set(["SCORE_REVEAL", "LEADERBOARD", "FINISHED", "CATEGORY_RESULT", "WHEEL_SPIN", "ROUND_INTRO", "SPECIAL_EVENT"]);
 
@@ -39,13 +42,10 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     const stop = state.phase === "WHEEL_SPIN" ? wheelStopLine(state) : null;
     if (stop) lines.push(stop);
     if (lines.length === 0) return;
+    const sessionId = state.sessionId;
     after(async () => {
       try {
-        const db = getSql();
-        const cfg = await loadVoiceConfig(db);
-        const plans = lines.map((l) => planClip(cfg, l)).filter((p) => p !== null);
-        const cached = await cachedKeys(db, plans.map((p) => p.key));
-        await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, p.live ? "live" : "pregen", cfg)));
+        await warmLines(getSql(), lines, sessionId);
       } catch (e) {
         console.warn("[quizzone] pre-riscaldamento voci non riuscito", e instanceof Error ? e.message : e);
       }
@@ -55,20 +55,24 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
   }
 }
 
+/** Genera le battute che mancano in archivio (le live con i nomi salvati della serata). */
+async function warmLines(db: Db, lines: SpokenLine[], sessionId: string | null) {
+  const cfg = await loadVoiceConfig(db);
+  const todo = lines.map((l) => ({ l, p: planClip(cfg, l) })).filter((x) => x.p !== null);
+  const cached = await cachedKeys(db, todo.map((x) => x.p!.key));
+  await Promise.allSettled(todo.filter((x) => !cached.has(x.p!.key)).map((x) => ensureLineClip(db, cfg, x.l, { sessionId })));
+}
+
 /**
  * Pre-riscalda battute live nate fuori da un comando di regia (es. saluti della lobby):
  * stesse chiavi di cache che chiederà il TV (who, testo, live).
  */
-export function prewarmLines(lines: SpokenLine[]): void {
+export function prewarmLines(lines: SpokenLine[], sessionId: string | null = null): void {
   try {
     if (!ttsConfigured() || process.env.VITEST || lines.length === 0) return;
     after(async () => {
       try {
-        const db = getSql();
-        const cfg = await loadVoiceConfig(db);
-        const plans = lines.map((l) => planClip(cfg, l)).filter((p) => p !== null);
-        const cached = await cachedKeys(db, plans.map((p) => p.key));
-        await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, p.live ? "live" : "pregen", cfg)));
+        await warmLines(getSql(), lines, sessionId);
       } catch (e) {
         console.warn("[quizzone] pre-riscaldamento voci non riuscito", e instanceof Error ? e.message : e);
       }
