@@ -1,0 +1,1082 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale frutto estivo, verde fuori e rosso dentro, è chiamato anche cocomero?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Papaya",
+        "Anguria",
+        "Melone",
+        "Pompelmo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "Anguria e cocomero sono due nomi dello stesso frutto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il pane tostato con aglio e olio, tipico antipasto?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bruschetta",
+        "Grissino",
+        "Piadina",
+        "Focaccia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pane"
+      ],
+      "notes": "La bruschetta è pane abbrustolito strofinato d'aglio e condito con olio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda si ottiene dalla fermentazione dell'uva?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vino",
+        "Sakè",
+        "Birra",
+        "Sidro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Il vino è il prodotto della fermentazione del mosto d'uva",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale primo piatto si cuoce aggiungendo brodo poco alla volta al riso?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Risotto",
+        "Arancina",
+        "Sartù",
+        "Supplì"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "riso"
+      ],
+      "notes": "Il risotto si cuoce bagnando il riso con brodo caldo un mestolo alla volta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda si ottiene da limoni spremuti, acqua e zucchero?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Orzata",
+        "Limonata",
+        "Tisana",
+        "Aranciata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "La limonata è succo di limone, acqua e zucchero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ortaggio arancione si intaglia ad Halloween?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Zucca",
+        "Melone",
+        "Carota",
+        "Peperone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortaggi"
+      ],
+      "notes": "La zucca intagliata (jack-o'-lantern) è il simbolo di Halloween",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale attrezzo si monta la panna a mano?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mestolo",
+        "Frusta",
+        "Schiumarola",
+        "Colino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "attrezzi"
+      ],
+      "notes": "La frusta incorpora aria nella panna fino a montarla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale attrezzo si stende la sfoglia della pasta fatta in casa?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Frusta",
+        "Schiumarola",
+        "Mestolo",
+        "Matterello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attrezzi",
+        "pasta"
+      ],
+      "notes": "Il matterello serve a stendere la sfoglia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale verdura a foglia mangiava Braccio di Ferro per diventare fortissimo?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spinaci",
+        "Lattuga",
+        "Bietole",
+        "Cavolo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortaggi",
+        "fumetti"
+      ],
+      "notes": "Braccio di Ferro (Popeye) ingoia scatolette di spinaci",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale piatto giapponese è un brodo con tagliolini, oggi diffusissimo?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tempura",
+        "Sashimi",
+        "Ramen",
+        "Sushi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giappone"
+      ],
+      "notes": "Il ramen è una zuppa di brodo e tagliolini di frumento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio a forma di pera si appende in coppia a stagionare?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gorgonzola",
+        "Taleggio",
+        "Asiago",
+        "Caciocavallo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formaggi",
+        "sud"
+      ],
+      "notes": "Il caciocavallo stagiona appeso a coppie \"a cavallo\" di una pertica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce al cucchiaio francese ha una crosticina di zucchero caramellato?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Profiterole",
+        "Crème brûlée",
+        "Tarte Tatin",
+        "Mousse al cioccolato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "francia"
+      ],
+      "notes": "La crème brûlée è una crema cotta con zucchero bruciato in superficie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il souvlaki, spiedino di carne alla griglia, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Portogallo",
+        "Marocco",
+        "Grecia",
+        "Spagna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-mondo"
+      ],
+      "notes": "Il souvlaki è lo spiedino greco, spesso servito nella pita",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La fondue di formaggio fuso è un piatto simbolo di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Belgio",
+        "Austria",
+        "Svizzera",
+        "Paesi Bassi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "La fondue al formaggio è considerata piatto nazionale svizzero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il matcha giapponese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pasta di soia",
+        "Tè verde in polvere",
+        "Riso fermentato",
+        "Alga essiccata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giappone",
+        "tè"
+      ],
+      "notes": "Il matcha è tè verde macinato finissimo, usato nella cerimonia del tè",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste salse si prepara con latte, burro e farina?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Maionese",
+        "Vellutata",
+        "Olandese",
+        "Besciamella"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "salse"
+      ],
+      "notes": "Besciamella: roux di burro e farina con latte; la vellutata usa il brodo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale liquore scuro si prepara con le noci ancora verdi, raccolte a giugno?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nocino",
+        "Limoncello",
+        "Mirto",
+        "Amaretto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "liquori"
+      ],
+      "notes": "Il nocino si fa con mallo di noci acerbe, tradizionalmente raccolte per San Giovanni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale vino si inzuppano tradizionalmente i cantucci toscani?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Marsala",
+        "Vin santo",
+        "Lambrusco",
+        "Moscato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "toscana",
+        "dolci"
+      ],
+      "notes": "Cantucci e vin santo sono l'abbinamento classico toscano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'antica pesca del tonno nelle tonnare siciliane?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lampara",
+        "Strascico",
+        "Mattanza",
+        "Paranza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "pesce"
+      ],
+      "notes": "La mattanza è la fase finale della pesca del tonno nella \"camera della morte\" della tonnara",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La Guida Michelin nacque nel 1900 da un'azienda che produceva?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Pentole",
+        "Biciclette",
+        "Pneumatici",
+        "Liquori"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-cucina"
+      ],
+      "notes": "I fratelli Michelin, produttori di pneumatici, la crearono per invogliare i viaggi in auto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi alimenti arrivò in Europa dalle Americhe?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Peperoncino",
+        "Melanzana",
+        "Aglio",
+        "Cipolla"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia-cucina"
+      ],
+      "notes": "Il peperoncino (Capsicum) è americano; melanzana, aglio e cipolla vengono dall'Asia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per legge, con quale sfarinato si fa la pasta secca italiana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Semola di grano duro",
+        "Farina di riso",
+        "Farina di grano tenero",
+        "Farina di mais"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta",
+        "leggi"
+      ],
+      "notes": "Il DPR 187/2001 impone semola di grano duro per la pasta secca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Gouda è un formaggio tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Svizzera",
+        "Belgio",
+        "Paesi Bassi",
+        "Danimarca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Il Gouda prende il nome dalla città olandese di Gouda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa distingue il sorbetto dal gelato classico?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Non contiene latte",
+        "Contiene alcol",
+        "Si serve caldo",
+        "È salato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "gelato"
+      ],
+      "notes": "Il sorbetto è a base di acqua, zucchero e frutta, senza latte né panna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si fa a un piatto servito flambé?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Si copre di zucchero a velo",
+        "Si gratina sotto il grill",
+        "Si serve su ghiaccio",
+        "Si dà fuoco a un liquore versato sopra"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Flambé: si fiammeggia il piatto con un liquore incendiato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le sfince di San Giuseppe palermitane sono farcite con?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marmellata",
+        "Crema pasticciera",
+        "Crema di ricotta",
+        "Panna montata"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "dolci"
+      ],
+      "notes": "Le sfince di San Giuseppe sono frittelle di pasta choux farcite con crema di ricotta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La poutine, patatine con formaggio e salsa, è tipica di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Irlanda",
+        "Australia",
+        "Canada",
+        "Belgio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-mondo"
+      ],
+      "notes": "La poutine nasce in Québec: patatine, formaggio in granuli e salsa gravy",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente principale del baba ganoush mediorientale?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ceci",
+        "Melanzane",
+        "Zucchine",
+        "Lenticchie"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mondo"
+      ],
+      "notes": "Il baba ganoush è una crema di melanzane arrostite con tahina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parte della pianta dello zenzero usiamo in cucina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "La corteccia",
+        "Il fiore",
+        "Il rizoma",
+        "Il seme"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "Lo zenzero che usiamo è il rizoma, un fusto sotterraneo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica la dicitura doppio zero sulla farina di grano tenero?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "La forza della farina",
+        "Il grado di raffinazione",
+        "L'origine del grano",
+        "Il contenuto di glutine"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "farine"
+      ],
+      "notes": "00, 0, 1, 2, integrale indicano quanto la farina è raffinata (abburattata)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi formaggi è a pasta filata?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gorgonzola",
+        "Provolone",
+        "Pecorino",
+        "Taleggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Il provolone, come mozzarella e caciocavallo, è a pasta filata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La panna cotta è un dolce al cucchiaio tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Puglia",
+        "Piemonte",
+        "Sicilia",
+        "Toscana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "piemonte",
+        "dolci"
+      ],
+      "notes": "La panna cotta è nell'elenco dei prodotti tradizionali del Piemonte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La sbrisolona, torta friabile alle mandorle, è tipica di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Trapani",
+        "Mantova",
+        "Perugia",
+        "Bari"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lombardia",
+        "dolci"
+      ],
+      "notes": "La torta sbrisolona è il dolce tradizionale di Mantova",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Grillo è un vitigno siciliano a bacca di quale colore?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Nera",
+        "Bianca",
+        "Grigia",
+        "Rosa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "vino"
+      ],
+      "notes": "Il Grillo è un'uva bianca, usata anche per il Marsala",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Perché gli asparagi bianchi sono bianchi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Crescono al buio, sotto terra",
+        "Sono di una specie diversa",
+        "Vengono sbiancati in acqua",
+        "Sono raccolti più giovani"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortaggi",
+        "trabocchetto"
+      ],
+      "notes": "Sono la stessa pianta: coperti di terra non vedono la luce e non fanno clorofilla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che differenza c'è tra il tè verde e il tè nero?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il clima di coltivazione",
+        "L'altitudine",
+        "La lavorazione delle foglie",
+        "La pianta di origine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tè",
+        "trabocchetto"
+      ],
+      "notes": "Vengono entrambi dalla Camellia sinensis: il nero è ossidato, il verde no",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Tra questi crostacei, quale ha due grandi chele?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Aragosta",
+        "Gambero rosso",
+        "Cicala di mare",
+        "Astice"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pesce",
+        "trabocchetto"
+      ],
+      "notes": "L'astice ha grandi chele; l'aragosta ne è priva",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Si può fare un vino bianco con uve a bacca nera?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Solo con uve appassite",
+        "No, mai",
+        "Solo aggiungendo zucchero",
+        "Sì, separando subito il mosto dalle bucce"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vino",
+        "trabocchetto"
+      ],
+      "notes": "Il colore sta nelle bucce: senza macerazione si ottiene un bianco (blanc de noirs)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale ingrediente principale si fanno i passatelli romagnoli?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Farina di ceci",
+        "Patate",
+        "Pangrattato",
+        "Semolino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "emilia-romagna",
+        "pasta"
+      ],
+      "notes": "Passatelli: pangrattato, uova, parmigiano e noce moscata, cotti in brodo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel nome degli agnolotti del plin, che cosa significa plin?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Piega",
+        "Ripieno",
+        "Piccolo",
+        "Pizzicotto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "piemonte",
+        "pasta"
+      ],
+      "notes": "In piemontese plin è il pizzicotto con cui si chiude la pasta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Unesco ha riconosciuto la dieta mediterranea patrimonio immateriale?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "2001",
+        "2015",
+        "1995",
+        "2010"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-cucina"
+      ],
+      "notes": "Unesco, novembre 2010: la dieta mediterranea entra nel patrimonio culturale immateriale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il chiodo di garofano?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il seme di una bacca",
+        "Il bocciolo essiccato di un fiore",
+        "Un pezzo di radice",
+        "Un rametto di corteccia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "I chiodi di garofano sono boccioli fiorali essiccati di Syzygium aromaticum",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Oltre a Parma, Reggio, Modena e Bologna, in quale provincia si produce il Parmigiano Reggiano?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mantova",
+        "Ferrara",
+        "Cremona",
+        "Piacenza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi",
+        "trabocchetto"
+      ],
+      "notes": "La zona DOP comprende anche Mantova a destra del Po; Piacenza è zona del Grana Padano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella ricetta tradizionale, com'è la cotoletta alla milanese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Una fetta di maiale impanata",
+        "Una fettina di pollo senza osso",
+        "Un hamburger impanato",
+        "Una costoletta di vitello con l'osso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lombardia",
+        "trabocchetto"
+      ],
+      "notes": "La De.Co. del Comune di Milano (2008) prevede la costoletta di vitello con l'osso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Oltre alla soia, quale cereale si usa tradizionalmente nella salsa di soia giapponese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mais",
+        "Orzo",
+        "Riso",
+        "Frumento"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giappone",
+        "trabocchetto"
+      ],
+      "notes": "Lo shoyu tradizionale si fa fermentando soia e frumento tostato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Dove cresce l'anacardio?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Appeso sotto un falso frutto carnoso",
+        "Sottoterra",
+        "In un baccello",
+        "Dentro un riccio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta-secca",
+        "trabocchetto"
+      ],
+      "notes": "L'anacardio pende sotto il \"pomo di acagiù\", un falso frutto carnoso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Castelmagno DOP si produce in quale provincia?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Cuneo",
+        "Torino",
+        "Asti",
+        "Novara"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "piemonte",
+        "formaggi"
+      ],
+      "notes": "Il Castelmagno DOP è prodotto in alta Valle Grana, provincia di Cuneo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il cosiddetto riso selvatico, per la botanica, che cos'è?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Un riso coltivato in montagna",
+        "Un riso non sbramato",
+        "Un riso nero integrale",
+        "Una pianta di un altro genere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cereali",
+        "trabocchetto"
+      ],
+      "notes": "Il riso selvatico è Zizania, non Oryza: un'altra graminacea",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è, per la botanica, il fico che mangiamo?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Una drupa",
+        "Una bacca",
+        "Un legume",
+        "Un'infruttescenza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "frutta",
+        "trabocchetto"
+      ],
+      "notes": "Il fico è un siconio, un'infruttescenza carnosa che racchiude tanti piccoli frutti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il nome del Prosecco viene da un paese vicino a quale città?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Treviso",
+        "Verona",
+        "Trieste",
+        "Venezia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vino",
+        "trabocchetto"
+      ],
+      "notes": "Prosecco è una frazione di Trieste: dal 2009 dà il nome alla DOC",
+      "verified": true
+    }
+  ]
+}

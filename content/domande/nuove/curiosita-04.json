@@ -1,0 +1,1097 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa si risponde per tradizione a chi augura \"in bocca al lupo\"?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Salute",
+        "Crepi",
+        "Evviva",
+        "Auguri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "La risposta tradizionale è \"crepi\" (il lupo)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quale artigianato è famosa l'isola veneziana di Murano?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vetro",
+        "Merletti",
+        "Ceramica",
+        "Legno intagliato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "artigianato",
+        "venezia"
+      ],
+      "notes": "I vetrai furono trasferiti a Murano nel 1291",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è il mago cattivo nemico dei Puffi?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Grande Puffo",
+        "Brontolone",
+        "Azrael",
+        "Gargamella"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Gargamella vuole catturare i Puffi; il suo gatto in italiano si chiama Birba",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la festa cinese con draghi e lanterne rosse, che cade ogni anno in una data diversa?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Diwali",
+        "Hanami",
+        "Capodanno cinese",
+        "Holi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Il Capodanno cinese segue il calendario lunisolare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si spegne soffiando sulla torta di compleanno?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Le stelle filanti",
+        "Le candeline",
+        "I coriandoli",
+        "Le lanterne"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tradizioni"
+      ],
+      "notes": "Si esprime un desiderio e si soffia sulle candeline",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa pesa di più: un chilo di piume o un chilo di ferro?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pesano uguale",
+        "Il ferro",
+        "Le piume",
+        "Dipende dall'umidità"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesi",
+        "trabocchetto"
+      ],
+      "notes": "Un chilo è sempre un chilo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale mollusco produce le perle?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il polpo",
+        "La seppia",
+        "Il calamaro",
+        "L'ostrica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "gioielli",
+        "mare"
+      ],
+      "notes": "Le perle preziose nascono soprattutto nelle ostriche perlifere; polpo, seppia e calamaro non hanno conchiglia esterna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale giorno si festeggia Santo Stefano?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "24 dicembre",
+        "31 dicembre",
+        "26 dicembre",
+        "6 gennaio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "natale"
+      ],
+      "notes": "Santo Stefano, primo martire, si festeggia il giorno dopo Natale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco una persona bendata deve acchiappare gli altri?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nascondino",
+        "Mosca cieca",
+        "Campana",
+        "Strega comanda colore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Il giocatore bendato è la \"mosca cieca\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa teme chi soffre di claustrofobia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gli spazi chiusi",
+        "Le altezze",
+        "I ragni",
+        "Il buio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fobie"
+      ],
+      "notes": "Dal latino claustrum, luogo chiuso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore sono per tradizione i confetti per una laurea?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bianchi",
+        "Azzurri",
+        "Verdi",
+        "Rossi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tradizioni",
+        "laurea"
+      ],
+      "notes": "Il rosso richiama l'alloro e il colore della sapienza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale località di Londra dà il nome al meridiano zero?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Westminster",
+        "Chelsea",
+        "Greenwich",
+        "Wimbledon"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tempo",
+        "londra"
+      ],
+      "notes": "Il meridiano di Greenwich, fissato nel 1884",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale Paese regala ogni anno a Londra l'albero di Natale di Trafalgar Square?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Svezia",
+        "Norvegia",
+        "Finlandia",
+        "Danimarca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "londra"
+      ],
+      "notes": "Dono di Oslo dal 1947, per ringraziare dell'aiuto in guerra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale albero in fiore si ammira in Giappone durante l'hanami?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ciliegio",
+        "Pesco",
+        "Magnolia",
+        "Mandorlo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giappone",
+        "fiori"
+      ],
+      "notes": "Hanami: la contemplazione dei fiori di ciliegio (sakura)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova la Bocca della Verità?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Firenze",
+        "Venezia",
+        "Napoli",
+        "Roma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "luoghi",
+        "roma"
+      ],
+      "notes": "Sotto il portico di Santa Maria in Cosmedin, a Roma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si mangiano dodici chicchi d'uva ai rintocchi della mezzanotte di Capodanno?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grecia",
+        "Germania",
+        "Spagna",
+        "Irlanda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "capodanno",
+        "mondo"
+      ],
+      "notes": "Las doce uvas de la suerte, tradizione spagnola (poi diffusa in America Latina)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale paese pugliese si trova il santuario di Padre Pio?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Monte Sant'Angelo",
+        "San Giovanni Rotondo",
+        "Alberobello",
+        "Pietrelcina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "luoghi",
+        "puglia"
+      ],
+      "notes": "Pietrelcina, in Campania, è il paese natale; il santuario è a San Giovanni Rotondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale animale si ricava la lana cachemire?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Capra",
+        "Pecora",
+        "Coniglio",
+        "Alpaca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "moda",
+        "trabocchetto"
+      ],
+      "notes": "Il cachemire viene dal sottovello della capra del Kashmir",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si gioca il calcio storico in costume?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Siena",
+        "Pisa",
+        "Arezzo",
+        "Firenze"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Il calcio storico fiorentino si gioca in piazza Santa Croce a giugno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che materiale è la mina di una normale matita?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Piombo",
+        "Carbone di legna",
+        "Grafite",
+        "Stagno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "oggetti",
+        "trabocchetto"
+      ],
+      "notes": "La mina è grafite mescolata ad argilla: il piombo non c'è",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trova il villaggio di Babbo Natale di Rovaniemi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Norvegia",
+        "Finlandia",
+        "Svezia",
+        "Islanda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "Rovaniemi, in Lapponia finlandese, sul Circolo polare artico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale antica terra vivono Asterix e Obelix?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gallia",
+        "Britannia",
+        "Germania",
+        "Iberia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Il loro villaggio è in Armorica, nella Gallia del 50 avanti Cristo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città la via di San Gregorio Armeno è famosa per le botteghe dei presepi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Salerno",
+        "Bari",
+        "Palermo",
+        "Napoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale",
+        "napoli"
+      ],
+      "notes": "San Gregorio Armeno, nel centro storico di Napoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale festa indiana è famosa per le polveri colorate lanciate per strada?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Diwali",
+        "Ramadan",
+        "Holi",
+        "Navroz"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Holi, festa di primavera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quale evento fu costruita la Torre Eiffel?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Le Olimpiadi del 1900",
+        "L'Esposizione universale del 1889",
+        "La fine della Prima guerra mondiale",
+        "L'incoronazione di Napoleone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monumenti",
+        "parigi"
+      ],
+      "notes": "Costruita per l'Expo che celebrava il centenario della Rivoluzione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale mese cade il Natale degli ortodossi russi?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gennaio",
+        "Dicembre",
+        "Novembre",
+        "Febbraio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "La Chiesa russa segue il calendario giuliano: Natale il 7 gennaio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola sorge la Statua della Libertà?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Manhattan",
+        "Ellis Island",
+        "Staten Island",
+        "Liberty Island"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "luoghi",
+        "trabocchetto"
+      ],
+      "notes": "Sorge su Liberty Island, già Bedloe's Island; Ellis Island è l'isola degli immigrati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante punte ha la corona della Statua della Libertà?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "5",
+        "9",
+        "7",
+        "12"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "luoghi",
+        "mondo"
+      ],
+      "notes": "Sette raggi, per i sette mari e i sette continenti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Barbie prende il nome dalla figlia della sua creatrice: come si chiamava?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Betty",
+        "Barbara",
+        "Beatrice",
+        "Bianca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giocattoli"
+      ],
+      "notes": "Ruth Handler la chiamò come la figlia Barbara; Ken come il figlio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale piazza si corre il Palio di Siena?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Piazza del Campo",
+        "Piazza della Signoria",
+        "Piazza dei Miracoli",
+        "Piazza Grande"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "siena",
+        "palio"
+      ],
+      "notes": "Il Palio si corre il 2 luglio e il 16 agosto in piazza del Campo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale santo si invoca contro il mal di gola, il 3 febbraio?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "San Valentino",
+        "San Sebastiano",
+        "San Lorenzo",
+        "San Biagio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "santi",
+        "tradizioni"
+      ],
+      "notes": "Si benedice la gola con due candele incrociate",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Verso quale punto cardinale pende la Torre di Pisa?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nord",
+        "Est",
+        "Sud",
+        "Ovest"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "luoghi",
+        "pisa"
+      ],
+      "notes": "La torre pende verso sud per il terreno più cedevole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si tiene a fine gennaio la millenaria Fiera di Sant'Orso?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Trento",
+        "Aosta",
+        "Bolzano",
+        "Belluno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "La Fiera di Sant'Orso, artigianato valdostano, il 30 e 31 gennaio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella smorfia napoletana, che cosa significa il numero 33?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gli anni di Cristo",
+        "La paura",
+        "Il morto che parla",
+        "L'Italia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "smorfia",
+        "napoli"
+      ],
+      "notes": "Nella smorfia napoletana il 33 sono gli anni di Cristo; 90 la paura, 48 il morto che parla, 1 l'Italia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era raffigurato sull'ultima banconota da mille lire?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giuseppe Verdi",
+        "Marco Polo",
+        "Grazia Deledda",
+        "Maria Montessori"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "banconote",
+        "lira"
+      ],
+      "notes": "La mille lire Montessori circolò dal 1990 al 2002",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale papa introdusse nel 1582 il calendario che usiamo ancora oggi?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giulio secondo",
+        "Sisto quinto",
+        "Gregorio tredicesimo",
+        "Leone decimo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calendario",
+        "papi"
+      ],
+      "notes": "Calendario gregoriano, bolla Inter gravissimas del 1582",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti Magi indica il Vangelo di Matteo?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "3",
+        "Non dice il numero",
+        "4",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "Matteo parla di \"Magi\" senza numero; il tre viene dai tre doni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che giorno si festeggia San Martino, quando \"ogni mosto diventa vino\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "11 novembre",
+        "1 novembre",
+        "25 novembre",
+        "8 dicembre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "santi",
+        "tradizioni"
+      ],
+      "notes": "San Martino di Tours, 11 novembre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in italiano il cane di Tintin?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Idefix",
+        "Pluto",
+        "Rantanplan",
+        "Milù"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "In originale Milou, in italiano Milù",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale cittadina spagnola si svolge la Tomatina, battaglia di pomodori?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pamplona",
+        "Ronda",
+        "Buñol",
+        "Cadice"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "L'ultimo mercoledì di agosto a Buñol, vicino a Valencia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quanti anni doveva restare in piedi la Torre Eiffel secondo il permesso iniziale?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "5",
+        "20",
+        "50",
+        "100"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monumenti",
+        "trabocchetto"
+      ],
+      "notes": "Il permesso era di vent'anni; fu salvata come antenna radiotelegrafica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale numero iniziano i codici postali di Palermo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "90",
+        "95",
+        "98",
+        "80"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lotto",
+        "codici"
+      ],
+      "notes": "Palermo 90100; Catania 95100, Messina 98100, Napoli 80100",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come chiamano i cinesi il tè che noi chiamiamo nero?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tè verde",
+        "Tè bianco",
+        "Tè giallo",
+        "Tè rosso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tè",
+        "trabocchetto"
+      ],
+      "notes": "In cinese hong cha, tè rosso, dal colore dell'infuso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dipinto compare sulla moneta italiana da 10 centesimi di euro?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "La Gioconda",
+        "La Primavera",
+        "La nascita di Venere",
+        "L'ultima cena"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "monete",
+        "italia"
+      ],
+      "notes": "Il volto di Venere dal dipinto di Botticelli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi anni NON sarà bisestile, pur essendo divisibile per 4?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "2028",
+        "2100",
+        "2032",
+        "2400"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calendario",
+        "trabocchetto"
+      ],
+      "notes": "Gli anni secolari sono bisestili solo se divisibili per 400",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio dei fumetti Bonelli è il \"detective dell'impossibile\"?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Martin Mystère",
+        "Dylan Dog",
+        "Nathan Never",
+        "Zagor"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Martin Mystère, creato da Alfredo Castelli nel 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la maschera simbolo del Carnevale di Viareggio?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Meneghino",
+        "Rugantino",
+        "Stenterello",
+        "Burlamacco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carnevale",
+        "toscana"
+      ],
+      "notes": "Burlamacco fu disegnato da Uberto Bonetti nel 1931",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il drappo dipinto che va alla contrada vincitrice del Palio di Siena?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Gonfalone",
+        "Stendardo",
+        "Drappellone",
+        "Labaro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "siena",
+        "palio"
+      ],
+      "notes": "Il drappellone, detto anche cencio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale arcano maggiore dei tarocchi non ha un numero?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "La Morte",
+        "Il Matto",
+        "Il Mondo",
+        "Il Bagatto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tarocchi"
+      ],
+      "notes": "Il Matto è senza numero o con lo zero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale paese siciliano si balla a Pasqua l'Abballu de' diavuli?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Prizzi",
+        "Modica",
+        "Erice",
+        "Sciacca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Prizzi, in provincia di Palermo",
+      "verified": true
+    }
+  ]
+}

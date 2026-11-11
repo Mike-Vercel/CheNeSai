@@ -1,0 +1,1103 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Quale squadra di supereroi Marvel riunisce Iron Man, Thor e Capitan America?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Gli Avengers",
+    "Gli X-Men",
+    "I Fantastici Quattro",
+    "I Guardiani della Galassia"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "supereroi",
+    "marvel"
+   ],
+   "notes": "The Avengers (2012) e seguiti",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Abu, il compagno di avventure di Aladdin?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un pappagallo",
+    "Una tigre",
+    "Una scimmietta",
+    "Un cammello"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "animali"
+   ],
+   "notes": "Abu è la scimmietta ladruncola; Iago è il pappagallo di Jafar, Rajah la tigre di Jasmine",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale espressione, cantata da Timon e Pumbaa, vuol dire \"senza pensieri\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Bibbidi bobbidi bu",
+    "Supercalifragilistichespiralidoso",
+    "Salagadula",
+    "Hakuna matata"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "canzoni"
+   ],
+   "notes": "Hakuna matata, in lingua swahili, ne \"Il re leone\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale supereroe di Gotham City ha un giovane aiutante di nome Robin?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Batman",
+    "Superman",
+    "Spider-Man",
+    "Flash"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "supereroi"
+   ],
+   "notes": "Batman e Robin, il \"dinamico duo\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale personaggio fa da coscienza a Pinocchio nel film Disney del 1940?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Il Grillo Parlante",
+    "Geppetto",
+    "Lucignolo",
+    "Mangiafuoco"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Il Grillo Parlante (Jiminy Cricket) accompagna Pinocchio",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città vive Peter Parker, alias Spider-Man?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Chicago",
+    "Gotham City",
+    "New York",
+    "Metropolis"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "supereroi",
+    "marvel"
+   ],
+   "notes": "Peter Parker vive nel Queens, a New York",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di che colore è la spada laser di Darth Vader?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Verde",
+    "Blu",
+    "Rossa",
+    "Viola"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "star wars"
+   ],
+   "notes": "I Sith usano spade laser rosse",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale principessa Disney vola sul tappeto magico con Aladdin?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Ariel",
+    "Jasmine",
+    "Belle",
+    "Tiana"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "La principessa Jasmine in \"Aladdin\" (1992)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Disney si canta \"Il cerchio della vita\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Tarzan",
+    "Il re leone",
+    "Il libro della giungla",
+    "Bambi"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "canzoni"
+   ],
+   "notes": "La canzone di apertura de \"Il re leone\" (1994), di Elton John e Tim Rice",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamano gli esserini gialli con la salopette di \"Cattivissimo me\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Puffi",
+    "Gremlins",
+    "Minions",
+    "Ewok"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "animazione",
+    "commedia"
+   ],
+   "notes": "I Minions, aiutanti di Gru",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il dinosauro verde e un po' fifone di \"Toy Story\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Dino",
+    "Rex",
+    "Yoshi",
+    "Spike"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "pixar",
+    "animazione"
+   ],
+   "notes": "Rex, il tirannosauro giocattolo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama l'asinello sempre malinconico amico di Winnie the Pooh?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Ih-Oh",
+    "Tigro",
+    "Pimpi",
+    "Tappo"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Ih-Oh (Eeyore); Tigro è la tigre, Pimpi il maialino, Tappo il coniglio",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta Wolverine nei film degli X-Men?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Ryan Reynolds",
+    "Hugh Jackman",
+    "Chris Evans",
+    "Russell Crowe"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "supereroi",
+    "marvel"
+   ],
+   "notes": "Hugh Jackman, dal 2000",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore è il protagonista de \"Il principe cerca moglie\" (1988)?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Eddie Murphy",
+    "Will Smith",
+    "Denzel Washington",
+    "Morgan Freeman"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "commedia",
+    "hollywood"
+   ],
+   "notes": "Eddie Murphy è il principe Akeem di Zamunda",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la protagonista femminile di \"Titanic\", interpretata da Kate Winslet?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Ruth",
+    "Molly",
+    "Grace",
+    "Rose"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "hollywood",
+    "romantici"
+   ],
+   "notes": "Rose DeWitt Bukater; Ruth è sua madre",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta Thor nei film Marvel?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Chris Hemsworth",
+    "Chris Evans",
+    "Chris Pratt",
+    "Tom Hiddleston"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "supereroi",
+    "marvel"
+   ],
+   "notes": "Chris Hemsworth; Evans è Capitan America, Pratt Star-Lord, Hiddleston Loki",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Benigni è un autista di scuolabus scambiato per un boss mafioso a Palermo?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Il mostro",
+    "Il piccolo diavolo",
+    "Pinocchio",
+    "Johnny Stecchino"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "sicilia",
+    "benigni"
+   ],
+   "notes": "Johnny Stecchino (1991): Dante è il sosia del boss",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Iago, il compagno del perfido Jafar in \"Aladdin\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Un corvo",
+    "Una scimmia",
+    "Un pappagallo",
+    "Un serpente"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "animali"
+   ],
+   "notes": "Iago è un pappagallo; la scimmietta Abu è amica di Aladdin",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta l'investigatore di animali \"Ace Ventura\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Eddie Murphy",
+    "Ben Stiller",
+    "Jim Carrey",
+    "Adam Sandler"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "commedia",
+    "hollywood"
+   ],
+   "notes": "Ace Ventura – L'acchiappanimali (1994)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Disney del 2016 la giovane Vaiana attraversa l'oceano con il semidio Maui?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Oceania",
+    "Encanto",
+    "Coco",
+    "Ribelle"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Oceania (Moana), ambientato in Polinesia",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta Katniss Everdeen in \"Hunger Games\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Emma Stone",
+    "Kristen Stewart",
+    "Shailene Woodley",
+    "Jennifer Lawrence"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "saghe",
+    "fantascienza"
+   ],
+   "notes": "Jennifer Lawrence, dal 2012",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nel film Disney \"Encanto\", di quale zio è meglio non parlare in famiglia?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Pedro",
+    "Bruno",
+    "Diego",
+    "Carlos"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "canzoni"
+   ],
+   "notes": "\"Non si nomina Bruno\", canzone di Lin-Manuel Miranda",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Robert De Niro si chiede allo specchio \"Ma dici a me\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Toro scatenato",
+    "Taxi Driver",
+    "Quei bravi ragazzi",
+    "Il cacciatore"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "scorsese",
+    "battute"
+   ],
+   "notes": "Travis Bickle in Taxi Driver (1976) di Martin Scorsese",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Ne \"L'attimo fuggente\", dove salgono gli studenti per salutare il professor Keating?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Sui banchi",
+    "Sul tetto",
+    "Sulle sedie del cortile",
+    "Sul palco"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "hollywood",
+    "scuola"
+   ],
+   "notes": "In piedi sui banchi: \"O capitano! Mio capitano!\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cosa si trasforma in carrozza per portare Cenerentola al ballo?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Una zucca",
+    "Una mela",
+    "Un'anguria",
+    "Una cipolla"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "fiabe"
+   ],
+   "notes": "La Fata Smemorina trasforma una zucca in carrozza",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpretò Batman nel film di Tim Burton del 1989?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Michael Keaton",
+    "George Clooney",
+    "Val Kilmer",
+    "Christian Bale"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "supereroi",
+    "hollywood"
+   ],
+   "notes": "Michael Keaton, con Jack Nicholson nel ruolo del Joker",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nel film \"Avatar\", che cos'è Pandora?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Un pianeta",
+    "Una stella",
+    "Una cometa",
+    "Una luna"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fantascienza",
+    "trabocchetto"
+   ],
+   "notes": "Pandora è una luna del gigante gassoso Polifemo, non un pianeta",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi ha diretto \"Barbie\" (2023)?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Sofia Coppola",
+    "Greta Gerwig",
+    "Kathryn Bigelow",
+    "Jane Campion"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "registi",
+    "hollywood"
+   ],
+   "notes": "Greta Gerwig, con Margot Robbie e Ryan Gosling",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale western di Sergio Leone del 1968 racconta l'arrivo della ferrovia nel West?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Per qualche dollaro in più",
+    "Giù la testa",
+    "Il mio nome è Nessuno",
+    "C'era una volta il West"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "western",
+    "sergio leone"
+   ],
+   "notes": "Con Claudia Cardinale, Henry Fonda e Charles Bronson",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Monsters & Co.\", come si chiama la bambina che entra nel mondo dei mostri?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Lilo",
+    "Agnes",
+    "Riley",
+    "Boo"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "pixar",
+    "animazione"
+   ],
+   "notes": "Boo, che chiama Sulley \"Gattone\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In che anno i fratelli Lumière presentarono a Parigi la prima proiezione pubblica a pagamento?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "professore",
+   "answers": [
+    "1876",
+    "1895",
+    "1901",
+    "1910"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "storia del cinema"
+   ],
+   "notes": "Il 28 dicembre 1895, al Grand Café di Parigi",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale fu il primo lungometraggio interamente realizzato in computer grafica, nel 1995?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Shrek",
+    "Z la formica",
+    "Toy Story",
+    "Alla ricerca di Nemo"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "pixar",
+    "animazione"
+   ],
+   "notes": "Toy Story della Pixar, regia di John Lasseter",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi ha diretto \"I cento passi\" (2000), sulla vita di Peppino Impastato?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Marco Tullio Giordana",
+    "Pif",
+    "Michele Placido",
+    "Roberto Faenza"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "sicilia",
+    "cinema italiano"
+   ],
+   "notes": "Marco Tullio Giordana; il film è ambientato a Cinisi",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città toscana è ambientato \"Ovosodo\" di Paolo Virzì?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Livorno",
+    "Pisa",
+    "Lucca",
+    "Grosseto"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema italiano",
+    "toscana"
+   ],
+   "notes": "Ovosodo (1997) è il nome di un quartiere di Livorno, città di Virzì",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Marilyn Monroe canta \"I diamanti sono i migliori amici delle ragazze\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "A qualcuno piace caldo",
+    "Gli uomini preferiscono le bionde",
+    "Niagara",
+    "Come sposare un milionario"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "hollywood",
+    "musical"
+   ],
+   "notes": "Gentlemen Prefer Blondes (1953) di Howard Hawks",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale vulcano dà il titolo al film di Rossellini del 1950 con Ingrid Bergman?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Etna",
+    "Vesuvio",
+    "Stromboli",
+    "Vulcano"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "sicilia",
+    "neorealismo"
+   ],
+   "notes": "Stromboli, terra di Dio (1950)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Da quanti membri è formata la Compagnia dell'Anello?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Sette",
+    "Otto",
+    "Dodici",
+    "Nove"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fantasy",
+    "saghe"
+   ],
+   "notes": "Quattro hobbit, Gandalf, Aragorn, Boromir, Legolas e Gimli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale regista italiano ha diretto \"Chiamami col tuo nome\" (2017)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Paolo Sorrentino",
+    "Matteo Garrone",
+    "Gabriele Muccino",
+    "Luca Guadagnino"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "oscar"
+   ],
+   "notes": "Luca Guadagnino; James Ivory vinse l'Oscar per la sceneggiatura",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi diresse il film muto \"Metropolis\" (1927)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Friedrich Wilhelm Murnau",
+    "Sergej Ejzenštejn",
+    "Georg Wilhelm Pabst",
+    "Fritz Lang"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema muto",
+    "fantascienza"
+   ],
+   "notes": "Fritz Lang, capolavoro dell'espressionismo tedesco",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale conduttore televisivo ha dato la voce italiana a Woody nei primi \"Toy Story\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Gerry Scotti",
+    "Carlo Conti",
+    "Paolo Bonolis",
+    "Fabrizio Frizzi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "doppiaggio",
+    "pixar"
+   ],
+   "notes": "Fabrizio Frizzi doppiò Woody nei primi tre film",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore romano ha dato la voce italiana al Genio di \"Aladdin\" (1992)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Carlo Verdone",
+    "Gigi Proietti",
+    "Enrico Montesano",
+    "Christian De Sica"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "doppiaggio",
+    "disney"
+   ],
+   "notes": "Gigi Proietti doppiò il Genio di Robin Williams",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città si trova la scalinata della celebre scena de \"La corazzata Potëmkin\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "professore",
+   "answers": [
+    "San Pietroburgo",
+    "Odessa",
+    "Mosca",
+    "Sebastopoli"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cinema muto",
+    "classici"
+   ],
+   "notes": "La scalinata di Odessa, film di Ejzenštejn del 1925",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale premio assegnano dal 1946 i giornalisti cinematografici italiani?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Il David di Donatello",
+    "Il Globo d'oro",
+    "Il Nastro d'argento",
+    "Il Ciak d'oro"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "premi",
+    "cinema italiano"
+   ],
+   "notes": "I Nastri d'argento del Sindacato nazionale giornalisti cinematografici",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale festival del cinema per ragazzi si tiene ogni anno in provincia di Salerno?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Taormina",
+    "Locarno",
+    "Giffoni",
+    "Torino Film Festival"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "festival",
+    "campania"
+   ],
+   "notes": "Il Giffoni Film Festival, a Giffoni Valle Piana, dal 1971",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cosa significa in tedesco la parola \"Schreck\", da cui viene il nome Shrek?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Orco",
+    "Palude",
+    "Spavento",
+    "Gigante"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "animazione",
+    "trabocchetto"
+   ],
+   "notes": "Schreck in tedesco (e in yiddish) vuol dire spavento, paura",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quali studi fu girato il kolossal \"Ben-Hur\" del 1959?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Cinecittà",
+    "Pinewood",
+    "Babelsberg",
+    "Hollywood"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "kolossal",
+    "trabocchetto"
+   ],
+   "notes": "Prodotto dalla MGM ma girato a Cinecittà, compresa la corsa delle bighe",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale fu il primo film d'animazione candidato all'Oscar come miglior film?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Toy Story",
+    "Il re leone",
+    "Up",
+    "La bella e la bestia"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "oscar",
+    "animazione"
+   ],
+   "notes": "La bella e la bestia (1991), candidato agli Oscar del 1992",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi presta la voce originale a Darth Vader nella prima trilogia di \"Guerre stellari\"?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "David Prowse",
+    "Christopher Lee",
+    "James Earl Jones",
+    "Frank Oz"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "star wars",
+    "trabocchetto"
+   ],
+   "notes": "David Prowse indossava il costume, la voce era di James Earl Jones",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale scenografo italiano ha vinto l'Oscar per \"The Aviator\", \"Sweeney Todd\" e \"Hugo Cabret\"?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Piero Tosi",
+    "Dante Ferretti",
+    "Danilo Donati",
+    "Mario Garbuglia"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "oscar",
+    "italiani a hollywood"
+   ],
+   "notes": "Dante Ferretti: The Aviator, Sweeney Todd e Hugo Cabret, con Francesca Lo Schiavo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nel film muto \"L'ultima follia di Mel Brooks\", chi pronuncia l'unica parola?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Mel Brooks",
+    "Il mimo Marcel Marceau",
+    "Liza Minnelli",
+    "Paul Newman"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "commedia",
+    "trabocchetto"
+   ],
+   "notes": "Silent Movie (1976): l'unica parola, \"Non!\", la dice proprio un mimo",
+   "verified": true
+  }
+ ]
+}
