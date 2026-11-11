@@ -228,28 +228,45 @@ export async function appUsage(db: Db = getSql()): Promise<AppUsage> {
 // ---------------------------------------------------------------------------
 // Limite di concorrenza e chiamata a ElevenLabs
 // ---------------------------------------------------------------------------
-let active = 0;
-const waiters: (() => void)[] = [];
-/** Lavori di fondo (es. nomi preparati all'ingresso): passano solo se nessuna battuta aspetta. */
-const lowWaiters: (() => void)[] = [];
+/**
+ * Posti occupati (id → inizio). Su Vercel un lavoro di fondo può essere interrotto mentre tiene
+ * un posto e non liberarlo mai più: per questo un posto scade da solo dopo SLOT_STALE_MS e una
+ * battuta richiesta dal TV non aspetta mai più di SLOT_WAIT_NORMAL_MS (poi passa comunque).
+ */
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const slots = new Map<number, number>();
+let slotSeq = 0;
+let normalWaiting = 0;
+const SLOT_STALE_MS = 40_000;
+const SLOT_WAIT_NORMAL_MS = 4_000;
+const SLOT_WAIT_LOW_MS = 25_000;
 
 export type TtsPriority = "normal" | "low";
 
-async function acquire(priority: TtsPriority = "normal"): Promise<void> {
-  if (active < MAX_PARALLEL && (priority === "normal" || waiters.length === 0)) {
-    active++;
-    return;
+/** Prende un posto e restituisce la funzione che lo libera (sempre in tempi finiti). */
+async function acquire(priority: TtsPriority = "normal"): Promise<() => void> {
+  const deadline = Date.now() + (priority === "low" ? SLOT_WAIT_LOW_MS : SLOT_WAIT_NORMAL_MS);
+  if (priority === "normal") normalWaiting++;
+  try {
+    for (;;) {
+      const now = Date.now();
+      for (const [id, t] of slots) if (now - t > SLOT_STALE_MS) slots.delete(id);
+      // i lavori di fondo cedono il passo alle battute del TV
+      const free = slots.size < MAX_PARALLEL && (priority === "normal" || normalWaiting === 0);
+      if (free || now >= deadline) {
+        const id = ++slotSeq;
+        slots.set(id, now);
+        return () => {
+          slots.delete(id);
+        };
+      }
+      await sleep(120);
+    }
+  } finally {
+    if (priority === "normal") normalWaiting--;
   }
-  await new Promise<void>((resolve) => (priority === "low" ? lowWaiters : waiters).push(resolve));
 }
 
-function release() {
-  const next = waiters.shift() ?? lowWaiters.shift();
-  if (next) next(); // il posto passa direttamente al prossimo in coda
-  else active--;
-}
-
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal"): Promise<{ audio: Buffer; billed: number }> {
   const apiKey = process.env.ELEVENLABS_API_KEY;
@@ -258,7 +275,7 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
   let withContext = !!(plan.context?.previous || plan.context?.next);
   let lastError = "";
   for (let attempt = 0; attempt < 4; attempt++) {
-    await acquire(priority);
+    const release = await acquire(priority);
     let res: Response;
     try {
       res = await fetch(`${API}/v1/text-to-speech/${encodeURIComponent(plan.voiceId)}?output_format=mp3_44100_128`, {
@@ -274,7 +291,7 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
             ? { stability: s.stability, similarity_boost: s.similarity }
             : { stability: s.stability, similarity_boost: s.similarity, style: s.style, speed: s.speed, use_speaker_boost: true },
         }),
-        signal: AbortSignal.timeout(30_000),
+        signal: AbortSignal.timeout(15_000),
       });
       if (res.ok) {
         const audio = Buffer.from(await res.arrayBuffer());
