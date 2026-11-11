@@ -16,6 +16,7 @@ import { InviteButton, publicBase } from "./InviteButton";
 import { RematchControls } from "./RematchControls";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 interface RemoteStatus {
   prefs: RemotePrefs;
@@ -290,13 +291,16 @@ export function PhoneRemote({ sessionId, displayKey, canCreateMore, host }: { se
             {progress ? ` · ${progress}` : ""}
           </p>
         </div>
+        <div className="flex shrink-0 flex-col items-end gap-2">
+        <ExitButton size="sm" />
         <span
           role="status"
-          className={clsx("mt-6 inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-1 text-sm font-bold", tvOnline ? "bg-[#1f5c3d] text-[#9dffc9]" : "bg-white/10 text-white/70")}
+          className={clsx("inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-1 text-sm font-bold", tvOnline ? "bg-[#1f5c3d] text-[#9dffc9]" : "bg-white/10 text-white/70")}
         >
           <span className={clsx("h-2 w-2 rounded-full", tvOnline ? "bg-[#5dffab]" : "bg-white/40")} aria-hidden />
           {tvOnline ? "TV collegato" : "TV non collegato"}
         </span>
+        </div>
       </div>
 
       {showPair ? (

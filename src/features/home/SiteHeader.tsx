@@ -13,7 +13,7 @@ export interface HeaderUser {
  */
 export function SiteHeader({ user, overlay = false, className }: { user: HeaderUser | null; overlay?: boolean; className?: string }) {
   return (
-    <header className={clsx("z-30 flex h-16 items-center gap-3 px-4 md:h-20 md:px-10", overlay ? "absolute inset-x-0 top-0" : "relative", className)}>
+    <header className={clsx("qz-safe-header z-30 flex h-16 items-center gap-3 px-4 md:h-20 md:px-10", overlay ? "absolute inset-x-0 top-0" : "relative", className)}>
       {overlay && <div aria-hidden className="qz-fade-top pointer-events-none absolute inset-x-0 top-0 -z-10 h-32" />}
       <Link href="/" className="font-display text-2xl leading-none tracking-tight text-white md:text-3xl">
         {PLATFORM_NAME}

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Lilita_One, Nunito } from "next/font/google";
+import { AudioExitGuard } from "@/features/pwa/AudioExitGuard";
 import { ServiceWorkerRegister } from "@/features/pwa/ServiceWorkerRegister";
 import "./globals.css";
 
@@ -26,7 +27,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#170824",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <ServiceWorkerRegister />
+        <AudioExitGuard />
       </body>
     </html>
   );

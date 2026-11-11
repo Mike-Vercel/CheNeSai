@@ -453,6 +453,26 @@ class SoundEngine {
     }, fadeMs + 50);
   }
 
+  /**
+   * Silenzio totale quando si esce dal gioco (tasto Esci, indietro, link verso il sito): ferma
+   * subito sigla e tic-tac e mette in pausa il motore audio, così nulla continua a suonare sulle
+   * pagine normali. Rientrando in partita il primo tocco (o lo sblocco già previsto) lo riattiva.
+   */
+  silenceAll() {
+    this.themeWant++;
+    if (this.themeFade) clearTimeout(this.themeFade);
+    this.themeFade = null;
+    this.stopThemeSource();
+    this.stopClock();
+    const ctx = this.ctx;
+    if (ctx && ctx.state === "running") {
+      void ctx
+        .suspend()
+        .catch(() => undefined)
+        .finally(() => this.emit());
+    }
+  }
+
   get themePlaying(): boolean {
     return this.themeSrc !== null && this.themeWant > 0;
   }

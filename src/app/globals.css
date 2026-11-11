@@ -135,6 +135,22 @@ body {
   background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0 6px, rgba(255, 255, 255, 0.08) 6px 12px);
 }
 
+/* Intestazioni del sito nell'app installata (iPhone con barra di stato trasparente): mai sotto
+   orologio, notch o Dynamic Island, e mai attaccate ai bordi in orizzontale. */
+.qz-safe-header {
+  padding-top: env(safe-area-inset-top);
+  height: calc(4rem + env(safe-area-inset-top));
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+@media (min-width: 768px) {
+  .qz-safe-header {
+    height: calc(5rem + env(safe-area-inset-top));
+    padding-left: max(2.5rem, env(safe-area-inset-left));
+    padding-right: max(2.5rem, env(safe-area-inset-right));
+  }
+}
+
 .qz-safe {
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);

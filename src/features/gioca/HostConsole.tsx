@@ -16,6 +16,7 @@ import { RematchControls } from "./RematchControls";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
 import { useDeviceKind } from "./use-device";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 /** Il TV risponde al ping ogni pochi secondi: oltre questo tempo lo si considera chiuso. */
 const TV_ALIVE_MS = 9000;
@@ -121,6 +122,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
           </p>
         </div>
         <div className="flex flex-col items-end gap-2">
+          <ExitButton size="sm" />
           <span className={clsx("inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-bold", tv.alive ? "bg-[#1f5c3d] text-[#9dffc9]" : "bg-white/10 text-white/70")}>
             <span className={clsx("h-2 w-2 rounded-full", tv.alive ? "bg-[#5dffab]" : "bg-white/40")} aria-hidden />
             {tv.alive ? "TV collegato" : "TV non aperto"}
