@@ -283,8 +283,12 @@ export function ScreenChoiceField({ className, tone = "admin" }: { className?: s
     <div className={clsx("flex flex-col gap-2", className)}>
       <p className={clsx("text-sm font-bold", label)}>Su quale schermo apro il TV?</p>
       {!screens ? (
-        <button type="button" onClick={() => void load()} className="w-fit rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-white hover:bg-white/20">
-          🖥 Trova gli schermi collegati
+        <button type="button" onClick={() => void load()} className="inline-flex w-fit items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-white transition hover:bg-white/20">
+          <svg aria-hidden viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="4" width="18" height="12" rx="2" />
+            <path d="M8 20h8M12 16v4" />
+          </svg>
+          Trova gli schermi collegati
         </button>
       ) : screens.length <= 1 ? (
         <p className={clsx("text-sm", label)}>Un solo schermo collegato: collega il televisore con HDMI in modalità &laquo;Estendi&raquo; oppure userai F11.</p>

@@ -22,7 +22,7 @@ export function HostGamesList({ games }: { games: HostGameSummary[] }) {
         const done = statusLabel(g) === "Terminata";
         return (
           <li key={g.id}>
-            <Link href={`/gioca/partita/${g.id}`} className="flex items-center gap-4 rounded-2xl bg-night-2 px-4 py-3 transition hover:bg-night-3">
+            <Link href={`/gioca/partita/${g.id}`} className="flex items-center gap-4 rounded-2xl bg-coal-2 px-4 py-3 transition hover:bg-coal-3">
               <span className="font-display text-xl tracking-widest text-gold">{g.code}</span>
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-base font-extrabold">{statusLabel(g)}</span>

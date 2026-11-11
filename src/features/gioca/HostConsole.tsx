@@ -125,7 +125,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <div className="flex flex-col gap-6">
           {/* azione principale del momento */}
-          <section aria-label="Partita" className="rounded-[28px] bg-night-2 p-5 md:p-7">
+          <section aria-label="Partita" className="rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-7">
             {phase === "LOBBY" && view && (
               <div className="flex flex-col gap-3">
                 <button
@@ -168,7 +168,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
             )}
           </section>
 
-          <section aria-label="Giocatori" className="rounded-[28px] bg-night-2 p-5 md:p-7">
+          <section aria-label="Giocatori" className="rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-7">
             <h2 className="mb-3 font-display text-2xl">
               {view?.playerCount ?? 0} {view?.playerCount === 1 ? "giocatore" : "giocatori"}
             </h2>
@@ -177,7 +177,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
         </div>
 
         <aside className="flex flex-col gap-6">
-          <section aria-labelledby="join-title" className="rounded-[28px] bg-night-3 p-5 md:p-7">
+          <section aria-labelledby="join-title" className="rounded-[28px] bg-coal-2 p-5 ring-1 ring-white/8 md:p-7">
             <h2 id="join-title" className="font-display text-2xl">
               Si entra così
             </h2>
@@ -196,7 +196,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
             </div>
           </section>
 
-          <section className="rounded-[28px] bg-night-2 p-5 md:p-7">
+          <section className="rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-7">
             <div className="flex flex-col gap-4">
               <Section title="Voci della serata">
                 <VoicesProgress prep={prep} />

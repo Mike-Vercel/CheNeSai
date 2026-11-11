@@ -77,7 +77,7 @@ export function UsernameField({
         Username
       </label>
       <div className="relative">
-        <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg font-black text-ink/40">
+        <span aria-hidden className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg font-black text-white/40">
           @
         </span>
         <input
@@ -90,15 +90,31 @@ export function UsernameField({
           spellCheck={false}
           required
           aria-invalid={status === "error"}
+          data-ok={status === "ok"}
           aria-describedby={`${id}-help`}
-          className={clsx(
-            "h-13 w-full rounded-2xl border-[3px] bg-white py-3 pl-9 pr-4 text-lg font-bold text-ink placeholder:text-ink/35 focus:outline-none",
-            status === "error" ? "border-flame" : status === "ok" ? "border-lime" : "border-transparent focus:border-cyan",
-          )}
+          className="qz-field rounded-2xl h-14 w-full pl-9 pr-12 text-[17px]"
           placeholder="il_tuo_nome"
         />
+        <span aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
+          {status === "checking" && (
+            <svg viewBox="0 0 24 24" className="qz-spinner h-5 w-5 text-white/60" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
+              <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            </svg>
+          )}
+          {status === "ok" && (
+            <svg viewBox="0 0 24 24" className="h-6 w-6 animate-pop-in text-lime" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m5 12.5 4.5 4.5L19 7.5" />
+            </svg>
+          )}
+          {status === "error" && (
+            <svg viewBox="0 0 24 24" className="h-5 w-5 animate-pop-in text-[#ff5470]" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
+          )}
+        </span>
       </div>
-      <p id={`${id}-help`} aria-live="polite" className={clsx("mt-1.5 text-sm font-bold", status === "error" ? "text-[#ff9db0]" : status === "ok" ? "text-lime" : "text-white/70")}>
+      <p id={`${id}-help`} aria-live="polite" className={clsx("mt-1.5 text-sm font-bold", status === "error" ? "text-[#ff9db0]" : status === "ok" ? "text-lime" : "text-white/65")}>
         {status === "checking" ? "Controllo…" : (message ?? "3–20 caratteri: lettere, numeri, _ e punto. Si vede in alto quando sei collegato; in partita scegli il nome che vuoi.")}
       </p>
     </div>
