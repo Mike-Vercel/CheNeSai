@@ -234,7 +234,7 @@ class SoundEngine {
 
   /** Precarica i campioni degli effetti (applausi, rullo): al momento giusto partono subito. */
   preloadSfx() {
-    for (const url of Object.values(SFX_FILES)) void this.loadBuffer(url);
+    for (const url of Object.values(SFX_FILES)) void this.loadBuffer(url).then((b) => b && this.ready.set(url, b));
   }
 
   /** Suona un campione già decodificato (false = non pronto: chi chiama usa la sintesi). */
