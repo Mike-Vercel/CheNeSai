@@ -1,7 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   chooseScreen,
   fullscreenOn,
@@ -17,6 +17,12 @@ import {
   type ScreenInfo,
   type TvScreenMessage,
 } from "./screen-picker";
+
+const noopSubscribe = () => () => {};
+/** Window Management API disponibile? (sul server e durante l'idratazione: no, niente differenze di HTML) */
+function useScreenApi(): boolean {
+  return useSyncExternalStore(noopSubscribe, screenApiSupported, () => false);
+}
 
 function channel(sessionId: string): BroadcastChannel | null {
   try {
@@ -41,6 +47,7 @@ export function OpenTvButton({ url, sessionId, className, compact }: { url: stri
   const [note, setNote] = useState<string | null>(null);
   const winRef = useRef<Window | null>(null);
   const chRef = useRef<BroadcastChannel | null>(null);
+  const screenApi = useScreenApi();
 
   useEffect(() => {
     const ch = channel(sessionId);
@@ -119,7 +126,7 @@ export function OpenTvButton({ url, sessionId, className, compact }: { url: stri
         <button type="button" onClick={() => void onOpen()} className="qz-tv-open rounded-lg bg-electric px-3 py-1.5 text-sm font-extrabold text-white hover:brightness-110">
           📺 {opened ? "Riapri TV" : "Apri TV"}
         </button>
-        {screenApiSupported() && (
+        {screenApi && (
           <button type="button" onClick={() => void showChooser()} className="rounded-lg bg-white/10 px-2.5 py-1.5 text-sm font-bold text-white/85 hover:bg-white/20" aria-expanded={chooser}>
             {opened && multi ? "Sposta su…" : "Schermo…"}
           </button>

@@ -12,7 +12,8 @@ entrano con il QR code o il codice, la partita scorre da sola.
 | `/entra` | Ingresso dal telefono con il codice (il QR del TV porta direttamente a `/play/CODICE`, come sempre). |
 | `/accedi` | Crea account (username univoco + email + password), Accedi, Password dimenticata, **Continua con Google**. |
 | `/accedi/nuova-password` | Dopo il link "password dimenticata". |
-| `/gioca` | Nuova partita: 10/15/20/30 domande, 1–5 round (almeno 3 domande per round), difficoltà Facile/Bilanciata/Difficile, scelta dello schermo del TV. Sotto: *Le tue partite* (si riprendono se si chiude la finestra). Al primo accesso con Google chiede lo username. |
+| `/gioca` | Nuova partita: 10/15/20/30 domande, 1–5 round (almeno 3 domande per round), difficoltà Facile/Bilanciata/Difficile, scelta dello schermo del TV, in una colonna centrata. Sopra, solo se c'è, la scheda *Hai una partita in corso* (Riprendi / Termina). Al primo accesso con Google chiede lo username. |
+| `/profilo` | Menu @username → *Le tue partite*: username, email, esci e lo storico delle partite (data, codice, giocatori, stato, podio). |
 | `/gioca/partita/[id]` | Pagina dell'host sul PC: **Apri TV** sullo schermo scelto, codice e QR, giocatori collegati, comandi. |
 | `/gioca/tv/[id]` | Il TV (lo stesso schermo delle serate) con i comandi minimi dell'host sovrapposti. |
 
@@ -87,6 +88,46 @@ Modulo comune `src/features/display/screen-picker.ts` + `TvScreenControls.tsx`, 
   sinistra sul TV (compare muovendo il mouse).
 - Firefox, Safari o un solo schermo: si apre una finestra normale con l'istruzione "trascinala sul
   televisore e premi F11". Il televisore va collegato in modalità **Estendi** (non Duplica).
+
+## Partita creata dal telefono
+
+Su telefono o tablet (puntatore "dito" senza hover, lato corto ≤ 1100 px, oppure Client Hints
+`mobile`: vedi `src/features/gioca/device-mode.ts`) dopo **CREA PARTITA** si sceglie dove giocare
+(`/gioca/schermo/[id]`). Dal computer non cambia nulla (TV dritto come prima).
+
+**A. Sul televisore** (`/gioca/telecomando/[id]`): il telefono diventa il telecomando.
+1. Sul televisore (browser della smart TV, Chromecast con Google TV, Fire TV, PC) si apre
+   `<sito>/tv` (link anche nel piè di pagina della home): compare un codice di **4 cifre** e un QR.
+2. L'host scrive il codice sul telefono (oppure inquadra il QR → `/gioca/collega/[codice]`).
+3. Il TV riceve la partita una volta sola (abbinamento monouso in `tv_pairings`, solo il proprietario,
+   codici che scadono in ~10 minuti, tentativi limitati) e mostra la lobby; resta abbinato anche se si
+   ricarica la pagina e segue da solo la rivincita.
+4. Sul telefono: INIZIA PARTITA, pausa/avanti/termina, scorrimento, giocatori, **audio del TV**
+   (volume, muto, voci, musica: il TV li applica entro ~3 s, tabella `tv_remote`), invita amici,
+   rivincita. Stato «TV collegato» dalla presenza del TV.
+- **Trasmetti** (Presentation API) compare solo se il browser dice che c'è un dispositivo Cast pronto
+  per l'indirizzo della pagina: funziona con Chrome per computer; Chrome per Android trasmette solo app
+  Cast registrate, quindi lì resta nascosto.
+- Ultima spiaggia: duplicazione dello schermo (Smart View / AirPlay) con lo schermo TV in orizzontale.
+
+**B. Su questo telefono** (`/gioca/telefono/[id]`): tutto lo show in verticale (1080×1920): lobby con
+QR, codice e «Invita amici», intro e regole ricomposte in colonna, domande, soluzioni, classifiche e
+podio. L'host gioca dallo stesso schermo: entra come giocatore (nickname = username) e tocca le
+risposte direttamente sullo show. Audio sbloccato dal tocco sulla scelta, schermo sempre acceso,
+schermo intero dove il browser lo consente (Android sì, iPhone no).
+
+**Invita amici**: condivisione del sistema (WhatsApp, Telegram…) con link `/play/CODICE`; in più
+WhatsApp diretto (`wa.me`), copia link e QR. C'è anche nel foglio impostazioni del TV dal computer.
+
+## Chiusura automatica dopo 24 ore
+
+Le partite **libere** (mai le serate della regia) non finite e senza attività da 24 ore (stato di
+gioco, telefoni, TV abbinato) si chiudono col normale FINISH (`src/lib/server/auto-close.ts`):
+- quando l'host apre `/gioca`, il profilo o una sua partita, e (al massimo ogni 10 minuti) quando un
+  TV o un telefono ne legge lo stato;
+- ogni giorno con il Cron di Vercel (`vercel.json` → `/api/cron/chiudi-partite`, alle 4:15 UTC).
+  **Impostare `CRON_SECRET`** nelle variabili d'ambiente del progetto Vercel: Vercel lo manda come
+  `Authorization: Bearer …` e senza la variabile la route rifiuta ogni chiamata.
 
 ## Cosa deve fare il proprietario (una volta)
 

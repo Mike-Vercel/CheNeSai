@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { HostConsole } from "@/features/gioca/HostConsole";
 import { SiteHeader } from "@/features/home/SiteHeader";
 import { getSql } from "@/lib/database/db";
-import { getHostUser, getOwnedGame, loadPublicGamesSettings, quotaOf } from "@/lib/server/gioco-libero";
+import { getHostUser, loadPublicGamesSettings, openOwnedGame, quotaOf } from "@/lib/server/gioco-libero";
 
 export const metadata = { title: "La tua partita" };
 export const viewport: Viewport = { themeColor: "#000000" };
@@ -13,7 +13,7 @@ export default async function PartitaPage({ params }: { params: Promise<{ id: st
   const host = await getHostUser();
   if (!host) redirect(`/accedi?next=/gioca/partita/${id}`);
   const sql = getSql();
-  const game = await getOwnedGame(sql, host.userId, id);
+  const game = await openOwnedGame(host.userId, id);
   if (!game) notFound();
   const quota = quotaOf(host, await loadPublicGamesSettings(sql));
   return (

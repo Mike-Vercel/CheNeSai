@@ -88,6 +88,7 @@ Vedi [`.env.example`](.env.example). Riassunto:
 | `SUPABASE_SECRET_KEY` | **solo server** | Storage firmato, gestione utenti admin |
 | `DATABASE_URL` | **solo server** | pooler Supabase in *transaction mode* (porta 6543) |
 | `NEXT_PUBLIC_APP_URL` | client | dominio pubblico usato nel QR code |
+| `CRON_SECRET` | **solo server** | segreto del Cron di Vercel (chiusura delle partite libere abbandonate da 24 ore) |
 
 ---
 

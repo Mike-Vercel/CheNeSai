@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ScreenChoiceField } from "@/features/display/TvScreenControls";
 import { defaultRoundsFor, maxRoundsFor, PUBLIC_MAX_ROUNDS, PUBLIC_TOTAL_OPTIONS, type QuotaInfo } from "@/lib/game-engine/public-game";
 import { beginTvLaunch, cancelTvLaunch, completeTvLaunch } from "./launch";
+import { useDeviceKind } from "./use-device";
 
 const MIXES = [
   { value: "facile", label: "Facile" },
@@ -71,6 +72,8 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const maxR = maxRoundsFor(total);
+  // dal telefono (o tablet) si sceglie DOPO dove giocare: televisore o questo telefono
+  const handheld = useDeviceKind() === "handheld";
 
   function pickTotal(t: number) {
     setTotal(t);
@@ -80,6 +83,10 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
   async function create() {
     setBusy(true);
     setError(null);
+    if (handheld) {
+      await createFromPhone();
+      return;
+    }
     // TV dritto dopo la creazione: finestra sull'altro schermo o schermo intero qui (serve questo clic)
     const launch = await beginTvLaunch();
     try {
@@ -99,10 +106,27 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
     }
   }
 
+  /** Telefono: niente finestre né schermo intero adesso; dopo la creazione la scelta TV / telefono. */
+  async function createFromPhone() {
+    try {
+      const r = await fetch("/api/gioca/games", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ totalQuestions: total, rounds, mix }) });
+      const d = (await r.json().catch(() => null)) as { sessionId?: string; error?: { message?: string } } | null;
+      if (!r.ok || !d?.sessionId) {
+        setError(d?.error?.message ?? "Creazione non riuscita, riprova");
+        setBusy(false);
+        return;
+      }
+      router.push(`/gioca/schermo/${d.sessionId}`);
+    } catch {
+      setError("Connessione assente, riprova");
+      setBusy(false);
+    }
+  }
+
   const perRound = Math.floor(total / rounds);
   return (
     <form
-      className="mt-8 flex flex-col gap-8 rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-8"
+      className="flex flex-col gap-8 rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 sm:p-8"
       onSubmit={(e) => {
         e.preventDefault();
         void create();
@@ -118,8 +142,14 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
         disabled={(v) => v > maxR}
       />
       <Choice legend="Difficoltà" options={MIXES} value={mix} onChange={setMix} />
-      <ScreenChoiceField tone="public" />
-      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      {handheld ? (
+        <p className="rounded-2xl bg-white/6 px-4 py-3 text-sm font-bold text-white/80">
+          📺 Dopo scegli dove giocare: sul <span className="text-white">televisore</span> (il telefono fa da telecomando) oppure tutto su <span className="text-white">questo telefono</span>.
+        </p>
+      ) : (
+        <ScreenChoiceField tone="public" />
+      )}
+      <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-base font-bold text-white/85">
           {rounds} {rounds === 1 ? "round" : "round"} da {perRound}
           {total % rounds ? "–" + (perRound + 1) : ""} domande · circa {estimateMinutes(total)} minuti
@@ -129,7 +159,7 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
             </span>
           )}
         </p>
-        <button type="submit" disabled={busy} className="qz-play h-16 shrink-0 whitespace-nowrap rounded-full bg-gold px-10 font-display text-3xl text-ink transition hover:bg-white disabled:opacity-60">
+        <button type="submit" disabled={busy} className="qz-play h-16 w-full shrink-0 whitespace-nowrap rounded-full bg-gold px-10 font-display text-3xl text-ink transition hover:bg-white disabled:opacity-60 sm:w-auto">
           {busy ? "PREPARO…" : "CREA PARTITA"}
         </button>
       </div>

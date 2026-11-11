@@ -15,6 +15,7 @@ import { AudioSettings, btnSoft, DisplaySettings, GameSettings, PanelScreenSetti
 import { RematchControls } from "./RematchControls";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
+import { useDeviceKind } from "./use-device";
 
 /** Il TV risponde al ping ogni pochi secondi: oltre questo tempo lo si considera chiuso. */
 const TV_ALIVE_MS = 9000;
@@ -99,12 +100,18 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
 
   const progress = useMemo(() => (view && view.totalQuestions > 0 && view.phase !== "LOBBY" && view.phase !== "READY" ? `${view.questionsPlayed}/${view.totalQuestions} domande` : null), [view]);
   const phase = view?.phase;
+  const handheld = useDeviceKind() === "handheld";
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-2 md:px-10">
+      {handheld && phase !== "FINISHED" && (
+        <Link href={`/gioca/schermo/${sessionId}`} className="mb-4 flex items-center justify-between gap-3 rounded-2xl bg-gold px-4 py-3 font-black text-ink">
+          Sei sul telefono: gioca sul TV o su questo schermo <span aria-hidden>→</span>
+        </Link>
+      )}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <Link href="/gioca#le-tue-partite" className="text-sm font-bold text-white/70 hover:text-white">
+          <Link href="/profilo" className="text-sm font-bold text-white/70 hover:text-white">
             ← Le tue partite
           </Link>
           <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">{view ? PHASE_LABELS[view.phase] : "Collegamento…"}</h1>

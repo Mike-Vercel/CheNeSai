@@ -85,12 +85,14 @@ export function IntroFallback2D({
   startedAtMs,
   now,
   scoring,
+  portrait = false,
 }: {
   state: IntroTimelineState;
   reducedMotion?: boolean;
   startedAtMs: number;
   now: () => number;
   scoring?: RulesScoring;
+  portrait?: boolean;
 }) {
   const { phase } = state;
   const shown = reached(phase, "wheel");
@@ -213,7 +215,7 @@ export function IntroFallback2D({
         </div>
       )}
 
-      <IntroOverlay state={state} reducedMotion={reducedMotion} scoring={scoring} />
+      <IntroOverlay state={state} reducedMotion={reducedMotion} scoring={scoring} portrait={portrait} />
     </div>
   );
 }

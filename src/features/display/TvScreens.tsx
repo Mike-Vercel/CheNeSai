@@ -106,7 +106,7 @@ export function TvFrame({ children, calm = false }: { children: ReactNode; calm?
   );
 }
 
-function Pill({ children, tone = "gold", className }: { children: ReactNode; tone?: "gold" | "fuchsia" | "cyan" | "violet" | "dark"; className?: string }) {
+export function Pill({ children, tone = "gold", className }: { children: ReactNode; tone?: "gold" | "fuchsia" | "cyan" | "violet" | "dark"; className?: string }) {
   const tones = {
     gold: "bg-gradient-to-b from-[#fff2a8] to-gold text-ink border-[#b8770a]",
     fuchsia: "bg-gradient-to-b from-[#ff5fb3] to-fuchsia text-white border-[#a10d5e]",
@@ -886,7 +886,10 @@ export function TvPodiumScreen({
   onCelebrate,
   titles = { pending: "LA CLASSIFICA FINALE", done: "I CAMPIONI DELLA SERATA" },
   banner,
+  portrait = false,
 }: {
+  /** telefono in verticale (1080x1920): titolo e presentatori in alto, podio largo in basso */
+  portrait?: boolean;
   entries: LeaderboardEntry[];
   /** titoli prima e dopo la rivelazione del vincitore (es. squadre) */
   titles?: { pending: string; done: string };
@@ -962,7 +965,7 @@ export function TvPodiumScreen({
   const winnerShown = t >= plan.winnerAt && plan.tensionAt !== null;
   const stepOf = (rank: number) => plan.steps.find((s) => s.rank === rank);
   const MEDAL: Record<number, string> = { 1: "🥇", 2: "🥈", 3: "🥉" };
-  const HEIGHT: Record<number, string> = { 1: "36cqh", 2: "26cqh", 3: "20cqh" };
+  const HEIGHT: Record<number, string> = portrait ? { 1: "24cqh", 2: "17cqh", 3: "12cqh" } : { 1: "36cqh", 2: "26cqh", 3: "20cqh" };
   const BG: Record<number, string> = {
     1: "linear-gradient(180deg,#fff2a8,#ffb800)",
     2: "linear-gradient(180deg,#f2f2f2,#a9b4c2)",
@@ -970,27 +973,41 @@ export function TvPodiumScreen({
   };
   return (
     <TvFrame>
-      <div className="absolute left-1/2 top-[2cqh] z-20 -translate-x-1/2 text-center">
-        <Logo size="tv" />
-        <p className="mt-[1cqh] font-display text-[6cqh] text-white [text-shadow:0_0.5vh_0_#6b1020]">{winnerShown ? titles.done : titles.pending}</p>
+      <div className={clsx("absolute left-1/2 z-20 -translate-x-1/2 text-center", portrait ? "top-[1.5cqh] w-[94cqw]" : "top-[2cqh]")}>
+        <Logo size="tv" className={portrait ? "mx-auto !h-[8cqh]" : undefined} />
+        <p className={clsx("mt-[1cqh] font-display text-white [text-shadow:0_0.5vh_0_#6b1020]", portrait ? "text-[7.4cqw] leading-tight" : "text-[6cqh]")}>{winnerShown ? titles.done : titles.pending}</p>
       </div>
-      <div className="absolute bottom-0 left-0 w-[22cqw]">
-        <TalkingCharacter who="professore" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
-      </div>
-      <div className="absolute bottom-0 right-0 w-[23cqw]">
-        <TalkingCharacter who="regina" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
-      </div>
-      <div className="absolute bottom-[1cqh] left-[24cqw] w-[10cqw]">
-        <TalkingCharacter who="palmino" className="w-full animate-float" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
-      </div>
+      {portrait ? (
+        // in verticale i tre presentatori insieme (un solo canvas 3D, come nelle altre schermate)
+        <div className="absolute left-1/2 top-[17cqh] z-[5] w-[78cqw] -translate-x-1/2">
+          <TrioSlot host="professore" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
+        </div>
+      ) : (
+        <>
+          <div className="absolute bottom-0 left-0 w-[22cqw]">
+            <TalkingCharacter who="professore" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
+          </div>
+          <div className="absolute bottom-0 right-0 w-[23cqw]">
+            <TalkingCharacter who="regina" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
+          </div>
+          <div className="absolute bottom-[1cqh] left-[24cqw] w-[10cqw]">
+            <TalkingCharacter who="palmino" className="w-full animate-float" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
+          </div>
+        </>
+      )}
 
       {winnerShown && banner}
 
       {/* tutti gli altri, dal fondo al 4° posto: compaiono mentre la voce li legge */}
       {plan.rest.entries.length > 0 && t >= plan.rest.at && t < (plan.steps[0]?.drumAt ?? plan.winnerAt) && (
-        <div className={clsx("absolute left-1/2 top-[22cqh] z-20 max-h-[60cqh] -translate-x-1/2 overflow-hidden", plan.rest.entries.length > 24 ? "w-[56cqw]" : "w-[44cqw]")}>
+        <div
+          className={clsx(
+            "absolute left-1/2 z-20 -translate-x-1/2 overflow-hidden",
+            portrait ? "top-[30cqh] max-h-[48cqh] w-[92cqw]" : clsx("top-[22cqh] max-h-[60cqh]", plan.rest.entries.length > 24 ? "w-[56cqw]" : "w-[44cqw]"),
+          )}
+        >
           {/* tanti giocatori (fino a 37 oltre il podio): tre colonne, così l'elenco non esce dallo schermo */}
-          <div className={clsx("grid gap-[0.6cqh]", plan.rest.entries.length > 24 ? "grid-cols-3" : plan.rest.entries.length > 8 ? "grid-cols-2" : "grid-cols-1")}>
+          <div className={clsx("grid gap-[0.6cqh]", portrait ? (plan.rest.entries.length > 10 ? "grid-cols-2" : "grid-cols-1") : plan.rest.entries.length > 24 ? "grid-cols-3" : plan.rest.entries.length > 8 ? "grid-cols-2" : "grid-cols-1")}>
             {[...plan.rest.entries].reverse().map((e) => {
               const order = plan.rest.entries.indexOf(e);
               const shown = t >= plan.rest.at + 1.5 + Math.min(order, 19) * plan.rest.perName;
@@ -1025,19 +1042,23 @@ export function TvPodiumScreen({
           initial={{ scale: 0.6, opacity: 0 }}
           animate={{ scale: [1, 1.06, 1], opacity: 1 }}
           transition={{ scale: { repeat: Infinity, duration: 0.9 }, opacity: { duration: 0.4 } }}
-          className="absolute left-1/2 top-[26cqh] z-20 -translate-x-1/2 whitespace-nowrap font-display text-[9cqh] text-gold [text-shadow:0_0_4cqh_rgba(255,200,40,.7)]"
+          className={clsx(
+            "absolute left-1/2 z-20 -translate-x-1/2 whitespace-nowrap font-display text-gold [text-shadow:0_0_4cqh_rgba(255,200,40,.7)]",
+            portrait ? "top-[40cqh] text-[10cqw]" : "top-[26cqh] text-[9cqh]",
+          )}
         >
           E IL VINCITORE È…
         </motion.p>
       )}
 
-      <div className="absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 items-end gap-[2cqh]">
+      <div className={clsx("absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 items-end", portrait ? "gap-[2cqw]" : "gap-[2cqh]")}>
         {[2, 1, 3].map((rank) => {
           const st = stepOf(rank);
-          if (!st) return <div key={rank} className="w-[17cqw]" />;
+          const col = portrait ? "w-[30cqw]" : "w-[17cqw]";
+          if (!st) return <div key={rank} className={col} />;
           const shown = t >= st.at;
           return (
-            <div key={rank} className="flex w-[17cqw] flex-col items-center">
+            <div key={rank} className={clsx("flex flex-col items-center", col)}>
               {shown ? (
                 <motion.div
                   initial={{ scale: 0.4, opacity: 0 }}
@@ -1045,23 +1066,23 @@ export function TvPodiumScreen({
                   transition={{ type: "spring", stiffness: 160, damping: 12 }}
                   className="flex w-full flex-col items-center"
                 >
-                  <span className="text-[7cqh]">{MEDAL[rank]}</span>
+                  <span className={portrait ? "text-[10cqw]" : "text-[7cqh]"}>{MEDAL[rank]}</span>
                   {st.entries.map((e) => (
-                    <span key={e.nickname} className="max-w-full truncate font-display text-[4.4cqh] leading-tight text-white [text-shadow:0_4px_0_rgba(0,0,0,.5)]">
+                    <span key={e.nickname} className={clsx("max-w-full truncate font-display leading-tight text-white [text-shadow:0_4px_0_rgba(0,0,0,.5)]", portrait ? "text-[6.4cqw]" : "text-[4.4cqh]")}>
                       {e.nickname}
                     </span>
                   ))}
-                  <span className="font-display text-[3.4cqh] text-gold">
+                  <span className={clsx("font-display text-gold", portrait ? "text-[4.4cqw]" : "text-[3.4cqh]")}>
                     {formatPoints(st.entries[0].points)} pt{st.entries.length > 1 ? " · pari merito" : ""}
                   </span>
                 </motion.div>
               ) : (
-                <motion.span animate={{ opacity: [0.35, 1, 0.35] }} transition={{ repeat: Infinity, duration: 1.4 }} className="font-display text-[9cqh] text-white/70">
+                <motion.span animate={{ opacity: [0.35, 1, 0.35] }} transition={{ repeat: Infinity, duration: 1.4 }} className={clsx("font-display text-white/70", portrait ? "text-[14cqw]" : "text-[9cqh]")}>
                   ?
                 </motion.span>
               )}
               <motion.div
-                className="mt-[1cqh] flex w-full items-start justify-center rounded-t-[2cqh] border-[0.5cqh] border-b-0 border-gold pt-[1.5cqh] font-display text-[9cqh] text-ink"
+                className={clsx("mt-[1cqh] flex w-full items-start justify-center rounded-t-[2cqh] border-[0.5cqh] border-b-0 border-gold pt-[1.5cqh] font-display text-ink", portrait ? "text-[14cqw]" : "text-[9cqh]")}
                 initial={false}
                 animate={{ height: shown ? HEIGHT[rank] : "6cqh", opacity: shown ? 1 : 0.55 }}
                 transition={{ type: "spring", stiffness: 70, damping: 14 }}

@@ -24,7 +24,7 @@ export function Section({ title, children, className }: { title: string; childre
   );
 }
 
-function Switch({ checked, onChange, label, hint }: { checked: boolean; onChange: (v: boolean) => void; label: string; hint?: string }) {
+export function Switch({ checked, onChange, label, hint }: { checked: boolean; onChange: (v: boolean) => void; label: string; hint?: string }) {
   return (
     <label className="flex cursor-pointer items-center justify-between gap-3 rounded-xl px-1 py-0.5">
       <span>
@@ -40,7 +40,7 @@ function Switch({ checked, onChange, label, hint }: { checked: boolean; onChange
   );
 }
 
-function Slider({ label, value, onChange, disabled }: { label: string; value: number; onChange: (v: number) => void; disabled?: boolean }) {
+export function Slider({ label, value, onChange, disabled }: { label: string; value: number; onChange: (v: number) => void; disabled?: boolean }) {
   return (
     <label className={clsx("flex items-center gap-3 px-1", disabled && "opacity-40")}>
       <span className="w-28 shrink-0 text-[15px] font-bold text-white">{label}</span>

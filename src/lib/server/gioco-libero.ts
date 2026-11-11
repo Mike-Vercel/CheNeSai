@@ -9,6 +9,7 @@ import { CmsError } from "./audit";
 import { composeAndCreateSessionTx } from "./cms/compose";
 import { generateSessionCode, publishSessionTx } from "./cms/sessions";
 import { computeAutoplayPlan } from "./autoplay";
+import { closeStaleFreeGames } from "./auto-close";
 import { executeCommand, rebroadcast, resolveNextQuestion, type Actor } from "./engine";
 import { GiocoError } from "./gioco-errors";
 import { checkRateLimit } from "./players";
@@ -390,6 +391,20 @@ export async function listHostGames(db: Db, userId: string, limit = 10): Promise
   }));
 }
 
+/** Partita ancora aperta (in lobby o in gioco)? */
+export function isOpenGame(g: Pick<HostGameSummary, "status" | "phase">): boolean {
+  return g.status !== "finished" && g.status !== "archived" && g.phase !== "FINISHED" && g.phase !== null && g.phase !== "DRAFT";
+}
+
+/**
+ * Partite dell'host dopo la chiusura automatica di quelle abbandonate da 24 ore (auto-close.ts):
+ * per la pagina /gioca (partita in corso) e per il profilo (storico).
+ */
+export async function hostGamesFresh(userId: string, limit = 10): Promise<HostGameSummary[]> {
+  await closeStaleFreeGames({ userId, limit: 10 }).catch(() => undefined);
+  return listHostGames(getSql(), userId, limit);
+}
+
 export interface HostGame {
   id: string;
   code: string;
@@ -404,6 +419,15 @@ export async function getOwnedGame(db: Db, userId: string, sessionId: string): P
   const [s] = await db<{ id: string; code: string; title: string; display_key: string; status: SessionStatus }[]>`
     select id, code, title, display_key, status from game_sessions where id = ${sessionId} and host_user_id = ${userId}`;
   return s ? { id: s.id, code: s.code, title: s.title, displayKey: s.display_key, status: s.status } : null;
+}
+
+/** Apertura di una partita dall'host (TV, pannello, telefono): prima la chiude se abbandonata da 24 ore. */
+export async function openOwnedGame(userId: string, sessionId: string): Promise<HostGame | null> {
+  const sql = getSql();
+  const game = await getOwnedGame(sql, userId, sessionId);
+  if (!game || game.status === "finished" || game.status === "archived") return game;
+  const r = await closeStaleFreeGames({ sessionId, limit: 1 }).catch(() => null);
+  return r?.closed.length ? getOwnedGame(sql, userId, sessionId) : game;
 }
 
 // ---------------------------------------------------------------------------

@@ -9,7 +9,7 @@ export interface HeaderUser {
 
 /**
  * Barra in alto della piattaforma: nome a sinistra, a destra "Hai un codice?" e "Accedi"
- * oppure il menu dell'account (@username → Nuova partita, Esci).
+ * oppure il menu dell'account (@username → Nuova partita, Le tue partite, Collega un televisore, Esci).
  */
 export function SiteHeader({ user, overlay = false, className }: { user: HeaderUser | null; overlay?: boolean; className?: string }) {
   return (
@@ -53,8 +53,11 @@ function AccountMenu({ user }: { user: HeaderUser }) {
             Scegli il tuo username
           </Link>
         )}
-        <Link href="/gioca#le-tue-partite" prefetch={false} className="block rounded-xl px-3 py-2.5 text-sm font-bold text-white hover:bg-white/10">
+        <Link href="/profilo" prefetch={false} className="block rounded-xl px-3 py-2.5 text-sm font-bold text-white hover:bg-white/10">
           Le tue partite
+        </Link>
+        <Link href="/tv" prefetch={false} className="block rounded-xl px-3 py-2.5 text-sm font-bold text-white hover:bg-white/10">
+          Collega un televisore
         </Link>
         <form action="/auth/esci" method="post">
           <button type="submit" className="block w-full rounded-xl px-3 py-2.5 text-left text-sm font-bold text-white/75 hover:bg-white/10 hover:text-white">

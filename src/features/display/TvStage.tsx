@@ -52,6 +52,11 @@ export function TvStage(props: TvStageProps) {
   );
 }
 
+/** La schermata 16:9 del momento (senza TrioHost): usata anche dentro lo show verticale per i momenti rari. */
+export function LandscapeScreen(props: TvStageProps) {
+  return <StageScreen {...props} />;
+}
+
 function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false }: TvStageProps) {
   if (!view) return <TvMessageScreen title="Collegamento allo studio…" />;
   const vp: GamePhase = view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase;

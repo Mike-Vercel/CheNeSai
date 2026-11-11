@@ -5,6 +5,7 @@ import { buildPublicState } from "@/lib/server/public-state";
 import { watchdogTick } from "@/lib/server/engine";
 import { directLobbyGreeting } from "@/lib/server/show";
 import { prewarmLines } from "@/lib/server/tts-prewarm";
+import { lazyCloseIfStale } from "@/lib/server/auto-close";
 
 /** Al massimo un controllo dei saluti ogni 2 s per serata (più TV o schede aperte non moltiplicano le query). */
 const LOBBY_CHECK_MS = 2000;
@@ -39,6 +40,8 @@ export const GET = route(async (req: Request, ctx: { params: Promise<{ sessionId
   }
   // passo automatico rimasto indietro (tick perso o appeso): lo si esegue in background
   watchdogTick(state);
+  // gioco libero abbandonato da 24 ore: chiuso (controllo leggero, al massimo ogni 10 minuti)
+  if (state.phase !== "FINISHED") lazyCloseIfStale(sessionId);
   // Precaricamento: media delle prossime domande non ancora mostrate (solo TV).
   const nextMedia = await sql<{ id: string; kind: string }[]>`
     select qs.media_id as id, qs.media_kind::text as kind

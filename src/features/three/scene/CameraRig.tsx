@@ -141,7 +141,9 @@ export function CameraRig() {
     // schermi più stretti del 16:9: allarga il fov verticale per non tagliare i personaggi
     const aspect = size.width / Math.max(1, size.height);
     if (aspect < 16 / 9) {
-      const h = Math.tan((fov * Math.PI) / 360) * (16 / 9 / aspect);
+      // telefono in verticale: si taglia un po' dei bordi del 16:9 (studio e pubblico) per tenere
+      // i presentatori più grandi; didascalie e sottotitoli occupano lo spazio sopra e sotto
+      const h = Math.tan((fov * Math.PI) / 360) * (16 / 9 / aspect) * (aspect < 1 ? 0.86 : 1);
       fov = (Math.atan(h) * 360) / Math.PI;
     }
     camera.position.copy(pos);

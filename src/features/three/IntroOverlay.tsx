@@ -69,7 +69,36 @@ export const OVERLAY_CSS = `
 .qz-count-num{font-size:17vh;font-size:17cqh;line-height:1;color:#fff;
   -webkit-text-stroke:.07em #1a0526;paint-order:stroke fill;
   text-shadow:0 .04em 0 #1a0526,0 0 .25em rgba(0,217,255,.75);}
+/* telefono in verticale (1080x1920): misure sulla larghezza, didascalie una sopra l'altra */
+.qz-portrait .qz-cap-text{font-size:6.6cqw}
+.qz-portrait .qz-cap-panel{border-radius:3cqw;padding:2.6cqw 3.6cqw 3cqw;border-width:.9cqw}
+.qz-portrait .qz-cap-tag{font-size:3.6cqw;padding:.6cqw 2.4cqw .9cqw;margin-bottom:1.6cqw}
+.qz-portrait .qz-ann{font-size:11cqw}
+.qz-portrait .qz-final{font-size:15cqw}
+.qz-portrait .qz-final-sub{font-size:4.2cqw}
+.qz-portrait .qz-rule{width:92cqw;border-radius:3.4cqw;padding:3cqw 3.4cqw;gap:3cqw;border-width:.9cqw}
+.qz-portrait .qz-rule-icon{width:17cqw;height:17cqw}
+.qz-portrait .qz-rule-body{white-space:normal;font-size:4.6cqw!important;margin-top:1.2cqw}
+.qz-portrait .qz-rule-dots{gap:1.2cqw;margin-top:2cqw}
+.qz-portrait .qz-rule-dots i{width:2cqw;height:2cqw}
+.qz-portrait .qz-kara{width:94cqw;border-radius:3cqw;padding:2.2cqw 3.6cqw 2.8cqw;border-width:.9cqw}
+.qz-portrait .qz-kara-lines{font-size:6cqw}
+.qz-portrait .qz-kara .qz-cap-tag{font-size:3.4cqw;margin-bottom:1.2cqw}
+.qz-portrait .qz-count-ring{width:44cqw;height:44cqw;border-width:2cqw}
+.qz-portrait .qz-count-num{font-size:30cqw}
 `;
+
+/** In verticale: le didascalie si impilano in alto o in basso, mai ai lati (i personaggi sono al centro). */
+const portraitPlacementClass: Record<CaptionDef["placement"], string> = {
+  right: "items-start justify-center pt-[7cqh]",
+  left: "items-start justify-center pt-[7cqh]",
+  top: "items-start justify-center pt-[7cqh]",
+  bottom: "items-end justify-center pb-[14cqh]",
+  center: "items-center justify-center",
+  topLeft: "items-start justify-center pt-[7cqh]",
+  topRight: "items-start justify-center pt-[7cqh]",
+  band: "items-start justify-center pt-[24cqh]",
+};
 
 const placementClass: Record<CaptionDef["placement"], string> = {
   right: "items-center justify-end pr-[4cqw]",
@@ -82,7 +111,7 @@ const placementClass: Record<CaptionDef["placement"], string> = {
   band: "items-start justify-center pt-[38cqh]",
 };
 
-function Caption({ def, reducedMotion }: { def: CaptionDef; reducedMotion: boolean }) {
+function Caption({ def, reducedMotion, portrait }: { def: CaptionDef; reducedMotion: boolean; portrait: boolean }) {
   if (def.id === "final" || def.id === "inizia") {
     return (
       <motion.div
@@ -101,13 +130,13 @@ function Caption({ def, reducedMotion }: { def: CaptionDef; reducedMotion: boole
       </motion.div>
     );
   }
-  const fromX = def.placement === "right" || def.placement === "topRight" ? 120 : def.placement === "left" || def.placement === "topLeft" ? -120 : 0;
-  const fromY = def.placement === "top" ? -80 : 0;
+  const fromX = portrait ? 0 : def.placement === "right" || def.placement === "topRight" ? 120 : def.placement === "left" || def.placement === "topLeft" ? -120 : 0;
+  const fromY = portrait ? (def.placement === "bottom" ? 60 : -60) : def.placement === "top" ? -80 : 0;
   return (
     <motion.div
       key={def.id}
-      className="qz-cap-panel max-w-[38cqw]"
-      style={{ textAlign: def.placement === "left" || def.placement === "topLeft" ? "left" : def.placement === "right" || def.placement === "topRight" ? "right" : "center" }}
+      className={portrait ? "qz-cap-panel max-w-[88cqw]" : "qz-cap-panel max-w-[38cqw]"}
+      style={{ textAlign: portrait ? "center" : def.placement === "left" || def.placement === "topLeft" ? "left" : def.placement === "right" || def.placement === "topRight" ? "right" : "center" }}
       initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: fromX, y: fromY, scale: 0.92 }}
       animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
       exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: fromX * 0.5, y: fromY * 0.5, scale: 0.96 }}
@@ -123,7 +152,18 @@ function Caption({ def, reducedMotion }: { def: CaptionDef; reducedMotion: boole
   );
 }
 
-export function IntroOverlay({ state, reducedMotion, scoring = DEFAULT_SCORING }: { state: IntroTimelineState; reducedMotion: boolean; scoring?: RulesScoring }) {
+export function IntroOverlay({
+  state,
+  reducedMotion,
+  scoring = DEFAULT_SCORING,
+  portrait = false,
+}: {
+  state: IntroTimelineState;
+  reducedMotion: boolean;
+  scoring?: RulesScoring;
+  /** telefono in verticale: didascalie, regole e sottotitoli impilati e misurati sulla larghezza */
+  portrait?: boolean;
+}) {
   const found = CAPTIONS.find((c) => c.id === state.caption) ?? null;
   // le battute registrate hanno i sottotitoli karaoke al posto della didascalia
   const caption = found && SPOKEN_CAPTIONS.has(found.id) ? null : found;
@@ -136,7 +176,7 @@ export function IntroOverlay({ state, reducedMotion, scoring = DEFAULT_SCORING }
   const letterbox = state.phase === "blackout";
 
   return (
-    <div className="qz-intro pointer-events-none absolute inset-0 select-none overflow-hidden" aria-live="polite">
+    <div className={`qz-intro pointer-events-none absolute inset-0 select-none overflow-hidden${portrait ? " qz-portrait" : ""}`} aria-live="polite">
       {/* vignettatura per profondità e leggibilità */}
       <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(5,0,12,0.55) 100%)" }} />
 
@@ -157,20 +197,20 @@ export function IntroOverlay({ state, reducedMotion, scoring = DEFAULT_SCORING }
       {/* didascalie */}
       <AnimatePresence mode="wait">
         {caption && (
-          <div key={caption.id} className={`absolute inset-0 flex ${placementClass[caption.placement]}`}>
-            <Caption def={caption} reducedMotion={reducedMotion} />
+          <div key={caption.id} className={`absolute inset-0 flex ${(portrait ? portraitPlacementClass : placementClass)[caption.placement]}`}>
+            <Caption def={caption} reducedMotion={reducedMotion} portrait={portrait} />
           </div>
         )}
       </AnimatePresence>
 
       {/* scheda della regola in corso: sopra la testa di chi parla, mai sui personaggi */}
       <AnimatePresence mode="wait">
-        {state.rule !== null && <RuleCard key={state.rule} index={state.rule} scoring={scoring} reducedMotion={reducedMotion} />}
+        {state.rule !== null && <RuleCard key={state.rule} index={state.rule} scoring={scoring} reducedMotion={reducedMotion} portrait={portrait} />}
       </AnimatePresence>
 
       {/* sottotitoli karaoke dal lato opposto a chi parla (sotto la scheda della regola, se c'è) */}
       <AnimatePresence mode="wait">
-        {state.line && <Karaoke key={state.line.key} line={state.line} t={state.lineT} belowCard={state.rule !== null} reducedMotion={reducedMotion} />}
+        {state.line && <Karaoke key={state.line.key} line={state.line} t={state.lineT} belowCard={state.rule !== null} reducedMotion={reducedMotion} portrait={portrait} />}
       </AnimatePresence>
 
       {/* countdown */}
@@ -230,7 +270,7 @@ const SPEAKER_TAG = { professore: "IL PROFESSORE", regina: "LA REGINA", palmino:
  * (giallo, leggero ingrandimento e alone), quelle già dette piene, le prossime attenuate.
  * Sempre in basso al centro, per tutti e tre i presentatori.
  */
-function Karaoke({ line, t, belowCard, reducedMotion }: { line: SpokenLine; t: number; belowCard: boolean; reducedMotion: boolean }) {
+function Karaoke({ line, t, belowCard, reducedMotion, portrait }: { line: SpokenLine; t: number; belowCard: boolean; reducedMotion: boolean; portrait: boolean }) {
   const url = wordsUrl(line.clip);
   const [loaded, setLoaded] = useState(() => cachedWords(url));
   useEffect(() => {
@@ -246,14 +286,14 @@ function Karaoke({ line, t, belowCard, reducedMotion }: { line: SpokenLine; t: n
   const words = wordsFor(line.text, line.dur, loaded);
   const now = wordIndexAt(words, t);
   // pannello largo in basso al centro: blocchi da ~2 righe
-  const starts = chunkStarts(words, 96);
+  const starts = chunkStarts(words, portrait ? 64 : 96);
   let chunk = 0;
   for (let c = 0; c < starts.length; c++) if (starts[c] <= Math.max(0, now)) chunk = c;
   const from = starts[chunk];
   const to = starts[chunk + 1] ?? words.length;
   const accent = SPEAKER_ACCENT[line.who];
   return (
-    <div className="absolute inset-0 flex items-end justify-center pb-[4cqh]">
+    <div className={`absolute inset-0 flex items-end justify-center ${portrait ? "pb-[5cqh]" : "pb-[4cqh]"}`}>
       <motion.div
         className="qz-kara"
         initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.96 }}
@@ -371,34 +411,35 @@ function RuleIconSvg({ icon }: { icon: RuleIcon }) {
  * Corpo del testo che sta sempre su UNA riga: al massimo `maxCqh`, altrimenti rimpicciolito
  * perché entri nei ~27cqw disponibili nella scheda (em medio Lilita ≈ `em` × corpo).
  */
-function fitFont(text: string, maxCqh: number, em: number): string {
-  const fit = 27 / Math.max(1, text.length * em);
-  return `min(${maxCqh}cqh, ${fit.toFixed(2)}cqw)`;
+function fitFont(text: string, maxCqh: number, em: number, portrait = false): string {
+  // in verticale la scheda è larga quasi tutto lo schermo: ~62cqw per il testo, corpo massimo sulla larghezza
+  const fit = (portrait ? 62 : 27) / Math.max(1, text.length * em);
+  return portrait ? `min(${(maxCqh * 1.45).toFixed(2)}cqw, ${fit.toFixed(2)}cqw)` : `min(${maxCqh}cqh, ${fit.toFixed(2)}cqw)`;
 }
 
-function RuleCard({ index, scoring, reducedMotion }: { index: number; scoring: RulesScoring; reducedMotion: boolean }) {
+function RuleCard({ index, scoring, reducedMotion, portrait }: { index: number; scoring: RulesScoring; reducedMotion: boolean; portrait: boolean }) {
   const rule = RULES[index];
   const body = ruleBody(rule, scoring);
   const accent = SPEAKER_ACCENT[rule.who];
   // dal lato OPPOSTO a chi parla (la camera stringe su di lui): Professore → destra, Regina → sinistra
   const right = rule.who !== "regina";
   return (
-    <div className={`absolute inset-0 flex items-start ${right ? "justify-end pr-[3cqw]" : "justify-start pl-[3cqw]"} pt-[5cqh]`}>
+    <div className={`absolute inset-0 flex items-start ${portrait ? "justify-center pt-[6cqh]" : `${right ? "justify-end pr-[3cqw]" : "justify-start pl-[3cqw]"} pt-[5cqh]`}`}>
       <motion.div
         className="qz-rule"
-        initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: right ? 140 : -140, scale: 0.9 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        exit={reducedMotion ? { opacity: 0 } : { opacity: 0, x: right ? 80 : -80, scale: 0.95 }}
+        initial={reducedMotion ? { opacity: 0 } : portrait ? { opacity: 0, y: -60, scale: 0.92 } : { opacity: 0, x: right ? 140 : -140, scale: 0.9 }}
+        animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+        exit={reducedMotion ? { opacity: 0 } : portrait ? { opacity: 0, y: -30, scale: 0.96 } : { opacity: 0, x: right ? 80 : -80, scale: 0.95 }}
         transition={reducedMotion ? { duration: 0.25 } : { type: "spring", stiffness: 320, damping: 26 }}
       >
         <div className="qz-rule-icon" style={{ background: `radial-gradient(circle at 35% 30%, ${accent}, #1a0526 120%)`, color: accent }}>
           <RuleIconSvg icon={rule.icon} />
         </div>
         <div className="min-w-0">
-          <div className="qz-rule-title" style={{ fontSize: fitFont(rule.title, 5.4, 0.6) }}>
+          <div className="qz-rule-title" style={{ fontSize: fitFont(rule.title, 5.4, 0.6, portrait) }}>
             {rule.title}
           </div>
-          <div className="qz-rule-body" style={{ fontSize: fitFont(body, 3.9, 0.53) }}>
+          <div className="qz-rule-body" style={{ fontSize: fitFont(body, 3.9, 0.53, portrait) }}>
             {body}
           </div>
           <div className="qz-rule-dots">

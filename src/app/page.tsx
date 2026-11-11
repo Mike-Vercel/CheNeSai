@@ -130,6 +130,9 @@ export default async function Home() {
           <Link href="/entra" className="hover:text-white hover:underline">
             Entra con un codice
           </Link>
+          <Link href="/tv" className="hover:text-white hover:underline">
+            Collega un televisore
+          </Link>
           <Link href="/accedi" className="hover:text-white hover:underline">
             Crea un account
           </Link>
