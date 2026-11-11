@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { PublicRound, PublicWheel, PublicWheelSpin } from "@/lib/game-engine/types";
-import { spinElapsedMs, tickCount, wheelRotationAt } from "@/lib/game-engine/wheel";
+import type { PublicRound, PublicWheel } from "@/lib/game-engine/types";
+import { spinElapsedMs, tickCount, wheelRotationAt, wheelStageAt, type WheelStage } from "@/lib/game-engine/wheel";
 import { Logo } from "@/features/game/components/brand";
 import { WheelGraphic, wheelColor } from "@/features/game/components/wheel";
 import { getSoundEngine } from "@/features/media/audio-engine";
@@ -12,13 +12,7 @@ import { stripAudioTags, wheelStopLine } from "@/features/game/script";
 import { TvFrame } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
 
-type Stage = "idle" | "ready" | "spinning" | "stopped";
-
-function stageAt(spin: PublicWheelSpin | null, elapsedMs: number): Stage {
-  if (!spin) return "idle";
-  if (elapsedMs < 0) return "ready";
-  return elapsedMs >= spin.durationMs ? "stopped" : "spinning";
-}
+export { wheelStageAt, type WheelStage };
 
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 function subscribeReduced(cb: () => void) {
@@ -27,7 +21,7 @@ function subscribeReduced(cb: () => void) {
   mq.addEventListener("change", cb);
   return () => mq.removeEventListener("change", cb);
 }
-function usePrefersReducedMotion(): boolean {
+export function usePrefersReducedMotion(): boolean {
   return useSyncExternalStore(
     subscribeReduced,
     () => (typeof window !== "undefined" && window.matchMedia ? window.matchMedia(REDUCED_QUERY).matches : false),
@@ -42,42 +36,37 @@ const FLAP_DEG = -16;
 const TICK_MIN_GAP_MS = 38;
 
 /**
- * Ruota impazzita sul TV.
- * La posizione è una funzione PURA dell'ora del server (spin.startedAt + piano del giro):
- * ogni TV, anche ricaricato a metà, disegna lo stesso fotogramma e si ferma sullo spicchio
- * deciso dal server.
+ * Animazione del giro, condivisa da Ruota impazzita e Ruota di Palmino (TV orizzontale e verticale).
+ * La posizione è una funzione PURA dell'ora del server (spin.startedAt + piano del giro): ogni
+ * schermo, anche ricaricato a metà, disegna lo stesso fotogramma e si ferma sullo spicchio deciso
+ * dal server. Il rotore e la linguetta del puntatore si muovono via ref (60 fps, niente React);
+ * all'arrivo (una volta sola, solo sugli schermi "live") frenata, fanfara, battuta e coriandoli.
  */
-export function TvWheelScreen({
-  round,
+export function useWheelRotor({
   wheel,
-  now = Date.now,
-  live = false,
-  reducedMotion = false,
-  lowPower = false,
+  now,
+  live,
+  reduced,
+  swingLeadMs = 0,
   onCelebrate,
 }: {
-  round: PublicRound;
   wheel: PublicWheel;
-  /** Ora del server (stimata dal client). */
-  now?: () => number;
-  /** true sul TV: suoni e voce; false in regia (solo immagini). */
-  live?: boolean;
-  reducedMotion?: boolean;
-  lowPower?: boolean;
+  now: () => number;
+  live: boolean;
+  reduced: boolean;
+  /** Ruota di Palmino: anticipo del colpo di Palmino sulla partenza (fase "swing") */
+  swingLeadMs?: number;
   onCelebrate?: (intensity?: number) => void;
 }) {
   const spin = wheel.spin;
-  const labels = wheel.segments.map((s) => s.label);
-  const n = labels.length;
-  const prefersReduced = usePrefersReducedMotion();
-  const reduced = reducedMotion || prefersReduced;
+  const n = wheel.segments.length;
   const rotorRef = useRef<SVGGElement>(null);
   const pointerRef = useRef<SVGGElement>(null);
   const nowRef = useRef(now);
   const celebrateRef = useRef(onCelebrate);
   /** startedAt del giro di cui sono già partiti frenata, fanfara e voce (una volta sola). */
   const stopFiredRef = useRef<string | null>(null);
-  const [stage, setStage] = useState<Stage>(() => stageAt(spin, spin ? spinElapsedMs(spin, now()) : 0));
+  const [stage, setStage] = useState<WheelStage>(() => wheelStageAt(spin, spin ? spinElapsedMs(spin, now()) : 0, swingLeadMs));
 
   useEffect(() => {
     nowRef.current = now;
@@ -124,7 +113,7 @@ export function TvWheelScreen({
         pointer.setAttribute("transform", `rotate(${a.toFixed(2)} 0 -106)`);
       }
 
-      const st = stageAt(spin, elapsed);
+      const st = wheelStageAt(spin, elapsed, swingLeadMs);
       setStage((prev) => (prev === st ? prev : st));
       if (st === "stopped") {
         if (stopFiredRef.current !== spin.startedAt) {
@@ -144,7 +133,41 @@ export function TvWheelScreen({
     };
     raf = requestAnimationFrame(frame);
     return () => cancelAnimationFrame(raf);
-  }, [spin, wheel, n, reduced, live]);
+  }, [spin, wheel, n, reduced, live, swingLeadMs]);
+
+  return { stage, rotorRef, pointerRef };
+}
+
+/**
+ * Ruota impazzita sul TV.
+ * La posizione è una funzione PURA dell'ora del server (spin.startedAt + piano del giro):
+ * ogni TV, anche ricaricato a metà, disegna lo stesso fotogramma e si ferma sullo spicchio
+ * deciso dal server.
+ */
+export function TvWheelScreen({
+  round,
+  wheel,
+  now = Date.now,
+  live = false,
+  reducedMotion = false,
+  lowPower = false,
+  onCelebrate,
+}: {
+  round: PublicRound;
+  wheel: PublicWheel;
+  /** Ora del server (stimata dal client). */
+  now?: () => number;
+  /** true sul TV: suoni e voce; false in regia (solo immagini). */
+  live?: boolean;
+  reducedMotion?: boolean;
+  lowPower?: boolean;
+  onCelebrate?: (intensity?: number) => void;
+}) {
+  const spin = wheel.spin;
+  const labels = wheel.segments.map((s) => s.label);
+  const prefersReduced = usePrefersReducedMotion();
+  const reduced = reducedMotion || prefersReduced;
+  const { stage, rotorRef, pointerRef } = useWheelRotor({ wheel, now, live, reduced, onCelebrate });
 
   const winner = spin && stage === "stopped" ? wheel.segments[spin.winnerIndex] : null;
   const winnerColor = spin ? wheelColor(spin.winnerIndex) : null;

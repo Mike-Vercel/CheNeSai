@@ -375,6 +375,8 @@ export const POSES: Record<CharacterAnimation, (t: number, o: Float32Array, ctx:
   celebrate,
   surprised,
   point,
+  // la ruota la gira Palmino: qui basta indicarla
+  spin: point,
 };
 
 /** out = lerp(a, b, w); i quaternioni delle mani con nlerp sullo stesso emisfero */

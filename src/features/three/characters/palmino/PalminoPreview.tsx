@@ -18,6 +18,7 @@ const ANIMS: { id: CharacterAnimation; label: string }[] = [
   { id: "celebrate", label: "Esulta" },
   { id: "surprised", label: "Sorpreso" },
   { id: "point", label: "Indica" },
+  { id: "spin", label: "Gira la ruota" },
 ];
 
 const VIEWS: { id: PreviewView; label: string }[] = [
@@ -63,7 +64,7 @@ export function PalminoPreview(props: PalminoPreviewProps) {
   const showUi = props.showUi ?? true;
 
   const play = (id: CharacterAnimation) => {
-    if (id === animation && (id === "intro" || id === "surprised")) {
+    if (id === animation && (id === "intro" || id === "surprised" || id === "spin")) {
       // ripeti la clip one-shot
       setAnimation("idle");
       window.setTimeout(() => setAnimation(id), 60);

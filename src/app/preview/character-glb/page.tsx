@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
-const ANIMS: CharacterAnimation[] = ["idle", "intro", "talk", "wave", "celebrate", "surprised", "point"];
+const ANIMS: CharacterAnimation[] = ["idle", "intro", "talk", "wave", "celebrate", "surprised", "point", "spin"];
 
 /** /preview/character-glb?who=professore|regina|palmino|trio&src=glb|proc&anim=…&view=front|34|full&mouth=0..1&walk=0..1&low=1&variant=0|1&speak=1 */
 export default async function CharacterGlbPage({ searchParams }: { searchParams: Promise<SearchParams> }) {

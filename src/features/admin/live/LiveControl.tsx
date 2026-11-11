@@ -278,7 +278,10 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
                 </span>
               )}
             </div>
-            {live.suggested && allowed.has(live.suggested) && (
+            {live.suggested && allowed.has(live.suggested) && (() => {
+              // Ruota di Palmino in arrivo: MOSTRA DOMANDA fa prima girare la ruota (poi si preme di nuovo)
+              const wheelNext = live.suggested === "SHOW_QUESTION" && !!live.next?.palminoWheel;
+              return (
               <Button
                 variant={CMD_STYLE[live.suggested] ?? "gold"}
                 size="xl"
@@ -287,9 +290,10 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
                 disabled={!!pending}
                 onClick={() => (live.suggested === "ACTIVATE_EVENT" ? setEventModal(true) : void send(live.suggested!))}
               >
-                {COMMAND_LABELS[live.suggested]} ▶
+                {wheelNext ? "🎡 GIRA LA RUOTA DI PALMINO" : COMMAND_LABELS[live.suggested]} ▶
               </Button>
-            )}
+              );
+            })()}
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {flowButtons
                 .filter((c) => c !== live.suggested)
@@ -391,7 +395,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
             {st.wheel && (
               <div className="mt-3 rounded-xl bg-white/5 p-3 text-sm">
                 <p className="font-bold">
-                  🎡 Ruota impazzita:{" "}
+                  🎡 {st.wheel.kind === "palmino" ? `Ruota di Palmino (domanda ${st.wheel.questionNumber ?? "?"})` : "Ruota impazzita"}:{" "}
                   {st.wheel.spin
                     ? now < Date.parse(st.wheel.spin.startedAt) + st.wheel.spin.durationMs
                       ? "sta girando…"
@@ -410,7 +414,11 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
             {live.next && (
               <div className="mt-3 rounded-xl border border-dashed border-white/15 p-3 text-sm">
                 <p className="font-bold text-white/60">Prossima domanda · {live.next.roundTitle}</p>
-                <p className="font-bold">{live.next.text}</p>
+                {live.next.palminoWheel ? (
+                  <p className="font-bold text-gold">🎡 Prima la Ruota di Palmino: la domanda la sceglie la ruota (al posto di «{live.next.text}»)</p>
+                ) : (
+                  <p className="font-bold">{live.next.text}</p>
+                )}
                 {live.next.scheduledEvent && <p className="mt-1 text-fuchsia">🌴 Evento programmato: {live.next.scheduledEvent}</p>}
               </div>
             )}

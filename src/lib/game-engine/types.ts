@@ -261,6 +261,14 @@ export interface PublicWheel {
   roundId: string;
   segments: PublicWheelSegment[];
   spin: PublicWheelSpin | null;
+  /**
+   * "round" = Ruota impazzita (sceglie la categoria del round); "palmino" = Ruota di Palmino,
+   * che compare ogni tanto fra una domanda e l'altra e sceglie la categoria della PROSSIMA domanda.
+   * Assente = "round".
+   */
+  kind?: "round" | "palmino";
+  /** Ruota di Palmino: numero della domanda che la ruota sta scegliendo */
+  questionNumber?: number | null;
 }
 
 export interface LeaderboardEntry {

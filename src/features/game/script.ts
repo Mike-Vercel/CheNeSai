@@ -115,6 +115,15 @@ export const FIXED_POOLS = {
       "[excited] Tenetevi forte: la ruota sta girando! Occhi sul TV!",
     ],
   },
+  // Ruota di Palmino: arriva fra una domanda e l'altra e la spinge lui (dette prima della partenza: corte)
+  palminoWheel: {
+    who: "palmino",
+    texts: [
+      "[shouts] Fermi tutti! La prossima domanda la sceglie la mia ruota!",
+      "[giggles] Ehi ehi! Tocca a Palmino: giro la ruota e vediamo cosa esce!",
+      "[excited] Sorpresa! Ruota di Palmino: dove si ferma, si gioca!",
+    ],
+  },
   paused: {
     who: "regina",
     texts: [
@@ -454,6 +463,16 @@ export function wheelResultLine(label: string): SpokenLine {
   return { who: "palmino", text: `[shouts] La ruota si è fermata su: ${cleanSpeech(label)}!` };
 }
 
+/** Ruota di Palmino: la categoria scelta, detta quando la ruota si ferma ("Tocca a… CINEMA!"). */
+export function palminoWheelResultLine(label: string): SpokenLine {
+  return { who: "palmino", text: `[shouts] Tocca a… ${cleanSpeech(label)}!` };
+}
+
+/** Ruota di Palmino: battuta d'arrivo di Palmino (prima che la spinga), uguale su ogni schermo. */
+export function palminoWheelStartLine(seed: string): SpokenLine {
+  return fixedLine(FIXED_POOLS.palminoWheel, seed);
+}
+
 /** Battuta di partenza del giro: stessa variante su ogni TV (dipende dal round). */
 export function wheelSpinLine(roundId: string): SpokenLine {
   return fixedLine(FIXED_POOLS.wheelSpin, roundId);
@@ -463,7 +482,8 @@ export function wheelSpinLine(roundId: string): SpokenLine {
 export function wheelStopLine(s: Pick<PublicState, "wheel">): SpokenLine | null {
   const spin = s.wheel?.spin;
   const seg = spin ? s.wheel?.segments[spin.winnerIndex] : undefined;
-  return seg ? wheelResultLine(seg.label) : null;
+  if (!seg) return null;
+  return s.wheel?.kind === "palmino" ? palminoWheelResultLine(seg.label) : wheelResultLine(seg.label);
 }
 
 /** Evento speciale: l'annunciatore grida il titolo, Palmino dice lo slogan. */
@@ -831,7 +851,9 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
     }
     case "WHEEL_SPIN":
-      out.push(wheelSpinLine(s.round?.id ?? s.sessionId));
+      // Ruota di Palmino: arriva lui e la spinge (variante per numero di domanda: uguale su ogni schermo)
+      if (s.wheel?.kind === "palmino") out.push(palminoWheelStartLine(`${s.sessionId}|${s.wheel.questionNumber ?? s.questionsPlayed}`));
+      else out.push(wheelSpinLine(s.round?.id ?? s.sessionId));
       break;
     case "SPECIAL_EVENT":
       if (s.event) out.push(...eventLines(s.event));

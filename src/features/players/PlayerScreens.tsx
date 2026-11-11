@@ -433,25 +433,36 @@ export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, e
 export function PhoneWheelView({ wheel, nowMs }: { wheel: PublicWheel; nowMs: number }) {
   const spin = wheel.spin;
   if (!spin) return null;
-  const stopped = spinElapsedMs(spin, nowMs) >= spin.durationMs;
+  const palmino = wheel.kind === "palmino";
+  const elapsed = spinElapsedMs(spin, nowMs);
+  const stopped = elapsed >= spin.durationMs;
   const winner = wheel.segments[spin.winnerIndex];
   const color = wheelColor(spin.winnerIndex);
   const labels = wheel.segments.map((s) => s.label);
   if (!stopped) {
+    // Ruota di Palmino: prima del colpo la ruota è ferma (Palmino arriva e la spinge sul TV)
+    const still = palmino && elapsed < 0;
     return (
-      <div className="flex flex-1 flex-col items-center justify-center gap-5 text-center">
-        <div className="w-56 animate-spin motion-reduce:animate-none" style={{ animationDuration: "1.1s" }}>
-          <WheelGraphic labels={labels} calm showLabels={false} className="h-full w-full" />
+      <div className="flex flex-1 flex-col items-center justify-center gap-5 text-center" data-testid="phone-wheel">
+        {palmino && <p className="font-display text-xl text-gold">🎡 LA RUOTA DI PALMINO</p>}
+        <div className="relative">
+          <div className={clsx("w-56", !still && "animate-spin motion-reduce:animate-none")} style={{ animationDuration: "1.1s" }}>
+            <WheelGraphic labels={labels} calm showLabels={false} className="h-full w-full" />
+          </div>
+          {palmino && <Character who="palmino" small className={clsx("absolute -bottom-4 -right-16 w-28", still ? "animate-float" : "")} />}
         </div>
-        <h1 className="font-display text-3xl leading-tight text-white [text-shadow:0_3px_0_rgba(0,0,0,.4)]">La ruota gira…</h1>
+        <h1 className="font-display text-3xl leading-tight text-white [text-shadow:0_3px_0_rgba(0,0,0,.4)]">
+          {palmino ? (still ? "Palmino sta per girare la ruota…" : "Palmino ha girato la ruota!") : "La ruota gira…"}
+        </h1>
+        {palmino && wheel.questionNumber ? <p className="font-bold text-white/80">Sceglie la categoria della domanda {wheel.questionNumber}</p> : null}
         <p className="font-display text-2xl text-gold">Guarda il TV!</p>
       </div>
     );
   }
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center gap-4 text-center" data-testid="phone-wheel">
       <Character who="palmino" small className="w-36 animate-float" />
-      <p className="font-display text-2xl text-white">La ruota ha scelto:</p>
+      <p className="font-display text-2xl text-white">{palmino ? "Tocca a…" : "La ruota ha scelto:"}</p>
       <motion.div
         initial={{ scale: 0.4, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -461,7 +472,7 @@ export function PhoneWheelView({ wheel, nowMs }: { wheel: PublicWheel; nowMs: nu
       >
         {winner?.label}
       </motion.div>
-      <p className="font-bold text-white/80">Le prossime domande sono di questa categoria. Preparati!</p>
+      <p className="font-bold text-white/80">{palmino ? "La prossima domanda è di questa categoria. Preparati!" : "Le prossime domande sono di questa categoria. Preparati!"}</p>
     </div>
   );
 }

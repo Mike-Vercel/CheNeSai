@@ -46,7 +46,8 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     const stop = state.phase === "WHEEL_SPIN" ? wheelStopLine(state) : null;
     if (stop) lines.push(stop);
     const sessionId = state.sessionId;
-    const nextToo = state.phase === "SCORE_REVEAL" || state.phase === "LEADERBOARD";
+    // (Ruota di Palmino: la domanda scelta dal giro si prepara mentre la ruota gira)
+    const nextToo = state.phase === "SCORE_REVEAL" || state.phase === "LEADERBOARD" || (state.phase === "WHEEL_SPIN" && state.wheel?.kind === "palmino");
     if (lines.length === 0 && !nextToo) return;
     after(async () => {
       try {

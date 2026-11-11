@@ -8,6 +8,7 @@ import { LandscapeScreen, type TvStageProps } from "./TvStage";
 import { TvFrame, TvPodiumScreen } from "./TvScreens";
 import { TrioHost } from "./TvTrio";
 import { QuestionIntroScreen } from "./QuestionIntroScreen";
+import { TvPalminoWheelScreen } from "./TvPalminoWheel";
 import {
   PortraitAnswerPointsScreen,
   PortraitLeaderboardScreen,
@@ -52,6 +53,10 @@ function PortraitScreen(props: TvStageProps) {
   if (view.teams) return vp === "INTRO" ? <>{intro}</> : <Letterbox {...props} />;
   if (vp === "DRAFT" || vp === "READY" || vp === "LOBBY") return <PortraitLobbyScreen state={view} qrDataUrl={qrDataUrl} joinUrl={joinUrl} />;
   if (vp === "INTRO") return <>{intro}</>;
+  // Ruota di Palmino: ricomposta in verticale (ruota grande, Palmino in basso a destra che la spinge)
+  if (vp === "WHEEL_SPIN" && view.wheel?.kind === "palmino") {
+    return <TvPalminoWheelScreen portrait wheel={view.wheel} round={view.round} now={now} live={live} reducedMotion={props.reducedMotion} lowPower={props.lowPower} onCelebrate={onCelebrate} />;
+  }
   if (vp === "ROUND_INTRO" && view.round && view.round.kind !== "category_wheel" && view.round.kind !== "category_vote") {
     return <PortraitRoundIntroScreen round={view.round} showLines={view.showLines} />;
   }

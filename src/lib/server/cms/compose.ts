@@ -54,7 +54,8 @@ export async function loadCandidates(db: Db, f: CandidateFilters = {}): Promise<
       exists (
         -- le partite libere si giocano subito: non "prenotano" le domande come le serate della regia
         select 1 from session_questions sq join game_sessions s on s.id = sq.session_id
-        where sq.question_id = q.id and sq.shown_at is null and not s.is_test and s.host_user_id is null
+        -- (le candidate della Ruota di Palmino non contano: quasi sempre restano in riserva)
+        where sq.question_id = q.id and sq.shown_at is null and not sq.wheel_candidate and not s.is_test and s.host_user_id is null
           and s.status in ('draft', 'ready', 'live') and s.id is distinct from ${f.sessionId ?? null}::uuid
       ) as planned,
       ${

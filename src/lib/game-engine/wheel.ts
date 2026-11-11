@@ -109,3 +109,13 @@ export function spinElapsedMs(spin: { startedAt: string; frozenElapsedMs: number
 export function spinEndsAtMs(spin: { startedAt: string; durationMs: number }): number {
   return Date.parse(spin.startedAt) + spin.durationMs;
 }
+
+/** Fase del giro sullo schermo. "swing" = Ruota di Palmino: Palmino sta dando il colpo che la fa partire. */
+export type WheelStage = "idle" | "ready" | "swing" | "spinning" | "stopped";
+
+export function wheelStageAt(spin: { durationMs: number } | null, elapsedMs: number, swingLeadMs = 0): WheelStage {
+  if (!spin) return "idle";
+  if (elapsedMs < -swingLeadMs) return "ready";
+  if (elapsedMs < 0) return "swing";
+  return elapsedMs >= spin.durationMs ? "stopped" : "spinning";
+}

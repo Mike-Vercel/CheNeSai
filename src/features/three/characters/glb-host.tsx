@@ -267,6 +267,56 @@ const POSES: Partial<Record<CharacterAnimation, Pose>> = {
   surprised: { chest: [0.12, 0, 0], head: [0.12, 0, 0], lArm: [-0.4, 0, 0.45], rArm: [-0.5, 0, -0.5] },
 };
 const POSE_KEYS = Object.keys(POSES) as CharacterAnimation[];
+
+/**
+ * "spin" (Ruota di Palmino): posa che cambia nel tempo, stessi tempi della clip procedurale
+ * (palmino/animation.ts): carica 0–0.38 s, COLPO 0.38–0.58 s (braccio destro che scende in avanti
+ * e trascina il bordo della ruota), accompagnamento, ritorno al riposo a 1.6 s.
+ */
+const SPIN_LEN = 1.6;
+const sm = (e0: number, e1: number, x: number) => {
+  const u = Math.min(1, Math.max(0, (x - e0) / (e1 - e0)));
+  return u * u * (3 - 2 * u);
+};
+const mix = (a: number, b: number, u: number) => a + (b - a) * u;
+function spinPose(t: number, key: BoneKey, out: { x: number; y: number; z: number }) {
+  out.x = 0;
+  out.y = 0;
+  out.z = 0;
+  if (t >= SPIN_LEN) return;
+  const w = sm(0, 0.38, t);
+  const k = sm(0.38, 0.58, t);
+  const rest = 1 - sm(1.1, SPIN_LEN, t);
+  const twist = mix(mix(0, 0.18, w), -0.22, k) * rest;
+  switch (key) {
+    case "rArm":
+      // carica: braccio alto sopra la spalla, un po' indietro; colpo: giù lungo il bordo della ruota, di lato
+      out.z = mix(mix(0, -2.45, w), -0.75, k) * rest;
+      out.x = mix(mix(0, 0.35, w), -0.35, k) * rest;
+      return;
+    case "rFore":
+      out.z = mix(mix(0, -0.9, w), -0.1, k) * rest;
+      return;
+    case "rHand":
+      out.x = mix(mix(0, 0.4, w), -0.3, k) * rest;
+      return;
+    case "lArm":
+      out.z = mix(mix(0, 0.25, w), 0.6, k) * rest;
+      return;
+    case "chest":
+      out.y = twist;
+      out.x = mix(mix(0, -0.08, w), 0.12, k) * rest;
+      // si piega lontano dalla ruota nella carica e verso la ruota nel colpo (lato −X)
+      out.z = mix(mix(0, -0.12, w), 0.24, k) * rest;
+      return;
+    case "head":
+      out.y = -0.5 * twist;
+      return;
+    default:
+      return;
+  }
+}
+const spinTmp = { x: 0, y: 0, z: 0 };
 const BONE_KEYS = Object.keys(BONE_NAMES) as BoneKey[];
 
 const qA = new Quaternion();
@@ -412,6 +462,10 @@ export function HostGlbModel({
     vowel: 0 as 0 | 1 | 2,
     blinkIn: 2.5,
     blinkPh: -1,
+    /** Ruota di Palmino: tempo dall'inizio del colpo e peso della posa */
+    spinT: 0,
+    spinW: 0,
+    spinOn: false,
   });
 
   useFrame((_, rawDt) => {
@@ -459,6 +513,11 @@ export function HostGlbModel({
       const target = a === animation ? 1 : 0;
       s.poseW[a] = (s.poseW[a] ?? 0) + (target - (s.poseW[a] ?? 0)) * (1 - Math.exp(-dt * 7));
     }
+    // colpo alla ruota: riparte da 0 a ogni nuova richiesta, peso morbido in entrata e in uscita
+    if (animation === "spin" && !s.spinOn) s.spinT = 0;
+    s.spinOn = animation === "spin";
+    s.spinT += dt;
+    s.spinW += ((s.spinOn ? 1 : 0) - s.spinW) * (1 - Math.exp(-dt * 12));
     const t = s.t;
     // voce → testa e collo: piena senza viso animato, ridotta con la bocca vera o con una clip di parlata
     const talkClipW = nTalk > 0 ? actions.talk.reduce((acc, a) => acc + a.getEffectiveWeight(), 0) : 0;
@@ -485,6 +544,12 @@ export function HostGlbModel({
       // saluto: la mano oscilla di lato (nel piano dello schermo) facendo perno sul gomito
       if (key === "rFore" && (s.poseW.wave ?? 0) > 0.01) eTmp.z += (s.poseW.wave ?? 0) * Math.sin(t * 8) * 0.32 * still;
       if ((key === "lArm" || key === "rArm") && (s.poseW.celebrate ?? 0) > 0.01) eTmp.x += (s.poseW.celebrate ?? 0) * Math.sin(t * 8) * 0.18 * still;
+      if (s.spinW > 0.001) {
+        spinPose(s.spinT, key, spinTmp);
+        eTmp.x += spinTmp.x * s.spinW * still;
+        eTmp.y += spinTmp.y * s.spinW * still;
+        eTmp.z += spinTmp.z * s.spinW * still;
+      }
       rotateInModelSpace(bone, model, eTmp.x, eTmp.y, eTmp.z);
     }
 

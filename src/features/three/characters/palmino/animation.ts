@@ -67,7 +67,7 @@ export const ARM = { shZ: 0, shY: 1, shX: 2, elZ: 3, elY: 4, wrX: 5, wrY: 6, wrZ
 
 export type Pose = Float32Array;
 
-export const ANIMATIONS: readonly CharacterAnimation[] = ["idle", "intro", "talk", "wave", "celebrate", "surprised", "point"];
+export const ANIMATIONS: readonly CharacterAnimation[] = ["idle", "intro", "talk", "wave", "celebrate", "surprised", "point", "spin"];
 
 const TAU = Math.PI * 2;
 const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
@@ -340,8 +340,64 @@ function point(p: Pose, t: number) {
   p[CH.grin] = 0.78;
 }
 
+/**
+ * RUOTA DI PALMINO: Palmino spinge la ruota con un colpo del braccio destro (lato −X, a sinistra
+ * sullo schermo: la ruota è alla sua destra). Tempi della clip (s):
+ *  0.00–0.38 carica: braccio alto e piegato, busto che ruota indietro, sulle punte;
+ *  0.38–0.58 COLPO: il braccio scende di scatto in avanti e in basso (la mano "trascina" il bordo
+ *            della ruota verso il basso: con Palmino a destra della ruota la fa girare in senso
+ *            orario), il busto si avvita, schiacciamento;
+ *  0.58–1.10 accompagnamento: braccio disteso in basso, saltello di gioia, chioma che sbatte;
+ *  1.10–1.60 ritorno al riposo.
+ * Il TV fa partire la clip SPIN_CONTACT_S prima della partenza della ruota (palmino-wheel.ts):
+ * il colpo arriva quando la ruota comincia a muoversi.
+ */
+export const SPIN_LEN = 1.6;
+export const SPIN_CONTACT_S = 0.45;
+
+function spin(p: Pose, t: number) {
+  if (t >= SPIN_LEN) return idle(p, t - SPIN_LEN);
+  restPose(p);
+  const windup = smooth(0, 0.38, t);
+  const strike = smooth(0.38, 0.58, t);
+  const settle = smooth(1.1, SPIN_LEN, t);
+  // braccio destro: alto e piegato → giù e in avanti, disteso
+  const shZ = lerp(lerp(0.14, 1.6, windup), -0.55, strike);
+  const shY = lerp(lerp(0.16, 0.3, windup), 0.4, strike);
+  const elZ = lerp(lerp(0.22, 0.85, windup), 0.05, strike);
+  p[ARM_R + ARM.shZ] = lerp(shZ, 0.14, settle);
+  p[ARM_R + ARM.shY] = lerp(shY, 0.16, settle);
+  p[ARM_R + ARM.elZ] = lerp(elZ, 0.22, settle);
+  p[ARM_R + ARM.wrX] = lerp(lerp(-0.6, 0.35, windup), -0.25, strike);
+  p[ARM_R + ARM.curl] = lerp(lerp(0.15, -0.15, windup), 0.25, strike);
+  p[ARM_R + ARM.index] = p[ARM_R + ARM.curl] * 0.6;
+  // braccio sinistro: bilanciere (si apre durante il colpo)
+  p[ARM_L + ARM.shZ] = lerp(lerp(0.14, 0.3, windup), 0.45, strike) * (1 - settle) + 0.14 * settle;
+  p[ARM_L + ARM.shY] = lerp(0.16, 0.35, windup);
+  // busto: si carica girandosi indietro, poi si avvita nel colpo
+  // (torsione contenuta: il braccio destro deve restare davanti, in vista)
+  const twist = lerp(lerp(0, 0.18, windup), -0.22, strike) * (1 - settle);
+  p[CH.rootRotY] = twist;
+  p[CH.hipsRotY] = 0.5 * twist;
+  // si piega lontano dalla ruota nella carica e verso la ruota nel colpo
+  p[CH.highRotZ] = lerp(lerp(0, -0.1, windup), 0.16, strike) * (1 - settle);
+  p[CH.lowRotZ] = lerp(lerp(0, -0.05, windup), 0.08, strike) * (1 - settle);
+  p[CH.headRotY] = -0.6 * twist;
+  p[CH.headRotX] = lerp(lerp(0, -0.12, windup), 0.1, strike) * (1 - settle);
+  // sulle punte in carica, schiacciato sul colpo, poi saltello di gioia
+  const hit = t > 0.5 ? Math.exp(-(t - 0.5) * 9) : 0;
+  const hop = t > 0.62 && t < 0.98 ? Math.sin(Math.PI * ((t - 0.62) / 0.36)) : 0;
+  p[CH.rootY] = 0.025 * windup * (1 - strike) + 0.09 * hop;
+  p[CH.stretch] = 1 + 0.07 * windup * (1 - strike) - 0.16 * hit + 0.08 * hop;
+  p[CH.footLPitch] = p[CH.footRPitch] = -0.25 * windup * (1 - strike) - 0.3 * hop;
+  // chioma: frustata nel colpo e sbattuta nel saltello
+  p[CH.leafLift] = -0.35 * windup * (1 - strike) + 0.4 * hit;
+  p[CH.leafFlap] = 0.3 + 0.7 * hit + 0.5 * hop;
+  p[CH.grin] = lerp(0.85, 1, windup);
+}
+
 /** Durata delle clip one-shot (le altre sono in loop). */
-export const ONE_SHOT: Partial<Record<CharacterAnimation, number>> = { intro: INTRO_LEN, surprised: 0.6 };
+export const ONE_SHOT: Partial<Record<CharacterAnimation, number>> = { intro: INTRO_LEN, surprised: 0.6, spin: SPIN_LEN };
 
 export function evaluateClip(anim: CharacterAnimation, p: Pose, t: number, ctx: ClipContext) {
   switch (anim) {
@@ -359,6 +415,8 @@ export function evaluateClip(anim: CharacterAnimation, p: Pose, t: number, ctx: 
       return surprised(p, t);
     case "point":
       return point(p, t);
+    case "spin":
+      return spin(p, t);
   }
 }
 

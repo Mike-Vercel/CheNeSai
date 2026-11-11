@@ -6,7 +6,8 @@ import type { ThreeElements } from "@react-three/fiber";
  * Palmino). Ogni modello è costruito in codice (img2threejs) a partire
  * dalle illustrazioni ufficiali ed espone le stesse animazioni.
  */
-export type CharacterAnimation = "idle" | "intro" | "talk" | "wave" | "celebrate" | "surprised" | "point";
+/** "spin": Palmino spinge la Ruota di Palmino con un colpo del braccio (gli altri due la rendono come "point"). */
+export type CharacterAnimation = "idle" | "intro" | "talk" | "wave" | "celebrate" | "surprised" | "point" | "spin";
 
 export interface CharacterModelProps extends Omit<ThreeElements["group"], "ref"> {
   /** Animazione corrente; il cambio deve avvenire con una transizione morbida (~0.3 s). */

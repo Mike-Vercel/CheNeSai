@@ -376,3 +376,26 @@ body {
     transform: scaleY(0.6);
   }
 }
+
+/* Ruota di Palmino (2D): Palmino si carica, colpisce la ruota con il braccio e fa un saltello.
+   Stessi tempi della clip 3D "spin" (carica 0–0.38 s, colpo 0.38–0.58 s, ritorno entro 1.6 s). */
+@keyframes qz-palmino-swing {
+  0% { transform: rotate(0deg) translate(0, 0); }
+  24% { transform: rotate(10deg) translate(3%, -3%); }
+  36% { transform: rotate(-15deg) translate(-7%, 2%) scaleY(0.94); }
+  52% { transform: rotate(-7deg) translate(-3%, -7%); }
+  68% { transform: rotate(-2deg) translate(0, 0); }
+  100% { transform: rotate(0deg) translate(0, 0); }
+}
+.qz-palmino-swing { animation: qz-palmino-swing 1.6s cubic-bezier(0.3, 0.7, 0.3, 1) both; transform-origin: 50% 100%; }
+/* scia del colpo sul bordo della ruota (il giro parte in senso orario) */
+@keyframes qz-swoosh {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  20% { opacity: 1; }
+  70% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.qz-swoosh { stroke-dasharray: 1; stroke-dashoffset: 1; animation: qz-swoosh 0.75s ease-out 0.28s both; }
+@media (prefers-reduced-motion: reduce) {
+  .qz-palmino-swing, .qz-swoosh { animation: none; }
+}

@@ -410,9 +410,16 @@ export function DisplayApp({
     let toldSpeaking = false;
     let idleSince: number | null = null;
     let done = false;
+    // ruota che gira (Ruota impazzita o di Palmino): il momento finisce solo dopo l'arrivo e la
+    // battuta "Tocca a… X!", che il TV dice quando la ruota si ferma
+    const wheelTurning = () => {
+      const s = stateRef.current;
+      const sp = s?.version === version && s.phase === "WHEEL_SPIN" ? s.wheel?.spin : null;
+      return !!sp && sp.frozenElapsedMs === null && now() < Date.parse(sp.startedAt) + sp.durationMs + 400;
+    };
     const t = setInterval(() => {
       if (done) return;
-      if (voice.pending) {
+      if (voice.pending || wheelTurning()) {
         idleSince = null;
         if (!toldSpeaking) {
           toldSpeaking = true;
@@ -427,7 +434,7 @@ export function DisplayApp({
       }
     }, 100);
     return () => clearInterval(t);
-  }, [autoOn, version, sessionId, displayKey, voice]);
+  }, [autoOn, version, sessionId, displayKey, voice, now]);
 
   // QR code per la lobby
   const joinUrl = useMemo(() => {

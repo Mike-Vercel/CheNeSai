@@ -157,13 +157,14 @@ describe("creazione della partita libera", () => {
 
   it("la partita successiva evita le domande che l'host ha già visto", async () => {
     // le domande della prima partita "escono" (come durante il gioco): il trigger le registra per l'host
-    await sql`update session_questions set shown_at = now() where session_id = ${first}`;
+    // (le candidate della Ruota di Palmino restano riserve: non escono mai tutte)
+    await sql`update session_questions set shown_at = now() where session_id = ${first} and not wheel_candidate`;
     const [{ n }] = await sql<{ n: number }[]>`select count(*)::int as n from question_plays where session_id = ${first} and host_user_id = ${hostA.userId}`;
     expect(n).toBe(10);
-    const seen = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${first}`).map((r) => r.question_id));
+    const seen = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${first} and not wheel_candidate`).map((r) => r.question_id));
     const r = await createPublicGame((hostA = await refresh(hostA)), { totalQuestions: 10, rounds: 2 }, only);
     created.push(r.sessionId);
-    const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId}`).map((x) => x.question_id);
+    const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId} and not wheel_candidate`).map((x) => x.question_id);
     expect(picked).toHaveLength(10);
     expect(picked.filter((q) => seen.has(q))).toEqual([]);
     expect(r.warnings.some((w) => w.includes("tua partita precedente"))).toBe(false);
@@ -345,9 +346,9 @@ describe("rivincita", () => {
     await hostCommand(hostC, oldId, "kick", undefined, { participantId: carla.id });
     await hostCommand(hostC, oldId, "start");
     // le domande della partita "escono" (come durante il gioco): restano nello storico dell'host
-    await sql`update session_questions set shown_at = now() where session_id = ${oldId}`;
+    await sql`update session_questions set shown_at = now() where session_id = ${oldId} and not wheel_candidate`;
     await hostCommand(hostC, oldId, "finish");
-    const oldQuestions = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${oldId}`).map((r) => r.question_id));
+    const oldQuestions = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${oldId} and not wheel_candidate`).map((r) => r.question_id));
     const used = (await refresh(hostC)).profile!.gamesCreated;
 
     const r = await rematchPublicGame((hostC = await refresh(hostC)), oldId, null, onlyC);
@@ -360,7 +361,7 @@ describe("rivincita", () => {
     expect(d).toMatchObject({ code, phase: "LOBBY", status: "live", hostUserId: hostC.userId });
     expect(d!.roundsDetail.map((x) => x.questions.length).reduce((a, b) => a + b, 0)).toBe(10);
     // nessuna domanda già vista
-    const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId}`).map((x) => x.question_id);
+    const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId} and not wheel_candidate`).map((x) => x.question_id);
     expect(picked.filter((q) => oldQuestions.has(q))).toEqual([]);
     // vecchia partita: archiviata, codice d'archivio, punta alla rivincita (TV e telefoni la seguono)
     const [old] = await sql<{ code: string; status: string; next_session_id: string }[]>`select code, status, next_session_id from game_sessions where id = ${oldId}`;

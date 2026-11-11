@@ -285,4 +285,5 @@ const intro: AnimFn = (t, p, c) => {
   // dopo ~2.3 s tutti gli extra si esauriscono e resta l'idle
 };
 
-export const ANIMS: Record<CharacterAnimation, AnimFn> = { idle, intro, talk, wave, celebrate, surprised, point };
+// "spin" (la Ruota di Palmino) per la Regina è un'indicazione
+export const ANIMS: Record<CharacterAnimation, AnimFn> = { idle, intro, talk, wave, celebrate, surprised, point, spin: point };
