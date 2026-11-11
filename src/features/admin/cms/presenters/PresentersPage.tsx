@@ -36,6 +36,9 @@ export const EVENT_LABEL: Record<ShowEventType, string> = {
   FINAL_ROUND_START: "Inizio del round finale",
   TEAM_LEADER_CHANGED: "Squadre: nuova squadra in testa",
   TEAM_ROUND_WINNER: "Squadre: squadra vincitrice del round",
+  RETORT_PROFESSORE: "Battibecco: rispondono al Professore",
+  RETORT_REGINA: "Battibecco: rispondono alla Regina",
+  RETORT_PALMINO: "Battibecco: rispondono a Palmino",
 };
 
 function DirectorPanel() {
@@ -79,6 +82,23 @@ function DirectorPanel() {
                 {[0, 1, 2, 3].map((n) => (
                   <option key={n} value={n}>
                     {n}
+                  </option>
+                ))}
+              </Select>
+            )}
+          </Field>
+          <Field label="Battibecchi" hint="Quanto spesso un altro presentatore risponde (o prende in giro) chi ha appena parlato">
+            {(id) => (
+              <Select id={id} value={c.banterPercent} disabled={busy} onChange={(e) => void save({ banterPercent: Number(e.target.value) })}>
+                {[
+                  [0, "Mai"],
+                  [25, "Ogni tanto (25%)"],
+                  [50, "Spesso (50%)"],
+                  [75, "Quasi sempre (75%)"],
+                  [100, "Sempre"],
+                ].map(([n, label]) => (
+                  <option key={n} value={n}>
+                    {label}
                   </option>
                 ))}
               </Select>

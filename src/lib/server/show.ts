@@ -11,6 +11,7 @@ import { directShow, validateTemplate } from "@/lib/show/director";
 import { finalRoundStartEvent, lobbyGreetingEvent } from "@/lib/show/moments";
 import {
   DEFAULT_DIRECTOR_CONFIG,
+  isRetortEvent,
   SHOW_EVENT_TYPES,
   type CharacterAnimationName,
   type DialogueTemplate,
@@ -48,6 +49,7 @@ export async function loadDirectorConfig(db: Db | Tx): Promise<DirectorConfig> {
     maxLines: clampInt(v.maxLines, 0, 3, DEFAULT_DIRECTOR_CONFIG.maxLines),
     maxMentionsPerPlayerPerRound: clampInt(v.maxMentionsPerPlayerPerRound, 1, 20, DEFAULT_DIRECTOR_CONFIG.maxMentionsPerPlayerPerRound),
     events,
+    banterPercent: clampInt(v.banterPercent, 0, 100, DEFAULT_DIRECTOR_CONFIG.banterPercent),
   };
 }
 
@@ -58,6 +60,7 @@ export async function saveDirectorConfig(db: Db, patch: Partial<DirectorConfig>)
     maxLines: clampInt(patch.maxLines, 0, 3, cur.maxLines),
     maxMentionsPerPlayerPerRound: clampInt(patch.maxMentionsPerPlayerPerRound, 1, 20, cur.maxMentionsPerPlayerPerRound),
     events: Array.isArray(patch.events) ? patch.events.filter((e) => (SHOW_EVENT_TYPES as readonly string[]).includes(e)) : cur.events,
+    banterPercent: clampInt(patch.banterPercent, 0, 100, cur.banterPercent),
   };
   await db`
     insert into application_settings (key, value) values ('show', ${db.json(JSON.parse(JSON.stringify(next)))})
@@ -148,6 +151,9 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
   }
   let templates = await loadTemplates(tx);
   if (templates.length === 0 && (await importLibrary(tx)) > 0) templates = await loadTemplates(tx);
+  // archivio creato prima dei battibecchi: si aggiungono solo quelle battute (una volta sola)
+  const [{ n: retorts }] = await tx<{ n: number }[]>`select count(*)::int as n from dialogue_templates where starts_with(event_type, 'RETORT_')`;
+  if (retorts === 0 && (await importLibrary(tx, readLibraryFile().filter((l) => isRetortEvent(l.event)))) > 0) templates = await loadTemplates(tx);
 
   // storia ufficiale dei punti, domanda per domanda (ordine di assegnazione)
   const hist = await tx<HistRow[]>`

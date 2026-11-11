@@ -228,6 +228,10 @@ export function eventPlayers(e: ShowEvent): PlayerRef[] {
       return e.greeted;
     case "FINAL_ROUND_START":
       return [e.leader, e.runnerUp];
+    case "RETORT_PROFESSORE":
+    case "RETORT_REGINA":
+    case "RETORT_PALMINO":
+      return e.about ? [e.about] : [];
     default:
       return [e.who];
   }
