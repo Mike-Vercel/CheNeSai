@@ -12,6 +12,7 @@ import {
   PALMINO_ACCENT_TAG,
   pickMomentLines,
   pickWheelLines,
+  textForGender,
   wheelLineFits,
   WHEEL_LINE_MARGIN_MS,
   spokenMs,
@@ -45,6 +46,8 @@ const OFFICIAL: DialogueTemplate[] = file.lines.map((l) => ({
   tags: l.tags,
   sceneKey: l.scene?.key ?? null,
   sceneStep: l.scene?.step ?? null,
+  textF: l.textF ?? null,
+  textN: l.textN ?? null,
 }));
 const byEvent = (e: ShowEventType) => OFFICIAL.filter((t) => t.event === e);
 const empty = (): DirectorHistory => ({ lastUsed: new Map(), mentionsThisRound: new Map() });
@@ -391,5 +394,54 @@ describe("Ruota di Palmino: battuta 'Durante la ruota'", () => {
     expect(said).toHaveLength(2);
     expect(said[0].who).toBe("palmino");
     expect(said[1]).toMatchObject({ who: "regina", optional: true, live: false });
+  });
+});
+
+describe("genere del giocatore nominato", () => {
+  const t = { text: "Bravo {nome}!", textF: "Brava {nome}!", textN: "Complimenti {nome}!" };
+  it("maschile = testo ufficiale, femminile = variante, non detto = neutra (o esclusa)", () => {
+    expect(textForGender(t, "m")).toBe("Bravo {nome}!");
+    expect(textForGender(t, "f")).toBe("Brava {nome}!");
+    expect(textForGender(t, "n")).toBe("Complimenti {nome}!");
+    // battuta al pubblico (nessun nominato): sempre il testo
+    expect(textForGender(t, undefined)).toBe("Bravo {nome}!");
+    // con accordo ma senza neutra: a chi non ha indicato il genere non si dice
+    expect(textForGender({ text: "Bravo!", textF: "Brava!" }, "n")).toBeNull();
+    // senza accordi: uguale per tutti
+    expect(textForGender({ text: "Complimenti {nome}!" }, "f")).toBe("Complimenti {nome}!");
+    expect(textForGender({ text: "Complimenti {nome}!" }, "n")).toBe("Complimenti {nome}!");
+  });
+
+  it("la regia usa la variante giusta per chi è nominato (voce e testo a schermo)", () => {
+    const only = OFFICIAL.filter((x) => x.id === "uff-regina-silenzio-01");
+    const say = (gender: "m" | "f" | null) =>
+      directShow({ events: [{ type: "PLAYER_NO_ANSWER", who: { id: "p", nickname: "Lalla", gender }, streak: 1 }], templates: only, history: empty(), config: cfg(), nowMs: 0, seed: "g" })[0];
+    expect(say("m").display).toBe("Lalla, AMOOOORE! Ti sei addormentato?!");
+    expect(say("f").display).toBe("Lalla, AMOOOORE! Ti sei addormentata?!");
+    expect(say("f").text).toContain("Ti sei addormentata?!");
+    expect(say(null).display).toBe("Lalla, AMOOOORE! Stai dormendo?!");
+  });
+
+  it("chi non ha indicato il genere non riceve mai battute con accordi senza variante neutra", () => {
+    const gendered = OFFICIAL.filter((x) => x.event === "PLAYER_NO_ANSWER" && !x.sceneKey).map((x) => (x.textF ? { ...x, textN: null } : x));
+    for (let i = 0; i < 60; i++) {
+      const l = directShow({ events: [{ type: "PLAYER_NO_ANSWER", who: { id: "p", nickname: "Ugo" }, streak: 1 }], templates: gendered, history: empty(), config: cfg(), nowMs: 0, seed: `n${i}` })[0];
+      expect(gendered.find((x) => x.id === l.templateId)!.textF).toBeFalsy();
+    }
+  });
+
+  it("squadra vincitrice: variante neutra (mai 'degno' riferito a una squadra)", () => {
+    const only = OFFICIAL.filter((x) => x.id === "uff-regina-vittoria");
+    const [l] = pickMomentLines({
+      templates: only,
+      event: { type: "GAME_WINNER", winner: { id: "t1", name: "I Fenicotteri", gender: null } },
+      render: (x) => renderTemplate(x, { nome_vincitore: "I Fenicotteri" }),
+      comedyLevel: "irriverente",
+      ctx: {},
+      lastUsed: new Map(),
+      nowMs: 0,
+      seed: "s",
+    });
+    expect(l.display).toBe("AMOOOORE, I Fenicotteri! HAI VINTO! ORA SEI UFFICIALMENTE ALL'ALTEZZA DELLA MIA CORONA!");
   });
 });

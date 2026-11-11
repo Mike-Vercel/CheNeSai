@@ -36,6 +36,10 @@ export const templateInputSchema = z.object({
     .nullable()
     .default(null),
   sceneStep: z.number().int().min(1).max(12).nullable().default(null),
+  /** variante femminile (battute con accordi di genere rivolte a un giocatore nominato) */
+  textF: z.string().trim().min(3).max(300).nullable().default(null),
+  /** variante neutra: genere non detto e squadre (senza, la battuta con variante femminile non si dice a chi non l'ha indicato) */
+  textN: z.string().trim().min(3).max(300).nullable().default(null),
 });
 export type TemplateInput = z.infer<typeof templateInputSchema>;
 
@@ -72,6 +76,8 @@ export async function listTemplates(): Promise<TemplateRow[]> {
       tags: string[];
       scene_key: string | null;
       scene_step: number | null;
+      text_f: string | null;
+      text_n: string | null;
       updated_at: Date;
       used: number;
     }[]
@@ -95,6 +101,8 @@ export async function listTemplates(): Promise<TemplateRow[]> {
     tags: r.tags ?? [],
     sceneKey: r.scene_key,
     sceneStep: r.scene_step,
+    textF: r.text_f,
+    textN: r.text_n,
     updatedAt: r.updated_at.toISOString(),
     usedCount: r.used,
   }));
@@ -105,6 +113,8 @@ export async function createTemplate(raw: unknown, actor: Actor): Promise<string
   if (!p.success) throw new CmsError("Battuta non valida", 422, p.error.issues);
   const t = p.data;
   check(t);
+  if (t.textF) check({ event: t.event, text: t.textF });
+  if (t.textN) check({ event: t.event, text: t.textN });
   checkScene(t);
   const sql = getSql();
   const base = `${t.character}-${t.event.toLowerCase().replace(/_/g, "-")}`;
@@ -113,9 +123,9 @@ export async function createTemplate(raw: unknown, actor: Actor): Promise<string
   await sql.begin(async (tx) => {
     await tx`
       insert into dialogue_templates (id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation, enabled,
-                                      level, origin, tags, scene_key, scene_step)
+                                      level, origin, tags, scene_key, scene_step, text_f, text_n)
       values (${id}, ${t.character}, ${t.event}, ${t.text}, ${t.tone}, ${t.intensity}, ${t.priority}, ${t.weight}, ${t.cooldownSec}, ${t.animation}, ${t.enabled},
-              ${t.level}, 'admin', ${tx.array(t.tags)}::text[], ${t.sceneKey}, ${t.sceneStep})`;
+              ${t.level}, 'admin', ${tx.array(t.tags)}::text[], ${t.sceneKey}, ${t.sceneStep}, ${t.textF}, ${t.textN})`;
     await audit(tx, actor, "dialogue.create", { type: "dialogue_template", id });
   });
   return id;
@@ -125,7 +135,10 @@ export async function updateTemplate(id: string, raw: unknown, actor: Actor): Pr
   // parziale: niente valori predefiniti (un campo assente resta com'è)
   const p = templateInputSchema
     .partial()
-    .extend({ level: z.enum(COMEDY_LEVELS).optional(), tags: templateInputSchema.shape.tags.removeDefault().optional(), sceneKey: templateInputSchema.shape.sceneKey.removeDefault().optional(), sceneStep: templateInputSchema.shape.sceneStep.removeDefault().optional() })
+    .extend({ level: z.enum(COMEDY_LEVELS).optional(), tags: templateInputSchema.shape.tags.removeDefault().optional(), sceneKey: templateInputSchema.shape.sceneKey.removeDefault().optional(), sceneStep: templateInputSchema.shape.sceneStep.removeDefault().optional(),
+      textF: templateInputSchema.shape.textF.removeDefault().optional(),
+      textN: templateInputSchema.shape.textN.removeDefault().optional(),
+    })
     .safeParse(raw);
   if (!p.success) throw new CmsError("Battuta non valida", 422, p.error.issues);
   const sql = getSql();
@@ -135,6 +148,8 @@ export async function updateTemplate(id: string, raw: unknown, actor: Actor): Pr
     if (!cur) throw new CmsError("Battuta non trovata", 404);
     const d = p.data;
     check({ event: d.event ?? cur.event_type, text: d.text ?? cur.text });
+    if (d.textF) check({ event: d.event ?? cur.event_type, text: d.textF });
+    if (d.textN) check({ event: d.event ?? cur.event_type, text: d.textN });
     checkScene({ sceneKey: d.sceneKey === undefined ? cur.scene_key : d.sceneKey, sceneStep: d.sceneStep === undefined ? cur.scene_step : d.sceneStep });
     await tx`
       update dialogue_templates set
@@ -152,6 +167,8 @@ export async function updateTemplate(id: string, raw: unknown, actor: Actor): Pr
         tags = ${d.tags === undefined ? tx`tags` : tx`${tx.array(d.tags)}::text[]`},
         scene_key = ${d.sceneKey === undefined ? tx`scene_key` : d.sceneKey},
         scene_step = ${d.sceneStep === undefined ? tx`scene_step` : d.sceneStep},
+        text_f = ${d.textF === undefined ? tx`text_f` : d.textF},
+        text_n = ${d.textN === undefined ? tx`text_n` : d.textN},
         updated_at = now()
       where id = ${id}`;
     await audit(tx, actor, "dialogue.update", { type: "dialogue_template", id, details: { fields: Object.keys(d) } });

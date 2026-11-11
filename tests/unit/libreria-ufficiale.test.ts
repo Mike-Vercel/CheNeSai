@@ -13,7 +13,7 @@ import { SHOW_EVENT_TYPES, type ShowEventType } from "@/lib/show/types";
 const md = readFileSync(join(process.cwd(), "content", "battute", "LIBRERIA-UFFICIALE.md"), "utf8").replace(/\r\n/g, "\n");
 const lib = JSON.parse(readFileSync(join(process.cwd(), "content", "show", "libreria-ufficiale.json"), "utf8")) as {
   origin: string;
-  lines: { id: string; character: string; event: ShowEventType; text: string; level: string; tags: string[]; scene?: { key: string; step: number }; animation: string | null }[];
+  lines: { id: string; character: string; event: ShowEventType; text: string; textF?: string; textN?: string; level: string; tags: string[]; scene?: { key: string; step: number }; animation: string | null }[];
 };
 
 /** Tutte le battute tra virgolette del testo (numerate o "Personaggio: …"), escluse le regole. */
@@ -99,5 +99,22 @@ describe("libreria ufficiale: testo dell'utente parola per parola", () => {
     const thirty = lib.lines.filter((l) => /trenta secondi/i.test(l.text));
     expect(thirty.length).toBeGreaterThan(0);
     expect(thirty.every((l) => l.tags.includes("timer30"))).toBe(true);
+  });
+
+  it("varianti per genere: femminile e neutra, valide e con gli stessi nomi del testo ufficiale", () => {
+    const base = JSON.parse(readFileSync(join(process.cwd(), "content", "show", "battute.json"), "utf8")) as { lines: typeof lib.lines };
+    const all = [...lib.lines, ...base.lines].filter((l) => l.textF || l.textN);
+    expect(all.length).toBe(29);
+    const ph = (t: string) => [...t.matchAll(/\{([a-z_]+)\}/g)].map((m) => m[1]).sort();
+    for (const l of all) {
+      for (const v of [l.textF, l.textN]) {
+        expect(v, l.id).toBeTruthy();
+        expect(validateTemplate({ event: l.event, text: v! })).toEqual([]);
+        expect(ph(v!)).toEqual(ph(l.text));
+        expect(v).not.toBe(l.text);
+      }
+      // rivolte a un giocatore nominato
+      expect(ph(l.text).length).toBeGreaterThan(0);
+    }
   });
 });

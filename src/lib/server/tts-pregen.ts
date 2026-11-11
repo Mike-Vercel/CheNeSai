@@ -71,7 +71,9 @@ export async function libraryVoicePlans(db: Db, cfg: VoiceConfig): Promise<{ lin
   const templates = (await loadTemplates(db)).filter((t) => isCuratedTemplate(t) && levelAllowed(t.level, config.comedyLevel));
   const lines: SpokenLine[] = [];
   const parts: PlannedClip[] = [];
-  for (const t of templates) {
+  // varianti per genere: testi diversi, quindi clip diverse (si preparano anche loro)
+  const variants = templates.flatMap((t) => [t, ...[t.textF, t.textN].filter((x): x is string => !!x).map((text) => ({ ...t, text }))]);
+  for (const t of variants) {
     const ph = [...t.text.matchAll(/\{([a-z_]+)\}/g)].map((m) => m[1]);
     if (ph.length === 0) {
       const r = renderTemplate(t, {}, opts);

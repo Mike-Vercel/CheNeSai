@@ -68,3 +68,22 @@ alter table public.participants add column if not exists no_answer_streak intege
 
 -- storico delle battute per host (niente ripetizioni fra le serate dello stesso host)
 create index if not exists show_dialogue_log_template_idx on public.show_dialogue_log (template_id, created_at desc);
+
+-- GENERE del giocatore (facoltativo, scelto all'ingresso): 'm', 'f' o null = non detto.
+-- Serve solo alla regia per gli accordi delle battute rivolte a un giocatore nominato.
+alter table public.participants add column if not exists gender text;
+alter table public.participants drop constraint if exists participants_gender_check;
+alter table public.participants add constraint participants_gender_check check (gender is null or gender in ('m', 'f'));
+-- ultimo genere scelto dall'identità (rientro con il codice giocatore in un'altra serata)
+alter table public.player_identities add column if not exists last_gender text;
+alter table public.player_identities drop constraint if exists player_identities_last_gender_check;
+alter table public.player_identities add constraint player_identities_last_gender_check check (last_gender is null or last_gender in ('m', 'f'));
+
+-- Varianti delle battute per genere: text resta il testo ufficiale (maschile, parola per parola);
+-- text_f = variante femminile; text_n = variante neutra (genere non detto, squadre). Una battuta con
+-- text_f e senza text_n non si dice a chi non ha indicato il genere.
+alter table public.dialogue_templates add column if not exists text_f text;
+alter table public.dialogue_templates add column if not exists text_n text;
+alter table public.dialogue_templates drop constraint if exists dialogue_templates_variants_check;
+alter table public.dialogue_templates add constraint dialogue_templates_variants_check check (
+  (text_f is null or char_length(text_f) between 3 and 300) and (text_n is null or char_length(text_n) between 3 and 300));

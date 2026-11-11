@@ -8,7 +8,7 @@ import { joinSchema } from "@/lib/validation/schemas";
 export const POST = route(async (req: Request) => {
   const body = await readJson(req, joinSchema);
   const result = await joinSession(
-    { code: body.code, nickname: body.nickname, recoveryCode: body.recoveryCode || null, slot: body.slot ?? null },
+    { code: body.code, nickname: body.nickname, recoveryCode: body.recoveryCode || null, slot: body.slot ?? null, gender: body.gender },
     { ip: await clientIp(), deviceToken: await readDeviceToken() },
   );
   await writePlayerToken(body.code, body.slot, result.participantToken);

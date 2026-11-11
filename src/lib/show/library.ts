@@ -19,6 +19,7 @@
 import type { Presenter } from "@/lib/game-engine/types";
 import type { TeamMode } from "@/lib/game-engine/teams";
 import { lineFitsMoment, NO_MOMENT, type MomentContext } from "@/features/game/moment";
+import { eventPlayers } from "./events";
 import {
   COMEDY_LEVELS,
   type ComedyLevel,
@@ -230,6 +231,33 @@ export function renderTemplate(t: Pick<DialogueTemplate, "text" | "character" | 
 }
 
 // ---------------------------------------------------------------------------
+// Genere del giocatore nominato
+// ---------------------------------------------------------------------------
+/** m = maschile, f = femminile, n = non detto (o squadra: mai "sei stato" a una squadra). */
+export type GenderKey = "m" | "f" | "n";
+
+/** Genere di chi è al centro dell'evento (il primo nominato); undefined = nessun nominato (battute al pubblico). */
+export function eventGender(e: ShowEvent): GenderKey | undefined {
+  if (e.type === "GAME_WINNER") return e.winner.gender ?? "n";
+  if (e.type === "TEAM_NO_ANSWER" || e.type === "TEAM_LEADER_CHANGED" || e.type === "TEAM_ROUND_WINNER") return "n";
+  const who = eventPlayers(e)[0];
+  if (!who) return undefined;
+  return who.gender ?? "n";
+}
+
+/**
+ * Testo della battuta per il genere: maschile = testo ufficiale; femminile = variante (se la battuta
+ * ha accordi di genere); non detto = variante neutra, oppure il testo se non ha accordi, altrimenti
+ * null (la battuta non si dice a questo giocatore).
+ */
+export function textForGender(t: Pick<DialogueTemplate, "text" | "textF" | "textN">, g: GenderKey | undefined): string | null {
+  if (g === undefined || g === "m") return t.text;
+  if (g === "f") return t.textF || t.text;
+  if (t.textN) return t.textN;
+  return t.textF ? null : t.text;
+}
+
+// ---------------------------------------------------------------------------
 // Condizioni (tags)
 // ---------------------------------------------------------------------------
 export interface LineContext {
@@ -324,15 +352,21 @@ export interface CandidateInput {
   allowScenes: boolean;
   /** battute dette nelle ultime serate dello stesso host: peso ridotto (variazione fra serate) */
   elsewhere?: ReadonlySet<string>;
+  /** genere del giocatore nominato (sceglie la variante); assente = battute al pubblico */
+  gender?: GenderKey;
 }
 
 /** Peso delle battute già usate nelle ultime serate dello stesso host. */
 export const ELSEWHERE_WEIGHT = 0.3;
 
-function rowOk(input: CandidateInput, t: DialogueTemplate): CandidateRow | null {
-  if (!t.enabled || t.event !== input.event) return null;
-  if (!levelAllowed(t.level, input.comedyLevel)) return null;
-  if (!tagsAllow(t.tags, input.ctx)) return null;
+function rowOk(input: CandidateInput, base: DialogueTemplate): CandidateRow | null {
+  if (!base.enabled || base.event !== input.event) return null;
+  if (!levelAllowed(base.level, input.comedyLevel)) return null;
+  if (!tagsAllow(base.tags, input.ctx)) return null;
+  // variante per il genere del giocatore nominato (null = non adatta: si scarta)
+  const text = textForGender(base, input.gender);
+  if (text === null) return null;
+  const t = text === base.text ? base : { ...base, text };
   const line = input.render(t);
   if (!line) return null;
   const shown = line.display ?? displayOf(line.text);
@@ -436,7 +470,7 @@ export interface MomentPickInput extends Omit<CandidateInput, "allowScenes" | "e
 
 export function pickMomentLines(input: MomentPickInput): ShowLine[] {
   const sceneOk = input.scenes !== false && (input.lastSceneMs == null || input.nowMs - input.lastSceneMs >= SCENE_GAP_MS);
-  let pool = libraryCandidates({ ...input, event: input.event.type, allowScenes: sceneOk });
+  let pool = libraryCandidates({ ...input, event: input.event.type, allowScenes: sceneOk, gender: input.gender ?? eventGender(input.event) });
   if (input.prefer && pool.some((c) => c.character === input.prefer)) pool = pool.filter((c) => c.character === input.prefer);
   const chosen = pickCandidate(pool, `${input.seed}|${input.event.type}`);
   return chosen ? candidateLines(chosen, input.event.type, input.mentions ?? [], input.seed) : [];
@@ -586,7 +620,7 @@ export function noAnswerEvent(input: NoAnswerInput): ShowEvent | null {
   scored.sort((a, b) => b.k.prio - a.k.prio || a.last - b.last || a.r - b.r);
   const best = scored[0];
   if (best.k.type === "PLAYER_NO_ANSWER" && !chance(`${input.seed}|silenzio`, PLAIN_NO_ANSWER_PERCENT)) return null;
-  const who = { id: best.p.id, nickname: best.p.nickname };
+  const who: PlayerRef = { id: best.p.id, nickname: best.p.nickname, gender: best.p.gender ?? null };
   return { type: best.k.type as Extract<ShowEvent, { streak: number }>["type"], who, streak: best.p.streak };
 }
 

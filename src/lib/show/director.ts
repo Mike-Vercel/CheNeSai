@@ -15,7 +15,7 @@ import type { Presenter } from "@/lib/game-engine/types";
 import { cleanSpeech } from "@/features/game/script";
 import { NO_MOMENT, type MomentContext } from "@/features/game/moment";
 import { eventPlayers, eventTeams } from "./events";
-import { candidateLines, libraryCandidates, renderTemplate, SCENE_GAP_MS, voiceOptionsOf, type LibraryCandidate, type LineContext, type RenderedLine } from "./library";
+import { candidateLines, eventGender, libraryCandidates, renderTemplate, SCENE_GAP_MS, voiceOptionsOf, type LibraryCandidate, type LineContext, type RenderedLine } from "./library";
 import {
   ALLOWED_PLACEHOLDERS,
   EVENT_PRIORITY,
@@ -263,6 +263,7 @@ function candidatesFor(input: DirectInput, e: ShowEvent, usedTemplates: Set<stri
     used: usedTemplates,
     allowScenes: scenes,
     elsewhere: input.elsewhere,
+    gender: eventGender(e),
   });
 }
 

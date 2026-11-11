@@ -337,18 +337,19 @@ export async function rematchPublicGame(host: HostUser, oldSessionId: string, ra
     await tx`update game_sessions set display_mode = (select display_mode from game_sessions where id = ${oldSessionId}) where id = ${r.sessionId}`;
 
     // giocatori: stesso nickname, punti a zero; il token del telefono passa al nuovo partecipante
-    const players = await tx<{ id: string; identity_id: string | null; nickname: string; nickname_key: string; token_hash: string }[]>`
-      select id, identity_id, nickname, nickname_key, token_hash from participants
+    const players = await tx<{ id: string; identity_id: string | null; nickname: string; nickname_key: string; token_hash: string; gender: string | null }[]>`
+      select id, identity_id, nickname, nickname_key, token_hash, gender from participants
       where session_id = ${oldSessionId} and status = 'active' and not is_bot
       order by joined_at`;
     if (players.length > 0) {
       await tx`update participants set token_hash = 'rivincita:' || id::text where id = any(${players.map((p) => p.id)}::uuid[])`;
       const inserted = await tx<{ id: string }[]>`
-        insert into participants (session_id, identity_id, nickname, nickname_key, token_hash)
-        select ${r.sessionId}::uuid, o.identity_id, o.nickname, o.nickname_key, o.token_hash
+        insert into participants (session_id, identity_id, nickname, nickname_key, token_hash, gender)
+        select ${r.sessionId}::uuid, o.identity_id, o.nickname, o.nickname_key, o.token_hash, o.gender
         from unnest(${players.map((p) => p.identity_id)}::uuid[], ${players.map((p) => p.nickname)}::text[],
-                    ${players.map((p) => p.nickname_key)}::text[], ${players.map((p) => p.token_hash)}::text[])
-          as o(identity_id, nickname, nickname_key, token_hash)
+                    ${players.map((p) => p.nickname_key)}::text[], ${players.map((p) => p.token_hash)}::text[],
+                    ${players.map((p) => p.gender)}::text[])
+          as o(identity_id, nickname, nickname_key, token_hash, gender)
         returning id`;
       await tx`insert into score_totals (participant_id, session_id) select unnest(${inserted.map((x) => x.id)}::uuid[]), ${r.sessionId}::uuid`;
     }

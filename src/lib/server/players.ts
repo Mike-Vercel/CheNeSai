@@ -110,6 +110,11 @@ export interface JoinInput {
   nickname: string;
   recoveryCode?: string | null;
   slot?: string | null;
+  /**
+   * Genere per gli accordi delle battute dei presentatori: "m", "f", "n" (preferisco non dirlo).
+   * Assente = non scelto: vale l'ultima scelta della stessa identità (codice giocatore), altrimenti non detto.
+   */
+  gender?: "m" | "f" | "n" | null;
 }
 
 export interface JoinResult {
@@ -169,8 +174,14 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
     }
 
     const participantSecret = token();
+    // genere: scelta esplicita, altrimenti l'ultima della stessa identità (rientro con il codice giocatore)
+    let gender: "m" | "f" | null = input.gender === "m" || input.gender === "f" ? input.gender : null;
+    if (input.gender == null && identityId) {
+      const [idg] = await tx<{ g: "m" | "f" | null }[]>`select last_gender as g from player_identities where id = ${identityId}`;
+      gender = idg?.g ?? null;
+    }
 
-    // --- rientro: stesso dispositivo/identità nella stessa sessione ---
+    // --- rientro: stesso dispositivo/identità nella stessa sessione (il genere resta quello già scelto) ---
     if (identityId) {
       const [existing] = await tx<{ id: string; nickname: string; status: string }[]>`
         select id, nickname, status from participants where session_id = ${s.id} and identity_id = ${identityId}`;
@@ -205,15 +216,19 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
     if (!v.ok) throw new PlayerError("NICKNAME_INVALID", v.message, { issue: v.issue });
 
     const [p] = await tx<{ id: string }[]>`
-      insert into participants (session_id, identity_id, nickname, nickname_key, token_hash)
-      values (${s.id}, ${identityId}, ${v.display}, ${v.key}, ${"pending:" + participantSecret})
+      insert into participants (session_id, identity_id, nickname, nickname_key, token_hash, gender)
+      values (${s.id}, ${identityId}, ${v.display}, ${v.key}, ${"pending:" + participantSecret}, ${gender})
       on conflict (session_id, nickname_key) do nothing
       returning id`;
     if (!p) throw new PlayerError("NICKNAME_TAKEN", "Questo nickname è già in uso in questa partita: scegline un altro");
     const full = `${p.id}.${participantSecret}`;
     await tx`update participants set token_hash = ${sha256(full)} where id = ${p.id}`;
     await tx`insert into score_totals (participant_id, session_id) values (${p.id}, ${s.id})`;
-    if (identityId) await tx`update player_identities set last_nickname = ${v.display}, last_seen_at = now() where id = ${identityId}`;
+    if (identityId) {
+      await tx`update player_identities set last_nickname = ${v.display}, last_seen_at = now() where id = ${identityId}`;
+      // scelta esplicita (anche "preferisco non dirlo"): la si ricorda per le prossime serate
+      if (input.gender != null) await tx`update player_identities set last_gender = ${gender} where id = ${identityId}`;
+    }
     return {
       participantId: p.id,
       nickname: v.display,

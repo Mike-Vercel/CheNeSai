@@ -86,10 +86,10 @@ export function useSeat(code: string | null, state: PublicState | null, slot: st
   }, [joined, code, slot]);
 
   const join = useCallback(
-    async (nickname: string): Promise<string | null> => {
+    async (nickname: string, gender: "m" | "f" | "n" | null = null): Promise<string | null> => {
       if (!code) return "Partita non pronta";
       try {
-        const r = await api<{ recoveryCode: string | null }>("/api/play/join", { method: "POST", json: { code, nickname, recoveryCode: "" } });
+        const r = await api<{ recoveryCode: string | null }>("/api/play/join", { method: "POST", json: { code, nickname, recoveryCode: "", ...(gender ? { gender } : {}) } });
         if (r.recoveryCode) {
           try {
             localStorage.setItem("qz.recovery", r.recoveryCode);

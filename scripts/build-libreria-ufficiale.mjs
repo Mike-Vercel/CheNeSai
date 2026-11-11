@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { withVariants } from "./varianti-genere.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(root, "content", "battute", "LIBRERIA-UFFICIALE.md");
@@ -410,7 +411,8 @@ function main() {
     origin: "ufficiale",
     source: "content/battute/LIBRERIA-UFFICIALE.md",
     note: "Generato da scripts/build-libreria-ufficiale.mjs: il testo delle battute è quello dell'utente, parola per parola.",
-    lines: out,
+    // varianti per genere (femminile / neutra) delle battute rivolte a un giocatore nominato
+    lines: out.map(withVariants),
   };
   writeFileSync(OUT, JSON.stringify(file, null, 2) + "\n", "utf8");
   const scenes = byScene.size;

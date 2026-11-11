@@ -1,6 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
+import { GenderPicker, type GenderChoice } from "@/features/players/GenderPicker";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -51,6 +52,9 @@ export function PhoneShow({ sessionId, displayKey, code, host, canCreateMore }: 
   );
 }
 
+/** Ingresso dell'host come giocatore: nickname e genere (facoltativo). */
+type JoinFn = (nickname: string, gender?: GenderChoice) => Promise<string | null>;
+
 function MenuIcon() {
   return (
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden>
@@ -59,8 +63,9 @@ function MenuIcon() {
   );
 }
 
-function JoinAsPlayer({ host, join, joined, name }: { host: string | null; join: (n: string) => Promise<string | null>; joined: "unknown" | "no" | "yes"; name: string | null }) {
+function JoinAsPlayer({ host, join, joined, name }: { host: string | null; join: JoinFn; joined: "unknown" | "no" | "yes"; name: string | null }) {
   const [nick, setNick] = useState(host ?? "");
+  const [gender, setGender] = useState<GenderChoice>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   if (joined === "unknown") return null;
@@ -78,7 +83,7 @@ function JoinAsPlayer({ host, join, joined, name }: { host: string | null; join:
         e.preventDefault();
         setBusy(true);
         setError(null);
-        void join(nick.trim()).then((err) => {
+        void join(nick.trim(), gender).then((err) => {
           setBusy(false);
           setError(err);
         });
@@ -101,6 +106,7 @@ function JoinAsPlayer({ host, join, joined, name }: { host: string | null; join:
           {busy ? "…" : "GIOCO ANCH'IO"}
         </button>
       </div>
+      <GenderPicker value={gender} onChange={setGender} compact />
       {error && <p className="text-sm font-bold text-[#ffc2cd]">{error}</p>}
     </form>
   );
@@ -125,7 +131,7 @@ function PhoneShowOverlay({
   canCreateMore: boolean;
   seatJoined: "unknown" | "no" | "yes";
   seatName: string | null;
-  join: (n: string) => Promise<string | null>;
+  join: JoinFn;
 }) {
   const router = useRouter();
   const [sheet, setSheet] = useState(false);

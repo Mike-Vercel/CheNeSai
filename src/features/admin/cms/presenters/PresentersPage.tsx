@@ -204,6 +204,9 @@ interface Draft {
   tags: string;
   sceneKey: string;
   sceneStep: number | null;
+  /** varianti per genere (vuote = nessuna) */
+  textF: string;
+  textN: string;
 }
 
 const tagList = (t: string) =>
@@ -224,6 +227,8 @@ const draftBody = (d: Draft) => ({
   tags: tagList(d.tags),
   sceneKey: d.sceneKey.trim() || null,
   sceneStep: d.sceneKey.trim() ? (d.sceneStep ?? 1) : null,
+  textF: d.textF.trim() || null,
+  textN: d.textN.trim() || null,
 });
 
 function TemplateEditor({ initial, onSave, onCancel, busy, testName }: { initial: Draft; onSave: (d: Draft) => void; onCancel: () => void; busy: boolean; testName: string }) {
@@ -283,6 +288,17 @@ function TemplateEditor({ initial, onSave, onCancel, busy, testName }: { initial
       <p className="text-sm text-white/60">
         Anteprima: <span className="text-white">{previewText(d.event, d.text, testName)}</span>
       </p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Field label="Variante femminile (facoltativa)" hint="Per le battute con accordi di genere rivolte a un giocatore: «Brava!», «addormentata», «sei arrivata ultima»…">
+          {(id) => <Textarea id={id} rows={2} maxLength={300} value={d.textF} onChange={(e) => setD({ ...d, textF: e.target.value })} />}
+        </Field>
+        <Field
+          label="Variante neutra (facoltativa)"
+          hint="Per chi non ha indicato il genere e per le squadre. Se c'è la femminile ma non la neutra, a chi non l'ha indicato la battuta non si dice."
+        >
+          {(id) => <Textarea id={id} rows={2} maxLength={300} value={d.textN} onChange={(e) => setD({ ...d, textN: e.target.value })} />}
+        </Field>
+      </div>
       <div className="grid gap-3 sm:grid-cols-3">
         <Field label="Livello di comicità">
           {(id) => (
@@ -461,6 +477,8 @@ function LibraryPanel() {
               tags: "",
               sceneKey: "",
               sceneStep: null,
+              textF: "",
+              textN: "",
             }}
             busy={busy === "new"}
             testName={testName}
@@ -487,6 +505,8 @@ function LibraryPanel() {
                   tags: (t.tags ?? []).join(", "),
                   sceneKey: t.sceneKey ?? "",
                   sceneStep: t.sceneStep ?? null,
+                  textF: t.textF ?? "",
+                  textN: t.textN ?? "",
                 }}
                 busy={busy === t.id}
                 testName={testName}
@@ -514,6 +534,24 @@ function LibraryPanel() {
                   {!t.enabled && <Badge color="red">disattivata</Badge>}
                 </div>
                 <p className="text-sm text-white/90">{t.text}</p>
+                {t.textF && (
+                  <p className="mt-1 flex items-start gap-1.5 text-sm text-white/70">
+                    <Badge color="fuchsia">♀</Badge>
+                    <span>{t.textF}</span>
+                    <button type="button" className="text-xs underline" disabled={busy === "play"} onClick={() => void play({ ...t, text: t.textF! })} aria-label="Ascolta la variante femminile">
+                      ▶
+                    </button>
+                  </p>
+                )}
+                {t.textN && (
+                  <p className="mt-1 flex items-start gap-1.5 text-sm text-white/70">
+                    <Badge color="gray">neutra</Badge>
+                    <span>{t.textN}</span>
+                    <button type="button" className="text-xs underline" disabled={busy === "play"} onClick={() => void play({ ...t, text: t.textN! })} aria-label="Ascolta la variante neutra">
+                      ▶
+                    </button>
+                  </p>
+                )}
               </div>
               <div className="flex shrink-0 flex-wrap gap-1.5">
                 <Button size="sm" variant="ghost" disabled={busy === "play"} onClick={() => void play(t)} aria-label="Ascolta">

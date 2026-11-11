@@ -123,6 +123,9 @@ interface LibraryFileLine {
   tags?: string[];
   scene?: { key: string; step: number };
   origin?: TemplateOrigin;
+  /** varianti per genere (femminile / neutra) */
+  textF?: string;
+  textN?: string;
 }
 
 /** File della libreria: quella iniziale di sempre e la libreria ufficiale scritta dall'utente. */
@@ -133,8 +136,9 @@ export function readLibraryFile(file: string = LIBRARY_FILES.base): LibraryFileL
   try {
     const raw = JSON.parse(readFileSync(join(process.cwd(), "content", "show", file), "utf8")) as { lines?: LibraryFileLine[]; origin?: string };
     const origin: TemplateOrigin = (TEMPLATE_ORIGINS as readonly string[]).includes(raw.origin ?? "") ? (raw.origin as TemplateOrigin) : "base";
+    const ok = (event: ShowEventType, text: string | undefined) => text === undefined || validateTemplate({ event, text }).length === 0;
     return (raw.lines ?? [])
-      .filter((l) => l && typeof l.id === "string" && validateTemplate({ event: l.event, text: l.text }).length === 0)
+      .filter((l) => l && typeof l.id === "string" && ok(l.event, l.text) && ok(l.event, l.textF) && ok(l.event, l.textN))
       .map((l) => ({ ...l, origin }));
   } catch {
     return [];
@@ -151,19 +155,50 @@ export async function importLibrary(db: Db | Tx, lines: LibraryFileLine[] = read
     const level = l.level && (COMEDY_LEVELS as readonly string[]).includes(l.level) ? l.level : "leggero";
     const r = await db`
       insert into dialogue_templates (id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation,
-                                      level, origin, tags, scene_key, scene_step)
+                                      level, origin, tags, scene_key, scene_step, text_f, text_n)
       values (${l.id}, ${l.character}, ${l.event}, ${l.text}, ${l.tone ?? "comico"}, ${l.intensity ?? 2}, ${l.priority ?? 50},
               ${l.weight ?? 1}, ${l.cooldownSec ?? 120}, ${l.animation ?? null},
-              ${level}, ${l.origin ?? "base"}, ${db.array(l.tags ?? [])}::text[], ${l.scene?.key ?? null}, ${l.scene?.step ?? null})
+              ${level}, ${l.origin ?? "base"}, ${db.array(l.tags ?? [])}::text[], ${l.scene?.key ?? null}, ${l.scene?.step ?? null},
+              ${l.textF ?? null}, ${l.textN ?? null})
       on conflict (id) do nothing returning id`;
     added += r.length;
   }
   return added;
 }
 
-/** Libreria iniziale + libreria ufficiale: solo le battute che mancano. */
+/** Libreria iniziale + libreria ufficiale: solo le battute che mancano (e le varianti per genere). */
 export async function importAllLibraries(db: Db | Tx): Promise<number> {
-  return (await importLibrary(db, readLibraryFile())) + (await importLibrary(db, readOfficialLibrary()));
+  const added = (await importLibrary(db, readLibraryFile())) + (await importLibrary(db, readOfficialLibrary()));
+  await syncGenderVariants(db);
+  return added;
+}
+
+/** Versione delle varianti per genere già portate nell'archivio (application_settings). */
+const VARIANTS_KEY = "show_gender_variants";
+const VARIANTS_VERSION = 1;
+
+/**
+ * Varianti per genere delle battute già in archivio (importate prima che esistessero): si aggiungono
+ * solo dove il testo è ancora quello del file e non ci sono varianti scritte dal pannello. Una volta
+ * per versione (segnata in application_settings), così non costa nulla durante il gioco.
+ */
+export async function syncGenderVariants(db: Db | Tx, force = false): Promise<number> {
+  if (!force) {
+    const [row] = await db<{ v: number | null }[]>`select (value->>'version')::int as v from application_settings where key = ${VARIANTS_KEY}`;
+    if ((row?.v ?? 0) >= VARIANTS_VERSION) return 0;
+  }
+  let updated = 0;
+  for (const l of [...readLibraryFile(), ...readOfficialLibrary()]) {
+    if (!l.textF && !l.textN) continue;
+    const r = await db`
+      update dialogue_templates set text_f = ${l.textF ?? null}, text_n = ${l.textN ?? null}, updated_at = now()
+      where id = ${l.id} and text = ${l.text} and text_f is null and text_n is null returning id`;
+    updated += r.length;
+  }
+  await db`
+    insert into application_settings (key, value) values (${VARIANTS_KEY}, ${db.json({ version: VARIANTS_VERSION })})
+    on conflict (key) do update set value = excluded.value`;
+  return updated;
 }
 
 export async function loadTemplates(db: Db | Tx): Promise<DialogueTemplate[]> {
@@ -185,8 +220,11 @@ export async function loadTemplates(db: Db | Tx): Promise<DialogueTemplate[]> {
       tags: string[];
       scene_key: string | null;
       scene_step: number | null;
+      text_f: string | null;
+      text_n: string | null;
     }[]
-  >`select id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation, enabled, level, origin, tags, scene_key, scene_step
+  >`select id, character, event_type, text, tone, intensity, priority, weight, cooldown_sec, animation, enabled, level, origin, tags, scene_key, scene_step,
+           text_f, text_n
     from dialogue_templates where enabled order by id`;
   return rows.map((r) => ({
     id: r.id,
@@ -205,6 +243,8 @@ export async function loadTemplates(db: Db | Tx): Promise<DialogueTemplate[]> {
     tags: r.tags ?? [],
     sceneKey: r.scene_key,
     sceneStep: r.scene_step,
+    textF: r.text_f,
+    textN: r.text_n,
   }));
 }
 
@@ -222,6 +262,8 @@ async function ensureLibrary(tx: Tx): Promise<DialogueTemplate[]> {
   let added = 0;
   if (retorts === 0) added += await importLibrary(tx, readLibraryFile().filter((l) => isRetortEvent(l.event)));
   if (official === 0) added += await importLibrary(tx, readOfficialLibrary());
+  // varianti per genere delle battute già in archivio (una volta sola)
+  added += await syncGenderVariants(tx);
   return added > 0 ? loadTemplates(tx) : templates;
 }
 
@@ -398,8 +440,8 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
   }
   const current = byQ.get(sqId) ?? new Map<string, HistRow>();
 
-  const people = await tx<{ id: string; nickname: string; points: number; team_id: string | null; rank: number | null }[]>`
-    select p.id, p.nickname, t.points, p.team_id, t.rank from participants p join score_totals t on t.participant_id = p.id
+  const people = await tx<{ id: string; nickname: string; points: number; team_id: string | null; rank: number | null; gender: "m" | "f" | null }[]>`
+    select p.id, p.nickname, t.points, p.team_id, t.rank, p.gender from participants p join score_totals t on t.participant_id = p.id
     where p.session_id = ${sessionId} and p.status = 'active'`;
   const answers = await tx<{ participant_id: string; response_ms: number }[]>`
     select participant_id, response_ms from answer_submissions where session_question_id = ${sqId}`;
@@ -422,6 +464,7 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
     return {
       id: p.id,
       nickname: p.nickname,
+      gender: p.gender,
       points: p.points,
       prevPoints: r ? p.points - r.delta : p.points,
       inPlay: !!r,
@@ -498,6 +541,7 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
         (p): NoAnswerPlayer => ({
           id: p.id,
           nickname: p.nickname,
+          gender: p.gender,
           inPlay: current.has(p.id),
           answered: current.get(p.id)?.kind === "answer",
           connected: silence.get(p.id)?.connected ?? false,
@@ -730,13 +774,13 @@ export async function directFinish(tx: Tx, sessionId: string): Promise<PublicSho
   let pub: PublicShowLine[] = [];
   if (m) {
     const ts = await teamModeOf(tx, sessionId);
-    let top: { id: string; name: string; points: number }[];
+    let top: { id: string; name: string; points: number; gender?: "m" | "f" | null }[];
     if (ts.mode === "teams") {
       const { standings } = await computeSessionTeamStandings(tx, sessionId, ts.aggregation);
       top = standings.filter((t) => t.rank === 1).map((t) => ({ id: t.teamId, name: t.name, points: t.points }));
     } else {
       top = await tx<{ id: string; name: string; points: number }[]>`
-        select p.id, p.nickname as name, t.points from participants p join score_totals t on t.participant_id = p.id
+        select p.id, p.nickname as name, t.points, p.gender from participants p join score_totals t on t.participant_id = p.id
         where p.session_id = ${sessionId} and p.status = 'active' and t.rank = 1`;
     }
     const ctx: LineContext = { mode: ts.mode, moment: { lastOfRound: true, lastOfGame: true } };
@@ -744,7 +788,8 @@ export async function directFinish(tx: Tx, sessionId: string): Promise<PublicSho
     let winner: ShowLine[] = [];
     if (top.length === 1 && top[0].points > 0) {
       const w = top[0];
-      winner = momentLines(m.config, m.templates, m.h, { type: "GAME_WINNER", winner: { id: w.id, name: w.name } }, sessionId, ctx, {
+      // squadra: gender null → variante neutra (mai "sei stato" a una squadra)
+      winner = momentLines(m.config, m.templates, m.h, { type: "GAME_WINNER", winner: { id: w.id, name: w.name, gender: w.gender ?? null } }, sessionId, ctx, {
         scenes: false,
         mentions: ts.mode === "teams" ? [] : [w.id],
         // la scenetta finale dice già "La conoscenza ha trionfato!": niente doppione

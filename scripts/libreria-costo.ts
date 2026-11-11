@@ -18,7 +18,9 @@ const file = JSON.parse(readFileSync(join(process.cwd(), "content", "show", "lib
 let fixedChars = 0;
 let fixedLines = 0;
 const segments = new Map<string, number>();
-for (const raw of file.lines) {
+// con le varianti per genere (femminile, neutra): testi diversi, clip diverse
+const rows = file.lines.flatMap((l) => [l, ...[l.textF, l.textN].filter((x): x is string => !!x).map((text) => ({ ...l, text }))]);
+for (const raw of rows) {
   const t = { ...raw, origin: "ufficiale" as const };
   if (!levelAllowed(t.level, args.includes("--level") ? level : "irriverente")) continue;
   const ph = [...t.text.matchAll(/\{([a-z_]+)\}/g)].map((m) => m[1]);

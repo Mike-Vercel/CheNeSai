@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GenderPicker, type GenderChoice } from "./GenderPicker";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { BetTier, GamePhase, PublicState } from "@/lib/game-engine/types";
 import { fmt } from "@/lib/game-engine/special-rounds";
@@ -570,6 +571,7 @@ function HistoryList({ self }: { self: PlayerSelf }) {
 // ---------------------------------------------------------------------------
 function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | null; onJoined: () => void }) {
   const [nickname, setNickname] = useState("");
+  const [gender, setGender] = useState<GenderChoice>(null);
   const [recovery, setRecovery] = useState("");
   const [showRecovery, setShowRecovery] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -590,7 +592,7 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
     try {
       const r = await api<{ recoveryCode: string | null; rejoined: boolean }>("/api/play/join", {
         method: "POST",
-        json: { code, nickname, recoveryCode: showRecovery ? recovery : "", ...(slot ? { slot } : {}) },
+        json: { code, nickname, recoveryCode: showRecovery ? recovery : "", ...(slot ? { slot } : {}), ...(gender ? { gender } : {}) },
       });
       vibrate([40, 30, 40]);
       if (r.recoveryCode) {
@@ -654,6 +656,7 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
               placeholder="Es. Mike il Grande"
               className="h-14 w-full rounded-2xl border-[3px] border-gold/70 bg-white px-4 text-[20px] font-extrabold text-ink placeholder:text-ink/40 focus:border-cyan focus:outline-none"
             />
+            <GenderPicker value={gender} onChange={setGender} />
             {showRecovery ? (
               <input
                 value={recovery}

@@ -40,6 +40,7 @@ export interface ShowPlayer {
   responseMs: number | null;
   correctStreak: number;
   wrongStreak: number;
+  gender?: PlayerRef["gender"];
 }
 
 export interface DetectInput {
@@ -67,7 +68,7 @@ export function ranksByPoints<T extends { id: string }>(rows: T[], points: (r: T
   return out;
 }
 
-const ref = (p: ShowPlayer): PlayerRef => ({ id: p.id, nickname: p.nickname });
+const ref = (p: ShowPlayer): PlayerRef => (p.gender ? { id: p.id, nickname: p.nickname, gender: p.gender } : { id: p.id, nickname: p.nickname });
 
 export function detectShowEvents(input: DetectInput): ShowEvent[] {
   const players = input.players.filter((p) => p.inPlay);
@@ -260,7 +261,7 @@ export function eventPlayers(e: ShowEvent): PlayerRef[] {
     case "GAME_END":
       return [];
     case "GAME_WINNER":
-      return [{ id: e.winner.id, nickname: e.winner.name }];
+      return [{ id: e.winner.id, nickname: e.winner.name, gender: e.winner.gender ?? null }];
     default:
       return [e.who];
   }

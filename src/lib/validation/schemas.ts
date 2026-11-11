@@ -269,6 +269,8 @@ export const joinSchema = z.object({
     .optional()
     .or(z.literal("")),
   slot: z.string().regex(/^[a-z0-9]{1,8}$/).optional(),
+  /** genere (facoltativo): m, f, n = "preferisco non dirlo"; assente = non scelto (si tiene quello di prima) */
+  gender: z.enum(["m", "f", "n"]).optional(),
 });
 
 export const answerSchema = z.object({

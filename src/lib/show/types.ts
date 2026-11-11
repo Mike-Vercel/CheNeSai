@@ -7,9 +7,14 @@
  */
 import type { Presenter } from "@/lib/game-engine/types";
 
+/** Genere scelto dal giocatore all'ingresso (facoltativo: null/assente = non detto). */
+export type PlayerGender = "m" | "f";
+
 export interface PlayerRef {
   id: string;
   nickname: string;
+  /** per gli accordi delle battute ("Brava!", "addormentata"…); assente = non detto */
+  gender?: PlayerGender | null;
 }
 
 /** Squadra nominata dal regista (mai un singolo giocatore al posto della squadra). */
@@ -65,7 +70,7 @@ export type ShowEvent =
   /** battuta di Palmino sulla classifica generale */
   | { type: "LEADERBOARD_QUIP" }
   /** vincitore della serata: SOLO al podio, dopo che il nome è stato rivelato */
-  | { type: "GAME_WINNER"; winner: { id: string; name: string } }
+  | { type: "GAME_WINNER"; winner: { id: string; name: string; gender?: PlayerGender | null } }
   /** scenetta di chiusura del podio */
   | { type: "GAME_END" };
 
@@ -277,6 +282,13 @@ export interface DialogueTemplate {
   /** scenetta: righe con la stessa chiave, dette in ordine di passo */
   sceneKey?: string | null;
   sceneStep?: number | null;
+  /**
+   * Varianti per genere del giocatore nominato: `text` è la versione maschile (testo ufficiale),
+   * `textF` la femminile, `textN` la neutra (genere non detto, squadre). Con `textF` e senza
+   * `textN` la battuta non si dice a chi non ha indicato il genere.
+   */
+  textF?: string | null;
+  textN?: string | null;
 }
 
 /** Battuta scelta dal regista, con i nomi veri già inseriti. */
