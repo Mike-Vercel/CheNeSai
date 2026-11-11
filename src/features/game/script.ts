@@ -1,6 +1,6 @@
 import type { GamePhase, LeaderboardEntry, MediaKind, Presenter, PublicBetHighlight, PublicState, QuestionType, RoundKind, RoundSpecialSettings } from "@/lib/game-engine/types";
 import { PRESENTERS } from "@/lib/game-engine/types";
-import { presenterLine, presenterLinePool, REVEAL_QUIPS, revealOutcome, seededPick, stripAudioTags, type RevealOutcome } from "./lines";
+import { presenterLine, presenterLinePool, REVEAL_QUIPS, revealOutcome, seededPick, stripAudioTags, type RevealOutcome, type Rotation } from "./lines";
 import { lineFitsMoment, NO_MOMENT, pickForMoment, questionMoment, type MomentContext } from "./moment";
 import { roundStandingsForShow, standingsForShow } from "./teams-view";
 
@@ -428,12 +428,12 @@ export function optionsLine(q: Pick<ScriptQuestion, "presenter" | "options">): S
 /** Filtro delle battute per il momento (ultima domanda: niente "la prossima…"). */
 const fitsFor = (m: MomentContext) => (text: string) => lineFitsMoment(text, m);
 
-export function optionsQuip(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT): SpokenLine {
-  return { who: presenter, text: presenterLine("OPTIONS_VISIBLE", presenter, seed, fitsFor(m)) ?? "Il tempo scorre!" };
+export function optionsQuip(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT, rot?: Rotation): SpokenLine {
+  return { who: presenter, text: presenterLine("OPTIONS_VISIBLE", presenter, seed, fitsFor(m), rot) ?? "Il tempo scorre!" };
 }
 
-export function lockedQuip(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT): SpokenLine {
-  return { who: presenter, text: presenterLine("ANSWERS_LOCKED", presenter, seed, fitsFor(m)) ?? "Risposte bloccate!" };
+export function lockedQuip(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT, rot?: Rotation): SpokenLine {
+  return { who: presenter, text: presenterLine("ANSWERS_LOCKED", presenter, seed, fitsFor(m), rot) ?? "Risposte bloccate!" };
 }
 
 export function revealLine(q: Pick<ScriptQuestion, "presenter" | "options" | "correctPositions">): SpokenLine {
@@ -445,11 +445,11 @@ export function revealLine(q: Pick<ScriptQuestion, "presenter" | "options" | "co
 }
 
 /** Commento dopo la rivelazione: quasi tutti giusti, quasi tutti sbagliati, sala divisa. */
-export function revealQuip(presenter: Presenter, seed: string, outcome: RevealOutcome, m: MomentContext = NO_MOMENT): SpokenLine {
+export function revealQuip(presenter: Presenter, seed: string, outcome: RevealOutcome, m: MomentContext = NO_MOMENT, rot?: Rotation): SpokenLine {
   const q = REVEAL_QUIPS[presenter];
   const pool =
     outcome === "none" ? q.none : outcome === "few" ? [...q.few, ...q.hard] : outcome === "all" ? [...q.all, ...q.easy] : outcome === "most" ? [...q.most, ...q.easy] : null;
-  const text = pool ? pickForMoment(pool, seed, m) : (presenterLine("ANSWER_REVEAL", presenter, seed, fitsFor(m)) ?? "");
+  const text = pool ? pickForMoment(pool, seed, m, undefined, rot) : (presenterLine("ANSWER_REVEAL", presenter, seed, fitsFor(m), rot) ?? "");
   return { who: presenter, text };
 }
 
@@ -571,9 +571,9 @@ export function eventLines(e: { title: string; tagline: string }): SpokenLine[] 
 type LbSpeech = Pick<LeaderboardEntry, "nickname" | "rank" | "points">;
 
 /** Battuta dopo i punti di una risposta (a metà round): stessa scelta su TV, fumetto e voce. */
-export function scoreQuipLine(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT): SpokenLine {
+export function scoreQuipLine(presenter: Presenter, seed: string, m: MomentContext = NO_MOMENT, rot?: Rotation): SpokenLine {
   const pool = presenter === "regina" ? FIXED_POOLS.scoreQuipRegina : presenter === "palmino" ? FIXED_POOLS.scoreQuipPalmino : FIXED_POOLS.scoreQuipProfessore;
-  return { who: pool.who, text: pickForMoment(pool.texts, seed, m) };
+  return { who: pool.who, text: pickForMoment(pool.texts, seed, m, undefined, rot) };
 }
 
 /** "Anna", "Anna e Bruno", "Anna, Bruno e Carla" (nomi qualsiasi: giocatori o squadre). */
@@ -911,6 +911,8 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
   const pq = s.question;
   const presenter: Presenter = pq?.presenter ?? s.round?.presenter ?? "professore";
   const moment = questionMoment(s);
+  // battute che tornano a ogni domanda: a rotazione nella serata (niente ripetizioni ravvicinate)
+  const rot: Rotation | undefined = pq?.number ? { key: s.sessionId, n: pq.number } : undefined;
   if (s.phase === prev.phase) return out;
   // ripresa dopo la pausa: nessuna rilettura di domanda/risposte
   if (prev.phase === "PAUSED" && s.phase !== "FINISHED") return [fixedLine(FIXED_POOLS.resume, s.phaseStartedAt)];
@@ -977,11 +979,11 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
     case "OPTIONS_VISIBLE":
       if (q && pq?.options) {
         if (opts.readOptions) out.push(optionsLine(q));
-        out.push(optionsQuip(presenter, q.id, moment));
+        out.push(optionsQuip(presenter, q.id, moment, rot));
       }
       break;
     case "ANSWERS_LOCKED":
-      out.push(lockedQuip(presenter, q?.id ?? "x", moment));
+      out.push(lockedQuip(presenter, q?.id ?? "x", moment, rot));
       break;
     case "ANSWER_REVEAL":
       if (q && pq?.correctPositions && pq.options) {
@@ -994,7 +996,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
         // libreria ufficiale: la reazione scelta dal server sull'esito vero (stesso spazio della battuta di sempre)
         const reaction = phaseDirectedLines(s);
         if (reaction.length > 0) out.push(...reaction);
-        else if (outcome) out.push(revealQuip(presenter, q.id, outcome, moment));
+        else if (outcome) out.push(revealQuip(presenter, q.id, outcome, moment, rot));
       }
       break;
     case "SCORE_REVEAL": {
@@ -1003,7 +1005,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       if (directed.length > 0) {
         out.push(...directed);
         // a metà round, se il regista ha detto una sola cosa, ci sta anche una battuta
-        if (directed.length === 1 && pq && pq.positionInRound < pq.totalInRound) out.push(scoreQuipLine(presenter, pq.id, moment));
+        if (directed.length === 1 && pq && pq.positionInRound < pq.totalInRound) out.push(scoreQuipLine(presenter, pq.id, moment, rot));
         break;
       }
       // senza eventi rilevanti: a fine round chi ha vinto il ROUND; prima, il colpo migliore e una battuta
@@ -1017,7 +1019,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       } else {
         // Scommetti tutto: il colpo migliore è la vincita più grande (con la quota puntata)
         out.push((pq.bets?.wins ? betStarLine(pq.bets.wins, presenter) : null) ?? answerStarLine(s.leaderboard ?? [], presenter, pq.id));
-        out.push(scoreQuipLine(presenter, pq.id, moment));
+        out.push(scoreQuipLine(presenter, pq.id, moment, rot));
       }
       break;
     }

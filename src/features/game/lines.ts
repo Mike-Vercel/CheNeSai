@@ -127,6 +127,25 @@ export function presenterLinePool(phase: GamePhase, presenter: Presenter): reado
   return LINES[phase]?.[presenter] ?? [];
 }
 
+/**
+ * Rotazione nella serata: per le battute che tornano a ogni domanda (tempo che scorre, risposte
+ * chiuse, commenti) si scorre la lista con il numero della domanda, partendo da un punto che
+ * dipende dalla serata. Così nessuna variante si ripete finché non sono state dette tutte, e ogni
+ * serata comincia da una variante diversa. Pura: TV, server e stime ottengono la stessa scelta.
+ */
+export interface Rotation {
+  /** chiave della serata (id della sessione) */
+  key: string;
+  /** numero della domanda nella serata */
+  n: number;
+}
+
+export function rotatingPick<T>(list: readonly T[], rot: Rotation, salt = ""): T {
+  let h = 0;
+  for (const ch of `${rot.key}|${salt}`) h = (h * 31 + ch.charCodeAt(0)) | 0;
+  return list[(Math.abs(h) + Math.max(0, Math.floor(rot.n))) % list.length];
+}
+
 /** Scelta deterministica in una lista. */
 export function seededPick<T>(list: readonly T[], seed: string): T {
   let h = 0;
@@ -139,11 +158,12 @@ export function seededPick<T>(list: readonly T[], seed: string): T {
  * `fits`: filtro sul momento (es. ultima domanda: niente "la prossima…", vedi moment.ts);
  * se nessuna battuta passa il filtro si usa la scelta normale.
  */
-export function presenterLine(phase: GamePhase, presenter: Presenter, seed: string, fits?: (text: string) => boolean): string | null {
+export function presenterLine(phase: GamePhase, presenter: Presenter, seed: string, fits?: (text: string) => boolean, rot?: Rotation): string | null {
   const list = LINES[phase]?.[presenter];
   if (!list || list.length === 0) return null;
   const ok = fits ? list.filter(fits) : list;
-  return seededPick(ok.length > 0 ? ok : list, seed + phase);
+  const pool = ok.length > 0 ? ok : list;
+  return rot ? rotatingPick(pool, rot, `${phase}|${presenter}`) : seededPick(pool, seed + phase);
 }
 
 /** Battuta per il fumetto a schermo: mai audio tag. */

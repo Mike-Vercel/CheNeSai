@@ -1,5 +1,5 @@
 import type { PublicState } from "@/lib/game-engine/types";
-import { seededPick } from "./lines";
+import { rotatingPick, seededPick, type Rotation } from "./lines";
 
 /**
  * Il "momento" della domanda corrente: è l'ultima del round? L'ultima della serata?
@@ -58,8 +58,8 @@ export function lineFitsMoment(text: string, m: MomentContext): boolean {
  * Scelta deterministica fra le battute adatte al momento. Se nessuna va bene si usa `fallback`
  * (o, in mancanza, la scelta normale: meglio una battuta che il silenzio).
  */
-export function pickForMoment(list: readonly string[], seed: string, m: MomentContext, fallback?: string): string {
+export function pickForMoment(list: readonly string[], seed: string, m: MomentContext, fallback?: string, rot?: Rotation): string {
   const ok = list.filter((t) => lineFitsMoment(t, m));
-  if (ok.length > 0) return seededPick(ok, seed);
+  if (ok.length > 0) return rot ? rotatingPick(ok, rot, ok[0]) : seededPick(ok, seed);
   return fallback ?? seededPick(list, seed);
 }

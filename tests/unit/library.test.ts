@@ -445,3 +445,18 @@ describe("genere del giocatore nominato", () => {
     expect(l.display).toBe("AMOOOORE, I Fenicotteri! HAI VINTO! ORA SEI UFFICIALMENTE ALL'ALTEZZA DELLA MIA CORONA!");
   });
 });
+
+describe("battute fisse a rotazione nella serata", () => {
+  it("nessuna ripetizione finché non sono uscite tutte; ogni serata parte da un punto diverso", async () => {
+    const { rotatingPick } = await import("@/features/game/lines");
+    const { scoreQuipLine } = await import("@/features/game/script");
+    const list = ["a", "b", "c", "d", "e", "f"];
+    const seen = list.map((_, n) => rotatingPick(list, { key: "serata-1", n: n + 1 }));
+    expect(new Set(seen).size).toBe(list.length);
+    const starts = new Set(Array.from({ length: 12 }, (_, i) => rotatingPick(list, { key: `serata-${i}`, n: 1 })));
+    expect(starts.size).toBeGreaterThan(1);
+    // commenti dopo i punti: 6 domande di fila dello stesso presentatore → 6 frasi diverse
+    const quips = Array.from({ length: 6 }, (_, n) => scoreQuipLine("regina", `q${n}`, undefined, { key: "s", n: n + 1 }).text);
+    expect(new Set(quips).size).toBe(6);
+  });
+});
