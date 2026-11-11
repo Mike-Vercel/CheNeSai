@@ -460,6 +460,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
           {live.isTest && <TestTools send={send} pending={!!pending} allowed={allowed} />}
 
           <TimingPanel live={live} timing={timing} />
+          <VoicePrepLive sessionId={sessionId} phase={live.public.phase} />
           <PresentersLivePanel sessionId={sessionId} version={live.public.version} />
           <RoundsOverview live={live} currentRoundId={currentRound?.id ?? null} />
         </section>
@@ -509,6 +510,74 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
 const WHO_ICON: Record<string, string> = { professore: "🎓", regina: "👑", palmino: "🌴" };
 
 /** Presentatori in diretta: commenti automatici on/off e ultime battute dette (con i nomi veri). */
+/**
+ * "Prepara voci" automatico dalla regia: dalla lobby in poi genera a piccoli lotti tutte le voci
+ * della serata (domande, risposte, soluzioni, round, battute fisse), così in gioco partono subito.
+ * Lo fa il browser della regia perché online (Vercel) una singola richiesta dura pochi secondi:
+ * ogni lotto è una richiesta breve e il limite di spesa mensile resta controllato dal server.
+ */
+function VoicePrepLive({ sessionId, phase }: { sessionId: string; phase: string }) {
+  const [p, setP] = useState<{ total: number; ready: number; missing: number; configured: boolean } | null>(null);
+  const [stopped, setStopped] = useState<string | null>(null);
+  const active = phase !== "READY" && phase !== "DRAFT" && phase !== "FINISHED";
+  useEffect(() => {
+    if (!active) return;
+    let alive = true;
+    let fails = 0;
+    const scope = { kind: "session", sessionId };
+    void (async () => {
+      try {
+        let r = await api<{ total: number; ready: number; missing: number; configured: boolean }>("/api/admin/tts/pregen", { method: "POST", json: { action: "estimate", scope } });
+        if (!alive) return;
+        setP(r);
+        if (!r.configured) return;
+        while (alive && r.missing > 0) {
+          try {
+            const b = await api<{ total: number; ready: number; missing: number; configured: boolean; blocked: boolean; generated: number }>("/api/admin/tts/pregen", {
+              method: "POST",
+              json: { action: "run", scope, batch: 4 },
+              timeoutMs: 60000,
+            });
+            if (!alive) return;
+            r = b;
+            setP(b);
+            if (b.blocked) {
+              setStopped("Budget mensile delle voci esaurito: il resto userà la voce del browser");
+              return;
+            }
+            fails = b.generated === 0 ? fails + 1 : 0;
+          } catch {
+            fails++;
+          }
+          if (fails >= 3) {
+            setStopped("Alcune voci non si generano: in gioco useranno la voce del browser");
+            return;
+          }
+        }
+      } catch {
+        /* pannello voci non disponibile (ruolo operatore o servizio spento) */
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [active, sessionId]);
+  if (!p || !p.configured || p.total === 0) return null;
+  const pct = Math.round((p.ready / p.total) * 100);
+  return (
+    <div className="rounded-2xl border border-white/10 bg-[#1d0c30] p-4">
+      <div className="mb-1 flex items-center justify-between gap-2">
+        <h2 className="font-display text-lg">Voci della serata</h2>
+        <span className={clsx("text-sm font-bold", p.missing === 0 ? "text-[#5dffab]" : "text-gold")}>{p.missing === 0 ? "Tutte pronte ✓" : `${p.ready}/${p.total}`}</span>
+      </div>
+      <div className="h-2 overflow-hidden rounded-full bg-white/10">
+        <div className="h-full rounded-full bg-gold transition-all" style={{ width: `${pct}%` }} />
+      </div>
+      {stopped && <p className="mt-2 text-xs text-[#ffc2cd]">{stopped}</p>}
+    </div>
+  );
+}
+
 function PresentersLivePanel({ sessionId, version }: { sessionId: string; version: number }) {
   const toast = useToast();
   const [enabled, setEnabled] = useState<boolean | null>(null);
