@@ -51,3 +51,6 @@ next-env.d.ts
 
 # strumenti locali
 /.serena/
+
+.vercel
+.env*
