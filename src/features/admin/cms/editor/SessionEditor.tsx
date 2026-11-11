@@ -14,6 +14,7 @@ import type { EventDefinition, GlobalSettings, PublishIssue, QuestionRecord, Rou
 import { QuestionPickerModal } from "./QuestionPickerModal";
 import { RoundCard } from "./RoundCard";
 import { RoundFormModal } from "./RoundFormModal";
+import { RunningOrderPanel } from "./RunningOrderPanel";
 import { SessionSettingsModal } from "./SessionSettingsModal";
 import { usePregen, VoicePrepBox } from "../voices/VoicePrep";
 
@@ -297,6 +298,18 @@ export function SessionEditor({ id }: { id: string }) {
 
       <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
         <div className="min-w-0 space-y-4 xl:order-1">
+          {rounds.length > 0 && (
+            <RunningOrderPanel
+              key={`${JSON.stringify(st.runningOrder ?? {})}|${rounds.map((r) => r.id).join(",")}`}
+              sessionId={session.id}
+              rounds={rounds}
+              runningOrder={st.runningOrder}
+              defaultDuration={eff.durationSeconds ?? 15}
+              scheduledAt={session.scheduledAt}
+              readOnly={!isAdmin || session.status === "archived"}
+              onSaved={refresh}
+            />
+          )}
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h2 className="font-display text-2xl text-gold">
               Round <span className="text-white/50">({rounds.length})</span>

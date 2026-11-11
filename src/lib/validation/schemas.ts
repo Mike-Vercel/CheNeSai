@@ -93,6 +93,27 @@ export const importFileSchema = z.object({
 // ---------------------------------------------------------------------------
 // Sessioni e round
 // ---------------------------------------------------------------------------
+/**
+ * Scaletta a tempo (solo pianificazione: non cambia nessuna regola di gioco).
+ * Minuti previsti per round (per id round; se mancano vale la stima) e intervallo dopo il round.
+ */
+export const runningOrderSchema = z.object({
+  targetMinutes: z.number().int().min(10).max(600).optional(),
+  introMinutes: z.number().int().min(0).max(120).optional(),
+  outroMinutes: z.number().int().min(0).max(120).optional(),
+  rounds: z
+    .record(
+      uuid,
+      z.object({
+        minutes: z.number().int().min(1).max(240).optional(),
+        breakAfterMinutes: z.number().int().min(0).max(120).optional(),
+      }),
+    )
+    .refine((r) => Object.keys(r).length <= 100, "Troppi round nella scaletta")
+    .optional(),
+});
+export type RunningOrder = z.infer<typeof runningOrderSchema>;
+
 export const sessionSettingsSchema = z.object({
   correctPoints: z.number().int().min(0).max(100000).nullable().optional(),
   wrongPenalty: z.number().int().min(0).max(100000).nullable().optional(),
@@ -104,6 +125,7 @@ export const sessionSettingsSchema = z.object({
   nicknameMaxLength: z.number().int().min(4).max(24).nullable().optional(),
   autoEvents: z.boolean().nullable().optional(),
   palminoPool: z.array(z.string().min(2).max(40)).max(10).nullable().optional(),
+  runningOrder: runningOrderSchema.nullable().optional(),
 });
 export type SessionSettingsInput = z.infer<typeof sessionSettingsSchema>;
 /** Impostazioni salvate: le chiavi null vengono rimosse (= eredita dal globale). */

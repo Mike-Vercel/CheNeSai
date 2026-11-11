@@ -4,6 +4,8 @@ import type { GameCommand, PublicState, QuestionType, SpecialEventType } from "@
 import { buildPublicState, loadStateRow, visualPhase } from "./public-state";
 import { resolveNextQuestion } from "./engine";
 import { getSessionDetail, type RoundDetail } from "./cms/sessions";
+import { effectiveSettings, loadGlobalSettings } from "./settings";
+import { planFromRounds, type LiveRoundActual, type LiveTimingInput, type ResolvedPlan } from "@/lib/show/running-order";
 
 export interface AdminLiveState {
   public: PublicState;
@@ -41,6 +43,25 @@ export interface AdminLiveState {
   displayKey: string;
   code: string;
   isTest: boolean;
+  /** scaletta a tempo: piano + tempi registrati (il confronto lo calcola la regia con l'ora del server) */
+  timing: { plan: ResolvedPlan; input: LiveTimingInput };
+}
+
+const ms = (v: string | null) => (v ? Date.parse(v) : null);
+
+/**
+ * Tempi reali dei round dai timestamp registrati (sola lettura): inizio = START_ROUND,
+ * fine delle domande = ultima domanda conclusa (scored_at) quando il round è finito.
+ * Il round corrente è finito quando non ha più domande da mostrare e quella attuale è conclusa.
+ */
+function roundActuals(rounds: RoundDetail[], currentRoundId: string | null, currentRoundDone: boolean): LiveRoundActual[] {
+  return rounds.map((r) => {
+    const startedAt = ms(r.startedAt);
+    if (startedAt === null) return { id: r.id, startedAt: null, playEndedAt: null };
+    const done = r.id !== currentRoundId || currentRoundDone;
+    const scored = r.questions.map((q) => ms(q.scoredAt)).filter((x): x is number => x !== null);
+    return { id: r.id, startedAt, playEndedAt: done ? (scored.length ? Math.max(...scored) : startedAt) : null };
+  });
 }
 
 export async function getAdminLiveState(sessionId: string): Promise<AdminLiveState | null> {
@@ -113,6 +134,9 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
     }
   }
   const currentRound = detail.roundsDetail.find((r) => r.id === st.current_round_id) ?? null;
+  const currentQuestionScored =
+    !st.current_session_question_id || !!currentRound?.questions.find((q) => q.id === st.current_session_question_id)?.scoredAt;
+  const currentRoundDone = n === null && currentQuestionScored;
   const hasNextRound = detail.roundsDetail.some(
     (r) => !r.startedAt && (!currentRound || r.position > currentRound.position),
   );
@@ -178,6 +202,18 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
   const anomalies = participants.reduce((a, p) => a + p.anomalies, 0);
   if (anomalies > 0) warnings.push(`${anomalies} anomalie registrate (risposte tardive o doppie): vedi Giocatori`);
 
+  // ---- scaletta a tempo ----
+  const eff = effectiveSettings(await loadGlobalSettings(sql), detail.settings);
+  const timing = {
+    plan: planFromRounds(detail.settings.runningOrder, detail.roundsDetail, eff.durationSeconds),
+    input: {
+      startedAt: ms(detail.startedAt),
+      finishedAt: ms(detail.finishedAt),
+      scheduledAt: ms(detail.scheduledAt),
+      rounds: roundActuals(detail.roundsDetail, st.current_round_id, currentRoundDone),
+    },
+  };
+
   const voteDone = !!currentRound?.winningOptionId;
   const suggested = suggestNextCommand({
     phase: st.phase,
@@ -214,5 +250,6 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
     displayKey: detail.displayKey,
     code: detail.code,
     isTest: detail.isTest,
+    timing,
   };
 }

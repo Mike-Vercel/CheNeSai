@@ -15,6 +15,8 @@ import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
 import { TvStage } from "@/features/display/TvStage";
 import { TvMessageScreen } from "@/features/display/TvScreens";
 import { useCan } from "@/features/admin/AdminShell";
+import { computeLiveTiming } from "@/lib/show/running-order";
+import { TimingBadge, TimingPanel } from "./TimingPanel";
 
 type Args = Record<string, unknown>;
 
@@ -183,6 +185,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
   const currentRound = live.rounds.find((r) => r.id === st.round?.id) ?? null;
 
   const flowButtons = MAIN_FLOW.filter((c) => allowed.has(c));
+  const timing = computeLiveTiming(live.timing.plan, live.timing.input, now);
 
   return (
     <div className={clsx("flex flex-col gap-3", !embedded && "min-h-dvh p-3 md:p-4")}>
@@ -207,6 +210,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
           <Badge color="blue" className="px-3 py-1 text-sm">
             👥 {live.counts.players} ({live.counts.online} online)
           </Badge>
+          <TimingBadge timing={timing} />
           <a href={displayUrl} target="_blank" rel="noopener" className="rounded-lg bg-electric px-3 py-1.5 text-sm font-extrabold">
             📺 Apri schermo TV
           </a>
@@ -413,6 +417,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
 
           {live.isTest && <TestTools send={send} pending={!!pending} allowed={allowed} />}
 
+          <TimingPanel live={live} timing={timing} />
           <PresentersLivePanel sessionId={sessionId} version={live.public.version} />
           <RoundsOverview live={live} currentRoundId={currentRound?.id ?? null} />
         </section>
