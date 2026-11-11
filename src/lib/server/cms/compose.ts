@@ -14,7 +14,7 @@ import {
   type PoolStats,
 } from "@/lib/game-engine/compose";
 import { isCategoryRound, type Presenter, type RoundKind, type SessionStatus } from "@/lib/game-engine/types";
-import { roundInputSchema } from "@/lib/validation/schemas";
+import { roundInputSchema, type SessionSettings } from "@/lib/validation/schemas";
 import { audit, CmsError } from "../audit";
 import type { Actor } from "../engine";
 import { insertRound, insertRoundQuestions, insertSession } from "./sessions";
@@ -42,17 +42,31 @@ export interface CandidateFilters {
   sessionId?: string | null;
   /** Solo domande con questo tag (usato dai test per lavorare su un archivio isolato). */
   onlyTag?: string;
+  /** Partite libere: account host, per mettere in fondo le domande che ha già visto. */
+  hostUserId?: string | null;
 }
 
 export async function loadCandidates(db: Db, f: CandidateFilters = {}): Promise<ComposeCandidate[]> {
   const cats = (f.categories ?? []).filter(Boolean);
-  const rows = await db<{ id: string; category: string; difficulty: number; last_played_at: Date | null; planned: boolean }[]>`
+  const host = f.hostUserId ?? null;
+  const rows = await db<{ id: string; category: string; difficulty: number; last_played_at: Date | null; planned: boolean; seen_by_host: boolean }[]>`
     select q.id, q.category, q.difficulty, lp.last_played_at,
       exists (
+        -- le partite libere si giocano subito: non "prenotano" le domande come le serate della regia
         select 1 from session_questions sq join game_sessions s on s.id = sq.session_id
-        where sq.question_id = q.id and sq.shown_at is null and not s.is_test
+        where sq.question_id = q.id and sq.shown_at is null and not s.is_test and s.host_user_id is null
           and s.status in ('draft', 'ready', 'live') and s.id is distinct from ${f.sessionId ?? null}::uuid
-      ) as planned
+      ) as planned,
+      ${
+        host
+          ? db`(
+        exists (select 1 from question_plays hp where hp.question_id = q.id and hp.host_user_id = ${host}::uuid)
+        or exists (
+          select 1 from session_questions hq join game_sessions hs on hs.id = hq.session_id
+          where hq.question_id = q.id and hs.host_user_id = ${host}::uuid and hq.shown_at is not null
+        ))`
+          : db`false`
+      } as seen_by_host
     from question_bank q
     left join lateral (select max(p.played_at) as last_played_at from question_plays p where p.question_id = q.id) lp on true
     where q.status = 'approved' and q.answer_confirmed
@@ -66,6 +80,7 @@ export async function loadCandidates(db: Db, f: CandidateFilters = {}): Promise<
     difficulty: r.difficulty,
     lastPlayedAt: r.last_played_at ? r.last_played_at.toISOString() : null,
     plannedElsewhere: r.planned,
+    seenByHost: r.seen_by_host,
   }));
 }
 
@@ -161,15 +176,18 @@ function warningsFor(summary: ComposeSummary, pool: PoolStats): string[] {
   if (summary.planned > 0) {
     w.push(`${summary.planned === 1 ? "1 domanda è già inserita" : `${summary.planned} domande sono già inserite`} in un'altra serata in programma.`);
   }
+  if (summary.seen > 0) {
+    w.push(`${summary.seen === 1 ? "1 domanda è già uscita" : `${summary.seen} domande sono già uscite`} in una tua partita precedente (l'archivio nuovo per te non basta).`);
+  }
   if (summary.offBand > 0) {
     w.push(`${summary.offBand === 1 ? "1 domanda ha" : `${summary.offBand} domande hanno`} una difficoltà diversa da quella prevista (mancano domande fresche di quella fascia).`);
   }
   return w;
 }
 
-async function composeQuick(db: Db, o: QuickSessionOptions, seed: string, onlyTag?: string) {
+async function composeQuick(db: Db, o: QuickSessionOptions, seed: string, onlyTag?: string, hostUserId?: string | null) {
   const plan = planQuickRounds(o);
-  const candidates = await loadCandidates(db, { categories: o.categories, includeMedia: o.includeMedia, onlyTag });
+  const candidates = await loadCandidates(db, { categories: o.categories, includeMedia: o.includeMedia, onlyTag, hostUserId });
   const specs: ComposeRoundSpec[] = plan.map((r) => ({ count: r.count, harder: r.harder }));
   // Le riserve si scelgono per ultime, come gruppo a parte: non tolgono domande fresche ai round.
   const main = composeQuestions({ candidates, rounds: specs, mix: o.mix, seed });
@@ -209,19 +227,32 @@ export async function previewQuickSession(raw: unknown, opts: { onlyTag?: string
   return toResult(null, seed, o, await composeQuick(getSql(), o, seed, opts.onlyTag));
 }
 
+export interface ComposeCreateOptions {
+  onlyTag?: string;
+  /** Partita libera: account proprietario (evita le domande che ha già visto). */
+  hostUserId?: string | null;
+  /** Impostazioni iniziali della serata (es. scorrimento automatico). */
+  settings?: SessionSettings;
+}
+
 /**
  * Crea in UNA transazione serata + round + domande scelte in automatico.
- * Riutilizzabile dal futuro flusso pubblico "Gioca ora" (actor = null).
+ * Usata dalla serata rapida della regia e dal gioco libero (actor = account host).
  * Le domande mancanti bloccano la creazione; le ripetute sono ammesse con avviso.
  */
-export async function composeAndCreateSession(db: Sql, raw: unknown, actor: Actor | null, opts: { onlyTag?: string } = {}): Promise<QuickSessionResult> {
+export async function composeAndCreateSession(db: Sql, raw: unknown, actor: Actor | null, opts: ComposeCreateOptions = {}): Promise<QuickSessionResult> {
+  return db.begin((tx) => composeAndCreateSessionTx(tx, raw, actor, opts));
+}
+
+/** Come composeAndCreateSession, dentro una transazione già aperta. */
+export async function composeAndCreateSessionTx(tx: Tx, raw: unknown, actor: Actor | null, opts: ComposeCreateOptions = {}): Promise<QuickSessionResult> {
   const o = parseQuickOptions(raw);
   const act = actor ?? SYSTEM_ACTOR;
   const seed = String(o.seed ?? randomUUID());
-  return db.begin(async (tx) => {
+  {
     // Due serate composte nello stesso istante non devono pescare le stesse domande.
     await tx`select pg_advisory_xact_lock(hashtext('qz.compose'))`;
-    const c = await composeQuick(tx, o, seed, opts.onlyTag);
+    const c = await composeQuick(tx, o, seed, opts.onlyTag, opts.hostUserId);
     if (c.main.summary.missing > 0) {
       throw new CmsError(
         `L'archivio non basta: servono ${c.main.summary.requested} domande, con questi filtri ce ne sono solo ${c.pool.usable}. Riduci le domande o allarga le categorie.`,
@@ -237,10 +268,11 @@ export async function composeAndCreateSession(db: Sql, raw: unknown, actor: Acto
         scheduledAt: o.scheduledAt ?? null,
         isTest: o.isTest,
         seasonId: o.seasonId ?? null,
-        settings: {},
+        settings: opts.settings ?? {},
       },
       act,
-      { quick: true },
+      { quick: true, public: !!opts.hostUserId },
+      opts.hostUserId ?? null,
     );
     let firstRoundId: string | null = null;
     for (let i = 0; i < c.plan.length; i++) {
@@ -272,10 +304,11 @@ export async function composeAndCreateSession(db: Sql, raw: unknown, actor: Acto
         seed,
         summary: result.summary,
         reserves: result.reserves,
+        hostUserId: opts.hostUserId ?? null,
       },
     });
     return result;
-  });
+  }
 }
 
 // ---------------------------------------------------------------------------

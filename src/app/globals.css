@@ -184,3 +184,44 @@ body {
 .qz-loading-bar {
   animation: qz-loading 1.6s ease-in-out infinite;
 }
+
+/* =====================================================================
+   Home della piattaforma (stile catalogo): billboard del gioco in primo piano e righe
+   ===================================================================== */
+.qz-scrim {
+  background: linear-gradient(180deg, rgba(23, 8, 36, 0) 0%, rgba(23, 8, 36, 0.55) 45%, rgba(23, 8, 36, 0.92) 100%);
+}
+.qz-row {
+  scrollbar-width: none;
+  scroll-padding-inline: 1rem;
+}
+.qz-row::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .qz-row {
+    scroll-padding-inline: 2.5rem;
+  }
+}
+@keyframes qz-rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes qz-presenter-in {
+  from { opacity: 0; transform: translateY(14%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes qz-logo-in {
+  from { opacity: 0; transform: scale(0.86); }
+  to { opacity: 1; transform: scale(1); }
+}
+.qz-hero-logo { animation: qz-logo-in 0.7s cubic-bezier(0.2, 1.3, 0.4, 1) both; }
+.qz-rise { animation: qz-rise-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.qz-rise:nth-of-type(1) { animation-delay: 0.15s; }
+.qz-rise:nth-of-type(2) { animation-delay: 0.24s; }
+.qz-rise:nth-of-type(3) { animation-delay: 0.33s; }
+.qz-presenter { animation: qz-presenter-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both; }
+.qz-presenter-late { animation-delay: 0.3s; }
+.qz-presenter-later { animation-delay: 0.2s; }
+.qz-play { box-shadow: 0 6px 0 #b8770a; }
+.qz-play:active { box-shadow: 0 2px 0 #b8770a; transform: translateY(4px); }

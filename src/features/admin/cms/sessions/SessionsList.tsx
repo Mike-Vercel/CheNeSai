@@ -23,16 +23,23 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "archived", label: "Archiviate" },
 ];
 
+type Kind = "admin" | "public";
+const KINDS: { value: Kind; label: string }[] = [
+  { value: "admin", label: "Serate della regia" },
+  { value: "public", label: "Partite libere" },
+];
+
 export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
   const router = useRouter();
   const confirm = useConfirm();
   const isAdmin = useCan("admin");
   const [filter, setFilter] = useState<Filter>("all");
+  const [kind, setKind] = useState<Kind>("admin");
   const [creating, setCreating] = useState(openCreate && isAdmin);
   const [quick, setQuick] = useState(false);
   const toast = useToast();
   const [dup, setDup] = useState<SessionSummary | null>(null);
-  const { data, error, loading, reload } = useApi<{ sessions: SessionSummary[] }>(`/api/admin/sessions${qs({ status: filter === "all" ? undefined : filter })}`);
+  const { data, error, loading, reload } = useApi<{ sessions: SessionSummary[] }>(`/api/admin/sessions${qs({ status: filter === "all" ? undefined : filter, kind: kind === "public" ? "public" : undefined })}`);
   const { busy, run } = useRunner();
 
   async function remove(s: SessionSummary) {
@@ -86,14 +93,26 @@ export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
           )
         }
       />
-      <Segmented label="Filtra per stato" value={filter} onChange={setFilter} options={FILTERS} />
+      <div className="flex flex-wrap gap-2">
+        <Segmented label="Tipo di partita" value={kind} onChange={setKind} options={KINDS} />
+        <Segmented label="Filtra per stato" value={filter} onChange={setFilter} options={FILTERS} />
+      </div>
+      {kind === "public" && (
+        <p className="text-sm text-white/60">
+          Partite create dal pubblico da <span className="font-mono">/gioca</span> con un account host: scorrimento automatico, domande scelte dal sito. Non entrano nelle statistiche e nelle classifiche mensili.
+        </p>
+      )}
 
       {error ? (
         <ErrorBlock message={error} onRetry={reload} />
       ) : loading && !data ? (
         <LoadingBlock />
       ) : list.length === 0 ? (
+        kind === "public" ? (
+        <EmptyState title="Nessuna partita libera">{filter === "all" ? "Compaiono qui quando qualcuno crea una partita da /gioca." : "Nessuna partita libera con questo stato."}</EmptyState>
+      ) : (
         <EmptyState title="Nessuna serata">{filter === "all" ? "Crea la prima serata con il pulsante in alto." : "Nessuna serata con questo stato."}</EmptyState>
+      )
       ) : (
         <ul className="space-y-2" aria-busy={loading}>
           {list.map((s) => {
@@ -105,6 +124,7 @@ export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
                     <div className="flex flex-wrap items-center gap-2">
                       <StatusBadge status={s.status} />
                       {s.isTest && <TestBadge />}
+                      {s.hostUserId && <span className="rounded-full bg-cyan/15 px-2 py-0.5 text-xs font-bold text-cyan">Partita libera · @{s.hostUsername ?? "account"}</span>}
                       {s.status === "live" && s.phase && <span className="text-xs font-bold text-white/60">{PHASE_LABEL[s.phase] ?? s.phase}</span>}
                     </div>
                     <Link href={`/admin/sessions/${s.id}`} className="mt-1 block break-words text-lg font-extrabold hover:text-gold">

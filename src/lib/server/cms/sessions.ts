@@ -55,7 +55,13 @@ export interface SessionSummary {
   startedAt: string | null;
   finishedAt: string | null;
   createdAt: string;
+  /** Gioco libero: account host proprietario (null = serata della regia). */
+  hostUserId: string | null;
+  hostUsername: string | null;
 }
+
+/** Quali sessioni elencare: serate della regia (predefinito), partite libere o tutte. */
+export type SessionKind = "admin" | "public" | "all";
 
 export interface SessionQuestionItem {
   id: string;
@@ -116,7 +122,8 @@ export interface SessionDetail extends SessionSummary {
   roundsDetail: RoundDetail[];
 }
 
-export async function listSessions(opts: { status?: string; includeArchived?: boolean } = {}): Promise<SessionSummary[]> {
+export async function listSessions(opts: { status?: string; includeArchived?: boolean; kind?: SessionKind } = {}): Promise<SessionSummary[]> {
+  const kind = opts.kind ?? "admin";
   const sql = getSql();
   const rows = await sql<
     {
@@ -136,9 +143,11 @@ export async function listSessions(opts: { status?: string; includeArchived?: bo
       started_at: Date | null;
       finished_at: Date | null;
       created_at: Date;
+      host_user_id: string | null;
+      host_username: string | null;
     }[]
   >`
-    select s.id, s.title, s.description, s.scheduled_at, s.status, s.code, s.is_test, gs.phase,
+    select s.id, s.title, s.description, s.scheduled_at, s.status, s.code, s.is_test, gs.phase, s.host_user_id, hp.username as host_username,
       (select count(*)::int from game_rounds r where r.session_id = s.id) as rounds,
       (select count(*)::int from session_questions q where q.session_id = s.id and not q.is_reserve) as questions,
       (select count(*)::int from participants p where p.session_id = s.id and p.status = 'active' and not p.is_bot) as participants,
@@ -146,7 +155,9 @@ export async function listSessions(opts: { status?: string; includeArchived?: bo
          and p.last_seen_at > now() - interval '60 seconds') as online,
       s.published_at, s.started_at, s.finished_at, s.created_at
     from game_sessions s left join game_state gs on gs.session_id = s.id
+    left join host_profiles hp on hp.user_id = s.host_user_id
     where ${opts.status ? sql`s.status = ${opts.status}::session_status` : opts.includeArchived ? sql`true` : sql`s.status <> 'archived'`}
+      and ${kind === "admin" ? sql`s.host_user_id is null` : kind === "public" ? sql`s.host_user_id is not null` : sql`true`}
     order by coalesce(s.scheduled_at, s.created_at) desc`;
   return rows.map((r) => ({
     id: r.id,
@@ -165,6 +176,8 @@ export async function listSessions(opts: { status?: string; includeArchived?: bo
     startedAt: iso(r.started_at),
     finishedAt: iso(r.finished_at),
     createdAt: iso(r.created_at)!,
+    hostUserId: r.host_user_id,
+    hostUsername: r.host_username,
   }));
 }
 
@@ -188,9 +201,11 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       created_at: Date;
       participants: number;
       online: number;
+      host_user_id: string | null;
+      host_username: string | null;
     }[]
   >`
-    select s.*, gs.phase,
+    select s.*, gs.phase, (select hp.username from host_profiles hp where hp.user_id = s.host_user_id) as host_username,
       (select count(*)::int from participants p where p.session_id = s.id and p.status = 'active' and not p.is_bot) as participants,
       (select count(*)::int from participants p where p.session_id = s.id and p.status = 'active' and not p.is_bot
          and p.last_seen_at > now() - interval '60 seconds') as online
@@ -352,6 +367,8 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
     startedAt: iso(s.started_at),
     finishedAt: iso(s.finished_at),
     createdAt: iso(s.created_at)!,
+    hostUserId: s.host_user_id,
+    hostUsername: s.host_username,
     settings: s.settings,
     displayKey: s.display_key,
     seasonId: s.season_id,
@@ -386,12 +403,12 @@ export async function createSession(raw: unknown, actor: Actor): Promise<string>
 }
 
 /** Crea la sessione dentro una transazione già aperta (usato anche dalla serata rapida). */
-export async function insertSession(tx: Tx, data: SessionInput, actor: Actor, details?: Record<string, unknown>): Promise<string> {
+export async function insertSession(tx: Tx, data: SessionInput, actor: Actor, details?: Record<string, unknown>, hostUserId: string | null = null): Promise<string> {
   const code = await uniqueCode(tx);
   const [row] = await tx<{ id: string }[]>`
-    insert into game_sessions (title, description, scheduled_at, is_test, season_id, settings, code, created_by)
+    insert into game_sessions (title, description, scheduled_at, is_test, season_id, settings, code, created_by, host_user_id)
     values (${data.title}, ${data.description ?? null}, ${data.scheduledAt ?? null}, ${data.isTest},
-            ${data.seasonId ?? null}, ${tx.json(mergeSettings({}, data.settings))}, ${code}, ${actor.userId})
+            ${data.seasonId ?? null}, ${tx.json(mergeSettings({}, data.settings))}, ${code}, ${actor.userId}, ${hostUserId})
     returning id`;
   await audit(tx, actor, "session.create", { sessionId: row.id, type: "session", id: row.id, details });
   return row.id;
@@ -608,8 +625,12 @@ export function specialRoundIssues(r: RoundDetail, isFirstRound: boolean): Publi
 }
 
 export async function publishSession(sessionId: string, actor: Actor): Promise<{ issues: PublishIssue[] }> {
-  const sql = getSql();
-  return sql.begin(async (tx) => {
+  return getSql().begin((tx) => publishSessionTx(tx, sessionId, actor));
+}
+
+/** Pubblicazione dentro una transazione già aperta (usata anche dal gioco libero). */
+export async function publishSessionTx(tx: Tx, sessionId: string, actor: Actor): Promise<{ issues: PublishIssue[] }> {
+  {
     const [s] = await tx<{ status: SessionStatus; settings: SessionSettings }[]>`select status, settings from game_sessions where id = ${sessionId} for update`;
     if (!s) throw new CmsError("Sessione non trovata", 404);
     if (s.status !== "draft") throw new CmsError("La sessione è già pubblicata", 409);
@@ -646,7 +667,7 @@ export async function publishSession(sessionId: string, actor: Actor): Promise<{
       on conflict (session_id) do update set phase = 'READY', version = game_state.version + 1`;
     await audit(tx, actor, "session.publish", { sessionId, type: "session", id: sessionId, details: { warnings: issues.length } });
     return { issues };
-  });
+  }
 }
 
 export async function unpublishSession(sessionId: string, actor: Actor): Promise<void> {

@@ -1,6 +1,7 @@
 import type { Db } from "@/lib/database/db";
 import type { SessionSettings } from "@/lib/validation/schemas";
 import { DEFAULT_TEAM_SETTINGS, type TeamSettings } from "@/lib/game-engine/teams";
+import { DEFAULT_PUBLIC_GAMES, type PublicGamesSettings } from "@/lib/game-engine/public-game";
 
 export interface GlobalSettings {
   scoring: { correctPoints: number; wrongPenalty: number; noAnswerPenalty: number; allowNegative: boolean };
@@ -8,6 +9,8 @@ export interface GlobalSettings {
   players: { nicknameMaxLength: number; nicknameMinLength: number };
   leaderboard: { monthlyAggregation: "sum_points" | "placement_points"; placementPoints: number[] };
   events: { autoEventsEnabled: boolean };
+  /** Gioco libero (partite create dal pubblico con un account host). */
+  publicGames: PublicGamesSettings;
 }
 
 export const DEFAULT_SETTINGS: GlobalSettings = {
@@ -16,6 +19,7 @@ export const DEFAULT_SETTINGS: GlobalSettings = {
   players: { nicknameMaxLength: 16, nicknameMinLength: 2 },
   leaderboard: { monthlyAggregation: "sum_points", placementPoints: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1] },
   events: { autoEventsEnabled: true },
+  publicGames: { ...DEFAULT_PUBLIC_GAMES },
 };
 
 export async function loadGlobalSettings(db: Db): Promise<GlobalSettings> {
@@ -45,6 +49,8 @@ export interface EffectiveSessionSettings {
   palminoPool: string[];
   answerGraceMs: number;
   teams: TeamSettings;
+  /** Giocatori massimi (null = nessun limite; usato dalle partite libere). */
+  maxPlayers: number | null;
 }
 
 export const DEFAULT_PALMINO_POOL = ["double-points", "no-penalty", "lightning", "super-bonus", "impossible-comeback"];
@@ -65,6 +71,7 @@ export function effectiveSettings(global: GlobalSettings, session: SessionSettin
     palminoPool: s.palminoPool && s.palminoPool.length > 0 ? s.palminoPool : DEFAULT_PALMINO_POOL,
     answerGraceMs: global.timing.answerGraceMs,
     teams: teamSettingsOf(s),
+    maxPlayers: s.maxPlayers ?? null,
   };
 }
 

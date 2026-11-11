@@ -1,3 +1,4 @@
+import { DEFAULT_PUBLIC_GAMES } from "@/lib/game-engine/public-game";
 import { z } from "zod";
 import { getSql, iso } from "@/lib/database/db";
 import { aggregateStandings } from "@/lib/game-engine/ranking";
@@ -28,6 +29,14 @@ export const globalSettingsSchema = z.object({
     placementPoints: z.array(z.number().int().min(0).max(1000)).min(1).max(30),
   }),
   events: z.object({ autoEventsEnabled: z.boolean() }),
+  publicGames: z
+    .object({
+      enabled: z.boolean(),
+      /** 0 = illimitate */
+      gamesPerAccount: z.number().int().min(0).max(1000),
+      maxPlayers: z.number().int().min(2).max(200),
+    })
+    .default({ ...DEFAULT_PUBLIC_GAMES }),
 });
 
 export async function getSettings(): Promise<GlobalSettings> {
@@ -182,11 +191,11 @@ export async function aggregatedLeaderboard(period: { from: string; to: string; 
   const rows = await sql<{ identity: string; nickname: string; points: number; final_rank: number; session_date: Date }[]>`
     select coalesce(l.identity_id::text, 'p:' || l.participant_id::text) as identity, l.nickname, l.points, l.final_rank, l.session_date
     from leaderboards l join game_sessions g on g.id = l.session_id
-    where not l.is_test and ${seasonFilter(sql, period)}`;
+    where not l.is_test and g.host_user_id is null and ${seasonFilter(sql, period)}`;
   const mode = period.mode ?? settings.leaderboard.monthlyAggregation;
   const [{ sessions }] = await sql<{ sessions: number }[]>`
     select count(distinct l.session_id)::int as sessions from leaderboards l join game_sessions g on g.id = l.session_id
-    where not l.is_test and ${seasonFilter(sql, period)}`;
+    where not l.is_test and g.host_user_id is null and ${seasonFilter(sql, period)}`;
   return {
     mode,
     sessions,

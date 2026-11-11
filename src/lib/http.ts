@@ -6,6 +6,7 @@ import { PlayerError } from "@/lib/server/players";
 import { CmsError } from "@/lib/server/audit";
 import { AuthError } from "@/lib/auth/admin";
 import { TtsError } from "@/lib/server/tts";
+import { GiocoError } from "@/lib/server/gioco-errors";
 
 export interface ApiErrorBody {
   error: { code: string; message: string; details?: unknown };
@@ -54,6 +55,7 @@ const PLAYER_STATUS: Record<PlayerError["code"], number> = {
   ALREADY_BET: 409,
   INVALID_ANSWER: 422,
   RATE_LIMITED: 429,
+  GAME_FULL: 409,
 };
 
 /** Traduce gli errori di dominio in risposte HTTP coerenti. */
@@ -62,6 +64,7 @@ export function handleError(e: unknown) {
   if (e instanceof GameError) return fail(GAME_STATUS[e.code] ?? 400, e.code, e.message, e.details);
   if (e instanceof PlayerError) return fail(PLAYER_STATUS[e.code] ?? 400, e.code, e.message, e.details);
   if (e instanceof CmsError) return fail(e.status, "CMS_ERROR", e.message, e.details);
+  if (e instanceof GiocoError) return fail(e.status, e.code, e.message, e.details);
   if (e instanceof TtsError) return fail(e.code === "TTS_BUDGET" ? 503 : e.code === "TTS_PROVIDER" ? 502 : 409, e.code, e.message);
   if (e instanceof z.ZodError) return fail(422, "VALIDATION", "Dati non validi", e.issues);
   const pg = e as { code?: string; message?: string };

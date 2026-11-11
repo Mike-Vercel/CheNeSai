@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import QRCode from "qrcode";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import { api } from "@/lib/realtime/api-client";
 import { useGameState, useTicker } from "@/lib/realtime/use-game-state";
@@ -17,6 +17,7 @@ import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/gam
 import { TvPauseOverlay } from "./TvScreens";
 import { TvStage } from "./TvStage";
 import { CharacterModeProvider } from "@/features/three/characters/character-mode";
+import { TvScreenAgent } from "./TvScreenControls";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -94,7 +95,16 @@ const PHASE_CUES: Partial<Record<GamePhase, CueName>> = {
   PAUSED: "pause",
 };
 
-export function DisplayApp({ sessionId, displayKey }: { sessionId: string; displayKey: string }) {
+export function DisplayApp({
+  sessionId,
+  displayKey,
+  renderOverlay,
+}: {
+  sessionId: string;
+  displayKey: string;
+  /** comandi sovrapposti al TV (gioco libero: controlli minimi dell'host) */
+  renderOverlay?: (state: PublicState | null) => ReactNode;
+}) {
   useAutoReload();
   const [started, setStarted] = useState(false);
   const [prefs, setPrefs] = useState<TvPrefs>(loadPrefs);
@@ -389,6 +399,8 @@ export function DisplayApp({ sessionId, displayKey }: { sessionId: string; displ
     <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={() => setShowSettings((s) => !s)}>
       {screen}
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
+      {started && <TvScreenAgent sessionId={sessionId} />}
+      {started && renderOverlay?.(view)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />
 
       {status !== "live" && started && (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { OpenTvButton } from "@/features/display/TvScreenControls";
 import { useState } from "react";
 import { Badge, Button, EmptyState, Panel, useConfirm, useToast } from "@/components/ui";
 import { useCan } from "@/features/admin/AdminShell";
@@ -272,9 +273,7 @@ export function SessionEditor({ id }: { id: string }) {
                 </LinkButton>
               )}
               {session.status !== "archived" && session.status !== "finished" && (
-                <LinkButton href={displayUrl} newTab variant="primary">
-                  📺 Schermo TV
-                </LinkButton>
+                <OpenTvButton url={displayUrl} sessionId={session.id} compact />
               )}
               {isAdmin && (session.status === "finished" || session.status === "archived" || session.status === "live") && (
                 <LinkButton href={`/admin/sessions/${session.id}/stats`}>📊 Statistiche</LinkButton>
