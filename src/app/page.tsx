@@ -1,7 +1,6 @@
 import type { Viewport } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Character, Logo } from "@/features/game/components/brand";
 import { GameCard } from "@/features/home/cards";
 import { FEATURED_GAME, GAMES, PLATFORM_NAME } from "@/features/home/games";
 import { SiteHeader } from "@/features/home/SiteHeader";
@@ -15,9 +14,6 @@ export const metadata = {
   title: { absolute: `${PLATFORM_NAME} · CHE NE SAI?! il quiz show da giocare in compagnia` },
   description: "Crea una partita dal PC, collega il televisore e gioca con i telefoni: domande, punteggi e podio li fa il sito.",
 };
-
-const GLOW_BLUE = { "--qz-glow": "rgba(8, 124, 255, 0.42)" } as React.CSSProperties;
-const GLOW_PINK = { "--qz-glow": "rgba(255, 20, 147, 0.4)" } as React.CSSProperties;
 
 function PlayIcon({ className }: { className?: string }) {
   return (
@@ -38,19 +34,16 @@ export default async function Home() {
 
       {/* ------------------------------------------------ gioco in primo piano: palco buio, luci sul logo */}
       <section aria-labelledby="featured-title" className="relative isolate overflow-hidden">
-        <div className="relative flex flex-col items-center px-4 pb-10 pt-[calc(4.5rem+env(safe-area-inset-top))] md:pt-[calc(6rem+env(safe-area-inset-top))] lg:min-h-[max(38rem,calc(100svh-5.5rem))] lg:justify-center lg:pb-8 lg:pt-20">
+        <div className="relative flex flex-col items-center px-4 pb-10 pt-[calc(4.5rem+env(safe-area-inset-top))] md:pt-[calc(6rem+env(safe-area-inset-top))] lg:min-h-[max(40rem,min(100svh,56.25vw))] lg:justify-end lg:pb-12 lg:pt-20">
           <div aria-hidden className="qz-spotlight qz-breathe absolute inset-0 -z-20 motion-reduce:animate-none" />
 
-          {/* presentatori ai lati, ciascuno con la sua luce a terra (da tablet in su) */}
+          {/* PC: la copertina del gioco a tutto schermo (logo e presentatori sono già nell'immagine), sfumata nel nero */}
           <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
-            <div className="qz-presenter absolute bottom-0 right-[calc(50%+16.5rem)] h-[72%]">
-              <div className="qz-floor-glow absolute inset-x-[-25%] bottom-0 h-3/5" style={GLOW_BLUE} />
-              <Character who="professore" priority className="relative !h-full w-auto max-w-none translate-y-[6%]" />
-            </div>
-            <div className="qz-presenter qz-presenter-later absolute bottom-0 left-[calc(50%+16.5rem)] h-[70%]">
-              <div className="qz-floor-glow absolute inset-x-[-25%] bottom-0 h-3/5" style={GLOW_PINK} />
-              <Character who="regina" priority flip className="relative !h-full w-auto max-w-none translate-y-[6%]" />
-            </div>
+            <Image src="/games/che-ne-sai-copertina-desktop.webp" alt="" fill preload sizes="100vw" className="qz-hero-cover object-cover object-top" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-black via-black/75 to-transparent" />
+            <div className="absolute inset-y-0 left-0 w-[12%] bg-gradient-to-r from-black/70 to-transparent" />
+            <div className="absolute inset-y-0 right-0 w-[12%] bg-gradient-to-l from-black/70 to-transparent" />
           </div>
           <div aria-hidden className="qz-vignette pointer-events-none absolute inset-0 -z-10" />
           <div aria-hidden className="qz-fade-bottom pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[22%]" />
@@ -58,7 +51,6 @@ export default async function Home() {
           <div className="relative flex w-full max-w-[46rem] flex-col items-center text-center">
             <h1 id="featured-title" className="w-full">
               <span className="sr-only">CHE NE SAI?!</span>
-              <Logo variant="mark" size="xl" priority className="qz-hero-logo mx-auto hidden !h-auto !w-[min(35rem,56vw,40svh)] lg:block" />
               {/* telefono e tablet: la copertina del gioco, al centro, che sfuma nel nero */}
               <span className="qz-hero-logo relative mx-auto block aspect-[1122/1402] w-[min(100%,26rem,calc(62svh*0.8))] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(131,43,255,0.55)] lg:hidden">
                 <Image
@@ -72,8 +64,8 @@ export default async function Home() {
                 <span aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/60 to-transparent" />
               </span>
             </h1>
-            <p className="qz-rise mt-3 hidden max-w-[31rem] text-lg font-extrabold leading-snug text-white md:mt-4 md:text-[1.375rem] lg:block">{g.tagline}</p>
-            <ul aria-label="In breve" className="qz-rise mt-3 hidden flex-wrap justify-center gap-x-3 gap-y-1 text-[15px] font-bold text-white/70 md:text-base lg:flex">
+            <p className="sr-only">{g.tagline}</p>
+            <ul aria-label="In breve" className="hidden">
               {g.meta.map((m, i) => (
                 <li key={m} className="flex items-center gap-3">
                   {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-white/45" />}
@@ -91,7 +83,7 @@ export default async function Home() {
                 <PlayIcon className="h-7 w-7 md:h-9 md:w-9" />
                 GIOCA
               </Link>
-              <p className="mt-4 text-sm font-bold text-white/60 lg:hidden">Per ospitare una partita usa il PC collegato al TV.</p>
+              <p className="mt-4 text-sm font-bold text-white/60 lg:hidden">Gioca dal telefono o dal PC, anche sul televisore.</p>
 
               {/* chi ha già un codice: sul telefono resta in vista, sul PC è una riga sottile sotto GIOCA */}
               <div className="mt-8 w-full max-w-[20rem] md:mt-[max(1.5rem,3.5svh)] md:flex md:max-w-none md:items-center md:justify-center md:gap-4">
