@@ -4,7 +4,7 @@
  */
 
 /** Nome provvisorio della piattaforma (barra in alto, piè di pagina): si cambia qui. */
-export const PLATFORM_NAME = "Sala Giochi";
+export const PLATFORM_NAME = "CheNeSai";
 
 export type GameStatus = "disponibile" | "in-arrivo";
 
