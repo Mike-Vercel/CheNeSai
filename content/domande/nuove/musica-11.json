@@ -22,7 +22,7 @@
         "anni-80"
       ],
       "notes": "\"Born in the U.S.A.\" di Bruce Springsteen, dall'album omonimo del 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "mondo"
       ],
       "notes": "Il mariachi è la musica tradizionale messicana (patrimonio UNESCO dal 2011)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "soprannomi"
       ],
       "notes": "\"Liga\" è il soprannome di Luciano Ligabue, di Correggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "danza"
       ],
       "notes": "La tarantella è la danza tradizionale dell'Italia meridionale (Campania, Calabria, Sicilia, Puglia)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "beatles"
       ],
       "notes": "\"Let It Be\", singolo e album dei Beatles del 1970",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -132,7 +132,7 @@
         "lirica"
       ],
       "notes": "Il Palais Garnier, inaugurato nel 1875, è a Parigi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -154,7 +154,7 @@
         "tradizioni"
       ],
       "notes": "La banda musicale è formata da fiati e percussioni, tipica di feste e processioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -176,7 +176,7 @@
         "curiosita"
       ],
       "notes": "Il tormentone è la canzone di successo ripetuta ovunque durante l'estate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -197,7 +197,7 @@
         "strumenti"
       ],
       "notes": "Le maracas sono idiofoni a scuotimento, cioè percussioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "teoria"
       ],
       "notes": "Il ritornello è la sezione che torna uguale tra le strofe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "anni-50"
       ],
       "notes": "\"Tintarella di luna\" (De Filippi-Migliacci) lanciò Mina nel 1959",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "anni-80"
       ],
       "notes": "Loretta Goggi arrivò seconda a Sanremo 1981 con \"Maledetta primavera\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "anni-2000"
       ],
       "notes": "\"Vamos a bailar (Esta vida nueva)\" di Paola e Chiara, 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "anni-90"
       ],
       "notes": "\"Losing My Religion\" dei R.E.M., dall'album \"Out of Time\" (1991)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -327,7 +327,7 @@
         "rock"
       ],
       "notes": "Il cilindro è il marchio di Slash; Axl Rose è il cantante, McKagan il bassista",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -348,7 +348,7 @@
         "pop-rock"
       ],
       "notes": "Chris Martin è voce dei Coldplay fin dalla fondazione (1996); Yorke è dei Radiohead, Bellamy dei Muse, Albarn dei Blur",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -370,7 +370,7 @@
         "anni-90"
       ],
       "notes": "\"Believe\" di Cher (1998) rese famoso l'effetto Auto-Tune",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -392,7 +392,7 @@
         "beethoven"
       ],
       "notes": "La Sinfonia n. 5 in do minore si apre con il motivo di quattro note detto \"del destino\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -414,7 +414,7 @@
         "lirica"
       ],
       "notes": "Il baritono è la voce maschile intermedia tra tenore e basso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -436,11 +436,11 @@
         "generi"
       ],
       "notes": "Il jazz nasce a New Orleans tra fine Ottocento e inizio Novecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Chi cantò nel 1981 la versione italiana del \"Ballo del qua qua\"?",
+      "text": "Chi cantò in italiano \"Il ballo del qua qua\", tormentone dell'estate 1982?",
       "category": "Musica",
       "difficulty": 2,
       "presenter": "regina",
@@ -457,8 +457,8 @@
         "pop-italiano",
         "anni-80"
       ],
-      "notes": "\"Il ballo del qua qua\" fu un successo di Romina Power nel 1981",
-      "verified": false
+      "notes": "Versione italiana di \"Der Ententanz\" cantata da Romina Power (45 giri uscito a fine 1981), sesto singolo più venduto in Italia nel 1982",
+      "verified": true
     },
     {
       "type": "single",
@@ -480,7 +480,7 @@
         "anni-90"
       ],
       "notes": "\"Destinazione paradiso\", primo grande successo di Gianluca Grignani (1995)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -501,7 +501,7 @@
         "sanremo"
       ],
       "notes": "Ermal Meta e Fabrizio Moro vinsero Sanremo 2018",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "sanremo"
       ],
       "notes": "Mia Martini presentò \"Almeno tu nell'universo\" (Lauzi-Fabrizio) a Sanremo 1989",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -545,7 +545,7 @@
         "mondo"
       ],
       "notes": "L'arpa celtica compare nello stemma dell'Irlanda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -567,7 +567,7 @@
         "anni-90"
       ],
       "notes": "\"Bitter Sweet Symphony\" dei Verve, dall'album \"Urban Hymns\" (1997)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -589,7 +589,7 @@
         "punk"
       ],
       "notes": "\"London Calling\", singolo e album dei Clash del dicembre 1979",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -611,7 +611,7 @@
         "anni-60"
       ],
       "notes": "\"It's Not Unusual\" fu il primo grande successo di Tom Jones (1965)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -632,7 +632,7 @@
         "rock"
       ],
       "notes": "Dal 1975 Phil Collins, batterista, divenne anche voce dei Genesis",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -653,7 +653,7 @@
         "classica"
       ],
       "notes": "La cantata \"Carmina Burana\" di Carl Orff fu eseguita la prima volta nel 1937",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +675,7 @@
         "puccini"
       ],
       "notes": "Nel secondo atto della \"Tosca\" Floria Tosca pugnala Scarpia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -698,7 +698,7 @@
         "trabocchetto"
       ],
       "notes": "Scritta da Bob Dylan nel 1973 per il film \"Pat Garrett e Billy the Kid\"; i Guns N' Roses la incisero nel 1990",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -720,7 +720,7 @@
         "canzone-popolare"
       ],
       "notes": "\"Lu pisci spada\" è una canzone di Domenico Modugno del 1954",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -742,7 +742,7 @@
         "anni-80"
       ],
       "notes": "\"Teorema\" di Marco Ferradini, 1981",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -764,7 +764,7 @@
         "sanremo"
       ],
       "notes": "I Subsonica, di Torino, presentarono \"Tutti i miei sbagli\" a Sanremo 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -785,7 +785,7 @@
         "cantautori"
       ],
       "notes": "Via del Campo è una strada del centro storico di Genova",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -807,7 +807,7 @@
         "lirica"
       ],
       "notes": "Il Teatro Petruzzelli, inaugurato nel 1903, è a Bari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "anni-80"
       ],
       "notes": "MTV aprì le trasmissioni il 1 agosto 1981 con il video dei Buggles",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -852,7 +852,7 @@
         "trabocchetto"
       ],
       "notes": "Nel film di Scorsese la canta Liza Minnelli; la versione di Frank Sinatra è del 1980",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -873,7 +873,7 @@
         "classica"
       ],
       "notes": "\"The Planets\" di Gustav Holst, composta tra il 1914 e il 1916",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -895,7 +895,7 @@
         "verdi"
       ],
       "notes": "Arrigo Boito fu il librettista delle ultime due opere di Verdi (1887 e 1893)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -917,7 +917,7 @@
         "puccini"
       ],
       "notes": "Liù si uccide nel terzo atto per non rivelare il nome di Calaf",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,11 +936,10 @@
       ],
       "tags": [
         "rock",
-        "curiosita",
-        "trabocchetto"
+        "curiosita"
       ],
       "notes": "Syd Barrett unì i nomi dei bluesman Pink Anderson e Floyd Council",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -962,7 +961,7 @@
         "trabocchetto"
       ],
       "notes": "\"Take Five\" (1959) fu scritto dal sassofonista Paul Desmond, membro del quartetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -985,7 +984,7 @@
         "trabocchetto"
       ],
       "notes": "Viene da \"Sentado à beira do caminho\" di Roberto ed Erasmo Carlos; la Vanoni la incise nel 1970",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1007,7 +1006,7 @@
         "nomi-arte"
       ],
       "notes": "Patty Pravo, nata a Venezia nel 1948, si chiama Nicoletta Strambelli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1029,7 +1028,7 @@
         "barocco"
       ],
       "notes": "Giuseppe Tartini nacque a Pirano d'Istria nel 1692",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1052,7 +1051,7 @@
         "trabocchetto"
       ],
       "notes": "\"Red Red Wine\" fu scritta e incisa da Neil Diamond nel 1967; gli UB40 la ripresero nel 1983",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1074,7 +1073,7 @@
         "trabocchetto"
       ],
       "notes": "\"Oben am jungen Rhein\", inno del Liechtenstein, usa la melodia dell'inno britannico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1096,7 +1095,7 @@
         "sicilia"
       ],
       "notes": "Marracash (Fabio Rizzo) è nato a Nicosia, in provincia di Enna, nel 1979",
-      "verified": false
+      "verified": true
     }
   ]
 }

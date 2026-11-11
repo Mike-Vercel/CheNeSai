@@ -22,7 +22,7 @@
         "italia"
       ],
       "notes": "L'Ardia di Sedilo si corre il 6 e 7 luglio intorno al santuario di San Costantino.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "parole"
       ],
       "notes": "Ole Kirk Christiansen creò il nome da leg godt, gioca bene.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "italia"
       ],
       "notes": "Nathan Never, di Medda, Serra e Vigna, esordì nel 1991.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "mondo"
       ],
       "notes": "Chi trova la fève diventa re o regina per un giorno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "galateo"
       ],
       "notes": "Il galateo italiano vuole le mani visibili, polsi sul bordo del tavolo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "italia"
       ],
       "notes": "Il leone alato è il simbolo dell'evangelista Marco, patrono di Venezia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "italia"
       ],
       "notes": "Santa Lucia porta i doni in varie città del Nord come Brescia, Bergamo e Verona.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "italia"
       ],
       "notes": "San Petronio, vescovo del V secolo, festeggiato il 4 ottobre; San Zeno è patrono di Verona.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,8 +196,8 @@
         "indovinelli",
         "trabocchetto"
       ],
-      "notes": "Ogni gatto prende un topo in tre minuti: in cento minuti tre gatti ne prendono circa cento.",
-      "verified": false
+      "notes": "Tre gatti prendono un topo al minuto (ognuno uno ogni tre minuti): in cento minuti prendono cento topi.",
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "calendario"
       ],
       "notes": "Il 1 gennaio 2000 era un sabato.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "città"
       ],
       "notes": "I toret torinesi; i nasoni sono romani, le vedovelle milanesi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -261,7 +261,7 @@
         "calendario"
       ],
       "notes": "Trenta dì conta novembre, con april, giugno e settembre.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "trabocchetto"
       ],
       "notes": "Nel Regno Unito il gatto nero è tradizionalmente un portafortuna.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "carte"
       ],
       "notes": "Il bridge si gioca in quattro, divisi in due coppie.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -328,7 +328,7 @@
         "mondo"
       ],
       "notes": "La capra di Gävle è stata incendiata molte volte dal 1966.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "giochi"
       ],
       "notes": "Una faccia per colore: bianco, giallo, rosso, arancione, blu e verde.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -371,7 +371,7 @@
         "italia"
       ],
       "notes": "La discesa dei Candelieri di Sassari è patrimonio UNESCO.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -392,7 +392,7 @@
         "mondo"
       ],
       "notes": "Montecarlo è un quartiere del Principato di Monaco.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -414,7 +414,7 @@
         "carte"
       ],
       "notes": "La carta Inverti cambia la direzione di gioco.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -435,7 +435,7 @@
         "fobie"
       ],
       "notes": "Nomofobia, da no mobile phobia: paura di restare senza telefono.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -457,7 +457,7 @@
         "italia"
       ],
       "notes": "San Giovanni Battista, festeggiato il 24 giugno in entrambe le città.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -479,7 +479,7 @@
         "trabocchetto"
       ],
       "notes": "Gli anni secolari sono bisestili solo se divisibili per 400: 1900 no, 2000 sì.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -501,7 +501,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello classico: il pettine ha i denti ma non morde.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "città"
       ],
       "notes": "I nasoni di Roma, installati dal 1874, devono il nome alla cannella ricurva.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -545,11 +545,11 @@
         "carte"
       ],
       "notes": "Due mazzi francesi da 52 più quattro jolly.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Che cosa raffigurano le banconote in euro?",
+      "text": "Fin dal 2002, che cosa raffigurano le banconote in euro?",
       "category": "Curiosità",
       "difficulty": 3,
       "presenter": "professore",
@@ -567,7 +567,7 @@
         "trabocchetto"
       ],
       "notes": "I ponti e le finestre sono stilizzati e non riproducono monumenti reali.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -588,7 +588,7 @@
         "zodiaco"
       ],
       "notes": "L'Ariete inizia con l'equinozio di primavera, intorno al 21 marzo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -609,7 +609,7 @@
         "calendario"
       ],
       "notes": "Giovedì = Iovis dies, giorno di Giove.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -631,7 +631,7 @@
         "trabocchetto"
       ],
       "notes": "Regola della dama italiana: la pedina non può mangiare la dama.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -653,7 +653,7 @@
         "parole"
       ],
       "notes": "RSVP = Répondez s'il vous plaît.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +675,7 @@
         "mondo"
       ],
       "notes": "Il Mardi Gras di New Orleans è il carnevale più celebre degli Stati Uniti.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +697,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello sul letto del fiume.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -718,7 +718,7 @@
         "fobie"
       ],
       "notes": "Acrofobia, dal greco akros, sommità: paura delle altezze.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +740,7 @@
         "italia"
       ],
       "notes": "Pasquetta è tradizionalmente il giorno della scampagnata con picnic.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -761,7 +761,7 @@
         "monete"
       ],
       "notes": "Il biglietto da 50 euro è arancione; 100 verde, 20 blu, 10 rosso.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -783,7 +783,7 @@
         "italia"
       ],
       "notes": "La regata, disputata dal 1956, ruota tra Venezia, Genova, Pisa e Amalfi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -805,7 +805,7 @@
         "mondo"
       ],
       "notes": "In Francia i regali li porta il Père Noël.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -827,7 +827,7 @@
         "mondo"
       ],
       "notes": "La moneta turca è la lira turca.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -848,7 +848,7 @@
         "giochi"
       ],
       "notes": "L'attaccante tira fino a tre dadi, il difensore fino a tre nella versione italiana.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -870,7 +870,7 @@
         "italia"
       ],
       "notes": "La Palombella di Orvieto scende lungo un cavo fino al sagrato del Duomo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -891,7 +891,7 @@
         "giochi"
       ],
       "notes": "Nell'impiccato ogni lettera sbagliata aggiunge un pezzo al disegno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -913,7 +913,7 @@
         "tradizioni"
       ],
       "notes": "Il lancio del tocco quadrato (mortarboard) chiude la cerimonia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -935,7 +935,7 @@
         "calendario"
       ],
       "notes": "Pentecoste: dal greco cinquantesimo giorno; l'Ascensione è dopo 40 giorni.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -957,7 +957,7 @@
         "mondo"
       ],
       "notes": "April Fools' Day, il nostro pesce d'aprile.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "scacchi"
       ],
       "notes": "Ogni giocatore ha 8 pedoni e 8 pezzi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1001,7 +1001,7 @@
         "trabocchetto"
       ],
       "notes": "I Vangeli non indicano il giorno; il 25 dicembre fu fissato dalla Chiesa nel IV secolo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1022,7 +1022,7 @@
         "superstizioni"
       ],
       "notes": "Passare sotto una scala appoggiata al muro è tra le superstizioni più diffuse.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1044,7 +1044,7 @@
         "tradizioni"
       ],
       "notes": "La pigna in ceramica di Caltagirone è simbolo di fortuna e abbondanza.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "monete"
       ],
       "notes": "La dracma greca fu sostituita dall'euro nel 2002.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1087,7 +1087,7 @@
         "mondo"
       ],
       "notes": "Nowruz, nuovo giorno; Songkran è il capodanno thailandese.",
-      "verified": false
+      "verified": true
     }
   ]
 }

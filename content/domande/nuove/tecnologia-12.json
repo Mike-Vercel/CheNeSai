@@ -22,7 +22,7 @@
         "italia"
       ],
       "notes": "Sono tre delle quattro funicolari di Napoli, con quella di Mergellina.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "smartphone"
       ],
       "notes": "La modalità Non disturbare silenzia chiamate e notifiche.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "trabocchetto"
       ],
       "notes": "Il motore elettrico non brucia carburante, quindi non c'è scarico.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "musica"
       ],
       "notes": "LP = Long Playing, il disco a 33 giri a lunga durata.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "invenzioni"
       ],
       "notes": "I Post-it nacquero dalla colla debole di Spencer Silver (1968) e furono lanciati nel 1980.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,7 +128,7 @@
         "fotografia"
       ],
       "notes": "Il grandangolo ha focale corta e angolo di campo ampio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -150,7 +150,7 @@
         "italia"
       ],
       "notes": "Il Tutor calcola la velocità media tra due portali lungo un tratto.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "informatica"
       ],
       "notes": "Russell Kirsch scansionò la foto del figlio Walden, di tre mesi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "spazio"
       ],
       "notes": "Il programma Artemis, dal nome della sorella di Apollo, punta al ritorno sulla Luna.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "loghi"
       ],
       "notes": "Subaru è il nome giapponese dell'ammasso delle Pleiadi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -237,7 +237,7 @@
         "cinema"
       ],
       "notes": "Brevetto del 1942 con il compositore George Antheil, base di tecnologie senza fili.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -259,7 +259,7 @@
         "italia"
       ],
       "notes": "PEC = Posta elettronica certificata, con valore legale di raccomandata con ricevuta di ritorno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -280,7 +280,7 @@
         "app"
       ],
       "notes": "Google Maps è il servizio di mappe e navigazione di Google.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -301,7 +301,7 @@
         "casa"
       ],
       "notes": "Domotica: tecnologie per automatizzare luci, riscaldamento e apparecchi di casa.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -322,7 +322,7 @@
         "smartphone"
       ],
       "notes": "Cupcake, Donut, KitKat, Lollipop, Oreo, Pie... fino ad Android 10 nel 2019.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -343,7 +343,7 @@
         "intelligenza artificiale"
       ],
       "notes": "Deepfake: contenuti audio o video falsificati con tecniche di deep learning.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -364,7 +364,7 @@
         "pagamenti"
       ],
       "notes": "Il POS (Point of sale) è il terminale per i pagamenti con carta.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -386,7 +386,7 @@
         "trabocchetto"
       ],
       "notes": "Le norme (es. FAA) richiedono un portacenere vicino al bagno, per evitare che un mozzicone finisca nel cestino.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -408,7 +408,7 @@
         "motori"
       ],
       "notes": "La candela d'accensione accende la miscela di aria e benzina.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -431,7 +431,7 @@
         "trabocchetto"
       ],
       "notes": "Vincenzo Lancia fondò l'azienda a Torino nel 1906.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -452,7 +452,7 @@
         "casa"
       ],
       "notes": "La pentola a pressione alza la temperatura di ebollizione e riduce i tempi di cottura.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -473,7 +473,7 @@
         "internet"
       ],
       "notes": "La blockchain è un registro distribuito di blocchi collegati e cifrati.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -495,7 +495,7 @@
         "italia"
       ],
       "notes": "L'Alfa Romeo Spider Duetto (1966) compare ne Il laureato (1967).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -516,7 +516,7 @@
         "spazio"
       ],
       "notes": "Giotto dell'ESA, dal nome del pittore che dipinse la cometa nella Cappella degli Scrovegni.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -537,7 +537,7 @@
         "motori"
       ],
       "notes": "Ciclo Otto a quattro tempi: aspirazione, compressione, scoppio, scarico.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -558,7 +558,7 @@
         "musica"
       ],
       "notes": "Il 45 giri era il singolo: lato A e lato B.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -580,7 +580,7 @@
         "italia"
       ],
       "notes": "Il Piaggio Ciao fu prodotto dal 1967 al 2006.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -602,7 +602,7 @@
         "italia"
       ],
       "notes": "Cruto, di Piossasco, ottenne la sua lampadina a filamento di carbonio nel 1880.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -623,7 +623,7 @@
         "informatica"
       ],
       "notes": "Ctrl+Alt+Canc, ideata da David Bradley per i PC IBM.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -644,7 +644,7 @@
         "auto"
       ],
       "notes": "Il liquido antigelo abbassa il punto di congelamento del refrigerante.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -665,7 +665,7 @@
         "auto"
       ],
       "notes": "P = Park: blocca la trasmissione a veicolo fermo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -687,7 +687,7 @@
         "italia"
       ],
       "notes": "Turri la costruì intorno al 1808 per la contessa Carolina Fantoni da Fivizzano, cieca.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -708,7 +708,7 @@
         "videogiochi"
       ],
       "notes": "Il plumbob, il diamante verde, sovrasta i personaggi di The Sims (dal 2000).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -729,7 +729,7 @@
         "internet"
       ],
       "notes": "Il logo di Wikipedia è un globo incompleto fatto di tessere di puzzle con lettere.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -750,7 +750,7 @@
         "videogiochi"
       ],
       "notes": "Kinect, uscito nel 2010, usava telecamere e sensori di profondità.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -771,13 +771,13 @@
         "videogiochi"
       ],
       "notes": "Yoshi, il dinosauro verde, compare da Super Mario World (1990).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Quale numero si scrive FF nel sistema esadecimale?",
       "category": "Tecnologia",
-      "difficulty": 5,
+      "difficulty": 4,
       "presenter": "professore",
       "answers": [
         "99",
@@ -792,7 +792,7 @@
         "informatica"
       ],
       "notes": "F = 15: 15 per 16 più 15 = 255.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -813,7 +813,7 @@
         "internet"
       ],
       "notes": "Il Domain Name System converte i nomi di dominio in indirizzi IP.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -835,7 +835,7 @@
         "italia"
       ],
       "notes": "Inaugurato nel 1933 come Ponte Littorio, fu ribattezzato Ponte della Libertà.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -857,7 +857,7 @@
         "loghi"
       ],
       "notes": "August Horch tradusse in latino il proprio cognome (horch = ascolta).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -878,7 +878,7 @@
         "tecnologie"
       ],
       "notes": "La realtà aumentata aggiunge elementi digitali all'immagine reale (es. Pokémon Go).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -900,7 +900,7 @@
         "trabocchetto"
       ],
       "notes": "La Jamais Contente di Camille Jenatzy, elettrica, raggiunse 105 km/h nel 1899.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -922,7 +922,7 @@
         "italia"
       ],
       "notes": "I Canadair CL-415 sono idrovolanti antincendio che caricano acqua da mare e laghi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -944,11 +944,11 @@
         "italia"
       ],
       "notes": "FCO = Fiumicino; Ciampino è CIA, Malpensa MXP, Firenze FLR.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Come si chiama il nobile fiorentino protagonista del videogioco Assassin's Creed secondo?",
+      "text": "Come si chiama il nobile fiorentino protagonista del videogioco Assassin's Creed 2?",
       "category": "Tecnologia",
       "difficulty": 3,
       "presenter": "regina",
@@ -966,7 +966,7 @@
         "italia"
       ],
       "notes": "Ezio Auditore da Firenze è il protagonista di Assassin's Creed II (2009).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -987,7 +987,7 @@
         "informatica"
       ],
       "notes": "Il tasto Bloc Maiusc (Caps Lock) blocca le maiuscole.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1008,7 +1008,7 @@
         "auto"
       ],
       "notes": "SUV = Sport Utility Vehicle.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1029,7 +1029,7 @@
         "informatica"
       ],
       "notes": "PowerPoint è il programma di presentazioni del pacchetto Microsoft Office.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1050,7 +1050,7 @@
         "informatica"
       ],
       "notes": "F5 aggiorna (ricarica) la pagina web.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1072,7 +1072,7 @@
         "parole"
       ],
       "notes": "Nel libro Il gene egoista (1976).",
-      "verified": false
+      "verified": true
     }
   ]
 }

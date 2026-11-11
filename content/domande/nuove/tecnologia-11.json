@@ -21,7 +21,7 @@
         "fotografia"
       ],
       "notes": "Il rullino conteneva la pellicola, che andava sviluppata e stampata.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "auto"
       ],
       "notes": "Il pulsante con il triangolo rosso attiva le luci di emergenza (quattro frecce).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "sicilia"
       ],
       "notes": "La centrale solare termodinamica Archimede dell'Enel fu inaugurata nel luglio 2010.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "italia"
       ],
       "notes": "FS = Ferrovie dello Stato.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "tv"
       ],
       "notes": "HDMI trasporta segnale video e audio digitale in alta definizione.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,7 +128,7 @@
         "casa"
       ],
       "notes": "Il contatore del gas misura il volume in metri cubi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -149,7 +149,7 @@
         "videogiochi"
       ],
       "notes": "Il Dreamcast uscì in Giappone nel 1998; dopo la Sega lasciò le console.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -170,7 +170,7 @@
         "videogiochi"
       ],
       "notes": "La Poké Ball è lo strumento base per catturare i Pokémon.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "videogiochi"
       ],
       "notes": "Wario debuttò nel 1992 in Super Mario Land 2; Waluigi ha il berretto viola.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -212,7 +212,7 @@
         "auto"
       ],
       "notes": "Il ruotino di scorta è una ruota ridotta, con limiti di velocità e di percorrenza.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -233,7 +233,7 @@
         "informatica"
       ],
       "notes": "Il sistema esadecimale usa le cifre da 0 a 9 e le lettere da A a F.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -255,7 +255,7 @@
         "italia"
       ],
       "notes": "Codice della strada: cartelli di indicazione verdi per le autostrade, blu per le strade extraurbane.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -277,11 +277,11 @@
         "italia"
       ],
       "notes": "La linea 1 della metro di Torino, sistema VAL senza conducente, aprì il 4 febbraio 2006.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale oggetto di uso quotidiano brevettò Gideon Sundback nel 1913, nella forma usata ancora oggi?",
+      "text": "Quale oggetto di uso quotidiano perfezionò Gideon Sundback nel 1913, nella forma usata ancora oggi?",
       "category": "Tecnologia",
       "difficulty": 4,
       "presenter": "professore",
@@ -297,8 +297,8 @@
       "tags": [
         "invenzioni"
       ],
-      "notes": "Sundback perfezionò la chiusura lampo con denti a incastro (1913-1917).",
-      "verified": false
+      "notes": "Sundback ideò nel 1913 la chiusura lampo con denti a incastro (brevetto chiesto nel 1914, concesso nel 1917).",
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "informatica"
       ],
       "notes": "Unix fu creato da Ken Thompson e Dennis Ritchie ai Bell Labs.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +340,7 @@
         "tv"
       ],
       "notes": "OLED = Organic Light Emitting Diode: ogni pixel emette luce propria.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -361,7 +361,7 @@
         "informatica"
       ],
       "notes": "Windows Vista uscì nel 2007, tra XP (2001) e 7 (2009).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -383,7 +383,7 @@
         "programmazione"
       ],
       "notes": "Margaret Hamilton diresse lo sviluppo del software di volo Apollo al MIT.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -405,7 +405,7 @@
         "italia"
       ],
       "notes": "Omnitel Pronto Italia avviò il servizio GSM a fine 1995; Wind e Blu arrivarono nel 1999.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -426,7 +426,7 @@
         "spazio"
       ],
       "notes": "Il Saturn V della NASA lanciò le missioni lunari Apollo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -448,7 +448,7 @@
         "italia"
       ],
       "notes": "Automobili Lamborghini ha sede a Sant'Agata Bolognese; Ferrari a Maranello, Maserati a Modena.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -470,7 +470,7 @@
         "trabocchetto"
       ],
       "notes": "La freccia indica da quale lato dell'auto si trova lo sportellino del carburante.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -480,7 +480,7 @@
       "presenter": "regina",
       "answers": [
         "ICQ",
-        "Skype",
+        "Yahoo Messenger",
         "mIRC",
         "MSN Messenger"
       ],
@@ -492,7 +492,7 @@
         "anni duemila"
       ],
       "notes": "MSN Messenger (poi Windows Live Messenger) chiuse nel 2013.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -514,7 +514,7 @@
         "elettricità"
       ],
       "notes": "Ciabatta è il nome comune della presa multipla con più prese in fila.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -535,7 +535,7 @@
         "robot"
       ],
       "notes": "Aibo della Sony uscì nel 1999; Asimo è della Honda, Furby un pupazzo della Tiger.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -556,7 +556,7 @@
         "elettricità"
       ],
       "notes": "In Italia AA = stilo, AAA = ministilo, D = torcia; 'transistor' è la pila da 9 volt.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -577,7 +577,7 @@
         "tv"
       ],
       "notes": "La presa Scart (o Peritel) ha 21 contatti.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -598,7 +598,7 @@
         "internet"
       ],
       "notes": "Ccn: i destinatari in copia nascosta non sono visibili agli altri.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -619,7 +619,7 @@
         "auto"
       ],
       "notes": "Nel cambio manuale si preme la frizione per staccare il motore dalle ruote e cambiare marcia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -641,7 +641,7 @@
         "italia"
       ],
       "notes": "ZTL = Zona a traffico limitato, accessibile solo ai veicoli autorizzati.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -662,7 +662,7 @@
         "videogiochi"
       ],
       "notes": "Among Us (InnerSloth, 2018) divenne famosissimo nel 2020.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -684,7 +684,7 @@
         "italia"
       ],
       "notes": "A Venezia il trasporto pubblico sull'acqua si fa con i vaporetti dell'ACTV.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -706,7 +706,7 @@
         "italia"
       ],
       "notes": "Futura (2014-2015); Minerva fu la seconda (2022), Volare di Parmitano, Magisstra di Nespoli.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -728,7 +728,7 @@
         "parole"
       ],
       "notes": "Nel dramma R.U.R. di Karel Čapek; la parola fu suggerita dal fratello Josef.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -751,7 +751,7 @@
         "italia"
       ],
       "notes": "Marcello Gandini, allora alla Bertone, firmò la Countach (prototipo 1971).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -772,7 +772,7 @@
         "programmazione"
       ],
       "notes": "Tradizione resa celebre dal manuale del C di Kernighan e Ritchie (1978).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -794,7 +794,7 @@
         "calcio"
       ],
       "notes": "Persa la licenza FIFA, la serie è diventata EA Sports FC 24 nel 2023.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -816,7 +816,7 @@
         "trabocchetto"
       ],
       "notes": "Per tradizione navale passeggeri e imbarco usano il lato sinistro; il destro è per i servizi di terra.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -837,7 +837,7 @@
         "informatica"
       ],
       "notes": "Il tasto Tab sposta il cursore al campo successivo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -859,7 +859,7 @@
         "trabocchetto"
       ],
       "notes": "Gli aerei di linea volano tra 10 e 12 km circa; l'Everest è alto 8849 metri.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -880,7 +880,7 @@
         "smartphone"
       ],
       "notes": "Con l'hotspot personale il telefono condivide la sua connessione dati.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -901,7 +901,7 @@
         "internet"
       ],
       "notes": "Google Chrome è stato lanciato da Google nel 2008.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -922,7 +922,7 @@
         "spazio"
       ],
       "notes": "La ISS compie un'orbita in circa 90 minuti: circa 16 giri al giorno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -944,7 +944,7 @@
         "trabocchetto"
       ],
       "notes": "Infilando una penna Bic nel foro della bobina si riavvolgeva il nastro senza consumare le pile.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -965,7 +965,7 @@
         "informatica"
       ],
       "notes": "I Mac usano macOS; iOS è il sistema degli iPhone.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -987,7 +987,7 @@
         "trabocchetto"
       ],
       "notes": "Le 9:41: intorno a quell'ora Steve Jobs mostrò il primo iPhone nel 2007.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1009,7 +1009,7 @@
         "sicilia"
       ],
       "notes": "CTA = Catania Fontanarossa; Palermo PMO, Trapani TPS, Comiso CIY.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1031,7 +1031,7 @@
         "trabocchetto"
       ],
       "notes": "La prima email è del 1971 (Tomlinson), il web è del 1991.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1052,7 +1052,7 @@
         "programmazione"
       ],
       "notes": "Stroustrup sviluppò il C++ ai Bell Labs dal 1979; Pascal è di Wirth.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1073,7 +1073,7 @@
         "casa"
       ],
       "notes": "Lo scanner della cassa legge il codice a barre stampato sulla confezione.",
-      "verified": false
+      "verified": true
     }
   ]
 }

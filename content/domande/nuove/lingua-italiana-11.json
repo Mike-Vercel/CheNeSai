@@ -21,7 +21,7 @@
         "proverbi"
       ],
       "notes": "Al cuor non si comanda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "proverbi"
       ],
       "notes": "Occhio non vede, cuore non duole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere la puzza sotto il naso: essere schifiltosi, altezzosi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere la luna storta: essere di cattivo umore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "ortografia"
       ],
       "notes": "Regola ortografica: davanti a b e p si scrive m (campo, ambo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "grammatica"
       ],
       "notes": "Padrino / madrina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "modi-di-dire"
       ],
       "notes": "Scoprire l'acqua calda: credere di aver scoperto una cosa che tutti sanno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "proverbi"
       ],
       "notes": "Chi di spada ferisce, di spada perisce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "modi-di-dire"
       ],
       "notes": "Andare a ruba: essere venduto rapidamente, essere molto richiesto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere sale in zucca: avere senno, giudizio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "trabocchetto"
       ],
       "notes": "Reggini sono quelli di Reggio Calabria; reggiani quelli di Reggio Emilia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "trabocchetto"
       ],
       "notes": "Qualche è invariabile e si unisce solo a nomi al singolare: qualche libro, non qualche libri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "trabocchetto"
       ],
       "notes": "Giraffa è un nome di genere promiscuo: il maschio si indica con la giraffa maschio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +297,7 @@
         "modi-di-dire"
       ],
       "notes": "Fare il diavolo a quattro: fare chiasso, agitarsi molto per ottenere qualcosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -318,7 +318,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere voce in capitolo: avere autorità, il diritto di dire la propria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -339,7 +339,7 @@
         "modi-di-dire"
       ],
       "notes": "Essere di manica larga: essere indulgenti, poco severi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -351,7 +351,7 @@
         "Argini",
         "Ponti",
         "Sassi",
-        "Mulini"
+        "Vasi"
       ],
       "correct": [
         1
@@ -360,7 +360,7 @@
         "proverbi"
       ],
       "notes": "Acqua cheta rompe (o rovina) i ponti: diffidare di chi sembra tranquillo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -381,7 +381,7 @@
         "proverbi"
       ],
       "notes": "Chi si loda s'imbroda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -402,7 +402,7 @@
         "latino"
       ],
       "notes": "Repetita iuvant: le cose ripetute giovano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -423,7 +423,7 @@
         "latino"
       ],
       "notes": "Verba volant, scripta manent: le parole volano, gli scritti rimangono",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -444,7 +444,7 @@
         "significati"
       ],
       "notes": "Turpiloquio: il parlare sconcio, volgare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -467,7 +467,7 @@
         "trabocchetto"
       ],
       "notes": "Astutari: spegnere (la luce, il fuoco); niente a che vedere con astuto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -489,7 +489,7 @@
         "sicilia"
       ],
       "notes": "Trasiri: entrare (trasi! = entra!)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -510,7 +510,7 @@
         "parole"
       ],
       "notes": "Cinema è la forma accorciata di cinematografo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -531,7 +531,7 @@
         "versi-animali"
       ],
       "notes": "Bramire: il verso del cervo in amore, il bramito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -553,7 +553,7 @@
         "trabocchetto"
       ],
       "notes": "Il soggetto è la pizza (è lei che piace); mi è complemento di termine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -575,7 +575,7 @@
         "trabocchetto"
       ],
       "notes": "Ognuno è un pronome indefinito usato solo al singolare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -596,7 +596,7 @@
         "retorica"
       ],
       "notes": "Asindeto: accostamento di elementi senza congiunzioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -617,7 +617,7 @@
         "significati"
       ],
       "notes": "Riso omerico: fragoroso, irrefrenabile, come quello degli dei in Omero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,19 +638,19 @@
         "modi-di-dire"
       ],
       "notes": "Fare un quarantotto: provocare un gran trambusto, dai moti del 1848",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Da quale espressione nasce la parola \"bancarotta\"?",
+      "text": "Secondo l'etimologia tradizionale, che cosa si rompeva al banchiere fallito, da cui la parola \"bancarotta\"?",
       "category": "Lingua italiana",
-      "difficulty": 3,
+      "difficulty": 2,
       "presenter": "professore",
       "answers": [
-        "Banca rossa",
-        "Banco rotto",
-        "Barca rotta",
-        "Bando rotto"
+        "Il sigillo",
+        "Il banco",
+        "La bilancia",
+        "Il registro"
       ],
       "correct": [
         1
@@ -658,8 +658,8 @@
       "tags": [
         "etimologia"
       ],
-      "notes": "Treccani: da banca rotta, il banco del cambiavalute insolvente che veniva rotto",
-      "verified": false
+      "notes": "Treccani: bancarotta, comp. di banca e rotta, perché anticamente al banchiere fallito veniva rotto il banco",
+      "verified": true
     },
     {
       "type": "single",
@@ -680,7 +680,7 @@
         "etimologia"
       ],
       "notes": "Magazzino: dall'arabo makhāzin, depositi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -701,7 +701,7 @@
         "significati"
       ],
       "notes": "Apocrifo: falsamente attribuito, non autentico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -724,7 +724,7 @@
         "trabocchetto"
       ],
       "notes": "Ammucciari: nascondere (ammucciuni = di nascosto)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -745,7 +745,7 @@
         "significati"
       ],
       "notes": "Lezioso: che ha modi affettati, smancerosi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -766,7 +766,7 @@
         "grammatica"
       ],
       "notes": "Indicativo, congiuntivo, condizionale e imperativo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "latino"
       ],
       "notes": "In medio stat virtus: la virtù sta nel mezzo, nell'equilibrio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "etimologia"
       ],
       "notes": "Treccani: dall'inglese pyjamas, dall'hindi pāy-jāma, calzoni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "storia-della-lingua"
       ],
       "notes": "Quisibeve fu tra le proposte per italianizzare i forestierismi negli anni Trenta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "significati"
       ],
       "notes": "Ubertoso: fertile, fecondo (terre ubertose)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -871,7 +871,7 @@
         "significati"
       ],
       "notes": "Querulo: che si lamenta, lamentoso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -892,11 +892,11 @@
         "abitanti"
       ],
       "notes": "Puteolani, dall'antico nome Puteoli; stabiesi sono quelli di Castellammare, partenopei i napoletani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale figura retorica rivolge la parola a un assente, come in \"Ahi serva Italia\"?",
+      "text": "Quale figura retorica si rivolge direttamente a una persona o a una cosa personificata, come in \"Ahi serva Italia\"?",
       "category": "Lingua italiana",
       "difficulty": 4,
       "presenter": "professore",
@@ -913,7 +913,7 @@
         "retorica"
       ],
       "notes": "Apostrofe: ci si rivolge direttamente a persona assente o cosa personificata (Purgatorio, canto sesto)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -934,7 +934,7 @@
         "latino"
       ],
       "notes": "Cum grano salis: con un granello di sale, cioè con giudizio e misura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -955,7 +955,7 @@
         "etimologia"
       ],
       "notes": "Zecca: dall'arabo sikka, conio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -976,7 +976,7 @@
         "modi-di-dire"
       ],
       "notes": "Cercare Maria per Roma (o per Ravenna): cercare una cosa impossibile da trovare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -997,7 +997,7 @@
         "storia-della-lingua"
       ],
       "notes": "L'iscrizione di San Clemente (fine XI secolo), nella basilica inferiore, con battute in volgare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1018,7 +1018,7 @@
         "storia-della-lingua"
       ],
       "notes": "Il GDLI, detto il Battaglia, fu avviato nel 1961 sotto la direzione di Salvatore Battaglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1039,7 +1039,7 @@
         "significati"
       ],
       "notes": "Resipiscenza: il riconoscere il proprio errore, ravvedimento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1060,7 +1060,7 @@
         "retorica"
       ],
       "notes": "Hysteron proteron: si dice prima ciò che logicamente viene dopo (Virgilio, Eneide)",
-      "verified": false
+      "verified": true
     }
   ]
 }

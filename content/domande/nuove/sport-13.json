@@ -21,7 +21,7 @@
         "tennis"
       ],
       "notes": "Serena Williams ha vinto 23 Slam in singolare; si è ritirata nel 2022",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "nba"
       ],
       "notes": "Kobe Bryant giocò vent'anni con i Lakers (1996-2016)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "nba"
       ],
       "notes": "I Boston Celtics; Knicks e Nets sono di New York, i Bulls di Chicago",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "sport-acquatici"
       ],
       "notes": "I tuffi si fanno dal trampolino da 3 metri e dalla piattaforma da 10",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "inghilterra"
       ],
       "notes": "La Premier League è il massimo campionato inglese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "regole"
       ],
       "notes": "L'autogol è la rete segnata involontariamente nella propria porta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "ginnastica"
       ],
       "notes": "Simone Biles, ginnasta americana plurimedagliata olimpica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "stadi"
       ],
       "notes": "Milan e Inter condividono lo stadio Giuseppe Meazza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "tennistavolo"
       ],
       "notes": "\"Ping pong\" è il nome popolare del tennistavolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -217,7 +217,7 @@
         "trabocchetto"
       ],
       "notes": "Negli Stati Uniti \"football\" è il football americano; il calcio si chiama \"soccer\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -239,7 +239,7 @@
         "soprannomi"
       ],
       "notes": "\"Super Pippo\" è Filippo Inzaghi; il fratello Simone era \"Inzaghino\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -261,7 +261,7 @@
         "mondiali"
       ],
       "notes": "Corea-Giappone 2002, primo Mondiale in Asia e con due Paesi ospitanti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -283,7 +283,7 @@
         "serie-a"
       ],
       "notes": "Dal 2004-05 la Serie A è a 20 squadre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -305,7 +305,7 @@
         "serie-a"
       ],
       "notes": "Ibrahimović giocò nella Juventus (2004-06), nell'Inter (2006-09) e nel Milan",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -326,7 +326,7 @@
         "football-americano"
       ],
       "notes": "Il quarterback è il regista dell'attacco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "scherma"
       ],
       "notes": "Fioretto, spada e sciabola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -368,7 +368,7 @@
         "sci"
       ],
       "notes": "Dominik Paris, altoatesino, è uno specialista di discesa libera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -389,7 +389,7 @@
         "pugilato"
       ],
       "notes": "\"Nobile arte\" è il nome tradizionale del pugilato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -411,7 +411,7 @@
         "roma"
       ],
       "notes": "Lo Stadio Olimpico sorge nel Foro Italico, come i campi degli Internazionali di tennis",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -433,7 +433,7 @@
         "olimpiadi"
       ],
       "notes": "Il taekwondo è coreano ed è sport olimpico da Sydney 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -454,7 +454,7 @@
         "hockey"
       ],
       "notes": "Wayne Gretzky, \"The Great One\" dell'hockey NHL",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -475,7 +475,7 @@
         "skateboard"
       ],
       "notes": "Tony Hawk, primo a chiudere il \"900\" in gara nel 1999",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -497,7 +497,7 @@
         "europei"
       ],
       "notes": "Portogallo-Francia 1-0 ai supplementari, gol di Éder",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -519,7 +519,7 @@
         "soprannomi"
       ],
       "notes": "Seleção è il Brasile; Albiceleste l'Argentina, Celeste l'Uruguay, Roja la Spagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -541,7 +541,7 @@
         "storia"
       ],
       "notes": "Il gioco prende il nome dalla Rugby School, nella città inglese di Rugby",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -563,7 +563,7 @@
         "storia"
       ],
       "notes": "Farina vinse il titolo 1950 con l'Alfa Romeo 158",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -584,7 +584,7 @@
         "formula-1"
       ],
       "notes": "Il GP di Singapore del 2008 fu la prima gara notturna della F1",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -605,7 +605,7 @@
         "motociclismo"
       ],
       "notes": "La Ducati ha sede a Borgo Panigale dal 1935",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -627,7 +627,7 @@
         "regole"
       ],
       "notes": "Tre errori consecutivi, a qualsiasi misura, eliminano il saltatore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -648,7 +648,7 @@
         "tuffi"
       ],
       "notes": "La piattaforma olimpica è alta 10 metri; il trampolino 3",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -670,8 +670,8 @@
         "regole",
         "trabocchetto"
       ],
-      "notes": "Dal 1995 il regolamento permette di toccare la palla con ogni parte del corpo",
-      "verified": false
+      "notes": "Il regolamento FIVB (regola 9.2.1) permette di toccare la palla con qualsiasi parte del corpo, piedi compresi, dalla metà degli anni Novanta",
+      "verified": true
     },
     {
       "type": "single",
@@ -693,7 +693,7 @@
         "sport-invernali"
       ],
       "notes": "I Giochi invernali 2002 si tennero a Salt Lake City, nello Utah",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -715,7 +715,7 @@
         "stadi"
       ],
       "notes": "L'Arechi è lo stadio della Salernitana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -737,11 +737,11 @@
         "allenatori"
       ],
       "notes": "Helenio Herrera vinse con l'Inter tre scudetti e due Coppe dei Campioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale difensore segnò il gol dell'Italia nella finale degli Europei 2021, a Wembley?",
+      "text": "Quale difensore segnò il gol dell'Italia nella finale dell'Europeo giocata a Wembley nel 2021?",
       "category": "Sport",
       "difficulty": 3,
       "presenter": "palmino",
@@ -758,8 +758,8 @@
         "calcio",
         "europei"
       ],
-      "notes": "Bonucci pareggiò il gol di Shaw; l'Italia vinse ai rigori",
-      "verified": false
+      "notes": "Italia-Inghilterra 1-1 (Euro 2020, giocato nel 2021): Bonucci pareggiò il gol di Shaw, l'Italia vinse ai rigori",
+      "verified": true
     },
     {
       "type": "single",
@@ -782,7 +782,7 @@
         "trabocchetto"
       ],
       "notes": "Naismith appese due cesti da pesche: per recuperare il pallone serviva una scala",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -805,7 +805,7 @@
         "trabocchetto"
       ],
       "notes": "Tre giri di piazza del Campo in circa 75-90 secondi; la festa invece dura giorni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -826,7 +826,7 @@
         "pugilato"
       ],
       "notes": "Terzo e ultimo incontro tra Ali e Frazier, a Manila nel 1975",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -849,7 +849,7 @@
         "trabocchetto"
       ],
       "notes": "La Norvegia guida il medagliere storico dei Giochi invernali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "trabocchetto"
       ],
       "notes": "Nati come New Orleans Jazz nel 1974, si trasferirono a Salt Lake City nel 1979 tenendo il nome",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -894,7 +894,7 @@
         "nba"
       ],
       "notes": "Bargnani fu scelto per primo dai Toronto Raptors nel 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +916,7 @@
         "soprannomi"
       ],
       "notes": "\"Scarpette Rosse\" è lo storico soprannome dell'Olimpia Milano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -938,7 +938,7 @@
         "sicilia"
       ],
       "notes": "Schillaci giocò nel Messina dal 1982 al 1989, poi andò alla Juventus",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -960,7 +960,7 @@
         "sicilia"
       ],
       "notes": "Catania-Inter 2-0 del 4 giugno 1961, che costò lo scudetto ai nerazzurri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -982,7 +982,7 @@
         "stadi"
       ],
       "notes": "Il Granillo è lo stadio della Reggina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1004,7 +1004,7 @@
         "sci"
       ],
       "notes": "Gli uomini gareggiarono sulla Stelvio di Bormio, le donne a Cortina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1026,7 +1026,7 @@
         "mondiali"
       ],
       "notes": "Valcareggi guidò l'Italia del 4-3 alla Germania e della finale persa con il Brasile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1049,7 +1049,7 @@
         "stadi"
       ],
       "notes": "L'Esseneto è lo stadio dell'Akragas, ad Agrigento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1071,7 +1071,7 @@
         "pentathlon"
       ],
       "notes": "La federazione ha sostituito l'equitazione con una prova a ostacoli in stile \"ninja\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1092,7 +1092,7 @@
         "calcio"
       ],
       "notes": "Maradona esordì con l'Argentinos Juniors nel 1976; al Boca e al Newell's giocò dopo",
-      "verified": false
+      "verified": true
     }
   ]
 }

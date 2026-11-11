@@ -22,7 +22,7 @@
         "antipasti"
       ],
       "notes": "Il cocktail di gamberi classico si serve con la salsa rosa (maionese e ketchup)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "frutta"
       ],
       "notes": "Il mango ha polpa arancione e un grande nocciolo appiattito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "primi"
       ],
       "notes": "Il ragù è un sugo a base di carne cotto a lungo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "utensili"
       ],
       "notes": "La grattugia serve a grattugiare formaggio, pane, scorze",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "frutta"
       ],
       "notes": "La macedonia è un miscuglio di frutta tagliata a pezzi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "cereali"
       ],
       "notes": "Il porridge è una pappa di fiocchi d'avena cotti in acqua o latte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "cereali"
       ],
       "notes": "Corn flakes: fiocchi di mais tostati (corn = mais in inglese americano)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "frutta"
       ],
       "notes": "I blueberry muffin sono i muffin ai mirtilli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "pane"
       ],
       "notes": "Il lievito produce anidride carbonica che fa crescere l'impasto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,7 +216,7 @@
         "formaggi"
       ],
       "notes": "Il formaggio nasce dalla coagulazione del latte con il caglio e dalla lavorazione della cagliata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "trabocchetto"
       ],
       "notes": "Il persico (Perca fluviatilis) è un pesce d'acqua dolce, tipico dei laghi lombardi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "trabocchetto"
       ],
       "notes": "ACE: vitamine A (dal betacarotene della carota), C ed E",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -281,7 +281,7 @@
         "cucina-francese"
       ],
       "notes": "Coq au vin: gallo stufato nel vino rosso, tipico della Borgogna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -302,7 +302,7 @@
         "tecniche"
       ],
       "notes": "Sfumare: versare il vino e lasciarne evaporare la parte alcolica a fiamma vivace",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -324,7 +324,7 @@
         "prodotti-tipici"
       ],
       "notes": "Pomodoro San Marzano dell'Agro Sarnese-Nocerino DOP, in Campania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -345,7 +345,7 @@
         "ristorazione"
       ],
       "notes": "Il sous-chef è il secondo in comando dopo lo chef",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -366,7 +366,7 @@
         "cucina-francese"
       ],
       "notes": "Il cassoulet è un piatto della Linguadoca, nel sud-ovest della Francia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -388,7 +388,7 @@
         "cucina-tedesca"
       ],
       "notes": "Il Brezel o pretzel è tipico della Germania meridionale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -409,7 +409,7 @@
         "bevande"
       ],
       "notes": "Il kefir è latte fermentato con i granuli di kefir (lieviti e batteri)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -430,7 +430,7 @@
         "frutta"
       ],
       "notes": "Frutto della passione o maracuja (Passiflora edulis)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -451,7 +451,7 @@
         "frutta"
       ],
       "notes": "Tagliata a fette, la carambola forma stelle a cinque punte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -473,7 +473,7 @@
         "secondi"
       ],
       "notes": "L'abbacchio a scottadito: costolette di agnello alla griglia, da mangiare bollenti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -494,7 +494,7 @@
         "caffè"
       ],
       "notes": "Il ristretto è un espresso estratto con meno acqua, più concentrato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -515,7 +515,7 @@
         "cocktail"
       ],
       "notes": "La Margarita (tequila, triple sec, lime) si serve col bordo del bicchiere salato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -537,7 +537,7 @@
         "cucina-toscana"
       ],
       "notes": "Pappa al pomodoro: pane raffermo, pomodoro, basilico e olio, tipica toscana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -559,7 +559,7 @@
         "cucina-pugliese"
       ],
       "notes": "Il caffè leccese: espresso versato sul ghiaccio con latte di mandorla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -580,7 +580,7 @@
         "caffè"
       ],
       "notes": "Il marocchino: espresso con cacao in polvere e schiuma di latte, servito in un bicchierino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -602,7 +602,7 @@
         "trabocchetto"
       ],
       "notes": "Il pan di Spagna classico non ha lievito: cresce grazie all'aria incorporata montando uova e zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -624,7 +624,7 @@
         "cucina-sudamericana"
       ],
       "notes": "Il dulce de leche è latte con zucchero ridotto a lungo fino a diventare una crema caramellata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -645,7 +645,7 @@
         "cucina-giapponese"
       ],
       "notes": "Yakitori: spiedini di pollo cotti alla griglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -666,7 +666,7 @@
         "cucina-americana"
       ],
       "notes": "Il chili è il piatto ufficiale del Texas dal 1977",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -688,7 +688,7 @@
         "zuppe"
       ],
       "notes": "Clam chowder: zuppa di vongole (clams) con patate e latte o panna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -709,7 +709,7 @@
         "cucina-internazionale"
       ],
       "notes": "Lo smørrebrød è il tipico panino aperto danese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -731,7 +731,7 @@
         "cucina-mediorientale"
       ],
       "notes": "Shakshuka: uova in camicia in un sugo di pomodoro, peperoni e spezie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -753,7 +753,7 @@
         "cucina-pugliese"
       ],
       "notes": "Gli spaghetti all'assassina sono una ricetta barese nata negli anni Sessanta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -775,7 +775,7 @@
         "cucina-veneta"
       ],
       "notes": "Bigoli, pasta lunga e spessa al torchio (bigolaro), tipica del Veneto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -797,7 +797,7 @@
         "trabocchetto"
       ],
       "notes": "Il chinotto (Citrus myrtifolia) è un agrume, coltivato soprattutto in Liguria (Savona)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -819,7 +819,7 @@
         "trabocchetto"
       ],
       "notes": "Il pepe di Caienna è peperoncino rosso essiccato e macinato (Capsicum)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -841,7 +841,7 @@
         "trabocchetto"
       ],
       "notes": "Ipomoea batatas è una Convolvulacea; la patata invece è una Solanacea come il pomodoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -862,11 +862,11 @@
         "bevande"
       ],
       "notes": "Il kvass è una bevanda poco alcolica ottenuta fermentando pane di segale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Il melone cantalupo prende il nome da una località vicina a quale città?",
+      "text": "Secondo la tradizione, il melone cantalupo prende il nome da una località vicina a quale città?",
       "category": "Cucina",
       "difficulty": 4,
       "presenter": "palmino",
@@ -883,8 +883,8 @@
         "frutta",
         "etimologia"
       ],
-      "notes": "Treccani: da Cantalupo, villa dei papi presso Roma, dove sarebbe stato coltivato",
-      "verified": false
+      "notes": "Cantalupo in Sabina, residenza papale a nord-est di Roma, dove sarebbe stato coltivato per la prima volta (origine tradizionale)",
+      "verified": true
     },
     {
       "type": "single",
@@ -906,7 +906,7 @@
         "cucina-francese"
       ],
       "notes": "La vichyssoise è una crema di porri e patate servita fredda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -927,7 +927,7 @@
         "cucina-spagnola"
       ],
       "notes": "La fabada asturiana: fabes, chorizo, morcilla e pancetta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -949,7 +949,7 @@
         "cucina-campana"
       ],
       "notes": "Gli scialatielli furono ideati ad Amalfi dallo chef Enrico Cosentino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -970,7 +970,7 @@
         "cucina-piemontese"
       ],
       "notes": "La finanziera: creste e bargigli di gallo, animelle, filoni e funghi con Marsala",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -991,7 +991,7 @@
         "ristorazione"
       ],
       "notes": "Gualtiero Marchesi ottenne le tre stelle nel 1985 a Milano, primo in Italia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1013,7 +1013,7 @@
         "sicilia"
       ],
       "notes": "La tuma è la cagliata fresca non salata; il primosale è quello alla prima salatura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1035,7 +1035,7 @@
         "sicilia"
       ],
       "notes": "Il maiorchino si produce sui Peloritani e Nebrodi, in provincia di Messina; a Novara di Sicilia si lancia nella sfida del maiorchino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1056,7 +1056,7 @@
         "storia-della-cucina"
       ],
       "notes": "Bartolomeo Sacchi detto il Platina, che riprese molte ricette di Maestro Martino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1077,7 +1077,7 @@
         "vino"
       ],
       "notes": "Sciacchetrà: passito delle Cinque Terre DOC, in Liguria",
-      "verified": false
+      "verified": true
     }
   ]
 }

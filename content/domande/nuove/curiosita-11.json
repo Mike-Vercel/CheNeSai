@@ -21,7 +21,7 @@
         "vaticano"
       ],
       "notes": "Le chiavi di San Pietro: d'oro e d'argento.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "carte"
       ],
       "notes": "Nel rubamazzo si ruba il mazzetto avversario calando una carta uguale a quella in cima.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "giochi"
       ],
       "notes": "Chi viene visto muoversi quando chi conta si volta torna al punto di partenza.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "mondo"
       ],
       "notes": "La leggenda irlandese di Jack, condannato a vagare con una lanterna.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello: il fungo ha il cappello; il chiodo invece ha proprio la testa.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "sicilia"
       ],
       "notes": "San Michele Arcangelo, festeggiato il 29 settembre.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "tradizioni"
       ],
       "notes": "Baciarsi sotto il vischio porta fortuna e amore.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "superstizioni"
       ],
       "notes": "Si dice che porti sfortuna se lo sposo vede l'abito prima della cerimonia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "italia"
       ],
       "notes": "Si estraggono cinque numeri da 1 a 90 per ogni ruota.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "trabocchetto"
       ],
       "notes": "Palla 0,05 e mazza 1,05: totale 1,10.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "parole"
       ],
       "notes": "Denim viene da serge de Nîmes.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello: il pane appena sfornato è caldo e fresco.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "italia"
       ],
       "notes": "Due Capitani reggenti, eletti ogni sei mesi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "italia"
       ],
       "notes": "I fratelli Panini pubblicarono il primo album di calciatori a Modena nel 1961.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -328,7 +328,7 @@
         "proverbi"
       ],
       "notes": "Di Venere e di Marte non ci si sposa né si parte.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "italia"
       ],
       "notes": "Il CAP italiano, introdotto nel 1967, ha cinque cifre.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -371,7 +371,7 @@
         "italia"
       ],
       "notes": "'O munaciello, folletto dispettoso e a volte generoso del folclore napoletano.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -393,7 +393,7 @@
         "calendario"
       ],
       "notes": "San Silvestro papa, morto il 31 dicembre 335.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -415,7 +415,7 @@
         "natale"
       ],
       "notes": "Tre righe da cinque numeri: quindici per cartella.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -437,7 +437,7 @@
         "italia"
       ],
       "notes": "Nel giorno dell'Ascensione il doge gettava un anello in mare.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -458,7 +458,7 @@
         "monete"
       ],
       "notes": "Solo le monete da 1 e 2 euro sono bimetalliche.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -480,7 +480,7 @@
         "carte"
       ],
       "notes": "Si danno tre carte a testa e se ne scoprono quattro in tavola.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -501,7 +501,7 @@
         "collezionismo"
       ],
       "notes": "Tegestologia: collezionismo di sottobicchieri da birra.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "trabocchetto"
       ],
       "notes": "Paperinik nacque su Topolino nel 1969, ideato da Elisa Penna, Guido Martina e Giovan Battista Carpi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -545,7 +545,7 @@
         "trabocchetto"
       ],
       "notes": "Tra il 25 dicembre e il 1 gennaio passano esattamente sette giorni.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -567,7 +567,7 @@
         "tradizioni"
       ],
       "notes": "Per tradizione la Befana porta carbone (oggi di zucchero) ai bambini cattivi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -589,7 +589,7 @@
         "tradizioni"
       ],
       "notes": "L'hongi è il saluto tradizionale dei Maori della Nuova Zelanda.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -611,7 +611,7 @@
         "città"
       ],
       "notes": "La fontana della Rivera, del 1272, simbolo dell'Aquila.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -632,7 +632,7 @@
         "giochi"
       ],
       "notes": "Nella dama italiana ognuno ha 12 pedine sulla scacchiera da 64 case.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -654,7 +654,7 @@
         "mondo"
       ],
       "notes": "Le matrioske russe nacquero alla fine dell'Ottocento; le kokeshi sono bambole giapponesi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -676,7 +676,7 @@
         "italia"
       ],
       "notes": "La festa di Sant'Efisio, sciolta da un voto del 1652, parte da Cagliari il 1 maggio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +697,7 @@
         "superstizioni"
       ],
       "notes": "Si paga il coltello con una monetina per non tagliare l'amicizia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -718,7 +718,7 @@
         "moda"
       ],
       "notes": "In Italia il duffle coat si chiama montgomery, dal feldmaresciallo che lo indossava.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +740,7 @@
         "trabocchetto"
       ],
       "notes": "Le 10:10 incorniciano il marchio e danno l'idea di un sorriso.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -761,7 +761,7 @@
         "vaticano"
       ],
       "notes": "Durante il conclave la fumata bianca segnala che il papa è stato eletto.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -783,7 +783,7 @@
         "trabocchetto"
       ],
       "notes": "Il galateo italiano vuole solo la forchetta: il cucchiaio è un'usanza straniera.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -805,7 +805,7 @@
         "mondo"
       ],
       "notes": "Il Sambódromo da Marquês de Sapucaí di Rio fu progettato da Niemeyer (1984).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -827,7 +827,7 @@
         "mondo"
       ],
       "notes": "Hinamatsuri, la festa delle bambole.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -849,7 +849,7 @@
         "mondo"
       ],
       "notes": "I tredici Jólasveinar arrivano uno per notte prima di Natale.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -871,7 +871,7 @@
         "trabocchetto"
       ],
       "notes": "L'angora viene dal coniglio d'angora; dalla capra d'angora si ottiene invece il mohair.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -892,7 +892,7 @@
         "calendario"
       ],
       "notes": "Negli anni bisestili si aggiunge il 29 febbraio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -913,7 +913,7 @@
         "misure"
       ],
       "notes": "1 piede = 12 pollici.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -935,7 +935,7 @@
         "mondo"
       ],
       "notes": "Touch wood o knock on wood.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -956,7 +956,7 @@
         "leggende"
       ],
       "notes": "Lo Yeti, o abominevole uomo delle nevi, è la creatura del folclore himalayano.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -978,7 +978,7 @@
         "trabocchetto"
       ],
       "notes": "Il galateo vuole che l'uomo preceda la donna al ristorante, per aprirle la strada.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -999,7 +999,7 @@
         "superstizioni"
       ],
       "notes": "Brindare con l'acqua porta sfortuna, secondo la credenza popolare.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1021,7 +1021,7 @@
         "mondo"
       ],
       "notes": "La pentola d'oro del leprecauno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1043,7 @@
         "moda"
       ],
       "notes": "La coppola è il berretto piatto con visiera tipico della Sicilia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "mondo"
       ],
       "notes": "Trick or treat: dolcetto o scherzetto.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1087,7 +1087,7 @@
         "tradizioni"
       ],
       "notes": "Si prende un giorno di ferie tra un festivo e il fine settimana.",
-      "verified": false
+      "verified": true
     }
   ]
 }

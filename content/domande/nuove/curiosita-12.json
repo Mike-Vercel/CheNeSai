@@ -4,7 +4,7 @@
   "questions": [
     {
       "type": "single",
-      "text": "Quali monete in euro l'Italia ha smesso di coniare dal 2018?",
+      "text": "Di quali monete in euro l'Italia ha sospeso il conio dal 2018?",
       "category": "Curiosità",
       "difficulty": 3,
       "presenter": "professore",
@@ -21,8 +21,8 @@
         "monete",
         "italia"
       ],
-      "notes": "Dal 1 gennaio 2018 la Zecca non conia più le monete da 1 e 2 centesimi.",
-      "verified": false
+      "notes": "Dal 1 gennaio 2018 è sospeso il conio delle monete da 1 e 2 centesimi (decreto-legge 50/2017, art. 13-quater); restano valide.",
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "trabocchetto"
       ],
       "notes": "Hai le due che hai preso.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,8 +66,8 @@
         "italia",
         "trabocchetto"
       ],
-      "notes": "Al Palio vince il cavallo: anche senza fantino, il cosiddetto cavallo scosso.",
-      "verified": false
+      "notes": "Al Palio vince il cavallo, non il fantino: vale anche il cavallo scosso, come Zio Frac dell'Oca nell'agosto 2023.",
+      "verified": true
     },
     {
       "type": "single",
@@ -89,7 +89,7 @@
         "sicilia"
       ],
       "notes": "Il presepe vivente di Custonaci, nella frazione di Scurati.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "natale"
       ],
       "notes": "Il calendario dell'Avvento conta i giorni che mancano a Natale.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -132,7 +132,7 @@
         "strada"
       ],
       "notes": "Gli stalli riservati sono delimitati in giallo, con il simbolo apposito.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -154,7 +154,7 @@
         "mondo"
       ],
       "notes": "Il Boxing Day è il 26 dicembre, il nostro Santo Stefano.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "giochi"
       ],
       "notes": "Lo Slinky fu inventato nel 1943 dall'ingegnere Richard James.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "giochi"
       ],
       "notes": "In Taboo le parole proibite sono scritte sotto la parola da far indovinare.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "mondo"
       ],
       "notes": "Up Helly Aa si tiene a Lerwick l'ultimo martedì di gennaio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "leggi"
       ],
       "notes": "Il divieto di vendita a Singapore è del 1992; dal 2004 sono ammesse quelle terapeutiche.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "mondo"
       ],
       "notes": "La statua di Molly Malone, eroina di una canzone popolare, è a Dublino.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "italia"
       ],
       "notes": "Il jackpot del Superenalotto va a chi indovina il 6.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "italia"
       ],
       "notes": "Celo (ce l'ho) e manca: la formula classica dello scambio di figurine.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -328,7 +328,7 @@
         "italia"
       ],
       "notes": "Emesso per il viaggio del presidente Gronchi in Sud America, fu ritirato per la mappa sbagliata.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "giochi"
       ],
       "notes": "Nella battaglia navale si dicono coordinate come B5 per colpire le navi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -371,13 +371,13 @@
         "italia"
       ],
       "notes": "Fare le corna (indice e mignolo tesi) è il gesto scaramantico per eccellenza.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Quale compositore catanese era raffigurato sulla banconota da cinquemila lire?",
       "category": "Curiosità",
-      "difficulty": 4,
+      "difficulty": 3,
       "presenter": "professore",
       "answers": [
         "Giuseppe Verdi",
@@ -393,7 +393,7 @@
         "sicilia"
       ],
       "notes": "La 5000 lire con Bellini circolò dal 1985 fino all'euro.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -415,7 +415,7 @@
         "sicilia"
       ],
       "notes": "San Biagio Platani è in provincia di Agrigento.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -436,7 +436,7 @@
         "giochi"
       ],
       "notes": "Trivial Pursuit (1981): sei categorie, sei spicchi da raccogliere.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -458,11 +458,11 @@
         "italia"
       ],
       "notes": "Il Totip, nato nel 1948, era il concorso sulle corse ippiche.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale Paese ha la più antica bandiera nazionale ancora in uso?",
+      "text": "Quale Paese ha la bandiera nazionale considerata la più antica ancora in uso?",
       "category": "Curiosità",
       "difficulty": 3,
       "presenter": "professore",
@@ -479,7 +479,7 @@
         "bandiere"
       ],
       "notes": "Il Dannebrog danese è considerato la più antica bandiera nazionale in uso continuo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -500,7 +500,7 @@
         "indovinelli"
       ],
       "notes": "Indovinello classico: le lancette dell'orologio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -521,7 +521,7 @@
         "giochi"
       ],
       "notes": "In Pictionary si disegnano le parole da far indovinare alla squadra.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -542,7 +542,7 @@
         "fumetti"
       ],
       "notes": "Gastone Paperone, creato da Carl Barks nel 1948, è il fortunatissimo cugino.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -564,7 +564,7 @@
         "carte"
       ],
       "notes": "52 carte più due jolly.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -585,7 +585,7 @@
         "calendario"
       ],
       "notes": "365 giorni diviso 7 fa 52 settimane e un giorno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -607,7 +607,7 @@
         "leggende"
       ],
       "notes": "Il Genio, nume tutelare della città, ha diverse statue tra cui quella di Palazzo Pretorio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -629,7 +629,7 @@
         "italia"
       ],
       "notes": "Tre giri di Piazza del Campo, in circa 75-90 secondi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -651,7 +651,7 @@
         "italia"
       ],
       "notes": "Giuseppe Borsalino fondò il cappellificio ad Alessandria nel 1857.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -672,7 +672,7 @@
         "italia"
       ],
       "notes": "113 Polizia, 112 Carabinieri, 115 Vigili del fuoco, 117 Guardia di Finanza.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -694,7 +694,7 @@
         "italia"
       ],
       "notes": "A Pisa migliaia di lumini illuminano i palazzi del lungarno.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -715,7 +715,7 @@
         "giochi"
       ],
       "notes": "Versione italiana del tedesco Mensch ärgere Dich nicht, simile al Ludo.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -737,7 +737,7 @@
         "italia"
       ],
       "notes": "Rat-Man nacque nel 1989.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -759,7 +759,7 @@
         "italia"
       ],
       "notes": "San Giusto, martire, festeggiato il 3 novembre, dà il nome anche alla cattedrale.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -781,7 +781,7 @@
         "mondo"
       ],
       "notes": "Il Regno Unito usa la sterlina britannica e non ha mai adottato l'euro.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -803,7 +803,7 @@
         "mondo"
       ],
       "notes": "Negli Stati Uniti si lasciano per tradizione latte e biscotti accanto al camino.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -824,7 +824,7 @@
         "italia"
       ],
       "notes": "Il passaporto italiano, come quelli dell'Unione Europea, è bordeaux.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -846,7 +846,7 @@
         "italia"
       ],
       "notes": "Le 100.000 lire di tipo 1983 e 1994 portavano il ritratto di Caravaggio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -868,7 +868,7 @@
         "italia"
       ],
       "notes": "Vino versato porta allegria; olio versato porta sfortuna.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -890,7 +890,7 @@
         "mondo"
       ],
       "notes": "L'orso è nello stemma e nel nome stesso di Berna; c'è anche il parco degli orsi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -912,7 +912,7 @@
         "mondo"
       ],
       "notes": "Lo yen è la moneta giapponese; yuan è cinese, won coreano, baht thailandese.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -933,7 +933,7 @@
         "giochi"
       ],
       "notes": "Nomi, cose, città: una parola per categoria con la lettera estratta.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -955,7 +955,7 @@
         "scacchi"
       ],
       "notes": "Regola: la donna bianca su casa bianca, quella nera su casa nera.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -977,7 +977,7 @@
         "italia"
       ],
       "notes": "42 'o ccafè.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -998,7 +998,7 @@
         "giochi"
       ],
       "notes": "Nel Memory si girano due tessere alla volta per trovare le coppie identiche.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1020,7 +1020,7 @@
         "mondo"
       ],
       "notes": "Diwali, in autunno; Holi è la festa dei colori.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1042,7 +1042,7 @@
         "strada"
       ],
       "notes": "Codice della strada: strisce blu sosta a pagamento, gialle riservate, bianche libere.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1063,7 @@
         "fumetti"
       ],
       "notes": "Il commissario Basettoni, aiutato dall'ispettore Manetta.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1085,7 +1085,7 @@
         "trabocchetto"
       ],
       "notes": "Se mezzo mattone pesa un chilo, il mattone intero ne pesa due.",
-      "verified": false
+      "verified": true
     }
   ]
 }

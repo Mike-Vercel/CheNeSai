@@ -21,7 +21,7 @@
         "pasta"
       ],
       "notes": "I fusilli sono avvolti a spirale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "cucina-americana"
       ],
       "notes": "Hot dog: panino morbido con würstel, senape e ketchup",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "cucina-americana"
       ],
       "notes": "Il bagel, bollito e poi cotto in forno, è tipico di New York",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "caffè"
       ],
       "notes": "Il caffè americano è un espresso diluito con acqua calda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "verdure"
       ],
       "notes": "Il broccolo ha un'infiorescenza a forma di alberello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -127,7 +127,7 @@
         "frutta"
       ],
       "notes": "Golden Delicious, Fuji e Granny Smith sono varietà di mela",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -149,7 +149,7 @@
         "cucina-mediorientale"
       ],
       "notes": "La pita è un pane piatto che in cottura forma una tasca interna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -170,7 +170,7 @@
         "uova"
       ],
       "notes": "Le uova strapazzate si mescolano in padella mentre cuociono",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "frutta-secca"
       ],
       "notes": "L'uvetta o uva passa è uva lasciata appassire ed essiccare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -212,7 +212,7 @@
         "pesce"
       ],
       "notes": "Una spruzzata di limone accompagna il fritto di pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -234,7 +234,7 @@
         "trabocchetto"
       ],
       "notes": "Il fiordilatte è mozzarella di latte vaccino; quella di bufala è un'altra cosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -256,7 +256,7 @@
         "tradizioni"
       ],
       "notes": "Fave e pecorino romano sono il rito del primo maggio a Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -277,7 +277,7 @@
         "frutta"
       ],
       "notes": "William, Abate Fetel e Conference sono varietà di pera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -299,7 +299,7 @@
         "cucina-francese"
       ],
       "notes": "Brie e camembert sono formaggi molli a crosta fiorita bianca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -321,7 +321,7 @@
         "cucina-ligure"
       ],
       "notes": "Trenette al pesto, spesso con patate e fagiolini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -342,7 +342,7 @@
         "antipasti"
       ],
       "notes": "Il pinzimonio: verdure crude intinte in olio, sale e pepe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -364,7 +364,7 @@
         "storia-della-cucina"
       ],
       "notes": "Da John Montagu, quarto conte di Sandwich, nel Settecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -386,7 +386,7 @@
         "sicilia"
       ],
       "notes": "A Catania si diceva 'è una Norma' per una cosa eccellente, in onore dell'opera di Vincenzo Bellini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -408,7 +408,7 @@
         "trabocchetto"
       ],
       "notes": "La crema pasticciera si fa con latte, tuorli, zucchero e farina o amido",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -429,7 +429,7 @@
         "cucina-sudamericana"
       ],
       "notes": "L'asado è la grigliata tradizionale argentina (e uruguaiana)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -450,7 +450,7 @@
         "cocktail"
       ],
       "notes": "Il Martini (gin e vermut dry) si guarnisce con un'oliva o una scorza di limone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -471,7 +471,7 @@
         "prodotti-tipici"
       ],
       "notes": "La taggiasca prende il nome da Taggia, in provincia di Imperia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -492,7 +492,7 @@
         "secondi"
       ],
       "notes": "La tartare è carne cruda tritata al coltello, condita a freddo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -501,7 +501,7 @@
       "difficulty": 2,
       "presenter": "palmino",
       "answers": [
-        "Peperoni fritti",
+        "Zucchine fritte",
         "Broccoletti saltati in padella",
         "Pesciolini fritti",
         "Frittelle di alghe"
@@ -513,8 +513,8 @@
         "verdure",
         "cucina-campana"
       ],
-      "notes": "I friarielli napoletani sono le infiorescenze della cima di rapa, saltate con aglio e peperoncino",
-      "verified": false
+      "notes": "A Napoli i friarielli sono le infiorescenze della cima di rapa saltate con aglio e peperoncino (in altre zone della Campania la parola indica anche i peperoncini verdi da friggere)",
+      "verified": true
     },
     {
       "type": "single",
@@ -536,7 +536,7 @@
         "prodotti-tipici"
       ],
       "notes": "Pane di Matera IGP, di semola di grano duro, Basilicata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -557,7 +557,7 @@
         "ristorazione"
       ],
       "notes": "L'amuse-bouche è un piccolo stuzzichino offerto dallo chef prima delle portate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -580,7 +580,7 @@
         "trabocchetto"
       ],
       "notes": "Nocellara del Belice DOP: oliva da tavola della valle del Belice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -602,7 +602,7 @@
         "cucina-campana"
       ],
       "notes": "Lacryma Christi del Vesuvio DOC",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -624,7 +624,7 @@
         "vino"
       ],
       "notes": "Zabaione: tuorli, zucchero e Marsala",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -646,7 +646,7 @@
         "trabocchetto"
       ],
       "notes": "Coda di rospo è il nome commerciale della rana pescatrice (Lophius), un pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -668,7 +668,7 @@
         "trabocchetto"
       ],
       "notes": "I chicchi sono i semi delle drupe rosse della pianta del caffè",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -690,7 +690,7 @@
         "etimologia"
       ],
       "notes": "Treccani: diminutivo di mozza, da mozzare: la pasta filata viene mozzata a pezzi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -712,7 +712,7 @@
         "cucina-veneta"
       ],
       "notes": "Le fritole veneziane sono frittelle con uvetta e pinoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -733,7 +733,7 @@
         "cucina-indiana"
       ],
       "notes": "Il biryani è un piatto di riso speziato del subcontinente indiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -755,7 +755,7 @@
         "cucina-romana"
       ],
       "notes": "Le puntarelle sono i germogli della cicoria catalogna, condite con acciughe e aglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -777,7 +777,7 @@
         "sardegna"
       ],
       "notes": "Il casu marzu è pecorino in cui si sviluppano le larve della mosca del formaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -788,7 +788,7 @@
       "answers": [
         "Da un pittore",
         "Da un barista veneziano",
-        "Da un generale",
+        "Da un tenore",
         "Da un conte fiorentino"
       ],
       "correct": [
@@ -797,8 +797,8 @@
       "tags": [
         "cocktail"
       ],
-      "notes": "Dal conte Camillo Negroni, che a Firenze chiese di rinforzare l'Americano con il gin",
-      "verified": false
+      "notes": "Versione più accreditata: il conte Camillo Negroni, fiorentino, che a Firenze (1919 circa) chiese di rinforzare l'Americano con il gin",
+      "verified": true
     },
     {
       "type": "single",
@@ -819,7 +819,7 @@
         "vino"
       ],
       "notes": "Cirò DOC, provincia di Crotone, Calabria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -841,7 +841,7 @@
         "sicilia"
       ],
       "notes": "Frittola: scarti della macellazione del vitello bolliti e fritti nello strutto, con alloro e pepe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -863,7 +863,7 @@
         "sicilia"
       ],
       "notes": "Crispelle di riso alla catanese: bastoncini di riso fritti e coperti di miele",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -884,7 +884,7 @@
         "vino"
       ],
       "notes": "Colli Orientali del Friuli Picolit DOCG",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -905,7 +905,7 @@
         "formaggi"
       ],
       "notes": "Zona di produzione: province di Vicenza, Trento, Padova e Treviso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -926,7 +926,7 @@
         "pasta"
       ],
       "notes": "I garganelli sono pasta all'uovo tipica della Romagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -947,7 +947,7 @@
         "cucina-lombarda"
       ],
       "notes": "I mondeghili sono polpette milanesi, fatte con carne avanzata come il bollito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -969,7 +969,7 @@
         "cucina-veneta"
       ],
       "notes": "Pearà da pévare, pepe in veronese: pane, midollo, brodo e tanto pepe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -991,7 +991,7 @@
         "sicilia"
       ],
       "notes": "I ceusi sono i frutti del gelso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1013,7 +1013,7 @@
         "trabocchetto"
       ],
       "notes": "È coniglio lessato, sfilacciato e conservato sott'olio con aglio e salvia, come il tonno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1034,7 +1034,7 @@
         "vino"
       ],
       "notes": "Lagrein, vitigno tipico dell'Alto Adige (zona di Bolzano)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1056,7 +1056,7 @@
         "trabocchetto"
       ],
       "notes": "Vernaccia di Serrapetrona DOCG: spumante rosso, a differenza della Vernaccia bianca di San Gimignano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1078,7 +1078,7 @@
         "cucina-friulana"
       ],
       "notes": "I cjarsons sono la pasta ripiena tipica della Carnia, in Friuli",
-      "verified": false
+      "verified": true
     }
   ]
 }

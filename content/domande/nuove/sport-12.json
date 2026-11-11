@@ -21,7 +21,7 @@
         "pesca"
       ],
       "notes": "La pesca sportiva si pratica con canna, mulinello ed esca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "atletica"
       ],
       "notes": "Il triplo è composto da hop, step e jump",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "regole"
       ],
       "notes": "Si batte la rimessa laterale con le mani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "serie-a"
       ],
       "notes": "Cristiano Ronaldo arrivò dal Real Madrid nel 2018 e lasciò Torino nel 2021",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "sci"
       ],
       "notes": "Lo sci di fondo si pratica su piste pianeggianti e ondulate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "trabocchetto"
       ],
       "notes": "Il \"martello\" è una sfera d'acciaio collegata a una maniglia da un cavo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "regole"
       ],
       "notes": "Un fallo da punizione diretta in area vale il rigore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "olimpiadi"
       ],
       "notes": "I Giochi del 2004 tornarono ad Atene, sede delle prime Olimpiadi moderne",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "ippica"
       ],
       "notes": "Il fantino monta il cavallo in corsa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -214,7 +214,7 @@
         "sport-invernali"
       ],
       "notes": "Salti e trottole sono elementi del pattinaggio artistico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -236,7 +236,7 @@
         "nba"
       ],
       "notes": "Jordan giocò quasi sempre con il 23 (per breve tempo il 45)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -258,7 +258,7 @@
         "europa"
       ],
       "notes": "L'Ajax è di Amsterdam; Rotterdam ha il Feyenoord, Eindhoven il PSV",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -280,7 +280,7 @@
         "regole"
       ],
       "notes": "Se l'ultimo tocco è dell'attaccante si batte la rimessa dal fondo; se è del difensore, il calcio d'angolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -302,7 +302,7 @@
         "allenatori"
       ],
       "notes": "Il Leicester di Ranieri vinse la Premier League 2015-16",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -324,7 +324,7 @@
         "soprannomi"
       ],
       "notes": "Batistuta, bomber di Fiorentina e Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -346,7 +346,7 @@
         "regole"
       ],
       "notes": "Dopo il 40 pari (deuce) chi vince il punto va in vantaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -367,7 +367,7 @@
         "formula-1"
       ],
       "notes": "Fernando Alonso, campione 2005 e 2006 con la Renault",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -389,7 +389,7 @@
         "sport-invernali"
       ],
       "notes": "Cortina 1956 furono i primi Giochi invernali in Italia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -411,7 +411,7 @@
         "trabocchetto"
       ],
       "notes": "Dal 2004 il Super Bowl si gioca a febbraio, anche se chiude la stagione dell'anno prima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -433,7 +433,7 @@
         "coppe-europee"
       ],
       "notes": "Il Real Madrid di Zidane vinse nel 2016, 2017 e 2018",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -455,7 +455,7 @@
         "coppe-europee"
       ],
       "notes": "Atalanta-Bayer Leverkusen 3-0, tripletta di Lookman",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -477,7 +477,7 @@
         "regole"
       ],
       "notes": "Con le regole FIBA i quarti durano 10 minuti; nella NBA 12",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -498,7 +498,7 @@
         "pallavolo"
       ],
       "notes": "Il palleggiatore (alzatore) costruisce il gioco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -520,7 +520,7 @@
         "tradizioni"
       ],
       "notes": "Il 2 luglio e il 16 agosto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -543,7 +543,7 @@
         "trabocchetto"
       ],
       "notes": "Nell'antica Grecia gli atleti olimpici gareggiavano nudi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -564,7 +564,7 @@
         "tennis"
       ],
       "notes": "Nadal batté Federer 9-7 al quinto set",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -585,7 +585,7 @@
         "tennis"
       ],
       "notes": "Finale tutta italiana Pennetta-Vinci a New York, 2015",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -608,7 +608,7 @@
         "trabocchetto"
       ],
       "notes": "Da bambino Sinner vinse titoli italiani giovanili di slalom gigante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -629,7 +629,7 @@
         "formula-1"
       ],
       "notes": "Fangio fu campione nel 1951, 1954, 1955, 1956 e 1957",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -650,7 +650,7 @@
         "motociclismo"
       ],
       "notes": "Lasciata la Honda, Rossi vinse subito il titolo 2004 con la Yamaha",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -672,7 +672,7 @@
         "giro-d-italia"
       ],
       "notes": "La maglia bianca premia il miglior giovane; gli scalatori vestono l'azzurro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -693,7 +693,7 @@
         "atletica"
       ],
       "notes": "Kipchoge corse in 1h59'40\" il 12 ottobre 2019",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -715,7 +715,7 @@
         "trabocchetto"
       ],
       "notes": "Nello skeleton si scende proni a testa avanti; nello slittino supini a piedi avanti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -737,7 +737,7 @@
         "stadi"
       ],
       "notes": "Il Via del Mare è lo stadio del Lecce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -759,7 +759,7 @@
         "sicilia"
       ],
       "notes": "Il Messina prende il soprannome dai monti Peloritani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -781,7 +781,7 @@
         "europei"
       ],
       "notes": "Spagna-Italia 4-0 a Kiev; l'Italia aveva battuto la Germania in semifinale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -803,7 +803,7 @@
         "trabocchetto"
       ],
       "notes": "Si corre al circuito di Misano Adriatico, in provincia di Rimini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -824,7 +824,7 @@
         "tennis"
       ],
       "notes": "Dal 2020 la Fed Cup si chiama Billie Jean King Cup",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -845,7 +845,7 @@
         "motociclismo"
       ],
       "notes": "Jorge Martín fu campione MotoGP 2024 davanti a Bagnaia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -866,7 +866,7 @@
         "motociclismo"
       ],
       "notes": "Tredici dei quindici titoli di Agostini arrivarono con la MV Agusta, due con la Yamaha",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -887,7 +887,7 @@
         "ciclismo"
       ],
       "notes": "Francesco Moser vinse la Roubaix nel 1978, 1979 e 1980",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -909,7 +909,7 @@
         "soprannomi"
       ],
       "notes": "\"El Diablo\" era Claudio Chiappucci; Pantani era \"il Pirata\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -931,7 +931,7 @@
         "serie-a"
       ],
       "notes": "Bologna-Inter 2-0 nello spareggio dell'Olimpico, 7 giugno 1964",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -953,7 +953,7 @@
         "mondiali"
       ],
       "notes": "Il record di Zenga finì con il gol di Caniggia in semifinale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -975,7 +975,7 @@
         "trabocchetto"
       ],
       "notes": "La squadra nacque a Chicago a fine anni Venti; \"Harlem\" fu scelto per richiamare il quartiere afroamericano di New York",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -997,7 +997,7 @@
         "trabocchetto"
       ],
       "notes": "Dal 1977 la corsa parte da Compiègne, a nord di Parigi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1019,7 +1019,7 @@
         "arbitri"
       ],
       "notes": "Sergio Gonella arbitrò Argentina-Olanda a Buenos Aires",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1042,7 +1042,7 @@
         "stadi"
       ],
       "notes": "Il De Simone è lo stadio del Siracusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1064,7 +1064,7 @@
         "atletica"
       ],
       "notes": "La prima maratona olimpica femminile la vinse Joan Benoit a Los Angeles 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1085,7 +1085,7 @@
         "olimpiadi"
       ],
       "notes": "Dal 2021 il motto è \"Citius, Altius, Fortius - Communiter\" (insieme)",
-      "verified": false
+      "verified": true
     }
   ]
 }

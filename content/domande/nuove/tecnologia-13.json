@@ -22,7 +22,7 @@
         "loghi"
       ],
       "notes": "Carlo Abarth scelse lo scorpione, il suo segno zodiacale.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "italia"
       ],
       "notes": "Il Telepass è il sistema di pagamento automatico del pedaggio sulle autostrade italiane.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "social"
       ],
       "notes": "Il 21 marzo 2006 Dorsey scrisse: just setting up my twttr.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "videogiochi"
       ],
       "notes": "Guitar Hero (2005) usava un controller a forma di chitarra.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "italia"
       ],
       "notes": "Alitalia cessò i voli il 14 ottobre 2021; il giorno dopo partì ITA Airways.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "italia"
       ],
       "notes": "Italo, dei treni NTV, viaggia dal 2012; il Frecciarossa è di Trenitalia.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "casa"
       ],
       "notes": "Norme CEI: conduttore di protezione giallo-verde, neutro blu, fase marrone, nero o grigio.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "loghi"
       ],
       "notes": "Volk = popolo, Wagen = vettura.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "telefoni"
       ],
       "notes": "Il Motorola Razr V3 uscì nel 2004.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,11 +216,11 @@
         "musica"
       ],
       "notes": "Circa 74 minuti: secondo la Sony, per contenere la Nona di Beethoven.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Dal 2021, qual è la classe migliore sull'etichetta energetica europea degli elettrodomestici?",
+      "text": "Dal 2021, qual è la classe migliore sulla nuova etichetta energetica europea di frigoriferi e lavatrici?",
       "category": "Tecnologia",
       "difficulty": 3,
       "presenter": "professore",
@@ -237,8 +237,8 @@
         "casa",
         "trabocchetto"
       ],
-      "notes": "Dal marzo 2021 la scala va da A a G: le classi con i più sono state abolite.",
-      "verified": false
+      "notes": "Dal marzo 2021 frigoriferi, lavatrici, lavastoviglie e TV hanno la scala da A a G: le classi con i più sono state abolite.",
+      "verified": true
     },
     {
       "type": "single",
@@ -259,7 +259,7 @@
         "tv"
       ],
       "notes": "La parabola concentra il segnale televisivo che arriva dai satelliti.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -281,7 +281,7 @@
         "trabocchetto"
       ],
       "notes": "Su richiesta del governo francese il motore della Otto fu fatto andare a olio di arachidi.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -303,7 +303,7 @@
         "italia"
       ],
       "notes": "Aeroporto di Pisa Galileo Galilei; Firenze è Amerigo Vespucci, Fiumicino Leonardo da Vinci.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -326,7 +326,7 @@
         "trabocchetto"
       ],
       "notes": "La Nuova 500 di Dante Giacosa aveva il motore bicilindrico posteriore.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "internet"
       ],
       "notes": "Twitch, nato nel 2011, ha un logo viola.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -368,7 +368,7 @@
         "auto"
       ],
       "notes": "Il radiatore disperde il calore del liquido di raffreddamento del motore.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -389,7 +389,7 @@
         "internet"
       ],
       "notes": "La navigazione in incognito (o privata) non salva cronologia e cookie della sessione.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -410,7 +410,7 @@
         "stampa"
       ],
       "notes": "CMYK = ciano, magenta, giallo e key (nero).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -432,7 +432,7 @@
         "italia"
       ],
       "notes": "Le schede telefoniche della SIP e poi di Telecom sostituirono i gettoni.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -453,7 +453,7 @@
         "informatica"
       ],
       "notes": "Alt+F4 chiude la finestra attiva; Alt+Tab passa da una finestra all'altra.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -474,7 +474,7 @@
         "musica"
       ],
       "notes": "Il MiniDisc fu introdotto da Sony nel 1992.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -496,7 +496,7 @@
         "italia"
       ],
       "notes": "Virgilio fu lanciato nel 1996 come motore di ricerca e portale.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -518,7 +518,7 @@
         "trabocchetto"
       ],
       "notes": "Stamp (Print Screen) copia negli appunti l'immagine dello schermo, non stampa.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -539,7 +539,7 @@
         "app"
       ],
       "notes": "Il logo di Telegram è un aeroplanino di carta bianco su sfondo azzurro.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -561,7 +561,7 @@
         "italia"
       ],
       "notes": "Chiariglione fondò l'MPEG con Hiroshi Yasuda nel 1988; da lì nacque anche l'MP3.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -582,7 +582,7 @@
         "informatica"
       ],
       "notes": "Ctrl+F apre la funzione Trova nella pagina.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -604,7 +604,7 @@
         "italia"
       ],
       "notes": "Il 3 maggio 2015 sulla ISS con la macchina ISSpresso di Argotec e Lavazza.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -626,7 +626,7 @@
         "musica"
       ],
       "notes": "La Nokia Tune riprende alcune battute del Gran Vals di Tárrega (1902).",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -647,7 +647,7 @@
         "aerei"
       ],
       "notes": "Air Force One è il nominativo radio dell'aereo che trasporta il presidente USA.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -669,13 +669,13 @@
         "anni ottanta"
       ],
       "notes": "Mangianastri era il nome comune del lettore e registratore di musicassette.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Quale azienda ligure produceva pellicole fotografiche e cinematografiche famose in tutta Italia?",
       "category": "Tecnologia",
-      "difficulty": 4,
+      "difficulty": 3,
       "presenter": "palmino",
       "answers": [
         "Ferrania",
@@ -691,7 +691,7 @@
         "italia"
       ],
       "notes": "La Ferrania, a Cairo Montenotte (Savona), produsse pellicole per tutto il Novecento.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -712,7 +712,7 @@
         "internet"
       ],
       "notes": "Il celebre uh-oh era il segnale di ICQ, nato nel 1996.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -733,7 +733,7 @@
         "smartphone"
       ],
       "notes": "Roaming: uso del cellulare sulla rete di un operatore estero.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -754,7 +754,7 @@
         "invenzioni"
       ],
       "notes": "Gillette brevettò il rasoio di sicurezza con lamette sostituibili nel 1904.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -776,7 +776,7 @@
         "trabocchetto"
       ],
       "notes": "Il mouse del Macintosh del 1984 aveva un solo pulsante.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -797,7 +797,7 @@
         "tv"
       ],
       "notes": "La smart TV si collega alla rete e usa app come quelle dello streaming.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -818,7 +818,7 @@
         "videogiochi"
       ],
       "notes": "In Mario Kart (dal 1992) si lanciano gusci verdi e rossi agli avversari.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -840,7 +840,7 @@
         "geografia"
       ],
       "notes": ".tv è il dominio nazionale di Tuvalu; Tonga ha .to, Togo .tg, Tanzania .tz.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -862,7 +862,7 @@
         "storia"
       ],
       "notes": "Enigma fu violata dai crittografi polacchi e poi a Bletchley Park; Colossus e Bomba erano macchine britanniche.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -883,7 +883,7 @@
         "internet"
       ],
       "notes": "Bing è il motore di ricerca di Microsoft, nato nel 2009.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -905,7 +905,7 @@
         "trabocchetto"
       ],
       "notes": "Gli aerei di linea hanno il registratore delle voci in cabina e quello dei dati di volo, senza video.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -927,7 +927,7 @@
         "italia"
       ],
       "notes": "L'elicottero a vapore di Forlanini si alzò di circa 13 metri a Milano nel 1877.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -949,7 +949,7 @@
         "trabocchetto"
       ],
       "notes": "La stazza è una misura di volume; il peso della nave è il dislocamento.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -970,7 +970,7 @@
         "treni"
       ],
       "notes": "Scartamento ordinario 1435 mm; 1520 è russo, 1668 iberico, 1000 lo scartamento ridotto metrico.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -992,7 +992,7 @@
         "sicilia"
       ],
       "notes": "I Laboratori Nazionali del Sud dell'INFN sono a Catania.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1013,7 +1013,7 @@
         "musica"
       ],
       "notes": "Hi-Fi = High Fidelity, alta fedeltà di riproduzione del suono.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1034,7 +1034,7 @@
         "social"
       ],
       "notes": "LinkedIn, nato nel 2003, è il social network professionale.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1055,7 +1055,7 @@
         "auto"
       ],
       "notes": "4x4 indica la trazione integrale: il motore spinge tutte e quattro le ruote.",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1076,7 +1076,7 @@
         "app"
       ],
       "notes": "Il logo di Snapchat è un fantasmino bianco su giallo.",
-      "verified": false
+      "verified": true
     }
   ]
 }

@@ -22,7 +22,7 @@
         "avventura"
       ],
       "notes": "Il rafting è la discesa delle rapide su un gommone con pagaie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "sport-invernali"
       ],
       "notes": "Nel curling si lanciano stone di granito verso un bersaglio sul ghiaccio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "regole"
       ],
       "notes": "Il secondo cartellino giallo nella stessa gara comporta il rosso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "spagna"
       ],
       "notes": "El Clásico è la sfida tra Real Madrid e Barcellona; le altre sono derby cittadini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "sport-acquatici"
       ],
       "notes": "Il windsurf unisce tavola e vela; è olimpico dal 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "sport-acquatici"
       ],
       "notes": "La pallanuoto si gioca in acqua tra due squadre con porte alle estremità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "serie-a"
       ],
       "notes": "Il Milan è la squadra rossonera dal 1899",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "serie-a"
       ],
       "notes": "Roma-Lazio è il derby della Capitale; la Madonnina è Milan-Inter, la Mole Juventus-Torino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "mondiali"
       ],
       "notes": "I Mondiali 2014 si giocarono in Brasile e li vinse la Germania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -217,7 +217,7 @@
         "pallavolo"
       ],
       "notes": "Paola Egonu, opposto della nazionale, oro olimpico a Parigi 2024",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "formula-1"
       ],
       "notes": "Sebastian Vettel fu campione con la Red Bull dal 2010 al 2013",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "inghilterra"
       ],
       "notes": "L'Arsenal nacque tra gli operai dell'arsenale di Woolwich: da qui il cannone nello stemma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -282,7 +282,7 @@
         "regole"
       ],
       "notes": "I supplementari sono due tempi da 15 minuti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -304,7 +304,7 @@
         "allenatori"
       ],
       "notes": "Ancelotti l'ha vinta con il Milan (2003, 2007) e con il Real Madrid (2014, 2022, 2024)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -326,7 +326,7 @@
         "arbitri"
       ],
       "notes": "Collina arbitrò Germania-Brasile a Yokohama nel 2002; Rizzoli diresse quella del 2014",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "tennis"
       ],
       "notes": "L'Australian Open si gioca a Melbourne Park",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -369,7 +369,7 @@
         "regole"
       ],
       "notes": "Sul 6-6 il set si decide al tie-break",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -390,7 +390,7 @@
         "formula-1"
       ],
       "notes": "Due con la Benetton (1994-95) e cinque con la Ferrari (2000-2004)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -411,7 +411,7 @@
         "formula-1"
       ],
       "notes": "Suzuka ospita il Gran Premio del Giappone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -432,7 +432,7 @@
         "ciclismo"
       ],
       "notes": "La maglia iridata, bianca con le strisce dei colori dell'arcobaleno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -453,7 +453,7 @@
         "atletica"
       ],
       "notes": "La mezza maratona misura 21,0975 km, metà della maratona",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -474,7 +474,7 @@
         "nuoto"
       ],
       "notes": "La vasca corta misura 25 metri, quella olimpionica 50",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -495,7 +495,7 @@
         "sci"
       ],
       "notes": "Lo slalom speciale ha le porte più ravvicinate di tutte le specialità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -513,11 +513,10 @@
         2
       ],
       "tags": [
-        "olimpiadi",
-        "trabocchetto"
+        "olimpiadi"
       ],
       "notes": "Pechino ha ospitato i Giochi estivi del 2008 e quelli invernali del 2022",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -539,7 +538,7 @@
         "mondiali"
       ],
       "notes": "USA 1994, finale persa dall'Italia ai rigori con il Brasile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -560,7 +559,7 @@
         "tennis"
       ],
       "notes": "Nadal vinse il Roland Garros 14 volte tra il 2005 e il 2022; si è ritirato nel 2024",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -582,7 +581,7 @@
         "trabocchetto"
       ],
       "notes": "I due anelli centrali del bersaglio sono gialli (oro), poi rosso, blu, nero e bianco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -603,7 +602,7 @@
         "formula-1"
       ],
       "notes": "Mika Häkkinen fu campione nel 1998 e 1999 con la McLaren-Mercedes",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -624,7 +623,7 @@
         "motori"
       ],
       "notes": "Il \"British racing green\"; l'Italia correva in rosso, la Francia in blu",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -646,7 +645,7 @@
         "giro-d-italia"
       ],
       "notes": "Il Giro si corre in 21 tappe in tre settimane, con due giorni di riposo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -668,7 +667,7 @@
         "olimpiadi"
       ],
       "notes": "Paltrinieri vinse l'oro, Detti il bronzo nella stessa gara",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -690,7 +689,7 @@
         "stadi"
       ],
       "notes": "Il Tardini è lo stadio del Parma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -712,7 +711,7 @@
         "soprannomi"
       ],
       "notes": "Il grifone è il simbolo del Genoa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -734,7 +733,7 @@
         "coppe-europee"
       ],
       "notes": "La Grande Inter di Helenio Herrera vinse due Coppe dei Campioni di fila",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -756,7 +755,7 @@
         "mondiali"
       ],
       "notes": "Materazzi pareggiò di testa il rigore di Zidane; finì 1-1 e l'Italia vinse ai rigori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -779,7 +778,7 @@
         "trabocchetto"
       ],
       "notes": "Si gioca al meglio dei cinque set: vince chi ne conquista tre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -801,7 +800,7 @@
         "trabocchetto"
       ],
       "notes": "Il CIO ha sede a Losanna, in Svizzera, dal 1915",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -822,11 +821,11 @@
         "tennis"
       ],
       "notes": "Federer vinse Wimbledon 8 volte (2003-2007, 2009, 2012, 2017); si è ritirato nel 2022",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Chi fu il primo italiano a vincere un torneo del Grande Slam, al Roland Garros del 1959?",
+      "text": "Chi fu il primo italiano a vincere un torneo del Grande Slam in singolare, al Roland Garros del 1959?",
       "category": "Sport",
       "difficulty": 4,
       "presenter": "palmino",
@@ -834,7 +833,7 @@
         "Adriano Panatta",
         "Corrado Barazzutti",
         "Nicola Pietrangeli",
-        "Orlando Sirola"
+        "Fausto Gardini"
       ],
       "correct": [
         2
@@ -842,8 +841,8 @@
       "tags": [
         "tennis"
       ],
-      "notes": "Pietrangeli vinse a Parigi nel 1959 e nel 1960",
-      "verified": false
+      "notes": "Pietrangeli vinse il singolare a Parigi nel 1959 e nel 1960; nel 1959 vinse anche il doppio con Orlando Sirola",
+      "verified": true
     },
     {
       "type": "single",
@@ -865,7 +864,7 @@
         "trabocchetto"
       ],
       "notes": "Il Monte-Carlo Country Club è nel comune francese di Roquebrune-Cap-Martin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -887,7 +886,7 @@
         "giro-d-italia"
       ],
       "notes": "Coppi vinse il Giro nel 1940, 1947, 1949, 1952 e 1953",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -909,7 +908,7 @@
         "olimpiadi"
       ],
       "notes": "Paolo Bettini, oro nella prova in linea di Atene 2004",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -930,7 +929,7 @@
         "atletica"
       ],
       "notes": "Nei 110 hs (come nei 100 e 400 hs) gli ostacoli sono dieci",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -952,7 +951,7 @@
         "serie-a"
       ],
       "notes": "Primo scudetto viola nel 1955-56, il secondo nel 1968-69",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -974,7 +973,7 @@
         "mondiali"
       ],
       "notes": "Italia-Germania Ovest 3-1: Rossi, Tardelli e Altobelli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -997,7 +996,7 @@
         "trabocchetto"
       ],
       "notes": "Nella NBA si esce al sesto fallo; con le regole FIBA al quinto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1019,7 +1018,7 @@
         "storia"
       ],
       "notes": "L'Inter, fondata nel 1908, vinse il campionato 1909-10",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1040,7 @@
         "mondiali"
       ],
       "notes": "Italia-Cecoslovacchia 2-1: Orsi pareggiò, Schiavio segnò ai supplementari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1062,7 @@
         "firenze"
       ],
       "notes": "Nel calcio storico ogni squadra schiera 27 \"calcianti\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1085,7 +1084,7 @@
         "trabocchetto"
       ],
       "notes": "Nono e decimo dan portano la cintura rossa, non la nera",
-      "verified": false
+      "verified": true
     }
   ]
 }
