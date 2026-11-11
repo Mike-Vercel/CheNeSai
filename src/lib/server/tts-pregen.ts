@@ -101,7 +101,9 @@ export async function sessionLines(db: Db, sessionId: string): Promise<SpokenLin
     if (r.kind === "category_wheel") for (const o of r.voteOptions) out.push(wheelResultLine(o.label));
     for (const q of r.questions) {
       if (!q.questionId && !q.fromSnapshot) continue;
-      if (!q.isReserve || !q.wheelCandidate) questionCount++;
+      questionCount++;
+      // segnaposto di una Ruota di Palmino ancora da girare: quasi mai si gioca (la sostituisce la ruota)
+      if (r.palminoSlotSqId === q.id) continue;
       out.push(...questionScriptLines(scriptQuestionFromCms(q)));
     }
   });

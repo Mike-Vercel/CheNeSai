@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DEFAULT_PREFS } from "@/features/display/tv-prefs";
-import { PHASE_LABELS } from "@/lib/game-engine/transitions";
+import { phaseLabelOf } from "@/lib/game-engine/transitions";
 import type { PublicState } from "@/lib/game-engine/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick";
@@ -284,7 +284,7 @@ export function PhoneRemote({ sessionId, displayKey, canCreateMore, host }: { se
           <Link href="/gioca" className="text-sm font-bold text-white/65 hover:text-white">
             ← Nuova partita
           </Link>
-          <h1 className="mt-0.5 font-display text-4xl leading-none">{view ? PHASE_LABELS[view.phase] : "Collegamento…"}</h1>
+          <h1 className="mt-0.5 font-display text-4xl leading-none">{view ? phaseLabelOf(view) : "Collegamento…"}</h1>
           <p className="mt-1 text-sm font-bold text-white/70">
             Codice <span className="font-display tracking-[0.14em] text-gold">{view?.code ?? "……"}</span>
             {progress ? ` · ${progress}` : ""}

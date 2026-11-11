@@ -66,6 +66,33 @@ Le risposte usano `FOR SHARE` sullo stato: non possono "scavalcare" una chiusura
   orario passato) e un `commandId` deterministico per (sessione, versione): più client insieme → un solo passo.
 - Errori del passo (es. `TIE_NEEDS_ADMIN`) fermano l'automatico con un motivo mostrato in regia.
 
+### Ruota di Palmino
+
+Ogni tanto, fra una domanda e l'altra, Palmino gira una ruota che sceglie la categoria della domanda
+successiva (partite libere: sempre; serate della regia: opzione «Ruota di Palmino» nelle regole, spenta di default).
+
+- **Piano** (puro, `src/lib/game-engine/palmino-wheel.ts`, seme = id della serata): mai prima della 5ª domanda,
+  mai sulla prima di un round né sull'ultima della serata, al massimo una per round e 2 per serata (3 da 20
+  domande), mai due di fila, ~25% per domanda ammessa, solo nei round normali.
+- **Alla pubblicazione** (`publishSessionTx` → `planPalminoWheelsTx`, serata ancora in bozza): per ogni posto
+  6–8 categorie con UNA domanda candidata ciascuna, scelta con le regole del compositore (prima le mai viste da
+  questo host / mai giocate, fascia di difficoltà del segnaposto), inserite nel round come riserve
+  `wheel_candidate`. Così hanno la loro copia congelata come tutte le altre: dopo la pubblicazione non si
+  inserisce mai nulla (il blocco `SESSION_FROZEN` vieta INSERT/DELETE di domande e round). Piano in
+  `game_rounds.palmino_wheel`.
+- **Giro** (comando MOSTRA DOMANDA dopo i punti, sotto il lucchetto della partita): se la prossima domanda è il
+  segnaposto, il server estrae lo spicchio (casualità crittografica), salva il giro in `wheel_spun_at`/`wheel_spin`
+  del round (come la Ruota impazzita, con 4,2 s di anticipo per l'arrivo di Palmino) e SCAMBIA posizione e
+  "riserva" fra vincente e segnaposto (UPDATE, consentito). Fase `WHEEL_SPIN` con `wheel.kind = "palmino"`;
+  il MOSTRA DOMANDA successivo mostra la domanda scelta come una qualunque: numerazione, conteggi, registro
+  `question_plays` (anche per l'host) dal trigger su `shown_at`. Le candidate perdenti restano riserve mai giocate.
+- Azzeramento della prova, copia della serata, annullamento della pubblicazione e domanda misteriosa
+  conoscono le candidate (`resetPalminoWheelsTx`, `clearPalminoWheelsTx`, filtri `wheel_candidate`).
+- Show: `TvPalminoWheel.tsx` (TV 16:9 e verticale): Palmino arriva e dà il colpo (clip 3D `spin`, salto in 2D)
+  `PALMINO_SWING_CONTACT_MS` prima della partenza; la ruota usa `useWheelRotor` (tic, frenata, "Tocca a… X!",
+  frase fissa per categoria preparata con le voci della serata). Il TV dice "ho finito" (`/spoken`) solo a
+  ruota ferma e battuta detta. Anteprima: `/preview/ruota-palmino`.
+
 ## Tempo
 
 - `answers_close_at = clock_timestamp() + durata` calcolato dal DB all'apertura.

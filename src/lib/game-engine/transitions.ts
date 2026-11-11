@@ -185,3 +185,8 @@ export const PHASE_LABELS: Record<GamePhase, string> = {
   PAUSED: "In pausa",
   FINISHED: "Terminata",
 };
+
+/** Etichetta della fase per lo stato pubblico: la ruota fra una domanda e l'altra è la Ruota di Palmino. */
+export function phaseLabelOf(s: { phase: GamePhase; wheel?: { kind?: string } | null }): string {
+  return s.phase === "WHEEL_SPIN" && s.wheel?.kind === "palmino" ? "Ruota di Palmino" : PHASE_LABELS[s.phase];
+}

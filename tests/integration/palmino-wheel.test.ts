@@ -9,6 +9,8 @@ import { buildPublicState } from "@/lib/server/public-state";
 import { getAdminLiveState } from "@/lib/server/admin-live";
 import { GameError } from "@/lib/game-engine/types";
 import type { StoredPalminoWheel } from "@/lib/game-engine/palmino-wheel";
+import { sessionLines } from "@/lib/server/tts-pregen";
+import { palminoWheelResultLine } from "@/features/game/script";
 import { cleanupSession, cmd, makeQuestion, TEST_ACTOR } from "../support/fixtures";
 
 /**
@@ -116,6 +118,16 @@ describe("partita libera con la Ruota di Palmino", () => {
     const detail = await getSessionDetail(sql, sessionId);
     expect(detail!.questions).toBe(12);
     expect(detail!.roundsDetail.flatMap((r) => r.questions).filter((q) => q.wheelCandidate)).toEqual([]);
+  });
+
+  it("voci della serata: 'Tocca a… X!' per ogni spicchio, niente candidate né segnaposto da preparare", async () => {
+    const lines = await sessionLines(sql, sessionId);
+    const texts = new Set(lines.map((l) => l.text));
+    for (const seg of wheel.segments) expect(texts.has(palminoWheelResultLine(seg.label).text)).toBe(true);
+    const snaps = await sql<{ id: string; text: string }[]>`
+      select sq.id, qs.text from session_questions sq join question_snapshots qs on qs.session_question_id = sq.id
+      where sq.session_id = ${sessionId} and (sq.wheel_candidate or sq.id = ${wheel.slotSqId})`;
+    for (const q of snaps) expect(lines.some((l) => l.text.includes(q.text))).toBe(false);
   });
 
   it("dopo i punti della 4ª domanda MOSTRA DOMANDA fa girare la ruota (una volta sola, anche con comandi insieme)", async () => {

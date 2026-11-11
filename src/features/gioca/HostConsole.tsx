@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import QRCode from "qrcode";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { isTvScreenMessage, tvChannelName, type TvScreenMessage } from "@/features/display/screen-picker";
-import { PHASE_LABELS } from "@/lib/game-engine/transitions";
+import { phaseLabelOf } from "@/lib/game-engine/transitions";
 import type { PublicState } from "@/lib/game-engine/types";
 import { api } from "@/lib/realtime/api-client";
 import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick";
@@ -114,7 +114,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
           <Link href="/profilo" className="text-sm font-bold text-white/70 hover:text-white">
             ← Le tue partite
           </Link>
-          <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">{view ? PHASE_LABELS[view.phase] : "Collegamento…"}</h1>
+          <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">{view ? phaseLabelOf(view) : "Collegamento…"}</h1>
           <p className="mt-0.5 text-base font-bold text-white/75">
             {view?.title}
             {progress ? ` · ${progress}` : ""}

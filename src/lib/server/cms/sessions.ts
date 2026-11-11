@@ -115,6 +115,8 @@ export interface RoundDetail {
   comebackLeaderPenalty: number;
   winningOptionId: string | null;
   startedAt: string | null;
+  /** Ruota di Palmino ancora da girare in questo round: la domanda segnaposto che verrà sostituita */
+  palminoSlotSqId?: string | null;
   questions: SessionQuestionItem[];
 }
 
@@ -239,6 +241,8 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       comeback_leader_penalty: string;
       winning_option_id: string | null;
       started_at: Date | null;
+      palmino_wheel: { slotSqId: string } | null;
+      wheel_spun_at: Date | null;
     }[]
   >`select * from game_rounds where session_id = ${id} order by position`;
 
@@ -330,6 +334,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
     comebackLeaderPenalty: num(r.comeback_leader_penalty),
     winningOptionId: r.winning_option_id,
     startedAt: iso(r.started_at),
+    palminoSlotSqId: r.palmino_wheel && !r.wheel_spun_at ? r.palmino_wheel.slotSqId : null,
     questions: questions
       .filter((q) => q.round_id === r.id)
       .map((q) => ({
