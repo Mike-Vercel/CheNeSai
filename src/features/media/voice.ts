@@ -104,15 +104,22 @@ class VoiceEngine {
     this.creds = { s: sessionId, k: displayKey };
   }
 
+  /** true quando si sa se la voce professionale è attiva (prima di allora le battute aspettano). */
+  private providerKnown = false;
+  private providerReady: Promise<void> = Promise.resolve();
+
   init() {
     if (typeof window !== "undefined") {
-      void fetch("/api/tts?status=1", { cache: "no-store" })
+      this.providerReady = fetch("/api/tts?status=1", { cache: "no-store" })
         .then((r) => (r.ok ? r.json() : null))
         .then((j: { provider?: string } | null) => {
           if (j?.provider === "elevenlabs") this.provider = "elevenlabs";
         })
-        .catch(() => undefined);
-    }
+        .catch(() => undefined)
+        .finally(() => {
+          this.providerKnown = true;
+        });
+    } else this.providerKnown = true;
     if (!this.supported) return;
     const load = () => {
       this.voices = window.speechSynthesis.getVoices().filter((v) => v.lang.toLowerCase().startsWith("it"));
@@ -216,10 +223,16 @@ class VoiceEngine {
    * `live` = battuta con nickname/punteggi (modello veloce lato server).
    */
   say(who: TtsRole, text: string, opts: { live?: boolean } = {}): Promise<void> {
-    if ((!this.supported && this.provider === "browser") || !this.settings.enabled || !text.trim()) return Promise.resolve();
+    if (!this.settings.enabled || !text.trim()) return Promise.resolve();
+    if (this.providerKnown && !this.supported && this.provider === "browser") return Promise.resolve();
     return new Promise((resolve) => {
-      this.queue.push({ who, text, resolve, prefetch: this.prefetchClip(who, text, !!opts.live) });
-      this.pump();
+      const enqueue = () => {
+        this.queue.push({ who, text, resolve, prefetch: this.prefetchClip(who, text, !!opts.live) });
+        this.pump();
+      };
+      // finché non si sa se c'è ElevenLabs si aspetta (massimo 4 s): mai la voce del browser per sbaglio
+      if (this.providerKnown) enqueue();
+      else void Promise.race([this.providerReady, new Promise((r) => setTimeout(r, 4000))]).then(enqueue);
     });
   }
 
@@ -311,6 +324,8 @@ class VoiceEngine {
           return;
         }
         if (url) this.playRecorded(line, url);
+        // con la voce professionale attiva mai la voce del browser: la battuta resta come sottotitolo
+        else if (this.provider === "elevenlabs") this.holdSilent(line);
         else if (this.supported) this.speakBrowser(line);
         else this.finishItem(line.resolve);
       });
@@ -381,6 +396,23 @@ class VoiceEngine {
     el.onended = () => done(false);
     el.onerror = () => done(true);
     void el.play().catch(() => done(true));
+  }
+
+  /** Battuta senza audio (clip non disponibile): presentatore "in scena" e sottotitolo per il tempo di lettura. */
+  private holdSilent(next: { who: TtsRole; text: string; resolve: () => void }) {
+    const my = ++this.turn;
+    this.setSpeaking(mouthOf(next.who), true, next.text);
+    const ms = Math.min(9000, 1200 + stripAudioTags(next.text).length * 60);
+    setTimeout(() => {
+      if (my !== this.turn) {
+        next.resolve();
+        return;
+      }
+      this.busy = false;
+      this.setSpeaking(null);
+      next.resolve();
+      setTimeout(() => this.pump(), 120);
+    }, ms);
   }
 
   private speakBrowser(next: { who: TtsRole; text: string; resolve: () => void }) {

@@ -14,7 +14,10 @@ function createClient(): postgres.Sql {
   if (!url) throw new Error("DATABASE_URL non configurata");
   return postgres(url, {
     prepare: false,
-    max: Number(process.env.DATABASE_POOL_MAX ?? 5),
+    // Mai meno di 10 per istanza: su Vercel una stessa istanza serve in parallelo TV, telefoni e
+    // passi automatici; con 3 collegamenti un comando in transazione che chiede un'altra query
+    // poteva aspettare per sempre un collegamento libero (partita bloccata).
+    max: Math.max(10, Number(process.env.DATABASE_POOL_MAX ?? 10) || 10),
     idle_timeout: 20,
     connect_timeout: 10,
     connection: { application_name: "quizzone" },

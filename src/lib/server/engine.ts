@@ -109,6 +109,10 @@ interface RunOptions {
 async function runCommand(sessionId: string, actor: Actor, input: CommandInput, onFrom: (phase: GamePhase) => void, opts: RunOptions = {}): Promise<CommandResult> {
   const sql = getSql();
   return sql.begin(async (tx) => {
+    // Nessun comando può restare appeso: attesa del lock breve (per i passi automatici brevissima:
+    // se un altro client lo sta già eseguendo si rinuncia) e tetto alla durata di ogni istruzione.
+    await tx.unsafe(`set local lock_timeout = '${opts.auto ? "1500ms" : "5s"}'`);
+    await tx.unsafe(`set local statement_timeout = '20s'`);
     const st = await loadStateRow(tx, sessionId, "update");
     if (!st) throw new GameError("NOT_FOUND", "Sessione non trovata o non pubblicata");
     onFrom(st.phase);
@@ -242,6 +246,8 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
       waiting: null,
     };
   } catch (e) {
+    // lock occupato: un altro client (TV o console) sta già eseguendo il passo
+    if (isLockTimeout(e)) return { ...idle(), nextAt: null, version: null };
     if (!(e instanceof GameError)) throw e;
     // un altro client l'ha già eseguito, la regia ha cambiato qualcosa o non è più dovuto: niente da fare
     if (e.code === "AUTO_NOT_DUE" || e.code === "VERSION_CONFLICT") return { ...idle(), nextAt: null, version: null };
@@ -253,6 +259,10 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
     await markAutoWaiting(sql, sessionId, version, reason);
     return { advanced: false, command, nextAt: null, version: null, waiting: reason };
   }
+}
+
+function isLockTimeout(e: unknown): boolean {
+  return typeof e === "object" && e !== null && (e as { code?: string }).code === "55P03";
 }
 
 /** Ripubblica lo stato corrente (es. dopo una modifica collaterale). */
