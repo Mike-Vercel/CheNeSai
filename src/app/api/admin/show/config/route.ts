@@ -10,6 +10,7 @@ const schema = z.object({
   maxLines: z.number().int().min(0).max(3).optional(),
   maxMentionsPerPlayerPerRound: z.number().int().min(1).max(20).optional(),
   events: z.array(z.enum(SHOW_EVENT_TYPES)).optional(),
+  banterPercent: z.number().int().min(0).max(100).optional(),
 });
 
 /** Regia automatica dei presentatori: lettura (anche operatori, per la diretta) e modifica (admin). */

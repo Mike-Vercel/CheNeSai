@@ -38,7 +38,19 @@ export type ShowEvent =
   /** inizio del round finale: primo e secondo della classifica ufficiale */
   | { type: "FINAL_ROUND_START"; leader: PlayerRef; runnerUp: PlayerRef; gap: number }
   | { type: "TEAM_LEADER_CHANGED"; team: TeamRef; previous: TeamRef; points: number }
-  | { type: "TEAM_ROUND_WINNER"; teams: TeamRef[]; points: number };
+  | { type: "TEAM_ROUND_WINNER"; teams: TeamRef[]; points: number }
+  /**
+   * Battibecco: un altro presentatore risponde alla battuta appena detta da `RETORT_<chi>`.
+   * Non nasce dalla classifica: lo aggiunge il regista dopo la prima battuta. `about` = il
+   * concorrente nominato nella battuta a cui si risponde (se c'è).
+   */
+  | { type: RetortEventType; about: PlayerRef | null };
+
+export const RETORT_EVENT_TYPES = ["RETORT_PROFESSORE", "RETORT_REGINA", "RETORT_PALMINO"] as const;
+export type RetortEventType = (typeof RETORT_EVENT_TYPES)[number];
+/** Evento di battibecco per rispondere a un presentatore. */
+export const retortEventFor = (who: Presenter): RetortEventType => `RETORT_${who.toUpperCase()}` as RetortEventType;
+export const isRetortEvent = (e: string): e is RetortEventType => (RETORT_EVENT_TYPES as readonly string[]).includes(e);
 
 export type ShowEventType = ShowEvent["type"];
 
@@ -61,6 +73,9 @@ export const SHOW_EVENT_TYPES = [
   "FINAL_ROUND_START",
   "TEAM_LEADER_CHANGED",
   "TEAM_ROUND_WINNER",
+  "RETORT_PROFESSORE",
+  "RETORT_REGINA",
+  "RETORT_PALMINO",
 ] as const satisfies readonly ShowEventType[];
 
 /** Segnaposto ammessi per ogni evento: le battute che ne usano altri vengono rifiutate. */
@@ -83,11 +98,18 @@ export const ALLOWED_PLACEHOLDERS: Record<ShowEventType, readonly string[]> = {
   FINAL_ROUND_START: ["nome_primo", "nome_secondo"],
   TEAM_LEADER_CHANGED: ["nome_squadra", "nome_ex_squadra"],
   TEAM_ROUND_WINNER: ["nome_squadra", "punti_squadra"],
+  RETORT_PROFESSORE: ["nome"],
+  RETORT_REGINA: ["nome"],
+  RETORT_PALMINO: ["nome"],
 };
 
 /** Importanza di base del momento (le battute possono alzarla o abbassarla). */
 export const EVENT_PRIORITY: Record<ShowEventType, number> = {
   TEAM_ROUND_WINNER: 92,
+  // i battibecchi non sono eventi della classifica: li aggiunge il regista dopo la prima battuta
+  RETORT_PROFESSORE: 0,
+  RETORT_REGINA: 0,
+  RETORT_PALMINO: 0,
   ROUND_WINNER: 90,
   TEAM_LEADER_CHANGED: 87,
   LEADER_CHANGED: 85,
@@ -148,6 +170,8 @@ export interface DirectorConfig {
   maxMentionsPerPlayerPerRound: number;
   /** eventi che possono generare battute (vuoto = tutti) */
   events: ShowEventType[];
+  /** probabilità (0-100) che un altro presentatore risponda alla prima battuta (battibecco) */
+  banterPercent: number;
 }
 
 export const DEFAULT_DIRECTOR_CONFIG: DirectorConfig = {
@@ -155,4 +179,5 @@ export const DEFAULT_DIRECTOR_CONFIG: DirectorConfig = {
   maxLines: 2,
   maxMentionsPerPlayerPerRound: 3,
   events: [],
+  banterPercent: 50,
 };

@@ -142,3 +142,61 @@ describe("regista e battute con i nomi veri", () => {
     expect(a).toEqual(b);
   });
 });
+
+describe("battibecchi tra presentatori", () => {
+  const lib = [
+    T("r1", "regina", "LEADER_CHANGED", "AMOOOORE, {nome_primo}!"),
+    T("p1", "palmino", "ALL_WRONG", "[laughs] Zero per tutti!"),
+    T("bp1", "professore", "RETORT_REGINA", "Regina, meno paillettes, più nozioni."),
+    T("bp2", "palmino", "RETORT_REGINA", "Regina, a {nome} ci penso io!"),
+    T("bx1", "regina", "RETORT_REGINA", "Mi rispondo da sola."),
+    T("bq1", "regina", "RETORT_PALMINO", "Palmino, un po' di contegno!"),
+  ];
+  const leader: ShowEvent = { type: "LEADER_CHANGED", leader: { id: "1", nickname: "Vodka" }, previous: { id: "2", nickname: "Gigi" }, points: 3000 };
+  const always = { ...DEFAULT_DIRECTOR_CONFIG, banterPercent: 100 };
+
+  it("con battibecco sempre attivo un altro presentatore risponde alla prima battuta", () => {
+    for (const seed of ["a", "b", "c", "d", "e", "f"]) {
+      const lines = directShow({ events: [leader, { type: "ALL_WRONG" }], templates: lib, history: empty(), config: always, nowMs: 0, seed });
+      expect(lines).toHaveLength(2);
+      expect(lines[0]).toMatchObject({ who: "regina", event: "LEADER_CHANGED" });
+      expect(lines[1].event).toBe("RETORT_REGINA");
+      expect(lines[1].who).not.toBe("regina"); // mai una risposta a se stessi
+      expect(lines[1].mentions).toEqual([]); // il nome era già stato detto
+      if (lines[1].who === "palmino") expect(lines[1].text).toBe("Regina, a Vodka ci penso io!");
+    }
+  });
+
+  it("i battibecchi non partono mai da soli e rispettano maxLines, probabilità ed eventi abilitati", () => {
+    // nessun evento della classifica = nessun battibecco
+    expect(directShow({ events: [], templates: lib, history: empty(), config: always, nowMs: 0, seed: "x" })).toHaveLength(0);
+    // una sola battuta per momento: niente spazio per rispondere
+    expect(directShow({ events: [leader], templates: lib, history: empty(), config: { ...always, maxLines: 1 }, nowMs: 0, seed: "x" })).toHaveLength(1);
+    // probabilità zero: si torna alla seconda battuta normale
+    const never = directShow({ events: [leader, { type: "ALL_WRONG" }], templates: lib, history: empty(), config: { ...always, banterPercent: 0 }, nowMs: 0, seed: "x" });
+    expect(never.map((l) => l.event)).toEqual(["LEADER_CHANGED", "ALL_WRONG"]);
+    // risposte alla Regina disattivate in regia
+    const off = directShow({ events: [leader], templates: lib, history: empty(), config: { ...always, events: ["LEADER_CHANGED"] }, nowMs: 0, seed: "x" });
+    expect(off).toHaveLength(1);
+  });
+
+  it("senza nomi nella battuta precedente si scartano le risposte che li usano", () => {
+    const palminoFirst = [T("p1", "palmino", "ALL_WRONG", "Zero per tutti!"), ...lib.filter((t) => t.event === "RETORT_PALMINO")];
+    const lines = directShow({ events: [{ type: "ALL_WRONG" }], templates: palminoFirst, history: empty(), config: always, nowMs: 0, seed: "y" });
+    expect(lines.map((l) => l.text)).toEqual(["Zero per tutti!", "Palmino, un po' di contegno!"]);
+  });
+
+  it("la libreria ha risposte per ogni presentatore, valide e senza \"tesori\"", async () => {
+    const { default: file } = await import("../../content/show/battute.json");
+    const retorts = (file.lines as { character: string; event: string; text: string }[]).filter((l) => l.event.startsWith("RETORT_"));
+    for (const to of ["PROFESSORE", "REGINA", "PALMINO"]) {
+      const mine = retorts.filter((l) => l.event === `RETORT_${to}`);
+      expect(mine.length).toBeGreaterThanOrEqual(8);
+      expect(mine.every((l) => l.character.toUpperCase() !== to)).toBe(true);
+    }
+    for (const l of retorts) {
+      expect(validateTemplate(l as Parameters<typeof validateTemplate>[0])).toEqual([]);
+      expect(l.text.toLowerCase()).not.toContain("tesor");
+    }
+  });
+});

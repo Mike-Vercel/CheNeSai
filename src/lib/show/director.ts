@@ -5,6 +5,8 @@
  *
  * - Eventi in ordine di importanza; al massimo `maxLines` battute per momento.
  * - Personaggi diversi per battute consecutive (piccolo dialogo), scelti dal peso delle battute.
+ * - Battibecco: con probabilità `banterPercent` un altro presentatore risponde alla prima battuta
+ *   (battute `RETORT_<chi>`, attivabili/disattivabili come gli altri eventi).
  * - Ogni battuta ha il suo cooldown; niente battute già usate di recente nella serata.
  * - Un concorrente non viene nominato più di N volte per round; mai due volte nello stesso momento.
  * - I segnaposto vengono risolti solo con dati del server; segnaposto sconosciuti → battuta scartata.
@@ -12,7 +14,17 @@
 import type { Presenter } from "@/lib/game-engine/types";
 import { cleanSpeech } from "@/features/game/script";
 import { eventPlayers, eventTeams } from "./events";
-import { ALLOWED_PLACEHOLDERS, EVENT_PRIORITY, type DialogueTemplate, type DirectorConfig, type ShowEvent, type ShowLine } from "./types";
+import {
+  ALLOWED_PLACEHOLDERS,
+  EVENT_PRIORITY,
+  isRetortEvent,
+  retortEventFor,
+  type DialogueTemplate,
+  type DirectorConfig,
+  type PlayerRef,
+  type ShowEvent,
+  type ShowLine,
+} from "./types";
 
 export interface DirectorHistory {
   /** ultimo utilizzo (ms epoch) di ogni battuta nella serata */
@@ -92,6 +104,10 @@ export function placeholderValues(e: ShowEvent): Record<string, string> {
       return { nome_squadra: teamNames([e.team]), nome_ex_squadra: teamNames([e.previous]) };
     case "TEAM_ROUND_WINNER":
       return { nome_squadra: teamNames(e.teams), punti_squadra: String(e.points) };
+    case "RETORT_PROFESSORE":
+    case "RETORT_REGINA":
+    case "RETORT_PALMINO":
+      return e.about ? { nome: names([e.about]) } : {};
     case "ALL_WRONG":
     case "ALL_CORRECT":
       return {};
@@ -129,10 +145,11 @@ function seeded(seed: string): number {
 }
 
 export function directShow(input: DirectInput): ShowLine[] {
-  const { config, history, nowMs } = input;
+  const { config, history } = input;
   if (!config.enabled || config.maxLines <= 0) return [];
   const allowedEvents = config.events.length ? new Set(config.events) : null;
   const events = input.events
+    .filter((e) => !isRetortEvent(e.type))
     .filter((e) => !allowedEvents || allowedEvents.has(e.type))
     .map((e, i) => ({ e, i, prio: EVENT_PRIORITY[e.type] }))
     .sort((a, b) => b.prio - a.prio || a.i - b.i);
@@ -153,31 +170,66 @@ export function directShow(input: DirectInput): ShowLine[] {
     if (!exempt && players.some((p) => (history.mentionsThisRound.get(p.id) ?? 0) >= config.maxMentionsPerPlayerPerRound)) continue;
 
     const lastWho: Presenter | null = lines.length ? lines[lines.length - 1].who : null;
-    const candidates = input.templates
-      .filter((t) => t.enabled && t.event === e.type && !usedTemplates.has(t.id))
-      .filter((t) => {
-        const last = history.lastUsed.get(t.id);
-        return last === undefined || nowMs - last >= t.cooldownSec * 1000;
-      })
-      .map((t) => ({ t, text: resolveTemplate(t, e) }))
-      .filter((c): c is { t: DialogueTemplate; text: string } => c.text !== null);
+    const candidates = candidatesFor(input, e, usedTemplates);
     if (candidates.length === 0) continue;
     // personaggio diverso dalla battuta precedente, se possibile
     const pool = lastWho && candidates.some((c) => c.t.character !== lastWho) ? candidates.filter((c) => c.t.character !== lastWho) : candidates;
-    const total = pool.reduce((a, c) => a + Math.max(0.1, c.t.weight), 0);
-    let r = seeded(`${input.seed}|${e.type}|${lines.length}`) * total;
-    let chosen = pool[pool.length - 1];
-    for (const c of pool) {
-      r -= Math.max(0.1, c.t.weight);
-      if (r <= 0) {
-        chosen = c;
-        break;
-      }
-    }
+    const chosen = pickWeighted(pool, `${input.seed}|${e.type}|${lines.length}`);
     lines.push({ templateId: chosen.t.id, event: e.type, who: chosen.t.character, text: chosen.text, animation: chosen.t.animation, mentions: players.map((p) => p.id) });
     usedTemplates.add(chosen.t.id);
     for (const p of players) mentionedNow.add(p.id);
     for (const t of teams) teamsNow.add(t.id);
+
+    // battibecco: dopo la prima battuta un altro presentatore può rispondere (e il momento finisce lì)
+    if (lines.length === 1 && lines.length < config.maxLines) {
+      const retort = pickRetort(input, chosen.t.character, players[0] ?? null, usedTemplates, allowedEvents);
+      if (retort) {
+        lines.push(retort);
+        break;
+      }
+    }
   }
   return lines;
+}
+
+type Candidate = { t: DialogueTemplate; text: string };
+
+/** Battute utilizzabili per un evento: attive, non già usate ora, fuori cooldown, segnaposto risolti. */
+function candidatesFor(input: DirectInput, e: ShowEvent, usedTemplates: Set<string>): Candidate[] {
+  return input.templates
+    .filter((t) => t.enabled && t.event === e.type && !usedTemplates.has(t.id))
+    .filter((t) => {
+      const last = input.history.lastUsed.get(t.id);
+      return last === undefined || input.nowMs - last >= t.cooldownSec * 1000;
+    })
+    .map((t) => ({ t, text: resolveTemplate(t, e) }))
+    .filter((c): c is Candidate => c.text !== null);
+}
+
+/** Scelta pesata e deterministica (stesso seme → stessa battuta). */
+function pickWeighted(pool: Candidate[], seed: string): Candidate {
+  const total = pool.reduce((a, c) => a + Math.max(0.1, c.t.weight), 0);
+  let r = seeded(seed) * total;
+  for (const c of pool) {
+    r -= Math.max(0.1, c.t.weight);
+    if (r <= 0) return c;
+  }
+  return pool[pool.length - 1];
+}
+
+/**
+ * Risposta di un altro presentatore alla battuta di `to` (battibecco), oppure null:
+ * dipende da `banterPercent`, dagli eventi abilitati in regia e dalle battute disponibili.
+ */
+function pickRetort(input: DirectInput, to: Presenter, about: PlayerRef | null, usedTemplates: Set<string>, allowedEvents: Set<string> | null): ShowLine | null {
+  const type = retortEventFor(to);
+  if (allowedEvents && !allowedEvents.has(type)) return null;
+  const chance = Math.min(100, Math.max(0, input.config.banterPercent ?? 0));
+  if (chance <= 0 || seeded(`${input.seed}|battibecco`) * 100 >= chance) return null;
+  const pool = candidatesFor(input, { type, about }, usedTemplates).filter((c) => c.t.character !== to);
+  if (pool.length === 0) return null;
+  const chosen = pickWeighted(pool, `${input.seed}|${type}`);
+  usedTemplates.add(chosen.t.id);
+  // il concorrente era già nominato dalla battuta a cui si risponde: niente menzione in più
+  return { templateId: chosen.t.id, event: type, who: chosen.t.character, text: chosen.text, animation: chosen.t.animation, mentions: [] };
 }
