@@ -1,7 +1,8 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
+import type { Group } from "three";
 import type { Presenter } from "@/lib/game-engine/types";
 import { getVoice } from "@/features/media/voice";
 import type { CharacterAnimation } from "./types";
@@ -21,20 +22,43 @@ export interface CastMember {
   position?: [number, number, number];
   rotationY?: number;
   scale?: number;
+  /** Cambiandolo il gesto richiesto riparte (es. nuova schermata con la stessa animazione). */
+  gestureKey?: string;
+  /** Spostamenti morbidi (~0.5 s) quando cambiano posizione, rotazione o scala (il trio che si riordina). */
+  glide?: boolean;
 }
 
-/** true quando il gesto richiesto è già stato fatto (riparte a ogni cambio di animazione). */
-function useGestureDone(animation: CharacterAnimation): boolean {
-  const [g, setG] = useState({ anim: animation, done: false });
+/** true quando il gesto richiesto è già stato fatto (riparte a ogni cambio di animazione o di chiave). */
+function useGestureDone(animation: CharacterAnimation, key = ""): boolean {
+  const [g, setG] = useState({ anim: animation, key, done: false });
   // nuovo gesto richiesto: si riparte (aggiornamento durante il render, schema consigliato da React)
-  if (g.anim !== animation) setG({ anim: animation, done: false });
+  if (g.anim !== animation || g.key !== key) setG({ anim: animation, key, done: false });
   useEffect(() => {
     const ms = GESTURE_MS[animation];
     if (!ms) return;
-    const t = setTimeout(() => setG((p) => (p.anim === animation ? { anim: animation, done: true } : p)), ms);
+    const t = setTimeout(() => setG((p) => (p.anim === animation && p.key === key ? { anim: animation, key, done: true } : p)), ms);
     return () => clearTimeout(t);
-  }, [animation]);
-  return g.anim === animation && g.done;
+  }, [animation, key]);
+  return g.anim === animation && g.key === key && g.done;
+}
+
+/** Contenitore che raggiunge con calma posizione, rotazione e scala richieste (trio che si riordina). */
+function Glide({ position, rotationY, scale, children }: { position: [number, number, number]; rotationY: number; scale: number; children: ReactNode }) {
+  const ref = useRef<Group>(null);
+  const first = useRef(true);
+  useFrame((_, dt) => {
+    const g = ref.current;
+    if (!g) return;
+    // al primo frame si parte già al posto giusto; poi ~0.5 s per arrivare (costante di tempo 0.15 s)
+    const k = first.current ? 1 : 1 - Math.exp(-Math.min(0.1, dt) / 0.15);
+    first.current = false;
+    g.position.x += (position[0] - g.position.x) * k;
+    g.position.y += (position[1] - g.position.y) * k;
+    g.position.z += (position[2] - g.position.z) * k;
+    g.rotation.y += (rotationY - g.rotation.y) * k;
+    g.scale.setScalar(g.scale.x + (scale - g.scale.x) * k);
+  });
+  return <group ref={ref}>{children}</group>;
 }
 
 function Member({ m, lowPower }: { m: CastMember; lowPower: boolean }) {
@@ -56,7 +80,13 @@ function Member({ m, lowPower }: { m: CastMember; lowPower: boolean }) {
     const v = getVoice().mouthOpen(m.who, dt);
     mouthRef.current = talkingRef.current ? v : 0;
   });
-  const animation = effectiveAnimation(m.animation, useGestureDone(m.animation), talking);
+  const animation = effectiveAnimation(m.animation, useGestureDone(m.animation, m.gestureKey), talking);
+  if (m.glide)
+    return (
+      <Glide position={m.position ?? [0, 0, 0]} rotationY={m.rotationY ?? 0} scale={m.scale ?? 1}>
+        <Model animation={animation} mouthRef={mouthRef} lowPower={lowPower} />
+      </Glide>
+    );
   return (
     <Model
       animation={animation}
@@ -74,7 +104,7 @@ function Member({ m, lowPower }: { m: CastMember; lowPower: boolean }) {
  * Le misure con la scheda in secondo piano, con la finestra coperta o appena dopo un cambio
  * schermata non contano: il browser rallenta da solo quei casi e non vuol dire che il PC non regga.
  */
-function FpsGuard({ onSlow }: { onSlow: (reason: string) => void }) {
+function FpsGuard({ onSlow, minFps = 12 }: { onSlow: (reason: string) => void; minFps?: number }) {
   const acc = useRef({ t: 0, frames: 0, warm: 0, slow: 0 });
   useFrame((_, dt) => {
     const a = acc.current;
@@ -93,12 +123,36 @@ function FpsGuard({ onSlow }: { onSlow: (reason: string) => void }) {
     a.frames += 1;
     if (a.t >= 5) {
       const fps = a.frames / a.t;
-      a.slow = fps < 12 ? a.slow + 1 : 0;
+      a.slow = fps < minFps ? a.slow + 1 : 0;
       if (a.slow >= 3) onSlow(`frame rate molto basso (${fps.toFixed(0)} fps)`);
       a.t = 0;
       a.frames = 0;
     }
   });
+  return null;
+}
+
+/**
+ * Disegno a frequenza ridotta (canvas in modalità "demand"): un frame ogni 1/fps secondi, agganciato
+ * al refresh del browser. Il movimento di riposo a 30 fps è fluido e la GPU lavora la metà.
+ */
+function FrameCap({ fps }: { fps: number }) {
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    let id = 0;
+    let last = -Infinity;
+    const step = 1000 / fps;
+    const loop = (t: number) => {
+      // 2 ms di tolleranza: con refresh a 60 Hz si disegna esattamente un frame su due
+      if (t - last >= step - 2) {
+        last = t;
+        invalidate();
+      }
+      id = requestAnimationFrame(loop);
+    };
+    id = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(id);
+  }, [fps, invalidate]);
   return null;
 }
 
@@ -158,6 +212,9 @@ export function CharacterStage({
   className,
   style,
   bleedTop = 0,
+  frameloop = "always",
+  fpsCap = 0,
+  children,
 }: {
   cast: CastMember[];
   framing?: { camera: [number, number, number]; target: [number, number, number]; fov: number };
@@ -167,12 +224,19 @@ export function CharacterStage({
   style?: React.CSSProperties;
   /** Spazio extra sopra il personaggio (frazione della sua altezza), già incluso nello stile del canvas. */
   bleedTop?: number;
+  /** "never" ferma il disegno (palco persistente momentaneamente non in scena). */
+  frameloop?: "always" | "never";
+  /** Frame al secondo massimi (0 = come il browser). */
+  fpsCap?: number;
+  /** Altro da mettere nella scena (es. la luce che segue chi parla). */
+  children?: ReactNode;
 }) {
   const f = withBleed(framing ?? FRAMING[cast[0]?.who ?? "professore"], bleedTop);
   return (
     <StageBoundary onError={(r) => onFallback?.(r)}>
       <Canvas
         className={className}
+        frameloop={frameloop === "always" && fpsCap > 0 ? "demand" : frameloop}
         dpr={lowPower ? [0.75, 1] : [1, 1.5]}
         // misura le dimensioni vere del riquadro, ignorando le animazioni di entrata (scale):
         // altrimenti un personaggio che entra "zoomando" resta piccolo e fuori centro per sempre
@@ -199,7 +263,9 @@ export function CharacterStage({
             <Member key={m.who} m={m} lowPower={lowPower} />
           ))}
         </Suspense>
-        {onFallback && <FpsGuard onSlow={onFallback} />}
+        {children}
+        {frameloop === "always" && fpsCap > 0 && <FrameCap fps={fpsCap} />}
+        {onFallback && frameloop === "always" && <FpsGuard onSlow={onFallback} minFps={fpsCap > 0 ? Math.min(12, fpsCap / 3) : 12} />}
       </Canvas>
     </StageBoundary>
   );

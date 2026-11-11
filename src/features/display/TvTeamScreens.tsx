@@ -5,7 +5,8 @@ import { motion } from "motion/react";
 import type { LeaderboardEntry, PublicTeamsInfo, TeamLeaderboardEntry } from "@/lib/game-engine/types";
 import { Logo } from "@/features/game/components/brand";
 import { formatPoints, signedPoints } from "@/features/game/lines";
-import { TalkingCharacter, TvFrame } from "./TvScreens";
+import { TvFrame } from "./TvScreens";
+import { TrioSlot } from "./TvTrio";
 
 /**
  * Schermate TV della modalità SQUADRE. Le righe di squadra mostrano solo nome, colore,
@@ -105,8 +106,8 @@ export function TvTeamLeaderboardScreen({
         <Logo size="tv" />
       </div>
       {!both && (
-        <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-          <TalkingCharacter who="professore" className="w-full" animation="point" />
+        <div className="absolute bottom-0 right-[0.5cqw] w-[27cqw]">
+          <TrioSlot host="professore" className="w-full" animation="point" />
         </div>
       )}
       <div className={clsx("absolute top-[15.5cqh]", both ? "left-[4cqw] w-[50cqw]" : "left-[5cqw] right-[28cqw]")}>

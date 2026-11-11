@@ -17,6 +17,7 @@ import {
 import { TvLobbyTeams, TvTeamLeaderboardScreen, TvWinningTeamBanner } from "./TvTeamScreens";
 import { leadingTeams, standingsForShow, teamMode } from "@/features/game/teams-view";
 import { TvWheelScreen } from "./TvWheel";
+import { TrioHost } from "./TvTrio";
 
 export interface TvStageProps {
   state: PublicState | null;
@@ -38,8 +39,20 @@ export interface TvStageProps {
   lowPower?: boolean;
 }
 
-/** Sceglie la schermata TV in base alla fase (usato dal TV e dall'anteprima in regia). */
-export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false }: TvStageProps) {
+/**
+ * Sceglie la schermata TV in base alla fase (usato dal TV e dall'anteprima in regia).
+ * Tutte le schermate stanno dentro TrioHost: i tre presentatori 3D vivono in UN solo canvas che
+ * passa da una schermata all'altra (vedi TvTrio.tsx) invece di ricrearsi a ogni cambio di fase.
+ */
+export function TvStage(props: TvStageProps) {
+  return (
+    <TrioHost>
+      <StageScreen {...props} />
+    </TrioHost>
+  );
+}
+
+function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false }: TvStageProps) {
   if (!view) return <TvMessageScreen title="Collegamento allo studio…" />;
   const vp: GamePhase = view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase;
   const mode = teamMode(view);

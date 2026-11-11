@@ -9,7 +9,8 @@ import { WheelGraphic, wheelColor } from "@/features/game/components/wheel";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { getVoice } from "@/features/media/voice";
 import { stripAudioTags, wheelStopLine } from "@/features/game/script";
-import { TalkingCharacter, TvFrame } from "./TvScreens";
+import { TvFrame } from "./TvScreens";
+import { TrioSlot } from "./TvTrio";
 
 type Stage = "idle" | "ready" | "spinning" | "stopped";
 
@@ -195,9 +196,9 @@ export function TvWheelScreen({
         initial={calm ? false : { y: "40%", rotate: -8 }}
         animate={{ y: 0, rotate: 0 }}
         transition={{ type: "spring", stiffness: 120, damping: 10 }}
-        className="absolute bottom-0 left-[1cqw] z-10 w-[17cqw]"
+        className="absolute bottom-0 left-0 z-10 w-[19cqw]"
       >
-        <TalkingCharacter who="palmino" priority className="w-full" animation={stage === "stopped" ? "celebrate" : stage === "spinning" ? "surprised" : "point"} />
+        <TrioSlot host="palmino" className="w-full" animation={stage === "stopped" ? "celebrate" : stage === "spinning" ? "surprised" : "point"} />
       </motion.div>
       {stopLine && (
         <motion.p

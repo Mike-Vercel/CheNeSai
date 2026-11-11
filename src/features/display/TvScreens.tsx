@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element -- media delle domande serviti tramite URL firmati temporanei */
 
 import { clsx } from "clsx";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type {
   GamePhase,
@@ -32,6 +32,7 @@ import { useCharacterMode } from "@/features/three/characters/character-mode";
 import type { CharacterAnimation } from "@/features/three/characters/types";
 import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { presenterCue, type PresenterCue } from "./presenter-cue";
+import { TrioSlot } from "./TvTrio";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
 /**
@@ -61,28 +62,6 @@ export const TalkingCharacter = memo(function TalkingCharacter(props: React.Comp
 /** Chi è in scena durante i momenti del regista: chi dice la battuta, con la sua animazione. */
 function useDirectedCue(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined): PresenterCue {
   return presenterCue(host, idle, lines, useHeldSpeech());
-}
-
-/**
- * Personaggio nel suo riquadro: se la battuta è di un altro presentatore, il padrone di casa esce
- * di lato ed entra l'ospite (stesso riquadro, quindi mai sopra testi o risposte); poi si torna.
- */
-function CueCharacter({ cue, from, priority }: { cue: PresenterCue; from: "left" | "right"; priority?: boolean }) {
-  const off = from === "right" ? "45%" : "-45%";
-  return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={cue.who}
-        initial={{ x: off, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: off, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 170, damping: 20 }}
-        className="w-full"
-      >
-        <TalkingCharacter who={cue.who} priority={priority} className="w-full" animation={cue.animation} />
-      </motion.div>
-    </AnimatePresence>
-  );
 }
 
 // ---------------------------------------------------------------------------
@@ -194,13 +173,12 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
       {/* presentatore (non copre mai testo, risposte o timer) */}
       {!visualMedia && (
         <motion.div
-          key={q.presenter}
           initial={{ x: "-30%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 120, damping: 16 }}
-          className="absolute bottom-0 left-[1cqw] z-10 w-[31cqw]"
+          className="absolute bottom-0 left-[0.5cqw] z-10 w-[32.5cqw]"
         >
-          <TalkingCharacter who={q.presenter} priority className="w-full animate-float" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} />
+          <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} />
           {line && (
             <SpeechBubble className="absolute left-[3cqw] top-[-6cqh] max-w-[26cqw] text-[3cqh] leading-tight">{line}</SpeechBubble>
           )}
@@ -219,8 +197,8 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
         </motion.div>
       )}
       {visualMedia && (
-        <div className="absolute bottom-0 left-[1cqw] z-20 w-[13cqw]">
-          <TalkingCharacter who={q.presenter} small className="w-full" />
+        <div className="absolute bottom-0 left-0 z-20 w-[17cqw]">
+          <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : "idle"} />
         </div>
       )}
 
@@ -445,8 +423,8 @@ export function TvBetResultsScreen({ bets, who, questionId }: { bets: PublicBets
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <div className="absolute bottom-0 right-[1cqw] w-[22cqw]">
-        <TalkingCharacter who={who} className="w-full" animation={wins.length > 0 ? "celebrate" : "surprised"} />
+      <div className="absolute bottom-0 right-[0.5cqw] w-[34cqw]">
+        <TrioSlot host={who} className="w-full" animation={wins.length > 0 ? "celebrate" : "surprised"} />
         <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[28cqw] text-[2.8cqh] leading-tight">
           {quip}
         </SpeechBubble>
@@ -589,8 +567,7 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: Pub
 export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRound; vote: PublicVote | null; showLines?: readonly PublicShowLine[] | null }) {
   const presenter = round.kind === "category_vote" ? "palmino" : round.presenter;
   const c = CHARACTERS[presenter];
-  // inizio della finale: chi nomina primo e secondo entra in scena mentre lo dice
-  const cue = useDirectedCue(presenter, "intro", showLines);
+  // inizio della finale: chi nomina primo e secondo passa davanti mentre lo dice (vedi TrioSlot)
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -600,9 +577,9 @@ export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRo
         initial={{ x: "-40%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 90, damping: 14 }}
-        className="absolute bottom-0 left-[3cqw] w-[34cqw]"
+        className="absolute bottom-0 left-[1cqw] w-[37cqw]"
       >
-        <CueCharacter cue={cue} from="left" priority />
+        <TrioSlot host={presenter} animation="intro" lines={showLines} className="w-full" />
       </motion.div>
       <div className="absolute left-[40cqw] right-[4cqw] top-[22cqh] flex flex-col items-start gap-[2.4cqh]">
         <Pill tone="dark">
@@ -671,8 +648,8 @@ export function TvVotingScreen({ vote, remainingMs, totalMs, phase }: { vote: Pu
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <motion.div initial={{ y: "40%", rotate: -8 }} animate={{ y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 120, damping: 9 }} className="absolute bottom-0 left-[2cqw] w-[24cqw]">
-        <TalkingCharacter who="palmino" priority className="w-full" animation={closed ? "celebrate" : "point"} />
+      <motion.div initial={{ y: "40%", rotate: -8 }} animate={{ y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 120, damping: 9 }} className="absolute bottom-0 left-[0.5cqw] w-[28cqw]">
+        <TrioSlot host="palmino" className="w-full" animation={closed ? "celebrate" : "point"} />
         <SpeechBubble className="absolute left-[4cqw] top-[-8cqh] text-[3.4cqh]">{closed ? "Avete deciso!" : "ADESSO DECIDETE VOI!"}</SpeechBubble>
       </motion.div>
       <div className="absolute left-[30cqw] right-[4cqw] top-[19cqh]">
@@ -746,9 +723,9 @@ export function TvSpecialEventScreen({ event }: { event: PublicEvent }) {
         initial={{ scale: 0.2, rotate: -25, y: "40%" }}
         animate={{ scale: 1, rotate: 0, y: 0 }}
         transition={{ type: "spring", stiffness: 160, damping: 8 }}
-        className="absolute bottom-0 left-1/2 w-[27cqw] -translate-x-1/2"
+        className="absolute bottom-0 left-1/2 w-[38cqw] -translate-x-1/2"
       >
-        <TalkingCharacter who="palmino" priority className="w-full" animation="celebrate" />
+        <TrioSlot host="palmino" className="w-full" animation="celebrate" />
       </motion.div>
       <div className="absolute inset-x-0 top-[5cqh] flex flex-col items-center gap-[1.6cqh] text-center">
         <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }} className="font-display text-[12cqh] leading-none">
@@ -805,8 +782,8 @@ export function TvAnswerPointsScreen({
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-        <CueCharacter cue={cue} from="right" />
+      <div className="absolute bottom-0 right-[0.5cqw] w-[36cqw]">
+        <TrioSlot host={who} animation="point" lines={showLines} className="w-full" />
         <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[30cqw] text-[2.8cqh] leading-tight">
           {quip}
         </SpeechBubble>
@@ -855,8 +832,8 @@ export function TvLeaderboardScreen({
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-        <CueCharacter cue={cue} from="right" />
+      <div className="absolute bottom-0 right-[0.5cqw] w-[27cqw]">
+        <TrioSlot host="professore" animation="point" lines={showLines} className="w-full" />
         {/* fumetto stretto sopra il personaggio, a destra della classifica (non la copre) */}
         {cue.line && (
           <SpeechBubble tail="right" className="absolute bottom-full right-[1cqw] mb-[1cqh] w-[22cqw] !px-[1.6cqh] !py-[1.2cqh] text-[2.4cqh] leading-tight">
