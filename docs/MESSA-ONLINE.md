@@ -35,8 +35,6 @@ Al termine stampa l'indirizzo del sito e della regia (`/admin`).
 - **Pubblicazione automatica a ogni push**: il piano gratuito di Vercel non collega repository privati di
   un'organizzazione GitHub. Per ripubblicare dopo una modifica: `npx vercel deploy --prod`.
   In alternativa: rendere pubblico il repository, spostarlo sul tuo account GitHub personale, o Vercel Pro.
-- **Brani musicali**: prima di usarli in una serata pubblicata, in Admin → Media va confermata la licenza
-  di diffusione (es. SIAE del locale) per ogni brano.
 - **QR code**: in produzione punta automaticamente all'indirizzo del sito da cui è aperto il TV.
 - **Voci**: dalla regia, quando apri la lobby, le voci della serata vengono preparate a lotti (barra
   "Voci della serata"); il budget mensile delle voci resta il limite (Admin → Voci).

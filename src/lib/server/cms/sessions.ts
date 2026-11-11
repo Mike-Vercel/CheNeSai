@@ -573,13 +573,6 @@ export async function validateForPublish(db: Db, sessionId: string): Promise<Pub
     if (n < MIN_TEAMS) issues.push({ level: "error", message: `Serata a squadre: crea almeno ${MIN_TEAMS} squadre (ora ${n})` });
     if (n > MAX_TEAMS) issues.push({ level: "error", message: `Serata a squadre: al massimo ${MAX_TEAMS} squadre (ora ${n})` });
   }
-  const unlicensed = await db<{ text: string }[]>`
-    select qb.text from session_questions sq join question_bank qb on qb.id = sq.question_id
-    join media_assets m on m.id = qb.media_id
-    where sq.session_id = ${sessionId} and m.kind in ('audio', 'video') and not m.license_confirmed`;
-  for (const u of unlicensed) {
-    issues.push({ level: "error", message: `"${u.text.slice(0, 60)}": il media audio/video non ha l'autorizzazione/licenza confermata` });
-  }
   return issues;
 }
 

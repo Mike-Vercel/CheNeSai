@@ -2,11 +2,11 @@
 
 import { clsx } from "clsx";
 import { useRef, useState } from "react";
-import { Badge, Button, EmptyState, Field, Input, Modal, Panel, Textarea, Toggle, useToast } from "@/components/ui";
+import { Badge, Button, EmptyState, Field, Input, Modal, Panel, Toggle, useToast } from "@/components/ui";
 import type { MediaKind } from "@/lib/game-engine/types";
 import { getSupabaseBrowser } from "@/lib/supabase/browser";
 import { errorMessage, qs, send, useApi } from "../api";
-import { Checkbox, ErrorBlock, InfoNote, LoadingBlock, MEDIA_ICON, PageHeader, Segmented } from "../common";
+import { ErrorBlock, InfoNote, LoadingBlock, MEDIA_ICON, PageHeader, Segmented } from "../common";
 import { fmtBytes, fmtDuration, fmtStamp, plural } from "../format";
 import type { MediaRecord } from "../types";
 
@@ -88,8 +88,6 @@ function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
   const [label, setLabel] = useState("");
   const [artist, setArtist] = useState("");
   const [category, setCategory] = useState("");
-  const [licenseInfo, setLicenseInfo] = useState("");
-  const [licenseConfirmed, setLicenseConfirmed] = useState(false);
   const [step, setStep] = useState<Step>("idle");
   const [error, setError] = useState<string | null>(null);
   const kind = file ? ALLOWED[file.type] : undefined;
@@ -115,8 +113,6 @@ function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
     setLabel("");
     setArtist("");
     setCategory("");
-    setLicenseInfo("");
-    setLicenseConfirmed(false);
     if (inputRef.current) inputRef.current.value = "";
   }
 
@@ -143,8 +139,6 @@ function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
           label: label.trim(),
           artist: artist.trim() || null,
           category: category.trim() || null,
-          licenseInfo: licenseInfo.trim() || null,
-          licenseConfirmed,
           width: meta.width ?? null,
           height: meta.height ?? null,
           durationMs: meta.durationMs ?? null,
@@ -161,7 +155,6 @@ function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
   }
 
   const busy = step !== "idle";
-  const timed = kind === "audio" || kind === "video";
   return (
     <Panel title="Carica un file">
       <form onSubmit={upload} className="space-y-3">
@@ -196,17 +189,6 @@ function UploadPanel({ onUploaded }: { onUploaded: () => void }) {
               <Field label="Titolo (solo per la regia)">{(id) => <Input id={id} required maxLength={120} value={label} onChange={(e) => setLabel(e.target.value)} />}</Field>
               <Field label="Artista / autore">{(id) => <Input id={id} maxLength={120} value={artist} onChange={(e) => setArtist(e.target.value)} />}</Field>
               <Field label="Categoria">{(id) => <Input id={id} maxLength={60} value={category} onChange={(e) => setCategory(e.target.value)} />}</Field>
-            </div>
-            <Field label="Licenza / autorizzazione" hint="Es. brano acquistato con licenza SIAE/SCF del locale, foto propria, immagine CC-BY di …">
-              {(id) => <Textarea id={id} className="min-h-16" maxLength={1000} value={licenseInfo} onChange={(e) => setLicenseInfo(e.target.value)} />}
-            </Field>
-            <div className={clsx("rounded-xl border-2 p-3", licenseConfirmed ? "border-lime bg-lime/10" : timed ? "border-flame/60 bg-flame/10" : "border-white/10")}>
-              <Checkbox
-                checked={licenseConfirmed}
-                onChange={setLicenseConfirmed}
-                label="Confermo di avere i diritti o l'autorizzazione per usare questo file nella serata"
-                hint={timed ? "Obbligatorio per audio e video: senza conferma la serata non può essere pubblicata." : "Consigliato anche per le immagini."}
-              />
             </div>
           </>
         )}
@@ -313,13 +295,9 @@ function MediaEditForm({ media, onSaved }: { media: MediaRecord; onSaved: () => 
   const [label, setLabel] = useState(media.label);
   const [artist, setArtist] = useState(media.artist ?? "");
   const [category, setCategory] = useState(media.category ?? "");
-  const [licenseInfo, setLicenseInfo] = useState(media.licenseInfo ?? "");
-  const [licenseConfirmed, setLicenseConfirmed] = useState(media.licenseConfirmed);
   const [archived, setArchived] = useState(media.archived);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const timed = media.kind === "audio" || media.kind === "video";
-
   async function save(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
@@ -329,8 +307,6 @@ function MediaEditForm({ media, onSaved }: { media: MediaRecord; onSaved: () => 
         label: label.trim(),
         artist: artist.trim() || null,
         category: category.trim() || null,
-        licenseInfo: licenseInfo.trim() || null,
-        licenseConfirmed,
         archived,
       });
       onSaved();
@@ -347,10 +323,6 @@ function MediaEditForm({ media, onSaved }: { media: MediaRecord; onSaved: () => 
       <div className="grid gap-3 sm:grid-cols-2">
         <Field label="Artista / autore">{(id) => <Input id={id} maxLength={120} value={artist} onChange={(e) => setArtist(e.target.value)} />}</Field>
         <Field label="Categoria">{(id) => <Input id={id} maxLength={60} value={category} onChange={(e) => setCategory(e.target.value)} />}</Field>
-      </div>
-      <Field label="Licenza / autorizzazione">{(id) => <Textarea id={id} className="min-h-16" maxLength={1000} value={licenseInfo} onChange={(e) => setLicenseInfo(e.target.value)} />}</Field>
-      <div className={clsx("rounded-xl border-2 p-3", licenseConfirmed ? "border-lime bg-lime/10" : timed ? "border-flame/60 bg-flame/10" : "border-white/10")}>
-        <Checkbox checked={licenseConfirmed} onChange={setLicenseConfirmed} label="Diritti / autorizzazione confermati" hint={timed ? "Obbligatorio per pubblicare serate con questo file." : undefined} />
       </div>
       <Toggle checked={archived} onChange={setArchived} label="Archiviato (nascosto dalla libreria)" />
       {error && <InfoNote tone="danger">{error}</InfoNote>}
@@ -369,19 +341,11 @@ export function MediaLibrary() {
   const [open, setOpen] = useState<string | null>(null);
   const list = useApi<{ media: MediaRecord[] }>(`/api/admin/media${qs({ kind, q, archived: archived ? "1" : undefined })}`);
   const items = list.data?.media ?? [];
-  const unlicensed = items.filter((m) => (m.kind === "audio" || m.kind === "video") && !m.licenseConfirmed && !m.archived).length;
 
   return (
     <div className="space-y-4">
       <PageHeader title="Media" subtitle="Immagini, brani e video usati nelle domande" />
-      <InfoNote tone="warn">
-        <p className="font-bold">Usa solo file di cui hai i diritti.</p>
-        <p className="mt-1">
-          Non scaricare mai brani o video da Spotify, YouTube, Apple Music o simili: carica solo file acquistati con licenza, coperti dalla licenza del locale
-          (SIAE/SCF) o prodotti da voi. Per audio e video la licenza va confermata, altrimenti la serata non si può pubblicare. Il nome del file non viene mai
-          mostrato ai giocatori: lo storage usa un nome anonimo.
-        </p>
-      </InfoNote>
+      <InfoNote>Il nome del file non viene mai mostrato ai giocatori: lo storage usa un nome anonimo.</InfoNote>
 
       <UploadPanel onUploaded={list.reload} />
 
@@ -411,7 +375,6 @@ export function MediaLibrary() {
         </form>
         <Toggle checked={archived} onChange={setArchived} label="Mostra archiviati" />
       </div>
-      {unlicensed > 0 && <InfoNote tone="danger">{unlicensed} file audio/video senza licenza confermata: aprili e conferma l&apos;autorizzazione.</InfoNote>}
 
       {list.error ? (
         <ErrorBlock message={list.error} onRetry={list.reload} />
@@ -422,7 +385,6 @@ export function MediaLibrary() {
       ) : (
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" aria-busy={list.loading}>
           {items.map((m) => {
-            const timed = m.kind === "audio" || m.kind === "video";
             return (
               <li key={m.id}>
                 <button
@@ -430,7 +392,7 @@ export function MediaLibrary() {
                   onClick={() => setOpen(m.id)}
                   className={clsx(
                     "flex h-full w-full flex-col gap-2 rounded-2xl border bg-[#1d0c30] p-4 text-left transition hover:border-gold/60",
-                    timed && !m.licenseConfirmed ? "border-flame/50" : "border-white/10",
+                    "border-white/10",
                     m.archived && "opacity-60",
                   )}
                 >
@@ -451,7 +413,6 @@ export function MediaLibrary() {
                         {m.width}×{m.height}
                       </Badge>
                     )}
-                    {m.licenseConfirmed ? <Badge color="green">Licenza ok</Badge> : <Badge color={timed ? "red" : "gray"}>Licenza da confermare</Badge>}
                     {m.usedBy > 0 && <Badge color="gold">{plural(m.usedBy, "domanda", "domande")}</Badge>}
                     {m.archived && <Badge color="violet">Archiviato</Badge>}
                   </span>

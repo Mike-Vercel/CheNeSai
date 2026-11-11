@@ -397,9 +397,7 @@ function QuestionForm({ question }: { question: QuestionRecord | null }) {
                     <p className="font-bold">{mediaRec?.label ?? question?.mediaLabel ?? "Media selezionato"}</p>
                     {mediaRec && (
                       <p className="text-xs text-white/55">
-                        {mediaRec.artist ? `${mediaRec.artist} · ` : ""}
-                        {mediaRec.durationMs ? `durata ${fmtDuration(mediaRec.durationMs)} · ` : ""}
-                        {timed && !mediaRec.licenseConfirmed ? <span className="font-bold text-[#ff8098]">licenza NON confermata</span> : "licenza ok"}
+                        {[mediaRec.artist, mediaRec.durationMs ? `durata ${fmtDuration(mediaRec.durationMs)}` : null].filter(Boolean).join(" · ")}
                       </p>
                     )}
                   </div>

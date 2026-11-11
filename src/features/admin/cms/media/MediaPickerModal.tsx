@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Badge, Button, EmptyState, Input, Modal } from "@/components/ui";
+import { Button, EmptyState, Input, Modal } from "@/components/ui";
 import type { MediaKind } from "@/lib/game-engine/types";
 import { qs, useApi } from "../api";
 import { ErrorBlock, LoadingBlock, MEDIA_ICON, Segmented } from "../common";
@@ -67,7 +67,6 @@ export function MediaPickerModal({ onClose, onPick }: { onClose: () => void; onP
         ) : (
           <ul className="grid max-h-[55dvh] gap-2 overflow-y-auto pr-1 sm:grid-cols-2">
             {items.map((m) => {
-              const timed = m.kind === "audio" || m.kind === "video";
               return (
                 <li key={m.id}>
                   <button
@@ -83,11 +82,6 @@ export function MediaPickerModal({ onClose, onPick }: { onClose: () => void; onP
                       <span className="block truncate text-xs text-white/55">
                         {[m.artist, m.category, m.durationMs ? fmtDuration(m.durationMs) : null, m.width ? `${m.width}×${m.height}` : null].filter(Boolean).join(" · ") || "—"}
                       </span>
-                      {timed && (
-                        <span className="mt-1 inline-block">
-                          {m.licenseConfirmed ? <Badge color="green">Licenza confermata</Badge> : <Badge color="red">Licenza da confermare</Badge>}
-                        </span>
-                      )}
                     </span>
                   </button>
                 </li>

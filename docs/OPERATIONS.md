@@ -32,7 +32,7 @@ Credenziali necessarie (non incluse nel repository): account Vercel, account Sup
 | Giorno | Attività | Dove |
 |---|---|---|
 | Martedì | Crea la serata (o **duplica** quella precedente), aggiungi round, domande, media, eventi, categorie votabili | Serate, Domande, Media |
-| Mercoledì | Revisione: conferma le risposte importate, controlla licenze dei brani, anteprima TV/telefono | Domande → anteprima |
+| Mercoledì | Revisione: conferma le risposte importate, anteprima TV/telefono | Domande → anteprima |
 | Giovedì | **Verifica e pubblica** → **Prova generale** (regia + TV + telefoni simulati, bot, audio, intro) → *Reset simulazione* | Sessione → Prova generale |
 | Venerdì | Apri lobby, intro, gioco, finale, podio | Regia live |
 | Dopo | Statistiche, classifica mensile, archiviazione, backup | Statistiche, Classifiche |
