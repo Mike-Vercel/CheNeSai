@@ -219,8 +219,9 @@ export function PortraitQuestionScreen({
           </div>
         )}
 
-        {/* presentatori (o immagine della domanda) con il tempo accanto */}
-        <div className="relative flex shrink-0 justify-center">
+        {/* presentatori (o immagine della domanda) con il tempo accanto. I presentatori stanno DIETRO
+            al cartello della domanda: la parte bassa (gambe) è coperta dal cartello, niente taglio netto */}
+        <div className={clsx("relative flex shrink-0 justify-center", !hasImage && (optionsVisible ? "z-0 -mb-[4cqh]" : "z-0 -mb-[6cqh]"))}>
           {hasImage ? (
             <img src={mediaUrl} alt="Immagine della domanda" className="max-h-[22cqh] max-w-full rounded-[3cqw] border-[0.8cqw] border-gold bg-black object-contain" />
           ) : (
@@ -248,7 +249,7 @@ export function PortraitQuestionScreen({
           initial={{ y: -20, opacity: 0, scale: 0.97 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 160, damping: 18 }}
-          className="qz-question-card shrink-0 rounded-[4cqw] px-[4.5cqw] py-[3.5cqw] text-center"
+          className="qz-question-card relative z-10 shrink-0 rounded-[4cqw] px-[4.5cqw] py-[3.5cqw] text-center"
         >
           <p className={clsx("font-display leading-[1.12]", questionSize(q.text))}>{q.text}</p>
           {!optionsVisible && <p className="mt-[1.5cqw] text-[3.6cqw] font-extrabold text-ink/60">Le risposte stanno per arrivare…</p>}

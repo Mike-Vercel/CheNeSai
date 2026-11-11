@@ -33,6 +33,7 @@ import type { CharacterAnimation } from "@/features/three/characters/types";
 import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { presenterCue, type PresenterCue } from "./presenter-cue";
 import { TrioSlot } from "./TvTrio";
+import { TrophyMoment } from "./Trophy";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
 /**
@@ -1022,21 +1023,37 @@ export function TvPodiumScreen({
         <p className={clsx("mt-[1cqh] font-display text-white [text-shadow:0_0.5vh_0_#6b1020]", portrait ? "text-[7.4cqw] leading-tight" : "text-[6cqh]")}>{winnerShown ? titles.done : titles.pending}</p>
       </div>
       {portrait ? (
-        // in verticale i tre presentatori insieme (un solo canvas 3D, come nelle altre schermate)
-        <div className="absolute left-1/2 top-[17cqh] z-[5] w-[78cqw] -translate-x-1/2">
-          <TrioSlot host="professore" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
-        </div>
+        // in verticale i tre presentatori insieme (un solo canvas 3D) DIETRO a un bancone: mai tagliati a metà
+        <>
+          <div className="absolute left-1/2 top-[17cqh] z-[5] w-[78cqw] -translate-x-1/2">
+            <TrioSlot host="professore" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
+          </div>
+          <StageCounter className="top-[41cqh] z-[6] h-[4.6cqh]" />
+          <TrophyMoment
+            won={winnerShown}
+            className="left-[58cqw] top-[19cqh] z-[7] h-[22cqh] w-[36cqw]"
+            table={{ left: 68, bottom: 0, width: 26, height: 24 }}
+            raised={{ left: 39, bottom: 66 }}
+            cupClassName="w-[9cqw]"
+          />
+        </>
       ) : (
         <>
-          <div className="absolute bottom-0 left-0 w-[22cqw]">
+          {/* Professore e Regina dietro al bancone (figura sopra il piano, niente tagli a metà) */}
+          <div className="absolute bottom-[5cqh] left-[0.5cqw] z-[12] w-[18cqw]">
             <TalkingCharacter who="professore" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
           </div>
-          <div className="absolute bottom-0 right-0 w-[23cqw]">
+          <div className="absolute bottom-[5cqh] right-[0.5cqw] z-[12] w-[19cqw]">
             <TalkingCharacter who="regina" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
           </div>
-          <div className="absolute bottom-[1cqh] left-[24cqw] w-[10cqw]">
-            <TalkingCharacter who="palmino" className="w-full animate-float" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
+          {/* Palmino in piedi sul bancone, accanto al tavolino con la coppa: la alza quando arriva il vincitore */}
+          <div className="absolute bottom-[12cqh] left-[18.8cqw] z-[13] h-[30cqh] w-[13cqw]">
+            <div className="absolute bottom-0 left-0 w-[9cqw]">
+              <TalkingCharacter who="palmino" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
+            </div>
+            <TrophyMoment won={winnerShown} className="inset-0" table={{ left: 73, bottom: 0, width: 25, height: 17 }} raised={{ left: 35, bottom: 68 }} cupClassName="w-[3.6cqw]" />
           </div>
+          <StageCounter className="bottom-0 z-[14] h-[12.5cqh]" />
         </>
       )}
 
@@ -1106,10 +1123,11 @@ export function TvPodiumScreen({
         </motion.p>
       )}
 
-      <div className={clsx("absolute bottom-0 left-1/2 z-20 flex -translate-x-1/2 items-end", portrait ? "gap-[2cqw]" : "gap-[2cqh]")}>
+      {/* in orizzontale il podio sta un po' a destra: a sinistra c'è Palmino con la coppa */}
+      <div className={clsx("absolute bottom-0 z-20 flex -translate-x-1/2 items-end", portrait ? "left-1/2 gap-[2cqw]" : "left-[56.5%] gap-[2cqh]")}>
         {[2, 1, 3].map((rank) => {
           const st = stepOf(rank);
-          const col = portrait ? "w-[30cqw]" : "w-[17cqw]";
+          const col = portrait ? "w-[30cqw]" : "w-[15cqw]";
           if (!st) return <div key={rank} className={col} />;
           const shown = t >= st.at;
           return (
@@ -1150,6 +1168,16 @@ export function TvPodiumScreen({
         })}
       </div>
     </TvFrame>
+  );
+}
+
+/** Bancone dello studio: i presentatori ci stanno dietro (mai tagliati a metà dal bordo). */
+function StageCounter({ className }: { className: string }) {
+  return (
+    <div className={clsx("pointer-events-none absolute inset-x-0", className)} aria-hidden>
+      <div className="absolute inset-x-0 top-0 h-[22%] min-h-[4px] bg-gradient-to-b from-[#ffe680] to-[#c98a10] shadow-[0_0.4cqh_0.8cqh_rgba(0,0,0,.45)]" />
+      <div className="absolute inset-x-0 bottom-0 top-[22%] bg-gradient-to-b from-[#5a1a3c] via-[#3a0d28] to-[#1d0616]" />
+    </div>
   );
 }
 
