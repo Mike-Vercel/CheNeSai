@@ -95,7 +95,8 @@ class VoiceEngine {
   provider: "unknown" | "browser" | "elevenlabs" = "unknown";
   private providerReady: Promise<"browser" | "elevenlabs" | "unknown"> = Promise.resolve("unknown");
   private creds: { s: string; k: string } | null = null;
-  private current: HTMLAudioElement | null = null;
+  /** Battuta registrata in riproduzione (elemento audio o sorgente Web Audio): `stop()` la ferma. */
+  private current: { stop: () => void } | null = null;
   private analyser: AnalyserNode | null = null;
   private level = new Uint8Array(256);
   settings: VoiceSettings = { enabled: true, readOptions: true, volume: 1, rate: 1, browserVoice: true };
@@ -351,7 +352,7 @@ class VoiceEngine {
     this.turn++;
     for (const q of this.queue.splice(0)) q.resolve();
     if (this.current) {
-      this.current.pause();
+      this.current.stop();
       this.current = null;
       this.analyser = null;
     }
@@ -404,13 +405,85 @@ class VoiceEngine {
   private queueEpoch = 0;
 
   /** Audio registrato: voce professionale dal server (ElevenLabs) oppure clip statica. */
+  /**
+   * Riproduce una clip. Sui telefoni (soprattutto iPhone) un nuovo elemento audio avviato senza un
+   * tocco dell'utente viene bloccato: quando il motore Web Audio è già sbloccato (tocco su "Su questo
+   * telefono", "Attiva audio"…) la clip passa da lì, che non ha questo limite. Altrimenti, o se la
+   * decodifica fallisce, si usa l'elemento audio come prima.
+   */
   private playRecorded(next: QueueItem, url: string) {
+    const eng = getSoundEngine();
+    const ctx = eng.context;
+    if (ctx && eng.sfx && ctx.state === "running") {
+      void this.playBuffered(next, url, ctx, eng.sfx);
+      return;
+    }
+    this.playElement(next, url);
+  }
+
+  private async playBuffered(next: QueueItem, url: string, ctx: AudioContext, out: GainNode) {
+    const my = ++this.turn;
+    let source: AudioBufferSourceNode | null = null;
+    let stopped = false;
+    this.current = {
+      stop: () => {
+        stopped = true;
+        try {
+          source?.stop();
+        } catch {
+          // già fermata
+        }
+      },
+    };
+    let audio: AudioBuffer;
+    try {
+      const res = await fetch(url, { cache: "force-cache", signal: AbortSignal.timeout(12_000) });
+      if (!res.ok) throw new Error(String(res.status));
+      audio = await ctx.decodeAudioData(await res.arrayBuffer());
+    } catch {
+      if (stopped || my !== this.turn) {
+        next.resolve();
+        return;
+      }
+      // rete o decodifica non riuscite: si riprova con l'elemento audio (con il suo ripiego)
+      this.turn--;
+      this.playElement(next, url);
+      return;
+    }
+    if (stopped || my !== this.turn) {
+      next.resolve();
+      return;
+    }
+    const src = ctx.createBufferSource();
+    src.buffer = audio;
+    const an = ctx.createAnalyser();
+    an.fftSize = 512;
+    src.connect(an).connect(out);
+    source = src;
+    this.analyser = an;
+    src.onended = () => {
+      if (my !== this.turn || stopped) {
+        next.resolve();
+        return;
+      }
+      this.current = null;
+      this.analyser = null;
+      this.busy = false;
+      this.setSpeaking(null);
+      next.resolve();
+      setTimeout(() => this.pump(), 120);
+    };
+    this.setSpeaking(mouthOf(next.who), true, next.text);
+    src.start();
+  }
+
+  private playElement(next: QueueItem, url: string) {
     const el = new Audio();
     el.crossOrigin = "anonymous";
     el.preload = "auto";
     el.volume = this.settings.volume;
     el.src = url;
-    this.current = el;
+    this.current = { stop: () => el.pause() };
     const eng = getSoundEngine();
     const ctx = eng.context;
     if (ctx && eng.sfx) {
