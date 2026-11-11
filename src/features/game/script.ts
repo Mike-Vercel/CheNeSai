@@ -130,7 +130,7 @@ export const FIXED_POOLS = {
       "[excited] Ecco i punti! E chi ha sbagliato… consideri questa una lezione gratuita.",
       "Punteggi aggiornati. Prendete appunti: alla prossima interrogo a sorpresa!",
       "[sighs] Vedo facce felici… e facce che stanno ordinando un altro drink per dimenticare.",
-      "[laughs] Chi ha risposto giusto: bravo! Chi no: c'è sempre il prossimo venerdì.",
+      "[laughs] Chi ha risposto giusto: bravo! Chi no: faccia finta di niente, nessuno ha visto.",
     ],
   },
   scoreQuipRegina: {
@@ -188,8 +188,8 @@ export const FIXED_POOLS = {
   finishedClose: {
     who: "professore",
     texts: [
-      "Grazie a tutti e ci vediamo venerdì prossimo per una nuova sfida!",
-      "[laughs] Grazie a tutti! Ripassate, studiate… e venerdì prossimo vi aspetto!",
+      "Grazie a tutti! Alla prossima sfida!",
+      "[laughs] Grazie a tutti! Ripassate, studiate… e alla prossima vi aspetto!",
     ],
   },
 } as const satisfies Record<string, FixedPool>;

@@ -8,7 +8,7 @@ const nunito = Nunito({ subsets: ["latin"], weight: ["500", "700", "800", "900"]
 
 export const metadata: Metadata = {
   title: { default: "CHE NE SAI?!", template: "%s · CHE NE SAI?!" },
-  description: "Il game show quiz del venerdì sera. Gioca dal tuo smartphone!",
+  description: "Il quiz show da giocare in compagnia. Gioca dal tuo smartphone!",
   applicationName: "CHE NE SAI?!",
   icons: {
     icon: [

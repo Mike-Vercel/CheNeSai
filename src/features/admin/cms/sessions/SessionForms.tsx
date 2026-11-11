@@ -134,7 +134,7 @@ export function SessionInfoModal({
       <form id="session-info-form" onSubmit={submit} className="space-y-3">
         <Field label="Titolo della serata" error={errors.title}>
           {(id) => (
-            <Input id={id} required minLength={3} maxLength={120} value={v.title} onChange={(e) => setV({ ...v, title: e.target.value })} placeholder="Es. CHE NE SAI?! del venerdì" />
+            <Input id={id} required minLength={3} maxLength={120} value={v.title} onChange={(e) => setV({ ...v, title: e.target.value })} placeholder="Es. CHE NE SAI?! al pub" />
           )}
         </Field>
         <Field label="Descrizione (facoltativa)" error={errors.description}>

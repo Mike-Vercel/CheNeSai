@@ -628,7 +628,7 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
         {closed ? (
           <PhoneCard className="w-full">
             <p className="font-display text-2xl">Questa partita è terminata</p>
-            <p className="mt-1 font-bold text-white/80">Ci vediamo venerdì prossimo!</p>
+            <p className="mt-1 font-bold text-white/80">Grazie per aver giocato!</p>
           </PhoneCard>
         ) : (
           <PhoneCard className="flex w-full flex-col gap-3 text-left">
