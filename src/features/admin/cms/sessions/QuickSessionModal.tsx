@@ -148,7 +148,7 @@ export function QuickSessionModal({ onClose, onCreated }: { onClose: () => void;
             <InfoNote tone="warn">Servono da 1 a 10 round, almeno una domanda per round e al massimo 30 domande per round.</InfoNote>
           )}
           <div className="grid gap-3 sm:grid-cols-2">
-            <Field label="Difficoltà" error={errors.mix}>
+            <Field label="Difficoltà" error={errors.mix} hint={mix === "bilanciata" ? "Facile → media → difficile, a ciclo" : "Il round finale resta più difficile"}>
               {(id) => (
                 <Select id={id} value={mix} onChange={(e) => setMix(e.target.value as DifficultyMix)}>
                   {DIFFICULTY_MIXES.map((m) => (

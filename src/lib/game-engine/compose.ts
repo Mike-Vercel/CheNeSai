@@ -19,7 +19,7 @@ export const DIFFICULTY_MIXES = ["bilanciata", "facile", "difficile"] as const;
 export type DifficultyMix = (typeof DIFFICULTY_MIXES)[number];
 
 export const DIFFICULTY_MIX_LABEL: Record<DifficultyMix, string> = {
-  bilanciata: "Bilanciata (facile → media → difficile)",
+  bilanciata: "Bilanciata",
   facile: "Più facile",
   difficile: "Più difficile",
 };
