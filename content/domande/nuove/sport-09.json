@@ -1,0 +1,1088 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In Formula 1, come si chiama la sosta ai box per cambiare le gomme?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pit stop",
+        "Pole position",
+        "Safety car",
+        "Drive through"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Il pit stop; il drive through è una penalità che obbliga a passare dalla corsia box senza fermarsi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel campionato di calcio, quanti punti si ottengono con un pareggio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Vittoria 3 punti, pareggio 1, sconfitta 0",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista spagnolo è chiamato \"il re della terra rossa\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Carlos Alcaraz",
+        "Rafael Nadal",
+        "David Ferrer",
+        "Carlos Moyá"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis",
+        "soprannomi"
+      ],
+      "notes": "Nadal ha vinto 14 volte il Roland Garros",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra spagnola gioca in casa allo stadio Santiago Bernabéu?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Siviglia",
+        "Atlético Madrid",
+        "Barcellona",
+        "Real Madrid"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Il Bernabéu, a Madrid, porta il nome dello storico presidente del Real",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, come si chiama il tiro che si batte dalla bandierina?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Punizione",
+        "Rimessa laterale",
+        "Calcio di rinvio",
+        "Calcio d'angolo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Il calcio d'angolo si batte dall'angolo del campo, vicino alla bandierina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale mese si corre di solito il Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Luglio",
+        "Maggio",
+        "Settembre",
+        "Marzo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Il Giro si corre a maggio; il Tour a luglio, la Vuelta tra agosto e settembre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel Palio di Siena, che cosa gareggia in piazza del Campo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cavalli montati a pelo",
+        "Barche a remi",
+        "Carri trainati da buoi",
+        "Atleti a piedi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni",
+        "toscana"
+      ],
+      "notes": "Il Palio è una corsa di cavalli montati a pelo, il 2 luglio e il 16 agosto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale di calcio ha come simbolo il gallo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Belgio",
+        "Portogallo",
+        "Francia",
+        "Spagna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Il gallo è il simbolo della Francia e della sua nazionale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si fa \"strike\" abbattendo tutti i birilli con un solo tiro?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bowling",
+        "Bocce",
+        "Biliardo",
+        "Curling"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bowling"
+      ],
+      "notes": "Nel bowling lo strike è l'abbattimento dei dieci birilli al primo lancio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nuotatrice italiana era chiamata \"la Divina\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Alessia Filippi",
+        "Novella Calligaris",
+        "Federica Pellegrini",
+        "Simona Quadarella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "nuoto",
+        "soprannomi"
+      ],
+      "notes": "Federica Pellegrini, oro a Pechino 2008 e più volte campionessa del mondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio è soprannominata \"la Dea\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fiorentina",
+        "Atalanta",
+        "Sampdoria",
+        "Udinese"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "L'Atalanta prende il nome dall'eroina mitologica e ha la Dea nello stemma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra inglese gioca in casa ad Anfield?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Arsenal",
+        "Everton",
+        "Manchester United",
+        "Liverpool"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Anfield è lo stadio del Liverpool; l'Everton ci giocava fino al 1892",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si usa la sciolina?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Atletica",
+        "Ciclismo",
+        "Nuoto",
+        "Sci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "La sciolina è la cera che si stende sotto gli sci",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel golf, come si chiama la zona d'erba rasata attorno alla buca?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fairway",
+        "Green",
+        "Bunker",
+        "Rough"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "golf"
+      ],
+      "notes": "Il green è l'erba cortissima dove si usa il putter; il bunker è la sabbia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale allenatore il Napoli vinse lo scudetto della stagione 2024-25?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Antonio Conte",
+        "Luciano Spalletti",
+        "Carlo Ancelotti",
+        "Maurizio Sarri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Quarto scudetto del Napoli con Antonio Conte; il terzo (2023) fu di Spalletti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ex attaccante del Milan, Pallone d'oro nel 1995, diventò presidente della Liberia?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Didier Drogba",
+        "Samuel Eto'o",
+        "George Weah",
+        "Abedi Pelé"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "George Weah, Pallone d'oro 1995, presidente della Liberia dal 2018 al 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese è Andriy Shevchenko, Pallone d'oro 2004 con il Milan?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ucraina",
+        "Russia",
+        "Bielorussia",
+        "Polonia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Shevchenko è nato in Ucraina nel 1976",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale regione si trova il circuito del Mugello?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Umbria",
+        "Emilia-Romagna",
+        "Toscana",
+        "Marche"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "Il Mugello è a Scarperia, in provincia di Firenze",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionalità avevano Gullit, Rijkaard e Van Basten, i campioni del Milan di Sacchi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Belga",
+        "Olandese",
+        "Tedesca",
+        "Danese"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Il trio olandese vinse con il Milan due Coppe dei Campioni (1989, 1990)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport ha vinto medaglie olimpiche Tania Cagnotto?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Canoa",
+        "Nuoto sincronizzato",
+        "Ginnastica",
+        "Tuffi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Tania Cagnotto, argento e bronzo nei tuffi a Rio 2016",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Giro delle Fiandre si corre in quale Paese?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lussemburgo",
+        "Olanda",
+        "Francia",
+        "Belgio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Le Fiandre sono la regione fiamminga del Belgio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio Luigi Ferraris, detto Marassi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Genova",
+        "La Spezia",
+        "Savona"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Il Ferraris è lo stadio di Genoa e Sampdoria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale città sono state assegnate le Olimpiadi estive del 2028?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Los Angeles",
+        "Brisbane",
+        "Madrid",
+        "Città del Capo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Los Angeles 2028; Brisbane avrà quelle del 2032",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pugile morse l'orecchio di Evander Holyfield, nel 1997?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "George Foreman",
+        "Lennox Lewis",
+        "Mike Tyson",
+        "Riddick Bowe"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pugilato"
+      ],
+      "notes": "Las Vegas, 28 giugno 1997: Tyson fu squalificato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella pallavolo, quanti tocchi può fare al massimo una squadra per rimandare la palla, muro escluso?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallavolo",
+        "regole"
+      ],
+      "notes": "Tre tocchi al massimo; il tocco a muro non si conta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Contro quale squadra la Juventus vinse la Champions League del 1996, ai rigori a Roma?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Real Madrid",
+        "Borussia Dortmund",
+        "Ajax",
+        "Manchester United"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "coppe"
+      ],
+      "notes": "Juventus-Ajax 1-1, 5-3 ai rigori, all'Olimpico, 22 maggio 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, come si chiama il servizio che tocca il nastro e cade nel campo giusto, da ripetere?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ace",
+        "Let",
+        "Smash",
+        "Lob"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Il servizio che tocca la rete e cade buono è un let (in Italia anche net) e si ripete",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quale sport sono famosi i fratelli Piero e Raimondo D'Inzeo?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ciclismo",
+        "Scherma",
+        "Canottaggio",
+        "Equitazione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "equitazione",
+        "olimpiadi"
+      ],
+      "notes": "I D'Inzeo parteciparono a otto Olimpiadi nel salto ostacoli, dal 1948 al 1976",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la mascotte dei Mondiali di calcio di Italia '90?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pallino",
+        "Pippo",
+        "Azzurrino",
+        "Ciao"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Ciao era un omino stilizzato fatto di cubetti tricolori con la testa a pallone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale passo alpino, con i suoi 48 tornanti, è un mito del Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gavia",
+        "Stelvio",
+        "Pordoi",
+        "Mortirolo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Il versante di Prato dello Stelvio ha 48 tornanti numerati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale specialità Thomas Ceccon vinse l'oro olimpico a Parigi 2024?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "100 metri dorso",
+        "100 metri farfalla",
+        "200 metri misti",
+        "100 metri rana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi"
+      ],
+      "notes": "Ceccon vinse i 100 dorso il 29 luglio 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato americano è nato il velocista Marcell Jacobs?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Florida",
+        "California",
+        "Texas",
+        "Georgia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Jacobs è nato a El Paso, in Texas, nel 1994, da padre americano e madre italiana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il rally Dakar, nato nel 1978, partiva dalla capitale di quale Paese?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Senegal",
+        "Marocco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motori"
+      ],
+      "notes": "Era la Parigi-Dakar: da Parigi alla capitale del Senegal",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota francese di Formula 1 era soprannominato \"il Professore\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "René Arnoux",
+        "Jean Alesi",
+        "Alain Prost",
+        "Didier Pironi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1",
+        "soprannomi"
+      ],
+      "notes": "Alain Prost, quattro volte campione del mondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale ultima salita si decide spesso la Milano-Sanremo?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cipressa",
+        "Poggio",
+        "Turchino",
+        "Capo Berta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Il Poggio di Sanremo è l'ultima salita, a circa 5 km dall'arrivo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, da quale di queste situazioni NON si può essere in fuorigioco?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Tiro respinto dal palo",
+        "Punizione indiretta",
+        "Passaggio di un compagno",
+        "Rimessa laterale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Non c'è fuorigioco su rimessa laterale, rimessa dal fondo e calcio d'angolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era Roland Garros, che dà il nome al torneo di tennis di Parigi?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un generale",
+        "Un tennista",
+        "Un sindaco di Parigi",
+        "Un aviatore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "trabocchetto"
+      ],
+      "notes": "Roland Garros fu un pioniere dell'aviazione, primo a sorvolare il Mediterraneo nel 1913",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale eliminò l'Italia ai Mondiali del 1966 con un gol di Pak Doo-ik?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Corea del Sud",
+        "Corea del Nord",
+        "Giappone",
+        "Cina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Middlesbrough, 19 luglio 1966: Corea del Nord-Italia 1-0",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come superò l'Italia l'Unione Sovietica nella semifinale degli Europei del 1968?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Con il lancio della monetina",
+        "Ai calci di rigore",
+        "Ai tempi supplementari",
+        "Con una partita ripetuta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "europei",
+        "trabocchetto"
+      ],
+      "notes": "Dopo lo 0-0 l'Italia passò con il sorteggio della monetina; la finale fu poi ripetuta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale campione dei pesi massimi si ritirò imbattuto, con 49 vittorie su 49 incontri?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Primo Carnera",
+        "Joe Louis",
+        "Rocky Marciano",
+        "Jack Dempsey"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pugilato"
+      ],
+      "notes": "Rocky Marciano, di genitori abruzzesi, si ritirò imbattuto nel 1956",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale edizione dei Giochi il karate debuttò alle Olimpiadi?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tokyo 2020",
+        "Parigi 2024",
+        "Atene 2004",
+        "Londra 2012"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "arti-marziali"
+      ],
+      "notes": "Il karate debuttò a Tokyo 2020 e non fu confermato a Parigi 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale architetto progettò lo stadio San Nicola di Bari, costruito per Italia '90?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Aldo Rossi",
+        "Gae Aulenti",
+        "Renzo Piano",
+        "Pier Luigi Nervi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Renzo Piano lo disegnò a forma di fiore; Nervi era già morto nel 1979",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il trofeo consegnato al vincitore del Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Coppa Rosa",
+        "Trofeo Senza Fine",
+        "Trofeo Gazzetta",
+        "Coppa delle Alpi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Il Trofeo Senza Fine, una spirale dorata, consegnato dal 1999",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città Bob Beamon fece il leggendario salto in lungo di 8,90 metri, nel 1968?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Monaco di Baviera",
+        "Tokyo",
+        "Roma",
+        "Città del Messico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Olimpiadi di Città del Messico, 18 ottobre 1968",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città doveva ospitare in origine le Olimpiadi estive del 1940, poi annullate per la guerra?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mosca",
+        "Roma",
+        "Berlino",
+        "Tokyo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Assegnate a Tokyo nel 1936; il Giappone rinunciò nel 1938 e poi i Giochi furono annullati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella gara individuale dei misti, con quale stile si comincia a nuotare?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Dorso",
+        "Farfalla",
+        "Rana",
+        "Stile libero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "nuoto",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Ordine dei misti individuali: farfalla, dorso, rana, stile libero; nella staffetta si parte a dorso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport Eugenio Monti, detto \"il Rosso volante\", vinse due ori olimpici nel 1968?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Bob",
+        "Slittino",
+        "Sci alpino",
+        "Pattinaggio di velocità"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi-invernali"
+      ],
+      "notes": "Monti vinse bob a due e bob a quattro a Grenoble 1968",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto pesa il peso che lanciano gli uomini nell'atletica?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "6 chili",
+        "5 chili",
+        "7,26 chili",
+        "10 chili"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica",
+        "regole"
+      ],
+      "notes": "Il peso maschile è di 7,26 kg (16 libbre); quello femminile di 4 kg",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore del Milan fu il primo italiano nato in Italia a vincere il Pallone d'oro, nel 1969?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Gianni Rivera",
+        "Sandro Mazzola",
+        "Gigi Riva",
+        "Giacinto Facchetti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Rivera vinse nel 1969; Sívori, oriundo argentino, aveva vinto nel 1961",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A chi è intitolato ufficialmente lo stadio Maracanã di Rio de Janeiro?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "A un presidente del Brasile",
+        "A Pelé",
+        "A un giornalista sportivo",
+        "A Garrincha"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "stadi",
+        "trabocchetto"
+      ],
+      "notes": "Si chiama Estádio Jornalista Mário Filho, dal giornalista che ne sostenne la costruzione",
+      "verified": true
+    }
+  ]
+}

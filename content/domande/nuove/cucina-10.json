@@ -1,0 +1,1064 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire sbollentare una verdura?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cuocerla a lungo in forno",
+        "Immergerla per poco in acqua bollente",
+        "Friggerla due volte",
+        "Lasciarla a bagno nell'aceto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Sbollentare: scottare brevemente in acqua bollente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda calda si prepara sciogliendo cacao e zucchero nel latte?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cappuccino",
+        "Camomilla",
+        "Cioccolata calda",
+        "Tè al latte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "La cioccolata calda si fa con cacao o cioccolato sciolto nel latte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le polpette fritte di ceci o fave tipiche del Medio Oriente?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Kebab",
+        "Hummus",
+        "Falafel",
+        "Tahina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-mediorientale"
+      ],
+      "notes": "I falafel sono polpette fritte di ceci o di fave",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda si prepara tradizionalmente in Russia con il samovar?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Caffè",
+        "Tè",
+        "Vodka",
+        "Cioccolata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Il samovar è il bollitore russo per l'acqua del tè",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente rende piccante il sugo all'arrabbiata?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pepe nero",
+        "Senape",
+        "Peperoncino",
+        "Zenzero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi"
+      ],
+      "notes": "L'arrabbiata è un sugo di pomodoro, aglio e peperoncino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale salsa si prepara con basilico, pinoli, aglio, formaggio e olio?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Salsa verde",
+        "Pesto",
+        "Chimichurri",
+        "Bagna cauda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salse"
+      ],
+      "notes": "Il pesto alla genovese unisce basilico, pinoli, aglio, formaggi e olio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale primo piatto romano si fa con uova, guanciale, pecorino e pepe?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cacio e pepe",
+        "Gricia",
+        "Amatriciana",
+        "Carbonara"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-romana"
+      ],
+      "notes": "La carbonara è l'unica delle quattro con le uova",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale utensile bucherellato si usa per eliminare l'acqua di cottura della pasta?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Scolapasta",
+        "Frusta",
+        "Grattugia",
+        "Mestolo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "utensili"
+      ],
+      "notes": "Lo scolapasta, o colapasta, separa la pasta dall'acqua",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il brunch?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un pasto tra colazione e pranzo",
+        "Un panino col bacon",
+        "Un cocktail al brandy",
+        "Un dolce inglese"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni"
+      ],
+      "notes": "Brunch: da breakfast e lunch",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio svizzero è famoso per i suoi grandi buchi?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gorgonzola",
+        "Brie",
+        "Emmental",
+        "Feta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "I buchi dell'Emmental si formano per l'anidride carbonica prodotta dai batteri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cocktail si prepara con Campari, vermut rosso e soda?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bellini",
+        "Americano",
+        "Spritz",
+        "Negroni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "L'Americano è Campari, vermut rosso e seltz; il Negroni ha anche il gin e niente soda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale liquore all'anice si serve con tre chicchi di caffè, detti mosche?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sambuca",
+        "Amaretto",
+        "Limoncello",
+        "Grappa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "liquori"
+      ],
+      "notes": "La sambuca con la mosca: chicchi di caffè galleggianti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I dim sum, bocconcini serviti in cestini di bambù, sono tipici di quale cucina?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cinese",
+        "Giapponese",
+        "Thailandese",
+        "Indiana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-asiatica"
+      ],
+      "notes": "I dim sum sono tipici della cucina cantonese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il poke, ciotola di pesce crudo a cubetti, viene da quale arcipelago?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Maldive",
+        "Canarie",
+        "Hawaii",
+        "Filippine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-americana"
+      ],
+      "notes": "Poke in hawaiano significa tagliare a pezzi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale abbondante colazione con uova, bacon, salsicce e fagioli in salsa è tipica del Regno Unito?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Continental",
+        "Afternoon tea",
+        "Brunch",
+        "Full English"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-inglese"
+      ],
+      "notes": "La full English breakfast comprende uova, bacon, salsicce, fagioli, funghi e pomodoro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Gli spätzle, piccoli gnocchetti di farina e uova, sono tipici della cucina di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Germania",
+        "Grecia",
+        "Portogallo",
+        "Spagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-europea"
+      ],
+      "notes": "Gli spätzle vengono dalla Svevia, nel sud-ovest della Germania",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il camembert è un formaggio tipico di quale regione francese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Normandia",
+        "Alsazia",
+        "Bretagna",
+        "Provenza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Camembert è un villaggio della Normandia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale tipo di riso si preparano i mochi giapponesi?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Riso basmati",
+        "Riso Venere",
+        "Riso Carnaroli",
+        "Riso glutinoso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "I mochi si fanno con riso glutinoso pestato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il paneer della cucina indiana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un burro chiarificato",
+        "Una salsa di yogurt",
+        "Un formaggio fresco",
+        "Un pane piatto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-indiana"
+      ],
+      "notes": "Il paneer è un formaggio fresco che non fonde, ottenuto cagliando il latte con un acido",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il tandoor della cucina indiana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una salsa di yogurt",
+        "Un tipo di riso",
+        "Un forno di argilla",
+        "Una miscela di spezie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-indiana"
+      ],
+      "notes": "Nel tandoor, forno cilindrico di argilla, si cuociono pollo tandoori e pane naan",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I ricciarelli, morbidi biscotti di mandorle, sono tipici di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pisa",
+        "Siena",
+        "Firenze",
+        "Lucca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "toscana"
+      ],
+      "notes": "Ricciarelli di Siena IGP",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'Irish stew, stufato tradizionale irlandese, è fatto con quale carne?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Anatra",
+        "Coniglio",
+        "Agnello",
+        "Pollo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-europea"
+      ],
+      "notes": "L'Irish stew tradizionale è di agnello o montone con patate e cipolle",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Negli Stati Uniti, che cosa c'è su una pizza al pepperoni?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Peperoncini verdi",
+        "Salame piccante",
+        "Peperoni grigliati",
+        "Peperoni sott'aceto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pizza",
+        "trabocchetto"
+      ],
+      "notes": "Il pepperoni americano è un salame piccante, non un ortaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le castagnole di Carnevale contengono castagne?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sì, farina di castagne",
+        "Solo in Toscana",
+        "Sì, castagne candite",
+        "No"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "Le castagnole sono palline fritte di farina, uova e zucchero: niente castagne",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo una leggenda smentita dagli storici, chi avrebbe portato gli spaghetti dalla Cina?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Antonio Pigafetta",
+        "Amerigo Vespucci",
+        "Cristoforo Colombo",
+        "Marco Polo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-del-cibo"
+      ],
+      "notes": "La pasta secca era già documentata in Sicilia nel 1154 da al-Idrisi, prima di Marco Polo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono gli edamame giapponesi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Baccelli di soia acerbi",
+        "Germogli di bambù",
+        "Piselli secchi",
+        "Fagioli rossi dolci"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "Gli edamame sono baccelli di soia raccolti verdi, bolliti e salati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con che cosa si servono tradizionalmente gli scone nel tè all'inglese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Burro d'arachidi",
+        "Uova e bacon",
+        "Formaggio e cetrioli",
+        "Panna rappresa e marmellata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-inglese"
+      ],
+      "notes": "Il cream tea: scone con clotted cream e marmellata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il polpo lesso con paprika, olio e sale grosso, servito su un tagliere di legno, è tipico di quale regione spagnola?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Galizia",
+        "Andalusia",
+        "Castiglia",
+        "Catalogna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-spagnola"
+      ],
+      "notes": "È il pulpo a la gallega, della Galizia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le tigelle, piccoli pani tondi da farcire, sono tipiche della provincia di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Modena",
+        "Ferrara",
+        "Ravenna",
+        "Parma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pane"
+      ],
+      "notes": "Tigelle o crescentine dell'Appennino modenese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Taleggio prende il nome da una valle di quale provincia?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sondrio",
+        "Brescia",
+        "Bergamo",
+        "Como"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "La Val Taleggio è in provincia di Bergamo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La polenta taragna, con grano saraceno e formaggio, è tipica di quale valle alpina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Val di Susa",
+        "Valle di Gressoney",
+        "Val Gardena",
+        "Valtellina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-lombarda"
+      ],
+      "notes": "La polenta taragna è tipica della Valtellina e delle valli bergamasche",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel Negroni sbagliato, che cosa prende il posto del gin?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rum",
+        "Acqua tonica",
+        "Spumante",
+        "Vodka"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Il Negroni sbagliato nacque al Bar Basso di Milano usando spumante al posto del gin",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa caratterizza il metodo classico per fare gli spumanti?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "La fermentazione in botti di legno",
+        "L'aggiunta di anidride carbonica",
+        "La seconda fermentazione in bottiglia",
+        "Le uve raccolte congelate"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Nel metodo classico, o champenoise, la presa di spuma avviene in bottiglia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Verdicchio è un vino bianco tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Umbria",
+        "Marche",
+        "Abruzzo",
+        "Toscana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Verdicchio dei Castelli di Jesi e di Matelica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In cucina, che cosa sono le animelle?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rognoni di agnello",
+        "Midollo delle ossa",
+        "Cervella di maiale",
+        "Ghiandole del vitello come il timo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carne",
+        "trabocchetto"
+      ],
+      "notes": "Le animelle sono timo e pancreas di vitello o agnello",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il tartufo di Pizzo IGP, specialità calabrese, che cos'è?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un fungo pregiato",
+        "Un salume",
+        "Un formaggio",
+        "Un gelato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "calabria",
+        "trabocchetto"
+      ],
+      "notes": "Il tartufo di Pizzo è un gelato ripieno di cioccolato fuso, ricoperto di cacao",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per la precisione, che cos'è il couscous?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un legume tritato",
+        "Un cereale africano",
+        "Un tipo di riso",
+        "Semola di grano lavorata a granelli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trabocchetto",
+        "cucina-africana"
+      ],
+      "notes": "Il couscous non è un cereale a sé: è semola di grano duro inumidita e lavorata a granelli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il Welsh rarebit britannico?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Coniglio in umido",
+        "Pasticcio di agnello",
+        "Pane tostato con formaggio fuso",
+        "Torta di lepre"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-inglese",
+        "trabocchetto"
+      ],
+      "notes": "Nonostante il nome, coniglio gallese, è pane tostato coperto di salsa di formaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale zona costiera toscana nasce il vino Sassicaia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Bolgheri",
+        "Montepulciano",
+        "Montalcino",
+        "Chianti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Il Sassicaia della Tenuta San Guido ha una DOC propria, Bolgheri Sassicaia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il vino dolce Tokaji è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Austria",
+        "Ungheria",
+        "Croazia",
+        "Romania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Il Tokaji Aszú è il celebre vino passito ungherese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il tè oolong si distingue perché le foglie sono?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Parzialmente ossidate",
+        "Affumicate",
+        "Completamente ossidate",
+        "Per nulla ossidate"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "L'oolong è un tè semiossidato, a metà tra verde e nero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La currywurst, salsiccia con ketchup al curry, è simbolo dello street food di quale città?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Monaco di Baviera",
+        "Berlino",
+        "Colonia",
+        "Stoccarda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-europea"
+      ],
+      "notes": "La currywurst nacque a Berlino nel 1949, attribuita a Herta Heuwer",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I vincisgrassi, ricca lasagna al forno, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Molise",
+        "Marche",
+        "Abruzzo",
+        "Umbria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "I vincisgrassi sono il primo della festa marchigiano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La sardella calabrese, detta caviale dei poveri, si prepara con pesce minuto e quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Peperoncino",
+        "Zafferano",
+        "Limone",
+        "Cipolla"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calabria"
+      ],
+      "notes": "La sardella è una crema di pesce neonato salato e peperoncino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I corzetti liguri sono dischi di pasta decorati con che cosa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Una forchetta",
+        "Un pettine",
+        "Una rotella dentata",
+        "Uno stampo di legno intagliato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "I corzetti si imprimono con stampi di legno che portano stemmi e disegni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i tenerumi della cucina siciliana?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Piccoli calamari",
+        "Gnocchi di ricotta",
+        "Carciofi selvatici",
+        "Foglie e germogli della zucchina lunga"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "I tenerumi sono le cime tenere della zucchina lunga siciliana, cotte in minestra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il morzello, trippa e frattaglie in umido servite nella pitta, è tipico di quale città calabrese?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Catanzaro",
+        "Crotone",
+        "Reggio Calabria",
+        "Cosenza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calabria"
+      ],
+      "notes": "Il morzeddu è il piatto simbolo di Catanzaro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'erbazzone, torta salata di bietole e formaggio, è tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Ferrara",
+        "Reggio Emilia",
+        "Rimini",
+        "Piacenza"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-emiliana"
+      ],
+      "notes": "L'erbazzone è una specialità reggiana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I rococò, biscotti duri a ciambella con le mandorle, sono tipici del Natale di quale città?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Lecce",
+        "Napoli",
+        "Palermo",
+        "Bari"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "I rococò sono tra i dolci natalizi napoletani, con mostaccioli e struffoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In cucina, che cos'è un pomodoro concassé?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Passato al setaccio",
+        "Arrostito sulla brace",
+        "Essiccato al sole",
+        "Pelato, senza semi e a cubetti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Concassé: pomodoro sbollentato, pelato, privato dei semi e tagliato a dadini",
+      "verified": true
+    }
+  ]
+}

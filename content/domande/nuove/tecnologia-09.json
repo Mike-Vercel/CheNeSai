@@ -1,0 +1,1070 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quali gomme si montano sull'auto per affrontare neve e freddo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pneumatici invernali",
+        "Pneumatici slick",
+        "Pneumatici da pista",
+        "Pneumatici da sabbia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Gli pneumatici invernali hanno mescola e battistrada per basse temperature",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica l'errore 404 quando si apre una pagina web?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Server sovraccarico",
+        "Pagina non trovata",
+        "Password errata",
+        "Accesso vietato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Codice HTTP 404 Not Found (l'accesso vietato è il 403)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Fra quali città correva la Direttissima, la prima linea italiana ad alta velocità, aperta dal 1977?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Milano e Bologna",
+        "Napoli e Salerno",
+        "Roma e Firenze",
+        "Torino e Milano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "treni",
+        "italia"
+      ],
+      "notes": "Primo tratto della Direttissima Roma-Firenze inaugurato nel 1977",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nei vecchi Windows, quale pulsante si cliccava anche per spegnere il computer?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Esci",
+        "Chiudi",
+        "Pannello di controllo",
+        "Start"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "Paradosso famoso: lo spegnimento si trovava nel menu Start",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i punti di ricarica per le auto elettriche lungo le strade?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Colonnine",
+        "Cabine",
+        "Pompe",
+        "Centraline"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Le colonnine di ricarica, pubbliche o private",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda spaziale privata fu fondata da Elon Musk nel 2002?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Blue Origin",
+        "Virgin Galactic",
+        "SpaceX",
+        "Rocket Lab"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "SpaceX fondata nel 2002; Blue Origin è di Jeff Bezos",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale imprenditore fondò Amazon nel 1994?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bill Gates",
+        "Larry Page",
+        "Steve Wozniak",
+        "Jeff Bezos"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Jeff Bezos, a Seattle",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale suffisso hanno gli indirizzi web delle università americane?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        ".uni",
+        ".edu",
+        ".sch",
+        ".stu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il dominio .edu è riservato alle istituzioni accademiche statunitensi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama tecnicamente il salvavita dell'impianto elettrico di casa?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Contatore",
+        "Trasformatore",
+        "Interruttore differenziale",
+        "Fusibile ceramico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "Il differenziale stacca la corrente se rileva una dispersione verso terra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la disposizione delle lettere delle tastiere italiane, dalle prime lettere in alto a sinistra?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "QWERTY",
+        "AZERTY",
+        "QWERTZ",
+        "ABCDEF"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Le tastiere italiane e inglesi sono QWERTY; AZERTY è francese, QWERTZ tedesca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica francese ha come logo due frecce a punta, una sopra l'altra?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Peugeot",
+        "Citroën",
+        "Renault",
+        "Alpine"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il \"double chevron\" ricorda gli ingranaggi a spina di pesce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve un powerbank?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "A potenziare il Wi-Fi",
+        "A proteggere lo schermo",
+        "A cancellare i virus",
+        "A ricaricare il telefono fuori casa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Il powerbank è una batteria portatile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la luce che esce dal telecomando del televisore?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Invisibile all'occhio umano",
+        "Rossa",
+        "Verde",
+        "Blu"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "elettronica",
+        "trabocchetto"
+      ],
+      "notes": "I telecomandi usano LED a infrarossi: si vedono solo con la fotocamera del telefono",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale decennio nacque la stampa 3D?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Anni Cinquanta",
+        "Anni Duemila",
+        "Anni Dieci",
+        "Anni Ottanta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni",
+        "trabocchetto"
+      ],
+      "notes": "Hideo Kodama nel 1981 e Chuck Hull, brevetto della stereolitografia nel 1984",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il programma del 1966 che imitava una psicoterapeuta?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "ALICE",
+        "SHRDLU",
+        "ELIZA",
+        "PARRY"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "intelligenza artificiale"
+      ],
+      "notes": "ELIZA di Joseph Weizenbaum, MIT",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale programma Microsoft si usa di solito per i fogli di calcolo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Word",
+        "Excel",
+        "PowerPoint",
+        "Paint"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "software"
+      ],
+      "notes": "Excel è il foglio di calcolo del pacchetto Microsoft Office",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale parte dell'aereo si trovano di solito le scatole nere?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nella cabina di pilotaggio",
+        "Sotto le ali",
+        "Nel carrello",
+        "Nella coda"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "Si mettono in coda, la parte che di solito resiste meglio agli impatti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella verifica in due passaggi, che cosa si inserisce di solito oltre alla password?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il codice fiscale",
+        "Un codice ricevuto sul telefono",
+        "La data di nascita",
+        "Il nome utente"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicurezza"
+      ],
+      "notes": "L'autenticazione a due fattori richiede un secondo elemento, spesso un codice temporaneo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tasto si preme per cancellare la lettera a sinistra del cursore?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tab",
+        "Esc",
+        "Backspace",
+        "Fine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Backspace cancella a sinistra, Canc a destra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale Stato appartiene il dominio internet punto va?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Città del Vaticano",
+        "Vanuatu",
+        "Venezuela",
+        "Valle d'Aosta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": ".va è il Vaticano; Vanuatu è .vu, il Venezuela .ve",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa inventò Elisha Otis, presentandolo a New York nel 1854?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il freno di sicurezza degli ascensori",
+        "La scala mobile",
+        "La gru a torre",
+        "Il montacarichi a vapore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Otis tagliò la fune davanti al pubblico e la cabina non cadde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco per Atari 2600 Warren Robinett nascose il proprio nome, in uno dei primi easter egg?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Pong",
+        "Breakout",
+        "Adventure",
+        "Asteroids"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Warren Robinett nascose il suo nome in una stanza segreta di Adventure",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale soprannome è nota l'area delle aziende tecnologiche intorno a Catania?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Silicon Sicily",
+        "Valle dei Templi",
+        "Trinacria Tech",
+        "Etna Valley"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "italia",
+        "sicilia"
+      ],
+      "notes": "Etna Valley, con STMicroelectronics e altre aziende di microelettronica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da chi prese Enzo Ferrari il simbolo del cavallino rampante?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Dallo stemma di Torino",
+        "Dall'aviatore Francesco Baracca",
+        "Da un fantino di Siena",
+        "Dal re Vittorio Emanuele"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Lo suggerì la madre di Baracca, asso della prima guerra mondiale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante marce ha di solito un'auto elettrica?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una sola",
+        "Cinque",
+        "Sei",
+        "Otto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "Il motore elettrico ha coppia su un ampio arco di giri: quasi tutte usano un solo rapporto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un easter egg in un videogioco o in un programma?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un livello di Pasqua",
+        "Un errore grave",
+        "Una sorpresa nascosta",
+        "Un trucco per vincere"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Easter egg: contenuto segreto lasciato dagli autori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti caratteri al massimo poteva avere un messaggio su Twitter quando nacque?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "160",
+        "280",
+        "100",
+        "140"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "140 caratteri fino al 2017, poi 280",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola indica l'insieme dei componenti fisici di un computer, opposto al software?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Firmware",
+        "Hardware",
+        "Malware",
+        "Freeware"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Hardware = parti fisiche; software = programmi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa hanno in più le biciclette a pedalata assistita?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Una terza ruota",
+        "Un motore elettrico",
+        "Un secondo sellino",
+        "Un cambio a mano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "biciclette"
+      ],
+      "notes": "Le e-bike hanno un motore elettrico che aiuta mentre si pedala",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si accende sul cruscotto quando non si è allacciata la cintura?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Le luci di emergenza",
+        "I fari abbaglianti",
+        "Il tergicristallo",
+        "Una spia con un segnale acustico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "La spia della cintura, spesso con un cicalino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale computer Apple fu lanciato nel 1984 con uno spot ispirato al romanzo di Orwell?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Macintosh",
+        "iMac",
+        "Apple II",
+        "Lisa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Lo spot \"1984\" fu trasmesso durante il Super Bowl",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua viene la parola robot?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Russo",
+        "Tedesco",
+        "Ceco",
+        "Giapponese"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "robot"
+      ],
+      "notes": "Dal ceco \"robota\", lavoro forzato; resa celebre dal dramma R.U.R. di Karel Čapek (1920)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica italiana produceva la Stratos e la Delta Integrale?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Alfa Romeo",
+        "Fiat",
+        "Lancia",
+        "Maserati"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Lancia Stratos (1973) e Lancia Delta HF Integrale, regine dei rally",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come chiamava Leonardo da Vinci la sua macchina volante simile a un elicottero?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Vite aerea",
+        "Ala battente",
+        "Uccello meccanico",
+        "Paracadute"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "La vite aerea, disegnata intorno al 1489 nel Codice B",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto durò il primo volo a motore dei fratelli Wright, il 17 dicembre 1903?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un minuto",
+        "12 secondi",
+        "5 minuti",
+        "Un'ora"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aerei"
+      ],
+      "notes": "Orville Wright volò per 12 secondi coprendo circa 37 metri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In fotografia, come si chiama l'apertura regolabile che lascia entrare più o meno luce nell'obiettivo?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Otturatore",
+        "Mirino",
+        "Flash",
+        "Diaframma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "foto"
+      ],
+      "notes": "Il diaframma regola l'apertura; l'otturatore il tempo di esposizione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque nel 1994 Video On Line, uno dei primi provider Internet italiani?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Pisa",
+        "Milano",
+        "Cagliari",
+        "Roma"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "italia"
+      ],
+      "notes": "Fondato da Nicola Grauso a Cagliari",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Un moderno aereo di linea può atterrare con il pilota automatico?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sì, con sistemi di atterraggio automatico",
+        "No, mai",
+        "Solo sull'acqua",
+        "Solo di giorno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "L'autoland, usato soprattutto con nebbia fitta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale Paese appartiene il dominio internet punto ch?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Cina",
+        "Svizzera",
+        "Cile",
+        "Ciad"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "ch viene da Confoederatio Helvetica; la Cina è .cn, il Cile .cl",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura il cavallo vapore di un motore?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "La velocità massima",
+        "Il consumo",
+        "La cilindrata",
+        "La potenza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motori"
+      ],
+      "notes": "Il CV è un'unità di potenza, circa 735 watt",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pioniere dell'aviazione, nato in Trentino, diede il nome ai grandi bombardieri italiani della prima guerra mondiale?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Giovanni Agusta",
+        "Gianni Caproni",
+        "Rinaldo Piaggio",
+        "Celestino Rosatelli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aerei",
+        "italia"
+      ],
+      "notes": "Giovanni Battista Caproni, nato a Massone di Arco nel 1886; bombardieri Caproni Ca.3",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'indirizzo cliccabile che porta da una pagina web a un'altra?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Link",
+        "Cookie",
+        "Plugin",
+        "Banner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il link, o collegamento ipertestuale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale decennio fu descritto il primo touchscreen, in Inghilterra?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Anni Ottanta",
+        "Anni Novanta",
+        "Anni Sessanta",
+        "Anni Duemila"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni",
+        "trabocchetto"
+      ],
+      "notes": "E. A. Johnson del Royal Radar Establishment lo descrisse nel 1965",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura il numero di ottano della benzina?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il contenuto di zolfo",
+        "La densità",
+        "Il colore",
+        "La resistenza alla detonazione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Più ottani = meno battito in testa del motore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali furono i primi animali mandati nello spazio, nel 1947?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Moscerini della frutta",
+        "Cani",
+        "Scimmie",
+        "Topi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio",
+        "trabocchetto"
+      ],
+      "notes": "Nel 1947 gli Stati Uniti lanciarono moscerini su un razzo V2; i cani arrivarono dopo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fu il primo nome di Amazon, scelto da Jeff Bezos nel 1994?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Bookworld",
+        "Bookstore",
+        "Cadabra",
+        "Zon"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Cadabra, poi cambiato perché sembrava \"cadaver\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo schermo collegato a un computer fisso?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Modem",
+        "Monitor",
+        "Scanner",
+        "Router"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Il monitor mostra l'immagine prodotta dalla scheda video",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti colori diversi ha la scritta del logo di Google?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "3",
+        "5",
+        "6",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Blu, rosso, giallo e verde (la seconda o è gialla)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In modalità aereo, si può riattivare il Wi-Fi del telefono?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "No, resta sempre spento",
+        "Sì, si può riaccendere a mano",
+        "Solo con la SIM inserita",
+        "Solo a terra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "smartphone",
+        "trabocchetto"
+      ],
+      "notes": "La modalità aereo spegne le radio, ma Wi-Fi e Bluetooth si possono riattivare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la sigla CD dei dischi ottici?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Compact disc",
+        "Computer disk",
+        "Color disc",
+        "Copy data"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Compact disc, sviluppato da Philips e Sony",
+      "verified": true
+    }
+  ]
+}

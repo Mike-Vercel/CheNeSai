@@ -1,0 +1,1083 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale pilota passò alla Ferrari nel 2025, dopo dodici stagioni alla Mercedes?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lewis Hamilton",
+        "Max Verstappen",
+        "Fernando Alonso",
+        "Sebastian Vettel"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Hamilton corse con la Mercedes dal 2013 al 2024 e passò alla Ferrari nel 2025",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come è soprannominato Valentino Rossi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il Campionissimo",
+        "Il Professore",
+        "Il Dottore",
+        "Il Pirata"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motociclismo",
+        "soprannomi"
+      ],
+      "notes": "\"The Doctor\", nel 2005 arrivò anche la laurea honoris causa a Urbino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese è il tennista Novak Djokovic?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Croazia",
+        "Serbia",
+        "Russia",
+        "Bulgaria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Djokovic è nato a Belgrado nel 1987",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport gareggia la campionessa paralimpica Bebe Vio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tennistavolo",
+        "Nuoto",
+        "Atletica",
+        "Scherma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "paralimpiadi"
+      ],
+      "notes": "Bebe Vio è campionessa di fioretto in carrozzina, oro a Rio 2016 e Tokyo 2020",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore devono vestire i tennisti a Wimbledon?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nero",
+        "Verde",
+        "Blu",
+        "Bianco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "A Wimbledon vige la regola del bianco quasi totale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato si corre il Gran Premio di Monaco di Formula 1?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Germania",
+        "Principato di Monaco",
+        "Francia",
+        "Italia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "f1",
+        "trabocchetto"
+      ],
+      "notes": "Si corre nel Principato di Monaco, non a Monaco di Baviera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo stile di gioco difensivo che ha reso celebre il calcio italiano?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Catenaccio",
+        "Tiki-taka",
+        "Calcio totale",
+        "Gegenpressing"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Il catenaccio, con il libero dietro la difesa, fu reso celebre da Rocco e Herrera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport ha gareggiato Carolina Kostner?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Snowboard",
+        "Sci alpino",
+        "Pattinaggio artistico",
+        "Curling"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi-invernali"
+      ],
+      "notes": "Kostner, campionessa del mondo 2012 e bronzo olimpico a Sochi 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio è chiamata \"il Toro\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Juventus",
+        "Atalanta",
+        "Genoa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Il Torino è il Toro, dal simbolo della città",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale località greca si accende la fiaccola olimpica?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Delfi",
+        "Atene",
+        "Olimpia",
+        "Sparta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "La fiamma si accende con i raggi del sole nel santuario di Olimpia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse gli Europei di calcio del 2024, in Germania?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Inghilterra",
+        "Spagna",
+        "Francia",
+        "Germania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Spagna-Inghilterra 2-1 a Berlino, 14 luglio 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse la Champions League del 2025, battendo l'Inter in finale?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bayern Monaco",
+        "Real Madrid",
+        "Manchester City",
+        "Paris Saint-Germain"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "coppe"
+      ],
+      "notes": "PSG-Inter 5-0 a Monaco di Baviera, 31 maggio 2025",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quale squadra ha giocato Paolo Maldini in tutta la sua carriera?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Inter",
+        "Juventus",
+        "Milan"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Maldini giocò solo nel Milan dal 1985 al 2009",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale collina si schiantò nel 1949 l'aereo del Grande Torino?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Colle della Maddalena",
+        "Superga",
+        "Monte dei Cappuccini",
+        "Moncalieri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "storia"
+      ],
+      "notes": "4 maggio 1949, contro la Basilica di Superga",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si gioca lo US Open di tennis?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "New York",
+        "Los Angeles",
+        "Miami",
+        "Chicago"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Allo USTA Billie Jean King National Tennis Center di Flushing Meadows, New York",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale atleta Gianmarco Tamberi condivise l'oro del salto in alto a Tokyo 2020?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ivan Ukhov",
+        "Javier Sotomayor",
+        "Mutaz Essa Barshim",
+        "Derek Drouin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Tamberi e il qatariota Barshim scelsero di dividere l'oro a 2,37",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante prove ha l'eptathlon femminile?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "7",
+        "8",
+        "10"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Eptathlon: 100 ostacoli, alto, peso, 200, lungo, giavellotto, 800",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel baseball, come si chiama il colpo che manda la palla oltre la recinzione?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Smorzata",
+        "Strike",
+        "Fuoricampo",
+        "Ball"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "baseball"
+      ],
+      "notes": "Il fuoricampo (home run) permette di fare il giro di tutte le basi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale specialità Sofia Goggia vinse l'oro olimpico a PyeongChang 2018?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Slalom speciale",
+        "Discesa libera",
+        "Slalom gigante",
+        "Supergigante"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sci",
+        "olimpiadi"
+      ],
+      "notes": "Goggia oro in discesa libera nel 2018, prima italiana in questa specialità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale disciplina di danza debuttò alle Olimpiadi di Parigi 2024?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Salsa",
+        "Tango",
+        "Rock acrobatico",
+        "Breaking"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "La breakdance (breaking) debuttò a Parigi 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In Formula 1, che cosa indica la bandiera gialla?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pilota squalificato",
+        "Fine della gara",
+        "Ultimo giro",
+        "Pericolo, vietato sorpassare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "f1",
+        "regole"
+      ],
+      "notes": "Gialla: pericolo in pista e divieto di sorpasso; la nera squalifica, la scacchi chiude la gara",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport hanno vinto ori olimpici i fratelli Abbagnale?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Canoa",
+        "Canottaggio",
+        "Vela",
+        "Nuoto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Carmine e Giuseppe Abbagnale, ori nel due con a Los Angeles 1984 e Seul 1988",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiano vinse il torneo di Wimbledon nel 2025?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Jannik Sinner",
+        "Lorenzo Musetti",
+        "Matteo Berrettini",
+        "Flavio Cobolli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Sinner batté Alcaraz in finale, primo italiano a vincere Wimbledon",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel rugby, come si chiama la fase in cui gli avanti si spingono tenendosi abbracciati?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Meta",
+        "Touche",
+        "Mischia",
+        "Placcaggio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby",
+        "regole"
+      ],
+      "notes": "La mischia (scrum); la touche è la rimessa laterale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città l'Italia batté la Germania nella semifinale dei Mondiali del 2006?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dortmund",
+        "Berlino",
+        "Monaco di Baviera",
+        "Amburgo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Germania-Italia 0-2 ai supplementari a Dortmund, gol di Grosso e Del Piero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale trofeo europeo vinse la Roma nel 2022, a Tirana?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Coppa delle Coppe",
+        "Europa League",
+        "Conference League",
+        "Supercoppa europea"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "coppe"
+      ],
+      "notes": "Roma-Feyenoord 1-0, gol di Zaniolo, 25 maggio 2022",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista vinse nello stesso anno, il 2024, Giro d'Italia e Tour de France?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Jonas Vingegaard",
+        "Tadej Pogačar",
+        "Remco Evenepoel",
+        "Primož Roglič"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Pogačar fece la doppietta Giro-Tour nel 2024, come Pantani nel 1998",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi formava con Roberto Mancini i \"gemelli del gol\" della Sampdoria?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pietro Vierchowod",
+        "Attilio Lombardo",
+        "Toninho Cerezo",
+        "Gianluca Vialli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Vialli e Mancini guidarono la Samp allo scudetto del 1991",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama al Tour de France l'ultimo della classifica generale?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ruota di scorta",
+        "Maglia nera",
+        "Fanalino verde",
+        "Lanterna rossa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "La lanterne rouge, come la luce rossa dell'ultimo vagone; la maglia nera era del Giro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale località austriaca si corre la celebre discesa della Streif?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sankt Anton",
+        "Kitzbühel",
+        "Schladming",
+        "Innsbruck"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "La Streif dell'Hahnenkamm, a Kitzbühel",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale distanza si corre alle Olimpiadi la gara a ostacoli con la riviera d'acqua?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "3000 metri",
+        "1500 metri",
+        "5000 metri",
+        "2000 metri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Sono i 3000 siepi, con barriere e riviera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale golfista italiano vinse l'Open Championship nel 2018?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Matteo Manassero",
+        "Edoardo Molinari",
+        "Francesco Molinari",
+        "Costantino Rocca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "golf"
+      ],
+      "notes": "Francesco Molinari a Carnoustie, primo italiano a vincere un major",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è la mascotte tradizionale del Napoli?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Asinello",
+        "Gallo",
+        "Leone",
+        "Lupo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Il ciuccio, l'asinello, adottato dai tifosi negli anni Venti e Trenta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome l'America's Cup di vela?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Da un armatore di nome America",
+        "Dal continente americano",
+        "Dalla goletta America che la vinse nel 1851",
+        "Dal Paese che la organizza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vela",
+        "trabocchetto"
+      ],
+      "notes": "Nel 1851 la goletta America vinse la coppa attorno all'isola di Wight",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale campione è intitolato il Golden Gala di atletica di Roma?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Livio Berruti",
+        "Pietro Mennea",
+        "Sara Simeoni",
+        "Dorando Pietri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Dal 2013 si chiama Golden Gala Pietro Mennea",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sciatrice fu la prima italiana a vincere la Coppa del mondo generale di sci alpino, nel 2020?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Isolde Kostner",
+        "Sofia Goggia",
+        "Deborah Compagnoni",
+        "Federica Brignone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "Federica Brignone, Coppa generale 2020 (e di nuovo 2025)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel cricket, come si chiama il giocatore che lancia la palla?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Wicket-keeper",
+        "Batsman",
+        "Pitcher",
+        "Bowler"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cricket"
+      ],
+      "notes": "Nel cricket lancia il bowler; il pitcher è il lanciatore del baseball",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale imperatore romano pose fine alle antiche Olimpiadi, verso il 393 dopo Cristo?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Costantino",
+        "Teodosio",
+        "Nerone",
+        "Giustiniano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia"
+      ],
+      "notes": "Secondo la tradizione i Giochi cessarono con i decreti di Teodosio contro i culti pagani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto è larga una porta da calcio regolamentare?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "7,32 metri",
+        "6,50 metri",
+        "8 metri",
+        "7 metri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "La porta misura 7,32 per 2,44 metri (8 iarde per 8 piedi)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese venivano Gren, Nordahl e Liedholm, il trio \"Gre-No-Li\" del Milan?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Danimarca",
+        "Norvegia",
+        "Svezia",
+        "Olanda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "I tre svedesi, oro olimpico nel 1948, giocarono insieme nel Milan dal 1949",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale pilota la Ducati vinse il suo primo Mondiale MotoGP, nel 2007?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Casey Stoner",
+        "Loris Capirossi",
+        "Valentino Rossi",
+        "Andrea Dovizioso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "L'australiano Casey Stoner, campione 2007 con la Desmosedici",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il nome dei Lakers viene dai laghi di quale Stato americano, dove la squadra nacque?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "California",
+        "Michigan",
+        "Minnesota",
+        "Wisconsin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "trabocchetto"
+      ],
+      "notes": "I Lakers nacquero a Minneapolis (Minnesota, \"terra dei 10.000 laghi\") e si trasferirono a Los Angeles nel 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava in origine la pallavolo, inventata nel 1895?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Netball",
+        "Mintonette",
+        "Handball",
+        "Basketnet"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallavolo",
+        "storia"
+      ],
+      "notes": "William G. Morgan la chiamò Mintonette, ispirandosi al badminton",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale trofeo di rugby si contendono Inghilterra e Scozia?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cook Cup",
+        "Webb Ellis Cup",
+        "Bledisloe Cup",
+        "Calcutta Cup"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rugby"
+      ],
+      "notes": "La Calcutta Cup, dal 1879, fusa con le rupie d'argento del Calcutta Football Club",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quali valli trentine si corre la Marcialonga di sci di fondo?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Valsugana e Val di Cembra",
+        "Val di Sole e Val di Non",
+        "Val Gardena e Val Badia",
+        "Val di Fiemme e Val di Fassa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci"
+      ],
+      "notes": "La Marcialonga, dal 1971, va da Moena a Cavalese attraverso Fassa e Fiemme",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"derby\" viene da una corsa di cavalli fondata da un conte inglese. In quale località si corre?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ascot",
+        "Epsom",
+        "Newmarket",
+        "Aintree"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ippica",
+        "lingua",
+        "trabocchetto"
+      ],
+      "notes": "Il Derby di Epsom fu istituito nel 1780 dal dodicesimo conte di Derby",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo nuotatore italiano a vincere un oro olimpico, a Sydney 2000?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Domenico Fioravanti",
+        "Giorgio Lamberti",
+        "Filippo Magnini",
+        "Emiliano Brembilla"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi"
+      ],
+      "notes": "Fioravanti vinse 100 e 200 rana a Sydney 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città l'Italia di Velasco vinse il suo primo Mondiale di pallavolo, nel 1990?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Buenos Aires",
+        "San Paolo",
+        "Rio de Janeiro",
+        "Atene"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pallavolo"
+      ],
+      "notes": "Finale Italia-Cuba 3-1 a Rio de Janeiro, 28 ottobre 1990",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pugile napoletano vinse l'oro olimpico a Mosca 1980?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Patrizio Oliva",
+        "Nino Benvenuti",
+        "Francesco Damiani",
+        "Maurizio Stecca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pugilato",
+        "olimpiadi"
+      ],
+      "notes": "Patrizio Oliva, oro nei superleggeri a Mosca 1980; Stecca vinse nel 1984, Benvenuti nel 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ginnasta italiano vinse l'oro alla sbarra alle Olimpiadi di Atene 2004?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Matteo Morandi",
+        "Jury Chechi",
+        "Igor Cassina",
+        "Alberto Busnari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ginnastica",
+        "olimpiadi"
+      ],
+      "notes": "Igor Cassina, il primo a eseguire il \"movimento Cassina\"",
+      "verified": true
+    }
+  ]
+}

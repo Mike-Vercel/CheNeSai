@@ -1,0 +1,1100 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi canta \"Emozioni\", del 1970?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Battisti",
+        "Lucio Dalla",
+        "Gino Paoli",
+        "Claudio Baglioni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Emozioni\" (1970), testo di Mogol e musica di Lucio Battisti, che la incise",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Hey Jude\", nel 1968?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "The Who",
+        "Rolling Stones",
+        "The Beatles",
+        "The Kinks"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "beatles"
+      ],
+      "notes": "\"Hey Jude\" dei Beatles, singolo del 1968 scritto da Paul McCartney",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante è conosciuto in tutto il mondo come \"il Re del Pop\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Prince",
+        "Michael Jackson",
+        "Stevie Wonder",
+        "Elvis Presley"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "soprannomi"
+      ],
+      "notes": "Michael Jackson è il King of Pop; Elvis è il re del rock and roll",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città ligure si tiene il Festival della canzone italiana?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Genova",
+        "La Spezia",
+        "Imperia",
+        "Sanremo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Il Festival della canzone italiana si tiene a Sanremo dal 1951",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante è la voce di tantissime sigle di cartoni animati, come \"Occhi di gatto\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Lorella Cuccarini",
+        "Raffaella Carrà",
+        "Heather Parisi",
+        "Cristina D'Avena"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sigle",
+        "tv",
+        "italia"
+      ],
+      "notes": "Cristina D'Avena ha cantato centinaia di sigle, tra cui \"Occhi di gatto\" (1985)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante giamaicano ha inciso \"No Woman, No Cry\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Jimmy Cliff",
+        "Bob Marley",
+        "Shaggy",
+        "Sean Paul"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "reggae",
+        "mondo"
+      ],
+      "notes": "\"No Woman, No Cry\" di Bob Marley & The Wailers, 1974",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo cantava \"Gli anni\" e \"Come mai\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "883",
+        "Pooh",
+        "Lùnapop",
+        "Nomadi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "anni-90",
+        "italia"
+      ],
+      "notes": "\"Come mai\" (1993) e \"Gli anni\" (1995) sono degli 883 di Max Pezzali",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di cinque musicisti?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Quartetto",
+        "Sestetto",
+        "Quintetto",
+        "Trio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il quintetto è una formazione di cinque esecutori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo di fratelli cantava \"Stayin' Alive\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bee Gees",
+        "Jackson 5",
+        "Beach Boys",
+        "Everly Brothers"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "disco",
+        "anni-70"
+      ],
+      "notes": "\"Stayin' Alive\" (1977) dei Bee Gees, i fratelli Gibb, dal film \"La febbre del sabato sera\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella canzone \"Volevo un gatto nero\", di che colore era il gatto che invece arrivò?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nero",
+        "Rosso",
+        "Bianco",
+        "Grigio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "zecchino-doro",
+        "trabocchetto"
+      ],
+      "notes": "Zecchino d'Oro 1969: \"volevo un gatto nero... mi hai dato un gatto bianco\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Un'estate italiana\" con Gianna Nannini, ai Mondiali di calcio del 1990?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Eros Ramazzotti",
+        "Edoardo Bennato",
+        "Vasco Rossi",
+        "Zucchero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia",
+        "anni-90"
+      ],
+      "notes": "\"Un'estate italiana\" (Notti magiche), Edoardo Bennato e Gianna Nannini, musica di Giorgio Moroder",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Olly vinse il Festival di Sanremo 2025?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Volevo essere un duro",
+        "Fai rumore",
+        "Due vite",
+        "Balorda nostalgia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Olly vinse Sanremo 2025 con \"Balorda nostalgia\"; secondo Lucio Corsi con \"Volevo essere un duro\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Verdi si canta il brindisi \"Libiamo ne' lieti calici\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Aida",
+        "Rigoletto",
+        "Nabucco",
+        "La traviata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "verdi"
+      ],
+      "notes": "Il brindisi del primo atto della Traviata (1853)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"I Wanna Dance with Somebody\", nel 1987?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Janet Jackson",
+        "Whitney Houston",
+        "Cyndi Lauper",
+        "Tina Turner"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "Singolo di Whitney Houston del 1987",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a corde, con la cassa triangolare, è tipico della musica popolare russa?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Balalaika",
+        "Bouzouki",
+        "Mandolino",
+        "Sitar"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "La balalaika ha cassa triangolare e tre corde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il segno che abbassa una nota di un semitono?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Bequadro",
+        "Diesis",
+        "Bemolle",
+        "Corona"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il bemolle abbassa di un semitono, il diesis alza, il bequadro annulla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sinfonie completò Ludwig van Beethoven?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "5",
+        "7",
+        "9",
+        "12"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Beethoven completò nove sinfonie, l'ultima con l'Inno alla gioia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"All I Want for Christmas Is You\", nel 1994?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Christina Aguilera",
+        "Celine Dion",
+        "Mariah Carey",
+        "Britney Spears"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "natale"
+      ],
+      "notes": "Singolo natalizio di Mariah Carey del 1994; Celine Dion è canadese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore bolognese portò \"Piazza Grande\" al Festival di Sanremo del 1972?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Francesco Guccini",
+        "Lucio Dalla",
+        "Cesare Cremonini",
+        "Luca Carboni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "sanremo"
+      ],
+      "notes": "\"Piazza Grande\" di Lucio Dalla, Sanremo 1972",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Quello che le donne non dicono\", nel 1987?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Anna Oxa",
+        "Loredana Bertè",
+        "Gianna Nannini",
+        "Fiorella Mannoia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Fiorella Mannoia a Sanremo 1987, premio della critica; scritta da Enrico Ruggeri e Luigi Schiavone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In un'opera di Rossini, quale uccello ruba una posata d'argento?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Corvo",
+        "Pappagallo",
+        "Merlo",
+        "Gazza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "rossini"
+      ],
+      "notes": "\"La gazza ladra\" (1817): la gazza ruba un cucchiaio d'argento e ne viene accusata la serva Ninetta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il didgeridoo, lungo tubo di legno da soffiare, è lo strumento tradizionale di quale Paese?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nuova Zelanda",
+        "Australia",
+        "Sudafrica",
+        "Papua Nuova Guinea"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "Il didgeridoo è lo strumento degli aborigeni australiani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale duo spagnolo lanciò \"Macarena\", tormentone dell'estate 1996?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Los del Río",
+        "Gipsy Kings",
+        "Las Ketchup",
+        "Los Lobos"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tormentoni",
+        "mondo"
+      ],
+      "notes": "\"Macarena\" di Los del Río, successo mondiale nel 1996 con il remix dei Bayside Boys",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana incise \"Enter Sandman\", nel 1991?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bon Jovi",
+        "Aerosmith",
+        "Metallica",
+        "Guns N' Roses"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "metal"
+      ],
+      "notes": "\"Enter Sandman\" apre il \"Black Album\" dei Metallica (1991)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale personaggio prende il nome il gruppo dei Pooh?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Winnie the Pooh",
+        "Topolino",
+        "Snoopy",
+        "Paperino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Il nome fu scelto nel 1966 dall'orsetto Winnie the Pooh",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale chitarrista rock ha anche un dottorato in astrofisica?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mark Knopfler",
+        "Jimmy Page",
+        "Brian May",
+        "Eric Clapton"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Brian May dei Queen ha conseguito il dottorato all'Imperial College di Londra nel 2007",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa in danese il nome dei Måneskin?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Stella cadente",
+        "Chiaro di luna",
+        "Notte bianca",
+        "Lupo grigio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "Måneskin = chiaro di luna; la bassista Victoria De Angelis è di origine danese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Dove si esibirono per la prima volta i Tre Tenori, nel 1990?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Arena di Verona",
+        "Piazza San Marco",
+        "Colosseo",
+        "Terme di Caracalla"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "italia"
+      ],
+      "notes": "Pavarotti, Domingo e Carreras alle Terme di Caracalla, Roma, 7 luglio 1990, vigilia della finale mondiale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Elisa vinse il Festival di Sanremo del 2001?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Per dire di no",
+        "Gocce di memoria",
+        "Senza pietà",
+        "Luce (tramonti a nord est)"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Elisa vinse Sanremo 2001 con \"Luce (tramonti a nord est)\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale chitarrista è famoso per suonare vestito da scolaretto, con calzoncini e cravatta?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Slash",
+        "Angus Young",
+        "The Edge",
+        "Keith Richards"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Angus Young degli AC/DC e la sua divisa da scolaro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale brano di Čajkovskij prevede nella partitura veri colpi di cannone?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ouverture 1812",
+        "Lo schiaccianoci",
+        "Il lago dei cigni",
+        "Capriccio italiano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "L'Ouverture 1812 (1880) celebra la ritirata di Napoleone dalla Russia con colpi di cannone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città americana è considerata la capitale del grunge?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Los Angeles",
+        "Chicago",
+        "Seattle",
+        "Detroit"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "anni-90"
+      ],
+      "notes": "Nirvana, Pearl Jam, Soundgarden e Alice in Chains vengono dall'area di Seattle",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Fino al 1976, in quale luogo si teneva il Festival di Sanremo?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Casinò di Sanremo",
+        "Palafiori",
+        "Teatro Ariston",
+        "Teatro Carlo Felice"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "trabocchetto"
+      ],
+      "notes": "Dal 1951 al 1976 al Casinò; dal 1977 al Teatro Ariston (nel 1990 al Palafiori)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese vengono gli a-ha, il gruppo di \"Take On Me\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Danimarca",
+        "Svezia",
+        "Norvegia",
+        "Finlandia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "Gli a-ha sono di Oslo; \"Take On Me\" (1985) ha il celebre video a fumetti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante francese era soprannominata \"il passerotto\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Juliette Gréco",
+        "Édith Piaf",
+        "Dalida",
+        "Mireille Mathieu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo",
+        "soprannomi"
+      ],
+      "notes": "\"La môme Piaf\": piaf in argot parigino è il passerotto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale musicista è intitolato l'aeroporto di Catania?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pietro Mascagni",
+        "Giuseppe Verdi",
+        "Alessandro Scarlatti",
+        "Vincenzo Bellini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "opera"
+      ],
+      "notes": "Aeroporto di Catania-Fontanarossa \"Vincenzo Bellini\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il festival di Bayreuth, in Germania, è dedicato alle opere di quale compositore?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Richard Strauss",
+        "Ludwig van Beethoven",
+        "Johann Sebastian Bach",
+        "Richard Wagner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "classica"
+      ],
+      "notes": "Il Festival di Bayreuth fu fondato da Wagner nel 1876 per le sue opere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse il canto natalizio \"Tu scendi dalle stelle\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "San Francesco d'Assisi",
+        "Sant'Alfonso Maria de' Liguori",
+        "San Filippo Neri",
+        "Giuseppe Verdi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "Testo e musica di Sant'Alfonso Maria de' Liguori, 1754; San Francesco inventò il presepe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana morì Richard Wagner, nel 1883?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Venezia",
+        "Palermo",
+        "Ravello",
+        "Bologna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "opera"
+      ],
+      "notes": "Wagner morì a Ca' Vendramin Calergi, Venezia, il 13 febbraio 1883",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In memoria di quale scrittore Giuseppe Verdi compose la sua Messa da Requiem?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ugo Foscolo",
+        "Giacomo Leopardi",
+        "Alessandro Manzoni",
+        "Giovanni Verga"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verdi",
+        "classica"
+      ],
+      "notes": "Eseguita nel 1874, nel primo anniversario della morte di Manzoni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale canzone di Umberto Tozzi diventò un successo americano nel 1982, cantata da Laura Branigan?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Gloria",
+        "Ti amo",
+        "Tu",
+        "Gente di mare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Gloria\" (1979) di Tozzi, versione inglese di Laura Branigan nel 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale località si tenne davvero il festival di Woodstock del 1969?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Woodstock",
+        "Albany",
+        "Bethel",
+        "Monterey"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "trabocchetto"
+      ],
+      "notes": "Il festival si svolse nella fattoria di Max Yasgur a Bethel, a circa 70 km da Woodstock",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il celebre tango \"La cumparsita\" fu composto da un musicista di quale Paese?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Argentina",
+        "Uruguay",
+        "Cile",
+        "Spagna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Gerardo Matos Rodríguez, uruguaiano, Montevideo 1916",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale batterista napoletano incise \"Andamento lento\", nel 1988?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "James Senese",
+        "Enzo Avitabile",
+        "Pino Daniele",
+        "Tullio De Piscopo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "italia",
+        "napoli"
+      ],
+      "notes": "Tullio De Piscopo, Sanremo 1988",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore russo era anche un chimico di professione?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Sergej Rachmaninov",
+        "Nikolaj Rimskij-Korsakov",
+        "Modest Musorgskij",
+        "Aleksandr Borodin"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Borodin, autore del \"Principe Igor\", era professore di chimica (reazione di Borodin)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno Mina si esibì per l'ultima volta in pubblico, alla Bussola?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "1968",
+        "1988",
+        "1978",
+        "1998"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "italia",
+        "mina"
+      ],
+      "notes": "Ultimo concerto pubblico a Bussoladomani, Lido di Camaiore, 23 agosto 1978",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale istituto per orfane di Venezia insegnò a lungo Antonio Vivaldi?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ospedale della Pietà",
+        "Scuola Grande di San Rocco",
+        "Fondaco dei Tedeschi",
+        "Ca' Rezzonico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "barocco"
+      ],
+      "notes": "Vivaldi fu maestro di violino e compositore all'Ospedale della Pietà dal 1703",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale opera inaugurò il Teatro Massimo di Palermo, nel 1897?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Aida",
+        "Cavalleria rusticana",
+        "Falstaff",
+        "Norma"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "sicilia"
+      ],
+      "notes": "Il 16 maggio 1897 con il Falstaff di Verdi diretto da Leopoldo Mugnone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale liutaio costruì \"il Cannone\", il violino preferito di Niccolò Paganini?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Giuseppe Guarneri del Gesù",
+        "Nicola Amati",
+        "Antonio Stradivari",
+        "Jacob Stainer"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "classica"
+      ],
+      "notes": "Il Cannone è un Guarneri del Gesù del 1743, conservato a Genova",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi diede il nome \"Chiaro di luna\" alla celebre sonata per pianoforte di Beethoven?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Lo stesso Beethoven",
+        "Carl Czerny",
+        "Ludwig Rellstab",
+        "Franz Liszt"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Il soprannome lo diede il critico Ludwig Rellstab nel 1832, dopo la morte di Beethoven",
+      "verified": true
+    }
+  ]
+}

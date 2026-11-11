@@ -1,0 +1,1070 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale oggetto animato faceva da assistente nei programmi Office degli anni Novanta?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Una matita",
+        "Una graffetta",
+        "Una gomma",
+        "Un righello"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "software"
+      ],
+      "notes": "Clippy (Clippit), la graffetta di Office 97",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il noleggio di automobili a minuti, prenotate con una app, nelle grandi città?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Car pooling",
+        "Leasing",
+        "Drive-in",
+        "Car sharing"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Car sharing; il car pooling è condividere un passaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque Rudolf Diesel, l'inventore del motore a gasolio?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Monaco di Baviera",
+        "Parigi",
+        "Berlino",
+        "Vienna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "Diesel nacque a Parigi nel 1858 da genitori bavaresi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale aereo della Boeing è soprannominato \"Jumbo\"?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "737",
+        "777",
+        "747",
+        "787"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aerei"
+      ],
+      "notes": "Il Boeing 747, primo aereo a fusoliera larga, volò nel 1969",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda acquistò WhatsApp nel 2014?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Facebook",
+        "Google",
+        "Microsoft",
+        "Apple"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Facebook pagò circa 19 miliardi di dollari nel febbraio 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'assistente vocale degli altoparlanti intelligenti di Amazon?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Siri",
+        "Cortana",
+        "Bixby",
+        "Alexa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Siri è di Apple, Cortana di Microsoft, Bixby di Samsung",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale nome si firmò il misterioso inventore di Bitcoin?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Hal Finney",
+        "Vitalik Buterin",
+        "Satoshi Nakamoto",
+        "Nick Szabo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "criptovalute"
+      ],
+      "notes": "Satoshi Nakamoto è lo pseudonimo dell'autore del documento del 2008",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti satelliti deve ricevere almeno un navigatore GPS per calcolare posizione e quota?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "3",
+        "8",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Tre per la posizione, il quarto per correggere l'orologio del ricevitore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale unità si misura di solito la velocità di una connessione a Internet?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Megabit al secondo",
+        "Megabyte all'ora",
+        "Megahertz",
+        "Megapixel"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "Le offerte indicano megabit al secondo; un byte è fatto di 8 bit",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Oltre a Medicina e alla Sardegna, in quale località siciliana l'INAF ha un radiotelescopio da 32 metri?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Erice",
+        "Noto",
+        "Pachino",
+        "Cefalù"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio",
+        "sicilia"
+      ],
+      "notes": "Radiotelescopio di Noto, in provincia di Siracusa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Perché il floppy disk si chiamava così, anche quando aveva un guscio rigido?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Era il nome dell'inventore",
+        "Si poteva piegare per sbaglio",
+        "Il disco magnetico dentro era flessibile",
+        "Pesava pochissimo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "Floppy = flessibile: il disco interno era di plastica sottile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la grande tartaruga con gli spuntoni, nemica storica di Mario?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bowser",
+        "Yoshi",
+        "Donkey Kong",
+        "Wario"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Bowser, re dei Koopa, nemico di Mario dal 1985",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la società telefonica pubblica italiana prima di Telecom Italia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Enel",
+        "SIP",
+        "Italtel",
+        "Rai"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia",
+        "italia"
+      ],
+      "notes": "La SIP confluì in Telecom Italia nel 1994",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indicano le tacche verticali in alto sullo schermo del cellulare?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "La carica della batteria",
+        "Il volume",
+        "La memoria libera",
+        "La potenza del segnale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Le tacche crescenti mostrano la ricezione della rete",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale formato di foglio misura 21 per 29,7 centimetri?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "A3",
+        "A4",
+        "A5",
+        "B4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ufficio"
+      ],
+      "notes": "Norma ISO 216: A4 = 210 per 297 millimetri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il trattino lampeggiante che indica dove comparirà il testo che scrivi?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cursore",
+        "Segnalibro",
+        "Evidenziatore",
+        "Righello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Il cursore di testo lampeggia nel punto di inserimento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su WhatsApp, che cosa indicano le due spunte diventate blu?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il messaggio è partito",
+        "Il contatto è online",
+        "Il messaggio è stato cancellato",
+        "Il messaggio è stato letto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "Una spunta grigia = inviato, due grigie = consegnato, due blu = letto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sistema operativo a riga di comando vendeva Microsoft prima di Windows?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Linux",
+        "Unix",
+        "MS-DOS",
+        "macOS"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "MS-DOS, dal 1981, per i PC IBM",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura il contachilometri di un'automobile?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "La pressione delle gomme",
+        "La distanza percorsa",
+        "Il carburante rimasto",
+        "La temperatura del motore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il contachilometri (odometro) somma i chilometri percorsi; nell'uso comune \"contachilometri\" indica anche il tachimetro (Treccani), quindi \"la velocità\" non può fare da distrattore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cristallo vibra all'interno dei più comuni orologi elettronici?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Quarzo",
+        "Diamante",
+        "Rubino",
+        "Smeraldo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "orologi"
+      ],
+      "notes": "Gli orologi al quarzo contano le vibrazioni di un cristallo a 32.768 hertz",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante cifre diverse usa il sistema binario dei computer?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "8",
+        "10",
+        "2",
+        "16"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Il binario usa solo 0 e 1",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa sono fatte soprattutto le scie bianche lasciate dagli aerei in quota?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Fumo nero del motore",
+        "Cherosene non bruciato",
+        "Polvere di carbone",
+        "Cristalli di ghiaccio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "Il vapore acqueo dello scarico condensa e ghiaccia nell'aria fredda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come attraversano lo Stretto di Messina i treni Intercity diretti in Sicilia?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "In una galleria sottomarina",
+        "Su un ponte ferroviario",
+        "Su un ponte di barche",
+        "Caricati su una nave traghetto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "treni",
+        "sicilia"
+      ],
+      "notes": "Le carrozze vengono imbarcate sulle navi traghetto tra Villa San Giovanni e Messina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In un foglio di calcolo, come si chiama il riquadro dove si incrociano una riga e una colonna?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Cella",
+        "Scheda",
+        "Cartella",
+        "Barra"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "software"
+      ],
+      "notes": "Ogni incrocio riga-colonna è una cella, indicata come A1, B2 e così via",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Perché gli astronauti fluttuano dentro la Stazione spaziale?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Lassù la gravità è zero",
+        "Le tute li rendono leggeri",
+        "Sono in continua caduta libera intorno alla Terra",
+        "La stazione gira su se stessa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "trabocchetto"
+      ],
+      "notes": "A 400 chilometri la gravità è ancora circa il 90 per cento: è l'orbita a dare l'assenza di peso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale social network aveva come logo un uccellino azzurro fino al 2023?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Facebook",
+        "Twitter",
+        "Instagram",
+        "Snapchat"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "Nel 2023 Twitter è stato ribattezzato X e ha cambiato logo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In una lampadina, che cosa vuol dire la sigla LED?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Lampada a energia diretta",
+        "Luce elettrica durevole",
+        "Lente a emissione doppia",
+        "Diodo che emette luce"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "LED = Light Emitting Diode",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti astronauti camminarono sulla Luna con le missioni Apollo?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "12",
+        "6",
+        "9",
+        "24"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Sei sbarchi riusciti, due astronauti ciascuno, dal 1969 al 1972",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato lo Swatch?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Germania",
+        "Svizzera",
+        "Stati Uniti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "orologi"
+      ],
+      "notes": "Lo Swatch fu lanciato in Svizzera nel 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale nome commerciale divenne famoso il polipropilene di Giulio Natta?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Bakelite",
+        "Moplen",
+        "Plexiglas",
+        "Teflon"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Prodotto dalla Montecatini dal 1957, celebre per la pubblicità con Gino Bramieri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sito di aste online nacque nel 1995 vendendo come primo oggetto un puntatore laser rotto?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "eBay",
+        "Amazon",
+        "Alibaba",
+        "Subito"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "eBay, fondato da Pierre Omidyar; il primo oggetto fu un puntatore laser guasto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la spina tedesca con i contatti laterali, diffusissima anche in Italia?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Euro",
+        "Schuko",
+        "Tripolare",
+        "Bipasso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "Schuko viene da \"Schutzkontakt\", contatto di protezione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ingegnere mostrò il mouse al mondo nella \"madre di tutte le demo\" del 1968?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Alan Kay",
+        "Steve Jobs",
+        "Ted Nelson",
+        "Douglas Engelbart"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Douglas Engelbart, Stanford Research Institute, 9 dicembre 1968",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sistema operativo per computer lanciò Microsoft nel 1995, con il pulsante Start?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "MS-DOS",
+        "Windows XP",
+        "Windows 95",
+        "Windows Vista"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "software"
+      ],
+      "notes": "Windows 95 introdusse il menu Start e la barra delle applicazioni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti pedali ha un'auto con il cambio automatico?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "Freno e acceleratore: manca la frizione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola fu scelta dall'Oxford Dictionaries come parola dell'anno 2013?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Emoji",
+        "Selfie",
+        "Hashtag",
+        "Podcast"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Selfie, parola dell'anno 2013 per Oxford Dictionaries",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato americano fu scattata la foto della collina verde, sfondo di Windows XP?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Texas",
+        "Ohio",
+        "Florida",
+        "California"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "La foto \"Bliss\" fu scattata da Charles O'Rear nella contea di Sonoma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi pagò lo sviluppo della penna che scrive nello spazio, usata dagli astronauti?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "La NASA, con milioni di dollari",
+        "L'agenzia spaziale sovietica",
+        "L'azienda Fisher, con fondi propri",
+        "L'esercito americano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "trabocchetto"
+      ],
+      "notes": "Paul Fisher la sviluppò a sue spese; NASA e sovietici la comprarono poi a pochi dollari l'una",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel 1969, il primo messaggio su ARPANET si bloccò dopo due lettere: quale parola si voleva scrivere?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Hello",
+        "Login",
+        "Test",
+        "Start"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Dall'UCLA allo Stanford Research Institute arrivarono solo \"lo\" di \"login\", poi il sistema cadde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale telefono pieghevole italiano del 1965, disegnato da Zanuso e Sapper, porta il nome di un insetto?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Cicala",
+        "Farfalla",
+        "Lucciola",
+        "Grillo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia",
+        "italia"
+      ],
+      "notes": "Il Grillo, prodotto da Siemens Italia, Compasso d'oro 1967",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che fine fece la bandiera americana piantata sulla Luna dall'Apollo 11?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "È ancora dritta e intatta",
+        "Fu riportata sulla Terra",
+        "Cadde per il getto del decollo",
+        "Fu sepolta nella polvere dagli astronauti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "trabocchetto"
+      ],
+      "notes": "Buzz Aldrin la vide cadere durante la partenza del modulo lunare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa aveva di particolare il biciclo ottocentesco, detto penny-farthing?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Una ruota anteriore enorme",
+        "Tre ruote uguali",
+        "Un motore a vapore",
+        "Le ruote di legno pieno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Ruota anteriore altissima e posteriore piccolissima",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava Google quando era un progetto universitario?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "PageRank",
+        "BackRub",
+        "Googlebot",
+        "Stanford Search"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Page e Brin lo chiamarono BackRub nel 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le piccole immagini sul desktop che si cliccano per aprire un programma?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Finestre",
+        "Cornici",
+        "Icone",
+        "Barre"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Le icone rappresentano programmi e file",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Dove si trova fisicamente il \"cloud\" in cui salviamo foto e documenti?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "In centri dati sulla Terra",
+        "In satelliti in orbita",
+        "Nell'alta atmosfera",
+        "Dentro il router di casa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "Il cloud è fatto di server in grandi data center a terra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale console Sega debuttò Sonic, nel 1991?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Master System",
+        "Dreamcast",
+        "Saturn",
+        "Mega Drive"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Sonic the Hedgehog uscì per Mega Drive nel 1991",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con che cosa si spostarono sulla Luna gli astronauti di Apollo 15, 16 e 17?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un'auto elettrica",
+        "Una moto a scoppio",
+        "Un piccolo elicottero",
+        "Un hovercraft"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Il Lunar Roving Vehicle, a batterie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti megabyte conteneva un classico floppy disk da tre pollici e mezzo ad alta densità?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "100",
+        "4,7",
+        "650",
+        "1,44"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "1,44 megabyte; 4,7 gigabyte è un DVD, 650 megabyte un CD",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda americana lanciò nel 1888 una macchina fotografica con lo slogan \"Voi premete il bottone, al resto pensiamo noi\"?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Polaroid",
+        "Canon",
+        "Kodak",
+        "Leica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "foto"
+      ],
+      "notes": "Kodak, 1888, fondata da George Eastman",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti millimetri era larga la pellicola fotografica più diffusa del Novecento?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "16",
+        "35",
+        "50",
+        "70"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "foto"
+      ],
+      "notes": "La pellicola 35 millimetri, formato 135",
+      "verified": true
+    }
+  ]
+}

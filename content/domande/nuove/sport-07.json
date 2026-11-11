@@ -1,0 +1,1091 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale numero di gara ha reso famoso Valentino Rossi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "27",
+        "46",
+        "58",
+        "93"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motociclismo"
+      ],
+      "notes": "Valentino Rossi ha sempre corso con il 46, il numero del padre Graziano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era il portiere titolare dell'Italia campione del mondo nel 2006?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Francesco Toldo",
+        "Angelo Peruzzi",
+        "Gianluigi Buffon",
+        "Walter Zenga"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Buffon giocò tutte le partite di Germania 2006; Peruzzi era il secondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese è il tennista Roger Federer?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Austria",
+        "Svizzera",
+        "Germania",
+        "Svezia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Federer è nato a Basilea nel 1981",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quale pezzo non può mai tornare indietro?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Torre",
+        "Cavallo",
+        "Alfiere",
+        "Pedone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scacchi"
+      ],
+      "notes": "Il pedone avanza soltanto (e cattura in diagonale in avanti); tutti gli altri pezzi possono arretrare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nelle bocce, come si chiama la boccia piccola a cui bisogna avvicinarsi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pomello",
+        "Birillo",
+        "Bersaglio",
+        "Pallino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bocce"
+      ],
+      "notes": "Il pallino (o boccino) è la piccola boccia bersaglio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si corre la 24 Ore di Le Mans?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Belgio",
+        "Francia",
+        "Germania",
+        "Italia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "automobilismo"
+      ],
+      "notes": "Le Mans è nella regione della Loira, in Francia; la gara nacque nel 1923",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in italiano l'\"hat-trick\", tre gol dello stesso giocatore in una partita?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tripletta",
+        "Doppietta",
+        "Poker",
+        "Cinquina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio"
+      ],
+      "notes": "Tre gol dello stesso giocatore = tripletta; quattro = poker",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lungo quale fiume sfilarono gli atleti nella cerimonia d'apertura di Parigi 2024?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rodano",
+        "Loira",
+        "Senna",
+        "Marna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Il 26 luglio 2024 le delegazioni sfilarono in barca sulla Senna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che forma è il ring del pugilato?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Quadrato",
+        "Rotondo",
+        "Ottagonale",
+        "Esagonale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pugilato",
+        "trabocchetto"
+      ],
+      "notes": "Nonostante il nome (ring = anello) è quadrato; l'ottagono è delle arti marziali miste",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale stile di nuoto ha il nome di un anfibio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Dorso",
+        "Farfalla",
+        "Rana",
+        "Crawl"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "nuoto"
+      ],
+      "notes": "La rana è un anfibio; la farfalla è un insetto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Contro quale nazionale Paolo Rossi segnò una tripletta ai Mondiali del 1982?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Argentina",
+        "Brasile",
+        "Polonia",
+        "Germania Ovest"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Italia-Brasile 3-2 al Sarrià di Barcellona, 5 luglio 1982; alla Polonia Rossi ne segnò due",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi allenava l'Inter che vinse il triplete nel 2010?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Claudio Ranieri",
+        "Roberto Mancini",
+        "Rafael Benítez",
+        "José Mourinho"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Mourinho vinse scudetto, Coppa Italia e Champions; Benítez arrivò dopo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come è soprannominato il ciclista messinese Vincenzo Nibali?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il Grillo",
+        "Il Pirata",
+        "Il Cannibale",
+        "Lo Squalo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo",
+        "sicilia"
+      ],
+      "notes": "Nibali è \"lo Squalo dello Stretto\"; il Pirata è Pantani, il Cannibale Merckx, il Grillo Bettini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale circuito è chiamato \"il tempio della velocità\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Imola",
+        "Monza",
+        "Mugello",
+        "Vallelunga"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "automobilismo",
+        "f1"
+      ],
+      "notes": "L'autodromo di Monza, il più veloce del calendario di Formula 1",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, come si chiama l'errore di sbagliare entrambi i servizi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Doppio fallo",
+        "Fallo di piede",
+        "Net",
+        "Out"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Due servizi sbagliati di fila danno il punto all'avversario: doppio fallo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ricevevano in premio i vincitori delle antiche Olimpiadi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Una coppa d'argento",
+        "Una medaglia d'oro",
+        "Una corona d'ulivo",
+        "Un sacchetto di monete"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "A Olimpia il premio era il kotinos, una corona di ulivo selvatico; le medaglie arrivano con i Giochi moderni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale campione del mondo di scacchi fu battuto dal computer Deep Blue nel 1997?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Garry Kasparov",
+        "Anatolij Karpov",
+        "Bobby Fischer",
+        "Magnus Carlsen"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scacchi",
+        "tecnologia"
+      ],
+      "notes": "Nel maggio 1997 Deep Blue di IBM vinse il match contro Kasparov",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella NBA, quanti secondi ha una squadra per tentare il tiro a canestro?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "20",
+        "24",
+        "30",
+        "45"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Il cronometro dei 24 secondi fu introdotto nella NBA nel 1954",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra gioca in casa allo stadio Renato Dall'Ara?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Parma",
+        "Bologna",
+        "Modena",
+        "SPAL"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Il Dall'Ara è lo stadio del Bologna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indossa il vincitore del torneo di golf Masters di Augusta?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una cintura d'oro",
+        "Una maglia gialla",
+        "Un cappello bianco",
+        "Una giacca verde"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "golf"
+      ],
+      "notes": "Al vincitore del Masters viene messa la celebre green jacket",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti scudetti servono a una squadra italiana per cucire una stella sulla maglia?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "10",
+        "15",
+        "20"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Una stella ogni dieci scudetti, regola nata nel 1958 con la Juventus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale velocista italiano vinse i 200 metri alle Olimpiadi di Roma 1960?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pietro Mennea",
+        "Livio Berruti",
+        "Sergio Ottolina",
+        "Carlo Vittori"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Berruti vinse l'oro nei 200 il 3 settembre 1960, con gli occhiali scuri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama nel basket l'infrazione di chi cammina con la palla in mano senza palleggiare?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Passi",
+        "Doppio palleggio",
+        "Tre secondi",
+        "Fallo tecnico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "È l'infrazione di passi (travelling)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale campione dei Lakers trascorse l'infanzia in Italia, dove giocava il padre?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Shaquille O'Neal",
+        "Magic Johnson",
+        "Kobe Bryant",
+        "LeBron James"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket"
+      ],
+      "notes": "Kobe Bryant visse a Rieti, Reggio Calabria, Pistoia e Reggio Emilia, dove giocava il padre Joe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale celebre viale di Parigi si conclude di solito il Tour de France?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Champs-Élysées",
+        "Boulevard Saint-Germain",
+        "Rue de Rivoli",
+        "Avenue Montaigne"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Arrivo tradizionale sugli Champs-Élysées dal 1975 (nel 2024 eccezione a Nizza)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale stadio si giocò la finale dei Mondiali di calcio del 1982?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vicente Calderón",
+        "Camp Nou",
+        "Santiago Bernabéu",
+        "Mestalla"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Italia-Germania Ovest 3-1 al Bernabéu di Madrid, 11 luglio 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Al Giro d'Italia, di che colore è oggi la maglia del miglior scalatore?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Verde",
+        "Azzurra",
+        "Bianca a pois rossi",
+        "Ciclamino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "trabocchetto"
+      ],
+      "notes": "Dal 2012 è azzurra (prima era verde); i pois sono del Tour, il ciclamino è la classifica a punti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama al Giro d'Italia il punto più alto del percorso?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Colle Binda",
+        "Cima Bartali",
+        "Vetta Pantani",
+        "Cima Coppi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "La Cima Coppi, istituita nel 1965 in onore di Fausto Coppi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città Francesco Moser batté il record dell'ora, nel 1984?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mosca",
+        "Milano",
+        "Bordeaux",
+        "Città del Messico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Il 19 e 23 gennaio 1984 al velodromo di Città del Messico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale eliminò l'Italia agli ottavi dei Mondiali di calcio del 2002?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Corea del Nord",
+        "Corea del Sud",
+        "Giappone",
+        "Stati Uniti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Golden goal di Ahn Jung-hwan a Daejeon; la Corea del Nord eliminò l'Italia nel 1966",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A chi è intitolato l'autodromo di Imola?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Enzo e Dino Ferrari",
+        "Ayrton Senna",
+        "Gilles Villeneuve",
+        "Tazio Nuvolari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "automobilismo",
+        "f1"
+      ],
+      "notes": "Autodromo Internazionale Enzo e Dino Ferrari",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il \"premio\" simbolico per chi arriva ultimo nel Sei Nazioni di rugby?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Scarpa di piombo",
+        "Forchetta d'argento",
+        "Cucchiaio di legno",
+        "Maglia nera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby"
+      ],
+      "notes": "Il wooden spoon va a chi chiude ultimo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il concorso ippico di Piazza di Siena si tiene in quale città?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Siena",
+        "Firenze",
+        "Milano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "equitazione",
+        "trabocchetto"
+      ],
+      "notes": "Piazza di Siena è un ovale nel parco di Villa Borghese, a Roma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale specialità Filippo Ganna vinse l'oro olimpico a Tokyo 2020?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Velocità",
+        "Cronometro",
+        "Inseguimento a squadre",
+        "Omnium"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "olimpiadi"
+      ],
+      "notes": "Oro con Consonni, Lamon e Milan nell'inseguimento a squadre su pista, record del mondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fuoriclasse argentino, detto \"la Joya\", giocò nel Palermo prima della Juventus?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Javier Pastore",
+        "Paulo Dybala",
+        "Ezequiel Lavezzi",
+        "Gonzalo Higuaín"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Dybala giocò nel Palermo dal 2012 al 2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella pallavolo, come si chiama il colpo a braccia unite e tese usato per ricevere?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Muro",
+        "Palleggio",
+        "Schiacciata",
+        "Bagher"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pallavolo"
+      ],
+      "notes": "Il bagher si esegue con gli avambracci uniti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica nel calcio l'espressione \"zona Cesarini\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il cerchio di centrocampo",
+        "L'area piccola",
+        "La fascia laterale",
+        "Gli ultimi minuti di gioco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "lingua"
+      ],
+      "notes": "Da Renato Cesarini, che segnò all'ultimo minuto in Italia-Ungheria del 1931",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale atleta americano vinse quattro ori alle Olimpiadi di Los Angeles 1984?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Edwin Moses",
+        "Carl Lewis",
+        "Michael Johnson",
+        "Greg Louganis"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Carl Lewis: 100, 200, lungo e staffetta 4x100, come Jesse Owens nel 1936",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale centrocampista brasiliano della Roma era chiamato \"l'ottavo re di Roma\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Paulo Roberto Falcão",
+        "Toninho Cerezo",
+        "Sócrates",
+        "Zico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "serie-a"
+      ],
+      "notes": "Falcão, alla Roma dal 1980 al 1985, scudetto 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il celebre cavallo italiano imbattuto in sedici corse negli anni Cinquanta?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tornese",
+        "Varenne",
+        "Ribot",
+        "Furioso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ippica"
+      ],
+      "notes": "Ribot vinse tutte le sue 16 corse (1954-1956), tra cui due Arc de Triomphe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore triestino era chiamato \"el Paròn\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Nereo Rocco",
+        "Giovanni Trapattoni",
+        "Nils Liedholm",
+        "Fulvio Bernardini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "allenatori"
+      ],
+      "notes": "Nereo Rocco vinse con il Milan due Coppe dei Campioni (1963, 1969)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è nel calcio un \"gol olimpico\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un gol da centrocampo",
+        "Un gol in rovesciata",
+        "Un gol direttamente da calcio d'angolo",
+        "Un gol nei supplementari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Il nome viene dal gol di Cesáreo Onzari nel 1924 contro l'Uruguay, campione olimpico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale paese piemontese nacque Fausto Coppi?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Novi Ligure",
+        "Castellania",
+        "Tortona",
+        "Alba"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Coppi nacque a Castellania (oggi Castellania Coppi) nel 1919; visse poi a Novi Ligure",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il trofeo che si contendono Italia e Francia nel Sei Nazioni di rugby?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Trofeo Napoleone",
+        "Trofeo Cavour",
+        "Coppa Mazzini",
+        "Trofeo Garibaldi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rugby"
+      ],
+      "notes": "Il Trofeo Garibaldi, istituito nel 2007",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ritrovò la Coppa Rimet, rubata a Londra pochi mesi prima dei Mondiali del 1966?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un tassista",
+        "Un poliziotto di Scotland Yard",
+        "Un bambino in un parco",
+        "Un cane di nome Pickles"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "trabocchetto"
+      ],
+      "notes": "Il cane Pickles la trovò avvolta nei giornali sotto una siepe, a Londra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Perché la maratona misura proprio 42,195 chilometri?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Per la distanza tra Maratona e Atene",
+        "Per il percorso dei Giochi di Londra 1908",
+        "Per una regola dei Giochi antichi",
+        "Per il percorso di Parigi 1900"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Nel 1908 il percorso andò dal castello di Windsor al palco reale dello stadio; la distanza fu fissata nel 1921",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nuotatrice fu la prima italiana a vincere una medaglia olimpica nel nuoto, a Monaco 1972?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Novella Calligaris",
+        "Federica Pellegrini",
+        "Manuela Dalla Valle",
+        "Alessandra Cappa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi"
+      ],
+      "notes": "Novella Calligaris vinse argento nei 400 stile libero e due bronzi a Monaco 1972",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale schermidore livornese vinse cinque ori alle Olimpiadi di Anversa 1920?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Edoardo Mangiarotti",
+        "Aldo Nadi",
+        "Nedo Nadi",
+        "Giulio Gaudini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "scherma",
+        "olimpiadi"
+      ],
+      "notes": "Nedo Nadi vinse 5 ori ad Anversa 1920; il fratello Aldo ne vinse tre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse la discesa libera alle Olimpiadi di Oslo 1952, primo oro italiano nello sci alpino?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Zeno Colò",
+        "Gustav Thöni",
+        "Piero Gros",
+        "Giuliano Besson"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sci",
+        "olimpiadi"
+      ],
+      "notes": "Zeno Colò, dell'Abetone, oro in discesa libera a Oslo 1952",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale atleta di Altofonte vinse l'argento nei diecimila metri alle Olimpiadi di Seul 1988?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Alberto Cova",
+        "Francesco Panetta",
+        "Salvatore Antibo",
+        "Stefano Mei"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica",
+        "sicilia"
+      ],
+      "notes": "Totò Antibo, \"la gazzella di Altofonte\", argento a Seul 1988 e doppio oro europeo nel 1990",
+      "verified": true
+    }
+  ]
+}

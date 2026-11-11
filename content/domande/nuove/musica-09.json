@@ -1,0 +1,1091 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi canta \"Siamo solo noi\", del 1981?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Vasco Rossi",
+        "Luciano Ligabue",
+        "Gianna Nannini",
+        "Edoardo Bennato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "\"Siamo solo noi\" di Vasco Rossi, album omonimo del 1981",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"We Will Rock You\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Led Zeppelin",
+        "Deep Purple",
+        "Queen",
+        "The Who"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "\"We Will Rock You\" dei Queen, 1977, scritta da Brian May",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"A far l'amore comincia tu\", del 1976?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Loretta Goggi",
+        "Raffaella Carrà",
+        "Heather Parisi",
+        "Patty Pravo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Successo di Raffaella Carrà del 1976, noto anche in spagnolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a fiato di ottone si suona premendo tre pistoni?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Oboe",
+        "Flauto traverso",
+        "Clarinetto",
+        "Tromba"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "La tromba moderna ha tre pistoni; flauto, clarinetto e oboe sono legni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella canzoncina \"Fra' Martino campanaro\", che cosa sta facendo il frate?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Canta",
+        "Mangia",
+        "Prega",
+        "Dorme"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "infanzia"
+      ],
+      "notes": "\"Fra' Martino campanaro, dormi tu? Suona le campane\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti erano i Beatles nella formazione che li rese famosi?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "beatles"
+      ],
+      "notes": "John Lennon, Paul McCartney, George Harrison e Ringo Starr",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante ha inciso \"Non sono una signora\", nel 1982?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Loredana Bertè",
+        "Gianna Nannini",
+        "Anna Oxa",
+        "Fiorella Mannoia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "\"Non sono una signora\" di Loredana Bertè, scritta da Ivano Fossati, Festivalbar 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Sei nell'anima\", del 2006?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Giorgia",
+        "Laura Pausini",
+        "Gianna Nannini",
+        "Elisa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Sei nell'anima\" di Gianna Nannini, dall'album \"Grazie\" (2006)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese viene il karaoke?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Corea del Sud",
+        "Stati Uniti",
+        "Cina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "curiosita",
+        "mondo"
+      ],
+      "notes": "Il karaoke (\"orchestra vuota\") nasce in Giappone negli anni Settanta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella canzone di Celentano, in quale città si trova la via Gluck?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Torino",
+        "Milano",
+        "Genova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "italia"
+      ],
+      "notes": "Celentano crebbe in via Gluck, a Milano; la canzone è del 1966",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Another Brick in the Wall\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Genesis",
+        "Pink Floyd",
+        "Queen",
+        "The Police"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Dall'album \"The Wall\" dei Pink Floyd (1979)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Grande grande grande\", del 1972?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Iva Zanicchi",
+        "Ornella Vanoni",
+        "Milva",
+        "Mina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Grande grande grande\" di Mina, 1972",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo ha inciso \"Io vagabondo\", nel 1972?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Camaleonti",
+        "Pooh",
+        "Dik Dik",
+        "Nomadi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Io vagabondo (che non sono altro)\" dei Nomadi, 1972",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suona Schroeder, il bambino dei Peanuts?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Violino",
+        "Pianoforte",
+        "Chitarra",
+        "Tromba"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti",
+        "strumenti"
+      ],
+      "notes": "Schroeder suona un pianoforte giocattolo ed è fan di Beethoven",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante, uscito dai Take That, incise da solista \"Angels\" nel 1997?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Robbie Williams",
+        "Gary Barlow",
+        "George Michael",
+        "Ronan Keating"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Angels\" di Robbie Williams, 1997; Gary Barlow è rimasto nei Take That",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantò \"Gli uomini non cambiano\" al Festival di Sanremo del 1992?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mietta",
+        "Loredana Bertè",
+        "Mia Martini",
+        "Anna Oxa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Mia Martini, seconda a Sanremo 1992 con il brano di Bigazzi e Dati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante cantava \"Viva la pappa col pomodoro\", nel 1965?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Rita Pavone",
+        "Gigliola Cinquetti",
+        "Caterina Caselli",
+        "Orietta Berti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Dallo sceneggiato \"Il giornalino di Gian Burrasca\" (1965) con Rita Pavone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il nome dei Beatles gioca con la parola inglese che indica quale insetto?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ape",
+        "Grillo",
+        "Scarafaggio",
+        "Farfalla"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "beatles",
+        "curiosita"
+      ],
+      "notes": "Beatles = beetles (scarafaggi) + beat, ispirato ai Crickets di Buddy Holly",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore romano ha scritto \"Generale\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Antonello Venditti",
+        "Francesco De Gregori",
+        "Rino Gaetano",
+        "Claudio Baglioni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Generale\" di Francesco De Gregori, 1978",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band californiana ha inciso \"Californication\", nel 1999?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "The Offspring",
+        "Green Day",
+        "Linkin Park",
+        "Red Hot Chili Peppers"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Album e singolo dei Red Hot Chili Peppers, 1999",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il canto della liturgia cattolica medievale, a una sola voce e in latino?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lauda",
+        "Madrigale",
+        "Mottetto",
+        "Canto gregoriano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-musica"
+      ],
+      "notes": "Il canto gregoriano è monodico; madrigale e mottetto sono polifonici",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale piazza di Roma si tiene di solito il Concerto del Primo Maggio?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Piazza del Popolo",
+        "San Giovanni in Laterano",
+        "Piazza Navona",
+        "Piazza di Spagna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "concerti",
+        "italia"
+      ],
+      "notes": "Il \"Concertone\" si tiene dal 1990 di solito in piazza San Giovanni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale giorno si apre tradizionalmente la stagione della Scala di Milano?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "7 dicembre",
+        "8 dicembre",
+        "1 novembre",
+        "31 dicembre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "italia"
+      ],
+      "notes": "La Prima della Scala è il 7 dicembre, festa di Sant'Ambrogio patrono di Milano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale stagione si apre la raccolta \"Le quattro stagioni\" di Vivaldi?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Estate",
+        "Inverno",
+        "Primavera",
+        "Autunno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "L'ordine è primavera, estate, autunno, inverno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Bolero è una danza spagnola: di quale Paese era Maurice Ravel, che ne scrisse il più famoso?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Belgio",
+        "Svizzera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Ravel era francese (nato a Ciboure, nei Paesi Baschi francesi); il Boléro è del 1928",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale cantante Mark Ronson incise \"Uptown Funk\", nel 2014?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Justin Timberlake",
+        "Pharrell Williams",
+        "Bruno Mars",
+        "The Weeknd"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Uptown Funk\" di Mark Ronson featuring Bruno Mars, 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti semitoni ci sono in un'ottava?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "8",
+        "10",
+        "12",
+        "7"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Un'ottava è divisa in 12 semitoni (7 tasti bianchi e 5 neri sul pianoforte)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale Paese vinse l'Eurovision 2006 con una band hard rock mascherata da mostri?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Islanda",
+        "Norvegia",
+        "Germania",
+        "Finlandia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "eurovision"
+      ],
+      "notes": "I Lordi vinsero per la Finlandia con \"Hard Rock Hallelujah\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese vengono gli Scorpions di \"Wind of Change\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Austria",
+        "Svezia",
+        "Olanda",
+        "Germania"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "Gli Scorpions sono di Hannover; \"Wind of Change\" è del 1990",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale città vengono i Litfiba?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bologna",
+        "Firenze",
+        "Torino",
+        "Milano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "I Litfiba nacquero a Firenze nel 1980; il nome viene da un indirizzo telex di via de' Bardi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale cantante inglese Zucchero incise \"Senza una donna\", nel 1991?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Paul Young",
+        "Sting",
+        "Elton John",
+        "Phil Collins"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Senza una donna (Without a Woman)\" con Paul Young, successo europeo del 1991",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante napoletano era famoso negli anni Ottanta per il caschetto biondo?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Massimo Ranieri",
+        "Gigi D'Alessio",
+        "Nino D'Angelo",
+        "Sal Da Vinci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "napoli",
+        "pop"
+      ],
+      "notes": "Nino D'Angelo, \"Nu jeans e 'na maglietta\" (1982)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi incise \"Champagne\", successo del 1973?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Peppino di Capri",
+        "Fred Bongusto",
+        "Gino Paoli",
+        "Bruno Martino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Champagne\" di Peppino di Capri, 1973",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il vero nome del paroliere Mogol?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giuliano Mogollini",
+        "Giulio Rapisarda",
+        "Giulio Rapetti",
+        "Giulio Ravera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "nomi"
+      ],
+      "notes": "Giulio Rapetti, poi Giulio Rapetti Mogol per legge (2006)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band punk inglese incise \"God Save the Queen\", nel 1977?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "The Clash",
+        "Sex Pistols",
+        "The Damned",
+        "Ramones"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "punk"
+      ],
+      "notes": "Singolo dei Sex Pistols nell'anno del giubileo d'argento; i Ramones sono americani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento, parente della fisarmonica, è il cuore del tango argentino?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mandolino",
+        "Charango",
+        "Organetto",
+        "Bandoneón"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "Il bandoneón, nato in Germania, fu lo strumento di Astor Piazzolla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città umbra si tiene ogni estate Umbria Jazz?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Assisi",
+        "Spoleto",
+        "Terni",
+        "Perugia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "jazz",
+        "italia"
+      ],
+      "notes": "Umbria Jazz si tiene a Perugia dal 1973 (con edizioni invernali a Orvieto)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale cittadina emiliana fu inventata l'ocarina moderna, nel 1853?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Castelfidardo",
+        "Budrio",
+        "Carpi",
+        "Vignola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "italia"
+      ],
+      "notes": "Giuseppe Donati la costruì a Budrio (Bologna); Castelfidardo è la città della fisarmonica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale paese salentino si tiene il concertone finale della Notte della Taranta?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Melpignano",
+        "Galatina",
+        "Otranto",
+        "Gallipoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "popolare",
+        "puglia"
+      ],
+      "notes": "Il concertone finale si tiene a Melpignano, nell'ex convento degli Agostiniani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi rappresentò l'Italia all'Eurovision 2011, al ritorno dopo quattordici anni di assenza?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Nina Zilli",
+        "Marco Mengoni",
+        "Raphael Gualazzi",
+        "Emma"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "eurovision",
+        "italia"
+      ],
+      "notes": "Gualazzi arrivò secondo con \"Madness of Love\"; Nina Zilli ci andò nel 2012, Mengoni nel 2013",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore catanese, fratello di Marcella Bella, incise \"Non si può morire dentro\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Gianni Bella",
+        "Mario Venuti",
+        "Franco Battiato",
+        "Toni Santagata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "pop"
+      ],
+      "notes": "Gianni Bella, \"Non si può morire dentro\" (1976)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale paese della provincia di Palermo veniva il padre di Frank Sinatra?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Bagheria",
+        "Corleone",
+        "Lercara Friddi",
+        "Partinico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "pop"
+      ],
+      "notes": "Antonino Martino Sinatra era nato a Lercara Friddi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella canzone con cui Povia vinse Sanremo 2006, quale animale vorrebbe essere il protagonista?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Un pinguino",
+        "Un piccione",
+        "Un gabbiano",
+        "Un pappagallo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "\"Vorrei avere il becco\": il protagonista sogna di essere un piccione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque, nel 1818, il canto natalizio \"Astro del ciel\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Inghilterra",
+        "Germania",
+        "Svizzera",
+        "Austria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "\"Stille Nacht\", di Mohr e Gruber, fu cantato la prima volta a Oberndorf, vicino a Salisburgo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale opera di Vincenzo Bellini ha per protagonista la giovane Amina?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il pirata",
+        "Norma",
+        "I puritani",
+        "La sonnambula"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "sicilia"
+      ],
+      "notes": "\"La sonnambula\" (1831): Amina cammina nel sonno ed è creduta infedele",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il tema musicale legato a un personaggio o a un'idea, tipico delle opere di Wagner?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ritornello",
+        "Leitmotiv",
+        "Cabaletta",
+        "Cadenza"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "teoria"
+      ],
+      "notes": "Il Leitmotiv (motivo conduttore) caratterizza l'Anello del Nibelungo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana Richard Wagner terminò la partitura del \"Parsifal\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Palermo",
+        "Taormina",
+        "Catania",
+        "Messina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "sicilia"
+      ],
+      "notes": "Wagner la completò il 13 gennaio 1882 all'Hotel delle Palme di Palermo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Dove riposano oggi i resti di Vincenzo Bellini, morto in Francia nel 1835?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Nel Pantheon di Napoli",
+        "Al Père-Lachaise di Parigi",
+        "Nel Duomo di Catania",
+        "Nella chiesa di Santa Croce a Firenze"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "opera"
+      ],
+      "notes": "Sepolto al Père-Lachaise, fu traslato nel 1876 nella Cattedrale di Sant'Agata a Catania",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore italiano scrisse i poemi sinfonici \"Fontane di Roma\" e \"Pini di Roma\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ottorino Respighi",
+        "Ildebrando Pizzetti",
+        "Gian Francesco Malipiero",
+        "Alfredo Casella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "italia"
+      ],
+      "notes": "La trilogia romana di Respighi: Fontane (1916), Pini (1924), Feste (1928)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante irlandese vinse l'Eurovision da interprete sia nel 1980 sia nel 1987?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Chris de Burgh",
+        "Bob Geldof",
+        "Johnny Logan",
+        "Ronan Keating"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "eurovision"
+      ],
+      "notes": "Johnny Logan con \"What's Another Year\" (1980) e \"Hold Me Now\" (1987)",
+      "verified": true
+    }
+  ]
+}

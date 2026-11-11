@@ -1,0 +1,1066 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire gratinare un piatto?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Farlo dorare in superficie nel forno",
+        "Cuocerlo a vapore",
+        "Servirlo freddo",
+        "Tagliarlo a fette sottili"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Gratinare: far formare in forno una crosticina dorata in superficie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda alcolica si ottiene fermentando il succo di mele?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Birra",
+        "Vino",
+        "Idromele",
+        "Sidro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Il sidro è succo di mela fermentato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale salsa scura e salata, ricavata da un legume fermentato, si usa nella cucina giapponese e cinese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Salsa barbecue",
+        "Salsa tartara",
+        "Ketchup",
+        "Salsa di soia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-asiatica"
+      ],
+      "notes": "La salsa di soia si ottiene dalla fermentazione di soia e frumento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La tradizione del tè del pomeriggio, alle cinque, è tipica di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Regno Unito",
+        "Cina",
+        "Giappone",
+        "Russia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Il five o'clock tea è una tradizione britannica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'insalata con pomodoro, cetriolo, cipolla, olive e feta?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Insalata caprese",
+        "Insalata russa",
+        "Insalata greca",
+        "Insalata nizzarda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "insalate"
+      ],
+      "notes": "Insalata greca, in Grecia horiatiki",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia si grattugia tradizionalmente nella besciamella?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Curcuma",
+        "Cannella",
+        "Paprika",
+        "Noce moscata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "La besciamella classica si profuma con noce moscata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale specialità messicana è una grande tortilla di frumento ripiena e arrotolata?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tamale",
+        "Burrito",
+        "Quesadilla",
+        "Nachos"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-messicana"
+      ],
+      "notes": "Il burrito è una tortilla di frumento arrotolata attorno al ripieno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce americano è una torta di formaggio fresco su una base di biscotti?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cheesecake",
+        "Muffin",
+        "Brownie",
+        "Pancake"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "La cheesecake ha una base di biscotti e uno strato di formaggio cremoso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si aggiunge al latte per trasformarlo in yogurt?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Lievito di birra",
+        "Fermenti lattici",
+        "Aceto",
+        "Caglio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scienza-in-cucina"
+      ],
+      "notes": "Lo yogurt si ottiene facendo fermentare il latte con batteri lattici",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono le lingue di gatto in pasticceria?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Frittelle di Carnevale",
+        "Bignè alla crema",
+        "Biscotti sottili e allungati",
+        "Caramelle gommose"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "Le lingue di gatto sono biscotti sottili e friabili, allungati come una lingua",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il lassi, bevanda fresca indiana, è a base di quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Latte di cocco",
+        "Yogurt",
+        "Tè nero",
+        "Succo di mango"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-indiana"
+      ],
+      "notes": "Il lassi è yogurt frullato con acqua, dolce o salato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è, in realtà, il lievito di birra?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un batterio",
+        "Un'alga",
+        "Una polvere minerale",
+        "Un fungo microscopico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scienza-in-cucina"
+      ],
+      "notes": "Il lievito di birra è il fungo unicellulare Saccharomyces cerevisiae",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia, tipica della cucina cinese, ha la forma di una stella a otto punte?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Chiodo di garofano",
+        "Pepe di Sichuan",
+        "Cardamomo",
+        "Anice stellato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "L'anice stellato è il frutto a stella dell'Illicium verum",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La harissa, pasta rossa di peperoncino, è tipica di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "India",
+        "Thailandia",
+        "Messico",
+        "Tunisia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-africana"
+      ],
+      "notes": "La harissa è il condimento piccante simbolo della Tunisia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel piatto pugliese con le cicorie, con quale legume si prepara il purè?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Piselli",
+        "Ceci",
+        "Fave",
+        "Lenticchie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-pugliese"
+      ],
+      "notes": "Fave e cicorie: purè di fave secche con cicoria selvatica lessata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lo squacquerone, formaggio fresco romagnolo, si spalma tipicamente dentro quale pane?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Michetta",
+        "Piadina",
+        "Focaccia",
+        "Ciabatta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Lo squacquerone di Romagna DOP è il compagno classico della piadina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La focaccia di Recco IGP, sottilissima, è farcita con che cosa?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Formaggio fresco",
+        "Olive",
+        "Cipolle",
+        "Patate"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-ligure"
+      ],
+      "notes": "La focaccia di Recco col formaggio è ripiena di formaggio fresco tipo crescenza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le vere birre trappiste sono prodotte all'interno di quali luoghi?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Abbazie",
+        "Castelli",
+        "Fattorie",
+        "Università"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "birra"
+      ],
+      "notes": "Le birre trappiste si fanno nelle abbazie dei monaci trappisti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il tè Darjeeling prende il nome da una città di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Sri Lanka",
+        "India",
+        "Cina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Darjeeling è nel Bengala Occidentale, in India",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è l'onigiri giapponese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Uno spiedino di pollo",
+        "Un dolce di fagioli",
+        "Una polpetta di riso",
+        "Una zuppa di miso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "L'onigiri è una polpetta di riso, spesso triangolare, avvolta in alga nori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lo shepherd's pie inglese è un pasticcio di carne coperto da che cosa?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Purè di patate",
+        "Formaggio fuso",
+        "Pasta sfoglia",
+        "Pangrattato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-inglese"
+      ],
+      "notes": "Lo shepherd's pie è carne d'agnello macinata sotto uno strato di purè",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la mozzarella in carrozza?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Mozzarella al forno con pomodoro",
+        "Mozzarella affumicata",
+        "Mozzarella servita su un vassoio",
+        "Un panino di mozzarella fritto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-campana"
+      ],
+      "notes": "Fette di pane con mozzarella, passate nell'uovo e fritte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I malloreddus, piccoli gnocchi rigati di semola, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Liguria",
+        "Sardegna",
+        "Calabria",
+        "Puglia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "I malloreddus sono gli gnocchetti sardi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il caffè d'orzo contiene caffeina?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Solo se zuccherato",
+        "Sì, più dell'espresso",
+        "No",
+        "Sì, come l'espresso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "bevande",
+        "trabocchetto"
+      ],
+      "notes": "L'orzo tostato non contiene caffeina: per questo si dà anche ai bambini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che differenza c'è tra alici e acciughe?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nessuna, sono lo stesso pesce",
+        "Le alici sono d'acqua dolce",
+        "Le alici sono solo fresche",
+        "Le acciughe sono più grandi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesce",
+        "trabocchetto"
+      ],
+      "notes": "Alice e acciuga sono due nomi dello stesso pesce, Engraulis encrasicolus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il tonkatsu giapponese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un tortino di uova",
+        "Una zuppa di tagliolini",
+        "Uno spiedino di pollo",
+        "Una cotoletta di maiale impanata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "Il tonkatsu è una cotoletta di maiale impanata nel panko e fritta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il culatello di Zibello DOP si produce nella bassa di quale provincia?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Modena",
+        "Cremona",
+        "Piacenza",
+        "Parma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "salumi"
+      ],
+      "notes": "Zibello, oggi Polesine Zibello, è in provincia di Parma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale città ceca prende il nome lo stile di birra pils?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Praga",
+        "Pilsen",
+        "Brno",
+        "Budweis"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "birra"
+      ],
+      "notes": "La prima pils fu prodotta a Plzeň, in tedesco Pilsen, nel 1842",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con il latte di quale animale si fa il formaggio spagnolo manchego?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Capra",
+        "Bufala",
+        "Mucca",
+        "Pecora"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formaggi",
+        "cucina-spagnola"
+      ],
+      "notes": "Il Queso Manchego DOP si fa con latte di pecora della Mancia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale farina sono fatti soprattutto i soba giapponesi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Grano saraceno",
+        "Riso",
+        "Mais",
+        "Ceci"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "Soba in giapponese significa grano saraceno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa si ricava l'agar agar, usato come gelatina vegetale?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Da ossa animali",
+        "Da semi di carrube",
+        "Da alghe rosse",
+        "Da bucce di agrumi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "scienza-in-cucina"
+      ],
+      "notes": "L'agar agar si estrae da alghe rosse",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale catena montuosa proviene la quinoa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ande",
+        "Atlante",
+        "Alpi",
+        "Himalaya"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cereali"
+      ],
+      "notes": "La quinoa è coltivata da millenni sugli altipiani andini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la ganache in pasticceria?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Una crema di cioccolato e panna",
+        "Un impasto di burro e farina",
+        "Una crema di uova e zucchero",
+        "Una glassa di latte e amido"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasticceria"
+      ],
+      "notes": "La ganache è un'emulsione di cioccolato e panna calda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di solito, quale parte del rabarbaro si usa per le torte?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "I fiori",
+        "Le foglie",
+        "I gambi delle foglie",
+        "Le radici"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "botanica",
+        "trabocchetto"
+      ],
+      "notes": "Si usano i piccioli: le foglie sono tossiche per l'acido ossalico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianta si ricava il rooibos, infuso rosso?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "L'ibisco",
+        "La pianta del tè",
+        "La pianta del caffè",
+        "Un arbusto sudafricano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande",
+        "trabocchetto"
+      ],
+      "notes": "Il rooibos è l'Aspalathus linearis del Sudafrica: non è tè e non ha caffeina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese africano è originaria la pianta del caffè arabica?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Egitto",
+        "Etiopia",
+        "Marocco",
+        "Nigeria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "La Coffea arabica è originaria degli altopiani dell'Etiopia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per le norme europee, una bevanda di soia può essere venduta col nome di latte?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Solo se senza zucchero",
+        "Solo se biologica",
+        "Sì, sempre",
+        "No"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trabocchetto",
+        "leggi"
+      ],
+      "notes": "Nell'Ue latte indica solo il prodotto animale (Corte di giustizia, sentenza TofuTown 2017)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la cannuccia metallica con filtro usata per bere il mate?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tereré",
+        "Calabaza",
+        "Bombilla",
+        "Guampa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "La bombilla è la cannuccia filtrante; calabaza è la zucca che fa da tazza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il tempeh, panetto di soia fermentata, è originario di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Corea",
+        "Indonesia",
+        "Cina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-asiatica"
+      ],
+      "notes": "Il tempeh nasce a Giava, in Indonesia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il biltong sudafricano?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Una birra di sorgo",
+        "Carne essiccata e speziata",
+        "Un dolce al miele",
+        "Un pane di mais"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-africana"
+      ],
+      "notes": "Il biltong è carne marinata nell'aceto e spezie ed essiccata all'aria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il Kaiserschmarrn della cucina austriaca?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un pane di segale",
+        "Una frittata dolce spezzettata",
+        "Una zuppa di gulasch",
+        "Una salsiccia bianca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Pastella dolce cotta in padella e ridotta a pezzi, servita con zucchero a velo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il sommacco, spezia rossa mediorientale, che sapore dà ai piatti?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Dolce",
+        "Acidulo",
+        "Amaro",
+        "Piccante"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "Il sommacco ha un gusto acidulo e leggermente astringente, simile al limone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il lardo d'Arnad DOP è una specialità di quale regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Piemonte",
+        "Valle d'Aosta",
+        "Lombardia",
+        "Trentino-Alto Adige"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salumi"
+      ],
+      "notes": "Arnad è un comune della Valle d'Aosta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da dove si ricava il cremor tartaro, usato anche come agente lievitante?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Dalle ossa animali",
+        "Dalle alghe",
+        "Dai residui del vino",
+        "Dalle conchiglie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "scienza-in-cucina"
+      ],
+      "notes": "Il cremor tartaro è il bitartrato di potassio che si deposita nelle botti di vino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il cardamomo appartiene alla stessa famiglia botanica di quale spezia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Cannella",
+        "Noce moscata",
+        "Zenzero",
+        "Pepe"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spezie",
+        "botanica"
+      ],
+      "notes": "Cardamomo e zenzero sono entrambi Zingiberacee",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese fu inventato il cioccolato al latte, nel 1875?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Svizzera",
+        "Inghilterra",
+        "Paesi Bassi",
+        "Belgio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cioccolato"
+      ],
+      "notes": "Daniel Peter a Vevey, in Svizzera, nel 1875",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale genere di piante alpine si ricava il liquore genepì?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Stella alpina",
+        "Artemisia",
+        "Genziana",
+        "Rododendro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "liquori"
+      ],
+      "notes": "Il genepì si fa con artemisie alpine (Artemisia genipi, Artemisia umbelliformis)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Cerasuolo di Vittoria nasce dal Nero d'Avola e da quale altro vitigno?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Perricone",
+        "Grillo",
+        "Nerello Mascalese",
+        "Frappato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vino",
+        "sicilia"
+      ],
+      "notes": "Il Cerasuolo di Vittoria DOCG è un uvaggio di Nero d'Avola e Frappato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Oltre al latte vaccino, quale latte può entrare in piccola parte nel Bitto, formaggio della Valtellina?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Bufala",
+        "Asina",
+        "Capra",
+        "Pecora"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi",
+        "lombardia"
+      ],
+      "notes": "Il disciplinare del Bitto DOP ammette latte caprino fino al 10%",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il formaggio Montasio DOP si produce in Friuli-Venezia Giulia e in quale altra regione?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Veneto",
+        "Lombardia",
+        "Trentino-Alto Adige",
+        "Emilia-Romagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "La zona del Montasio DOP comprende il Friuli-Venezia Giulia e parte del Veneto",
+      "verified": true
+    }
+  ]
+}

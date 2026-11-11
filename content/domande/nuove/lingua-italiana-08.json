@@ -1,0 +1,1062 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare il passo più lungo della gamba\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Cambiare strada",
+        "Fare molto sport",
+        "Camminare in fretta",
+        "Andare oltre le proprie possibilità"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare il passo più lungo della gamba: tentare imprese superiori ai propri mezzi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi non risica non…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rischia",
+        "Mangia",
+        "Vince",
+        "Rosica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi non risica non rosica: chi non rischia non guadagna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Non è tutto oro quello che…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Splende",
+        "Vale",
+        "Luccica",
+        "Pesa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Non è tutto oro quello che luccica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di navi che navigano insieme?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Flotta",
+        "Branco",
+        "Sciame",
+        "Stormo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "nomi-collettivi"
+      ],
+      "notes": "Una flotta di navi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere il pollice verde\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere invidiosi",
+        "Essere inesperti",
+        "Saper coltivare bene le piante",
+        "Avere sempre fortuna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere il pollice verde: essere abili nel giardinaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un diminutivo?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Libriccino",
+        "Ragazzaccio",
+        "Librone",
+        "Gattone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Libriccino: diminutivo di libro; librone e gattone sono accrescitivi, ragazzaccio peggiorativo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"costare un occhio della testa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Costare moltissimo",
+        "Essere introvabile",
+        "Costare pochissimo",
+        "Far male agli occhi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Costare un occhio della testa: avere un prezzo altissimo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"loquace\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Che urla sempre",
+        "Che parla poco",
+        "Che dice bugie",
+        "Che parla molto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Loquace: che ama parlare, chiacchierone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la frase latina \"errare humanum est\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Perdonare è divino",
+        "Soffrire è umano",
+        "Sbagliare è umano",
+        "Amare è umano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Errare humanum est: sbagliare è umano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama una parola ottenuta rimescolando le lettere di un'altra?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Palindromo",
+        "Sinonimo",
+        "Acronimo",
+        "Anagramma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "enigmistica"
+      ],
+      "notes": "Anagramma: stesse lettere in ordine diverso, come Roma e mora",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che differenza c'è tra le preposizioni \"tra\" e \"fra\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fra è solo letterario",
+        "Fra si usa solo per le persone",
+        "Nessuna, sono equivalenti",
+        "Tra si usa solo per il tempo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Tra e fra hanno lo stesso significato: si sceglie per evitare suoni ripetuti, come fra tre giorni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nell'espressione \"non ce n'è più\", dove va l'apostrofo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Solo dopo la n",
+        "Solo dopo la c",
+        "Dopo la c e dopo la n",
+        "Non ci va nessun apostrofo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Ce n'è: ce (avverbio) più ne è eliso in n'è; scrivere c'è n'è è un errore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"mille\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mila",
+        "Milla",
+        "Millie",
+        "Milli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Mille al plurale diventa mila: duemila, tremila",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è \"la boa\", al femminile?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un uccello marino",
+        "Una piccola barca",
+        "Un serpente",
+        "Un galleggiante"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "La boa è un galleggiante ancorato; il boa, al maschile, è il serpente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"mangiare la foglia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Essere vegetariani",
+        "Arrendersi subito",
+        "Mangiare pochissimo",
+        "Capire l'inganno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Mangiare la foglia: intuire un tranello o un'intenzione nascosta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare lo gnorri\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fare il prepotente",
+        "Fingere di non sapere",
+        "Fare il generoso",
+        "Fare lo spaccone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare lo gnorri: fingere di non capire o di non sapere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"sbarcare il lunario\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Viaggiare molto",
+        "Prevedere il futuro",
+        "Tirare avanti a fatica",
+        "Studiare le stelle"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Sbarcare il lunario: riuscire a malapena a vivere con quel che si ha",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"lenire\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Alleviare",
+        "Illuminare",
+        "Rallentare",
+        "Allungare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Lenire: mitigare, alleviare un dolore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"subdolo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lento",
+        "Ingannevole e nascosto",
+        "Sottomesso",
+        "Sporco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Subdolo: che agisce di nascosto e con inganno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire l'espressione latina \"vade mecum\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Resta con me",
+        "Vieni con me",
+        "Vai avanti",
+        "Va' in pace"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Vade mecum: va' con me, cioè vieni con me; oggi è un manualetto da portare sempre con sé",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"Don Chisciotte\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un grande seduttore",
+        "Un nobile avaro",
+        "Un idealista che lotta per cause perse",
+        "Un prete pauroso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Dal protagonista del romanzo di Cervantes, che combatte contro i mulini a vento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di proposizione è \"affinché tu capisca\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Temporale",
+        "Concessiva",
+        "Causale",
+        "Finale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "analisi-del-periodo"
+      ],
+      "notes": "Affinché introduce lo scopo: proposizione finale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"piacere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Piacqui",
+        "Piacetti",
+        "Piacesi",
+        "Piacei"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Piacere: io piacqui, tu piacesti, egli piacque",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"alter ego\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un'altra lingua",
+        "Un altro luogo",
+        "Un altro me stesso",
+        "Un'altra epoca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Alter ego: un altro io, persona che ne sostituisce un'altra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di cani da caccia?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gregge",
+        "Muta",
+        "Stormo",
+        "Sciame"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "nomi-collettivi"
+      ],
+      "notes": "Una muta di cani da caccia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica la parola \"caccia\" al maschile, \"il caccia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un fucile",
+        "Un cacciatore",
+        "Un aereo militare",
+        "Una battuta di caccia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Il caccia è l'aereo da caccia; la caccia è l'attività venatoria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"il sosia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gli sosia",
+        "I sosie",
+        "I sosii",
+        "I sosia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Sosia è invariabile: il sosia, i sosia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"desueto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Disonesto",
+        "Non più in uso",
+        "Deluso",
+        "Disordinato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Desueto: disusato, caduto in disuso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"iattura\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Vanteria",
+        "Fortuna",
+        "Disgrazia",
+        "Pigrizia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Iattura: grave danno, sventura",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"vetusto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Velenoso",
+        "Robusto",
+        "Antichissimo",
+        "Vestito con cura"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Vetusto: molto antico, come una vetusta tradizione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica ripete lo stesso suono, come in \"di me medesmo meco mi vergogno\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Anafora",
+        "Allitterazione",
+        "Rima",
+        "Onomatopea"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Allitterazione: ripetizione di suoni all'inizio o dentro parole vicine (Petrarca, Canzoniere 1)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire l'espressione latina \"do ut des\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Do a chi merita",
+        "Do perché tu mi dia",
+        "Dono senza chiedere nulla",
+        "Tu dai e io ricevo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Do ut des: do affinché tu dia, uno scambio interessato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si intende dicendo \"lupus in fabula\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ognuno ha le sue paure",
+        "Arriva proprio chi si stava nominando",
+        "Le favole insegnano qualcosa",
+        "Vince sempre il più forte"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Lupus in fabula: si dice quando compare la persona di cui si sta parlando",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che complemento è \"per la paura\" nella frase \"Tremava per la paura\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Complemento di mezzo",
+        "Complemento di modo",
+        "Complemento di causa",
+        "Complemento di fine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "analisi-logica"
+      ],
+      "notes": "Per la paura indica il motivo del tremare: complemento di causa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"lapidario\", detto di uno stile?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ricco di immagini",
+        "Pesante e noioso",
+        "Duro e crudele",
+        "Conciso e incisivo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Lapidario: breve ed efficace, come le iscrizioni sulle lapidi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua è arrivata in italiano la parola \"caffè\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Greco",
+        "Spagnolo",
+        "Turco",
+        "Portoghese"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal turco kahve, a sua volta dall'arabo qahwa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"nugolo\", come in \"un nugolo di zanzare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un nascondiglio",
+        "Un lamento",
+        "Un piccolo nodo",
+        "Una gran quantità"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Nugolo: moltitudine fitta, come una nuvola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i nomi con due plurali di senso diverso, come \"muro\", muri e mura?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Difettivi",
+        "Invariabili",
+        "Promiscui",
+        "Sovrabbondanti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Nomi sovrabbondanti: hanno due forme di plurale, spesso con significati diversi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"precipuo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Principale",
+        "Precipitoso",
+        "Preciso",
+        "Precoce"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Precipuo: principale, essenziale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"brindisi\" viene da un'espressione di quale lingua?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Francese",
+        "Tedesco",
+        "Latino",
+        "Inglese"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal tedesco (ich) bring dir's, te lo porgo, arrivato attraverso lo spagnolo brindis",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"Arpagone\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un avaro",
+        "Un pauroso",
+        "Un bugiardo",
+        "Un seduttore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "antonomasia"
+      ],
+      "notes": "Arpagone è il protagonista de L'avaro di Molière",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"morigerato\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Moderato nelle abitudini",
+        "Lunatico",
+        "Malato immaginario",
+        "Moribondo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Morigerato: di costumi sobri e misurati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Intimo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Segreto",
+        "Interno",
+        "Vicino",
+        "Profondo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Interno: interiore, intimo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"mancia\" viene dal francese \"manche\": che cosa significa?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Moneta",
+        "Mano",
+        "Mancanza",
+        "Manica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal francese manche, manica: in origine un dono di cavalieri e dame",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il componimento in cui le iniziali dei versi formano una parola?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Acrostico",
+        "Calligramma",
+        "Palindromo",
+        "Lipogramma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "enigmistica"
+      ],
+      "notes": "Acrostico: le lettere iniziali dei versi, lette in verticale, formano un nome o una frase",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica si usa dicendo \"non ti dico quanto ho sofferto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Anafora",
+        "Preterizione",
+        "Climax",
+        "Litote"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Preterizione: si dichiara di tacere qualcosa che intanto si dice",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica sono espressioni come \"il collo della bottiglia\" o \"la gamba del tavolo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Catacresi",
+        "Metonimia",
+        "Ossimoro",
+        "Sineddoche"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Catacresi: metafora entrata nell'uso comune per mancanza di un termine proprio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Sansepolcro?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Santesi",
+        "Biturgensi",
+        "Sepolcrini",
+        "Tiberini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "abitanti"
+      ],
+      "notes": "Dal latino Biturgia: gli abitanti di Sansepolcro sono i biturgensi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale gloglotta?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Gallina",
+        "Tacchino",
+        "Anatra",
+        "Piccione"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Gloglottare è il verso del tacchino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"misoneista\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ostile alle donne",
+        "Avido di denaro",
+        "Ostile alle novità",
+        "Ostile al prossimo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Misoneismo: avversione per ciò che è nuovo (da non confondere con misogino e misantropo)",
+      "verified": true
+    }
+  ]
+}

@@ -1,0 +1,1095 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è lo strumento più acuto della famiglia degli archi?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Violino",
+        "Viola",
+        "Violoncello",
+        "Contrabbasso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Il violino è il più piccolo e acuto degli archi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band australiana ha inciso \"Highway to Hell\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Iron Maiden",
+        "Metallica",
+        "AC/DC",
+        "Kiss"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "\"Highway to Hell\" degli AC/DC, 1979",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana ha inciso \"Livin' on a Prayer\", nel 1986?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Aerosmith",
+        "Bon Jovi",
+        "Guns N' Roses",
+        "Def Leppard"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "anni-80"
+      ],
+      "notes": "Dall'album \"Slippery When Wet\" dei Bon Jovi; i Def Leppard sono inglesi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quali parole comincia \"L'anno che verrà\" di Lucio Dalla?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Cara mamma ti scrivo",
+        "Cara amica ti scrivo",
+        "Caro papà ti scrivo",
+        "Caro amico ti scrivo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Caro amico ti scrivo, così mi distraggo un po'\" (1979)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"Crazy in Love\", nel 2003?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Jennifer Lopez",
+        "Rihanna",
+        "Alicia Keys",
+        "Beyoncé"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Crazy in Love\" di Beyoncé con Jay-Z, 2003",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale film Disney viene la canzone \"Hakuna Matata\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Aladdin",
+        "Il re leone",
+        "Il libro della giungla",
+        "Tarzan"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "disney",
+        "cinema"
+      ],
+      "notes": "Cantata da Timon e Pumbaa ne \"Il re leone\" (1994)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve di solito una ninna nanna?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "A far addormentare i bambini",
+        "A svegliare i bambini",
+        "A far ballare gli sposi",
+        "A dare il via a una gara"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "infanzia"
+      ],
+      "notes": "La ninna nanna è il canto per addormentare i bambini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo ha inciso \"Mamma Maria\", nel 1982?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Matia Bazar",
+        "Pooh",
+        "Ricchi e Poveri",
+        "Collage"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Mamma Maria\" dei Ricchi e Poveri, 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Rose rosse\", del 1969?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Massimo Ranieri",
+        "Little Tony",
+        "Gianni Morandi",
+        "Bobby Solo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Rose rosse\" di Massimo Ranieri, 1969",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale giorno si tiene il celebre Concerto di Capodanno dei Filarmonici di Vienna?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "6 gennaio",
+        "31 dicembre",
+        "1 gennaio",
+        "25 dicembre"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Il Neujahrskonzert si tiene la mattina del primo gennaio al Musikverein (il 30 e 31 dicembre ci sono solo anteprime dello stesso programma)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale lingua è cantata \"Prisencolinensinainciusol\" di Adriano Celentano?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Inglese",
+        "Una lingua inventata",
+        "Milanese",
+        "Esperanto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Nel brano del 1972 Celentano imita il suono dell'inglese con parole senza senso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Marco Mengoni vinse il Festival di Sanremo del 2013?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Credimi ancora",
+        "Guerriero",
+        "Esseri umani",
+        "L'essenziale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "\"L'essenziale\", Sanremo 2013; Mengoni vinse anche nel 2023",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante ha inciso \"Pensiero stupendo\", nel 1978?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Loredana Bertè",
+        "Ornella Vanoni",
+        "Mina",
+        "Patty Pravo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Pensiero stupendo\" di Patty Pravo, scritta da Ivano Fossati e Oscar Prudente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Ti pretendo\", del 1989?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Nek",
+        "Raf",
+        "Biagio Antonacci",
+        "Umberto Tozzi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Ti pretendo\" di Raf, Festivalbar 1989",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantò \"Cuore matto\" al Festival di Sanremo del 1967?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Little Tony",
+        "Bobby Solo",
+        "Don Backy",
+        "Gianni Pettenati"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "anni-60"
+      ],
+      "notes": "\"Cuore matto\" di Little Tony, Sanremo 1967",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale DJ torinese incise \"L'amour toujours\", nel 1999?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gabry Ponte",
+        "Benny Benassi",
+        "Gigi D'Agostino",
+        "Bob Sinclar"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dance",
+        "italia"
+      ],
+      "notes": "Gigi D'Agostino, nato a Torino nel 1967",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale attore Lady Gaga canta \"Shallow\" nel film \"A Star Is Born\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bradley Cooper",
+        "Ryan Gosling",
+        "Hugh Jackman",
+        "Leonardo DiCaprio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "cinema"
+      ],
+      "notes": "\"Shallow\" (2018) vinse l'Oscar per la miglior canzone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Buena Vista Social Club riunì vecchi musicisti di quale Paese?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Brasile",
+        "Messico",
+        "Cuba",
+        "Colombia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "Album del 1997 registrato all'Avana con Compay Segundo e Ibrahim Ferrer",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Mare mare\", del 1992?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cesare Cremonini",
+        "Luca Carboni",
+        "Max Pezzali",
+        "Jovanotti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Mare mare\" di Luca Carboni, 1992",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante portò \"Sono solo parole\" al Festival di Sanremo del 2012?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Annalisa",
+        "Emma",
+        "Arisa",
+        "Noemi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Noemi, terza a Sanremo 2012 con il brano di Fabrizio Moro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose le musiche del musical \"Il fantasma dell'Opera\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Elton John",
+        "Stephen Sondheim",
+        "Leonard Bernstein",
+        "Andrew Lloyd Webber"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musical"
+      ],
+      "notes": "\"The Phantom of the Opera\" di Andrew Lloyd Webber, 1986",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante portoricano cantò \"La copa de la vida\" per i Mondiali di calcio del 1998?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Enrique Iglesias",
+        "Ricky Martin",
+        "Marc Anthony",
+        "Luis Fonsi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondiali"
+      ],
+      "notes": "Inno ufficiale di Francia '98, cantato da Ricky Martin",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana ha inciso \"Africa\", nel 1982?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Toto",
+        "Journey",
+        "Foreigner",
+        "Chicago"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "anni-80"
+      ],
+      "notes": "\"Africa\" dei Toto, dall'album \"Toto IV\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese veniva il DJ Avicii, autore di \"Wake Me Up\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Norvegia",
+        "Olanda",
+        "Svezia",
+        "Danimarca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dance",
+        "mondo"
+      ],
+      "notes": "Tim Bergling, in arte Avicii, era di Stoccolma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose il valzer \"Sul bel Danubio blu\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Johann Strauss figlio",
+        "Johann Strauss padre",
+        "Richard Strauss",
+        "Franz Lehár"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Johann Strauss figlio, 1867; il padre compose la Marcia di Radetzky",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse i versi dell'\"Inno alla gioia\" musicato da Beethoven?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Heinrich Heine",
+        "Johann Wolfgang von Goethe",
+        "Friedrich Schiller",
+        "Friedrich Hölderlin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "L'ode \"An die Freude\" di Schiller (1785), nella Nona Sinfonia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Hello\" nel 1984, con il video della ragazza cieca che scolpisce una testa?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Adele",
+        "Lionel Richie",
+        "Stevie Wonder",
+        "Phil Collins"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "anni-80",
+        "trabocchetto"
+      ],
+      "notes": "\"Hello\" di Lionel Richie (1984); quella di Adele è del 2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale libro viene il nome dello Zecchino d'Oro?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marcovaldo",
+        "Cuore",
+        "Il giornalino di Gian Burrasca",
+        "Pinocchio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "zecchino-doro",
+        "italia"
+      ],
+      "notes": "Richiama gli zecchini d'oro che Pinocchio semina nel Campo dei miracoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale attore Mina cantava \"Parole parole\", nel 1972?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Raf Vallone",
+        "Walter Chiari",
+        "Vittorio Gassman",
+        "Alberto Lupo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "tv"
+      ],
+      "notes": "Duetto di Mina e Alberto Lupo nel programma \"Teatro 10\" (1972)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Paul McCartney è famoso per suonare il basso con quale particolarità?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Con l'archetto",
+        "Da mancino",
+        "Con sei corde",
+        "Con tre sole corde"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "beatles"
+      ],
+      "notes": "McCartney è mancino e suona il basso (il famoso Höfner) al contrario",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese sono i Gipsy Kings, che cantano in spagnolo?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Messico",
+        "Argentina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "I Gipsy Kings sono gitani di origine catalana nati e cresciuti nel sud della Francia (Arles, Montpellier)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi strumenti, tecnicamente, è a corde percosse?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Chitarra",
+        "Arpa",
+        "Pianoforte",
+        "Violino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Nel pianoforte i martelletti percuotono le corde; arpa e chitarra le pizzicano, il violino le strofina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Alice vinse il Festival di Sanremo del 1981?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Per Elisa",
+        "Prospettiva Nevski",
+        "Il vento caldo dell'estate",
+        "Messaggio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "\"Per Elisa\", scritta con Franco Battiato e Giusto Pio; seconda \"Maledetta primavera\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante era la voce dei Matia Bazar in \"Vacanze romane\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Laura Valente",
+        "Silvia Mezzanotte",
+        "Antonella Ruggiero",
+        "Ivana Spagna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Antonella Ruggiero fu la voce del gruppo fino al 1989; poi arrivarono Laura Valente e Silvia Mezzanotte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le launeddas, antichi flauti a tre canne, sono tipiche di quale regione?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Calabria",
+        "Sardegna",
+        "Sicilia",
+        "Abruzzo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "popolare"
+      ],
+      "notes": "Le launeddas sono uno strumento a fiato a tre canne della Sardegna meridionale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale musicista irlandese organizzò Band Aid e il Live Aid?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Chris de Burgh",
+        "Bono",
+        "Van Morrison",
+        "Bob Geldof"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "eventi"
+      ],
+      "notes": "Bob Geldof, con Midge Ure, creò Band Aid (1984) e il Live Aid (1985)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dei quattro Beatles era il più anziano?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "George Harrison",
+        "John Lennon",
+        "Paul McCartney",
+        "Ringo Starr"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "beatles",
+        "trabocchetto"
+      ],
+      "notes": "Ringo nacque il 7 luglio 1940, Lennon il 9 ottobre 1940",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Georg Friedrich Händel, nato in Germania, di quale Paese prese la cittadinanza nel 1727?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Italia",
+        "Gran Bretagna",
+        "Austria",
+        "Francia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Händel fu naturalizzato britannico nel 1727 ed è sepolto nell'abbazia di Westminster",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Fryderyk Chopin era polacco: di quale nazionalità era suo padre?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Francese",
+        "Russa",
+        "Austriaca",
+        "Tedesca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Nicolas Chopin era nato in Lorena, in Francia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse \"Attenti al lupo\", grande successo di Lucio Dalla del 1990?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Luca Carboni",
+        "Francesco De Gregori",
+        "Ron",
+        "Gianni Morandi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "trabocchetto"
+      ],
+      "notes": "\"Attenti al lupo\" fu scritta da Ron (Rosalino Cellamare)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese era Jacques Brel, autore di \"Ne me quitte pas\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Belgio",
+        "Francia",
+        "Svizzera",
+        "Canada"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Jacques Brel nacque a Schaerbeek, Bruxelles, nel 1929",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni aveva Goffredo Mameli quando scrisse il testo dell'inno, nel 1847?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "17",
+        "20",
+        "25",
+        "30"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "inno",
+        "storia"
+      ],
+      "notes": "Mameli, nato nel settembre 1827, aveva 20 anni; morì nel 1849",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il musical \"Cats\" è tratto dalle poesie di quale scrittore?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Rudyard Kipling",
+        "T. S. Eliot",
+        "Lewis Carroll",
+        "Oscar Wilde"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musical",
+        "letteratura"
+      ],
+      "notes": "Da \"Il libro dei gatti tuttofare\" (1939) di T. S. Eliot",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante catanese dalla voce profonda ha inciso \"This Is What You Are\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mango",
+        "Mario Venuti",
+        "Gianni Bella",
+        "Mario Biondi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "jazz"
+      ],
+      "notes": "Mario Biondi, catanese, singolo del 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia vinse il Festival di Sanremo del 1989 con \"Ti lascerò\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Morandi e Umberto Tozzi",
+        "Al Bano e Romina Power",
+        "Ron e Tosca",
+        "Anna Oxa e Fausto Leali"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "\"Ti lascerò\", Anna Oxa e Fausto Leali, Sanremo 1989",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lo steelpan, il tamburo d'acciaio ricavato dai bidoni, è nato in quale Paese?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giamaica",
+        "Trinidad e Tobago",
+        "Cuba",
+        "Barbados"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "Lo steelpan nacque a Trinidad negli anni Trenta e Quaranta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La celebre \"Habanera\" della Carmen riprende una canzone di quale compositore?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sebastián Yradier",
+        "Manuel de Falla",
+        "Isaac Albéniz",
+        "Pablo de Sarasate"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "classica"
+      ],
+      "notes": "Bizet la credeva popolare: era \"El Arreglito\" di Yradier",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi incise per prima \"Killing Me Softly with His Song\", poi resa celebre da Roberta Flack?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Joni Mitchell",
+        "Carole King",
+        "Lori Lieberman",
+        "Carly Simon"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "trabocchetto"
+      ],
+      "notes": "Lori Lieberman la incise nel 1971; Roberta Flack nel 1973, i Fugees nel 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore di Sassuolo incise \"Pescatore\" in duetto con Fiorella Mannoia?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Pierangelo Bertoli",
+        "Francesco Guccini",
+        "Luciano Ligabue",
+        "Claudio Lolli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Pierangelo Bertoli, nato a Sassuolo nel 1942; \"Pescatore\" con Fiorella Mannoia è nell'album \"Certi momenti\" (1980)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia vinse il Festival di Sanremo del 1996 con \"Vorrei incontrarti fra cent'anni\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Paola e Chiara",
+        "Jalisse",
+        "Ron e Tosca",
+        "Al Bano e Romina Power"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Ron e Tosca vinsero Sanremo 1996",
+      "verified": true
+    }
+  ]
+}
