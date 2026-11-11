@@ -18,7 +18,8 @@
     "admin:create": "tsx scripts/create-admin.ts",
     "db:backup": "tsx --conditions=react-server scripts/backup.ts",
     "show:import": "tsx --conditions=react-server scripts/import-battute.ts",
-    "deploy:setup": "node scripts/deploy/setup-production.mjs"
+    "deploy:setup": "node scripts/deploy/setup-production.mjs",
+    "deploy:migrate": "node scripts/deploy/migrate-production.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
