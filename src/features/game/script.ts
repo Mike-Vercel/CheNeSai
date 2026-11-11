@@ -102,6 +102,11 @@ export const FIXED_POOLS = {
     texts: [
       "[excited] La lobby è aperta! Inquadrate il codice QR e scegliete il vostro nickname. Mi raccomando: niente nomi imbarazzanti!",
       "La lobby è aperta! Inquadrate il codice QR e scegliete un nickname all'altezza della mia corona.",
+      "[laughs] Benvenuti a corte! Inquadrate il QR, scegliete un nome… e sperate che la Regina sia clemente.",
+      "[excited] Entrate, entrate! Il codice è sullo schermo: chi arriva ultimo paga da bere. Scherzo… forse.",
+      "[sarcastic] Avanti, sudditi! Inquadrate il QR: stasera scopriremo chi ha studiato e chi ha solo un bel sorriso.",
+      "Tutti dentro! Codice QR, nickname e telefono carico: la Regina non aspetta nessuno.",
+      "[giggles] Ah, che bello vedervi! Inquadrate il codice e preparatevi a fare figuracce in diretta.",
     ],
   },
   voting: {
@@ -136,11 +141,21 @@ export const FIXED_POOLS = {
       "Facciamo una piccola pausa. Restate con noi!",
       "[sighs] Pausa! Anche una regina deve ritoccarsi il trucco.",
       "[laughs] Piccola pausa: bevete, sgranchitevi, ma non scappate!",
+      "[sarcastic] Pausa! Approfittatene per ripassare… anche se ormai è un po' tardi.",
+      "[excited] Pausa! Ordinate qualcosa, tanto i punti non scappano. Le figuracce nemmeno.",
+      "Ci fermiamo un attimo. Telefoni accesi e cervelli in carica, mi raccomando!",
     ],
   },
   resume: {
     who: "regina",
-    texts: ["[excited] Si riparte!", "Eccoci di nuovo! Si riparte!", "[laughs] Pausa finita, cervelli accesi: si riparte!"],
+    texts: [
+      "[excited] Si riparte!",
+      "Eccoci di nuovo! Si riparte!",
+      "[laughs] Pausa finita, cervelli accesi: si riparte!",
+      "[shouts] Tutti ai posti! La Regina è tornata e la gara pure!",
+      "[sarcastic] Bentornati! Spero che in pausa abbiate ripassato… ne avete bisogno.",
+      "[excited] Ricominciamo! Telefoni in mano, si gioca!",
+    ],
   },
   // battute dopo i punti di ogni risposta (a metà round), una per presentatore
   scoreQuipProfessore: {
@@ -182,6 +197,10 @@ export const FIXED_POOLS = {
     texts: [
       "[laughs] Zero punti per tutti! Palmino è sconvolto: ma stasera avete studiato?",
       "[giggles] Nessuno l'ha presa! Palmino si toglie gli occhiali per lo stupore!",
+      "[shouts] Nessuno! Ma proprio nessuno! Mi cadono le foglie dalla vergogna!",
+      "[laughs] Zero assoluto! Questa domanda vi ha battuti tutti quanti!",
+      "[sighs] Nessuno ha fatto punti… Palmino va a piangere dietro al bancone.",
+      "[giggles] Tabellone fermo! Nessuno l'ha indovinata: la domanda vince, voi zero!",
     ],
   },
   // Scommetti tutto: si apre la domanda, si punta dal telefono (prima delle risposte)
@@ -205,12 +224,23 @@ export const FIXED_POOLS = {
   // ultima domanda del round (detta dall'annunciatore dopo "Domanda numero N")
   lastOfRoundCall: {
     who: "annunciatore",
-    texts: ["[excited] Ultima domanda del round!", "[shouts] Attenzione: ultima domanda del round!"],
+    texts: [
+      "[excited] Ultima domanda del round!",
+      "[shouts] Attenzione: ultima domanda del round!",
+      "[excited] Si chiude il round con questa domanda!",
+      "[shouts] Ultima del round: chi sbaglia adesso ci pensa fino alla classifica!",
+      "Ultima domanda del round. Concentrazione!",
+    ],
   },
   // ultima domanda della serata: al posto di "Domanda numero N"
   lastOfGameCall: {
     who: "annunciatore",
-    texts: ["[shouts] Ultima domanda della serata!"],
+    texts: [
+      "[shouts] Ultima domanda della serata!",
+      "[excited] Signore e signori: l'ultima domanda della serata!",
+      "[shouts] Ci siamo! Questa è l'ultima domanda della serata!",
+      "[whispers] Ultima domanda della serata. Da qui si decide tutto.",
+    ],
   },
   // suspense prima dell'ultima domanda quando non ci sono (ancora) nomi da fare
   lastOfGameSuspense: {
@@ -218,32 +248,65 @@ export const FIXED_POOLS = {
     texts: [
       "[whispers] Ultima domanda. Tutto può ancora cambiare: respirate, concentratevi… e che vinca il migliore!",
       "[excited] Siamo all'ultima domanda! La classifica può ancora ribaltarsi: occhi aperti!",
+      "[whispers] Ultimo giro. Chi è davanti trema, chi è dietro spera. Concentratevi.",
+      "[sarcastic] Ultima occasione per rimediare alle figuracce di stasera. Non sprecatela!",
+      "[excited] Tutto si decide adesso: una risposta e la classifica può cambiare faccia!",
+      "[whispers] Silenzio… è l'ultima. Niente distrazioni, niente scuse.",
     ],
   },
   // prima della soluzione dell'ultima domanda della serata
   lastReveal: {
     who: "professore",
-    texts: ["[whispers] Ultima soluzione della serata. Silenzio in sala…", "[whispers] Il momento della verità. Trattenete il respiro…"],
+    texts: [
+      "[whispers] Ultima soluzione della serata. Silenzio in sala…",
+      "[whispers] Il momento della verità. Trattenete il respiro…",
+      "[clears throat] Ecco l'ultima soluzione. Chi ha studiato può sorridere…",
+      "[whispers] Ultima risposta giusta della serata. Pronti?",
+      "[excited] Il verdetto finale sta per arrivare!",
+    ],
   },
   // salto dell'intro votato da tutti i giocatori
   introSkipped: {
     who: "regina",
-    texts: ["[laughs] Vedo che siete esperti: niente spiegazioni, si parte subito!", "[excited] Le regole le conoscete già? Benissimo: si parte subito!"],
+    texts: [
+      "[laughs] Vedo che siete esperti: niente spiegazioni, si parte subito!",
+      "[excited] Le regole le conoscete già? Benissimo: si parte subito!",
+      "[sarcastic] Tutti esperti, eh? Vedremo tra poco quanto ne sapete davvero!",
+      "[laughs] Niente regole, solo domande! Vi piace vivere pericolosamente.",
+      "[excited] Intro saltata all'unanimità: dritti al sodo!",
+    ],
   },
   // podio: Palmino annuncia il vincitore PRIMA che compaia (poi rullo di tamburi e il nome)
   podiumWinnerCall: {
     who: "palmino",
-    texts: ["[shouts] E il vincitore di stasera èèèèè…", "[excited] E il vincitore di stasera è…"],
+    texts: [
+      "[shouts] E il vincitore di stasera èèèèè…",
+      "[excited] E il vincitore di stasera è…",
+      "[whispers] Rullo di tamburi… e il vincitore di stasera è…",
+      "[shouts] Fermi tutti! E il vincitore di stasera è…",
+      "[giggles] Palmino non ce la fa più! E il vincitore di stasera è…",
+    ],
   },
   finishedOpen: {
     who: "professore",
-    texts: ["[clears throat] Signore e signori, ecco i campioni della serata!", "[excited] Signore e signori, è il momento più atteso: il podio!"],
+    texts: [
+      "[clears throat] Signore e signori, ecco i campioni della serata!",
+      "[excited] Signore e signori, è il momento più atteso: il podio!",
+      "[clears throat] La gara è finita. Ora la classifica non mente: ecco il podio!",
+      "[excited] Si chiude la serata! Tre gradini, tanta gloria: ecco il podio!",
+      "[sarcastic] Dopo tante figuracce, finalmente qualcuno da premiare: ecco il podio!",
+      "Silenzio in sala. È il momento dei campioni della serata!",
+    ],
   },
   finishedClose: {
     who: "professore",
     texts: [
       "Grazie a tutti! Alla prossima sfida!",
       "[laughs] Grazie a tutti! Ripassate, studiate… e alla prossima vi aspetto!",
+      "[clears throat] Grazie a tutti! La cultura vi aspetta… e anche noi, alla prossima partita!",
+      "[laughs] Applausi per tutti, anche per chi ha sbagliato tutto! Alla prossima!",
+      "[sarcastic] Bella partita! Qualcuno torni a casa e apra un libro. Alla prossima!",
+      "Grazie per aver giocato con noi! Rivincita quando volete.",
     ],
   },
 } as const satisfies Record<string, FixedPool>;
