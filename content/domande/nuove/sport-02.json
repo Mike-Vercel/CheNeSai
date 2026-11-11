@@ -1,0 +1,1106 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Di che colore è la maglia del leader della classifica generale al Tour de France?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gialla",
+        "Rosa",
+        "Bianca",
+        "Verde"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "tour de france"
+      ],
+      "notes": "La maglia gialla (maillot jaune) dal 1919, colore delle pagine del giornale L'Auto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 2006 battendo la Francia in finale ai rigori?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Portogallo",
+        "Italia",
+        "Brasile",
+        "Germania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Berlino, 9 luglio 2006: Italia-Francia 1-1, 5-3 ai rigori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali sono i colori sociali del Palermo calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa e nero",
+        "Rosso e azzurro",
+        "Giallo e rosso",
+        "Bianco e celeste"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Il Palermo è il \"rosanero\": maglia rosa e nera dal 1907",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Super Bowl è la finale di quale sport?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Football americano",
+        "Baseball",
+        "Hockey su ghiaccio",
+        "Basket"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "football americano"
+      ],
+      "notes": "Il Super Bowl è la finale della NFL, il campionato di football americano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, quale cartellino comporta l'espulsione diretta?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Giallo",
+        "Verde",
+        "Rosso",
+        "Blu"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Il cartellino rosso espelle il giocatore; il giallo è un'ammonizione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale sport ha corso Valentino Rossi, vincendo nove titoli mondiali?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rally",
+        "Formula 1",
+        "Ciclismo",
+        "Motociclismo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motori",
+        "campioni italiani"
+      ],
+      "notes": "Valentino Rossi: 9 titoli mondiali nel motomondiale (125, 250, 500 e MotoGP)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il piccolo stemma tricolore cucito sulla maglia della squadra campione d'Italia?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Scudetto",
+        "Gagliardetto",
+        "Coccarda",
+        "Stella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "serie a"
+      ],
+      "notes": "Lo scudetto (idea di D'Annunzio, 1920) va al campione d'Italia; la coccarda a chi vince la Coppa Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In Formula 1, che cosa segnala la bandiera a scacchi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pericolo in pista",
+        "La fine della gara",
+        "Pista bagnata",
+        "Ingresso della safety car"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula 1",
+        "regole"
+      ],
+      "notes": "La bandiera a scacchi bianchi e neri indica l'arrivo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale stile di nuoto si nuota a pancia in su?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Farfalla",
+        "Dorso",
+        "Crawl",
+        "Rana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "nuoto"
+      ],
+      "notes": "Il dorso è l'unico stile olimpico nuotato sulla schiena",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Contro quale nazionale l'Italia vinse la finale degli Europei di calcio a Wembley, nel 2021?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Germania",
+        "Inghilterra",
+        "Francia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "11 luglio 2021: Italia-Inghilterra 1-1, l'Italia vince ai rigori (Euro 2020)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno si disputarono davvero le Olimpiadi estive chiamate Tokyo 2020?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2021",
+        "2019",
+        "2020",
+        "2022"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Rinviate per la pandemia, si svolsero dal 23 luglio all'8 agosto 2021 mantenendo il nome Tokyo 2020",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante buche ha un percorso da golf regolamentare?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "24",
+        "12",
+        "18",
+        "9"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "golf",
+        "regole"
+      ],
+      "notes": "Il percorso standard ha 18 buche (fissato a St Andrews nel 1764)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, come si chiama il servizio vincente che l'avversario non riesce a toccare?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Volée",
+        "Smash",
+        "Ace",
+        "Lob"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Ace: battuta vincente senza che il ricevitore tocchi la palla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio intitolato a Renzo Barbera?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Palermo",
+        "Trapani",
+        "Catania",
+        "Messina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "sicilia",
+        "stadi"
+      ],
+      "notes": "Lo stadio Renzo Barbera (ex Favorita) è lo stadio del Palermo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lo stadio Angelo Massimino è la casa di quale squadra siciliana?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Palermo",
+        "Siracusa",
+        "Messina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "sicilia",
+        "stadi"
+      ],
+      "notes": "Lo stadio Angelo Massimino (ex Cibali) è lo stadio del Catania",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 1982, giocati in Spagna?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Germania Ovest",
+        "Brasile",
+        "Italia",
+        "Argentina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Madrid, 11 luglio 1982: Italia-Germania Ovest 3-1",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale comune ha sede la Ferrari?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Imola",
+        "Monza",
+        "Sant'Agata Bolognese",
+        "Maranello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motori",
+        "formula 1"
+      ],
+      "notes": "La sede e la fabbrica Ferrari sono a Maranello (Modena); a Sant'Agata Bolognese c'è la Lamborghini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano, tutti insieme, i quattro tornei più importanti del tennis?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Finals",
+        "Masters",
+        "Coppa Davis",
+        "Grande Slam"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Australian Open, Roland Garros, Wimbledon e US Open formano il Grande Slam",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale disciplina invernale unisce lo sci di fondo e il tiro con la carabina?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Combinata nordica",
+        "Biathlon",
+        "Curling",
+        "Skeleton"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sport invernali"
+      ],
+      "notes": "Il biathlon alterna fondo e poligono; la combinata nordica unisce fondo e salto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale stile di nuoto le braccia escono insieme dall'acqua e le gambe battono a delfino?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Dorso",
+        "Rana",
+        "Crawl",
+        "Farfalla"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "nuoto"
+      ],
+      "notes": "Lo stile farfalla (delfino) ha bracciata simultanea e gambata ondulatoria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale città è la squadra di calcio soprannominata \"la Viola\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bologna",
+        "Siena",
+        "Firenze",
+        "Perugia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "La Fiorentina gioca in maglia viola dal 1929",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scalatore italiano, detto \"il Pirata\", vinse Giro d'Italia e Tour de France nel 1998?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gino Bartali",
+        "Marco Pantani",
+        "Francesco Moser",
+        "Felice Gimondi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "campioni italiani"
+      ],
+      "notes": "Pantani fece la doppietta Giro-Tour nel 1998",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti Mondiali di calcio ha vinto la nazionale italiana maschile fino al 2022?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "2",
+        "4",
+        "5"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "1934, 1938, 1982 e 2006",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi segnò con la mano il gol passato alla storia come \"la mano de Dios\", ai Mondiali del 1986?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Diego Maradona",
+        "Daniel Passarella",
+        "Mario Kempes",
+        "Jorge Valdano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Argentina-Inghilterra 2-1, Città del Messico, 22 giugno 1986",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale regione si corre la Targa Florio, storica corsa automobilistica nata nel 1906?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Calabria",
+        "Sicilia",
+        "Toscana",
+        "Sardegna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motori",
+        "sicilia"
+      ],
+      "notes": "La Targa Florio, ideata da Vincenzo Florio, si corre sulle Madonie dal 1906",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità era il barone che fondò il Comitato Olimpico Internazionale nel 1894?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Svizzera",
+        "Francese",
+        "Inglese",
+        "Greca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Pierre de Coubertin era francese; il CIO nacque a Parigi nel 1894, poi si trasferì a Losanna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore sono le palline da tennis usate a Wimbledon dal 1986?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Arancioni",
+        "Bianche",
+        "Verdi",
+        "Gialle"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "tornei",
+        "trabocchetto"
+      ],
+      "notes": "Wimbledon passò dalle palline bianche a quelle gialle nel 1986; il bianco resta obbligatorio solo per i completi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale metallo è fatta in prevalenza una medaglia d'oro olimpica?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Oro",
+        "Bronzo",
+        "Rame",
+        "Argento"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Dal 1912 le medaglie d'oro sono d'argento placcato: almeno 92,5% argento e 6 grammi d'oro (CIO)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale città italiana partì il Tour de France del 2024?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Firenze",
+        "Roma",
+        "Napoli",
+        "Milano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "tour de france"
+      ],
+      "notes": "Grand Départ del 29 giugno 2024: tappa Firenze-Rimini, prima partenza del Tour dall'Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori ha in acqua ogni squadra di pallanuoto, portiere compreso?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "11",
+        "5",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pallanuoto",
+        "regole"
+      ],
+      "notes": "Sei giocatori di movimento più il portiere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista toscano vinse il Tour de France nel 1938 e di nuovo nel 1948?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fiorenzo Magni",
+        "Fausto Coppi",
+        "Gino Bartali",
+        "Gastone Nencini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "campioni italiani"
+      ],
+      "notes": "Bartali vinse il Tour a dieci anni di distanza, nel 1938 e nel 1948",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si giocò la finale dei Mondiali di calcio del 2006?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Amburgo",
+        "Berlino",
+        "Dortmund",
+        "Monaco di Baviera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Finale all'Olympiastadion di Berlino, 9 luglio 2006",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio Maracanã?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Brasilia",
+        "San Paolo",
+        "Buenos Aires",
+        "Rio de Janeiro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Il Maracanã, inaugurato nel 1950, è a Rio de Janeiro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale corsa ciclistica è soprannominata \"la Classicissima\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Parigi-Roubaix",
+        "Liegi-Bastogne-Liegi",
+        "Milano-Sanremo",
+        "Giro di Lombardia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "classiche"
+      ],
+      "notes": "La Milano-Sanremo, la più lunga delle classiche, è detta Classicissima o Corsa di primavera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale squadra Gigi Riva vinse lo scudetto nel 1970?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fiorentina",
+        "Juventus",
+        "Inter",
+        "Cagliari"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "serie a"
+      ],
+      "notes": "Lo storico scudetto del Cagliari 1969-70, con Riva capocannoniere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale trofeo calcistico è soprannominato \"la Coppa dalle grandi orecchie\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Europa League",
+        "Champions League",
+        "Coppa Italia",
+        "Coppa del Mondo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "trofei"
+      ],
+      "notes": "La coppa della Champions League (ex Coppa dei Campioni) ha due grandi manici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale arte marziale giapponese, il cui nome significa \"via della cedevolezza\", è olimpica dal 1964?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Aikido",
+        "Kendo",
+        "Judo",
+        "Karate"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "arti marziali",
+        "olimpiadi"
+      ],
+      "notes": "Il judo debuttò ai Giochi di Tokyo 1964; il karate solo a Tokyo 2020",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo una legge canadese del 1994, qual è lo sport nazionale estivo del Canada?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Lacrosse",
+        "Football canadese",
+        "Hockey su ghiaccio",
+        "Baseball"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lacrosse",
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "Il National Sports of Canada Act (1994) indica il lacrosse per l'estate e l'hockey per l'inverno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale circuito si corse il primo Gran Premio della storia del Mondiale di Formula 1, nel 1950?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Monza",
+        "Spa-Francorchamps",
+        "Monte Carlo",
+        "Silverstone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formula 1",
+        "storia"
+      ],
+      "notes": "13 maggio 1950, Gran Premio di Gran Bretagna a Silverstone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Italia vinse il suo primo Campionato europeo di calcio?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1964",
+        "1968",
+        "1972",
+        "1980"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Europeo 1968 giocato in Italia: finale ripetuta vinta 2-0 sulla Jugoslavia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fondista italiana vinse due ori olimpici ai Giochi di Lillehammer nel 1994?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Marianna Longa",
+        "Manuela Di Centa",
+        "Stefania Belmondo",
+        "Gabriella Paruzzi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sci di fondo",
+        "campioni italiani"
+      ],
+      "notes": "Di Centa vinse 15 e 30 km a Lillehammer 1994 (cinque medaglie in tutto)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse a sorpresa lo scudetto della stagione 1984-85?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Napoli",
+        "Verona",
+        "Cagliari",
+        "Sampdoria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "serie a"
+      ],
+      "notes": "L'Hellas Verona di Osvaldo Bagnoli vinse il suo unico scudetto nel 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale località francese si tennero le prime Olimpiadi invernali, nel 1924?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Albertville",
+        "Val-d'Isère",
+        "Chamonix",
+        "Grenoble"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia"
+      ],
+      "notes": "I primi Giochi invernali si svolsero a Chamonix nel 1924",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pugile italiano, campione dei pesi massimi nel 1933, era detto \"la Montagna che cammina\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Primo Carnera",
+        "Duilio Loi",
+        "Tiberio Mitri",
+        "Nino Benvenuti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pugilato",
+        "campioni italiani"
+      ],
+      "notes": "Carnera conquistò il titolo mondiale dei massimi battendo Jack Sharkey nel 1933",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse la prima edizione della Coppa dei Campioni, nel 1956?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Stade de Reims",
+        "Milan",
+        "Real Madrid",
+        "Benfica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "coppe europee"
+      ],
+      "notes": "Parigi, 13 giugno 1956: Real Madrid-Reims 4-3",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piccola scuderia di Formula 1, con sede a Faenza, corse nel Mondiale dal 1985 al 2005?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Osella",
+        "Minardi",
+        "Dallara",
+        "Coloni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula 1",
+        "italia"
+      ],
+      "notes": "La Minardi di Giancarlo Minardi corse in F1 dal 1985 al 2005, poi fu venduta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota italiano vinse il primo Mondiale di Formula 1, nel 1950?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Luigi Fagioli",
+        "Alberto Ascari",
+        "Tazio Nuvolari",
+        "Giuseppe Farina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formula 1",
+        "storia"
+      ],
+      "notes": "Nino Farina, su Alfa Romeo, campione del mondo 1950",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le Olimpiadi del 1908 erano state assegnate a Roma: quale città le ospitò al suo posto?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Londra",
+        "Parigi",
+        "Stoccolma",
+        "Atene"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia"
+      ],
+      "notes": "Roma rinunciò dopo l'eruzione del Vesuvio del 1906; i Giochi si tennero a Londra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno un pilota della Ferrari vinse per la prima volta il Mondiale piloti di Formula 1?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1956",
+        "1961",
+        "1950",
+        "1952"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formula 1",
+        "ferrari"
+      ],
+      "notes": "Alberto Ascari fu campione con la Ferrari nel 1952 e nel 1953",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si disputò la prima edizione dei Giochi del Mediterraneo, nel 1951?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Alessandria d'Egitto",
+        "Barcellona",
+        "Atene",
+        "Napoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi del mediterraneo",
+        "storia"
+      ],
+      "notes": "I primi Giochi del Mediterraneo si tennero ad Alessandria d'Egitto nel 1951",
+      "verified": false
+    }
+  ]
+}

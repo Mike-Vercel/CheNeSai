@@ -1,0 +1,1105 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Come si chiama il fratellino di Peppa Pig?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pedro",
+        "Danny",
+        "Richard",
+        "George"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cartoni",
+        "bambini"
+      ],
+      "notes": "George, il fratellino che adora il suo dinosauro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale marinaio diventa fortissimo mangiando spinaci?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bluto",
+        "Capitan Harlock",
+        "Braccio di Ferro",
+        "Corto Maltese"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cartoni",
+        "fumetti"
+      ],
+      "notes": "Popeye, in Italia Braccio di Ferro; Bluto è il suo rivale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il protagonista di \"Dragon Ball\", nato con una coda da scimmia?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vegeta",
+        "Goku",
+        "Gohan",
+        "Crilin"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "anime",
+        "cartoni"
+      ],
+      "notes": "Son Goku, creato da Akira Toriyama",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale reality i concorrenti vivono in una casa spiati dalle telecamere?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "L'isola dei famosi",
+        "Grande Fratello",
+        "Pechino Express",
+        "Temptation Island"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "reality",
+        "mediaset"
+      ],
+      "notes": "Grande Fratello, in Italia dal 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese è la serie \"Squid Game\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Giappone",
+        "Corea del Sud",
+        "Cina",
+        "Corea del Nord"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "netflix"
+      ],
+      "notes": "Serie sudcoreana del 2021",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maschera di Bergamo ha un vestito a rombi colorati?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pulcinella",
+        "Balanzone",
+        "Pantalone",
+        "Arlecchino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teatro",
+        "maschere"
+      ],
+      "notes": "Arlecchino, maschera bergamasca della commedia dell'arte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che lavoro fanno i protagonisti della serie \"Baywatch\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Poliziotti",
+        "Pompieri",
+        "Bagnini",
+        "Medici"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "serie tv",
+        "anni 90"
+      ],
+      "notes": "Bagnini sulle spiagge di Los Angeles, con David Hasselhoff",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Ne \"I Simpson\", di che colore sono i capelli di Marge?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Blu",
+        "Viola",
+        "Rossi",
+        "Neri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cartoni",
+        "sitcom"
+      ],
+      "notes": "La celebre acconciatura alta e blu",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti sono i Teletubbies?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "3",
+        "5",
+        "6"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bambini",
+        "cartoni"
+      ],
+      "notes": "Tinky Winky, Dipsy, Laa-Laa e Po",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel cartone \"Heidi\", con chi va a vivere la bambina sulle montagne?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La zia",
+        "Il nonno",
+        "Il padre",
+        "Una governante"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cartoni",
+        "anime"
+      ],
+      "notes": "Con il nonno, il Vecchio dell'Alpe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pulcino nero con mezzo guscio in testa nacque in Italia per \"Carosello\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Titti",
+        "Pio Pio",
+        "Paperoga",
+        "Calimero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carosello",
+        "cartoni"
+      ],
+      "notes": "Creato dai fratelli Pagot nel 1963",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In \"Breaking Bad\", che lavoro fa Walter White all'inizio della serie?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Farmacista",
+        "Professore di chimica",
+        "Medico",
+        "Avvocato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "drama"
+      ],
+      "notes": "Insegnante di chimica in un liceo di Albuquerque",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In \"Friends\", quale personaggio fa il paleontologo?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Chandler",
+        "Joey",
+        "Monica",
+        "Ross"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sitcom",
+        "anni 90"
+      ],
+      "notes": "Ross Geller, paleontologo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Ne \"Il Trono di Spade\", chi è chiamata \"la Madre dei draghi\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cersei Lannister",
+        "Daenerys Targaryen",
+        "Sansa Stark",
+        "Arya Stark"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "fantasy"
+      ],
+      "notes": "Daenerys, interpretata da Emilia Clarke",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante dita ha ogni mano dei personaggi dei Simpson?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "5",
+        "3",
+        "6"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cartoni",
+        "trabocchetto"
+      ],
+      "notes": "I Simpson hanno quattro dita per mano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpretava il maresciallo Rocca nella fiction Rai?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Lino Banfi",
+        "Nino Frassica",
+        "Christian De Sica",
+        "Gigi Proietti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fiction",
+        "rai"
+      ],
+      "notes": "Il maresciallo Rocca, dal 1996",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale programma del 1992 lo showman siciliano Fiorello faceva cantare la gente nelle piazze?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Karaoke",
+        "Superclassifica Show",
+        "Stasera pago io",
+        "Viva Radio2"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "varietà",
+        "sicilia"
+      ],
+      "notes": "Karaoke, Italia 1, 1992",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il teatro di marionette siciliano con i paladini di Francia?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Commedia dell'arte",
+        "Teatro delle ombre",
+        "Guarattelle",
+        "Opera dei pupi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teatro",
+        "sicilia"
+      ],
+      "notes": "Opera dei pupi, patrimonio UNESCO dal 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato il Cirque du Soleil?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Belgio",
+        "Svizzera",
+        "Canada"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "circo",
+        "trabocchetto"
+      ],
+      "notes": "Fondato nel 1984 in Québec, Canada",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale conduttrice ha portato in Italia \"Ballando con le stelle\" nel 2005?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Antonella Clerici",
+        "Mara Venier",
+        "Simona Ventura",
+        "Milly Carlucci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "varietà",
+        "rai"
+      ],
+      "notes": "Milly Carlucci, Rai 1, 2005",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'auto parlante della serie \"Supercar\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "KITT",
+        "Herbie",
+        "Bumblebee",
+        "Christine"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "anni 80"
+      ],
+      "notes": "KITT, l'auto di Michael Knight",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama, in italiano, l'arto mozzato che fa da amico a Mercoledì Addams?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Mano",
+        "Lurch",
+        "Zio Fester",
+        "Cugino Itt"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "famiglia addams"
+      ],
+      "notes": "Thing, in italiano Mano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che genere di spettacolo è \"Zelig\", nato in un locale milanese?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cabaret comico",
+        "Talent musicale",
+        "Quiz a premi",
+        "Reality show"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "comici",
+        "mediaset"
+      ],
+      "notes": "Zelig nasce dal locale di viale Monza a Milano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che razza è il cane Scooby-Doo?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Alano",
+        "San Bernardo",
+        "Bassotto",
+        "Labrador"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cartoni",
+        "cani"
+      ],
+      "notes": "Scooby-Doo è un alano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio Disney si trasforma nel supereroe Paperinik?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Paperino",
+        "Paperoga",
+        "Gastone",
+        "Archimede"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti",
+        "disney"
+      ],
+      "notes": "Paperinik, creato in Italia nel 1969 da Guido Martina e Giovan Battista Carpi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'uccellino pupazzo de \"L'albero azzurro\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Uan",
+        "Provolino",
+        "Dodò",
+        "Calimero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "bambini",
+        "rai"
+      ],
+      "notes": "Dodò, dal 1990",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era giudice della prima edizione di \"MasterChef Italia\" insieme a Barbieri e Cracco?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Antonino Cannavacciuolo",
+        "Joe Bastianich",
+        "Giorgio Locatelli",
+        "Gordon Ramsay"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina in tv",
+        "talent"
+      ],
+      "notes": "Prima edizione 2011: Bastianich, Barbieri e Cracco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella versione americana di \"The Office\", come si chiama il capo?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Dwight Schrute",
+        "Jim Halpert",
+        "Andy Bernard",
+        "Michael Scott"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sitcom",
+        "serie tv"
+      ],
+      "notes": "Michael Scott, interpretato da Steve Carell",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In \"X-Files\", come si chiama l'agente scettica che lavora con Mulder?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Dana Scully",
+        "Clarice Starling",
+        "Olivia Dunham",
+        "Kate Beckett"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "fantascienza"
+      ],
+      "notes": "Dana Scully, interpretata da Gillian Anderson",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi interpreta il dottor Andrea Fanti nella serie \"Doc – Nelle tue mani\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Raoul Bova",
+        "Luca Argentero",
+        "Alessandro Gassmann",
+        "Beppe Fiorello"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fiction",
+        "rai"
+      ],
+      "notes": "Serie Rai dal 2020",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è stato prodotto il cartone animato \"Heidi\" del 1974?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Svizzera",
+        "Germania",
+        "Austria",
+        "Giappone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "anime",
+        "trabocchetto"
+      ],
+      "notes": "Prodotto in Giappone, regia di Isao Takahata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In \"Lady Oscar\", quale regina protegge Oscar come comandante delle guardie?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Caterina de' Medici",
+        "Maria Teresa d'Austria",
+        "Maria Antonietta",
+        "Giuseppina Bonaparte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime",
+        "storia"
+      ],
+      "notes": "Oscar François de Jarjayes, guardia di Maria Antonietta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quali nomi d'arte erano noti i palermitani Francesco Benenato e Francesco Ingrassia?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ficarra e Picone",
+        "Totò e Peppino",
+        "Franco e Ciccio",
+        "Cochi e Renato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "comici",
+        "sicilia"
+      ],
+      "notes": "Franco Franchi (Benenato) e Ciccio Ingrassia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nell'Opera dei pupi, quale paladino impazzisce per amore di Angelica?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rinaldo",
+        "Astolfo",
+        "Orlando",
+        "Gano di Maganza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teatro",
+        "sicilia"
+      ],
+      "notes": "Dall'Orlando furioso di Ariosto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha composto le musiche del musical \"Notre Dame de Paris\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Andrew Lloyd Webber",
+        "Riccardo Cocciante",
+        "Claudio Baglioni",
+        "Lucio Dalla"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musical"
+      ],
+      "notes": "Riccardo Cocciante, 1998",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama nella versione italiana la protagonista di \"Sailor Moon\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bunny",
+        "Amy",
+        "Rea",
+        "Morea"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "anime",
+        "cartoni"
+      ],
+      "notes": "Usagi Tsukino, in Italia Bunny",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città è nato Mike Bongiorno?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Milano",
+        "Torino",
+        "Genova",
+        "New York"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "conduttori",
+        "trabocchetto"
+      ],
+      "notes": "Nato a New York nel 1924, cresciuto a Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il municipio di quale città siciliana fa da commissariato di Montalbano nella serie?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ragusa",
+        "Scicli",
+        "Modica",
+        "Noto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fiction",
+        "sicilia"
+      ],
+      "notes": "Il Palazzo del Municipio di Scicli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale regista creò \"Twin Peaks\" insieme a Mark Frost?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "David Cronenberg",
+        "Tim Burton",
+        "John Carpenter",
+        "David Lynch"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "serie tv",
+        "registi"
+      ],
+      "notes": "Twin Peaks, 1990",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'astronave di Capitan Harlock?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Yamato",
+        "Enterprise",
+        "Arcadia",
+        "Millennium Falcon"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime",
+        "fantascienza"
+      ],
+      "notes": "Arcadia, creata da Leiji Matsumoto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale quiz di Mike Bongiorno, nato nel 1955, svuotava i cinema il giovedì sera?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Rischiatutto",
+        "Campanile sera",
+        "Il Musichiere",
+        "Lascia o raddoppia?"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia tv",
+        "quiz"
+      ],
+      "notes": "Lascia o raddoppia? (1955-1959): i cinema installavano televisori in sala",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale teatro milanese fu fondato nel 1947 da Giorgio Strehler e Paolo Grassi?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Teatro Arcimboldi",
+        "Teatro Carcano",
+        "Piccolo Teatro",
+        "Teatro Manzoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teatro",
+        "milano"
+      ],
+      "notes": "Il Piccolo Teatro di Milano, primo teatro stabile pubblico italiano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale commedia musicale di Garinei e Giovannini un prete costruisce un'arca?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Rugantino",
+        "Alleluja brava gente",
+        "Aggiungi un posto a tavola",
+        "Ciao Rudy"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musical",
+        "teatro"
+      ],
+      "notes": "Aggiungi un posto a tavola, 1974, con Johnny Dorelli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella storia originale dei Puffi, chi creò Puffetta?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Grande Puffo",
+        "Quattrocchi",
+        "Gargamella",
+        "Birba"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cartoni",
+        "trabocchetto"
+      ],
+      "notes": "Gargamella la creò per ingannare i Puffi; Grande Puffo poi la trasformò",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove si svolsero le prime edizioni del Festival di Sanremo, a partire dal 1951?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Al Teatro Ariston",
+        "Al Palafiori",
+        "Al Casinò",
+        "In piazza Colombo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "trabocchetto"
+      ],
+      "notes": "Al Casinò fino al 1976; all'Ariston dal 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi condusse la prima edizione italiana del \"Grande Fratello\", nel 2000?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Alessia Marcuzzi",
+        "Barbara D'Urso",
+        "Daria Bignardi",
+        "Simona Ventura"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "reality",
+        "trabocchetto"
+      ],
+      "notes": "Daria Bignardi condusse la prima edizione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale brano di Bach fa da sigla a \"Superquark\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Toccata e fuga in re minore",
+        "Badinerie",
+        "Aria sulla quarta corda",
+        "Preludio in do maggiore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "divulgazione",
+        "musica in tv"
+      ],
+      "notes": "L'Aria dalla Suite per orchestra n. 3 di Bach, sigla di Quark e Superquark",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale programma di Mike Bongiorno andò in onda il primo giorno di trasmissioni Rai, nel 1954?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Arrivi e partenze",
+        "Lascia o raddoppia?",
+        "Campanile sera",
+        "Telematch"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia tv",
+        "rai"
+      ],
+      "notes": "Arrivi e partenze, 3 gennaio 1954",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animatore italiano ha creato il personaggio del Signor Rossi?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Maria Perego",
+        "Bruno Bozzetto",
+        "Nino Pagot",
+        "Osvaldo Cavandoli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "italia"
+      ],
+      "notes": "Bruno Bozzetto, dal 1960; Cavandoli creò La Linea",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il secondo canale Rai quando nacque, nel 1961?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Rete 2",
+        "Secondo Programma",
+        "Rai Due",
+        "Programma Nazionale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia tv",
+        "rai"
+      ],
+      "notes": "Secondo Programma; divenne Rete 2 nel 1975 e Rai Due nel 1983",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1106 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Come si chiama il cowboy giocattolo protagonista di \"Toy Story\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Buzz",
+        "Woody",
+        "Rex",
+        "Slinky"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "pixar"
+      ],
+      "notes": "Lo sceriffo Woody; Buzz Lightyear è il ranger spaziale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale film Disney compare un genio che esce da una lampada magica?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pinocchio",
+        "Mulan",
+        "Aladdin",
+        "Hercules"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Aladdin, Disney 1992",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale principessa Disney perde una scarpetta di cristallo allo scoccare della mezzanotte?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Aurora",
+        "Biancaneve",
+        "Cenerentola",
+        "Belle"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Cenerentola, Disney 1950",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale supereroe si nasconde dietro l'identità di Peter Parker?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Iron Man",
+        "Batman",
+        "Capitan America",
+        "Spider-Man"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "supereroi",
+        "marvel"
+      ],
+      "notes": "Peter Parker è l'Uomo Ragno della Marvel",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta il cyborg di \"Terminator\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Sylvester Stallone",
+        "Dolph Lundgren",
+        "Arnold Schwarzenegger",
+        "Jean-Claude Van Damme"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attori",
+        "fantascienza"
+      ],
+      "notes": "Terminator di James Cameron, 1984",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi formava una celebre coppia del cinema con Bud Spencer?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Giuliano Gemma",
+        "Terence Hill",
+        "Franco Nero",
+        "Tomas Milian"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cinema italiano",
+        "attori"
+      ],
+      "notes": "Bud Spencer e Terence Hill, coppia da \"Lo chiamavano Trinità\" in poi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trovano gli storici studi cinematografici di Cinecittà?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Milano",
+        "Roma",
+        "Torino",
+        "Napoli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cinema italiano",
+        "luoghi"
+      ],
+      "notes": "Cinecittà, inaugurata a Roma nel 1937",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il vero nome di Batman?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bruce Wayne",
+        "Clark Kent",
+        "Peter Parker",
+        "Tony Stark"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "supereroi",
+        "dc"
+      ],
+      "notes": "Bruce Wayne, miliardario di Gotham City",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Ne \"Il re leone\", come si chiama lo zio cattivo di Simba?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Scar",
+        "Mufasa",
+        "Rafiki",
+        "Zazu"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Scar è il fratello di Mufasa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale trio comico ha girato \"Tre uomini e una gamba\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lopez, Marchesini e Solenghi",
+        "Aldo, Giovanni e Giacomo",
+        "Ficarra e Picone",
+        "I Fichi d'India"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "commedia",
+        "cinema italiano"
+      ],
+      "notes": "Film del 1997, esordio del trio al cinema",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il bambino dimenticato a casa in \"Mamma, ho perso l'aereo\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Tommy",
+        "Danny",
+        "Kevin",
+        "Charlie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anni 90",
+        "commedia"
+      ],
+      "notes": "Kevin McCallister, interpretato da Macaulay Culkin",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Il Padrino\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Martin Scorsese",
+        "Francis Ford Coppola",
+        "Brian De Palma",
+        "Sergio Leone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "registi",
+        "classici"
+      ],
+      "notes": "Coppola, 1972, dal romanzo di Mario Puzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore romano interpreta \"Il marchese del Grillo\" (1981)?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Nino Manfredi",
+        "Vittorio Gassman",
+        "Alberto Sordi",
+        "Ugo Tognazzi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attori",
+        "cinema italiano"
+      ],
+      "notes": "Film di Mario Monicelli con Alberto Sordi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta il generale Massimo ne \"Il gladiatore\" (2000)?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Russell Crowe",
+        "Joaquin Phoenix",
+        "Gerard Butler",
+        "Mel Gibson"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "attori",
+        "film storici"
+      ],
+      "notes": "Russell Crowe vinse l'Oscar; Phoenix interpreta Commodo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore napoletano diresse e interpretò \"Ricomincio da tre\" (1981)?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Massimo Troisi",
+        "Vincenzo Salemme",
+        "Carlo Verdone",
+        "Alessandro Siani"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Primo film da regista di Massimo Troisi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta Tony Stark nei film Marvel dal 2008 al 2019?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Robert Downey Jr.",
+        "Chris Evans",
+        "Chris Hemsworth",
+        "Mark Ruffalo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "supereroi",
+        "marvel"
+      ],
+      "notes": "Robert Downey Jr. è Iron Man; Evans è Capitan America, Hemsworth Thor, Ruffalo Hulk",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese fu girata la trilogia de \"Il Signore degli Anelli\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Australia",
+        "Irlanda",
+        "Scozia",
+        "Nuova Zelanda"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fantasy",
+        "luoghi"
+      ],
+      "notes": "Riprese in Nuova Zelanda, patria di Peter Jackson",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta Hannibal Lecter ne \"Il silenzio degli innocenti\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Jack Nicholson",
+        "Anthony Hopkins",
+        "Gene Hackman",
+        "Robert De Niro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "attori",
+        "thriller"
+      ],
+      "notes": "Anthony Hopkins, Oscar come miglior attore nel 1992",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel film Pixar \"Inside Out\", di che colore è Tristezza?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Viola",
+        "Blu",
+        "Verde",
+        "Grigio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "pixar"
+      ],
+      "notes": "Tristezza è blu; Paura è viola, Disgusto verde, Rabbia rossa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore si traveste da anziana tata in \"Mrs. Doubtfire\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Steve Martin",
+        "Robin Williams",
+        "Eddie Murphy",
+        "Billy Crystal"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "commedia",
+        "anni 90"
+      ],
+      "notes": "Mrs. Doubtfire – Mammo per sempre, 1993",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta il poliziotto John McClane in \"Trappola di cristallo\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mel Gibson",
+        "Kurt Russell",
+        "Bruce Willis",
+        "Arnold Schwarzenegger"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attori",
+        "azione"
+      ],
+      "notes": "Die Hard (1988), in Italia \"Trappola di cristallo\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto e interpretato \"C'è ancora domani\" (2023)?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Margherita Buy",
+        "Paola Cortellesi",
+        "Valeria Golino",
+        "Micaela Ramazzotti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Esordio alla regia di Paola Cortellesi, film in bianco e nero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel film \"Frankenstein\" del 1931, chi è Frankenstein?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il mostro",
+        "L'assistente gobbo",
+        "Il sindaco del villaggio",
+        "Lo scienziato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "horror",
+        "trabocchetto"
+      ],
+      "notes": "Frankenstein è lo scienziato creatore; la creatura non ha nome",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Hollywood è un quartiere di quale città?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "San Francisco",
+        "San Diego",
+        "Los Angeles",
+        "Las Vegas"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "luoghi",
+        "trabocchetto"
+      ],
+      "notes": "Hollywood è un distretto di Los Angeles, non una città autonoma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa trova nel suo letto il produttore Woltz ne \"Il Padrino\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un pesce morto",
+        "Una rosa nera",
+        "Una pistola",
+        "La testa di un cavallo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classici",
+        "scene celebri"
+      ],
+      "notes": "Celebre scena del film di Coppola, 1972",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel film \"Il mago di Oz\" del 1939, di che colore sono le scarpette di Dorothy?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Argento",
+        "Rosse",
+        "Oro",
+        "Blu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classici",
+        "trabocchetto"
+      ],
+      "notes": "Nel film sono scarpette di rubino; nel romanzo di Baum erano d'argento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale regione è ambientato \"Malèna\" con Monica Bellucci?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Puglia",
+        "Calabria",
+        "Sicilia",
+        "Sardegna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cinema italiano",
+        "sicilia"
+      ],
+      "notes": "Film di Tornatore (2000) ambientato in un paese siciliano, girato tra Siracusa e Noto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Roma città aperta\" (1945)?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Vittorio De Sica",
+        "Luchino Visconti",
+        "Michelangelo Antonioni",
+        "Roberto Rossellini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "neorealismo",
+        "registi"
+      ],
+      "notes": "Capolavoro del neorealismo con Anna Magnani e Aldo Fabrizi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta Jep Gambardella ne \"La grande bellezza\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Toni Servillo",
+        "Elio Germano",
+        "Pierfrancesco Favino",
+        "Valerio Mastandrea"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "attori",
+        "cinema italiano"
+      ],
+      "notes": "Toni Servillo, protagonista del film di Sorrentino premiato con l'Oscar",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale regista italiano ha diretto \"Gomorra\" (2008) e \"Dogman\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Paolo Sorrentino",
+        "Marco Bellocchio",
+        "Matteo Garrone",
+        "Daniele Luchetti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Matteo Garrone, Gran Premio della giuria a Cannes 2008",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attrice interpreta Ilsa in \"Casablanca\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Lauren Bacall",
+        "Ingrid Bergman",
+        "Rita Hayworth",
+        "Greta Garbo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "attrici",
+        "classici"
+      ],
+      "notes": "Accanto a Humphrey Bogart, 1942",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In \"Ritorno al futuro\", a che velocità deve arrivare la DeLorean per viaggiare nel tempo?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "88 miglia orarie",
+        "88 chilometri orari",
+        "100 miglia orarie",
+        "120 chilometri orari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "anni 80",
+        "trabocchetto"
+      ],
+      "notes": "88 miglia orarie, circa 141 chilometri orari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale monumento si trova il Museo nazionale del cinema di Torino?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mole Antonelliana",
+        "Palazzo Madama",
+        "Palazzo Carignano",
+        "Lingotto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musei",
+        "italia"
+      ],
+      "notes": "Il museo ha sede nella Mole Antonelliana dal 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città siciliana ospita un festival del cinema nel suo antico teatro greco?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Taormina",
+        "Cefalù",
+        "Palermo",
+        "Agrigento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "festival",
+        "sicilia"
+      ],
+      "notes": "Taormina Film Fest, al Teatro Antico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale film sudcoreano vinse l'Oscar come miglior film nel 2020?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Old Boy",
+        "Burning",
+        "Minari",
+        "Parasite"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "oscar",
+        "asia"
+      ],
+      "notes": "Primo film non in lingua inglese premiato come miglior film",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore firmò le musiche di quasi tutti i film di Fellini?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Nino Rota",
+        "Ennio Morricone",
+        "Riz Ortolani",
+        "Armando Trovajoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "colonne sonore",
+        "fellini"
+      ],
+      "notes": "Nino Rota collaborò con Fellini da Lo sceicco bianco a Prova d'orchestra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attore porta Audrey Hepburn in scooter per Roma in \"Vacanze romane\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Cary Grant",
+        "Gregory Peck",
+        "Humphrey Bogart",
+        "William Holden"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "attori",
+        "classici"
+      ],
+      "notes": "Vacanze romane, 1953",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese siciliano è nato il regista Giuseppe Tornatore?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cefalù",
+        "Corleone",
+        "Bagheria",
+        "Monreale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "registi",
+        "sicilia"
+      ],
+      "notes": "Nato a Bagheria nel 1956, che racconta nel film \"Baarìa\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi diresse \"Divorzio all'italiana\", commedia del 1961 ambientata in Sicilia?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pietro Germi",
+        "Mario Monicelli",
+        "Dino Risi",
+        "Luigi Comencini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "commedia",
+        "sicilia"
+      ],
+      "notes": "Pietro Germi, Oscar per la sceneggiatura",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attrice italiana vinse l'Oscar nel 1956 per \"La rosa tatuata\"?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Sophia Loren",
+        "Gina Lollobrigida",
+        "Anna Magnani",
+        "Silvana Mangano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "oscar",
+        "attrici"
+      ],
+      "notes": "Anna Magnani, Oscar come miglior attrice protagonista",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Lo chiamavano Jeeg Robot\" (2015)?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Gabriele Mainetti",
+        "Matteo Garrone",
+        "Paolo Virzì",
+        "Gabriele Muccino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Esordio di Gabriele Mainetti, con Claudio Santamaria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale film Marilyn Monroe ha la gonna sollevata dall'aria della metropolitana?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "A qualcuno piace caldo",
+        "Quando la moglie è in vacanza",
+        "Gli uomini preferiscono le bionde",
+        "Come sposare un milionario"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "attrici",
+        "classici"
+      ],
+      "notes": "The Seven Year Itch (1955) di Billy Wilder",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual era il vero nome di Bud Spencer?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Mario Girotti",
+        "Renato Ranucci",
+        "Antonio de Curtis",
+        "Carlo Pedersoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attori",
+        "cinema italiano"
+      ],
+      "notes": "Carlo Pedersoli; Mario Girotti è Terence Hill, Ranucci è Rascel, de Curtis è Totò",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Ne \"L'Impero colpisce ancora\", con quale parola comincia davvero la frase di Darth Vader \"io sono tuo padre\"?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Luke",
+        "Figlio",
+        "Ascolta",
+        "No"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fantascienza",
+        "trabocchetto"
+      ],
+      "notes": "La battuta è \"No, io sono tuo padre\": \"Luke, io sono tuo padre\" è una citazione sbagliata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante volte Alfred Hitchcock vinse l'Oscar come miglior regista?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Una volta",
+        "Due volte",
+        "Tre volte",
+        "Mai"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "oscar",
+        "trabocchetto"
+      ],
+      "notes": "Cinque candidature e nessuna vittoria; ricevette solo il premio Thalberg nel 1968",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato l'attore Keanu Reeves?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Canada",
+        "Stati Uniti",
+        "Australia",
+        "Libano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attori",
+        "trabocchetto"
+      ],
+      "notes": "Nato a Beirut nel 1964, cresciuto a Toronto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale documentario di Gianfranco Rosi vinse il Leone d'oro a Venezia nel 2013?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Fuocoammare",
+        "Notturno",
+        "Sacro GRA",
+        "Below Sea Level"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "festival",
+        "documentari"
+      ],
+      "notes": "Primo documentario a vincere il Leone d'oro; Fuocoammare vinse l'Orso d'oro 2016",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale film vinse nel 1957 il primo Oscar in gara per il miglior film straniero?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Le notti di Cabiria",
+        "I vitelloni",
+        "Il bidone",
+        "La strada"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "oscar",
+        "fellini"
+      ],
+      "notes": "La strada di Fellini; prima di allora il premio era solo onorario",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale pseudonimo Sergio Leone firmò la regia di \"Per un pugno di dollari\"?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Bob Robertson",
+        "Sam Livingston",
+        "Robert Leonard",
+        "Sergio Lee"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "western",
+        "cinema italiano"
+      ],
+      "notes": "Nei titoli del 1964 compariva \"Bob Robertson\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato americano si svolge gran parte del film \"Fargo\" dei fratelli Coen?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Dakota del Nord",
+        "Montana",
+        "Wisconsin",
+        "Minnesota"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "registi",
+        "trabocchetto"
+      ],
+      "notes": "Fargo è nel Dakota del Nord, ma il film si svolge quasi tutto in Minnesota (Brainerd e Minneapolis)",
+      "verified": false
+    }
+  ]
+}

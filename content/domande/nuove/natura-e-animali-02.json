@@ -1,0 +1,1089 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale animale ha una lunga proboscide?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Elefante",
+        "Giraffa",
+        "Ippopotamo",
+        "Rinoceronte"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "La proboscide dell'elefante è naso e labbro superiore fusi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale marino ha di solito cinque braccia e può rigenerarle?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Medusa",
+        "Stella marina",
+        "Polpo",
+        "Riccio di mare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mare"
+      ],
+      "notes": "Le stelle marine hanno in genere cinque braccia e le ricrescono se le perdono",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale grande animale passa l'inverno dormendo nella sua tana?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lupo",
+        "Cervo",
+        "Orso",
+        "Volpe"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "letargo"
+      ],
+      "notes": "L'orso trascorre l'inverno in un sonno profondo nella tana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la rete costruita dal ragno?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Formicaio",
+        "Bozzolo",
+        "Ragnatela",
+        "Alveare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aracnidi"
+      ],
+      "notes": "Il ragno tesse la ragnatela con la seta prodotta dalle filiere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale albero sempreverde si addobba tradizionalmente a Natale?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Abete",
+        "Betulla",
+        "Pioppo",
+        "Quercia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "alberi",
+        "natale"
+      ],
+      "notes": "L'abete è l'albero di Natale tradizionale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il maschio della gallina?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pulcino",
+        "Gallo",
+        "Tacchino",
+        "Fagiano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli",
+        "fattoria"
+      ],
+      "notes": "Il gallo è il maschio della gallina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale africano ha il corno sul naso?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gnu",
+        "Ippopotamo",
+        "Rinoceronte",
+        "Bufalo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "africa"
+      ],
+      "notes": "Il rinoceronte ha uno o due corni sul muso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello è celebre per saper imitare la voce umana?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pappagallo",
+        "Passero",
+        "Gabbiano",
+        "Airone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "Pappagalli come il cenerino imitano parole e suoni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale animale è il cucciolo chiamato girino?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pesce",
+        "Rana",
+        "Tartaruga",
+        "Lucertola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "anfibi"
+      ],
+      "notes": "Il girino vive in acqua e respira con le branchie prima della metamorfosi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piccolo mammifero ha ispirato il modo di dire \"dormire come un...\"?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Talpa",
+        "Ghiro",
+        "Scoiattolo",
+        "Riccio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "modi di dire"
+      ],
+      "notes": "Il ghiro va in letargo anche per sei mesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi animali è un rettile?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tritone",
+        "Lucertola",
+        "Rana",
+        "Rospo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rettili"
+      ],
+      "notes": "Rana, tritone e rospo sono anfibi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale marino spruzza inchiostro nero per difendersi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Riccio di mare",
+        "Medusa",
+        "Stella marina",
+        "Seppia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "molluschi",
+        "mare"
+      ],
+      "notes": "Il \"nero di seppia\" è usato anche in cucina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore è chiamato da secoli \"la regina dei fiori\"?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tulipano",
+        "Rosa",
+        "Giglio",
+        "Orchidea"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fiori"
+      ],
+      "notes": "Appellativo tradizionale della rosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale riesce a dormire anche stando in piedi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cavallo",
+        "Cane",
+        "Gatto",
+        "Maiale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "Il cavallo \"blocca\" le articolazioni delle zampe e sonnecchia in piedi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo il proverbio, quale uccello da solo non fa primavera?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rondine",
+        "Cicogna",
+        "Gru",
+        "Allodola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uccelli",
+        "proverbi"
+      ],
+      "notes": "\"Una rondine non fa primavera\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale albero da frutto fiorisce già a febbraio nella Valle dei Templi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ciliegio",
+        "Albicocco",
+        "Mandorlo",
+        "Pesco"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alberi",
+        "sicilia"
+      ],
+      "notes": "Ad Agrigento si celebra a febbraio la Sagra del Mandorlo in fiore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il primate più grande del mondo?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gorilla",
+        "Babbuino",
+        "Scimpanzé",
+        "Orango"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "primati"
+      ],
+      "notes": "Il gorilla orientale può superare i 200 kg",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scimmia è geneticamente tra le più vicine all'uomo?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Babbuino",
+        "Mandrillo",
+        "Macaco",
+        "Scimpanzé"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primati",
+        "evoluzione"
+      ],
+      "notes": "Uomo e scimpanzé condividono circa il 98-99 per cento del DNA",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello becca i tronchi degli alberi per cercare insetti?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Merlo",
+        "Fringuello",
+        "Passero",
+        "Picchio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "Il picchio scava il legno con il becco robusto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale si nutre di formiche e termiti con una lingua lunghissima?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Armadillo",
+        "Tasso",
+        "Riccio",
+        "Formichiere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "La lingua del formichiere gigante supera i 50 centimetri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello ha il maschio nero con il becco giallo-arancio?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Corvo",
+        "Storno",
+        "Merlo",
+        "Cornacchia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "Il merlo maschio è nero con becco e anello oculare giallo-arancio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore rosso cresce spontaneo nei campi di grano?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tulipano",
+        "Papavero",
+        "Rosa",
+        "Garofano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fiori"
+      ],
+      "notes": "Il papavero comune fiorisce tra le spighe a maggio e giugno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale albero ha la corteccia bianca segnata da strisce nere?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Platano",
+        "Betulla",
+        "Pioppo",
+        "Faggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "alberi"
+      ],
+      "notes": "La betulla bianca ha la tipica corteccia chiara con segni scuri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la favola, quale uccello porta i neonati alle famiglie?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pellicano",
+        "Airone",
+        "Gru",
+        "Cicogna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "uccelli",
+        "tradizioni"
+      ],
+      "notes": "La leggenda della cicogna che porta i bambini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale animale si dice, a torto, che abbia una memoria di tre secondi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gallina",
+        "Criceto",
+        "Pesce rosso",
+        "Piccione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pesci",
+        "falsi miti"
+      ],
+      "notes": "Esperimenti hanno mostrato che i pesci rossi ricordano per mesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale animale marino è il maschio a portare le uova e a partorire i piccoli?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cavalluccio marino",
+        "Delfino",
+        "Polpo",
+        "Tartaruga marina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesci",
+        "mare",
+        "trabocchetto"
+      ],
+      "notes": "Il maschio del cavalluccio marino ha una tasca incubatrice",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale pianta, tipica del paesaggio siciliano, crescono i fichi d'India?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Opunzia",
+        "Agave",
+        "Carrubo",
+        "Aloe"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "piante",
+        "sicilia"
+      ],
+      "notes": "Il fico d'India è l'Opuntia ficus-indica, un cactus arrivato dalle Americhe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante zampe ha un'aragosta?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "10",
+        "8",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "crostacei"
+      ],
+      "notes": "Aragoste e gamberi sono decapodi: dieci zampe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quali foglie si nutre il baco da seta?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vite",
+        "Gelso",
+        "Fico",
+        "Ulivo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "insetti",
+        "seta"
+      ],
+      "notes": "Il baco da seta mangia le foglie del gelso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo del Parco nazionale del Gran Paradiso?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Camoscio",
+        "Cervo",
+        "Stambecco",
+        "Muflone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "parchi",
+        "italia",
+        "montagna"
+      ],
+      "notes": "Il parco nacque nel 1922 per proteggere lo stambecco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo del Parco nazionale d'Abruzzo, Lazio e Molise?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cervo",
+        "Lupo appenninico",
+        "Camoscio appenninico",
+        "Orso marsicano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "parchi",
+        "italia"
+      ],
+      "notes": "L'orso bruno marsicano è nel logo del parco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pesce, simbolo dello Stretto di Messina, si pesca con le feluche?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pesce spada",
+        "Ricciola",
+        "Cernia",
+        "Tonno rosso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesci",
+        "sicilia"
+      ],
+      "notes": "La pesca tradizionale del pesce spada con le feluche, barche con alberi e passerelle altissime",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale africano ha un nome greco che significa \"cavallo di fiume\"?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ippopotamo",
+        "Tapiro",
+        "Facocero",
+        "Rinoceronte"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi",
+        "etimologia"
+      ],
+      "notes": "Dal greco hippos (cavallo) e potamós (fiume)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parte del fiore che produce il polline?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sepalo",
+        "Stame",
+        "Pistillo",
+        "Petalo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "piante",
+        "fiori"
+      ],
+      "notes": "Lo stame è l'organo maschile del fiore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che specie è il millenario \"albero dei Cento Cavalli\" sulle pendici dell'Etna?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Castagno",
+        "Faggio",
+        "Ulivo",
+        "Quercia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "alberi",
+        "sicilia"
+      ],
+      "notes": "Il Castagno dei Cento Cavalli a Sant'Alfio è tra gli alberi più antichi d'Europa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale continente non vivono formiche?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Antartide",
+        "Europa",
+        "Oceania",
+        "Asia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "Le formiche vivono in tutti i continenti tranne l'Antartide",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la scienza, quale colore fa infuriare il toro nella corrida?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il rosso",
+        "Il giallo",
+        "Il bianco",
+        "Nessuno, reagisce al movimento"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "trabocchetto"
+      ],
+      "notes": "I bovini non distinguono bene il rosso: il toro carica il drappo perché si muove",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché lo struzzo sembra infilare la testa sotto la sabbia?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Per dormire",
+        "Per cercare acqua",
+        "Per nascondersi",
+        "Per girare le uova nel nido"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "uccelli",
+        "trabocchetto"
+      ],
+      "notes": "Lo struzzo non nasconde la testa: abbassa il capo per girare le uova nella buca del nido",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale parte del corpo la farfalla sente il sapore delle foglie su cui si posa?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Il dorso",
+        "Le zampe",
+        "Le ali",
+        "Gli occhi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "insetti",
+        "trabocchetto"
+      ],
+      "notes": "Le farfalle hanno recettori del gusto sulle zampe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante dita poggia a terra un cavallo per ogni zampa?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Due",
+        "Uno",
+        "Tre",
+        "Cinque"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "trabocchetto"
+      ],
+      "notes": "Lo zoccolo è l'unghia di un solo dito, il terzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale razza suina si alleva allo stato brado sui monti Nebrodi?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cinta senese",
+        "Casertana",
+        "Mora romagnola",
+        "Nero siciliano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "animali da allevamento",
+        "sicilia"
+      ],
+      "notes": "Il suino Nero siciliano, detto anche nero dei Nebrodi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale albero dalle foglie a ventaglio è considerato un fossile vivente?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Platano",
+        "Tiglio",
+        "Magnolia",
+        "Ginkgo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "alberi"
+      ],
+      "notes": "Il Ginkgo biloba esiste quasi invariato da milioni di anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i licheni?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Piccole felci",
+        "Un tipo di muschio",
+        "Un'unione di fungo e alga",
+        "Funghi velenosi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "piante",
+        "funghi"
+      ],
+      "notes": "Il lichene è una simbiosi tra un fungo e un'alga o un cianobatterio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti puntini neri ha la coccinella più comune in Italia?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "12",
+        "7",
+        "9"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "Coccinella septempunctata: la coccinella dai sette punti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la lingua della giraffa?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa",
+        "Rossa",
+        "Blu scuro",
+        "Gialla"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "trabocchetto"
+      ],
+      "notes": "La lingua della giraffa è blu-violacea scura, forse per proteggerla dal sole",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale insetto ha la vita adulta più breve, a volte di poche ore?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Farfalla",
+        "Mosca",
+        "Effimera",
+        "Zanzara"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "Gli adulti delle effimere (efemerotteri) vivono da poche ore a un paio di giorni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello marino nidifica a Linosa ed è famoso per i versi simili al pianto di un bambino?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Gabbiano reale",
+        "Sula",
+        "Cormorano",
+        "Berta maggiore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "uccelli",
+        "sicilia"
+      ],
+      "notes": "Linosa ospita una delle più grandi colonie di berta maggiore del Mediterraneo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale anfibio cieco vive nelle grotte del Carso ed è detto \"pesce umano\"?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Tritone",
+        "Axolotl",
+        "Salamandra",
+        "Proteo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "anfibi",
+        "italia"
+      ],
+      "notes": "Il proteo (Proteus anguinus) vive nelle acque sotterranee del Carso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapace si nutre quasi solo di ossa?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Gipeto",
+        "Avvoltoio monaco",
+        "Grifone",
+        "Capovaccaio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uccelli",
+        "montagna"
+      ],
+      "notes": "Il gipeto lascia cadere le ossa sulle rocce per spezzarle e mangiarne il midollo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pianta carnivora italiana è chiamata anche \"erba unta\"?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Dionea",
+        "Drosera",
+        "Pinguicola",
+        "Nepenthes"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "piante",
+        "italia"
+      ],
+      "notes": "La Pinguicula vulgaris ha foglie appiccicose che catturano gli insetti",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1098 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi canta \"Fatti mandare dalla mamma a prendere il latte\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Morandi",
+        "Adriano Celentano",
+        "Little Tony",
+        "Massimo Ranieri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 60"
+      ],
+      "notes": "Successo di Gianni Morandi del 1962",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band ha vinto Sanremo e l'Eurovision nel 2021?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Il Volo",
+        "Måneskin",
+        "Negramaro",
+        "Modà"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "eurovision",
+        "sanremo"
+      ],
+      "notes": "Måneskin con \"Zitti e buoni\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante corde ha un violino?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "3",
+        "5",
+        "6",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Sol, re, la, mi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"Shake It Off\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Katy Perry",
+        "Ariana Grande",
+        "Selena Gomez",
+        "Taylor Swift"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "Taylor Swift, 2014",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Sarà perché ti amo\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Ricchi e Poveri",
+        "Pooh",
+        "Matia Bazar",
+        "Collage"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 80"
+      ],
+      "notes": "Ricchi e Poveri, 1981",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese viene la band BTS?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Giappone",
+        "Corea del Sud",
+        "Cina",
+        "Thailandia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "k-pop"
+      ],
+      "notes": "Gruppo sudcoreano simbolo del K-pop",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suonava Jimi Hendrix?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Chitarra elettrica",
+        "Basso",
+        "Batteria",
+        "Tastiera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "strumenti"
+      ],
+      "notes": "Leggenda della chitarra elettrica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha lanciato nel 1993 la canzone \"La solitudine\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Giorgia",
+        "Elisa",
+        "Irene Grandi",
+        "Laura Pausini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "canzone italiana"
+      ],
+      "notes": "Laura Pausini vinse tra le Nuove Proposte di Sanremo 1993",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a corde, con la cassa a forma di mezza pera, è un simbolo di Napoli?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Chitarra",
+        "Liuto",
+        "Mandolino",
+        "Banjo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "napoli"
+      ],
+      "notes": "Il mandolino napoletano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella canzone dello Zecchino d'Oro, quanti gatti stanno in fila per sei col resto di due?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "44",
+        "24",
+        "36",
+        "48"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "zecchino d'oro",
+        "bambini"
+      ],
+      "notes": "44 gatti: 7 file da 6 più 2 (Zecchino d'Oro 1968)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Tu vuò fà l'americano\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Renato Carosone",
+        "Roberto Murolo",
+        "Domenico Modugno",
+        "Peppino di Capri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone napoletana",
+        "anni 50"
+      ],
+      "notes": "Renato Carosone, 1956",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse il Festival di Sanremo 2023 con \"Due vite\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ultimo",
+        "Marco Mengoni",
+        "Lazza",
+        "Tananai"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Marco Mengoni, già vincitore nel 2013",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore ha scritto \"Il cielo è sempre più blu\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Battisti",
+        "Francesco De Gregori",
+        "Antonello Venditti",
+        "Rino Gaetano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "anni 70"
+      ],
+      "notes": "Rino Gaetano, 1975",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore romano ha scritto \"Notte prima degli esami\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Claudio Baglioni",
+        "Antonello Venditti",
+        "Renato Zero",
+        "Francesco De Gregori"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "anni 80"
+      ],
+      "notes": "Antonello Venditti, 1984",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore catanese scrisse l'opera \"Norma\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gaetano Donizetti",
+        "Vincenzo Bellini",
+        "Gioachino Rossini",
+        "Giuseppe Verdi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "sicilia"
+      ],
+      "notes": "Bellini, nato a Catania nel 1801; Norma è del 1831",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Puccini si canta \"Nessun dorma\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tosca",
+        "La bohème",
+        "Turandot",
+        "Madama Butterfly"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "puccini"
+      ],
+      "notes": "Turandot, rappresentata nel 1926",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città lavorava il liutaio Antonio Stradivari?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cremona",
+        "Brescia",
+        "Mantova",
+        "Parma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "liuteria"
+      ],
+      "notes": "Cremona, capitale della liuteria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese era il compositore Fryderyk Chopin?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Polonia",
+        "Francia",
+        "Austria",
+        "Ungheria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Nato in Polonia da padre francese, visse e morì a Parigi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale brano è stato adottato come inno dell'Unione Europea?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il Canto degli Italiani",
+        "La Marsigliese",
+        "Va, pensiero",
+        "Inno alla gioia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "inni"
+      ],
+      "notes": "Dalla Nona Sinfonia di Beethoven, inno europeo dal 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale chiave musicale è chiamata anche \"chiave di violino\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Chiave di fa",
+        "Chiave di do",
+        "Chiave di sol",
+        "Chiave di re"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria musicale"
+      ],
+      "notes": "La chiave di sol",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suonava Louis Armstrong?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sassofono",
+        "Trombone",
+        "Tromba",
+        "Clarinetto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "jazz",
+        "strumenti"
+      ],
+      "notes": "La tromba, oltre alla celebre voce roca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno si svolse il festival di Woodstock?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "1967",
+        "1969",
+        "1971",
+        "1973"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "festival"
+      ],
+      "notes": "Agosto 1969",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Wonderwall\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Blur",
+        "Oasis",
+        "Radiohead",
+        "Coldplay"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "britpop",
+        "anni 90"
+      ],
+      "notes": "Oasis, 1995",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore napoletano ha scritto \"Napule è\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gigi D'Alessio",
+        "Massimo Ranieri",
+        "Pino Daniele",
+        "Edoardo Bennato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone napoletana",
+        "cantautori"
+      ],
+      "notes": "Pino Daniele, 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"Vitti 'na crozza\" è una celebre canzone popolare di quale regione?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Calabria",
+        "Puglia",
+        "Sardegna",
+        "Sicilia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "canzone popolare",
+        "sicilia"
+      ],
+      "notes": "Canzone popolare siciliana, celebre dagli anni Cinquanta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante è chiamata \"la Tigre di Cremona\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ornella Vanoni",
+        "Mina",
+        "Milva",
+        "Iva Zanicchi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "canzone italiana",
+        "soprannomi"
+      ],
+      "notes": "Mina, cresciuta a Cremona; Milva era la Pantera di Goro, Zanicchi l'Aquila di Ligonchio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città emiliana è nato Luciano Ligabue?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Zocca",
+        "Carpi",
+        "Correggio",
+        "Sassuolo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock italiano"
+      ],
+      "notes": "Correggio, 1960; Zocca è il paese di Vasco Rossi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautrice catanese è chiamata \"la cantantessa\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giusy Ferreri",
+        "Levante",
+        "Carmen Consoli",
+        "Nina Zilli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "sicilia"
+      ],
+      "notes": "Carmen Consoli, nata a Catania nel 1974",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"La bambola\", grande successo del 1968?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Patty Pravo",
+        "Caterina Caselli",
+        "Rita Pavone",
+        "Ornella Vanoni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 60"
+      ],
+      "notes": "Patty Pravo, 1968",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tenore napoletano fu tra i primi a diventare una star grazie ai dischi?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Beniamino Gigli",
+        "Tito Schipa",
+        "Giuseppe Di Stefano",
+        "Enrico Caruso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "tenori"
+      ],
+      "notes": "Enrico Caruso incise dischi dal 1902",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quale strumento è scritta la \"Toccata e fuga in re minore\" di Bach?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Pianoforte",
+        "Organo",
+        "Clavicembalo",
+        "Violino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "barocco"
+      ],
+      "notes": "Brano per organo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale monaco medievale ideò i nomi delle note partendo da un inno latino?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gregorio Magno",
+        "Benedetto da Norcia",
+        "Guido d'Arezzo",
+        "Tommaso d'Aquino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria musicale",
+        "medioevo"
+      ],
+      "notes": "Dalle sillabe dell'inno \"Ut queant laxis\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale danza popolare del Salento è legata al morso della taranta?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Saltarello",
+        "Pizzica",
+        "Tammurriata",
+        "Quadriglia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "danza",
+        "puglia"
+      ],
+      "notes": "La pizzica, legata al tarantismo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore vinse il Premio Nobel per la letteratura nel 2016?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Leonard Cohen",
+        "Bruce Springsteen",
+        "Bob Dylan",
+        "Paul Simon"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "premi"
+      ],
+      "notes": "Bob Dylan, Nobel 2016",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale artista inventò l'alter ego Ziggy Stardust?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Elton John",
+        "Freddie Mercury",
+        "Mick Jagger",
+        "David Bowie"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "anni 70"
+      ],
+      "notes": "David Bowie, 1972",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse la prima edizione del Festival di Sanremo, nel 1951?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Claudio Villa",
+        "Nilla Pizzi",
+        "Achille Togliani",
+        "Carla Boni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "anni 50"
+      ],
+      "notes": "Nilla Pizzi con \"Grazie dei fiori\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale vulcano celebra la canzone \"Funiculì funiculà\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vesuvio",
+        "Etna",
+        "Stromboli",
+        "Vulture"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone napoletana"
+      ],
+      "notes": "Scritta nel 1880 per la funicolare del Vesuvio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale album di Franco Battiato del 1981 contiene \"Centro di gravità permanente\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "L'era del cinghiale bianco",
+        "Patriots",
+        "Fisiognomica",
+        "La voce del padrone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "sicilia"
+      ],
+      "notes": "La voce del padrone, 1981",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale opera di Rossini ha un'ouverture famosa per la sua cavalcata finale?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Guglielmo Tell",
+        "La gazza ladra",
+        "L'italiana in Algeri",
+        "Semiramide"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "rossini"
+      ],
+      "notes": "Guglielmo Tell, 1829",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"My Way\", resa celebre da Frank Sinatra, nasce da una canzone di quale Paese?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Stati Uniti",
+        "Francia",
+        "Italia",
+        "Regno Unito"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "trabocchetto"
+      ],
+      "notes": "Adattamento di \"Comme d'habitude\" di Claude François, 1967",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove nacque Freddie Mercury?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Londra",
+        "India",
+        "Dublino",
+        "Zanzibar"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "trabocchetto"
+      ],
+      "notes": "Nato a Stone Town, Zanzibar, nel 1946; studiò in India",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese pugliese è nato Al Bano?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Polignano a Mare",
+        "Alberobello",
+        "Cellino San Marco",
+        "Ostuni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone italiana",
+        "puglia"
+      ],
+      "notes": "Cellino San Marco, in provincia di Brindisi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si piazzò \"Vita spericolata\" di Vasco Rossi al Festival di Sanremo del 1983?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Primo posto",
+        "Secondo posto",
+        "Tra gli ultimi",
+        "Terzo posto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "trabocchetto"
+      ],
+      "notes": "Arrivò nelle ultime posizioni (penultima) e divenne poi un classico; vinse Tiziana Rivale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti erano i Ricchi e Poveri al loro debutto?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "3",
+        "2",
+        "5",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "band",
+        "trabocchetto"
+      ],
+      "notes": "Angela, Marina, Angelo e Franco; Marina lasciò nel 1981",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi incise per prima, nel 1974, \"I Will Always Love You\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Whitney Houston",
+        "Mariah Carey",
+        "Céline Dion",
+        "Dolly Parton"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "trabocchetto"
+      ],
+      "notes": "Scritta e incisa da Dolly Parton; Whitney Houston la rese celebre nel 1992",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"Il carnevale degli animali\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Claude Debussy",
+        "Sergej Prokof'ev",
+        "Maurice Ravel",
+        "Camille Saint-Saëns"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Camille Saint-Saëns, 1886",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante folk di Licata fu la grande voce della canzone popolare siciliana?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa Balistreri",
+        "Gabriella Ferri",
+        "Maria Carta",
+        "Giovanna Marini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone popolare",
+        "sicilia"
+      ],
+      "notes": "Rosa Balistreri (1927-1990)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore barocco, padre di Domenico, nacque a Palermo nel 1660?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Arcangelo Corelli",
+        "Giovanni Battista Pergolesi",
+        "Alessandro Scarlatti",
+        "Domenico Cimarosa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "barocco",
+        "sicilia"
+      ],
+      "notes": "Alessandro Scarlatti, Palermo 1660",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi inventò il pianoforte intorno al 1700?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Bartolomeo Cristofori",
+        "Antonio Stradivari",
+        "Johann Sebastian Bach",
+        "Guido d'Arezzo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "invenzioni"
+      ],
+      "notes": "Bartolomeo Cristofori, a Firenze per i Medici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"Romagna mia\", inno del liscio?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Raoul Casadei",
+        "Secondo Casadei",
+        "Henghel Gualdi",
+        "Carlo Brighi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "liscio",
+        "canzone italiana"
+      ],
+      "notes": "Secondo Casadei, 1954; Raoul è il nipote",
+      "verified": false
+    }
+  ]
+}

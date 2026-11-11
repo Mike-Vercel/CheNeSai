@@ -1,0 +1,1114 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quanti sono i sensi dell'essere umano secondo la tradizione?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "6",
+        "5",
+        "7",
+        "4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "corpo umano",
+        "sensi"
+      ],
+      "notes": "Vista, udito, olfatto, gusto e tatto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pianeta è famoso per i suoi grandi anelli?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Venere",
+        "Mercurio",
+        "Marte",
+        "Saturno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Gli anelli di Saturno sono i più vistosi del Sistema solare; Marte, Mercurio e Venere non ne hanno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento usa il medico per ascoltare il battito del cuore?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Microscopio",
+        "Termometro",
+        "Stetoscopio",
+        "Bisturi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "medicina",
+        "strumenti"
+      ],
+      "notes": "Lo stetoscopio fu inventato da Laennec nel 1816",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il passaggio dell'acqua da liquido a vapore?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fusione",
+        "Evaporazione",
+        "Solidificazione",
+        "Condensazione"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fisica",
+        "acqua"
+      ],
+      "notes": "L'evaporazione trasforma il liquido in vapore; la condensazione è il passaggio inverso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante ore impiega all'incirca la Terra per fare un giro su se stessa?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "365",
+        "24",
+        "12",
+        "48"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "terra"
+      ],
+      "notes": "La rotazione terrestre dura circa 24 ore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale stagione, in Italia, le giornate sono più lunghe?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Autunno",
+        "Primavera",
+        "Inverno",
+        "Estate"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "astronomia",
+        "stagioni"
+      ],
+      "notes": "Il giorno più lungo è il solstizio d'estate, intorno al 21 giugno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale osso protegge il cervello?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Cranio",
+        "Bacino",
+        "Sterno",
+        "Femore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "corpo umano",
+        "ossa"
+      ],
+      "notes": "Il cranio racchiude e protegge l'encefalo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quanti gradi Celsius ghiaccia l'acqua pura?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Meno 10 gradi",
+        "4 gradi",
+        "0 gradi",
+        "10 gradi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "acqua"
+      ],
+      "notes": "A pressione normale l'acqua pura solidifica a 0 °C",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale vulcano distrusse Pompei ed Ercolano nel 79 dopo Cristo?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vesuvio",
+        "Etna",
+        "Campi Flegrei",
+        "Stromboli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vulcani",
+        "italia"
+      ],
+      "notes": "Eruzione del Vesuvio del 79 d.C., descritta da Plinio il Giovane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante volte un fulmine può colpire lo stesso punto?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mai più di una",
+        "Solo una volta l'anno",
+        "Anche molte volte",
+        "Al massimo due"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "meteorologia",
+        "trabocchetto"
+      ],
+      "notes": "\"Un fulmine non cade due volte nello stesso punto\" è falso: l'Empire State Building è colpito circa 20-25 volte l'anno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il metallo più usato nei cavi elettrici delle case?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Piombo",
+        "Rame",
+        "Ferro",
+        "Stagno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "chimica",
+        "metalli"
+      ],
+      "notes": "Il rame è un ottimo conduttore, duttile ed economico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la scienza che studia i terremoti?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Meteorologia",
+        "Vulcanologia",
+        "Speleologia",
+        "Sismologia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "geologia"
+      ],
+      "notes": "Dal greco seismós, scossa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo strato dell'atmosfera che ci protegge dai raggi ultravioletti?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ionosfera",
+        "Strato di ozono",
+        "Troposfera",
+        "Magnetosfera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atmosfera",
+        "chimica"
+      ],
+      "notes": "L'ozono della stratosfera assorbe gran parte dei raggi UV del Sole",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pianeta ha la Grande Macchia Rossa?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nettuno",
+        "Giove",
+        "Saturno",
+        "Marte"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "La Grande Macchia Rossa è un'enorme tempesta di Giove osservata da secoli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le cellule del sangue che trasportano l'ossigeno?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Piastrine",
+        "Globuli bianchi",
+        "Globuli rossi",
+        "Neuroni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "corpo umano",
+        "sangue"
+      ],
+      "notes": "I globuli rossi contengono emoglobina, che lega l'ossigeno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scienziato francese inventò la pastorizzazione?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Joseph Lister",
+        "Louis Pasteur",
+        "Claude Bernard",
+        "Robert Koch"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "biologia",
+        "scienziati"
+      ],
+      "notes": "Pasteur mise a punto il metodo negli anni Sessanta dell'Ottocento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto pesa all'incirca un litro d'acqua?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Circa mezzo chilo",
+        "Circa due chili",
+        "Circa un chilo",
+        "Circa dieci chili"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "misure"
+      ],
+      "notes": "La densità dell'acqua è di circa 1 kg per litro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il nome scientifico della specie umana?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Homo erectus",
+        "Homo habilis",
+        "Homo sapiens",
+        "Homo neanderthalensis"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "biologia",
+        "evoluzione"
+      ],
+      "notes": "Nome dato da Linneo nel 1758",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sostanza dà il colore verde alle foglie?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Emoglobina",
+        "Carotene",
+        "Clorofilla",
+        "Melanina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "biologia",
+        "piante"
+      ],
+      "notes": "La clorofilla assorbe luce rossa e blu e riflette il verde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la cagnolina sovietica, primo animale in orbita intorno alla Terra?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Strelka",
+        "Mushka",
+        "Belka",
+        "Laika"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio",
+        "animali"
+      ],
+      "notes": "Laika volò sullo Sputnik 2 nel novembre 1957; Belka, Strelka e Mushka volarono nel 1960",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Vicino a quale città svizzera si trova il CERN?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Zurigo",
+        "Ginevra",
+        "Berna",
+        "Losanna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fisica",
+        "laboratori"
+      ],
+      "notes": "Il CERN sorge a Meyrin, alle porte di Ginevra, a cavallo del confine franco-svizzero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il processo con cui le piante usano la luce per produrre zuccheri?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fotosintesi",
+        "Traspirazione",
+        "Germinazione",
+        "Respirazione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "biologia",
+        "piante"
+      ],
+      "notes": "Con la fotosintesi le piante trasformano acqua e anidride carbonica in zuccheri e ossigeno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale organo produce la bile?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Stomaco",
+        "Fegato",
+        "Milza",
+        "Pancreas"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "corpo umano",
+        "digestione"
+      ],
+      "notes": "La bile è prodotta dal fegato e raccolta nella cistifellea",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'elemento chimico più leggero?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Idrogeno",
+        "Litio",
+        "Elio",
+        "Ossigeno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "L'idrogeno ha numero atomico 1 ed è il più leggero degli elementi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scoprì i raggi X nel 1895?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Wilhelm Röntgen",
+        "Henri Becquerel",
+        "Max Planck",
+        "Guglielmo Marconi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fisica",
+        "scienziati"
+      ],
+      "notes": "Röntgen scoprì i raggi X nel novembre 1895 e vinse il primo Nobel per la fisica (1901)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo sanguigno è detto \"ricevente universale\"?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "AB positivo",
+        "A positivo",
+        "B negativo",
+        "0 negativo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "medicina",
+        "sangue"
+      ],
+      "notes": "AB positivo non ha anticorpi anti-A né anti-B e ha il fattore Rh: può ricevere globuli rossi da tutti i gruppi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il tessuto più duro del corpo umano?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Cartilagine",
+        "Osso del cranio",
+        "Smalto dei denti",
+        "Osso del femore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "corpo umano",
+        "trabocchetto"
+      ],
+      "notes": "Lo smalto è composto per circa il 96 per cento da minerale (idrossiapatite), più duro delle ossa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cometa torna visibile dalla Terra ogni 76 anni circa?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Swift-Tuttle",
+        "Shoemaker-Levy",
+        "Hale-Bopp",
+        "Cometa di Halley"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "astronomia",
+        "comete"
+      ],
+      "notes": "Halley è passata nel 1986 e tornerà nel 2061; Swift-Tuttle ha un periodo di circa 133 anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scienziato austriaco ideò il paradosso del gatto vivo e morto insieme?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Max Planck",
+        "Werner Heisenberg",
+        "Niels Bohr",
+        "Erwin Schrödinger"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fisica",
+        "scienziati"
+      ],
+      "notes": "Esperimento mentale del gatto di Schrödinger, 1935",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale parte del cervello coordina l'equilibrio e i movimenti?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ippocampo",
+        "Talamo",
+        "Cervelletto",
+        "Ipotalamo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "corpo umano",
+        "cervello"
+      ],
+      "notes": "Il cervelletto regola equilibrio, postura e coordinazione dei movimenti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scala misura gli effetti di un terremoto su persone ed edifici?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Scala Mercalli",
+        "Scala Beaufort",
+        "Scala Mohs",
+        "Scala Richter"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "geologia",
+        "terremoti",
+        "italia"
+      ],
+      "notes": "La scala Mercalli, del sismologo milanese Giuseppe Mercalli, misura l'intensità dagli effetti; la Richter la magnitudo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la luce del Sole vista dallo spazio?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gialla",
+        "Arancione",
+        "Rossa",
+        "Bianca"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "astronomia",
+        "luce",
+        "trabocchetto"
+      ],
+      "notes": "Il Sole emette luce bianca; ci appare giallo per la diffusione nell'atmosfera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il passaggio diretto da solido a gas?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sublimazione",
+        "Evaporazione",
+        "Condensazione",
+        "Fusione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fisica",
+        "stati della materia"
+      ],
+      "notes": "Esempio: il ghiaccio secco che diventa gas senza fondere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale processo produce l'energia del Sole?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Fissione nucleare",
+        "Fusione nucleare",
+        "Reazioni chimiche",
+        "Combustione"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "fisica"
+      ],
+      "notes": "Nel nucleo del Sole l'idrogeno si fonde in elio liberando energia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'osso più piccolo del corpo umano?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Martello",
+        "Incudine",
+        "Falange",
+        "Staffa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "corpo umano",
+        "ossa"
+      ],
+      "notes": "La staffa, nell'orecchio medio, misura circa 3 millimetri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scienziato bolognese studiò l'elettricità facendo contrarre le zampe delle rane?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Luigi Galvani",
+        "Lazzaro Spallanzani",
+        "Alessandro Volta",
+        "Antonio Meucci"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fisica",
+        "scienziati",
+        "italia"
+      ],
+      "notes": "Galvani pubblicò i suoi studi sull'\"elettricità animale\" nel 1791",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale elemento chimico ha come simbolo Ag?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Argon",
+        "Argento",
+        "Alluminio",
+        "Arsenico"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "Ag dal latino argentum; Ar è l'argon, As l'arsenico, Al l'alluminio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante lune ha Marte?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "1",
+        "0",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Fobos e Deimos, scoperte da Asaph Hall nel 1877",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fisico neozelandese scoprì il nucleo atomico?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Joseph John Thomson",
+        "James Chadwick",
+        "Niels Bohr",
+        "Ernest Rutherford"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fisica",
+        "atomo"
+      ],
+      "notes": "Esperimento della lamina d'oro (1909-1911); Thomson scoprì l'elettrone, Chadwick il neutrone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il minerale più tenero della scala di Mohs?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Calcite",
+        "Fluorite",
+        "Gesso",
+        "Talco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "geologia",
+        "minerali"
+      ],
+      "notes": "Scala di Mohs: 1 talco, 2 gesso, 3 calcite, 4 fluorite",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fisico italiano vinse il Nobel nel 2021 per lo studio dei sistemi complessi?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Carlo Rubbia",
+        "Enrico Fermi",
+        "Giorgio Parisi",
+        "Riccardo Giacconi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "nobel",
+        "italia"
+      ],
+      "notes": "Nobel per la fisica 2021 a Parisi, con Manabe e Hasselmann; Rubbia vinse nel 1984, Giacconi nel 2002",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di roccia è il marmo di Carrara?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Magmatica",
+        "Meteoritica",
+        "Metamorfica",
+        "Sedimentaria"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "geologia",
+        "italia"
+      ],
+      "notes": "Il marmo deriva da calcari trasformati da calore e pressione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale oggetto di uso comune schiocca perché la sua punta supera la velocità del suono?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Il petardo",
+        "L'elastico",
+        "Il palloncino",
+        "La frusta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fisica",
+        "suono",
+        "trabocchetto"
+      ],
+      "notes": "Lo schiocco della frusta è un piccolo \"bang\" supersonico della punta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale colore di una stella indica la temperatura più alta?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Azzurro",
+        "Rosso",
+        "Arancione",
+        "Giallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "astronomia",
+        "stelle",
+        "trabocchetto"
+      ],
+      "notes": "Le stelle azzurre superano i 10.000 gradi in superficie, le rosse sono le più fredde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la fascia di corpi ghiacciati oltre l'orbita di Nettuno?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Fascia di Kuiper",
+        "Fascia principale",
+        "Nube di Oort",
+        "Fascia di Van Allen"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "astronomia"
+      ],
+      "notes": "Plutone è uno degli oggetti della fascia di Kuiper; la fascia principale è tra Marte e Giove",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il nucleo più interno della Terra, al centro del pianeta, in che stato si trova?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Gassoso",
+        "Plasma",
+        "Solido",
+        "Liquido"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "geologia",
+        "terra",
+        "trabocchetto"
+      ],
+      "notes": "Il nucleo interno di ferro e nichel è solido per l'enorme pressione; quello esterno è liquido",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fisico pisano inventò nel 1860 la dinamo ad anello?",
+      "category": "Scienza",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Augusto Righi",
+        "Alessandro Volta",
+        "Galileo Ferraris",
+        "Antonio Pacinotti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fisica",
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "L'anello di Pacinotti (1860), base di dinamo e motori a corrente continua",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale luna di Saturno lancia nello spazio getti di vapore e ghiaccio dal polo sud?",
+      "category": "Scienza",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Titano",
+        "Encelado",
+        "Rea",
+        "Mimas"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "satelliti"
+      ],
+      "notes": "Geyser di Encelado scoperti dalla sonda Cassini nel 2005",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale elemento chimico ha numero atomico 79?",
+      "category": "Scienza",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Argento",
+        "Oro",
+        "Mercurio",
+        "Platino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "Oro 79, argento 47, platino 78, mercurio 80",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale chimico palermitano, al congresso di Karlsruhe del 1860, rilanciò l'ipotesi di Avogadro?",
+      "category": "Scienza",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Stanislao Cannizzaro",
+        "Raffaele Piria",
+        "Giacomo Ciamician",
+        "Ascanio Sobrero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "chimica",
+        "scienziati",
+        "sicilia"
+      ],
+      "notes": "Il \"Sunto\" di Cannizzaro, distribuito a Karlsruhe nel 1860, chiarì pesi atomici e molecolari",
+      "verified": false
+    }
+  ]
+}

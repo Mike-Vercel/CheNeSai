@@ -1,0 +1,1095 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quanti mesi dell'anno hanno 28 giorni?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "12",
+        "1",
+        "2",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario",
+        "trabocchetto"
+      ],
+      "notes": "Tutti i dodici mesi hanno almeno 28 giorni; solo febbraio si ferma lì",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di chi sono nipotini Qui, Quo e Qua?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gastone",
+        "Topolino",
+        "Paperino",
+        "Pippo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "disney"
+      ],
+      "notes": "Qui, Quo e Qua sono i nipoti di Paperino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo si festeggia il 19 marzo, insieme alla festa del papà?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "San Marco",
+        "San Giuseppe",
+        "San Francesco",
+        "San Pietro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "tradizioni"
+      ],
+      "notes": "San Giuseppe, padre putativo di Gesù; in Sicilia si preparano le tavolate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città toscana si corre il Palio il 2 luglio e il 16 agosto?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Arezzo",
+        "Siena",
+        "Pisa",
+        "Lucca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "toscana"
+      ],
+      "notes": "Il Palio di Siena si corre in Piazza del Campo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti lati ha un ottagono?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "8",
+        "6",
+        "10",
+        "12"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "geometria"
+      ],
+      "notes": "Dal greco októ, otto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quale pezzo si muove a forma di L?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Regina",
+        "Cavallo",
+        "Alfiere",
+        "Torre"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scacchi",
+        "giochi"
+      ],
+      "notes": "Il cavallo si muove di due caselle in una direzione e una di lato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco da tavolo si conquistano territori con i carri armati?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cluedo",
+        "Monopoli",
+        "Trivial Pursuit",
+        "Risiko"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi da tavolo"
+      ],
+      "notes": "Risiko!, versione italiana di Risk",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giorni ha febbraio quando l'anno non è bisestile?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "30",
+        "29",
+        "31",
+        "28"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Febbraio ha 28 giorni, 29 negli anni bisestili",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, che cosa si indossa di rosso a Capodanno?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La sciarpa",
+        "Le scarpe",
+        "La biancheria intima",
+        "Il cappello"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tradizioni",
+        "capodanno"
+      ],
+      "notes": "L'intimo rosso a Capodanno porta fortuna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti sono i nani che vivono con Biancaneve?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "7",
+        "6",
+        "9",
+        "5"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fiabe"
+      ],
+      "notes": "Dotto, Brontolo, Pisolo, Mammolo, Eolo, Gongolo e Cucciolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santa patrona di Catania si festeggia a febbraio?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sant'Agata",
+        "Santa Rosalia",
+        "Santa Caterina",
+        "Santa Barbara"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "La festa di Sant'Agata si celebra dal 3 al 5 febbraio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città è soprannominata \"la Serenissima\"?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Firenze",
+        "Genova",
+        "Venezia",
+        "Ravenna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "soprannomi",
+        "città"
+      ],
+      "notes": "La Repubblica di Venezia era detta Serenissima",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è raffigurato sulla moneta italiana da 2 euro?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Leonardo da Vinci",
+        "Dante Alighieri",
+        "Alessandro Manzoni",
+        "Giuseppe Garibaldi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete",
+        "italia"
+      ],
+      "notes": "Il ritratto di Dante dipinto da Raffaello",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa colleziona un numismatico?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Conchiglie",
+        "Monete",
+        "Farfalle",
+        "Francobolli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "collezionismo"
+      ],
+      "notes": "La numismatica studia monete e medaglie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fiore in Italia si porta ai defunti e non si regala?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Girasole",
+        "Margherita",
+        "Crisantemo",
+        "Garofano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fiori",
+        "tradizioni"
+      ],
+      "notes": "Il crisantemo fiorisce a novembre ed è legato alla commemorazione dei defunti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale mese deve il suo nome a Giulio Cesare?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Marzo",
+        "Luglio",
+        "Giugno",
+        "Agosto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calendario",
+        "etimologia"
+      ],
+      "notes": "Luglio, da Iulius; agosto deriva invece da Augusto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pietra preziosa è famosa per il suo colore verde?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Topazio",
+        "Rubino",
+        "Smeraldo",
+        "Zaffiro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "gioielli"
+      ],
+      "notes": "Lo smeraldo è una varietà verde di berillo; il rubino è rosso, lo zaffiro di solito blu",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quale pezzo fa l'arrocco insieme al re?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Alfiere",
+        "Regina",
+        "Cavallo",
+        "Torre"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scacchi"
+      ],
+      "notes": "Nell'arrocco re e torre si muovono nello stesso turno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale caffettiera italiana inventata nel 1933 si mette sul fornello?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Percolatore",
+        "Moka",
+        "Cuccuma napoletana",
+        "Caffettiera a pistone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni",
+        "caffè"
+      ],
+      "notes": "La moka fu ideata da Alfonso Bialetti nel 1933",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio dei fumetti italiani è \"l'indagatore dell'incubo\"?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Tex Willer",
+        "Martin Mystère",
+        "Dylan Dog",
+        "Corto Maltese"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Creato da Tiziano Sclavi nel 1986",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ladro dei fumetti italiani ha come compagna Eva Kant?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Diabolik",
+        "Satanik",
+        "Kriminal",
+        "Arsenio Lupin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Diabolik, creato dalle sorelle Giussani nel 1962",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città ha come simbolo la statua della Sirenetta?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Amsterdam",
+        "Oslo",
+        "Stoccolma",
+        "Copenaghen"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "luoghi",
+        "europa"
+      ],
+      "notes": "La statua, ispirata alla fiaba di Andersen, è del 1913",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santa siracusana si festeggia il 13 dicembre?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Santa Chiara",
+        "Santa Rosalia",
+        "Santa Barbara",
+        "Santa Lucia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Santa Lucia è patrona di Siracusa; in Sicilia quel giorno si mangia la cuccìa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante carte riceve ogni giocatore a ogni mano di scopa?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "5",
+        "2",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "carte",
+        "giochi"
+      ],
+      "notes": "Nella scopa si distribuiscono tre carte a testa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti chili sono un quintale?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "50",
+        "100",
+        "1000",
+        "10"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Un quintale vale 100 kg; mille chili sono una tonnellata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città è la patria della maschera di Arlecchino?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Venezia",
+        "Bologna",
+        "Bergamo",
+        "Napoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "maschere",
+        "carnevale"
+      ],
+      "notes": "Arlecchino nasce come servo bergamasco della Commedia dell'arte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città siciliana è famosa per l'Infiorata di maggio?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Taormina",
+        "Noto",
+        "Cefalù",
+        "Erice"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "A Noto via Nicolaci si copre di quadri di petali a maggio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da dove deriva il nome \"domenica\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Dalla dea Diana",
+        "Dal Sole",
+        "Dal dio Saturno",
+        "Dal latino \"giorno del Signore\""
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia",
+        "calendario"
+      ],
+      "notes": "Dal latino dies Dominicus",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante ore ci sono in una settimana?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "144",
+        "172",
+        "168",
+        "186"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tempo",
+        "numeri"
+      ],
+      "notes": "7 giorni per 24 ore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel Monopoly, quante case servono prima di poter costruire un albergo?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "2",
+        "3",
+        "5"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi da tavolo"
+      ],
+      "notes": "Dopo quattro case si può costruire l'albergo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore era all'origine la Statua della Libertà?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Color rame",
+        "Bianca",
+        "Dorata",
+        "Verde"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monumenti",
+        "trabocchetto"
+      ],
+      "notes": "È rivestita di rame: il verde è la patina che si è formata col tempo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale costellazione si trova il Grande Carro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Orsa Minore",
+        "Orione",
+        "Cassiopea",
+        "Orsa Maggiore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "stelle"
+      ],
+      "notes": "Le sette stelle del Grande Carro fanno parte dell'Orsa Maggiore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel gioco della morra, che cosa bisogna indovinare?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Una parola segreta",
+        "La somma delle dita",
+        "Il numero di carte",
+        "Il colore di una carta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "tradizioni"
+      ],
+      "notes": "Si grida un numero e vince chi indovina la somma delle dita mostrate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il nome Ferragosto deriva dalle \"feriae\" di quale imperatore?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giulio Cesare",
+        "Traiano",
+        "Nerone",
+        "Augusto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "storia"
+      ],
+      "notes": "Le Feriae Augusti furono istituite da Augusto nel 18 avanti Cristo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale attuale Paese visse San Nicola, che ha ispirato Babbo Natale?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Groenlandia",
+        "Finlandia",
+        "Turchia",
+        "Norvegia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "San Nicola fu vescovo di Myra, in Licia, oggi in Turchia; le sue reliquie sono a Bari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa è, propriamente, il Big Ben di Londra?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "L'orologio",
+        "La campana",
+        "La torre",
+        "Il palazzo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "luoghi",
+        "trabocchetto"
+      ],
+      "notes": "Big Ben è il nome della grande campana; la torre si chiama Elizabeth Tower",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco di carte natalizio si mettono all'asta carte illustrate?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mercante in fiera",
+        "Sette e mezzo",
+        "Scopa",
+        "Tombola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "natale"
+      ],
+      "notes": "Nel Mercante in fiera i giocatori comprano e vendono le carte all'asta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio sciocco e furbo è protagonista delle storie popolari siciliane?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Bertoldo",
+        "Giufà",
+        "Stenterello",
+        "Pulcinella"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "racconti"
+      ],
+      "notes": "Giufà, protagonista di racconti popolari raccolti anche da Pitrè",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si celebra la Festa dei Gigli, con alte torri di legno portate a spalla?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Gubbio",
+        "Sassari",
+        "Nola",
+        "Viterbo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "tradizioni"
+      ],
+      "notes": "A Nola i Gigli in onore di San Paolino; Gubbio ha i Ceri, Viterbo la Macchina di Santa Rosa, Sassari i Candelieri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola siciliana si trova il lago Specchio di Venere?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pantelleria",
+        "Lampedusa",
+        "Ustica",
+        "Favignana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "isole"
+      ],
+      "notes": "Il lago di origine vulcanica è nel nord di Pantelleria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto può pesare una normale nuvola a cumulo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Niente, è fatta d'aria",
+        "Qualche chilo",
+        "Pochi grammi",
+        "Centinaia di tonnellate"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "meteo",
+        "trabocchetto"
+      ],
+      "notes": "Le goccioline di un cumulo medio pesano complessivamente circa 500 tonnellate (stima USGS)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive SOS in alfabeto Morse?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Sei punti e tre linee",
+        "Tre punti, tre linee, tre punti",
+        "Tre linee, tre punti, tre linee",
+        "Un punto, una linea, un punto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "codici",
+        "comunicazioni"
+      ],
+      "notes": "S = tre punti, O = tre linee",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale isola delle Egadi è chiamata \"la farfalla\" per la sua forma?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Levanzo",
+        "Marettimo",
+        "Favignana",
+        "Ustica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "isole"
+      ],
+      "notes": "Vista dall'alto Favignana ricorda una farfalla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i due giganti che sfilano a Messina ad agosto?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mata e Grifone",
+        "Colapesce e Morgana",
+        "Scilla e Cariddi",
+        "Aci e Galatea"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "I giganti Mata e Grifone sono considerati i mitici fondatori di Messina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante lettere ha l'alfabeto greco?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "22",
+        "26",
+        "21",
+        "24"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "alfabeti"
+      ],
+      "notes": "Da alfa a omega, 24 lettere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le montagne russe in Russia?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Montagne russe",
+        "Montagne francesi",
+        "Montagne svizzere",
+        "Montagne americane"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "parole",
+        "trabocchetto"
+      ],
+      "notes": "In russo si chiamano \"amerikanskie gorki\", montagne americane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il grande carro votivo dell'Assunta trainato a Messina il 15 agosto?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "La Vara",
+        "Il Carro del Brindellone",
+        "La Macchina di Santa Rosa",
+        "Il Carroccio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "La Vara, alta circa 13 metri, viene trainata a mano per le vie di Messina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale comune dell'Agrigentino si trova la Scala dei Turchi?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Favara",
+        "Licata",
+        "Realmonte",
+        "Sciacca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "luoghi"
+      ],
+      "notes": "La scogliera di marna bianca si trova nel territorio di Realmonte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il Museo internazionale delle marionette Antonio Pasqualino?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Acireale",
+        "Siracusa",
+        "Palermo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "teatro"
+      ],
+      "notes": "Il museo, fondato da Antonio Pasqualino, ha sede a Palermo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti sono i paladini di Francia della tradizione cavalleresca?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "12",
+        "10",
+        "24",
+        "7"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "leggende",
+        "cavalleria"
+      ],
+      "notes": "I dodici paladini di Carlo Magno, protagonisti anche dell'Opera dei pupi",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1098 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale formaggio si usa nella pizza Margherita tradizionale?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Ricotta",
+        "Gorgonzola",
+        "Mozzarella",
+        "Pecorino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pizza",
+        "formaggi"
+      ],
+      "notes": "La Margherita: pomodoro, mozzarella e basilico (disciplinare STG Pizza Napoletana)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce al cucchiaio si prepara con savoiardi, caffè e mascarpone?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Cassata",
+        "Zuppa inglese",
+        "Tiramisù",
+        "Panna cotta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Il tiramisù: savoiardi bagnati nel caffè, crema di mascarpone e cacao",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda è un espresso con latte caldo montato a schiuma?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Americano",
+        "Ristretto",
+        "Corretto",
+        "Cappuccino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "Il cappuccino unisce espresso e latte montato a schiuma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale salsa si ottiene montando olio e tuorlo d'uovo?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Maionese",
+        "Senape",
+        "Ketchup",
+        "Besciamella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "salse"
+      ],
+      "notes": "La maionese è un'emulsione di tuorlo e olio con limone o aceto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio emiliano è chiamato \"il re dei formaggi\"?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Parmigiano Reggiano",
+        "Pecorino romano",
+        "Grana Padano",
+        "Asiago"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi",
+        "emilia"
+      ],
+      "notes": "Il Parmigiano Reggiano DOP è soprannominato \"re dei formaggi\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oltre al pomodoro, quale ortaggio fritto caratterizza la pasta alla Norma?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Peperoni",
+        "Carciofi",
+        "Melanzane",
+        "Zucchine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "sicilia"
+      ],
+      "notes": "La pasta alla Norma catanese: pomodoro, melanzane fritte, basilico e ricotta salata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pesto al basilico più famoso è tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Torino",
+        "Palermo",
+        "Napoli",
+        "Genova"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "salse",
+        "liguria"
+      ],
+      "notes": "Il pesto alla genovese: basilico, pinoli, aglio, formaggi e olio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianta si ricavano i semi con cui si fa il cioccolato?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Carrubo",
+        "Caffè",
+        "Cacao",
+        "Vaniglia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cioccolato",
+        "ingredienti"
+      ],
+      "notes": "Il cioccolato si fa con le fave della pianta del cacao (Theobroma cacao)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piatto al forno si fa a strati di pasta, ragù e besciamella?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lasagne",
+        "Tortellini",
+        "Gnocchi",
+        "Cannelloni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "primi",
+        "emilia"
+      ],
+      "notes": "Le lasagne alla bolognese alternano sfoglia, ragù e besciamella",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale tubero si preparano i classici gnocchi?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Patate",
+        "Manioca",
+        "Topinambur",
+        "Zenzero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "primi"
+      ],
+      "notes": "Gli gnocchi classici si fanno con patate lesse e farina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La zuppa inglese è un dolce tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Austria",
+        "Italia",
+        "Inghilterra",
+        "Francia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "Nonostante il nome, è un dolce italiano (Emilia, Toscana) con crema, alchermes e pan di Spagna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi alimenti, per la botanica, è un frutto?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Carota",
+        "Patata",
+        "Pomodoro",
+        "Lattuga"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "botanica",
+        "trabocchetto"
+      ],
+      "notes": "Il pomodoro è una bacca che contiene i semi; carota (radice), patata (tubero) e lattuga (foglie) no",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A Bologna, con quale pasta si serve tradizionalmente il ragù alla bolognese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Tagliatelle",
+        "Penne",
+        "Spaghetti",
+        "Fusilli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "primi",
+        "emilia",
+        "trabocchetto"
+      ],
+      "notes": "La ricetta depositata nel 1982 dall'Accademia Italiana della Cucina prevede tagliatelle, non spaghetti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale salume si usa nella carbonara tradizionale romana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mortadella",
+        "Salame",
+        "Prosciutto cotto",
+        "Guanciale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primi",
+        "lazio"
+      ],
+      "notes": "La carbonara romana: guanciale, uova, pecorino romano e pepe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale varietà di riso italiano è tra le più usate per il risotto?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Basmati",
+        "Glutinoso",
+        "Carnaroli",
+        "Jasmine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "riso",
+        "primi"
+      ],
+      "notes": "Carnaroli, Arborio e Vialone Nano sono i risi da risotto; basmati e jasmine sono risi asiatici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il cuscus di pesce è un piatto tipico di quale città siciliana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Trapani",
+        "Ragusa",
+        "Catania",
+        "Enna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "pesce"
+      ],
+      "notes": "Il cuscusu trapanese, di origine nordafricana, si fa con brodo di pesce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pane carasau è tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Basilicata",
+        "Calabria",
+        "Sicilia",
+        "Sardegna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pane",
+        "sardegna"
+      ],
+      "notes": "Il carasau, o \"carta da musica\", è il pane sottile e croccante della Sardegna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale farina si fanno le panelle palermitane?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Farina di mais",
+        "Farina di fave",
+        "Farina di ceci",
+        "Farina di lenticchie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "street food"
+      ],
+      "notes": "Le panelle sono frittelle di farina di ceci, servite nel pane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gusto caratteristico danno alla caponata siciliana l'aceto e lo zucchero?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Piccante",
+        "Amaro",
+        "Affumicato",
+        "Agrodolce"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "contorni"
+      ],
+      "notes": "La caponata di melanzane è condita in agrodolce con aceto e zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pasta di soia fermentata è la base di una famosa zuppa giapponese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Tofu",
+        "Miso",
+        "Nori",
+        "Wasabi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina giapponese"
+      ],
+      "notes": "Il miso, pasta di soia fermentata, è la base della zuppa di miso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio fresco pugliese ha un involucro di pasta filata ripieno di panna e sfilacci?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Burrata",
+        "Provola",
+        "Scamorza",
+        "Caciotta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi",
+        "puglia"
+      ],
+      "notes": "La burrata di Andria IGP: involucro di pasta filata con dentro la stracciatella",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formato di pasta si usa nel timballo al forno palermitano?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ditalini",
+        "Paccheri",
+        "Tubetti",
+        "Anelletti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "primi",
+        "sicilia"
+      ],
+      "notes": "Gli anelletti al forno sono il classico pasticcio di pasta palermitano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La 'nduja, salume piccante da spalmare, è tipica di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Abruzzo",
+        "Calabria",
+        "Puglia",
+        "Sicilia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salumi",
+        "calabria"
+      ],
+      "notes": "La 'nduja di Spilinga (Vibo Valentia) è un insaccato morbido e piccante",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale zuppa fredda spagnola si fa con pomodoro, cetriolo e peperone crudi?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fabada",
+        "Gazpacho",
+        "Cocido",
+        "Tortilla"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina spagnola"
+      ],
+      "notes": "Il gazpacho andaluso si serve freddo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire cuocere a bagnomaria?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "In un recipiente immerso nell'acqua calda",
+        "Nel forno a microonde",
+        "Al vapore sotto il coperchio",
+        "Direttamente sulla fiamma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Il bagnomaria scalda il cibo in un recipiente posto dentro un altro con acqua calda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le fettuccine Alfredo, famose negli Stati Uniti, sono nate in quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Chicago",
+        "New York",
+        "Roma",
+        "Napoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "trabocchetto"
+      ],
+      "notes": "Le inventò Alfredo Di Lelio nel suo ristorante di Roma all'inizio del Novecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che cosa si frigge tradizionalmente la cotoletta alla milanese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Strutto",
+        "Burro",
+        "Olio d'oliva",
+        "Olio di semi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "secondi",
+        "lombardia",
+        "trabocchetto"
+      ],
+      "notes": "La ricetta tradizionale milanese prevede la frittura nel burro chiarificato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i capperi che usiamo in cucina?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Semi",
+        "Boccioli di fiori",
+        "Foglie",
+        "Bacche"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortaggi",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "I capperi sono i boccioli non ancora aperti della pianta; i frutti si chiamano cucunci",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pho è una zuppa di brodo e spaghetti di riso tipica di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Vietnam",
+        "Thailandia",
+        "Cina",
+        "Giappone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina asiatica"
+      ],
+      "notes": "Il pho è il piatto nazionale del Vietnam",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Brunello è un vino rosso della provincia di Siena: di quale comune?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Montepulciano",
+        "San Gimignano",
+        "Montalcino",
+        "Chianciano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vini",
+        "toscana"
+      ],
+      "notes": "Brunello di Montalcino DOCG; a Montepulciano si fa il Vino Nobile, a San Gimignano la Vernaccia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per che cosa si distingue la lavorazione del cioccolato di Modica?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "È cotto ad alta temperatura",
+        "È fatto con il burro",
+        "È fatto con il latte",
+        "È lavorato a freddo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cioccolato",
+        "sicilia"
+      ],
+      "notes": "Il Cioccolato di Modica IGP è lavorato a freddo e resta granuloso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola si produce il famoso Passito ottenuto dall'uva zibibbo?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Favignana",
+        "Lampedusa",
+        "Lipari",
+        "Pantelleria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vini",
+        "sicilia"
+      ],
+      "notes": "Il Passito di Pantelleria DOC si fa con zibibbo (moscato d'Alessandria) appassito",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che cosa stagiona il lardo di Colonnata?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "In sacchi di juta",
+        "In grotte di tufo",
+        "In botti di rovere",
+        "In vasche di marmo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "salumi",
+        "toscana"
+      ],
+      "notes": "Il lardo di Colonnata IGP stagiona nelle conche di marmo di Carrara",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale famiglia di piante appartiene la vaniglia?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Rose",
+        "Cactus",
+        "Palme",
+        "Orchidee"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie",
+        "botanica"
+      ],
+      "notes": "La vaniglia è il frutto di un'orchidea rampicante (Vanilla planifolia)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Gli arrosticini abruzzesi sono spiedini di quale carne?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pollo",
+        "Pecora",
+        "Manzo",
+        "Maiale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "secondi",
+        "abruzzo"
+      ],
+      "notes": "Gli arrosticini si fanno con carne ovina, tradizionalmente di pecora o castrato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ortaggio dà il colore rosso al borsch, la zuppa dell'Europa orientale?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Cavolo rosso",
+        "Pomodoro",
+        "Barbabietola",
+        "Peperone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "zuppe",
+        "cucina europea"
+      ],
+      "notes": "Il borsch è una zuppa a base di barbabietola rossa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse nel 1891 \"La scienza in cucina e l'arte di mangiar bene\"?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Pellegrino Artusi",
+        "Ada Boni",
+        "Gualtiero Marchesi",
+        "Bartolomeo Scappi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia",
+        "libri"
+      ],
+      "notes": "Il manuale di Artusi, pubblicato nel 1891, è il ricettario italiano più famoso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa è ripieno il buccellato siciliano?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Castagne",
+        "Fichi secchi",
+        "Ricotta",
+        "Crema pasticcera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "Il buccellato (cucciddatu) natalizio è ripieno di fichi secchi, frutta secca e agrumi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque la Caesar salad, negli anni Venti?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Messico",
+        "Stati Uniti",
+        "Italia",
+        "Francia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insalate",
+        "trabocchetto"
+      ],
+      "notes": "La inventò il ristoratore italiano Caesar Cardini a Tijuana, in Messico, nel 1924",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente ricavato dal cacao è presente nel cioccolato bianco?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Cacao in polvere",
+        "Burro di cacao",
+        "Fave tostate",
+        "Pasta di cacao"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cioccolato",
+        "trabocchetto"
+      ],
+      "notes": "Il cioccolato bianco contiene burro di cacao (almeno il 20% per la normativa UE), latte e zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il bunet piemontese è un budino al cacao arricchito con quali biscotti?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Baci di dama",
+        "Cantucci",
+        "Savoiardi",
+        "Amaretti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "piemonte"
+      ],
+      "notes": "Il bunet: uova, latte, zucchero, cacao e amaretti sbriciolati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pasta ripiena sarda, chiusa a spiga, contiene patate, pecorino e menta?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Agnolotti",
+        "Culurgiones",
+        "Casoncelli",
+        "Cappellacci"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "primi",
+        "sardegna"
+      ],
+      "notes": "I culurgiones d'Ogliastra IGP: chiusura a spighetta, ripieno di patate, formaggio e menta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la cottura sottovuoto a bassa temperatura?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Julienne",
+        "Flambé",
+        "Sous vide",
+        "Confit"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Sous vide: cibo sigillato sottovuoto e cotto in acqua a temperatura controllata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale ingrediente piccante si aromatizza la mostarda di Cremona?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Senape",
+        "Zenzero",
+        "Peperoncino",
+        "Pepe nero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "salse",
+        "lombardia"
+      ],
+      "notes": "La mostarda è frutta candita in sciroppo aromatizzato con essenza di senape",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la fregola sarda?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Dolce di mandorle",
+        "Formaggio di capra",
+        "Pasta di semola a palline tostata",
+        "Pane sottile"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "sardegna"
+      ],
+      "notes": "La fregola è pasta di semola lavorata a palline irregolari e tostata in forno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il frico, a base di formaggio e patate, è un piatto tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Veneto",
+        "Friuli-Venezia Giulia",
+        "Trentino-Alto Adige",
+        "Emilia-Romagna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "secondi",
+        "friuli"
+      ],
+      "notes": "Il frico si prepara con formaggio Montasio e patate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale cuoco dell'antica Roma è attribuito il ricettario \"De re coquinaria\"?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Apicio",
+        "Petronio",
+        "Catone",
+        "Lucullo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia",
+        "antica roma"
+      ],
+      "notes": "Il De re coquinaria porta il nome di Marco Gavio Apicio, gastronomo del I secolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la spezia ricavata dalla membrana rossa che avvolge la noce moscata?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Anice stellato",
+        "Pimento",
+        "Cardamomo",
+        "Macis"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "Il macis è l'arillo che avvolge il seme della noce moscata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Bartolomeo Scappi, autore di un celebre trattato di cucina del 1570, fu cuoco di chi?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Del doge di Venezia",
+        "Di un papa",
+        "Del re di Francia",
+        "Dei Medici"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia"
+      ],
+      "notes": "Scappi fu cuoco segreto di papa Pio V; la sua \"Opera\" uscì a Venezia nel 1570",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio erborinato francese stagiona nelle grotte del Combalou?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Fourme d'Ambert",
+        "Roquefort",
+        "Bleu d'Auvergne",
+        "Brie"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "cucina francese"
+      ],
+      "notes": "Il Roquefort, di latte di pecora, stagiona nelle grotte del Combalou",
+      "verified": false
+    }
+  ]
+}

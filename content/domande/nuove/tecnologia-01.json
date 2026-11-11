@@ -1,0 +1,1107 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale simbolo separa il nome utente dal dominio in un indirizzo email?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Barra",
+        "Chiocciola",
+        "Cancelletto",
+        "Asterisco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "email",
+        "internet"
+      ],
+      "notes": "Esempio: nome@dominio.it, dove @ è la chiocciola",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda giapponese ha creato il personaggio di Super Mario?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Atari",
+        "Sega",
+        "Nintendo",
+        "Sony"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Mario debuttò nel 1981 in Donkey Kong di Nintendo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tipo di lampadina consuma meno energia a parità di luce?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Alogena",
+        "A filamento di carbonio",
+        "A incandescenza",
+        "LED"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "energia",
+        "illuminazione"
+      ],
+      "notes": "I LED consumano fino all'80-90 per cento in meno delle lampadine a incandescenza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi fece volare il primo aereo a motore nel 1903?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fratelli Wright",
+        "Fratelli Montgolfier",
+        "Fratelli Lumière",
+        "Fratelli Voisin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aviazione",
+        "storia"
+      ],
+      "notes": "Kitty Hawk, 17 dicembre 1903; i Montgolfier volarono in mongolfiera nel 1783",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i programmi che si installano sullo smartphone?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Pixel",
+        "Cookie",
+        "Link",
+        "App"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone",
+        "software"
+      ],
+      "notes": "\"App\" è l'abbreviazione di \"application\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale famoso scooter italiano fu presentato dalla Piaggio nel 1946?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Ciao",
+        "Vespa",
+        "Lambretta",
+        "Ape"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "italia",
+        "motori"
+      ],
+      "notes": "La Vespa fu progettata da Corradino D'Ascanio; la Lambretta era della Innocenti, Ape e Ciao arrivarono dopo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il nome dell'assistente vocale degli iPhone?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Bixby",
+        "Siri",
+        "Alexa",
+        "Cortana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "smartphone",
+        "assistenti vocali"
+      ],
+      "notes": "Siri è integrata negli iPhone dal 2011 (iPhone 4S)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio giallo dei videogiochi mangia puntini in un labirinto?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Sonic",
+        "Pikachu",
+        "Donkey Kong",
+        "Pac-Man"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Pac-Man, Namco, 1980",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale invenzione di Gutenberg rivoluzionò la diffusione dei libri?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Stampa a caratteri mobili",
+        "Macchina da scrivere",
+        "Matita",
+        "Carta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "invenzioni",
+        "storia"
+      ],
+      "notes": "Gutenberg stampò la sua Bibbia a Magonza intorno al 1455",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica fu fondata a Torino nel 1899?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Alfa Romeo",
+        "Fiat",
+        "Lancia",
+        "Maserati"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "italia",
+        "storia"
+      ],
+      "notes": "Fabbrica Italiana Automobili Torino, 11 luglio 1899; Lancia 1906 (Torino), Alfa Romeo 1910 (Milano), Maserati 1914 (Bologna)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore fiorentino realizzò il \"telettrofono\", antenato del telefono?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Galileo Ferraris",
+        "Antonio Meucci",
+        "Guglielmo Marconi",
+        "Alessandro Volta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Meucci, nato a Firenze nel 1808; nel 2002 il Congresso USA ne riconobbe il ruolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore americano presentò nel 1879 una lampadina a incandescenza di lunga durata?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Benjamin Franklin",
+        "Thomas Edison",
+        "Nikola Tesla",
+        "Alexander Graham Bell"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Edison presentò la lampadina a filamento di carbonio a Menlo Park nel dicembre 1879",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su Windows, quale tasto si preme insieme a Ctrl per incollare?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "C",
+        "Z",
+        "X",
+        "V"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer",
+        "scorciatoie"
+      ],
+      "notes": "Ctrl+V incolla, Ctrl+C copia, Ctrl+X taglia, Ctrl+Z annulla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale console Nintendo del 2006 si giocava muovendo il telecomando?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nintendo 64",
+        "GameCube",
+        "Switch",
+        "Wii"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Il Wii, con il telecomando sensibile al movimento, uscì a fine 2006",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale videogioco a blocchi che cadono fu creato da un programmatore sovietico?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Pac-Man",
+        "Tetris",
+        "Arkanoid",
+        "Space Invaders"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Tetris fu creato da Aleksej Pažitnov a Mosca nel 1984",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formato audio compresso rese popolare la musica digitale negli anni Novanta?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "MP3",
+        "MIDI",
+        "AIFF",
+        "WAV"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "audio",
+        "formati"
+      ],
+      "notes": "L'MP3 fu sviluppato dal Fraunhofer Institute; WAV e AIFF non sono compressi, MIDI non è audio registrato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in informatica la copia di sicurezza dei dati?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Backup",
+        "Download",
+        "Firewall",
+        "Cookie"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica",
+        "dati"
+      ],
+      "notes": "Il backup permette di recuperare i dati persi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il sistema di navigazione satellitare europeo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Copernico",
+        "Marconi",
+        "Galileo",
+        "Glonass"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "satelliti",
+        "europa"
+      ],
+      "notes": "Galileo è il sistema di posizionamento dell'Unione Europea; Copernicus è per l'osservazione della Terra, Glonass è russo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale grande negozio online nacque nel 1994 come libreria?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Zalando",
+        "Amazon",
+        "Alibaba",
+        "eBay"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet",
+        "aziende"
+      ],
+      "notes": "Fondata da Jeff Bezos a Seattle nel 1994; eBay nacque nel 1995",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale aereo di linea supersonico volò dal 1976 al 2003?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Douglas DC-10",
+        "Boeing 747",
+        "Concorde",
+        "Airbus A380"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aviazione"
+      ],
+      "notes": "Il Concorde anglo-francese volava a circa due volte la velocità del suono",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la \"e\" di e-mail?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Easy",
+        "Express",
+        "European",
+        "Electronic"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "email",
+        "sigle"
+      ],
+      "notes": "E-mail sta per electronic mail",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo dell'auto indica la strada usando i satelliti?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Navigatore",
+        "Tachimetro",
+        "Autoradio",
+        "Contachilometri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "gps"
+      ],
+      "notes": "Il navigatore satellitare calcola la posizione con i segnali dei satelliti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa produce una stampante 3D?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Libri",
+        "Fotografie",
+        "Banconote",
+        "Oggetti solidi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "stampa 3d"
+      ],
+      "notes": "La stampante 3D costruisce oggetti tridimensionali strato dopo strato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i pannelli sui tetti che trasformano la luce del sole in elettricità?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Pale eoliche",
+        "Pannelli solari termici",
+        "Pannelli fotovoltaici",
+        "Caldaie a condensazione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "energia",
+        "trabocchetto"
+      ],
+      "notes": "I pannelli solari termici scaldano l'acqua; solo quelli fotovoltaici producono corrente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nelle app, che cosa apre di solito l'icona con tre lineette orizzontali?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "La ricerca",
+        "Il volume",
+        "Il menu",
+        "La batteria"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "app",
+        "interfacce"
+      ],
+      "notes": "È il cosiddetto menu \"hamburger\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piattaforma di video online è nata nel 2005?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Twitch",
+        "Netflix",
+        "YouTube",
+        "Vimeo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "video"
+      ],
+      "notes": "YouTube fu fondato nel febbraio 2005; Netflix nel 1997, Vimeo nel 2004, Twitch nel 2011",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale memoria del computer si svuota quando lo spegni?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "ROM",
+        "RAM",
+        "Disco fisso",
+        "Chiavetta USB"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer",
+        "hardware"
+      ],
+      "notes": "La RAM è una memoria volatile",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tecnologia senza fili prende il nome da un antico re danese?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Wi-Fi",
+        "NFC",
+        "Infrarossi",
+        "Bluetooth"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "wireless",
+        "curiosità"
+      ],
+      "notes": "Harald \"Dente azzurro\" Gormsson, re di Danimarca nel X secolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fu la prima linea ferroviaria italiana, inaugurata nel 1839?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Napoli-Portici",
+        "Roma-Frascati",
+        "Torino-Genova",
+        "Milano-Monza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "treni",
+        "storia",
+        "italia"
+      ],
+      "notes": "Inaugurata il 3 ottobre 1839 nel Regno delle Due Sicilie; la Milano-Monza è del 1840",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa garantisce la \"s\" finale di https negli indirizzi web?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Una connessione cifrata",
+        "Un sito italiano",
+        "Un sito gratuito",
+        "Un sito più veloce"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "web",
+        "sicurezza"
+      ],
+      "notes": "HTTPS = HTTP Secure, con crittografia dei dati scambiati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i cookie dei siti web?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Pubblicità a comparsa",
+        "Virus informatici",
+        "Piccoli file salvati dal browser",
+        "Password cifrate"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "web",
+        "privacy"
+      ],
+      "notes": "I cookie sono piccoli file di testo che i siti salvano nel browser",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno uscì in Giappone il primo Game Boy?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1994",
+        "1985",
+        "1989",
+        "1980"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi",
+        "storia"
+      ],
+      "notes": "Il Game Boy uscì in Giappone il 21 aprile 1989",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale augurio conteneva il primo SMS della storia, inviato nel 1992?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Buon anno",
+        "Buon Natale",
+        "Buona Pasqua",
+        "Buon compleanno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia",
+        "storia"
+      ],
+      "notes": "Il 3 dicembre 1992 Neil Papworth inviò \"Merry Christmas\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un firewall?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un formato video",
+        "Un tipo di processore",
+        "Una barriera per il traffico di rete",
+        "Un cavo di rete"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicurezza",
+        "reti"
+      ],
+      "notes": "Il firewall filtra le connessioni in entrata e in uscita",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante lettere ci sono nella prima riga di una tastiera americana?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "8",
+        "10",
+        "9",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer",
+        "tastiera"
+      ],
+      "notes": "Q, W, E, R, T, Y, U, I, O, P: dieci lettere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è la mascotte del sistema operativo Linux?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gnu",
+        "Pinguino",
+        "Gatto",
+        "Elefante"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "software",
+        "open source"
+      ],
+      "notes": "Il pinguino Tux, disegnato nel 1996; lo gnu è il simbolo del progetto GNU",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu messo online il primo sito web della storia, al CERN?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1991",
+        "1999",
+        "1985",
+        "1995"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "web",
+        "storia"
+      ],
+      "notes": "Il sito info.cern.ch di Tim Berners-Lee fu aperto al pubblico nell'agosto 1991",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale linguaggio di programmazione deve il nome a un celebre gruppo comico inglese?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Python",
+        "Perl",
+        "Java",
+        "Ruby"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "programmazione",
+        "linguaggi"
+      ],
+      "notes": "Guido van Rossum lo chiamò così in onore dei Monty Python",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste invenzioni è la più antica?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "L'automobile",
+        "Il fax",
+        "Il telefono",
+        "La lampadina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Alexander Bain brevettò la trasmissione di immagini via telegrafo nel 1843; telefono 1876, lampadina 1879, automobile 1886",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il nome del browser Firefox in inglese indica quale animale?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Volpe",
+        "Lince",
+        "Furetto",
+        "Panda rosso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "browser",
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "\"Firefox\" è un nome inglese del panda rosso, come spiega Mozilla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento musicale si deve all'inventore padovano Bartolomeo Cristofori?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Clavicembalo",
+        "Violino",
+        "Organo",
+        "Pianoforte"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni",
+        "italia",
+        "musica"
+      ],
+      "notes": "Cristofori costruì a Firenze il \"gravicembalo col piano e forte\" intorno al 1700",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali due italiani descrissero nel 1853 uno dei primi motori a scoppio?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Volta e Galvani",
+        "Benz e Daimler",
+        "Meucci e Marconi",
+        "Barsanti e Matteucci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motori",
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Eugenio Barsanti e Felice Matteucci depositarono la loro memoria a Firenze nel 1853",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che materiale era il guscio del primo mouse, costruito negli anni Sessanta?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Legno",
+        "Metallo",
+        "Plastica",
+        "Vetro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Il prototipo di Douglas Engelbart (1964) era una scatoletta di legno con due rotelle",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa produceva l'azienda finlandese Nokia quando nacque, nel 1865?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Carta",
+        "Orologi",
+        "Telegrafi",
+        "Biciclette"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aziende",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Nokia nacque come cartiera fondata da Fredrik Idestam",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu fatta la prima telefonata da un cellulare portatile?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "1973",
+        "1983",
+        "1965",
+        "1991"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia",
+        "storia"
+      ],
+      "notes": "Martin Cooper di Motorola chiamò da un prototipo il 3 aprile 1973",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingegnere piemontese scoprì il campo magnetico rotante, base dei motori elettrici?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Antonio Meucci",
+        "Antonio Pacinotti",
+        "Galileo Ferraris",
+        "Alessandro Volta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "elettricità",
+        "italia"
+      ],
+      "notes": "Galileo Ferraris, nato in provincia di Vercelli, lo presentò nel 1888",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il primo satellite artificiale italiano, lanciato nel 1964?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sirio",
+        "BeppoSAX",
+        "San Marco 1",
+        "Italsat"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "San Marco 1, lanciato il 15 dicembre 1964 dalla base di Wallops Island",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale avvocato novarese brevettò nel 1855 il \"cembalo scrivano\", antenato della macchina da scrivere?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Pellegrino Turri",
+        "Camillo Olivetti",
+        "Antonio Meucci",
+        "Giuseppe Ravizza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Giuseppe Ravizza, nato a Novara nel 1811, brevettò il cembalo scrivano nel 1855",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale linguaggio di programmazione fu creato da Dennis Ritchie ai Bell Labs?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "C",
+        "Pascal",
+        "Basic",
+        "Cobol"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "programmazione",
+        "storia"
+      ],
+      "notes": "Il linguaggio C nacque tra il 1969 e il 1973 per scrivere Unix",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il primo calcolatore elettronico italiano a transistor, presentato dalla Olivetti nel 1959?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Programma 101",
+        "Lettera 22",
+        "Elea 9003",
+        "M24"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "informatica",
+        "italia"
+      ],
+      "notes": "L'Elea 9003 fu progettato dal gruppo di Mario Tchou",
+      "verified": false
+    }
+  ]
+}

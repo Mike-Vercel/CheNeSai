@@ -1,0 +1,1096 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Come si chiama il cucciolo del cavallo?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Capretto",
+        "Agnello",
+        "Puledro",
+        "Vitello"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cuccioli",
+        "mammiferi"
+      ],
+      "notes": "Il piccolo del cavallo è il puledro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale grande felino ha la criniera nei maschi?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tigre",
+        "Leone",
+        "Leopardo",
+        "Giaguaro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "felini",
+        "mammiferi"
+      ],
+      "notes": "Solo il leone maschio ha la criniera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante zampe ha un insetto?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "8",
+        "4",
+        "10"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "Gli insetti hanno tre paia di zampe; i ragni (aracnidi) ne hanno otto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale ha il collo più lungo?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lama",
+        "Struzzo",
+        "Giraffa",
+        "Cammello"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "Il collo della giraffa può superare i 2 metri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello è il simbolo della pace?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cigno",
+        "Colomba",
+        "Aquila",
+        "Passero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli",
+        "simboli"
+      ],
+      "notes": "La colomba con il ramoscello d'ulivo è simbolo di pace",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale insetto si illumina di notte nei prati d'estate?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cicala",
+        "Grillo",
+        "Lucciola",
+        "Coccinella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "La lucciola produce luce per bioluminescenza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo il detto italiano, quale animale ha sette vite?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cane",
+        "Volpe",
+        "Coniglio",
+        "Gatto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "modi di dire"
+      ],
+      "notes": "In Italia si dice che il gatto abbia sette vite (nei Paesi anglosassoni nove)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale stagione cadono le foglie di molti alberi?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Autunno",
+        "Estate",
+        "Primavera",
+        "Inverno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "alberi",
+        "stagioni"
+      ],
+      "notes": "Gli alberi a foglia caduca perdono le foglie in autunno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante gobbe ha un dromedario?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tre",
+        "Nessuna",
+        "Due",
+        "Una"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "trabocchetto"
+      ],
+      "notes": "Il dromedario ha una gobba sola; il cammello battriano ne ha due",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello è famoso per la coda colorata che apre a ventaglio?",
+      "category": "Natura e animali",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pavone",
+        "Fenicottero",
+        "Gallo",
+        "Fagiano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "La \"ruota\" del pavone maschio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rettile marino depone le uova sulle spiagge di Lampedusa?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tartaruga marina",
+        "Serpente di mare",
+        "Iguana marina",
+        "Coccodrillo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rettili",
+        "sicilia",
+        "mare"
+      ],
+      "notes": "La tartaruga Caretta caretta nidifica alla Spiaggia dei Conigli di Lampedusa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale mollusco ha otto braccia tutte uguali?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Seppia",
+        "Nautilo",
+        "Calamaro",
+        "Polpo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "molluschi",
+        "mare"
+      ],
+      "notes": "Il polpo ha otto braccia; calamari e seppie hanno otto braccia più due tentacoli, il nautilo decine di tentacoli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il felino più grande del mondo?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giaguaro",
+        "Puma",
+        "Tigre",
+        "Leone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "felini",
+        "mammiferi"
+      ],
+      "notes": "La tigre siberiana può superare i 300 kg, più del leone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il pesce più grande del mondo?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pesce luna",
+        "Squalo balena",
+        "Manta",
+        "Squalo bianco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pesci",
+        "mare",
+        "trabocchetto"
+      ],
+      "notes": "La balena è un mammifero, non un pesce; lo squalo balena supera i 12 metri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale insetto riempie le estati con il suo canto dagli alberi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cicala",
+        "Calabrone",
+        "Cavalletta",
+        "Grillo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insetti"
+      ],
+      "notes": "I maschi di cicala \"cantano\" sugli alberi con organi chiamati timballi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piccolo mammifero scava gallerie sotto terra con le zampe a forma di pala?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Talpa",
+        "Ghiro",
+        "Riccio",
+        "Donnola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "La talpa vive sotto terra e scava con le zampe anteriori larghe come pale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è famoso per la sua lentezza e vive appeso agli alberi?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lemure",
+        "Scimmia urlatrice",
+        "Koala",
+        "Bradipo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "Il bradipo si muove a pochi metri al minuto, appeso ai rami",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pesce risale i fiumi per deporre le uova dove è nato?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sardina",
+        "Merluzzo",
+        "Tonno",
+        "Salmone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pesci",
+        "migrazioni"
+      ],
+      "notes": "Il salmone torna al fiume natale per riprodursi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il maschio dell'ape?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Calabrone",
+        "Bombo",
+        "Fuco",
+        "Vespa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "insetti",
+        "api"
+      ],
+      "notes": "I fuchi servono a fecondare la regina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapace notturno ha grandi occhi e ruota la testa quasi all'indietro?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Picchio",
+        "Corvo",
+        "Falco",
+        "Gufo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "I gufi ruotano la testa fino a circa 270 gradi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello depone le uova nei nidi di altri uccelli?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Merlo",
+        "Cuculo",
+        "Pettirosso",
+        "Rondine"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "Il cuculo è un \"parassita di cova\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che forma hanno le celle dell'alveare?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Esagonale",
+        "Quadrata",
+        "Rotonda",
+        "Triangolare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insetti",
+        "api"
+      ],
+      "notes": "Le api costruiscono celle esagonali di cera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale serpente velenoso vive in Italia?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Biacco",
+        "Saettone",
+        "Biscia d'acqua",
+        "Vipera"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rettili",
+        "italia"
+      ],
+      "notes": "In Italia le uniche specie pericolose sono le vipere; biacco, natrice e saettone sono innocui",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il cambio di pelle dei serpenti?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Metamorfosi",
+        "Muta",
+        "Letargo",
+        "Mimetismo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rettili"
+      ],
+      "notes": "Con la muta il serpente si libera della vecchia pelle",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale mammifero depone le uova?",
+      "category": "Natura e animali",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Canguro",
+        "Koala",
+        "Ornitorinco",
+        "Vombato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "australia"
+      ],
+      "notes": "Ornitorinco ed echidna sono monotremi, mammiferi che depongono uova",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la pelle dell'orso polare sotto la pelliccia?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Grigia",
+        "Nera",
+        "Rosa",
+        "Bianca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "poli",
+        "trabocchetto"
+      ],
+      "notes": "La pelle nera assorbe il calore; i peli sono trasparenti e cavi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore sono i piccoli di fenicottero appena nati?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa",
+        "Grigio chiaro",
+        "Azzurro",
+        "Rosso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli",
+        "trabocchetto"
+      ],
+      "notes": "I pulcini hanno piumino grigio-biancastro; il rosa arriva in 2-3 anni grazie ai carotenoidi della dieta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi grandi mammiferi non riesce a saltare?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cervo",
+        "Cavallo",
+        "Canguro",
+        "Elefante"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "L'elefante adulto non stacca mai tutte e quattro le zampe da terra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quante parti è diviso lo stomaco di una mucca?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "4",
+        "1",
+        "2"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "ruminanti"
+      ],
+      "notes": "Rumine, reticolo, omaso e abomaso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i piccoli crostacei di cui si nutrono le balenottere?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Scampi",
+        "Granchi",
+        "Krill",
+        "Paguri"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mare",
+        "crostacei"
+      ],
+      "notes": "Il krill antartico è il cibo principale di molte balenottere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pianta, usata per la carta nell'antico Egitto, cresce lungo il fiume Ciane a Siracusa?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bambù",
+        "Giunco",
+        "Papiro",
+        "Loto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "piante",
+        "sicilia"
+      ],
+      "notes": "Il papiro del Ciane è una delle rare colonie spontanee d'Europa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cetaceo ha un lungo dente a spirale simile a un corno?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Orca",
+        "Beluga",
+        "Capodoglio",
+        "Narvalo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "mare"
+      ],
+      "notes": "La \"zanna\" del narvalo è un dente che può superare i 2 metri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale foca, rarissima, vive anche nel Mediterraneo?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Leone marino",
+        "Foca grigia",
+        "Foca monaca",
+        "Elefante marino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mammiferi",
+        "mare",
+        "italia"
+      ],
+      "notes": "La foca monaca mediterranea è avvistata talvolta anche nei mari italiani",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapace è il più veloce in picchiata?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gheppio",
+        "Falco pellegrino",
+        "Aquila reale",
+        "Poiana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli",
+        "velocità"
+      ],
+      "notes": "In picchiata il falco pellegrino supera i 300 km/h",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni può vivere una tartaruga gigante delle Galápagos?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Più di cento",
+        "Circa venti",
+        "Circa dieci",
+        "Circa quaranta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rettili",
+        "longevità"
+      ],
+      "notes": "Diversi esemplari hanno superato i 150 anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante ali ha una mosca?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "8",
+        "6",
+        "4"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "insetti",
+        "trabocchetto"
+      ],
+      "notes": "Le mosche sono ditteri (\"due ali\"): il secondo paio è ridotto a bilancieri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale albero africano dal tronco enorme è detto \"albero capovolto\"?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Acacia",
+        "Sequoia",
+        "Baobab",
+        "Palma da dattero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alberi",
+        "africa"
+      ],
+      "notes": "I rami spogli del baobab sembrano radici rivolte al cielo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale razza di cane ha la lingua blu scuro?",
+      "category": "Natura e animali",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Chow chow",
+        "Barboncino",
+        "Dalmata",
+        "Labrador"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cani"
+      ],
+      "notes": "Il Chow chow (come lo Shar-pei) ha la lingua blu-nera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante vertebre ha il collo di una giraffa?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "14",
+        "21",
+        "30",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi",
+        "trabocchetto"
+      ],
+      "notes": "Come l'uomo e quasi tutti i mammiferi, 7 vertebre cervicali, solo molto lunghe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dai semi di quale albero, molto diffuso negli Iblei, deriva il nome del carato?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Carrubo",
+        "Pistacchio",
+        "Ulivo",
+        "Mandorlo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "alberi",
+        "sicilia"
+      ],
+      "notes": "I semi di carrubo (in greco keràtion) erano usati come pesi per l'oro e le gemme",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale razza di cane siciliana, simile a un piccolo levriero, caccia i conigli?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Spinone italiano",
+        "Segugio italiano",
+        "Cirneco dell'Etna",
+        "Bracco italiano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cani",
+        "sicilia"
+      ],
+      "notes": "Il Cirneco dell'Etna è un'antica razza siciliana da caccia al coniglio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'unica palma spontanea d'Italia, diffusa in Sicilia?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Palma delle Canarie",
+        "Palma nana",
+        "Washingtonia",
+        "Palma da dattero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "piante",
+        "sicilia"
+      ],
+      "notes": "Chamaerops humilis, in siciliano \"giummarra\", unica palma autoctona italiana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello ha l'apertura alare più grande?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Albatro urlatore",
+        "Aquila reale",
+        "Condor delle Ande",
+        "Cicogna bianca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uccelli"
+      ],
+      "notes": "L'albatro urlatore supera i 3 metri e mezzo di apertura alare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è il latte dell'ippopotamo?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giallo",
+        "Bianco",
+        "Rosa",
+        "Azzurro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "trabocchetto"
+      ],
+      "notes": "Il mito del latte rosa nasce dalla secrezione rossastra della pelle dell'ippopotamo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove si trovano le orecchie di un grillo?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sulla testa",
+        "Sulle ali",
+        "Sull'addome",
+        "Sulle zampe anteriori"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "insetti",
+        "trabocchetto"
+      ],
+      "notes": "Gli organi timpanici del grillo sono sulle tibie delle zampe anteriori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale specie di cervo anche le femmine portano le corna?",
+      "category": "Natura e animali",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Daino",
+        "Alce",
+        "Capriolo",
+        "Renna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mammiferi"
+      ],
+      "notes": "Nella renna entrambi i sessi hanno i palchi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale mammifero ha la gravidanza più breve, di circa 12 giorni?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Opossum",
+        "Criceto",
+        "Coniglio",
+        "Topo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mammiferi",
+        "riproduzione"
+      ],
+      "notes": "L'opossum della Virginia partorisce dopo circa 12-13 giorni; il criceto dopo circa 16, il topo dopo circa 20",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello sudamericano ha i pulcini con gli artigli sulle ali?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Tucano",
+        "Quetzal",
+        "Hoatzin",
+        "Nandù"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "uccelli",
+        "sudamerica"
+      ],
+      "notes": "I pulcini di hoatzin usano gli artigli alari per arrampicarsi tra i rami",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cetaceo ha il cervello più grande di tutto il regno animale?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Megattera",
+        "Capodoglio",
+        "Balenottera azzurra",
+        "Orca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "mammiferi",
+        "mare"
+      ],
+      "notes": "Il cervello del capodoglio pesa circa 8 kg",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il più piccolo uccello d'Europa?",
+      "category": "Natura e animali",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Scricciolo",
+        "Regolo",
+        "Cinciallegra",
+        "Pettirosso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "uccelli",
+        "europa"
+      ],
+      "notes": "Il regolo pesa 5-6 grammi",
+      "verified": false
+    }
+  ]
+}
