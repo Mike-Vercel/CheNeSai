@@ -186,7 +186,7 @@ export function TvPalminoWheelScreen({
   if (portrait) {
     return (
       <TvFrame calm={stage === "spinning" || calm}>
-        <div className="absolute inset-x-[5cqw] top-[3cqh] z-20 flex flex-col items-center gap-[1.4cqh] text-center" data-testid="palmino-wheel">
+        <div className="absolute inset-x-[5cqw] top-[calc(4.5cqh+env(safe-area-inset-top))] z-20 flex flex-col items-center gap-[1.4cqh] text-center" data-testid="palmino-wheel">
           <Logo size="lg" className="!h-[7cqh]" />
           {header}
         </div>

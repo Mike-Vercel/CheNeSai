@@ -93,7 +93,8 @@ const portraitPlacementClass: Record<CaptionDef["placement"], string> = {
   right: "items-start justify-center pt-[7cqh]",
   left: "items-start justify-center pt-[7cqh]",
   top: "items-start justify-center pt-[7cqh]",
-  bottom: "items-end justify-center pb-[14cqh]",
+  // sopra il pannello "Salta intro" dei telefoni (in basso al centro)
+  bottom: "items-end justify-center pb-[22cqh]",
   center: "items-center justify-center",
   topLeft: "items-start justify-center pt-[7cqh]",
   topRight: "items-start justify-center pt-[7cqh]",
@@ -293,7 +294,7 @@ function Karaoke({ line, t, belowCard, reducedMotion, portrait }: { line: Spoken
   const to = starts[chunk + 1] ?? words.length;
   const accent = SPEAKER_ACCENT[line.who];
   return (
-    <div className={`absolute inset-0 flex items-end justify-center ${portrait ? "pb-[5cqh]" : "pb-[4cqh]"}`}>
+    <div className={`absolute inset-0 flex items-end justify-center ${portrait ? "pb-[19cqh]" : "pb-[4cqh]"}`}>
       <motion.div
         className="qz-kara"
         initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.96 }}

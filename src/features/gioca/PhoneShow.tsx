@@ -201,8 +201,8 @@ function PhoneShowOverlay({
 
       {/* in partita: in basso a sinistra (a destra c'è il menu); durante l'intro in alto (in basso c'è "Salta intro") */}
       {!lobby && !sheet && (
-        <div className={clsx("absolute left-3 z-[66]", phase === "INTRO" ? "top-3" : "bottom-3")} style={phase === "INTRO" ? { marginTop: "env(safe-area-inset-top)" } : { marginBottom: "env(safe-area-inset-bottom)" }}>
-          <ExitButton size="sm" className="!h-12" />
+        <div className={clsx("absolute left-3 z-[66]", phase === "INTRO" ? "top-1.5" : "bottom-3")} style={phase === "INTRO" ? { marginTop: "env(safe-area-inset-top)" } : { marginBottom: "env(safe-area-inset-bottom)" }}>
+          <ExitButton size="sm" className={phase === "INTRO" ? "!h-9" : "!h-12"} />
         </div>
       )}
 

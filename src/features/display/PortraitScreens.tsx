@@ -44,7 +44,7 @@ export function PortraitLobbyScreen({ state, qrDataUrl, joinUrl }: { state: Publ
   const extra = state.playerCount - Math.min(12, names.length);
   return (
     <TvFrame>
-      <div className="absolute inset-x-[5cqw] top-[2.5cqh] flex flex-col items-center gap-[2cqh]">
+      <div className="absolute inset-x-[5cqw] top-[calc(5cqh+env(safe-area-inset-top))] flex flex-col items-center gap-[2cqh]">
         <motion.div initial={{ scale: 0.85, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 90, damping: 14 }}>
           <Logo variant="full" size="lg" priority className="!h-[15cqh] w-auto animate-float" />
         </motion.div>
@@ -90,7 +90,7 @@ export function PortraitRoundIntroScreen({ round, showLines }: { round: PublicRo
   const c = CHARACTERS[presenter];
   return (
     <TvFrame>
-      <div className="absolute inset-x-[5cqw] top-[2.5cqh] flex flex-col items-center gap-[2cqh] text-center">
+      <div className="absolute inset-x-[5cqw] top-[calc(5cqh+env(safe-area-inset-top))] flex flex-col items-center gap-[2cqh] text-center">
         <Logo size="md" className="!h-[8cqh] w-auto" />
         <Pill tone="dark" className={smallPill}>
           Round {round.index} di {round.total}
@@ -188,7 +188,7 @@ export function PortraitQuestionScreen({
 
   return (
     <TvFrame calm={optionsVisible}>
-      <div className="absolute inset-0 flex flex-col gap-[1.4cqh] px-[4cqw] pb-[2cqh] pt-[2cqh]">
+      <div className="absolute inset-0 flex flex-col gap-[1.4cqh] px-[4cqw] pb-[2cqh] pt-[calc(5.5cqh+env(safe-area-inset-top))]">
         <PortraitHeader
           right={
             <>
@@ -342,7 +342,7 @@ function PortraitBoard({
   const seat = useSeatContext();
   return (
     <TvFrame>
-      <div className="absolute inset-x-[4cqw] top-[2cqh] flex flex-col gap-[1.4cqh]">
+      <div className="absolute inset-x-[4cqw] top-[calc(5.5cqh+env(safe-area-inset-top))] flex flex-col gap-[1.4cqh]">
         <PortraitHeader />
         <h1 className="text-center font-display text-[7.4cqw] leading-tight text-gold [text-shadow:0_0.4cqh_0_#6b1020]">{title}</h1>
         <ol className="flex flex-col gap-[1.4cqw]">
@@ -436,7 +436,7 @@ export function PortraitSpecialEventScreen({ event }: { event: PublicEvent }) {
   return (
     <TvFrame>
       <div aria-hidden className="absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_50%_55%,rgba(255,20,147,.55),transparent_60%)]" />
-      <div className="absolute inset-x-[5cqw] top-[5cqh] flex flex-col items-center gap-[2cqh] text-center">
+      <div className="absolute inset-x-[5cqw] top-[calc(6cqh+env(safe-area-inset-top))] flex flex-col items-center gap-[2cqh] text-center">
         <span className="font-display text-[22cqw] leading-none">{EVENT_ICON[event.type]}</span>
         <h1 className="qz-gold-text font-display text-[14cqw] leading-none">{event.title}</h1>
         <p className="rounded-[4cqw] bg-black/55 px-[4cqw] py-[2cqw] font-display text-[5.4cqw] text-white">{event.tagline}</p>
@@ -451,7 +451,7 @@ export function PortraitSpecialEventScreen({ event }: { event: PublicEvent }) {
 export function PortraitMessageScreen({ title, who = "professore" }: { title: string; who?: Presenter }) {
   return (
     <TvFrame>
-      <div className="absolute inset-x-[6cqw] top-[6cqh] flex flex-col items-center gap-[4cqh] text-center">
+      <div className="absolute inset-x-[6cqw] top-[calc(7cqh+env(safe-area-inset-top))] flex flex-col items-center gap-[4cqh] text-center">
         <Logo variant="full" size="lg" className="!h-[18cqh] w-auto" />
         <p className="font-display text-[9cqw] leading-tight text-white">{title}</p>
       </div>

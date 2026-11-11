@@ -421,3 +421,15 @@ describe("voci per i telefoni dei giocatori (show sul telefono)", () => {
     expect(found?.live).toBe(true);
   });
 });
+
+describe("annuncio del round", () => {
+  it("niente doppione: \"Round 2\" e basta se il titolo è \"Secondo round\"; i titoli veri si leggono", async () => {
+    const { roundIntroLine } = await import("@/features/game/script");
+    const base = { index: 2, kind: "standard", presenter: "regina", pointsMultiplier: 1, description: null, special: null, noPenalty: false } as unknown as Parameters<typeof roundIntroLine>[0];
+    const generic = roundIntroLine({ ...base, title: "Secondo round" });
+    expect(generic.text).toContain("Round 2!");
+    expect(generic.text).not.toMatch(/secondo round/i);
+    expect(roundIntroLine({ ...base, title: "Round 2" }).text).not.toMatch(/Round 2: Round 2/);
+    expect(roundIntroLine({ ...base, title: "Cultura pop" }).text).toContain("Round 2: Cultura pop!");
+  });
+});

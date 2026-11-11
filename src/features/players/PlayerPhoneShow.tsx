@@ -76,8 +76,8 @@ function PlayerShowOverlay({ state, ctx, code, slot, nickname }: { state: Public
       )}
 
       {!lobby && (
-        <div className={vp === "INTRO" ? "absolute left-3 top-3 z-[66]" : "absolute bottom-3 left-3 z-[66]"} style={vp === "INTRO" ? { marginTop: "env(safe-area-inset-top)" } : { marginBottom: "env(safe-area-inset-bottom)" }}>
-          <ExitButton size="sm" className="!h-11" />
+        <div className={vp === "INTRO" ? "absolute left-3 top-1.5 z-[66]" : "absolute bottom-3 left-3 z-[66]"} style={vp === "INTRO" ? { marginTop: "env(safe-area-inset-top)" } : { marginBottom: "env(safe-area-inset-bottom)" }}>
+          <ExitButton size="sm" className={vp === "INTRO" ? "!h-9" : "!h-11"} />
         </div>
       )}
 

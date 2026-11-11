@@ -516,9 +516,18 @@ export function specialRulesSpeech(kind: RoundKind, special: RoundSpecialSetting
   return "";
 }
 
+/** Titoli che ripetono solo il numero del round ("Secondo round", "Round 2"): dopo "Round 2" non si dicono. */
+const GENERIC_ROUND_TITLE = /^\s*((primo|secondo|terzo|quarto|quinto|sesto|settimo|ottavo|nono|decimo|ultimo)\s+round|round\s*\d+)\s*[.!]?\s*$/i;
+
+/** "Round 2: Cultura pop" oppure solo "Round 2" se il titolo è generico. */
+function roundCall(r: Pick<ScriptRound, "index" | "title">): string {
+  const title = cleanSpeech(r.title ?? "");
+  return !title || GENERIC_ROUND_TITLE.test(title) ? `Round ${r.index}` : `Round ${r.index}: ${title}`;
+}
+
 export function roundIntroLine(r: ScriptRound): SpokenLine {
-  if (r.kind === "category_vote") return { who: "palmino", text: `[giggles] Round ${r.index}: ${cleanSpeech(r.title)}. Adesso decidete voi… tanto vinco io!` };
-  if (r.kind === "category_wheel") return { who: "palmino", text: `[excited] Round ${r.index}: ${cleanSpeech(r.title)}. Arriva la Ruota impazzita: la categoria la sceglie lei!` };
+  if (r.kind === "category_vote") return { who: "palmino", text: `[giggles] ${roundCall(r)}. Adesso decidete voi… tanto vinco io!` };
+  if (r.kind === "category_wheel") return { who: "palmino", text: `[excited] ${roundCall(r)}. Arriva la Ruota impazzita: la categoria la sceglie lei!` };
   const special = specialRulesSpeech(r.kind, r.special);
   const extra = special
     ? special
@@ -529,7 +538,7 @@ export function roundIntroLine(r: ScriptRound): SpokenLine {
         : "";
   return {
     who: r.presenter,
-    text: `${ROUND_LEAD[r.presenter]} Round ${r.index}: ${cleanSpeech(r.title)}!${r.description ? " " + cleanSpeech(r.description) : ""}${extra}`,
+    text: `${ROUND_LEAD[r.presenter]} ${roundCall(r)}!${r.description ? " " + cleanSpeech(r.description) : ""}${extra}`,
   };
 }
 
