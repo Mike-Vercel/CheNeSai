@@ -3,6 +3,7 @@ import { after } from "next/server";
 import { getSql } from "@/lib/database/db";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import { podiumLines, speechFor } from "@/features/game/script";
+import { standingsForShow } from "@/features/game/teams-view";
 import { cachedKeys, ensureClip, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 import { ensureOptionsClip } from "./read-time";
 import { runScopeBatch } from "./tts-pregen";
@@ -33,7 +34,7 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     if (!ttsConfigured() || process.env.VITEST || !PREWARM_PHASES.has(state.phase) || fromPhase === state.phase) return;
     // readOptions non incide sulle fasi pre-riscaldate
     // a fine serata anche tutte le battute del podio (le dice il TV durante la rivelazione)
-    const lines = state.phase === "FINISHED" ? podiumLines(state.leaderboard ?? [], state.sessionId) : speechFor(state, { phase: fromPhase }, { readOptions: true });
+    const lines = state.phase === "FINISHED" ? podiumLines(standingsForShow(state), state.sessionId) : speechFor(state, { phase: fromPhase }, { readOptions: true });
     if (lines.length === 0) return;
     after(async () => {
       try {

@@ -13,6 +13,8 @@ import {
   TvSpecialEventScreen,
   TvVotingScreen,
 } from "./TvScreens";
+import { TvLobbyTeams, TvTeamLeaderboardScreen, TvWinningTeamBanner } from "./TvTeamScreens";
+import { leadingTeams, standingsForShow, teamMode } from "@/features/game/teams-view";
 
 export interface TvStageProps {
   state: PublicState | null;
@@ -35,7 +37,20 @@ export interface TvStageProps {
 export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate }: TvStageProps) {
   if (!view) return <TvMessageScreen title="Collegamento allo studio…" />;
   const vp: GamePhase = view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase;
-  if (vp === "DRAFT" || vp === "READY" || vp === "LOBBY") return <TvLobbyScreen state={view} qrDataUrl={qrDataUrl} joinUrl={joinUrl} />;
+  const mode = teamMode(view);
+  if (vp === "DRAFT" || vp === "READY" || vp === "LOBBY")
+    return <TvLobbyScreen state={view} qrDataUrl={qrDataUrl} joinUrl={joinUrl} extra={view.teams ? <TvLobbyTeams teams={view.teams} /> : undefined} />;
+  // modalità squadre: classifica a squadre ("both": squadre + giocatori)
+  const teamBoard = (title: string) =>
+    view.teams && mode !== "individual" ? (
+      <TvTeamLeaderboardScreen
+        teams={view.teamLeaderboard ?? []}
+        players={mode === "both" ? (view.leaderboard ?? []) : null}
+        title={title}
+        showDelta
+        aggregation={view.teams.aggregation}
+      />
+    ) : null;
   if (vp === "INTRO") return <>{intro}</>;
   if ((vp === "ROUND_INTRO" || vp === "CATEGORY_VOTING" || vp === "CATEGORY_RESULT") && view.round) {
     if (vp !== "ROUND_INTRO" && view.vote) {
@@ -65,10 +80,22 @@ export function TvStage({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl
     // a metà round solo i punti di questa risposta; all'ultima domanda del round la classifica totale
     const q = view.question;
     if (q && q.positionInRound < q.totalInRound) return <TvAnswerPointsScreen entries={view.leaderboard ?? []} who={q.presenter} questionId={q.id} />;
-    return <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showDelta />;
+    return teamBoard("CLASSIFICA DI FINE ROUND") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showDelta />;
   }
-  if (vp === "LEADERBOARD") return <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA" showDelta />;
+  if (vp === "LEADERBOARD") return teamBoard("CLASSIFICA") ?? <TvLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA" showDelta />;
   if (vp === "FINISHED")
-    return <TvPodiumScreen entries={view.leaderboard ?? []} startedAt={view.phaseStartedAt} seed={view.sessionId} now={now} live={live} onCelebrate={onCelebrate} />;
+    return (
+      <TvPodiumScreen
+        // "teams": podio delle squadre; "both": podio individuale + squadra vincitrice
+        entries={standingsForShow(view)}
+        startedAt={view.phaseStartedAt}
+        seed={view.sessionId}
+        now={now}
+        live={live}
+        onCelebrate={onCelebrate}
+        titles={mode === "teams" ? { pending: "LA CLASSIFICA DELLE SQUADRE", done: "LA SQUADRA CAMPIONE" } : undefined}
+        banner={mode === "both" ? <TvWinningTeamBanner teams={leadingTeams(view)} /> : undefined}
+      />
+    );
   return <TvMessageScreen title="Guardate qui!" />;
 }

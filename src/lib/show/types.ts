@@ -12,6 +12,12 @@ export interface PlayerRef {
   nickname: string;
 }
 
+/** Squadra nominata dal regista (mai un singolo giocatore al posto della squadra). */
+export interface TeamRef {
+  id: string;
+  name: string;
+}
+
 export type ShowEvent =
   | { type: "LEADER_CHANGED"; leader: PlayerRef; previous: PlayerRef; points: number }
   | { type: "LEADER_TIE"; leaders: PlayerRef[]; points: number }
@@ -26,7 +32,9 @@ export type ShowEvent =
   | { type: "ALL_WRONG" }
   | { type: "ALL_CORRECT" }
   | { type: "POINTS_MILESTONE"; who: PlayerRef; threshold: number }
-  | { type: "ROUND_WINNER"; leaders: PlayerRef[]; points: number };
+  | { type: "ROUND_WINNER"; leaders: PlayerRef[]; points: number }
+  | { type: "TEAM_LEADER_CHANGED"; team: TeamRef; previous: TeamRef; points: number }
+  | { type: "TEAM_ROUND_WINNER"; teams: TeamRef[]; points: number };
 
 export type ShowEventType = ShowEvent["type"];
 
@@ -45,6 +53,8 @@ export const SHOW_EVENT_TYPES = [
   "ALL_CORRECT",
   "POINTS_MILESTONE",
   "ROUND_WINNER",
+  "TEAM_LEADER_CHANGED",
+  "TEAM_ROUND_WINNER",
 ] as const satisfies readonly ShowEventType[];
 
 /** Segnaposto ammessi per ogni evento: le battute che ne usano altri vengono rifiutate. */
@@ -63,11 +73,15 @@ export const ALLOWED_PLACEHOLDERS: Record<ShowEventType, readonly string[]> = {
   ALL_CORRECT: [],
   POINTS_MILESTONE: ["nome", "soglia"],
   ROUND_WINNER: ["nome_primo", "punti_primo"],
+  TEAM_LEADER_CHANGED: ["nome_squadra", "nome_ex_squadra"],
+  TEAM_ROUND_WINNER: ["nome_squadra", "punti_squadra"],
 };
 
 /** Importanza di base del momento (le battute possono alzarla o abbassarla). */
 export const EVENT_PRIORITY: Record<ShowEventType, number> = {
+  TEAM_ROUND_WINNER: 92,
   ROUND_WINNER: 90,
+  TEAM_LEADER_CHANGED: 87,
   LEADER_CHANGED: 85,
   LEADER_TIE: 75,
   ALL_WRONG: 70,

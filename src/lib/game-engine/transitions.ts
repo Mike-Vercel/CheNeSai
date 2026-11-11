@@ -25,7 +25,7 @@ const PHASE_COMMANDS: Record<GamePhase, readonly GameCommand[]> = {
 };
 
 /** Comandi non legati a una fase (gestione giocatori, prova generale). */
-const ANY_PHASE_COMMANDS: readonly GameCommand[] = ["SET_JOIN", "KICK", "ADJUST_SCORE"];
+const ANY_PHASE_COMMANDS: readonly GameCommand[] = ["SET_JOIN", "KICK", "ADJUST_SCORE", "ASSIGN_TEAM", "BALANCE_TEAMS"];
 const TEST_ONLY_COMMANDS: readonly GameCommand[] = ["RESET_TEST", "SIM_ADD_BOTS", "SIM_BOTS_ANSWER", "SIM_BOTS_VOTE"];
 
 /** Comandi che cambiano la fase (gli altri modificano solo dati collaterali). */
@@ -148,6 +148,8 @@ export const COMMAND_LABELS: Record<GameCommand, string> = {
   SET_JOIN: "INGRESSI",
   KICK: "ESPELLI",
   ADJUST_SCORE: "RETTIFICA PUNTI",
+  ASSIGN_TEAM: "SPOSTA IN SQUADRA",
+  BALANCE_TEAMS: "BILANCIA SQUADRE",
   RESET_TEST: "RESET SIMULAZIONE",
   SIM_ADD_BOTS: "AGGIUNGI BOT",
   SIM_BOTS_ANSWER: "BOT: RISPONDI",

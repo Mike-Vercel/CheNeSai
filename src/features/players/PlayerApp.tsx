@@ -11,6 +11,8 @@ import { Character, Logo } from "@/features/game/components/brand";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
 import { podiumPlan } from "@/features/game/script";
+import { leadingTeams, standingsForShow, teamMode } from "@/features/game/teams-view";
+import { PhoneTeamBadge, PhoneTeamPicker, PhoneTeamStandings } from "./PhoneTeams";
 import {
   PhoneCard,
   PhoneHeader,
@@ -73,6 +75,9 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   const onState = useCallback((s: PublicState, prev: PublicState | null) => {
     if (prev && s.phase !== prev.phase && REFRESH_SELF_PHASES.includes(s.phase)) {
       // jitter: evita che 200 telefoni interroghino il server nello stesso istante
+      setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);
+    } else if (prev && s.teams && s.version !== prev.version && s.phase === prev.phase && (s.phase === "LOBBY" || s.phase === "INTRO")) {
+      // modalità squadre: la regia può aver assegnato o spostato le squadre (comando registrato)
       setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);
     }
     if (prev && s.phase !== prev.phase && s.phase === "OPTIONS_VISIBLE") vibrate(40);
@@ -204,9 +209,20 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
       ? { isCorrect: self.currentResult.isCorrect, partial: self.currentResult.partial, delta: vp === "SCORE_REVEAL" || vp === "LEADERBOARD" ? self.currentResult.delta : self.currentResult.delta }
       : null;
 
+  const mode = teamMode(state);
+  const teamPicker = (locked: boolean) =>
+    state.teams?.selfSelect ? (
+      <PhoneTeamPicker code={code} slot={slot} teams={state.teams} current={self.team?.id ?? null} locked={locked} onChosen={() => void refresh()} />
+    ) : null;
+  // chi entra a partita iniziata senza squadra può ancora sceglierla (fuori dalle domande)
+  const latePicker =
+    state.teams?.selfSelect && !self.team && !["LOBBY", "READY", "FINISHED", "QUESTION_VISIBLE", "OPTIONS_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL", "CATEGORY_VOTING"].includes(vp)
+      ? teamPicker(false)
+      : null;
+
   let body: React.ReactNode;
   if (vp === "LOBBY" || vp === "READY") {
-    body = <LobbyView self={self} state={state} />;
+    body = <LobbyView self={self} state={state} picker={teamPicker(false)} />;
   } else if (vp === "INTRO") {
     body = (
       <PhoneMessage who="professore" title="Guarda il TV!">
@@ -262,6 +278,13 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
         {vp === "SCORE_REVEAL" && state.question && state.question.positionInRound < state.question.totalInRound ? (
           // a metà round solo il + o il − di questa risposta (totale e classifica a fine round)
           <p className="text-center text-sm font-bold text-white/70">Totale e classifica a fine round</p>
+        ) : mode !== "individual" ? (
+          <div className="flex flex-col gap-4">
+            <PhoneTeamStandings teams={state.teamLeaderboard ?? []} myTeamId={self.team?.id ?? null} />
+            {mode === "both" && (
+              <PhoneStandings entries={state.leaderboard ?? []} me={self.participantId} myRank={self.rank} myPoints={self.points} lastDelta={self.lastDelta} title="La tua posizione" />
+            )}
+          </div>
         ) : (
           <PhoneStandings entries={state.leaderboard ?? []} me={self.participantId} myRank={self.rank} myPoints={self.points} lastDelta={self.lastDelta} title="La tua posizione" />
         )}
@@ -274,7 +297,19 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   }
 
   return (
-    <PhoneShell header={<PhoneHeader nickname={self.nickname} points={hideTotals ? null : self.points} rank={vp === "FINISHED" || hideTotals ? null : self.rank} total={self.totalPlayers} status={status} />}>
+    <PhoneShell
+      header={
+        <PhoneHeader
+          nickname={self.nickname}
+          points={hideTotals ? null : self.points}
+          rank={vp === "FINISHED" || hideTotals || mode === "teams" ? null : self.rank}
+          total={self.totalPlayers}
+          status={status}
+          team={self.team}
+        />
+      }
+    >
+      {latePicker && <div className="mb-3">{latePicker}</div>}
       {body}
       {state.phase === "PAUSED" && (
         <div className="fixed inset-0 z-50 grid place-items-center bg-night/85 p-6 text-center backdrop-blur">
@@ -289,7 +324,7 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
 }
 
 // ---------------------------------------------------------------------------
-function LobbyView({ self, state }: { self: PlayerSelf; state: PublicState }) {
+function LobbyView({ self, state, picker }: { self: PlayerSelf; state: PublicState; picker: React.ReactNode }) {
   const [recovery] = useState<string | null>(() => {
     try {
       return typeof window === "undefined" ? null : localStorage.getItem("qz.recovery");
@@ -303,9 +338,12 @@ function LobbyView({ self, state }: { self: PlayerSelf; state: PublicState }) {
       <PhoneCard className="w-full">
         <p className="text-sm font-bold uppercase tracking-wide text-white/70">Sei dentro come</p>
         <p className="font-display text-4xl text-gold">{self.nickname}</p>
+        {self.team && <PhoneTeamBadge team={self.team} className="mt-1" />}
+        {state.teams && !state.teams.selfSelect && !self.team && <p className="mt-1 text-sm font-bold text-white/70">Si gioca a squadre: la squadra te la assegna la regia</p>}
         <p className="mt-2 font-bold">{state.phase === "READY" ? "La lobby non è ancora aperta" : "Aspetta il via dalla regia…"}</p>
         <p className="mt-1 text-white/70">{state.playerCount} giocatori collegati</p>
       </PhoneCard>
+      {picker}
       {recovery && (
         <p className="text-xs text-white/60">
           Il tuo codice giocatore per le classifiche mensili: <span className="font-display tracking-wider text-gold">{recovery}</span>
@@ -316,9 +354,13 @@ function LobbyView({ self, state }: { self: PlayerSelf; state: PublicState }) {
 }
 
 function FinishedView({ self, state, now }: { self: PlayerSelf; state: PublicState; now: () => number }) {
-  const podium = (state.leaderboard ?? []).slice(0, 3);
+  const mode = teamMode(state);
+  const standings = standingsForShow(state);
+  const podium = standings.slice(0, 3);
+  const myTeam = self.team ? (state.teamLeaderboard ?? []).find((t) => t.teamId === self.team!.id) ?? null : null;
+  const winners = leadingTeams(state);
   // la posizione si scopre insieme al TV (stessa scaletta del podio, ora del server)
-  const revealAt = Date.parse(state.phaseStartedAt) + (podiumPlan(state.leaderboard ?? [], state.sessionId).winnerAt + 0.5) * 1000;
+  const revealAt = Date.parse(state.phaseStartedAt) + (podiumPlan(standings, state.sessionId).winnerAt + 0.5) * 1000;
   const [, setTick] = useState(0);
   const waiting = now() < revealAt;
   useEffect(() => {
@@ -337,11 +379,22 @@ function FinishedView({ self, state, now }: { self: PlayerSelf; state: PublicSta
   }
   return (
     <div className="flex flex-1 flex-col gap-3">
+      {mode !== "individual" && (
+        <PhoneCard className="text-center">
+          <p className="font-display text-xl text-gold">{winners.length > 1 ? "Squadre vincitrici a pari merito" : "Squadra vincitrice"}</p>
+          <p className="font-display text-3xl">{winners.map((w) => w.name).join(" e ") || "–"}</p>
+          {myTeam && (
+            <p className="mt-1 font-bold">
+              La tua squadra, <span style={{ color: myTeam.color }}>{myTeam.name}</span>: {myTeam.rank}° con {formatPoints(myTeam.points)} punti
+            </p>
+          )}
+        </PhoneCard>
+      )}
       <PhoneCard className="text-center">
         <p className="font-display text-2xl text-gold">Partita finita!</p>
         <p className="font-display text-6xl leading-none">{self.rank ? `${self.rank}°` : "–"}</p>
         <p className="font-display text-2xl">{formatPoints(self.points)} punti</p>
-        {self.rank === 1 && (
+        {self.rank === 1 && mode !== "teams" && (
           <p className="mt-1 font-display text-xl">
             {(state.leaderboard ?? []).filter((e) => e.rank === 1).length > 1 ? "🏆 CAMPIONE A PARI MERITO! 🏆" : "🏆 CAMPIONE DELLA SERATA! 🏆"}
           </p>

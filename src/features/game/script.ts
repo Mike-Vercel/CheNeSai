@@ -1,6 +1,7 @@
 import type { GamePhase, LeaderboardEntry, MediaKind, Presenter, PublicState, QuestionType, RoundKind } from "@/lib/game-engine/types";
 import { PRESENTERS } from "@/lib/game-engine/types";
 import { presenterLine, presenterLinePool, REVEAL_QUIPS, seededPick, stripAudioTags } from "./lines";
+import { standingsForShow } from "./teams-view";
 
 /**
  * Copione parlato dei presentatori: funzioni PURE condivise dal TV (speechFor)
@@ -670,7 +671,8 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       }
       // senza eventi rilevanti: chi è in testa a fine round; prima, il colpo migliore e una battuta
       if (!pq || pq.positionInRound >= pq.totalInRound) {
-        const l = scoreLeaderLine(s.leaderboard ?? []);
+        // a squadre ("teams") si annuncia la squadra in testa
+        const l = scoreLeaderLine(standingsForShow(s));
         if (l) out.push(l);
       } else {
         out.push(answerStarLine(s.leaderboard ?? [], presenter, pq.id));
@@ -679,7 +681,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
     }
     case "LEADERBOARD": {
-      const l = leaderboardLine(s.leaderboard ?? []);
+      const l = leaderboardLine(standingsForShow(s));
       if (l) out.push(l);
       break;
     }
@@ -688,7 +690,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
     case "FINISHED":
       // solo l'apertura: il resto lo scandisce la rivelazione del podio (podiumPlan), con la suspense
-      out.push(podiumPlan(s.leaderboard ?? [], s.sessionId).opening);
+      out.push(podiumPlan(standingsForShow(s), s.sessionId).opening);
       break;
   }
   return out.filter((l) => l.text.trim().length > 0);

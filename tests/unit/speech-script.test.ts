@@ -120,6 +120,8 @@ function baseState(phase: GamePhase, extra: Partial<PublicState> = {}): PublicSt
     event: null,
     vote: null,
     leaderboard: null,
+    teams: null,
+    teamLeaderboard: null,
     pausedFrom: null,
     recentPlayers: null,
     showLines: null,

@@ -165,6 +165,34 @@ export interface LeaderboardEntry {
   correctCount: number;
 }
 
+/** Squadra della serata (stato pubblico: nessun dato personale dei membri). */
+export interface PublicTeam {
+  id: string;
+  name: string;
+  color: string;
+  position: number;
+  members: number;
+}
+
+/** Riga della classifica a squadre (mai attribuita a un singolo giocatore). */
+export interface TeamLeaderboardEntry {
+  teamId: string;
+  rank: number;
+  previousRank: number | null;
+  name: string;
+  color: string;
+  members: number;
+  points: number;
+  lastDelta: number;
+}
+
+export interface PublicTeamsInfo {
+  mode: "teams" | "both";
+  selfSelect: boolean;
+  aggregation: "sum" | "average";
+  list: PublicTeam[];
+}
+
 /** Battuta del regista automatico (con i nomi veri già inseriti). */
 export interface PublicShowLine {
   who: Presenter;
@@ -194,6 +222,10 @@ export interface PublicState {
   event: PublicEvent | null;
   vote: PublicVote | null;
   leaderboard: LeaderboardEntry[] | null;
+  /** modalità squadre attiva (null = partita individuale) */
+  teams: PublicTeamsInfo | null;
+  /** classifica a squadre, nelle stesse fasi della classifica individuale */
+  teamLeaderboard: TeamLeaderboardEntry[] | null;
   pausedFrom: GamePhase | null;
   /** Ultimi nickname entrati (solo lobby). */
   recentPlayers: string[] | null;
@@ -223,6 +255,8 @@ export const COMMANDS = [
   "SET_JOIN",
   "KICK",
   "ADJUST_SCORE",
+  "ASSIGN_TEAM",
+  "BALANCE_TEAMS",
   "RESET_TEST",
   "SIM_ADD_BOTS",
   "SIM_BOTS_ANSWER",

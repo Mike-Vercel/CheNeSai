@@ -367,6 +367,18 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
           <PlayersPanel
             live={live}
             canAdmin={canAdmin}
+            pending={!!pending}
+            onAssign={(participantId, teamId) => void send("ASSIGN_TEAM", { participantId, teamId }, { skipConfirm: true })}
+            onBalance={async (onlyUnassigned) => {
+              const okc = await confirm({
+                title: onlyUnassigned ? "Assegnare i giocatori senza squadra?" : "Bilanciare le squadre?",
+                message: onlyUnassigned
+                  ? "I giocatori senza squadra vengono distribuiti nelle squadre più piccole (e con meno punti)."
+                  : "Tutti i giocatori vengono ridistribuiti: squadre con lo stesso numero di giocatori e punti il più possibile simili. I punti personali non cambiano.",
+                confirmLabel: onlyUnassigned ? "Assegna" : "Bilancia",
+              });
+              if (okc) await send("BALANCE_TEAMS", { onlyUnassigned }, { skipConfirm: true });
+            }}
             onKick={async (id, nick) => {
               const okc = await confirm({ title: `Espellere ${nick}?`, message: "Il giocatore non potrà più rispondere in questa partita.", confirmLabel: "Espelli", danger: true });
               if (okc) await send("KICK", { participantId: id, reason: "Espulso dalla regia" }, { skipConfirm: true });
@@ -516,21 +528,69 @@ function PresentersLivePanel({ sessionId, version }: { sessionId: string; versio
   );
 }
 
-function PlayersPanel({ live, canAdmin, onKick, onAdjust }: { live: AdminLiveState; canAdmin: boolean; onKick: (id: string, nick: string) => void; onAdjust: (id: string, nick: string) => void }) {
+function PlayersPanel({
+  live,
+  canAdmin,
+  pending,
+  onKick,
+  onAdjust,
+  onAssign,
+  onBalance,
+}: {
+  live: AdminLiveState;
+  canAdmin: boolean;
+  pending: boolean;
+  onKick: (id: string, nick: string) => void;
+  onAdjust: (id: string, nick: string) => void;
+  onAssign: (participantId: string, teamId: string | null) => void;
+  onBalance: (onlyUnassigned: boolean) => void;
+}) {
   const [filter, setFilter] = useState("");
   const list = live.participants.filter((p) => p.nickname.toLowerCase().includes(filter.toLowerCase()));
+  const teamsOn = live.teamSettings.mode !== "individual";
+  const showTeams = teamsOn || live.teams.length > 0;
+  const teamOf = new Map(live.teams.map((t) => [t.id, t]));
+  const finished = live.public.phase === "FINISHED";
+  const unassigned = live.participants.filter((p) => p.status === "active" && !p.teamId).length;
   return (
     <div className="rounded-2xl border border-white/10 bg-[#1d0c30] p-4">
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <h2 className="font-display text-lg">Giocatori ({live.counts.players})</h2>
         <Input placeholder="Cerca…" value={filter} onChange={(e) => setFilter(e.target.value)} className="h-8 max-w-48 py-1 text-sm" />
       </div>
+      {showTeams && (
+        <div className="mb-3 rounded-xl bg-white/5 p-2 text-sm">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-bold">Squadre</span>
+            {!teamsOn && <Badge color="gray">modalità individuale</Badge>}
+            {teamsOn && <Badge color="gold">{live.teamSettings.selfSelect ? "scelgono i giocatori" : "assegna la regia"}</Badge>}
+            {live.teams.map((t) => (
+              <span key={t.id} className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-bold" style={{ borderColor: t.color }}>
+                <span aria-hidden className="h-2.5 w-2.5 rounded-full" style={{ background: t.color }} />
+                {t.name} · {t.members}
+              </span>
+            ))}
+          </div>
+          {live.teams.length >= 2 && !finished && (
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Button size="sm" variant="violet" disabled={pending} onClick={() => onBalance(false)}>
+                ⚖ Bilancia squadre
+              </Button>
+              <Button size="sm" variant="ghost" disabled={pending || unassigned === 0} onClick={() => onBalance(true)}>
+                Assegna i {unassigned} senza squadra
+              </Button>
+            </div>
+          )}
+          {live.teams.length < 2 && <p className="mt-1 text-xs text-white/60">Crea almeno 2 squadre nell&apos;editor della serata.</p>}
+        </div>
+      )}
       <div className="max-h-80 overflow-y-auto">
         <table className="w-full text-sm">
           <thead className="text-left text-white/50">
             <tr>
               <th className="py-1">#</th>
               <th>Nickname</th>
+              {showTeams && <th>Squadra</th>}
               <th className="text-right">Punti</th>
               <th className="text-center">Stato</th>
               <th />
@@ -543,6 +603,29 @@ function PlayersPanel({ live, canAdmin, onKick, onAdjust }: { live: AdminLiveSta
                 <td className="font-bold">
                   {p.nickname} {p.isBot && <Badge color="violet">bot</Badge>} {p.anomalies > 0 && <Badge color="red">{p.anomalies} anomalie</Badge>}
                 </td>
+                {showTeams && (
+                  <td>
+                    {p.status === "active" && !finished ? (
+                      <select
+                        aria-label={`Squadra di ${p.nickname}`}
+                        className="h-7 max-w-36 rounded border border-white/15 bg-black/40 px-1 text-xs font-bold"
+                        style={p.teamId ? { borderColor: teamOf.get(p.teamId)?.color } : undefined}
+                        value={p.teamId ?? ""}
+                        disabled={pending}
+                        onChange={(e) => onAssign(p.id, e.target.value || null)}
+                      >
+                        <option value="">— nessuna —</option>
+                        {live.teams.map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.name}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <span className="text-xs text-white/60">{p.teamId ? (teamOf.get(p.teamId)?.name ?? "") : "—"}</span>
+                    )}
+                  </td>
+                )}
                 <td className="text-right font-display">{formatPoints(p.points)}</td>
                 <td className="text-center">
                   <span title={p.online ? "Online" : "Non risponde da oltre 60 s"} className={clsx("inline-block h-2.5 w-2.5 rounded-full", p.online ? "bg-lime" : "bg-white/30")} />

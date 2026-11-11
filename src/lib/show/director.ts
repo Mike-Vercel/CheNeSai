@@ -11,7 +11,7 @@
  */
 import type { Presenter } from "@/lib/game-engine/types";
 import { cleanSpeech } from "@/features/game/script";
-import { eventPlayers } from "./events";
+import { eventPlayers, eventTeams } from "./events";
 import { ALLOWED_PLACEHOLDERS, EVENT_PRIORITY, type DialogueTemplate, type DirectorConfig, type ShowEvent, type ShowLine } from "./types";
 
 export interface DirectorHistory {
@@ -53,6 +53,7 @@ const names = (list: { nickname: string }[]) => {
   const n = list.map((x) => cleanSpeech(x.nickname));
   return n.length <= 1 ? (n[0] ?? "") : `${n.slice(0, -1).join(", ")} e ${n[n.length - 1]}`;
 };
+const teamNames = (list: { name: string }[]) => names(list.map((t) => ({ nickname: t.name })));
 const secondsIt = (ms: number) => (Math.round(ms / 100) / 10).toFixed(1).replace(".", ",");
 
 /** Valori dei segnaposto per un evento (solo dati confermati dal server). */
@@ -81,6 +82,10 @@ export function placeholderValues(e: ShowEvent): Record<string, string> {
       return { nome: names([e.who]), soglia: String(e.threshold) };
     case "ROUND_WINNER":
       return { nome_primo: names(e.leaders), punti_primo: String(e.points) };
+    case "TEAM_LEADER_CHANGED":
+      return { nome_squadra: teamNames([e.team]), nome_ex_squadra: teamNames([e.previous]) };
+    case "TEAM_ROUND_WINNER":
+      return { nome_squadra: teamNames(e.teams), punti_squadra: String(e.points) };
     case "ALL_WRONG":
     case "ALL_CORRECT":
       return {};
@@ -128,13 +133,17 @@ export function directShow(input: DirectInput): ShowLine[] {
 
   const lines: ShowLine[] = [];
   const mentionedNow = new Set<string>();
+  const teamsNow = new Set<string>();
   const usedTemplates = new Set<string>();
   for (const { e } of events) {
     if (lines.length >= config.maxLines) break;
     const players = eventPlayers(e);
+    const teams = eventTeams(e);
     // la vittoria del round si annuncia sempre; gli altri eventi rispettano i limiti di menzioni
-    const exempt = e.type === "ROUND_WINNER";
+    const exempt = e.type === "ROUND_WINNER" || e.type === "TEAM_ROUND_WINNER";
     if (players.some((p) => mentionedNow.has(p.id))) continue;
+    // una squadra non viene nominata due volte nello stesso momento
+    if (teams.some((t) => teamsNow.has(t.id))) continue;
     if (!exempt && players.some((p) => (history.mentionsThisRound.get(p.id) ?? 0) >= config.maxMentionsPerPlayerPerRound)) continue;
 
     const lastWho: Presenter | null = lines.length ? lines[lines.length - 1].who : null;
@@ -162,6 +171,7 @@ export function directShow(input: DirectInput): ShowLine[] {
     lines.push({ templateId: chosen.t.id, event: e.type, who: chosen.t.character, text: chosen.text, animation: chosen.t.animation, mentions: players.map((p) => p.id) });
     usedTemplates.add(chosen.t.id);
     for (const p of players) mentionedNow.add(p.id);
+    for (const t of teams) teamsNow.add(t.id);
   }
   return lines;
 }

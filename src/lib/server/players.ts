@@ -385,6 +385,8 @@ export interface PlayerSelf {
   currentAnswer: { sessionQuestionId: string; positions: number[]; submittedAt: string } | null;
   currentResult: { sessionQuestionId: string; isCorrect: boolean; partial: boolean; delta: number | null } | null;
   vote: { roundId: string; optionId: string } | null;
+  /** squadra del giocatore (modalità squadre) */
+  team: { id: string; name: string; color: string } | null;
   history: {
     sessionQuestionId: string;
     number: number;
@@ -404,6 +406,8 @@ export async function getPlayerSelf(db: Db, auth: PlayerAuth): Promise<PlayerSel
     select count(*)::int as total from participants where session_id = ${auth.sessionId} and status = 'active'`;
   const [gs] = await db<{ current_session_question_id: string | null; current_round_id: string | null }[]>`
     select current_session_question_id, current_round_id from game_state where session_id = ${auth.sessionId}`;
+  const [team] = await db<{ id: string; name: string; color: string }[]>`
+    select t.id, t.name, t.color from participants p join teams t on t.id = p.team_id where p.id = ${auth.participantId}`;
 
   let currentAnswer: PlayerSelf["currentAnswer"] = null;
   let currentResult: PlayerSelf["currentResult"] = null;
@@ -481,6 +485,7 @@ export async function getPlayerSelf(db: Db, auth: PlayerAuth): Promise<PlayerSel
     currentAnswer,
     currentResult,
     vote,
+    team: team ?? null,
     history: history.map((h) => ({
       sessionQuestionId: h.id,
       number: h.play_order ?? 0,

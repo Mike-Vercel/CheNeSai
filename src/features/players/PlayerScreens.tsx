@@ -20,7 +20,22 @@ export function PhoneShell({ children, header }: { children: ReactNode; header?:
   );
 }
 
-export function PhoneHeader({ nickname, points, rank, total, status }: { nickname: string; points: number | null; rank: number | null; total: number; status: "live" | "connecting" | "reconnecting" | "offline" }) {
+export function PhoneHeader({
+  nickname,
+  points,
+  rank,
+  total,
+  status,
+  team = null,
+}: {
+  nickname: string;
+  points: number | null;
+  rank: number | null;
+  total: number;
+  status: "live" | "connecting" | "reconnecting" | "offline";
+  /** squadra del giocatore (modalità squadre) */
+  team?: { name: string; color: string } | null;
+}) {
   return (
     <header className="relative z-20 mx-auto flex w-full max-w-md items-center gap-2 px-4 pt-3">
       <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border-2 border-gold/70 bg-black/50 px-3 py-1.5">
@@ -29,6 +44,12 @@ export function PhoneHeader({ nickname, points, rank, total, status }: { nicknam
           title={status === "live" ? "Connesso" : "Riconnessione…"}
         />
         <span className="truncate font-extrabold">{nickname}</span>
+        {team && (
+          <span className="flex min-w-0 shrink items-center gap-1 text-xs font-extrabold text-white/80" title={`Squadra ${team.name}`}>
+            <span aria-hidden className="h-2.5 w-2.5 shrink-0 rounded-full border border-white/80" style={{ background: team.color }} />
+            <span className="truncate">{team.name}</span>
+          </span>
+        )}
       </div>
       <div className="flex shrink-0 items-center gap-1 rounded-full border-2 border-gold/70 bg-black/50 px-3 py-1.5 font-display">
         <span className="text-gold">🏆</span>

@@ -3,7 +3,10 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Db, Tx } from "@/lib/database/db";
 import type { Presenter } from "@/lib/game-engine/types";
-import { detectShowEvents, type ShowPlayer } from "@/lib/show/events";
+import { aggregatePoints, teamsEnabled } from "@/lib/game-engine/teams";
+import type { SessionSettings } from "@/lib/validation/schemas";
+import { combineShowEvents, detectShowEvents, detectTeamEvents, type ShowPlayer, type ShowTeam } from "@/lib/show/events";
+import { teamSettingsOf } from "./settings";
 import { directShow, validateTemplate } from "@/lib/show/director";
 import { DEFAULT_DIRECTOR_CONFIG, SHOW_EVENT_TYPES, type CharacterAnimationName, type DialogueTemplate, type DirectorConfig, type ShowEventType, type ShowLine } from "@/lib/show/types";
 
@@ -153,8 +156,8 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
   }
   const current = byQ.get(sqId) ?? new Map<string, HistRow>();
 
-  const people = await tx<{ id: string; nickname: string; points: number }[]>`
-    select p.id, p.nickname, t.points from participants p join score_totals t on t.participant_id = p.id
+  const people = await tx<{ id: string; nickname: string; points: number; team_id: string | null }[]>`
+    select p.id, p.nickname, t.points, p.team_id from participants p join score_totals t on t.participant_id = p.id
     where p.session_id = ${sessionId} and p.status = 'active'`;
   const answers = await tx<{ participant_id: string; response_ms: number }[]>`
     select participant_id, response_ms from answer_submissions where session_question_id = ${sqId}`;
@@ -217,7 +220,26 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
     from session_questions sq where sq.id = ${sqId}`;
   const endOfRound = !!pos && pos.pos >= pos.tot;
 
-  const events = detectShowEvents({ players, leaderStreak, endOfRound });
+  // modalità squadre: punteggi di squadra prima/dopo (stessa aggregazione della classifica a squadre)
+  const [sess] = await tx<{ settings: SessionSettings }[]>`select settings from game_sessions where id = ${sessionId}`;
+  const ts = teamSettingsOf(sess?.settings);
+  let teamEvents: ReturnType<typeof detectTeamEvents> = [];
+  if (teamsEnabled(ts.mode)) {
+    const teamRows = await tx<{ id: string; name: string }[]>`select id, name from teams where session_id = ${sessionId} order by position`;
+    const showTeams: ShowTeam[] = teamRows.map((t) => {
+      const members = players.filter((p) => people.find((x) => x.id === p.id)?.team_id === t.id);
+      return {
+        id: t.id,
+        name: t.name,
+        points: aggregatePoints(members.map((m) => m.points), ts.aggregation),
+        prevPoints: aggregatePoints(members.map((m) => m.prevPoints), ts.aggregation),
+        members: members.length,
+      };
+    });
+    teamEvents = detectTeamEvents({ mode: ts.mode, teams: showTeams, endOfRound });
+  }
+
+  const events = combineShowEvents(ts.mode, detectShowEvents({ players, leaderStreak, endOfRound }), teamEvents);
 
   const used = await tx<{ template_id: string; at: Date }[]>`
     select template_id, max(created_at) as at from show_dialogue_log where session_id = ${sessionId} group by template_id`;
