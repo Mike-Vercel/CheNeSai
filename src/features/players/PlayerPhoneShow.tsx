@@ -9,6 +9,7 @@ import { enterFullscreen, unlockMobileAudio } from "@/features/gioca/mobile-show
 import { SeatContext, useSeat } from "@/features/gioca/use-seat";
 import type { PublicState } from "@/lib/game-engine/types";
 import { IntroSkipButton } from "./IntroSkip";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 const DisplayApp = dynamic(() => import("@/features/display/DisplayApp").then((m) => m.DisplayApp), {
   ssr: false,
@@ -74,10 +75,19 @@ function PlayerShowOverlay({ state, ctx, code, slot, nickname }: { state: Public
         </button>
       )}
 
+      {!lobby && (
+        <div className={vp === "INTRO" ? "absolute left-3 top-3 z-[66]" : "absolute bottom-3 left-3 z-[66]"} style={vp === "INTRO" ? { marginTop: "env(safe-area-inset-top)" } : { marginBottom: "env(safe-area-inset-bottom)" }}>
+          <ExitButton size="sm" className="!h-11" />
+        </div>
+      )}
+
       {lobby && (
         <div className="absolute inset-x-3 bottom-3 z-[66] rounded-[22px] bg-night/90 p-3 text-center shadow-[0_-10px_40px_rgba(0,0,0,.45)] backdrop-blur-sm" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <p className="text-sm font-black text-[#bfffdc]">✓ Sei dentro{nickname ? ` come ${nickname}` : ""}!</p>
           <p className="mt-1 text-xs font-bold text-white/75">Lo show lo vedi (e lo senti) qui. Aspetta che l&apos;host faccia partire la partita.</p>
+          <div className="mt-2 flex justify-center">
+            <ExitButton size="sm" />
+          </div>
         </div>
       )}
 

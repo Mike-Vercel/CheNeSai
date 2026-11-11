@@ -14,7 +14,7 @@ import { Logo } from "@/features/game/components/brand";
 import { getVoice, useSilentLine, useVoicePreparing } from "@/features/media/voice";
 import { speechFor } from "@/features/game/speech";
 import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE, type SpokenLine } from "@/features/game/script";
-import { spokenMs, timeLineDue, timeLineStartMs } from "@/lib/show/library";
+import { spokenMs, timeLineDue, timeLineStartMs, wheelLineFits } from "@/lib/show/library";
 import { questionMoment } from "@/features/game/moment";
 import { questionIntroMaxMs, questionIntroMs } from "@/features/game/question-intro";
 import { TvPauseOverlay } from "./TvScreens";
@@ -78,6 +78,18 @@ const PHASE_CUES: Partial<Record<GamePhase, CueName>> = {
 
 /** Opzioni di voce di una battuta del copione (libreria ufficiale: testo mostrato, battuta saltabile, scenetta). */
 const sayOpts = (l: SpokenLine) => ({ live: l.live, display: l.display, optional: l.optional, group: l.group });
+
+/**
+ * Ruota di Palmino: la battuta "Durante la ruota" si salta se, quando tocca a lei (o quando arriva la
+ * sua voce), non c'è più il tempo di finirla prima che la ruota si fermi ("Tocca a… X!").
+ */
+function wheelSkip(s: PublicState, l: SpokenLine, stillSpinning: () => boolean): (() => boolean) | undefined {
+  const spin = s.wheel?.kind === "palmino" ? s.wheel.spin : null;
+  if (s.phase !== "WHEEL_SPIN" || !l.optional || !spin) return undefined;
+  // fermata della ruota sull'orologio locale (ora del server dello stato → ora locale)
+  const stopAt = Date.now() + (Date.parse(spin.startedAt) + spin.durationMs - Date.parse(s.serverNow));
+  return () => !stillSpinning() || !wheelLineFits(stopAt - Date.now(), l.display ?? l.text);
+}
 
 /** Tempo che scade: attesa massima della clip (è pre-generata; se non c'è, la battuta si salta). */
 const TIME_LINE_CLIP_WAIT_MS = 1200;
@@ -280,8 +292,11 @@ export function DisplayApp({
 
   // ---------------------------------------------------------------- transizioni
   const [pollMs, setPollMs] = useState(4000);
+  /** fase dell'ultimo stato ricevuto (per le battute che si saltano se la fase è cambiata) */
+  const phaseRef = useRef<GamePhase | null>(null);
   const onState = useCallback(
     (s: PublicState, prev: PublicState | null) => {
+      phaseRef.current = s.phase;
       setPollMs(s.phase === "LOBBY" ? 2500 : s.phase === "CATEGORY_VOTING" || s.phase === "OPTIONS_VISIBLE" ? 1500 : 4000);
       if (!prev) return;
       const phaseChanged = s.phase !== prev.phase;
@@ -347,7 +362,8 @@ export function DisplayApp({
         said.push(...rest.map((l) => voice.say(l.who, l.text, sayOpts(l))));
         spoken = Promise.all(said);
       } else {
-        spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, sayOpts(l))));
+        const spinning = () => phaseRef.current === "WHEEL_SPIN";
+        spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { ...sayOpts(l), skipIf: wheelSkip(s, l, spinning) })));
       }
       // Lobby: saluti ai nuovi arrivati decisi dal server (solo quelli nuovi, mai dopo un ricaricamento)
       if (startedRef.current) for (const l of lobbyGreetingLines(s, prev)) void voice.say(l.who, l.text, { live: l.live });
@@ -417,9 +433,16 @@ export function DisplayApp({
     let toldSpeaking = false;
     let idleSince: number | null = null;
     let done = false;
+    // ruota che gira (Ruota impazzita o di Palmino): il momento finisce solo dopo l'arrivo e la
+    // battuta "Tocca a… X!", che il TV dice quando la ruota si ferma
+    const wheelTurning = () => {
+      const s = stateRef.current;
+      const sp = s?.version === version && s.phase === "WHEEL_SPIN" ? s.wheel?.spin : null;
+      return !!sp && sp.frozenElapsedMs === null && now() < Date.parse(sp.startedAt) + sp.durationMs + 400;
+    };
     const t = setInterval(() => {
       if (done) return;
-      if (voice.pending) {
+      if (voice.pending || wheelTurning()) {
         idleSince = null;
         if (!toldSpeaking) {
           toldSpeaking = true;
@@ -434,7 +457,7 @@ export function DisplayApp({
       }
     }, 100);
     return () => clearInterval(t);
-  }, [autoOn, version, sessionId, displayKey, voice]);
+  }, [autoOn, version, sessionId, displayKey, voice, now]);
 
   // QR code per la lobby
   const joinUrl = useMemo(() => {

@@ -29,6 +29,7 @@ import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
 import { BET_TIERS } from "@/lib/game-engine/types";
 import { loadRoundStandingRows, roundLeaderboardFrom, teamRoundLeaderboardFrom } from "./round-standings";
 import { loadIntroSkip } from "./intro-skip";
+import { loadPublicPalminoWheel } from "./palmino-wheel";
 
 export const QUESTION_PHASES: readonly GamePhase[] = [
   "QUESTION_VISIBLE",
@@ -138,7 +139,10 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
   const wheel =
     round && round.kind === "category_wheel" && WHEEL_PHASES.includes(vp)
       ? await loadPublicWheel(db, round.id, st.phase === "PAUSED" ? st.paused_at : null)
-      : null;
+      : round && vp === "WHEEL_SPIN"
+        ? // Ruota di Palmino (round normale): sceglie la categoria della prossima domanda
+          await loadPublicPalminoWheel(db, round.id, st.phase === "PAUSED" ? st.paused_at : null, st.questions_played + 1)
+        : null;
   const leaderboard = LEADERBOARD_PHASES.includes(vp) ? await loadLeaderboard(db, sessionId, vp === "SCORE_REVEAL" || vp === "FINISHED" ? 40 : 10) : null;
   // modalità squadre: elenco squadre sempre, classifica a squadre nelle stesse fasi di quella individuale
   const teams = await loadPublicTeams(db, sessionId, settings.teams);

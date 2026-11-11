@@ -16,6 +16,7 @@ import { effectiveSettings, loadGlobalSettings, teamSettingsOf } from "../settin
 import { MAX_TEAMS, MIN_TEAMS, teamsEnabled } from "@/lib/game-engine/teams";
 import { rebroadcast } from "../engine";
 import { copyTeams } from "./teams";
+import { clearPalminoWheelsTx, planPalminoWheelsTx, type PalminoPlanOptions } from "../palmino-wheel";
 
 type SessionInput = z.output<typeof sessionInputSchema>;
 
@@ -69,6 +70,8 @@ export interface SessionQuestionItem {
   questionId: string | null;
   voteOptionId: string | null;
   isReserve: boolean;
+  /** Ruota di Palmino: domanda scelta da uno spicchio (ha preso il posto del segnaposto) */
+  wheelCandidate?: boolean;
   text: string;
   category: string;
   type: QuestionType;
@@ -112,6 +115,8 @@ export interface RoundDetail {
   comebackLeaderPenalty: number;
   winningOptionId: string | null;
   startedAt: string | null;
+  /** Ruota di Palmino ancora da girare in questo round: la domanda segnaposto che verrà sostituita */
+  palminoSlotSqId?: string | null;
   questions: SessionQuestionItem[];
 }
 
@@ -236,6 +241,8 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       comeback_leader_penalty: string;
       winning_option_id: string | null;
       started_at: Date | null;
+      palmino_wheel: { slotSqId: string } | null;
+      wheel_spun_at: Date | null;
     }[]
   >`select * from game_rounds where session_id = ${id} order by position`;
 
@@ -254,6 +261,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       question_id: string | null;
       vote_option_id: string | null;
       is_reserve: boolean;
+      wheel_candidate: boolean;
       shown_at: Date | null;
       scored_at: Date | null;
       text: string | null;
@@ -274,7 +282,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       ev_status: string | null;
     }[]
   >`
-    select sq.id, sq.round_id, sq.position, sq.question_id, sq.vote_option_id, sq.is_reserve, sq.shown_at, sq.scored_at,
+    select sq.id, sq.round_id, sq.position, sq.question_id, sq.vote_option_id, sq.is_reserve, sq.wheel_candidate, sq.shown_at, sq.scored_at,
       coalesce(qs.text, qb.text) as text, coalesce(qs.category, qb.category) as category,
       coalesce(qs.type, qb.type) as type, coalesce(qs.difficulty, qb.difficulty) as difficulty,
       coalesce(qs.presenter, qb.presenter) as presenter, qb.status::text as status, qb.answer_confirmed,
@@ -298,6 +306,8 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
                        order by e.created_at limit 1) ev on true
     left join special_event_definitions d on d.id = ev.definition_id
     where sq.session_id = ${id}
+      -- Ruota di Palmino: le candidate ancora di riserva non sono domande della serata
+      and not (sq.wheel_candidate and sq.is_reserve)
     order by sq.position`;
 
   const roundsDetail: RoundDetail[] = rounds.map((r) => ({
@@ -324,6 +334,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
     comebackLeaderPenalty: num(r.comeback_leader_penalty),
     winningOptionId: r.winning_option_id,
     startedAt: iso(r.started_at),
+    palminoSlotSqId: r.palmino_wheel && !r.wheel_spun_at ? r.palmino_wheel.slotSqId : null,
     questions: questions
       .filter((q) => q.round_id === r.id)
       .map((q) => ({
@@ -332,6 +343,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
         questionId: q.question_id,
         voteOptionId: q.vote_option_id,
         isReserve: q.is_reserve,
+        wheelCandidate: q.wheel_candidate,
         text: q.text ?? "(domanda eliminata dall'archivio)",
         category: q.category ?? "-",
         type: q.type ?? "single",
@@ -523,14 +535,22 @@ export async function duplicateSession(id: string, actor: Actor, opts: { title?:
       }
       await tx`update game_sessions set settings = ${tx.json({ ...settings, runningOrder: { ...ro, rounds: rounds2 } })} where id = ${n.id}`;
     }
-    const sqs = await tx<{ id: string; round_id: string; position: number; question_id: string | null; vote_option_id: string | null; is_reserve: boolean }[]>`
-      select id, round_id, position, question_id, vote_option_id, is_reserve from session_questions where session_id = ${id}`;
+    const sqs = await tx<{ id: string; round_id: string; position: number; question_id: string | null; vote_option_id: string | null; is_reserve: boolean; wheel_candidate: boolean }[]>`
+      select id, round_id, position, question_id, vote_option_id, is_reserve, wheel_candidate from session_questions where session_id = ${id}`;
+    // Ruota di Palmino: le candidate non si copiano (la copia ne sceglie di nuove alla pubblicazione)
+    // e il segnaposto già sostituito da un giro torna al suo posto, come domanda giocabile
+    const slots = new Map<string, number>();
+    const wheels = await tx<{ palmino_wheel: { slotSqId: string; slotPosition: number } }[]>`
+      select palmino_wheel from game_rounds where session_id = ${id} and palmino_wheel is not null`;
+    for (const w of wheels) slots.set(w.palmino_wheel.slotSqId, w.palmino_wheel.slotPosition);
     for (const q of sqs) {
       if (!q.question_id) continue; // domanda eliminata dall'archivio: non duplicabile
+      if (q.wheel_candidate) continue;
+      const slotPos = slots.get(q.id);
       const [nq] = await tx<{ id: string }[]>`
         insert into session_questions (session_id, round_id, position, question_id, vote_option_id, is_reserve)
-        values (${n.id}, ${roundMap.get(q.round_id)!}, ${q.position}, ${q.question_id},
-                ${q.vote_option_id ? (optMap.get(q.vote_option_id) ?? null) : null}, ${q.is_reserve})
+        values (${n.id}, ${roundMap.get(q.round_id)!}, ${slotPos ?? q.position}, ${q.question_id},
+                ${q.vote_option_id ? (optMap.get(q.vote_option_id) ?? null) : null}, ${slotPos !== undefined ? false : q.is_reserve})
         returning id`;
       sqMap.set(q.id, nq.id);
     }
@@ -624,12 +644,17 @@ export function specialRoundIssues(r: RoundDetail, isFirstRound: boolean): Publi
   return out;
 }
 
-export async function publishSession(sessionId: string, actor: Actor): Promise<{ issues: PublishIssue[] }> {
-  return getSql().begin((tx) => publishSessionTx(tx, sessionId, actor));
+export interface PublishOptions {
+  /** Ruota di Palmino (se attiva nelle impostazioni): filtri dell'archivio per le candidate e, nei test, posti forzati. */
+  palminoWheel?: PalminoPlanOptions;
+}
+
+export async function publishSession(sessionId: string, actor: Actor, opts: PublishOptions = {}): Promise<{ issues: PublishIssue[] }> {
+  return getSql().begin((tx) => publishSessionTx(tx, sessionId, actor, opts));
 }
 
 /** Pubblicazione dentro una transazione già aperta (usata anche dal gioco libero). */
-export async function publishSessionTx(tx: Tx, sessionId: string, actor: Actor): Promise<{ issues: PublishIssue[] }> {
+export async function publishSessionTx(tx: Tx, sessionId: string, actor: Actor, opts: PublishOptions = {}): Promise<{ issues: PublishIssue[] }> {
   {
     const [s] = await tx<{ status: SessionStatus; settings: SessionSettings }[]>`select status, settings from game_sessions where id = ${sessionId} for update`;
     if (!s) throw new CmsError("Sessione non trovata", 404);
@@ -637,6 +662,15 @@ export async function publishSessionTx(tx: Tx, sessionId: string, actor: Actor):
     const issues = await validateForPublish(tx, sessionId);
     if (issues.some((i) => i.level === "error")) throw new CmsError("La sessione non può essere pubblicata", 422, issues);
     const eff = effectiveSettings(await loadGlobalSettings(tx), s.settings);
+    // Ruota di Palmino: posti e candidate decisi ora (serata ancora in bozza), così le candidate
+    // hanno la loro copia congelata come tutte le altre domande. Mai bloccante per la pubblicazione.
+    if (eff.palminoWheel) {
+      try {
+        await tx.savepoint((sp) => planPalminoWheelsTx(sp, sessionId, opts.palminoWheel ?? {}, actor));
+      } catch (e) {
+        console.warn("[quizzone] piano della Ruota di Palmino non riuscito (la serata si pubblica senza)", e instanceof Error ? e.message : e);
+      }
+    }
 
     await tx`
       insert into question_snapshots (session_question_id, session_id, source_question_id, source_question_version, type, text,
@@ -681,6 +715,8 @@ export async function unpublishSession(sessionId: string, actor: Actor): Promise
     await tx`update game_sessions set status = 'draft', published_at = null where id = ${sessionId}`;
     await tx`delete from question_snapshots where session_id = ${sessionId}`;
     await tx`delete from game_state where session_id = ${sessionId}`;
+    // Ruota di Palmino: le candidate si riscelgono alla prossima pubblicazione
+    await clearPalminoWheelsTx(tx, sessionId);
     await audit(tx, actor, "session.unpublish", { sessionId, type: "session", id: sessionId });
   });
 }

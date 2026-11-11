@@ -17,6 +17,7 @@ import {
 import { TvLobbyTeams, TvTeamLeaderboardScreen, TvWinningTeamBanner } from "./TvTeamScreens";
 import { leadingTeams, roundAsEntries, standingsForShow, teamMode } from "@/features/game/teams-view";
 import { TvWheelScreen } from "./TvWheel";
+import { TvPalminoWheelScreen } from "./TvPalminoWheel";
 import { TrioHost } from "./TvTrio";
 import { QuestionIntroScreen } from "./QuestionIntroScreen";
 
@@ -78,6 +79,10 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
       />
     ) : null;
   if (vp === "INTRO") return <>{intro}</>;
+  // Ruota di Palmino: fra una domanda e l'altra Palmino gira la ruota che sceglie la prossima categoria
+  if (vp === "WHEEL_SPIN" && view.wheel?.kind === "palmino") {
+    return <TvPalminoWheelScreen wheel={view.wheel} round={view.round} now={now} live={live} reducedMotion={reducedMotion} lowPower={lowPower} onCelebrate={onCelebrate} />;
+  }
   // Ruota impazzita: presentazione del round con la ruota ferma, poi il giro deciso dal server
   if ((vp === "ROUND_INTRO" || vp === "WHEEL_SPIN") && view.round?.kind === "category_wheel" && view.wheel) {
     return <TvWheelScreen round={view.round} wheel={view.wheel} now={now} live={live} reducedMotion={reducedMotion} lowPower={lowPower} onCelebrate={onCelebrate} />;

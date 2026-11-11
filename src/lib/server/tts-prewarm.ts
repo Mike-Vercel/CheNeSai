@@ -52,7 +52,8 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     const stop = state.phase === "WHEEL_SPIN" ? wheelStopLine(state) : null;
     if (stop) lines.push(stop);
     const sessionId = state.sessionId;
-    const nextToo = state.phase === "SCORE_REVEAL" || state.phase === "LEADERBOARD";
+    // (Ruota di Palmino: la domanda scelta dal giro si prepara mentre la ruota gira)
+    const nextToo = state.phase === "SCORE_REVEAL" || state.phase === "LEADERBOARD" || (state.phase === "WHEEL_SPIN" && state.wheel?.kind === "palmino");
     if (lines.length === 0 && !nextToo) return;
     after(async () => {
       try {
@@ -81,6 +82,8 @@ export async function prewarmNextQuestion(sessionId: string): Promise<void> {
     join question_snapshots qs on qs.session_question_id = sq.id
     join game_rounds r on r.id = sq.round_id
     where sq.session_id = ${sessionId} and sq.shown_at is null and not sq.is_reserve
+      -- segnaposto di una Ruota di Palmino ancora da girare: la ruota lo sostituirà (si prepara la vincente durante il giro)
+      and not (r.palmino_wheel->>'slotSqId' = sq.id::text and r.wheel_spun_at is null)
     order by r.position, sq.position limit 1`;
   if (!q) return;
   const lines = questionScriptLines(

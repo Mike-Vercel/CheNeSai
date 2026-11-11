@@ -4,6 +4,7 @@ import type { Db } from "@/lib/database/db";
 import type { MediaKind, Presenter, QuestionType } from "@/lib/game-engine/types";
 import {
   categoryResultLine,
+  palminoWheelResultLine,
   wheelResultLine,
   dedupeLines,
   eventDefinitionScriptLines,
@@ -20,6 +21,7 @@ import {
 import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
 import { CmsError } from "./audit";
 import { getSessionDetail } from "./cms/sessions";
+import { palminoWheelLabels } from "./palmino-wheel";
 import { listQuestions } from "./cms/questions";
 import { appUsage, cachedKeys, ensureClip, loadVoiceConfig, planClip, planPart, TtsError, ttsConfigured, type PlannedClip, type TtsPriority, type TtsSource, type VoiceConfig } from "./tts";
 import { splitByNames } from "@/features/game/name-segments";
@@ -142,9 +144,14 @@ export async function sessionLines(db: Db, sessionId: string): Promise<SpokenLin
     for (const q of r.questions) {
       if (!q.questionId && !q.fromSnapshot) continue;
       questionCount++;
+      // segnaposto di una Ruota di Palmino ancora da girare: quasi mai si gioca (la sostituisce la ruota)
+      if (r.palminoSlotSqId === q.id) continue;
       out.push(...questionScriptLines(scriptQuestionFromCms(q)));
     }
   });
+  // Ruota di Palmino: "Tocca a… CATEGORIA!" per ogni spicchio (frasi brevi, uguali in ogni serata).
+  // Le domande candidate NON si preparano tutte (ne esce una sola): la vincente si prepara durante il giro.
+  for (const label of await palminoWheelLabels(db, sessionId)) out.push(palminoWheelResultLine(label));
   const scheduled = await db<{ title: string; tagline: string }[]>`select distinct title, tagline from special_events where session_id = ${sessionId}`;
   out.push(...scheduled.flatMap((e) => eventLines(e)));
   for (let n = GENERIC_QUESTION_NUMBERS + 1; n <= questionCount; n++) out.push(questionNumberLine(n));

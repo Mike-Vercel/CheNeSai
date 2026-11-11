@@ -16,6 +16,7 @@ import {
   nextNoAnswerStreak,
   noAnswerEvent,
   pickMomentLines,
+  pickWheelLines,
   revealChoice,
   TIME_LINE_PERCENT,
   type LineContext,
@@ -682,6 +683,35 @@ export async function directLeaderboard(tx: Tx, sessionId: string, roundId: stri
       const lines = momentLines(m.config, m.templates, m.h, { type: "LEADERBOARD_QUIP" }, `${seed}|classifica`, { mode: ts.mode, comeback }, { scenes: false, prefer: "palmino" });
       pub = await logLines(tx, sessionId, lines, { sqId: null, roundId });
     }
+  }
+  await publishLines(tx, sessionId, pub.length ? pub : null);
+  return pub;
+}
+
+/**
+ * Ruota di Palmino (SHOW_QUESTION → WHEEL_SPIN): una battuta "Durante la ruota" di UN presentatore,
+ * pesata e senza ripetizioni come le altre. Il TV la dice dopo l'arrivo di Palmino e SOLO se finisce
+ * prima che la ruota si fermi (mai sopra "Tocca a… X!"); se la voce non è pronta si salta.
+ */
+export async function directPalminoWheel(tx: Tx, sessionId: string, roundId: string, seed: string): Promise<PublicShowLine[]> {
+  const m = await prepareMoment(tx, sessionId, roundId);
+  let pub: PublicShowLine[] = [];
+  if (m && eventAllowed(m.config, "WHEEL_SPIN")) {
+    const ts = await teamModeOf(tx, sessionId);
+    const lines = pickWheelLines({
+      templates: m.templates,
+      comedyLevel: m.config.comedyLevel,
+      seed,
+      nowMs: m.h.nowMs,
+      lastUsed: m.h.lastUsed,
+      elsewhere: m.h.elsewhere,
+      mode: ts.mode,
+      palminoAccent: m.config.palminoAccent,
+      // qualsiasi presentatore (Palmino ha già detto la sua arrivando)
+      first: null,
+      max: 1,
+    });
+    pub = await logLines(tx, sessionId, lines, { sqId: null, roundId });
   }
   await publishLines(tx, sessionId, pub.length ? pub : null);
   return pub;

@@ -169,7 +169,7 @@ export function PortraitQuestionScreen({
   const open = phase === "OPTIONS_VISIBLE" && remainingMs > 0 && !listening;
   const hasImage = q.media?.kind === "image" && mediaUrl;
   // fumetto solo mentre il presentatore dice un commento (mai prima, mai il testo della domanda)
-  const line = useSpokenBubble((text) => isQuestionQuip(text));
+  const line = useSpokenBubble((text, _who, curated) => curated || isQuestionQuip(text));
   const mine = seat?.selected ?? [];
   const locked = seat?.status === "recorded" || seat?.status === "sending";
   const multiple = q.type === "multiple";

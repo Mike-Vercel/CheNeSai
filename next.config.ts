@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   // L'app è interamente dinamica (stato live): niente Cache Components.
   reactCompiler: true,
   poweredByHeader: false,
+  // niente badge "N" di Next in sviluppo: copriva i tasti in basso a sinistra (Esci, GIRA). Gli errori restano visibili.
+  devIndicators: false,
   // libreria iniziale e libreria ufficiale delle battute dei presentatori (importate dalla regia se mancano)
   outputFileTracingIncludes: { "/api/**": ["./content/show/battute.json", "./content/show/libreria-ufficiale.json"] },
   turbopack: {

@@ -605,6 +605,8 @@ export interface WheelLinesInput {
   palminoAccent?: boolean;
   /** battute al massimo (Palmino per primo, poi un altro presentatore); predefinito 1 */
   max?: number;
+  /** chi parla per primo: predefinito Palmino; null = chiunque (scelta pesata) */
+  first?: Presenter | null;
   elsewhere?: ReadonlySet<string>;
 }
 
@@ -629,8 +631,9 @@ export function pickWheelLines(input: WheelLinesInput): ShowLine[] {
   };
   const all = libraryCandidates(base);
   const out: ShowLine[] = [];
-  const palmino = all.filter((c) => c.character === "palmino");
-  const first = pickCandidate(palmino.length ? palmino : all, `${input.seed}|ruota|1`);
+  const want = input.first === undefined ? "palmino" : input.first;
+  const preferred = want ? all.filter((c) => c.character === want) : all;
+  const first = pickCandidate(preferred.length ? preferred : all, `${input.seed}|ruota|1`);
   if (!first) return out;
   out.push(...candidateLines(first, "WHEEL_SPIN", [], input.seed));
   if (max > 1) {
@@ -639,6 +642,17 @@ export function pickWheelLines(input: WheelLinesInput): ShowLine[] {
     if (second) out.push(...candidateLines(second, "WHEEL_SPIN", [], input.seed));
   }
   return out.slice(0, max);
+}
+
+/** Margine fra la fine della battuta "Durante la ruota" e la fermata della ruota ("Tocca a… X!"). */
+export const WHEEL_LINE_MARGIN_MS = 1200;
+
+/**
+ * La battuta "Durante la ruota" ci sta ancora? Solo se, partendo adesso, finisce con un margine
+ * prima che la ruota si fermi: così non si sovrappone mai al risultato e non lo ritarda.
+ */
+export function wheelLineFits(msToStop: number, text: string): boolean {
+  return msToStop >= spokenMs(text) + WHEEL_LINE_MARGIN_MS;
 }
 
 /** Configurazione di regia rilevante per le voci delle battute curate. */

@@ -46,6 +46,7 @@ export function SessionSettingsModal({
   const [autoEvents, setAutoEvents] = useState(settings.autoEvents ?? true);
   const [pool, setPool] = useState<string[]>(settings.palminoPool ?? []);
   const [advanceMode, setAdvanceMode] = useState<AdvanceMode>(settings.advanceMode ?? "manual");
+  const [palminoWheel, setPalminoWheel] = useState(settings.palminoWheel ?? false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [general, setGeneral] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -62,6 +63,7 @@ export function SessionSettingsModal({
       autoEvents,
       palminoPool: pool,
       advanceMode,
+      palminoWheel,
     };
     const nick = intOrNull(nicknameMaxLength);
     if (nick !== null) out.nicknameMaxLength = nick;
@@ -185,6 +187,18 @@ export function SessionSettingsModal({
             onChange={setAutoEvents}
             label="Eventi programmati automatici"
             hint="Gli eventi associati alle domande partono da soli quando la domanda arriva in onda."
+          />
+          <Checkbox
+            checked={palminoWheel}
+            onChange={setPalminoWheel}
+            // le domande della ruota si riservano alla pubblicazione: dopo si può solo spegnerla
+            disabled={frozen && !settings.palminoWheel}
+            label="🎡 Ruota di Palmino"
+            hint={
+              frozen && !settings.palminoWheel
+                ? "Si attiva prima della pubblicazione: le domande della ruota si scelgono quando la serata viene pubblicata."
+                : "Dalla 5ª domanda, ogni tanto (al massimo una volta per round), Palmino gira una ruota che sceglie la categoria della domanda successiva. Si decide alla pubblicazione; spegnendola dopo, la ruota non compare."
+            }
           />
           <div>
             <p className="text-sm font-bold text-white/80">Eventi che Palmino può estrarre con &laquo;Palmino decide&raquo;</p>

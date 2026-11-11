@@ -132,6 +132,11 @@ export const sessionSettingsSchema = z.object({
   advanceMode: z.enum(ADVANCE_MODES).nullable().optional(),
   /** giocatori massimi (partite libere; assente = nessun limite) */
   maxPlayers: z.number().int().min(2).max(500).nullable().optional(),
+  /**
+   * Ruota di Palmino: dalla 5ª domanda, ogni tanto, Palmino gira una ruota che sceglie la categoria
+   * della domanda successiva. Il piano si decide alla pubblicazione (partite libere: sempre attiva).
+   */
+  palminoWheel: z.boolean().nullable().optional(),
   /** modalità squadre (assente = individuale) */
   teams: z
     .object({

@@ -65,11 +65,11 @@ export const TalkingCharacter = memo(function TalkingCharacter(props: React.Comp
  * fine), mai prima che parli né per le battute in coda. `accept` sceglie quali battute vanno nel
  * fumetto (es. sulla domanda solo i commenti, non il testo della domanda già sullo schermo).
  */
-export function useSpokenBubble(accept: (text: string, who: Presenter) => boolean = () => true): string | null {
+export function useSpokenBubble(accept: (text: string, who: Presenter, curated: boolean) => boolean = () => true): string | null {
   const speech = useHeldSpeech();
   if (!speech) return null;
-  // battute della libreria ufficiale (reazioni, tempo che scade…): sempre nel fumetto, con il testo scritto dall'utente
-  if (speech.display === undefined && !accept(speech.text, speech.who)) return null;
+  // `curated` = battuta della libreria ufficiale (reazioni, tempo che scade…): nel fumetto con il testo scritto dall'utente
+  if (!accept(speech.text, speech.who, speech.display !== undefined)) return null;
   const t = speech.display ?? stripAudioTags(speech.text);
   return t.length > 0 ? t : null;
 }
@@ -173,7 +173,7 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
   const totalMs = q.rules.durationSeconds * 1000;
   const showTimer = optionsVisible && !revealed;
   // Fumetto: solo mentre il presentatore dice un commento (mai prima, mai il testo della domanda)
-  const line = useSpokenBubble((text) => isQuestionQuip(text));
+  const line = useSpokenBubble((text, _who, curated) => curated || isQuestionQuip(text));
   const totalAnswers = q.distribution?.reduce((a, b) => a + b, 0) ?? 0;
   const special = q.rules.special ?? null;
   const isBet = special?.kind === "bet";

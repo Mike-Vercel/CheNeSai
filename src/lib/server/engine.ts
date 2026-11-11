@@ -33,11 +33,12 @@ import { broadcastState } from "./realtime";
 import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } from "./settings";
 import { rulesForQuestion } from "./rules";
 import { optionsReadMs } from "./read-time";
-import { directAfterReveal, directAfterScore, directFinalRoundStart, directFinish, directLeaderboard, directOptionsOpen } from "./show";
+import { directAfterReveal, directAfterScore, directFinalRoundStart, directFinish, directLeaderboard, directOptionsOpen, directPalminoWheel } from "./show";
 import { computeSessionTeamStandings, rerankTeams } from "./teams";
 import { scheduleSessionPrep, schedulePrewarm } from "./tts-prewarm";
 import { PALMINO_DECIDES_PREFIX } from "@/features/game/script";
 import { INTRO_SKIP_REASON } from "@/lib/game-engine/intro-skip";
+import { resetPalminoWheelsTx, spinPalminoWheelTx } from "./palmino-wheel";
 
 /** Regia dei presentatori in un savepoint: un errore non deve mai far fallire il comando. */
 async function directSafely(tx: Tx, fn: (sp: Tx) => Promise<unknown>): Promise<void> {
@@ -448,6 +449,9 @@ export async function resolveNextQuestion(tx: Tx, st: StateRow): Promise<NextQue
   return q ? { id: q.id, source: "sequence" } : null;
 }
 
+/** Fasi da cui MOSTRA DOMANDA può far comparire la Ruota di Palmino (fra una domanda e l'altra). */
+const PALMINO_WHEEL_FROM: readonly GamePhase[] = ["SCORE_REVEAL", "LEADERBOARD", "SPECIAL_EVENT"];
+
 /** Comandi che fanno uscire dalla ruota: rifiutati finché gira (salvo conferma esplicita con "force"). */
 const LEAVE_WHEEL_COMMANDS: readonly GameCommand[] = ["SHOW_QUESTION", "ACTIVATE_EVENT", "SHOW_LEADERBOARD"];
 
@@ -678,6 +682,23 @@ const HANDLERS: Record<GameCommand, Handler> = {
       throw new GameError("INVALID_TRANSITION", round?.kind === "category_wheel" ? "Prima gira la ruota" : "Prima completa la votazione della categoria");
     }
     if (!next) throw new GameError("NO_MORE_QUESTIONS", "Domande del round terminate: inizia il prossimo round o termina");
+
+    // Ruota di Palmino: la prossima domanda è il segnaposto di una ruota → prima Palmino gira la
+    // ruota (il server estrae la categoria e scambia la domanda), poi MOSTRA DOMANDA mostra quella scelta.
+    if (settings.palminoWheel && next.source !== "forced" && PALMINO_WHEEL_FROM.includes(st.phase) && st.current_round_id) {
+      const spun = await spinPalminoWheelTx(tx, st.current_round_id, next.id);
+      if (spun) {
+        // libreria ufficiale: una battuta "Durante la ruota" (il TV la dice solo se finisce prima del risultato)
+        const roundId = st.current_round_id;
+        await directSafely(tx, (sp) => directPalminoWheel(sp, ctx.sessionId, roundId, `${roundId}|${next.id}`));
+        return {
+          to: "WHEEL_SPIN",
+          // dopo un evento annunciato sul segnaposto la domanda corrente diventa quella scelta
+          patch: next.source === "current" ? { current_session_question_id: spun.winnerSqId } : undefined,
+          result: { palminoWheel: true, roundId: spun.roundId, winner: spun.label, winnerSqId: spun.winnerSqId, segments: spun.segments, plan: spun.plan },
+        };
+      }
+    }
 
     // Evento programmato su questa domanda: Palmino lo annuncia PRIMA della domanda.
     if (settings.autoEvents && st.phase !== "SPECIAL_EVENT") {
@@ -921,10 +942,10 @@ const HANDLERS: Record<GameCommand, Handler> = {
       if (st.phase === "QUESTION_VISIBLE") throw new GameError("EVENT_NOT_ALLOWED", "La domanda è già visibile: attiva la domanda misteriosa tra una domanda e l'altra");
       const [reserve] = args.reserveQuestionId
         ? await tx<{ id: string }[]>`
-            select id from session_questions where id = ${args.reserveQuestionId} and session_id = ${sessionId} and is_reserve and shown_at is null`
+            select id from session_questions where id = ${args.reserveQuestionId} and session_id = ${sessionId} and is_reserve and not wheel_candidate and shown_at is null`
         : await tx<{ id: string }[]>`
             select sq.id from session_questions sq join game_rounds r on r.id = sq.round_id
-            where sq.session_id = ${sessionId} and sq.is_reserve and sq.shown_at is null
+            where sq.session_id = ${sessionId} and sq.is_reserve and not sq.wheel_candidate and sq.shown_at is null
             order by r.position, sq.position limit 1`;
       if (!reserve) throw new GameError("EVENT_NOT_ALLOWED", "Nessuna domanda di riserva disponibile (preparala nella sessione)");
       target = reserve.id;
@@ -1183,6 +1204,8 @@ const HANDLERS: Record<GameCommand, Handler> = {
     await tx`delete from participants where session_id = ${sessionId}`;
     await tx`delete from special_events where session_id = ${sessionId} and source <> 'scheduled'`;
     await tx`update special_events set status = 'scheduled', announced_at = null where session_id = ${sessionId}`;
+    // Ruota di Palmino: le domande scambiate dal giro tornano al loro posto
+    await resetPalminoWheelsTx(tx, sessionId);
     await tx`
       update session_questions set shown_at = null, options_opened_at = null, answers_close_at = null,
         answers_closed_at = null, revealed_at = null, scored_at = null, play_order = null, rules = null

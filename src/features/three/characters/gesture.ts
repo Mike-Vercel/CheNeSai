@@ -12,6 +12,8 @@ export const GESTURE_MS: Partial<Record<CharacterAnimation, number>> = {
   point: 1800,
   celebrate: 2800,
   surprised: 1600,
+  // Ruota di Palmino: carica, colpo che lancia la ruota, accompagnamento (vedi palmino/animation.ts)
+  spin: 1700,
 };
 
 /**

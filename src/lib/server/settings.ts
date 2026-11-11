@@ -51,6 +51,8 @@ export interface EffectiveSessionSettings {
   teams: TeamSettings;
   /** Giocatori massimi (null = nessun limite; usato dalle partite libere). */
   maxPlayers: number | null;
+  /** Ruota di Palmino (ogni tanto sceglie la categoria della domanda successiva): partite libere sì, serate no di default. */
+  palminoWheel: boolean;
 }
 
 export const DEFAULT_PALMINO_POOL = ["double-points", "no-penalty", "lightning", "super-bonus", "impossible-comeback"];
@@ -72,6 +74,7 @@ export function effectiveSettings(global: GlobalSettings, session: SessionSettin
     answerGraceMs: global.timing.answerGraceMs,
     teams: teamSettingsOf(s),
     maxPlayers: s.maxPlayers ?? null,
+    palminoWheel: s.palminoWheel ?? false,
   };
 }
 

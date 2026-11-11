@@ -201,6 +201,11 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   await shot(page, "B6-podio-verticale");
   await expect(friend.getByText(/I CAMPIONI DELLA SERATA|LA CLASSIFICA FINALE/)).toBeVisible({ timeout: 60_000 });
   await shot(friend, "B6b-amico-podio");
+  // tasto Esci: il primo tocco chiede conferma, il secondo riporta alla home (audio spento)
+  await friend.getByRole("button", { name: "Esci dalla partita" }).click();
+  await shot(friend, "B6c-amico-esci-conferma");
+  await friend.getByRole("button", { name: "Conferma: esci dalla partita" }).click();
+  await friend.waitForURL((u) => u.pathname === "/", { timeout: 30_000 });
   expect(friendErrors, friendErrors.join("\n")).toEqual([]);
   await friendCtx.close();
   expect(errors, errors.join("\n")).toEqual([]);
@@ -212,6 +217,10 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   await expect(bp.getByText("I CAMPIONI DELLA SERATA")).toBeVisible({ timeout: 60_000 });
   await bp.waitForTimeout(2000);
   await shot(bp, "B7-podio-1080x1920");
+  await bp.getByRole("button", { name: "Esci dalla partita" }).click();
+  await bp.getByRole("button", { name: "Conferma: esci dalla partita" }).click();
+  await bp.waitForURL((u) => u.pathname === "/", { timeout: 30_000 });
+  await shot(bp, "B8-home-dopo-esci");
   await big.close();
   await ctx.close();
 });

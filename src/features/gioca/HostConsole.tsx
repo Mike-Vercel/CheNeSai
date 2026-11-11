@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import QRCode from "qrcode";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { isTvScreenMessage, tvChannelName, type TvScreenMessage } from "@/features/display/screen-picker";
-import { PHASE_LABELS } from "@/lib/game-engine/transitions";
+import { phaseLabelOf } from "@/lib/game-engine/transitions";
 import type { PublicState } from "@/lib/game-engine/types";
 import { api } from "@/lib/realtime/api-client";
 import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick";
@@ -16,6 +16,7 @@ import { RematchControls } from "./RematchControls";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
 import { useDeviceKind } from "./use-device";
+import { ExitButton } from "@/features/game/components/ExitButton";
 
 /** Il TV risponde al ping ogni pochi secondi: oltre questo tempo lo si considera chiuso. */
 const TV_ALIVE_MS = 9000;
@@ -114,13 +115,14 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
           <Link href="/profilo" className="text-sm font-bold text-white/70 hover:text-white">
             ← Le tue partite
           </Link>
-          <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">{view ? PHASE_LABELS[view.phase] : "Collegamento…"}</h1>
+          <h1 className="mt-1 font-display text-4xl leading-tight md:text-5xl">{view ? phaseLabelOf(view) : "Collegamento…"}</h1>
           <p className="mt-0.5 text-base font-bold text-white/75">
             {view?.title}
             {progress ? ` · ${progress}` : ""}
           </p>
         </div>
         <div className="flex flex-col items-end gap-2">
+          <ExitButton size="sm" />
           <span className={clsx("inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-bold", tv.alive ? "bg-[#1f5c3d] text-[#9dffc9]" : "bg-white/10 text-white/70")}>
             <span className={clsx("h-2 w-2 rounded-full", tv.alive ? "bg-[#5dffab]" : "bg-white/40")} aria-hidden />
             {tv.alive ? "TV collegato" : "TV non aperto"}

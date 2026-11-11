@@ -199,7 +199,8 @@ async function composePublicTx(
         hostUserId: host.userId,
         onlyTag: opts.onlyTag,
         // nessun limite di giocatori se l'impostazione è 0 ("finché regge")
-        settings: { advanceMode: "auto", allowLateJoin: true, ...(publicMaxPlayers(settings) ? { maxPlayers: publicMaxPlayers(settings)! } : {}) },
+        // Ruota di Palmino: ogni tanto, dalla 5ª domanda, sceglie la categoria della domanda successiva
+        settings: { advanceMode: "auto", allowLateJoin: true, palminoWheel: true, ...(publicMaxPlayers(settings) ? { maxPlayers: publicMaxPlayers(settings)! } : {}) },
       },
     );
   } catch (e) {
@@ -209,7 +210,8 @@ async function composePublicTx(
     throw e;
   }
   const sessionId = res.sessionId!;
-  await publishSessionTx(tx, sessionId, actor);
+  // candidate della ruota dallo stesso archivio, prima quelle che questo host non ha mai visto
+  await publishSessionTx(tx, sessionId, actor, { palminoWheel: { onlyTag: opts.onlyTag, hostUserId: host.userId } });
   await tx`update game_sessions set public_options = ${tx.json({ totalQuestions: o.totalQuestions, rounds: o.rounds, mix: o.mix })} where id = ${sessionId}`;
   const counts = opts.countsAsGame(quota);
   if (counts) await tx`update host_profiles set games_created = games_created + 1, updated_at = now() where user_id = ${host.userId}`;

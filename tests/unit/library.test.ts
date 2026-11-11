@@ -12,6 +12,9 @@ import {
   PALMINO_ACCENT_TAG,
   pickMomentLines,
   pickWheelLines,
+  wheelLineFits,
+  WHEEL_LINE_MARGIN_MS,
+  spokenMs,
   renderTemplate,
   revealChoice,
   tagsAllow,
@@ -350,5 +353,43 @@ describe("ruota (da collegare): pickWheelLines", () => {
     expect(a[1].who).not.toBe("palmino");
     expect(a.every((l) => l.event === "WHEEL_SPIN" && l.optional && l.display)).toBe(true);
     for (const l of pickWheelLines({ templates: OFFICIAL, comedyLevel: "leggero", seed: "r", max: 2 })) expect(OFFICIAL.find((t) => t.id === l.templateId)!.level).toBe("leggero");
+  });
+});
+
+describe("Ruota di Palmino: battuta 'Durante la ruota'", () => {
+  it("un presentatore qualsiasi (scelta pesata), stesso seme → stessa battuta, mai senza cooldown", () => {
+    const whos = new Set(Array.from({ length: 40 }, (_, i) => pickWheelLines({ templates: OFFICIAL, comedyLevel: "irriverente", seed: `w${i}`, first: null })[0]?.who));
+    expect(whos.size).toBeGreaterThan(1);
+    const one = pickWheelLines({ templates: OFFICIAL, comedyLevel: "irriverente", seed: "w1", first: null });
+    expect(one).toHaveLength(1);
+    expect(pickWheelLines({ templates: OFFICIAL, comedyLevel: "irriverente", seed: "w1", first: null })).toEqual(one);
+    const lastUsed = new Map(byEvent("WHEEL_SPIN").map((t) => [t.id, 0]));
+    expect(pickWheelLines({ templates: OFFICIAL, comedyLevel: "irriverente", seed: "w1", first: null, lastUsed, nowMs: 60_000 })).toHaveLength(0);
+  });
+
+  it("si dice solo se finisce prima che la ruota si fermi (mai sopra 'Tocca a… X!')", () => {
+    const text = "Vediamo quale disgrazia vi tocca!";
+    expect(wheelLineFits(spokenMs(text) + WHEEL_LINE_MARGIN_MS + 10, text)).toBe(true);
+    expect(wheelLineFits(spokenMs(text) + WHEEL_LINE_MARGIN_MS - 10, text)).toBe(false);
+    expect(wheelLineFits(-1, text)).toBe(false);
+  });
+
+  it("nel copione viene dopo l'arrivo di Palmino, saltabile; solo nella fase della ruota", () => {
+    const line: PublicShowLine = { who: "regina", text: "[laughs] Vediamo quale disgrazia vi regala il destino!", animation: "celebrate", event: "WHEEL_SPIN", live: false, optional: true, display: "Vediamo quale disgrazia vi regala il destino!" };
+    expect(showLinesForPhase("WHEEL_SPIN", [line])).toEqual([line]);
+    expect(showLinesForPhase("SCORE_REVEAL", [line])).toEqual([]);
+    const s = {
+      sessionId: "s",
+      phase: "WHEEL_SPIN",
+      questionsPlayed: 5,
+      showLines: [line],
+      wheel: { kind: "palmino", questionNumber: 6, roundId: "r", segments: [], spin: null },
+      round: { id: "r", index: 1, total: 2 },
+      question: null,
+    } as unknown as PublicState;
+    const said = speechFor(s, { phase: "SCORE_REVEAL" }, { readOptions: true });
+    expect(said).toHaveLength(2);
+    expect(said[0].who).toBe("palmino");
+    expect(said[1]).toMatchObject({ who: "regina", optional: true, live: false });
   });
 });

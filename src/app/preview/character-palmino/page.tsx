@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 type SearchParams = Record<string, string | string[] | undefined>;
 
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
-const ANIMS: readonly CharacterAnimation[] = ["idle", "intro", "talk", "wave", "celebrate", "surprised", "point"];
+const ANIMS: readonly CharacterAnimation[] = ["idle", "intro", "talk", "wave", "celebrate", "surprised", "point", "spin"];
 const VIEWS: readonly PreviewView[] = ["ref", "front", "34", "side", "sideR", "back", "close"];
 
 /**

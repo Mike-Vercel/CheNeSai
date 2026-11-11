@@ -63,6 +63,10 @@ pubblicata (stessi controlli delle serate) e con la lobby aperta. Il titolo è "
   **già viste da questo host** (solo se l'archivio non basta, con avviso).
 - Le partite libere non "prenotano" domande per le serate della regia (si giocano subito), ma le domande
   che mostrano contano come giocate anche per le serate (come qualsiasi serata non di prova).
+- **Ruota di Palmino**: dalla 5ª domanda, ogni tanto (al massimo una per round, 2–3 a partita), Palmino gira
+  una ruota che sceglie la categoria della domanda successiva. Le candidate degli spicchi seguono le stesse
+  regole (prima le mai viste da questo host); conta come "vista" solo la domanda che esce davvero.
+  Dettagli in `docs/ARCHITECTURE.md`.
 
 ## Partite libere nella regia
 

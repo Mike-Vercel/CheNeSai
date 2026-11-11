@@ -8,6 +8,7 @@ import { getSessionDetail, type RoundDetail } from "./cms/sessions";
 import { effectiveSettings, loadGlobalSettings, teamSettingsOf } from "./settings";
 import { planFromRounds, type LiveRoundActual, type LiveTimingInput, type ResolvedPlan } from "@/lib/show/running-order";
 import { listTeams, type TeamAdmin } from "./cms/teams";
+import { palminoWheelPending } from "./palmino-wheel";
 import type { TeamSettings } from "@/lib/game-engine/teams";
 
 export interface AdminLiveState {
@@ -25,7 +26,15 @@ export interface AdminLiveState {
     timerExpired: boolean;
     mediaKind: string | null;
   } | null;
-  next: { sessionQuestionId: string; text: string; roundTitle: string; scheduledEvent: string | null; mediaKind: string | null } | null;
+  next: {
+    sessionQuestionId: string;
+    text: string;
+    roundTitle: string;
+    scheduledEvent: string | null;
+    mediaKind: string | null;
+    /** prima di questa domanda Palmino gira la sua ruota (la domanda verrà sostituita da quella scelta) */
+    palminoWheel?: boolean;
+  } | null;
   rounds: RoundDetail[];
   counts: { players: number; online: number; bots: number; kicked: number; answered: number; voted: number };
   warnings: string[];
@@ -151,6 +160,10 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
       const q = r.questions.find((x) => x.id === nextId);
       if (q) next = { sessionQuestionId: q.id, text: q.text, roundTitle: r.title, scheduledEvent: q.scheduledEvent?.title ?? null, mediaKind: q.mediaKind };
     }
+    const pf = vp === "SCORE_REVEAL" || vp === "LEADERBOARD" || vp === "SPECIAL_EVENT";
+    if (next && pf && effectiveSettings(await loadGlobalSettings(sql), detail.settings).palminoWheel && (await palminoWheelPending(sql, st.current_round_id, next.sessionQuestionId))) {
+      next = { ...next, palminoWheel: true };
+    }
   }
   const currentRound = detail.roundsDetail.find((r) => r.id === st.current_round_id) ?? null;
   const currentQuestionScored =
@@ -208,7 +221,7 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
     from special_event_definitions d where d.enabled order by d.title`;
   const reserves = await sql<{ id: string; text: string }[]>`
     select sq.id, qs.text from session_questions sq join question_snapshots qs on qs.session_question_id = sq.id
-    where sq.session_id = ${sessionId} and sq.is_reserve and sq.shown_at is null order by sq.position`;
+    where sq.session_id = ${sessionId} and sq.is_reserve and not sq.wheel_candidate and sq.shown_at is null order by sq.position`;
 
   // ---- avvisi per la regia ----
   const warnings: string[] = [];

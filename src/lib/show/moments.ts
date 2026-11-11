@@ -120,4 +120,5 @@ const PHASE_EVENTS: Partial<Record<GamePhase, ReadonlySet<string>>> = {
   OPTIONS_VISIBLE: new Set(OPTIONS_MOMENT_EVENTS),
   LEADERBOARD: new Set(LEADERBOARD_MOMENT_EVENTS),
   FINISHED: new Set(FINISHED_MOMENT_EVENTS),
+  WHEEL_SPIN: new Set(["WHEEL_SPIN"]),
 };
