@@ -11,6 +11,7 @@ import { ANSWER_COLORS, fmtDuration, fmtStamp, intOrNull, LETTERS, PRESENTER_LAB
 import { MediaPickerModal } from "../media/MediaPickerModal";
 import { QuestionPreviewModal, type PreviewBase } from "../QuestionPreviewModal";
 import type { CategoryCount, MediaRecord, QuestionRecord } from "../types";
+import { difficultyLabel } from "@/lib/game-engine/difficulty";
 
 interface QForm {
   type: QuestionType;
@@ -302,7 +303,7 @@ function QuestionForm({ question }: { question: QuestionRecord | null }) {
                     <Select id={fid} value={f.difficulty} onChange={(e) => set("difficulty", Number(e.target.value))}>
                       {[1, 2, 3, 4, 5].map((d) => (
                         <option key={d} value={d}>
-                          {d} · {["Facilissima", "Facile", "Media", "Difficile", "Difficilissima"][d - 1]}
+                          {d} · {difficultyLabel(d)}
                         </option>
                       ))}
                     </Select>

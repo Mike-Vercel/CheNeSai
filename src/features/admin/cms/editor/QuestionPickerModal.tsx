@@ -9,6 +9,7 @@ import { errorMessage, qs, send, useApi } from "../api";
 import { Checkbox, ErrorBlock, InfoNote, LoadingBlock, MEDIA_ICON, Pager, PlayedBadge, Stars } from "../common";
 import { correctLetters, PRESENTER_LABEL, ROUND_KIND, TYPE_LABEL, plural } from "../format";
 import type { CategoryCount, QuestionRecord, RoundDetail } from "../types";
+import { DIFFICULTY_LABEL, DIFFICULTY_LEVELS } from "@/lib/game-engine/difficulty";
 
 const LIMIT = 15;
 
@@ -149,9 +150,9 @@ export function QuestionPickerModal({
             }}
           >
             <option value="">Ogni difficoltà</option>
-            {[1, 2, 3, 4, 5].map((d) => (
+            {DIFFICULTY_LEVELS.map((d) => (
               <option key={d} value={d}>
-                Difficoltà {d}
+                {DIFFICULTY_LABEL[d]}
               </option>
             ))}
           </Select>

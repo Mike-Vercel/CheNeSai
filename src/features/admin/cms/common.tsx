@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import { Badge, Button, Spinner } from "@/components/ui";
 import type { SessionStatus } from "@/lib/game-engine/types";
 import { STATUS_INFO, type BadgeColor } from "./format";
+import { difficultyLabel } from "@/lib/game-engine/difficulty";
 
 export function PageHeader({
   title,
@@ -261,7 +262,7 @@ export function InfoNote({ children, tone = "info", className }: { children: Rea
 
 export function Stars({ value }: { value: number }) {
   return (
-    <span className="whitespace-nowrap text-xs text-gold" aria-label={`Difficoltà ${value} su 5`} title={`Difficoltà ${value}/5`}>
+    <span className="whitespace-nowrap text-xs text-gold" aria-label={`Difficoltà: ${difficultyLabel(value)}`} title={`${difficultyLabel(value)} (${value}/5)`}>
       {"●".repeat(Math.max(0, Math.min(5, value)))}
       <span className="text-white/20">{"●".repeat(Math.max(0, 5 - value))}</span>
     </span>

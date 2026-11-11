@@ -52,7 +52,7 @@ Regole:
 - Ogni domanda ha ESATTAMENTE 4 risposte, tutte diverse tra loro, brevi (max 120 caratteri).
 - "type": "single" = una sola risposta corretta; "multiple" = almeno 2 risposte corrette.
 - "correct" contiene gli indici (0 = prima risposta, 3 = quarta) delle risposte corrette.
-- "difficulty" da 1 (facilissima) a 5 (difficilissima); mescola le difficoltà.
+- "difficulty": 1 facile, 2 media, 3 difficile, 4 difficilissima, 5 impossibile; mescola le difficoltà.
 - "presenter" è uno tra "professore", "regina", "palmino".
 - Testo della domanda max 400 caratteri, chiaro e senza ambiguità; categoria max 60 caratteri.
 - Varia la posizione della risposta corretta.

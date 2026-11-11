@@ -9,6 +9,7 @@ import { errorMessage, fieldErrors, send, useApi } from "../api";
 import { Checkbox, InfoNote } from "../common";
 import { fmtNum, fromLocalInput, plural } from "../format";
 import type { CategoryCount } from "../types";
+import { difficultyLabel } from "@/lib/game-engine/difficulty";
 
 const FRESH_LABEL = { nuova: "mai giocata", giocata: "già giocata", prenotata: "in un'altra serata" } as const;
 
@@ -238,7 +239,7 @@ export function QuickSessionModal({ onClose, onCreated }: { onClose: () => void;
                 ))}
               </dl>
               <p className="text-xs text-white/55">
-                Mai giocate per fascia: facili {fmtNum(p.pool.byBand.facile.fresh)} · medie {fmtNum(p.pool.byBand.media.fresh)} · difficili{" "}
+                Mai giocate per fascia: facili e medie {fmtNum(p.pool.byBand.facile.fresh)} · difficili {fmtNum(p.pool.byBand.media.fresh)} · difficilissime e impossibili{" "}
                 {fmtNum(p.pool.byBand.difficile.fresh)}
                 {p.pool.planned > 0 ? ` · ${fmtNum(p.pool.planned)} già in altre serate in programma` : ""}
               </p>
@@ -261,7 +262,7 @@ export function QuickSessionModal({ onClose, onCreated }: { onClose: () => void;
                     </p>
                     <div className="mt-1 flex flex-wrap gap-1">
                       {r.questions.map((q) => (
-                        <span key={q.questionId} title={`Difficoltà ${q.difficulty}/5 · ${FRESH_LABEL[q.freshness]}`}>
+                        <span key={q.questionId} title={`${difficultyLabel(q.difficulty)} · ${FRESH_LABEL[q.freshness]}`}>
                           <Badge color={q.freshness === "nuova" ? "gold" : q.freshness === "giocata" ? "red" : "violet"}>
                             {q.category} · {q.difficulty}
                           </Badge>

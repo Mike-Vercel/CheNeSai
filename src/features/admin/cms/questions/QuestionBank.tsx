@@ -10,6 +10,7 @@ import { fmtStamp, LETTERS, PRESENTER_LABEL, QUESTION_STATUS, TYPE_LABEL, plural
 import { QuestionPreviewModal, type PreviewBase } from "../QuestionPreviewModal";
 import type { CategoryCount, QuestionRecord } from "../types";
 import { usePregen } from "../voices/VoicePrep";
+import { DIFFICULTY_LABEL, DIFFICULTY_LEVELS } from "@/lib/game-engine/difficulty";
 
 const LIMIT = 25;
 type StatusFilter = "" | "draft" | "approved" | "archived";
@@ -236,9 +237,9 @@ export function QuestionBank({ initial }: { initial: { status: string; category:
             }}
           >
             <option value="">Ogni difficoltà</option>
-            {[1, 2, 3, 4, 5].map((d) => (
+            {DIFFICULTY_LEVELS.map((d) => (
               <option key={d} value={d}>
-                Difficoltà {d}
+                {DIFFICULTY_LABEL[d]}
               </option>
             ))}
           </Select>
