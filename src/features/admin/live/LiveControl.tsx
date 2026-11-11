@@ -27,6 +27,7 @@ const MAIN_FLOW: GameCommand[] = [
   "START_ROUND",
   "START_VOTE",
   "CLOSE_VOTE",
+  "SPIN_WHEEL",
   "SHOW_QUESTION",
   "SHOW_OPTIONS",
   "CLOSE_ANSWERS",
@@ -41,6 +42,7 @@ const CMD_STYLE: Partial<Record<GameCommand, "gold" | "primary" | "success" | "v
   REVEAL: "violet",
   SCORE: "gold",
   CLOSE_ANSWERS: "danger",
+  SPIN_WHEEL: "violet",
 };
 
 export function LiveControl({ sessionId, embedded = false }: { sessionId: string; embedded?: boolean }) {
@@ -58,6 +60,8 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
   const toast = useToast();
   const canAdmin = useCan("admin");
   const versionRef = useRef<number>(0);
+  // ora del server stimata (anteprima della ruota sincronizzata col TV)
+  const serverNow = useCallback(() => Date.now() + offset, [offset]);
   const failsRef = useRef(0);
 
   const load = useCallback(async () => {
@@ -130,6 +134,12 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
           } catch (e) {
             if (e instanceof ApiError && e.code === "TIMER_RUNNING" && !current.force) {
               const okc = await confirm({ title: "Il tempo non è ancora scaduto", message: "Vuoi chiudere le risposte e rivelare subito la soluzione?", confirmLabel: "Rivela comunque", danger: true });
+              if (!okc) return false;
+              current = { ...current, force: true };
+              continue;
+            }
+            if (e instanceof ApiError && e.code === "WHEEL_SPINNING" && !current.force) {
+              const okc = await confirm({ title: "La ruota sta ancora girando", message: "Il TV non ha ancora mostrato la categoria estratta. Vuoi andare avanti comunque?", confirmLabel: "Vai avanti", danger: true });
               if (!okc) return false;
               current = { ...current, force: true };
               continue;
@@ -358,6 +368,25 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
                 </div>
               </div>
             )}
+            {st.wheel && (
+              <div className="mt-3 rounded-xl bg-white/5 p-3 text-sm">
+                <p className="font-bold">
+                  🎡 Ruota impazzita:{" "}
+                  {st.wheel.spin
+                    ? now < Date.parse(st.wheel.spin.startedAt) + st.wheel.spin.durationMs
+                      ? "sta girando…"
+                      : `uscita "${st.wheel.segments[st.wheel.spin.winnerIndex]?.label ?? "?"}"`
+                    : "da girare"}
+                </p>
+                <div className="mt-1 flex flex-wrap gap-2">
+                  {st.wheel.segments.map((o, i) => (
+                    <Badge key={o.id} color={st.wheel!.spin?.winnerIndex === i ? "green" : "gray"}>
+                      {o.label}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
             {live.next && (
               <div className="mt-3 rounded-xl border border-dashed border-white/15 p-3 text-sm">
                 <p className="font-bold text-white/60">Prossima domanda · {live.next.roundTitle}</p>
@@ -398,6 +427,7 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
             <div className="relative aspect-video w-full overflow-hidden rounded-xl [container-type:size]">
               <TvStage
                 state={st}
+                now={serverNow}
                 remainingMs={remainingMs}
                 mediaUrl={(id) => `/api/display/${sessionId}/media/${id}?k=${live.displayKey}`}
                 qrDataUrl={qr}

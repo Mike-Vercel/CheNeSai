@@ -2,7 +2,7 @@ import "server-only";
 import { after } from "next/server";
 import { getSql } from "@/lib/database/db";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
-import { podiumLines, speechFor, type SpokenLine } from "@/features/game/script";
+import { podiumLines, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
 import { standingsForShow } from "@/features/game/teams-view";
 import { cachedKeys, ensureClip, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 import { ensureOptionsClip } from "./read-time";
@@ -14,7 +14,7 @@ import { runScopeBatch } from "./tts-pregen";
  * generano in background (after), così l'audio è pronto quando il TV lo chiede.
  * Non blocca né fa fallire mai il comando.
  */
-const PREWARM_PHASES: ReadonlySet<GamePhase> = new Set(["SCORE_REVEAL", "LEADERBOARD", "FINISHED", "CATEGORY_RESULT", "ROUND_INTRO", "SPECIAL_EVENT"]);
+const PREWARM_PHASES: ReadonlySet<GamePhase> = new Set(["SCORE_REVEAL", "LEADERBOARD", "FINISHED", "CATEGORY_RESULT", "WHEEL_SPIN", "ROUND_INTRO", "SPECIAL_EVENT"]);
 
 export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void {
   try {
@@ -35,6 +35,9 @@ export function schedulePrewarm(fromPhase: GamePhase, state: PublicState): void 
     // readOptions non incide sulle fasi pre-riscaldate
     // a fine serata anche tutte le battute del podio (le dice il TV durante la rivelazione)
     const lines = state.phase === "FINISHED" ? podiumLines(standingsForShow(state), state.sessionId) : speechFor(state, { phase: fromPhase }, { readOptions: true });
+    // ruota: anche la battuta d'arrivo, che il TV dice quando la ruota si ferma
+    const stop = state.phase === "WHEEL_SPIN" ? wheelStopLine(state) : null;
+    if (stop) lines.push(stop);
     if (lines.length === 0) return;
     after(async () => {
       try {

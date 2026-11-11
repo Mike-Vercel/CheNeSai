@@ -88,6 +88,7 @@ const PHASE_CUES: Partial<Record<GamePhase, CueName>> = {
   SPECIAL_EVENT: "palmino",
   CATEGORY_VOTING: "whoosh",
   CATEGORY_RESULT: "voteResult",
+  WHEEL_SPIN: "whoosh",
   FINISHED: "leaderboard",
   PAUSED: "pause",
 };
@@ -100,8 +101,8 @@ export function DisplayApp({ sessionId, displayKey }: { sessionId: string; displ
   const [confetti, setConfetti] = useState(0);
   const [confettiIntensity, setConfettiIntensity] = useState(1);
   // coriandoli quando il podio rivela il vincitore
-  const celebrate = useCallback(() => {
-    setConfettiIntensity(2);
+  const celebrate = useCallback((intensity = 2) => {
+    setConfettiIntensity(intensity);
     setConfetti((c) => c + 1);
   }, []);
   const [qr, setQr] = useState<string | null>(null);
@@ -349,6 +350,8 @@ export function DisplayApp({ sessionId, displayKey }: { sessionId: string; displ
       now={now}
       live
       onCelebrate={celebrate}
+      reducedMotion={prefs.reducedMotion}
+      lowPower={prefs.lowPower}
       remainingMs={remainingMs}
       mediaUrl={mediaUrl}
       qrDataUrl={qr}

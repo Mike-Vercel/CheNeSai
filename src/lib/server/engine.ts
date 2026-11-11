@@ -5,8 +5,11 @@ import { applyDelta, evaluateAnswer, scoreAnswer } from "@/lib/game-engine/scori
 import { rankParticipants } from "@/lib/game-engine/ranking";
 import { tallyVotes } from "@/lib/game-engine/voting";
 import { balanceTeams, MIN_TEAMS, teamsEnabled } from "@/lib/game-engine/teams";
+import { buildSpinPlan, WHEEL_DURATION_MS, WHEEL_LANDING, WHEEL_LEAD_MS, WHEEL_TURNS } from "@/lib/game-engine/wheel";
 import {
+  eventRoundKind,
   GameError,
+  isCategoryRound,
   type GameCommand,
   type GamePhase,
   type PublicState,
@@ -108,6 +111,9 @@ async function runCommand(sessionId: string, actor: Actor, input: CommandInput, 
         phase: st.phase,
       });
     }
+    if (st.phase === "WHEEL_SPIN" && LEAVE_WHEEL_COMMANDS.includes(input.command) && !input.args?.force) {
+      await assertWheelStopped(tx, st);
+    }
 
     const settings = effectiveSettings(await loadGlobalSettings(tx), st.settings);
     const ctx: Ctx = { tx, st, settings, actor, args: input.args ?? {}, sessionId };
@@ -164,12 +170,13 @@ interface RoundRow {
   vote_opened_at: Date | null;
   vote_closed_at: Date | null;
   winning_option_id: string | null;
+  wheel_spun_at: Date | null;
 }
 
 async function getRound(tx: Tx, roundId: string | null): Promise<RoundRow | null> {
   if (!roundId) return null;
   const [r] = await tx<RoundRow[]>`
-    select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id
+    select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id, wheel_spun_at
     from game_rounds where id = ${roundId}`;
   return r ?? null;
 }
@@ -186,13 +193,27 @@ export async function resolveNextQuestion(tx: Tx, st: StateRow): Promise<NextQue
   if (st.forced_next_sq_id) return { id: st.forced_next_sq_id, source: "forced" };
   const round = await getRound(tx, st.current_round_id);
   if (!round) return null;
-  if (round.kind === "category_vote" && !round.winning_option_id) return { blocked: "VOTE_PENDING" };
+  if (isCategoryRound(round.kind) && !round.winning_option_id) return { blocked: "VOTE_PENDING" };
   const [q] = await tx<{ id: string }[]>`
     select id from session_questions
     where round_id = ${round.id} and not is_reserve and shown_at is null and options_opened_at is null
       and (vote_option_id is null or vote_option_id = ${round.winning_option_id})
     order by position limit 1`;
   return q ? { id: q.id, source: "sequence" } : null;
+}
+
+/** Comandi che fanno uscire dalla ruota: rifiutati finché gira (salvo conferma esplicita con "force"). */
+const LEAVE_WHEEL_COMMANDS: readonly GameCommand[] = ["SHOW_QUESTION", "ACTIVATE_EVENT", "SHOW_LEADERBOARD"];
+
+async function assertWheelStopped(tx: Tx, st: StateRow) {
+  if (!st.current_round_id) return;
+  const [r] = await tx<{ ms: number }[]>`
+    select greatest(0, ceil(extract(epoch from (
+      wheel_spun_at + make_interval(secs => coalesce((wheel_spin->>'durationMs')::float8, 0) / 1000) - clock_timestamp())) * 1000))::int as ms
+    from game_rounds where id = ${st.current_round_id} and wheel_spun_at is not null`;
+  if (r && r.ms > 0) {
+    throw new GameError("WHEEL_SPINNING", "La ruota sta ancora girando: aspetta che si fermi", { remainingMs: r.ms });
+  }
 }
 
 async function requireCurrentQuestion(ctx: Ctx) {
@@ -290,12 +311,12 @@ const HANDLERS: Record<GameCommand, Handler> = {
     let round: RoundRow | undefined;
     if (args.roundId) {
       [round] = await tx<RoundRow[]>`
-        select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id
+        select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id, wheel_spun_at
         from game_rounds where id = ${args.roundId} and session_id = ${sessionId} and started_at is null`;
       if (!round) throw new GameError("NOT_FOUND", "Round non trovato o già giocato");
     } else {
       [round] = await tx<RoundRow[]>`
-        select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id
+        select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id, wheel_spun_at
         from game_rounds
         where session_id = ${sessionId} and started_at is null
           and position > coalesce((select position from game_rounds where id = ${st.current_round_id}), -1)
@@ -352,10 +373,36 @@ const HANDLERS: Record<GameCommand, Handler> = {
     return { to: "CATEGORY_RESULT", result: { winner: winner?.label, ...tally } };
   },
 
+  async SPIN_WHEEL({ tx, st }) {
+    const round = await getRound(tx, st.current_round_id);
+    if (!round || round.kind !== "category_wheel") throw new GameError("INVALID_TRANSITION", "Il round corrente non prevede la ruota");
+    if (round.wheel_spun_at || round.winning_option_id) throw new GameError("INVALID_TRANSITION", "La ruota di questo round è già stata girata");
+    const options = await tx<{ id: string; position: number; label: string }[]>`
+      select id, position, label from category_vote_options where round_id = ${round.id} order by position`;
+    if (options.length < 2) throw new GameError("VALIDATION", "Servono almeno 2 categorie sulla ruota");
+    // Estrazione con casualità crittografica: decide il server, i TV disegnano soltanto.
+    const winnerIndex = randomInt(0, options.length);
+    const plan = buildSpinPlan(options.length, winnerIndex, {
+      turns: randomInt(WHEEL_TURNS.min, WHEEL_TURNS.max + 1),
+      landing: WHEEL_LANDING.min + (randomInt(0, 1001) / 1000) * (WHEEL_LANDING.max - WHEEL_LANDING.min),
+      durationMs: randomInt(WHEEL_DURATION_MS.min, WHEEL_DURATION_MS.max + 1),
+    });
+    const winner = options[winnerIndex];
+    const stored = { ...plan, winnerOptionId: winner.id, optionIds: options.map((o) => o.id) };
+    await tx`
+      update game_rounds set wheel_spun_at = clock_timestamp() + make_interval(secs => ${WHEEL_LEAD_MS / 1000}::float8),
+        wheel_spin = ${tx.json(stored)}, winning_option_id = ${winner.id}
+      where id = ${round.id}`;
+    return { to: "WHEEL_SPIN", result: { roundId: round.id, winner: winner.label, winnerOptionId: winner.id, plan } };
+  },
+
   async SHOW_QUESTION(ctx) {
     const { tx, st, settings } = ctx;
     const next = await resolveNextQuestion(tx, st);
-    if (next && "blocked" in next) throw new GameError("INVALID_TRANSITION", "Prima completa la votazione della categoria");
+    if (next && "blocked" in next) {
+      const round = await getRound(tx, st.current_round_id);
+      throw new GameError("INVALID_TRANSITION", round?.kind === "category_wheel" ? "Prima gira la ruota" : "Prima completa la votazione della categoria");
+    }
     if (!next) throw new GameError("NO_MORE_QUESTIONS", "Domande del round terminate: inizia il prossimo round o termina");
 
     // Evento programmato su questa domanda: Palmino lo annuncia PRIMA della domanda.
@@ -598,7 +645,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
         order by key`;
       const eligible: DefRow[] = [];
       for (const p of pool) {
-        if (!p.allowed_round_kinds.includes(targetKind)) continue;
+        if (!p.allowed_round_kinds.includes(eventRoundKind(targetKind))) continue;
         if ((await usage(p.id)) >= p.max_per_session) continue;
         eligible.push(p);
       }
@@ -608,7 +655,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
       source = "palmino_decides";
       decidedFrom = { pool: eligible.map((e) => e.key), chosen: chosen.key, random: r };
     } else {
-      if (!def.allowed_round_kinds.includes(targetKind)) {
+      if (!def.allowed_round_kinds.includes(eventRoundKind(targetKind))) {
         throw new GameError("EVENT_NOT_ALLOWED", `L'evento ${def.title} non è previsto per questo tipo di round`);
       }
       if ((await usage(def.id)) >= def.max_per_session) {
@@ -681,6 +728,15 @@ const HANDLERS: Record<GameCommand, Handler> = {
       await tx`
         update game_state set intro_started_at = intro_started_at + (clock_timestamp() - paused_at)
         where session_id = ${sessionId} and paused_at is not null and intro_started_at is not null`;
+    }
+    if (from === "WHEEL_SPIN" && st.current_round_id) {
+      // la ruota riparte da dove si era fermata: l'inizio del giro slitta della durata della pausa
+      await tx`
+        update game_rounds r set wheel_spun_at = r.wheel_spun_at + (clock_timestamp() - gs.paused_at)
+        from game_state gs
+        where r.id = ${st.current_round_id} and gs.session_id = ${sessionId} and gs.paused_at is not null
+          and r.wheel_spun_at is not null
+          and gs.paused_at < r.wheel_spun_at + make_interval(secs => coalesce((r.wheel_spin->>'durationMs')::float8, 0) / 1000)`;
     }
     return { to: from, patch: { paused_from_phase: null, paused_remaining_ms: null, paused_at: null } };
   },
@@ -803,7 +859,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
       where session_id = ${sessionId}`;
     await tx`
       update game_rounds set started_at = null, vote_opened_at = null, vote_closes_at = null, vote_closed_at = null,
-        winning_option_id = null, vote_result = null
+        winning_option_id = null, vote_result = null, wheel_spun_at = null, wheel_spin = null
       where session_id = ${sessionId}`;
     await tx`update game_state set intro_started_at = null where session_id = ${sessionId}`;
     await tx`update teams set rank = null, previous_rank = null where session_id = ${sessionId}`;

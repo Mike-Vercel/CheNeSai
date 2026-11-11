@@ -1,6 +1,6 @@
 import { randomInt } from "node:crypto";
 import { getSql, iso, num, type Db, type Tx } from "@/lib/database/db";
-import type { GamePhase, Presenter, QuestionType, RoundKind, SessionStatus } from "@/lib/game-engine/types";
+import { eventRoundKind, isCategoryRound, maxCategories, MIN_CATEGORIES, type GamePhase, type Presenter, type QuestionType, type RoundKind, type SessionStatus } from "@/lib/game-engine/types";
 import {
   roundInputSchema,
   sessionInputSchema,
@@ -527,8 +527,10 @@ export async function validateForPublish(db: Db, sessionId: string): Promise<Pub
   if (detail.roundsDetail.length === 0) issues.push({ level: "error", message: "Aggiungi almeno un round" });
   for (const r of detail.roundsDetail) {
     const playable = r.questions.filter((q) => !q.isReserve);
-    if (r.kind === "category_vote") {
-      if (r.voteOptions.length < 2) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": servono almeno 2 categorie votabili` });
+    if (isCategoryRound(r.kind)) {
+      const what = r.kind === "category_wheel" ? "sulla ruota" : "votabili";
+      if (r.voteOptions.length < MIN_CATEGORIES) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": servono almeno ${MIN_CATEGORIES} categorie ${what}` });
+      if (r.voteOptions.length > maxCategories(r.kind)) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": al massimo ${maxCategories(r.kind)} categorie ${what}` });
       for (const o of r.voteOptions) {
         const n = playable.filter((q) => q.voteOptionId === o.id).length;
         if (n === 0) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": la categoria "${o.label}" non ha domande pronte` });
@@ -655,7 +657,7 @@ export async function createRound(sessionId: string, raw: unknown, actor: Actor)
         ${r.penaltyMultiplier}, ${r.noPenalty}, ${r.correctPoints ?? null}, ${r.wrongPenalty ?? null}, ${r.durationSeconds ?? null},
         ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults})
       returning id`;
-    if (r.kind === "category_vote") await syncVoteOptions(tx, row.id, r.voteOptions);
+    if (isCategoryRound(r.kind)) await syncVoteOptions(tx, row.id, r.voteOptions);
     await audit(tx, actor, "round.create", { sessionId, type: "round", id: row.id });
     return row.id;
   });
@@ -691,7 +693,7 @@ export async function updateRound(roundId: string, raw: unknown, actor: Actor): 
         speed_bonus_max = ${r.speedBonusMax}, vote_duration_seconds = ${r.voteDurationSeconds}, vote_tie_break = ${r.voteTieBreak},
         vote_live_results = ${r.voteLiveResults}
       where id = ${roundId}`;
-    await syncVoteOptions(tx, roundId, r.kind === "category_vote" ? r.voteOptions : []);
+    await syncVoteOptions(tx, roundId, isCategoryRound(r.kind) ? r.voteOptions : []);
     await audit(tx, actor, "round.update", { sessionId: r0.session_id, type: "round", id: roundId });
   });
 }
@@ -740,8 +742,8 @@ export async function addQuestionsToRound(
     const [r] = await tx<{ session_id: string; kind: RoundKind }[]>`select session_id, kind from game_rounds where id = ${roundId}`;
     if (!r) throw new CmsError("Round non trovato", 404);
     await requireDraft(tx, r.session_id);
-    if (r.kind === "category_vote" && !opts.voteOptionId && !opts.isReserve) {
-      throw new CmsError("Nei round con votazione ogni domanda va assegnata a una categoria", 422);
+    if (isCategoryRound(r.kind) && !opts.voteOptionId && !opts.isReserve) {
+      throw new CmsError(r.kind === "category_wheel" ? "Nei round con la ruota ogni domanda va assegnata a una categoria" : "Nei round con votazione ogni domanda va assegnata a una categoria", 422);
     }
     if (opts.voteOptionId) {
       const [o] = await tx`select 1 from category_vote_options where id = ${opts.voteOptionId} and round_id = ${roundId}`;
@@ -830,7 +832,7 @@ export async function scheduleEvent(sessionId: string, raw: unknown, actor: Acto
       select r.kind::text from session_questions sq join game_rounds r on r.id = sq.round_id
       where sq.id = ${p.data.targetSessionQuestionId} and sq.session_id = ${sessionId}`;
     if (!q) throw new CmsError("Domanda non trovata nella sessione", 404);
-    if (!def.allowed.includes(q.kind)) throw new CmsError("Evento non compatibile con il tipo di round", 422);
+    if (!def.allowed.includes(eventRoundKind(q.kind as RoundKind))) throw new CmsError("Evento non compatibile con il tipo di round", 422);
     await tx`delete from special_events where target_session_question_id = ${p.data.targetSessionQuestionId} and source = 'scheduled'`;
     const [e] = await tx<{ id: string }[]>`
       insert into special_events (session_id, definition_id, type, title, tagline, params, target_session_question_id, status, source, created_by)

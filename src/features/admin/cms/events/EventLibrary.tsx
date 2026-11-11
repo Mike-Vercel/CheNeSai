@@ -149,12 +149,13 @@ function EventCard({ def, onSaved }: { def: EventDefinition; onSaved: () => void
         <fieldset>
           <legend className="mb-1 text-sm font-bold text-white/80">Round in cui è ammesso</legend>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {ROUND_KINDS.map((k) => (
+            {/* la Ruota impazzita segue le regole del Voto categoria */}
+            {ROUND_KINDS.filter((k) => k !== "category_wheel").map((k) => (
               <Checkbox
                 key={k}
                 checked={kinds.includes(k)}
                 onChange={(c) => setKinds((prev) => (c ? [...prev, k] : prev.filter((x) => x !== k)))}
-                label={`${ROUND_KIND[k].icon} ${ROUND_KIND[k].label}`}
+                label={k === "category_vote" ? `${ROUND_KIND[k].icon} ${ROUND_KIND[k].label} e ${ROUND_KIND.category_wheel.label}` : `${ROUND_KIND[k].icon} ${ROUND_KIND[k].label}`}
               />
             ))}
           </div>

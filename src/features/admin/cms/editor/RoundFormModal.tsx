@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button, Field, Input, Modal, Select, Textarea, Toggle } from "@/components/ui";
-import { PRESENTERS, ROUND_KINDS, type Presenter, type RoundKind } from "@/lib/game-engine/types";
+import { isCategoryRound, maxCategories, MIN_CATEGORIES, PRESENTERS, ROUND_KINDS, type Presenter, type RoundKind } from "@/lib/game-engine/types";
 import { errorMessage, fieldErrors } from "../api";
 import { Checkbox, InfoNote } from "../common";
 import { intOrNull, PRESENTER_LABEL, ROUND_KIND } from "../format";
@@ -83,9 +83,11 @@ export function RoundFormModal({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [general, setGeneral] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
-  const isVote = f.kind === "category_vote";
+  const isVote = isCategoryRound(f.kind);
+  const isWheel = f.kind === "category_wheel";
+  const maxOptions = maxCategories(f.kind);
   const removedWithQuestions =
-    round && round.kind === "category_vote"
+    round && isCategoryRound(round.kind)
       ? round.voteOptions.filter((o) => o.questions > 0 && (!isVote || o.position >= f.voteOptions.length))
       : [];
 
@@ -99,8 +101,8 @@ export function RoundFormModal({
     setGeneral(null);
     const labels = f.voteOptions.map((l) => l.trim());
     if (isVote) {
-      if (labels.length < 2 || labels.some((l) => l.length < 2)) {
-        setErrors({ voteOptions: "Servono da 2 a 4 categorie, ognuna di almeno 2 caratteri" });
+      if (labels.length < MIN_CATEGORIES || labels.length > maxOptions || labels.some((l) => l.length < 2)) {
+        setErrors({ voteOptions: `Servono da ${MIN_CATEGORIES} a ${maxOptions} categorie, ognuna di almeno 2 caratteri` });
         return;
       }
       if (new Set(labels.map((l) => l.toLowerCase())).size !== labels.length) {
@@ -190,9 +192,11 @@ export function RoundFormModal({
 
         {isVote && (
           <fieldset className="space-y-3 rounded-xl border border-gold/30 bg-gold/5 p-3">
-            <legend className="px-1 font-display text-lg text-gold">Votazione della categoria</legend>
+            <legend className="px-1 font-display text-lg text-gold">{isWheel ? "Spicchi della ruota" : "Votazione della categoria"}</legend>
             <p className="text-sm text-white/70">
-              Il pubblico vota una delle categorie; si giocano le domande assegnate a quella vincente. Ogni categoria deve avere almeno una domanda.
+              {isWheel
+                ? "Dalla regia si gira la ruota: il server estrae a caso uno spicchio e si giocano le domande assegnate a quella categoria. Da 2 a 8 categorie, ognuna con almeno una domanda."
+                : "Il pubblico vota una delle categorie; si giocano le domande assegnate a quella vincente. Ogni categoria deve avere almeno una domanda."}
             </p>
             <div className="grid gap-2 sm:grid-cols-2">
               {f.voteOptions.map((label, i) => (
@@ -202,7 +206,7 @@ export function RoundFormModal({
                     aria-label={`Categoria ${i + 1}`}
                     value={label}
                     maxLength={40}
-                    placeholder={["Es. Cinema", "Es. Sport", "Es. Musica anni 80", "Es. Geografia"][i]}
+                    placeholder={["Es. Cinema", "Es. Sport", "Es. Musica anni 80", "Es. Geografia", "Es. Cucina", "Es. Storia", "Es. Scienza", "Es. Televisione"][i]}
                     onChange={(e) => set("voteOptions", f.voteOptions.map((x, j) => (j === i ? e.target.value : x)))}
                   />
                   {f.voteOptions.length > 2 && (
@@ -220,11 +224,15 @@ export function RoundFormModal({
               ))}
             </div>
             {errors.voteOptions && <p className="text-xs font-bold text-[#ff8098]">{errors.voteOptions}</p>}
-            {f.voteOptions.length < 4 && (
+            {f.voteOptions.length > maxOptions && (
+              <p className="text-xs font-bold text-[#ff8098]">Questo tipo di round ammette al massimo {maxOptions} categorie: rimuovine {f.voteOptions.length - maxOptions}.</p>
+            )}
+            {f.voteOptions.length < maxOptions && (
               <Button type="button" size="sm" variant="ghost" onClick={() => set("voteOptions", [...f.voteOptions, ""])}>
                 + Aggiungi categoria
               </Button>
             )}
+            {!isWheel && (
             <div className="grid gap-3 sm:grid-cols-3">
               <Field label="Durata voto (secondi)" error={errors.voteDurationSeconds}>
                 {(id) => <Input id={id} type="number" min={5} max={120} value={f.voteDurationSeconds} onChange={(e) => set("voteDurationSeconds", e.target.value)} />}
@@ -244,6 +252,7 @@ export function RoundFormModal({
                 <Toggle checked={f.voteLiveResults} onChange={(v) => set("voteLiveResults", v)} label="Voti visibili in diretta" />
               </div>
             </div>
+            )}
           </fieldset>
         )}
         {removedWithQuestions.length > 0 && (

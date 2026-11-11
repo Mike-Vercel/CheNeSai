@@ -17,6 +17,8 @@ import {
   scriptQuestionFromCms,
   speechFor,
   ttsText,
+  wheelResultLine,
+  wheelStopLine,
   type SpokenLine,
   lobbyGreetingLines,
 } from "@/features/game/script";
@@ -96,7 +98,10 @@ const ROUNDS: PublicRound[] = [
   { id: "r2", index: 2, total: 3, title: "Scegliete voi?!", kind: "category_vote", presenter: "palmino", description: null, pointsMultiplier: 1, penaltyMultiplier: 1, noPenalty: false },
   { id: "r3", index: 3, total: 3, title: "Gran finale", kind: "final", presenter: "regina", description: null, pointsMultiplier: 2, penaltyMultiplier: 1, noPenalty: false },
   { id: "r4", index: 4, total: 4, title: "Senza paura", kind: "bonus", presenter: "regina", description: "Rischiate!", pointsMultiplier: 1, penaltyMultiplier: 1, noPenalty: true },
+  { id: "r5", index: 5, total: 5, title: "Gira la ruota!", kind: "category_wheel", presenter: "professore", description: null, pointsMultiplier: 1, penaltyMultiplier: 1, noPenalty: false },
 ];
+
+const WHEEL_LABELS = ["Cinema [tag?]", "Sport", "Cucina × tutti", "Storia", "Arte", "Tv"];
 
 const VOTE_LABELS = ["Cinema", "Sport × tutti", "Musica anni '80"];
 
@@ -120,6 +125,7 @@ function baseState(phase: GamePhase, extra: Partial<PublicState> = {}): PublicSt
     question: null,
     event: null,
     vote: null,
+    wheel: null,
     leaderboard: null,
     teams: null,
     teamLeaderboard: null,
@@ -165,6 +171,7 @@ function pregenSet(): Set<string> {
   for (const q of QUESTIONS) lines.push(...questionScriptLines(scriptQuestionFromCms(q)));
   for (const r of ROUNDS) lines.push(roundIntroLine(r));
   for (const l of VOTE_LABELS) lines.push(categoryResultLine(l));
+  for (const l of WHEEL_LABELS) lines.push(wheelResultLine(l));
   for (const e of EVENT_DEFS) lines.push(...eventDefinitionScriptLines(e));
   return ids(lines);
 }
@@ -289,6 +296,31 @@ describe("copione delle voci: pre-generazione === speechFor", () => {
       expectAllPregenerated(speechFor(baseState("CATEGORY_VOTING", { round: { ...ROUNDS[1], id: `r-${i}` } }), { phase: "ROUND_INTRO" }, { readOptions: true }), set);
       expectAllPregenerated(speechFor(baseState("FINISHED", { sessionId: sid, leaderboard }), { phase: "LEADERBOARD" }, { readOptions: true }).filter((l) => !l.live), set);
     }
+  });
+
+  it("Ruota impazzita: presentazione, partenza e arrivo sono pre-generati", () => {
+    const wheelRound = ROUNDS[4];
+    const intro = speechFor(baseState("ROUND_INTRO", { round: wheelRound }), { phase: "LEADERBOARD" }, { readOptions: true });
+    expect(intro[0].who).toBe("palmino");
+    expectAllPregenerated(intro, set);
+    for (let i = 0; i < WHEEL_LABELS.length; i++) {
+      const wheel = {
+        roundId: `r5-${i}`,
+        segments: WHEEL_LABELS.map((label, k) => ({ id: `w${k}`, position: k, label })),
+        spin: { startedAt: "2026-11-10T20:00:01.200Z", durationMs: 8000, turns: 6, landing: 0.5, rotationDeg: 2000, winnerIndex: i, winnerOptionId: `w${i}`, frozenElapsedMs: null },
+      };
+      const st = baseState("WHEEL_SPIN", { round: { ...wheelRound, id: `r5-${i}` }, wheel });
+      const start = speechFor(st, { phase: "ROUND_INTRO" }, { readOptions: true });
+      expect(start).toHaveLength(1);
+      expect(FIXED_POOLS.wheelSpin.texts as readonly string[]).toContain(start[0].text);
+      expectAllPregenerated(start, set);
+      const stop = wheelStopLine(st);
+      expect(stop).not.toBeNull();
+      expectAllPregenerated([stop!], set);
+      // un contenuto non può diventare un audio tag
+      expect(stop!.text).not.toContain("[tag");
+    }
+    expect(wheelStopLine(baseState("ROUND_INTRO", { round: wheelRound }))).toBeNull();
   });
 
   it("'Palmino decide' (slogan con prefisso) è pre-generato", () => {
