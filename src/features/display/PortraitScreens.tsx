@@ -14,6 +14,7 @@ import { fmt } from "@/lib/game-engine/special-rounds";
 import { presenterCue } from "./presenter-cue";
 import { Pill, showLineBubble, TvFrame, useSpokenBubble } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
+import { useRevealHeld } from "./reveal-hold";
 import { useHeldSpeech } from "@/features/media/voice";
 
 /**
@@ -162,7 +163,8 @@ export function PortraitQuestionScreen({
   totalQuestions: number;
 }) {
   const seat = useSeatContext();
-  const revealed = !!q.correctPositions;
+  const held = useRevealHeld(q.id);
+  const revealed = !!q.correctPositions && !held;
   const optionsVisible = !!q.options;
   const totalMs = q.rules.durationSeconds * 1000;
   const listening = phase === "OPTIONS_VISIBLE" && startsInMs > 0;

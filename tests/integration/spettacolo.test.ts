@@ -187,7 +187,7 @@ describe("show sul telefono: modalità e voci per i giocatori", () => {
     await expect(authorizePlayerLine(sql, anna, line.who, line.text)).resolves.toMatchObject({ who: line.who, text: line.text });
     await expect(authorizePlayerLine(sql, anna, "professore", "Dimmi quello che voglio io")).rejects.toMatchObject({ code: "NOT_A_LINE" });
     // la soluzione non si può chiedere prima del tempo
-    await expect(authorizePlayerLine(sql, anna, line.who, "[excited] La risposta giusta è… A, Tirana!")).rejects.toBeInstanceOf(PlayerError);
+    await expect(authorizePlayerLine(sql, anna, line.who, "[excited] A, Tirana!")).rejects.toBeInstanceOf(PlayerError);
   });
 
   it("limite di richieste per telefono", async () => {

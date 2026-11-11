@@ -25,6 +25,7 @@ import { TvScreenAgent } from "./TvScreenControls";
 import { useTvPrefs, type TvPrefs } from "./tv-prefs";
 import { IntroSkipCounter } from "@/features/players/IntroSkip";
 import { StageBoundary } from "./StageBoundary";
+import { holdReveal } from "./reveal-hold";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -301,16 +302,22 @@ export function DisplayApp({
       if (!prev) return;
       const phaseChanged = s.phase !== prev.phase;
       const questionChanged = s.question?.id !== prev.question?.id;
+      // soluzione: "La risposta giusta è…" e solo dopo la risposta evidenziata (con suono, coriandoli, applauso)
+      const teaseNow = phaseChanged && s.phase === "ANSWER_REVEAL" && voice.settings.enabled && startedRef.current;
+      if (phaseChanged && s.phase !== "ANSWER_REVEAL") holdReveal(null);
+      const showReveal = () => {
+        holdReveal(null);
+        sound.play("reveal");
+        setConfettiIntensity(0.5);
+        setConfetti((c) => c + 1);
+        // applauso leggero se qualcuno ci ha preso
+        const right = s.question?.correctPositions?.reduce((a, p) => a + (s.question?.distribution?.[p] ?? 0), 0) ?? 0;
+        if (right > 0) setTimeout(() => sound.applause("light"), 650);
+      };
       if (phaseChanged) {
         const cue = PHASE_CUES[s.phase];
-        if (cue) sound.play(cue);
-        if (s.phase === "ANSWER_REVEAL") {
-          setConfettiIntensity(0.5);
-          setConfetti((c) => c + 1);
-          // applauso leggero se qualcuno ci ha preso
-          const right = s.question?.correctPositions?.reduce((a, p) => a + (s.question?.distribution?.[p] ?? 0), 0) ?? 0;
-          if (right > 0) setTimeout(() => sound.applause("light"), 650);
-        }
+        if (cue && s.phase !== "ANSWER_REVEAL") sound.play(cue);
+        if (s.phase === "ANSWER_REVEAL" && !teaseNow) showReveal();
         // fine dell'intro: applauso del pubblico; classifica del round: applauso al vincitore del round
         if (s.phase === "ROUND_INTRO" && prev.phase === "INTRO") sound.applause("medium");
         if (s.phase === "SCORE_REVEAL" && s.roundLeaderboard?.length) setTimeout(() => sound.applause("medium"), 900);
@@ -363,7 +370,28 @@ export function DisplayApp({
         spoken = Promise.all(said);
       } else {
         const spinning = () => phaseRef.current === "WHEEL_SPIN";
-        spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { ...sayOpts(l), skipIf: wheelSkip(s, l, spinning) })));
+        const tease = teaseNow ? lines.find((l) => l.revealTease) : undefined;
+        let release: (() => void) | null = null;
+        if (teaseNow && !tease) showReveal();
+        if (tease && s.question) {
+          // la risposta resta nascosta al massimo 6 s (voce lenta o assente: si scopre comunque)
+          holdReveal(s.question.id);
+          let done = false;
+          const r = () => {
+            if (done) return;
+            done = true;
+            if (phaseRef.current === "ANSWER_REVEAL") showReveal();
+            else holdReveal(null);
+          };
+          release = r;
+          setTimeout(r, 6000);
+        }
+        spoken = Promise.all(
+          lines.map((l) => {
+            const p = voice.say(l.who, l.text, { ...sayOpts(l), skipIf: wheelSkip(s, l, spinning) });
+            return l === tease && release ? p.then(release) : p;
+          }),
+        );
       }
       // Lobby: saluti ai nuovi arrivati decisi dal server (solo quelli nuovi, mai dopo un ricaricamento)
       if (startedRef.current) for (const l of lobbyGreetingLines(s, prev)) void voice.say(l.who, l.text, { live: l.live });

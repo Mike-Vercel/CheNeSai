@@ -234,10 +234,19 @@ describe("commento alla soluzione: dice il vero", () => {
     }
   });
 
+  it("soluzione: prima \"La risposta giusta è…\" (uguale per tutte), poi la risposta", () => {
+    const s = state("ANSWER_REVEAL", { question: question("q", 1, 5, "ANSWER_REVEAL", [4, 3, 2, 1]) });
+    const lines = speechFor(s, { phase: "ANSWERS_LOCKED" }, { readOptions: true });
+    const i = lines.findIndex((l) => l.revealTease);
+    expect(lines[i].text).toBe("[excited] La risposta giusta è…");
+    expect(lines[i + 1].text).toMatch(/^\[excited\] A, /);
+    expect(lines[i + 1].revealTease).toBeFalsy();
+  });
+
   it("speechFor: zero giusti → battuta 'nessuno'", () => {
     const s = state("ANSWER_REVEAL", { question: question("q", 1, 5, "ANSWER_REVEAL", [0, 4, 3, 3]) });
     const lines = speechFor(s, { phase: "ANSWERS_LOCKED" }, { readOptions: true });
-    expect(REVEAL_QUIPS.professore.none).toContain(lines[1].text);
+    expect(REVEAL_QUIPS.professore.none).toContain(lines[2].text);
   });
 
   it("fumetto della domanda: solo i commenti, mai la domanda o le risposte", () => {
@@ -402,7 +411,7 @@ describe("voci per i telefoni dei giocatori (show sul telefono)", () => {
     expect(findScriptLine(lines, "annunciatore", "[excited] Domanda numero 7!")).not.toBeNull();
     expect(findScriptLine(lines, "professore", "Dimmi una parolaccia")).toBeNull();
     // la soluzione non è una battuta di questo momento (domanda appena comparsa)
-    expect(findScriptLine(lines, "professore", "[excited] La risposta giusta è… A, Roma!")).toBeNull();
+    expect(findScriptLine(lines, "professore", "[excited] A, Roma!")).toBeNull();
   });
   it("il flag live viene dal copione, non dal telefono", () => {
     const s = state("FINISHED", { leaderboard: lb([["Anna", 9000, 1], ["Bruno", 7000, 2]]) });

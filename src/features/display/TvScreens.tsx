@@ -33,6 +33,7 @@ import type { CharacterAnimation } from "@/features/three/characters/types";
 import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { presenterCue, type PresenterCue } from "./presenter-cue";
 import { TrioSlot } from "./TvTrio";
+import { useRevealHeld } from "./reveal-hold";
 import { TrophyMoment } from "./Trophy";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
@@ -164,7 +165,9 @@ export interface TvQuestionProps {
 }
 
 export function TvQuestionScreen({ question: q, round, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle", showLines }: TvQuestionProps) {
-  const revealed = !!q.correctPositions;
+  // "La risposta giusta è…": la soluzione resta nascosta finché il presentatore non l'ha detto
+  const held = useRevealHeld(q.id);
+  const revealed = !!q.correctPositions && !held;
   const optionsVisible = !!q.options;
   const hasImage = q.media?.kind === "image" && mediaUrl;
   const hasVideo = q.media?.kind === "video" && mediaUrl;

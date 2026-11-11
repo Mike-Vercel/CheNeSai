@@ -49,6 +49,11 @@ export interface SpokenLine {
   optional?: boolean;
   /** righe della stessa scenetta: se una salta, saltano le successive */
   group?: string;
+  /**
+   * "La risposta giusta è…": finché il presentatore non l'ha finita il TV non evidenzia la
+   * risposta giusta (poi la evidenzia mentre la dice). Vedi reveal-hold.ts.
+   */
+  revealTease?: boolean;
 }
 
 /** Lunghezza massima di una battuta (stesso limite dell'API /api/tts). */
@@ -282,7 +287,7 @@ export const FIXED_POOLS = {
     texts: [
       "[shouts] E il vincitore di stasera èèèèè…",
       "[excited] E il vincitore di stasera è…",
-      "[whispers] Rullo di tamburi… e il vincitore di stasera è…",
+      "[whispers] Silenzio in sala… e il vincitore di stasera è…",
       "[shouts] Fermi tutti! E il vincitore di stasera è…",
       "[giggles] Palmino non ce la fa più! E il vincitore di stasera è…",
     ],
@@ -436,12 +441,17 @@ export function lockedQuip(presenter: Presenter, seed: string, m: MomentContext 
   return { who: presenter, text: presenterLine("ANSWERS_LOCKED", presenter, seed, fitsFor(m), rot) ?? "Risposte bloccate!" };
 }
 
-export function revealLine(q: Pick<ScriptQuestion, "presenter" | "options" | "correctPositions">): SpokenLine {
+/**
+ * Soluzione in due battute: prima "La risposta giusta è…" (uguale per tutte le domande: una sola
+ * clip salvata), poi la risposta. Il TV evidenzia la risposta giusta solo a fine della prima.
+ */
+export function revealLines(q: Pick<ScriptQuestion, "presenter" | "options" | "correctPositions">): SpokenLine[] {
   const parts = q.correctPositions.map((p) => `${LETTER[p]}, ${cleanSpeech(q.options.find((o) => o.position === p)?.text ?? "")}`);
-  return {
-    who: q.presenter,
-    text: q.correctPositions.length > 1 ? `[excited] Le risposte giuste sono: ${parts.join(" e ")}!` : `[excited] La risposta giusta è… ${parts[0]}!`,
-  };
+  const many = q.correctPositions.length > 1;
+  return [
+    { who: q.presenter, text: many ? "[excited] Le risposte giuste sono…" : "[excited] La risposta giusta è…", revealTease: true },
+    { who: q.presenter, text: `[excited] ${many ? parts.join(" e ") : parts[0]}!` },
+  ];
 }
 
 /** Commento dopo la rivelazione: quasi tutti giusti, quasi tutti sbagliati, sala divisa. */
@@ -461,7 +471,7 @@ export function questionScriptLines(q: ScriptQuestion): SpokenLine[] {
   const out: SpokenLine[] = [questionTextLine(q)];
   if (q.type === "multiple") out.push(multipleWarningLine(q.presenter));
   if (q.options.length > 0) out.push(optionsLine(q));
-  if (q.correctPositions.length > 0 && q.options.length > 0) out.push(revealLine(q));
+  if (q.correctPositions.length > 0 && q.options.length > 0) out.push(...revealLines(q));
   return out.filter((l) => l.text.trim().length > 0);
 }
 
@@ -989,7 +999,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       if (q && pq?.correctPositions && pq.options) {
         // ultima soluzione della serata: un attimo di silenzio teatrale prima
         if (moment.lastOfGame) out.push(fixedLine(FIXED_POOLS.lastReveal, q.id));
-        out.push(revealLine(q));
+        out.push(...revealLines(q));
         const total = pq.distribution?.reduce((a, b) => a + b, 0) ?? 0;
         const right = pq.distribution && q.correctPositions.length === 1 ? pq.distribution[q.correctPositions[0]] : null;
         const outcome = right !== null ? revealOutcome(right, total, s.playerCount) : null;

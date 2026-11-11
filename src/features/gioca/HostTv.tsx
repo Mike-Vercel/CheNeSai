@@ -194,7 +194,7 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
       )}
 
       {phase === "FINISHED" && (
-        <div className="absolute bottom-[3cqh] left-[3cqw] z-[66] flex max-w-[50cqw] flex-col gap-3 rounded-[28px] bg-night/85 p-5 backdrop-blur-sm">
+        <div className="absolute left-[2cqw] top-[3cqh] z-[66] flex max-w-[40cqw] flex-col gap-3 rounded-[28px] bg-night/85 p-5 backdrop-blur-sm">
           <RematchControls sessionId={sessionId} onStarted={goTo} size="tv" />
           <div className="flex flex-wrap gap-2">
             {canCreateMore && (

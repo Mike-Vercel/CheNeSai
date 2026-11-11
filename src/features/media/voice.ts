@@ -214,6 +214,8 @@ class VoiceEngine {
     this.speakingWho = who;
     // nuovo oggetto solo quando cambia davvero (snapshot stabile per useSyncExternalStore)
     const next: SpeechNowLine | null = who ? (display !== undefined ? { who, text, display } : { who, text }) : null;
+    // "rullo di tamburi" detto da un presentatore: parte il rullo vero
+    if (next && (next.who !== this.speakingLine?.who || next.text !== this.speakingLine?.text) && /rullo di tamburi/i.test(text)) getSoundEngine().drumroll(2.5);
     if (next?.who !== this.speakingLine?.who || next?.text !== this.speakingLine?.text) this.speakingLine = next;
     if (this.heldTimer) clearTimeout(this.heldTimer);
     this.heldTimer = null;
