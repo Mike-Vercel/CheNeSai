@@ -1,0 +1,15 @@
+# Carica su Vercel solo quello che serve al sito (la CLI non usa .gitignore).
+# Mai le chiavi:
+.env*
+!.env.example
+# Materiale di lavoro e report dei test
+REFERENCE
+playwright-report
+test-results
+.playwright-cli
+.claude
+.serena
+tests
+docs
+supabase/.temp
+*.tsbuildinfo
