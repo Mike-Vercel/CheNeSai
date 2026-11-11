@@ -36,4 +36,9 @@ console.log("Collego il progetto Supabase online…");
 run(["link", "--project-ref", ref, "--password", pw, "--yes"]);
 console.log("Applico le migrazioni nuove…");
 run(["db", "push", "--linked", "--password", pw, "--include-all", "--yes"]);
+console.log("Importo le domande verificate nuove…");
+{
+  const r = spawnSync("npx", ["tsx", "scripts/domande/importa.ts", "--produzione"], { stdio: "inherit", shell: process.platform === "win32" });
+  if (r.status !== 0) console.error("! Importazione domande non riuscita: la struttura è comunque aggiornata, si può rilanciare.");
+}
 console.log("\n✔ Database online aggiornato. Ora si può pubblicare il codice nuovo.");
