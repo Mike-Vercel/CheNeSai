@@ -93,6 +93,10 @@ Vedi [`.env.example`](.env.example). Riassunto:
 
 ## Deploy su Vercel + Supabase (sintesi)
 
+**Comando unico:** `npm run deploy:setup` — crea il progetto Supabase, applica le migrazioni, copia i contenuti, crea l'admin, imposta le variabili su Vercel e pubblica. Dettagli: [docs/MESSA-ONLINE.md](docs/MESSA-ONLINE.md).
+
+Funzioni principali: regia automatica dei presentatori con i nomi veri ([docs/REGIA-PRESENTATORI.md](docs/REGIA-PRESENTATORI.md)), squadre, Ruota impazzita, manche Scommetti tutto e Grande ribaltone, scaletta a tempo, PWA installabile.
+
 1. Crea un progetto Supabase (regione **eu-central-1 / Frankfurt**) e applica le migrazioni:
    `npx supabase link --project-ref <ref>` → `npx supabase db push`.
 2. In Supabase → Realtime → Settings lascia abilitati i canali privati (le policy sono nella migrazione 002).

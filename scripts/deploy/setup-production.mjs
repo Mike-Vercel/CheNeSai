@@ -93,6 +93,11 @@ async function main() {
   if (!who.ok) fail("Vercel: accesso non attivo. Esegui `npx vercel login`.");
   console.log(`Vercel: ${who.out.split("\n").pop()}`);
 
+  // ---------------------------------------------------------------- 0. GitHub
+  console.log("Aggiorno GitHub (se si apre la finestra di accesso di GitHub, accedi tu)…");
+  const push = sh("git push origin HEAD:main", { inherit: true, allowFail: true });
+  if (!push.ok) console.log(c.y("  GitHub non aggiornato (accesso mancante): proseguo, potrai rifare `git push origin HEAD:main`."));
+
   // ---------------------------------------------------------------- 1. progetto Supabase
   step(1, "Progetto Supabase");
   const list = parseJson(sh("npx supabase projects list -o json").out, "supabase projects list");
