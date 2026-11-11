@@ -1,0 +1,1106 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quanti calciatori ci sono in campo in tutto, contando entrambe le squadre, all'inizio di una partita?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "22",
+        "24",
+        "11",
+        "20"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "11 per squadra, quindi 22 in totale: chi risponde 11 cade nel tranello",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel basket, quanti punti vale un tiro libero realizzato?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "3",
+        "0",
+        "1"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Ogni tiro libero segnato vale un punto (regolamento FIBA)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si colpisce la palla con una mazza e poi si corre tra le basi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cricket",
+        "Baseball",
+        "Hockey su prato",
+        "Golf"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "baseball"
+      ],
+      "notes": "Nel baseball il battitore colpisce e corre lungo le quattro basi del diamante",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la maglia tradizionale della nazionale italiana di calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bianca",
+        "Rossa",
+        "Verde",
+        "Azzurra"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "nazionale"
+      ],
+      "notes": "Gli \"Azzurri\": il colore richiama Casa Savoia; la maglia azzurra è in uso dal 1911",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori ha in campo ogni squadra in una partita di pallavolo?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "8",
+        "7",
+        "6",
+        "5"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pallavolo",
+        "regole"
+      ],
+      "notes": "Sei giocatori per squadra in campo (regolamento FIVB)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo sport invernale in cui si scende sulla neve in piedi su un'unica tavola?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Snowboard",
+        "Slittino",
+        "Bob",
+        "Skeleton"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sport invernali"
+      ],
+      "notes": "Lo snowboard si pratica su una sola tavola; slittino, bob e skeleton sono slitte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quanti tempi si divide una partita di calcio regolamentare, supplementari esclusi?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Due tempi da 45 minuti ciascuno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il giocatore che difende la porta in una squadra di calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mediano",
+        "Terzino",
+        "Portiere",
+        "Libero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "ruoli"
+      ],
+      "notes": "Il portiere è l'unico che può usare le mani nella propria area",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio è soprannominata \"il Diavolo\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Juventus",
+        "Genoa",
+        "Inter",
+        "Milan"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Il Milan rossonero è detto \"il Diavolo\"; l'Inter è il Biscione, la Juventus la Vecchia Signora",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiano vinse gli Australian Open nel 2024, il suo primo torneo del Grande Slam?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lorenzo Musetti",
+        "Matteo Berrettini",
+        "Fabio Fognini",
+        "Jannik Sinner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "campioni italiani"
+      ],
+      "notes": "Sinner batté Medvedev nella finale di Melbourne del 28 gennaio 2024",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque nel 1863 la Football Association, che fissò le regole del calcio moderno?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Italia",
+        "Inghilterra",
+        "Brasile",
+        "Scozia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "storia"
+      ],
+      "notes": "La Football Association nacque a Londra il 26 ottobre 1863 e ne fissò le regole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si usano una racchetta leggera e un volano?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Badminton",
+        "Padel",
+        "Squash",
+        "Tennistavolo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "badminton"
+      ],
+      "notes": "Il volano (shuttlecock) si usa solo nel badminton",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Oltre a peso, disco e martello, quale attrezzo si lancia nell'atletica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Boomerang",
+        "Palla medica",
+        "Giavellotto",
+        "Clava"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "I quattro lanci olimpici: peso, disco, martello e giavellotto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo della Lazio?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Biscione",
+        "Aquila",
+        "Lupa",
+        "Grifone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "simboli"
+      ],
+      "notes": "L'aquila è l'emblema della S.S. Lazio; la lupa è della Roma, il grifone del Genoa, il biscione dell'Inter",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali squadre si affrontano nel derby della Madonnina?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma e Lazio",
+        "Milan e Inter",
+        "Juventus e Torino",
+        "Genoa e Sampdoria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "derby"
+      ],
+      "notes": "Il derby di Milano prende il nome dalla Madonnina del Duomo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel rugby a 15, quanti punti vale una meta?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "7",
+        "3",
+        "5"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rugby",
+        "regole"
+      ],
+      "notes": "La meta vale 5 punti dal 1992; la trasformazione ne aggiunge 2",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante italiano, detto \"Pablito\", fu capocannoniere dei Mondiali del 1982?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Francesco Graziani",
+        "Bruno Conti",
+        "Alessandro Altobelli",
+        "Paolo Rossi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Paolo Rossi segnò 6 gol a Spagna 1982 e vinse anche il Pallone d'oro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale specialità Gianmarco Tamberi vinse l'oro alle Olimpiadi di Tokyo 2020?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Salto in lungo",
+        "Salto in alto",
+        "Salto con l'asta",
+        "Salto triplo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "campioni italiani"
+      ],
+      "notes": "1 agosto 2021: oro condiviso con Mutaz Barshim nel salto in alto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel calcio, da quale distanza dalla porta si tira il calcio di rigore?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "16 metri",
+        "11 metri",
+        "9 metri",
+        "12 metri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Il dischetto è a 11 metri (12 yard) dalla linea di porta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste è un'arma della scherma olimpica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fioretto",
+        "Daga",
+        "Katana",
+        "Pugnale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scherma"
+      ],
+      "notes": "Le tre armi della scherma: fioretto, spada e sciabola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In Formula 1, come si chiama la prima posizione sulla griglia di partenza?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pit lane",
+        "Pole position",
+        "Chicane",
+        "Paddock"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula 1"
+      ],
+      "notes": "La pole position spetta al più veloce nelle qualifiche",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore italiano era soprannominato \"il Divin Codino\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roberto Baggio",
+        "Alessandro Del Piero",
+        "Francesco Totti",
+        "Gianfranco Zola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Roberto Baggio, Pallone d'oro 1993, famoso per il codino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista siciliano vinse il Tour de France nel 2014?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Damiano Cunego",
+        "Fabio Aru",
+        "Vincenzo Nibali",
+        "Ivan Basso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "sicilia"
+      ],
+      "notes": "Il messinese Nibali vinse il Tour 2014; aveva già vinto la Vuelta 2010 e il Giro 2013",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città italiana ospitò le Olimpiadi invernali del 2006?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bormio",
+        "Cortina d'Ampezzo",
+        "Courmayeur",
+        "Torino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "XX Giochi olimpici invernali, Torino, febbraio 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nuotatore statunitense vinse otto medaglie d'oro alle Olimpiadi di Pechino 2008?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Michael Phelps",
+        "Mark Spitz",
+        "Ryan Lochte",
+        "Ian Thorpe"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi"
+      ],
+      "notes": "Phelps vinse 8 ori a Pechino 2008, superando i 7 di Spitz (1972)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato il golf moderno?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Inghilterra",
+        "Scozia",
+        "Irlanda",
+        "Stati Uniti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "golf",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Il golf moderno nasce in Scozia nel Quattrocento; St Andrews è la \"casa del golf\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque il tennistavolo, alla fine dell'Ottocento?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Inghilterra",
+        "Cina",
+        "Corea del Sud"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennistavolo",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Il ping pong nacque come passatempo nell'Inghilterra vittoriana; la Cina lo ha dominato solo dopo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale circuito si correva il Gran Premio di San Marino di Formula 1?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mugello",
+        "Monza",
+        "Imola",
+        "Misano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formula 1",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Il GP di San Marino si corse all'Autodromo Enzo e Dino Ferrari di Imola dal 1981 al 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese fu inventata la pallavolo, nel 1895?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Stati Uniti",
+        "Russia",
+        "Brasile",
+        "Italia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pallavolo",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "William Morgan la inventò a Holyoke, Massachusetts, nel 1895",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale scuderia Ayrton Senna vinse i suoi tre titoli mondiali di Formula 1?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "McLaren",
+        "Lotus",
+        "Williams",
+        "Ferrari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formula 1",
+        "campioni"
+      ],
+      "notes": "Senna fu campione nel 1988, 1990 e 1991 con la McLaren",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la tecnica del salto in alto in cui si supera l'asticella di schiena?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fosbury",
+        "Forbice",
+        "Rotolamento",
+        "Ventrale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Dick Fosbury la impose vincendo l'oro a Città del Messico 1968",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Al Tour de France, come è fatta la maglia del miglior scalatore?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bianca a pois rossi",
+        "Verde",
+        "Azzurra",
+        "Bianca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "tour de france"
+      ],
+      "notes": "La maglia a pois è del Gran premio della montagna; la verde è a punti, la bianca ai giovani; azzurra è quella del Giro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era il commissario tecnico dell'Italia campione del mondo nel 2006?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giovanni Trapattoni",
+        "Arrigo Sacchi",
+        "Marcello Lippi",
+        "Dino Zoff"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Marcello Lippi guidò gli Azzurri al titolo in Germania",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiano vinse il Roland Garros nel 1976?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Corrado Barazzutti",
+        "Adriano Panatta",
+        "Paolo Bertolucci",
+        "Nicola Pietrangeli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis",
+        "campioni italiani"
+      ],
+      "notes": "Panatta vinse a Parigi nel 1976, anno della Coppa Davis italiana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale pilota la Ferrari vinse il Mondiale piloti di Formula 1 del 2007?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fernando Alonso",
+        "Lewis Hamilton",
+        "Felipe Massa",
+        "Kimi Räikkönen"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formula 1",
+        "ferrari"
+      ],
+      "notes": "Räikkönen vinse il titolo 2007 all'ultima gara in Brasile, con un punto su Hamilton e Alonso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno il Napoli vinse il suo primo scudetto, con Maradona?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "1990",
+        "1987",
+        "1989",
+        "1985"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "serie a"
+      ],
+      "notes": "Campionato 1986-87, scudetto vinto il 10 maggio 1987; il secondo arrivò nel 1990",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fiorettista italiana vinse l'oro olimpico individuale nel 2000, nel 2004 e nel 2008?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giovanna Trillini",
+        "Arianna Errigo",
+        "Elisa Di Francisca",
+        "Valentina Vezzali"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scherma",
+        "campioni italiani"
+      ],
+      "notes": "Vezzali vinse il fioretto individuale a Sydney, Atene e Pechino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale provincia siciliana si trova l'autodromo di Pergusa, attorno a un lago?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Caltanissetta",
+        "Catania",
+        "Enna",
+        "Agrigento"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motori",
+        "sicilia"
+      ],
+      "notes": "L'Autodromo di Pergusa circonda il lago di Pergusa, in provincia di Enna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese era nato James Naismith, che inventò la pallacanestro nel 1891?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Stati Uniti",
+        "Scozia",
+        "Canada",
+        "Inghilterra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Naismith, nato in Ontario, inventò il basket a Springfield (USA) nel 1891",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Italia vinse la sua prima Coppa Davis, battendo il Cile a Santiago?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1976",
+        "1968",
+        "1980",
+        "1984"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "coppa davis"
+      ],
+      "notes": "Panatta, Barazzutti, Bertolucci e Zugarelli vinsero in Cile nel dicembre 1976",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sciatrice italiana vinse ori olimpici in tre edizioni consecutive, nel 1992, 1994 e 1998?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sofia Goggia",
+        "Deborah Compagnoni",
+        "Federica Brignone",
+        "Isolde Kostner"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sci",
+        "campioni italiani"
+      ],
+      "notes": "Compagnoni: superG ad Albertville 1992, gigante a Lillehammer 1994 e a Nagano 1998",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse il primo campionato italiano di calcio, nel 1898?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Genoa",
+        "Milan",
+        "Torino",
+        "Juventus"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "storia"
+      ],
+      "notes": "Il Genoa vinse il torneo disputato a Torino l'8 maggio 1898",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti minuti di gioco dura una partita di basket NBA, supplementari esclusi?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "45",
+        "60",
+        "48",
+        "40"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Quattro quarti da 12 minuti nella NBA; da 10 minuti (40 totali) nelle regole FIBA",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno la nazionale italiana di rugby entrò nel torneo che diventò il Sei Nazioni?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1991",
+        "1995",
+        "2000",
+        "2005"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby",
+        "storia"
+      ],
+      "notes": "Con l'ingresso dell'Italia nel 2000 il Cinque Nazioni divenne Sei Nazioni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato il padel, alla fine degli anni Sessanta?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Argentina",
+        "Messico",
+        "Brasile"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "padel",
+        "storia"
+      ],
+      "notes": "Il padel fu inventato da Enrique Corcuera ad Acapulco nel 1969, poi si diffuse in Spagna e Argentina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana vinse per prima la Coppa dei Campioni, nel 1963?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Juventus",
+        "Inter",
+        "Milan",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "coppe europee"
+      ],
+      "notes": "Il Milan batté il Benfica 2-1 a Wembley il 22 maggio 1963",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le gare di equitazione delle Olimpiadi di Melbourne 1956 si tennero in quale città?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Stoccolma",
+        "Sydney",
+        "Melbourne",
+        "Londra"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "Per le leggi australiane sulla quarantena dei cavalli, l'equitazione si svolse a Stoccolma nel giugno 1956",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo italiano a vincere il Tour de France, nel 1924?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Costante Girardengo",
+        "Ottavio Bottecchia",
+        "Gino Bartali",
+        "Alfredo Binda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "storia"
+      ],
+      "notes": "Il friulano Bottecchia vinse il Tour nel 1924 e nel 1925",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu la prima donna italiana a vincere una medaglia d'oro olimpica, a Berlino nel 1936?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sara Simeoni",
+        "Paola Pigni",
+        "Claudia Testoni",
+        "Ondina Valla"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica",
+        "storia"
+      ],
+      "notes": "Ondina Valla vinse gli 80 metri ostacoli a Berlino 1936",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse il primo Mondiale di basket maschile, nel 1950?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Brasile",
+        "Stati Uniti",
+        "Unione Sovietica",
+        "Argentina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "storia"
+      ],
+      "notes": "Il primo Mondiale FIBA si giocò a Buenos Aires nel 1950 e lo vinse l'Argentina",
+      "verified": true
+    }
+  ]
+}

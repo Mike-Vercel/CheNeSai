@@ -1,0 +1,1101 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"uomo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Uomi",
+        "Uoma",
+        "Uomine",
+        "Uomini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "grammatica"
+      ],
+      "notes": "Plurale irregolare: l'uomo, gli uomini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"re\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Regia",
+        "Reessa",
+        "Rea",
+        "Regina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "femminili",
+        "grammatica"
+      ],
+      "notes": "Il femminile di re è regina (rea è il femminile di reo)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sillabe ha la parola \"mamma\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sillabe",
+        "fonetica"
+      ],
+      "notes": "Mam-ma: due sillabe (le doppie si dividono)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il maschile di \"gallina\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tacchino",
+        "Pulcino",
+        "Gallo",
+        "Fagiano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "maschili",
+        "grammatica"
+      ],
+      "notes": "Gallina/gallo; il pulcino è il piccolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi dorme non piglia…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mosche",
+        "Pesci",
+        "Topi",
+        "Lepri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "\"Chi dorme non piglia pesci\": chi non si dà da fare non ottiene nulla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il diminutivo di \"casa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Casetta",
+        "Casaccia",
+        "Casale",
+        "Casone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "alterati",
+        "grammatica"
+      ],
+      "notes": "Casetta è diminutivo; casone accrescitivo, casaccia peggiorativo, casale è un'altra parola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"piove a catinelle\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Grandina",
+        "Piove poco",
+        "Piove moltissimo",
+        "Smette di piovere"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "A catinelle: come se l'acqua si versasse da un catino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa significa \"picciriddu\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bambino",
+        "Pigro",
+        "Piccione",
+        "Vecchio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Picciriddu (picciridda al femminile) è il bambino in siciliano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale segno indica l'elisione, come in \"l'albero\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Apostrofo",
+        "Accento",
+        "Virgola",
+        "Trattino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia",
+        "punteggiatura"
+      ],
+      "notes": "L'apostrofo segnala la caduta della vocale finale (lo albero diventa l'albero)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"rompere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Rompito",
+        "Rotto",
+        "Rompato",
+        "Rompiuto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi",
+        "grammatica"
+      ],
+      "notes": "Rompere ha participio irregolare: rotto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Davanti alle parole che iniziano con \"gn\", come \"gnocco\", quale articolo si usa?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lo",
+        "Il",
+        "Un",
+        "La"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "articoli",
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Davanti a gn si usano lo, gli, uno: lo gnocco, gli gnocchi (dire \"il gnocco\" è un errore)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole si scrive con una sola \"z\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Polizia",
+        "Pizza",
+        "Razza",
+        "Pazzia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Le parole in -zia, -zie, -zio si scrivono con una sola z (polizia); pazzia viene da pazzo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che genere è la parola \"problema\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Neutro",
+        "Maschile",
+        "Femminile",
+        "Maschile e femminile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica",
+        "genere",
+        "trabocchetto"
+      ],
+      "notes": "Il problema, i problemi: nome maschile in -a, di origine greca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola italiana si scrive con due \"q\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Evacuare",
+        "Soqquadro",
+        "Taccuino",
+        "Acqua"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Soqquadro (con i suoi derivati) è l'unica parola italiana con la doppia q",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"effimero\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Delicato",
+        "Di breve durata",
+        "Pieno di sé",
+        "Molto costoso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Effimero, dal greco: che dura un solo giorno, passeggero (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale compare nell'augurio \"in bocca al…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lupo",
+        "Coccodrillo",
+        "Leone",
+        "Orso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "\"In bocca al lupo\", a cui si risponde \"crepi\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa con il congiuntivo presente di \"andare\": \"Bisogna che io…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Andrei",
+        "Vada",
+        "Vado",
+        "Andassi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi",
+        "congiuntivo"
+      ],
+      "notes": "Congiuntivo presente: che io vada, che tu vada",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un nome composto?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Pescheria",
+        "Pescatore",
+        "Pescecane",
+        "Pesciolino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "nomi"
+      ],
+      "notes": "Pescecane unisce pesce e cane; gli altri sono derivati e alterati di pesce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale aggettivo letterario indica gli abitanti di Napoli?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Felsinei",
+        "Etnei",
+        "Partenopei",
+        "Peloritani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico",
+        "napoli"
+      ],
+      "notes": "Partenope è l'antico nome di Napoli; felsinei sono i bolognesi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama una parola che imita un suono, come \"chicchirichì\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Palindromo",
+        "Acronimo",
+        "Anagramma",
+        "Onomatopea"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "retorica"
+      ],
+      "notes": "Onomatopea: parola che riproduce un suono o un rumore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il marito della figlia è il genero: come si chiama la moglie del figlio?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cognata",
+        "Suocera",
+        "Nipote",
+        "Nuora"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "parentela"
+      ],
+      "notes": "La moglie del figlio è la nuora",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Marco regala un libro a Luca\", che complemento è \"a Luca\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Complemento di luogo",
+        "Complemento di specificazione",
+        "Complemento di termine",
+        "Complemento oggetto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "analisi logica"
+      ],
+      "notes": "A chi? a Luca: complemento di termine",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"fare orecchie da mercante\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ascoltare di nascosto",
+        "Vendere a caro prezzo",
+        "Fingere di non sentire",
+        "Contrattare sul prezzo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "Fare orecchie da mercante: far finta di non sentire per non agire",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa significa \"taliare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ascoltare",
+        "Guardare",
+        "Tagliare",
+        "Parlare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Taliare (talìa!) significa guardare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città ha sede l'Accademia della Crusca?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Roma",
+        "Firenze",
+        "Bologna",
+        "Siena"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "istituzioni"
+      ],
+      "notes": "La Crusca ha sede nella Villa medicea di Castello, a Firenze",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"jeans\" deriva dal nome di quale città?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nîmes",
+        "Genova",
+        "Londra",
+        "Manchester"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Jeans dal francese Gênes, Genova, da cui partiva il tessuto; denim deriva invece da Nîmes",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa con il congiuntivo imperfetto di \"stare\": \"Se io… meglio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Stassi",
+        "Starei",
+        "Stessi",
+        "Stasse"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi",
+        "congiuntivo",
+        "trabocchetto"
+      ],
+      "notes": "Congiuntivo imperfetto: che io stessi; \"stassi\" è un errore comune",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"paio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "I pai",
+        "I paii",
+        "Le paie",
+        "Le paia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Un paio, due paia: plurale femminile in -a",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua viene la parola \"robot\", resa celebre da uno scrittore nel 1920?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Tedesco",
+        "Ceco",
+        "Inglese",
+        "Russo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal ceco robota \"lavoro forzato\", nel dramma R.U.R. di Karel Čapek (1920)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "\"Candidato\" viene dal colore della toga dei candidati nell'antica Roma: quale?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Rosso",
+        "Viola",
+        "Bianco",
+        "Nero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "antica roma"
+      ],
+      "notes": "Dal latino candidatus, vestito di bianco: i candidati portavano la toga candida",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"prolisso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Troppo lungo",
+        "Molto preciso",
+        "Rumoroso",
+        "Fertile"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Prolisso: che si dilunga troppo, eccessivamente lungo (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un refuso?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un documento ufficiale",
+        "Un errore di stampa",
+        "Una rima sbagliata",
+        "Un rifiuto scritto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Refuso: errore tipografico, una lettera al posto di un'altra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il comparativo di maggioranza organico di \"buono\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Maggiore",
+        "Ottimo",
+        "Massimo",
+        "Migliore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "aggettivi"
+      ],
+      "notes": "Buono: comparativo organico migliore, superlativo ottimo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi verbi vuole sempre l'ausiliare \"essere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Dormire",
+        "Mangiare",
+        "Leggere",
+        "Nascere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi",
+        "ausiliari"
+      ],
+      "notes": "Sono nato: nascere si coniuga sempre con essere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tempo verbale è \"avrò mangiato\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Trapassato prossimo",
+        "Futuro semplice",
+        "Condizionale passato",
+        "Futuro anteriore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi",
+        "tempi"
+      ],
+      "notes": "Avrò mangiato: futuro anteriore dell'indicativo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"menare il can per l'aia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Comportarsi da padrone",
+        "Litigare per niente",
+        "Fare lavori umili",
+        "Tirare per le lunghe"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "Menare il can per l'aia: tergiversare, non arrivare mai al punto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola, attribuita a Gabriele D'Annunzio, doveva sostituire l'inglese \"sandwich\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Panino",
+        "Focaccina",
+        "Toast",
+        "Tramezzino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia",
+        "neologismi"
+      ],
+      "notes": "Tramezzino, diminutivo di tramezzo, proposto per sandwich (Treccani); il conio è tradizionalmente attribuito a D'Annunzio, anni Venti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il verso dell'elefante?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Barrito",
+        "Grugnito",
+        "Ruggito",
+        "Bramito"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "animali"
+      ],
+      "notes": "L'elefante barrisce; il leone ruggisce, il cervo bramisce, il maiale grugnisce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"pusillanime\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Basso di statura",
+        "Generoso",
+        "Vile",
+        "Testardo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico",
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Pusillanime: d'animo debole, codardo (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa deriva il verbo \"boicottare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Da un cognome",
+        "Da un fiume",
+        "Da una nave",
+        "Da una città"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Da Charles Boycott, amministratore di terre in Irlanda isolato dai contadini nel 1880",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa deriva la parola \"mausoleo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Da una città egizia",
+        "Da un dio greco",
+        "Dal nome di un re",
+        "Da un architetto romano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "storia"
+      ],
+      "notes": "Da Mausolo, re di Caria, la cui tomba ad Alicarnasso era una delle sette meraviglie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ignavo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Arrogante",
+        "Ignorante",
+        "Senza nome",
+        "Privo di volontà e di coraggio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "letteratura"
+      ],
+      "notes": "Ignavo: pigro, vile; Dante mette gli ignavi nell'Antinferno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica è \"non è un genio\", per dire che uno è poco intelligente?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ossimoro",
+        "Iperbole",
+        "Litote",
+        "Anafora"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Litote: affermare negando il contrario",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tempo verbale è \"ebbi parlato\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Passato remoto",
+        "Trapassato prossimo",
+        "Passato prossimo",
+        "Trapassato remoto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi",
+        "tempi"
+      ],
+      "notes": "Ebbi parlato: trapassato remoto dell'indicativo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è un \"muccaturi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un coltello",
+        "Un fazzoletto",
+        "Un grembiule",
+        "Un cuscino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Muccaturi, da muccu (moccio): il fazzoletto da naso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale opera Dante scrisse, in latino, del volgare illustre?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "De vulgari eloquentia",
+        "Convivio",
+        "Monarchia",
+        "Vita nova"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia della lingua",
+        "dante"
+      ],
+      "notes": "Il De vulgari eloquentia (1303-1305) teorizza il volgare illustre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"esiziale\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Esitante",
+        "Rovinoso",
+        "Essenziale",
+        "Esagerato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Esiziale: che porta rovina o morte (Treccani); spesso confuso con essenziale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"icastico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Efficace e incisivo",
+        "Freddo",
+        "Ironico",
+        "Statico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Icastico: che rappresenta la realtà in modo vivo, incisivo (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno uscì la prima edizione del Vocabolario degli Accademici della Crusca?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1583",
+        "1700",
+        "1612",
+        "1525"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia della lingua",
+        "istituzioni"
+      ],
+      "notes": "La prima edizione del Vocabolario fu stampata a Venezia nel 1612",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale documento del 960 è la più antica testimonianza sicura dell'italiano volgare?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Il Placito capuano",
+        "L'iscrizione di San Clemente",
+        "L'Indovinello veronese",
+        "Il Cantico delle creature"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia della lingua"
+      ],
+      "notes": "\"Sao ko kelle terre...\": il Placito di Capua del 960",
+      "verified": true
+    }
+  ]
+}

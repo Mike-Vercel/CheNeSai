@@ -1,0 +1,1104 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Come si chiama il cane di Topolino?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pluto",
+        "Pippo",
+        "Snoopy",
+        "Scooby-Doo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "disney",
+        "cartoni"
+      ],
+      "notes": "Pluto è il cane di Topolino; Pippo è un suo amico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cartone racconta una famiglia dell'età della pietra che vive a Bedrock?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "I pronipoti",
+        "La famiglia Addams",
+        "Gli antenati",
+        "I Puffi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cartoni",
+        "hanna-barbera"
+      ],
+      "notes": "The Flintstones, 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale serie animata Ash viaggia insieme al suo Pikachu?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Digimon",
+        "Dragon Ball",
+        "Pokémon",
+        "Yu-Gi-Oh!"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime",
+        "cartoni"
+      ],
+      "notes": "Pokémon, dal 1997",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale talent di Maria De Filippi ha una scuola per giovani cantanti e ballerini?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "X Factor",
+        "Tú sí que vales",
+        "Amici",
+        "Ti lascio una canzone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "talent",
+        "mediaset"
+      ],
+      "notes": "Amici di Maria De Filippi, dal 2001",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale quiz di Gerry Scotti i concorrenti avevano l'aiuto del pubblico e la telefonata a casa?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avanti un altro!",
+        "Caduta libera",
+        "Chi vuol essere milionario?",
+        "The Wall"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "quiz",
+        "mediaset"
+      ],
+      "notes": "Chi vuol essere milionario?, Canale 5, dal 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta il commissario Montalbano nella serie Rai?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Beppe Fiorello",
+        "Alessandro Gassmann",
+        "Claudio Amendola",
+        "Luca Zingaretti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fiction",
+        "sicilia"
+      ],
+      "notes": "Luca Zingaretti è Montalbano dal 1999",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante ha inciso per decenni le sigle dei cartoni animati di Mediaset?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Raffaella Carrà",
+        "Orietta Berti",
+        "Cristina D'Avena",
+        "Alessandra Amoroso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sigle",
+        "cartoni"
+      ],
+      "notes": "Cristina D'Avena, centinaia di sigle dagli anni Ottanta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il cibo preferito del gatto Garfield?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La pizza",
+        "Gli spaghetti",
+        "Gli hamburger",
+        "Le lasagne"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cartoni",
+        "fumetti"
+      ],
+      "notes": "Garfield adora le lasagne",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che parentela c'è tra Paperino e Qui, Quo, Qua?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Padre e figli",
+        "Zio e nipoti",
+        "Nonno e nipoti",
+        "Cugini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "disney",
+        "fumetti"
+      ],
+      "notes": "Qui, Quo, Qua sono i nipoti di Paperino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale orsetto dei cartoni è goloso di miele?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Baloo",
+        "Yoghi",
+        "Winnie the Pooh",
+        "Paddington"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cartoni",
+        "disney"
+      ],
+      "notes": "Winnie the Pooh, nato dai libri di Milne",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale programma di Maria De Filippi ci sono tronisti e corteggiatori?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Uomini e donne",
+        "C'è posta per te",
+        "Temptation Island",
+        "Grande Fratello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mediaset",
+        "dating"
+      ],
+      "notes": "Uomini e donne, dal 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale conduttore ha presentato sia \"Avanti un altro!\" sia \"Ciao Darwin\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gerry Scotti",
+        "Carlo Conti",
+        "Paolo Bonolis",
+        "Amadeus"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "conduttori",
+        "mediaset"
+      ],
+      "notes": "Paolo Bonolis",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Ne \"La casa di carta\", quale artista ritraggono le maschere dei rapinatori?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Pablo Picasso",
+        "Salvador Dalí",
+        "Francisco Goya",
+        "Joan Miró"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "spagna"
+      ],
+      "notes": "Le maschere raffigurano Salvador Dalí",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Lost\", che cosa porta i protagonisti sull'isola misteriosa?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un naufragio",
+        "Un incidente aereo",
+        "Un uragano",
+        "Una gita in barca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "misteri"
+      ],
+      "notes": "Il volo Oceanic 815 precipita sull'isola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale oggetto accompagna sempre il dottor House?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un bastone",
+        "Un ombrello",
+        "Una pipa",
+        "Un cappello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "medical"
+      ],
+      "notes": "Gregory House zoppica e usa un bastone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale programma di Raffaella Carrà riuniva in diretta parenti lontani?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "C'è posta per te",
+        "Carramba! Che sorpresa",
+        "Stranamore",
+        "Fantastico"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "varietà",
+        "rai"
+      ],
+      "notes": "Carramba! Che sorpresa, Rai 1, dal 1995",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore pugliese era nonno Libero in \"Un medico in famiglia\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Lino Banfi",
+        "Gigi Proietti",
+        "Nino Frassica",
+        "Giorgio Faletti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fiction",
+        "rai"
+      ],
+      "notes": "Lino Banfi, dal 1998",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto la commedia \"Natale in casa Cupiello\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Eduardo De Filippo",
+        "Peppino De Filippo",
+        "Raffaele Viviani",
+        "Luigi Pirandello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "teatro",
+        "napoli"
+      ],
+      "notes": "Eduardo De Filippo, 1931: \"Te piace 'o presepe?\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strada di New York dà il nome al mondo dei grandi musical?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fifth Avenue",
+        "Wall Street",
+        "Broadway",
+        "Madison Avenue"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musical",
+        "teatro"
+      ],
+      "notes": "Broadway, cuore del Theater District di Manhattan",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale programma di Carlo Conti i vip imitano cantanti famosi?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ballando con le stelle",
+        "Tale e quale show",
+        "Il cantante mascherato",
+        "Io canto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "varietà",
+        "rai"
+      ],
+      "notes": "Tale e quale show, Rai 1, dal 2012",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attrezzo usa sempre MacGyver per cavarsela?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una pistola",
+        "Un accendino",
+        "Un cacciavite",
+        "Un coltellino svizzero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "serie tv",
+        "anni 80"
+      ],
+      "notes": "MacGyver rifiuta le armi e usa il coltellino svizzero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città è ambientata la serie \"Mare fuori\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Palermo",
+        "Bari",
+        "Napoli",
+        "Genova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fiction",
+        "rai"
+      ],
+      "notes": "Nell'istituto penale minorile di Napoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport gioca Mimì Ayuhara, protagonista di un celebre cartone giapponese?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tennis",
+        "Pallavolo",
+        "Pallacanestro",
+        "Calcio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "anime",
+        "sport"
+      ],
+      "notes": "Mimì e la nazionale di pallavolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio viaggia nel tempo dentro una cabina blu della polizia?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Il Dottore",
+        "Marty McFly",
+        "Il Mandaloriano",
+        "Il capitano Kirk"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "fantascienza"
+      ],
+      "notes": "Il Dottore di \"Doctor Who\", nel TARDIS",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che animale è Titti, inseguito dal gatto Silvestro?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un pulcino",
+        "Un canarino",
+        "Un passerotto",
+        "Un pappagallino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cartoni",
+        "trabocchetto"
+      ],
+      "notes": "Tweety è un canarino giallo, non un pulcino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale storico conduttore della Rai era nato a Militello in Val di Catania?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pippo Baudo",
+        "Mike Bongiorno",
+        "Corrado",
+        "Enzo Tortora"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "conduttori",
+        "sicilia"
+      ],
+      "notes": "Pippo Baudo, nato a Militello nel 1936",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il pupazzo cane di \"Bim Bum Bam\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dodò",
+        "Uan",
+        "Provolino",
+        "Topo Gigio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bambini",
+        "mediaset"
+      ],
+      "notes": "Uan, al fianco di Paolo Bonolis",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale programma, nato nel 1981, Piero Angela portò la scienza in prima serata?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ulisse",
+        "Geo",
+        "Linea verde",
+        "Quark"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "divulgazione",
+        "rai"
+      ],
+      "notes": "Quark (1981); Superquark arrivò nel 1995",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato americano vive la famiglia de \"I Soprano\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "New York",
+        "Illinois",
+        "New Jersey",
+        "Florida"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "serie tv",
+        "hbo"
+      ],
+      "notes": "Tony Soprano vive nel New Jersey",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Beautiful\", come si chiama la famiglia che guida la casa di moda?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Forrester",
+        "Carrington",
+        "Capwell",
+        "Ewing"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "soap opera"
+      ],
+      "notes": "Forrester Creations, di Eric e Ridge Forrester",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpretò Sandokan nello sceneggiato Rai del 1976?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Kabir Bedi",
+        "Can Yaman",
+        "Amitabh Bachchan",
+        "Omar Sharif"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sceneggiati",
+        "rai"
+      ],
+      "notes": "Kabir Bedi, regia di Sergio Sollima",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'ispettore dell'Interpol che dà la caccia al ladro Lupin?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Goemon",
+        "Jigen",
+        "Clouseau",
+        "Zenigata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "anime",
+        "cartoni"
+      ],
+      "notes": "L'ispettore Koichi Zenigata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era la moglie di Raimondo Vianello, nella vita e in \"Casa Vianello\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sandra Mondaini",
+        "Raffaella Carrà",
+        "Loretta Goggi",
+        "Lorella Cuccarini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sitcom",
+        "mediaset"
+      ],
+      "notes": "Sandra Mondaini, sposata con Vianello dal 1962",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Don Matteo\", quale grado ha Cecchini, il personaggio di Nino Frassica?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Capitano",
+        "Brigadiere",
+        "Maresciallo",
+        "Colonnello"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fiction",
+        "rai"
+      ],
+      "notes": "Il maresciallo Antonio Cecchini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale musical Maria e Tony si innamorano tra bande rivali di New York?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "West Side Story",
+        "Grease",
+        "Cats",
+        "Chicago"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musical"
+      ],
+      "notes": "West Side Story, Bernstein e Sondheim, 1957",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale soap della Rai, in onda dal 1996, è ambientata a Palazzo Palladini?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Vivere",
+        "Centovetrine",
+        "Il paradiso delle signore",
+        "Un posto al sole"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "soap opera",
+        "rai"
+      ],
+      "notes": "Un posto al sole, a Napoli, sulla collina di Posillipo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città era ambientata la serie originale del \"Commissario Rex\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Berlino",
+        "Vienna",
+        "Monaco di Baviera",
+        "Zurigo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "trabocchetto"
+      ],
+      "notes": "Serie austriaca nata nel 1994, ambientata a Vienna; le stagioni italiane arrivarono dopo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella serie \"Hazzard\", chi o che cosa è il Generale Lee?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Lo sceriffo",
+        "Lo zio dei Duke",
+        "Un'automobile",
+        "Un cane"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "serie tv",
+        "trabocchetto"
+      ],
+      "notes": "È l'auto arancione dei cugini Duke",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lassie, la cagnolina più famosa della TV, era interpretata da quale tipo di cane?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un collie maschio",
+        "Un collie femmina",
+        "Un pastore tedesco femmina",
+        "Un border collie femmina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "animali",
+        "trabocchetto"
+      ],
+      "notes": "Pal e i suoi discendenti, tutti maschi, più grandi e dal pelo più folto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Dallas\", come si chiama il perfido petroliere della famiglia Ewing?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Bobby",
+        "J.R.",
+        "Jock",
+        "Cliff"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "soap opera",
+        "anni 80"
+      ],
+      "notes": "J.R. Ewing, interpretato da Larry Hagman",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Kiss Me Licia\", come si chiama il gatto di Andrea?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Romeo",
+        "Grisù",
+        "Giuliano",
+        "Tommasino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime",
+        "cartoni"
+      ],
+      "notes": "Il gatto Giuliano, presente anche nei telefilm con Cristina D'Avena",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi conduceva \"Portobello\", il programma con il pappagallo che non diceva mai il suo nome?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Corrado",
+        "Pippo Baudo",
+        "Raimondo Vianello",
+        "Enzo Tortora"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia tv",
+        "rai"
+      ],
+      "notes": "Portobello, Rai, dal 1977",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è la maschera siciliana della commedia dell'arte, servo pigro e sempre affamato?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Gianduia",
+        "Meneghino",
+        "Stenterello",
+        "Peppe Nappa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teatro",
+        "sicilia"
+      ],
+      "notes": "Peppe Nappa; Gianduia è torinese, Meneghino milanese, Stenterello fiorentino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella serie \"Boris\", che animale è Boris, portafortuna del regista?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Un gatto",
+        "Un pappagallo",
+        "Un criceto",
+        "Un pesce rosso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "serie tv",
+        "comici"
+      ],
+      "notes": "Il pesce rosso del regista René Ferretti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno la Rai iniziò ufficialmente le trasmissioni a colori?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "1954",
+        "1977",
+        "1965",
+        "1970"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia tv",
+        "trabocchetto"
+      ],
+      "notes": "Dal 1° febbraio 1977, anni dopo altri Paesi europei",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Ken il guerriero\", quante cicatrici ha Kenshiro sul petto?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "6",
+        "8",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "anime",
+        "cartoni"
+      ],
+      "notes": "Sette cicatrici disposte come l'Orsa Maggiore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi diresse lo sceneggiato \"Le avventure di Pinocchio\" del 1972, con Nino Manfredi?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Dino Risi",
+        "Mario Monicelli",
+        "Pietro Germi",
+        "Luigi Comencini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sceneggiati",
+        "rai"
+      ],
+      "notes": "Comencini; Manfredi era Geppetto, Gina Lollobrigida la Fata Turchina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la celebre valletta di \"Rischiatutto\" con Mike Bongiorno?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Edy Angelillo",
+        "Sabina Ciuffini",
+        "Paola Barale",
+        "Ramona Dell'Abate"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia tv",
+        "quiz"
+      ],
+      "notes": "Sabina Ciuffini, valletta di Rischiatutto dal 1970",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi creò il pupazzo Topo Gigio?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Maria Perego",
+        "Bruno Bozzetto",
+        "Nino Pagot",
+        "Emanuele Luzzati"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pupazzi",
+        "storia tv"
+      ],
+      "notes": "Maria Perego, 1959",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi presentò la prima edizione del Festival di Sanremo, nel 1951?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Mike Bongiorno",
+        "Nunzio Filogamo",
+        "Corrado",
+        "Enzo Tortora"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "storia tv"
+      ],
+      "notes": "Nunzio Filogamo: \"Cari amici vicini e lontani\"",
+      "verified": true
+    }
+  ]
+}

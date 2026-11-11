@@ -1,0 +1,1099 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi canta \"Il ragazzo della via Gluck\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Morandi",
+        "Adriano Celentano",
+        "Little Tony",
+        "Bobby Solo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 60"
+      ],
+      "notes": "Adriano Celentano, Sanremo 1966",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Con te partirò\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Luciano Pavarotti",
+        "Eros Ramazzotti",
+        "Andrea Bocelli",
+        "Il Volo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone italiana",
+        "tenori"
+      ],
+      "notes": "Andrea Bocelli, Sanremo 1995",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante britannica ha inciso \"Rolling in the Deep\" e \"Hello\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Rihanna",
+        "Adele",
+        "Beyoncé",
+        "Lady Gaga"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "Adele, 2010 e 2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Shape of You\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Justin Bieber",
+        "Ed Sheeran",
+        "Bruno Mars",
+        "Harry Styles"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "Ed Sheeran, 2017",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale band è il cantante Mick Jagger?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Beatles",
+        "Who",
+        "Rolling Stones",
+        "Kinks"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "band"
+      ],
+      "notes": "Rolling Stones, dal 1962",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia cantava \"Felicità\" nel 1982?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Wess e Dori Ghezzi",
+        "Paola e Chiara",
+        "Jalisse",
+        "Al Bano e Romina Power"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 80"
+      ],
+      "notes": "Al Bano e Romina, Sanremo 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese viene la cantante Shakira?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Messico",
+        "Spagna",
+        "Colombia",
+        "Argentina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "latino"
+      ],
+      "notes": "Nata a Barranquilla, in Colombia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale canzone di Céline Dion è la colonna sonora di \"Titanic\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "I Will Always Love You",
+        "My Heart Will Go On",
+        "Because You Loved Me",
+        "The Power of Love"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "colonne sonore",
+        "pop"
+      ],
+      "notes": "Oscar 1998 per la miglior canzone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Più bella cosa\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Biagio Antonacci",
+        "Eros Ramazzotti",
+        "Nek",
+        "Gigi D'Alessio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 90"
+      ],
+      "notes": "Eros Ramazzotti, 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a fiato si impara spesso a suonare alle scuole medie?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Flauto dolce",
+        "Clarinetto",
+        "Tromba",
+        "Armonica a bocca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "scuola"
+      ],
+      "notes": "Il flauto dolce, spesso di plastica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Ti amo\", successo del 1977?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Raf",
+        "Riccardo Fogli",
+        "Umberto Tozzi",
+        "Marco Masini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 70"
+      ],
+      "notes": "Umberto Tozzi, 1977",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia vinse il Festival di Sanremo 2022 con \"Brividi\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Colapesce e Dimartino",
+        "Paola e Chiara",
+        "Ermal Meta e Fabrizio Moro",
+        "Mahmood e Blanco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Mahmood e Blanco, 2022",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Laura non c'è\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Biagio Antonacci",
+        "Eros Ramazzotti",
+        "Nek",
+        "Gigi D'Alessio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone italiana",
+        "anni 90"
+      ],
+      "notes": "Nek, 1997",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse i testi delle canzoni più famose di Lucio Battisti?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Franco Califano",
+        "Cristiano Malgioglio",
+        "Vito Pallavicini",
+        "Mogol"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "anni 70"
+      ],
+      "notes": "Mogol, pseudonimo di Giulio Rapetti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante senese ha inciso \"Bello e impossibile\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gianna Nannini",
+        "Loredana Bertè",
+        "Fiorella Mannoia",
+        "Patty Pravo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock italiano",
+        "anni 80"
+      ],
+      "notes": "Gianna Nannini, 1986",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è ambientata l'\"Aida\" di Giuseppe Verdi?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Etiopia",
+        "Grecia",
+        "Egitto",
+        "Persia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "verdi"
+      ],
+      "notes": "Nell'antico Egitto; Aida è una principessa etiope fatta schiava",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale soprano era soprannominata \"la Divina\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Maria Callas",
+        "Renata Tebaldi",
+        "Montserrat Caballé",
+        "Mirella Freni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "soprannomi"
+      ],
+      "notes": "Maria Callas (1923-1977)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque Wolfgang Amadeus Mozart?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Salisburgo",
+        "Vienna",
+        "Linz",
+        "Innsbruck"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Salisburgo, 1756",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di danza è \"Sul bel Danubio blu\" di Johann Strauss?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Valzer",
+        "Polka",
+        "Mazurka",
+        "Minuetto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "danza"
+      ],
+      "notes": "Valzer del 1867",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su uno spartito, che cosa indica la parola \"piano\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Suonare lentamente",
+        "Suonare il pianoforte",
+        "Suonare a basso volume",
+        "Fare una pausa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria musicale",
+        "trabocchetto"
+      ],
+      "notes": "\"Piano\" è un'indicazione di intensità, non di velocità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è lo strumento ad arco più grave dell'orchestra?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Contrabbasso",
+        "Violoncello",
+        "Viola",
+        "Violino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "orchestra"
+      ],
+      "notes": "Il contrabbasso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova Abbey Road, la strada resa celebre dai Beatles?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Liverpool",
+        "Manchester",
+        "Londra",
+        "Dublino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "beatles"
+      ],
+      "notes": "Negli studi di Abbey Road, a Londra, i Beatles registrarono quasi tutti i loro dischi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana ha inciso \"Hotel California\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "The Doors",
+        "Fleetwood Mac",
+        "Lynyrd Skynyrd",
+        "Eagles"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "anni 70"
+      ],
+      "notes": "Eagles, 1976",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale trio vinse il Festival di Sanremo nel 2015 con \"Grande amore\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Il Divo",
+        "Le Vibrazioni",
+        "Stadio",
+        "Il Volo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Il Volo, 2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire cantare \"a cappella\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Improvvisando",
+        "Senza strumenti",
+        "In coro",
+        "A bassa voce"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teoria musicale",
+        "trabocchetto"
+      ],
+      "notes": "Solo voci, senza accompagnamento strumentale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo vinse il Festival di Sanremo nel 1990 con \"Uomini soli\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pooh",
+        "Ricchi e Poveri",
+        "Nomadi",
+        "Stadio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "band"
+      ],
+      "notes": "Pooh, 1990",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore emiliano ha scritto \"La locomotiva\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pierangelo Bertoli",
+        "Luciano Ligabue",
+        "Lucio Dalla",
+        "Francesco Guccini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "anni 70"
+      ],
+      "notes": "Francesco Guccini, 1972",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il nome d'arte di Adelmo Fornaciari?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Zucchero",
+        "Vasco",
+        "Jovanotti",
+        "Pupo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock italiano",
+        "nomi d'arte"
+      ],
+      "notes": "Zucchero Fornaciari, nato a Roncocesi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale regione è nato Domenico Modugno, che da giovane cantava in siciliano?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sicilia",
+        "Calabria",
+        "Puglia",
+        "Campania"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "trabocchetto"
+      ],
+      "notes": "Nato a Polignano a Mare nel 1928; agli inizi cantava in siciliano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la protagonista de \"La traviata\" di Verdi?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Mimì",
+        "Violetta",
+        "Gilda",
+        "Aida"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "verdi"
+      ],
+      "notes": "Violetta Valéry; Mimì è della Bohème, Gilda del Rigoletto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città marchigiana nacque Gioachino Rossini?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Pesaro",
+        "Ancona",
+        "Urbino",
+        "Macerata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "italia"
+      ],
+      "notes": "Pesaro, 1792, sede del Rossini Opera Festival",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque Ludwig van Beethoven?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Vienna",
+        "Bonn",
+        "Amburgo",
+        "Salisburgo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Nato a Bonn nel 1770; visse e morì a Vienna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in siciliano lo scacciapensieri?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Friscalettu",
+        "Zampogna",
+        "Marranzano",
+        "Ciaramella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "sicilia"
+      ],
+      "notes": "Il marranzano; il friscalettu è un piccolo flauto siciliano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Durante quale canzone Michael Jackson mostrò il moonwalk in TV nel 1983?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Billie Jean",
+        "Beat It",
+        "Bad",
+        "Smooth Criminal"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "anni 80"
+      ],
+      "notes": "Speciale Motown 25, 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si sono formati gli AC/DC?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Regno Unito",
+        "Stati Uniti",
+        "Irlanda",
+        "Australia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "trabocchetto"
+      ],
+      "notes": "A Sydney nel 1973, dai fratelli Young nati in Scozia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante vinse l'Eurovision del 1964 con \"Non ho l'età\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Rita Pavone",
+        "Mina",
+        "Caterina Caselli",
+        "Gigliola Cinquetti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "eurovision",
+        "sanremo"
+      ],
+      "notes": "Prima vittoria italiana all'Eurovision",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse la canzone napoletana \"Malafemmena\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Renato Carosone",
+        "Roberto Murolo",
+        "Eduardo De Filippo",
+        "Totò"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "canzone napoletana",
+        "trabocchetto"
+      ],
+      "notes": "Scritta da Totò nel 1951",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"La cavalcata delle valchirie\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Richard Strauss",
+        "Gustav Mahler",
+        "Johannes Brahms",
+        "Richard Wagner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "opera"
+      ],
+      "notes": "Dall'opera La Valchiria di Wagner",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale teatro d'opera, inaugurato nel 1737, è il più antico d'Europa ancora attivo?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Teatro La Fenice",
+        "Teatro alla Scala",
+        "Teatro Regio di Torino",
+        "Teatro San Carlo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "opera",
+        "napoli"
+      ],
+      "notes": "Il San Carlo di Napoli; La Fenice è del 1792, la Scala del 1778",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose la musica del \"Canto degli Italiani\", l'inno di Mameli?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Michele Novaro",
+        "Giuseppe Verdi",
+        "Gioachino Rossini",
+        "Vincenzo Bellini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "inni",
+        "storia"
+      ],
+      "notes": "Testo di Goffredo Mameli, musica di Michele Novaro, 1847",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il vero nome di Elton John?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Reginald Dwight",
+        "Gordon Sumner",
+        "Farrokh Bulsara",
+        "David Jones"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "nomi d'arte"
+      ],
+      "notes": "Reginald Dwight; Sumner è Sting, Bulsara è Freddie Mercury, Jones è David Bowie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante vinse l'Eurovision del 1990 con \"Insieme: 1992\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Umberto Tozzi",
+        "Toto Cutugno",
+        "Al Bano",
+        "Pupo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "eurovision"
+      ],
+      "notes": "Seconda vittoria italiana, a Zagabria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Massimo Ranieri vinse il Festival di Sanremo nel 1988?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Rose rosse",
+        "Erba di casa mia",
+        "Vent'anni",
+        "Perdere l'amore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "anni 80"
+      ],
+      "notes": "Perdere l'amore, Sanremo 1988",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante romano era soprannominato \"il reuccio\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Little Tony",
+        "Renato Rascel",
+        "Claudio Villa",
+        "Nicola Arigliano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone italiana",
+        "soprannomi"
+      ],
+      "notes": "Claudio Villa, quattro volte vincitore di Sanremo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale famiglia di strumenti appartiene il sassofono, pur essendo di metallo?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Legni",
+        "Ottoni",
+        "Percussioni",
+        "Archi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Usa un'ancia come il clarinetto, quindi è un legno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale produttore della Val Gardena è considerato il padre della disco elettronica?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Gigi D'Agostino",
+        "Giorgio Moroder",
+        "Robert Miles",
+        "Bob Sinclar"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dance",
+        "produttori"
+      ],
+      "notes": "Nato a Ortisei nel 1940, produsse \"I Feel Love\" per Donna Summer",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose la musica di \"'O sole mio\" nel 1898?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Ernesto De Curtis",
+        "Salvatore Di Giacomo",
+        "Eduardo Di Capua",
+        "Renato Carosone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone napoletana"
+      ],
+      "notes": "Musica di Eduardo Di Capua, testo di Giovanni Capurro (nel 2002 un tribunale riconobbe anche Alfredo Mazzucchi come coautore della musica)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore cremonese scrisse \"L'Orfeo\", nel 1607?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Jacopo Peri",
+        "Alessandro Scarlatti",
+        "Claudio Monteverdi",
+        "Giovanni Pierluigi da Palestrina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "barocco"
+      ],
+      "notes": "Claudio Monteverdi, tra le prime opere della storia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Pierino e il lupo\" di Prokof'ev, quale strumento rappresenta il gatto?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Flauto",
+        "Oboe",
+        "Fagotto",
+        "Clarinetto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "strumenti"
+      ],
+      "notes": "Flauto l'uccellino, oboe l'anatra, fagotto il nonno, clarinetto il gatto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale frazione di Busseto nacque Giuseppe Verdi?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sant'Agata",
+        "Roncole",
+        "Samboseto",
+        "Frescarolo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "verdi"
+      ],
+      "notes": "Le Roncole, oggi Roncole Verdi; a Sant'Agata (Villanova sull'Arda) ebbe la villa",
+      "verified": true
+    }
+  ]
+}

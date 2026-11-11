@@ -1,0 +1,1106 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale attrice interpreta Hermione Granger nei film di Harry Potter?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Emma Stone",
+        "Keira Knightley",
+        "Natalie Portman",
+        "Emma Watson"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attrici",
+        "saghe"
+      ],
+      "notes": "Emma Watson è Hermione in tutti gli 8 film della saga (2001-2011)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale saga Johnny Depp interpreta il capitano Jack Sparrow?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Pirati dei Caraibi",
+        "Hook",
+        "Master and Commander",
+        "I Goonies"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "saghe",
+        "attori"
+      ],
+      "notes": "Pirati dei Caraibi, dal 2003",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale grattacielo di New York si arrampica King Kong nel film del 1933?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Chrysler Building",
+        "Flatiron Building",
+        "Empire State Building",
+        "Rockefeller Center"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classici",
+        "mostri"
+      ],
+      "notes": "Scena finale di King Kong (1933)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha interpretato al cinema il ragionier Ugo Fantozzi?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lino Banfi",
+        "Renato Pozzetto",
+        "Massimo Boldi",
+        "Paolo Villaggio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "commedia",
+        "cinema italiano"
+      ],
+      "notes": "Paolo Villaggio creò e interpretò Fantozzi dal 1975",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale orco verde vive in una palude con il suo amico Ciuchino?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Grinch",
+        "Hulk",
+        "Shrek",
+        "Yoda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "animazione",
+        "dreamworks"
+      ],
+      "notes": "Shrek, DreamWorks 2001",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film Pixar racconta di un topo che sogna di fare lo chef a Parigi?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cars",
+        "Ratatouille",
+        "Coco",
+        "Luca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "pixar"
+      ],
+      "notes": "Ratatouille (2007), il topo Rémy",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film Tom Cruise è il pilota di caccia soprannominato Maverick?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Giorni di tuono",
+        "Top Gun",
+        "Mission: Impossible",
+        "Jerry Maguire"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "anni 80",
+        "attori"
+      ],
+      "notes": "Top Gun (1986), seguito nel 2022 da Top Gun: Maverick",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta l'archeologo Indiana Jones?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Kevin Costner",
+        "Mel Gibson",
+        "Harrison Ford",
+        "Bruce Willis"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attori",
+        "avventura"
+      ],
+      "notes": "Harrison Ford, dal 1981 con \"I predatori dell'arca perduta\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il pupazzo di neve parlante di \"Frozen\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Olaf",
+        "Sven",
+        "Kristoff",
+        "Hans"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Olaf; Sven è la renna, Kristoff e Hans sono umani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la perfida che vuole una pelliccia di dalmata ne \"La carica dei 101\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Malefica",
+        "Crudelia De Mon",
+        "Ursula",
+        "Grimilde"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Crudelia De Mon, Disney 1961",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film Checco Zalone difende a ogni costo il suo posto fisso?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sole a catinelle",
+        "Cado dalle nubi",
+        "Tolo Tolo",
+        "Quo vado?"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "commedia",
+        "cinema italiano"
+      ],
+      "notes": "Quo vado? (2016), regia di Gennaro Nunziante",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi interpreta Don Vito Corleone ne \"Il Padrino\" del 1972?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Al Pacino",
+        "James Caan",
+        "Marlon Brando",
+        "Robert Duvall"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attori",
+        "classici"
+      ],
+      "notes": "Brando vinse l'Oscar; Pacino è Michael, Caan è Sonny, Duvall è Tom Hagen",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale fontana romana fa il bagno Anita Ekberg ne \"La dolce vita\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fontana di Trevi",
+        "Fontana dei Quattro Fiumi",
+        "Fontana della Barcaccia",
+        "Fontana del Tritone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cinema italiano",
+        "fellini"
+      ],
+      "notes": "Scena celebre del film di Fellini, 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore napoletano era chiamato \"il principe della risata\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Eduardo De Filippo",
+        "Peppino De Filippo",
+        "Nino Taranto",
+        "Totò"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attori",
+        "cinema italiano"
+      ],
+      "notes": "Antonio de Curtis, in arte Totò",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo attore a interpretare James Bond al cinema, nel 1962?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Roger Moore",
+        "Sean Connery",
+        "George Lazenby",
+        "Pierce Brosnan"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spionaggio",
+        "attori"
+      ],
+      "notes": "Agente 007 – Licenza di uccidere, 1962",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i premi assegnati dall'Accademia del Cinema Italiano?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Leone d'oro",
+        "David di Donatello",
+        "Premio Strega",
+        "Telegatto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "premi",
+        "cinema italiano"
+      ],
+      "notes": "I David di Donatello, assegnati dal 1956",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto la trilogia de \"Il Signore degli Anelli\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Guillermo del Toro",
+        "Peter Jackson",
+        "Ridley Scott",
+        "Christopher Nolan"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "registi",
+        "fantasy"
+      ],
+      "notes": "Peter Jackson, 2001-2003; 11 Oscar per Il ritorno del re",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Inception\" e \"Interstellar\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Denis Villeneuve",
+        "Christopher Nolan",
+        "Ridley Scott",
+        "David Fincher"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "registi",
+        "fantascienza"
+      ],
+      "notes": "Christopher Nolan, 2010 e 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi interpreta \"Edward mani di forbice\" nel film di Tim Burton?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Jim Carrey",
+        "Nicolas Cage",
+        "Johnny Depp",
+        "Keanu Reeves"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attori",
+        "anni 90"
+      ],
+      "notes": "Film del 1990 con Johnny Depp e Winona Ryder",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il robottino Pixar che fa le pulizie su una Terra abbandonata?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "EVE",
+        "WALL-E",
+        "Baymax",
+        "R2-D2"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "pixar"
+      ],
+      "notes": "WALL-E (2008); EVE è la robot di cui si innamora",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale saga Tom Cruise interpreta l'agente segreto Ethan Hunt?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fast and Furious",
+        "Jason Bourne",
+        "Die Hard",
+        "Mission: Impossible"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "saghe",
+        "azione"
+      ],
+      "notes": "Mission: Impossible, dal 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale scrittore sono tratti i film \"Shining\", \"It\" e \"Misery non deve morire\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Dean Koontz",
+        "Edgar Allan Poe",
+        "Michael Crichton",
+        "Stephen King"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "letteratura al cinema",
+        "horror"
+      ],
+      "notes": "Tutti tratti da romanzi di Stephen King",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la tavoletta che si batte davanti alla macchina da presa prima di ogni ripresa?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ciak",
+        "Moviola",
+        "Steadicam",
+        "Carrello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "set",
+        "curiosità"
+      ],
+      "notes": "Il ciak indica scena e numero della ripresa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Lilo e Stitch\", che cosa è in realtà Stitch?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un alieno",
+        "Un cane",
+        "Un koala",
+        "Un orsetto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "animazione",
+        "trabocchetto"
+      ],
+      "notes": "Stitch è l'Esperimento 626, creatura aliena scambiata per un cane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Ne \"Il re leone\", che animale è Pumbaa?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tasso",
+        "Opossum",
+        "Formichiere",
+        "Facocero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Pumbaa è un facocero, amico del suricato Timon",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale regista vinse l'Oscar per il miglior film straniero con \"Mediterraneo\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Giuseppe Tornatore",
+        "Gabriele Salvatores",
+        "Nanni Moretti",
+        "Marco Tullio Giordana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "oscar",
+        "cinema italiano"
+      ],
+      "notes": "Oscar 1992 come miglior film straniero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film di Tornatore racconta un pianista che non scende mai dalla nave in cui è nato?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Malèna",
+        "Baarìa",
+        "La leggenda del pianista sull'oceano",
+        "La sconosciuta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cinema italiano",
+        "tornatore"
+      ],
+      "notes": "Film del 1998, dal monologo Novecento di Alessandro Baricco",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il paese che dà il cognome ai Corleone de \"Il Padrino\" si trova vicino a quale città?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Palermo",
+        "Trapani",
+        "Agrigento",
+        "Catania"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "classici"
+      ],
+      "notes": "Corleone è nella città metropolitana di Palermo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film di Paolo Sorrentino racconta la sua adolescenza a Napoli negli anni Ottanta?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "È stata la mano di Dio",
+        "Il divo",
+        "Youth",
+        "This Must Be the Place"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cinema italiano",
+        "sorrentino"
+      ],
+      "notes": "Film autobiografico del 2021",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film Totò e Peppino scrivono la lettera \"Signorina, veniamo noi con questa mia\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Totò, Peppino e i fuorilegge",
+        "I soliti ignoti",
+        "Totò, Peppino e la malafemmina",
+        "Guardie e ladri"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "commedia",
+        "cinema italiano"
+      ],
+      "notes": "Film del 1956 di Camillo Mastrocinque",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film di Gabriele Muccino con Will Smith racconta la storia vera di Chris Gardner?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sette anime",
+        "Io sono leggenda",
+        "Hancock",
+        "La ricerca della felicità"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "The Pursuit of Happyness, 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film si sente la battuta \"Francamente me ne infischio\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Casablanca",
+        "Quarto potere",
+        "Via col vento",
+        "Ombre rosse"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classici",
+        "battute"
+      ],
+      "notes": "Rhett Butler a Rossella O'Hara nel finale di Via col vento (1939)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità era Charlie Chaplin?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Statunitense",
+        "Inglese",
+        "Francese",
+        "Canadese"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "attori",
+        "trabocchetto"
+      ],
+      "notes": "Nato a Londra nel 1889, lavorò a Hollywood senza mai prendere la cittadinanza americana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale premio va al miglior film del festival di Berlino?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Leone d'oro",
+        "Palma d'oro",
+        "Conchiglia d'oro",
+        "Orso d'oro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "festival",
+        "premi"
+      ],
+      "notes": "Orso d'oro della Berlinale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film di Hayao Miyazaki vinse l'Oscar come miglior film d'animazione nel 2003?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Il mio vicino Totoro",
+        "Principessa Mononoke",
+        "La città incantata",
+        "Il castello errante di Howl"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "animazione",
+        "giappone"
+      ],
+      "notes": "Spirited Away, Oscar 2003",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha composto la colonna sonora originale di \"Guerre stellari\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Hans Zimmer",
+        "Howard Shore",
+        "Ennio Morricone",
+        "John Williams"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "colonne sonore",
+        "fantascienza"
+      ],
+      "notes": "John Williams, Oscar 1978",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attrice, moglie di Fellini, interpreta Gelsomina ne \"La strada\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Giulietta Masina",
+        "Anna Magnani",
+        "Claudia Cardinale",
+        "Monica Vitti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "attrici",
+        "fellini"
+      ],
+      "notes": "Giulietta Masina, sposata con Fellini dal 1943",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il primo film di \"Guerre stellari\", uscito nel 1977, corrisponde a quale episodio della saga?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Il primo",
+        "Il terzo",
+        "Il sesto",
+        "Il quarto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "saghe",
+        "trabocchetto"
+      ],
+      "notes": "Guerre stellari (1977) è l'Episodio 4, Una nuova speranza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi interpreta il principe di Salina ne \"Il Gattopardo\" di Luchino Visconti?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Alain Delon",
+        "Burt Lancaster",
+        "Marcello Mastroianni",
+        "Kirk Douglas"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "classici"
+      ],
+      "notes": "Film del 1963, Palma d'oro; Alain Delon è Tancredi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi diresse il film \"Amici miei\" (1975)?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Dino Risi",
+        "Ettore Scola",
+        "Luigi Comencini",
+        "Mario Monicelli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "commedia",
+        "registi"
+      ],
+      "notes": "Monicelli girò il film ideato da Pietro Germi, morto prima delle riprese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale film del 1980 Carlo Verdone esordì alla regia?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Un sacco bello",
+        "Bianco, rosso e Verdone",
+        "Borotalco",
+        "Acqua e sapone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Un sacco bello (1980), prodotto da Sergio Leone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "\"Benvenuti al Sud\" (2010) è il remake di quale film francese?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Quasi amici",
+        "La cena dei cretini",
+        "Giù al Nord",
+        "Il favoloso mondo di Amélie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "commedia",
+        "remake"
+      ],
+      "notes": "Bienvenue chez les Ch'tis (2008), in Italia \"Giù al Nord\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quale film di Tarantino Ennio Morricone vinse l'Oscar per la colonna sonora?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Django Unchained",
+        "Bastardi senza gloria",
+        "Kill Bill",
+        "The Hateful Eight"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "colonne sonore",
+        "oscar"
+      ],
+      "notes": "Oscar 2016, dopo quello alla carriera del 2007",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è stata la prima donna a vincere l'Oscar per la regia, nel 2010?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Jane Campion",
+        "Chloé Zhao",
+        "Kathryn Bigelow",
+        "Sofia Coppola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "oscar",
+        "registi"
+      ],
+      "notes": "Kathryn Bigelow per The Hurt Locker",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi interpreta Geppetto nel \"Pinocchio\" di Matteo Garrone (2019)?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Toni Servillo",
+        "Roberto Benigni",
+        "Gigi Proietti",
+        "Massimo Ceccherini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cinema italiano",
+        "trabocchetto"
+      ],
+      "notes": "Benigni, che era stato Pinocchio nel suo film del 2002; Proietti è Mangiafuoco, Ceccherini la Volpe",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità è il regista de \"Il postino\" con Massimo Troisi?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Italiana",
+        "Francese",
+        "Britannica",
+        "Cilena"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cinema italiano",
+        "trabocchetto"
+      ],
+      "notes": "Diretto dal britannico Michael Radford (1994); Troisi è protagonista e sceneggiatore, non co-regista",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Ne \"I soliti ignoti\", che cosa finiscono per mangiare i ladri dopo il colpo fallito?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Pasta e fagioli",
+        "Pasta e ceci",
+        "Spaghetti alla carbonara",
+        "Bucatini all'amatriciana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "commedia",
+        "cinema italiano"
+      ],
+      "notes": "Celebre finale del film di Monicelli (1958)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore vinse l'Oscar per la colonna sonora de \"La vita è bella\"?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Nicola Piovani",
+        "Ennio Morricone",
+        "Nino Rota",
+        "Luis Bacalov"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "colonne sonore",
+        "oscar"
+      ],
+      "notes": "Nicola Piovani, Oscar 1999; Bacalov lo vinse per Il postino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale doppiatore italiano fu la voce di Robert De Niro, Al Pacino e Dustin Hoffman?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Ferruccio Amendola",
+        "Oreste Lionello",
+        "Pino Locchi",
+        "Luca Ward"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "doppiaggio",
+        "cinema italiano"
+      ],
+      "notes": "Ferruccio Amendola (1930-2001)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che soprannome diede la troupe allo squalo meccanico de \"Lo squalo\"?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Bruce",
+        "Jaws",
+        "Moby",
+        "Rex"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "curiosità",
+        "set"
+      ],
+      "notes": "Bruce, dal nome dell'avvocato di Spielberg",
+      "verified": true
+    }
+  ]
+}

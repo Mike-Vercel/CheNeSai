@@ -1,0 +1,1092 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"pesante\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Forte",
+        "Lento",
+        "Pieno",
+        "Leggero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "contrari",
+        "lessico"
+      ],
+      "notes": "Pesante/leggero sono antonimi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un sinonimo di \"iniziare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Aspettare",
+        "Cominciare",
+        "Ripetere",
+        "Finire"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sinonimi",
+        "lessico"
+      ],
+      "notes": "Iniziare e cominciare sono sinonimi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un nome proprio?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Mare",
+        "Fiume",
+        "Roma",
+        "Città"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "nomi"
+      ],
+      "notes": "Roma indica una città precisa: è un nome proprio e si scrive con la maiuscola",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"entrare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Tornare",
+        "Salire",
+        "Uscire",
+        "Restare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "contrari",
+        "lessico"
+      ],
+      "notes": "Entrare/uscire sono antonimi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Tra il dire e il fare c'è di mezzo…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Il tempo",
+        "Il mare",
+        "Il monte",
+        "Il fiume"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Proverbio: tra il dire e il fare c'è di mezzo il mare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere le mani bucate\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere ferito",
+        "Spendere troppo",
+        "Lavorare tanto",
+        "Rubare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "Avere le mani bucate: spendere con troppa facilità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Luca mangia una mela\", che funzione ha \"una mela\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Complemento di termine",
+        "Predicato verbale",
+        "Complemento oggetto",
+        "Soggetto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "analisi logica"
+      ],
+      "notes": "Luca mangia che cosa? una mela: complemento oggetto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale poeta è considerato il padre della lingua italiana?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Dante Alighieri",
+        "Giovanni Boccaccio",
+        "Alessandro Manzoni",
+        "Francesco Petrarca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia della lingua"
+      ],
+      "notes": "Dante, con la Commedia, è tradizionalmente detto padre della lingua italiana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le coniugazioni dei verbi italiani?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi",
+        "grammatica"
+      ],
+      "notes": "Tre coniugazioni: in -are, -ere e -ire",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Rosso di sera…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Brutto tempo arriva",
+        "Vento si avvera",
+        "Bel tempo si spera",
+        "Pioggia si avvera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi",
+        "meteo"
+      ],
+      "notes": "\"Rosso di sera, bel tempo si spera\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"domenica\" deriva dal latino: significava giorno del…?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Sole",
+        "Mercato",
+        "Signore",
+        "Riposo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Dal latino dies dominica, giorno del Signore (in inglese invece Sunday è il giorno del sole)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"la radio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Le radio",
+        "Le radie",
+        "Le radi",
+        "I radi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "plurali",
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Radio (abbreviazione di radiofonia) è invariabile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"braccio\", riferito al corpo umano?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Le braccia",
+        "Gli bracci",
+        "Le braccie",
+        "Le bracce"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "plurali",
+        "grammatica"
+      ],
+      "notes": "Per le braccia del corpo il plurale è \"le braccia\"; \"i bracci\" vale per oggetti (i bracci di una gru)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è tronca, cioè accentata sull'ultima sillaba?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Albero",
+        "Casa",
+        "Città",
+        "Tavolo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "accenti",
+        "fonetica"
+      ],
+      "notes": "Città ha l'accento sull'ultima sillaba; casa è piana, albero e tavolo sdrucciole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare il portoghese\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Parlare in fretta",
+        "Viaggiare spesso",
+        "Fare tardi",
+        "Non pagare il biglietto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "Fare il portoghese: entrare a spettacoli o viaggiare senza pagare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"essere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fui",
+        "Ero",
+        "Sono stato",
+        "Fossi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verbi",
+        "coniugazioni"
+      ],
+      "notes": "Passato remoto di essere: io fui, tu fosti, egli fu",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama una parola di significato opposto a un'altra?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Antonimo",
+        "Sinonimo",
+        "Omonimo",
+        "Acronimo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico"
+      ],
+      "notes": "Antonimo: parola di significato contrario (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Ride bene chi ride…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Spesso",
+        "Ultimo",
+        "Sempre",
+        "Forte"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "\"Ride bene chi ride ultimo\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un filantropo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Chi aiuta gli altri per amore del prossimo",
+        "Chi colleziona francobolli",
+        "Chi odia il genere umano",
+        "Chi studia le lingue"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Filantropo, dal greco: amico degli uomini; il misantropo li odia, il filatelico colleziona francobolli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è l'anagramma di \"attore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tetto",
+        "Teatro",
+        "Torre",
+        "Rotta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi di parole"
+      ],
+      "notes": "Attore e teatro usano le stesse sei lettere: a, t, t, o, r, e",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale lettera dell'alfabeto italiano, da sola, non rappresenta alcun suono?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "H",
+        "Z",
+        "V",
+        "Q"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "alfabeto",
+        "fonetica"
+      ],
+      "notes": "L'acca è muta: serve per distinguere ho da o o per i suoni duri (che, ghi)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"prendere un granchio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Scappare",
+        "Pescare bene",
+        "Arrabbiarsi",
+        "Sbagliarsi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "Prendere un granchio: commettere un errore, prendere un abbaglio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di api in volo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sciame",
+        "Gregge",
+        "Stormo",
+        "Branco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "animali"
+      ],
+      "notes": "Sciame per api e insetti; stormo per gli uccelli; branco e gregge per mammiferi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le tipiche stradine di Venezia?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Calli",
+        "Carruggi",
+        "Vanelle",
+        "Chiassi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dialetti",
+        "venezia"
+      ],
+      "notes": "A Venezia le vie si chiamano calli; a Genova carruggi; vanedde in Sicilia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il verso dell'asino?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nitrito",
+        "Muggito",
+        "Belato",
+        "Raglio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "animali"
+      ],
+      "notes": "L'asino raglia; il cavallo nitrisce, la pecora bela, la mucca muggisce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua deriva la parola \"bistecca\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Francese",
+        "Spagnolo",
+        "Inglese",
+        "Latino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Bistecca è l'adattamento dell'inglese beefsteak (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola di sei lettere contiene tutte e cinque le vocali?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Uomini",
+        "Aiuole",
+        "Aurora",
+        "Aereo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi di parole",
+        "trabocchetto"
+      ],
+      "notes": "Aiuole: a, i, u, o, e più la sola consonante l",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Caltanissetta?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Netini",
+        "Ennesi",
+        "Calatini",
+        "Nisseni"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "sicilia"
+      ],
+      "notes": "Nisseni da Nissa, nome antico della città; calatini sono di Caltagirone, netini di Noto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale parola deriva \"salario\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Salute",
+        "Saldo",
+        "Sole",
+        "Sale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal latino salarium, legato al sale: in origine la somma data per comprarlo (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il nome \"sabato\" risale in origine a una parola di quale lingua?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Germanico",
+        "Ebraico",
+        "Arabo",
+        "Greco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal latino sabbatum, che riprende l'ebraico shabbat, giorno di riposo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"tergiversare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Voltarsi indietro",
+        "Evitare di decidere",
+        "Discutere animatamente",
+        "Cambiare strada"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Tergiversare: prendere tempo, eludere una decisione con pretesti (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura retorica dell'esagerazione, come \"te l'ho detto mille volte\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Similitudine",
+        "Iperbole",
+        "Metafora",
+        "Litote"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Iperbole: esagerazione per eccesso o per difetto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"arcobaleno\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gli arcibaleni",
+        "Le arcobalene",
+        "Gli arcobaleno",
+        "Gli arcobaleni"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "composti"
+      ],
+      "notes": "Arcobaleno è ormai una parola unica: il plurale è arcobaleni (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama una parola accentata sulla penultima sillaba, come \"casa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Tronca",
+        "Bisdrucciola",
+        "Piana",
+        "Sdrucciola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "accenti",
+        "fonetica"
+      ],
+      "notes": "Parola piana: accento sulla penultima, il caso più comune in italiano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole si usa solo al plurale?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Case",
+        "Piedi",
+        "Mani",
+        "Nozze"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "nomi"
+      ],
+      "notes": "Nozze è un nome difettivo del singolare (Treccani: s. f. pl.)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa sono i \"babbaluci\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Farfalle",
+        "Lucertole",
+        "Formiche",
+        "Lumache"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "I babbaluci sono le lumache, tipiche a Palermo per il Festino di Santa Rosalia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale fiume Manzoni volle \"risciacquare i panni\" per rivedere la lingua dei Promessi sposi?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Po",
+        "Arno",
+        "Adda",
+        "Tevere"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia della lingua",
+        "letteratura"
+      ],
+      "notes": "Manzoni andò a Firenze per adottare il fiorentino colto: \"risciacquare i panni in Arno\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"scuola\" deriva da un termine greco che in origine significava?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Tempo libero",
+        "Fatica",
+        "Disciplina",
+        "Libro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Dal latino schola, dal greco scholé: ozio, tempo libero dedicato allo studio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale coniugazione appartiene il verbo \"porre\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Prima",
+        "Quarta",
+        "Seconda",
+        "Terza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi",
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Porre viene dal latino ponere: è della seconda coniugazione, come trarre e condurre",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "\"Ammiraglio\" viene da un titolo che significava \"comandante\": in quale lingua?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Arabo",
+        "Turco",
+        "Spagnolo",
+        "Greco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dall'arabo amir, comandante (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ottemperare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Obbedire a un ordine",
+        "Esagerare",
+        "Mitigare",
+        "Rimandare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Ottemperare: conformarsi, ubbidire a un ordine o a una norma (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica c'è in \"bere un bicchiere\", cioè il contenitore per il contenuto?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Litote",
+        "Anafora",
+        "Metonimia",
+        "Metafora"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Il contenente per il contenuto è un tipo di metonimia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"serendipità\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Scoperta fortunata e casuale",
+        "Gentilezza",
+        "Calma interiore",
+        "Malinconia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Serendipità: trovare qualcosa di prezioso cercando altro, dall'inglese serendipity",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è bisdrucciola, cioè accentata sulla quartultima sillaba?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Telefonista",
+        "Telefonano",
+        "Telefono",
+        "Telefonata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "accenti",
+        "fonetica"
+      ],
+      "notes": "Te-lè-fo-na-no: accento sulla quartultima; telefono è sdrucciola, telefonata e telefonista piane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la lingua di origine albanese parlata a Piana degli Albanesi?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Griko",
+        "Gallo-italico",
+        "Ladino",
+        "Arbëresh"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Gli arbëreshë, albanesi d'Italia, parlano arbëresh; il griko è greco del Salento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"pantagruelico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Spaventoso",
+        "Smisurato, soprattutto nel mangiare",
+        "Mitologico",
+        "Pesante"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Da Pantagruel, gigante di Rabelais: pasto pantagruelico, enorme",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome la \"gazzetta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Da un giornalista",
+        "Da un uccello",
+        "Da una moneta veneziana",
+        "Da un palazzo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal veneziano gazeta, piccola moneta: il prezzo dei primi fogli di notizie (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"apotropaico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Che predice il futuro",
+        "Che guarisce",
+        "Che allontana la sfortuna",
+        "Che porta sfortuna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Apotropaico: che scaccia il male, come il corno portafortuna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse nel 1525 le \"Prose della volgar lingua\", che indicavano Petrarca e Boccaccio come modelli?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Baldassarre Castiglione",
+        "Niccolò Machiavelli",
+        "Ludovico Ariosto",
+        "Pietro Bembo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia della lingua"
+      ],
+      "notes": "Bembo propose il fiorentino del Trecento come modello letterario",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale paese umbro, i cui abitanti erano venditori ambulanti, deriva in parte \"ciarlatano\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Todi",
+        "Norcia",
+        "Gubbio",
+        "Cerreto di Spoleto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Incrocio di ciarlare con cerretano, abitante di Cerreto (Treccani)",
+      "verified": true
+    }
+  ]
+}

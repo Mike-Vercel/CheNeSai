@@ -1,0 +1,1096 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica italiana ha un cavallino rampante nel logo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Alfa Romeo",
+        "Lamborghini",
+        "Maserati",
+        "Ferrari"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Il cavallino era l'emblema dell'aviatore Francesco Baracca; la Lamborghini ha un toro, la Maserati un tridente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale tecnologia ci si collega a Internet senza fili in casa?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Bluetooth",
+        "Wi-Fi",
+        "Fibra ottica",
+        "Cavo di rete"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "reti",
+        "casa"
+      ],
+      "notes": "Il router di casa distribuisce la connessione via Wi-Fi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale mezzo elettrico a due ruote si guida stando in piedi?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Bicicletta",
+        "Scooter",
+        "Monopattino",
+        "Motorino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "mobilità"
+      ],
+      "notes": "Il monopattino elettrico si guida in piedi sulla pedana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scheda si inserisce nel telefono per collegarlo alla rete del gestore?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Batteria",
+        "SIM",
+        "Cover",
+        "Scheda microSD"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "La SIM identifica l'utente sulla rete mobile; la microSD serve solo come memoria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio blu e velocissimo è la mascotte della Sega?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Sonic",
+        "Mario",
+        "Crash Bandicoot",
+        "Pac-Man"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Sonic the Hedgehog debuttò nel 1991",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo trasforma un foglio di carta in un file digitale?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Scanner",
+        "Modem",
+        "Stampante",
+        "Proiettore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "periferiche"
+      ],
+      "notes": "Lo scanner digitalizza documenti e immagini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sigla indica la rete mobile di quinta generazione?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "4G",
+        "2G",
+        "3G",
+        "5G"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia",
+        "reti"
+      ],
+      "notes": "La G sta per \"generazione\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il piccolo velivolo senza pilota usato per fare riprese dall'alto?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Drone",
+        "Aliante",
+        "Elicottero",
+        "Deltaplano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "droni"
+      ],
+      "notes": "Il drone è comandato a distanza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi è un formato per le fotografie?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "JPG",
+        "DOCX",
+        "MP3",
+        "EXE"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formati",
+        "immagini"
+      ],
+      "notes": "JPG è un formato di immagine; MP3 è audio, DOCX testo, EXE programmi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo da polso conta i passi e misura il battito?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Smartwatch",
+        "Power bank",
+        "Auricolare",
+        "Tablet"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dispositivi indossabili"
+      ],
+      "notes": "Lo smartwatch è un orologio con sensori e funzioni da smartphone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale icona indica il salvataggio in molti programmi?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Una matita",
+        "Una cartella",
+        "Un floppy disk",
+        "Un lucchetto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "software",
+        "icone"
+      ],
+      "notes": "Il floppy disk è rimasto simbolo del \"salva\" anche dopo la sua scomparsa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve un router?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "A stampare documenti",
+        "A raffreddare il computer",
+        "A distribuire la connessione di rete",
+        "A registrare la voce"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "reti"
+      ],
+      "notes": "Il router smista i dati tra la rete di casa e Internet",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale criptovaluta fu la prima a nascere, nel 2009?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Bitcoin",
+        "Litecoin",
+        "Dogecoin",
+        "Ethereum"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "criptovalute"
+      ],
+      "notes": "Bitcoin fu lanciato nel gennaio 2009 da Satoshi Nakamoto; Litecoin 2011, Dogecoin 2013, Ethereum 2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa viaggia dentro i cavi in fibra ottica?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Onde sonore",
+        "Acqua",
+        "Impulsi di luce",
+        "Corrente elettrica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "reti",
+        "fisica"
+      ],
+      "notes": "La fibra ottica trasmette dati come impulsi di luce in filamenti di vetro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda produce le console Xbox?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nintendo",
+        "Microsoft",
+        "Sega",
+        "Sony"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi",
+        "aziende"
+      ],
+      "notes": "La prima Xbox uscì nel 2001",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale serie di videogiochi è protagonista l'archeologa Lara Croft?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tomb Raider",
+        "Metal Gear",
+        "Resident Evil",
+        "Uncharted"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Tomb Raider debuttò nel 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica la sigla HD sui televisori?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Doppia frequenza",
+        "Alta definizione",
+        "Doppio schermo",
+        "Alta durata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "televisione"
+      ],
+      "notes": "HD sta per High Definition, alta definizione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale utilitaria Fiat del 1957 è tornata in versione moderna nel 2007?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Panda",
+        "Uno",
+        "500",
+        "Punto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "La Nuova 500 del 1957 e la 500 presentata nel 2007, a 50 anni esatti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Dove hanno vissuto in orbita gli astronauti italiani Cristoforetti e Parmitano?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mir",
+        "Tiangong",
+        "Stazione spaziale internazionale",
+        "Skylab"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Entrambi hanno vissuto a bordo della ISS",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nelle offerte per smartphone, che cosa si misura in giga?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gli SMS",
+        "La durata della batteria",
+        "Il traffico dati",
+        "I minuti di chiamata"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "I gigabyte indicano quanti dati Internet si possono usare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si indossa sulla testa per la realtà virtuale?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un casco da moto",
+        "Un auricolare",
+        "Uno smartwatch",
+        "Un visore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "realtà virtuale"
+      ],
+      "notes": "Il visore mostra immagini davanti agli occhi e segue i movimenti della testa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire salvare un file nel cloud?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Salvarlo su server in Internet",
+        "Salvarlo sul disco del computer",
+        "Salvarlo su una chiavetta",
+        "Nasconderlo in una cartella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "dati"
+      ],
+      "notes": "Il cloud è uno spazio di archiviazione su server remoti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è uno screenshot?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Uno sfondo animato",
+        "Un video tutorial",
+        "Una foto dello schermo",
+        "Uno schermo rotto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "smartphone",
+        "computer"
+      ],
+      "notes": "Lo screenshot cattura l'immagine di ciò che appare sullo schermo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In informatica, che cos'è un bug?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un virus",
+        "Un programma gratuito",
+        "Un aggiornamento",
+        "Un errore nel programma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "\"Bug\", insetto in inglese, indica un difetto nel software",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo mostra le immagini del computer su un telo o una parete?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Router",
+        "Scanner",
+        "Modem",
+        "Proiettore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "periferiche"
+      ],
+      "notes": "Il videoproiettore proietta l'immagine su una superficie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno uscì in Giappone la prima PlayStation?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1994",
+        "1990",
+        "2000",
+        "1998"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi",
+        "storia"
+      ],
+      "notes": "La PlayStation uscì in Giappone il 3 dicembre 1994",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quali parole inglesi viene la sigla GPS?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Global Path Satellite",
+        "Global Positioning System",
+        "General Position Service",
+        "Geo Positioning Signal"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sigle",
+        "satelliti"
+      ],
+      "notes": "GPS = Global Positioning System, il sistema satellitare americano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda milanese produceva lo scooter Lambretta?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ducati",
+        "Piaggio",
+        "Gilera",
+        "Innocenti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motori",
+        "italia"
+      ],
+      "notes": "La Lambretta, dal quartiere milanese di Lambrate, era prodotta dalla Innocenti dal 1947",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi videogiochi è il più vecchio?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Tetris",
+        "Space Invaders",
+        "Pong",
+        "Pac-Man"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi",
+        "storia"
+      ],
+      "notes": "Pong 1972, Space Invaders 1978, Pac-Man 1980, Tetris 1984",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale telescopio spaziale fu lanciato nel 1990?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Spitzer",
+        "James Webb",
+        "Hubble",
+        "Kepler"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "telescopi"
+      ],
+      "notes": "Hubble fu lanciato nell'aprile 1990; Spitzer nel 2003, Kepler nel 2009, James Webb nel 2021",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quali parole sta la sigla SMS?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Short Mobile Signal",
+        "Simple Mail System",
+        "Secure Message Send",
+        "Short Message Service"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia",
+        "sigle"
+      ],
+      "notes": "SMS = Short Message Service",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu fondata l'azienda Google?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1994",
+        "1998",
+        "2004",
+        "2001"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet",
+        "storia"
+      ],
+      "notes": "Google Inc. fu fondata il 4 settembre 1998",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il browser lanciato da Microsoft nel 1995?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Opera",
+        "Internet Explorer",
+        "Safari",
+        "Netscape Navigator"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "web",
+        "storia"
+      ],
+      "notes": "Internet Explorer uscì nell'agosto 1995 con il pacchetto Plus! per Windows 95; Netscape era di un'altra azienda, Safari è di Apple, Opera è norvegese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale linguaggio si usa insieme all'HTML per definire lo stile delle pagine web?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "CSS",
+        "Java",
+        "PHP",
+        "SQL"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "web",
+        "linguaggi"
+      ],
+      "notes": "I fogli di stile CSS definiscono colori, caratteri e impaginazione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il phishing?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un tipo di antivirus",
+        "Un videogioco di pesca",
+        "Una truffa per rubare dati",
+        "Un formato audio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicurezza",
+        "internet"
+      ],
+      "notes": "Messaggi falsi che imitano banche o servizi per carpire password e dati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo il suo creatore, a che cosa si ispira la forma di Pac-Man?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "A una pizza senza una fetta",
+        "A un sole",
+        "A una moneta",
+        "A un orologio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi",
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "Toru Iwatani raccontò di essersi ispirato a una pizza a cui mancava una fetta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vendeva Nintendo quando fu fondata, nel 1889?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Carte da gioco",
+        "Giocattoli di legno",
+        "Biciclette",
+        "Radio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aziende",
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Nintendo nacque a Kyoto producendo carte hanafuda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il grande computer elettronico americano presentato nel 1946?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Colossus",
+        "ENIAC",
+        "UNIVAC",
+        "Z3"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica",
+        "storia"
+      ],
+      "notes": "ENIAC, Università della Pennsylvania, febbraio 1946; Colossus era inglese, Z3 tedesco, UNIVAC del 1951",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il linguaggio di programmazione Java prende il nome dal caffè di quale isola?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Borneo",
+        "Bali",
+        "Sumatra",
+        "Giava"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "programmazione",
+        "curiosità"
+      ],
+      "notes": "Java (Giava) era il caffè preferito dagli sviluppatori di Sun Microsystems",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ingegnere aeronautico progettò la Vespa?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Dante Giacosa",
+        "Corradino D'Ascanio",
+        "Enrico Piaggio",
+        "Ferdinando Innocenti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motori",
+        "italia"
+      ],
+      "notes": "D'Ascanio la progettò su incarico di Enrico Piaggio; Giacosa progettò la Fiat 500",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu fondata la Apple?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "1971",
+        "1984",
+        "1980",
+        "1976"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aziende",
+        "storia"
+      ],
+      "notes": "Apple fu fondata il 1° aprile 1976 da Jobs, Wozniak e Wayne",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa inquadrava una delle prime webcam della storia, all'Università di Cambridge?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Un gatto",
+        "Un parcheggio",
+        "Un acquario",
+        "Una caffettiera"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "La \"Trojan Room coffee pot\" mostrava se c'era caffè; dal 1993 fu visibile sul web",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale matematico inglese progettò nell'Ottocento la \"macchina analitica\"?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Alan Turing",
+        "Charles Babbage",
+        "George Boole",
+        "Isaac Newton"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica",
+        "storia"
+      ],
+      "notes": "La macchina analitica di Babbage (1837) è considerata un antenato del computer",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel 1947 un insetto vero bloccò un computer di Harvard: quale?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Una formica",
+        "Una falena",
+        "Una mosca",
+        "Uno scarafaggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica",
+        "storia"
+      ],
+      "notes": "La falena fu incollata sul registro del Mark II con la nota \"first actual case of bug being found\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale città partì nel 1986 il primo collegamento italiano a Internet?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Milano",
+        "Roma",
+        "Pisa",
+        "Bologna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "italia"
+      ],
+      "notes": "Il 30 aprile 1986 il CNUCE-CNR di Pisa si collegò alla rete",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale rover della NASA atterrò su Marte nel 2012?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Curiosity",
+        "Opportunity",
+        "Spirit",
+        "Sojourner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio",
+        "robot"
+      ],
+      "notes": "Curiosity atterrò il 6 agosto 2012 nel cratere Gale; Sojourner 1997, Spirit e Opportunity 2004",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il programma del 1971 considerato il primo virus informatico?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Brain",
+        "Creeper",
+        "Melissa",
+        "ILOVEYOU"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicurezza",
+        "storia"
+      ],
+      "notes": "Creeper girava su ARPANET; Brain è del 1986, Melissa del 1999, ILOVEYOU del 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale matematico ungherese-americano dà il nome all'architettura dei computer moderni?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Charles Babbage",
+        "Alan Turing",
+        "Claude Shannon",
+        "John von Neumann"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "informatica",
+        "storia"
+      ],
+      "notes": "Architettura di von Neumann, descritta nel 1945",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il primo browser web, creato da Tim Berners-Lee nel 1990?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Lynx",
+        "WorldWideWeb",
+        "Netscape",
+        "Mosaic"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "web",
+        "storia"
+      ],
+      "notes": "Il browser WorldWideWeb fu poi rinominato Nexus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti bit compongono un indirizzo IP nella versione 4?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "16",
+        "64",
+        "128",
+        "32"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "reti",
+        "internet"
+      ],
+      "notes": "Gli indirizzi IPv4 sono di 32 bit, gli IPv6 di 128",
+      "verified": true
+    }
+  ]
+}

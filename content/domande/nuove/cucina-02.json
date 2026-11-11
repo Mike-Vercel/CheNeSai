@@ -1,0 +1,1097 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente principale del ketchup?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Fragola",
+        "Peperone",
+        "Pomodoro",
+        "Barbabietola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salse"
+      ],
+      "notes": "Il ketchup è una salsa agrodolce a base di concentrato di pomodoro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le palle di riso impanate e fritte tipiche della Sicilia?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Panelle",
+        "Sfinci",
+        "Crocchè",
+        "Arancine o arancini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "street food"
+      ],
+      "notes": "Arancina a Palermo, arancino a Catania: riso, ragù o burro, impanati e fritti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale frutto si ricava l'olio extravergine?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Girasole",
+        "Mais",
+        "Oliva",
+        "Noce"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olio",
+        "ingredienti"
+      ],
+      "notes": "L'olio extravergine si ottiene solo dalle olive, con procedimenti meccanici",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le chiacchiere sono un dolce fritto tipico di quale periodo dell'anno?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Carnevale",
+        "Pasqua",
+        "Ferragosto",
+        "Natale"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dolci",
+        "feste"
+      ],
+      "notes": "Chiacchiere (o frappe, bugie, crostoli) sono il dolce di Carnevale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il pane basso e unto d'olio simbolo della Liguria?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Piadina",
+        "Michetta",
+        "Focaccia",
+        "Ciabatta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pane",
+        "liguria"
+      ],
+      "notes": "La focaccia genovese (fugassa) è il pane simbolo della Liguria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda si produce con malto d'orzo e luppolo?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sidro",
+        "Birra",
+        "Vino",
+        "Sakè"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "La birra si fa con acqua, malto (di solito d'orzo), luppolo e lievito",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il döner kebab è un piatto tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Turchia",
+        "Libano",
+        "Grecia",
+        "Egitto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina turca"
+      ],
+      "notes": "Il döner kebab è carne cotta su uno spiedo verticale, tipico della Turchia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "I tacos sono un piatto tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Argentina",
+        "Spagna",
+        "Messico",
+        "Cuba"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina messicana"
+      ],
+      "notes": "I tacos sono tortillas di mais ripiene, simbolo della cucina messicana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il dolce siciliano di ghiaccio e zucchero, servito con la brioche?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Semifreddo",
+        "Sorbetto",
+        "Granita",
+        "Spumone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "La granita siciliana si mangia anche a colazione con la brioche col tuppo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ortaggio arancione e allungato è famoso per il betacarotene?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Carota",
+        "Zucchina",
+        "Cetriolo",
+        "Melanzana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortaggi"
+      ],
+      "notes": "La carota è tra gli ortaggi più ricchi di betacarotene",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale continente arrivò in Europa il pomodoro, nel Cinquecento?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Oceania",
+        "Africa",
+        "Asia",
+        "America"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia",
+        "ortaggi",
+        "trabocchetto"
+      ],
+      "notes": "Il pomodoro è originario del Centro-Sud America e arrivò in Europa dopo i viaggi di Colombo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale animale si ricava la bresaola?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Maiale",
+        "Manzo",
+        "Tacchino",
+        "Cinghiale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "salumi",
+        "lombardia",
+        "trabocchetto"
+      ],
+      "notes": "La Bresaola della Valtellina IGP si ottiene dalla coscia di manzo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi ingredienti c'è nella pizza marinara napoletana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Acciughe",
+        "Cozze",
+        "Tonno",
+        "Aglio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pizza",
+        "napoli",
+        "trabocchetto"
+      ],
+      "notes": "Marinara: pomodoro, aglio, origano e olio; niente pesce, malgrado il nome",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il piatto giapponese di pesce crudo a fette, servito senza riso?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sashimi",
+        "Tempura",
+        "Ramen",
+        "Sushi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina giapponese"
+      ],
+      "notes": "Il sashimi è pesce crudo a fette; il sushi prevede sempre il riso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il pandoro è un dolce natalizio tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Venezia",
+        "Verona",
+        "Torino",
+        "Milano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "veneto"
+      ],
+      "notes": "Il pandoro nasce a Verona: brevetto di Domenico Melegatti, 1894",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il pistacchio di Bronte cresce alle pendici di quale vulcano?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Vulcano",
+        "Stromboli",
+        "Vesuvio",
+        "Etna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "frutta secca"
+      ],
+      "notes": "Bronte (Catania) è sul versante occidentale dell'Etna; il pistacchio è DOP",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La bagna cauda, salsa calda di aglio e acciughe, è tipica di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Lombardia",
+        "Liguria",
+        "Piemonte",
+        "Valle d'Aosta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salse",
+        "piemonte"
+      ],
+      "notes": "La bagna cauda piemontese: aglio, acciughe e olio, con verdure da intingere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lo sfincione, soffice pizza con cipolla e pangrattato, è tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Palermo",
+        "Messina",
+        "Siracusa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "street food"
+      ],
+      "notes": "Lo sfincione è la pizza alta palermitana con pomodoro, cipolla, acciughe e caciocavallo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale erba selvatica accompagna le sarde nella pasta con le sarde palermitana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ortica",
+        "Finocchietto selvatico",
+        "Borragine",
+        "Cicoria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "primi",
+        "sicilia"
+      ],
+      "notes": "Pasta con le sarde: sarde, finocchietto, uvetta, pinoli e mollica tostata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lo strudel di mele è un dolce tipico di quale regione italiana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Trentino-Alto Adige",
+        "Liguria",
+        "Piemonte",
+        "Toscana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dolci",
+        "trentino"
+      ],
+      "notes": "Lo strudel, di tradizione austriaca, è il dolce tipico del Trentino-Alto Adige",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il tartufo bianco più famoso porta il nome di quale città piemontese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cuneo",
+        "Alba",
+        "Novara",
+        "Asti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tartufi",
+        "piemonte"
+      ],
+      "notes": "Il tartufo bianco d'Alba (Tuber magnatum) ha la sua fiera internazionale ad Alba",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa è fatta la frutta martorana siciliana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Zucchero filato",
+        "Cioccolato",
+        "Pasta frolla",
+        "Pasta di mandorle"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "La frutta martorana è pasta reale di mandorle modellata e dipinta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale distillato italiano si ottiene dalle vinacce?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grappa",
+        "Sambuca",
+        "Brandy",
+        "Amaretto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "liquori"
+      ],
+      "notes": "La grappa si distilla dalle vinacce; il brandy dal vino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia dà il tipico colore giallo alla polvere di curry?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Zenzero",
+        "Zafferano",
+        "Curcuma",
+        "Paprika"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "La curcuma è l'ingrediente che colora di giallo il curry in polvere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La moussaka, con melanzane, carne e besciamella, è un piatto tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Portogallo",
+        "Marocco",
+        "Spagna",
+        "Grecia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina greca"
+      ],
+      "notes": "La moussaka greca a strati è gratinata con la besciamella",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per la botanica, che cos'è l'arachide?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un frutto di palma",
+        "Una drupa",
+        "Una noce",
+        "Un legume"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "botanica",
+        "frutta secca",
+        "trabocchetto"
+      ],
+      "notes": "L'arachide (Arachis hypogaea) è una leguminosa, parente di fagioli e piselli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi latticini non è un formaggio, perché si ottiene dal siero?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pecorino",
+        "Provolone",
+        "Caciocavallo",
+        "Ricotta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formaggi",
+        "trabocchetto"
+      ],
+      "notes": "La ricotta si ricava dal siero ricotto, non dalla cagliata: è un latticino, non un formaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale parte del fiore di croco si ricava lo zafferano?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Stimmi",
+        "Petali",
+        "Radici",
+        "Semi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spezie"
+      ],
+      "notes": "Lo zafferano sono gli stimmi essiccati del Crocus sativus, tre per fiore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La feijoada, stufato di fagioli neri e carne di maiale, è il piatto nazionale di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Brasile",
+        "Cuba",
+        "Messico",
+        "Argentina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina sudamericana"
+      ],
+      "notes": "La feijoada è considerata il piatto nazionale brasiliano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Le \"minne di Sant'Agata\" sono dolci tipici di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Messina",
+        "Siracusa",
+        "Palermo",
+        "Catania"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "Le minne ricordano il martirio di Sant'Agata, patrona di Catania",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale vino siciliano fu lanciato in Inghilterra dal mercante John Woodhouse nel 1773?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Marsala",
+        "Nero d'Avola",
+        "Malvasia delle Lipari",
+        "Passito di Pantelleria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vini",
+        "sicilia"
+      ],
+      "notes": "Woodhouse spedì il vino di Marsala in Inghilterra nel 1773, avviandone il successo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Unesco riconobbe l'arte del pizzaiuolo napoletano come patrimonio immateriale?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "2020",
+        "2013",
+        "2017",
+        "2010"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pizza",
+        "napoli"
+      ],
+      "notes": "Iscrizione nella lista Unesco del 7 dicembre 2017",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Franciacorta è un vino spumante di quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Trentino-Alto Adige",
+        "Piemonte",
+        "Veneto",
+        "Lombardia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vini"
+      ],
+      "notes": "Il Franciacorta DOCG si produce in provincia di Brescia, in Lombardia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianta si ricava la tequila?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Canna da zucchero",
+        "Agave",
+        "Mais",
+        "Cactus"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "liquori",
+        "cucina messicana"
+      ],
+      "notes": "La tequila si distilla dall'agave blu (Agave tequilana), che non è un cactus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce a strati di pasta fillo è farcito con frutta secca e miele?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Cannolo",
+        "Baklava",
+        "Lokum",
+        "Halva"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "Il baklava della tradizione turca e mediorientale è fatto con pasta fillo, noci o pistacchi e sciroppo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come viene conservato il merluzzo per diventare stoccafisso?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Essiccato all'aria",
+        "Sotto sale",
+        "Affumicato",
+        "Sott'olio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesce"
+      ],
+      "notes": "Lo stoccafisso è merluzzo seccato all'aria (Norvegia); il baccalà è conservato sotto sale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il cocktail Bellini, nato all'Harry's Bar di Venezia, unisce prosecco e quale frutto?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Fragola",
+        "Melograno",
+        "Arancia",
+        "Pesca bianca"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cocktail",
+        "veneto"
+      ],
+      "notes": "Il Bellini è prosecco con purea di pesca bianca; con le fragole è il Rossini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è stata inventata la pizza hawaiana, con l'ananas?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Australia",
+        "Stati Uniti",
+        "Canada",
+        "Messico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pizza",
+        "trabocchetto"
+      ],
+      "notes": "La creò Sam Panopoulos a Chatham, in Ontario, nel 1962",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella fragola, quali sono per la botanica i veri frutti?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "La polpa rossa",
+        "I puntini sulla superficie",
+        "Il cuore bianco",
+        "Il calice verde"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "botanica",
+        "frutta",
+        "trabocchetto"
+      ],
+      "notes": "I veri frutti sono gli acheni, i \"semini\" esterni; la polpa è un ricettacolo ingrossato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese è originario il kiwi?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Nuova Zelanda",
+        "Cile",
+        "Cina",
+        "Australia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "frutta",
+        "trabocchetto"
+      ],
+      "notes": "Il kiwi (Actinidia) è originario della Cina; la Nuova Zelanda lo ha coltivato e ribattezzato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quanti mesi deve stagionare come minimo il Parmigiano Reggiano?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "6",
+        "12",
+        "18",
+        "24"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "emilia"
+      ],
+      "notes": "Il disciplinare DOP prevede una stagionatura minima di 12 mesi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il roux della cucina francese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Brodo ristretto",
+        "Burro e farina cotti insieme",
+        "Salsa di pomodoro",
+        "Uova sbattute"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tecniche",
+        "cucina francese"
+      ],
+      "notes": "Il roux è la base addensante di burro e farina, usata per besciamella e vellutate",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il vitigno Nero d'Avola prende il nome da un comune di quale provincia siciliana?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Agrigento",
+        "Siracusa",
+        "Ragusa",
+        "Trapani"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vini",
+        "sicilia"
+      ],
+      "notes": "Avola è in provincia di Siracusa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'aceto balsamico tradizionale DOP si produce a Modena e in quale altra provincia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Reggio Emilia",
+        "Bologna",
+        "Parma",
+        "Ferrara"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "condimenti",
+        "emilia"
+      ],
+      "notes": "Esistono due DOP: Aceto Balsamico Tradizionale di Modena e di Reggio Emilia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La cubaita siciliana è un torrone di sesamo legato con quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ricotta",
+        "Burro",
+        "Fichi secchi",
+        "Miele"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "sicilia"
+      ],
+      "notes": "La cubaita (cubbaita), di origine araba, si fa con sesamo e miele (spesso con zucchero e mandorle)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In cucina, che cos'è la reazione di Maillard?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "La coagulazione dell'uovo",
+        "La doratura di zuccheri e proteine",
+        "La fermentazione dei lieviti",
+        "La caramellizzazione dello zucchero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scienza",
+        "tecniche"
+      ],
+      "notes": "Reazione tra zuccheri e amminoacidi col calore: dà crosta e aromi a carne e pane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il pane nero di Castelvetrano si fa con la farina di quale antico grano siciliano?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Tumminia",
+        "Perciasacchi",
+        "Senatore Cappelli",
+        "Russello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pane",
+        "sicilia"
+      ],
+      "notes": "Presidio Slow Food: semola di grano duro con farina integrale di tumminia (timilia)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale frutto si prepara il clafoutis tradizionale del Limosino?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Prugne",
+        "Mele",
+        "Ciliegie",
+        "Pere"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "cucina francese"
+      ],
+      "notes": "Il clafoutis classico si fa con ciliegie intere, spesso con il nocciolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'acidità massima consentita per un olio extravergine di oliva?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "3 per cento",
+        "1,5 per cento",
+        "0,8 per cento",
+        "2 per cento"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olio",
+        "normative"
+      ],
+      "notes": "Il regolamento UE fissa per l'extravergine un'acidità libera massima dello 0,8%",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il Piacentinu ennese, pecorino siciliano, è colorato e profumato con quale spezia?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Zafferano",
+        "Peperoncino",
+        "Pistacchio",
+        "Finocchietto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi",
+        "sicilia"
+      ],
+      "notes": "Il Piacentinu Ennese DOP contiene zafferano e grani di pepe nero",
+      "verified": true
+    }
+  ]
+}
