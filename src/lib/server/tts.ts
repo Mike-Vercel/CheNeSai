@@ -69,10 +69,6 @@ export const DEFAULT_MONTHLY_BUDGET = 50_000;
 const BUCKET = "tts";
 const API = "https://api.elevenlabs.io";
 const MAX_PARALLEL = 2;
-/** Scadenza complessiva di una clip (attesa del posto, tentativi e pause comprese). */
-export const SYNTH_DEADLINE_MS = 20_000;
-/** Storage (upload, download, URL firmati): risposta entro questo tempo o errore. */
-const STORAGE_TIMEOUT_MS = 10_000;
 
 export class TtsError extends Error {
   readonly code: "TTS_OFF" | "TTS_BUDGET" | "TTS_NO_VOICE" | "TTS_PROVIDER";
@@ -248,8 +244,9 @@ const SLOT_WAIT_LOW_MS = 25_000;
 export type TtsPriority = "normal" | "low";
 
 /** Prende un posto e restituisce la funzione che lo libera (sempre in tempi finiti). */
-async function acquire(priority: TtsPriority = "normal"): Promise<() => void> {
-  const deadline = Date.now() + (priority === "low" ? SLOT_WAIT_LOW_MS : SLOT_WAIT_NORMAL_MS);
+async function acquire(priority: TtsPriority = "normal", until?: number): Promise<() => void> {
+  const wait = priority === "low" ? SLOT_WAIT_LOW_MS : SLOT_WAIT_NORMAL_MS;
+  const deadline = Math.min(Date.now() + wait, until ?? Infinity);
   if (priority === "normal") normalWaiting++;
   try {
     for (;;) {
@@ -271,6 +268,14 @@ async function acquire(priority: TtsPriority = "normal"): Promise<() => void> {
   }
 }
 
+
+/** Tempo minimo utile per una chiamata a ElevenLabs: sotto questo si rinuncia subito. */
+const MIN_CALL_MS = 2_500;
+/** Scadenza predefinita di una clip senza scadenza esplicita (lavori di fondo, preparazione voci). */
+export const SYNTH_DEADLINE_MS = 30_000;
+/** Storage (upload, download, URL firmati): risposta entro questo tempo o errore. */
+const STORAGE_TIMEOUT_MS = 10_000;
+
 /** Una richiesta che non risponde entro `ms` fallisce (storage, rete): niente attese infinite. */
 export function withTimeout<T>(p: PromiseLike<T>, ms: number, label: string): Promise<T> {
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -282,28 +287,22 @@ export function withTimeout<T>(p: PromiseLike<T>, ms: number, label: string): Pr
   ]).finally(() => clearTimeout(timer));
 }
 
-/** Tempo massimo di una singola chiamata a ElevenLabs (più lungo per i testi lunghi). */
-export function attemptTimeoutMs(chars: number): number {
-  return Math.min(15_000, Math.max(8_000, 6_000 + chars * 40));
-}
-
-async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal"): Promise<{ audio: Buffer; billed: number }> {
+async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal", until?: number): Promise<{ audio: Buffer; billed: number }> {
+  // sempre una scadenza: mai tentativi e pause senza fine
+  const deadline = until ?? Date.now() + SYNTH_DEADLINE_MS;
   const apiKey = process.env.ELEVENLABS_API_KEY;
   if (!apiKey) throw new TtsError("TTS_OFF", "Voce professionale non configurata");
   let withLanguage = true;
   let withContext = !!(plan.context?.previous || plan.context?.next);
   let lastError = "";
-  // scadenza complessiva della clip (attesa del posto + tentativi + pause): sempre ben sotto i 30 s di /api/tts
-  const deadline = Date.now() + SYNTH_DEADLINE_MS;
   for (let attempt = 0; attempt < 4; attempt++) {
-    const left = deadline - Date.now();
-    if (left < 1500) {
-      lastError ||= "tempo scaduto";
+    if (deadline !== undefined && deadline - Date.now() < MIN_CALL_MS) {
+      lastError = lastError || "tempo scaduto";
       break;
     }
-    const release = await acquire(priority);
+    const release = await acquire(priority, deadline);
+    const callMs = deadline === undefined ? 15_000 : Math.max(MIN_CALL_MS, Math.min(15_000, deadline - Date.now()));
     let res: Response;
-    const attemptMs = Math.max(1000, Math.min(attemptTimeoutMs(plan.chars), deadline - Date.now()));
     try {
       res = await withTimeout(fetch(`${API}/v1/text-to-speech/${encodeURIComponent(plan.voiceId)}?output_format=mp3_44100_128`, {
         method: "POST",
@@ -318,10 +317,10 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
             ? { stability: s.stability, similarity_boost: s.similarity }
             : { stability: s.stability, similarity_boost: s.similarity, style: s.style, speed: s.speed, use_speaker_boost: true },
         }),
-        signal: AbortSignal.timeout(attemptMs),
-      }), attemptMs + 500, "ElevenLabs");
+        signal: AbortSignal.timeout(callMs),
+      }), callMs + 500, "ElevenLabs");
       if (res.ok) {
-        const audio = Buffer.from(await withTimeout(res.arrayBuffer(), attemptMs, "ElevenLabs"));
+        const audio = Buffer.from(await withTimeout(res.arrayBuffer(), callMs, "ElevenLabs"));
         // Crediti addebitati: v4 li dichiara in "character-cost" (totale della richiesta,
         // verificato sull'abbonamento); v2/flash in "x-character-count". In mancanza, la lunghezza del testo.
         const costHeader = res.headers.get("character-cost");
@@ -349,7 +348,7 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
     if (res.status === 429 || res.status >= 500) {
       const retryAfter = Number(res.headers.get("retry-after"));
       const pause = Number.isFinite(retryAfter) && retryAfter > 0 ? Math.min(10_000, retryAfter * 1000) : 600 * 2 ** attempt;
-      if (deadline - Date.now() - pause < 2000) break; // nessun tentativo utile prima della scadenza
+      if (deadline !== undefined && Date.now() + pause + MIN_CALL_MS > deadline) break;
       await sleep(pause);
       continue;
     }
@@ -382,6 +381,8 @@ export interface ClipResult {
 export interface EnsureClipOptions {
   /** "low": lavoro di fondo, cede il passo alle battute richieste dal TV */
   priority?: TtsPriority;
+  /** istante (ms epoch) entro cui la generazione deve finire: oltre si rinuncia con TTS_PROVIDER */
+  deadline?: number;
 }
 
 const inflight = new Map<string, Promise<ClipResult>>();
@@ -415,7 +416,7 @@ export async function ensureClip(db: Db, plan: PlannedClip, source: TtsSource, c
 
     const config = cfg ?? (await loadVoiceConfig(db));
     await assertBudget(db, config, plan.chars);
-    const { audio, billed } = await synthesize(plan, config.roles[plan.role], opts.priority);
+    const { audio, billed } = await synthesize(plan, config.roles[plan.role], opts.priority, opts.deadline);
     await storeClip(db, plan, audio, source, billed);
     return { key: plan.key, path, cached: false, billedChars: billed, audio };
   })();

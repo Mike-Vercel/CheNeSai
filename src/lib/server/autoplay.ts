@@ -18,11 +18,11 @@ const MP3_BYTES_PER_MS = 16;
 /** Tra una battuta e l'altra: richiesta della clip, avvio dell'audio e la pausa del TV (120 ms). */
 const LINE_GAP_MS = 350;
 /**
- * Battuta non ancora in archivio: il TV la chiede al volo (fino a ~12 s prima della voce del browser).
+ * Battuta non ancora in archivio: il TV la chiede al volo (generazione su Vercel: alcuni secondi).
  * Stima prudente dell'attesa; se la generazione dura di più il TV ritarda il /tick finché il
  * presentatore non ha finito (useAutoTick holdWhile), quindi la partita non lo taglia a metà.
  */
-const CLIP_WAIT_MS = 2500;
+const CLIP_WAIT_MS = 7000;
 /** Media senza durata nota (audio intero o video): attesa prudente. */
 const MEDIA_FALLBACK_MS = 30_000;
 /** Pausa del TV tra una ripetizione e l'altra dell'estratto audio (DisplayApp). */
