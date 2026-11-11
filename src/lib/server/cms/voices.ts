@@ -13,6 +13,7 @@ import {
   loadVoiceConfig,
   modelFor,
   modelSupportsTags,
+  NAMES_MODES,
   planClip,
   signedClipUrl,
   subscriptionInfo,
@@ -20,6 +21,7 @@ import {
   ttsConfigured,
   type VoiceConfig,
 } from "../tts";
+import { namesArchiveStats } from "../tts-names";
 
 /** Frase fissa di prova per ogni voce (breve: costa pochi caratteri ed è in cache). */
 export const SAMPLE_TEXT: Record<TtsRole, string> = {
@@ -40,6 +42,8 @@ const roleSchema = z.object({
 
 export const voiceConfigSchema = z.object({
   monthlyBudgetChars: z.number().int().min(0).max(10_000_000),
+  /** "spliced" = nomi salvati (risparmio), "whole" = frase intera (più naturale) */
+  namesMode: z.enum(NAMES_MODES).default("spliced"),
   roles: z.object({ professore: roleSchema, regina: roleSchema, palmino: roleSchema, annunciatore: roleSchema }),
 });
 
@@ -83,7 +87,7 @@ export async function saveVoiceConfig(raw: unknown, actor: Actor): Promise<Voice
       insert into application_settings (key, value, description, updated_by, updated_at)
       values ('voices', ${tx.json(d)}, 'Voci ElevenLabs dei presentatori e budget mensile di caratteri', ${actor.userId}, now())
       on conflict (key) do update set value = excluded.value, updated_by = excluded.updated_by, updated_at = now()`;
-    await audit(tx, actor, "voices.update", { type: "settings", details: { monthlyBudgetChars: d.monthlyBudgetChars, voices: Object.fromEntries(TTS_ROLES.map((r) => [r, d.roles[r].voiceId])) } });
+    await audit(tx, actor, "voices.update", { type: "settings", details: { monthlyBudgetChars: d.monthlyBudgetChars, namesMode: d.namesMode, voices: Object.fromEntries(TTS_ROLES.map((r) => [r, d.roles[r].voiceId])) } });
   });
   invalidateVoiceConfig();
   return voicePanelData();
@@ -101,6 +105,7 @@ export async function generateSample(role: TtsRole): Promise<{ url: string; char
 
 export async function usageData() {
   const app = await appUsage(getSql());
+  const names = await namesArchiveStats(getSql());
   let subscription: Awaited<ReturnType<typeof subscriptionInfo>> | null = null;
   let subscriptionError: string | null = null;
   if (ttsConfigured()) {
@@ -110,5 +115,5 @@ export async function usageData() {
       subscriptionError = e instanceof Error ? e.message : "Abbonamento non disponibile";
     }
   } else subscriptionError = "ELEVENLABS_API_KEY non configurata";
-  return { app, subscription, subscriptionError };
+  return { app, names, subscription, subscriptionError };
 }

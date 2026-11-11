@@ -2,6 +2,7 @@ import { clientIp } from "@/lib/auth/admin";
 import { ok, readJson, route } from "@/lib/http";
 import { joinSession } from "@/lib/server/players";
 import { readDeviceToken, writeDeviceToken, writePlayerToken } from "@/lib/server/player-cookies";
+import { scheduleNamePrewarm } from "@/lib/server/tts-names";
 import { joinSchema } from "@/lib/validation/schemas";
 
 export const POST = route(async (req: Request) => {
@@ -12,6 +13,8 @@ export const POST = route(async (req: Request) => {
   );
   await writePlayerToken(body.code, body.slot, result.participantToken);
   if (result.deviceToken) await writeDeviceToken(result.deviceToken);
+  // voce: il nome del nuovo giocatore si prepara subito (in background), così la prima battuta che lo nomina parte veloce
+  if (!result.rejoined) scheduleNamePrewarm(result.nickname);
   return ok({
     participantId: result.participantId,
     nickname: result.nickname,

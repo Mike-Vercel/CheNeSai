@@ -5,9 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { Badge, Button, EmptyState, Field, Input, Panel, useToast } from "@/components/ui";
 import { TTS_ROLE_LABEL, TTS_ROLES, type TtsRole } from "@/features/game/script";
 import type { VoicePanelData } from "@/lib/server/cms/voices";
-import type { AccountVoice, AppUsage, RoleVoiceSettings, SubscriptionInfo, VoiceConfig } from "@/lib/server/tts";
+import type { AccountVoice, AppUsage, NamesMode, RoleVoiceSettings, SubscriptionInfo, VoiceConfig } from "@/lib/server/tts";
+import type { NamesArchiveStats } from "@/lib/server/tts-names";
 import { errorMessage, qs, send, useApi } from "../api";
-import { ErrorBlock, InfoNote, LoadingBlock, PageHeader, StatTile } from "../common";
+import { ErrorBlock, InfoNote, LoadingBlock, PageHeader, Segmented, StatTile } from "../common";
 import { fmtDateTime, fmtNum } from "../format";
 import { CHARS_PER_QUESTION_HINT, VoicePrepBox } from "./VoicePrep";
 
@@ -35,6 +36,7 @@ const STABILITY_PRESETS = [
 
 interface UsageResponse {
   app: AppUsage;
+  names?: NamesArchiveStats;
   subscription: SubscriptionInfo | null;
   subscriptionError: string | null;
 }
@@ -68,7 +70,12 @@ function UsagePanel({ usage, onReload }: { usage: UsageResponse | null; onReload
           tone="cyan"
         />
         <StatTile label="App questo mese" value={fmtNum(app.monthChars)} hint={`budget ${fmtNum(app.budget)} · restano ${fmtNum(app.remaining)}`} tone={appPct >= 90 ? "flame" : "gold"} />
-        <StatTile label="Per fonte (mese)" value={fmtNum(app.bySource.pregen)} hint={`pre-generate · live ${fmtNum(app.bySource.live)} · prove ${fmtNum(app.bySource.sample)}`} tone="violet" />
+        <StatTile
+          label="Per fonte (mese)"
+          value={fmtNum(app.bySource.pregen)}
+          hint={`pre-generate · live ${fmtNum(app.bySource.live + app.bySource.segment + app.bySource.name)} · prove ${fmtNum(app.bySource.sample)}`}
+          tone="violet"
+        />
         <StatTile label="Battute in archivio" value={fmtNum(app.totalClips)} hint="ognuna pagata una volta sola" tone="lime" />
       </div>
       <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/10" aria-label={`Budget usato ${appPct}%`}>
@@ -278,6 +285,42 @@ function VoiceList({ pickingRole, onUse }: { pickingRole: TtsRole | null; onUse:
   );
 }
 
+const NAMES_MODE_OPTIONS: { value: NamesMode; label: string }[] = [
+  { value: "spliced", label: "Nomi salvati (risparmio)" },
+  { value: "whole", label: "Frase intera (più naturale)" },
+];
+
+/** Come si generano le battute live con i nickname dei giocatori. */
+function NamesModePanel({ value, onChange, stats }: { value: NamesMode; onChange: (v: NamesMode) => void; stats: NamesArchiveStats | null }) {
+  return (
+    <Panel title="Nomi dei giocatori nelle battute">
+      <Segmented label="Nomi dei giocatori nelle battute" value={value} onChange={onChange} options={NAMES_MODE_OPTIONS} />
+      <p className="mt-2 text-xs text-white/55">
+        {value === "spliced"
+          ? "Ogni nome si genera una volta per voce e resta in archivio per tutte le serate; le parti fisse delle battute si pagano una volta sola. La frase si compone unendo le parti: costa molto meno, ma fra il nome e il resto può sentirsi un piccolo stacco."
+          : "Ogni battuta con un nickname si genera intera: intonazione più naturale, ma si pagano tutti i caratteri ogni volta che la frase cambia."}
+      </p>
+      {stats && (
+        <dl className="mt-3 grid grid-cols-2 gap-2 text-xs">
+          <div className="rounded-lg bg-white/5 p-2">
+            <dt className="text-white/55">Nomi in archivio</dt>
+            <dd className="text-base font-bold text-white">{fmtNum(stats.names)}</dd>
+            <dd className="text-white/45">{fmtNum(stats.nameClips)} clip (voci e punteggiatura)</dd>
+          </div>
+          <div className="rounded-lg bg-white/5 p-2">
+            <dt className="text-white/55">Caratteri risparmiati</dt>
+            <dd className="text-base font-bold text-lime">{fmtNum(stats.monthSavedChars)}</dd>
+            <dd className="text-white/45">questo mese · {fmtNum(stats.savedChars)} in tutto (stima)</dd>
+          </div>
+          <div className="col-span-2 text-white/45">
+            {fmtNum(stats.spliced)} battute composte · {fmtNum(stats.segments)} parti fisse in archivio
+          </div>
+        </dl>
+      )}
+    </Panel>
+  );
+}
+
 export function VoicesPage() {
   const toast = useToast();
   const data = useApi<VoicePanelData>("/api/admin/tts/config");
@@ -388,6 +431,7 @@ export function VoicesPage() {
               con il modello veloce.
             </p>
           </Panel>
+          <NamesModePanel value={cfg.namesMode} onChange={(namesMode) => setDraft({ ...cfg, namesMode })} stats={usage.data?.names ?? null} />
           <Panel title="Frasi generiche">
             <VoicePrepBox
               scope={{ kind: "generic" }}

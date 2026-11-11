@@ -5,7 +5,8 @@ import { getSql } from "@/lib/database/db";
 import { fail, ok, route } from "@/lib/http";
 import { verifyDisplayKey } from "@/lib/server/display";
 import { checkRateLimit } from "@/lib/server/players";
-import { TtsError, ttsConfigured, ttsUrl } from "@/lib/server/tts";
+import { TtsError, ttsConfigured } from "@/lib/server/tts";
+import { ttsLineUrl } from "@/lib/server/tts-names";
 import { TTS_MAX_CHARS, TTS_ROLES } from "@/features/game/script";
 
 export const maxDuration = 30;
@@ -15,6 +16,7 @@ export const maxDuration = 30;
  * GET /api/tts?who=&text=&live=1&s=&k=           → redirect all'mp3 della battuta
  * GET /api/tts?…&format=json                     → { url } (prefetch del TV, senza redirect)
  * Accesso riservato al TV (chiave schermo) o agli admin: il servizio è a pagamento.
+ * Battute live di una serata (s): con i "nomi salvati" la frase si compone da parti in archivio (vedi tts-names).
  * Budget mensile esaurito → 503 TTS_BUDGET: il TV usa la voce del browser (le clip in cache restano disponibili).
  */
 export const GET = route(async (req: Request) => {
@@ -32,12 +34,13 @@ export const GET = route(async (req: Request) => {
     })
     .parse(Object.fromEntries(url.searchParams));
   const sql = getSql();
-  const allowed = (q.s && q.k && (await verifyDisplayKey(sql, q.s, q.k))) || !!(await getAdmin());
+  const fromDisplay = !!(q.s && q.k && (await verifyDisplayKey(sql, q.s, q.k)));
+  const allowed = fromDisplay || !!(await getAdmin());
   if (!allowed) return fail(403, "FORBIDDEN", "Voce riservata allo schermo TV");
   if (!(await checkRateLimit(sql, `tts:${q.s ?? "admin"}`, 180, 60))) return fail(429, "RATE_LIMITED", "Troppe richieste");
   let signed: string;
   try {
-    signed = await ttsUrl(q.who, q.text, { live: q.live === "1" });
+    signed = await ttsLineUrl({ who: q.who, text: q.text, live: q.live === "1" }, { sessionId: fromDisplay ? q.s : null });
   } catch (e) {
     if (e instanceof TtsError) return fail(e.code === "TTS_BUDGET" ? 503 : 502, e.code, e.message);
     throw e;

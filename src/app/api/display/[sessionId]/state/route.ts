@@ -29,7 +29,7 @@ export const GET = route(async (req: Request, ctx: { params: Promise<{ sessionId
     try {
       const line = await directLobbyGreeting(sql, sessionId);
       if (line) {
-        prewarmLines([{ who: line.who, text: line.text, live: true }]);
+        prewarmLines([{ who: line.who, text: line.text, live: true }], sessionId);
         state = (await buildPublicState(sql, sessionId)) ?? state;
       }
     } catch (e) {
