@@ -1,0 +1,875 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale band di Liverpool cantava \"Yesterday\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "The Rolling Stones",
+        "The Who",
+        "The Beatles",
+        "Queen"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "anni 60"
+      ],
+      "notes": "Yesterday, 1965, firmata Lennon-McCartney",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era il cantante dei Queen?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Brian May",
+        "Roger Taylor",
+        "John Deacon",
+        "Freddie Mercury"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "band"
+      ],
+      "notes": "Gli altri erano chitarrista, batterista e bassista",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante corde ha una chitarra classica?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "4",
+        "6",
+        "5",
+        "7"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "La chitarra classica ha sei corde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è conosciuto come il \"Re del Rock and Roll\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Elvis Presley",
+        "Chuck Berry",
+        "Little Richard",
+        "Jerry Lee Lewis"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "soprannomi"
+      ],
+      "notes": "Elvis, \"The King\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse \"Le quattro stagioni\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Wolfgang Amadeus Mozart",
+        "Johann Sebastian Bach",
+        "Gioachino Rossini",
+        "Antonio Vivaldi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "barocco"
+      ],
+      "notes": "Pubblicate nel 1725",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantò \"Nel blu dipinto di blu\", conosciuta come \"Volare\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Domenico Modugno",
+        "Claudio Villa",
+        "Adriano Celentano",
+        "Gianni Morandi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone italiana",
+        "sanremo"
+      ],
+      "notes": "Vinse Sanremo nel 1958",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le note della scala musicale, da Do a Si?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "8",
+        "5",
+        "12",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teoria musicale"
+      ],
+      "notes": "Do, Re, Mi, Fa, Sol, La, Si",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Thriller\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Prince",
+        "Stevie Wonder",
+        "Lionel Richie",
+        "Michael Jackson"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "anni 80"
+      ],
+      "notes": "Album Thriller, 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse l'opera \"Il barbiere di Siviglia\" del 1816?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Giuseppe Verdi",
+        "Gioachino Rossini",
+        "Giacomo Puccini",
+        "Gaetano Donizetti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "ottocento"
+      ],
+      "notes": "Prima a Roma nel 1816",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Verdi si canta il coro \"Va, pensiero\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Aida",
+        "La traviata",
+        "Nabucco",
+        "Rigoletto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "verdi"
+      ],
+      "notes": "Nabucco, 1842",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha composto sia \"Tosca\" sia \"La bohème\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Giuseppe Verdi",
+        "Pietro Mascagni",
+        "Giacomo Puccini",
+        "Ruggero Leoncavallo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "puccini"
+      ],
+      "notes": "La bohème 1896, Tosca 1900",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suonava il virtuoso Niccolò Paganini?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Pianoforte",
+        "Violino",
+        "Violoncello",
+        "Flauto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "classica"
+      ],
+      "notes": "Paganini, violinista genovese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore genovese scrisse \"La canzone di Marinella\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gino Paoli",
+        "Fabrizio De André",
+        "Luigi Tenco",
+        "Bruno Lauzi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "Resa celebre anche da Mina nel 1967",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Bono è il cantante di quale band irlandese?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "U2",
+        "The Cranberries",
+        "Thin Lizzy",
+        "The Corrs"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "band"
+      ],
+      "notes": "Gli U2 si formano a Dublino nel 1976",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Albachiara\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Luciano Ligabue",
+        "Zucchero",
+        "Vasco Rossi",
+        "Eros Ramazzotti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock italiano"
+      ],
+      "notes": "Albachiara, 1979",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore, ormai sordo, scrisse la Nona Sinfonia?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ludwig van Beethoven",
+        "Wolfgang Amadeus Mozart",
+        "Johannes Brahms",
+        "Franz Schubert"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Prima esecuzione nel 1824",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo svedese vinse l'Eurovision 1974 con \"Waterloo\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Roxette",
+        "Ace of Base",
+        "Europe",
+        "ABBA"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "eurovision"
+      ],
+      "notes": "Eurovision di Brighton, 1974",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale band era il frontman Kurt Cobain?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Pearl Jam",
+        "Soundgarden",
+        "Alice in Chains",
+        "Nirvana"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grunge",
+        "anni 90"
+      ],
+      "notes": "Nirvana, Seattle",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante è soprannominata \"la regina del pop\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Britney Spears",
+        "Madonna",
+        "Whitney Houston",
+        "Kylie Minogue"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "soprannomi"
+      ],
+      "notes": "Queen of Pop",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il Teatro alla Scala?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Napoli",
+        "Venezia",
+        "Milano",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "opera",
+        "teatri"
+      ],
+      "notes": "Inaugurato nel 1778",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse e incise per primo la canzone \"Caruso\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Francesco De Gregori",
+        "Lucio Dalla",
+        "Gianni Morandi",
+        "Ron"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "Pubblicata da Dalla nel 1986",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tenore modenese fu uno dei Tre Tenori?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Plácido Domingo",
+        "Luciano Pavarotti",
+        "José Carreras",
+        "Andrea Bocelli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "tenori"
+      ],
+      "notes": "Domingo e Carreras sono spagnoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti tasti ha un pianoforte standard?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "88",
+        "76",
+        "92",
+        "100"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "52 bianchi e 36 neri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante incise nel 1960 \"Il cielo in una stanza\" di Gino Paoli?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ornella Vanoni",
+        "Patty Pravo",
+        "Mina",
+        "Milva"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzone italiana"
+      ],
+      "notes": "Grande successo di Mina, scritta da Paoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha composto il balletto \"Il lago dei cigni\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sergej Rachmaninov",
+        "Pëtr Il'ič Čajkovskij",
+        "Igor' Stravinskij",
+        "Sergej Prokof'ev"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "balletto"
+      ],
+      "notes": "Prima rappresentazione nel 1877",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band pubblicò l'album \"The Dark Side of the Moon\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Led Zeppelin",
+        "Genesis",
+        "Pink Floyd",
+        "Deep Purple"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "album"
+      ],
+      "notes": "Pubblicato nel 1973",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale genere musicale giamaicano ha in Bob Marley la sua icona?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Calypso",
+        "Salsa",
+        "Bossa nova",
+        "Reggae"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "generi musicali"
+      ],
+      "notes": "Bob Marley & The Wailers",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi strumenti sono a fiato? (più risposte)",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Viola",
+        "Arpa",
+        "Oboe",
+        "Fagotto"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Oboe e fagotto sono legni a fiato; viola e arpa sono a corda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore austriaco scrisse \"Il flauto magico\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Wolfgang Amadeus Mozart",
+        "Franz Joseph Haydn",
+        "Franz Schubert",
+        "Johann Strauss"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "classica"
+      ],
+      "notes": "Prima a Vienna nel 1791",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nata la bossa nova?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Cuba",
+        "Argentina",
+        "Brasile",
+        "Portogallo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "generi musicali"
+      ],
+      "notes": "Rio de Janeiro, fine anni '50",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore ha scritto \"La donna cannone\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Francesco De Gregori",
+        "Antonello Venditti",
+        "Lucio Dalla",
+        "Rino Gaetano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "Pubblicata nel 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore siciliano ha scritto \"La cura\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Battisti",
+        "Ivano Fossati",
+        "Franco Battiato",
+        "Gianni Togni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "sicilia"
+      ],
+      "notes": "Pubblicata nel 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose la musica di \"Azzurro\", portata al successo da Celentano?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Dalla",
+        "Francesco Guccini",
+        "Enzo Jannacci",
+        "Paolo Conte"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "canzone italiana"
+      ],
+      "notes": "Musica di Paolo Conte, testo con Vito Pallavicini (1968)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante jazz era soprannominata \"Lady Day\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Billie Holiday",
+        "Ella Fitzgerald",
+        "Nina Simone",
+        "Sarah Vaughan"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "jazz",
+        "soprannomi"
+      ],
+      "notes": "Soprannome datole da Lester Young",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale opera di Puccini è ambientata a Nagasaki?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Turandot",
+        "Madama Butterfly",
+        "La fanciulla del West",
+        "Manon Lescaut"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "opera",
+        "puccini"
+      ],
+      "notes": "Madama Butterfly, 1904",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha composto \"Cavalleria rusticana\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pietro Mascagni",
+        "Ruggero Leoncavallo",
+        "Amilcare Ponchielli",
+        "Francesco Cilea"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "verismo"
+      ],
+      "notes": "Prima a Roma nel 1890, da una novella di Verga",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi musicisti facevano parte dei Beatles? (più risposte)",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pete Townshend",
+        "Ray Davies",
+        "George Harrison",
+        "Ringo Starr"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "rock",
+        "band"
+      ],
+      "notes": "Townshend era negli Who, Davies nei Kinks",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha composto il celebre \"Boléro\" per orchestra?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Claude Debussy",
+        "Erik Satie",
+        "Georges Bizet",
+        "Maurice Ravel"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "novecento"
+      ],
+      "notes": "Composto nel 1928",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suonava il jazzista Charlie Parker?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Tromba",
+        "Sassofono",
+        "Clarinetto",
+        "Trombone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "jazz",
+        "strumenti"
+      ],
+      "notes": "Sassofono contralto, detto \"Bird\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse l'opera \"Lucia di Lammermoor\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Gaetano Donizetti",
+        "Vincenzo Bellini",
+        "Gioachino Rossini",
+        "Giuseppe Verdi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "opera",
+        "ottocento"
+      ],
+      "notes": "Prima a Napoli nel 1835",
+      "verified": true
+    }
+  ]
+}

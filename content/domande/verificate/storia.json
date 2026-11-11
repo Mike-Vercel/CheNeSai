@@ -1,0 +1,882 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In che anno Cristoforo Colombo arrivò in America?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "1492",
+        "1452",
+        "1512",
+        "1498"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "esplorazioni",
+        "colombo"
+      ],
+      "notes": "Primo sbarco nelle Bahamas il 12 ottobre 1492",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è considerato il primo imperatore romano?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Giulio Cesare",
+        "Nerone",
+        "Traiano",
+        "Augusto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "roma antica",
+        "imperatori"
+      ],
+      "notes": "Ottaviano ricevette il titolo di Augusto nel 27 a.C.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi guidò la Spedizione dei Mille nel 1860?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Camillo Cavour",
+        "Giuseppe Mazzini",
+        "Vittorio Emanuele II",
+        "Giuseppe Garibaldi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "risorgimento"
+      ],
+      "notes": "Garibaldi partì da Quarto nel maggio 1860",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale regina d'Egitto è famosa per i legami con Cesare e Marco Antonio?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Nefertiti",
+        "Hatshepsut",
+        "Nefertari",
+        "Cleopatra"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "egitto",
+        "antichità"
+      ],
+      "notes": "Cleopatra VII, ultima regina tolemaica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'uomo mise piede per la prima volta sulla Luna?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "1965",
+        "1969",
+        "1972",
+        "1961"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio",
+        "novecento"
+      ],
+      "notes": "Apollo 11, 20 luglio 1969",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città fu divisa in due da un muro dal 1961 al 1989?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Vienna",
+        "Praga",
+        "Varsavia",
+        "Berlino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "novecento",
+        "germania"
+      ],
+      "notes": "Il Muro di Berlino cadde il 9 novembre 1989",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale imperatore francese fu esiliato all'isola d'Elba?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Luigi XIV",
+        "Carlo Magno",
+        "Napoleone Bonaparte",
+        "Napoleone III"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "napoleone",
+        "ottocento"
+      ],
+      "notes": "Napoleone fu all'Elba nel 1814-1815",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale civiltà costruì le piramidi di Giza?",
+      "category": "Storia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "I Maya",
+        "I Babilonesi",
+        "Gli antichi Egizi",
+        "I Persiani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "egitto",
+        "antichità"
+      ],
+      "notes": "Piramidi della IV dinastia egizia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, in che anno fu fondata Roma?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "509 a.C.",
+        "616 a.C.",
+        "753 a.C.",
+        "1000 a.C."
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "roma antica"
+      ],
+      "notes": "Data tradizionale: 21 aprile 753 a.C.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno gli italiani scelsero la Repubblica con un referendum?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "1946",
+        "1948",
+        "1945",
+        "1950"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "repubblica",
+        "novecento"
+      ],
+      "notes": "Referendum istituzionale del 2 giugno 1946",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo re d'Italia?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Umberto I",
+        "Carlo Alberto",
+        "Vittorio Emanuele III",
+        "Vittorio Emanuele II"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "risorgimento",
+        "re"
+      ],
+      "notes": "Proclamato re d'Italia il 17 marzo 1861",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu proclamato il Regno d'Italia?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "1861",
+        "1848",
+        "1870",
+        "1866"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "risorgimento"
+      ],
+      "notes": "17 marzo 1861",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale navigatore italiano prende il nome il continente americano?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cristoforo Colombo",
+        "Giovanni Caboto",
+        "Ferdinando Magellano",
+        "Amerigo Vespucci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "esplorazioni"
+      ],
+      "notes": "Nome proposto da Waldseemüller nel 1507",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale famiglia governò Firenze nel Rinascimento?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gli Sforza",
+        "I Medici",
+        "Gli Este",
+        "I Gonzaga"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rinascimento",
+        "firenze"
+      ],
+      "notes": "I Medici dominarono Firenze dal XV secolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale mercante veneziano raccontò i suoi viaggi in Cina nel \"Milione\"?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giovanni Caboto",
+        "Marco Polo",
+        "Antonio Pigafetta",
+        "Giovanni da Verrazzano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "esplorazioni",
+        "medioevo"
+      ],
+      "notes": "Il Milione fu dettato a Rustichello da Pisa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale regina diede il nome a un'epoca della Gran Bretagna dell'Ottocento?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Elisabetta I",
+        "Anna",
+        "Maria II",
+        "Vittoria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "regni",
+        "ottocento"
+      ],
+      "notes": "Età vittoriana, 1837-1901",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno iniziò la Rivoluzione francese con la presa della Bastiglia?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "1789",
+        "1776",
+        "1799",
+        "1815"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rivoluzioni",
+        "francia"
+      ],
+      "notes": "14 luglio 1789",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale condottiero cartaginese attraversò le Alpi con gli elefanti?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Annibale",
+        "Amilcare",
+        "Asdrubale",
+        "Scipione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "roma antica",
+        "cartagine"
+      ],
+      "notes": "Seconda guerra punica, 218 a.C.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno banconote e monete in euro entrarono in circolazione in Italia?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "1999",
+        "2001",
+        "2002",
+        "2000"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "euro",
+        "europa"
+      ],
+      "notes": "Circolazione dal 1° gennaio 2002; nel 1999 solo moneta scritturale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sovrano fu incoronato imperatore a Roma la notte di Natale dell'800?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ottone I",
+        "Federico Barbarossa",
+        "Carlo Magno",
+        "Costantino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "medioevo",
+        "imperatori"
+      ],
+      "notes": "Incoronato da papa Leone III il 25 dicembre 800",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale faraone ha la tomba scoperta quasi intatta da Howard Carter nel 1922?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ramses II",
+        "Tutankhamon",
+        "Cheope",
+        "Akhenaton"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "egitto",
+        "archeologia"
+      ],
+      "notes": "Tomba KV62, Valle dei Re",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo presidente degli Stati Uniti?",
+      "category": "Storia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Thomas Jefferson",
+        "Abraham Lincoln",
+        "George Washington",
+        "John Adams"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "usa",
+        "presidenti"
+      ],
+      "notes": "In carica dal 1789 al 1797",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno si fa convenzionalmente cadere l'Impero romano d'Occidente?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "476",
+        "410",
+        "395",
+        "1453"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "roma antica"
+      ],
+      "notes": "Deposizione di Romolo Augustolo nel 476",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città fu firmata nel 1776 la Dichiarazione d'indipendenza americana?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Filadelfia",
+        "Boston",
+        "New York",
+        "Washington"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "usa",
+        "settecento"
+      ],
+      "notes": "Approvata a Filadelfia il 4 luglio 1776",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si tenne il Congresso che ridisegnò l'Europa dopo Napoleone?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Parigi",
+        "Vienna",
+        "Berlino",
+        "Londra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ottocento",
+        "europa"
+      ],
+      "notes": "Congresso di Vienna, 1814-1815",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale imperatore, detto \"Stupor mundi\", tenne una celebre corte a Palermo?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Federico Barbarossa",
+        "Federico II di Svevia",
+        "Carlo d'Angiò",
+        "Enrico VI"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "medioevo",
+        "sicilia"
+      ],
+      "notes": "Federico II, re di Sicilia, corte a Palermo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo Presidente del Consiglio del Regno d'Italia?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Camillo Benso di Cavour",
+        "Bettino Ricasoli",
+        "Massimo d'Azeglio",
+        "Urbano Rattazzi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "risorgimento",
+        "politica"
+      ],
+      "notes": "Cavour guidò il primo governo nel 1861",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il celebre vallo nel nord dell'Inghilterra porta il nome di quale imperatore?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Traiano",
+        "Adriano",
+        "Marco Aurelio",
+        "Augusto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "roma antica",
+        "britannia"
+      ],
+      "notes": "Vallo di Adriano, iniziato nel 122 d.C.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città fu capitale d'Italia dal 1865 al 1871?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Torino",
+        "Napoli",
+        "Firenze",
+        "Milano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "risorgimento",
+        "capitali"
+      ],
+      "notes": "Torino fino al 1865, poi Firenze, poi Roma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale navigatore portoghese raggiunse per primo l'India via mare nel 1498?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Bartolomeo Diaz",
+        "Pedro Álvares Cabral",
+        "Ferdinando Magellano",
+        "Vasco da Gama"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "esplorazioni"
+      ],
+      "notes": "Vasco da Gama sbarcò a Calicut nel 1498",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale popolo fondò Tenochtitlán, dove oggi sorge Città del Messico?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Maya",
+        "Inca",
+        "Aztechi",
+        "Olmechi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "precolombiani",
+        "america"
+      ],
+      "notes": "Tenochtitlán fu fondata dagli Aztechi (Mexica) nel XIV secolo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale re di Francia era soprannominato il \"Re Sole\"?",
+      "category": "Storia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Luigi XVI",
+        "Luigi XIV",
+        "Luigi XIII",
+        "Luigi XV"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "francia",
+        "seicento"
+      ],
+      "notes": "Luigi XIV regnò dal 1643 al 1715",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale re normanno fu incoronato primo re di Sicilia nel 1130?",
+      "category": "Storia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ruggero II",
+        "Guglielmo I",
+        "Roberto il Guiscardo",
+        "Tancredi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "medioevo",
+        "sicilia"
+      ],
+      "notes": "Ruggero II incoronato a Palermo nel Natale 1130",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale imperatore rifondò Bisanzio dandole il proprio nome?",
+      "category": "Storia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Teodosio",
+        "Diocleziano",
+        "Costantino",
+        "Giustiniano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "roma antica",
+        "imperatori"
+      ],
+      "notes": "Costantinopoli inaugurata nel 330",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi personaggi furono imperatori romani? (più risposte)",
+      "category": "Storia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Agrippa",
+        "Seneca",
+        "Vespasiano",
+        "Caracalla"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "roma antica",
+        "imperatori"
+      ],
+      "notes": "Vespasiano e Caracalla furono imperatori; Agrippa generale, Seneca filosofo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale repubblica marinara sconfisse Pisa nella battaglia della Meloria (1284)?",
+      "category": "Storia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Venezia",
+        "Genova",
+        "Amalfi",
+        "Ragusa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "repubbliche marinare",
+        "medioevo"
+      ],
+      "notes": "La Meloria segnò il declino navale di Pisa a favore di Genova",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi Paesi fondarono la CEE nel 1957? (più risposte)",
+      "category": "Storia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Belgio",
+        "Lussemburgo",
+        "Regno Unito",
+        "Spagna"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "tags": [
+        "europa",
+        "novecento"
+      ],
+      "notes": "Fondatori: Italia, Francia, Germania Ovest, Belgio, Paesi Bassi, Lussemburgo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città divenne capitale dell'Impero romano d'Occidente nel 402?",
+      "category": "Storia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Milano",
+        "Ravenna",
+        "Treviri",
+        "Aquileia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "roma antica",
+        "capitali"
+      ],
+      "notes": "Onorio trasferì la corte da Milano a Ravenna nel 402",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu concessa in Inghilterra la Magna Carta?",
+      "category": "Storia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1215",
+        "1066",
+        "1314",
+        "1192"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "medioevo",
+        "inghilterra"
+      ],
+      "notes": "Sigillata da Giovanni Senzaterra nel 1215",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Sotto quale dinastia fu costruita gran parte della Grande Muraglia che vediamo oggi?",
+      "category": "Storia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Qing",
+        "Han",
+        "Tang",
+        "Ming"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cina",
+        "storia"
+      ],
+      "notes": "Gran parte delle mura visibili oggi risale alla dinastia Ming",
+      "verified": true
+    }
+  ]
+}

@@ -1,0 +1,888 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa significa la sigla \"www\" negli indirizzi Internet?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "World Wide Wireless",
+        "Web World Wide",
+        "World Wide Web",
+        "Wide World Web"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "sigle"
+      ],
+      "notes": "World Wide Web, la \"ragnatela mondiale\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda produce l'iPhone?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Samsung",
+        "Apple",
+        "Google",
+        "Nokia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "smartphone",
+        "aziende"
+      ],
+      "notes": "L'iPhone è prodotto da Apple",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il dispositivo che muove il puntatore sullo schermo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Mouse",
+        "Tastiera",
+        "Monitor",
+        "Scanner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "periferiche"
+      ],
+      "notes": "Il mouse controlla il cursore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fondò Microsoft insieme a Paul Allen nel 1975?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Steve Jobs",
+        "Bill Gates",
+        "Steve Wozniak",
+        "Larry Page"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aziende",
+        "informatica"
+      ],
+      "notes": "Microsoft fondata da Gates e Allen nel 1975",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su una tastiera, quale tasto conferma un comando o manda a capo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Esc",
+        "Invio",
+        "Tab",
+        "Canc"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer",
+        "tastiera"
+      ],
+      "notes": "Invio (Enter) conferma e manda a capo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale componente del computer è considerato il suo \"cervello\"?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Processore (CPU)",
+        "Memoria RAM",
+        "Disco rigido",
+        "Scheda video"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "hardware"
+      ],
+      "notes": "La CPU esegue le istruzioni dei programmi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale motore di ricerca fu fondato da Larry Page e Sergey Brin?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Google",
+        "Yahoo!",
+        "Bing",
+        "AltaVista"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "aziende"
+      ],
+      "notes": "Google nacque nel 1998",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti bit ci sono in un byte?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "16",
+        "10",
+        "8"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "informatica",
+        "unità"
+      ],
+      "notes": "Un byte è composto da 8 bit",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu presentato il primo iPhone?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "2005",
+        "2009",
+        "2010",
+        "2007"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone",
+        "storia"
+      ],
+      "notes": "Presentato da Steve Jobs il 9 gennaio 2007",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore italiano è considerato un pioniere della radio?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Antonio Meucci",
+        "Alessandro Volta",
+        "Guglielmo Marconi",
+        "Galileo Ferraris"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Marconi, Nobel per la fisica nel 1909",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sistema operativo per smartphone è sviluppato da Google?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "iOS",
+        "Windows Phone",
+        "Symbian",
+        "Android"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone",
+        "software"
+      ],
+      "notes": "Android è sviluppato da Google",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Cosa indica la parte finale \".it\" di un indirizzo web?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Information Technology",
+        "Internet",
+        "Istituzionale",
+        "Italia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "domini"
+      ],
+      "notes": ".it è il dominio nazionale dell'Italia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale unità di misura corrisponde a circa mille gigabyte?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Terabyte",
+        "Petabyte",
+        "Megabyte",
+        "Kilobyte"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica",
+        "unità"
+      ],
+      "notes": "1 TB = 1000 GB (1024 nella convenzione binaria)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda ha creato la console PlayStation?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nintendo",
+        "Sony",
+        "Sega",
+        "Microsoft"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi",
+        "aziende"
+      ],
+      "notes": "Prima PlayStation lanciata nel 1994",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cofondatore di Apple era famoso per presentare i prodotti in dolcevita nero?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Steve Jobs",
+        "Tim Cook",
+        "Steve Wozniak",
+        "Jony Ive"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aziende",
+        "personaggi"
+      ],
+      "notes": "Il dolcevita nero era il marchio di Jobs",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale marca finlandese produceva il celebre cellulare 3310?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Motorola",
+        "Nokia",
+        "Ericsson",
+        "Siemens"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cellulari",
+        "aziende"
+      ],
+      "notes": "Il Nokia 3310 uscì nel 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si misura in megapixel?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Velocità di connessione",
+        "Capacità di memoria",
+        "Durata della batteria",
+        "Risoluzione di un'immagine"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fotografia",
+        "digitale"
+      ],
+      "notes": "Un megapixel equivale a un milione di pixel",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i messaggi indesiderati inviati in massa?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Malware",
+        "Backup",
+        "Spam",
+        "Cookie"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "email"
+      ],
+      "notes": "Spam indica posta indesiderata di massa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale linguaggio si usa per strutturare le pagine web?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Python",
+        "SQL",
+        "C++",
+        "HTML"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "web",
+        "linguaggi"
+      ],
+      "notes": "HyperText Markup Language",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fondò Facebook nel 2004 insieme ad alcuni compagni di Harvard?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Jack Dorsey",
+        "Jeff Bezos",
+        "Elon Musk",
+        "Mark Zuckerberg"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "social",
+        "aziende"
+      ],
+      "notes": "Facebook nacque a Harvard nel 2004",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tecnologia permette di pagare avvicinando il telefono al POS?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Bluetooth",
+        "GPS",
+        "Infrarossi",
+        "NFC"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pagamenti",
+        "smartphone"
+      ],
+      "notes": "Near Field Communication, a pochi centimetri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su Windows, quale tasto si preme insieme a C per copiare?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Alt",
+        "Ctrl",
+        "Shift",
+        "Tab"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer",
+        "scorciatoie"
+      ],
+      "notes": "Ctrl+C copia, Ctrl+V incolla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Per quali parole sta la sigla PDF?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Printable Data File",
+        "Portable Document Format",
+        "Personal Document File",
+        "Public Digital Format"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formati",
+        "sigle"
+      ],
+      "notes": "Formato creato da Adobe nel 1993",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quali parole inglesi deriva il nome del \"codice QR\"?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Quick Response",
+        "Quality Rate",
+        "Quick Reader",
+        "Query Result"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sigle",
+        "codici"
+      ],
+      "notes": "Inventato da Denso Wave nel 1994",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno è nata Wikipedia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1998",
+        "2001",
+        "2004",
+        "2006"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet",
+        "storia"
+      ],
+      "notes": "Online dal 15 gennaio 2001",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quali parole nasce la sigla USB, quella delle chiavette?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Unified System Bus",
+        "Universal Signal Board",
+        "Universal Serial Bus",
+        "User Serial Base"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "hardware",
+        "sigle"
+      ],
+      "notes": "Standard introdotto nel 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è considerato l'inventore del World Wide Web?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Vint Cerf",
+        "Alan Turing",
+        "Tim Berners-Lee",
+        "Linus Torvalds"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "personaggi"
+      ],
+      "notes": "Lo ideò al CERN tra il 1989 e il 1991",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale matematico inglese ideò la \"macchina\" teorica alla base dell'informatica?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Alan Turing",
+        "Charles Babbage",
+        "George Boole",
+        "Ada Lovelace"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica",
+        "personaggi"
+      ],
+      "notes": "La macchina di Turing, 1936",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale sistema operativo open source prende il nome dal suo creatore Linus Torvalds?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Unix",
+        "MS-DOS",
+        "Linux",
+        "Solaris"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "software",
+        "open source"
+      ],
+      "notes": "Il kernel Linux nasce nel 1991",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu lanciato lo Sputnik 1, il primo satellite artificiale?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1961",
+        "1957",
+        "1949",
+        "1969"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio",
+        "storia"
+      ],
+      "notes": "Lanciato dall'URSS il 4 ottobre 1957",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste aziende producono microprocessori per PC? (più risposte)",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Logitech",
+        "Canon",
+        "Intel",
+        "AMD"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "hardware",
+        "aziende"
+      ],
+      "notes": "Intel e AMD producono CPU; Logitech periferiche, Canon fotocamere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nobildonna inglese è considerata la prima programmatrice della storia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ada Lovelace",
+        "Grace Hopper",
+        "Hedy Lamarr",
+        "Margaret Hamilton"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica",
+        "personaggi"
+      ],
+      "notes": "Scrisse un algoritmo per la macchina analitica di Babbage (1843)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale italiano guidò la progettazione dell'Intel 4004, il primo microprocessore commerciale?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Federico Faggin",
+        "Pier Giorgio Perotto",
+        "Adriano Olivetti",
+        "Guglielmo Marconi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "hardware",
+        "italia"
+      ],
+      "notes": "Il 4004 fu messo in commercio nel 1971",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel web, che cosa indica la sigla HTTP all'inizio degli indirizzi?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "High Transfer Text Protocol",
+        "HyperText Transmission Process",
+        "Host Text Transfer Protocol",
+        "HyperText Transfer Protocol"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "web",
+        "sigle"
+      ],
+      "notes": "Protocollo base del web",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda italiana produsse la Programma 101, antenato del personal computer?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Fiat",
+        "Pirelli",
+        "Olivetti",
+        "Zanussi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia",
+        "italia"
+      ],
+      "notes": "La P101 fu presentata nel 1965",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale browser del 1993 rese popolare il web grafico, prima di Netscape?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Opera",
+        "Lynx",
+        "Mosaic",
+        "Internet Explorer"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "web",
+        "storia"
+      ],
+      "notes": "NCSA Mosaic, 1993",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi sono linguaggi di programmazione? (più risposte)",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ethernet",
+        "Fortran",
+        "Unicode",
+        "Cobol"
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "tags": [
+        "linguaggi",
+        "storia"
+      ],
+      "notes": "Fortran (1957) e Cobol (1959); Ethernet è una rete, Unicode una codifica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale standard di codifica definisce 128 caratteri, tra lettere, cifre e simboli?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "ASCII",
+        "Unicode",
+        "UTF-8",
+        "EBCDIC"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "codifiche",
+        "informatica"
+      ],
+      "notes": "ASCII a 7 bit, 128 caratteri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la rete americana da cui nacque Internet?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "MILNET",
+        "ARPANET",
+        "NSFNET",
+        "Usenet"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet",
+        "storia"
+      ],
+      "notes": "Primo collegamento ARPANET nel 1969",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno Ray Tomlinson inviò la prima email tra due computer?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1965",
+        "1979",
+        "1971",
+        "1983"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "email",
+        "storia"
+      ],
+      "notes": "Tomlinson introdusse anche il simbolo @ negli indirizzi",
+      "verified": true
+    }
+  ]
+}

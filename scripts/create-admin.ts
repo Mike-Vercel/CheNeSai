@@ -10,7 +10,9 @@ import { createClient } from "@supabase/supabase-js";
 config({ path: ".env.local", quiet: true });
 
 async function main() {
-  const [email, password, name = "Amministratore", role = "super_admin"] = process.argv.slice(2);
+  const [email, argPassword, name = "Amministratore", role = "super_admin"] = process.argv.slice(2);
+  // la password può arrivare anche da ADMIN_PASSWORD (così non compare nella riga di comando)
+  const password = argPassword && argPassword !== "-" ? argPassword : (process.env.ADMIN_PASSWORD ?? "");
   if (!email || !password) {
     console.error('Uso: npm run admin:create -- <email> <password> "<Nome>" [super_admin|admin|operator]');
     process.exit(1);

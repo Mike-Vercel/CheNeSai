@@ -1,0 +1,881 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In quale città si svolge il Festival della Canzone Italiana trasmesso dalla Rai?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Venezia",
+        "Napoli",
+        "Viareggio",
+        "Sanremo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "festival",
+        "musica in tv"
+      ],
+      "notes": "Al Teatro Ariston di Sanremo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale famiglia gialla dei cartoni animati vive a Springfield?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "I Griffin",
+        "Gli Antenati",
+        "I Robinson",
+        "I Simpson"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cartoni",
+        "serie animate"
+      ],
+      "notes": "I Simpson, in onda dal 1989",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'uccello velocissimo inseguito da Willy il Coyote?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Titti",
+        "Speedy Gonzales",
+        "Daffy Duck",
+        "Beep Beep"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cartoni",
+        "looney tunes"
+      ],
+      "notes": "Road Runner, in Italia Beep Beep",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il gatto che dà sempre la caccia al topo Jerry?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Silvestro",
+        "Tom",
+        "Garfield",
+        "Felix"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cartoni"
+      ],
+      "notes": "Tom & Jerry, dal 1940",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il titolo originale della serie \"Il Trono di Spade\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Game of Thrones",
+        "House of the Dragon",
+        "The Witcher",
+        "Vikings"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "fantasy"
+      ],
+      "notes": "HBO, 2011-2019",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è il migliore amico di SpongeBob, una stella marina rosa?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Squiddi",
+        "Plankton",
+        "Sandy",
+        "Patrick"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cartoni"
+      ],
+      "notes": "Patrick Stella",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la fidanzata di Topolino?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Paperina",
+        "Minni",
+        "Clarabella",
+        "Nonna Papera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti",
+        "disney"
+      ],
+      "notes": "Minnie, in Italia Minni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco a premi Rai i concorrenti aprono pacchi sperando nel premio più alto?",
+      "category": "TV e spettacolo",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Affari tuoi",
+        "L'eredità",
+        "Reazione a catena",
+        "Chi vuol essere milionario?"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "quiz tv",
+        "rai"
+      ],
+      "notes": "Format Deal or No Deal, su Rai 1 dal 2003",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale cartone giapponese Oliver Hutton sogna di diventare un campione del calcio?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mila e Shiro",
+        "Lupin III",
+        "Holly e Benji",
+        "Dragon Ball"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime",
+        "anni 80"
+      ],
+      "notes": "Captain Tsubasa, in Italia Holly e Benji",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il robot gigante pilotato da Actarus?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mazinga Z",
+        "Jeeg Robot",
+        "Goldrake",
+        "Daitarn 3"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime",
+        "anni 70"
+      ],
+      "notes": "Ufo Robot Goldrake, in Italia dal 1978",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Happy Days\", come si chiama il personaggio con il giubbotto di pelle?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Richie",
+        "Fonzie",
+        "Potsie",
+        "Ralph"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sitcom",
+        "anni 70"
+      ],
+      "notes": "Arthur Fonzarelli, interpretato da Henry Winkler",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale serie medica è ambientata all'ospedale Seattle Grace?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "E.R. Medici in prima linea",
+        "Dr. House",
+        "Grey's Anatomy",
+        "Scrubs"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "serie tv",
+        "medical"
+      ],
+      "notes": "Grey's Anatomy, dal 2005",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale programma satirico consegna il Tapiro d'oro?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Le Iene",
+        "Striscia la notizia",
+        "Report",
+        "Blob"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "programmi tv",
+        "mediaset"
+      ],
+      "notes": "Il Tapiro d'oro è consegnato da Valerio Staffelli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale festival di canzoni per bambini si tiene all'Antoniano di Bologna?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Zecchino d'Oro",
+        "Ti lascio una canzone",
+        "Io canto",
+        "Bravo Bravissimo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musica in tv",
+        "bambini"
+      ],
+      "notes": "Lo Zecchino d'Oro nasce nel 1959",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Lupin III\", come si chiama il pistolero con barba e cappello?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Goemon",
+        "Zenigata",
+        "Jigen",
+        "Fujiko"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anime"
+      ],
+      "notes": "Daisuke Jigen",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale paese immaginario lavora il commissario Montalbano?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Macondo",
+        "Vigàta",
+        "Brigadoon",
+        "Castelvecchio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "sicilia"
+      ],
+      "notes": "Vigàta, nata dai romanzi di Andrea Camilleri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sitcom Sheldon e Leonard sono coinquilini?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "The Big Bang Theory",
+        "How I Met Your Mother",
+        "Modern Family",
+        "Scrubs"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sitcom"
+      ],
+      "notes": "The Big Bang Theory, 2007-2019",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale serie animata ci sono Peter, Lois e il cane parlante Brian?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "American Dad!",
+        "I Griffin",
+        "South Park",
+        "King of the Hill"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie animate"
+      ],
+      "notes": "Family Guy, ideata da Seth MacFarlane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La serie \"The Crown\" racconta il regno di quale sovrana?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Elisabetta II",
+        "Vittoria",
+        "Elisabetta I",
+        "Maria Stuarda"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "storia"
+      ],
+      "notes": "Netflix, dal 2016",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale fiction Terence Hill ha interpretato un prete detective?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Don Camillo",
+        "Don Matteo",
+        "Un passo dal cielo",
+        "Il maresciallo Rocca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fiction",
+        "rai"
+      ],
+      "notes": "Don Matteo, Rai 1, dal 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia comica palermitana è formata da Salvo e Valentino?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Aldo, Giovanni e Giacomo",
+        "Ale e Franz",
+        "Ficarra e Picone",
+        "Fichi d'India"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "comici",
+        "sicilia"
+      ],
+      "notes": "Ficarra e Picone, in coppia dal 1993",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale quiz di Rai 1 il gioco finale si chiama \"La Ghigliottina\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Reazione a catena",
+        "Avanti un altro!",
+        "Caduta libera",
+        "L'eredità"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "quiz tv",
+        "rai"
+      ],
+      "notes": "L'eredità, in onda dal 2002",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale serie racconta la famiglia aristocratica Crawley e la sua tenuta?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Downton Abbey",
+        "The Crown",
+        "Bridgerton",
+        "Peaky Blinders"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "inghilterra"
+      ],
+      "notes": "Downton Abbey, 2010-2015",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Stranger Things\", come si chiama la dimensione parallela?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mondo di mezzo",
+        "Sottosopra",
+        "Altrove",
+        "Zona d'ombra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "fantascienza"
+      ],
+      "notes": "Upside Down, in italiano Sottosopra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa trasmetteva \"Carosello\", in onda dal 1957 al 1977?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pubblicità",
+        "Telegiornali",
+        "Quiz",
+        "Previsioni del tempo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia tv",
+        "rai"
+      ],
+      "notes": "Siparietti pubblicitari prima di cena",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianeta proviene Mork, l'alieno interpretato da Robin Williams?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ork",
+        "Melmac",
+        "Krypton",
+        "Vulcano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sitcom",
+        "anni 70"
+      ],
+      "notes": "Mork & Mindy; Melmac è il pianeta di ALF",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale showgirl lanciò in TV il \"Tuca Tuca\" nel 1971?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mina",
+        "Heather Parisi",
+        "Lorella Cuccarini",
+        "Raffaella Carrà"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "varietà",
+        "rai"
+      ],
+      "notes": "A Canzonissima 1971",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il robot sarcastico e brontolone di \"Futurama\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Fry",
+        "Zoidberg",
+        "Bender",
+        "Hermes"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "serie animate"
+      ],
+      "notes": "Bender Rodríguez",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale personaggio di \"Star Trek\" è un vulcaniano dalle orecchie a punta?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Kirk",
+        "Sulu",
+        "Spock",
+        "Uhura"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "serie tv",
+        "fantascienza"
+      ],
+      "notes": "Interpretato da Leonard Nimoy",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi personaggi appartengono al \"Muppet Show\"? (più risposte)",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Topo Gigio",
+        "Grisù",
+        "Kermit la rana",
+        "Miss Piggy"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "pupazzi",
+        "varietà"
+      ],
+      "notes": "Topo Gigio e Grisù sono creazioni italiane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale programma condotto da Corrado era dedicato ai \"dilettanti allo sbaraglio\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Portobello",
+        "Domenica in",
+        "La Corrida",
+        "Fantastico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "varietà",
+        "storia tv"
+      ],
+      "notes": "La Corrida, in TV dal 1986",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Il Trono di Spade\", quale casata ha il motto \"L'inverno sta arrivando\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Lannister",
+        "Stark",
+        "Targaryen",
+        "Baratheon"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "serie tv",
+        "fantasy"
+      ],
+      "notes": "Winter is coming, motto degli Stark",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città americana è ambientata la sitcom \"Cheers\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Chicago",
+        "Boston",
+        "Seattle",
+        "Filadelfia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sitcom",
+        "anni 80"
+      ],
+      "notes": "Il bar Cheers si trova a Boston (1982-1993)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno iniziarono le trasmissioni televisive regolari in Italia?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "1950",
+        "1960",
+        "1948",
+        "1954"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia tv",
+        "rai"
+      ],
+      "notes": "3 gennaio 1954",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Friends\", come si chiama il bar dove si ritrovano i protagonisti?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "MacLaren's",
+        "Moe's",
+        "Central Perk",
+        "Monk's Café"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sitcom"
+      ],
+      "notes": "Central Perk, al Greenwich Village di New York",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi programmi sono stati condotti da Mike Bongiorno? (più risposte)",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Portobello",
+        "Fantastico",
+        "Rischiatutto",
+        "La ruota della fortuna"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "storia tv",
+        "conduttori"
+      ],
+      "notes": "Rischiatutto dal 1970, La ruota della fortuna dal 1989",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpretava il tenente Colombo con l'impermeabile stropicciato?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Peter Falk",
+        "Telly Savalas",
+        "Raymond Burr",
+        "William Conrad"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie tv",
+        "gialli"
+      ],
+      "notes": "Colombo, dal 1968",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la scrittrice di gialli protagonista de \"La signora in giallo\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Jane Marple",
+        "Ellery Queen",
+        "Laura Holt",
+        "Jessica Fletcher"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "serie tv",
+        "gialli"
+      ],
+      "notes": "Interpretata da Angela Lansbury",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha creato la serie \"I Simpson\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Matt Groening",
+        "Seth MacFarlane",
+        "Trey Parker",
+        "Mike Judge"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "serie animate",
+        "autori"
+      ],
+      "notes": "Matt Groening ideò la famiglia nel 1987",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la nave da crociera della serie \"Love Boat\"?",
+      "category": "TV e spettacolo",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Queen Mary",
+        "Sea Princess",
+        "Royal Star",
+        "Pacific Princess"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "serie tv",
+        "anni 70"
+      ],
+      "notes": "The Love Boat, 1977-1986",
+      "verified": true
+    }
+  ]
+}

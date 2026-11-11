@@ -1,0 +1,882 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quanti giocatori per squadra scendono in campo in una partita di calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "11",
+        "9",
+        "12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Undici giocatori, portiere compreso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Ogni quanti anni si disputano di norma le Olimpiadi estive?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Cadenza quadriennale (Tokyo 2020 fu rinviata al 2021)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la maglia del leader del Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Gialla",
+        "Verde",
+        "Rosa",
+        "Azzurra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "giro d'italia"
+      ],
+      "notes": "Rosa come le pagine della Gazzetta dello Sport",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si gioca il torneo di Wimbledon?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Squash",
+        "Badminton",
+        "Tennis",
+        "Padel"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis",
+        "tornei"
+      ],
+      "notes": "Torneo sull'erba di Londra, dal 1877",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti cerchi ci sono nel simbolo olimpico?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "6",
+        "5",
+        "7"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "simboli"
+      ],
+      "notes": "Cinque anelli intrecciati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si parla di \"birdie\" e di \"par\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Golf",
+        "Tennis",
+        "Cricket",
+        "Polo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "golf"
+      ],
+      "notes": "Birdie: un colpo sotto il par della buca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si giocarono i Mondiali di calcio vinti dall'Italia nel 2006?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Germania",
+        "Giappone",
+        "Sudafrica"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Finale a Berlino, 9 luglio 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo della Ferrari?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Toro",
+        "Leone",
+        "Cavallino rampante",
+        "Aquila"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motori",
+        "simboli"
+      ],
+      "notes": "Il cavallino di Francesco Baracca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti set bisogna vincere per aggiudicarsi una partita di pallavolo?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pallavolo",
+        "regole"
+      ],
+      "notes": "Si gioca al meglio dei cinque set",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale Gran Premio di Formula 1 si corre a Monza?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "GP di San Marino",
+        "GP d'Italia",
+        "GP di Monaco",
+        "GP d'Europa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formula 1",
+        "italia"
+      ],
+      "notes": "Monza ospita il GP d'Italia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti minuti dura una partita di calcio regolamentare, recuperi esclusi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "80",
+        "100",
+        "90",
+        "120"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Due tempi da 45 minuti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio italiana è soprannominata \"la Vecchia Signora\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Milan",
+        "Inter",
+        "Juventus"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "soprannomi"
+      ],
+      "notes": "Juventus, fondata nel 1897",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nella pallacanestro, quanti giocatori ha in campo ogni squadra?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "7",
+        "5",
+        "4"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Cinque giocatori per squadra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si disputa il torneo del Sei Nazioni?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pallanuoto",
+        "Rugby",
+        "Calcio",
+        "Cricket"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rugby"
+      ],
+      "notes": "L'Italia vi partecipa dal 2000",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista italiano era soprannominato \"il Campionissimo\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gino Bartali",
+        "Fausto Coppi",
+        "Felice Gimondi",
+        "Francesco Moser"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "soprannomi"
+      ],
+      "notes": "Coppi vinse 5 Giri d'Italia e 2 Tour",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti metri è lunga una vasca olimpionica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "25",
+        "100",
+        "33",
+        "50"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi"
+      ],
+      "notes": "Vasca lunga da 50 metri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si tennero le prime Olimpiadi moderne nel 1896?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Parigi",
+        "Atene",
+        "Londra",
+        "Roma"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia"
+      ],
+      "notes": "Atene, aprile 1896",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale premio della rivista France Football va al miglior calciatore dell'anno?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Scarpa d'oro",
+        "Pallone d'oro",
+        "Golden Boy",
+        "Golden Foot"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "premi"
+      ],
+      "notes": "Pallone d'oro, istituito nel 1956",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport ha vinto ori olimpici Alberto Tomba?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Snowboard",
+        "Bob",
+        "Pattinaggio",
+        "Sci alpino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sci",
+        "campioni italiani"
+      ],
+      "notes": "Tre ori olimpici tra il 1988 e il 1992",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto è lunga la maratona?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "42,195 km",
+        "40 km",
+        "45 km",
+        "38,5 km"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Distanza fissata nel 1921",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota vinse cinque Mondiali di F1 consecutivi con la Ferrari dal 2000 al 2004?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sebastian Vettel",
+        "Fernando Alonso",
+        "Michael Schumacher",
+        "Kimi Räikkönen"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formula 1",
+        "campioni"
+      ],
+      "notes": "Titoli Ferrari dal 2000 al 2004",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Lo stadio di San Siro a Milano è intitolato a quale ex calciatore?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giuseppe Meazza",
+        "Silvio Piola",
+        "Valentino Mazzola",
+        "Giampiero Boniperti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "stadi"
+      ],
+      "notes": "Intitolato a Giuseppe Meazza dal 1980",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale disciplina si spara ai piattelli lanciati in aria?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Tiro con l'arco",
+        "Biathlon",
+        "Pentathlon moderno",
+        "Tiro a volo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tiro",
+        "olimpiadi"
+      ],
+      "notes": "Fossa olimpica e skeet",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti punti vale un touchdown nel football americano?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "7",
+        "3",
+        "5"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "football americano"
+      ],
+      "notes": "Sei punti, più la trasformazione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città italiana ospitò le Olimpiadi estive del 1960?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Milano",
+        "Torino",
+        "Napoli",
+        "Roma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Giochi della XVII Olimpiade, Roma 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse il primo Mondiale di calcio nel 1930?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Argentina",
+        "Italia",
+        "Brasile",
+        "Uruguay"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Montevideo, 1930",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, come si chiama il punteggio di 40 pari?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Parità",
+        "Vantaggio",
+        "Tie-break",
+        "Match point"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "In inglese deuce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pugile si definiva \"The Greatest\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mike Tyson",
+        "Joe Frazier",
+        "Muhammad Ali",
+        "George Foreman"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pugilato",
+        "campioni"
+      ],
+      "notes": "Tre volte campione dei pesi massimi",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste discipline fanno parte del triathlon? (più risposte)",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Equitazione",
+        "Scherma",
+        "Nuoto",
+        "Ciclismo"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "triathlon"
+      ],
+      "notes": "Nuoto, ciclismo e corsa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si assegna l'America's Cup?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vela",
+        "Canottaggio",
+        "Polo",
+        "Golf"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vela",
+        "trofei"
+      ],
+      "notes": "Trofeo velico più antico, dal 1851",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, come si chiama la mossa in cui re e torre si spostano insieme?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Scacco matto",
+        "En passant",
+        "Gambetto",
+        "Arrocco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scacchi",
+        "regole"
+      ],
+      "notes": "Arrocco corto o lungo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale velocista giamaicano esultava mimando un fulmine?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Asafa Powell",
+        "Usain Bolt",
+        "Yohan Blake",
+        "Carl Lewis"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "campioni"
+      ],
+      "notes": "Il gesto \"To Di World\" di Bolt",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto dura un round nel pugilato professionistico maschile?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "3 minuti",
+        "2 minuti",
+        "4 minuti",
+        "5 minuti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pugilato",
+        "regole"
+      ],
+      "notes": "Tre minuti più uno di pausa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Italia vinse il suo primo Mondiale di calcio?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1934",
+        "1938",
+        "1930",
+        "1950"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Mondiale casalingo del 1934",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale campione belga del ciclismo era soprannominato \"il Cannibale\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Eddy Merckx",
+        "Rik Van Looy",
+        "Freddy Maertens",
+        "Roger De Vlaeminck"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "soprannomi"
+      ],
+      "notes": "Merckx vinse 5 Tour e 5 Giri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiana vinse il Roland Garros nel 2010?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Flavia Pennetta",
+        "Sara Errani",
+        "Roberta Vinci",
+        "Francesca Schiavone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "campioni italiani"
+      ],
+      "notes": "Prima italiana a vincere uno Slam in singolare",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste località hanno ospitato le Olimpiadi invernali? (più risposte)",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cortina d'Ampezzo",
+        "Madonna di Campiglio",
+        "Torino",
+        "Courmayeur"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Cortina 1956 e 2026 (con Milano), Torino 2006",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La Stanley Cup è il trofeo più famoso di quale sport?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Hockey su ghiaccio",
+        "Football americano",
+        "Baseball",
+        "Basket"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "hockey",
+        "trofei"
+      ],
+      "notes": "Coppa assegnata dal 1893, oggi al vincitore della NHL",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno si corse il primo Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1909",
+        "1903",
+        "1911",
+        "1899"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "giro d'italia"
+      ],
+      "notes": "Partenza da Milano il 13 maggio 1909",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse il primo Tour de France, nel 1903?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Henri Cornet",
+        "Lucien Petit-Breton",
+        "Maurice Garin",
+        "Ottavio Bottecchia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "tour de france"
+      ],
+      "notes": "Garin era nato in Valle d'Aosta",
+      "verified": true
+    }
+  ]
+}

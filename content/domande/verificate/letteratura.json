@@ -1,0 +1,886 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi ha scritto la Divina Commedia?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Francesco Petrarca",
+        "Dante Alighieri",
+        "Giovanni Boccaccio",
+        "Ludovico Ariosto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dante",
+        "classici italiani"
+      ],
+      "notes": "Composta tra il 1304 circa e il 1321",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è l'autore de \"I promessi sposi\"?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Alessandro Manzoni",
+        "Giovanni Verga",
+        "Ugo Foscolo",
+        "Giacomo Leopardi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "romanzi",
+        "classici italiani"
+      ],
+      "notes": "Edizione definitiva 1840-1842",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Romeo e Giulietta\"?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Christopher Marlowe",
+        "William Shakespeare",
+        "Charles Dickens",
+        "Oscar Wilde"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teatro",
+        "inglese"
+      ],
+      "notes": "Tragedia di Shakespeare, circa 1595",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il burattino di legno nato dalla penna di Carlo Collodi?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Geppetto",
+        "Pinocchio",
+        "Lucignolo",
+        "Mangiafuoco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ragazzi",
+        "classici italiani"
+      ],
+      "notes": "Le avventure di Pinocchio, 1883",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Il piccolo principe\"?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Antoine de Saint-Exupéry",
+        "Jules Verne",
+        "Victor Hugo",
+        "Albert Camus"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "francese",
+        "romanzi"
+      ],
+      "notes": "Pubblicato nel 1943",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il nome del maghetto protagonista della saga di J.K. Rowling?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ron Weasley",
+        "Neville Paciock",
+        "Harry Potter",
+        "Draco Malfoy"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fantasy",
+        "ragazzi"
+      ],
+      "notes": "Sette romanzi, 1997-2007",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale poeta ha scritto \"L'infinito\"?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ugo Foscolo",
+        "Giosuè Carducci",
+        "Giacomo Leopardi",
+        "Giovanni Pascoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "poesia",
+        "classici italiani"
+      ],
+      "notes": "Idillio composto a Recanati nel 1819",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi accompagna Dante attraverso l'Inferno e il Purgatorio?",
+      "category": "Letteratura",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Beatrice",
+        "Virgilio",
+        "Omero",
+        "Ovidio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dante"
+      ],
+      "notes": "Beatrice lo guida poi nel Paradiso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Il nome della rosa\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Italo Calvino",
+        "Alberto Moravia",
+        "Leonardo Sciascia",
+        "Umberto Eco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "romanzi",
+        "novecento"
+      ],
+      "notes": "Pubblicato nel 1980",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il protagonista dell'Odissea?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Achille",
+        "Ulisse",
+        "Enea",
+        "Ettore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "epica",
+        "grecia"
+      ],
+      "notes": "Ulisse (Odisseo), re di Itaca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Don Chisciotte della Mancia\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lope de Vega",
+        "Miguel de Cervantes",
+        "Federico García Lorca",
+        "Gabriel García Márquez"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spagnolo",
+        "romanzi"
+      ],
+      "notes": "Due parti, 1605 e 1615",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è l'autore del romanzo \"Il Gattopardo\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giuseppe Tomasi di Lampedusa",
+        "Luigi Pirandello",
+        "Giovanni Verga",
+        "Leonardo Sciascia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "romanzi",
+        "sicilia"
+      ],
+      "notes": "Pubblicato postumo nel 1958",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scrittore creò il detective Sherlock Holmes?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Agatha Christie",
+        "Edgar Allan Poe",
+        "Raymond Chandler",
+        "Arthur Conan Doyle"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "gialli",
+        "inglese"
+      ],
+      "notes": "Prima apparizione in Uno studio in rosso, 1887",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto il \"Decameron\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giovanni Boccaccio",
+        "Dante Alighieri",
+        "Francesco Petrarca",
+        "Niccolò Machiavelli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classici italiani",
+        "trecento"
+      ],
+      "notes": "Cento novelle raccontate in dieci giornate",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scrittore russo ha scritto \"Guerra e pace\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fëdor Dostoevskij",
+        "Anton Čechov",
+        "Nikolaj Gogol'",
+        "Lev Tolstoj"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "russo",
+        "romanzi"
+      ],
+      "notes": "Pubblicato tra il 1865 e il 1869",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la donna amata e cantata da Petrarca nel Canzoniere?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Beatrice",
+        "Fiammetta",
+        "Laura",
+        "Silvia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "poesia",
+        "trecento"
+      ],
+      "notes": "Beatrice è di Dante, Fiammetta di Boccaccio, Silvia di Leopardi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Uno, nessuno e centomila\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Italo Svevo",
+        "Gabriele D'Annunzio",
+        "Giovanni Verga",
+        "Luigi Pirandello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "romanzi",
+        "novecento"
+      ],
+      "notes": "Romanzo di Pirandello del 1926",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Il Principe\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Niccolò Machiavelli",
+        "Francesco Guicciardini",
+        "Baldassarre Castiglione",
+        "Tommaso Campanella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "saggistica",
+        "rinascimento"
+      ],
+      "notes": "Scritto nel 1513, pubblicato nel 1532",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Orgoglio e pregiudizio\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Jane Austen",
+        "Charlotte Brontë",
+        "Emily Brontë",
+        "Virginia Woolf"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "inglese",
+        "romanzi"
+      ],
+      "notes": "Pubblicato nel 1813",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale poeta scrisse \"X Agosto\" e \"La cavallina storna\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giosuè Carducci",
+        "Gabriele D'Annunzio",
+        "Giovanni Pascoli",
+        "Giuseppe Ungaretti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "poesia",
+        "classici italiani"
+      ],
+      "notes": "Entrambe le poesie sono di Pascoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è l'autore de \"Il barone rampante\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Italo Calvino",
+        "Alberto Moravia",
+        "Cesare Pavese",
+        "Dino Buzzati"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "romanzi",
+        "novecento"
+      ],
+      "notes": "Pubblicato nel 1957",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Il vecchio e il mare\"?",
+      "category": "Letteratura",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "John Steinbeck",
+        "Herman Melville",
+        "Ernest Hemingway",
+        "Jack London"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "americano",
+        "romanzi"
+      ],
+      "notes": "Pubblicato nel 1952",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che animale è Moby Dick nel romanzo di Melville?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un capodoglio",
+        "Una balenottera azzurra",
+        "Un'orca",
+        "Uno squalo bianco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "americano",
+        "romanzi"
+      ],
+      "notes": "Moby Dick è un capodoglio albino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scrittore ha creato il personaggio di Peter Pan?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Lewis Carroll",
+        "James M. Barrie",
+        "Roald Dahl",
+        "Rudyard Kipling"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ragazzi",
+        "inglese"
+      ],
+      "notes": "Barrie lo portò in scena nel 1904",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nell'Orlando furioso, dove va Astolfo a recuperare il senno di Orlando?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sulla Luna",
+        "Su Marte",
+        "Nell'Ade",
+        "Sul monte Olimpo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "poesia",
+        "rinascimento"
+      ],
+      "notes": "Astolfo vola sulla Luna con l'ippogrifo (canto XXXIV)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale poeta scrisse il celebre verso \"M'illumino d'immenso\"?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Eugenio Montale",
+        "Giuseppe Ungaretti",
+        "Salvatore Quasimodo",
+        "Umberto Saba"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "poesia",
+        "novecento"
+      ],
+      "notes": "Poesia \"Mattina\", 1917",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"I Malavoglia\"?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giovanni Verga",
+        "Luigi Capuana",
+        "Federico De Roberto",
+        "Luigi Pirandello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verismo",
+        "romanzi"
+      ],
+      "notes": "Pubblicato nel 1881",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è l'autore del romanzo \"1984\"?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Aldous Huxley",
+        "Ray Bradbury",
+        "H.G. Wells",
+        "George Orwell"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "inglese",
+        "romanzi"
+      ],
+      "notes": "Pubblicato nel 1949",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale poeta latino scrisse il poema delle \"Metamorfosi\"?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Virgilio",
+        "Orazio",
+        "Lucrezio",
+        "Ovidio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "latino",
+        "poesia"
+      ],
+      "notes": "Poema in 15 libri, completato intorno all'8 d.C.",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il comandante del Nautilus nel romanzo di Jules Verne?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Capitano Achab",
+        "Capitano Uncino",
+        "Capitano Flint",
+        "Capitano Nemo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "francese",
+        "avventura"
+      ],
+      "notes": "Ventimila leghe sotto i mari, 1870",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi romanzi sono di Charles Dickens? (più risposte)",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Jane Eyre",
+        "Ivanhoe",
+        "Oliver Twist",
+        "David Copperfield"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "inglese",
+        "romanzi"
+      ],
+      "notes": "Jane Eyre è di C. Brontë, Ivanhoe di W. Scott",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"Cuore\", il diario dello scolaro Enrico?",
+      "category": "Letteratura",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Carlo Collodi",
+        "Edmondo De Amicis",
+        "Emilio Salgari",
+        "Gianni Rodari"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ragazzi",
+        "classici italiani"
+      ],
+      "notes": "Pubblicato nel 1886",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolge l'\"Ulisse\" di James Joyce?",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Londra",
+        "Parigi",
+        "Dublino",
+        "Trieste"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "irlandese",
+        "romanzi"
+      ],
+      "notes": "Ambientato a Dublino il 16 giugno 1904",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale poeta italiano vinse il premio Nobel per la letteratura nel 1975?",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Salvatore Quasimodo",
+        "Giosuè Carducci",
+        "Giuseppe Ungaretti",
+        "Eugenio Montale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "nobel",
+        "poesia"
+      ],
+      "notes": "Quasimodo vinse nel 1959, Carducci nel 1906",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha scritto \"La coscienza di Zeno\"?",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Federigo Tozzi",
+        "Carlo Emilio Gadda",
+        "Elio Vittorini",
+        "Italo Svevo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "romanzi",
+        "novecento"
+      ],
+      "notes": "Pubblicato nel 1923",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il paese immaginario di \"Cent'anni di solitudine\"?",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Comala",
+        "Santa Teresa",
+        "Macondo",
+        "Yoknapatawpha"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sudamericano",
+        "romanzi"
+      ],
+      "notes": "Macondo è il villaggio di García Márquez",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi scrittori italiani hanno vinto il Nobel per la letteratura? (più risposte)",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Grazia Deledda",
+        "Italo Calvino",
+        "Dario Fo",
+        "Umberto Eco"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "tags": [
+        "nobel"
+      ],
+      "notes": "Deledda nel 1926, Fo nel 1997",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è l'autore della \"Gerusalemme liberata\"?",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ludovico Ariosto",
+        "Matteo Maria Boiardo",
+        "Torquato Tasso",
+        "Luigi Pulci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "poesia",
+        "rinascimento"
+      ],
+      "notes": "Poema pubblicato nel 1581",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il cane che riconosce Ulisse al suo ritorno a Itaca?",
+      "category": "Letteratura",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Cerbero",
+        "Argo",
+        "Lelapo",
+        "Ladone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "epica",
+        "grecia"
+      ],
+      "notes": "Odissea, libro XVII",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale vero nome si nasconde dietro lo pseudonimo del poeta romano Trilussa?",
+      "category": "Letteratura",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Giuseppe Gioachino Belli",
+        "Cesare Pascarella",
+        "Carlo Alberto Salustri",
+        "Ettore Petrolini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "poesia",
+        "dialetto"
+      ],
+      "notes": "Trilussa è anagramma di Salustri",
+      "verified": true
+    }
+  ]
+}

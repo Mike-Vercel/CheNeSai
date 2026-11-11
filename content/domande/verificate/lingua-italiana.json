@@ -1,0 +1,874 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"uovo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Gli uovi",
+        "Le uova",
+        "Le uove",
+        "Gli uova"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali",
+        "grammatica"
+      ],
+      "notes": "Uovo ha il plurale femminile irregolare \"uova\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"generoso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Altruista",
+        "Avaro",
+        "Prodigo",
+        "Gentile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "contrari",
+        "lessico"
+      ],
+      "notes": "Avaro è l'antonimo di generoso",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sono le vocali dell'alfabeto italiano?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "A, E, I, O, U",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un sinonimo di \"felice\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Contento",
+        "Triste",
+        "Stanco",
+        "Arrabbiato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sinonimi",
+        "lessico"
+      ],
+      "notes": "Contento è sinonimo di felice",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parte del discorso che indica un'azione o uno stato?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Verbo",
+        "Nome",
+        "Aggettivo",
+        "Avverbio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Il verbo esprime azioni, stati o modi di essere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"attore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Attrice",
+        "Attora",
+        "Attoressa",
+        "Attrise"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "femminili",
+        "grammatica"
+      ],
+      "notes": "I nomi in -tore fanno in genere il femminile in -trice",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Al plurale, \"il bue\" diventa…?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "I bui",
+        "I buoi",
+        "I bue",
+        "I buei"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali",
+        "grammatica"
+      ],
+      "notes": "Plurale irregolare: buoi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale articolo determinativo va davanti a \"zaino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Il",
+        "La",
+        "Lo",
+        "L'"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "articoli",
+        "grammatica"
+      ],
+      "notes": "Davanti a z si usa \"lo\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste forme è corretta?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Qual'è",
+        "Quale'è",
+        "Qual è",
+        "Qualè"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "\"Qual è\" si scrive senza apostrofo: è un troncamento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante lettere ha l'alfabeto italiano tradizionale?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "26",
+        "22",
+        "21",
+        "24"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "J, K, W, X, Y sono considerate lettere straniere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"arancia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Arancie",
+        "Arancia",
+        "Arance",
+        "Arancce"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "plurali",
+        "ortografia"
+      ],
+      "notes": "Nei nomi in -cia con consonante prima, la i cade",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un palindromo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Radar",
+        "Ramo",
+        "Rosa",
+        "Ruota"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi di parole"
+      ],
+      "notes": "Radar si legge uguale nei due sensi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale parola è un sinonimo di \"celere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Celebre",
+        "Lento",
+        "Rapido",
+        "Nascosto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sinonimi",
+        "lessico"
+      ],
+      "notes": "Celere significa veloce, rapido",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il superlativo assoluto organico di \"buono\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ottimo",
+        "Migliore",
+        "Massimo",
+        "Sommo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "aggettivi"
+      ],
+      "notes": "Ottimo; migliore è il comparativo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive correttamente il troncamento di \"un poco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un po'",
+        "Un pò",
+        "Un po",
+        "Un pó"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "\"Po'\" è un troncamento di \"poco\" e vuole l'apostrofo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"procrastinare\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Accelerare",
+        "Proibire",
+        "Ripetere",
+        "Rimandare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Dal latino crastinus, \"di domani\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Cosa vuol dire l'espressione \"essere al verde\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Non avere soldi",
+        "Essere molto stanchi",
+        "Essere arrabbiati",
+        "Vivere in campagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi di dire"
+      ],
+      "notes": "Essere senza denaro",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è sdrucciola, cioè accentata sulla terzultima sillaba?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cantare",
+        "Città",
+        "Giardino",
+        "Tavolo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "accenti",
+        "fonetica"
+      ],
+      "notes": "Tà-vo-lo: accento sulla terzultima",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi vede sempre il bicchiere mezzo vuoto è un…?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Realista",
+        "Egoista",
+        "Pessimista",
+        "Idealista"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "contrari",
+        "lessico"
+      ],
+      "notes": "Pessimista è l'antonimo di ottimista",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole vuole sempre l'accento scritto?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Qui",
+        "Perché",
+        "Qua",
+        "Sto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortografia",
+        "accenti"
+      ],
+      "notes": "Qui, qua e sto non si accentano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un nome collettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gregge",
+        "Pecora",
+        "Pastore",
+        "Lana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "nomi"
+      ],
+      "notes": "Il nome collettivo indica al singolare un insieme",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste è una preposizione articolata?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Di",
+        "Per",
+        "Tra",
+        "Della"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "preposizioni"
+      ],
+      "notes": "Della = di + la",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la figura retorica che dà caratteristiche umane a cose o animali?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Metafora",
+        "Ossimoro",
+        "Iperbole",
+        "Personificazione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Detta anche prosopopea",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si dice al plurale \"il dio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "I dii",
+        "I dei",
+        "I dio",
+        "Gli dei"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "grammatica"
+      ],
+      "notes": "Plurale irregolare con articolo \"gli\": gli dei",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"lapalissiano\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Complicato",
+        "Ovvio",
+        "Lussuoso",
+        "Pigro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Da Jacques de La Palice, protagonista di una canzone sulle ovvietà",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste espressioni è un ossimoro?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ghiaccio bollente",
+        "Bianco come la neve",
+        "Cuore di pietra",
+        "Mille volte"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "L'ossimoro accosta termini di significato opposto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua deriva la parola \"algebra\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Greco",
+        "Arabo",
+        "Latino",
+        "Persiano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dall'arabo al-jabr",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale istituzione si occupa della lingua italiana dal 1583?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Accademia dei Lincei",
+        "Accademia della Crusca",
+        "Accademia di Brera",
+        "Accademia dell'Arcadia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "istituzioni"
+      ],
+      "notes": "La Crusca fu fondata a Firenze nel 1583",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ubiquo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Presente ovunque",
+        "Molto antico",
+        "Senza patria",
+        "Dal doppio senso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Dal latino ubique, \"dappertutto\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un avverbio?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Veloce",
+        "Velocità",
+        "Velocizzare",
+        "Velocemente"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Gli avverbi in -mente derivano da aggettivi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di verbo è \"piovere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Riflessivo",
+        "Impersonale",
+        "Servile",
+        "Copulativo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica",
+        "verbi"
+      ],
+      "notes": "I verbi atmosferici sono impersonali",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di queste parole sono scritte correttamente? (più risposte)",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sufficente",
+        "Conoscienza",
+        "Efficiente",
+        "Coscienza"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Corrette: efficiente, coscienza, sufficiente, conoscenza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale dialetto deriva il saluto \"ciao\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Dal napoletano",
+        "Dal veneziano",
+        "Dal siciliano",
+        "Dal milanese"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal veneziano \"s'ciavo\", cioè \"(sono suo) schiavo\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"capoufficio\", riferito a uomini?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "I capouffici",
+        "I capiuffici",
+        "I capoufficii",
+        "I capiufficio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "composti"
+      ],
+      "notes": "Nei composti con capo- \"chi è a capo\" varia solo capo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"pleonastico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Rumoroso",
+        "Superfluo",
+        "Arrogante",
+        "Elastico"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Dal greco pleonasmós, \"sovrabbondanza\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"cuocere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Io cuocei",
+        "Io cocqui",
+        "Io cossi",
+        "Io cuossi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi",
+        "coniugazioni"
+      ],
+      "notes": "Cuocere: io cossi, tu cuocesti",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi nomi restano uguali al plurale? (più risposte)",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Città",
+        "Mano",
+        "Crisi",
+        "Libro"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "tags": [
+        "plurali",
+        "grammatica"
+      ],
+      "notes": "Tronchi e nomi in -i sono invariabili; mano fa mani",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"atarassia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Mancanza di forze",
+        "Paura del vuoto",
+        "Imperturbabilità",
+        "Insonnia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico",
+        "filosofia"
+      ],
+      "notes": "Concetto epicureo e stoico di serenità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'aggettivo \"sesquipedale\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Minuscolo",
+        "Puntuale",
+        "Zoppicante",
+        "Smisurato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "significati"
+      ],
+      "notes": "Dal latino \"lungo un piede e mezzo\"; di cosa enorme",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Pèsca (frutto) e pésca (sport) si scrivono uguali ma si pronunciano diversamente: sono…?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Omofone",
+        "Sinonime",
+        "Omografe",
+        "Antonime"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lessico",
+        "fonetica"
+      ],
+      "notes": "Omografe: stessa grafia, pronuncia diversa",
+      "verified": true
+    }
+  ]
+}

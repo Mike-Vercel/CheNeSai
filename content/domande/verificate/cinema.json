@@ -1,0 +1,888 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi ha diretto e interpretato \"La vita è bella\" (1997)?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Roberto Benigni",
+        "Giuseppe Tornatore",
+        "Nanni Moretti",
+        "Massimo Troisi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Il film vinse 3 Oscar nel 1999",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film del 1993 i dinosauri vengono riportati in vita in un parco?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Godzilla",
+        "Jurassic Park",
+        "King Kong",
+        "Dinosauri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "film",
+        "anni 90"
+      ],
+      "notes": "Diretto da Steven Spielberg",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta Jack in \"Titanic\" (1997)?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Brad Pitt",
+        "Matt Damon",
+        "Johnny Depp",
+        "Leonardo DiCaprio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attori",
+        "anni 90"
+      ],
+      "notes": "Jack Dawson, accanto a Kate Winslet",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il leoncino protagonista de \"Il re leone\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Mufasa",
+        "Scar",
+        "Simba",
+        "Nala"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Il re leone, Disney 1994",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale regista ha diretto \"La dolce vita\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Luchino Visconti",
+        "Federico Fellini",
+        "Michelangelo Antonioni",
+        "Vittorio De Sica"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "registi",
+        "cinema italiano"
+      ],
+      "notes": "Palma d'oro a Cannes nel 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale saga compare il cavaliere Jedi Luke Skywalker?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Star Wars",
+        "Star Trek",
+        "Dune",
+        "Alien"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "saghe",
+        "fantascienza"
+      ],
+      "notes": "Primo film nel 1977",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale agente segreto ha il numero di codice 007?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "James Bond",
+        "Ethan Hunt",
+        "Jason Bourne",
+        "Austin Powers"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "personaggi",
+        "spionaggio"
+      ],
+      "notes": "Creato dallo scrittore Ian Fleming",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"E.T. l'extra-terrestre\"?",
+      "category": "Cinema",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "George Lucas",
+        "James Cameron",
+        "Steven Spielberg",
+        "Robert Zemeckis"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "registi",
+        "anni 80"
+      ],
+      "notes": "Uscito nel 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose le musiche de \"Il buono, il brutto, il cattivo\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Nino Rota",
+        "Ennio Morricone",
+        "Nicola Piovani",
+        "Armando Trovajoli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "colonne sonore",
+        "western"
+      ],
+      "notes": "Film di Sergio Leone del 1966",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta il pugile Rocky Balboa?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sylvester Stallone",
+        "Arnold Schwarzenegger",
+        "Bruce Willis",
+        "Mel Gibson"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "attori",
+        "personaggi"
+      ],
+      "notes": "Rocky, 1976",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il pesce pagliaccio che il papà Marlin cerca nell'oceano?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Dory",
+        "Bruce",
+        "Nemo",
+        "Gill"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "animazione",
+        "pixar"
+      ],
+      "notes": "Alla ricerca di Nemo, 2003",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film di Giuseppe Tornatore vinse l'Oscar come miglior film straniero?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Malèna",
+        "La leggenda del pianista",
+        "Nuovo Cinema Paradiso",
+        "Baarìa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "oscar",
+        "cinema italiano"
+      ],
+      "notes": "Oscar 1990",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attore interpreta Forrest Gump?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Robin Williams",
+        "Kevin Costner",
+        "Jim Carrey",
+        "Tom Hanks"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "attori",
+        "anni 90"
+      ],
+      "notes": "Oscar come miglior attore nel 1995",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Pulp Fiction\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Martin Scorsese",
+        "Quentin Tarantino",
+        "Robert Rodriguez",
+        "Guy Ritchie"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "registi",
+        "anni 90"
+      ],
+      "notes": "Palma d'oro nel 1994",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolge la Mostra internazionale d'arte cinematografica, la più antica al mondo?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Roma",
+        "Venezia",
+        "Torino",
+        "Taormina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "festival",
+        "italia"
+      ],
+      "notes": "Prima edizione nel 1932",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale premio va al miglior film del Festival di Cannes?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Leone d'oro",
+        "Orso d'oro",
+        "Palma d'oro",
+        "Conchiglia d'oro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "festival",
+        "premi"
+      ],
+      "notes": "Leone a Venezia, Orso a Berlino, Conchiglia a San Sebastián",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi interpreta il Joker ne \"Il cavaliere oscuro\" (2008)?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Heath Ledger",
+        "Joaquin Phoenix",
+        "Jack Nicholson",
+        "Jared Leto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "attori",
+        "supereroi"
+      ],
+      "notes": "Oscar postumo come non protagonista",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale stregone accompagna Frodo e la Compagnia ne \"Il Signore degli Anelli\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Saruman",
+        "Radagast",
+        "Gandalf",
+        "Elrond"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fantasy",
+        "saghe"
+      ],
+      "notes": "Interpretato da Ian McKellen",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film Disney si canta \"All'alba sorgerò\" (\"Let It Go\")?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Rapunzel",
+        "Oceania",
+        "Encanto",
+        "Frozen"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Frozen, 2013",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Avatar\" (2009)?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Peter Jackson",
+        "Ridley Scott",
+        "James Cameron",
+        "Christopher Nolan"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "registi",
+        "fantascienza"
+      ],
+      "notes": "Avatar, 2009",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attrice è Holly Golightly in \"Colazione da Tiffany\"?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Marilyn Monroe",
+        "Grace Kelly",
+        "Audrey Hepburn",
+        "Katharine Hepburn"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "attrici",
+        "classici"
+      ],
+      "notes": "Film del 1961",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Ritorno al futuro\", con quale auto Doc viaggia nel tempo?",
+      "category": "Cinema",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ford Mustang",
+        "Chevrolet Corvette",
+        "DeLorean",
+        "Porsche 911"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "anni 80",
+        "auto"
+      ],
+      "notes": "DeLorean DMC-12 con flusso canalizzatore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale film Paolo Sorrentino conquistò l'Oscar nel 2014?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Il divo",
+        "This Must Be the Place",
+        "Youth",
+        "La grande bellezza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "oscar",
+        "cinema italiano"
+      ],
+      "notes": "Oscar 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attrice italiana vinse l'Oscar per \"La ciociara\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Anna Magnani",
+        "Claudia Cardinale",
+        "Gina Lollobrigida",
+        "Sophia Loren"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "oscar",
+        "attrici"
+      ],
+      "notes": "Oscar come miglior attrice nel 1962",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'albergo isolato tra i monti in \"Shining\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Overlook Hotel",
+        "Bates Motel",
+        "Grand Budapest Hotel",
+        "Hotel Cortez"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "horror",
+        "kubrick"
+      ],
+      "notes": "Shining, 1980",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"2001: Odissea nello spazio\" e \"Arancia meccanica\"?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Stanley Kubrick",
+        "Ridley Scott",
+        "Steven Spielberg",
+        "Francis Ford Coppola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "registi",
+        "fantascienza"
+      ],
+      "notes": "1968 e 1971",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Psyco\" (1960)?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Alfred Hitchcock",
+        "Orson Welles",
+        "Billy Wilder",
+        "John Ford"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "registi",
+        "classici"
+      ],
+      "notes": "Psyco, 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale regista diresse la \"trilogia del dollaro\" con Clint Eastwood?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sergio Leone",
+        "Sergio Corbucci",
+        "Sergio Sollima",
+        "Duccio Tessari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "western",
+        "cinema italiano"
+      ],
+      "notes": "Per un pugno di dollari (1964) e seguiti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il primo lungometraggio animato della Disney, uscito nel 1937?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pinocchio",
+        "Biancaneve e i sette nani",
+        "Fantasia",
+        "Bambi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "animazione",
+        "disney"
+      ],
+      "notes": "Uscito nel dicembre 1937",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Matrix\", quale pillola sceglie Neo per conoscere la verità?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Blu",
+        "Rossa",
+        "Verde",
+        "Bianca"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fantascienza",
+        "anni 90"
+      ],
+      "notes": "La pillola rossa, offerta da Morpheus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film di Fellini, ambientato nella sua Rimini, vinse l'Oscar come film straniero?",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "I vitelloni",
+        "Amarcord",
+        "Lo sceicco bianco",
+        "Il bidone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "oscar",
+        "cinema italiano"
+      ],
+      "notes": "Amarcord, Oscar 1975",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi sono film d'animazione Pixar? (più risposte)",
+      "category": "Cinema",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Shrek",
+        "L'era glaciale",
+        "Toy Story",
+        "Up"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "animazione",
+        "pixar"
+      ],
+      "notes": "Shrek è DreamWorks, L'era glaciale Blue Sky",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Casablanca\", come si chiama il locale gestito da Rick?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Moulin Rouge",
+        "Copacabana",
+        "El Morocco",
+        "Rick's Café Américain"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classici",
+        "anni 40"
+      ],
+      "notes": "Casablanca, 1942",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi film hanno vinto 11 premi Oscar? (più risposte)",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Via col vento",
+        "Ben-Hur",
+        "Titanic",
+        "Il padrino"
+      ],
+      "correct": [
+        1,
+        2
+      ],
+      "tags": [
+        "oscar",
+        "record storici"
+      ],
+      "notes": "Ben-Hur (1960) e Titanic (1998); Via col vento 8, Il padrino 3",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha diretto \"Ladri di biciclette\" (1948)?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Roberto Rossellini",
+        "Vittorio De Sica",
+        "Luchino Visconti",
+        "Pietro Germi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "neorealismo",
+        "cinema italiano"
+      ],
+      "notes": "Oscar onorario nel 1950",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale film Marcello Mastroianni interpreta il regista Guido Anselmi?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "8½",
+        "La dolce vita",
+        "La notte",
+        "Divorzio all'italiana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fellini",
+        "attori"
+      ],
+      "notes": "8½ di Fellini, 1963",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale regista giapponese ha diretto \"I sette samurai\"?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Yasujirō Ozu",
+        "Kenji Mizoguchi",
+        "Hayao Miyazaki",
+        "Akira Kurosawa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "registi",
+        "giappone"
+      ],
+      "notes": "I sette samurai, 1954",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In \"Quarto potere\", qual è l'ultima parola pronunciata da Kane?",
+      "category": "Cinema",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Snowflake",
+        "Silverbell",
+        "Bluebird",
+        "Rosebud"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classici",
+        "orson welles"
+      ],
+      "notes": "Rosebud, il nome dello slittino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale film vinse il primo Oscar come miglior film nel 1929?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Settimo cielo",
+        "Il cantante di jazz",
+        "Metropolis",
+        "Ali"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "oscar",
+        "storia"
+      ],
+      "notes": "Wings (Ali), cerimonia del 16 maggio 1929; Settimo cielo era tra i candidati",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale direttore della fotografia italiano vinse tre Oscar, tra cui per \"L'ultimo imperatore\"?",
+      "category": "Cinema",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Giuseppe Rotunno",
+        "Vittorio Storaro",
+        "Tonino Delli Colli",
+        "Dante Spinotti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "oscar",
+        "fotografia"
+      ],
+      "notes": "Oscar per Apocalypse Now, Reds e L'ultimo imperatore",
+      "verified": true
+    }
+  ]
+}

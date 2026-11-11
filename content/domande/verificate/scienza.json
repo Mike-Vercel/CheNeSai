@@ -1,0 +1,885 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Qual è la formula chimica dell'acqua?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "H₂O",
+        "CO₂",
+        "O₂",
+        "H₂O₂"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "chimica"
+      ],
+      "notes": "Due atomi di idrogeno e uno di ossigeno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il pianeta più vicino al Sole?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Venere",
+        "Mercurio",
+        "Marte",
+        "Terra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Mercurio orbita a circa 58 milioni di km dal Sole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quanti gradi bolle l'acqua al livello del mare?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "100 °C",
+        "90 °C",
+        "80 °C",
+        "120 °C"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fisica",
+        "acqua"
+      ],
+      "notes": "A pressione atmosferica normale l'acqua bolle a 100 °C",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il pianeta più grande del Sistema solare?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Giove",
+        "Saturno",
+        "Nettuno",
+        "Urano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Giove ha un diametro di circa 140.000 km",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale organo pompa il sangue in tutto il corpo?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fegato",
+        "Cuore",
+        "Polmone",
+        "Rene"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "corpo umano"
+      ],
+      "notes": "Il cuore è la pompa del sistema circolatorio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi formulò la teoria della relatività?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Niels Bohr",
+        "Albert Einstein"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fisica",
+        "scienziati"
+      ],
+      "notes": "Relatività ristretta 1905, generale 1915",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti pianeti fanno parte del Sistema solare?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "9",
+        "7",
+        "8",
+        "10"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Dal 2006 Plutone è classificato come pianeta nano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento si usa per misurare la temperatura?",
+      "category": "Scienza",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Barometro",
+        "Igrometro",
+        "Anemometro",
+        "Termometro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti",
+        "fisica"
+      ],
+      "notes": "Il barometro misura la pressione, l'igrometro l'umidità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gas assorbono le piante durante la fotosintesi?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ossigeno",
+        "Azoto",
+        "Elio",
+        "Anidride carbonica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "biologia",
+        "piante"
+      ],
+      "notes": "Le piante assorbono CO₂ e rilasciano ossigeno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il simbolo chimico dell'oro?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ag",
+        "Or",
+        "Go",
+        "Au"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "Au dal latino aurum; Ag è l'argento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è la stella più vicina alla Terra?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Proxima Centauri",
+        "Il Sole",
+        "Sirio",
+        "Stella Polare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "stelle"
+      ],
+      "notes": "Il Sole è una stella; Proxima è la più vicina dopo il Sole",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pianeta è soprannominato \"Pianeta rosso\"?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Venere",
+        "Giove",
+        "Marte",
+        "Mercurio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Il colore deriva dagli ossidi di ferro in superficie",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi formulò la legge di gravitazione universale?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Galileo Galilei",
+        "Isaac Newton",
+        "Giovanni Keplero",
+        "Niccolò Copernico"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fisica",
+        "scienziati"
+      ],
+      "notes": "Esposta nei Principia (1687)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'osso più lungo del corpo umano?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tibia",
+        "Omero",
+        "Femore",
+        "Perone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "corpo umano",
+        "ossa"
+      ],
+      "notes": "Il femore è l'osso più lungo e robusto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scoprì la penicillina nel 1928?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Louis Pasteur",
+        "Alexander Fleming",
+        "Robert Koch",
+        "Edward Jenner"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "medicina",
+        "scienziati"
+      ],
+      "notes": "Fleming la osservò nel 1928 al St Mary's di Londra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante cavità ha il cuore umano?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "6"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "corpo umano"
+      ],
+      "notes": "Due atri e due ventricoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo sanguigno è detto \"donatore universale\" di globuli rossi?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "AB positivo",
+        "A positivo",
+        "0 negativo",
+        "B negativo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "medicina",
+        "sangue"
+      ],
+      "notes": "Lo 0 negativo non ha antigeni A, B né Rh",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scienziata vinse il Nobel sia per la fisica sia per la chimica?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Marie Curie",
+        "Rosalind Franklin",
+        "Rita Levi-Montalcini",
+        "Lise Meitner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scienziati",
+        "nobel"
+      ],
+      "notes": "Nobel per la fisica 1903 e per la chimica 1911",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scienziato italiano inventò la pila elettrica?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Alessandro Volta",
+        "Luigi Galvani",
+        "Enrico Fermi",
+        "Guglielmo Marconi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fisica",
+        "scienziati"
+      ],
+      "notes": "Volta presentò la pila nel 1800",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'unità di misura della corrente elettrica?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Volt",
+        "Watt",
+        "Ohm",
+        "Ampere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fisica",
+        "unità di misura"
+      ],
+      "notes": "L'ampere è unità base del Sistema Internazionale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parte colorata dell'occhio?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Iride",
+        "Pupilla",
+        "Cornea",
+        "Retina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "corpo umano",
+        "occhio"
+      ],
+      "notes": "L'iride regola il diametro della pupilla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale vitamina produce la nostra pelle grazie al sole?",
+      "category": "Scienza",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Vitamina C",
+        "Vitamina D",
+        "Vitamina A",
+        "Vitamina B12"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "corpo umano",
+        "vitamine"
+      ],
+      "notes": "I raggi UVB attivano la sintesi di vitamina D nella pelle",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il gas più abbondante nell'atmosfera terrestre?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Azoto",
+        "Ossigeno",
+        "Anidride carbonica",
+        "Argon"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "chimica",
+        "atmosfera"
+      ],
+      "notes": "L'azoto è circa il 78% dell'aria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è, all'incirca, la velocità della luce nel vuoto?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "30.000 km/s",
+        "3.000 km/s",
+        "300.000 km/s",
+        "3.000.000 km/s"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "luce"
+      ],
+      "notes": "Esattamente 299.792,458 km/s",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Galileo scoprì nel 1610 quattro satelliti di quale pianeta?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Giove",
+        "Saturno",
+        "Marte",
+        "Urano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "astronomia",
+        "galileo"
+      ],
+      "notes": "Io, Europa, Ganimede e Callisto, detti satelliti medicei",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante ossa ha lo scheletro di un adulto?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "186",
+        "226",
+        "306",
+        "206"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "corpo umano",
+        "ossa"
+      ],
+      "notes": "Lo scheletro adulto conta in genere 206 ossa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'elemento chimico più abbondante nell'universo?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Elio",
+        "Idrogeno",
+        "Ossigeno",
+        "Carbonio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "chimica",
+        "universo"
+      ],
+      "notes": "L'idrogeno costituisce circa il 74% della materia ordinaria",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura la scala Richter?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "La magnitudo dei terremoti",
+        "La forza del vento",
+        "La durezza dei minerali",
+        "L'acidità di una soluzione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "geologia",
+        "misure"
+      ],
+      "notes": "Scala ideata da Charles Richter nel 1935",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il pH dell'acqua pura a 25 °C?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "0",
+        "7",
+        "14",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "chimica",
+        "ph"
+      ],
+      "notes": "A 25 °C l'acqua pura è neutra, pH 7",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi elementi sono gas nobili? (più risposte)",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Azoto",
+        "Cloro",
+        "Neon",
+        "Argon"
+      ],
+      "correct": [
+        2,
+        3
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "Neon e argon sono nel gruppo 18; azoto e cloro no",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi propose la teoria dell'evoluzione per selezione naturale?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Jean-Baptiste Lamarck",
+        "Gregor Mendel",
+        "Charles Darwin",
+        "Alfred Wegener"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "biologia",
+        "scienziati"
+      ],
+      "notes": "L'origine delle specie, 1859",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale metallo è liquido a temperatura ambiente?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Piombo",
+        "Mercurio",
+        "Stagno",
+        "Sodio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "chimica",
+        "metalli"
+      ],
+      "notes": "Il mercurio fonde a circa -39 °C",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il satellite più grande di Saturno?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Encelado",
+        "Rea",
+        "Titano",
+        "Mimas"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "astronomia",
+        "satelliti"
+      ],
+      "notes": "Titano ha un diametro di circa 5.150 km",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale particella del nucleo atomico ha carica positiva?",
+      "category": "Scienza",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Neutrone",
+        "Elettrone",
+        "Protone",
+        "Fotone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "atomo"
+      ],
+      "notes": "Il neutrone è neutro, l'elettrone negativo e fuori dal nucleo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fisico italiano guidò a Chicago il primo reattore nucleare nel 1942?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ettore Majorana",
+        "Emilio Segrè",
+        "Enrico Fermi",
+        "Edoardo Amaldi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fisica",
+        "scienziati"
+      ],
+      "notes": "Chicago Pile-1, 2 dicembre 1942",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il numero atomico del carbonio?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "12",
+        "8",
+        "14",
+        "6"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "6 protoni; 12 è il numero di massa del carbonio-12",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scoprì le leggi dell'ereditarietà studiando le piante di pisello?",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Louis Pasteur",
+        "Carlo Linneo",
+        "Thomas Morgan",
+        "Gregor Mendel"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "biologia",
+        "genetica"
+      ],
+      "notes": "Mendel pubblicò i risultati nel 1866",
+      "verified": true
+    },
+    {
+      "type": "multiple",
+      "text": "Quali di questi pianeti hanno un sistema di anelli? (più risposte)",
+      "category": "Scienza",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Saturno",
+        "Marte",
+        "Venere",
+        "Urano"
+      ],
+      "correct": [
+        0,
+        3
+      ],
+      "tags": [
+        "astronomia",
+        "pianeti"
+      ],
+      "notes": "Tutti i giganti (Giove, Saturno, Urano, Nettuno) hanno anelli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è, approssimativamente, il numero di Avogadro?",
+      "category": "Scienza",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "6,022 × 10²³",
+        "3,14 × 10²³",
+        "9,81 × 10²³",
+        "1,602 × 10²³"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "chimica",
+        "costanti"
+      ],
+      "notes": "Particelle in una mole: 6,022 × 10²³",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale elemento chimico ha il simbolo W?",
+      "category": "Scienza",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Vanadio",
+        "Osmio",
+        "Iridio",
+        "Tungsteno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "chimica",
+        "elementi"
+      ],
+      "notes": "W da wolfram, altro nome del tungsteno",
+      "verified": true
+    }
+  ]
+}
