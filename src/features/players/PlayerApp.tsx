@@ -468,6 +468,10 @@ function FinishedView({ self, state, now }: { self: PlayerSelf; state: PublicSta
   const podium = standings.slice(0, 3);
   const myTeam = self.team ? (state.teamLeaderboard ?? []).find((t) => t.teamId === self.team!.id) ?? null : null;
   const winners = leadingTeams(state);
+  // posizione e punti dalla classifica finale (la stessa del TV): il dato personale può arrivare in ritardo
+  const mine = (state.leaderboard ?? []).find((e) => e.participantId === self.participantId) ?? null;
+  const myRank = mine?.rank ?? self.rank;
+  const myPoints = mine?.points ?? self.points;
   // la posizione si scopre insieme al TV (stessa scaletta del podio, ora del server)
   const revealAt = Date.parse(state.phaseStartedAt) + (podiumPlan(standings, state.sessionId).winnerAt + 0.5) * 1000;
   const [, setTick] = useState(0);
@@ -501,9 +505,9 @@ function FinishedView({ self, state, now }: { self: PlayerSelf; state: PublicSta
       )}
       <PhoneCard className="text-center">
         <p className="font-display text-2xl text-gold">Partita finita!</p>
-        <p className="font-display text-6xl leading-none">{self.rank ? `${self.rank}°` : "–"}</p>
-        <p className="font-display text-2xl">{formatPoints(self.points)} punti</p>
-        {self.rank === 1 && mode !== "teams" && (
+        <p className="font-display text-6xl leading-none">{myRank ? `${myRank}°` : "–"}</p>
+        <p className="font-display text-2xl">{formatPoints(myPoints)} punti</p>
+        {myRank === 1 && mode !== "teams" && (
           <p className="mt-1 font-display text-xl">
             {(state.leaderboard ?? []).filter((e) => e.rank === 1).length > 1 ? "🏆 CAMPIONE A PARI MERITO! 🏆" : "🏆 CAMPIONE DELLA SERATA! 🏆"}
           </p>
@@ -522,7 +526,7 @@ function FinishedView({ self, state, now }: { self: PlayerSelf; state: PublicSta
           </div>
         ))}
       </div>
-      <p className="text-center font-bold text-white/85">Grazie per aver giocato! Ci vediamo venerdì prossimo.</p>
+      <p className="text-center font-bold text-white/85">Grazie per aver giocato!</p>
       <Link href="/classifica" className="text-center font-bold text-gold underline">
         Classifica del mese
       </Link>
