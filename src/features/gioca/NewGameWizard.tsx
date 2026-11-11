@@ -50,7 +50,7 @@ function Choice<T extends string | number>({
               onClick={() => onChange(o.value)}
               className={clsx(
                 "min-w-16 rounded-2xl px-5 py-3.5 font-display text-2xl transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-30",
-                on ? "bg-gold text-ink" : "bg-night-3 text-white hover:bg-[#3a1d63]",
+                on ? "bg-gold text-ink" : "bg-coal-3 text-white hover:bg-coal-4",
               )}
             >
               {o.label}
@@ -97,7 +97,7 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
   const perRound = Math.floor(total / rounds);
   return (
     <form
-      className="mt-8 flex flex-col gap-8 rounded-[28px] bg-night-2 p-5 md:p-8"
+      className="mt-8 flex flex-col gap-8 rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-8"
       onSubmit={(e) => {
         e.preventDefault();
         void create();

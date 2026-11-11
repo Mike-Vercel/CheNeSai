@@ -60,7 +60,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
           </p>
         </div>
 
-        <div className="rounded-[28px] bg-night-2 p-5 md:p-7">
+        <div className="rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-7">
           <h2 className="font-display text-2xl">1. Apri la TV</h2>
           <p className="mt-1 text-base font-bold text-white/85">Il quiz si apre a tutto schermo sul televisore. Lì compaiono il QR code e il codice per entrare.</p>
           <div className="mt-4 flex flex-wrap items-start gap-4">
@@ -72,7 +72,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
           <ScreenChoiceField tone="public" className="mt-5" />
         </div>
 
-        <div className="rounded-[28px] bg-night-2 p-5 md:p-7">
+        <div className="rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-7">
           <h2 className="font-display text-2xl">2. Comandi</h2>
           <div className="mt-4">
             <HostControls sessionId={sessionId} state={view} canCreateMore={canCreateMore} onDone={setOverride} />
@@ -80,7 +80,7 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
         </div>
       </section>
 
-      <aside aria-labelledby="join-title" className="flex flex-col gap-4 rounded-[28px] bg-night-3 p-5 md:p-7">
+      <aside aria-labelledby="join-title" className="flex flex-col gap-4 rounded-[28px] bg-coal-2 p-5 ring-1 ring-white/8 md:p-7">
         <h2 id="join-title" className="font-display text-2xl">
           Si entra così
         </h2>

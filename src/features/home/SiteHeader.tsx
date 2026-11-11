@@ -14,6 +14,7 @@ export interface HeaderUser {
 export function SiteHeader({ user, overlay = false, className }: { user: HeaderUser | null; overlay?: boolean; className?: string }) {
   return (
     <header className={clsx("z-30 flex h-16 items-center gap-3 px-4 md:h-20 md:px-10", overlay ? "absolute inset-x-0 top-0" : "relative", className)}>
+      {overlay && <div aria-hidden className="qz-fade-top pointer-events-none absolute inset-x-0 top-0 -z-10 h-32" />}
       <Link href="/" className="font-display text-2xl leading-none tracking-tight text-white md:text-3xl">
         {PLATFORM_NAME}
       </Link>
@@ -42,7 +43,7 @@ function AccountMenu({ user }: { user: HeaderUser }) {
         </span>
         <span className="max-w-[9rem] truncate">{label}</span>
       </summary>
-      <div className="absolute right-0 top-full z-40 mt-2 w-56 rounded-2xl bg-night-3 p-2 shadow-2xl">
+      <div className="absolute right-0 top-full z-40 mt-2 w-56 rounded-2xl bg-coal-3 p-2 shadow-2xl ring-1 ring-white/10">
         {user.username ? (
           <Link href="/gioca" prefetch={false} className="block rounded-xl px-3 py-2.5 text-sm font-bold text-white hover:bg-white/10">
             Nuova partita
