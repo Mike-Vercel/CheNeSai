@@ -122,6 +122,8 @@ test("gioco libero: registrazione, CREA PARTITA → TV dritto, telefono, INIZIA 
   }
   await expect(phone.getByText("Domanda 1")).toBeVisible({ timeout: 60_000 });
   await expect(tv.getByText(/Domanda 1 di 10/)).toBeVisible({ timeout: 20_000 });
+  await tv.waitForTimeout(2500);
+  await shot(tv, "05-tv-domanda-trio");
 
   // ------------------------------------------------------------- pannello dell'host (due schermi): stessa partita
   const panel = await hostCtx.newPage();
