@@ -44,7 +44,7 @@ interface Local {
   error: string | null;
 }
 
-export function useSeat(code: string | null, state: PublicState | null) {
+export function useSeat(code: string | null, state: PublicState | null, slot: string | null = null) {
   const [self, setSelf] = useState<PlayerSelf | null>(null);
   const [joined, setJoined] = useState<"unknown" | "no" | "yes">("unknown");
   const [local, setLocal] = useState<Local>({ qid: null, selected: [], status: "idle", error: null });
@@ -54,7 +54,7 @@ export function useSeat(code: string | null, state: PublicState | null) {
     if (!code || busy.current) return;
     busy.current = true;
     try {
-      const r = await api<{ self: PlayerSelf }>(`/api/play/${code}/me`);
+      const r = await api<{ self: PlayerSelf }>(`/api/play/${code}/me${slot ? `?slot=${slot}` : ""}`);
       setSelf(r.self);
       setJoined("yes");
     } catch (e) {
@@ -65,7 +65,7 @@ export function useSeat(code: string | null, state: PublicState | null) {
     } finally {
       busy.current = false;
     }
-  }, [code]);
+  }, [code, slot]);
 
   // all'avvio, a ogni domanda nuova e nei momenti in cui cambiano punti e classifica
   const phase = state?.phase ?? null;
@@ -81,9 +81,9 @@ export function useSeat(code: string | null, state: PublicState | null) {
   // presenza (come i telefoni dei giocatori)
   useEffect(() => {
     if (joined !== "yes" || !code) return;
-    const t = setInterval(() => void fetch(`/api/play/${code}/heartbeat`, { method: "POST", cache: "no-store" }).catch(() => undefined), 30000);
+    const t = setInterval(() => void fetch(`/api/play/${code}/heartbeat${slot ? `?slot=${slot}` : ""}`, { method: "POST", cache: "no-store" }).catch(() => undefined), 30000);
     return () => clearInterval(t);
-  }, [joined, code]);
+  }, [joined, code, slot]);
 
   const join = useCallback(
     async (nickname: string): Promise<string | null> => {
@@ -125,7 +125,7 @@ export function useSeat(code: string | null, state: PublicState | null) {
     }
     patch({ status: "sending", error: null, selected: positions });
     try {
-      await withRetry(() => api("/api/play/answer", { method: "POST", json: { code, sessionQuestionId: q.id, positions, requestId } }));
+      await withRetry(() => api("/api/play/answer", { method: "POST", json: { code, sessionQuestionId: q.id, positions, requestId, ...(slot ? { slot } : {}) } }));
       patch({ status: "recorded" });
       try {
         navigator.vibrate?.([30, 40, 30]);

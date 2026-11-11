@@ -24,7 +24,11 @@ export type PlayerErrorCode =
   | "ALREADY_BET"
   | "INVALID_ANSWER"
   | "RATE_LIMITED"
-  | "GAME_FULL";
+  | "GAME_FULL"
+  /** voci per i telefoni: la partita si guarda sul TV */
+  | "TV_MODE"
+  /** voci per i telefoni: battuta non prevista in questo momento della partita */
+  | "NOT_A_LINE";
 
 export class PlayerError extends Error {
   readonly code: PlayerErrorCode;

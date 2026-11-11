@@ -12,6 +12,7 @@ import { AudioSettings, btnSoft, DisplaySettings, GameSettings, PlayersSettings,
 import { InviteButton } from "./InviteButton";
 import { enterFullscreen, unlockMobileAudio } from "./mobile-show";
 import { RematchControls } from "./RematchControls";
+import { IntroSkipButton } from "@/features/players/IntroSkip";
 import { SeatContext, useSeat } from "./use-seat";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
@@ -162,6 +163,10 @@ function PhoneShowOverlay({
       {lobby && (
         <div className="absolute inset-x-3 bottom-3 z-[66] flex flex-col gap-2.5 rounded-[26px] bg-night/90 p-3 shadow-[0_-10px_40px_rgba(0,0,0,.45)] backdrop-blur-sm" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <JoinAsPlayer host={host} join={join} joined={seatJoined} name={seatName} />
+          {/* voci della partita: si preparano dalla creazione, qui l'avanzamento ("Voci pronte X/Y") */}
+          <div className="flex justify-center">
+            <VoicesProgress prep={prep} compact />
+          </div>
           <InviteButton code={state.code} host={host} />
           <div className="flex items-center gap-2">
             <button
@@ -194,6 +199,13 @@ function PhoneShowOverlay({
         >
           <MenuIcon />
         </button>
+      )}
+
+      {/* intro e regole: anche l'host (se gioca) può votare per saltarle */}
+      {phase === "INTRO" && seatJoined === "yes" && (
+        <div className="absolute inset-x-3 bottom-4 z-[66] flex justify-center" style={{ marginBottom: "env(safe-area-inset-bottom)" }}>
+          <IntroSkipButton code={state.code} slot={null} skip={state.introSkip} nickname={seatName} compact className="rounded-[22px] bg-night/85 p-3 backdrop-blur-sm" />
+        </div>
       )}
 
       {phase === "PAUSED" && (

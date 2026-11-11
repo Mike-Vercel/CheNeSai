@@ -22,6 +22,7 @@ import { PortraitStage } from "./PortraitStage";
 import { CharacterModeProvider } from "@/features/three/characters/character-mode";
 import { TvScreenAgent } from "./TvScreenControls";
 import { useTvPrefs, type TvPrefs } from "./tv-prefs";
+import { IntroSkipCounter } from "@/features/players/IntroSkip";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -642,6 +643,7 @@ export function DisplayApp({
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
       <SilentSubtitle portrait={layout === "portrait"} />
       <VoicePreparing portrait={layout === "portrait"} />
+      {themePhase === "INTRO" && <IntroSkipCounter skip={view?.introSkip} portrait={layout === "portrait"} />}
       {(started || hostMode) && !viewerCode && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
       {(started || tapToStart) && renderOverlay?.(view, overlayCtx)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />

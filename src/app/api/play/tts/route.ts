@@ -1,19 +1,17 @@
 import { z } from "zod";
 import { getSql } from "@/lib/database/db";
 import { fail, ok, route } from "@/lib/http";
-import { authenticatePlayer, checkRateLimit } from "@/lib/server/players";
+import { authenticatePlayer } from "@/lib/server/players";
+import { authorizePlayerLine } from "@/lib/server/player-voice";
 import { readPlayerToken } from "@/lib/server/player-cookies";
-import { buildPublicState } from "@/lib/server/public-state";
 import { isPublicSession } from "@/lib/server/public-session";
 import { TtsError, ttsConfigured, withTimeout } from "@/lib/server/tts";
 import { ttsLineUrl } from "@/lib/server/tts-names";
-import { findScriptLine, sessionLinesFor, TTS_MAX_CHARS, TTS_ROLES } from "@/features/game/script";
+import { TTS_MAX_CHARS, TTS_ROLES } from "@/features/game/script";
 
 export const maxDuration = 30;
 const TTS_ROUTE_DEADLINE_MS = 24_000;
 
-/** Richieste di voce per telefono (show sul telefono: poche battute per momento). */
-export const PLAYER_TTS_RATE = { limit: 90, windowSeconds: 60 } as const;
 
 /**
  * GET /api/play/tts?code=&who=&text=[&slot=] → { url } della clip della battuta.
@@ -35,13 +33,7 @@ export const GET = route(async (req: Request) => {
     .parse(Object.fromEntries([...url.searchParams].filter(([k]) => ["code", "who", "text", "slot"].includes(k))));
   const sql = getSql();
   const auth = await authenticatePlayer(sql, q.code, await readPlayerToken(q.code, q.slot ?? null));
-  if (!(await checkRateLimit(sql, `tts-player:${auth.participantId}`, PLAYER_TTS_RATE.limit, PLAYER_TTS_RATE.windowSeconds))) {
-    return fail(429, "RATE_LIMITED", "Troppe richieste");
-  }
-  const state = await buildPublicState(sql, auth.sessionId);
-  if (!state || state.displayMode !== "phone") return fail(403, "FORBIDDEN", "In questa partita le voci si sentono dal TV");
-  const line = findScriptLine(sessionLinesFor(state), q.who, q.text);
-  if (!line) return fail(403, "NOT_A_LINE", "Battuta non prevista in questo momento");
+  const line = await authorizePlayerLine(sql, auth, q.who, q.text);
   try {
     const live = !!line.live;
     const spliced = live && (await isPublicSession(auth.sessionId, sql));
