@@ -244,8 +244,9 @@ const SLOT_WAIT_LOW_MS = 25_000;
 export type TtsPriority = "normal" | "low";
 
 /** Prende un posto e restituisce la funzione che lo libera (sempre in tempi finiti). */
-async function acquire(priority: TtsPriority = "normal"): Promise<() => void> {
-  const deadline = Date.now() + (priority === "low" ? SLOT_WAIT_LOW_MS : SLOT_WAIT_NORMAL_MS);
+async function acquire(priority: TtsPriority = "normal", until?: number): Promise<() => void> {
+  const wait = priority === "low" ? SLOT_WAIT_LOW_MS : SLOT_WAIT_NORMAL_MS;
+  const deadline = Math.min(Date.now() + wait, until ?? Infinity);
   if (priority === "normal") normalWaiting++;
   try {
     for (;;) {
@@ -268,14 +269,22 @@ async function acquire(priority: TtsPriority = "normal"): Promise<() => void> {
 }
 
 
-async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal"): Promise<{ audio: Buffer; billed: number }> {
+/** Tempo minimo utile per una chiamata a ElevenLabs: sotto questo si rinuncia subito. */
+const MIN_CALL_MS = 2_500;
+
+async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal", deadline?: number): Promise<{ audio: Buffer; billed: number }> {
   const apiKey = process.env.ELEVENLABS_API_KEY;
   if (!apiKey) throw new TtsError("TTS_OFF", "Voce professionale non configurata");
   let withLanguage = true;
   let withContext = !!(plan.context?.previous || plan.context?.next);
   let lastError = "";
   for (let attempt = 0; attempt < 4; attempt++) {
-    const release = await acquire(priority);
+    if (deadline !== undefined && deadline - Date.now() < MIN_CALL_MS) {
+      lastError = lastError || "tempo scaduto";
+      break;
+    }
+    const release = await acquire(priority, deadline);
+    const callMs = deadline === undefined ? 15_000 : Math.max(MIN_CALL_MS, Math.min(15_000, deadline - Date.now()));
     let res: Response;
     try {
       res = await fetch(`${API}/v1/text-to-speech/${encodeURIComponent(plan.voiceId)}?output_format=mp3_44100_128`, {
@@ -291,7 +300,7 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
             ? { stability: s.stability, similarity_boost: s.similarity }
             : { stability: s.stability, similarity_boost: s.similarity, style: s.style, speed: s.speed, use_speaker_boost: true },
         }),
-        signal: AbortSignal.timeout(15_000),
+        signal: AbortSignal.timeout(callMs),
       });
       if (res.ok) {
         const audio = Buffer.from(await res.arrayBuffer());
@@ -321,7 +330,9 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
     }
     if (res.status === 429 || res.status >= 500) {
       const retryAfter = Number(res.headers.get("retry-after"));
-      await sleep(Number.isFinite(retryAfter) && retryAfter > 0 ? Math.min(10_000, retryAfter * 1000) : 600 * 2 ** attempt);
+      const pause = Number.isFinite(retryAfter) && retryAfter > 0 ? Math.min(10_000, retryAfter * 1000) : 600 * 2 ** attempt;
+      if (deadline !== undefined && Date.now() + pause + MIN_CALL_MS > deadline) break;
+      await sleep(pause);
       continue;
     }
     break;
@@ -353,6 +364,8 @@ export interface ClipResult {
 export interface EnsureClipOptions {
   /** "low": lavoro di fondo, cede il passo alle battute richieste dal TV */
   priority?: TtsPriority;
+  /** istante (ms epoch) entro cui la generazione deve finire: oltre si rinuncia con TTS_PROVIDER */
+  deadline?: number;
 }
 
 const inflight = new Map<string, Promise<ClipResult>>();
@@ -386,7 +399,7 @@ export async function ensureClip(db: Db, plan: PlannedClip, source: TtsSource, c
 
     const config = cfg ?? (await loadVoiceConfig(db));
     await assertBudget(db, config, plan.chars);
-    const { audio, billed } = await synthesize(plan, config.roles[plan.role], opts.priority);
+    const { audio, billed } = await synthesize(plan, config.roles[plan.role], opts.priority, opts.deadline);
     await storeClip(db, plan, audio, source, billed);
     return { key: plan.key, path, cached: false, billedChars: billed, audio };
   })();

@@ -17,8 +17,8 @@ import { loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 const MP3_BYTES_PER_MS = 16;
 /** Tra una battuta e l'altra: richiesta della clip, avvio dell'audio e la pausa del TV (120 ms). */
 const LINE_GAP_MS = 350;
-/** Battuta non ancora in archivio: il TV la chiede al volo e aspetta fino a 2,5 s prima di usare la voce del browser. */
-const CLIP_WAIT_MS = 2500;
+/** Battuta non ancora in archivio: il TV la chiede al volo; la generazione su Vercel può richiedere alcuni secondi. */
+const CLIP_WAIT_MS = 7000;
 /** Media senza durata nota (audio intero o video): attesa prudente. */
 const MEDIA_FALLBACK_MS = 30_000;
 /** Pausa del TV tra una ripetizione e l'altra dell'estratto audio (DisplayApp). */

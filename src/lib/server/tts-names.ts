@@ -114,8 +114,12 @@ export function planSplice(cfg: VoiceConfig, whole: PlannedClip, names: readonly
 const inflight = new Map<string, Promise<ClipResult>>();
 
 /** Genera le parti mancanti, le unisce e salva la frase intera. */
-async function spliceClip(db: Db, cfg: VoiceConfig, sp: SplicePlan): Promise<ClipResult> {
-  const results = await Promise.all(sp.parts.map((p) => ensureClip(db, p.plan, partKind(p.segment), cfg)));
+/** Tempo massimo per comporre una battuta dalle parti; poi si genera intera (entro WHOLE_DEADLINE_MS dall'inizio). */
+const SPLICE_DEADLINE_MS = 9_000;
+const WHOLE_DEADLINE_MS = 24_000;
+
+async function spliceClip(db: Db, cfg: VoiceConfig, sp: SplicePlan, deadline: number): Promise<ClipResult> {
+  const results = await Promise.all(sp.parts.map((p) => ensureClip(db, p.plan, partKind(p.segment), cfg, { deadline })));
   const audios = await Promise.all(results.map((r) => r.audio ?? downloadClip(r.path)));
   const joined = concatMp3(
     audios.map((audio, i) => {
@@ -139,9 +143,11 @@ export async function ensureLineClip(db: Db, cfg: VoiceConfig, line: SpokenLine,
   const whole = planClip(cfg, line);
   if (!whole) throw new TtsError("TTS_NO_VOICE", `Nessuna voce assegnata a ${line.who}`);
   const source = opts.source ?? (whole.live ? "live" : "pregen");
-  if (!whole.live || !opts.sessionId || resolveNamesMode(cfg, opts.namesMode) !== "spliced") return ensureClip(db, whole, source, cfg);
+  const started = Date.now();
+  const wholeDeadline = started + WHOLE_DEADLINE_MS;
+  if (!whole.live || !opts.sessionId || resolveNamesMode(cfg, opts.namesMode) !== "spliced") return ensureClip(db, whole, source, cfg, { deadline: wholeDeadline });
   // già in archivio (intera o composta): hit di cache come sempre
-  if ((await cachedKeys(db, [whole.key])).has(whole.key)) return ensureClip(db, whole, source, cfg);
+  if ((await cachedKeys(db, [whole.key])).has(whole.key)) return ensureClip(db, whole, source, cfg, { deadline: wholeDeadline });
   const running = inflight.get(whole.key);
   if (running) return running;
 
@@ -153,14 +159,14 @@ export async function ensureLineClip(db: Db, cfg: VoiceConfig, line: SpokenLine,
     } catch (e) {
       console.warn("[quizzone] nomi della serata non disponibili", e instanceof Error ? e.message : e);
     }
-    if (!sp) return ensureClip(db, whole, source, cfg);
+    if (!sp) return ensureClip(db, whole, source, cfg, { deadline: wholeDeadline });
     try {
-      return await spliceClip(db, cfg, sp);
+      return await spliceClip(db, cfg, sp, started + SPLICE_DEADLINE_MS);
     } catch (e) {
       // budget esaurito: come oggi (il TV usa la voce del browser)
       if (e instanceof TtsError && e.code === "TTS_BUDGET") throw e;
       console.warn("[quizzone] battuta con i nomi salvati non riuscita, si genera intera", e instanceof Error ? e.message : e);
-      return ensureClip(db, whole, source, cfg);
+      return ensureClip(db, whole, source, cfg, { deadline: wholeDeadline });
     }
   })();
   inflight.set(whole.key, p);
