@@ -1,0 +1,1096 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Da dove entra Babbo Natale nelle case, secondo la tradizione?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Dalla finestra",
+        "Dalla porta del garage",
+        "Dal camino",
+        "Dal balcone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "tradizioni"
+      ],
+      "notes": "Scende dal camino con il sacco dei regali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco da tavolo si comprano strade e si costruiscono case e alberghi?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Risiko",
+        "Monopoli",
+        "Scarabeo",
+        "Cluedo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi da tavolo"
+      ],
+      "notes": "Nel Monopoli si comprano terreni e si costruiscono case e alberghi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale lato della strada si guida nel Regno Unito?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "A sinistra",
+        "A destra",
+        "Al centro",
+        "Dipende dalla città"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mondo",
+        "strade"
+      ],
+      "notes": "Nel Regno Unito si tiene la sinistra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la renna di Babbo Natale con il naso rosso?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Cometa",
+        "Fulmine",
+        "Donnola",
+        "Rudolph"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale"
+      ],
+      "notes": "Rudolph nacque nel 1939 in un libretto americano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la corona di rami e nastri che si appende alla porta a Natale?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bomboniera",
+        "Coccarda",
+        "Ghirlanda",
+        "Lanterna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "tradizioni"
+      ],
+      "notes": "La ghirlanda natalizia, spesso di rami di abete o agrifoglio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale oggetto di metallo si appende sopra la porta come portafortuna?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Una chiave",
+        "Un ferro di cavallo",
+        "Un chiodo",
+        "Un campanello"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "portafortuna"
+      ],
+      "notes": "Il ferro di cavallo è un antico portafortuna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana si tengono le più famose settimane della moda?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Milano",
+        "Torino",
+        "Napoli",
+        "Bologna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "moda",
+        "italia"
+      ],
+      "notes": "La Milano Fashion Week è tra le quattro grandi del mondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa usa la Befana per volare?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un tappeto",
+        "Una slitta",
+        "Un ombrello",
+        "Una scopa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "natale",
+        "tradizioni"
+      ],
+      "notes": "La Befana vola a cavallo di una scopa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante foglie ha il trifoglio che porta fortuna?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "5",
+        "4",
+        "2"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "portafortuna",
+        "trabocchetto"
+      ],
+      "notes": "Porta fortuna il quadrifoglio, raro, non il trifoglio comune a tre foglie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tessuto si ottiene dal bozzolo di un bruco?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lana",
+        "Seta",
+        "Lino",
+        "Cotone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tessuti"
+      ],
+      "notes": "La seta viene dal bozzolo del baco da seta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo patrono di Napoli è famoso per lo scioglimento del suo sangue?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "San Gennaro",
+        "San Nicola",
+        "Sant'Antonio",
+        "San Francesco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "napoli",
+        "tradizioni"
+      ],
+      "notes": "Il \"miracolo\" di San Gennaro si attende tre volte l'anno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'ultimo giorno di Carnevale, prima del Mercoledì delle Ceneri?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Giovedì grasso",
+        "Sabato santo",
+        "Lunedì dell'Angelo",
+        "Martedì grasso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "carnevale",
+        "calendario"
+      ],
+      "notes": "Nel rito romano il Carnevale finisce il martedì grasso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è il capo dei Puffi, con cappello e pantaloni rossi?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Puffo Quattrocchi",
+        "Puffo Forzuto",
+        "Grande Puffo",
+        "Puffetta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "Grande Puffo ha 542 anni secondo il fumetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali due colori fanno da sfondo alla bandiera della Sicilia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bianco e rosso",
+        "Giallo e rosso",
+        "Giallo e blu",
+        "Verde e rosso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bandiere",
+        "sicilia"
+      ],
+      "notes": "Rosso e giallo divisi in diagonale, con la Trinacria al centro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi è uno storico mercato di Palermo?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ballarò",
+        "La Boqueria",
+        "Porta Palazzo",
+        "Rialto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "mercati"
+      ],
+      "notes": "Ballarò è a Palermo; la Boqueria è a Barcellona, Porta Palazzo a Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quale artigianato è famosa l'isola di Burano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Vetro",
+        "Maschere",
+        "Gondole",
+        "Merletti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "artigianato",
+        "venezia"
+      ],
+      "notes": "I merletti di Burano, ad ago",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolge a settembre la Regata storica con barche in costume?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Genova",
+        "Amalfi",
+        "Venezia",
+        "Pisa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "venezia"
+      ],
+      "notes": "La Regata storica sul Canal Grande, la prima domenica di settembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maschera della Commedia dell'arte è il simbolo di Torino?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Arlecchino",
+        "Gianduja",
+        "Meneghino",
+        "Pulcinella"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "maschere",
+        "torino"
+      ],
+      "notes": "Gianduja, con il tricorno, dà nome ai gianduiotti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la storiella per bambini, quale uccello porta i neonati?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La cicogna",
+        "La rondine",
+        "Il gufo",
+        "La colomba"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni",
+        "animali"
+      ],
+      "notes": "La cicogna che porta i bambini viene dal folclore nordeuropeo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel poker, qual è la combinazione più alta in assoluto senza jolly?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Poker d'assi",
+        "Colore",
+        "Full",
+        "Scala reale massima"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Scala reale dal dieci all'asso dello stesso seme",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale colore è considerato sfortunato a teatro in Italia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Nero",
+        "Giallo",
+        "Viola",
+        "Verde"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teatro",
+        "superstizioni"
+      ],
+      "notes": "In Quaresima, col viola liturgico, gli spettacoli erano vietati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il numero dei Vigili del fuoco in Italia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "113",
+        "115",
+        "118",
+        "117"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "numeri utili"
+      ],
+      "notes": "115 Vigili del fuoco; 113 Polizia, 118 emergenza sanitaria, 117 Guardia di Finanza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi NON è un seme delle carte napoletane?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cuori",
+        "Coppe",
+        "Denari",
+        "Bastoni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "carte",
+        "trabocchetto"
+      ],
+      "notes": "I semi napoletani sono coppe, denari, spade e bastoni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che mese si torna all'ora solare in Italia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Settembre",
+        "Novembre",
+        "Marzo",
+        "Ottobre"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tempo"
+      ],
+      "notes": "L'ora solare torna l'ultima domenica di ottobre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In inglese il tacchino ha lo stesso nome di quale Paese?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grecia",
+        "Cina",
+        "Turchia",
+        "Perù"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "parole",
+        "mondo"
+      ],
+      "notes": "Turkey vuol dire sia tacchino sia Turchia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese vengono le cifre che chiamiamo \"arabe\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Arabia Saudita",
+        "India",
+        "Egitto",
+        "Grecia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "numeri",
+        "trabocchetto"
+      ],
+      "notes": "Nacquero in India e arrivarono in Europa tramite gli Arabi (Fibonacci, 1202)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo a Padova è chiamato semplicemente \"il Santo\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sant'Antonio",
+        "San Marco",
+        "San Giorgio",
+        "San Rocco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "santi",
+        "città"
+      ],
+      "notes": "La Basilica del Santo custodisce le spoglie di Sant'Antonio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale Carnevale siciliano è famoso per i carri allegorici infiorati?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Taormina",
+        "Cefalù",
+        "Marsala",
+        "Acireale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "carnevale"
+      ],
+      "notes": "Ad Acireale sfilano carri allegorici e carri infiorati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale presidente americano deve il nome l'orsacchiotto Teddy?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Abraham Lincoln",
+        "George Washington",
+        "Theodore Roosevelt",
+        "Franklin Roosevelt"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giocattoli"
+      ],
+      "notes": "Da un episodio di caccia del 1902 con Theodore \"Teddy\" Roosevelt",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città marchigiana produce dal Medioevo carta pregiata, famosa per la filigrana?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Urbino",
+        "Fabriano",
+        "Recanati",
+        "Macerata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "carta",
+        "marche"
+      ],
+      "notes": "Le cartiere di Fabriano introdussero la filigrana nel Duecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la festa ebraica delle luci, con il candelabro a nove bracci?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Hanukkah",
+        "Pesach",
+        "Purim",
+        "Yom Kippur"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Hanukkah dura otto giorni; il candelabro è la hanukkiah",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città spagnola si tengono le Fallas, con statue di cartapesta bruciate a marzo?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Siviglia",
+        "Granada",
+        "Bilbao",
+        "Valencia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Le Fallas culminano il 19 marzo, festa di San Giuseppe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le statuine di zucchero colorato tipiche della festa dei Morti in Sicilia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cassatelle",
+        "Buccellati",
+        "Pupi di zucchero",
+        "Sfinci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "tradizioni"
+      ],
+      "notes": "Detti anche pupaccena, raffigurano paladini e dame",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale marinaio avventuroso dei fumetti fu creato da Hugo Pratt?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Capitan Uncino",
+        "Corto Maltese",
+        "Popeye",
+        "Sandokan"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Corto Maltese esordì nel 1967 in \"Una ballata del mare salato\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti punti ci sono in tutto in un mazzo da briscola?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "120",
+        "100",
+        "60",
+        "40"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "carte",
+        "briscola"
+      ],
+      "notes": "Assi 11, tre 10, re 4, cavalli 3, fanti 2: 30 per seme, 120 in tutto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è in realtà il Mar Morto?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un mare chiuso",
+        "Un golfo",
+        "Una laguna",
+        "Un lago salato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "luoghi",
+        "trabocchetto"
+      ],
+      "notes": "Non ha sbocchi sul mare: è un lago salato tra Israele e Giordania",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santa è la protettrice dei vigili del fuoco?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Santa Lucia",
+        "Santa Rita",
+        "Santa Barbara",
+        "Santa Rosalia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "santi",
+        "tradizioni"
+      ],
+      "notes": "Santa Barbara protegge vigili del fuoco, artiglieri e minatori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove si trova oggi il London Bridge dell'Ottocento, venduto nel 1968?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "A Londra",
+        "In Arizona",
+        "In Scozia",
+        "In Australia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "luoghi",
+        "trabocchetto"
+      ],
+      "notes": "Rimontato a Lake Havasu City, Arizona, nel 1971",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa di origine celtica nasce in Irlanda come antenata di Halloween?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Samhain",
+        "Beltane",
+        "Yule",
+        "Ostara"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario",
+        "feste"
+      ],
+      "notes": "Samhain segnava la fine del raccolto tra il 31 ottobre e il 1 novembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa diceva in origine la grande scritta sulle colline di Hollywood?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Hollywood Studios",
+        "Hollywood Hills",
+        "Hollywood Park",
+        "Hollywoodland"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "luoghi",
+        "mondo"
+      ],
+      "notes": "Era la pubblicità di un quartiere residenziale nel 1923; \"land\" fu tolto nel 1949",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi porta i regali ai bambini olandesi la sera del 5 dicembre?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ded Moroz",
+        "Julenisse",
+        "Sinterklaas",
+        "Olentzero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "Sinterklaas arriva in nave dalla Spagna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale motto è scritto sulla bandiera del Brasile?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Libertà e unità",
+        "Ordine e progresso",
+        "Pace e lavoro",
+        "Uniti nella diversità"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bandiere",
+        "mondo"
+      ],
+      "notes": "\"Ordem e Progresso\", ispirato ad Auguste Comte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, come finisce la partita in caso di stallo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "In parità",
+        "Vince chi ha mosso",
+        "Perde chi non può muovere",
+        "Si ricomincia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scacchi",
+        "trabocchetto"
+      ],
+      "notes": "Lo stallo è patta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante pedine ha ogni giocatore nel backgammon?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "12",
+        "10",
+        "16",
+        "15"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi da tavolo"
+      ],
+      "notes": "Quindici pedine a testa su 24 punte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante carte ha un mazzo di tarocchi classico?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "52",
+        "40",
+        "78",
+        "64"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "22 arcani maggiori e 56 arcani minori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante unità contiene una \"grossa\"?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "100",
+        "144",
+        "120",
+        "1000"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Una grossa è una dozzina di dozzine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'eroina simbolo dello Storico Carnevale di Ivrea?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "La Mugnaia",
+        "La Colombina",
+        "La Bella Gigogin",
+        "La Bella Otero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "carnevale",
+        "piemonte"
+      ],
+      "notes": "La Vezzosa Mugnaia, che si ribellò al tiranno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è patrono delle isole Eolie, festeggiato a Lipari il 24 agosto?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "San Calogero",
+        "San Vito",
+        "San Corrado",
+        "San Bartolomeo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "santi"
+      ],
+      "notes": "San Bartolomeo apostolo, patrono di Lipari e delle Eolie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giorni dura circa un anno del calendario islamico?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "365",
+        "360",
+        "354",
+        "380"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calendario",
+        "mondo"
+      ],
+      "notes": "Dodici mesi lunari, circa 354 giorni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti denti ha davanti il ferro di prua della gondola veneziana?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "6",
+        "4",
+        "9"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "venezia",
+        "gondola"
+      ],
+      "notes": "Sei denti per i sei sestieri di Venezia",
+      "verified": false
+    }
+  ]
+}

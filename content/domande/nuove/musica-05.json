@@ -1,0 +1,1100 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale di questi strumenti ha le corde?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Tromba",
+        "Flauto traverso",
+        "Tamburo",
+        "Arpa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "L'arpa è uno strumento a corde pizzicate; gli altri sono fiati e percussioni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Umbrella\", nel 2007?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Beyoncé",
+        "Alicia Keys",
+        "Shakira",
+        "Rihanna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Umbrella\" (2007) è il singolo di Rihanna con Jay-Z",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suonava Ringo Starr nei Beatles?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Chitarra",
+        "Basso",
+        "Batteria",
+        "Tastiere"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "beatles",
+        "mondo"
+      ],
+      "notes": "Ringo Starr era il batterista dei Beatles dal 1962",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti musicisti suonano in un quartetto?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "3",
+        "5",
+        "4",
+        "6"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Quartetto = formazione di quattro esecutori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la voce femminile più acuta?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Contralto",
+        "Tenore",
+        "Mezzosoprano",
+        "Soprano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica",
+        "voci"
+      ],
+      "notes": "Il soprano è il registro vocale femminile più acuto; il contralto il più grave",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è il sottomarino della celebre canzone dei Beatles?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Rosso",
+        "Verde",
+        "Giallo",
+        "Blu"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "beatles",
+        "mondo"
+      ],
+      "notes": "\"Yellow Submarine\" (1966): il sottomarino giallo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante britannico è famoso per \"Your Song\" e \"Rocket Man\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Elton John",
+        "George Michael",
+        "Rod Stewart",
+        "Sting"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Your Song\" (1970) e \"Rocket Man\" (1972) sono di Elton John",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante canadese lanciò il successo \"Baby\", nel 2010?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Justin Bieber",
+        "Drake",
+        "The Weeknd",
+        "Shawn Mendes"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Baby\" (2010, con Ludacris) è il primo grande successo di Justin Bieber",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il gruppo femminile inglese di \"Wannabe\", del 1996?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "All Saints",
+        "Bananarama",
+        "Destiny's Child",
+        "Spice Girls"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Wannabe\" fu il singolo d'esordio delle Spice Girls (1996)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Il mio canto libero\", nel 1972?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Dalla",
+        "Lucio Battisti",
+        "Claudio Baglioni",
+        "Gino Paoli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Il mio canto libero\" (1972), testo di Mogol, musica e voce di Lucio Battisti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a forma di forchetta si usa per dare il \"la\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Plettro",
+        "Diapason",
+        "Capotasto",
+        "Metronomo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il diapason a forchetta vibra su una nota fissa, di solito il la",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante britannica ha inciso \"Back to Black\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Amy Winehouse",
+        "Duffy",
+        "Dua Lipa",
+        "Adele"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Back to Black\" (2006) è l'album e singolo di Amy Winehouse",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americano era soprannominato \"The Voice\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Tony Bennett",
+        "Bing Crosby",
+        "Frank Sinatra",
+        "Dean Martin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"The Voice\" era il soprannome di Frank Sinatra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Gianna\", al Festival di Sanremo del 1978?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Lucio Dalla",
+        "Rino Gaetano",
+        "Edoardo Bennato",
+        "Ivan Graziani"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Rino Gaetano portò \"Gianna\" a Sanremo 1978, terzo posto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale Beatle scrisse \"Yesterday\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "John Lennon",
+        "Ringo Starr",
+        "George Harrison",
+        "Paul McCartney"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "beatles",
+        "mondo"
+      ],
+      "notes": "Firmata Lennon-McCartney, fu scritta da Paul McCartney da solo (1965)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città toscana nacque Giacomo Puccini?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Pisa",
+        "Lucca",
+        "Siena",
+        "Livorno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "Puccini nacque a Lucca nel 1858",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ciuri\" nella canzone popolare siciliana \"Ciuri ciuri\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Colline",
+        "Ciliegie",
+        "Fiori",
+        "Cuori"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "folk",
+        "sicilia"
+      ],
+      "notes": "In siciliano \"ciuri\" vuol dire fiori (\"Ciuri ciuri, ciuri di tuttu l'annu\")",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante romano chiama i suoi fan \"sorcini\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Claudio Baglioni",
+        "Renato Zero",
+        "Gabriella Ferri",
+        "Antonello Venditti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "I fan di Renato Zero sono detti \"sorcini\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore presentò \"4 marzo 1943\" al Festival di Sanremo del 1971?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Morandi",
+        "Francesco De Gregori",
+        "Lucio Battisti",
+        "Lucio Dalla"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Lucio Dalla la portò a Sanremo 1971 (terzo posto); testo di Paola Pallottino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale genere musicale nacque nel Bronx, a New York, negli anni Settanta?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Hip hop",
+        "Grunge",
+        "Reggae",
+        "Techno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ritmi",
+        "mondo"
+      ],
+      "notes": "L'hip hop nasce nel Bronx nei primi anni Settanta con DJ come Kool Herc",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana si trova il Teatro Massimo Bellini?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Siracusa",
+        "Messina",
+        "Catania",
+        "Palermo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teatri",
+        "sicilia"
+      ],
+      "notes": "Il Teatro Massimo Bellini, inaugurato nel 1890, è a Catania, città natale di Bellini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese viene la cantante Björk?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Norvegia",
+        "Islanda",
+        "Danimarca",
+        "Svezia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "Björk è nata a Reykjavík, in Islanda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Purple Rain\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "George Michael",
+        "Lionel Richie",
+        "Stevie Wonder",
+        "Prince"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Purple Rain\" (1984) è di Prince",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è la sorella di Loredana Bertè, anche lei grande cantante?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fiorella Mannoia",
+        "Mia Martini",
+        "Ornella Vanoni",
+        "Patty Pravo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Mia Martini (Domenica Bertè) era la sorella maggiore di Loredana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La zampogna dei pastori del Sud Italia è un tipo di quale strumento?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Flauto dolce",
+        "Organetto",
+        "Cornamusa",
+        "Fisarmonica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "italia"
+      ],
+      "notes": "La zampogna è una cornamusa con sacca e canne, tipica del Centro-Sud",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale duo siciliano portò a Sanremo 2021 la canzone \"Musica leggerissima\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Paola e Chiara",
+        "Coma Cose",
+        "Colapesce e Dimartino",
+        "Ermal Meta e Fabrizio Moro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "sicilia"
+      ],
+      "notes": "Colapesce e Dimartino, entrambi siciliani, Sanremo 2021 (quarto posto)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band salentina ha inciso \"Mentre tutto scorre\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Modà",
+        "Negramaro",
+        "Subsonica",
+        "Sud Sound System"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "I Negramaro, di Copertino (Lecce), portarono il brano a Sanremo 2005",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapper vinse l'Oscar per la canzone \"Lose Yourself\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Jay-Z",
+        "Eminem",
+        "Dr. Dre",
+        "50 Cent"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rap",
+        "mondo"
+      ],
+      "notes": "\"Lose Yourself\" (dal film \"8 Mile\") vinse l'Oscar per la miglior canzone nel 2003",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse l'Oscar per la colonna sonora del \"Re Leone\" Disney del 1994?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Hans Zimmer",
+        "John Williams",
+        "Alan Menken",
+        "James Horner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "colonne-sonore"
+      ],
+      "notes": "Hans Zimmer, Oscar 1995 per la miglior colonna sonora originale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento NON fa parte del classico quartetto d'archi?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Violoncello",
+        "Viola",
+        "Contrabbasso",
+        "Violino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Il quartetto d'archi è formato da due violini, viola e violoncello",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse la canzone \"Genova per noi\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ivano Fossati",
+        "Gino Paoli",
+        "Fabrizio De André",
+        "Paolo Conte"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "\"Genova per noi\" (1975) è dell'astigiano Paolo Conte, incisa per primo da Bruno Lauzi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante corde ha di solito un ukulele?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "6",
+        "4",
+        "8",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "L'ukulele standard (soprano, concerto, tenore) ha quattro corde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che tipo di strumento è il \"friscaletto\" della musica popolare siciliana?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Tamburo a cornice",
+        "Mandolino",
+        "Flauto di canna",
+        "Organetto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "folk",
+        "sicilia"
+      ],
+      "notes": "Il friscalettu è un piccolo flauto di canna tipico della Sicilia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore italiano è il rivale di Mozart nel film \"Amadeus\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Domenico Cimarosa",
+        "Antonio Salieri",
+        "Muzio Clementi",
+        "Luigi Boccherini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "italia"
+      ],
+      "notes": "Nel film di Miloš Forman (1984) il narratore e rivale è Antonio Salieri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nei Paesi anglosassoni, con quale lettera si indica la nota do?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "C",
+        "G",
+        "D",
+        "A"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "teoria",
+        "trabocchetto"
+      ],
+      "notes": "Nel sistema anglosassone A = la, B = si, C = do",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa discografica di Detroit lanciò Stevie Wonder e le Supremes?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Chess",
+        "Motown",
+        "Atlantic",
+        "Stax"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "soul",
+        "mondo"
+      ],
+      "notes": "La Motown fu fondata a Detroit da Berry Gordy nel 1959",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante canadese vinse l'Eurovision del 1988 gareggiando per la Svizzera?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Céline Dion",
+        "Shania Twain",
+        "Alanis Morissette",
+        "Avril Lavigne"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "eurovision",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Céline Dion vinse a Dublino nel 1988 per la Svizzera con \"Ne partez pas sans moi\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si intitola il primo album di Vasco Rossi, uscito nel 1978?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Vado al massimo",
+        "Non siamo mica gli americani",
+        "Bollicine",
+        "Ma cosa vuoi che sia una canzone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "\"...Ma cosa vuoi che sia una canzone...\" (1978); gli altri sono del 1979, 1983 e 1982",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti tasti neri ha un pianoforte standard da 88 tasti?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "36",
+        "52",
+        "32",
+        "44"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "52 bianchi e 36 neri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose i \"Quadri di un'esposizione\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Nikolaj Rimskij-Korsakov",
+        "Pëtr Il'ič Čajkovskij",
+        "Aleksandr Borodin",
+        "Modest Musorgskij"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Suite per pianoforte di Musorgskij (1874), poi orchestrata da Ravel",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore norvegese scrisse \"Nell'antro del re della montagna\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Carl Nielsen",
+        "Jean Sibelius",
+        "Johan Svendsen",
+        "Edvard Grieg"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Dal \"Peer Gynt\" di Grieg (1875)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante cantò \"Gente di mare\" con Umberto Tozzi all'Eurovision del 1987?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Raf",
+        "Marco Masini",
+        "Toto Cutugno",
+        "Riccardo Fogli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "eurovision",
+        "italia"
+      ],
+      "notes": "Tozzi e Raf, terzi all'Eurovision 1987 di Bruxelles",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi incise per primo \"Respect\", poi resa celebre da Aretha Franklin?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Ray Charles",
+        "Marvin Gaye",
+        "Otis Redding",
+        "Sam Cooke"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "soul",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Otis Redding la scrisse e incise nel 1965; la versione di Aretha è del 1967",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale batterista fu sostituito da Ringo Starr nei Beatles, nel 1962?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pete Best",
+        "Mal Evans",
+        "Stuart Sutcliffe",
+        "Brian Epstein"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "beatles",
+        "mondo"
+      ],
+      "notes": "Pete Best fu il batterista dei Beatles dal 1960 al 1962",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"La sagra della primavera\", che fece scandalo a Parigi nel 1913?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Igor Stravinskij",
+        "Sergej Prokof'ev",
+        "Maurice Ravel",
+        "Claude Debussy"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Il balletto di Stravinskij debuttò tra i fischi il 29 maggio 1913",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse \"Così parlò Zarathustra\", usato nel film \"2001: Odissea nello spazio\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Johann Strauss figlio",
+        "Gustav Mahler",
+        "Richard Wagner",
+        "Richard Strauss"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Il poema sinfonico (1896) è di Richard Strauss, non della famiglia del valzer",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale canzone deriva la melodia di \"Tanti auguri a te\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Oh! Susanna",
+        "Jingle Bells",
+        "Good Morning to All",
+        "Auld Lang Syne"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "curiosità"
+      ],
+      "notes": "\"Happy Birthday\" usa la melodia di \"Good Morning to All\" delle sorelle Hill (1893)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapper scrisse \"Quelli che benpensano\", nel 1997?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Frankie hi-nrg mc",
+        "Neffa",
+        "Caparezza",
+        "Fabri Fibra"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rap",
+        "italia"
+      ],
+      "notes": "\"Quelli che benpensano\" (1997) è di Frankie hi-nrg mc (Francesco Di Gesù)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu inaugurato il Teatro alla Scala di Milano?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1737",
+        "1778",
+        "1813",
+        "1861"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teatri",
+        "italia"
+      ],
+      "notes": "La Scala fu inaugurata il 3 agosto 1778 con \"L'Europa riconosciuta\" di Antonio Salieri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo rap italiano incise \"Tranqi Funky\", nel 1996?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Articolo 31",
+        "Otierre",
+        "Sottotono",
+        "Club Dogo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rap",
+        "italia"
+      ],
+      "notes": "\"Tranqi Funky\" (1996) degli Articolo 31 di J-Ax e DJ Jad",
+      "verified": false
+    }
+  ]
+}

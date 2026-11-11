@@ -1,0 +1,1078 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale elettrodomestico lava i vestiti?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lavastoviglie",
+        "Asciugatrice",
+        "Lavatrice",
+        "Ferro da stiro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "La lavatrice lava i panni; la lavastoviglie i piatti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale apparecchio trasmette musica e notizie da ascoltare, senza immagini?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Televisore",
+        "Radio",
+        "Proiettore",
+        "Citofono"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "La radio trasmette solo suoni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa segnala la spia del carburante accesa sul cruscotto?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il serbatoio quasi vuoto",
+        "Le gomme sgonfie",
+        "Il motore caldo",
+        "La portiera aperta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "La spia della riserva indica che il carburante sta finendo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il secondo uomo a camminare sulla Luna, subito dopo Armstrong?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Michael Collins",
+        "Jurij Gagarin",
+        "John Glenn",
+        "Buzz Aldrin"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Aldrin scese dopo Armstrong; Collins restò in orbita",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo schermo che si comanda toccandolo con le dita?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Monitor a tubo",
+        "Proiettore",
+        "Touchscreen",
+        "Televideo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Touchscreen significa schermo a sfioramento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento si usa per osservare stelle e pianeti?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Microscopio",
+        "Telescopio",
+        "Periscopio",
+        "Stetoscopio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ottica"
+      ],
+      "notes": "Il telescopio raccoglie la luce degli oggetti lontani",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve il cestino sul desktop del computer?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "A raccogliere i file eliminati",
+        "A salvare i documenti",
+        "A stampare",
+        "A spegnere il computer"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "I file cancellati finiscono nel cestino finché non lo si svuota",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il fratello di Super Mario, vestito di verde?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Wario",
+        "Toad",
+        "Yoshi",
+        "Luigi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Luigi è il fratello minore di Mario",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale apparecchio trasforma la voce in segnale elettrico per amplificarla?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Altoparlante",
+        "Cuffia",
+        "Microfono",
+        "Antenna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musica",
+        "elettronica"
+      ],
+      "notes": "Il microfono capta il suono, l'altoparlante lo riproduce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale carburante usano le automobili con motore diesel?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Benzina",
+        "Gasolio",
+        "Metano",
+        "Cherosene"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "I motori diesel funzionano a gasolio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quali parole sta la sigla PC?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Personal Computer",
+        "Power Computer",
+        "Private Computer",
+        "Portable Computer"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "PC significa Personal Computer",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale celebre treno di lusso collegava Parigi a Istanbul?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Transiberiana",
+        "Settebello",
+        "Glacier Express",
+        "Orient Express"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "L'Orient Express nacque nel 1883",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che materiale sono fatte di solito le fibre ottiche?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Rame",
+        "Alluminio",
+        "Vetro",
+        "Gomma"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "reti"
+      ],
+      "notes": "Le fibre sono sottilissimi fili di vetro in cui viaggia la luce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trova la galleria ferroviaria di base del San Gottardo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Italia",
+        "Svizzera",
+        "Austria",
+        "Germania"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Galleria di 57 chilometri inaugurata nel 2016, tutta in Svizzera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quali parole sta la sigla Fiat?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fabbrica Italiana Automobili Torino",
+        "Fabbrica Italiana Auto e Trattori",
+        "Fondazione Italiana Automobili Torino",
+        "Federazione Industrie Auto Torinesi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "F.I.A.T., fondata a Torino nel 1899",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale soprannome è nota la Fiat 500 del 1936?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Balilla",
+        "Giardiniera",
+        "Cinquino",
+        "Topolino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "La Fiat 500 A del 1936 era detta Topolino; la Balilla era la 508",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la visione di film via Internet mentre arrivano, senza scaricarli?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Download",
+        "Upload",
+        "Streaming",
+        "Backup"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Stream significa flusso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si misura in pollici quando si parla della grandezza di un televisore?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La larghezza",
+        "La diagonale dello schermo",
+        "L'altezza",
+        "Lo spessore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "televisione",
+        "trabocchetto"
+      ],
+      "notes": "Un televisore da 55 pollici ha la diagonale di circa 140 centimetri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento del cruscotto indica i giri al minuto del motore?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Contagiri",
+        "Tachimetro",
+        "Contachilometri",
+        "Termometro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il contagiri segna i giri del motore; il tachimetro la velocità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda americana lanciò le foto istantanee che escono subito dalla macchina?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Kodak",
+        "Canon",
+        "Nikon",
+        "Polaroid"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fotografia"
+      ],
+      "notes": "La Polaroid Land Camera è del 1948",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa voleva dire in Italia \"benzina verde\"?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fatta con piante",
+        "Con meno ottani",
+        "Senza piombo",
+        "Per auto elettriche"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "La benzina verde era quella senza piombo, introdotta negli anni Ottanta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché i tasti F e J della tastiera hanno un piccolo rilievo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Per decorazione",
+        "Per trovare le dita senza guardare",
+        "Perché sono i più usati",
+        "Per non farli scivolare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer",
+        "tastiera"
+      ],
+      "notes": "Sono i tasti di partenza degli indici nella dattilografia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che tipo sono quasi sempre le batterie degli smartphone?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ioni di litio",
+        "Nichel-cadmio",
+        "Piombo",
+        "Alcaline"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Gli smartphone usano batterie ricaricabili agli ioni di litio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quanti giri al minuto gira un classico disco in vinile a 30 centimetri?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "45 giri",
+        "78 giri",
+        "16 giri",
+        "33 giri"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musica",
+        "elettronica"
+      ],
+      "notes": "L'LP gira a 33 giri e un terzo; il 45 giri è il disco piccolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa legge i dati incisi su un CD?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Una puntina",
+        "Una testina magnetica",
+        "Un raggio laser",
+        "Un ago di diamante"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musica",
+        "elettronica"
+      ],
+      "notes": "Il lettore CD usa un laser; la puntina è dei dischi in vinile",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale apparecchio per registrare e riprodurre i suoni inventò Edison nel 1877?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Grammofono",
+        "Fonografo",
+        "Microfono",
+        "Giradischi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musica",
+        "invenzioni"
+      ],
+      "notes": "Il fonografo a cilindro fu presentato da Edison nel 1877",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in molti Paesi la penna a sfera, dal cognome del suo inventore?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Biro",
+        "Stilo",
+        "Parker",
+        "Pennino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "László Bíró, giornalista ungherese, brevetto del 1938",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua viene la parola emoji?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Inglese",
+        "Latino",
+        "Coreano",
+        "Giapponese"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "Emoji unisce i termini giapponesi \"e\" (immagine) e \"moji\" (carattere): non c'entra \"emotion\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante ruote aveva la prima automobile a benzina di Karl Benz, del 1886?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Quattro",
+        "Due",
+        "Tre",
+        "Sei"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti",
+        "trabocchetto"
+      ],
+      "notes": "La Benz Patent-Motorwagen del 1886 era un triciclo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale console portatile del 2004 aveva due schermi, uno dei quali tattile?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "PlayStation Portable",
+        "Nintendo DS",
+        "Game Boy Advance",
+        "Game Gear"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Il Nintendo DS uscì nel 2004; la PSP aveva un solo schermo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese Guglielmo Marconi ottenne il suo primo brevetto sulla radio, nel 1896?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Regno Unito",
+        "Italia",
+        "Stati Uniti",
+        "Francia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "radio",
+        "trabocchetto"
+      ],
+      "notes": "Brevetto britannico n. 12039 del 2 giugno 1896, chiesto a Londra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la sequenza di istruzioni che risolve un problema, dal nome di un matematico persiano?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Programma",
+        "Funzione",
+        "Sintassi",
+        "Algoritmo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Da al-Khwarizmi, matematico persiano del IX secolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quali parole inglesi deriva il termine bit?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Basic item",
+        "Byte unit",
+        "Binary digit",
+        "Binary item"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Bit è la contrazione di binary digit, cifra binaria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale frequenza ha la corrente elettrica nelle case italiane?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "60 hertz",
+        "50 hertz",
+        "100 hertz",
+        "220 hertz"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "In Europa la rete è a 50 hertz; negli Stati Uniti a 60",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque il World Wide Web, alla fine degli anni Ottanta?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ginevra",
+        "San Francisco",
+        "Boston",
+        "Londra"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "Tim Berners-Lee lo propose nel 1989 al CERN di Ginevra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali due aziende svilupparono insieme il compact disc?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sony e Panasonic",
+        "Philips e Samsung",
+        "Toshiba e Sony",
+        "Philips e Sony"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musica",
+        "elettronica"
+      ],
+      "notes": "Il CD fu presentato da Philips e Sony; in commercio dal 1982",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo a sorvolare la Manica in aeroplano, nel 1909?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Charles Lindbergh",
+        "Wilbur Wright",
+        "Louis Blériot",
+        "Roland Garros"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aviazione"
+      ],
+      "notes": "Blériot volò da Calais a Dover il 25 luglio 1909",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti caratteri ha un codice IBAN italiano?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "16",
+        "27",
+        "22",
+        "30"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "banche"
+      ],
+      "notes": "IBAN italiano: IT, 2 cifre di controllo, CIN, ABI, CAB e conto = 27 caratteri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa produceva la Ducati quando nacque a Bologna nel 1926?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Componenti per radio",
+        "Motociclette",
+        "Biciclette",
+        "Macchine per cucire"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "moto",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Società Scientifica Radio Brevetti Ducati: condensatori per radio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale procedimento fotografico fu presentato a Parigi nel 1839?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Calotipo",
+        "Ferrotipo",
+        "Polaroid",
+        "Dagherrotipo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fotografia"
+      ],
+      "notes": "Il dagherrotipo di Louis Daguerre fu reso pubblico nel 1839",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cofondatore di Intel diede il nome alla legge sul raddoppio dei transistor nei chip?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Robert Noyce",
+        "Andy Grove",
+        "Gordon Moore",
+        "Federico Faggin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Legge di Moore, 1965",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il primo Space Shuttle a volare nello spazio, nel 1981?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Challenger",
+        "Columbia",
+        "Discovery",
+        "Endeavour"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Missione STS-1 del 12 aprile 1981",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il logo del Bluetooth unisce due lettere di quale antico alfabeto?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Runico",
+        "Greco",
+        "Fenicio",
+        "Ebraico"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telecomunicazioni"
+      ],
+      "notes": "Le rune Hagall e Bjarkan, iniziali di Harald Blåtand",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa deriva il simbolo del tasto di accensione, una linea dentro un cerchio?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Da una lampadina",
+        "Da una spina elettrica",
+        "Da un orologio",
+        "Dalle cifre 1 e 0"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "Unisce 1 (acceso) e 0 (spento) del sistema binario, norma IEC",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tipo di automobile esisteva già prima di quelle a benzina?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ibrida",
+        "Diesel",
+        "Elettrica",
+        "A GPL"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "Veicoli elettrici esistevano dagli anni 1830-1880; la Benz a benzina è del 1886",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per tracciare che cosa fu inventato il codice QR in Giappone nel 1994?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Pacchi postali",
+        "Componenti di automobili",
+        "Biglietti del treno",
+        "Medicinali"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tecnologia",
+        "giappone"
+      ],
+      "notes": "Creato da Denso Wave, del gruppo Toyota, per la logistica dei ricambi auto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto pesava l'Osborne 1, del 1981, considerato il primo computer portatile di successo?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Circa 11 chili",
+        "Circa un chilo",
+        "Circa 3 chili",
+        "Circa 50 chili"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "L'Osborne 1 pesava circa 10,7 chili",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingegnere torinese progettò la Fiat Topolino e la Nuova 500 del 1957?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Giorgetto Giugiaro",
+        "Battista Pininfarina",
+        "Vittorio Jano",
+        "Dante Giacosa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Giacosa progettò per Fiat la 500 Topolino (1936) e la Nuova 500 (1957)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fu nel 1985 il primo dominio punto com registrato?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Apple.com",
+        "Ibm.com",
+        "Symbolics.com",
+        "Xerox.com"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Symbolics.com, registrato il 15 marzo 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale transatlantico italiano conquistò il Nastro Azzurro nel 1933?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Conte di Savoia",
+        "Rex",
+        "Andrea Doria",
+        "Michelangelo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "navi",
+        "italia"
+      ],
+      "notes": "Il Rex attraversò l'Atlantico in 4 giorni e 13 ore nell'agosto 1933",
+      "verified": false
+    }
+  ]
+}

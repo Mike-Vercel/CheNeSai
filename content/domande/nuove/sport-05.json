@@ -1,0 +1,1103 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quali sono i colori sociali della Juventus?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Giallo e blu",
+        "Rosso e nero",
+        "Bianco e azzurro",
+        "Bianco e nero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La Juventus è la squadra \"bianconera\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale superficie si gioca il torneo di Wimbledon?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Terra rossa",
+        "Moquette",
+        "Cemento",
+        "Erba"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Wimbledon è il torneo dello Slam su erba",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città ha sede il Bayern, celebre squadra di calcio tedesca?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Dortmund",
+        "Berlino",
+        "Monaco di Baviera",
+        "Amburgo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "L'FC Bayern München ha sede a Monaco di Baviera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità era Diego Armando Maradona?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Uruguaiana",
+        "Brasiliana",
+        "Argentina",
+        "Spagnola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "Maradona era nato a Lanús, in Argentina, nel 1960",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si giocarono i Mondiali di calcio del 1990, quelli delle \"Notti magiche\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Francia",
+        "Germania",
+        "Italia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Italia '90, la cui canzone ufficiale era \"Un'estate italiana\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la grande corsa ciclistica a tappe che si corre in Spagna?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tour",
+        "Volta",
+        "Vuelta",
+        "Giro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "La Vuelta a España è il grande giro spagnolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città ha sede l'Atalanta?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bergamo",
+        "Atlanta",
+        "Brescia",
+        "Verona"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "L'Atalanta Bergamasca Calcio, fondata nel 1907, è la squadra di Bergamo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In una squadra di calcio, quanti giocatori possono parare il pallone con le mani?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "1",
+        "11",
+        "2",
+        "0"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Solo il portiere, e solo dentro la propria area di rigore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova lo stadio di Wembley?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Liverpool",
+        "Birmingham",
+        "Manchester",
+        "Londra"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "Wembley è lo stadio nazionale inglese, a Londra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si salta per schiacciare il pallone con le mani sopra una rete?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pallamano",
+        "Pallavolo",
+        "Tennis",
+        "Badminton"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallavolo"
+      ],
+      "notes": "La schiacciata con le mani sopra la rete è il colpo d'attacco della pallavolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era il commissario tecnico dell'Italia campione d'Europa nel 2021?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gian Piero Ventura",
+        "Roberto Mancini",
+        "Luciano Spalletti",
+        "Antonio Conte"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "europei",
+        "italia"
+      ],
+      "notes": "Roberto Mancini, ct dal 2018 al 2023",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella pallavolo, a quanti punti si vince un set normale, tie-break escluso?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "25",
+        "30",
+        "15",
+        "21"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pallavolo",
+        "regole"
+      ],
+      "notes": "Si vince il set a 25 punti con almeno due di scarto; il tie-break è a 15",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti cerchi ci sono nella fila in alto del simbolo olimpico?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "4",
+        "3",
+        "2"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "In alto blu, nero e rosso; in basso giallo e verde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nuotatrice italiana vinse l'oro olimpico nei 200 stile libero a Pechino 2008?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Alessia Filippi",
+        "Federica Pellegrini",
+        "Novella Calligaris",
+        "Tania Cagnotto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "nuoto",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Federica Pellegrini, oro nei 200 stile libero con record del mondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota vinse il Mondiale di Formula 1 del 2021, all'ultimo giro di Abu Dhabi?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Lewis Hamilton",
+        "Valtteri Bottas",
+        "Charles Leclerc",
+        "Max Verstappen"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Verstappen superò Hamilton nell'ultimo giro del GP di Abu Dhabi 2021",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero di maglia ha ritirato il Napoli in onore di Maradona?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "9",
+        "10",
+        "7",
+        "1"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il Napoli ha ritirato la maglia numero 10 nel 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è la mascotte tradizionale della Juventus?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Aquila",
+        "Lupo",
+        "Zebra",
+        "Toro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La zebra, per le strisce bianconere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste nazionali NON partecipa al torneo del Sei Nazioni di rugby?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Galles",
+        "Spagna",
+        "Irlanda",
+        "Scozia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rugby",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Il Sei Nazioni: Inghilterra, Francia, Galles, Scozia, Irlanda e Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come è soprannominata la nazionale italiana maschile di pallanuoto?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nazionale delle sette",
+        "Squadra azzurra",
+        "Setterosa",
+        "Settebello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pallanuoto",
+        "italia"
+      ],
+      "notes": "Il \"Settebello\", dai sette giocatori in acqua; la femminile è il \"Setterosa\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale sport il punteggio zero si chiama in inglese \"love\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tennis",
+        "Golf",
+        "Cricket",
+        "Squash"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Nel tennis \"love\" indica lo zero (es. \"15-love\")",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 1966, giocati in casa?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Brasile",
+        "Germania Ovest",
+        "Inghilterra",
+        "Portogallo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "L'Inghilterra battè la Germania Ovest 4-2 a Wembley",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città ospitò le Olimpiadi estive del 1992?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Seul",
+        "Barcellona",
+        "Madrid",
+        "Atlanta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Barcellona 1992",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ginnasta rumena ottenne il primo 10 perfetto della storia olimpica, a Montréal 1976?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Věra Čáslavská",
+        "Larisa Latynina",
+        "Olga Korbut",
+        "Nadia Comăneci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ginnastica",
+        "olimpiadi"
+      ],
+      "notes": "Nadia Comăneci, 14 anni, alle parallele asimmetriche",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo tradizionale dell'Inter?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grifone",
+        "Biscione",
+        "Diavolo",
+        "Zebra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il biscione è la mascotte storica dell'Inter",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti metri misura un giro della pista di atletica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "300",
+        "200",
+        "400",
+        "500"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica",
+        "regole"
+      ],
+      "notes": "Un giro della pista regolamentare è di 400 metri (corsia interna)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era il commissario tecnico dell'Italia campione del mondo nel 1934 e nel 1938?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ferruccio Valcareggi",
+        "Enzo Bearzot",
+        "Vittorio Pozzo",
+        "Edmondo Fabbri"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Vittorio Pozzo è l'unico ct ad aver vinto due Mondiali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno la Roma vinse il suo terzo scudetto, con Totti capitano?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "1999",
+        "2001",
+        "2006",
+        "1983"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La Roma di Capello vinse lo scudetto 2000-01",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiana vinse gli US Open nel 2015, in una finale tutta italiana?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Francesca Schiavone",
+        "Flavia Pennetta",
+        "Sara Errani",
+        "Roberta Vinci"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis",
+        "italia"
+      ],
+      "notes": "Pennetta battè Roberta Vinci nella finale di New York 2015",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista spagnolo vinse cinque Tour de France di fila, dal 1991 al 1995?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Miguel Indurain",
+        "Alberto Contador",
+        "Pedro Delgado",
+        "Carlos Sastre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Miguel Indurain, cinque Tour consecutivi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trova il circuito di Spa-Francorchamps?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Germania",
+        "Francia",
+        "Belgio",
+        "Paesi Bassi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1",
+        "trabocchetto"
+      ],
+      "notes": "Spa-Francorchamps è nelle Ardenne belghe, sede del GP del Belgio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi segnò il gol del 4-3 nella celebre Italia-Germania dei Mondiali del 1970?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Tarcisio Burgnich",
+        "Roberto Boninsegna",
+        "Gigi Riva",
+        "Gianni Rivera"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Il gol decisivo nei supplementari fu di Gianni Rivera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città brasiliana si trova il circuito di Interlagos?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rio de Janeiro",
+        "San Paolo",
+        "Belo Horizonte",
+        "Brasilia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "f1",
+        "trabocchetto"
+      ],
+      "notes": "L'autodromo José Carlos Pace (Interlagos) è a San Paolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come era soprannominata l'Olanda degli anni Settanta, maestra del \"calcio totale\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Furie rosse",
+        "Selecão",
+        "Arancia meccanica",
+        "Diavoli rossi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "L'Olanda di Cruijff e Michels era detta \"Arancia meccanica\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sciatore italiano vinse la Coppa del mondo generale di sci alpino nel 1995?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Giorgio Rocca",
+        "Alberto Tomba",
+        "Kristian Ghedina",
+        "Gustav Thöni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sci",
+        "italia"
+      ],
+      "notes": "Alberto Tomba vinse la Coppa generale nella stagione 1994-95",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista bergamasco vinse il Tour de France nel 1965, al primo tentativo?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Felice Gimondi",
+        "Franco Bitossi",
+        "Vittorio Adorni",
+        "Gianni Motta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "italia"
+      ],
+      "notes": "Felice Gimondi, di Sedrina (Bergamo), vinse il Tour 1965",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista svedese vinse cinque Wimbledon di fila, dal 1976 al 1980?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ivan Lendl",
+        "Björn Borg",
+        "Stefan Edberg",
+        "Mats Wilander"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Björn Borg vinse Wimbledon cinque volte consecutive",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Al Giro d'Italia del dopoguerra, a chi andava la \"maglia nera\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "All'ultimo in classifica",
+        "Al più giovane",
+        "Al miglior scalatore",
+        "Al vincitore di tappa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "La maglia nera (1946-1951) premiava l'ultimo della classifica generale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale allenatore la Sampdoria vinse lo scudetto del 1991?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giovanni Trapattoni",
+        "Sven-Göran Eriksson",
+        "Eugenio Bersellini",
+        "Vujadin Boškov"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il serbo Vujadin Boškov guidò la Samp allo scudetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota sudafricano vinse il Mondiale di Formula 1 del 1979 con la Ferrari?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Jody Scheckter",
+        "Gilles Villeneuve",
+        "Alan Jones",
+        "Niki Lauda"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Jody Scheckter, ultimo campione piloti Ferrari prima di Schumacher nel 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale parola francese deriverebbe il nome \"tennis\"?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Tenir",
+        "Tenue",
+        "Tendre",
+        "Tenez"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Dal grido \"tenez!\" (\"tenete!\") dei giocatori di jeu de paume al servizio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse il torneo di calcio alle Olimpiadi di Berlino 1936?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Austria",
+        "Germania",
+        "Ungheria",
+        "Italia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "olimpiadi",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "L'Italia di Pozzo vinse l'oro battendo l'Austria 2-1 in finale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale portiere sovietico vinse il Pallone d'oro nel 1963?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Lev Jašin",
+        "Gordon Banks",
+        "Rinat Dasaev",
+        "Dino Zoff"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "Lev Jašin, \"il Ragno nero\", unico portiere vincitore del premio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana di basket vinse cinque Coppe dei Campioni negli anni Settanta?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Milano",
+        "Cantù",
+        "Varese",
+        "Bologna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "italia"
+      ],
+      "notes": "La Pallacanestro Varese (Ignis) vinse nel 1970, 1972, 1973, 1975 e 1976",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolsero le prime Paralimpiadi, nel 1960?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Stoke Mandeville",
+        "Londra",
+        "Tokyo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Le prime Paralimpiadi si tennero a Roma nel 1960, dopo le Olimpiadi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome il badminton?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Da una tenuta nobiliare inglese",
+        "Da un generale inglese",
+        "Dal nome dell'inventore",
+        "Da una città indiana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "badminton"
+      ],
+      "notes": "Badminton House, residenza dei duchi di Beaufort, dove il gioco si diffuse nell'Ottocento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori del Palermo erano nella rosa dell'Italia campione del mondo nel 2006?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1",
+        "2",
+        "6",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Barone, Barzagli, Grosso e Zaccardo giocavano nel Palermo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota austriaco vinse il Mondiale di Formula 1 del 1970, assegnato dopo la sua morte?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Gerhard Berger",
+        "Niki Lauda",
+        "Jochen Rindt",
+        "Jo Siffert"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Rindt morì a Monza nelle prove; i punti già raccolti bastarono per il titolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ciclista indossò la prima maglia rosa della storia del Giro, nel 1931?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Learco Guerra",
+        "Giovanni Brunero",
+        "Alfredo Binda",
+        "Costante Girardengo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "italia"
+      ],
+      "notes": "La maglia rosa nacque nel 1931: il primo a indossarla fu Learco Guerra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse la prima Coppa Davis, nel 1900?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Australasia",
+        "Stati Uniti",
+        "Francia",
+        "Belgio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Gli Stati Uniti batterono le Isole britanniche a Boston nella prima edizione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse il primo torneo di Wimbledon, nel 1877?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Spencer Gore",
+        "Ernest Renshaw",
+        "William Renshaw",
+        "Frank Hadow"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Spencer Gore vinse la prima edizione del 1877; Hadow vinse nel 1878",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1103 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi canta \"L'ombelico del mondo\" e \"Penso positivo\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Luciano Ligabue",
+        "Jovanotti",
+        "Eros Ramazzotti",
+        "Max Pezzali"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Entrambi i brani sono di Jovanotti (1995 e 1994)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante ha inciso \"Tanti auguri\", quella di \"com'è bello far l'amore da Trieste in giù\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Patty Pravo",
+        "Mina",
+        "Raffaella Carrà",
+        "Orietta Berti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Tanti auguri\" (1978) è un celebre brano di Raffaella Carrà",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi strumenti si suona con l'archetto?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Arpa",
+        "Mandolino",
+        "Chitarra",
+        "Violoncello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Il violoncello è uno strumento ad arco; chitarra, arpa e mandolino si pizzicano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova l'Arena che ospita una celebre stagione lirica estiva?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Firenze",
+        "Verona",
+        "Roma",
+        "Napoli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "L'Arena di Verona ospita dal 1913 l'Arena Opera Festival",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante italiano è soprannominato \"il Molleggiato\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bobby Solo",
+        "Little Tony",
+        "Gianni Morandi",
+        "Adriano Celentano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Il Molleggiato\" è Adriano Celentano, per il suo modo di ballare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Single Ladies\", nel 2008?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Alicia Keys",
+        "Rihanna",
+        "Beyoncé",
+        "Lady Gaga"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Single Ladies (Put a Ring on It)\" è di Beyoncé (2008)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le cornamuse sono il simbolo musicale di quale nazione del Regno Unito?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Irlanda del Nord",
+        "Galles",
+        "Inghilterra",
+        "Scozia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "La cornamusa (great highland bagpipe) è il simbolo della musica scozzese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore emiliano è soprannominato \"il Blasco\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Vasco Rossi",
+        "Gianni Morandi",
+        "Zucchero",
+        "Luciano Ligabue"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Vasco Rossi, nato a Zocca (Modena), è da sempre chiamato \"il Blasco\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Bohemian Rhapsody\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Pink Floyd",
+        "Queen",
+        "The Beatles",
+        "Rolling Stones"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"Bohemian Rhapsody\" (1975) dei Queen, scritta da Freddie Mercury",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il samba è la musica simbolo del carnevale di quale città?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "L'Avana",
+        "Buenos Aires",
+        "Rio de Janeiro",
+        "Città del Messico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ritmi",
+        "mondo"
+      ],
+      "notes": "Le scuole di samba sfilano al carnevale di Rio de Janeiro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana ha inciso \"Sweet Child o' Mine\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Guns N' Roses",
+        "Aerosmith",
+        "Bon Jovi",
+        "Mötley Crüe"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"Sweet Child o' Mine\" (1987) è dei Guns N' Roses",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band ha inciso \"Stairway to Heaven\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "The Who",
+        "Led Zeppelin",
+        "Deep Purple",
+        "Pink Floyd"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"Stairway to Heaven\" (1971) è dei Led Zeppelin",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Sere nere\" e \"Rosso relativo\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Tiziano Ferro",
+        "Nek",
+        "Biagio Antonacci",
+        "Max Pezzali"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Rosso relativo\" (2001) e \"Sere nere\" (2003) sono di Tiziano Ferro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse il Festival di Sanremo 2024 con \"La noia\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Geolier",
+        "Angelina Mango",
+        "Annalisa",
+        "Mahmood"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Angelina Mango vinse Sanremo 2024 con \"La noia\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale band era il cantante Jim Morrison?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "The Who",
+        "Jefferson Airplane",
+        "The Doors",
+        "The Byrds"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "Jim Morrison era la voce dei Doors",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il flamenco è tipico di quale regione spagnola?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Castiglia",
+        "Galizia",
+        "Andalusia",
+        "Catalogna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ritmi",
+        "mondo"
+      ],
+      "notes": "Il flamenco nasce in Andalusia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Puccini quattro giovani artisti squattrinati vivono in una soffitta di Parigi?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "La bohème",
+        "Manon Lescaut",
+        "Gianni Schicchi",
+        "Tosca"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica",
+        "puccini"
+      ],
+      "notes": "\"La bohème\" (1896): Rodolfo, Marcello, Colline e Schaunard nella soffitta parigina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale opera di Bizet ha per protagonista una sigaraia di Siviglia?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Manon",
+        "Lakmé",
+        "Thaïs",
+        "Carmen"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "\"Carmen\" (1875) di Georges Bizet, ambientata a Siviglia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo torinese ha inciso \"Blue (Da Ba Dee)\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Eiffel 65",
+        "Gigi D'Agostino",
+        "Datura",
+        "Corona"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dance",
+        "italia"
+      ],
+      "notes": "\"Blue (Da Ba Dee)\" (1998) degli Eiffel 65, gruppo di Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve il metronomo?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "A cambiare tonalità",
+        "A scandire il tempo",
+        "Ad accordare gli strumenti",
+        "A misurare il volume"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il metronomo batte i colpi al ritmo scelto (battiti al minuto)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Sei bellissima\", del 1975?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Patty Pravo",
+        "Loredana Bertè",
+        "Mia Martini",
+        "Ornella Vanoni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Sei bellissima\" (1975) è di Loredana Bertè",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la voce maschile più grave?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Contralto",
+        "Basso",
+        "Baritono",
+        "Tenore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "voci"
+      ],
+      "notes": "Dal più acuto: tenore, baritono, basso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il fado è il canto tradizionale di quale Paese?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grecia",
+        "Spagna",
+        "Brasile",
+        "Portogallo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ritmi",
+        "mondo"
+      ],
+      "notes": "Il fado, nato a Lisbona, è patrimonio UNESCO del Portogallo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale duo francese di musica elettronica si esibiva con caschi da robot?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Kraftwerk",
+        "Daft Punk",
+        "Justice",
+        "Air"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "elettronica",
+        "mondo"
+      ],
+      "notes": "I Daft Punk (Thomas Bangalter e Guy-Manuel de Homem-Christo) indossavano caschi da robot",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che materiale sono di solito le corde di una chitarra classica?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Acciaio",
+        "Nylon",
+        "Bronzo",
+        "Rame"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "La chitarra classica usa corde di nylon; quelle di acciaio sono della chitarra acustica folk ed elettrica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità era Antonín Dvořák, autore della sinfonia \"Dal Nuovo Mondo\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Russa",
+        "Ceca",
+        "Polacca",
+        "Americana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Dvořák era boemo (ceco); scrisse la sinfonia negli Stati Uniti nel 1893",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi incise per primo \"Hallelujah\", nel 1984?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "John Cale",
+        "Leonard Cohen",
+        "Rufus Wainwright",
+        "Jeff Buckley"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "\"Hallelujah\" è di Leonard Cohen (album \"Various Positions\", 1984); Buckley la incise nel 1994",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore milanese ha scritto \"Vengo anch'io. No, tu no\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Giorgio Gaber",
+        "Adriano Celentano",
+        "Roberto Vecchioni",
+        "Enzo Jannacci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Brano del 1967 di Enzo Jannacci",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Eros Ramazzotti vinse il Festival di Sanremo nel 1986?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Musica è",
+        "Terra promessa",
+        "Adesso tu",
+        "Una storia importante"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Eros Ramazzotti vinse Sanremo 1986 con \"Adesso tu\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Simone Cristicchi vinse il Festival di Sanremo 2007?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ti regalerò una rosa",
+        "Vorrei cantare come Biagio",
+        "Studentessa universitaria",
+        "Abbi cura di me"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Cristicchi vinse Sanremo 2007 con \"Ti regalerò una rosa\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale jazzista era soprannominato \"Satchmo\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Duke Ellington",
+        "Count Basie",
+        "Dizzy Gillespie",
+        "Louis Armstrong"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "jazz",
+        "mondo"
+      ],
+      "notes": "\"Satchmo\" era il soprannome di Louis Armstrong",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore portò al successo \"Una lacrima sul viso\", nel 1964?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bobby Solo",
+        "Little Tony",
+        "Gianni Morandi",
+        "Peppino di Capri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Bobby Solo, Sanremo 1964",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale DJ e compositore italiano incise il successo mondiale \"Children\", nel 1995?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Benny Benassi",
+        "Molella",
+        "Gigi D'Agostino",
+        "Robert Miles"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dance",
+        "italia"
+      ],
+      "notes": "\"Children\" (1995) di Robert Miles (Roberto Concina)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale canzone dello Zecchino d'Oro del 1993 si chiede quale verso faccia un rettile?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Il valzer del moscerino",
+        "Il caffè della Peppina",
+        "Il coccodrillo come fa?",
+        "Volevo un gatto nero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "bambini",
+        "italia"
+      ],
+      "notes": "\"Il coccodrillo come fa?\" vinse lo Zecchino d'Oro 1993",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante palermitana incise \"Un'estate al mare\", scritta da Franco Battiato?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Carmen Consoli",
+        "Marcella Bella",
+        "Giuni Russo",
+        "Rosa Balistreri"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "sicilia"
+      ],
+      "notes": "\"Un'estate al mare\" (1982), scritta da Battiato e Giusto Pio, cantata da Giuni Russo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante vinse il Festival di Sanremo 2014 con \"Controvento\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Emma",
+        "Malika Ayane",
+        "Noemi",
+        "Arisa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Arisa vinse Sanremo 2014 con \"Controvento\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era soprannominato \"il re del liscio\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Raoul Casadei",
+        "Secondo Casadei",
+        "Henghel Gualdi",
+        "Mirko Casadei"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "liscio",
+        "italia"
+      ],
+      "notes": "Raoul Casadei, nipote di Secondo, era detto \"il re del liscio\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose l'opera \"Pagliacci\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Pietro Mascagni",
+        "Ruggero Leoncavallo",
+        "Francesco Cilea",
+        "Umberto Giordano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "\"Pagliacci\" (1892) è di Ruggero Leoncavallo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città fu composta la \"Marsigliese\", nel 1792?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lione",
+        "Marsiglia",
+        "Parigi",
+        "Strasburgo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "inni",
+        "trabocchetto"
+      ],
+      "notes": "Rouget de Lisle la scrisse a Strasburgo; prese il nome dai volontari marsigliesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse il libretto del \"Don Giovanni\" e delle \"Nozze di Figaro\" di Mozart?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Arrigo Boito",
+        "Pietro Metastasio",
+        "Lorenzo Da Ponte",
+        "Carlo Goldoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "Lorenzo Da Ponte, di Ceneda (Vittorio Veneto), librettista della trilogia Mozart-Da Ponte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a fiato suona tradizionalmente il \"la\" per accordare l'orchestra?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Oboe",
+        "Fagotto",
+        "Flauto",
+        "Clarinetto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "orchestra"
+      ],
+      "notes": "Per tradizione è l'oboe a dare il la all'orchestra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come chiamava Paganini il suo violino preferito, oggi conservato a Genova?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il Messia",
+        "Il Diavolo",
+        "Il Cannone",
+        "La Regina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "violino",
+        "italia"
+      ],
+      "notes": "Il Guarneri del Gesù \"Il Cannone\" è custodito a Palazzo Tursi, Genova",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale opera inaugurò il festival lirico dell'Arena di Verona, nel 1913?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Nabucco",
+        "La traviata",
+        "Aida",
+        "Carmen"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "Il 10 agosto 1913 l'\"Aida\" aprì la prima stagione, per il centenario di Verdi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cantante Franco Battiato portò \"I treni di Tozeur\" all'Eurovision del 1984?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giuni Russo",
+        "Mia Martini",
+        "Milva",
+        "Alice"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "eurovision",
+        "sicilia"
+      ],
+      "notes": "Battiato e Alice rappresentarono l'Italia all'Eurovision 1984 (quinto posto)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oltre che compositore, quale carica pubblica ebbe Giuseppe Verdi?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Prefetto di Parma",
+        "Ministro della Cultura",
+        "Sindaco di Milano",
+        "Senatore del Regno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verdi",
+        "italia"
+      ],
+      "notes": "Verdi fu deputato nel 1861 e nominato senatore del Regno nel 1874",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale album di Fabrizio De André è ispirato all'\"Antologia di Spoon River\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Non al denaro non all'amore né al cielo",
+        "La buona novella",
+        "Storia di un impiegato",
+        "Tutti morimmo a stento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Album del 1971, liberamente tratto dall'\"Antologia di Spoon River\" di Edgar Lee Masters",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti figli ebbe in tutto Johann Sebastian Bach, dai suoi due matrimoni?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "12",
+        "7",
+        "20",
+        "3"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Bach ebbe 7 figli dalla prima moglie e 13 dalla seconda: 20 in tutto, molti morti piccoli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"Hurt\", celebre nella versione di Johnny Cash, era una canzone di quale band?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Nine Inch Nails",
+        "Depeche Mode",
+        "Pearl Jam",
+        "Soundgarden"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Scritta da Trent Reznor per i Nine Inch Nails (1994); Cash la incise nel 2002",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale età Gioachino Rossini smise di comporre opere, dopo il \"Guglielmo Tell\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "37 anni",
+        "52 anni",
+        "45 anni",
+        "29 anni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "Nato nel 1792, presentò il \"Guglielmo Tell\" nel 1829 e non scrisse più opere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose in realtà il celebre \"Adagio\" attribuito ad Albinoni?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Remo Giazotto",
+        "Tomaso Albinoni",
+        "Antonio Vivaldi",
+        "Arcangelo Corelli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "L'\"Adagio in sol minore\" fu pubblicato nel 1958 dal musicologo Remo Giazotto, che lo presentò come ricostruzione",
+      "verified": false
+    }
+  ]
+}

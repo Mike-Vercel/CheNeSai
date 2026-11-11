@@ -1,0 +1,1106 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Quale personaggio dei cartoni grida \"Yabba dabba doo!\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Braccio di Ferro",
+    "Homer Simpson",
+    "Scooby-Doo",
+    "Fred Flintstone"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "Fred de \"Gli Antenati\", cavernicolo di Bedrock",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la fidanzata di Paperino?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Minni",
+    "Nonna Papera",
+    "Paperina",
+    "Brigitta"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "Paperina; Minni è la fidanzata di Topolino, Brigitta corteggia Paperone",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che animale era Skippy, protagonista di una celebre serie australiana?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un koala",
+    "Un ornitorinco",
+    "Un dingo",
+    "Un canguro"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "telefilm",
+    "animali"
+   ],
+   "notes": "Skippy il canguro (1968-1970)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Per i bambini degli anni Sessanta, che cosa voleva dire \"dopo Carosello\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Fare merenda",
+    "Andare a letto",
+    "Fare i compiti",
+    "Uscire a giocare"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "carosello",
+    "storia della tv"
+   ],
+   "notes": "Carosello andava in onda verso le 21: poi tutti a nanna",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale programma di cucina i concorrenti affrontano la \"Mystery Box\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "La prova del cuoco",
+    "Cotto e mangiato",
+    "Hell's Kitchen",
+    "MasterChef"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cucina",
+    "talent"
+   ],
+   "notes": "La Mystery Box è la prova d'apertura di MasterChef",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale serie Netflix dei ragazzini in bicicletta affrontano il Demogorgone?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Dark",
+    "Riverdale",
+    "Stranger Things",
+    "Lost"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "Stranger Things, ambientata negli anni Ottanta",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la sorellina più piccola di Bart Simpson, sempre col ciuccio?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Lisa",
+    "Maggie",
+    "Patty",
+    "Selma"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Maggie; Lisa è la sorella di mezzo, Patty e Selma le zie",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale orso dei cartoni ruba i cestini da picnic ai turisti del parco?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Baloo",
+    "Winnie the Pooh",
+    "Paddington",
+    "L'orso Yoghi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "Yoghi, con l'amico Bubu, nel parco di Jellystone",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale talent show i giudici si girano sulle poltrone se la voce li convince?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "The Voice",
+    "X Factor",
+    "Amici",
+    "Tale e quale show"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "talent",
+    "musica"
+   ],
+   "notes": "The Voice: le \"blind auditions\" con le poltrone girevoli",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che animali sono Cip e Ciop?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Criceti",
+    "Scoiattoli",
+    "Topolini",
+    "Castori"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "cartoni"
+   ],
+   "notes": "I due scoiattoli dispettosi della Disney, avversari di Paperino",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quante sono le sfere del drago in \"Dragon Ball\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Cinque",
+    "Nove",
+    "Sette",
+    "Dodici"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Riunite le sette sfere, il drago Shenron esaudisce un desiderio",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale strumento suona Schroeder dei Peanuts?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Un pianoforte giocattolo",
+    "Un violino",
+    "Una tromba",
+    "Uno xilofono"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fumetti",
+    "cartoni"
+   ],
+   "notes": "Schroeder suona Beethoven sul suo pianoforte giocattolo",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Lupin III\", come si chiama la bella ladra che spesso imbroglia Lupin?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Lamù",
+    "Fujiko",
+    "Candy",
+    "Licia"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Fujiko Mine, compagna e rivale di Lupin",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il pirata col cappello di paglia di \"One Piece\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Zoro",
+    "Rufy",
+    "Sanji",
+    "Usopp"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Monkey D. Rufy, che sogna di diventare il re dei pirati",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale sport pratica l'Uomo Tigre nel celebre cartone giapponese?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Il pugilato",
+    "Il judo",
+    "Il wrestling",
+    "Il sumo"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "anime",
+    "sport"
+   ],
+   "notes": "Naoto Date combatte sul ring con la maschera da tigre",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale cartone di fatine è stato creato dall'italiano Iginio Straffi?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Winx Club",
+    "Sailor Moon",
+    "Mila e Shiro",
+    "Pretty Cure"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "italia"
+   ],
+   "notes": "Winx Club, prodotto dalla marchigiana Rainbow dal 2004",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale città l'INDA mette in scena ogni anno le tragedie greche nel teatro antico?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Taormina",
+    "Agrigento",
+    "Catania",
+    "Siracusa"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "teatro",
+    "sicilia"
+   ],
+   "notes": "Le rappresentazioni classiche al Teatro Greco di Siracusa, dal 1914",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama l'astronave del capitano Kirk in \"Star Trek\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Galactica",
+    "Enterprise",
+    "Millennium Falcon",
+    "Nostromo"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "serie tv",
+    "fantascienza"
+   ],
+   "notes": "La USS Enterprise",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale amico di Charlie Brown non si separa mai dalla sua coperta?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Schroeder",
+    "Linus",
+    "Pig-Pen",
+    "Franklin"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fumetti",
+    "cartoni"
+   ],
+   "notes": "Linus van Pelt e la sua coperta di Linus",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la moglie di Fred Flintstone?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Betty",
+    "Wilma",
+    "Wanda",
+    "Marge"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "Wilma; Betty è la moglie di Barney",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale pupazzo rosso di \"Sesamo apriti\" parla di sé in terza persona?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Grover",
+    "Ernie",
+    "Kermit",
+    "Elmo"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "pupazzi",
+    "bambini"
+   ],
+   "notes": "Elmo, il mostriciattolo rosso",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la Tartaruga Ninja con la bandana blu?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Leonardo",
+    "Raffaello",
+    "Donatello",
+    "Michelangelo"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "curiosità"
+   ],
+   "notes": "Leonardo blu, Raffaello rosso, Donatello viola, Michelangelo arancione",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quanti anni ha Bart Simpson?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Otto",
+    "Dodici",
+    "Dieci",
+    "Quattordici"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Bart ha sempre 10 anni, da più di trent'anni",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Affari tuoi\", come viene chiamato chi telefona per fare le offerte?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Il Banchiere",
+    "Il Notaio",
+    "Il Dottore",
+    "Il Professore"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "quiz",
+    "rai"
+   ],
+   "notes": "Il misterioso \"Dottore\" propone offerte e cambi al concorrente",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale città è ambientato il musical \"Il fantasma dell'Opera\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Londra",
+    "Vienna",
+    "Milano",
+    "Parigi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "musical",
+    "trabocchetto"
+   ],
+   "notes": "Il fantasma vive sotto l'Opéra Garnier di Parigi, dal romanzo di Gaston Leroux",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale storico programma Rai racconta l'agricoltura italiana la domenica a mezzogiorno?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Linea verde",
+    "Linea blu",
+    "Geo",
+    "Sereno variabile"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "rai",
+    "territorio"
+   ],
+   "notes": "Linea verde, in onda dal 1981; Linea blu parla di mare",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamava l'immagine fissa trasmessa dalla Rai quando non c'erano programmi?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Televideo",
+    "Palinsesto",
+    "Sigla",
+    "Monoscopio"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "storia della tv",
+    "rai"
+   ],
+   "notes": "Il monoscopio, con i cerchi e le linee per regolare il televisore",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale personaggio con mantello e cilindro presentava le prime edizioni dello Zecchino d'Oro?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il Mago Merlino",
+    "Il Mago Zurlì",
+    "Il Mago Otelma",
+    "Il Mago Silvan"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "zecchino d'oro",
+    "bambini"
+   ],
+   "notes": "Il Mago Zurlì, interpretato da Cino Tortorella",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il fuco amico dell'Ape Maia?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Flip",
+    "Willy",
+    "Bruno",
+    "Max"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "animali"
+   ],
+   "notes": "Willy, il fuco pigro e dormiglione; Flip è la cavalletta",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Con l'accento di quale città parla il Gabibbo di \"Striscia la notizia\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Genova",
+    "Milano",
+    "Torino",
+    "Napoli"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "tv italiana",
+    "dialetti"
+   ],
+   "notes": "Il Gabibbo parla genovese, come il suo creatore Antonio Ricci, nato ad Albenga",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale coppia comica milanese cantava \"E la vita, la vita\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Ale e Franz",
+    "Gino e Michele",
+    "Cochi e Renato",
+    "Franco e Ciccio"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "comici",
+    "musica"
+   ],
+   "notes": "Cochi Ponzoni e Renato Pozzetto, canzone del 1974",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale maschera romana è un giovane bullo, spaccone e fannullone?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "professore",
+   "answers": [
+    "Rugantino",
+    "Meneghino",
+    "Stenterello",
+    "Balanzone"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "teatro",
+    "maschere"
+   ],
+   "notes": "Rugantino, reso celebre dalla commedia musicale di Garinei e Giovannini (1962)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale ballerina milanese fu per decenni étoile della Scala, celebre in \"Giselle\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Carla Fracci",
+    "Alessandra Ferri",
+    "Liliana Cosi",
+    "Oriella Dorella"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "danza",
+    "teatro"
+   ],
+   "notes": "Carla Fracci (1936-2021)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi ha composto le musiche de \"Il fantasma dell'Opera\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Tim Rice",
+    "Andrew Lloyd Webber",
+    "Stephen Sondheim",
+    "Claude-Michel Schönberg"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "musical",
+    "musica"
+   ],
+   "notes": "Andrew Lloyd Webber, autore anche di Cats ed Evita",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Qual è il nome completo di Paperino in italiano?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Paolino Paperino",
+    "Pietro Paperino",
+    "Paolo Paperino",
+    "Pippo Paperino"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "trabocchetto"
+   ],
+   "notes": "Donald Duck in italiano è Paolino Paperino",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è originario zio Paperone?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Stati Uniti",
+    "Irlanda",
+    "Inghilterra",
+    "Scozia"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "trabocchetto"
+   ],
+   "notes": "Paperon de' Paperoni è nato a Glasgow, in Scozia",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale personaggio di \"Sesamo apriti\" vive in un bidone della spazzatura?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Elmo",
+    "Ernesto",
+    "Oscar",
+    "Grover"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "pupazzi",
+    "bambini"
+   ],
+   "notes": "Oscar il Brontolone, il pupazzo verde nel bidone",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale programma di Rai 3 monta dal 1989 spezzoni di altre trasmissioni?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Avanzi",
+    "Fuori orario",
+    "Mixer",
+    "Blob"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "rai",
+    "satira"
+   ],
+   "notes": "Blob, ideato da Enrico Ghezzi e Marco Giusti",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In che anno nacque la terza rete della Rai?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "1972",
+    "1979",
+    "1985",
+    "1990"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "storia della tv",
+    "rai"
+   ],
+   "notes": "Rete 3 iniziò le trasmissioni il 15 dicembre 1979",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In che anno il robot Goldrake arrivò per la prima volta sulla Rai?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "1970",
+    "1984",
+    "1990",
+    "1978"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "anime",
+    "storia della tv"
+   ],
+   "notes": "\"Atlas UFO Robot\" debuttò sulla Rete 2 il 4 aprile 1978",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il grande amore di Candy che muore cadendo da cavallo?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Terence",
+    "Albert",
+    "Anthony",
+    "Archie"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Anthony Brown muore durante una caccia alla volpe",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale ballerina nata in California divenne famosa in Italia con \"Disco bambina\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Lorella Cuccarini",
+    "Raffaella Carrà",
+    "Heather Parisi",
+    "Alessandra Martines"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "varietà",
+    "rai"
+   ],
+   "notes": "Heather Parisi, nata a Berkeley, star dei varietà Rai dal 1979",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "\"Ha da passà 'a nuttata\" è la battuta finale di quale commedia di Eduardo De Filippo?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Filumena Marturano",
+    "Natale in casa Cupiello",
+    "Napoli milionaria!",
+    "Sabato, domenica e lunedì"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "teatro",
+    "napoli"
+   ],
+   "notes": "Napoli milionaria! (1945), finale di Gennaro Jovine",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Brighella, servo furbo della commedia dell'arte, di quale città è originario?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "professore",
+   "answers": [
+    "Bergamo",
+    "Venezia",
+    "Napoli",
+    "Bologna"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "teatro",
+    "trabocchetto"
+   ],
+   "notes": "Brighella, come Arlecchino, è una maschera bergamasca",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che cosa diventa il Teatro Ariston di Sanremo quando non c'è il Festival?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Un cinema",
+    "Un casinò",
+    "Un teatro d'opera",
+    "Un palazzetto dello sport"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "sanremo",
+    "trabocchetto"
+   ],
+   "notes": "L'Ariston è anzitutto un cinema-teatro con più sale",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In che anno andò in onda il primo episodio de \"Il commissario Montalbano\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "1999",
+    "1994",
+    "2003",
+    "2006"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fiction",
+    "sicilia"
+   ],
+   "notes": "\"Il ladro di merendine\", trasmesso su Rai 2 il 6 maggio 1999",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quante edizioni del Festival di Sanremo ha condotto Pippo Baudo?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "13",
+    "9",
+    "11",
+    "15"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "sanremo",
+    "conduttori"
+   ],
+   "notes": "Pippo Baudo condusse 13 edizioni, dal 1968 al 2008: un record",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale annunciatrice apparve per prima sugli schermi Rai il 3 gennaio 1954?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Nicoletta Orsomando",
+    "Mariolina Cannuli",
+    "Fulvia Colombo",
+    "Rosanna Vaudetti"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "storia della tv",
+    "rai"
+   ],
+   "notes": "Fulvia Colombo annunciò l'inizio delle trasmissioni regolari",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attore fu Ulisse nello sceneggiato Rai \"Odissea\" del 1968?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Franco Nero",
+    "Rossano Brazzi",
+    "Kirk Douglas",
+    "Bekim Fehmiu"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "sceneggiati",
+    "storia della tv"
+   ],
+   "notes": "Il jugoslavo Bekim Fehmiu era Ulisse, Irene Papas Penelope; Kirk Douglas fu Ulisse nel film del 1954",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Nel titolo originale di Goldoni, come si chiama il \"servitore di due padroni\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "professore",
+   "answers": [
+    "Arlecchino",
+    "Truffaldino",
+    "Brighella",
+    "Pantalone"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "teatro",
+    "trabocchetto"
+   ],
+   "notes": "Goldoni scrisse di Truffaldino; Arlecchino entrò nel titolo con Strehler nel 1947",
+   "verified": false
+  }
+ ]
+}

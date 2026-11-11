@@ -1,0 +1,1112 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Di che colore è il cartellino che indica un'ammonizione nel calcio?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rosso",
+        "Giallo",
+        "Verde",
+        "Blu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "L'ammonizione si segnala con il cartellino giallo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città ospitò le Olimpiadi estive del 2000?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Atlanta",
+        "Atene",
+        "Sydney",
+        "Pechino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "I Giochi della XXVII Olimpiade si tennero a Sydney nel 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 2022, in Qatar?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Croazia",
+        "Brasile",
+        "Francia",
+        "Argentina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "L'Argentina battè la Francia ai rigori nella finale di Lusail",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fuoriclasse argentino vinse i Mondiali del 2022 da capitano?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sergio Agüero",
+        "Lionel Messi",
+        "Ángel Di María",
+        "Lautaro Martínez"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Messi alzò la Coppa del Mondo in Qatar il 18 dicembre 2022",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le Olimpiadi invernali del 2026 si sono tenute a Milano e in quale altra località?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sestriere",
+        "Courmayeur",
+        "Bormio",
+        "Cortina d'Ampezzo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Milano Cortina 2026 (Bormio e Livigno ospitarono alcune gare, ma il nome ufficiale è Milano Cortina)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si giocano gli Internazionali d'Italia di tennis?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Firenze",
+        "Milano",
+        "Roma",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis",
+        "italia"
+      ],
+      "notes": "Gli Internazionali d'Italia si giocano al Foro Italico di Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quanti quarti si divide una partita di pallacanestro?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Una partita di basket si gioca in quattro quarti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel basket, quanti punti vale un canestro segnato da oltre l'arco più lontano?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "basket",
+        "regole"
+      ],
+      "notes": "Il tiro da oltre la linea dei tre punti vale 3 punti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra sfida la Juventus nel \"derby della Mole\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Genoa",
+        "Torino",
+        "Inter",
+        "Milan"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il derby della Mole è Juventus-Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore della Roma era soprannominato \"er Pupone\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Giuseppe Giannini",
+        "Daniele De Rossi",
+        "Francesco Totti",
+        "Bruno Conti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "\"Er Pupone\" è il soprannome di Francesco Totti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiano raggiunse la finale di Wimbledon nel 2021?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Matteo Berrettini",
+        "Lorenzo Sonego",
+        "Fabio Fognini",
+        "Jannik Sinner"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "italia"
+      ],
+      "notes": "Berrettini perse la finale di Wimbledon 2021 contro Djokovic",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota italiano vinse il Mondiale MotoGP del 2022 con la Ducati?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Andrea Dovizioso",
+        "Francesco Bagnaia",
+        "Enea Bastianini",
+        "Marco Bezzecchi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motogp",
+        "italia"
+      ],
+      "notes": "\"Pecco\" Bagnaia riportò la Ducati al titolo dopo il 2007",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali squadre si sfidano nel \"derby della Lanterna\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Genoa e Sampdoria",
+        "Torino e Juventus",
+        "Milan e Inter",
+        "Lazio e Roma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La Lanterna è il faro di Genova: derby Genoa-Sampdoria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella pallavolo, come si chiama il difensore che indossa una maglia di colore diverso?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Opposto",
+        "Libero",
+        "Palleggiatore",
+        "Centrale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallavolo",
+        "regole"
+      ],
+      "notes": "Il libero è lo specialista della difesa con maglia di colore diverso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città italiana ha ospitato le ATP Finals di tennis nel 2021?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Bologna",
+        "Torino",
+        "Milano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis",
+        "italia"
+      ],
+      "notes": "Dal 2021 le ATP Finals si giocano al Pala Alpitour di Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 2018, in Russia?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Inghilterra",
+        "Belgio",
+        "Francia",
+        "Croazia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "La Francia battè la Croazia 4-2 a Mosca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota austriaco tornò a correre nel 1976, poche settimane dopo il terribile incidente del Nürburgring?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Niki Lauda",
+        "Jochen Rindt",
+        "Alexander Wurz",
+        "Gerhard Berger"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Niki Lauda tornò in pista a Monza 42 giorni dopo l'incidente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore della Juventus era soprannominato \"Pinturicchio\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roberto Baggio",
+        "Pavel Nedvěd",
+        "Michel Platini",
+        "Alessandro Del Piero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Fu l'avvocato Agnelli a chiamare Del Piero \"Pinturicchio\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 2010, in Sudafrica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Brasile",
+        "Olanda",
+        "Germania"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "La Spagna battè l'Olanda 1-0 nei supplementari (gol di Iniesta)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale portiere era il capitano dell'Italia campione del mondo nel 1982, a 40 anni?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ivano Bordon",
+        "Dino Zoff",
+        "Walter Zenga",
+        "Enrico Albertosi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Dino Zoff alzò la coppa a Madrid a 40 anni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale velocista italiano vinse l'oro olimpico nei 200 metri a Mosca 1980?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Stefano Tilli",
+        "Pietro Mennea",
+        "Livio Berruti",
+        "Carlo Simionato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Pietro Mennea, nato a Barletta, oro nei 200 a Mosca 1980",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore guidò il Napoli allo scudetto del 2023?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Antonio Conte",
+        "Luciano Spalletti",
+        "Maurizio Sarri",
+        "Carlo Ancelotti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Luciano Spalletti, poi diventato ct della nazionale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali di calcio del 2014, battendo l'Argentina in finale?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Brasile",
+        "Olanda",
+        "Germania"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Germania-Argentina 1-0, gol di Götze al Maracanã",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra è soprannominata \"la Beneamata\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Inter",
+        "Milan",
+        "Juventus"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "\"La Beneamata\" è un soprannome storico dell'Inter",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale difensore italiano vinse il Pallone d'oro nel 2006?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Alessandro Nesta",
+        "Fabio Cannavaro",
+        "Marco Materazzi",
+        "Paolo Maldini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Cannavaro, capitano campione del mondo, vinse il Pallone d'oro 2006",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale salita del Tour de France è famosa per i suoi 21 tornanti?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Tourmalet",
+        "Alpe d'Huez",
+        "Galibier",
+        "Mont Ventoux"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Ogni tornante dell'Alpe d'Huez porta il nome di un vincitore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa deriva il colore rosa della maglia del Giro d'Italia?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dalla bandiera di Milano",
+        "Dalle pagine della Gazzetta dello Sport",
+        "Da un omaggio alla regina",
+        "Dai fiori della Riviera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "La Gazzetta dello Sport, organizzatrice del Giro, è stampata su carta rosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale nome era noto in passato lo stadio Angelo Massimino di Catania?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "La Favorita",
+        "Celeste",
+        "San Filippo",
+        "Cibali"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Lo stadio si chiamava Cibali, dal quartiere; fu intitolato a Massimino nel 2002",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale stile nuotano quasi tutti gli atleti nelle gare di stile libero?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Farfalla",
+        "Rana",
+        "Crawl",
+        "Dorso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "nuoto",
+        "trabocchetto"
+      ],
+      "notes": "Lo stile libero permette ogni stile, ma tutti usano il crawl, il più veloce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante volte l'Italia ha ospitato le Olimpiadi invernali, contando Milano Cortina 2026?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "2",
+        "4",
+        "1"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Cortina 1956, Torino 2006 e Milano Cortina 2026",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno l'Italia vinse la Coppa Davis per la seconda volta, a Malaga?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "2021",
+        "2019",
+        "2017",
+        "2023"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis",
+        "italia"
+      ],
+      "notes": "Nel novembre 2023 l'Italia battè l'Australia in finale, 47 anni dopo il 1976",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Contro quale nazionale l'Italia perse ai rigori la semifinale dei Mondiali del 1990?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Argentina",
+        "Germania Ovest",
+        "Inghilterra",
+        "Brasile"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Italia-Argentina 1-1, poi rigori, al San Paolo di Napoli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse il suo unico scudetto nella stagione 1990-91?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cagliari",
+        "Lazio",
+        "Verona",
+        "Sampdoria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La Sampdoria di Vialli e Mancini vinse lo scudetto 1990-91",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana si giocò la Ryder Cup di golf nel 2023?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Venezia",
+        "Milano",
+        "Roma",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "golf",
+        "italia"
+      ],
+      "notes": "La Ryder Cup 2023 si giocò al Marco Simone Golf Club, vicino a Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era il capitano del Grande Torino degli anni Quaranta?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Guglielmo Gabetto",
+        "Ezio Loik",
+        "Valentino Mazzola",
+        "Silvio Piola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Valentino Mazzola, padre di Sandro, era il capitano del Grande Torino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale giornalista inventò soprannomi come \"Rombo di tuono\" e \"Abatino\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Indro Montanelli",
+        "Nicolò Carosio",
+        "Gianni Mura",
+        "Gianni Brera"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Gianni Brera coniò molti termini del calcio, tra cui \"Abatino\" per Rivera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore erano le prime maglie della Juventus, a fine Ottocento?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Rosa",
+        "Bianche e nere",
+        "Azzurre",
+        "Rosse"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "La Juventus giocò in rosa fino al 1903, poi adottò il bianconero ispirato al Notts County",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale \"golden goal\" la Francia battè l'Italia nella finale degli Europei del 2000?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Thierry Henry",
+        "David Trezeguet",
+        "Zinedine Zidane",
+        "Sylvain Wiltord"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "europei",
+        "trabocchetto"
+      ],
+      "notes": "Wiltord pareggiò al 94', Trezeguet segnò il golden goal ai supplementari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tuffatore italiano vinse tre ori olimpici consecutivi dalla piattaforma, dal 1968 al 1976?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Franco Cagnotto",
+        "Giorgio Cagnotto",
+        "Tommaso Marconi",
+        "Klaus Dibiasi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tuffi",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Klaus Dibiasi, oro a Città del Messico, Monaco e Montréal",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana vinse l'ultima Coppa delle Coppe, nel 1999?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sampdoria",
+        "Parma",
+        "Lazio",
+        "Fiorentina"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "coppe",
+        "italia"
+      ],
+      "notes": "La Lazio battè il Maiorca 2-1 a Birmingham nell'ultima edizione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città partiva e arrivava la storica corsa automobilistica Mille Miglia?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Brescia",
+        "Bologna",
+        "Milano",
+        "Modena"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motori",
+        "italia"
+      ],
+      "notes": "La Mille Miglia (1927-1957) partiva e arrivava a Brescia, passando per Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse il primo Giro d'Italia, nel 1909?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Costante Girardengo",
+        "Giovanni Gerbi",
+        "Luigi Ganna",
+        "Carlo Galetti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "italia"
+      ],
+      "notes": "Luigi Ganna vinse la prima edizione del Giro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse gli Europei del 1976, con il rigore \"a cucchiaio\" di Panenka?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Olanda",
+        "Jugoslavia",
+        "Cecoslovacchia",
+        "Germania Ovest"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Panenka segnò il rigore decisivo della finale contro la Germania Ovest a Belgrado",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale battè l'Italia nella finale dei Mondiali del 1938, a Parigi?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cecoslovacchia",
+        "Germania",
+        "Brasile",
+        "Ungheria"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Italia-Ungheria 4-2, secondo Mondiale consecutivo per gli azzurri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità era Herbert Kilpin, tra i fondatori del Milan nel 1899?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tedesca",
+        "Italiana",
+        "Svizzera",
+        "Inglese"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Kilpin, di Nottingham, fondò il Milan Foot-Ball and Cricket Club: per questo si chiama \"Milan\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale giocatore della Juventus vinse il Pallone d'oro nel 1961?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Omar Sívori",
+        "John Charles",
+        "Giampiero Boniperti",
+        "Gianni Rivera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Omar Sívori, italo-argentino, Pallone d'oro 1961",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse la prima 500 Miglia di Indianapolis, nel 1911?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Ralph DePalma",
+        "Louis Chevrolet",
+        "Ray Harroun",
+        "Jimmy Murphy"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "motori"
+      ],
+      "notes": "Ray Harroun vinse la prima edizione con la Marmon Wasp",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scuderia vinse il primo Mondiale costruttori di Formula 1, nel 1958?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Vanwall",
+        "Ferrari",
+        "Maserati",
+        "Cooper"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Il primo titolo costruttori andò alla britannica Vanwall",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti chilometri misura circa la Milano-Sanremo, la classica più lunga?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Quasi 300",
+        "Circa 200",
+        "Circa 150",
+        "Oltre 400"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "La Milano-Sanremo supera di solito i 290 km, la più lunga classica del calendario",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse la prima Coppa Italia di calcio, nel 1922?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Vado",
+        "Genoa",
+        "Pro Vercelli",
+        "Juventus"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "coppe",
+        "italia"
+      ],
+      "notes": "La prima Coppa Italia fu vinta dal Vado, squadra ligure",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1111 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale città ospitò le Olimpiadi estive del 2024?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Madrid",
+        "Londra",
+        "Parigi",
+        "Los Angeles"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Parigi 2024, cento anni dopo i Giochi del 1924",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale sport è diventato una leggenda Michael Jordan?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pallacanestro",
+        "Football americano",
+        "Golf",
+        "Baseball"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "basket",
+        "mondo"
+      ],
+      "notes": "Jordan vinse sei titoli NBA con i Chicago Bulls (giocò anche a baseball, ma per poco)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti game servono di solito per vincere un set di tennis?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "10",
+        "6",
+        "5"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "Si vince il set a 6 game con almeno due di scarto, o al tie-break sul 6 pari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori ha in campo ogni squadra nel beach volley?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "beach-volley"
+      ],
+      "notes": "Il beach volley si gioca due contro due",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore francese diede una testata a Materazzi nella finale dei Mondiali 2006?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Patrick Vieira",
+        "Franck Ribéry",
+        "Thierry Henry",
+        "Zinedine Zidane"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Zidane fu espulso nei supplementari della finale di Berlino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su quale superficie si gioca il torneo di Roland Garros?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Moquette",
+        "Cemento",
+        "Erba",
+        "Terra rossa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Il Roland Garros di Parigi si gioca sulla terra battuta rossa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale squadra NBA Michael Jordan vinse sei titoli?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Boston Celtics",
+        "Los Angeles Lakers",
+        "Detroit Pistons",
+        "Chicago Bulls"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "mondo"
+      ],
+      "notes": "Jordan vinse con i Bulls nel 1991-93 e nel 1996-98",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come è soprannominata la nazionale di rugby della Nuova Zelanda?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "All Blacks",
+        "Springboks",
+        "Wallabies",
+        "Pumas"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rugby",
+        "mondo"
+      ],
+      "notes": "Gli All Blacks, per la divisa tutta nera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel campionato di calcio, quanti punti vale una vittoria?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole"
+      ],
+      "notes": "Dalla stagione 1994-95 in Serie A la vittoria vale tre punti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il \"derby di Sicilia\" per eccellenza si gioca tra il Palermo e quale squadra?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Messina",
+        "Catania",
+        "Trapani",
+        "Siracusa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Palermo-Catania è il derby di Sicilia più sentito",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse a sorpresa gli Europei di calcio del 2004?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Grecia",
+        "Repubblica Ceca",
+        "Danimarca",
+        "Portogallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "La Grecia battè il Portogallo padrone di casa 1-0 in finale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il disco di gomma usato nell'hockey su ghiaccio?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bowl",
+        "Stone",
+        "Puck",
+        "Shuttle"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "hockey"
+      ],
+      "notes": "Il puck è il dischetto di gomma vulcanizzata dell'hockey su ghiaccio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi segnò l'ultimo rigore dell'Italia nella finale dei Mondiali del 2006?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Francesco Totti",
+        "Alessandro Del Piero",
+        "Fabio Grosso",
+        "Andrea Pirlo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Il rigore decisivo di Berlino lo segnò Fabio Grosso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come era soprannominata la nazionale USA di basket alle Olimpiadi di Barcellona 1992?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Super Team",
+        "Golden Team",
+        "Dream Team",
+        "All Stars"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "basket",
+        "olimpiadi"
+      ],
+      "notes": "Il primo \"Dream Team\" con Jordan, Magic Johnson e Larry Bird",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che colore ha lo sfondo dello stemma Ferrari con il cavallino rampante?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rosso",
+        "Bianco",
+        "Nero",
+        "Giallo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "f1",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Il cavallino nero è su sfondo giallo, colore della città di Modena",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale atleta afroamericano vinse quattro medaglie d'oro alle Olimpiadi di Berlino 1936?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Jesse Owens",
+        "Ralph Metcalfe",
+        "Carl Lewis",
+        "Joe Louis"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Owens vinse 100, 200, lungo e staffetta 4 per 100",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante palermitano fu capocannoniere dei Mondiali del 1990?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Aldo Serena",
+        "Roberto Baggio",
+        "Gianluca Vialli",
+        "Salvatore Schillaci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "sicilia"
+      ],
+      "notes": "\"Totò\" Schillaci, nato a Palermo, segnò 6 gol a Italia '90",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra vinse lo scudetto del 2023, il primo dopo quelli dell'era Maradona?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Inter",
+        "Milan",
+        "Napoli",
+        "Lazio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il Napoli di Spalletti vinse lo scudetto 2022-23, il terzo della sua storia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Prima dell'ingresso dell'Italia nel 2000, come si chiamava il torneo del Sei Nazioni?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Quattro Nazioni",
+        "Home Championship",
+        "Coppa d'Europa",
+        "Cinque Nazioni"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rugby",
+        "italia"
+      ],
+      "notes": "Il \"Cinque Nazioni\" divenne \"Sei Nazioni\" con l'Italia nel 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo del Catania calcio?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Aquila",
+        "Cavallo",
+        "Elefante",
+        "Lupo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "L'elefante (u Liotru) è simbolo di Catania e della sua squadra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno la nazionale italiana femminile di pallavolo vinse il primo oro olimpico?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "2016",
+        "2024",
+        "2000",
+        "2021"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pallavolo",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Le azzurre di Julio Velasco vinsero l'oro a Parigi 2024 battendo gli Stati Uniti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale è il simbolo del Palermo calcio?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Aquila",
+        "Delfino",
+        "Elefante",
+        "Leone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "L'aquila, dallo stemma della città: i giocatori rosanero sono detti \"le aquile\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per le strade di quale località si corre il Gran Premio di Monaco?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Mentone",
+        "Cannes",
+        "Monte Carlo",
+        "Nizza"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Il circuito cittadino del GP di Monaco attraversa Monte Carlo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra rimontò tre gol al Milan nella finale di Champions League del 2005, a Istanbul?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Barcellona",
+        "Liverpool",
+        "Manchester United",
+        "Chelsea"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "champions",
+        "italia"
+      ],
+      "notes": "Dallo 0-3 al 3-3, poi il Liverpool vinse ai rigori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fuoriclasse francese della Juventus vinse il Pallone d'oro tre volte di fila, dal 1983 al 1985?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Zinedine Zidane",
+        "Raymond Kopa",
+        "Just Fontaine",
+        "Michel Platini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "Platini vinse il Pallone d'oro nel 1983, 1984 e 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse i Mondiali del 1950, battendo il Brasile al Maracanã?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Uruguay",
+        "Spagna",
+        "Argentina",
+        "Svezia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "trabocchetto"
+      ],
+      "notes": "Il \"Maracanazo\": Uruguay-Brasile 2-1 nella partita decisiva",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale atleta italiana vinse l'oro nel salto in alto alle Olimpiadi di Mosca 1980?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Antonietta Di Martino",
+        "Sara Simeoni",
+        "Gabriella Dorio",
+        "Fiona May"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Sara Simeoni, oro a Mosca 1980",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale scuderia Michael Schumacher vinse i suoi primi due Mondiali di Formula 1?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Jordan",
+        "Williams",
+        "Benetton",
+        "Ferrari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1"
+      ],
+      "notes": "Schumacher vinse con la Benetton nel 1994 e nel 1995",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pugile italiano, oro olimpico a Roma 1960, fu poi campione mondiale dei pesi medi?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Duilio Loi",
+        "Sandro Mazzinghi",
+        "Primo Carnera",
+        "Nino Benvenuti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pugilato",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Nino Benvenuti, oro nei welter a Roma 1960, mondiale dei medi nel 1967",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore guidò il Milan alla vittoria della Coppa dei Campioni nel 1989?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Arrigo Sacchi",
+        "Fabio Capello",
+        "Carlo Ancelotti",
+        "Nils Liedholm"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "champions",
+        "italia"
+      ],
+      "notes": "Il Milan di Sacchi battè lo Steaua Bucarest 4-0 a Barcellona",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana si trova lo stadio Franco Scoglio?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Trapani",
+        "Agrigento",
+        "Siracusa",
+        "Messina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "sicilia"
+      ],
+      "notes": "Lo stadio San Filippo di Messina è intitolato all'allenatore Franco Scoglio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Contro quale pugile combatté Muhammad Ali nel \"Rumble in the Jungle\" del 1974?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sonny Liston",
+        "George Foreman",
+        "Joe Frazier",
+        "Ken Norton"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pugilato"
+      ],
+      "notes": "Ali battè Foreman per KO a Kinshasa, nell'allora Zaire",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, quanti punti servono come minimo per vincere un game?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "3",
+        "4",
+        "6"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "tennis",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "15, 30, 40 e game: servono almeno quattro punti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale allenatore argentino guidò la \"generazione di fenomeni\" della pallavolo italiana?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gian Paolo Montali",
+        "Carlo Parisi",
+        "Julio Velasco",
+        "Mauro Berruto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pallavolo",
+        "italia"
+      ],
+      "notes": "Velasco guidò la nazionale maschile campione del mondo nel 1990 e nel 1994",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse gli Europei del 1988, con il celebre gol al volo di Van Basten in finale?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Germania Ovest",
+        "Olanda",
+        "Unione Sovietica",
+        "Italia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "europei"
+      ],
+      "notes": "Olanda-URSS 2-0 a Monaco di Baviera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maratoneta italiano fu squalificato a Londra 1908 perché aiutato a tagliare il traguardo?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dorando Pietri",
+        "Ugo Frigerio",
+        "Abdon Pamich",
+        "Gelindo Bordin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "atletica",
+        "italia"
+      ],
+      "notes": "Dorando Pietri, sorretto dai giudici dopo essere crollato, fu squalificato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale barca l'Italia vinse la Louis Vuitton Cup nel 2000?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il Moro di Venezia",
+        "Luna Rossa",
+        "Azzurra",
+        "Mascalzone Latino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vela",
+        "italia"
+      ],
+      "notes": "Luna Rossa vinse la Louis Vuitton Cup 2000 e sfidò New Zealand in Coppa America",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Contro quale nazionale l'Italia perse la finale olimpica di basket del 2004, ad Atene?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Argentina",
+        "Stati Uniti",
+        "Lituania",
+        "Spagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "basket",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "L'Argentina di Ginóbili vinse l'oro, l'Italia l'argento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maratoneta italiano vinse l'oro olimpico a Seul nel 1988?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Gianni Poli",
+        "Gelindo Bordin",
+        "Stefano Baldini",
+        "Orlando Pizzolato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Gelindo Bordin, oro nella maratona di Seul 1988",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sciatore altoatesino vinse quattro Coppe del mondo generali negli anni Settanta?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Herbert Plank",
+        "Gustav Thöni",
+        "Erwin Stricker",
+        "Piero Gros"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sci",
+        "italia"
+      ],
+      "notes": "Thöni vinse la Coppa generale nel 1971, 1972, 1973 e 1975",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno la Lazio vinse il suo primo scudetto?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1974",
+        "2000",
+        "1982",
+        "1970"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La Lazio di Maestrelli e Chinaglia vinse lo scudetto 1973-74; il secondo nel 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si giocò la finale dei Mondiali del 1934, vinta dall'Italia?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Firenze",
+        "Milano",
+        "Torino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Italia-Cecoslovacchia 2-1 dopo i supplementari, allo stadio Nazionale di Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Contro quale squadra il Palermo perse la finale di Coppa Italia del 2011?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Inter",
+        "Juventus",
+        "Milan",
+        "Roma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "coppe",
+        "sicilia"
+      ],
+      "notes": "Inter-Palermo 3-1 allo stadio Olimpico di Roma",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista tedesca nel 1988 vinse tutti e quattro i tornei del Grande Slam e l'oro olimpico?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Monica Seles",
+        "Gabriela Sabatini",
+        "Martina Navrátilová",
+        "Steffi Graf"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tennis"
+      ],
+      "notes": "Il \"Golden Slam\" di Steffi Graf nel 1988",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ultima prova del decathlon?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "400 metri",
+        "Salto con l'asta",
+        "Lancio del giavellotto",
+        "1500 metri"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica"
+      ],
+      "notes": "Il decathlon si chiude con i 1500 metri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale campione italiano fu pagato dagli organizzatori per NON partecipare al Giro d'Italia del 1930?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Costante Girardengo",
+        "Alfredo Binda",
+        "Gino Bartali",
+        "Learco Guerra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Binda vinceva troppo: la Gazzetta gli pagò l'equivalente del premio per restare a casa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse il primo campionato del mondo di ciclismo su strada per professionisti, nel 1927?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Alfredo Binda",
+        "Costante Girardengo",
+        "Domenico Piemontesi",
+        "Learco Guerra"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "italia"
+      ],
+      "notes": "Binda vinse il primo Mondiale professionisti al Nürburgring nel 1927",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota vinse il primo Gran Premio di Formula 1 della Ferrari, a Silverstone nel 1951?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Luigi Villoresi",
+        "Alberto Ascari",
+        "Juan Manuel Fangio",
+        "José Froilán González"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "f1",
+        "italia"
+      ],
+      "notes": "Il 14 luglio 1951 González vinse il GP di Gran Bretagna con la Ferrari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale disciplina Pierre de Coubertin vinse una medaglia d'oro olimpica, nel 1912?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Equitazione",
+        "Letteratura",
+        "Tiro a segno",
+        "Scherma"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Coubertin vinse il concorso di letteratura di Stoccolma 1912 con l'\"Ode allo sport\", sotto pseudonimo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi vinse la prima Milano-Sanremo, nel 1907?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Eugène Christophe",
+        "Lucien Petit-Breton",
+        "Giovanni Gerbi",
+        "Luigi Ganna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Il francese Lucien Petit-Breton vinse la prima edizione",
+      "verified": false
+    }
+  ]
+}

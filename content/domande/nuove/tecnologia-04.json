@@ -1,0 +1,1072 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale piccolo mostro giallo elettrico è il più famoso dei Pokémon?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Charmander",
+        "Pikachu",
+        "Jigglypuff",
+        "Meowth"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Pikachu è la mascotte della serie Pokémon",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire essere online?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Essere connessi a Internet",
+        "Avere il telefono spento",
+        "Essere in fila",
+        "Stampare un documento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Online: collegati alla rete",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piccola telecamera si usa per farsi vedere nelle videochiamate dal computer?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Proiettore",
+        "Scanner",
+        "Microfono",
+        "Webcam"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "La webcam riprende chi sta davanti al computer",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gioco del serpentello che si allunga era famoso sui vecchi cellulari Nokia?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tetris",
+        "Pong",
+        "Snake",
+        "Space Invaders"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Snake era preinstallato sui Nokia dal 1997",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda sviluppa il sistema operativo Windows?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Apple",
+        "Microsoft",
+        "Google",
+        "IBM"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Windows è di Microsoft dal 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale mezzo pubblico corre su rotaie nelle strade della città, alimentato da fili elettrici?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tram",
+        "Filobus",
+        "Autobus",
+        "Funicolare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Il tram corre su rotaie; il filobus ha le gomme",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tasto lungo della tastiera serve a separare le parole?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Invio",
+        "Tab",
+        "Canc",
+        "Barra spaziatrice"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "È il tasto più lungo, in basso al centro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale apparecchio si usa per cambiare canale alla televisione dal divano?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Decoder",
+        "Antenna",
+        "Telecomando",
+        "Modem"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "Il telecomando invia segnali, di solito a infrarossi, al televisore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica il tachimetro di un'automobile?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il livello dell'olio",
+        "La velocità",
+        "La temperatura del motore",
+        "I giri del motore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il tachimetro segna la velocità; il contagiri i giri del motore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tecnologia senza fili collega di solito gli auricolari allo smartphone?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Bluetooth",
+        "Fibra ottica",
+        "Radar",
+        "Infrarossi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Gli auricolari wireless usano il Bluetooth",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve l'ABS delle automobili?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "A controllare la pressione delle gomme",
+        "A ridurre i consumi",
+        "A tenere la distanza dall'auto davanti",
+        "A non far bloccare le ruote in frenata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "sicurezza"
+      ],
+      "notes": "ABS: sistema antibloccaggio delle ruote",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formato di videocassetta vinse la guerra contro il Betamax?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Video 2000",
+        "DVD",
+        "VHS",
+        "Laserdisc"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "elettronica"
+      ],
+      "notes": "Il VHS di JVC prevalse sul Betamax di Sony negli anni Ottanta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la parola inglese wireless?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Senza rete",
+        "Senza fili",
+        "Ad alta velocità",
+        "Portatile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "parole"
+      ],
+      "notes": "Wire significa filo, less senza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica ha nel logo un tridente, ispirato alla fontana del Nettuno di Bologna?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Maserati",
+        "Alfa Romeo",
+        "Lancia",
+        "Ferrari"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Maserati nacque a Bologna nel 1914; il tridente fu disegnato da Mario Maserati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale unità di misura si esprime la potenza di un elettrodomestico?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Volt",
+        "Ampere",
+        "Ohm",
+        "Watt"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "La potenza si misura in watt, dal nome di James Watt",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città fu inaugurata nel 1863 la prima metropolitana del mondo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Parigi",
+        "New York",
+        "Londra",
+        "Budapest"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "La Metropolitan Railway aprì il 10 gennaio 1863",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le auto che hanno sia un motore a benzina sia uno elettrico?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Diesel",
+        "Ibride",
+        "A idrogeno",
+        "Turbo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Le auto ibride combinano motore termico ed elettrico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la pallina rosa dei videogiochi Nintendo che aspira i nemici?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Kirby",
+        "Yoshi",
+        "Toad",
+        "Jigglypuff"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Kirby esordì nel 1992 su Game Boy",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale chimico svedese inventò la dinamite?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Anders Celsius",
+        "Carl Linneo",
+        "Niels Bohr",
+        "Alfred Nobel"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Nobel brevettò la dinamite nel 1867",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale nazionalità era il conte Ferdinand von Zeppelin, padre dei dirigibili?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Austriaca",
+        "Svizzera",
+        "Tedesca",
+        "Olandese"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aviazione"
+      ],
+      "notes": "Zeppelin era tedesco, nato a Costanza nel 1838",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale unità si misura l'energia elettrica consumata, quella che si paga in bolletta?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Kilowatt",
+        "Kilowattora",
+        "Volt",
+        "Ampere"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "elettricità",
+        "trabocchetto"
+      ],
+      "notes": "Il kilowatt misura la potenza, il kilowattora l'energia consumata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è stato creato il videogioco Minecraft?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Svezia",
+        "Finlandia",
+        "Stati Uniti",
+        "Giappone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Minecraft fu creato dallo svedese Markus Persson (Mojang)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su una chiavetta USB, che cosa indicano le lettere GB?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gran Bretagna",
+        "Grande batteria",
+        "Gruppo base",
+        "Gigabyte"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "GB è il simbolo del gigabyte, unità di memoria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana fu aperta nel 1964 la linea rossa della metropolitana?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Torino",
+        "Milano",
+        "Napoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "La M1 di Milano fu inaugurata il 1 novembre 1964",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale lettera si indica il connettore USB reversibile dei telefoni moderni?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "A",
+        "C",
+        "B",
+        "Z"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "L'USB-C si inserisce in entrambi i versi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quali due parole nasce il nome modem?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Modulatore e demodulatore",
+        "Modulo e memoria",
+        "Motore e emittente",
+        "Monitor e media"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "reti"
+      ],
+      "notes": "Il modem modula e demodula il segnale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque il cellulare BlackBerry?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Stati Uniti",
+        "Finlandia",
+        "Giappone",
+        "Canada"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia",
+        "trabocchetto"
+      ],
+      "notes": "Prodotto da Research In Motion di Waterloo, in Ontario",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa portano a bordo le sonde Voyager come messaggio per eventuali alieni?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Una bandiera dell'ONU",
+        "Una statua",
+        "Un disco d'oro",
+        "Un libro di matematica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Il Golden Record, con suoni e immagini della Terra, lanciato nel 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale lingua viene l'allarme Mayday usato in aviazione?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Inglese",
+        "Francese",
+        "Tedesco",
+        "Spagnolo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aviazione",
+        "trabocchetto"
+      ],
+      "notes": "Da \"m'aider\" (aiutatemi), scelto nel 1923 a Londra-Croydon per il traffico con la Francia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola spam, per la posta indesiderata, è il nome di quale prodotto?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Carne in scatola",
+        "Detersivo",
+        "Sigarette",
+        "Gomma da masticare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "Spam è una carne in scatola, resa celebre da uno sketch dei Monty Python",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore serbo-americano sostenne la corrente alternata contro Edison?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Michael Faraday",
+        "Guglielmo Marconi",
+        "James Watt",
+        "Nikola Tesla"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "La \"guerra delle correnti\": Tesla e Westinghouse contro la corrente continua di Edison",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la navicella con cui Gagarin volò nello spazio nel 1961?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Soyuz",
+        "Mercury",
+        "Vostok",
+        "Gemini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Vostok 1, 12 aprile 1961; Mercury e Gemini erano americane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu inaugurato il Canale di Suez?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1825",
+        "1869",
+        "1889",
+        "1914"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Inaugurazione del 17 novembre 1869; il Canale di Panama è del 1914",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città piemontese aveva sede la Olivetti?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ivrea",
+        "Biella",
+        "Novara",
+        "Asti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aziende",
+        "italia"
+      ],
+      "notes": "La Olivetti fu fondata a Ivrea nel 1908 da Camillo Olivetti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu lanciato il telescopio spaziale James Webb?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "2015",
+        "2018",
+        "2024",
+        "2021"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Lanciato il 25 dicembre 2021 dalla Guyana francese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quale scoperta o invenzione Guglielmo Marconi vinse il premio Nobel nel 1909?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il telefono",
+        "La televisione",
+        "La telegrafia senza fili",
+        "Il radar"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "radio",
+        "italia"
+      ],
+      "notes": "Nobel per la fisica 1909, con Ferdinand Braun, per la telegrafia senza fili",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il modulo lunare dell'Apollo 11?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Columbia",
+        "Eagle",
+        "Falcon",
+        "Discovery"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "\"The Eagle has landed\": Eagle era il modulo lunare, Columbia quello di comando",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale traforo ferroviario aperto nel 1871 collega l'Italia alla Francia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Frejus",
+        "San Gottardo",
+        "Sempione",
+        "Monte Bianco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "Il traforo del Frejus fu inaugurato nel 1871; Gottardo e Sempione vanno in Svizzera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti aerei formano la pattuglia acrobatica delle Frecce Tricolori, solista compreso?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "7",
+        "9",
+        "12",
+        "10"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aviazione",
+        "italia"
+      ],
+      "notes": "Nove aerei in formazione più il solista",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale segno propose nel 1982 Scott Fahlman per indicare una battuta in un messaggio?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "La chiocciola",
+        "Il cancelletto",
+        "La faccina sorridente",
+        "Il punto esclamativo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Fahlman propose \":-)\" alla Carnegie Mellon il 19 settembre 1982",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore scozzese fece nel 1926 una delle prime dimostrazioni pubbliche della televisione?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Alexander Fleming",
+        "John Logie Baird",
+        "James Watt",
+        "James Clerk Maxwell"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "televisione"
+      ],
+      "notes": "Dimostrazione di Baird a Londra, 26 gennaio 1926",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda presentò nel 1994 il Simon, considerato il primo smartphone?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "IBM",
+        "Nokia",
+        "Motorola",
+        "Apple"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "L'IBM Simon Personal Communicator fu venduto dal 1994",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi inventò il grammofono a dischi piatti, brevettato nel 1887?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Thomas Edison",
+        "Alexander Bell",
+        "Heinrich Hertz",
+        "Emile Berliner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musica",
+        "invenzioni"
+      ],
+      "notes": "Berliner brevettò il grammofono nel 1887; Edison aveva il fonografo a cilindro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica introdusse nel 1959 la cintura di sicurezza a tre punti?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Saab",
+        "Mercedes-Benz",
+        "Volvo",
+        "Fiat"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "sicurezza"
+      ],
+      "notes": "Ideata da Nils Bohlin per Volvo, che lasciò libero il brevetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa in coreano il nome Samsung?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Grande montagna",
+        "Tre stelle",
+        "Nuova luce",
+        "Mare azzurro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aziende"
+      ],
+      "notes": "Sam (tre) e sung (stelle)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il batiscafo che nel 1960 scese sul fondo della Fossa delle Marianne?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Trieste",
+        "Nautilus",
+        "Calypso",
+        "Alvin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "navi"
+      ],
+      "notes": "Il Trieste di Auguste Piccard, costruito in parte a Trieste, scese il 23 gennaio 1960",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda giapponese creò Space Invaders nel 1978?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Namco",
+        "Konami",
+        "Capcom",
+        "Taito"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Space Invaders di Tomohiro Nishikado per Taito; Pac-Man è di Namco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava l'elettrotreno di lusso degli anni Cinquanta con il salottino panoramico in testa?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Pendolino",
+        "Frecciarossa",
+        "Settebello",
+        "Freccia del Sud"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "L'ETR 300 Settebello entrò in servizio nel 1953 sulla Roma-Milano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanto pesava il primo disco rigido, presentato dall'IBM nel 1956?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Circa un chilo",
+        "Circa una tonnellata",
+        "Circa dieci chili",
+        "Circa cento grammi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "L'IBM 350 del sistema RAMAC pesava circa 970 chili e conteneva circa 5 milioni di caratteri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantiere navale di Messina divenne famoso nel mondo per gli aliscafi?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Rodriquez",
+        "Orlando",
+        "Ansaldo",
+        "Odero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "navi",
+        "sicilia"
+      ],
+      "notes": "Il Cantiere Navale Rodriquez costruì aliscafi dagli anni Cinquanta",
+      "verified": false
+    }
+  ]
+}

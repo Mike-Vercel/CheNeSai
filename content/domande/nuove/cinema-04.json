@@ -1,0 +1,1102 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Che animale è Alex, il protagonista del film d'animazione \"Madagascar\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un leone",
+    "Una zebra",
+    "Un ippopotamo",
+    "Una giraffa"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "animazione",
+    "dreamworks"
+   ],
+   "notes": "Alex è il leone; Marty la zebra, Gloria l'ippopotamo, Melman la giraffa",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la principessa che sposa l'orco Shrek?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Aurora",
+    "Rapunzel",
+    "Fiona",
+    "Giselle"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "animazione",
+    "dreamworks"
+   ],
+   "notes": "La principessa Fiona, che di notte diventa un'orchessa",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta Harry Potter nella saga cinematografica?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Rupert Grint",
+    "Daniel Radcliffe",
+    "Tom Felton",
+    "Elijah Wood"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fantasy",
+    "saghe"
+   ],
+   "notes": "Daniel Radcliffe; Grint è Ron, Felton è Draco Malfoy",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Nel film Pixar \"Up\", con che cosa vola la casa del vecchio Carl?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Con un razzo",
+    "Con delle eliche",
+    "Con i palloncini",
+    "Con un dirigibile"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "pixar",
+    "animazione"
+   ],
+   "notes": "Migliaia di palloncini legati al camino (Up, 2009)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il mago che fa da maestro a Semola ne \"La spada nella roccia\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Jafar",
+    "Merlino",
+    "Silente",
+    "Gandalf"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Mago Merlino, film Disney del 1963",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il mago oscuro nemico di Harry Potter?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Saruman",
+    "Sauron",
+    "Voldemort",
+    "Jafar"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "fantasy",
+    "saghe"
+   ],
+   "notes": "Lord Voldemort; Saruman e Sauron sono del Signore degli Anelli",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale città della Costa Azzurra si tiene ogni maggio un celebre festival del cinema?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Nizza",
+    "Saint-Tropez",
+    "Antibes",
+    "Cannes"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "festival"
+   ],
+   "notes": "Il Festival di Cannes, dal 1946",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale frase ripete E.T. per dire che vuole tornare sul suo pianeta?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Telefono casa",
+    "Portami via",
+    "Voglio volare",
+    "Casa dolce casa"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fantascienza",
+    "battute"
+   ],
+   "notes": "\"E.T. telefono casa\", film di Spielberg del 1982",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale supereroe con il mantello rosso viene dal pianeta Krypton?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Batman",
+    "Superman",
+    "Thor",
+    "Flash"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "supereroi"
+   ],
+   "notes": "Superman, nato Kal-El su Krypton",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Le canzoni del film musicale \"Mamma mia!\" sono di quale gruppo?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Bee Gees",
+    "Queen",
+    "Boney M.",
+    "ABBA"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "musical",
+    "musica"
+   ],
+   "notes": "Il film del 2008 è costruito sui successi degli ABBA",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il panda protagonista di \"Kung Fu Panda\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Ping",
+    "Shifu",
+    "Tai Lung",
+    "Po"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "animazione",
+    "dreamworks"
+   ],
+   "notes": "Po; Ping è il papà oca, Shifu il maestro, Tai Lung il cattivo",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Ne \"Il mago di Oz\", che cosa chiede al mago lo Spaventapasseri?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Un cervello",
+    "Un cuore",
+    "Il coraggio",
+    "Una casa"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "classici",
+    "fantasy"
+   ],
+   "notes": "Lo Spaventapasseri vuole un cervello, l'Uomo di latta un cuore, il Leone il coraggio",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta Mary Poppins nel film Disney del 1964?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Audrey Hepburn",
+    "Julie Andrews",
+    "Judy Garland",
+    "Debbie Reynolds"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "musical"
+   ],
+   "notes": "Julie Andrews vinse l'Oscar come miglior attrice",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Notting Hill\", che negozio gestisce il personaggio di Hugh Grant?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Un bar",
+    "Una libreria",
+    "Un fioraio",
+    "Un negozio di antiquariato"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "commedia",
+    "romantici"
+   ],
+   "notes": "William Thacker gestisce una piccola libreria di viaggi",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di quale disturbo soffre re Giorgio VI nel film \"Il discorso del re\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Balbuzie",
+    "Sordità",
+    "Insonnia",
+    "Amnesia"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "biografie",
+    "oscar"
+   ],
+   "notes": "Colin Firth vinse l'Oscar 2011 come il re balbuziente",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale film di Christopher Nolan vinse l'Oscar come miglior film nel 2024?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Oppenheimer",
+    "Dunkirk",
+    "Tenet",
+    "Interstellar"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "oscar",
+    "nolan"
+   ],
+   "notes": "Oppenheimer vinse 7 Oscar nel 2024, tra cui miglior film e regia",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta la direttrice Miranda Priestly ne \"Il diavolo veste Prada\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Glenn Close",
+    "Helen Mirren",
+    "Anne Hathaway",
+    "Meryl Streep"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "commedia",
+    "moda"
+   ],
+   "notes": "Meryl Streep; Anne Hathaway è l'assistente Andy",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Cast Away\", chi diventa l'unico amico di Tom Hanks sull'isola deserta?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Un cane",
+    "Un pappagallo",
+    "Un pallone da pallavolo",
+    "Una scimmia"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "hollywood",
+    "avventura"
+   ],
+   "notes": "Il pallone Wilson, a cui il naufrago disegna una faccia",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Gremlins\", dopo quale ora non bisogna mai dare da mangiare a Gizmo?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Mezzogiorno",
+    "Le dieci di sera",
+    "L'alba",
+    "Mezzanotte"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "horror",
+    "commedia"
+   ],
+   "notes": "Le tre regole: niente luce, niente acqua, niente cibo dopo mezzanotte",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il gigantesco wookiee peloso compagno di Han Solo?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Chewbecca",
+    "Yoda",
+    "Jabba",
+    "Lando"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "star wars",
+    "fantascienza"
+   ],
+   "notes": "Chewbecca, copilota del Millennium Falcon",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Rocket, il combattivo membro dei \"Guardiani della Galassia\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Una volpe",
+    "Un procione",
+    "Un furetto",
+    "Un tasso"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "supereroi",
+    "marvel"
+   ],
+   "notes": "Rocket è un procione modificato geneticamente, anche se odia sentirselo dire",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attore toscano dirige e interpreta il film \"Il ciclone\" (1996)?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Carlo Verdone",
+    "Christian De Sica",
+    "Leonardo Pieraccioni",
+    "Massimo Boldi"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Il ciclone di e con Leonardo Pieraccioni, ambientato nel Valdarno",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Zootropolis\", che animale è la poliziotta Judy Hopps?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Una volpe",
+    "Una gatta",
+    "Una coniglietta",
+    "Una pecora"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Judy Hopps è una coniglietta; il suo socio Nick Wilde è una volpe",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film corale Hugh Grant è un primo ministro britannico innamorato?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Notting Hill",
+    "Love Actually",
+    "Il diario di Bridget Jones",
+    "Quattro matrimoni e un funerale"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "commedia",
+    "romantici"
+   ],
+   "notes": "Love Actually (2003) di Richard Curtis, ambientato nel periodo natalizio",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Ne \"La vita è bella\", quale premio crede di poter vincere il piccolo Giosuè?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Una bicicletta",
+    "Un cavallo",
+    "Un carro armato",
+    "Un aeroplano"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cinema italiano",
+    "benigni"
+   ],
+   "notes": "Il padre gli fa credere che il primo premio del \"gioco\" sia un carro armato vero",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il pianeta desertico dove cresce Luke Skywalker?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Tatooine",
+    "Naboo",
+    "Hoth",
+    "Endor"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "star wars",
+    "fantascienza"
+   ],
+   "notes": "Tatooine, pianeta con due soli",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Su quale ponte di Roma le coppie appendevano i lucchetti dopo il film \"Ho voglia di te\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Ponte Sisto",
+    "Ponte Sant'Angelo",
+    "Ponte Garibaldi",
+    "Ponte Milvio"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "roma"
+   ],
+   "notes": "Dal romanzo di Federico Moccia; i lucchetti sul lampione di Ponte Milvio (2007)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Ritorno al futuro\", come si chiama il cane di Doc Brown nel 1985?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Newton",
+    "Galileo",
+    "Tesla",
+    "Einstein"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fantascienza",
+    "hollywood"
+   ],
+   "notes": "Einstein è il primo viaggiatore nel tempo della DeLorean",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il candelabro parlante de \"La bella e la bestia\" Disney?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Lumière",
+    "Tockins",
+    "Chicco",
+    "Mrs. Bric"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Lumière il candelabro; Tockins l'orologio, Mrs. Bric la teiera, Chicco la tazzina",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "A quale tragedia di Shakespeare si ispira \"Il re leone\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "professore",
+   "answers": [
+    "Macbeth",
+    "Amleto",
+    "Re Lear",
+    "Otello"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "letteratura"
+   ],
+   "notes": "Lo zio che uccide il re e il figlio che deve vendicarlo: è la trama di Amleto",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale Paese furono girate gran parte delle scene dei western di Sergio Leone?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Messico",
+    "Marocco",
+    "Spagna",
+    "Grecia"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "western",
+    "sergio leone"
+   ],
+   "notes": "Nel deserto di Tabernas, ad Almería, in Spagna",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale film vinse il Leone d'oro alla Mostra di Venezia nel 2019?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Roma",
+    "Parasite",
+    "Nomadland",
+    "Joker"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "festival",
+    "venezia"
+   ],
+   "notes": "Joker di Todd Phillips, con Joaquin Phoenix; Roma vinse nel 2018, Nomadland nel 2020",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale monumento scopre Charlton Heston nel finale de \"Il pianeta delle scimmie\" (1968)?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "La Torre Eiffel",
+    "Il Colosseo",
+    "Il Big Ben",
+    "La Statua della Libertà"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fantascienza",
+    "trabocchetto"
+   ],
+   "notes": "La statua semisepolta rivela che il pianeta è la Terra del futuro",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta Cleopatra nel kolossal del 1963?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Sophia Loren",
+    "Elizabeth Taylor",
+    "Ava Gardner",
+    "Gina Lollobrigida"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "hollywood",
+    "kolossal"
+   ],
+   "notes": "Cleopatra di Joseph L. Mankiewicz, girato in gran parte a Cinecittà",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale città austriaca è ambientato \"Tutti insieme appassionatamente\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Vienna",
+    "Salisburgo",
+    "Innsbruck",
+    "Graz"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "musical",
+    "hollywood"
+   ],
+   "notes": "The Sound of Music (1965), con Julie Andrews, si svolge a Salisburgo",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Viaggi di nozze\", come si chiama il coatto romano che dice \"O famo strano\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Raniero",
+    "Ivano",
+    "Furio",
+    "Mimmo"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cinema italiano",
+    "verdone"
+   ],
+   "notes": "Ivano, con la moglie Jessica (Claudia Gerini), film di Verdone del 1995",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale sport Bud Spencer fu campione italiano prima di diventare attore?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Pugilato",
+    "Atletica",
+    "Ciclismo",
+    "Nuoto"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "sport"
+   ],
+   "notes": "Carlo Pedersoli, primo italiano sotto il minuto nei 100 stile libero; partecipò alle Olimpiadi del 1952 e 1956",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quanti Oscar per la recitazione vinse \"Titanic\" (1997)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Uno",
+    "Due",
+    "Nessuno",
+    "Tre"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "oscar",
+    "trabocchetto"
+   ],
+   "notes": "Titanic vinse 11 Oscar ma nessuno per gli attori: Kate Winslet e Gloria Stuart erano solo candidate",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quanti Oscar vinse Ennio Morricone in gara per una colonna sonora?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Due",
+    "Tre",
+    "Cinque",
+    "Uno"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "oscar",
+    "trabocchetto"
+   ],
+   "notes": "Solo per The Hateful Eight (2016); nel 2007 ricevette l'Oscar onorario alla carriera",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Il film \"Roma\" di Alfonso Cuarón (2018) è ambientato in quale città?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Roma",
+    "Madrid",
+    "Città del Messico",
+    "Buenos Aires"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "festival",
+    "trabocchetto"
+   ],
+   "notes": "Il titolo viene dal quartiere Roma di Città del Messico",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di quale nazionalità è il regista James Cameron?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Statunitense",
+    "Britannica",
+    "Canadese",
+    "Australiana"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "hollywood",
+    "trabocchetto"
+   ],
+   "notes": "James Cameron è nato in Ontario, Canada, nel 1954",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di che materiale sono fatte oggi le statuette degli Oscar?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Bronzo dorato",
+    "Oro massiccio",
+    "Argento dorato",
+    "Ottone"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "oscar",
+    "trabocchetto"
+   ],
+   "notes": "Bronzo placcato in oro 24 carati (dal 2016); non sono d'oro massiccio",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Con quale film del 1992 Quentin Tarantino esordì alla regia?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Jackie Brown",
+    "Le iene",
+    "Dal tramonto all'alba",
+    "Pulp Fiction"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "tarantino"
+   ],
+   "notes": "Reservoir Dogs (Le iene, 1992); Dal tramonto all'alba è di Robert Rodriguez",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale divo del cinema muto hollywoodiano era nato a Castellaneta, in Puglia?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Rodolfo Valentino",
+    "Frank Capra",
+    "Lon Chaney",
+    "Douglas Fairbanks"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema muto",
+    "italiani a hollywood"
+   ],
+   "notes": "Rodolfo Valentino, nato a Castellaneta nel 1895",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film Silvana Mangano è una mondina nelle risaie del Vercellese?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Riso amaro",
+    "Anna",
+    "Mambo",
+    "Il processo di Verona"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "neorealismo",
+    "cinema italiano"
+   ],
+   "notes": "Riso amaro (1949) di Giuseppe De Santis",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale regista diresse \"Mimì metallurgico ferito nell'onore\" (1972)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Lina Wertmüller",
+    "Liliana Cavani",
+    "Pietro Germi",
+    "Ettore Scola"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Lina Wertmüller, con Giancarlo Giannini",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In che anno fu inaugurata Cinecittà a Roma?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "professore",
+   "answers": [
+    "1937",
+    "1925",
+    "1948",
+    "1955"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "storia del cinema",
+    "roma"
+   ],
+   "notes": "Gli studi furono inaugurati il 28 aprile 1937",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale fu il primo film sonoro italiano, uscito nel 1930?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "professore",
+   "answers": [
+    "Cabiria",
+    "Gli uomini, che mascalzoni...",
+    "Scipione l'Africano",
+    "La canzone dell'amore"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "storia del cinema"
+   ],
+   "notes": "La canzone dell'amore di Gennaro Righelli (1930)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di quale film di Kurosawa \"Per un pugno di dollari\" è un rifacimento non autorizzato?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Rashomon",
+    "I sette samurai",
+    "La sfida del samurai",
+    "Il trono di sangue"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "western",
+    "sergio leone"
+   ],
+   "notes": "Leone rifece Yojimbo (1961); Kurosawa fece causa e la vinse",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice vinse quattro Oscar come protagonista, l'ultimo nel 1982?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Bette Davis",
+    "Katharine Hepburn",
+    "Ingrid Bergman",
+    "Meryl Streep"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "oscar",
+    "hollywood"
+   ],
+   "notes": "Katharine Hepburn: 1934, 1968, 1969 e 1982 (Sul lago dorato)",
+   "verified": false
+  }
+ ]
+}

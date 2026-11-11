@@ -1,0 +1,1069 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"tagliare la corda\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Smettere di lavorare",
+        "Rompere un'amicizia",
+        "Litigare",
+        "Scappare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Tagliare la corda: andarsene di nascosto, svignarsela",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere al settimo cielo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere felicissimi",
+        "Essere molto religiosi",
+        "Abitare all'ultimo piano",
+        "Essere distratti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Essere al settimo cielo: al massimo della felicità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"L'erba del vicino è sempre più…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Verde",
+        "Bella",
+        "Fresca",
+        "Alta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "L'erba del vicino è sempre più verde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Can che abbaia non…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Scappa",
+        "Morde",
+        "Mangia",
+        "Dorme"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Can che abbaia non morde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"acerbo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Maturo",
+        "Verde",
+        "Marcio",
+        "Fresco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "contrari"
+      ],
+      "notes": "Acerbo: non ancora maturo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un sinonimo di \"esausto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Arrabbiato",
+        "Sfinito",
+        "Affamato",
+        "Annoiato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sinonimi"
+      ],
+      "notes": "Esausto: sfinito, privo di forze",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"tallone d'Achille\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Grande forza",
+        "Punto debole",
+        "Piede veloce",
+        "Ferita di guerra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire",
+        "mitologia"
+      ],
+      "notes": "Achille era invulnerabile tranne che nel tallone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il segno formato da un punto sopra una virgola?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Due punti",
+        "Punto e virgola",
+        "Punto esclamativo",
+        "Apostrofo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "punteggiatura"
+      ],
+      "notes": "Il punto e virgola è un punto sovrapposto a una virgola",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un pronome personale?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Bene",
+        "Questo",
+        "Nostro",
+        "Noi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Noi è pronome personale; nostro è possessivo, questo dimostrativo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive il nome del luogo dove decollano e atterrano gli aerei?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Aereoporto",
+        "Aeroporto",
+        "Aeriporto",
+        "Areoporto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Aeroporto, da aero- (aria) e porto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive correttamente l'avverbio che significa \"più di tutto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Soprattutto",
+        "Sopprattutto",
+        "Sopratuto",
+        "Sopratutto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Soprattutto, con raddoppiamento della t (sopra + tutto)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi monosillabi si scrive con l'accento?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Più",
+        "Blu",
+        "Tre",
+        "Qui"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Più vuole l'accento; blu, tre e qui no (tre sì solo nei composti come ventitré)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa: \"Voglio che tu … subito qui\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Vieni",
+        "Verrai",
+        "Venissi",
+        "Venga"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi",
+        "congiuntivo"
+      ],
+      "notes": "Volere che regge il congiuntivo: voglio che tu venga",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"roccia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Roccie",
+        "Rocce",
+        "Rocchie",
+        "Rocci"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Nomi in -cia con consonante prima perdono la i: roccia, rocce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"la gru\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "I gru",
+        "Le grua",
+        "Le grui",
+        "Le gru"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "trabocchetto"
+      ],
+      "notes": "Gru, monosillabo, è invariabile e senza accento: le gru",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"celibe\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Celiba",
+        "Sposata",
+        "Celibessa",
+        "Nubile"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "Celibe è l'uomo non sposato, nubile la donna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"vivere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Vivei",
+        "Vivii",
+        "Vissi",
+        "Vivetti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Vivere: io vissi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere le mani in pasta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Essere disordinati",
+        "Fare il pane",
+        "Essere pigri",
+        "Essere coinvolti in un affare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere le mani in pasta: essere dentro una faccenda, conoscerla bene",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi semina vento raccoglie…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tempesta",
+        "Grandine",
+        "Polvere",
+        "Pioggia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi semina vento raccoglie tempesta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"lapsus\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Errore involontario",
+        "Gesto di saluto",
+        "Lunga assenza",
+        "Breve pausa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Lapsus: errore involontario nel parlare o nello scrivere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"obsoleto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Nascosto",
+        "Ostinato",
+        "Molto pesante",
+        "Superato, fuori uso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Obsoleto: antiquato, non più in uso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un sinonimo di \"esiguo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Elegante",
+        "Scarso",
+        "Antico",
+        "Abbondante"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sinonimi"
+      ],
+      "notes": "Esiguo: scarso, di piccola entità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In milanese, che cosa vuol dire \"sciura\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sposa",
+        "Sorella",
+        "Suocera",
+        "Signora"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dialetti"
+      ],
+      "notes": "Sciura: signora (la sciura milanese)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale film di Fellini viene la parola \"paparazzo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Amarcord",
+        "La dolce vita",
+        "I vitelloni",
+        "La strada"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia",
+        "cinema"
+      ],
+      "notes": "Paparazzo è il fotografo de La dolce vita (1960)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"travagghiari\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Travolgere",
+        "Viaggiare",
+        "Lavorare",
+        "Litigare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Travagghiari: lavorare (travagghiu, lavoro)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"abbiente\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Abituale",
+        "Bisognoso",
+        "Benestante",
+        "Abitante"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Abbiente: che possiede beni, benestante (i non abbienti sono i poveri)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Scrivendo in lettere il numero 23, che segno va sulla e finale?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "L'accento grave",
+        "L'apostrofo",
+        "Nessun segno",
+        "L'accento acuto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Ventitré vuole l'accento acuto, come perché e né (Crusca)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"capolavoro\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Capilavori",
+        "Capolavora",
+        "Capilavoro",
+        "Capolavori"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Capolavoro, plurale capolavori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"difendere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Difeso",
+        "Difendito",
+        "Difesto",
+        "Difenduto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Difendere: difeso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"ineffabile\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Che non si può toccare",
+        "Che non si può esprimere a parole",
+        "Che non sbaglia mai",
+        "Che non si può mangiare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Ineffabile: indicibile, che non si può descrivere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è, per antonomasia, un \"azzeccagarbugli\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Un medico incapace",
+        "Un sarto pasticcione",
+        "Un avvocato imbroglione",
+        "Un oste chiacchierone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire",
+        "letteratura"
+      ],
+      "notes": "Dal dottor Azzecca-garbugli dei Promessi sposi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare il pesce in barile\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bere moltissimo",
+        "Parlare a vanvera",
+        "Fingere indifferenza per non esporsi",
+        "Stare stretti in un posto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare il pesce in barile: non prendere posizione, fare finta di niente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"conditio sine qua non\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Condizione indispensabile",
+        "Condizione impossibile",
+        "Senza condizioni",
+        "Condizione provvisoria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Condizione senza la quale non si può",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove cade l'accento nella parola \"leccornia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sulla o",
+        "Sulla a",
+        "Sulla e",
+        "Sulla i"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pronuncia",
+        "trabocchetto"
+      ],
+      "notes": "Si pronuncia leccornìa (DOP, Treccani)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale insetto \"frinisce\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Zanzara",
+        "Mosca",
+        "Cicala",
+        "Ape"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Frinire è il verso della cicala (e del grillo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Mosca?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Moscani",
+        "Moscoviti",
+        "Moscovesi",
+        "Moschini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "demonimi"
+      ],
+      "notes": "Mosca: moscoviti (Treccani, moscovita)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché settembre si chiama così, pur essendo il nono mese?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Era il settimo del calendario romano più antico",
+        "Ha sette giorni di festa",
+        "Prende il nome da un imperatore",
+        "Dura sette settimane"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "L'anno romano più antico iniziava a marzo: september era il settimo mese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Esco perché piove\", che cos'è \"perché\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un pronome",
+        "Un avverbio",
+        "Una congiunzione",
+        "Una preposizione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Perché introduce una causale: congiunzione subordinante",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Acerrimo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Aspro",
+        "Acre",
+        "Acerbo",
+        "Acuto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superlativi"
+      ],
+      "notes": "Acre, superlativo acerrimo (acerrimo nemico)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"inveterato\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Radicato da molto tempo",
+        "Disonesto",
+        "Velenoso",
+        "Arrabbiato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Inveterato: radicato, ormai abituale (un vizio inveterato)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è un \"Carneade\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Una persona sconosciuta",
+        "Un uomo molto coraggioso",
+        "Un uomo crudele",
+        "Un grande mangiatore di carne"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire",
+        "letteratura"
+      ],
+      "notes": "Promessi sposi: \"Carneade! Chi era costui?\" si chiede don Abbondio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama una serie di parole disposte in intensità crescente?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Anafora",
+        "Ossimoro",
+        "Climax",
+        "Chiasmo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Climax: gradazione ascendente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Caltagirone?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Nisseni",
+        "Modicani",
+        "Calatini",
+        "Netini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "demonimi",
+        "sicilia"
+      ],
+      "notes": "Caltagirone: calatini (Noto netini, Caltanissetta nisseni, Modica modicani)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome la lavagna?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Dal suo inventore",
+        "Da un dio romano",
+        "Da una cittadina ligure",
+        "Da un'antica scuola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Treccani: dalla città di Lavagna (Genova), dove si cavava l'ardesia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le virgolette basse a forma di doppia freccia?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Uncinate",
+        "Caporali",
+        "Apici",
+        "Graffe"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "punteggiatura"
+      ],
+      "notes": "Le virgolette basse « » si chiamano anche caporali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"annacarisi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Arrabbiarsi",
+        "Annoiarsi",
+        "Annegare",
+        "Dondolarsi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Annacari è cullare, dondolare; annacarisi è dondolarsi, ancheggiare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"geremiade\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Una festa religiosa",
+        "Una lunga marcia",
+        "Una lunga e noiosa lamentela",
+        "Un elenco di nomi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Dalle Lamentazioni del profeta Geremia: piagnisteo lungo e noioso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il griko, varietà di greco, si parla nel Salento e in quale altra regione?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Basilicata",
+        "Calabria",
+        "Campania",
+        "Sicilia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "minoranze"
+      ],
+      "notes": "Il griko è parlato nella Grecìa salentina e nell'area di Bova, in Calabria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"stentorea\", detto di una voce?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sottile",
+        "Tremolante",
+        "Potentissima",
+        "Rauca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Da Stentore, guerriero omerico dalla voce fortissima",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Saluberrimo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Salubre",
+        "Salato",
+        "Saldo",
+        "Salino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superlativi"
+      ],
+      "notes": "Salubre, superlativo saluberrimo",
+      "verified": false
+    }
+  ]
+}

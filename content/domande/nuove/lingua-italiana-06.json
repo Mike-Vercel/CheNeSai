@@ -1,0 +1,1066 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"darsi la zappa sui piedi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Cambiare lavoro",
+        "Lavorare la terra",
+        "Danneggiarsi da soli",
+        "Inciampare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Darsi la zappa sui piedi: fare il proprio danno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"non avere peli sulla lingua\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Essere sempre zitti",
+        "Mentire spesso",
+        "Parlare con franchezza",
+        "Mangiare poco"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Non avere peli sulla lingua: dire apertamente ciò che si pensa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"A caval donato non si guarda in…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Faccia",
+        "Groppa",
+        "Bocca",
+        "Coda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "A caval donato non si guarda in bocca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"L'abito non fa il…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Prete",
+        "Signore",
+        "Sarto",
+        "Monaco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "L'abito non fa il monaco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"mea culpa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Per mia colpa",
+        "Colpa di tutti",
+        "È colpa tua",
+        "Senza colpa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Mea culpa: per mia colpa, dal Confiteor",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il verso del maiale?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Belato",
+        "Grugnito",
+        "Muggito",
+        "Raglio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Il maiale grugnisce; l'asino raglia, il bue muggisce, la pecora bela",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"cadere dalle nuvole\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Fare un brutto volo",
+        "Avere paura di volare",
+        "Essere molto alti",
+        "Essere colti di sorpresa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Cadere dalle nuvole: mostrarsi stupiti, ignari di qualcosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"sudare sette camicie\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Faticare moltissimo",
+        "Vestirsi elegante",
+        "Cambiarsi spesso",
+        "Avere la febbre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Sudare sette camicie: fare una gran fatica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"aprire\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Aprito",
+        "Aprato",
+        "Apruto",
+        "Aperto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Aprire: aperto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"rimanere di stucco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Restare sbalorditi",
+        "Restare immobili per il freddo",
+        "Restare zitti per rabbia",
+        "Diventare muratori"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Rimanere di stucco: restare impietriti per la sorpresa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive correttamente?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "D'acordo",
+        "D'accordo",
+        "Dacordo",
+        "Daccordo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "D'accordo, con l'apostrofo (di + accordo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Al maschile, come si scrive l'articolo un davanti alla parola altro?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Con l'apostrofo",
+        "Unito alla parola",
+        "Con l'accento",
+        "Senza apostrofo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ortografia",
+        "apostrofo"
+      ],
+      "notes": "Al maschile un non si apostrofa: un altro; al femminile sì: un'altra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quando la parola \"si\" vuole l'accento?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mai",
+        "Quando è una nota musicale",
+        "Quando è un pronome",
+        "Quando è un'affermazione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Sì avverbio di affermazione vuole l'accento; si pronome e nota no",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"cassaforte\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Casseforte",
+        "Cassiforti",
+        "Cassaforti",
+        "Casseforti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Cassaforte (nome + aggettivo): si pluralizzano entrambi, casseforti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che genere è la parola \"pigiama\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Neutro",
+        "Maschile",
+        "Femminile",
+        "Maschile e femminile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "genere",
+        "trabocchetto"
+      ],
+      "notes": "Il pigiama: maschile nonostante la -a",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"zar\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Zarra",
+        "Zarina",
+        "Zara",
+        "Zaressa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "Zar, femminile zarina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"fare\" alla seconda persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Facisti",
+        "Fasti",
+        "Facesti",
+        "Facessi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Fare: tu facesti (facessi è congiuntivo imperfetto)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'avverbio che si forma da \"leggero\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Leggiamente",
+        "Leggeromente",
+        "Leggeramente",
+        "Leggermente"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Gli aggettivi in -ro perdono la vocale davanti a -mente: leggermente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere nato con la camicia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Essere freddolosi",
+        "Essere precisi",
+        "Essere eleganti",
+        "Essere fortunati"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Nato con la camicia: fortunato (dalla membrana amniotica che talvolta avvolge il neonato)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Moglie e buoi dei paesi…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tuoi",
+        "Lontani",
+        "Nostri",
+        "Vicini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Moglie e buoi dei paesi tuoi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste lettere non fa parte dell'alfabeto italiano tradizionale?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Z",
+        "H",
+        "Q",
+        "K"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "L'alfabeto italiano ha 21 lettere: J, K, W, X, Y sono straniere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"anacronistico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fuori dal proprio tempo",
+        "Malato da tempo",
+        "Senza nome",
+        "Molto lento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Anacronistico: non conforme all'epoca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi verbi è intransitivo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Comprare",
+        "Arrivare",
+        "Leggere",
+        "Vedere"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Arrivare non regge un complemento oggetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica c'è in \"forte come un leone\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Similitudine",
+        "Iperbole",
+        "Metafora",
+        "Litote"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Il \"come\" esplicito fa della frase una similitudine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"nicu\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nemico",
+        "Piccolo",
+        "Nido",
+        "Nero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Nicu: piccolo (picciriddu nicu, bambino piccolo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Una rivista bimestrale esce…?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ogni due settimane",
+        "Ogni due mesi",
+        "Due volte al mese",
+        "Due volte l'anno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Bimestrale: ogni due mesi; due volte al mese è bimensile",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"fortuito\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Fortunato",
+        "Coraggioso",
+        "Casuale",
+        "Robusto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Fortuito: dovuto al caso, non necessariamente fortunato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"inerme\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Indifferente",
+        "Disarmato, indifeso",
+        "Senza energia",
+        "Immobile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Inerme (lat. in-arma): senza armi, indifeso; da non confondere con inerte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un falso alterato?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Casetta",
+        "Gattino",
+        "Ragazzone",
+        "Mattone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Mattone non è un accrescitivo di matto: è un falso alterato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sillabe ha la parola \"pioggia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "2",
+        "1",
+        "3"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sillabe",
+        "trabocchetto"
+      ],
+      "notes": "Piog-gia: io è un dittongo e la i di gia serve solo a dare il suono dolce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Sommo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Alto",
+        "Forte",
+        "Grande",
+        "Buono"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superlativi"
+      ],
+      "notes": "Alto: superiore, sommo (grande: maggiore, massimo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano parole con lo stesso suono ma grafia diversa, come \"hanno\" e \"anno\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Antonimi",
+        "Omografe",
+        "Sinonimi",
+        "Omofone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "linguistica"
+      ],
+      "notes": "Omofoni: stesso suono, grafia e significato diversi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"cravatta\" deriva dal nome di quale popolo?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Turchi",
+        "Cosacchi",
+        "Croati",
+        "Ungheresi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal francese cravate, cioè croate: la sciarpa dei cavalieri croati",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica è dire \"è passato a miglior vita\" invece di \"è morto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Eufemismo",
+        "Ossimoro",
+        "Iperbole",
+        "Antitesi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "L'eufemismo attenua un'espressione cruda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"esilarante\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Che fa ridere",
+        "Che entusiasma",
+        "Che spaventa",
+        "Che fa riflettere"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati",
+        "trabocchetto"
+      ],
+      "notes": "Esilarante: che suscita ilarità; non vuol dire esaltante",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è una \"camurrìa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Una seccatura",
+        "Una camicia",
+        "Una scorciatoia",
+        "Una camera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Camurrìa: fastidio, cosa noiosa (resa celebre da Camilleri)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'unico cantone svizzero in cui l'italiano è la sola lingua ufficiale?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Vallese",
+        "Uri",
+        "Ticino",
+        "Grigioni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lingua-nel-mondo"
+      ],
+      "notes": "Il Ticino è monolingue italiano; i Grigioni sono trilingui",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi è un verbo servile?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sembrare",
+        "Potere",
+        "Andare",
+        "Correre"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Servili: dovere, potere, volere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Integerrimo è il superlativo assoluto di quale aggettivo?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Intenso",
+        "Integro",
+        "Integrale",
+        "Intero"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "superlativi"
+      ],
+      "notes": "Integro, superlativo integerrimo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"panegirico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Discorso di accusa",
+        "Pranzo abbondante",
+        "Discorso di lode",
+        "Viaggio in barca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Panegirico: discorso celebrativo, elogio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"motu proprio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Di propria iniziativa",
+        "Per conto d'altri",
+        "In movimento continuo",
+        "Con le proprie mani"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Motu proprio: di propria iniziativa, spontaneamente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'incontro di due vocali che restano in sillabe diverse, come in \"paura\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Digramma",
+        "Iato",
+        "Dittongo",
+        "Trittongo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fonetica"
+      ],
+      "notes": "Pa-ù-ra: a e u accentata restano separate, iato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Pantelleria?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lampedusani",
+        "Favignanesi",
+        "Panteschi",
+        "Liparesi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "demonimi",
+        "sicilia"
+      ],
+      "notes": "Pantelleria: panteschi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"sabotaggio\" viene dal francese \"sabot\", che significa?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ruota",
+        "Martello",
+        "Zoccolo",
+        "Sciopero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Treccani: da saboter, a sua volta da sabot, zoccolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale volgare è scritto il Cantico delle creature di san Francesco?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Toscano",
+        "Veneto",
+        "Umbro",
+        "Siciliano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-lingua"
+      ],
+      "notes": "Il Cantico di frate Sole (1224 circa) è in volgare umbro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"abate\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Badessa",
+        "Abatina",
+        "Abatrice",
+        "Abata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "Abate, femminile badessa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"pervicace\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ostinato",
+        "Pericoloso",
+        "Vivace",
+        "Furbo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Pervicace: ostinato, caparbio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"doge\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Dogata",
+        "Dogaressa",
+        "Dogessa",
+        "Dogina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "La moglie del doge era la dogaressa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama lo strumento simbolo della Crusca, che separava la farina dalla crusca?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Mulino",
+        "Torchio",
+        "Frullone",
+        "Mortaio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-lingua"
+      ],
+      "notes": "Il frullone, il buratto per abburattare, è l'emblema dell'Accademia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un \"lapsus calami\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Un vuoto di memoria",
+        "Un errore di pronuncia",
+        "Un errore di calcolo",
+        "Un errore di scrittura"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Calamus è la penna: lapsus calami è lo scivolone della penna (lapsus linguae quello della lingua)",
+      "verified": false
+    }
+  ]
+}

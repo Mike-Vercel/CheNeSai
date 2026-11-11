@@ -1,0 +1,1070 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"acqua in bocca\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avere sete",
+        "Parlare troppo",
+        "Mantenere un segreto",
+        "Bere di nascosto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Acqua in bocca: invito a non rivelare un segreto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Non tutte le ciambelle riescono col…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Forno",
+        "Buco",
+        "Zucchero",
+        "Miele"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Non tutte le ciambelle riescono col buco: non sempre le cose vanno come previsto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"diurno\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Serale",
+        "Mattutino",
+        "Notturno",
+        "Festivo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "contrari"
+      ],
+      "notes": "Diurno (del giorno) si oppone a notturno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è un sinonimo di \"astuto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ingenuo",
+        "Lento",
+        "Furbo",
+        "Gentile"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sinonimi"
+      ],
+      "notes": "Astuto: furbo, scaltro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"cercare il pelo nell'uovo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Fare scherzi",
+        "Cucinare male",
+        "Essere sfortunati",
+        "Essere troppo pignoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Cercare il pelo nell'uovo: essere pedanti, cercare difetti minimi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che modo verbale è \"mangiando\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Gerundio",
+        "Participio",
+        "Infinito",
+        "Congiuntivo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Mangiando: gerundio presente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"imperatore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Imperatoressa",
+        "Imperatrice",
+        "Imperatora",
+        "Imperessa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "Imperatore, femminile imperatrice",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale astro prende il nome il lunedì?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Luna",
+        "Marte",
+        "Sole",
+        "Venere"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Lunedì dal latino Lunae dies, giorno della Luna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di isole vicine tra loro?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Arcipelago",
+        "Istmo",
+        "Penisola",
+        "Golfo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "collettivi",
+        "geografia"
+      ],
+      "notes": "Arcipelago: insieme di isole vicine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama, in italiano, la lettera H?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ha",
+        "Ecca",
+        "Acca",
+        "Ache"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "alfabeto"
+      ],
+      "notes": "La lettera H si chiama acca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive il titolo di chi si è laureato in ingegneria?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ingegniere",
+        "Ingiegnere",
+        "Ingegnere",
+        "Ingenere"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Ingegnere, senza i dopo gn",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"camicia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Camicia",
+        "Camicie",
+        "Camicce",
+        "Camice"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali",
+        "trabocchetto"
+      ],
+      "notes": "Nei nomi in -cia preceduto da vocale la i resta: camicia, camicie (camice è un'altra parola)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale di queste frasi la parola \"da\" dovrebbe avere l'accento?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Luca mi da una mano",
+        "Una casa da vendere",
+        "Da piccolo giocavo",
+        "Vengo da Roma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Dà, verbo dare, vuole l'accento; da preposizione no",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa: \"Se lo sapessi, te lo…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Dirò",
+        "Dicessi",
+        "Direi",
+        "Dica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi",
+        "periodo-ipotetico"
+      ],
+      "notes": "Periodo ipotetico: se + congiuntivo imperfetto, condizionale presente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"greco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Grecie",
+        "Greci",
+        "Grechi",
+        "Grece"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Greco, plurale greci (come amico, amici)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale corretto di \"film\" in italiano?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "I filme",
+        "I films",
+        "I filmi",
+        "I film"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "trabocchetto"
+      ],
+      "notes": "Le parole straniere non adattate restano invariate al plurale: i film (Crusca)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"frate\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Suora",
+        "Fratessa",
+        "Fratella",
+        "Frata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "Frate e suora: coppia di nomi indipendenti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il participio passato di \"risolvere\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Risolso",
+        "Risolto",
+        "Risolvito",
+        "Risolvuto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Risolvere, participio risolto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"piantare in asso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fare una promessa",
+        "Seminare un campo",
+        "Abbandonare all'improvviso",
+        "Vincere a carte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Piantare in asso: lasciare qualcuno di colpo, nel momento del bisogno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Paese che vai…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Usanza che trovi",
+        "Gente che trovi",
+        "Amici che trovi",
+        "Casa che trovi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Paese che vai, usanza che trovi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"una tantum\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tante volte",
+        "Una volta l'anno",
+        "Per tutti",
+        "Una volta sola"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Una tantum: una sola volta (es. un contributo una tantum)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa fa un \"cicerone\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Insegna il latino",
+        "Fa da guida ai visitatori",
+        "Fa l'avvocato",
+        "Scrive i discorsi dei politici"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Cicerone: guida turistica loquace, per antonomasia dal grande oratore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"nomade\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Sedentario",
+        "Pastore",
+        "Straniero",
+        "Viaggiatore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "contrari"
+      ],
+      "notes": "Nomade si oppone a sedentario",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale uccello \"tuba\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Colomba",
+        "Corvo",
+        "Gufo",
+        "Gallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "versi-animali"
+      ],
+      "notes": "Tubare è il verso di colombi e tortore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"accattari\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Accettare",
+        "Raccogliere",
+        "Comprare",
+        "Catturare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Accattari: comprare (dal latino accaptare)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive la parola che indica l'aiuto donato ai bisognosi?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Beneficenza",
+        "Beneficenzia",
+        "Benefigenza",
+        "Beneficienza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Beneficenza si scrive senza i, come beneficente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa correttamente: \"Se … saputo, sarei venuto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Abbia",
+        "Avessi",
+        "Avrei",
+        "Avrò"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi",
+        "periodo-ipotetico"
+      ],
+      "notes": "Periodo ipotetico dell'irrealtà: se avessi saputo, sarei venuto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La congiunzione negativa che si ripete in \"non bevo ne vino ne birra\" come si scrive?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Con l'apostrofo",
+        "Con l'accento acuto",
+        "Con l'accento grave",
+        "Senza accento"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Né congiunzione vuole l'accento acuto (chiuso); ne senza accento è pronome o avverbio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"miglio\", inteso come unità di misura?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Migli",
+        "Miglie",
+        "Migliai",
+        "Miglia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Il miglio (misura), plurale femminile le miglia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"sapere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sapei",
+        "Sappi",
+        "Sapetti",
+        "Seppi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Sapere: io seppi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"laconico\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Di poche parole",
+        "Lamentoso",
+        "Molto triste",
+        "Pigro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Dalla Laconia degli spartani, famosi per la brevità del parlare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è una \"vittoria di Pirro\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Una vittoria all'ultimo minuto",
+        "Una vittoria schiacciante",
+        "Una vittoria a tavolino",
+        "Una vittoria pagata a un prezzo troppo alto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire",
+        "storia"
+      ],
+      "notes": "Pirro, re dell'Epiro, vinse i Romani ad Ascoli Satriano (279 a.C.) con perdite rovinose",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"sui generis\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Generoso",
+        "Particolare, fuori dal comune",
+        "Di tutti i generi",
+        "Di genere maschile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Sui generis: del suo genere, unico nel suo genere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove cade l'accento nella parola \"termostato\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sulla a",
+        "Sulla prima o",
+        "Sulla e",
+        "Sulla o finale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pronuncia",
+        "trabocchetto"
+      ],
+      "notes": "Si pronuncia termòstato (DOP, Treccani)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di due lettere che indica un solo suono, come \"gn\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Dittongo",
+        "Digramma",
+        "Iato",
+        "Sillaba"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fonetica"
+      ],
+      "notes": "Digrammi: gn, gl, sc, ch, gh, ci, gi davanti a vocale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"panico\" deriva dal nome di quale divinità greca?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ermes",
+        "Dioniso",
+        "Pan",
+        "Ares"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Panico: il terrore improvviso attribuito al dio Pan (non c'entra il pane)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Il ladro fu arrestato dalla polizia\", che complemento è \"dalla polizia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Complemento d'agente",
+        "Complemento oggetto",
+        "Complemento di moto da luogo",
+        "Complemento di causa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica",
+        "analisi-logica"
+      ],
+      "notes": "Nella frase passiva chi compie l'azione è complemento d'agente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"Grattacielo\" è il calco italiano di quale parola inglese?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Skyline",
+        "Tower",
+        "Building",
+        "Skyscraper"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "prestiti"
+      ],
+      "notes": "Grattacielo traduce parola per parola l'inglese skyscraper",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"ficodindia\", scritto tutto attaccato?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ficodindie",
+        "Fichidindie",
+        "Ficodindi",
+        "Fichidindia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "plurali",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Treccani: ficodindia, plurale fichidindia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"mellifluo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Pieno di energia",
+        "Molto timido",
+        "Falsamente dolce",
+        "Lento nei movimenti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Mellifluo: di dolcezza affettata, insincera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"passare il Rubicone\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Fare un lungo viaggio",
+        "Superare un esame",
+        "Tradire un amico",
+        "Prendere una decisione irrevocabile"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire",
+        "storia"
+      ],
+      "notes": "Nel 49 a.C. Cesare varcò in armi il Rubicone: il dado è tratto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la ripetizione di una parola all'inizio di più versi, come \"Per me si va\" in Dante?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Anafora",
+        "Ossimoro",
+        "Sineddoche",
+        "Chiasmo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Inferno III: \"Per me si va\" ripetuto a inizio di tre versi, anafora",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Piazza Armerina?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Gelesi",
+        "Piazzesi",
+        "Ennesi",
+        "Licatesi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "demonimi",
+        "sicilia"
+      ],
+      "notes": "Piazza Armerina: piazzesi (Enna ennesi, Licata licatesi, Gela gelesi)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"ghetto\" nasce in quale città?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Roma",
+        "Varsavia",
+        "Praga",
+        "Venezia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal Ghetto di Venezia (1516), area dove sorgeva una fonderia, il \"getto\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il dimostrativo \"codesto\" indica qualcosa vicino a chi?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "A nessuno dei due",
+        "A chi parla",
+        "A entrambi",
+        "A chi ascolta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Questo: vicino a chi parla; codesto: vicino a chi ascolta; quello: lontano da entrambi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il motto dell'Accademia della Crusca?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Festina lente",
+        "Nulla dies sine linea",
+        "Il più bel fior ne coglie",
+        "Provando e riprovando"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-lingua"
+      ],
+      "notes": "Il motto della Crusca è un verso del Petrarca; \"Provando e riprovando\" era dell'Accademia del Cimento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"sinecura\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Malattia incurabile",
+        "Incarico ben pagato e senza fatica",
+        "Cura miracolosa",
+        "Persona trascurata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Sinecura (lat. sine cura): ufficio che rende senza richiedere lavoro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Rispetto a \"rosa\", la parola \"fiore\" è un…?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Iponimo",
+        "Omonimo",
+        "Iperonimo",
+        "Sinonimo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "linguistica"
+      ],
+      "notes": "L'iperonimo ha significato più generale: fiore rispetto a rosa (rosa è iponimo di fiore)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Città di Castello?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Tifernati",
+        "Eugubini",
+        "Tudertini",
+        "Perugini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "demonimi"
+      ],
+      "notes": "Città di Castello, l'antica Tifernum: tifernati (Gubbio eugubini, Todi tudertini)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"assassino\" deriva da una setta medievale associata a quale sostanza?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Vino",
+        "Oppio",
+        "Tabacco",
+        "Hashish"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Treccani: dall'arabo hashishi, nome dato a una setta ismailita",
+      "verified": false
+    }
+  ]
+}

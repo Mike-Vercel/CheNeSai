@@ -1,0 +1,1104 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Come si chiama la sirenetta protagonista del film Disney del 1989?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Ariel",
+    "Jasmine",
+    "Belle",
+    "Aurora"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Ariel, figlia di re Tritone",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film Disney una ragazza cinese si traveste da soldato per salvare il padre?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Pocahontas",
+    "Oceania",
+    "Raya e l'ultimo drago",
+    "Mulan"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Mulan (1998) prende il posto del padre nell'esercito",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale gigante verde dei fumetti Marvel si trasforma quando si arrabbia?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Thor",
+    "Hulk",
+    "Groot",
+    "Shrek"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "supereroi",
+    "marvel"
+   ],
+   "notes": "Bruce Banner diventa Hulk quando perde la calma",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamano in Italia Stan Laurel e Oliver Hardy?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Gianni e Pinotto",
+    "Franco e Ciccio",
+    "Stanlio e Ollio",
+    "Tom e Jerry"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "comici",
+    "classici"
+   ],
+   "notes": "Stanlio e Ollio; Gianni e Pinotto sono Abbott e Costello",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Ghostbusters\", a quali creature danno la caccia i protagonisti?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Ai vampiri",
+    "Agli zombi",
+    "Ai fantasmi",
+    "Agli alieni"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "commedia",
+    "hollywood"
+   ],
+   "notes": "Gli acchiappafantasmi di New York (1984)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la regina dai poteri di ghiaccio di \"Frozen\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Anna",
+    "Rapunzel",
+    "Merida",
+    "Elsa"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Elsa; Anna è la sorella minore",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale principessa Disney ha lunghissimi capelli biondi e vive chiusa in una torre?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Aurora",
+    "Rapunzel",
+    "Cenerentola",
+    "Elsa"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Rapunzel, film Disney del 2010",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Ciuchino, il chiacchierone amico di Shrek?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un cavallo",
+    "Un asino",
+    "Un mulo",
+    "Un pony"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "animazione",
+    "dreamworks"
+   ],
+   "notes": "Ciuchino è un asino parlante, che finisce per sposare la draghessa",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale personaggio verde e brontolone vuole rubare il Natale?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Il Grinch",
+    "Scrooge",
+    "Krampus",
+    "Jack Skeletron"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "natale",
+    "commedia"
+   ],
+   "notes": "Il Grinch del Dr. Seuss, al cinema con Jim Carrey nel 2000",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale orsetto inglese con cappello e cappotto adora la marmellata d'arance?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Winnie the Pooh",
+    "Baloo",
+    "Yoghi",
+    "Paddington"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "animazione",
+    "commedia"
+   ],
+   "notes": "Paddington, arrivato a Londra dal Perù; film del 2014",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di che materiale è fatto l'uomo che cerca un cuore ne \"Il mago di Oz\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Paglia",
+    "Legno",
+    "Latta",
+    "Pietra"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "classici",
+    "fantasy"
+   ],
+   "notes": "L'Uomo di latta vuole un cuore; lo Spaventapasseri è di paglia",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale dei sette nani di Biancaneve non parla mai?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Cucciolo",
+    "Brontolo",
+    "Pisolo",
+    "Mammolo"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Cucciolo (Dopey) è muto nel film Disney del 1937",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi si rivela essere, in realtà, il grande Mago di Oz?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Un uomo qualunque",
+    "Una strega",
+    "Un drago",
+    "Un gigante"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "classici",
+    "trabocchetto"
+   ],
+   "notes": "Dietro la tenda c'è un semplice uomo del Kansas che usa trucchi e macchinari",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale città vivono gli Aristogatti?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Parigi",
+    "Londra",
+    "Roma",
+    "Vienna"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Duchessa e i suoi gattini vivono a Parigi (1970)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Nel film \"Fantasia\" del 1940, quale personaggio è l'apprendista stregone?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Topolino",
+    "Paperino",
+    "Pippo",
+    "Pluto"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Topolino con la scopa animata, sulla musica di Paul Dukas",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale cantante interpreta la protagonista di \"A Star Is Born\" del 2018?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Beyoncé",
+    "Rihanna",
+    "Lady Gaga",
+    "Adele"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "musica",
+    "hollywood"
+   ],
+   "notes": "Lady Gaga accanto a Bradley Cooper, anche regista; Oscar per la canzone \"Shallow\"",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta il Joker nel film \"Joker\" del 2019?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Jared Leto",
+    "Joaquin Phoenix",
+    "Jack Nicholson",
+    "Heath Ledger"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "supereroi",
+    "oscar"
+   ],
+   "notes": "Joaquin Phoenix vinse l'Oscar come miglior attore",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Grease\", come si chiama la ragazza di cui è innamorato Danny?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Rizzo",
+    "Frenchy",
+    "Marty",
+    "Sandy"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "musical",
+    "hollywood"
+   ],
+   "notes": "Sandy Olsson, interpretata da Olivia Newton-John",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film Hugh Jackman interpreta l'impresario del circo P. T. Barnum?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Les Misérables",
+    "The Greatest Showman",
+    "Moulin Rouge!",
+    "Chicago"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "musical",
+    "biografie"
+   ],
+   "notes": "The Greatest Showman (2017)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film Jim Carrey vive, senza saperlo, dentro uno show televisivo?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "The Mask",
+    "Ace Ventura",
+    "The Truman Show",
+    "Una settimana da Dio"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "commedia",
+    "hollywood"
+   ],
+   "notes": "The Truman Show (1998) di Peter Weir",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Pirati dei Caraibi\", come si chiama la nave del capitano Jack Sparrow?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Olandese Volante",
+    "Queen Anne's Revenge",
+    "Perla Nera",
+    "Interceptor"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "avventura",
+    "disney"
+   ],
+   "notes": "La Perla Nera, dalle vele nere",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta Wonder Woman nei film DC dal 2017?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Scarlett Johansson",
+    "Margot Robbie",
+    "Zoe Saldana",
+    "Gal Gadot"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "supereroi"
+   ],
+   "notes": "Gal Gadot, attrice israeliana",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Sebastian, l'amico musicista della Sirenetta?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Un pesce",
+    "Un'aragosta",
+    "Un granchio",
+    "Un gambero"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "animali"
+   ],
+   "notes": "Sebastian è un granchio che canta \"In fondo al mar\"",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi interpreta Willy Wonka ne \"La fabbrica di cioccolato\" di Tim Burton (2005)?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Gene Wilder",
+    "Jim Carrey",
+    "Johnny Depp",
+    "Robin Williams"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "fantasy",
+    "hollywood"
+   ],
+   "notes": "Johnny Depp; Gene Wilder era Wonka nel film del 1971",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale coppia comica palermitana ha diretto e interpretato \"L'ora legale\" (2017)?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Aldo, Giovanni e Giacomo",
+    "Ale e Franz",
+    "Pio e Amedeo",
+    "Ficarra e Picone"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "sicilia",
+    "commedia"
+   ],
+   "notes": "Salvo Ficarra e Valentino Picone, ambientato in un paese siciliano",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi ha scritto le canzoni de \"Il re leone\" insieme a Tim Rice?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Phil Collins",
+    "Elton John",
+    "Sting",
+    "Rod Stewart"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "musica"
+   ],
+   "notes": "Elton John vinse l'Oscar per \"Can You Feel the Love Tonight\"; Phil Collins scrisse le canzoni di Tarzan",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale regista ha diretto \"L'ultimo bacio\" (2001)?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Gabriele Muccino",
+    "Paolo Virzì",
+    "Ferzan Özpetek",
+    "Silvio Soldini"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema italiano"
+   ],
+   "notes": "L'ultimo bacio di Gabriele Muccino, con Stefano Accorsi",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale western del 1960 è il remake de \"I sette samurai\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il mucchio selvaggio",
+    "Sentieri selvaggi",
+    "I magnifici sette",
+    "Ombre rosse"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "western",
+    "remake"
+   ],
+   "notes": "The Magnificent Seven di John Sturges (1960)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "A quale dipinto si ispira la maschera del killer di \"Scream\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "L'urlo di Munch",
+    "La notte stellata",
+    "Il bacio di Klimt",
+    "Guernica"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "horror",
+    "arte"
+   ],
+   "notes": "La maschera Ghostface richiama \"L'urlo\" di Edvard Munch",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Con quale film Nanni Moretti vinse la Palma d'oro a Cannes nel 2001?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Caro diario",
+    "Habemus Papam",
+    "Mia madre",
+    "La stanza del figlio"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "festival"
+   ],
+   "notes": "La stanza del figlio; con Caro diario vinse il premio per la regia (1994)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film Totò, affamato, si riempie le tasche di spaghetti?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Totò, Peppino e i fuorilegge",
+    "Miseria e nobiltà",
+    "Guardie e ladri",
+    "I soliti ignoti"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cinema italiano",
+    "toto"
+   ],
+   "notes": "Felice Sciosciammocca in \"Miseria e nobiltà\" (1954), dalla commedia di Scarpetta",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In \"Amici miei\", come si chiama la frase senza senso usata dal conte Mascetti?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Zingarata",
+    "Pernacchia",
+    "Filastrocca",
+    "Supercazzola"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "La \"supercazzola prematurata\" di Ugo Tognazzi; le zingarate sono gli scherzi del gruppo",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi interpreta Tancredi ne \"Il Gattopardo\" di Luchino Visconti?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Jean-Paul Belmondo",
+    "Marcello Mastroianni",
+    "Giuliano Gemma",
+    "Alain Delon"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "sicilia",
+    "visconti"
+   ],
+   "notes": "Alain Delon è Tancredi, accanto a Claudia Cardinale (Angelica)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale regista ha diretto \"La forma dell'acqua\" e \"Il labirinto del fauno\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Guillermo del Toro",
+    "Alfonso Cuarón",
+    "Alejandro González Iñárritu",
+    "Pedro Almodóvar"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "oscar",
+    "registi"
+   ],
+   "notes": "Guillermo del Toro, Oscar per La forma dell'acqua (2018)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film di Hitchcock James Stewart spia i vicini, bloccato da una gamba ingessata?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "La donna che visse due volte",
+    "La finestra sul cortile",
+    "Nodo alla gola",
+    "L'uomo che sapeva troppo"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "hitchcock",
+    "classici"
+   ],
+   "notes": "Rear Window (1954), con Grace Kelly",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attore romano interpreta Mandrake in \"Febbre da cavallo\" (1976)?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Enrico Montesano",
+    "Gigi Proietti",
+    "Nino Manfredi",
+    "Carlo Verdone"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Gigi Proietti è Bruno Fioretti detto Mandrake, scommettitore all'ippodromo",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale quartiere di Parigi lavora Amélie Poulain nel film del 2001?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Marais",
+    "Quartiere Latino",
+    "Montmartre",
+    "Belleville"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cinema francese",
+    "parigi"
+   ],
+   "notes": "Amélie fa la cameriera al Café des 2 Moulins, a Montmartre",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Su quale isola greca fu girato gran parte di \"Mamma mia!\" (2008)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Skopelos",
+    "Santorini",
+    "Mykonos",
+    "Corfù"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "musical",
+    "location"
+   ],
+   "notes": "Esterni girati soprattutto a Skopelos, nelle Sporadi",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice è la \"Bersagliera\" in \"Pane, amore e fantasia\" (1953)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Sophia Loren",
+    "Silvana Mangano",
+    "Claudia Cardinale",
+    "Gina Lollobrigida"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Gina Lollobrigida, accanto a Vittorio De Sica, regia di Luigi Comencini",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Che uccello è Zazu, il maggiordomo di Mufasa ne \"Il re leone\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Un bucero",
+    "Un pappagallo",
+    "Un tucano",
+    "Un pellicano"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "animali"
+   ],
+   "notes": "Zazu è un bucero dal becco rosso",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale Paese fu ricostruito il Colosseo per il film \"Il gladiatore\" (2000)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Italia",
+    "Malta",
+    "Spagna",
+    "Marocco"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "location",
+    "trabocchetto"
+   ],
+   "notes": "L'arena fu costruita a Forte Ricasoli, a Malta; in Marocco si girarono altre scene",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale Paese furono girate le scene sul pianeta Tatooine nel primo \"Guerre stellari\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Stati Uniti",
+    "Tunisia",
+    "Marocco",
+    "Egitto"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "star wars",
+    "trabocchetto"
+   ],
+   "notes": "Girate nel sud della Tunisia; la città di Tataouine diede il nome al pianeta",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale film Charlie Chaplin parla per la prima volta sullo schermo?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Tempi moderni",
+    "Il grande dittatore",
+    "Luci della città",
+    "Il monello"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "chaplin",
+    "trabocchetto"
+   ],
+   "notes": "In Tempi moderni canta solo una canzone senza senso; il primo film parlato è Il grande dittatore (1940)",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è il film muto \"The Artist\", Oscar come miglior film nel 2012?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Stati Uniti",
+    "Regno Unito",
+    "Belgio",
+    "Francia"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "oscar",
+    "trabocchetto"
+   ],
+   "notes": "Film francese di Michel Hazanavicius, con Jean Dujardin",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi diresse \"Frankenstein Junior\" (1974)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Mel Brooks",
+    "Woody Allen",
+    "John Landis",
+    "Billy Wilder"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "commedia",
+    "hollywood"
+   ],
+   "notes": "Mel Brooks, con Gene Wilder e Marty Feldman",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "In quale città pugliese è ambientato \"Mine vaganti\" di Ferzan Özpetek?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Bari",
+    "Lecce",
+    "Taranto",
+    "Brindisi"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cinema italiano",
+    "puglia"
+   ],
+   "notes": "Mine vaganti (2010), girato e ambientato a Lecce",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Toto, il cane di Dorothy nel film del 1939, era interpretato da quale cane?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Un maschio di cairn terrier",
+    "Un maschio di yorkshire",
+    "Una femmina di cairn terrier",
+    "Una femmina di barboncino"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "classici",
+    "trabocchetto"
+   ],
+   "notes": "Toto era interpretato da Terry, una femmina di cairn terrier",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Quale costumista torinese ha vinto quattro Oscar, l'ultimo per \"Grand Budapest Hotel\"?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Gabriella Pescucci",
+    "Piero Tosi",
+    "Danilo Donati",
+    "Milena Canonero"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "oscar",
+    "italiani a hollywood"
+   ],
+   "notes": "Barry Lyndon, Momenti di gloria, Marie Antoinette e Grand Budapest Hotel",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Per quale film Nino Rota vinse l'Oscar per la colonna sonora?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Il Padrino",
+    "Otto e mezzo",
+    "Il Padrino - Parte II",
+    "Romeo e Giulietta"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "oscar",
+    "musica"
+   ],
+   "notes": "Oscar 1975 per Il Padrino Parte II; per il primo Padrino la candidatura fu revocata",
+   "verified": false
+  },
+  {
+   "type": "single",
+   "text": "Chi si nascondeva dietro lo pseudonimo E. B. Clucher, regista di \"Lo chiamavano Trinità\"?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Enzo Barboni",
+    "Sergio Corbucci",
+    "Duccio Tessari",
+    "Giuliano Carnimeo"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "western",
+    "cinema italiano"
+   ],
+   "notes": "E. B. Clucher era il direttore della fotografia e regista Enzo Barboni",
+   "verified": false
+  }
+ ]
+}

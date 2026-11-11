@@ -1,0 +1,1095 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale santo irlandese si festeggia il 17 marzo vestendosi di verde?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "San Giorgio",
+        "San Valentino",
+        "Sant'Andrea",
+        "San Patrizio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Saint Patrick's Day, patrono d'Irlanda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gioco si fa saltando su caselle numerate disegnate col gesso?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nascondino",
+        "Mosca cieca",
+        "Campana",
+        "Un due tre stella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "La campana si gioca lanciando un sasso e saltando sulle caselle",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali doni portarono i Magi a Gesù Bambino?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Oro, argento e rame",
+        "Oro, incenso e mirra",
+        "Pane, vino e olio",
+        "Latte, miele e datteri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale"
+      ],
+      "notes": "Vangelo di Matteo, capitolo 2",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, quanti anni di sfortuna porta rompere uno specchio?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "7",
+        "3",
+        "13",
+        "17"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Credenza popolare: sette anni di guai",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quale colore muove per primo?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Il nero",
+        "Si tira a sorte",
+        "Chi è più giovane",
+        "Il bianco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scacchi",
+        "giochi"
+      ],
+      "notes": "Per regolamento la prima mossa spetta al bianco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale giocattolo a forma di cerchio si fa girare intorno ai fianchi?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Yo-yo",
+        "Frisbee",
+        "Hula hoop",
+        "Trottola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giocattoli"
+      ],
+      "notes": "L'hula hoop di plastica divenne una moda nel 1958",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si festeggia il Giorno dei Morti con teschi colorati e altarini?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Messico",
+        "Brasile",
+        "Argentina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Il Día de Muertos messicano è patrimonio UNESCO",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco da tavolo si compongono parole con tessere di lettere su una griglia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Scarabeo",
+        "Risiko",
+        "Cluedo",
+        "Monopoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi da tavolo"
+      ],
+      "notes": "Lo Scarabeo è la versione italiana dei giochi di parole incrociate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città è chiamata \"la città eterna\"?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Atene",
+        "Gerusalemme",
+        "Firenze",
+        "Roma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "soprannomi",
+        "città"
+      ],
+      "notes": "Roma caput mundi, \"Urbs aeterna\" già per i poeti latini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, che cosa non si deve aprire dentro casa?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La finestra",
+        "Il frigorifero",
+        "L'ombrello",
+        "Il cassetto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Aprire l'ombrello in casa porta sfortuna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti animali ci sono nell'oroscopo cinese?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "10",
+        "12",
+        "8",
+        "7"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "zodiaco",
+        "cina"
+      ],
+      "notes": "Topo, bue, tigre, coniglio, drago, serpente, cavallo, capra, scimmia, gallo, cane, maiale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, qual è il pezzo più potente?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La donna",
+        "Il re",
+        "La torre",
+        "Il cavallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scacchi",
+        "giochi"
+      ],
+      "notes": "La donna si muove in ogni direzione per quante case vuole",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel gioco di carte Uno, quante carte riceve ogni giocatore all'inizio?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "10",
+        "3",
+        "7"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Il regolamento prevede sette carte a testa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale Paese devono essere cittadini le guardie del Papa?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Italia",
+        "Città del Vaticano",
+        "Svizzera",
+        "Germania"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vaticano"
+      ],
+      "notes": "La Guardia Svizzera Pontificia recluta cittadini svizzeri cattolici",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa trovano i bambini siciliani la mattina del 2 novembre, portato \"dai morti\"?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Carbone",
+        "Regali e dolci",
+        "Uova dipinte",
+        "Fiori di campo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "tradizioni"
+      ],
+      "notes": "In Sicilia i defunti portano doni, frutta martorana e pupi di zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è patrono di Milano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sant'Ambrogio",
+        "San Carlo Borromeo",
+        "San Siro",
+        "San Giorgio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "santi",
+        "città"
+      ],
+      "notes": "Sant'Ambrogio si festeggia il 7 dicembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti caratteri ha il codice fiscale di una persona in Italia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "11",
+        "12",
+        "20",
+        "16"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lessico",
+        "documenti"
+      ],
+      "notes": "Il codice fiscale delle persone fisiche ha 16 caratteri; la partita IVA 11 cifre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa raffigurano spesso le fiancate dipinte dei carretti siciliani?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Paesaggi alpini",
+        "Ritratti di papi",
+        "Storie di paladini",
+        "Battaglie navali vichinghe"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "tradizioni"
+      ],
+      "notes": "I carretti illustrano soprattutto le storie dei paladini di Francia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le reliquie di quale santo sono conservate a Bari, di cui è patrono?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "San Gennaro",
+        "San Nicola",
+        "San Marco",
+        "San Rocco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "santi",
+        "città"
+      ],
+      "notes": "Furono portate da Myra a Bari nel 1087",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, quanti confetti si mettono in una bomboniera?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "5",
+        "4",
+        "2",
+        "8"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tradizioni",
+        "matrimonio"
+      ],
+      "notes": "Numero dispari: cinque, per salute, felicità, fertilità, lunga vita e ricchezza",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, la sposa indossa qualcosa di vecchio, di nuovo, di prestato e di quale colore?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Rosso",
+        "Oro",
+        "Verde",
+        "Blu"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tradizioni",
+        "matrimonio"
+      ],
+      "notes": "Something old, something new, something borrowed, something blue",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città toscana è famosa per i grandi carri di cartapesta del Carnevale?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Livorno",
+        "Pisa",
+        "Viareggio",
+        "Lucca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "carnevale",
+        "toscana"
+      ],
+      "notes": "Il Carnevale di Viareggio esiste dal 1873",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura un anno luce?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un tempo",
+        "Una distanza",
+        "Una velocità",
+        "Una luminosità"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "astronomia",
+        "trabocchetto"
+      ],
+      "notes": "È la distanza percorsa dalla luce in un anno, circa 9.460 miliardi di chilometri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città spagnola si corre davanti ai tori per San Firmino?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pamplona",
+        "Siviglia",
+        "Valencia",
+        "Toledo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Encierro di Pamplona, dal 7 luglio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste città siciliane è una ruota del Lotto?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Catania",
+        "Messina",
+        "Siracusa",
+        "Palermo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lotto",
+        "sicilia"
+      ],
+      "notes": "Palermo è l'unica ruota siciliana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'ispettore che dà la caccia a Diabolik?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Zenigata",
+        "Clouseau",
+        "Ginko",
+        "Montalbano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "L'ispettore Ginko è il nemico storico di Diabolik",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti numeri ci sono sulla roulette europea, zero compreso?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "36",
+        "37",
+        "38",
+        "40"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "trabocchetto"
+      ],
+      "notes": "Da 0 a 36; la roulette americana ha anche il doppio zero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel tressette, qual è la carta più forte di ogni seme?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il tre",
+        "L'asso",
+        "Il re",
+        "Il sette"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "carte",
+        "tressette"
+      ],
+      "notes": "In presa l'ordine è tre, due, asso, re, cavallo, fante",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città pugliese è chiamata \"la città dei due mari\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bari",
+        "Brindisi",
+        "Lecce",
+        "Taranto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "soprannomi",
+        "città"
+      ],
+      "notes": "Taranto si affaccia sul Mar Grande e sul Mar Piccolo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale monumento compare sulla moneta italiana da 5 centesimi di euro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mole Antonelliana",
+        "Castel del Monte",
+        "Colosseo",
+        "Torre di Pisa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "monete",
+        "italia"
+      ],
+      "notes": "Il Colosseo è sui 5 centesimi; la Mole sui 2, Castel del Monte su 1",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città lombarda è detta \"la città dei Mille\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Brescia",
+        "Bergamo",
+        "Como",
+        "Pavia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "soprannomi",
+        "città"
+      ],
+      "notes": "Molti dei Mille di Garibaldi venivano da Bergamo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale antico nome i siciliani chiamano anche l'Etna?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mongibello",
+        "Monte Pellegrino",
+        "Gibilmanna",
+        "Montagna Grande"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "etna"
+      ],
+      "notes": "Dal latino mons e dall'arabo gebel, entrambi \"monte\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo protegge gli automobilisti e i viaggiatori?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "San Rocco",
+        "San Giuseppe",
+        "San Martino",
+        "San Cristoforo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "santi",
+        "tradizioni"
+      ],
+      "notes": "San Cristoforo portò Gesù bambino attraverso un fiume",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che giorno si festeggia il Pi greco day?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "3 febbraio",
+        "31 marzo",
+        "14 marzo",
+        "22 luglio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "numeri"
+      ],
+      "notes": "All'americana 3/14, come 3,14",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nello spelling all'italiana, quale città si usa per la lettera D?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Desenzano",
+        "Domodossola",
+        "Dolomiti",
+        "Ancona"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "alfabeti"
+      ],
+      "notes": "\"D come Domodossola\" nell'alfabeto telefonico italiano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa portavano in testa i Vichinghi in battaglia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Elmi senza corna",
+        "Elmi con le corna",
+        "Elmi con le ali",
+        "Corone di ferro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Le corna sono un'invenzione dell'Ottocento, nata anche dai costumi delle opere di Wagner",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città siciliana festeggia a febbraio il Mandorlo in fiore?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Taormina",
+        "Noto",
+        "Marsala",
+        "Agrigento"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Sagra del Mandorlo in fiore nella Valle dei Templi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che particolarità ha lo scafo di una gondola veneziana?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "È di metallo",
+        "È piatto e quadrato",
+        "È asimmetrico",
+        "Ha due timoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "venezia",
+        "trabocchetto"
+      ],
+      "notes": "Il lato sinistro è più largo per compensare il peso del gondoliere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giorni furono saltati nel 1582 con la riforma del calendario?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "7",
+        "10",
+        "12",
+        "15"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Dal 4 ottobre si passò direttamente al 15 ottobre 1582",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante sono in tutto le contrade di Siena?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "17",
+        "10",
+        "12",
+        "20"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "siena",
+        "palio"
+      ],
+      "notes": "Diciassette contrade, dieci delle quali corrono a ogni Palio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città siciliana è chiamata \"la Felicissima\"?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Catania",
+        "Siracusa",
+        "Messina",
+        "Palermo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "soprannomi"
+      ],
+      "notes": "Felicissima urbs Panormus, antico titolo di Palermo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cowboy dei fumetti fu creato da Benito Jacovitti?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Tex Willer",
+        "Zagor",
+        "Cocco Bill",
+        "Lucky Luke"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Cocco Bill, il cowboy che beve camomilla, nasce nel 1957",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale gallina è innamorato Lupo Alberto?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Cesira",
+        "Marta",
+        "Ercolina",
+        "Alfreda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Lupo Alberto di Silver ama la gallina Marta della fattoria McKenzie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale animale apre il ciclo dell'oroscopo cinese?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Il topo",
+        "Il drago",
+        "La tigre",
+        "Il bue"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "zodiaco",
+        "cina"
+      ],
+      "notes": "Secondo la leggenda il topo vinse la gara salendo sul bue",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese nacque il gioco che oggi chiamiamo Sudoku?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Cina",
+        "Corea del Sud",
+        "Stati Uniti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "trabocchetto"
+      ],
+      "notes": "Inventato nel 1979 da Howard Garns come \"Number Place\"; il nome giapponese arrivò dopo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in Russia il \"nonno del gelo\" che porta i regali?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sinterklaas",
+        "Julenisse",
+        "Ded Moroz",
+        "Olentzero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "russia"
+      ],
+      "notes": "Ded Moroz porta i doni a Capodanno con la nipote Snegurochka",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale carta dei tarocchi porta il numero 13?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Il Matto",
+        "La Morte",
+        "La Torre",
+        "Il Diavolo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tarocchi"
+      ],
+      "notes": "Arcano tredici: la Morte; la Torre è il 16, il Diavolo il 15",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santa fu proclamata patrona della televisione?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Santa Chiara",
+        "Santa Cecilia",
+        "Santa Rita",
+        "Santa Caterina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "santi",
+        "televisione"
+      ],
+      "notes": "Pio XII, 1958: vedeva la messa proiettata sul muro della sua cella",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale altro nome è noto l'incrocio dei Quattro Canti a Palermo?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Piazza Pretoria",
+        "Kalsa",
+        "Conca d'Oro",
+        "Teatro del Sole"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "palermo"
+      ],
+      "notes": "Detto anche Piazza Vigliena o Teatro del Sole",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa patronale celebra Messina il 3 giugno?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Santa Rosalia",
+        "Sant'Agata",
+        "Madonna della Lettera",
+        "San Sebastiano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "La Madonna della Lettera è la patrona di Messina",
+      "verified": false
+    }
+  ]
+}

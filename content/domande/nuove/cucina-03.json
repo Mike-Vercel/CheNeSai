@@ -1,0 +1,1092 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale dolce natalizio milanese è ricco di uvetta e canditi?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pandoro",
+        "Panettone",
+        "Torrone",
+        "Colomba"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "natale"
+      ],
+      "notes": "Il panettone, lievitato tipico di Milano, contiene uvetta e scorze di agrumi candite",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ortaggio fa lacrimare gli occhi quando lo si taglia?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Patata",
+        "Cipolla",
+        "Zucchina",
+        "Carota"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortaggi"
+      ],
+      "notes": "Tagliando la cipolla si liberano composti solforati volatili che irritano gli occhi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il lungo pane francese, sottile e croccante?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Croissant",
+        "Baguette",
+        "Brioche",
+        "Ciabatta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pane",
+        "francia"
+      ],
+      "notes": "La baguette è il pane lungo e sottile simbolo della Francia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda si prepara di solito con la moka?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Caffè",
+        "Cioccolata",
+        "Camomilla",
+        "Tè"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande",
+        "caffè"
+      ],
+      "notes": "La moka è la caffettiera italiana per fare il caffè sul fornello",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ortaggio principale della caponata siciliana?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Peperone",
+        "Melanzana",
+        "Zucchina",
+        "Carciofo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "ortaggi"
+      ],
+      "notes": "La caponata siciliana è a base di melanzane fritte condite in agrodolce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la tradizione, mangiare lenticchie a Capodanno porta…?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Amore",
+        "Soldi",
+        "Figli",
+        "Salute"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tradizioni",
+        "legumi"
+      ],
+      "notes": "Le lenticchie, simili a monetine, sono di buon augurio per i soldi nell'anno nuovo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale erba aromatica completa l'insalata caprese con mozzarella e pomodoro?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Salvia",
+        "Rosmarino",
+        "Basilico",
+        "Prezzemolo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "campania",
+        "insalate"
+      ],
+      "notes": "Caprese: mozzarella, pomodoro, basilico e olio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si tiene l'Oktoberfest, la festa della birra più famosa?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Berlino",
+        "Amburgo",
+        "Monaco di Baviera",
+        "Vienna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "birra",
+        "germania"
+      ],
+      "notes": "L'Oktoberfest si tiene ogni anno a Monaco di Baviera dal 1810",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire cuocere la pasta al dente?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cuocerla direttamente nel sugo",
+        "Cuocerla il doppio del tempo",
+        "Lasciarla leggermente soda",
+        "Cuocerla senza sale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasta",
+        "tecniche"
+      ],
+      "notes": "Al dente: pasta scolata quando è ancora consistente al morso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cereale scoppia in padella per diventare popcorn?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Orzo",
+        "Frumento",
+        "Mais",
+        "Riso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cereali"
+      ],
+      "notes": "I popcorn si fanno con una varietà di mais i cui chicchi scoppiano col calore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale condimento verde e piccante accompagna il sushi?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Miso",
+        "Wasabi",
+        "Tofu",
+        "Tahina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giappone"
+      ],
+      "notes": "Il wasabi è la pasta verde e piccante servita con sushi e sashimi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piatto spagnolo è una frittata alta di patate e uova?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Churros",
+        "Paella",
+        "Tortilla",
+        "Gazpacho"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spagna"
+      ],
+      "notes": "La tortilla de patatas è la classica frittata spagnola di patate e uova",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale farina si prepara la farinata ligure?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Farina di riso",
+        "Farina di mais",
+        "Farina di ceci",
+        "Farina di castagne"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "liguria"
+      ],
+      "notes": "La farinata è una torta sottile di farina di ceci, acqua e olio cotta nel forno a legna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale vino rosso frizzante è tipico dell'Emilia?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Primitivo",
+        "Nebbiolo",
+        "Lambrusco",
+        "Aglianico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vino",
+        "emilia-romagna"
+      ],
+      "notes": "Il Lambrusco è il rosso frizzante tipico delle province di Modena e Reggio Emilia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pesto alla trapanese, con pomodoro e basilico, contiene quale frutta secca?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pinoli",
+        "Pistacchi",
+        "Mandorle",
+        "Noci"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "salse"
+      ],
+      "notes": "Pesto alla trapanese: pomodoro, basilico, aglio, mandorle e pecorino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente principale del pani ca' meusa palermitano?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Polpo",
+        "Trippa",
+        "Salsiccia",
+        "Milza"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "street-food"
+      ],
+      "notes": "Pani ca' meusa: panino con milza (e polmone) di vitello cotti nello strutto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli gnocchi al forno con pomodoro, mozzarella e basilico?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Alla sorrentina",
+        "Alla parigina",
+        "Alla bava",
+        "Alla romana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "campania",
+        "pasta"
+      ],
+      "notes": "Gnocchi alla sorrentina: gnocchi di patate con pomodoro, mozzarella e basilico, passati in forno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il vitello tonnato è un antipasto tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Campania",
+        "Sicilia",
+        "Puglia",
+        "Piemonte"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "piemonte"
+      ],
+      "notes": "Il vitel tonnè è un classico della cucina piemontese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il cacciucco è una zuppa di pesce tipica di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ancona",
+        "Genova",
+        "Napoli",
+        "Livorno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "toscana",
+        "pesce"
+      ],
+      "notes": "Il cacciucco alla livornese è la zuppa di pesce misto simbolo di Livorno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cereale cotto si trova nel ripieno della pastiera napoletana?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Orzo",
+        "Grano",
+        "Riso",
+        "Farro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "campania",
+        "dolci"
+      ],
+      "notes": "La pastiera: frolla ripiena di ricotta, grano cotto nel latte, uova e acqua di fiori d'arancio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il porceddu è una specialità sarda: di che cosa si tratta?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Pane carasau fritto",
+        "Salsiccia secca",
+        "Formaggio di capra",
+        "Maialino da latte arrosto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sardegna",
+        "carne"
+      ],
+      "notes": "Porceddu: maialino da latte cotto allo spiedo o al forno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il gianduiotto torinese unisce il cacao con quale frutta secca?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Noci",
+        "Nocciole",
+        "Mandorle",
+        "Pistacchi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "piemonte",
+        "cioccolato"
+      ],
+      "notes": "Il gianduia è un impasto di cacao, zucchero e nocciole del Piemonte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante stelle al massimo può ricevere un ristorante dalla Guida Michelin?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "7",
+        "3",
+        "5"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ristoranti"
+      ],
+      "notes": "La Guida Michelin assegna da una a tre stelle",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il tajine, che dà il nome anche alla sua pentola di terracotta, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Egitto",
+        "Marocco",
+        "India",
+        "Grecia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mondo"
+      ],
+      "notes": "Il tajine è lo stufato marocchino cotto nell'omonima pentola con coperchio conico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i crauti?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cetrioli sottaceto",
+        "Cipolle caramellate",
+        "Rape bollite",
+        "Cavolo fermentato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "germania",
+        "verdure"
+      ],
+      "notes": "I crauti sono cavolo cappuccio a striscioline fatto fermentare con il sale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "L'idromele, bevanda alcolica antichissima, si ottiene dalla fermentazione di?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mele",
+        "Orzo",
+        "Uva",
+        "Miele"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande",
+        "trabocchetto"
+      ],
+      "notes": "L'idromele è acqua e miele fermentati: le mele non c'entrano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Gli gnocchi alla romana si preparano con?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Semolino",
+        "Ricotta",
+        "Pane raffermo",
+        "Patate"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lazio",
+        "trabocchetto"
+      ],
+      "notes": "Gli gnocchi alla romana sono dischi di semolino cotto nel latte, gratinati con burro e formaggio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il maccu siciliano è una crema densa di quale legume?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fave",
+        "Piselli",
+        "Ceci",
+        "Lenticchie"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "legumi"
+      ],
+      "notes": "Il maccu è una purea di fave secche, spesso con finocchietto selvatico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la scaccia ragusana?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un formaggio stagionato",
+        "Un salame piccante",
+        "Una focaccia ripiena ripiegata",
+        "Un dolce di mandorle"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "La scaccia è una sfoglia di pasta di semola ripiegata più volte e farcita, tipica di Ragusa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La gricia romana è, in pratica, un'amatriciana senza quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pepe",
+        "Pomodoro",
+        "Pecorino",
+        "Guanciale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lazio",
+        "pasta"
+      ],
+      "notes": "Gricia: guanciale, pecorino e pepe; l'amatriciana aggiunge il pomodoro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il risi e bisi veneziano è un riso cotto con quale legume?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Piselli",
+        "Fave",
+        "Ceci",
+        "Fagioli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "veneto"
+      ],
+      "notes": "Risi e bisi: riso e piselli, piatto tradizionale di Venezia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La genovese, celebre sugo napoletano, è a base di?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Funghi e panna",
+        "Basilico e pinoli",
+        "Pomodoro e acciughe",
+        "Cipolle e carne"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "campania",
+        "trabocchetto"
+      ],
+      "notes": "La genovese napoletana è un sugo di moltissime cipolle e carne cotte a lungo, senza pomodoro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale agrume, coltivato soprattutto in provincia di Reggio Calabria, profuma il tè Earl Grey?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mandarino",
+        "Cedro",
+        "Pompelmo",
+        "Bergamotto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calabria",
+        "agrumi"
+      ],
+      "notes": "L'essenza di bergamotto, prodotto quasi tutto nel Reggino, aromatizza il tè Earl Grey",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la bottarga?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Fegato di pesce affumicato",
+        "Uova di pesce salate ed essiccate",
+        "Alghe essiccate",
+        "Tonno sott'olio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sardegna",
+        "pesce"
+      ],
+      "notes": "La bottarga è la sacca di uova di muggine o di tonno, salata e fatta essiccare",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Su che tipo di pianta crescono le banane?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Una grande pianta erbacea",
+        "Un arbusto rampicante",
+        "Una palma",
+        "Un albero da frutto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta",
+        "trabocchetto"
+      ],
+      "notes": "Il banano non è un albero: è un'erba gigante e il suo \"tronco\" è fatto di guaine di foglie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il bicerin, a base di caffè, cioccolato e crema di latte, è tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Torino",
+        "Venezia",
+        "Trieste",
+        "Napoli"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "piemonte",
+        "bevande"
+      ],
+      "notes": "Il bicerin è la bevanda storica di Torino, servita nel bicchierino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il haggis, a base di interiora di pecora, è il piatto simbolo di quale nazione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Galles",
+        "Scozia",
+        "Islanda",
+        "Irlanda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mondo"
+      ],
+      "notes": "Il haggis è il piatto nazionale scozzese, servito nella Burns Night",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pepe nero, quello verde e quello bianco da dove vengono?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Da piante di continenti diversi",
+        "Da tre piante diverse",
+        "Da due piante diverse",
+        "Dalla stessa pianta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie",
+        "trabocchetto"
+      ],
+      "notes": "Sono tutte bacche di Piper nigrum, raccolte a maturazione diversa e lavorate in modo diverso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La colatura di alici è una specialità di quale borgo della Costiera amalfitana?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cetara",
+        "Amalfi",
+        "Positano",
+        "Ravello"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "campania",
+        "pesce"
+      ],
+      "notes": "Colatura di alici di Cetara DOP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il farsumagru siciliano?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Una zuppa di pesce",
+        "Un pane alle olive",
+        "Un dolce di ricotta",
+        "Un rotolo di carne ripieno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "carne"
+      ],
+      "notes": "Il farsumagru è un grande involtino di carne farcito con uova sode, salumi e formaggio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quali due glasse si ricopre la pignolata messinese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Pistacchio e mandorla",
+        "Fragola e panna",
+        "Cioccolato e limone",
+        "Caffè e vaniglia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "dolci"
+      ],
+      "notes": "La pignolata di Messina è ricoperta per metà di glassa al cioccolato e per metà al limone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale pesce si prepara, nonostante il nome, il baccalà alla vicentina?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Stoccafisso",
+        "Baccalà",
+        "Nasello",
+        "Salmone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "veneto",
+        "trabocchetto"
+      ],
+      "notes": "In Veneto \"bacalà\" indica lo stoccafisso, merluzzo essiccato all'aria e non salato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha di particolare il ciauscolo, salame delle Marche?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "È di carne di cavallo",
+        "È affumicato al ginepro",
+        "È spalmabile",
+        "È dolce"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "marche",
+        "salumi"
+      ],
+      "notes": "Il Ciauscolo IGP è un salame morbido da spalmare sul pane",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In cucina, che taglio è la brunoise?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Listarelle sottili",
+        "Spicchi a mezzaluna",
+        "Rondelle spesse",
+        "Cubetti piccolissimi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "La brunoise è un taglio a dadini di uno o due millimetri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente inaspettato c'è nel mole poblano, salsa messicana per la carne?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Cioccolato",
+        "Vaniglia",
+        "Caffè",
+        "Liquirizia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "messico",
+        "salse"
+      ],
+      "notes": "Il mole poblano unisce peperoncini secchi, spezie, frutta secca e cioccolato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La mandorla è il seme di un frutto parente stretto di quale?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Pesca",
+        "Nocciola",
+        "Noce",
+        "Castagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta",
+        "botanica"
+      ],
+      "notes": "Mandorlo e pesco appartengono allo stesso genere, Prunus",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scienziato americano studiò e rese famosa la dieta mediterranea?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Ancel Keys",
+        "Jonas Salk",
+        "Linus Pauling",
+        "Albert Sabin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia-cucina"
+      ],
+      "notes": "Il fisiologo Ancel Keys studiò dagli anni Cinquanta la dieta del Sud Italia e visse poi a Pioppi, nel Cilento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fu la prima DOC della Sicilia, nel 1968?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Alcamo",
+        "Marsala",
+        "Faro",
+        "Etna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia",
+        "vino"
+      ],
+      "notes": "L'Etna DOC fu riconosciuta nel 1968, prima DOC siciliana (la Marsala nel 1969)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i bastardoni siciliani?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Cannoli giganti",
+        "Fichi d'India tardivi",
+        "Pomodori seccati",
+        "Arance tardive"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "frutta"
+      ],
+      "notes": "I bastardoni sono fichi d'India di seconda fioritura, ottenuta con la scozzolatura, che maturano in autunno",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cuoco del Quattrocento scrisse il Libro de arte coquinaria?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Maestro Martino",
+        "Bartolomeo Platina",
+        "Bartolomeo Scappi",
+        "Pellegrino Artusi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia-cucina"
+      ],
+      "notes": "Maestro Martino da Como scrisse il Libro de arte coquinaria nel XV secolo; Platina ne riprese le ricette nel De honesta voluptate",
+      "verified": false
+    }
+  ]
+}

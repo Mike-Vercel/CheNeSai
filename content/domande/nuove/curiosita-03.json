@@ -1,0 +1,1095 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In quale gioco uno conta a occhi chiusi mentre gli altri corrono a nascondersi?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Nascondino",
+        "Mosca cieca",
+        "Campana",
+        "Palla avvelenata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "A nascondino chi conta poi deve trovare gli altri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori servono per una partita a dama?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "4",
+        "6",
+        "2"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi da tavolo"
+      ],
+      "notes": "La dama si gioca in due, bianchi contro neri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i piccoli aiutanti di Babbo Natale?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Gnomi",
+        "Folletti dei boschi",
+        "Elfi",
+        "Nani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale"
+      ],
+      "notes": "Gli elfi costruiscono i giocattoli nel laboratorio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa americana di novembre si celebra mangiando il tacchino?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Halloween",
+        "Giorno del Ringraziamento",
+        "Festa dell'Indipendenza",
+        "Pasqua"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Thanksgiving, il quarto giovedì di novembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, che cosa si rovescia portando sfortuna?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il sale",
+        "Lo zucchero",
+        "Il caffè",
+        "La farina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Spargere il sale porta male; un pizzico si getta dietro la spalla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il gioco di carte che si fa da soli, mettendo le carte in colonne?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Briscola",
+        "Scopa",
+        "Rubamazzo",
+        "Solitario"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Il solitario si gioca da soli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pietra preziosa è famosa per il suo colore rosso?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Zaffiro",
+        "Smeraldo",
+        "Rubino",
+        "Topazio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "gioielli"
+      ],
+      "notes": "Il rubino è un corindone rosso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quale pezzo si muove solo in diagonale?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Torre",
+        "Alfiere",
+        "Cavallo",
+        "Re"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scacchi",
+        "giochi"
+      ],
+      "notes": "L'alfiere resta sempre sulle case del suo colore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa italiana cade il 15 agosto?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ferragosto",
+        "Ognissanti",
+        "Festa della Repubblica",
+        "Epifania"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Ferragosto coincide con l'Assunzione di Maria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si lancia per tradizione agli sposi all'uscita dalla chiesa?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sale",
+        "Farina",
+        "Petali di carta",
+        "Riso"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tradizioni",
+        "matrimonio"
+      ],
+      "notes": "Il riso augura abbondanza e fertilità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pianta con grandi foglie rosse si regala spesso a Natale?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ciclamino",
+        "Agrifoglio",
+        "Stella di Natale",
+        "Orchidea"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "piante"
+      ],
+      "notes": "La stella di Natale (poinsettia) viene dal Messico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa tiene nella mano sinistra la Statua della Libertà?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Una spada",
+        "Una tavola con una data",
+        "Una bilancia",
+        "Una corona d'alloro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "luoghi",
+        "mondo"
+      ],
+      "notes": "La tavola riporta la data della Dichiarazione d'indipendenza, 4 luglio 1776",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città piemontese si combatte a Carnevale la Battaglia delle arance?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ivrea",
+        "Asti",
+        "Cuneo",
+        "Alessandria"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Storico Carnevale di Ivrea",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa si celebra il 1 novembre?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Commemorazione dei defunti",
+        "Immacolata",
+        "Epifania",
+        "Ognissanti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "calendario"
+      ],
+      "notes": "Ognissanti il 1 novembre; i defunti si ricordano il 2",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi colori NON compare negli anelli olimpici?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Blu",
+        "Giallo",
+        "Viola",
+        "Verde"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Gli anelli sono blu, giallo, nero, verde e rosso su fondo bianco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante caselle ha la griglia classica del Sudoku?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "64",
+        "81",
+        "100",
+        "72"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "numeri"
+      ],
+      "notes": "Griglia di nove per nove",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa raffigura la bandiera della Sardegna, oltre alla croce rossa?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Quattro teste di moro",
+        "Quattro leoni",
+        "Quattro stelle",
+        "Quattro aquile"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bandiere",
+        "sardegna"
+      ],
+      "notes": "La bandiera dei Quattro mori",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quanti pezzi ha ogni giocatore all'inizio della partita?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "12",
+        "18",
+        "20",
+        "16"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scacchi",
+        "giochi"
+      ],
+      "notes": "Otto pedoni e otto pezzi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si festeggia in Italia il 2 giugno?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "La Liberazione",
+        "La Festa del lavoro",
+        "La Festa della Repubblica",
+        "L'Unità d'Italia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Ricorda il referendum del 2 giugno 1946",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giorni dura la Quaresima?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "30",
+        "40",
+        "50",
+        "7"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Quaranta giorni di preparazione alla Pasqua",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quale artigianato è famosa Caltagirone?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ceramica",
+        "Vetro soffiato",
+        "Merletti",
+        "Orologi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "artigianato"
+      ],
+      "notes": "Caltagirone è la città della ceramica siciliana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si inseriva nei vecchi telefoni pubblici italiani prima delle schede?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una moneta da cento lire d'oro",
+        "Un biglietto",
+        "Una tessera di cartone",
+        "Il gettone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefoni",
+        "ricordi"
+      ],
+      "notes": "Il gettone telefonico fu usato dal 1927 al 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale giorno comincia la Quaresima nel rito romano?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Domenica delle Palme",
+        "Martedì grasso",
+        "Mercoledì delle Ceneri",
+        "Giovedì santo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Nel rito ambrosiano invece comincia la domenica successiva",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale Paese vengono i mattoncini Lego?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Svezia",
+        "Danimarca",
+        "Germania",
+        "Stati Uniti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giocattoli",
+        "mondo"
+      ],
+      "notes": "Lego nasce a Billund, Danimarca; il nome viene da \"leg godt\", gioca bene",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la parola giapponese origami?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Piegare la carta",
+        "Tagliare la carta",
+        "Dipingere la carta",
+        "Incollare la carta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giappone",
+        "arte"
+      ],
+      "notes": "Da \"oru\" (piegare) e \"kami\" (carta)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la leggenda, quali uccelli devono restare nella Torre di Londra perché il regno non cada?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Piccioni",
+        "Gabbiani",
+        "Cigni",
+        "Corvi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "leggende",
+        "londra"
+      ],
+      "notes": "Nella Torre si tengono sempre almeno sei corvi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti metri misura circa un miglio terrestre?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1000",
+        "1852",
+        "1609",
+        "2500"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "misure",
+        "trabocchetto"
+      ],
+      "notes": "Il miglio terrestre è 1609 metri; 1852 è il miglio marino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale giorno cadono le Idi di marzo?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1 marzo",
+        "15 marzo",
+        "13 marzo",
+        "21 marzo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calendario",
+        "roma"
+      ],
+      "notes": "Nei mesi di marzo, maggio, luglio e ottobre le Idi cadono il 15",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale maschera bolognese è un dottore saccente e chiacchierone?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Balanzone",
+        "Pantalone",
+        "Brighella",
+        "Tartaglia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "maschere",
+        "bologna"
+      ],
+      "notes": "Il Dottor Balanzone rappresenta la dotta Bologna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Com'era davvero la statura di Napoleone?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Molto bassa",
+        "Altissima",
+        "Sotto il metro e mezzo",
+        "Nella media del suo tempo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia",
+        "trabocchetto"
+      ],
+      "notes": "Circa 1,69 metri: il mito nasce dalla differenza tra pollici francesi e inglesi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale rito si festeggia a Firenze la mattina di Pasqua davanti al Duomo?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "La corsa dei ceri",
+        "Il volo dell'angelo",
+        "Lo scoppio del carro",
+        "La luminara"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Una colombina meccanica accende i fuochi sul Brindellone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana sfila il Venerdì Santo la processione dei Misteri, lunga circa un giorno?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Enna",
+        "Trapani",
+        "Caltanissetta",
+        "Ragusa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "I venti gruppi dei Misteri di Trapani escono per circa 24 ore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale posto occupava settembre nel calendario romano più antico, come dice il nome?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Settimo",
+        "Nono",
+        "Decimo",
+        "Ottavo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario",
+        "trabocchetto"
+      ],
+      "notes": "L'anno romano cominciava a marzo: settembre era il settimo mese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città abruzzese sono famosi i confetti artigianali?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Teramo",
+        "Chieti",
+        "Vasto",
+        "Sulmona"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "confetti",
+        "abruzzo"
+      ],
+      "notes": "Sulmona è la capitale italiana dei confetti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale anno si è chiuso ufficialmente il Novecento?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "1999",
+        "2001",
+        "2000",
+        "1990"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calendario",
+        "trabocchetto"
+      ],
+      "notes": "Il ventesimo secolo va dal 1901 al 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero porta sfortuna in Giappone perché si pronuncia come la parola \"morte\"?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "13",
+        "4",
+        "9",
+        "17"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giappone",
+        "superstizioni"
+      ],
+      "notes": "\"Shi\" significa sia quattro sia morte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città umbra si corre la Corsa dei Ceri il 15 maggio?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gubbio",
+        "Perugia",
+        "Assisi",
+        "Spoleto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Tre grandi ceri portati di corsa fino al monte Ingino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale parte del mondo vengono i porcellini d'India?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "India",
+        "Africa",
+        "Indonesia",
+        "Sud America"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "animali",
+        "trabocchetto"
+      ],
+      "notes": "Sono originari delle Ande; \"India\" viene dalle Indie occidentali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi diede il nome \"Orecchio di Dionisio\" alla grotta di Siracusa?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Archimede",
+        "Cicerone",
+        "Caravaggio",
+        "Goethe"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "caravaggio"
+      ],
+      "notes": "Lo racconta lo storico Vincenzo Mirabella: Caravaggio la visitò nel 1608",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si tiene a dicembre la fiera degli \"Oh bej! Oh bej!\"?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Milano",
+        "Bergamo",
+        "Verona"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "milano"
+      ],
+      "notes": "Fiera per Sant'Ambrogio, intorno al 7 dicembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti grammi pesa circa una libbra inglese?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Circa 450",
+        "Circa 250",
+        "Circa 1000",
+        "Circa 100"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "misure"
+      ],
+      "notes": "Una libbra internazionale vale 453,6 grammi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti zeri ha il numero detto googol?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "10",
+        "50",
+        "1000",
+        "100"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "numeri"
+      ],
+      "notes": "Googol: 1 seguito da 100 zeri, nome inventato nel 1938 da Milton Sirotta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in italiano il gatto di Gargamella, nemico dei Puffi?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Garfield",
+        "Silvestro",
+        "Birba",
+        "Tom"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fumetti"
+      ],
+      "notes": "In originale Azraël, in italiano Birba",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale castello pugliese è raffigurato sulla moneta italiana da 1 centesimo?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Castello Svevo di Bari",
+        "Castel del Monte",
+        "Castello di Otranto",
+        "Castello aragonese di Taranto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete",
+        "italia"
+      ],
+      "notes": "Castel del Monte, fatto costruire da Federico secondo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale isola-Stato ha la propria sagoma disegnata sulla bandiera?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Cipro",
+        "Malta",
+        "Islanda",
+        "Giamaica"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bandiere",
+        "mondo"
+      ],
+      "notes": "La bandiera cipriota mostra l'isola in color rame",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città viene portata a spalla la Macchina di Santa Rosa ogni 3 settembre?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Orvieto",
+        "Rieti",
+        "Terni",
+        "Viterbo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "La torre illuminata alta circa 30 metri è portata dai Facchini di Santa Rosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale paese molisano una fonderia pontificia fonde campane da secoli?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Isernia",
+        "Termoli",
+        "Agnone",
+        "Venafro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "molise",
+        "artigianato"
+      ],
+      "notes": "La Pontificia Fonderia Marinelli di Agnone",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è il patrono dei giornalisti?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "San Giovanni Bosco",
+        "San Francesco di Sales",
+        "San Luca",
+        "San Paolo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "santi",
+        "giornalismo"
+      ],
+      "notes": "Proclamato da Pio XI nel 1923",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano i grandi ceri votivi portati in processione per Sant'Agata a Catania?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Candelore",
+        "Vare",
+        "Gigli",
+        "Misteri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "feste"
+      ],
+      "notes": "Le candelore (cannalori) delle corporazioni; i gigli sono di Nola, la Vara di Messina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa colleziona un fillumenista?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Fili di seta",
+        "Biglietti del tram",
+        "Etichette di vino",
+        "Scatole di fiammiferi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "collezionismo"
+      ],
+      "notes": "Il fillumenismo raccoglie scatole ed etichette di fiammiferi",
+      "verified": false
+    }
+  ]
+}

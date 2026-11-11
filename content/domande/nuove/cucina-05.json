@@ -1,0 +1,1090 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Il nome di quale pasta lunga deriva dalla parola spago?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spaghetti",
+        "Bucatini",
+        "Tagliatelle",
+        "Linguine"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta",
+        "parole"
+      ],
+      "notes": "Spaghetto è diminutivo di spago (Treccani)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale frutto tropicale ha la buccia ruvida e un ciuffo di foglie in cima?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mango",
+        "Cocco",
+        "Papaya",
+        "Ananas"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "L'ananas ha la buccia a squame e una corona di foglie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parte gialla dell'uovo?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Calaza",
+        "Albume",
+        "Tuorlo",
+        "Guscio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "uova"
+      ],
+      "notes": "Il tuorlo è la parte gialla, l'albume quella trasparente che diventa bianca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale stagione si raccolgono le castagne?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Estate",
+        "Primavera",
+        "Inverno",
+        "Autunno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "frutta",
+        "stagioni"
+      ],
+      "notes": "Le castagne maturano tra settembre e novembre",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La sangria spagnola si prepara con frutta a pezzi e…?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Vino rosso",
+        "Latte",
+        "Acqua tonica",
+        "Birra"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande",
+        "spagna"
+      ],
+      "notes": "La sangria classica è vino rosso con frutta, zucchero e spezie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pasta lunga ha un buco al centro, come una cannuccia?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Linguine",
+        "Fettuccine",
+        "Bucatini",
+        "Spaghetti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "I bucatini sono spaghetti grossi forati, classici dell'amatriciana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La piadina è un pane schiacciato tipico di quale zona?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Valle d'Aosta",
+        "Liguria",
+        "Sicilia",
+        "Romagna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "emilia-romagna",
+        "pane"
+      ],
+      "notes": "Piadina Romagnola IGP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente crea la crema della carbonara tradizionale?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Burro",
+        "Latte",
+        "Uova",
+        "Panna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lazio",
+        "pasta"
+      ],
+      "notes": "Nella carbonara la crema si fa con uova (tuorli) e pecorino, senza panna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda calda e rilassante si prepara con i fiori secchi di una pianta?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Camomilla",
+        "Caffè",
+        "Tè nero",
+        "Cioccolata"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "La camomilla è un infuso di capolini di Matricaria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piatto britannico unisce pesce fritto in pastella e patatine?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Pudding",
+        "Porridge",
+        "Roast beef",
+        "Fish and chips"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "regno-unito"
+      ],
+      "notes": "Fish and chips: merluzzo o eglefino fritto in pastella con patatine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianta si ricava il rum?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Canna da zucchero",
+        "Patata",
+        "Agave",
+        "Barbabietola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Il rum è un distillato di melassa o succo di canna da zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale spezia rossa, ricavata dai peperoni, è un simbolo della cucina ungherese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Zafferano",
+        "Curcuma",
+        "Cumino",
+        "Paprika"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie",
+        "ungheria"
+      ],
+      "notes": "La paprika è polvere di peperoni essiccati, base del gulasch",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale legume si ricava il tofu?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ceci",
+        "Soia",
+        "Lenticchie",
+        "Fave"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "legumi",
+        "asia"
+      ],
+      "notes": "Il tofu è il caglio del latte di soia pressato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le trofie, piccola pasta attorcigliata, sono tipiche di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Liguria",
+        "Puglia",
+        "Abruzzo",
+        "Sardegna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "liguria",
+        "pasta"
+      ],
+      "notes": "Le trofie sono la pasta ligure tipica, condita col pesto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I canederli, grossi gnocchi di pane, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Puglia",
+        "Trentino-Alto Adige",
+        "Lazio",
+        "Sicilia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trentino"
+      ],
+      "notes": "Canederli (Knödel): gnocchi di pane raffermo con speck, tipici del Trentino-Alto Adige",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con che cosa si legano gli struffoli napoletani?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Crema pasticciera",
+        "Cioccolato fuso",
+        "Marmellata",
+        "Miele"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "campania",
+        "dolci"
+      ],
+      "notes": "Gli struffoli sono palline fritte legate con miele e decorate con confettini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il liquore di mirto è tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Campania",
+        "Valle d'Aosta",
+        "Sicilia",
+        "Sardegna"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sardegna",
+        "liquori"
+      ],
+      "notes": "Il mirto si ottiene dalle bacche dell'omonima pianta, tipico della Sardegna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le olive all'ascolana vengono farcite di carne, impanate e poi…?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fritte",
+        "Grigliate",
+        "Essiccate",
+        "Bollite"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "marche",
+        "fritti"
+      ],
+      "notes": "Oliva Ascolana del Piceno DOP: ripiena di carne, impanata e fritta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il manzo alla Stroganoff è un piatto tipico di quale cucina?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Tedesca",
+        "Russa",
+        "Ungherese",
+        "Spagnola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mondo"
+      ],
+      "notes": "Lo Stroganoff, manzo a striscioline con panna acida, è un classico della cucina russa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale distillato c'è nel Negroni classico?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gin",
+        "Rum",
+        "Tequila",
+        "Vodka"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Negroni: gin, vermut rosso e bitter in parti uguali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa c'è nel gelato alla stracciatella, oltre al fiordilatte?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Scaglie di cioccolato",
+        "Caffè",
+        "Nocciole tritate",
+        "Amarene"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "gelato"
+      ],
+      "notes": "La stracciatella è fiordilatte con cioccolato fuso che si rapprende in scaglie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il panforte, con frutta secca, miele e spezie, è un dolce tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Napoli",
+        "Verona",
+        "Siena",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "toscana",
+        "dolci"
+      ],
+      "notes": "Panforte di Siena IGP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il vero caviale è fatto con le uova di quale pesce?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Storione",
+        "Tonno",
+        "Merluzzo",
+        "Salmone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesce"
+      ],
+      "notes": "Si chiama caviale solo quello di storione; le altre sono uova di pesce",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I cazzilli palermitani, fritti insieme alle panelle, sono crocchette di?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ceci",
+        "Patate",
+        "Riso",
+        "Melanzane"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "street-food"
+      ],
+      "notes": "I cazzilli sono crocchette di patate, venduti con le panelle",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il colore bianco o marrone del guscio di un uovo da che cosa dipende?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Dall'alimentazione",
+        "Dall'allevamento all'aperto",
+        "Dalla freschezza",
+        "Dalla razza della gallina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "uova",
+        "trabocchetto"
+      ],
+      "notes": "Il colore del guscio è un carattere genetico della razza, non indica qualità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolcetto portoghese è un cestino di pasta sfoglia ripieno di crema?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Baklava",
+        "Pastel de nata",
+        "Crema catalana",
+        "Churros"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-mondo",
+        "dolci"
+      ],
+      "notes": "Il pastel de nata è la tortina di sfoglia e crema tipica di Lisbona",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Wiener Schnitzel, la cotoletta viennese, è fatto con carne di?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Vitello",
+        "Pollo",
+        "Maiale",
+        "Tacchino"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "austria",
+        "carne"
+      ],
+      "notes": "Per la legge austriaca il Wiener Schnitzel è solo di vitello",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la pallina di brioche in cima alla brioscia siciliana?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cuppo",
+        "Pizzo",
+        "Cucuzzolo",
+        "Tuppo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sicilia"
+      ],
+      "notes": "La brioscia \"col tuppo\": il tuppo è la crocchia, come quella dei capelli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I pici, grossi spaghetti tirati a mano, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Toscana",
+        "Sardegna",
+        "Calabria",
+        "Veneto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "toscana",
+        "pasta"
+      ],
+      "notes": "I pici sono la pasta tipica del Senese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lo zampone di Modena è insaccato in che cosa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "In un budello di manzo",
+        "Nello stomaco del maiale",
+        "Nella pelle della zampa del maiale",
+        "In una vescica"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "emilia-romagna",
+        "salumi"
+      ],
+      "notes": "Zampone Modena IGP: impasto insaccato nella cotenna della zampa anteriore del maiale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le sarde in saor, marinate con cipolla e aceto, sono tipiche di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Venezia",
+        "Palermo",
+        "Bari",
+        "Genova"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "veneto",
+        "pesce"
+      ],
+      "notes": "Il saor è la marinatura veneziana con cipolle, aceto, uvetta e pinoli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa mangiamo del carciofo?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Le foglie della pianta",
+        "La radice",
+        "Il frutto maturo",
+        "Il fiore non ancora sbocciato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ortaggi",
+        "trabocchetto"
+      ],
+      "notes": "Il carciofo è un'infiorescenza raccolta prima della fioritura",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il latte di cocco che si usa in cucina si ottiene da?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "I fiori della palma",
+        "L'acqua dentro il frutto",
+        "La linfa della palma",
+        "La polpa grattugiata e spremuta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "frutta",
+        "trabocchetto"
+      ],
+      "notes": "L'acqua di cocco è il liquido interno; il latte si ottiene spremendo la polpa grattugiata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pasticciotto leccese è un dolce di frolla ripieno di?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marmellata",
+        "Crema pasticciera",
+        "Cioccolato",
+        "Ricotta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "puglia",
+        "dolci"
+      ],
+      "notes": "Il pasticciotto di Lecce è un tortino di frolla ripieno di crema pasticciera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le lenticchie di Castelluccio crescono in quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marche",
+        "Umbria",
+        "Abruzzo",
+        "Toscana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "umbria",
+        "legumi"
+      ],
+      "notes": "Lenticchia di Castelluccio di Norcia IGP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La Malvasia delle Lipari è un vino dolce prodotto in quale arcipelago?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Egadi",
+        "Pelagie",
+        "Eolie",
+        "Tremiti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "vino"
+      ],
+      "notes": "Malvasia delle Lipari DOC, prodotta nelle isole Eolie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il quinto gusto, accanto a dolce, salato, aspro e amaro, si chiama?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Astringente",
+        "Umami",
+        "Piccante",
+        "Speziato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scienza-cucina"
+      ],
+      "notes": "L'umami, il gusto del glutammato, fu individuato da Kikunae Ikeda nel 1908; il piccante non è un gusto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa sono fatti i bastoncini di surimi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Soia",
+        "Polpa di granchio",
+        "Gamberi tritati",
+        "Polpa di pesce bianco"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pesce",
+        "trabocchetto"
+      ],
+      "notes": "Il surimi è polpa di pesce bianco (spesso merluzzo d'Alaska) lavorata e aromatizzata al granchio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale salsa si condiscono tradizionalmente i pansoti liguri?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Burro e salvia",
+        "Pesto",
+        "Salsa di noci",
+        "Ragù"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "liguria",
+        "pasta"
+      ],
+      "notes": "I pansoti, ravioli di erbe, si servono con la salsa di noci",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono i lampascioni pugliesi?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Lumache di terra",
+        "Bulbi di una pianta selvatica",
+        "Funghi di bosco",
+        "Olive nere"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "puglia",
+        "ortaggi"
+      ],
+      "notes": "I lampascioni sono i bulbi amarognoli del Muscari comosum, un giacinto selvatico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I tajarin, tagliolini ricchissimi di tuorli, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sardegna",
+        "Sicilia",
+        "Piemonte",
+        "Campania"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "piemonte",
+        "pasta"
+      ],
+      "notes": "I tajarin sono i tagliolini all'uovo delle Langhe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire brasare una carne?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Cuocerla al vapore",
+        "Cuocerla a lungo, coperta, con poco liquido",
+        "Cuocerla velocemente alla griglia",
+        "Marinarla cruda nel limone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tecniche",
+        "carne"
+      ],
+      "notes": "La brasatura è una cottura lenta in recipiente chiuso con poco liquido",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella farina, che cosa indica il valore W?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il colore",
+        "La forza",
+        "L'umidità",
+        "La finezza"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "farine"
+      ],
+      "notes": "W misura la forza della farina, cioè la capacità dell'impasto di trattenere i gas",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lo Stilton, formaggio erborinato, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Paesi Bassi",
+        "Danimarca",
+        "Inghilterra",
+        "Francia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Lo Stilton è un formaggio blu inglese DOP (Derbyshire, Leicestershire, Nottinghamshire)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prendono il nome le sarde a beccafico siciliane?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Da un attrezzo da pesca",
+        "Da un borgo marinaro",
+        "Da un uccellino",
+        "Da un pescatore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "pesce"
+      ],
+      "notes": "Il beccafico è un uccello: le sarde ripiene imitano la sua forma, piatto un tempo dei nobili",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste non è una varietà di arancia rossa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Sanguinello",
+        "Navel",
+        "Tarocco",
+        "Moro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "agrumi"
+      ],
+      "notes": "Arancia Rossa di Sicilia IGP: Tarocco, Moro, Sanguinello; la Navel è bionda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale varietà di mandorla siciliana, piatta e regolare, è la preferita per i confetti?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Pizzuta d'Avola",
+        "Nocellara",
+        "Tarocco",
+        "Tonda gentile"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sicilia",
+        "frutta-secca"
+      ],
+      "notes": "La Pizzuta d'Avola è la mandorla classica per i confetti; Tonda gentile è una nocciola, Nocellara un'oliva",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Sagrantino è un vitigno rosso tipico di quale località umbra?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Gubbio",
+        "Orvieto",
+        "Montefalco",
+        "Assisi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "vino",
+        "umbria"
+      ],
+      "notes": "Montefalco Sagrantino DOCG",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che forma ha il Ragusano DOP, formaggio dei monti Iblei?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Ruota",
+        "Cilindro",
+        "Parallelepipedo",
+        "Pera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "formaggi"
+      ],
+      "notes": "Il Ragusano DOP ha forma di parallelepipedo a sezione quadrata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il dashi giapponese si prepara con alga kombu e scaglie essiccate di quale pesce?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Anguilla",
+        "Tonnetto",
+        "Merluzzo",
+        "Salmone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giappone"
+      ],
+      "notes": "Il katsuobushi del dashi è tonnetto striato essiccato e affumicato",
+      "verified": false
+    }
+  ]
+}
