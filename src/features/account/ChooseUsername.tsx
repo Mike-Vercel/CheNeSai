@@ -41,11 +41,11 @@ export function ChooseUsername() {
       <form onSubmit={(e) => void submit(e)} className="flex flex-col gap-4">
         <UsernameField value={username} onChange={setUsername} onStatus={setStatus} id="choose-username" />
         {error && (
-          <p role="alert" className="rounded-2xl bg-flame/20 px-4 py-3 font-bold text-[#ffd0d9]">
+          <p role="alert" className="rounded-2xl bg-[#2a0a12] px-4 py-3 font-bold text-[#ffd0d9] ring-1 ring-inset ring-[#ff5470]/45">
             {error}
           </p>
         )}
-        <button type="submit" disabled={busy || status !== "ok"} className="qz-play rounded-full bg-gold py-4 font-display text-2xl text-ink hover:bg-white disabled:opacity-60">
+        <button type="submit" disabled={busy || status !== "ok"} className="qz-play rounded-full bg-gold py-4 font-display text-2xl text-ink transition hover:bg-[#ffe066] disabled:opacity-60">
           {busy ? "Un attimo…" : "CONTINUA"}
         </button>
       </form>

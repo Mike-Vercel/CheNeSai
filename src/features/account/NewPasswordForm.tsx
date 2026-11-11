@@ -46,18 +46,18 @@ export function NewPasswordForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             aria-describedby="np-help"
-            className="h-13 w-full rounded-2xl border-[3px] border-transparent bg-white px-4 py-3 text-lg font-bold text-ink focus:border-cyan focus:outline-none"
+            className="qz-field rounded-2xl h-14 w-full px-4 text-[17px]"
           />
           <p id="np-help" className="mt-1.5 text-sm font-bold text-white/70">
             Almeno 8 caratteri.
           </p>
         </div>
         {error && (
-          <p role="alert" className="rounded-2xl bg-flame/20 px-4 py-3 font-bold text-[#ffd0d9]">
+          <p role="alert" className="rounded-2xl bg-[#2a0a12] px-4 py-3 font-bold text-[#ffd0d9] ring-1 ring-inset ring-[#ff5470]/45">
             {error} {error.includes("scaduto") && <Link href="/accedi?modo=password" className="underline">Richiedi un nuovo link</Link>}
           </p>
         )}
-        <button type="submit" disabled={busy} className="qz-play rounded-full bg-gold py-4 font-display text-2xl text-ink hover:bg-white disabled:opacity-60">
+        <button type="submit" disabled={busy} className="qz-play rounded-full bg-gold py-4 font-display text-2xl text-ink transition hover:bg-[#ffe066] disabled:opacity-60">
           {busy ? "Un attimo…" : "SALVA E GIOCA"}
         </button>
       </form>

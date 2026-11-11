@@ -1,6 +1,7 @@
 /**
  * Piattaforma dei giochi: nome e catalogo della home.
- * Per aggiungere un gioco basta aggiungere una voce a GAMES (e la sua copertina in /public).
+ * Per aggiungere un gioco basta aggiungere una voce a GAMES (e la sua copertina verticale in /public/games,
+ * ricavata dall'originale in REFERENCE/GIOCHI).
  */
 
 /** Nome provvisorio della piattaforma (barra in alto, piè di pagina): si cambia qui. */
@@ -21,8 +22,8 @@ export interface GameEntry {
   status: GameStatus;
   /** dove porta "Gioca" (null = non ancora disponibile) */
   href: string | null;
-  /** copertina: immagine reale del gioco oppure campo di colore con una sigla */
-  cover: { kind: "image"; src: string; alt: string } | { kind: "placeholder"; color: string; mark: CoverMark };
+  /** copertina verticale (locandina 4:5 circa): immagine reale del gioco oppure campo di colore con una sigla */
+  cover: { kind: "image"; src: string; alt: string; width: number; height: number } | { kind: "placeholder"; color: string; mark: CoverMark };
 }
 
 export const GAMES: GameEntry[] = [
@@ -30,40 +31,17 @@ export const GAMES: GameEntry[] = [
     id: "che-ne-sai",
     title: "CHE NE SAI?!",
     tagline: "Il quiz show da giocare in compagnia: il PC fa da TV, i telefoni sono i pulsanti.",
-    meta: ["Quiz dal vivo", "2–20 giocatori", "15–40 minuti", "Gratis"],
+    meta: ["Quiz dal vivo", "Da 2 giocatori in su", "15–40 minuti", "Gratis"],
     status: "disponibile",
     href: "/gioca",
-    cover: { kind: "image", src: "/brand/logo-mark-900.webp", alt: "CHE NE SAI?!" },
-  },
-  {
-    id: "musica",
-    title: "Gioco musicale",
-    tagline: "Riconosci il brano prima degli altri.",
-    meta: ["In arrivo"],
-    status: "in-arrivo",
-    href: null,
-    cover: { kind: "placeholder", color: "#087cff", mark: "note" },
-  },
-  {
-    id: "parole",
-    title: "Sfida di parole",
-    tagline: "Indizi, definizioni e parole nascoste, a squadre.",
-    meta: ["In arrivo"],
-    status: "in-arrivo",
-    href: null,
-    cover: { kind: "placeholder", color: "#ff1493", mark: "letters" },
-  },
-  {
-    id: "disegno",
-    title: "Disegna e indovina",
-    tagline: "Uno disegna sul telefono, tutti indovinano sul TV.",
-    meta: ["In arrivo"],
-    status: "in-arrivo",
-    href: null,
-    cover: { kind: "placeholder", color: "#00d46a", mark: "pencil" },
+    cover: {
+      kind: "image",
+      src: "/games/che-ne-sai-copertina.webp",
+      alt: "Copertina di CHE NE SAI?!: il Professore, Palmino e la Regina sul palco del quiz pub",
+      width: 1122,
+      height: 1402,
+    },
   },
 ];
 
 export const FEATURED_GAME = GAMES[0];
-export const AVAILABLE_GAMES = GAMES.filter((g) => g.status === "disponibile");
-export const UPCOMING_GAMES = GAMES.filter((g) => g.status === "in-arrivo");

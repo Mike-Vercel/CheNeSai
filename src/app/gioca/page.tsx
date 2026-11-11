@@ -1,3 +1,4 @@
+import type { Viewport } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ChooseUsername } from "@/features/account/ChooseUsername";
@@ -8,6 +9,7 @@ import { getSql } from "@/lib/database/db";
 import { getHostUser, listHostGames, loadPublicGamesSettings, quotaOf } from "@/lib/server/gioco-libero";
 
 export const metadata = { title: "Nuova partita" };
+export const viewport: Viewport = { themeColor: "#000000" };
 
 export default async function GiocaPage() {
   const host = await getHostUser();
@@ -16,7 +18,7 @@ export default async function GiocaPage() {
 
   if (!host.profile) {
     return (
-      <div className="min-h-dvh bg-night text-white">
+      <div className="qz-black min-h-dvh bg-black text-white">
         <SiteHeader user={user} />
         <main className="mx-auto w-full max-w-lg px-4 pb-16 pt-6 md:pt-14">
           <ChooseUsername />
@@ -32,7 +34,7 @@ export default async function GiocaPage() {
   const closed = !settings.enabled && !host.adminRole;
 
   return (
-    <div className="min-h-dvh bg-night text-white">
+    <div className="qz-black min-h-dvh bg-black text-white">
       <SiteHeader user={user} />
       <main className="mx-auto grid w-full max-w-6xl gap-10 px-4 pb-20 pt-4 md:px-10 md:pt-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
         <section aria-labelledby="new-game-title">
@@ -43,11 +45,11 @@ export default async function GiocaPage() {
             Scegli quanto dura: le domande le prepara il sito, prima quelle che non hai mai visto. Poi apri la TV e fai entrare i telefoni.
           </p>
           {closed ? (
-            <p role="status" className="mt-8 rounded-3xl bg-night-2 p-6 text-lg font-bold">
+            <p role="status" className="mt-8 rounded-3xl bg-coal-2 p-6 text-lg font-bold">
               Il gioco libero è chiuso in questo momento. Riprova più tardi.
             </p>
           ) : !quota.canCreate ? (
-            <p role="status" className="mt-8 rounded-3xl bg-night-2 p-6 text-lg font-bold">
+            <p role="status" className="mt-8 rounded-3xl bg-coal-2 p-6 text-lg font-bold">
               Hai usato tutte le partite del tuo account ({quota.limit}). <Link href="/" className="text-gold underline">Torna alla home</Link>
             </p>
           ) : (

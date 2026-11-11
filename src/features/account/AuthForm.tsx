@@ -7,16 +7,46 @@ import { UsernameField, type UsernameStatus } from "./UsernameField";
 
 type Mode = "signup" | "login" | "reset";
 
-const inputCls = "h-13 w-full rounded-2xl border-[3px] border-transparent bg-white px-4 py-3 text-lg font-bold text-ink placeholder:text-ink/35 focus:border-cyan focus:outline-none";
-
-function GoogleLogo() {
+/** "G" ufficiale di Google (quattro colori), come nei pulsanti "Sign in with Google". */
+function GoogleG({ className }: { className?: string }) {
   return (
-    <svg aria-hidden viewBox="0 0 48 48" className="h-6 w-6">
-      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z" />
-      <path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
-      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" />
-      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 38.2 44 33 44 24c0-1.3-.1-2.4-.4-3.5z" />
+    <svg aria-hidden viewBox="0 0 48 48" className={className}>
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
     </svg>
+  );
+}
+
+function EyeIcon({ open }: { open: boolean }) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+      <circle cx="12" cy="12" r="3" />
+      {!open && <path d="M4 20 20 4" />}
+    </svg>
+  );
+}
+
+export function Spinner({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" className={clsx("qz-spinner", className)} fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
+      <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Messaggio d'errore ben visibile (con un piccolo scossone a ogni nuovo errore). */
+export function FormError({ children }: { children: React.ReactNode }) {
+  return (
+    <div role="alert" className="qz-shake flex gap-3 rounded-2xl bg-[#2a0a12] px-4 py-3 text-[15px] font-bold leading-snug text-[#ffd0d9] ring-1 ring-inset ring-[#ff5470]/45">
+      <svg aria-hidden viewBox="0 0 20 20" className="mt-0.5 h-5 w-5 shrink-0 text-[#ff5470]" fill="currentColor">
+        <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.9-11.6a.9.9 0 1 1 1.8 0v4.2a.9.9 0 1 1-1.8 0V6.4zM10 14.8a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2z" clipRule="evenodd" />
+      </svg>
+      <div className="min-w-0">{children}</div>
+    </div>
   );
 }
 
@@ -27,6 +57,7 @@ export function AuthForm({ next, initialMode, error: initialError }: { next: str
   const [uStatus, setUStatus] = useState<UsernameStatus>("idle");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(initialError);
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState<null | "confirm" | "reset">(null);
@@ -101,54 +132,66 @@ export function AuthForm({ next, initialMode, error: initialError }: { next: str
     }
   }
 
+  function switchMode(m: Mode) {
+    setMode(m);
+    setError(null);
+  }
+
   if (sent) {
     return (
-      <section aria-labelledby="sent-title" className="flex flex-col gap-4">
+      <section aria-labelledby="sent-title" className="flex flex-col gap-4 text-center sm:text-left">
+        <svg aria-hidden viewBox="0 0 48 48" className="mx-auto h-14 w-14 text-gold sm:mx-0" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="10" width="38" height="28" rx="5" />
+          <path d="m7 13 17 13 17-13" />
+        </svg>
         <h1 id="sent-title" className="font-display text-4xl leading-tight">
           Controlla la tua email
         </h1>
         <p className="text-lg font-bold text-white/90">
           {sent === "confirm" ? (
             <>
-              Ti abbiamo mandato un link a <strong className="text-gold">{email}</strong>. Aprilo da questo dispositivo per confermare l&apos;account e iniziare a giocare.
+              Ti abbiamo mandato un link a <strong className="break-all text-gold">{email}</strong>. Aprilo da questo dispositivo per confermare l&apos;account e iniziare a giocare.
             </>
           ) : (
             <>
-              Se esiste un account con <strong className="text-gold">{email}</strong>, riceverai un link per scegliere una nuova password.
+              Se esiste un account con <strong className="break-all text-gold">{email}</strong>, riceverai un link per scegliere una nuova password.
             </>
           )}
         </p>
-        <p className="text-base font-semibold text-white/75">Non arriva? Guarda nello spam, oppure aspetta un minuto e richiedila.</p>
-        {sent === "confirm" && (
-          <button type="button" onClick={() => void resend()} className="w-fit rounded-full bg-white/10 px-5 py-2.5 font-bold hover:bg-white/20">
-            {resent ? "Email inviata di nuovo" : "Invia di nuovo l'email"}
+        <p className="text-base font-semibold text-white/70">Non arriva? Guarda nello spam, oppure aspetta un minuto e richiedila.</p>
+        <div className="mt-2 flex flex-col items-center gap-3 sm:items-start">
+          {sent === "confirm" && (
+            <button type="button" onClick={() => void resend()} className="rounded-full bg-coal-3 px-5 py-3 font-extrabold transition hover:bg-coal-4 active:scale-95">
+              {resent ? "Email inviata di nuovo" : "Invia di nuovo l'email"}
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => {
+              setSent(null);
+              setMode("login");
+            }}
+            className="font-bold text-white/80 underline underline-offset-4 hover:text-white"
+          >
+            Ho confermato: accedi
           </button>
-        )}
-        <button type="button" onClick={() => { setSent(null); setMode("login"); }} className="w-fit font-bold text-white/80 underline underline-offset-4">
-          Ho confermato: accedi
-        </button>
+        </div>
       </section>
     );
   }
 
   const title = mode === "signup" ? "Crea il tuo account" : mode === "login" ? "Bentornato" : "Password dimenticata";
   return (
-    <section aria-labelledby="auth-title" className="flex flex-col gap-5">
-      <div>
-        <h1 id="auth-title" className="font-display text-4xl leading-tight md:text-5xl">
-          {title}
-        </h1>
-        <p className="mt-2 text-base font-bold text-white/85">
-          {mode === "signup"
-            ? "Serve solo a chi ospita la partita: così il sito ricorda le domande che hai già visto. Chi gioca dal telefono entra senza account."
-            : mode === "login"
-              ? "Accedi per creare una nuova partita."
-              : "Scrivi l'email dell'account: ti mandiamo un link per sceglierne una nuova."}
-        </p>
-      </div>
-
+    <section aria-labelledby="auth-title" className="flex flex-col gap-4">
       {mode !== "reset" && (
-        <div role="tablist" aria-label="Accesso" className="grid grid-cols-2 rounded-full bg-night-3 p-1">
+        <div role="tablist" aria-label="Accesso" className="relative grid grid-cols-2 rounded-full bg-coal-3 p-1">
+          <span
+            aria-hidden
+            className={clsx(
+              "absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-white transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]",
+              mode === "login" && "translate-x-full",
+            )}
+          />
           {(
             [
               ["signup", "Crea account"],
@@ -160,11 +203,8 @@ export function AuthForm({ next, initialMode, error: initialError }: { next: str
               role="tab"
               type="button"
               aria-selected={mode === m}
-              onClick={() => {
-                setMode(m);
-                setError(null);
-              }}
-              className={clsx("rounded-full py-2.5 text-base font-black transition", mode === m ? "bg-white text-ink" : "text-white/80 hover:text-white")}
+              onClick={() => switchMode(m)}
+              className={clsx("relative z-10 rounded-full py-2.5 text-base font-black transition-colors duration-300", mode === m ? "text-ink" : "text-white/75 hover:text-white")}
             >
               {label}
             </button>
@@ -172,30 +212,43 @@ export function AuthForm({ next, initialMode, error: initialError }: { next: str
         </div>
       )}
 
+      <div key={mode} className="animate-[qz-rise-in_0.35s_cubic-bezier(0.2,0.8,0.2,1)_both]">
+        <h1 id="auth-title" className="font-display text-4xl leading-[1.05] md:text-[2.75rem]">
+          {title}
+        </h1>
+        <p className="mt-2 text-[15px] font-bold leading-snug text-white/70">
+          {mode === "signup"
+            ? "Serve solo a chi ospita la partita: così il sito ricorda le domande che hai già visto. Chi gioca dal telefono entra senza account."
+            : mode === "login"
+              ? "Accedi per creare una nuova partita."
+              : "Scrivi l'email dell'account: ti mandiamo un link per sceglierne una nuova."}
+        </p>
+      </div>
+
       {mode !== "reset" && (
         <>
           <a
             href={`/auth/google?next=${encodeURIComponent(next)}`}
-            className="flex h-14 items-center justify-center gap-3 rounded-full bg-white text-lg font-black text-ink transition hover:bg-cream active:scale-[0.98]"
+            className="flex h-14 items-center justify-center gap-3 rounded-full bg-white px-6 text-[17px] font-extrabold text-[#1f1f1f] transition hover:bg-[#eef0f1] active:scale-[0.98] focus-visible:outline-offset-4"
           >
-            <GoogleLogo />
+            <GoogleG className="h-[22px] w-[22px]" />
             Continua con Google
           </a>
-          <p className="flex items-center gap-3 text-sm font-bold text-white/60" aria-hidden>
-            <span className="h-0.5 flex-1 bg-white/10" />
+          <p className="flex items-center gap-3 text-sm font-bold text-white/55" aria-hidden>
+            <span className="h-px flex-1 bg-white/12" />
             oppure con l&apos;email
-            <span className="h-0.5 flex-1 bg-white/10" />
+            <span className="h-px flex-1 bg-white/12" />
           </p>
         </>
       )}
 
-      <form onSubmit={(e) => void submit(e)} className="flex flex-col gap-4" noValidate>
+      <form onSubmit={(e) => void submit(e)} className="flex flex-col gap-3.5" noValidate>
         {mode === "signup" && <UsernameField value={username} onChange={setUsername} onStatus={setUStatus} />}
         <div>
           <label htmlFor="email" className="mb-1.5 block text-sm font-extrabold">
             Email
           </label>
-          <input id="email" type="email" required autoComplete="email" inputMode="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputCls} placeholder="nome@esempio.it" />
+          <input id="email" type="email" required autoComplete="email" inputMode="email" value={email} onChange={(e) => setEmail(e.target.value)} className="qz-field rounded-2xl h-14 w-full px-4 text-[17px]" placeholder="nome@esempio.it" />
         </div>
         {mode !== "reset" && (
           <div>
@@ -204,61 +257,74 @@ export function AuthForm({ next, initialMode, error: initialError }: { next: str
                 Password
               </label>
               {mode === "login" && (
-                <button type="button" onClick={() => { setMode("reset"); setError(null); }} className="text-sm font-bold text-white/75 underline underline-offset-4 hover:text-white">
+                <button type="button" onClick={() => switchMode("reset")} className="text-sm font-bold text-white/70 underline underline-offset-4 hover:text-white">
                   Password dimenticata?
                 </button>
               )}
             </div>
-            <input
-              id="password"
-              type="password"
-              required
-              minLength={mode === "signup" ? 8 : undefined}
-              autoComplete={mode === "signup" ? "new-password" : "current-password"}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              aria-describedby={mode === "signup" ? "password-help" : undefined}
-              className={inputCls}
-            />
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                required
+                minLength={mode === "signup" ? 8 : undefined}
+                autoComplete={mode === "signup" ? "new-password" : "current-password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                aria-describedby={mode === "signup" ? "password-help" : undefined}
+                className="qz-field rounded-2xl h-14 w-full pl-4 pr-14 text-[17px]"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                aria-label={showPassword ? "Nascondi password" : "Mostra password"}
+                aria-pressed={showPassword}
+                aria-controls="password"
+                className="absolute right-2 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-xl text-white/60 transition hover:bg-white/10 hover:text-white"
+              >
+                <EyeIcon open={!showPassword} />
+              </button>
+            </div>
             {mode === "signup" && (
-              <p id="password-help" className="mt-1.5 text-sm font-bold text-white/70">
+              <p id="password-help" className={clsx("mt-1.5 text-sm font-bold transition-colors", password.length >= 8 ? "text-lime" : "text-white/65")}>
                 Almeno 8 caratteri.
               </p>
             )}
           </div>
         )}
         {error && (
-          <p role="alert" className="rounded-2xl bg-flame/20 px-4 py-3 text-base font-bold text-[#ffd0d9]">
+          <FormError key={error}>
             {error}
             {needsConfirm && mode === "login" && (
               <button type="button" onClick={() => void resend()} className="mt-1 block font-black text-white underline underline-offset-4">
                 {resent ? "Email inviata di nuovo" : "Invia di nuovo l'email di conferma"}
               </button>
             )}
-          </p>
+          </FormError>
         )}
         <button
           type="submit"
           disabled={busy}
-          className="qz-play mt-1 h-15 rounded-full bg-gold py-4 font-display text-2xl text-ink transition hover:bg-white disabled:opacity-60"
+          className="qz-play mt-1 inline-flex h-15 items-center justify-center gap-3 rounded-full bg-gold py-4 font-display text-2xl text-ink transition hover:bg-[#ffe066] active:scale-[0.99] disabled:opacity-70"
         >
+          {busy && <Spinner className="h-6 w-6" />}
           {busy ? "Un attimo…" : mode === "signup" ? "CREA ACCOUNT E GIOCA" : mode === "login" ? "ACCEDI" : "MANDAMI IL LINK"}
         </button>
         {mode === "signup" && (
-          <p className="text-sm font-semibold text-white/75">
+          <p className="text-center text-[13px] font-semibold leading-snug text-white/60">
             Creando l&apos;account accetti i{" "}
-            <a href="/termini" target="_blank" className="font-bold text-white underline underline-offset-2">
+            <a href="/termini" target="_blank" className="font-bold text-white/90 underline underline-offset-2 hover:text-white">
               Termini di servizio
             </a>{" "}
             e l&apos;
-            <a href="/privacy" target="_blank" className="font-bold text-white underline underline-offset-2">
+            <a href="/privacy" target="_blank" className="font-bold text-white/90 underline underline-offset-2 hover:text-white">
               informativa sulla privacy
             </a>
             .
           </p>
         )}
         {mode === "reset" && (
-          <button type="button" onClick={() => { setMode("login"); setError(null); }} className="font-bold text-white/80 underline underline-offset-4">
+          <button type="button" onClick={() => switchMode("login")} className="font-bold text-white/80 underline underline-offset-4 hover:text-white">
             Torna all&apos;accesso
           </button>
         )}

@@ -1,65 +1,62 @@
-/* eslint-disable @next/next/no-img-element -- immagini statiche già ottimizzate (webp) */
 import { clsx } from "clsx";
+import Image from "next/image";
 import Link from "next/link";
-import { Character, Logo } from "@/features/game/components/brand";
-import type { Presenter } from "@/lib/game-engine/types";
 import type { CoverMark, GameEntry } from "./games";
 
-/** Copertina di un gioco nelle righe della home (16:9, come una locandina di catalogo). */
-export function GameCard({ game, fluid }: { game: GameEntry; fluid?: boolean }) {
+/**
+ * Copertina di un gioco nella riga "I nostri giochi" (verticale, come i titoli di un catalogo).
+ * Tutta la copertina è il link al gioco: al passaggio del mouse (o con il focus) si alza e compaiono titolo e "Gioca".
+ */
+export function GameCard({ game, priority }: { game: GameEntry; priority?: boolean }) {
   const available = game.status === "disponibile" && game.href;
   const body = (
-    <>
-      <div className="relative aspect-video overflow-hidden rounded-2xl bg-night-3">
-        {game.cover.kind === "image" ? (
-          <>
-            <div aria-hidden className="qz-stage absolute inset-0" />
-            <Character who="professore" small className="absolute -bottom-[18%] -left-[6%] !h-[96%] w-auto max-w-none transition duration-500 group-hover:-translate-y-1" glow={false} />
-            <Character who="regina" small flip className="absolute -bottom-[18%] -right-[6%] !h-[92%] w-auto max-w-none transition duration-500 group-hover:-translate-y-1" glow={false} />
-            <Logo variant="mark" size="md" className="absolute left-1/2 top-[46%] !h-[84%] !w-auto -translate-x-1/2 -translate-y-1/2 transition duration-500 group-hover:scale-105" />
-          </>
+    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-coal-3 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.9)] ring-1 ring-white/10 transition duration-300 group-hover:ring-2 group-hover:ring-white/85 group-focus-visible:ring-[3px] group-focus-visible:ring-gold">
+      {game.cover.kind === "image" ? (
+        <Image
+          src={game.cover.src}
+          alt=""
+          width={game.cover.width}
+          height={game.cover.height}
+          sizes="(min-width: 768px) 20rem, 72vw"
+          loading={priority ? "eager" : "lazy"}
+          className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.06] group-focus-visible:scale-[1.06]"
+        />
+      ) : (
+        <div className="absolute inset-0 grid place-items-center overflow-hidden" style={{ backgroundColor: game.cover.color }}>
+          <div className="qz-rays absolute -inset-1/2 opacity-70" />
+          <CoverArt mark={game.cover.mark} />
+        </div>
+      )}
+
+      {/* titolo e azione: sempre in vista sul telefono, al passaggio del mouse dal tablet in su */}
+      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-4 pb-4 pt-16 transition duration-300 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100">
+        <div className="min-w-0">
+          <p className="font-display text-2xl leading-none text-white">{game.title}</p>
+          <p className="mt-1.5 truncate text-[13px] font-bold text-white/80">{game.meta.slice(2).join(" · ")}</p>
+        </div>
+        {available ? (
+          <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold text-ink transition duration-300 group-hover:scale-110">
+            <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5" fill="currentColor">
+              <path d="M7 4.6v14.8a1 1 0 0 0 1.5.86l12.2-7.4a1 1 0 0 0 0-1.72L8.5 3.74A1 1 0 0 0 7 4.6z" />
+            </svg>
+          </span>
         ) : (
-          <div aria-hidden className="absolute inset-0 grid place-items-center overflow-hidden" style={{ backgroundColor: game.cover.color }}>
-            <div className="qz-rays absolute -inset-1/2 opacity-70" />
-            <CoverArt mark={game.cover.mark} />
-          </div>
+          <span className="shrink-0 rounded-full bg-black/75 px-3 py-1 text-[13px] font-black text-white">Presto disponibile</span>
         )}
-        {!available && <span className="absolute left-3 top-3 rounded-full bg-night/85 px-3 py-1 text-[13px] font-black text-white">Presto disponibile</span>}
-        {available && <span className="absolute left-3 top-3 rounded-full bg-gold px-3 py-1 text-[13px] font-black text-ink">Gioca ora</span>}
       </div>
-      <div className={clsx("mt-3 px-1", fluid && "sr-only")}>
-        <h3 className="font-display text-xl leading-tight text-white md:text-2xl">{game.title}</h3>
-        <p className={clsx("mt-1 text-sm font-bold leading-snug", available ? "text-white/85" : "text-white/70")}>{game.tagline}</p>
-      </div>
-    </>
+    </div>
   );
-  const cls = clsx("group block", fluid ? "w-full" : "w-[78vw] max-w-[26rem] shrink-0 md:w-auto md:max-w-none");
-  if (!available) return <div className={clsx(cls, "opacity-90")}>{body}</div>;
+  const cls = "group block w-[72vw] max-w-[19rem] shrink-0 md:w-[20rem] md:max-w-none";
+  if (!available) return <div className={cls} aria-label={`${game.title}: presto disponibile`} role="img">{body}</div>;
   return (
-    <Link href={game.href!} prefetch={false} className={clsx(cls, "rounded-2xl outline-offset-4 transition active:scale-[0.98]")} aria-label={`Gioca a ${game.title}`}>
+    <Link
+      href={game.href!}
+      prefetch={false}
+      aria-label={`Gioca a ${game.title}`}
+      className={clsx(cls, "rounded-2xl transition duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline-none active:scale-[0.98]")}
+    >
       {body}
     </Link>
-  );
-}
-
-const STEP_BG: Record<Presenter, string> = { professore: "#087cff", regina: "#ff1493", palmino: "#00d46a" };
-
-/** Scheda "come si gioca": un presentatore e una frase. */
-export function StepCard({ who, title, text }: { who: Presenter | null; title: string; text: string }) {
-  return (
-    <article className="flex h-full w-[78vw] max-w-[22rem] shrink-0 flex-col overflow-hidden rounded-2xl bg-night-2 md:w-auto md:max-w-none">
-      <div className="relative h-44 overflow-hidden" style={{ backgroundColor: who ? STEP_BG[who] : "#2e1650" }}>
-        {who ? (
-          <Character who={who} small glow={false} className="absolute -bottom-[30%] left-1/2 !h-[150%] w-auto max-w-none -translate-x-1/2" />
-        ) : (
-          <img src="/brand/logo-wheel-1024.webp" alt="" width={1024} height={1024} loading="lazy" className="absolute left-1/2 top-1/2 h-[140%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 animate-spin-slow motion-reduce:animate-none" />
-        )}
-      </div>
-      <div className="flex-1 p-5">
-        <h3 className="font-display text-2xl leading-tight text-white">{title}</h3>
-        <p className="mt-2 text-base font-semibold leading-snug text-white/90">{text}</p>
-      </div>
-    </article>
   );
 }
 

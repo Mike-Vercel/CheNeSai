@@ -1,3 +1,4 @@
+import type { Viewport } from "next";
 import { redirect } from "next/navigation";
 import { AuthForm } from "@/features/account/AuthForm";
 import { AuthShell } from "@/features/account/AuthShell";
@@ -5,6 +6,7 @@ import { safeNextPath } from "@/lib/auth/next-path";
 import { getHostUser } from "@/lib/server/gioco-libero";
 
 export const metadata = { title: "Accedi o crea un account" };
+export const viewport: Viewport = { themeColor: "#000000" };
 
 const ERRORS: Record<string, string> = {
   google: "L'accesso con Google non è ancora attivo. Crea l'account con email e password: ci vuole un minuto.",

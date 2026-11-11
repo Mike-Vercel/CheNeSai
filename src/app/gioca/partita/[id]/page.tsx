@@ -1,3 +1,4 @@
+import type { Viewport } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { HostConsole } from "@/features/gioca/HostConsole";
@@ -6,6 +7,7 @@ import { getSql } from "@/lib/database/db";
 import { getHostUser, getOwnedGame, loadPublicGamesSettings, quotaOf } from "@/lib/server/gioco-libero";
 
 export const metadata = { title: "La tua partita" };
+export const viewport: Viewport = { themeColor: "#000000" };
 
 export default async function PartitaPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -16,7 +18,7 @@ export default async function PartitaPage({ params }: { params: Promise<{ id: st
   if (!game) notFound();
   const quota = quotaOf(host, await loadPublicGamesSettings(sql));
   return (
-    <div className="min-h-dvh bg-night text-white">
+    <div className="qz-black min-h-dvh bg-black text-white">
       <SiteHeader user={{ username: host.profile?.username ?? null }} />
       <div className="mx-auto w-full max-w-6xl px-4 md:px-10">
         <Link href="/gioca#le-tue-partite" className="text-sm font-bold text-white/75 hover:text-white">

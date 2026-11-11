@@ -21,6 +21,13 @@
   --color-ink: #1b0b2b;
   --color-cream: #fff8e6;
 
+  /* piattaforma (home, accesso, gioco libero): nero da sala cinema, superfici per gradini di tono */
+  --color-coal: #000000;
+  --color-coal-1: #0a0a0a;
+  --color-coal-2: #141414;
+  --color-coal-3: #1e1e1e;
+  --color-coal-4: #2a2a2a;
+
   /* colori di posizione delle risposte (NON indicano la soluzione) */
   --color-ans-a: #00b85c;
   --color-ans-b: #e8173e;
@@ -70,6 +77,10 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
+}
+
+:root:has(.qz-black) {
+  --bg: #000000;
 }
 
 body {
@@ -225,3 +236,108 @@ body {
 .qz-presenter-later { animation-delay: 0.2s; }
 .qz-play { box-shadow: 0 6px 0 #b8770a; }
 .qz-play:active { box-shadow: 0 2px 0 #b8770a; transform: translateY(4px); }
+
+/* =====================================================================
+   Piattaforma in nero (home, accesso, gioco libero): sala buia, i colori li portano
+   il logo e i presentatori. Le luci sono fasci morbidi sul nero, mai sfondi colorati.
+   ===================================================================== */
+
+/* fascio di luce dall'alto sul centro del palco (dietro il logo) */
+.qz-spotlight {
+  background:
+    radial-gradient(ellipse 34% 52% at 50% 30%, rgba(255, 212, 59, 0.13), transparent 70%),
+    radial-gradient(ellipse 60% 70% at 50% 18%, rgba(255, 255, 255, 0.05), transparent 72%);
+}
+/* luce colorata ai piedi di un presentatore (colore dalla variabile --qz-glow) */
+.qz-floor-glow {
+  background: radial-gradient(ellipse 50% 46% at 50% 100%, var(--qz-glow, rgba(255, 212, 59, 0.25)), transparent 72%);
+}
+/* vignettatura: i bordi tornano neri, il palco resta al centro */
+.qz-vignette {
+  background: radial-gradient(ellipse 85% 75% at 50% 42%, transparent 55%, #000 100%);
+}
+/* la scena sfuma nel nero della pagina (righe sotto) */
+.qz-fade-bottom {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 55%, #000 100%);
+}
+.qz-fade-top {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+@keyframes qz-breathe {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+.qz-breathe { animation: qz-breathe 6s ease-in-out infinite; }
+
+/* GIOCA: alone che pulsa piano intorno al pulsante */
+@keyframes qz-halo {
+  0% { transform: scale(1); opacity: 0.7; }
+  70%, 100% { transform: scale(1.12, 1.3); opacity: 0; }
+}
+.qz-cta {
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 7px 0 #b8770a, 0 18px 50px -10px rgba(255, 212, 59, 0.45);
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 160ms, background-color 160ms;
+}
+.qz-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px rgba(255, 212, 59, 0.9);
+  animation: qz-halo 2.4s cubic-bezier(0.2, 0.7, 0.3, 1) 1.2s infinite;
+  pointer-events: none;
+}
+.qz-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 9px 0 #b8770a, 0 24px 60px -10px rgba(255, 212, 59, 0.6); }
+.qz-cta:active { transform: translateY(5px); box-shadow: 0 2px 0 #b8770a, 0 10px 30px -10px rgba(255, 212, 59, 0.4); }
+@media (prefers-reduced-motion: reduce) {
+  .qz-cta::before { display: none; }
+}
+
+/* scheda dell'accesso: entra salendo */
+@keyframes qz-card-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.qz-card-in { animation: qz-card-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) 0.08s both; }
+
+/* errore: piccolo scossone orizzontale */
+@keyframes qz-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+.qz-shake { animation: qz-shake 0.38s ease-in-out both; }
+
+/* campi dei moduli su nero: solo l'aspetto (misure e spaziature con le utility, es. "h-14 w-full px-4") */
+.qz-field {
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.14);
+  transition: box-shadow 160ms, background-color 160ms;
+}
+.qz-field::placeholder { color: rgba(255, 255, 255, 0.38); }
+.qz-field:hover { background: #1f1f1f; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.26); }
+.qz-field:focus {
+  background: #202020;
+  box-shadow: inset 0 0 0 2px #ffd43b, 0 0 0 4px rgba(255, 212, 59, 0.18);
+}
+.qz-field[aria-invalid="true"] { box-shadow: inset 0 0 0 2px #ff5470; }
+.qz-field[data-ok="true"] { box-shadow: inset 0 0 0 2px #00d46a; }
+.qz-field[aria-invalid="true"]:focus { box-shadow: inset 0 0 0 2px #ff5470, 0 0 0 4px rgba(255, 84, 112, 0.22); }
+.qz-field[data-ok="true"]:focus { box-shadow: inset 0 0 0 2px #00d46a, 0 0 0 4px rgba(0, 212, 106, 0.2); }
+.qz-field:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0 100px #202020 inset;
+  caret-color: #fff;
+}
+.qz-field:focus-visible { outline: none; }
+
+@keyframes qz-spin { to { transform: rotate(360deg); } }
+.qz-spinner { animation: qz-spin 0.8s linear infinite; }
