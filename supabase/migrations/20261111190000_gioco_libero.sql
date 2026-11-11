@@ -62,3 +62,33 @@ revoke execute on function public.qz_record_question_play() from public, anon, a
 update public.question_plays p set host_user_id = s.host_user_id
 from public.game_sessions s
 where s.id = p.session_id and s.host_user_id is not null and p.host_user_id is null;
+
+-- ---------------------------------------------------------------------
+-- Cancellazione di un account (richiesta privacy): i registri append-only
+-- (admin_audit_logs, game_events, score_events) bloccavano il "set null"
+-- automatico delle chiavi verso auth.users, quindi l'utente non si poteva
+-- eliminare. Resta vietata ogni modifica, TRANNE azzerare il riferimento
+-- all'utente (actor / created_by): il registro resta, anonimo.
+-- ---------------------------------------------------------------------
+create or replace function public.qz_append_only()
+returns trigger
+language plpgsql
+as $$
+declare
+  only_unlink boolean;
+begin
+  if current_setting('qz.allow_reset', true) = 'on' then
+    return coalesce(new, old);
+  end if;
+  if tg_op = 'UPDATE' then
+    select bool_and(n.key in ('actor', 'created_by') and n.value = 'null'::jsonb) into only_unlink
+    from jsonb_each(to_jsonb(new)) n
+    join jsonb_each(to_jsonb(old)) o on o.key = n.key
+    where n.value is distinct from o.value;
+    if coalesce(only_unlink, false) then
+      return new;
+    end if;
+  end if;
+  raise exception 'APPEND_ONLY: % non può essere modificata', tg_table_name using errcode = 'P0001';
+end;
+$$;

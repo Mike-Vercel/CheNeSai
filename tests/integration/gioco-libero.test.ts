@@ -279,3 +279,19 @@ describe("serate della regia non toccate", () => {
     expect((await refresh(hostA)).adminRole).toBeNull();
   });
 });
+
+describe("cancellazione dell'account (privacy)", () => {
+  it("l'account host si elimina; partite e registri restano anonimi; i registri restano append-only", async () => {
+    const [logged] = await sql<{ id: string }[]>`select id from admin_audit_logs where actor = ${hostB.userId} limit 1`;
+    expect(logged).toBeTruthy();
+    const del = await auth.auth.admin.deleteUser(hostB.userId);
+    expect(del.error).toBeNull();
+    const [p] = await sql`select 1 from host_profiles where user_id = ${hostB.userId}`;
+    expect(p).toBeUndefined();
+    const [{ n }] = await sql<{ n: number }[]>`select count(*)::int as n from admin_audit_logs where actor = ${hostB.userId}`;
+    expect(n).toBe(0);
+    // azzerare il riferimento all'utente è l'unica modifica ammessa
+    const e = await sql`update admin_audit_logs set action = 'manomesso' where id = ${logged.id}`.catch((x: unknown) => x);
+    expect((e as { message?: string }).message).toMatch(/APPEND_ONLY/);
+  });
+});

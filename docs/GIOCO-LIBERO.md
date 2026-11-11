@@ -36,6 +36,12 @@ pubblicata (stessi controlli delle serate) e con la lobby aperta. Il titolo è "
   Nel progetto Supabase online **non** attivare *Authentication → Sessions → Time-box user sessions* né
   *Inactivity timeout* (sono opzioni del piano Pro, di base spente).
 
+- **Cancellare un account** (richiesta privacy): Supabase Dashboard → Authentication → Users → utente →
+  *Delete user*. Profilo e storico personale spariscono; partite, registri e classifiche restano senza
+  riferimento all'account (la migrazione consente ai registri append-only solo di azzerare il riferimento).
+- Pagine `/privacy` e `/termini` (necessarie per pubblicare la schermata di consenso di Google):
+  **sostituire `CONTACT_EMAIL`** in `src/features/home/site.ts` (ora è un segnaposto).
+
 ## Quota, interruttore e limiti (Admin → Impostazioni → Gioco libero)
 
 - **Gioco libero aperto al pubblico** (predefinito: sì). Se spento, solo admin e super admin creano partite.
@@ -91,7 +97,8 @@ npm run deploy:migrate
 ```
 
 applica `20261111190000_gioco_libero.sql` (tabella `host_profiles`, `game_sessions.host_user_id`,
-`question_plays.host_user_id`, trigger aggiornato). È idempotente.
+`question_plays.host_user_id`, trigger aggiornato, registri append-only che consentono la cancellazione
+degli account). È idempotente.
 
 ### 2. Registrazioni con email
 
