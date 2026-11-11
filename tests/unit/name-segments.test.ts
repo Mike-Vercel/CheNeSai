@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { findNames, MIN_FIXED_CHARS, nameVariants, normalizeNames, segmentPause, splitByNames, splitSentences } from "@/features/game/name-segments";
+import { findNames, MIN_FIXED_CHARS, nameVariants, normalizeNames, normalizeNumber, PREWARM_NUMBERS, segmentPause, splitByNames, splitSentences } from "@/features/game/name-segments";
 import { ttsText } from "@/features/game/script";
 
-const texts = (segs: ReturnType<typeof splitByNames>) => segs?.map((s) => `${s.kind === "name" ? "N" : "F"}:${s.text}`);
+const texts = (segs: ReturnType<typeof splitByNames>) => segs?.map((s) => `${s.kind === "name" ? "N" : s.kind === "number" ? "#" : "F"}:${s.text}`);
 
 describe("nomi salvati: divisione delle battute", () => {
-  it("nessun nome nel testo → frase intera (null)", () => {
-    expect(splitByNames("[excited] Il colpo migliore è di Marco: più 30 punti!", ["Gigi", "Anna"])).toBeNull();
+  it("nessun nome né numero nel testo → frase intera (null)", () => {
+    expect(splitByNames("[excited] Il colpo migliore è di Marco: più 30 punti!", ["Gigi", "Anna"], { numbers: false })).toBeNull();
     expect(splitByNames("Benvenuti a tutti!", [])).toBeNull();
   });
 
@@ -23,8 +23,66 @@ describe("nomi salvati: divisione delle battute", () => {
     const segs = splitByNames(line, ["Anna Maria", "Bruno"])!;
     const words = (s: string) => s.replace(/\[[^\]]+\]/g, " ").split(/\s+/).filter(Boolean);
     expect(segs.flatMap((s) => words(s.text))).toEqual(words(line));
-    // la parte con i punti (cambia ogni serata) è separata dalla frase riusabile
-    expect(texts(segs)).toEqual(["F:[clears throat] Ufficiale:", "N:Anna Maria", "F:è il nuovo capolista con 1200 punti.", "F:Sic transit gloria mundi,", "N:Bruno."]);
+    // il numero è una parte a sé (archivio dei numeri), il testo attorno resta fisso e riusabile
+    expect(texts(segs)).toEqual(["F:[clears throat] Ufficiale:", "N:Anna Maria", "F:è il nuovo capolista con", "#:1200", "F:punti. Sic transit gloria mundi,", "N:Bruno."]);
+    // senza numeri: la frase con i punti è separata da quella riusabile
+    expect(texts(splitByNames(line, ["Anna Maria", "Bruno"], { numbers: false }))).toEqual([
+      "F:[clears throat] Ufficiale:",
+      "N:Anna Maria",
+      "F:è il nuovo capolista con 1200 punti.",
+      "F:Sic transit gloria mundi,",
+      "N:Bruno.",
+    ]);
+  });
+
+  describe("numeri salvati", () => {
+    it("punti, delta e totali: nome + fisso + numero + fisso", () => {
+      expect(texts(splitByNames("[excited] In testa c'è Bruno, con 2440 punti! Applausi, prego.", ["Bruno"]))).toEqual([
+        "F:[excited] In testa c'è",
+        "N:Bruno,",
+        "F:con",
+        "#:2440",
+        "F:punti! Applausi, prego.",
+      ]);
+      expect(texts(splitByNames("[excited] Il colpo migliore è di Marco: più 1488 punti!", []))).toEqual(["F:[excited] Il colpo migliore è di Marco: più", "#:1488", "F:punti!"]);
+    });
+
+    it("stesso valore → stessa parte (migliaia col punto, negativi, decimali con la virgola)", () => {
+      const a = splitByNames("Che serata: Lalla vola a 1.250 punti, record!", ["Lalla"]);
+      const b = splitByNames("Che serata: Lalla vola a 1250 punti, record!", ["Lalla"]);
+      expect(a).toEqual(b);
+      expect(normalizeNumber("1.250")).toBe("1250");
+      expect(normalizeNumber("12.450.000")).toBe("12450000");
+      expect(normalizeNumber("2,4")).toBe("2,4");
+      expect(texts(splitByNames("Lalla scende a -400 punti, un record negativo della serata!", ["Lalla"]))).toEqual([
+        "N:Lalla",
+        "F:scende a",
+        "#:-400",
+        "F:punti, un record negativo della serata!",
+      ]);
+      expect(texts(splitByNames("Il primato di velocità spetta a Gigi: 2,4 secondi. Mi riservo di verificare.", ["Gigi"]))).toEqual([
+        "F:Il primato di velocità spetta a",
+        "N:Gigi:",
+        "#:2,4",
+        "F:secondi. Mi riservo di verificare.",
+      ]);
+    });
+
+    it("punteggiatura attaccata al numero; numeri dentro i nomi o le parole restano dove sono", () => {
+      expect(texts(splitByNames("[giggles] Salutamu a Gigi, Lalla e altri 3! Ora sì che la serata pigghia colore!", ["Gigi", "Lalla"]))).toEqual([
+        "F:[giggles] Salutamu a",
+        "N:Gigi, Lalla",
+        "F:e altri",
+        "#:3!",
+        "F:Ora sì che la serata pigghia colore!",
+      ]);
+      expect(texts(splitByNames("Applausi per Gigi99, il campione della serata in MP3!", ["Gigi99"]))).toEqual(["F:Applausi per", "N:Gigi99,", "F:il campione della serata in MP3!"]);
+    });
+
+    it("numeri da preparare: 1–20", () => {
+      expect(PREWARM_NUMBERS).toHaveLength(20);
+      expect(PREWARM_NUMBERS[0]).toBe("1");
+    });
   });
 
   it("nomi sovrapposti: vince il più lungo, il più corto solo dove è parola intera", () => {

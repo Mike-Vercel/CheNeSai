@@ -22,9 +22,12 @@ import { stripAudioTags, TTS_ROLES, ttsText, type SpokenLine, type TtsRole } fro
 /**
  * Origine di una clip: pregen/live/sample come sempre; con i "nomi salvati"
  * segment = parte fissa di una battuta, name = nome (o gruppo di nomi) in archivio,
+ * number = numero in archivio (punti, secondi, posizioni…),
  * spliced = frase intera composta unendo le parti (non costa nulla di suo).
  */
-export type TtsSource = "pregen" | "live" | "sample" | "segment" | "name" | "spliced";
+export type TtsSource = "pregen" | "live" | "sample" | "segment" | "name" | "number" | "spliced";
+/** Tipo di parte dei "nomi salvati" (marcatore nella chiave e origine in archivio). */
+export type PartKind = "segment" | "name" | "number";
 
 /** Nomi dei giocatori nelle battute live: parti in archivio unite (risparmio) o frase intera. */
 export type NamesMode = "spliced" | "whole";
@@ -178,7 +181,7 @@ export function planClip(cfg: VoiceConfig, line: Pick<SpokenLine, "who" | "text"
  * La chiave ha un marcatore, così non coincide mai con quella di una frase intera con lo
  * stesso testo; voce e modello sono quelli della battuta live (timbro uniforme).
  */
-export function planPart(cfg: VoiceConfig, who: TtsRole, text: string, kind: "segment" | "name", model = modelFor(true)): PlannedClip | null {
+export function planPart(cfg: VoiceConfig, who: TtsRole, text: string, kind: PartKind, model = modelFor(true)): PlannedClip | null {
   const t = modelSupportsTags(model) ? ttsText(text) : ttsText(stripAudioTags(text));
   const voiceId = cfg.roles[who].voiceId;
   if (!t || !voiceId) return null;
@@ -211,7 +214,7 @@ export async function appUsage(db: Db = getSql()): Promise<AppUsage> {
     from tts_clips where created_at >= date_trunc('month', now()) and billed_chars > 0
     group by source`;
   const [{ total }] = await db<{ total: number }[]>`select count(*)::int as total from tts_clips`;
-  const bySource: Record<TtsSource, number> = { pregen: 0, live: 0, sample: 0, segment: 0, name: 0, spliced: 0 };
+  const bySource: Record<TtsSource, number> = { pregen: 0, live: 0, sample: 0, segment: 0, name: 0, number: 0, spliced: 0 };
   let monthChars = 0;
   let monthClips = 0;
   for (const r of rows) {

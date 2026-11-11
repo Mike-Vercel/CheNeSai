@@ -6,7 +6,7 @@ import { getSql } from "@/lib/database/db";
 import { createSession } from "@/lib/server/cms/sessions";
 import { parseMp3 } from "@/lib/server/mp3";
 import { downloadClip, planClip, planPart, TtsError, type VoiceConfig } from "@/lib/server/tts";
-import { ensureLineClip, namesArchiveStats, prewarmNameClips, sessionSpeechNames } from "@/lib/server/tts-names";
+import { ensureLineClip, namesArchiveStats, prewarmNameClips, prewarmNumberClips, sessionSpeechNames } from "@/lib/server/tts-names";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
 import { cleanupSession, TEST_ACTOR } from "../support/fixtures";
 
@@ -152,6 +152,29 @@ describe("nomi salvati (ElevenLabs simulato)", () => {
     expect(stats.savedChars).toBeGreaterThanOrEqual(row!.saved_chars);
   });
 
+  it("numeri salvati: il punteggio è una parte in archivio, riusata con un altro giocatore", async () => {
+    const line = { who: "regina" as const, text: `Applausi per ${GIGI}, con 1.234 punti in tasca stasera!`, live: true };
+    await ensureLineClip(sql, cfg, line, { sessionId });
+    // "Applausi per" è già in archivio dal test precedente (stessa voce? no: regina) → tutte le parti nuove
+    expect(sent()).toEqual(["Applausi per", `${GIGI},`, "con", "1234", "punti in tasca stasera!"].sort());
+    const num = planPart(cfg, "regina", "1234", "number")!;
+    expect((await clipRow(num.key))?.source).toBe("number");
+    expect(contexts.get("1234")).toEqual({ previous: `Applausi per ${GIGI}, con`, next: "punti in tasca stasera!" });
+    synthesized = [];
+    // altro giocatore, stesso punteggio: si paga solo il nome nuovo
+    await ensureLineClip(sql, cfg, { ...line, text: `Applausi per ${CARLA}, con 1234 punti in tasca stasera!` }, { sessionId });
+    expect(sent()).toEqual([`${CARLA},`]);
+    expect((await namesArchiveStats(sql)).numberClips).toBeGreaterThanOrEqual(1);
+  });
+
+  it("numeri piccoli preparati una volta per sempre (1–20, tre presentatori)", async () => {
+    expect((await prewarmNumberClips(sql, cfg)).generated).toBe(60);
+    expect(new Set(synthesized).size).toBe(20);
+    synthesized = [];
+    expect((await prewarmNumberClips(sql, cfg)).generated).toBe(0);
+    expect(synthesized).toEqual([]);
+  });
+
   it("modalità frase intera, battute non live o senza serata: come prima", async () => {
     const text = `Ora comanda ${ANNA}, la regina della serata di oggi!`;
     await ensureLineClip(sql, config({ namesMode: "whole" }), { who: "regina", text, live: true }, { sessionId });
@@ -163,9 +186,9 @@ describe("nomi salvati (ElevenLabs simulato)", () => {
     expect((await clipRow(planClip(cfg, { who: "regina", text: other, live: true })!.key))?.source).toBe("live");
     synthesized = [];
     // la modalità forzata dal chiamante (futura "Gioca ora") vince sull'impostazione
-    const forced = `Ora comanda ${CARLA}, la più brava della serata!`;
+    const forced = `Ora comanda ${ANNA}, la più brava della serata!`;
     await ensureLineClip(sql, config({ namesMode: "whole" }), { who: "regina", text: forced, live: true }, { sessionId, namesMode: "spliced" });
-    expect(sent()).toEqual(["Ora comanda", `${CARLA},`, "la più brava della serata!"].sort());
+    expect(sent()).toEqual(["Ora comanda", `${ANNA},`, "la più brava della serata!"].sort());
   });
 
   it("se l'unione fallisce si genera la frase intera (la voce non si rompe)", async () => {

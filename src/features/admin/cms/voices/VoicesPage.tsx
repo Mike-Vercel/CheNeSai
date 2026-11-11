@@ -297,7 +297,7 @@ function NamesModePanel({ value, onChange, stats }: { value: NamesMode; onChange
       <Segmented label="Nomi dei giocatori nelle battute" value={value} onChange={onChange} options={NAMES_MODE_OPTIONS} />
       <p className="mt-2 text-xs text-white/55">
         {value === "spliced"
-          ? "Ogni nome si genera una volta per voce e resta in archivio per tutte le serate; le parti fisse delle battute si pagano una volta sola. La frase si compone unendo le parti: costa molto meno, ma fra il nome e il resto può sentirsi un piccolo stacco."
+          ? "Ogni nome e ogni numero (punti, secondi, posizioni) si genera una volta per voce e resta in archivio per tutte le serate; le parti fisse delle battute si pagano una volta sola. La frase si compone unendo le parti: costa molto meno, ma fra le parti può sentirsi un piccolo stacco."
           : "Ogni battuta con un nickname si genera intera: intonazione più naturale, ma si pagano tutti i caratteri ogni volta che la frase cambia."}
       </p>
       {stats && (
@@ -313,7 +313,8 @@ function NamesModePanel({ value, onChange, stats }: { value: NamesMode; onChange
             <dd className="text-white/45">questo mese · {fmtNum(stats.savedChars)} in tutto (stima)</dd>
           </div>
           <div className="col-span-2 text-white/45">
-            {fmtNum(stats.spliced)} battute composte · {fmtNum(stats.segments)} parti fisse in archivio
+            {fmtNum(stats.numbers ?? 0)} numeri ({fmtNum(stats.numberClips ?? 0)} clip) · {fmtNum(stats.spliced)} battute composte · {fmtNum(stats.segments)} parti fisse in
+            archivio
           </div>
         </dl>
       )}
