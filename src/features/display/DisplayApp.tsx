@@ -11,7 +11,7 @@ import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick
 import { getSoundEngine, type CueName } from "@/features/media/audio-engine";
 import { Confetti } from "@/features/game/components/effects";
 import { Logo } from "@/features/game/components/brand";
-import { getVoice } from "@/features/media/voice";
+import { getVoice, useSilentLine } from "@/features/media/voice";
 import { speechFor } from "@/features/game/speech";
 import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
 import { TvPauseOverlay } from "./TvScreens";
@@ -83,6 +83,26 @@ export interface TvOverlayContext {
   testVoices: () => void;
 }
 
+const SPEAKER_NAMES: Record<string, string> = { professore: "Professore", regina: "Regina", palmino: "Palmino", annunciatore: "" };
+
+/**
+ * Battuta senza voce (clip non arrivata, voce professionale non disponibile): il personaggio parla
+ * e il testo compare qui, come sottotitolo, al posto di una voce sintetica.
+ */
+function SilentSubtitle() {
+  const line = useSilentLine();
+  if (!line) return null;
+  const who = SPEAKER_NAMES[line.who] ?? "";
+  return (
+    <div className="pointer-events-none absolute inset-x-[12cqw] bottom-[4cqh] z-[45] flex justify-center" aria-live="polite">
+      <p className="rounded-[2cqh] bg-black/75 px-[2.6cqh] py-[1.4cqh] text-center text-[3.2cqh] font-extrabold leading-snug text-white shadow-2xl">
+        {who && <span className="mr-[1cqh] text-gold">{who}:</span>}
+        {line.text}
+      </p>
+    </div>
+  );
+}
+
 export function DisplayApp({
   sessionId,
   displayKey,
@@ -126,9 +146,10 @@ export function DisplayApp({
 
   useEffect(() => {
     sound.setSettings({ musicVolume: prefs.musicVolume, sfxVolume: prefs.sfxVolume, muted: prefs.muted, masterVolume: prefs.masterVolume });
-    voice.configure({ enabled: prefs.voice && !prefs.muted, readOptions: prefs.readOptions, volume: prefs.masterVolume });
+    // voce del browser: mai con ElevenLabs attivo; senza, solo se scelta (serate della regia: come sempre)
+    voice.configure({ enabled: prefs.voice && !prefs.muted, readOptions: prefs.readOptions, volume: prefs.masterVolume, browserVoice: hostMode ? prefs.browserVoice : true });
     prefsRef.current = prefs;
-  }, [prefs, sound, voice]);
+  }, [prefs, sound, voice, hostMode]);
 
   const mediaUrl = useCallback((id: string) => `/api/display/${sessionId}/media/${id}?k=${encodeURIComponent(displayKey)}`, [sessionId, displayKey]);
 
@@ -443,6 +464,7 @@ export function DisplayApp({
     <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={hostMode ? undefined : () => setShowSettings((s) => !s)}>
       {screen}
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
+      <SilentSubtitle />
       {(started || hostMode) && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
       {(started || hostMode) && renderOverlay?.(view, overlayCtx)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />

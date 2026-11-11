@@ -29,6 +29,7 @@ interface Progress {
   generated?: number;
   blocked?: boolean;
   finished?: boolean;
+  liveParts?: number;
 }
 
 const BATCH = 4;
@@ -76,9 +77,11 @@ export function useVoicePrep({ sessionId, displayKey, active }: { sessionId: str
         publish(toPrep(r, "done"));
         return;
       }
+      const pending = (x: Progress) => x.missing > 0 || (x.liveParts ?? 0) > 0;
       publish(toPrep(r, r.missing === 0 ? "done" : "running"));
       let fails = 0;
-      while (alive && r.missing > 0) {
+      // prima le battute della serata, poi i "nomi salvati" dei giocatori collegati
+      while (alive && pending(r)) {
         try {
           const b = await api<Progress>(url, { method: "POST", json: { action: "run", batch: BATCH }, timeoutMs: 60000 });
           if (!alive) return;
@@ -91,7 +94,7 @@ export function useVoicePrep({ sessionId, displayKey, active }: { sessionId: str
             publish(toPrep(b, "done"));
             return;
           }
-          fails = b.generated === 0 && b.missing > 0 ? fails + 1 : 0;
+          fails = b.generated === 0 && pending(b) ? fails + 1 : 0;
           publish(toPrep(b, b.missing === 0 ? "done" : "running"));
         } catch (e) {
           fails++;

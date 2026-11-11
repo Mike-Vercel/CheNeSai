@@ -4,7 +4,9 @@ import type { GamePhase } from "@/lib/game-engine/types";
 import { verifyDisplayKey } from "./display";
 import { GiocoError } from "./gioco-errors";
 import { checkRateLimit } from "./players";
-import { ttsConfigured } from "./tts";
+import { isPublicSession } from "./public-session";
+import { loadVoiceConfig, ttsConfigured } from "./tts";
+import { pendingLiveParts, prewarmNameClips, prewarmNumberClips } from "./tts-names";
 import { estimateScope, runScopeBatch, type PregenProgress } from "./tts-pregen";
 
 /**
@@ -33,6 +35,11 @@ export interface DisplayVoicesProgress {
   blocked?: boolean;
   /** la partita è finita: niente da preparare */
   finished?: boolean;
+  /**
+   * "Nomi salvati" ancora da preparare (nickname dei giocatori collegati e numeri piccoli): servono
+   * alle battute in diretta (punti, classifica, fine round), così il TV le trova già pronte.
+   */
+  liveParts?: number;
 }
 
 export class DisplayVoicesError extends Error {
@@ -58,9 +65,22 @@ export async function displayVoices(db: Db, sessionId: string, key: string | nul
   }
   const scope = { kind: "session" as const, sessionId };
   if (!ttsConfigured()) return { configured: false, total: 0, ready: 0, missing: 0 };
-  if (action === "estimate") return slim(await estimateScope(db, scope));
-  if (g.phase === "FINISHED" || g.phase === "DRAFT") return { ...slim(await estimateScope(db, scope)), finished: true };
+  const cfg = await loadVoiceConfig(db);
+  // partite libere: sempre "nomi salvati"; serate: l'impostazione del pannello Voci
+  const namesMode = (await isPublicSession(sessionId, db)) ? ("spliced" as const) : undefined;
+  const parts = async () => {
+    const p = await pendingLiveParts(db, cfg, sessionId, namesMode);
+    return { ...p, count: p.names.length + (p.numbers ? 1 : 0) };
+  };
+  if (action === "estimate") return { ...slim(await estimateScope(db, scope)), liveParts: (await parts()).count };
+  if (g.phase === "FINISHED" || g.phase === "DRAFT") return { ...slim(await estimateScope(db, scope)), finished: true, liveParts: 0 };
   // priorità bassa: le battute chieste dal TV in diretta passano prima
   const r = await runScopeBatch(db, scope, Math.max(1, Math.min(DISPLAY_VOICES_MAX_BATCH, batch)), { priority: "low" });
-  return { ...slim(r), generated: r.generated, blocked: r.blocked };
+  if (r.blocked || r.missing > 0) return { ...slim(r), generated: r.generated, blocked: r.blocked };
+  // battute della serata pronte: ora le parti dei nomi (numeri piccoli, poi due giocatori per lotto)
+  const p = await parts();
+  let generated = r.generated;
+  if (p.numbers) generated += (await prewarmNumberClips(db, cfg, { namesMode, priority: "normal" })).generated;
+  else for (const name of p.names.slice(0, 2)) generated += (await prewarmNameClips(db, cfg, name, { namesMode, priority: "normal" })).generated;
+  return { ...slim(r), generated, blocked: false, liveParts: (await parts()).count };
 }

@@ -1,4 +1,5 @@
 import { createHash, randomBytes, randomInt } from "node:crypto";
+import { after } from "next/server";
 import { getSql, num, type Tx } from "@/lib/database/db";
 import { COMMAND_LABELS, isCommandAllowed } from "@/lib/game-engine/transitions";
 import { applyDelta, evaluateAnswer, PENALTY_STREAK, scoreAnswer } from "@/lib/game-engine/scoring";
@@ -106,9 +107,29 @@ interface RunOptions {
   auto?: boolean;
 }
 
+/**
+ * Limiti di ogni transazione di comando (valgono solo dentro la transazione, anche col pooler):
+ * un comando non aspetta mai all'infinito il lucchetto della partita né una query lenta, e se il
+ * client si blocca a metà transazione il database la chiude e libera il lucchetto. Così un /tick
+ * appeso non può più fermare la partita per minuti (prima non c'era nessun limite).
+ */
+export const COMMAND_LOCK_TIMEOUT = "5s";
+export const COMMAND_STATEMENT_TIMEOUT = "10s";
+export const COMMAND_IDLE_TX_TIMEOUT = "15s";
+
+/** Errori "riprova tra poco" del database: lucchetto occupato, query o transazione scadute, connessione caduta. */
+export function isTransientDbError(e: unknown): boolean {
+  const code = (e as { code?: string } | null)?.code;
+  return code === "55P03" || code === "57014" || code === "25P03" || code === "40001" || code === "40P01" || code === "57P01" || code === "CONNECTION_CLOSED" || code === "CONNECTION_ENDED" || code === "CONNECT_TIMEOUT";
+}
+
 async function runCommand(sessionId: string, actor: Actor, input: CommandInput, onFrom: (phase: GamePhase) => void, opts: RunOptions = {}): Promise<CommandResult> {
   const sql = getSql();
   return sql.begin(async (tx) => {
+    await tx`
+      select set_config('lock_timeout', ${COMMAND_LOCK_TIMEOUT}, true),
+             set_config('statement_timeout', ${COMMAND_STATEMENT_TIMEOUT}, true),
+             set_config('idle_in_transaction_session_timeout', ${COMMAND_IDLE_TX_TIMEOUT}, true)`;
     const st = await loadStateRow(tx, sessionId, "update");
     if (!st) throw new GameError("NOT_FOUND", "Sessione non trovata o non pubblicata");
     onFrom(st.phase);
@@ -242,6 +263,8 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
       waiting: null,
     };
   } catch (e) {
+    // lucchetto occupato / database lento: il passo resta in programma e il TV riprova subito dopo
+    if (isTransientDbError(e)) return idle();
     if (!(e instanceof GameError)) throw e;
     // un altro client l'ha già eseguito, la regia ha cambiato qualcosa o non è più dovuto: niente da fare
     if (e.code === "AUTO_NOT_DUE" || e.code === "VERSION_CONFLICT") return { ...idle(), nextAt: null, version: null };
@@ -252,6 +275,53 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
         : `${COMMAND_LABELS[command]} non riuscito (${e.message}): decidi tu come proseguire`;
     await markAutoWaiting(sql, sessionId, version, reason);
     return { advanced: false, command, nextAt: null, version: null, waiting: reason };
+  }
+}
+
+/** Passo automatico in ritardo di oltre questo tempo (più dei 15 s che il TV può aspettare la fine di una battuta): chi legge lo stato lo fa eseguire. */
+export const AUTO_WATCHDOG_MS = 20_000;
+
+/**
+ * Rete di sicurezza dello scorrimento automatico: se uno stato letto da TV, regia o telefoni ha un
+ * passo in ritardo di oltre AUTO_WATCHDOG_MS (es. il /tick del TV si è perso o è rimasto appeso),
+ * il passo si esegue in background dopo la risposta. Stessi controlli di autoTick (idempotente:
+ * più richieste insieme lo eseguono una volta sola), mai bloccante per chi legge.
+ */
+export function watchdogTick(state: Pick<PublicState, "sessionId" | "auto" | "phase"> | null | undefined, nowMs = Date.now()): boolean {
+  if (!state?.auto?.nextAt || state.phase === "PAUSED") return false;
+  if (Date.parse(state.auto.nextAt) > nowMs - AUTO_WATCHDOG_MS) return false;
+  const run = () => autoTick(state.sessionId).catch((e) => console.warn("[quizzone] passo automatico di sicurezza non riuscito", e instanceof Error ? e.message : e));
+  try {
+    after(run);
+  } catch {
+    void run(); // fuori da una richiesta (test, script)
+  }
+  return true;
+}
+
+/**
+ * Tutti i giocatori attivi hanno risposto: le risposte si chiudono subito (ANSWERS_LOCKED), senza
+ * aspettare la fine del timer. In automatico la partita prosegue da sola; in manuale la regia vede
+ * le risposte chiuse e il timer fermo. Vale per serate e partite libere. Mai un errore per il
+ * giocatore: se non è il momento (fase cambiata, pausa, comando concorrente) non fa nulla.
+ */
+export async function closeAnswersIfAllAnswered(sessionId: string, sessionQuestionId: string): Promise<boolean> {
+  const sql = getSql();
+  const [g] = await sql<{ phase: GamePhase; current: string | null; version: number; players: number; answered: number }[]>`
+    select gs.phase, gs.current_session_question_id as current, gs.version,
+      (select count(*)::int from participants p where p.session_id = gs.session_id and p.status = 'active') as players,
+      (select count(distinct a.participant_id)::int from answer_submissions a join participants p on p.id = a.participant_id
+        where a.session_question_id = ${sessionQuestionId} and p.status = 'active') as answered
+    from game_state gs where gs.session_id = ${sessionId}`;
+  if (!g || g.phase !== "OPTIONS_VISIBLE" || g.current !== sessionQuestionId || g.players === 0 || g.answered < g.players) return false;
+  try {
+    const commandId = createHash("sha256").update(`qz-all-answered|${sessionQuestionId}`).digest("hex");
+    const id = `${commandId.slice(0, 8)}-${commandId.slice(8, 12)}-5${commandId.slice(13, 16)}-a${commandId.slice(17, 20)}-${commandId.slice(20, 32)}`;
+    const res = await executeCommand(sessionId, AUTO_ACTOR, { command: "CLOSE_ANSWERS", commandId: id, expectedVersion: num(g.version), args: { reason: "Tutti hanno risposto" } });
+    return !res.duplicate;
+  } catch (e) {
+    if (e instanceof GameError || isTransientDbError(e)) return false;
+    throw e;
   }
 }
 
@@ -584,7 +654,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
     const rules = await rulesForQuestion(ctx.tx, q.id, ctx.settings.allowNegative);
     if (!rules) throw new GameError("NOT_FOUND", "Regole della domanda non disponibili");
     // Le risposte compaiono subito, ma il tempo parte quando il presentatore ha finito di leggerle.
-    const readSec = (await optionsReadMs(q.id)) / 1000;
+    const readSec = (await optionsReadMs(ctx.tx, q.id)) / 1000;
     await ctx.tx`
       update session_questions set rules = ${ctx.tx.json(JSON.parse(JSON.stringify(rules)))},
         options_opened_at = clock_timestamp() + make_interval(secs => ${readSec}::float8),

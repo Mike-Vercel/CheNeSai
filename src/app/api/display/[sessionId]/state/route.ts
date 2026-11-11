@@ -2,6 +2,7 @@ import { getSql } from "@/lib/database/db";
 import { fail, ok, route } from "@/lib/http";
 import { verifyDisplayKey } from "@/lib/server/display";
 import { buildPublicState } from "@/lib/server/public-state";
+import { watchdogTick } from "@/lib/server/engine";
 import { directLobbyGreeting } from "@/lib/server/show";
 import { prewarmLines } from "@/lib/server/tts-prewarm";
 
@@ -36,6 +37,8 @@ export const GET = route(async (req: Request, ctx: { params: Promise<{ sessionId
       console.warn("[quizzone] saluto della lobby non riuscito", e instanceof Error ? e.message : e);
     }
   }
+  // passo automatico rimasto indietro (tick perso o appeso): lo si esegue in background
+  watchdogTick(state);
   // Precaricamento: media delle prossime domande non ancora mostrate (solo TV).
   const nextMedia = await sql<{ id: string; kind: string }[]>`
     select qs.media_id as id, qs.media_kind::text as kind

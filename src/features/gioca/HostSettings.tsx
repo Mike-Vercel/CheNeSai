@@ -151,6 +151,12 @@ export function AudioSettings({ onTestVoices }: { onTestVoices?: () => void }) {
       <Switch checked={p.voice} onChange={(v) => set({ voice: v })} label="Voce dei presentatori" />
       <Switch checked={p.readOptions} onChange={(v) => set({ readOptions: v })} label="Legge anche le risposte" />
       <Switch checked={p.muted} onChange={(v) => set({ muted: v })} label="Tutto muto" />
+      <Switch
+        checked={p.browserVoice}
+        onChange={(v) => set({ browserVoice: v })}
+        label="Voce del browser di riserva"
+        hint="Solo se la voce professionale è spenta sul sito; altrimenti le battute compaiono come sottotitoli"
+      />
       {onTestVoices && (
         <button type="button" className={clsx(btnSoft, "w-fit text-sm")} onClick={onTestVoices}>
           🔊 Prova le voci

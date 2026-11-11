@@ -5,13 +5,16 @@ import type { Presenter } from "@/lib/game-engine/types";
 import type { TtsRole } from "@/features/game/script";
 import { stripAudioTags } from "@/features/game/lines";
 import { getSoundEngine } from "./audio-engine";
-import { clipWaitMs, waitForClip } from "./voice-wait";
+import { CLIP_RETRY_DELAYS_MS, clipWaitMs, isFinalTtsFailure, silentLineMs, waitForClip } from "./voice-wait";
 
 /**
- * Voce dei presentatori (solo sul TV): sintesi vocale italiana del browser.
- * - Microsoft Edge offre gratuitamente voci neurali "Natural" (Isabella,
- *   Diego, Giuseppe, Elsa…): sono le preferite.
- * - Chrome usa "Google italiano"; Windows le voci di sistema (Elsa, Cosimo).
+ * Voce dei presentatori (solo sul TV).
+ * - Con la voce professionale (ElevenLabs) configurata sul server si sentono SOLO le sue clip:
+ *   mai la sintesi del browser. Se una clip non arriva (dopo l'attesa e qualche tentativo) la
+ *   battuta compare come sottotitolo con il personaggio che parla.
+ * - Senza voce professionale: sintesi del browser (se consentita dalle impostazioni del TV).
+ *   Microsoft Edge offre voci neurali "Natural" (Isabella, Diego, Giuseppe, Elsa…), preferite;
+ *   Chrome usa "Google italiano"; Windows le voci di sistema (Elsa, Cosimo).
  * Ogni personaggio ha voce, intonazione e velocità proprie. Mentre un
  * personaggio parla la musica si abbassa e la bocca (2D/3D) si muove.
  */
@@ -23,6 +26,12 @@ export interface VoiceSettings {
   volume: number;
   /** Moltiplicatore della velocità di lettura. */
   rate: number;
+  /**
+   * Voce del browser (sintesi "Google"/Windows) quando la voce professionale NON è configurata.
+   * Con ElevenLabs attivo non si usa MAI: se una clip non arriva la battuta compare come
+   * sottotitolo con il personaggio che parla, senza voce sintetica.
+   */
+  browserVoice: boolean;
 }
 
 interface CharacterVoice {
@@ -79,13 +88,17 @@ class VoiceEngine {
   private turn = 0;
   private mouthPhase = 0;
   private lastBoundary = 0;
-  /** "browser" = sintesi gratuita del browser; "elevenlabs" = voce professionale dal server. */
-  provider: "browser" | "elevenlabs" = "browser";
+  /**
+   * "elevenlabs" = voce professionale dal server; "browser" = voce professionale spenta sul server;
+   * "unknown" = non ancora saputo (in quel caso niente voce del browser: si aspetta la risposta).
+   */
+  provider: "unknown" | "browser" | "elevenlabs" = "unknown";
+  private providerReady: Promise<"browser" | "elevenlabs" | "unknown"> = Promise.resolve("unknown");
   private creds: { s: string; k: string } | null = null;
   private current: HTMLAudioElement | null = null;
   private analyser: AnalyserNode | null = null;
   private level = new Uint8Array(256);
-  settings: VoiceSettings = { enabled: true, readOptions: true, volume: 1, rate: 1 };
+  settings: VoiceSettings = { enabled: true, readOptions: true, volume: 1, rate: 1, browserVoice: true };
 
   configure(patch: Partial<VoiceSettings>) {
     this.settings = { ...this.settings, ...patch };
@@ -103,12 +116,23 @@ class VoiceEngine {
 
   init() {
     if (typeof window !== "undefined") {
-      void fetch("/api/tts?status=1", { cache: "no-store" })
-        .then((r) => (r.ok ? r.json() : null))
-        .then((j: { provider?: string } | null) => {
-          if (j?.provider === "elevenlabs") this.provider = "elevenlabs";
-        })
-        .catch(() => undefined);
+      // la voce professionale c'è? (qualche tentativo: finché non si sa, mai la voce del browser)
+      this.providerReady = (async () => {
+        for (let i = 0; i < 4; i++) {
+          try {
+            const r = await fetch("/api/tts?status=1", { cache: "no-store" });
+            if (r.ok) {
+              const j = (await r.json()) as { provider?: string };
+              this.provider = j.provider === "elevenlabs" ? "elevenlabs" : "browser";
+              return this.provider;
+            }
+          } catch {
+            /* rete: si riprova */
+          }
+          await new Promise((res) => setTimeout(res, 800 * (i + 1)));
+        }
+        return "unknown" as const;
+      })();
     }
     if (!this.supported) return;
     const load = () => {
@@ -213,31 +237,86 @@ class VoiceEngine {
    * `live` = battuta con nickname/punteggi (modello veloce lato server).
    */
   say(who: TtsRole, text: string, opts: { live?: boolean } = {}): Promise<void> {
-    if ((!this.supported && this.provider === "browser") || !this.settings.enabled || !text.trim()) return Promise.resolve();
+    if (!this.settings.enabled || !text.trim()) return Promise.resolve();
     return new Promise((resolve) => {
       this.queue.push({ who, text, resolve, live: !!opts.live, prefetch: this.prefetchClip(who, text, !!opts.live) });
       this.pump();
     });
   }
 
-  /** Chiede al server l'URL firmato della battuta (la chiave API resta sul server). */
-  private prefetchClip(who: TtsRole, text: string, live: boolean): Promise<string | null> | undefined {
-    if (this.provider !== "elevenlabs" || !this.creds) return undefined;
-    const c = this.creds;
-    const qs = new URLSearchParams({ who, text, s: c.s, k: c.k, format: "json" });
-    if (live) qs.set("live", "1");
-    return fetch(`/api/tts?${qs.toString()}`, { cache: "no-store" })
-      .then((r) => (r.ok ? (r.json() as Promise<{ url?: string }>) : null))
-      .then((j) => {
-        if (!j?.url) return null;
-        // scarica l'audio in anticipo: al suo turno parte subito
-        const pre = new Audio();
-        pre.preload = "auto";
-        pre.crossOrigin = "anonymous";
-        pre.src = j.url;
-        return j.url;
-      })
-      .catch(() => null);
+  /**
+   * Chiede al server l'URL firmato della battuta (la chiave API resta sul server), con qualche
+   * tentativo ravvicinato se il server è lento o dà un errore passeggero (sempre entro l'attesa
+   * massima della battuta). null = niente clip: voce spenta, budget esaurito o guasto ripetuto.
+   */
+  private prefetchClip(who: TtsRole, text: string, live: boolean): Promise<string | null> {
+    return this.providerReady.then(async (provider) => {
+      if (provider !== "elevenlabs" || !this.creds) return null;
+      const c = this.creds;
+      const qs = new URLSearchParams({ who, text, s: c.s, k: c.k, format: "json" });
+      if (live) qs.set("live", "1");
+      const until = Date.now() + clipWaitMs(live) - 500;
+      for (let attempt = 0; ; attempt++) {
+        try {
+          const r = await fetch(`/api/tts?${qs.toString()}`, { cache: "no-store" });
+          if (r.ok) {
+            const j = (await r.json()) as { url?: string };
+            if (!j.url) return null;
+            // scarica l'audio in anticipo: al suo turno parte subito
+            const pre = new Audio();
+            pre.preload = "auto";
+            pre.crossOrigin = "anonymous";
+            pre.src = j.url;
+            return j.url;
+          }
+          if (isFinalTtsFailure(r.status)) return null; // voce spenta, budget esaurito, accesso negato
+        } catch {
+          /* rete: si riprova */
+        }
+        const pause = CLIP_RETRY_DELAYS_MS[attempt];
+        if (pause === undefined || Date.now() + pause >= until) return null;
+        await new Promise((res) => setTimeout(res, pause));
+      }
+    });
+  }
+
+  /** Voce del browser consentita? Solo se la voce professionale è spenta sul server e l'impostazione lo permette. */
+  private browserAllowed(): boolean {
+    return this.supported && this.provider === "browser" && this.settings.browserVoice;
+  }
+
+  /** Battuta senza clip: voce del browser solo se consentita, altrimenti sottotitolo con il personaggio che parla. */
+  private fallback(line: { who: TtsRole; text: string; resolve: () => void }) {
+    if (this.browserAllowed()) this.speakBrowser(line);
+    else this.speakSilent(line);
+  }
+
+  /** Riga mostrata come sottotitolo quando la battuta non ha voce (vedi speakSilent). */
+  private silent: { who: TtsRole; text: string } | null = null;
+  get silentLine(): { who: TtsRole; text: string } | null {
+    return this.silent;
+  }
+
+  /**
+   * Battuta "muta": il personaggio parla (bocca e animazione) e il testo compare come sottotitolo
+   * per il tempo che servirebbe a dirla; nessuna voce sintetica. Poi la coda prosegue.
+   */
+  private speakSilent(next: { who: TtsRole; text: string; resolve: () => void }) {
+    const spoken = stripAudioTags(next.text);
+    const my = ++this.turn;
+    this.silent = { who: next.who, text: spoken };
+    this.setSpeaking(mouthOf(next.who), true, next.text);
+    setTimeout(() => {
+      if (my !== this.turn) {
+        next.resolve();
+        return;
+      }
+      this.silent = null;
+      this.busy = false;
+      this.setSpeaking(null);
+      next.resolve();
+      setTimeout(() => this.pump(), 120);
+    }, silentLineMs(spoken));
   }
 
   /**
@@ -267,6 +346,7 @@ class VoiceEngine {
 
   /** Interrompe tutto (es. cambio di fase improvviso). */
   stop() {
+    this.silent = null;
     this.queueEpoch++;
     this.turn++;
     for (const q of this.queue.splice(0)) q.resolve();
@@ -303,8 +383,9 @@ class VoiceEngine {
     }
     const line = { who: next.who, text: next.text, resolve: next.resolve };
     if (next.prefetch) {
-      // Voce professionale: si aspetta la clip anche se è lenta (generata al volo, fino a ~12 s);
-      // la voce del browser solo per un guasto vero (errore, budget esaurito, voce spenta) o oltre il tetto.
+      // Voce professionale: si aspetta la clip anche se è lenta (generata al volo, fino a ~12 s, con
+      // qualche nuovo tentativo). Se non arriva: MAI la voce del browser con ElevenLabs attivo,
+      // la battuta compare come sottotitolo (vedi fallback).
       const epoch = this.queueEpoch;
       void waitForClip(next.prefetch, clipWaitMs(!!next.live)).then((url) => {
         if (this.queueEpoch !== epoch) {
@@ -312,27 +393,15 @@ class VoiceEngine {
           return;
         }
         if (url) this.playRecorded(line, url);
-        else if (this.supported) this.speakBrowser(line);
-        else this.finishItem(line.resolve);
+        else this.fallback(line);
       });
       return;
     }
-    if (!this.supported) {
-      this.finishItem(line.resolve);
-      return;
-    }
-    this.speakBrowser(line);
+    this.fallback(line);
   }
 
   /** Incrementato da stop(): le attese in corso capiscono di essere state annullate. */
   private queueEpoch = 0;
-
-  private finishItem(resolve: () => void) {
-    this.busy = false;
-    this.setSpeaking(null, false);
-    resolve();
-    setTimeout(() => this.pump(), 0);
-  }
 
   /** Audio registrato: voce professionale dal server (ElevenLabs) oppure clip statica. */
   private playRecorded(next: QueueItem, url: string) {
@@ -370,9 +439,9 @@ class VoiceEngine {
       this.current = null;
       this.analyser = null;
       const fb = next.clip ? this.clipFallback.get(next.clip) : next.who ? { who: next.who, text: next.text } : undefined;
-      if (fallback && this.supported && fb && fb.text) {
-        // file/rete/servizio non disponibile: la battuta viene detta con la voce del browser
-        this.speakBrowser({ who: fb.who, text: fb.text, resolve: next.resolve });
+      if (fallback && fb && fb.text) {
+        // file/rete non disponibile: sottotitolo (o voce del browser solo se la voce professionale è spenta)
+        this.fallback({ who: fb.who, text: fb.text, resolve: next.resolve });
         return;
       }
       this.busy = false;
@@ -460,6 +529,15 @@ export function useHeldSpeech(): { who: Presenter; text: string } | null {
   return useSyncExternalStore(
     (cb) => getVoice().subscribe(() => cb()),
     () => getVoice().heldSpeech,
+    () => null,
+  );
+}
+
+/** Battuta senza voce in corso (sottotitolo sul TV), null se si sente la voce o c'è silenzio. */
+export function useSilentLine(): { who: TtsRole; text: string } | null {
+  return useSyncExternalStore(
+    (cb) => getVoice().subscribe(() => cb()),
+    () => getVoice().silentLine,
     () => null,
   );
 }

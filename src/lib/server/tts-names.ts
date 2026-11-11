@@ -17,9 +17,11 @@ import {
   storeClip,
   TtsError,
   ttsConfigured,
+  withTimeout,
   type ClipResult,
   type NamesMode,
   type PartKind,
+  type TtsPriority,
   type PlannedClip,
   type TtsSource,
   type VoiceConfig,
@@ -114,6 +116,9 @@ export function planSplice(cfg: VoiceConfig, whole: PlannedClip, names: readonly
 
 const inflight = new Map<string, Promise<ClipResult>>();
 
+/** Tempo massimo per comporre una battuta dalle parti; oltre si genera la frase intera. */
+export const SPLICE_DEADLINE_MS = 8_000;
+
 /** Genera le parti mancanti, le unisce e salva la frase intera. */
 async function spliceClip(db: Db, cfg: VoiceConfig, sp: SplicePlan): Promise<ClipResult> {
   const results = await Promise.all(sp.parts.map((p) => ensureClip(db, p.plan, partKind(p.segment), cfg)));
@@ -156,7 +161,9 @@ export async function ensureLineClip(db: Db, cfg: VoiceConfig, line: SpokenLine,
     }
     if (!sp) return ensureClip(db, whole, source, cfg);
     try {
-      return await spliceClip(db, cfg, sp);
+      // scadenza: se le parti non arrivano in tempo (ElevenLabs lento, archivio lento) si genera la
+      // frase intera, così il TV riceve comunque la voce professionale e la richiesta non resta appesa
+      return await withTimeout(spliceClip(db, cfg, sp), SPLICE_DEADLINE_MS, "Nomi salvati");
     } catch (e) {
       // budget esaurito: come oggi (il TV usa la voce del browser)
       if (e instanceof TtsError && e.code === "TTS_BUDGET") throw e;
@@ -187,18 +194,51 @@ export async function ttsLineUrl(line: SpokenLine, opts: LineClipOptions = {}): 
  * Genera (se mancano) le varianti più usate del nome ("Gigi", "Gigi,", "Gigi!", "Gigi.")
  * con le voci dei tre presentatori, a bassa priorità: le battute del TV passano prima.
  */
-export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: string, opts: { namesMode?: NamesMode } = {}): Promise<{ generated: number; billedChars: number }> {
-  if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
-  const plans = PRESENTERS.flatMap((who) =>
+function nameClipPlans(cfg: VoiceConfig, nickname: string): PlannedClip[] {
+  return PRESENTERS.flatMap((who) =>
     nameVariants(nickname).map((v) => {
       const plan = planPart(cfg, who, v, "name");
       if (plan) plan.context = NAME_VARIANT_CONTEXT[v.endsWith("!") ? "exclaim" : segmentPause(v)];
       return plan;
     }),
   ).filter((p) => p !== null);
+}
+
+function numberClipPlans(cfg: VoiceConfig): PlannedClip[] {
+  return PRESENTERS.flatMap((who) =>
+    PREWARM_NUMBERS.map((n) => {
+      const plan = planPart(cfg, who, n, "number");
+      if (plan) plan.context = NUMBER_PREWARM_CONTEXT;
+      return plan;
+    }),
+  ).filter((p) => p !== null);
+}
+
+/**
+ * Parti dei "nomi salvati" ancora da preparare per una serata: nickname dei giocatori attivi con
+ * varianti mancanti e numeri piccoli (una sola query sull'archivio). Vuoto se la modalità non è "spliced".
+ */
+export async function pendingLiveParts(db: Db, cfg: VoiceConfig, sessionId: string, namesMode?: NamesMode): Promise<{ names: string[]; numbers: boolean }> {
+  if (resolveNamesMode(cfg, namesMode) !== "spliced") return { names: [], numbers: false };
+  const players = await db<{ nickname: string }[]>`
+    select nickname from participants where session_id = ${sessionId} and status = 'active' and not is_bot order by joined_at`;
+  const byName = players.map((p) => ({ name: p.nickname, keys: nameClipPlans(cfg, p.nickname).map((x) => x.key) }));
+  const numberKeys = numberClipPlans(cfg).map((x) => x.key);
+  const cached = await cachedKeys(db, [...byName.flatMap((n) => n.keys), ...numberKeys]);
+  return { names: byName.filter((n) => n.keys.some((k) => !cached.has(k))).map((n) => n.name), numbers: numberKeys.some((k) => !cached.has(k)) };
+}
+
+export async function prewarmNameClips(
+  db: Db,
+  cfg: VoiceConfig,
+  nickname: string,
+  opts: { namesMode?: NamesMode; priority?: TtsPriority } = {},
+): Promise<{ generated: number; billedChars: number }> {
+  if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
+  const plans = nameClipPlans(cfg, nickname);
   const cached = await cachedKeys(db, plans.map((p) => p.key));
   const todo = plans.filter((p) => !cached.has(p.key));
-  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "name", cfg, { priority: "low" })));
+  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "name", cfg, { priority: opts.priority ?? "low" })));
   let generated = 0;
   let billedChars = 0;
   for (const r of results) {
@@ -213,17 +253,15 @@ export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: strin
  * Numeri piccoli (1–20, forma semplice) per i tre presentatori: serie, posizioni, domande,
  * "e altri N". Costo una tantum minimo (~60 clip da 1–2 caratteri), poi gratis per sempre.
  */
-export async function prewarmNumberClips(db: Db, cfg: VoiceConfig, opts: { namesMode?: NamesMode } = {}): Promise<{ generated: number; billedChars: number }> {
+export async function prewarmNumberClips(
+  db: Db,
+  cfg: VoiceConfig,
+  opts: { namesMode?: NamesMode; priority?: TtsPriority } = {},
+): Promise<{ generated: number; billedChars: number }> {
   if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
-  const plans = PRESENTERS.flatMap((who) =>
-    PREWARM_NUMBERS.map((n) => {
-      const plan = planPart(cfg, who, n, "number");
-      if (plan) plan.context = NUMBER_PREWARM_CONTEXT;
-      return plan;
-    }),
-  ).filter((p) => p !== null);
+  const plans = numberClipPlans(cfg);
   const cached = await cachedKeys(db, plans.map((p) => p.key));
-  const results = await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, "number", cfg, { priority: "low" })));
+  const results = await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, "number", cfg, { priority: opts.priority ?? "low" })));
   let generated = 0;
   let billedChars = 0;
   for (const r of results) {

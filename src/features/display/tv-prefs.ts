@@ -23,6 +23,12 @@ export interface TvPrefs {
   characters3d: boolean;
   /** Segmento "Spiega le regole" nell'intro. */
   rules: boolean;
+  /**
+   * Voce del browser quando la voce professionale (ElevenLabs) NON è configurata sul server.
+   * Spenta di default: senza voce professionale le battute compaiono come sottotitoli.
+   * Con ElevenLabs attivo la voce del browser non si usa mai.
+   */
+  browserVoice: boolean;
 }
 
 export const PREFS_KEY = "qz.tv.prefs";
@@ -38,6 +44,7 @@ export const DEFAULT_PREFS: TvPrefs = {
   theme: true,
   characters3d: true,
   rules: true,
+  browserVoice: false,
 };
 
 function read(): TvPrefs {

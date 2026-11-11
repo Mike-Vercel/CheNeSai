@@ -11,8 +11,13 @@ export interface AutoTickResponse {
   waiting: string | null;
 }
 
-/** Tentativi massimi per lo stesso passo (orologi un po' diversi, rete che salta). */
+/**
+ * Tentativi "rapidi" per lo stesso passo (orologi un po' diversi, rete che salta); dopo si continua
+ * a riprovare con calma (RETRY_SLOW_MS) finché il passo resta dovuto: la partita non si ferma mai
+ * perché un /tick si è perso o è rimasto appeso.
+ */
 const MAX_ATTEMPTS = 6;
+const RETRY_SLOW_MS = 5000;
 /** Attesa massima in più concessa a `holdWhile` (es. presentatore ancora a metà battuta). */
 export const MAX_HOLD_MS = 15_000;
 /** Ogni quanto si ricontrolla `holdWhile`. */
@@ -88,10 +93,11 @@ export function useAutoTick({
           setFromTick({ nextAt: r.nextAt, version: r.version });
           return;
         }
-        // non ancora dovuto per il server (orologio leggermente avanti): si riprova all'orario indicato
-        if (!r.advanced && r.nextAt && r.version === version && attempts < MAX_ATTEMPTS) schedule(Date.parse(r.nextAt) + 400 * attempts);
+        // non ancora dovuto per il server (orologio avanti) o database occupato: si riprova all'orario indicato
+        if (!r.advanced && r.nextAt && r.version === version) schedule(attempts < MAX_ATTEMPTS ? Date.parse(r.nextAt) + 400 * attempts : nowRef.current() + RETRY_SLOW_MS);
       } catch {
-        if (!cancelled && attempts < MAX_ATTEMPTS) schedule(nowRef.current() + 1500 * attempts);
+        // rete o server: si riprova sempre (prima in fretta, poi ogni 5 s)
+        if (!cancelled) schedule(nowRef.current() + (attempts < MAX_ATTEMPTS ? 1500 * attempts : RETRY_SLOW_MS));
       }
     };
     schedule(Date.parse(nextAt));
