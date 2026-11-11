@@ -1,0 +1,1082 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale animale compare nel logo della Abarth?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un toro",
+        "Un cavallo",
+        "Un serpente",
+        "Uno scorpione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "Carlo Abarth scelse lo scorpione, il suo segno zodiacale.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo permette di pagare il pedaggio autostradale senza fermarsi al casello?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tutor",
+        "Autovelox",
+        "Telepass",
+        "Navigatore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Il Telepass è il sistema di pagamento automatico del pedaggio sulle autostrade italiane.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale imprenditore scrisse nel 2006 il primo messaggio della storia di Twitter?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Mark Zuckerberg",
+        "Jack Dorsey",
+        "Elon Musk",
+        "Evan Spiegel"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "Il 21 marzo 2006 Dorsey scrisse: just setting up my twttr.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale videogioco musicale si suonava con una chitarra di plastica?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Guitar Hero",
+        "Just Dance",
+        "SingStar",
+        "Dance Dance Revolution"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Guitar Hero (2005) usava un controller a forma di chitarra.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compagnia aerea di bandiera italiana fu sostituita nel 2021 da ITA Airways?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Alitalia",
+        "Meridiana",
+        "Air One",
+        "Alpi Eagles"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aerei",
+        "italia"
+      ],
+      "notes": "Alitalia cessò i voli il 14 ottobre 2021; il giorno dopo partì ITA Airways.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il treno ad alta velocità della società privata NTV?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Frecciarossa",
+        "Pendolino",
+        "Italo",
+        "Eurostar"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "treni",
+        "italia"
+      ],
+      "notes": "Italo, dei treni NTV, viaggia dal 2012; il Frecciarossa è di Trenitalia.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In Italia, di che colore è il rivestimento del filo di terra negli impianti elettrici?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Blu",
+        "Marrone",
+        "Nero",
+        "Giallo e verde"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "elettricità",
+        "casa"
+      ],
+      "notes": "Norme CEI: conduttore di protezione giallo-verde, neutro blu, fase marrone, nero o grigio.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire il nome Volkswagen?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Auto veloce",
+        "Auto del popolo",
+        "Ruota tedesca",
+        "Viaggio sicuro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "Volk = popolo, Wagen = vettura.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale marca produceva il Razr, il sottilissimo telefono a conchiglia del 2004?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Nokia",
+        "Samsung",
+        "Siemens",
+        "Motorola"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefoni"
+      ],
+      "notes": "Il Motorola Razr V3 uscì nel 2004.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo una celebre storia, la durata del CD fu decisa per contenere quale opera intera?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "La Nona sinfonia di Beethoven",
+        "Le quattro stagioni di Vivaldi",
+        "La Traviata di Verdi",
+        "Il Requiem di Mozart"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musica"
+      ],
+      "notes": "Circa 74 minuti: secondo la Sony, per contenere la Nona di Beethoven.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dal 2021, qual è la classe migliore sull'etichetta energetica europea degli elettrodomestici?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "La classe A con tre più",
+        "La classe A con un più",
+        "La classe A",
+        "La classe Super A"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "casa",
+        "trabocchetto"
+      ],
+      "notes": "Dal marzo 2021 la scala va da A a G: le classi con i più sono state abolite.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve l'antenna parabolica sul tetto?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "A ricevere il segnale del cellulare",
+        "A ricevere i canali via satellite",
+        "A misurare il vento",
+        "A proteggere dai fulmini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tv"
+      ],
+      "notes": "La parabola concentra il segnale televisivo che arriva dai satelliti.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale combustibile funzionò un motore Diesel all'Esposizione di Parigi del 1900?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Olio di arachidi",
+        "Gasolio",
+        "Carbone in polvere",
+        "Alcol"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "motori",
+        "trabocchetto"
+      ],
+      "notes": "Su richiesta del governo francese il motore della Otto fu fatto andare a olio di arachidi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A chi è intitolato l'aeroporto di Pisa?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Amerigo Vespucci",
+        "Galileo Galilei",
+        "Leonardo da Vinci",
+        "Giacomo Puccini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aerei",
+        "italia"
+      ],
+      "notes": "Aeroporto di Pisa Galileo Galilei; Firenze è Amerigo Vespucci, Fiumicino Leonardo da Vinci.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Dove si trova il motore della Fiat 500 del 1957?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Davanti, sotto il cofano anteriore",
+        "Sotto i sedili anteriori",
+        "Dietro, sotto il cofano posteriore",
+        "Al centro, dietro i sedili"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "La Nuova 500 di Dante Giacosa aveva il motore bicilindrico posteriore.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piattaforma di dirette video, amatissima dai videogiocatori, ha un logo viola?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Vimeo",
+        "Dailymotion",
+        "Reddit",
+        "Twitch"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Twitch, nato nel 2011, ha un logo viola.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve il radiatore di un'automobile?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "A ricaricare la batteria",
+        "A filtrare l'aria",
+        "A raffreddare il motore",
+        "A ridurre il rumore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il radiatore disperde il calore del liquido di raffreddamento del motore.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la modalità del browser che non salva la cronologia delle pagine visitate?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Navigazione in incognito",
+        "Modalità aereo",
+        "Modalità notturna",
+        "Navigazione offline"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "La navigazione in incognito (o privata) non salva cronologia e cookie della sessione.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale colore indica la lettera K nella sigla CMYK dei colori di stampa?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Blu",
+        "Nero",
+        "Grigio",
+        "Bianco"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "stampa"
+      ],
+      "notes": "CMYK = ciano, magenta, giallo e key (nero).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamavano le carte prepagate che si inserivano nei telefoni pubblici italiani?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Gettoni",
+        "Tessere SIM",
+        "Carte Bancomat",
+        "Schede telefoniche"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefoni",
+        "italia"
+      ],
+      "notes": "Le schede telefoniche della SIP e poi di Telecom sostituirono i gettoni.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale combinazione di tasti chiude la finestra aperta su Windows?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ctrl e Z",
+        "Alt e F4",
+        "Ctrl e V",
+        "Alt e Tab"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Alt+F4 chiude la finestra attiva; Alt+Tab passa da una finestra all'altra.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale supporto musicale digitale, più piccolo di un CD, lanciò la Sony nel 1992?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "DAT",
+        "Musicassetta",
+        "Laserdisc",
+        "MiniDisc"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musica"
+      ],
+      "notes": "Il MiniDisc fu introdotto da Sony nel 1992.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale storico portale italiano, nato nel 1996, portava il nome di un poeta latino?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Orazio",
+        "Ovidio",
+        "Virgilio",
+        "Catullo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet",
+        "italia"
+      ],
+      "notes": "Virgilio fu lanciato nel 1996 come motore di ricerca e portale.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve il tasto Stamp della tastiera?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "A catturare l'immagine dello schermo",
+        "A stampare il documento aperto",
+        "A bloccare le maiuscole",
+        "A spegnere lo schermo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica",
+        "trabocchetto"
+      ],
+      "notes": "Stamp (Print Screen) copia negli appunti l'immagine dello schermo, non stampa.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale app di messaggistica ha come simbolo un aeroplanino di carta?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "WhatsApp",
+        "Messenger",
+        "Telegram",
+        "Signal"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "app"
+      ],
+      "notes": "Il logo di Telegram è un aeroplanino di carta bianco su sfondo azzurro.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingegnere italiano fondò nel 1988, con un collega giapponese, il gruppo MPEG dei formati audio e video?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Federico Faggin",
+        "Pier Giorgio Perotto",
+        "Riccardo Giacconi",
+        "Leonardo Chiariglione"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "informatica",
+        "italia"
+      ],
+      "notes": "Chiariglione fondò l'MPEG con Hiroshi Yasuda nel 1988; da lì nacque anche l'MP3.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nei browser, che cosa succede premendo insieme Ctrl e F?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Si cerca una parola nella pagina",
+        "Si chiude la scheda",
+        "Si stampa la pagina",
+        "Si aggiunge un preferito"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Ctrl+F apre la funzione Trova nella pagina.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda italiana preparò per la prima volta in orbita Samantha Cristoforetti, nel 2015?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un limoncello",
+        "Un caffè espresso",
+        "Un'aranciata",
+        "Un chinotto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Il 3 maggio 2015 sulla ISS con la macchina ISSpresso di Argotec e Lavazza.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale suoneria dei cellulari Nokia è tratta da un brano per chitarra di Francisco Tárrega?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Recuerdos de la Alhambra",
+        "Lágrima",
+        "Adelita",
+        "Gran Vals"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefoni",
+        "musica"
+      ],
+      "notes": "La Nokia Tune riprende alcune battute del Gran Vals di Tárrega (1902).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'aereo che trasporta il presidente degli Stati Uniti?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Eagle One",
+        "Liberty One",
+        "Air Force One",
+        "Freedom One"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aerei"
+      ],
+      "notes": "Air Force One è il nominativo radio dell'aereo che trasporta il presidente USA.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'era un mangianastri?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Un giradischi",
+        "Un lettore di musicassette",
+        "Un videoregistratore",
+        "Una radiolina a pile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musica",
+        "anni ottanta"
+      ],
+      "notes": "Mangianastri era il nome comune del lettore e registratore di musicassette.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda ligure produceva pellicole fotografiche e cinematografiche famose in tutta Italia?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ferrania",
+        "Kodak",
+        "Agfa",
+        "Fuji"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fotografia",
+        "italia"
+      ],
+      "notes": "La Ferrania, a Cairo Montenotte (Savona), produsse pellicole per tutto il Novecento.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale programma di chat degli anni Novanta annunciava i messaggi con un suono simile a un oh oh?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "MSN Messenger",
+        "ICQ",
+        "Skype",
+        "AOL Instant Messenger"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il celebre uh-oh era il segnale di ICQ, nato nel 1996.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per un telefono cellulare, che cos'è il roaming?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "L'uso all'estero della rete di un altro gestore",
+        "La condivisione della connessione",
+        "Il blocco delle chiamate",
+        "Il download degli aggiornamenti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Roaming: uso del cellulare sulla rete di un operatore estero.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale oggetto brevettò King Camp Gillette nel 1904?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il rasoio elettrico",
+        "Lo spazzolino da denti",
+        "La schiuma da barba",
+        "Il rasoio con lamette usa e getta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Gillette brevettò il rasoio di sicurezza con lamette sostituibili nel 1904.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti tasti aveva il mouse del primo Macintosh, del 1984?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Due",
+        "Tre",
+        "Uno",
+        "Nessuno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "informatica",
+        "trabocchetto"
+      ],
+      "notes": "Il mouse del Macintosh del 1984 aveva un solo pulsante.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è una smart TV?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Un televisore senza telecomando",
+        "Un televisore che si collega a Internet",
+        "Un televisore tascabile",
+        "Un televisore a energia solare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tv"
+      ],
+      "notes": "La smart TV si collega alla rete e usa app come quelle dello streaming.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale serie Nintendo fa correre i personaggi su piccole auto, lanciando gusci di tartaruga?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mario Kart",
+        "Gran Turismo",
+        "Need for Speed",
+        "Crash Team Racing"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "In Mario Kart (dal 1992) si lanciano gusci verdi e rossi agli avversari.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale Stato appartiene il dominio internet punto tv?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Tonga",
+        "Togo",
+        "Tanzania",
+        "Tuvalu"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "geografia"
+      ],
+      "notes": ".tv è il dominio nazionale di Tuvalu; Tonga ha .to, Togo .tg, Tanzania .tz.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale macchina tedesca per cifrare i messaggi fu decifrata dagli Alleati nella seconda guerra mondiale?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Colossus",
+        "Zuse",
+        "Enigma",
+        "Bomba"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "crittografia",
+        "storia"
+      ],
+      "notes": "Enigma fu violata dai crittografi polacchi e poi a Bletchley Park; Colossus e Bomba erano macchine britanniche.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale motore di ricerca è stato lanciato dalla Microsoft nel 2009?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Yahoo",
+        "DuckDuckGo",
+        "Baidu",
+        "Bing"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Bing è il motore di ricerca di Microsoft, nato nel 2009.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le scatole nere degli aerei di linea registrano anche video della cabina?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sì, con telecamere in cabina",
+        "Solo durante il decollo",
+        "No, solo voci e dati di volo",
+        "Solo in caso di allarme"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "Gli aerei di linea hanno il registratore delle voci in cabina e quello dei dati di volo, senza video.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingegnere milanese fece volare nel 1877 un modello di elicottero a vapore?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Gianni Caproni",
+        "Enrico Forlanini",
+        "Alessandro Cruto",
+        "Giovanni Agusta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "L'elicottero a vapore di Forlanini si alzò di circa 13 metri a Milano nel 1877.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura la stazza di una nave?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il volume degli spazi interni",
+        "Il peso a pieno carico",
+        "La lunghezza dello scafo",
+        "La velocità massima"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "navi",
+        "trabocchetto"
+      ],
+      "notes": "La stazza è una misura di volume; il peso della nave è il dislocamento.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti millimetri misura lo scartamento ordinario dei binari ferroviari in Italia?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1435",
+        "1000",
+        "1520",
+        "1668"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "treni"
+      ],
+      "notes": "Scartamento ordinario 1435 mm; 1520 è russo, 1668 iberico, 1000 lo scartamento ridotto metrico.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città siciliana hanno sede i Laboratori nazionali del Sud dell'Istituto di fisica nucleare?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Palermo",
+        "Messina",
+        "Catania",
+        "Siracusa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "scienza",
+        "sicilia"
+      ],
+      "notes": "I Laboratori Nazionali del Sud dell'INFN sono a Catania.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la sigla Hi-Fi degli impianti stereo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Alta frequenza",
+        "Alta fedeltà",
+        "Alto filtraggio",
+        "Alta finitura"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musica"
+      ],
+      "notes": "Hi-Fi = High Fidelity, alta fedeltà di riproduzione del suono.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale social network è dedicato soprattutto ai contatti di lavoro e ai curriculum?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Pinterest",
+        "Tumblr",
+        "Reddit",
+        "LinkedIn"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "social"
+      ],
+      "notes": "LinkedIn, nato nel 2003, è il social network professionale.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire che un'auto è un quattro per quattro?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ha quattro porte",
+        "Ha la trazione su tutte le ruote",
+        "Ha quattro posti",
+        "Ha quattro cilindri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "4x4 indica la trazione integrale: il motore spinge tutte e quattro le ruote.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale app di foto che spariscono ha come simbolo un fantasmino su sfondo giallo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Instagram",
+        "Pinterest",
+        "Snapchat",
+        "Flickr"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "app"
+      ],
+      "notes": "Il logo di Snapchat è un fantasmino bianco su giallo.",
+      "verified": false
+    }
+  ]
+}

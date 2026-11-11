@@ -1,0 +1,1091 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Strangers in the Night\", nel 1966?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Dean Martin",
+        "Elvis Presley",
+        "Tony Bennett",
+        "Frank Sinatra"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "anni-60"
+      ],
+      "notes": "\"Strangers in the Night\" di Frank Sinatra, 1966",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"(I Can't Get No) Satisfaction\", nel 1965?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "The Beatles",
+        "The Who",
+        "Rolling Stones",
+        "The Kinks"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "anni-60"
+      ],
+      "notes": "Singolo dei Rolling Stones del 1965",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha lanciato il tormentone \"Andiamo a comandare\", nel 2016?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Fabio Rovazzi",
+        "J-Ax",
+        "Fedez",
+        "Gabry Ponte"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop-italiano"
+      ],
+      "notes": "\"Andiamo a comandare\", primo singolo di Fabio Rovazzi (2016)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa usa un DJ per far girare i dischi in vinile?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Mangianastri",
+        "Lettore CD",
+        "Giradischi",
+        "Walkman"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "curiosita"
+      ],
+      "notes": "I dischi in vinile si suonano sul giradischi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento ad arco si suona da seduti, appoggiato a terra tra le ginocchia?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Violino",
+        "Viola",
+        "Violoncello",
+        "Mandolino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Il violoncello poggia a terra con il puntale e si suona da seduti; violino e viola si appoggiano alla spalla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Jailhouse Rock\", nel 1957?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Elvis Presley",
+        "Chuck Berry",
+        "Little Richard",
+        "Buddy Holly"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock-and-roll",
+        "anni-50"
+      ],
+      "notes": "\"Jailhouse Rock\" di Elvis Presley, dal film omonimo del 1957",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di persone che cantano insieme, per esempio in chiesa?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Orchestra",
+        "Coro",
+        "Banda",
+        "Fanfara"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "voci"
+      ],
+      "notes": "Il coro è un insieme di cantanti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella fiaba, quale strumento suona il pifferaio magico di Hamelin?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Flauto",
+        "Violino",
+        "Tamburo",
+        "Tromba"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "fiabe"
+      ],
+      "notes": "Il pifferaio incanta topi e bambini suonando il piffero, un flauto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale grande strumento a canne si trova di solito nelle chiese?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Organo",
+        "Arpa",
+        "Pianoforte",
+        "Clavicembalo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "L'organo produce il suono facendo passare aria nelle canne",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'insieme delle musiche che accompagnano un film?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Sceneggiatura",
+        "Colonna sonora",
+        "Trailer",
+        "Doppiaggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cinema"
+      ],
+      "notes": "La colonna sonora è la musica di un film",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"In ginocchio da te\", grande successo del 1964?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bobby Solo",
+        "Little Tony",
+        "Adriano Celentano",
+        "Gianni Morandi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-60"
+      ],
+      "notes": "\"In ginocchio da te\" di Gianni Morandi, 1964, poi anche film",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale showgirl ha cantato \"La notte vola\", nel 1988?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Heather Parisi",
+        "Lorella Cuccarini",
+        "Raffaella Carrà",
+        "Alessandra Martines"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop-italiano",
+        "tv"
+      ],
+      "notes": "\"La notte vola\" di Lorella Cuccarini, successo del 1988",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi presentò la canzone \"Donne\" al Festival di Sanremo del 1985?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Zucchero",
+        "Vasco Rossi",
+        "Eros Ramazzotti",
+        "Luca Barbarossa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "anni-80"
+      ],
+      "notes": "Zucchero portò \"Donne\" a Sanremo 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Creep\", nel 1992?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Radiohead",
+        "Blur",
+        "Oasis",
+        "Muse"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "anni-90"
+      ],
+      "notes": "\"Creep\", primo singolo dei Radiohead (1992)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band rock americana si esibisce con il volto dipinto di bianco e di nero?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Aerosmith",
+        "Van Halen",
+        "Bon Jovi",
+        "Kiss"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Il trucco bianco e nero è il simbolo dei Kiss dal 1973",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante australiana ha inciso \"Can't Get You Out of My Head\", nel 2001?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Kylie Minogue",
+        "Natalie Imbruglia",
+        "Sia",
+        "Delta Goodrem"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "anni-2000"
+      ],
+      "notes": "Singolo di Kylie Minogue del 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americano ha inciso \"Superstition\", nel 1972?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Ray Charles",
+        "Marvin Gaye",
+        "James Brown",
+        "Stevie Wonder"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "soul",
+        "funk"
+      ],
+      "notes": "\"Superstition\" di Stevie Wonder, dall'album \"Talking Book\" (1972)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante note suonano insieme in una triade, l'accordo più semplice?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "La triade è formata da tre note: fondamentale, terza e quinta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la voce femminile più grave?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Mezzosoprano",
+        "Contralto",
+        "Soprano",
+        "Baritono"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "voci",
+        "lirica"
+      ],
+      "notes": "Il contralto è il registro femminile più grave",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova la Carnegie Hall, celebre sala da concerto?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Chicago",
+        "New York",
+        "Boston",
+        "Londra"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teatri"
+      ],
+      "notes": "La Carnegie Hall, inaugurata nel 1891, è a Manhattan",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante palermitana ha inciso \"Roma-Bangkok\" con Baby K, nel 2015?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Carmen Consoli",
+        "Giusy Ferreri",
+        "Levante",
+        "Noemi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop-italiano",
+        "sicilia"
+      ],
+      "notes": "Giusy Ferreri è nata a Palermo; \"Roma-Bangkok\" è del 2015",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo portò \"La terra dei cachi\" al Festival di Sanremo del 1996?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Articolo 31",
+        "Elio e le Storie Tese",
+        "Pitura Freska",
+        "Stadio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "anni-90"
+      ],
+      "notes": "Elio e le Storie Tese arrivarono secondi a Sanremo 1996",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Bella senz'anima\", del 1974?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Claudio Baglioni",
+        "Umberto Tozzi",
+        "Renato Zero",
+        "Riccardo Cocciante"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-70"
+      ],
+      "notes": "\"Bella senz'anima\" di Riccardo Cocciante, 1974",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cantante Fedez e Achille Lauro incisero \"Mille\", nel 2021?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Iva Zanicchi",
+        "Ornella Vanoni",
+        "Orietta Berti",
+        "Rita Pavone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop-italiano"
+      ],
+      "notes": "\"Mille\" di Fedez, Achille Lauro e Orietta Berti, estate 2021",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana era chiamata \"la regina della disco music\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Donna Summer",
+        "Gloria Gaynor",
+        "Diana Ross",
+        "Grace Jones"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "disco",
+        "soprannomi"
+      ],
+      "notes": "Donna Summer, voce di \"I Feel Love\" e \"Hot Stuff\", è la \"Queen of Disco\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana ha inciso \"Mr. Brightside\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "The Strokes",
+        "Kings of Leon",
+        "The Killers",
+        "The White Stripes"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "anni-2000"
+      ],
+      "notes": "\"Mr. Brightside\" è dei Killers, band di Las Vegas (2003-2004)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Friday I'm in Love\", nel 1992?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Depeche Mode",
+        "The Smiths",
+        "New Order",
+        "The Cure"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "anni-90"
+      ],
+      "notes": "Singolo dei Cure dall'album \"Wish\" (1992)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante britannico ha inciso \"Faith\", nel 1987?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Rick Astley",
+        "Phil Collins",
+        "George Michael",
+        "Simon Le Bon"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "\"Faith\", singolo e album di George Michael del 1987",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale album dei Beatles del 1967 ha la copertina affollata di personaggi famosi?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Abbey Road",
+        "Revolver",
+        "Sergeant Pepper's Lonely Hearts Club Band",
+        "Let It Be"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "beatles"
+      ],
+      "notes": "La copertina di Peter Blake per \"Sgt. Pepper's\" (1967) mostra decine di celebrità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"Il volo del calabrone\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Modest Musorgskij",
+        "Nikolaj Rimskij-Korsakov",
+        "Aleksandr Borodin",
+        "Pëtr Il'ič Čajkovskij"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Interludio dall'opera \"La favola dello zar Saltan\" (1900) di Rimskij-Korsakov",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti anni aveva Wolfgang Amadeus Mozart quando morì?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "27",
+        "35",
+        "42",
+        "51"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica",
+        "mozart"
+      ],
+      "notes": "Mozart nacque il 27 gennaio 1756 e morì il 5 dicembre 1791",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che materiale sono le piastre del vibrafono?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Legno",
+        "Metallo",
+        "Vetro",
+        "Plastica"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Il vibrafono ha lamine di alluminio; quelle di legno sono dello xilofono",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cantante Amedeo Minghi presentò \"Vattene amore\" al Festival di Sanremo del 1990?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Anna Oxa",
+        "Paola Turci",
+        "Mietta",
+        "Mia Martini"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "anni-90"
+      ],
+      "notes": "\"Vattene amore\" di Amedeo Minghi e Mietta, terza a Sanremo 1990",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band toscana ha inciso \"Rotolando verso sud\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Litfiba",
+        "Modena City Ramblers",
+        "Timoria",
+        "Negrita"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock-italiano"
+      ],
+      "notes": "\"Rotolando verso sud\" è dei Negrita, band della provincia di Arezzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante vinse il Festival di Sanremo del 1999 con \"Senza pietà\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Anna Oxa",
+        "Patty Pravo",
+        "Elisa",
+        "Mietta"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Anna Oxa vinse Sanremo 1999 con \"Senza pietà\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore ha scritto \"Samarcanda\", nel 1977?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Francesco Guccini",
+        "Roberto Vecchioni",
+        "Eugenio Finardi",
+        "Edoardo Bennato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "\"Samarcanda\" di Roberto Vecchioni, dall'album omonimo del 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamavano gli artisti di strada siciliani che cantavano storie mostrando grandi cartelloni dipinti?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pupari",
+        "Cantastorie",
+        "Menestrelli",
+        "Trovatori"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "tradizioni"
+      ],
+      "notes": "I cantastorie (come Ciccio Busacca) cantavano fatti indicando i riquadri di un cartellone; i pupari sono i burattinai dell'opera dei pupi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chopin è sepolto a Parigi: in quale città è conservato il suo cuore?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Varsavia",
+        "Cracovia",
+        "Vienna",
+        "Danzica"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "curiosita",
+        "trabocchetto"
+      ],
+      "notes": "Il cuore di Chopin è custodito in un pilastro della chiesa di Santa Croce a Varsavia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi era il batterista dei Led Zeppelin?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Keith Moon",
+        "Ginger Baker",
+        "Charlie Watts",
+        "John Bonham"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "John Bonham suonò nei Led Zeppelin dal 1968 al 1980; Moon era degli Who, Watts dei Rolling Stones",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"La Moldava\", dedicata al fiume che attraversa Praga?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Antonín Dvořák",
+        "Leoš Janáček",
+        "Bohuslav Martinů",
+        "Bedřich Smetana"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "\"La Moldava\" fa parte del ciclo \"La mia patria\" di Smetana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose l'opera \"Andrea Chénier\", nel 1896?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Pietro Mascagni",
+        "Ruggero Leoncavallo",
+        "Umberto Giordano",
+        "Francesco Cilea"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "\"Andrea Chénier\" di Umberto Giordano debuttò alla Scala nel 1896",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Verdi gli zingari cantano battendo i martelli sulle incudini?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Rigoletto",
+        "Aida",
+        "Nabucco",
+        "Il trovatore"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica",
+        "verdi"
+      ],
+      "notes": "Il \"coro degli zingari\" (dell'incudine) apre il secondo atto del \"Trovatore\" (1853)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La melodia di \"Brilla brilla la stellina\" viene da una canzone popolare di quale Paese?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Inghilterra",
+        "Germania",
+        "Francia",
+        "Austria"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "canzoni",
+        "trabocchetto"
+      ],
+      "notes": "È la melodia francese \"Ah! vous dirai-je, maman\", su cui Mozart scrisse anche delle variazioni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band incise per prima \"Mad World\", poi celebre nella versione di Gary Jules?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Depeche Mode",
+        "Duran Duran",
+        "The Cure",
+        "Tears for Fears"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "\"Mad World\" è un singolo dei Tears for Fears del 1982; la cover di Gary Jules è del 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse la musica di \"Se telefonando\", cantata da Mina nel 1966?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Nino Rota",
+        "Armando Trovajoli",
+        "Ennio Morricone",
+        "Piero Piccioni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop-italiano",
+        "compositori"
+      ],
+      "notes": "Musica di Ennio Morricone, testo di Maurizio Costanzo e Ghigo De Chiara",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tenore siciliano fu il partner più celebre di Maria Callas sul palcoscenico?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Beniamino Gigli",
+        "Mario Del Monaco",
+        "Franco Corelli",
+        "Giuseppe Di Stefano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica",
+        "sicilia"
+      ],
+      "notes": "Giuseppe Di Stefano, nato a Motta Sant'Anastasia (Catania), cantò e incise a lungo con la Callas",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse \"La serva padrona\", nel 1733?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Giovanni Battista Pergolesi",
+        "Domenico Cimarosa",
+        "Giovanni Paisiello",
+        "Baldassare Galuppi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica",
+        "barocco"
+      ],
+      "notes": "L'intermezzo \"La serva padrona\" di Pergolesi andò in scena a Napoli nel 1733",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"Black Magic Woman\" di Santana era la cover di un brano di quale band?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Fleetwood Mac",
+        "The Doors",
+        "Cream",
+        "The Yardbirds"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "Scritta da Peter Green, uscì con i Fleetwood Mac nel 1968; Santana la incise nel 1970",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La celebre \"Ave Maria\" di Schubert nacque come canto su versi di quale scrittore?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Johann Wolfgang von Goethe",
+        "Friedrich Schiller",
+        "Walter Scott",
+        "Lord Byron"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "È il \"terzo canto di Ellen\" dal poema \"La donna del lago\" di Walter Scott (1825)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore calabrese scrisse l'opera \"Adriana Lecouvreur\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Francesco Cilea",
+        "Ruggero Leoncavallo",
+        "Umberto Giordano",
+        "Pietro Mascagni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "Francesco Cilea, nato a Palmi, scrisse \"Adriana Lecouvreur\" nel 1902",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1102 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Born in the USA\", nel 1984?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bon Jovi",
+        "Bruce Springsteen",
+        "Tom Petty",
+        "Billy Joel"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "anni-80"
+      ],
+      "notes": "\"Born in the U.S.A.\" di Bruce Springsteen, dall'album omonimo del 1984",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I mariachi sono i musicisti tradizionali di quale Paese?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spagna",
+        "Argentina",
+        "Cuba",
+        "Messico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "musica-popolare",
+        "mondo"
+      ],
+      "notes": "Il mariachi è la musica tradizionale messicana (patrimonio UNESCO dal 2011)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante emiliano è chiamato dai fan semplicemente \"il Liga\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Vasco Rossi",
+        "Zucchero",
+        "Luciano Ligabue",
+        "Gianni Morandi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop-italiano",
+        "soprannomi"
+      ],
+      "notes": "\"Liga\" è il soprannome di Luciano Ligabue, di Correggio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La tarantella è una danza popolare tipica di quale parte d'Italia?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il Nord-Ovest",
+        "Le Alpi",
+        "Il Sud",
+        "La Pianura Padana"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musica-popolare",
+        "danza"
+      ],
+      "notes": "La tarantella è la danza tradizionale dell'Italia meridionale (Campania, Calabria, Sicilia, Puglia)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band ha inciso \"Let It Be\", nel 1970?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "The Beatles",
+        "Rolling Stones",
+        "The Who",
+        "Queen"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "beatles"
+      ],
+      "notes": "\"Let It Be\", singolo e album dei Beatles del 1970",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova l'Opéra Garnier, celebre teatro dell'opera?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Vienna",
+        "Londra",
+        "Bruxelles",
+        "Parigi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teatri",
+        "lirica"
+      ],
+      "notes": "Il Palais Garnier, inaugurato nel 1875, è a Parigi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il complesso di fiati e percussioni che suona alle feste di paese e alle processioni?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Orchestra d'archi",
+        "Quartetto",
+        "Banda",
+        "Coro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "tradizioni"
+      ],
+      "notes": "La banda musicale è formata da fiati e percussioni, tipica di feste e processioni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un \"tormentone\" estivo?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Un temporale improvviso",
+        "Una canzone che si sente ovunque",
+        "Un concerto all'alba",
+        "Una gara di canto in spiaggia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "curiosita"
+      ],
+      "notes": "Il tormentone è la canzone di successo ripetuta ovunque durante l'estate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le maracas, che si suonano scuotendole, a quale famiglia di strumenti appartengono?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Fiati",
+        "Archi",
+        "Percussioni",
+        "Ottoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Le maracas sono idiofoni a scuotimento, cioè percussioni",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parte di una canzone che si ripete più volte, sempre uguale?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Strofa",
+        "Ritornello",
+        "Ponte",
+        "Assolo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il ritornello è la sezione che torna uguale tra le strofe",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Tintarella di luna\", successo del 1959?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Mina",
+        "Rita Pavone",
+        "Milva",
+        "Ornella Vanoni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-50"
+      ],
+      "notes": "\"Tintarella di luna\" (De Filippi-Migliacci) lanciò Mina nel 1959",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Maledetta primavera\" al Festival di Sanremo del 1981?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Raffaella Carrà",
+        "Loretta Goggi",
+        "Anna Oxa",
+        "Loredana Bertè"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "anni-80"
+      ],
+      "notes": "Loretta Goggi arrivò seconda a Sanremo 1981 con \"Maledetta primavera\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale duo ha inciso \"Vamos a bailar\", tormentone dell'estate 2000?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Jalisse",
+        "Righeira",
+        "Paola e Chiara",
+        "Zero Assoluto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-2000"
+      ],
+      "notes": "\"Vamos a bailar (Esta vida nueva)\" di Paola e Chiara, 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band americana ha inciso \"Losing My Religion\", nel 1991?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "R.E.M.",
+        "Pearl Jam",
+        "Counting Crows",
+        "Nirvana"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "anni-90"
+      ],
+      "notes": "\"Losing My Religion\" dei R.E.M., dall'album \"Out of Time\" (1991)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale chitarrista dei Guns N' Roses suona quasi sempre con un cilindro in testa?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Slash",
+        "Axl Rose",
+        "Duff McKagan",
+        "Izzy Stradlin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Il cilindro è il marchio di Slash; Axl Rose è il cantante, McKagan il bassista",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è il cantante dei Coldplay?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Thom Yorke",
+        "Matt Bellamy",
+        "Damon Albarn",
+        "Chris Martin"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop-rock"
+      ],
+      "notes": "Chris Martin è voce dei Coldplay fin dalla fondazione (1996); Yorke è dei Radiohead, Bellamy dei Muse, Albarn dei Blur",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Believe\", nel 1998, con il celebre effetto robotico sulla voce?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Madonna",
+        "Kylie Minogue",
+        "Cher",
+        "Gloria Estefan"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "anni-90"
+      ],
+      "notes": "\"Believe\" di Cher (1998) rese famoso l'effetto Auto-Tune",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sinfonia di Beethoven comincia con il celebre motivo del \"destino che bussa alla porta\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Quinta",
+        "Terza",
+        "Settima",
+        "Nona"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica",
+        "beethoven"
+      ],
+      "notes": "La Sinfonia n. 5 in do minore si apre con il motivo di quattro note detto \"del destino\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale voce maschile sta a metà tra il tenore e il basso?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Contralto",
+        "Controtenore",
+        "Mezzosoprano",
+        "Baritono"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "voci",
+        "lirica"
+      ],
+      "notes": "Il baritono è la voce maschile intermedia tra tenore e basso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale genere musicale nacque a New Orleans all'inizio del Novecento?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Jazz",
+        "Rock and roll",
+        "Country",
+        "Reggae"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "jazz",
+        "generi"
+      ],
+      "notes": "Il jazz nasce a New Orleans tra fine Ottocento e inizio Novecento",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantò nel 1981 la versione italiana del \"Ballo del qua qua\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cristina D'Avena",
+        "Orietta Berti",
+        "Raffaella Carrà",
+        "Romina Power"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-80"
+      ],
+      "notes": "\"Il ballo del qua qua\" fu un successo di Romina Power nel 1981",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Destinazione paradiso\", nel 1995?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gianluca Grignani",
+        "Marco Masini",
+        "Biagio Antonacci",
+        "Max Pezzali"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-90"
+      ],
+      "notes": "\"Destinazione paradiso\", primo grande successo di Gianluca Grignani (1995)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia vinse il Festival di Sanremo del 2018 con \"Non mi avete fatto niente\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Colapesce e Dimartino",
+        "Ermal Meta e Fabrizio Moro",
+        "Mahmood e Blanco",
+        "Coma Cose"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "Ermal Meta e Fabrizio Moro vinsero Sanremo 2018",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Almeno tu nell'universo\", nel 1989?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Loredana Bertè",
+        "Mia Martini",
+        "Fiorella Mannoia",
+        "Anna Oxa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop-italiano",
+        "sanremo"
+      ],
+      "notes": "Mia Martini presentò \"Almeno tu nell'universo\" (Lauzi-Fabrizio) a Sanremo 1989",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a corde è il simbolo nazionale dell'Irlanda?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Arpa",
+        "Violino",
+        "Mandolino",
+        "Banjo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "L'arpa celtica compare nello stemma dell'Irlanda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Bitter Sweet Symphony\", nel 1997?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "The Verve",
+        "Pulp",
+        "Suede",
+        "Travis"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "anni-90"
+      ],
+      "notes": "\"Bitter Sweet Symphony\" dei Verve, dall'album \"Urban Hymns\" (1997)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band punk inglese ha inciso \"London Calling\", nel 1979?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "The Clash",
+        "Sex Pistols",
+        "The Damned",
+        "Buzzcocks"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "punk"
+      ],
+      "notes": "\"London Calling\", singolo e album dei Clash del dicembre 1979",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante gallese ha inciso \"It's Not Unusual\", nel 1965?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Engelbert Humperdinck",
+        "Cliff Richard",
+        "Rod Stewart",
+        "Tom Jones"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "anni-60"
+      ],
+      "notes": "\"It's Not Unusual\" fu il primo grande successo di Tom Jones (1965)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale batterista dei Genesis ne diventò il cantante dopo l'uscita di Peter Gabriel?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mike Rutherford",
+        "Tony Banks",
+        "Phil Collins",
+        "Steve Hackett"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Dal 1975 Phil Collins, batterista, divenne anche voce dei Genesis",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose i \"Carmina Burana\", con il celebre coro \"O Fortuna\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Richard Strauss",
+        "Carl Orff",
+        "Gustav Mahler",
+        "Paul Hindemith"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "La cantata \"Carmina Burana\" di Carl Orff fu eseguita la prima volta nel 1937",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Puccini la protagonista uccide il barone Scarpia?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Manon Lescaut",
+        "Suor Angelica",
+        "La fanciulla del West",
+        "Tosca"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica",
+        "puccini"
+      ],
+      "notes": "Nel secondo atto della \"Tosca\" Floria Tosca pugnala Scarpia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse \"Knockin' on Heaven's Door\", celebre anche nella versione dei Guns N' Roses?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Axl Rose",
+        "Neil Young",
+        "Bruce Springsteen",
+        "Bob Dylan"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "Scritta da Bob Dylan nel 1973 per il film \"Pat Garrett e Billy the Kid\"; i Guns N' Roses la incisero nel 1990",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante scrisse e incise \"Lu pisci spada\", canzone in siciliano sulla pesca nello Stretto?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Renato Carosone",
+        "Claudio Villa",
+        "Domenico Modugno",
+        "Fred Buscaglione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "canzone-popolare"
+      ],
+      "notes": "\"Lu pisci spada\" è una canzone di Domenico Modugno del 1954",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi incise \"Teorema\", quella di \"prendi una donna, trattala male\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Marco Ferradini",
+        "Umberto Tozzi",
+        "Riccardo Fogli",
+        "Marco Masini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-80"
+      ],
+      "notes": "\"Teorema\" di Marco Ferradini, 1981",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band torinese portò \"Tutti i miei sbagli\" al Festival di Sanremo del 2000?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bluvertigo",
+        "Afterhours",
+        "Marlene Kuntz",
+        "Subsonica"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock-italiano",
+        "sanremo"
+      ],
+      "notes": "I Subsonica, di Torino, presentarono \"Tutti i miei sbagli\" a Sanremo 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città è ambientata \"Via del Campo\" di Fabrizio De André?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Napoli",
+        "Genova",
+        "Milano",
+        "Torino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "Via del Campo è una strada del centro storico di Genova",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città pugliese si trova il Teatro Petruzzelli?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bari",
+        "Lecce",
+        "Taranto",
+        "Foggia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "teatri",
+        "lirica"
+      ],
+      "notes": "Il Teatro Petruzzelli, inaugurato nel 1903, è a Bari",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo incise \"Video Killed the Radio Star\", il primo video trasmesso da MTV nel 1981?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Duran Duran",
+        "The Police",
+        "Spandau Ballet",
+        "The Buggles"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "MTV aprì le trasmissioni il 1 agosto 1981 con il video dei Buggles",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi cantò per prima \"New York, New York\", nel film omonimo del 1977?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Barbra Streisand",
+        "Judy Garland",
+        "Liza Minnelli",
+        "Bette Midler"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cinema",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "Nel film di Scorsese la canta Liza Minnelli; la versione di Frank Sinatra è del 1980",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"I pianeti\", la suite orchestrale con \"Marte\" e \"Giove\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Edward Elgar",
+        "Gustav Holst",
+        "Benjamin Britten",
+        "Ralph Vaughan Williams"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "\"The Planets\" di Gustav Holst, composta tra il 1914 e il 1916",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse i libretti di \"Otello\" e \"Falstaff\" di Giuseppe Verdi?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Francesco Maria Piave",
+        "Arrigo Boito",
+        "Felice Romani",
+        "Salvadore Cammarano"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "verdi"
+      ],
+      "notes": "Arrigo Boito fu il librettista delle ultime due opere di Verdi (1887 e 1893)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella \"Turandot\" di Puccini, come si chiama la giovane schiava che muore per amore di Calaf?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Mimì",
+        "Musetta",
+        "Liù",
+        "Cio-Cio-San"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lirica",
+        "puccini"
+      ],
+      "notes": "Liù si uccide nel terzo atto per non rivelare il nome di Calaf",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da dove prendono il nome i Pink Floyd?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Da un fenicottero rosa",
+        "Da due bluesman americani",
+        "Da un cocktail inglese",
+        "Da un quadro di Warhol"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "curiosita",
+        "trabocchetto"
+      ],
+      "notes": "Syd Barrett unì i nomi dei bluesman Pink Anderson e Floyd Council",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"Take Five\", il brano reso celebre dal quartetto di Dave Brubeck?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Dave Brubeck",
+        "Miles Davis",
+        "Paul Desmond",
+        "Duke Ellington"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "jazz",
+        "trabocchetto"
+      ],
+      "notes": "\"Take Five\" (1959) fu scritto dal sassofonista Paul Desmond, membro del quartetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"L'appuntamento\" di Ornella Vanoni è la versione italiana di una canzone di quale Paese?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Francia",
+        "Brasile",
+        "Argentina",
+        "Spagna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop-italiano",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "Viene da \"Sentado à beira do caminho\" di Roberto ed Erasmo Carlos; la Vanoni la incise nel 1970",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il nome d'arte di Nicoletta Strambelli?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Nada",
+        "Alice",
+        "Mia Martini",
+        "Patty Pravo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop-italiano",
+        "nomi-arte"
+      ],
+      "notes": "Patty Pravo, nata a Venezia nel 1948, si chiama Nicoletta Strambelli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale violinista nato in Istria compose la sonata \"Il trillo del diavolo\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Arcangelo Corelli",
+        "Pietro Locatelli",
+        "Francesco Geminiani",
+        "Giuseppe Tartini"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "barocco"
+      ],
+      "notes": "Giuseppe Tartini nacque a Pirano d'Istria nel 1692",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse \"Red Red Wine\", portata al successo dagli UB40?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Bob Marley",
+        "Jimmy Cliff",
+        "Neil Diamond",
+        "Toots Hibbert"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "reggae",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "\"Red Red Wine\" fu scritta e incisa da Neil Diamond nel 1967; gli UB40 la ripresero nel 1983",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale Stato europeo ha un inno nazionale con la stessa melodia di \"God Save the King\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Irlanda",
+        "Liechtenstein",
+        "Malta",
+        "Islanda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "inni",
+        "trabocchetto"
+      ],
+      "notes": "\"Oben am jungen Rhein\", inno del Liechtenstein, usa la melodia dell'inno britannico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale provincia siciliana è nato il rapper Marracash?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Enna",
+        "Palermo",
+        "Catania",
+        "Agrigento"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rap",
+        "sicilia"
+      ],
+      "notes": "Marracash (Fabio Rizzo) è nato a Nicosia, in provincia di Enna, nel 1979",
+      "verified": false
+    }
+  ]
+}

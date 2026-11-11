@@ -1,0 +1,1078 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In quale città si trovano le funicolari Centrale, di Chiaia e di Montesanto?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Napoli",
+        "Genova",
+        "Bergamo",
+        "Trieste"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "Sono tre delle quattro funicolari di Napoli, con quella di Mergellina.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la funzione del telefono che silenzia chiamate e notifiche, per esempio di notte?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Risparmio energetico",
+        "Hotspot",
+        "Non disturbare",
+        "Torcia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "La modalità Non disturbare silenzia chiamate e notifiche.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le auto completamente elettriche hanno il tubo di scappamento?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sì, uno solo",
+        "Sì, due affiancati",
+        "Solo i modelli sportivi",
+        "No, non producono gas di scarico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "Il motore elettrico non brucia carburante, quindi non c'è scarico.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la sigla LP sui dischi in vinile?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Low Pressure",
+        "Long Playing",
+        "Lettore Portatile",
+        "Lunga Puntina"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "musica"
+      ],
+      "notes": "LP = Long Playing, il disco a 33 giri a lunga durata.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale prodotto nacque alla 3M da una colla poco tenace, e fu lanciato nel 1980?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il nastro adesivo trasparente",
+        "L'evidenziatore",
+        "I foglietti adesivi riposizionabili",
+        "La graffetta colorata"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "I Post-it nacquero dalla colla debole di Spencer Silver (1968) e furono lanciati nel 1980.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'obiettivo fotografico che inquadra un campo molto ampio?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Teleobiettivo",
+        "Grandangolo",
+        "Obiettivo macro",
+        "Duplicatore di focale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "fotografia"
+      ],
+      "notes": "Il grandangolo ha focale corta e angolo di campo ampio.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa misura il sistema Tutor sulle autostrade italiane?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La velocità media tra due punti",
+        "Il peso dei camion",
+        "Il tasso alcolico",
+        "La distanza di sicurezza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Il Tutor calcola la velocità media tra due portali lungo un tratto.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ritraeva la prima immagine digitale scansionata, nel 1957?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Un gatto",
+        "Un paesaggio",
+        "La Luna",
+        "Un neonato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fotografia",
+        "informatica"
+      ],
+      "notes": "Russell Kirsch scansionò la foto del figlio Walden, di tre mesi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il programma della NASA per riportare gli astronauti sulla Luna?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Artemis",
+        "Gemini",
+        "Mercury",
+        "Skylab"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Il programma Artemis, dal nome della sorella di Apollo, punta al ritorno sulla Luna.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica giapponese ha nel logo le stelle delle Pleiadi?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Mazda",
+        "Subaru",
+        "Mitsubishi",
+        "Suzuki"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "Subaru è il nome giapponese dell'ammasso delle Pleiadi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale diva di Hollywood brevettò nel 1942 un sistema radio a salto di frequenza?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Marilyn Monroe",
+        "Greta Garbo",
+        "Hedy Lamarr",
+        "Rita Hayworth"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni",
+        "cinema"
+      ],
+      "notes": "Brevetto del 1942 con il compositore George Antheil, base di tecnologie senza fili.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la posta elettronica che in Italia ha lo stesso valore di una raccomandata?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "SPID",
+        "CIE",
+        "IBAN",
+        "PEC"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "italia"
+      ],
+      "notes": "PEC = Posta elettronica certificata, con valore legale di raccomandata con ricevuta di ritorno.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale servizio di Google si usa per cercare un indirizzo e calcolare il percorso?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Google Maps",
+        "Google Drive",
+        "Google Foto",
+        "Gmail"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "app"
+      ],
+      "notes": "Google Maps è il servizio di mappe e navigazione di Google.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la domotica?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lo studio degli animali domestici",
+        "L'arredamento d'interni",
+        "La raccolta dei rifiuti di casa",
+        "L'automazione della casa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "Domotica: tecnologie per automatizzare luci, riscaldamento e apparecchi di casa.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le versioni di Android, fino al 2019, prendevano il nome da che cosa?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Da pianeti",
+        "Da animali",
+        "Da dolci",
+        "Da città"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Cupcake, Donut, KitKat, Lollipop, Oreo, Pie... fino ad Android 10 nel 2019.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un deepfake?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Un virus che cancella i file",
+        "Un video falso creato con l'intelligenza artificiale",
+        "Un sito web nascosto",
+        "Una password troppo debole"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "intelligenza artificiale"
+      ],
+      "notes": "Deepfake: contenuti audio o video falsificati con tecniche di deep learning.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'apparecchio dei negozi in cui si inserisce o si avvicina la carta per pagare?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Modem",
+        "Router",
+        "POS",
+        "Scanner"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pagamenti"
+      ],
+      "notes": "Il POS (Point of sale) è il terminale per i pagamenti con carta.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Perché i bagni degli aerei hanno ancora i portacenere, anche se fumare è vietato?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Per le gomme da masticare",
+        "Per pura decorazione",
+        "Non ce li hanno più",
+        "Lo impone la legge, se qualcuno fumasse"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "Le norme (es. FAA) richiedono un portacenere vicino al bagno, per evitare che un mozzicone finisca nel cestino.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In un motore a benzina, quale componente fa scoccare la scintilla?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La candela",
+        "Il pistone",
+        "La valvola",
+        "Il carburatore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "motori"
+      ],
+      "notes": "La candela d'accensione accende la miscela di aria e benzina.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da chi prende il nome la casa automobilistica Lancia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Dall'arma dei cavalieri",
+        "Dal fondatore Vincenzo Lancia",
+        "Da un torrente piemontese",
+        "Da una via di Torino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Vincenzo Lancia fondò l'azienda a Torino nel 1906.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pentola, con il coperchio a chiusura ermetica, cuoce in metà tempo grazie al vapore?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "La pentola a pressione",
+        "Il wok",
+        "La casseruola",
+        "La pesciera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "La pentola a pressione alza la temperatura di ebollizione e riduce i tempi di cottura.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la tecnologia di registro condiviso su cui si basa il Bitcoin?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Cloud",
+        "Firewall",
+        "Intranet",
+        "Blockchain"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "La blockchain è un registro distribuito di blocchi collegati e cifrati.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica produceva il Duetto, la spider guidata da Dustin Hoffman nel film Il laureato?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Fiat",
+        "Lancia",
+        "Alfa Romeo",
+        "Ferrari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "L'Alfa Romeo Spider Duetto (1966) compare ne Il laureato (1967).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la sonda europea che nel 1986 passò vicinissima alla cometa di Halley?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Rosetta",
+        "Giotto",
+        "Ulysses",
+        "Huygens"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Giotto dell'ESA, dal nome del pittore che dipinse la cometa nella Cappella degli Scrovegni.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quanti tempi lavora il motore a benzina delle normali automobili?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "3",
+        "6",
+        "4"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "motori"
+      ],
+      "notes": "Ciclo Otto a quattro tempi: aspirazione, compressione, scoppio, scarico.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti brani conteneva di solito un disco a 45 giri?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sei per lato",
+        "Dieci in tutto",
+        "Uno per lato",
+        "Uno soltanto, su un lato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musica"
+      ],
+      "notes": "Il 45 giri era il singolo: lato A e lato B.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale casa produceva il Ciao, il celebre motorino lanciato nel 1967?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Piaggio",
+        "Garelli",
+        "Benelli",
+        "Malaguti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "moto",
+        "italia"
+      ],
+      "notes": "Il Piaggio Ciao fu prodotto dal 1967 al 2006.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore piemontese realizzò nel 1880 una lampadina a incandescenza, quasi insieme a Edison?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Galileo Ferraris",
+        "Alessandro Cruto",
+        "Antonio Pacinotti",
+        "Enrico Forlanini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Cruto, di Piossasco, ottenne la sua lampadina a filamento di carbonio nel 1880.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale combinazione di tre tasti si premeva per riavviare un PC con Windows bloccato?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ctrl, Shift e Invio",
+        "Alt, Tab e Invio",
+        "Ctrl, Alt e Canc",
+        "Shift, Fn e Canc"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Ctrl+Alt+Canc, ideata da David Bradley per i PC IBM.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale liquido impedisce che l'acqua del radiatore dell'auto ghiacci d'inverno?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "L'antigelo",
+        "L'olio motore",
+        "Il liquido dei freni",
+        "L'additivo per benzina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il liquido antigelo abbassa il punto di congelamento del refrigerante.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Sul cambio automatico, che cosa indica la lettera P?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Partenza",
+        "Parcheggio",
+        "Potenza",
+        "Pendenza"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "P = Park: blocca la trasmissione a veicolo fermo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per chi costruì Pellegrino Turri, all'inizio dell'Ottocento, una delle prime macchine per scrivere?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Il re di Sardegna",
+        "Il papa",
+        "Un poeta sordo",
+        "Una contessa non vedente"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni",
+        "italia"
+      ],
+      "notes": "Turri la costruì intorno al 1808 per la contessa Carolina Fantoni da Fivizzano, cieca.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale videogioco si guida la vita di personaggi che hanno un diamante verde sopra la testa?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "SimCity",
+        "Animal Crossing",
+        "The Sims",
+        "Second Life"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Il plumbob, il diamante verde, sovrasta i personaggi di The Sims (dal 2000).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale enciclopedia online ha come simbolo un globo fatto di pezzi di puzzle?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Treccani",
+        "Britannica",
+        "Encarta",
+        "Wikipedia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il logo di Wikipedia è un globo incompleto fatto di tessere di puzzle con lettere.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale accessorio della Xbox 360 riconosceva i movimenti del corpo senza bisogno di controller?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Wii Remote",
+        "Kinect",
+        "PlayStation Move",
+        "Power Glove"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Kinect, uscito nel 2010, usava telecamere e sensori di profondità.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il dinosauro verde che Mario cavalca nei videogiochi Nintendo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Yoshi",
+        "Bowser",
+        "Wario",
+        "Toad"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Yoshi, il dinosauro verde, compare da Super Mario World (1990).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale numero si scrive FF nel sistema esadecimale?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "99",
+        "256",
+        "160",
+        "255"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "F = 15: 15 per 16 più 15 = 255.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa fa il DNS, spesso descritto come l'elenco telefonico di Internet?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Cifra le password",
+        "Blocca i virus",
+        "Traduce i nomi dei siti in indirizzi numerici",
+        "Misura la velocità della linea"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il Domain Name System converte i nomi di dominio in indirizzi IP.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama oggi il ponte stradale del 1933 che collega Venezia alla terraferma?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ponte degli Scalzi",
+        "Ponte della Libertà",
+        "Ponte dell'Accademia",
+        "Ponte di Rialto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "Inaugurato nel 1933 come Ponte Littorio, fu ribattezzato Ponte della Libertà.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa in latino il nome Audi?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ascolta",
+        "Corri",
+        "Guarda",
+        "Vinci"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "August Horch tradusse in latino il proprio cognome (horch = ascolta).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tecnologia sovrappone immagini virtuali al mondo reale inquadrato dalla fotocamera?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Realtà virtuale",
+        "Ologramma",
+        "Stampa 3D",
+        "Realtà aumentata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tecnologie"
+      ],
+      "notes": "La realtà aumentata aggiunge elementi digitali all'immagine reale (es. Pokémon Go).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tipo di automobile superò per prima i 100 chilometri orari, nel 1899?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "A benzina",
+        "Elettrica",
+        "A vapore",
+        "A gasolio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "La Jamais Contente di Camille Jenatzy, elettrica, raggiunse 105 km/h nel 1899.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che lavoro fanno in Italia gli aerei Canadair, gialli e rossi?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Spengono gli incendi",
+        "Trasportano la posta",
+        "Portano i turisti sulle isole",
+        "Fanno pubblicità in cielo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "aerei",
+        "italia"
+      ],
+      "notes": "I Canadair CL-415 sono idrovolanti antincendio che caricano acqua da mare e laghi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale aeroporto corrisponde il codice internazionale FCO?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Roma Ciampino",
+        "Milano Malpensa",
+        "Roma Fiumicino",
+        "Firenze Peretola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aerei",
+        "italia"
+      ],
+      "notes": "FCO = Fiumicino; Ciampino è CIA, Malpensa MXP, Firenze FLR.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il nobile fiorentino protagonista del videogioco Assassin's Creed secondo?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Ezio Auditore",
+        "Altaïr",
+        "Connor Kenway",
+        "Edward Kenway"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi",
+        "italia"
+      ],
+      "notes": "Ezio Auditore da Firenze è il protagonista di Assassin's Creed II (2009).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tasto della tastiera fa scrivere tutto in maiuscolo senza tenere premuto nulla?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Alt Gr",
+        "Bloc Maiusc",
+        "Tab",
+        "Ctrl"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Il tasto Bloc Maiusc (Caps Lock) blocca le maiuscole.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la sigla SUV, usata per le auto alte e robuste?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Super Urban Vehicle",
+        "Safe Utility Van",
+        "Sport Utility Vehicle",
+        "Sport Ultra Veloce"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "SUV = Sport Utility Vehicle.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale programma Microsoft si usa per creare presentazioni con le diapositive?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Excel",
+        "Word",
+        "Outlook",
+        "PowerPoint"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "PowerPoint è il programma di presentazioni del pacchetto Microsoft Office.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In un browser, che cosa succede premendo il tasto F5?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Si ricarica la pagina",
+        "Si apre una nuova scheda",
+        "Si torna alla pagina precedente",
+        "Si stampa la pagina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "F5 aggiorna (ricarica) la pagina web.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale biologo inglese inventò la parola meme, nel 1976?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Charles Darwin",
+        "Richard Dawkins",
+        "Stephen Hawking",
+        "David Attenborough"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet",
+        "parole"
+      ],
+      "notes": "Nel libro Il gene egoista (1976).",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1093 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "In quale paese sardo si corre a luglio l'Ardia di San Costantino, una corsa a cavallo?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Oristano",
+        "Sedilo",
+        "Bosa",
+        "Fonni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "L'Ardia di Sedilo si corre il 6 e 7 luglio intorno al santuario di San Costantino.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire Lego, dal danese leg godt?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Gioca bene",
+        "Costruisci",
+        "Mattoncino",
+        "Divertiti insieme"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi",
+        "parole"
+      ],
+      "notes": "Ole Kirk Christiansen creò il nome da leg godt, gioca bene.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale eroe dei fumetti Bonelli è un agente speciale del futuro, nato nel 1991?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Dylan Dog",
+        "Martin Mystère",
+        "Dampyr",
+        "Nathan Never"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fumetti",
+        "italia"
+      ],
+      "notes": "Nathan Never, di Medda, Serra e Vigna, esordì nel 1991.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si nasconde nella galette des rois, la torta francese dell'Epifania?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Un anello",
+        "Una moneta d'oro",
+        "Una fava o una statuina",
+        "Un biglietto con un augurio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Chi trova la fève diventa re o regina per un giorno.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo il galateo italiano, dove vanno tenute le mani a tavola quando non si mangia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Con i polsi appoggiati al tavolo",
+        "In grembo",
+        "Dietro la schiena",
+        "Incrociate sul petto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "galateo"
+      ],
+      "notes": "Il galateo italiano vuole le mani visibili, polsi sul bordo del tavolo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo, rappresentato da un leone alato, è il patrono di Venezia?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "San Giorgio",
+        "San Pietro",
+        "San Marco",
+        "San Nicola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "santi",
+        "italia"
+      ],
+      "notes": "Il leone alato è il simbolo dell'evangelista Marco, patrono di Venezia.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale di queste città Santa Lucia porta i regali ai bambini nella notte tra il 12 e il 13 dicembre?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Napoli",
+        "Firenze",
+        "Bari",
+        "Brescia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Santa Lucia porta i doni in varie città del Nord come Brescia, Bergamo e Verona.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è il patrono di Bologna?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "San Zeno",
+        "San Petronio",
+        "Sant'Ambrogio",
+        "San Gennaro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "santi",
+        "italia"
+      ],
+      "notes": "San Petronio, vescovo del V secolo, festeggiato il 4 ottobre; San Zeno è patrono di Verona.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Se tre gatti acchiappano tre topi in tre minuti, quanti gatti servono per cento topi in cento minuti?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "100",
+        "3",
+        "33",
+        "300"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Ogni gatto prende un topo in tre minuti: in cento minuti tre gatti ne prendono circa cento.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In che giorno della settimana cadde il primo gennaio del 2000?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Sabato",
+        "Venerdì",
+        "Domenica",
+        "Lunedì"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Il 1 gennaio 2000 era un sabato.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano a Torino le fontanelle verdi con la testa di toro?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Nasoni",
+        "Vedovelle",
+        "Toret",
+        "Draghetti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "italia",
+        "città"
+      ],
+      "notes": "I toret torinesi; i nasoni sono romani, le vedovelle milanesi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giorni ha il mese di aprile?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "31",
+        "29",
+        "28",
+        "30"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Trenta dì conta novembre, con april, giugno e settembre.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In gran parte della Gran Bretagna, che cosa porta un gatto nero che ti attraversa la strada?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Fortuna",
+        "Sfortuna",
+        "Pioggia",
+        "Visite"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "superstizioni",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Nel Regno Unito il gatto nero è tradizionalmente un portafortuna.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti giocatori servono per una partita a bridge?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "6"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Il bridge si gioca in quattro, divisi in due coppie.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città svedese si costruisce ogni Natale una gigantesca capra di paglia, spesso data alle fiamme?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Uppsala",
+        "Malmö",
+        "Gävle",
+        "Göteborg"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "La capra di Gävle è stata incendiata molte volte dal 1966.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti colori diversi ha il cubo di Rubik classico?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "8",
+        "9",
+        "6"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Una faccia per colore: bianco, giallo, rosso, arancione, blu e verde.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolge il 14 agosto la Faradda dei Candelieri?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Nuoro",
+        "Cagliari",
+        "Sassari",
+        "Oristano"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "La discesa dei Candelieri di Sassari è patrimonio UNESCO.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato si trova Montecarlo, famosa per il suo casinò?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Principato di Monaco",
+        "Francia",
+        "Andorra",
+        "Liechtenstein"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "mondo"
+      ],
+      "notes": "Montecarlo è un quartiere del Principato di Monaco.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel gioco di carte Uno, che cosa fa la carta Inverti?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Fa pescare due carte",
+        "Cambia il senso del giro",
+        "Fa saltare un turno",
+        "Cambia il colore"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "La carta Inverti cambia la direzione di gioco.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa teme chi soffre di nomofobia?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Di dimenticare i nomi",
+        "Le regole",
+        "I numeri",
+        "Di restare senza cellulare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fobie"
+      ],
+      "notes": "Nomofobia, da no mobile phobia: paura di restare senza telefono.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale santo è patrono sia di Firenze sia di Torino?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "San Giorgio",
+        "San Lorenzo",
+        "San Giovanni Battista",
+        "San Martino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "santi",
+        "italia"
+      ],
+      "notes": "San Giovanni Battista, festeggiato il 24 giugno in entrambe le città.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il 1900 fu un anno bisestile?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Sì, perché era divisibile per 4",
+        "Sì, come tutti gli anni pari",
+        "No, perché era un anno dispari",
+        "No, perché non era divisibile per 400"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calendario",
+        "trabocchetto"
+      ],
+      "notes": "Gli anni secolari sono bisestili solo se divisibili per 400: 1900 no, 2000 sì.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha i denti ma non morde mai?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il pettine",
+        "Lo specchio",
+        "Il cuscino",
+        "La spugna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello classico: il pettine ha i denti ma non morde.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come chiamano i romani le fontanelle pubbliche di ghisa, con l'acqua sempre corrente?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Toretti",
+        "Nasoni",
+        "Vedovelle",
+        "Fontanoni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "italia",
+        "città"
+      ],
+      "notes": "I nasoni di Roma, installati dal 1874, devono il nome alla cannella ricurva.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante carte ha un mazzo da burraco, jolly compresi?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "104",
+        "108",
+        "112",
+        "110"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "giochi",
+        "carte"
+      ],
+      "notes": "Due mazzi francesi da 52 più quattro jolly.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa raffigurano le banconote in euro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Finestre e ponti in vari stili architettonici",
+        "Monumenti famosi dei Paesi membri",
+        "Ritratti di personaggi illustri",
+        "Paesaggi naturali d'Europa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "monete",
+        "trabocchetto"
+      ],
+      "notes": "I ponti e le finestre sono stilizzati e non riproducono monumenti reali.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale segno zodiacale apre l'anno astrologico, a fine marzo?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Pesci",
+        "Toro",
+        "Acquario",
+        "Ariete"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "zodiaco"
+      ],
+      "notes": "L'Ariete inizia con l'equinozio di primavera, intorno al 21 marzo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale pianeta prende il nome il giorno della settimana che viene dopo il mercoledì?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Saturno",
+        "Marte",
+        "Giove",
+        "Venere"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calendario"
+      ],
+      "notes": "Giovedì = Iovis dies, giorno di Giove.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella dama italiana, quale pezzo non può mai essere catturato da una pedina semplice?",
+      "category": "Curiosità",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un'altra pedina semplice",
+        "Una pedina sul bordo",
+        "Nessuno, si cattura tutto",
+        "Una pedina già promossa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "trabocchetto"
+      ],
+      "notes": "Regola della dama italiana: la pedina non può mangiare la dama.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la sigla RSVP sugli inviti?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Si prega di rispondere",
+        "Si richiede l'abito scuro",
+        "Regalo non necessario",
+        "Ricevimento solo su prenotazione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "galateo",
+        "parole"
+      ],
+      "notes": "RSVP = Répondez s'il vous plaît.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città americana si festeggia il più famoso Mardi Gras?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Miami",
+        "Chicago",
+        "New Orleans",
+        "Las Vegas"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Il Mardi Gras di New Orleans è il carnevale più celebre degli Stati Uniti.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa ha un letto ma non dorme mai?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "L'ospedale",
+        "Il fiume",
+        "Il gatto",
+        "L'albergo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "indovinelli",
+        "trabocchetto"
+      ],
+      "notes": "Indovinello sul letto del fiume.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa teme chi soffre di acrofobia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Le altezze",
+        "Gli spazi aperti",
+        "I ragni",
+        "Il buio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "fobie"
+      ],
+      "notes": "Acrofobia, dal greco akros, sommità: paura delle altezze.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si festeggia di solito in Italia il lunedì di Pasquetta?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Con il primo bagno al mare",
+        "Con lo scambio dei regali",
+        "Con una cena in maschera",
+        "Con una gita fuori porta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "Pasquetta è tradizionalmente il giorno della scampagnata con picnic.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la banconota da 50 euro?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Verde",
+        "Arancione",
+        "Blu",
+        "Rossa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "Il biglietto da 50 euro è arancione; 100 verde, 20 blu, 10 rosso.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quali città ospitano a turno la Regata delle antiche repubbliche marinare?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Venezia, Genova, Pisa e Ancona",
+        "Venezia, Genova, Amalfi e Gaeta",
+        "Venezia, Genova, Pisa e Amalfi",
+        "Genova, Pisa, Amalfi e Napoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "La regata, disputata dal 1956, ruota tra Venezia, Genova, Pisa e Amalfi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama Babbo Natale in Francia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Saint Nicolas",
+        "Père Noël",
+        "Papa Natalis",
+        "Monsieur Hiver"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "natale",
+        "mondo"
+      ],
+      "notes": "In Francia i regali li porta il Père Noël.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la valuta della Turchia?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il dinaro",
+        "Il dirham",
+        "Lo scellino",
+        "La lira"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "monete",
+        "mondo"
+      ],
+      "notes": "La moneta turca è la lira turca.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel Risiko classico, con quanti dadi al massimo può attaccare un giocatore?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "6"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "L'attaccante tira fino a tre dadi, il difensore fino a tre nella versione italiana.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città umbra, a Pentecoste, una colomba meccanica scende sul Duomo nella festa della Palombella?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Orvieto",
+        "Assisi",
+        "Spoleto",
+        "Todi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "feste",
+        "italia"
+      ],
+      "notes": "La Palombella di Orvieto scende lungo un cavo fino al sagrato del Duomo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale gioco si indovina una parola lettera per lettera, mentre ogni errore completa un disegno?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "L'impiccato",
+        "Il tris",
+        "La battaglia navale",
+        "Lo Scarabeo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "giochi"
+      ],
+      "notes": "Nell'impiccato ogni lettera sbagliata aggiunge un pezzo al disegno.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa lanciano in aria gli studenti americani alla fine della cerimonia del diploma?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Il diploma",
+        "I fiori",
+        "Le scarpe",
+        "Il cappello"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "mondo",
+        "tradizioni"
+      ],
+      "notes": "Il lancio del tocco quadrato (mortarboard) chiude la cerimonia.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale festa cristiana cade cinquanta giorni dopo Pasqua?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ascensione",
+        "Pentecoste",
+        "Epifania",
+        "Corpus Domini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "calendario"
+      ],
+      "notes": "Pentecoste: dal greco cinquantesimo giorno; l'Ascensione è dopo 40 giorni.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in inglese il giorno degli scherzi del primo aprile?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Boxing Day",
+        "Groundhog Day",
+        "April Fools' Day",
+        "Halloween"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "April Fools' Day, il nostro pesce d'aprile.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Negli scacchi, quanti pedoni ha ogni giocatore all'inizio della partita?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "6",
+        "10",
+        "16",
+        "8"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "giochi",
+        "scacchi"
+      ],
+      "notes": "Ogni giocatore ha 8 pedoni e 8 pezzi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale giorno di nascita di Gesù indicano i Vangeli?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Nessuno, non danno la data",
+        "Il 25 dicembre",
+        "Il 6 gennaio",
+        "Il 24 dicembre"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "natale",
+        "trabocchetto"
+      ],
+      "notes": "I Vangeli non indicano il giorno; il 25 dicembre fu fissato dalla Chiesa nel IV secolo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo la superstizione, sotto che cosa non bisogna mai passare?",
+      "category": "Curiosità",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un ponte",
+        "Un arco",
+        "Una scala aperta",
+        "Una tettoia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "superstizioni"
+      ],
+      "notes": "Passare sotto una scala appoggiata al muro è tra le superstizioni più diffuse.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale oggetto di ceramica si mette sui balconi siciliani come portafortuna, insieme alle teste di moro?",
+      "category": "Curiosità",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il pesce",
+        "La pigna",
+        "La lanterna",
+        "La mano aperta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sicilia",
+        "tradizioni"
+      ],
+      "notes": "La pigna in ceramica di Caltagirone è simbolo di fortuna e abbondanza.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la moneta della Grecia prima dell'euro?",
+      "category": "Curiosità",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Lira",
+        "Corona",
+        "Fiorino",
+        "Dracma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "monete"
+      ],
+      "notes": "La dracma greca fu sostituita dall'euro nel 2002.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il capodanno persiano, festeggiato all'equinozio di primavera?",
+      "category": "Curiosità",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Diwali",
+        "Nowruz",
+        "Purim",
+        "Songkran"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "feste",
+        "mondo"
+      ],
+      "notes": "Nowruz, nuovo giorno; Songkran è il capodanno thailandese.",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1065 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Sbagliando s'…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cade",
+        "Cresce",
+        "Perde",
+        "Impara"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Sbagliando s'impara",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi tace…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sbaglia",
+        "Acconsente",
+        "Mente",
+        "Ascolta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi tace acconsente",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Tra moglie e marito non mettere il…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Dito",
+        "Naso",
+        "Piede",
+        "Cuore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Tra moglie e marito non mettere il dito",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Gallina vecchia fa buon…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pollo",
+        "Uovo",
+        "Brodo",
+        "Sugo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Gallina vecchia fa buon brodo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"prendere il toro per le corna\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Arrabbiarsi",
+        "Affrontare un problema di petto",
+        "Fare uno sforzo inutile",
+        "Domare gli animali"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Prendere il toro per le corna: affrontare direttamente una difficoltà",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"restare a bocca asciutta\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avere sete",
+        "Restare senza ciò che si sperava",
+        "Restare senza parole",
+        "Digiunare per giorni"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Restare a bocca asciutta: non ottenere ciò che si desiderava",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"sacerdote\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Sacerdota",
+        "Sacerdotessa",
+        "Sacerdotina",
+        "Suora"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Sacerdote / sacerdotessa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"barone\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Baronessa",
+        "Barona",
+        "Baronina",
+        "Baronella"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Barone / baronessa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"introverso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Estroverso",
+        "Timido",
+        "Riservato",
+        "Inverso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "contrari"
+      ],
+      "notes": "Introverso / estroverso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"farsi in quattro\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Dividere un premio",
+        "Impegnarsi al massimo",
+        "Stancarsi presto",
+        "Cambiare spesso idea"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Farsi in quattro: prodigarsi, darsi da fare in ogni modo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi lascia la strada vecchia per la nuova sa quel che lascia ma non sa quel che…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cerca",
+        "Perde",
+        "Trova",
+        "Rischia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Chi lascia la strada vecchia per la nuova sa quel che lascia ma non sa quel che trova",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"La gatta frettolosa fece i gattini…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ciechi",
+        "Neri",
+        "Piccoli",
+        "Storti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "La gatta frettolosa fece i gattini ciechi: la fretta è cattiva consigliera",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare le scarpe a qualcuno\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Soppiantarlo con l'inganno",
+        "Fargli un regalo",
+        "Accompagnarlo a casa",
+        "Imitarlo in tutto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Fare le scarpe a qualcuno: danneggiarlo di nascosto per prenderne il posto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"mettere il carro davanti ai buoi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Comandare gli altri",
+        "Lavorare sodo",
+        "Partire per un viaggio",
+        "Anticipare le cose a sproposito"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Mettere il carro davanti ai buoi: voler fare una cosa prima del tempo, invertendo l'ordine",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"tenere il piede in due staffe\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Barcamenarsi tra due parti",
+        "Saper cavalcare",
+        "Essere molto stabili",
+        "Zoppicare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Tenere il piede in due staffe: destreggiarsi tra due parti opposte senza schierarsi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire l'espressione \"gatta ci cova\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Va tutto bene",
+        "Sta per piovere",
+        "C'è qualcosa di nascosto",
+        "C'è un gatto in casa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Qui gatta ci cova: sotto c'è un inganno o qualcosa di nascosto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa il detto latino \"in vino veritas\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Chi beve dimentica",
+        "Il vino fa bene",
+        "Nel vino c'è la verità",
+        "Il vino è sacro"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "In vino veritas: chi beve dice la verità",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"Ananas\" è singolare o plurale?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Solo plurale",
+        "Può essere sia singolare sia plurale",
+        "Solo singolare",
+        "Solo plurale femminile"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Ananas è maschile invariabile: un ananas, due ananas",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale parola è un sinonimo di \"meticoloso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Scrupoloso",
+        "Pauroso",
+        "Rumoroso",
+        "Generoso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sinonimi"
+      ],
+      "notes": "Meticoloso: scrupoloso, minuzioso",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire un lavoro \"certosino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fatto in fretta",
+        "Paziente e minuzioso",
+        "Pagato poco",
+        "Molto faticoso"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Lavoro da certosino: che richiede grande pazienza e precisione",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è una \"putìa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una porta",
+        "Un pozzo",
+        "Una bottega",
+        "Una pentola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Putìa: bottega, negozio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"babbiari\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Scherzare",
+        "Balbettare",
+        "Sbavare",
+        "Litigare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia"
+      ],
+      "notes": "Babbiari: scherzare (nun babbiari = non scherzare)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, chi è la \"zita\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "La sorella minore",
+        "La zitella",
+        "La zia",
+        "La fidanzata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Zita: fidanzata, sposa promessa (zitu = fidanzato)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che parte del discorso è \"ahimè\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Avverbio",
+        "Interiezione",
+        "Congiunzione",
+        "Pronome"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Ahimè è un'interiezione che esprime dolore o rammarico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella frase \"Scrivo con la penna\", che complemento è \"con la penna\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Complemento di modo",
+        "Complemento di compagnia",
+        "Complemento di mezzo",
+        "Complemento di luogo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Con la penna indica lo strumento: complemento di mezzo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"mago\" riferito ai tre re venuti dall'Oriente?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Magii",
+        "Maghi",
+        "Maghe",
+        "Magi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Il plurale normale è maghi, ma per i re dell'Epifania si usa Magi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale parola è un sinonimo di \"repentino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ripetuto",
+        "Ripido",
+        "Improvviso",
+        "Ritardato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sinonimi"
+      ],
+      "notes": "Repentino: improvviso, subitaneo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"centripeto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Laterale",
+        "Periferico",
+        "Concentrico",
+        "Centrifugo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "contrari"
+      ],
+      "notes": "Centripeto (verso il centro) / centrifugo (dal centro verso l'esterno)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa letteralmente la parola inglese \"cocktail\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Gallo cotto",
+        "Bicchiere misto",
+        "Coda di gallo",
+        "Bevanda forte"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia",
+        "trabocchetto"
+      ],
+      "notes": "Treccani: cocktail, propriamente coda di gallo, di origine incerta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"fare una figura barbina\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Mostrarsi coraggioso",
+        "Farsi crescere la barba",
+        "Fingersi vecchio",
+        "Fare una brutta figura"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Barbino: meschino, misero; fare una figura barbina = una pessima figura",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è un \"cane sciolto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Un vagabondo senza casa",
+        "Una persona aggressiva",
+        "Chi agisce da solo, fuori dai gruppi",
+        "Un corridore velocissimo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Cane sciolto: chi agisce in modo autonomo, senza legarsi a partiti o gruppi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Com'è un sorriso sardonico?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ingenuo",
+        "Dolce e timido",
+        "Beffardo e maligno",
+        "Commosso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Sardonico: amaro, beffardo, sarcastico",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"kafkiano\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ordinato",
+        "Divertente",
+        "Romantico",
+        "Assurdo e angosciante"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Kafkiano: di situazione assurda, opprimente, come nelle opere di Kafka",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Com'è un pranzo luculliano?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Notturno",
+        "Frugale",
+        "Veloce",
+        "Sontuoso e abbondante"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Luculliano: lauto, sontuoso, dal console romano Lucullo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cos'è una \"sciarra\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Una sciarpa",
+        "Una lite",
+        "Uno scherzo",
+        "Un acquazzone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti",
+        "sicilia",
+        "trabocchetto"
+      ],
+      "notes": "Sciarra: lite, rissa (sciarriarisi = litigare)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quanti tempi ha il modo indicativo?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "6",
+        "8",
+        "10"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Presente, imperfetto, passato prossimo, passato remoto, trapassato prossimo, trapassato remoto, futuro semplice e anteriore",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In \"Era così stanco che non riusciva a parlare\", che tipo di proposizione è quella introdotta da \"che\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Consecutiva",
+        "Finale",
+        "Causale",
+        "Relativa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "grammatica"
+      ],
+      "notes": "Così… che introduce una proposizione consecutiva",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa il motto latino \"per aspera ad astra\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Le stelle guidano chi soffre",
+        "Attraverso le difficoltà fino alle stelle",
+        "Dal cielo alla terra",
+        "Chi sale in alto cade"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Per aspera ad astra: attraverso le asperità si giunge alle stelle",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa in giapponese la parola \"karaoke\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Microfono aperto",
+        "Canta con me",
+        "Voce felice",
+        "Orchestra vuota"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Karaoke: da kara (vuoto) e oke (orchestra)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"cavalcare la tigre\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Vincere facilmente",
+        "Domare un nemico",
+        "Fare il prepotente",
+        "Gestire una situazione pericolosa sfruttandola"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Cavalcare la tigre: cercare di controllare e volgere a proprio favore una situazione rischiosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"egida\", nell'espressione \"sotto l'egida di\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Protezione",
+        "Minaccia",
+        "Ombra",
+        "Condanna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Egida: lo scudo di Zeus e Atena; fig. protezione, patrocinio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"livore\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Stanchezza",
+        "Allegria",
+        "Rancore astioso",
+        "Furia improvvisa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Livore: odio, invidia astiosa",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La parola \"cattivo\" viene dal latino captivus: che cosa significava?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Prigioniero",
+        "Malvagio",
+        "Affamato",
+        "Straniero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Treccani: dal latino captivus, prigioniero (captivus diaboli, prigioniero del diavolo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è una filippica?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Una lettera d'amore",
+        "Un discorso violento contro qualcuno",
+        "Un elogio funebre",
+        "Una preghiera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Dalle orazioni di Demostene contro Filippo di Macedonia: invettiva",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica ripete la stessa parola alla fine di più versi o frasi?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Epifora",
+        "Anafora",
+        "Anadiplosi",
+        "Climax"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Epifora: ripetizione a fine di versi o frasi (l'anafora è all'inizio)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire, detto di una persona, \"mammalucco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Sciocco, babbeo",
+        "Coraggioso",
+        "Avaro",
+        "Grasso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Mammalucco: in senso figurato persona goffa e sciocca",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Todi?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Narnesi",
+        "Spoletini",
+        "Folignati",
+        "Tuderti"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "abitanti"
+      ],
+      "notes": "Tuderti, dall'antico nome Tuder",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un cachinno?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Un grido di dolore",
+        "Un piccolo cane",
+        "Un colpo di tosse",
+        "Una risata sguaiata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Cachinno: risata smodata, sguaiata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale figura retorica attribuisce a una parola un aggettivo che spetta logicamente a un'altra?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Anafora",
+        "Ipallage",
+        "Litote",
+        "Climax"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Ipallage: es. il divino del pian silenzio verde, dove verde spetta al piano (Carducci)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale parola, coniata da D'Annunzio, indica genericamente un aereo?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Aliante",
+        "Aeroplano",
+        "Velivolo",
+        "Idrovolante"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-della-lingua"
+      ],
+      "notes": "Treccani: velivolo, termine generico per gli aeromobili, introdotto da D'Annunzio",
+      "verified": false
+    }
+  ]
+}

@@ -1,0 +1,1079 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Nelle vecchie macchine fotografiche, che cosa si portava dal fotografo a sviluppare?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "L'obiettivo",
+        "Il flash",
+        "Il rullino",
+        "La batteria"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "fotografia"
+      ],
+      "notes": "Il rullino conteneva la pellicola, che andava sviluppata e stampata.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si accende premendo sul cruscotto il pulsante con il triangolo rosso?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Le quattro frecce",
+        "I fari antinebbia",
+        "Il riscaldamento",
+        "Il clacson"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il pulsante con il triangolo rosso attiva le luci di emergenza (quattro frecce).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale centrale solare a sali fusi, voluta da Carlo Rubbia, fu inaugurata nel 2010 a Priolo Gargallo?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Galileo",
+        "Archimede",
+        "Volta",
+        "Majorana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "energia",
+        "sicilia"
+      ],
+      "notes": "La centrale solare termodinamica Archimede dell'Enel fu inaugurata nel luglio 2010.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la sigla FS sui treni italiani?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Ferrovie del Sud",
+        "Frecce Speciali",
+        "Flotta Statale",
+        "Ferrovie dello Stato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "treni",
+        "italia"
+      ],
+      "notes": "FS = Ferrovie dello Stato.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cavo collega la TV alla console portando video e audio in alta definizione?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "VGA",
+        "HDMI",
+        "RCA",
+        "Ethernet"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tv"
+      ],
+      "notes": "HDMI trasporta segnale video e audio digitale in alta definizione.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale unità si legge il consumo sul contatore del gas di casa?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Kilowattora",
+        "Litri",
+        "Metri cubi",
+        "Chilogrammi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "Il contatore del gas misura il volume in metri cubi.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale fu l'ultima console prodotta dalla Sega, uscita nel 1998?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Saturn",
+        "Mega Drive",
+        "Game Gear",
+        "Dreamcast"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Il Dreamcast uscì in Giappone nel 1998; dopo la Sega lasciò le console.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la sfera bianca e rossa con cui si catturano i Pokémon?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Poké Ball",
+        "Pokédex",
+        "Uovo Pokémon",
+        "Medaglia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "La Poké Ball è lo strumento base per catturare i Pokémon.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il rivale di Mario con il berretto giallo e la W?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Waluigi",
+        "Bowser",
+        "Toad",
+        "Wario"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Wario debuttò nel 1992 in Super Mario Land 2; Waluigi ha il berretto viola.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama comunemente la ruota di scorta più stretta, da usare solo per brevi tratti?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ruotino",
+        "Copertone",
+        "Battistrada",
+        "Cerchione"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il ruotino di scorta è una ruota ridotta, con limiti di velocità e di percorrenza.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il sistema di numerazione in base sedici usato in informatica?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ottale",
+        "Esadecimale",
+        "Binario",
+        "Decimale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Il sistema esadecimale usa le cifre da 0 a 9 e le lettere da A a F.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore sono in Italia i cartelli stradali delle autostrade?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Blu",
+        "Gialli",
+        "Verdi",
+        "Marroni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Codice della strada: cartelli di indicazione verdi per le autostrade, blu per le strade extraurbane.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale città italiana inaugurò nel 2006 una metropolitana automatica senza conducente, in tempo per le Olimpiadi?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Milano",
+        "Brescia",
+        "Torino",
+        "Genova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "La linea 1 della metro di Torino, sistema VAL senza conducente, aprì il 4 febbraio 2006.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale oggetto di uso quotidiano brevettò Gideon Sundback nel 1913, nella forma usata ancora oggi?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Il bottone automatico",
+        "La graffetta",
+        "Il velcro",
+        "La cerniera lampo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Sundback perfezionò la chiusura lampo con denti a incastro (1913-1917).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sistema operativo, nato nel 1969 ai Bell Labs, ha ispirato Linux?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "MS-DOS",
+        "Unix",
+        "OS/2",
+        "BeOS"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Unix fu creato da Ken Thompson e Dennis Ritchie ai Bell Labs.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tecnologia di schermo usa diodi organici che si illuminano da soli, senza retroilluminazione?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "OLED",
+        "LCD",
+        "Plasma",
+        "CRT"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tv"
+      ],
+      "notes": "OLED = Organic Light Emitting Diode: ogni pixel emette luce propria.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la versione di Windows uscita tra XP e Windows 7?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Millennium",
+        "Windows 2000",
+        "Vista",
+        "Windows 8"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Windows Vista uscì nel 2007, tra XP (2001) e 7 (2009).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi guidò al MIT il gruppo che scrisse il software di bordo delle missioni Apollo?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Margaret Hamilton",
+        "Grace Hopper",
+        "Ada Lovelace",
+        "Katherine Johnson"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio",
+        "programmazione"
+      ],
+      "notes": "Margaret Hamilton diresse lo sviluppo del software di volo Apollo al MIT.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gestore di telefonia mobile nacque in Italia nel 1995 come primo concorrente della TIM?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Wind",
+        "Omnitel",
+        "Blu",
+        "Tre"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefoni",
+        "italia"
+      ],
+      "notes": "Omnitel Pronto Italia avviò il servizio GSM a fine 1995; Wind e Blu arrivarono nel 1999.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale razzo portò verso la Luna gli astronauti delle missioni Apollo?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Ariane 5",
+        "Soyuz",
+        "Falcon 9",
+        "Saturn 5"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Il Saturn V della NASA lanciò le missioni lunari Apollo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale comune emiliano ha sede la Lamborghini?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Maranello",
+        "Modena",
+        "Sant'Agata Bolognese",
+        "Imola"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Automobili Lamborghini ha sede a Sant'Agata Bolognese; Ferrari a Maranello, Maserati a Modena.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica la piccola freccia accanto al simbolo del distributore sul cruscotto?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "La direzione del distributore più vicino",
+        "Il lato del bocchettone del carburante",
+        "Che la riserva è finita",
+        "Il senso di marcia consigliato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "trabocchetto"
+      ],
+      "notes": "La freccia indica da quale lato dell'auto si trova lo sportellino del carburante.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il programma di chat della Microsoft, usatissimo dai ragazzi negli anni Duemila?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "ICQ",
+        "Skype",
+        "mIRC",
+        "MSN Messenger"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "anni duemila"
+      ],
+      "notes": "MSN Messenger (poi Windows Live Messenger) chiuse nel 2013.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In casa, che cos'è una ciabatta elettrica?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Una presa multipla",
+        "Un interruttore",
+        "Un fusibile",
+        "Un portalampada"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "casa",
+        "elettricità"
+      ],
+      "notes": "Ciabatta è il nome comune della presa multipla con più prese in fila.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cane robot presentò la Sony nel 1999?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Aibo",
+        "Asimo",
+        "Furby",
+        "Pepper"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "robot"
+      ],
+      "notes": "Aibo della Sony uscì nel 1999; Asimo è della Honda, Furby un pupazzo della Tiger.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama comunemente in Italia la pila di formato AA?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ministilo",
+        "Stilo",
+        "Torcia",
+        "Transistor"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "In Italia AA = stilo, AAA = ministilo, D = torcia; 'transistor' è la pila da 9 volt.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la presa a 21 poli che collegava il videoregistratore al televisore?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "HDMI",
+        "Jack",
+        "VGA",
+        "Scart"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "tv"
+      ],
+      "notes": "La presa Scart (o Peritel) ha 21 contatti.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quando si invia un'email, che cosa vuol dire Ccn?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Conferma di consegna",
+        "Copia certificata numerata",
+        "Copia conoscenza nascosta",
+        "Carica contenuti nuovi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Ccn: i destinatari in copia nascosta non sono visibili agli altri.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In un'auto con il cambio manuale, quale pedale si preme per cambiare marcia?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il freno",
+        "La frizione",
+        "L'acceleratore",
+        "Nessuno, basta la leva"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Nel cambio manuale si preme la frizione per staccare il motore dalle ruote e cambiare marcia.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire la sigla ZTL nelle città italiane?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Zona turistica libera",
+        "Zona di transito lento",
+        "Zona a traffico limitato",
+        "Zona tariffaria locale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "ZTL = Zona a traffico limitato, accessibile solo ai veicoli autorizzati.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale videogioco bisogna smascherare l'impostore tra gli astronauti di un'astronave?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Fall Guys",
+        "Fortnite",
+        "Roblox",
+        "Among Us"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Among Us (InnerSloth, 2018) divenne famosissimo nel 2020.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il battello che fa servizio pubblico sui canali di Venezia?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vaporetto",
+        "Aliscafo",
+        "Catamarano",
+        "Pedalò"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "A Venezia il trasporto pubblico sull'acqua si fa con i vaporetti dell'ACTV.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la prima missione di Samantha Cristoforetti sulla Stazione spaziale, nel 2014?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Minerva",
+        "Volare",
+        "Futura",
+        "Magisstra"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Futura (2014-2015); Minerva fu la seconda (2022), Volare di Parmitano, Magisstra di Nespoli.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale scrittore ceco portò la parola robot nel suo dramma del 1920?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Franz Kafka",
+        "Karel Čapek",
+        "Jaroslav Hašek",
+        "Milan Kundera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "robot",
+        "parole"
+      ],
+      "notes": "Nel dramma R.U.R. di Karel Čapek; la parola fu suggerita dal fratello Josef.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale designer della Bertone disegnò la Lamborghini Countach?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Marcello Gandini",
+        "Giorgetto Giugiaro",
+        "Ercole Spada",
+        "Leonardo Fioravanti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "design",
+        "italia"
+      ],
+      "notes": "Marcello Gandini, allora alla Bertone, firmò la Countach (prototipo 1971).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale frase stampa per tradizione il primo programma che si scrive imparando un linguaggio?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Lorem ipsum",
+        "Prova uno due tre",
+        "Ciao mamma",
+        "Hello, world"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "programmazione"
+      ],
+      "notes": "Tradizione resa celebre dal manuale del C di Kernighan e Ritchie (1978).",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale nome è uscito dal 2023 il videogioco di calcio della EA, che prima si chiamava FIFA?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "eFootball",
+        "EA Sports FC",
+        "Football Manager",
+        "Pro Evolution Soccer"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi",
+        "calcio"
+      ],
+      "notes": "Persa la licenza FIFA, la serie è diventata EA Sports FC 24 nel 2023.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale lato si sale di solito a bordo di un aereo di linea?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Dal lato destro",
+        "Dalla coda",
+        "Da sotto la pancia",
+        "Dal lato sinistro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "Per tradizione navale passeggeri e imbarco usano il lato sinistro; il destro è per i servizi di terra.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale tasto si usa per passare da un campo all'altro di un modulo sul computer?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tab",
+        "Esc",
+        "Fine",
+        "Canc"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "Il tasto Tab sposta il cursore al campo successivo.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Un aereo di linea in volo di crociera è più in alto della cima dell'Everest?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "No, vola molto più in basso",
+        "Solo nei voli intercontinentali",
+        "Sì, di solito di qualche chilometro",
+        "Solo sopra gli oceani"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aerei",
+        "trabocchetto"
+      ],
+      "notes": "Gli aerei di linea volano tra 10 e 12 km circa; l'Everest è alto 8849 metri.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la funzione che trasforma lo smartphone in un punto di accesso Wi-Fi per altri dispositivi?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Bluetooth",
+        "NFC",
+        "Roaming",
+        "Hotspot"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone"
+      ],
+      "notes": "Con l'hotspot personale il telefono condivide la sua connessione dati.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda ha creato il browser Chrome?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Microsoft",
+        "Apple",
+        "Google",
+        "Mozilla"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Google Chrome è stato lanciato da Google nel 2008.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Circa quante volte al giorno la Stazione spaziale internazionale fa il giro della Terra?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "1",
+        "16",
+        "4",
+        "50"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "La ISS compie un'orbita in circa 90 minuti: circa 16 giri al giorno.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale oggetto si riavvolgeva spesso a mano il nastro di una musicassetta?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una penna a sfera",
+        "Un cucchiaino",
+        "Una forchetta",
+        "Uno spillo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musica",
+        "trabocchetto"
+      ],
+      "notes": "Infilando una penna Bic nel foro della bobina si riavvolgeva il nastro senza consumare le pile.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sistema operativo è installato di serie sui computer Mac della Apple?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "iOS",
+        "macOS",
+        "Android",
+        "Windows"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "informatica"
+      ],
+      "notes": "I Mac usano macOS; iOS è il sistema degli iPhone.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale orario mostrano di solito gli iPhone nelle immagini pubblicitarie della Apple?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Le dieci e dieci",
+        "Mezzogiorno",
+        "Le sette e trenta",
+        "Le nove e quarantuno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "smartphone",
+        "trabocchetto"
+      ],
+      "notes": "Le 9:41: intorno a quell'ora Steve Jobs mostrò il primo iPhone nel 2007.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A quale città siciliana corrisponde il codice aeroportuale CTA?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Palermo",
+        "Trapani",
+        "Catania",
+        "Comiso"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aerei",
+        "sicilia"
+      ],
+      "notes": "CTA = Catania Fontanarossa; Palermo PMO, Trapani TPS, Comiso CIY.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La posta elettronica esisteva già prima del World Wide Web?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sì, da circa vent'anni",
+        "No, nacquero insieme",
+        "No, arrivò dieci anni dopo",
+        "Sì, ma solo in Europa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet",
+        "trabocchetto"
+      ],
+      "notes": "La prima email è del 1971 (Tomlinson), il web è del 1991.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale linguaggio di programmazione creò il danese Bjarne Stroustrup?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Java",
+        "Pascal",
+        "Python",
+        "C più più"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "programmazione"
+      ],
+      "notes": "Stroustrup sviluppò il C++ ai Bell Labs dal 1979; Pascal è di Wirth.",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Alla cassa del supermercato, che cosa legge il lettore che fa bip?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il codice a barre",
+        "Il codice fiscale",
+        "La data di scadenza",
+        "Il peso del prodotto"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "Lo scanner della cassa legge il codice a barre stampato sulla confezione.",
+      "verified": false
+    }
+  ]
+}

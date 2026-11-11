@@ -1,0 +1,1097 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Il jodel, canto con rapidi salti di voce, è tipico di quale zona d'Europa?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pirenei",
+        "Balcani",
+        "Alpi",
+        "Carpazi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "musica-popolare"
+      ],
+      "notes": "Lo jodel è il canto tradizionale delle Alpi (Svizzera, Austria, Tirolo)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante francese è famosa per \"La vie en rose\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Dalida",
+        "Mireille Mathieu",
+        "Édith Piaf",
+        "Juliette Gréco"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "chanson"
+      ],
+      "notes": "\"La vie en rose\" fu scritta e lanciata da Édith Piaf nel 1946-47",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band irlandese ha inciso \"With or Without You\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "U2",
+        "The Cranberries",
+        "The Corrs",
+        "Thin Lizzy"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "anni-80"
+      ],
+      "notes": "Singolo degli U2 dall'album \"The Joshua Tree\" (1987)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale apparecchio serve a far sentire forte il suono di una chitarra elettrica?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Amplificatore",
+        "Metronomo",
+        "Diapason",
+        "Accordatore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "La chitarra elettrica ha bisogno dell'amplificatore per essere udita",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante ha inciso \"La isla bonita\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Shakira",
+        "Jennifer Lopez",
+        "Madonna",
+        "Gloria Estefan"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "\"La isla bonita\" di Madonna, dall'album \"True Blue\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quale strumento scrisse quasi tutta la sua musica Fryderyk Chopin?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Violino",
+        "Organo",
+        "Pianoforte",
+        "Arpa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Quasi tutta l'opera di Chopin è per pianoforte solo o con orchestra",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale boy band è diventato famoso Harry Styles?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "One Direction",
+        "Take That",
+        "Westlife",
+        "Backstreet Boys"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "Harry Styles fu membro degli One Direction, nati a X Factor UK nel 2010",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Una storia importante\", nel 1985?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Luca Carboni",
+        "Biagio Antonacci",
+        "Eros Ramazzotti",
+        "Nek"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-80"
+      ],
+      "notes": "\"Una storia importante\" di Eros Ramazzotti, 1985",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale strumento si suona \"il Silenzio\" nelle cerimonie militari?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tamburo",
+        "Tromba",
+        "Clarinetto",
+        "Flauto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "tradizioni"
+      ],
+      "notes": "Il Silenzio d'ordinanza è un segnale per tromba",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana è soprannominata \"la regina del soul\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Diana Ross",
+        "Aretha Franklin",
+        "Tina Turner",
+        "Whitney Houston"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "soul",
+        "soprannomi"
+      ],
+      "notes": "Aretha Franklin è la \"Queen of Soul\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Song 2\", quella del celebre \"woo-hoo\", nel 1997?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Oasis",
+        "Blur",
+        "Pulp",
+        "Suede"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "anni-90"
+      ],
+      "notes": "\"Song 2\" dei Blur, dall'album \"Blur\" (1997)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante canadese ha inciso \"Blinding Lights\", nel 2019?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Drake",
+        "Justin Bieber",
+        "Shawn Mendes",
+        "The Weeknd"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop"
+      ],
+      "notes": "\"Blinding Lights\" di The Weeknd (Toronto), uscita a fine 2019",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana ha inciso \"What's Love Got to Do with It\", nel 1984?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Diana Ross",
+        "Donna Summer",
+        "Pat Benatar",
+        "Tina Turner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "Il singolo del 1984 riportò Tina Turner in vetta alle classifiche",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americana portò al successo \"Girls Just Want to Have Fun\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Cyndi Lauper",
+        "Madonna",
+        "Pat Benatar",
+        "Debbie Harry"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "Singolo di Cyndi Lauper dall'album \"She's So Unusual\" (1983)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quante corde ha di solito un basso elettrico?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "3",
+        "4",
+        "6",
+        "8"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Il basso elettrico standard ha quattro corde (mi, la, re, sol)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa chiede al musicista l'indicazione \"da capo\" sullo spartito?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Suonare più forte",
+        "Ricominciare dall'inizio",
+        "Rallentare",
+        "Fare una pausa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "\"Da capo\" indica di riprendere il brano dall'inizio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi è il cantante dei Guns N' Roses?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Axl Rose",
+        "Slash",
+        "Sebastian Bach",
+        "Vince Neil"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock"
+      ],
+      "notes": "Axl Rose è la voce dei Guns N' Roses dal 1985; Slash è il chitarrista",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"L'emozione non ha voce\", nel 1999?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Morandi",
+        "Adriano Celentano",
+        "Claudio Baglioni",
+        "Eros Ramazzotti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-90"
+      ],
+      "notes": "Dall'album \"Io non so parlar d'amore\" di Celentano (1999)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore romano ha scritto \"Grazie Roma\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Antonello Venditti",
+        "Claudio Baglioni",
+        "Renato Zero",
+        "Francesco De Gregori"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "\"Grazie Roma\" di Antonello Venditti, 1983",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante napoletano ha inciso \"Annarè\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gigi D'Alessio",
+        "Nino D'Angelo",
+        "Sal Da Vinci",
+        "Massimo Ranieri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "canzone-napoletana"
+      ],
+      "notes": "\"Annarè\" è uno dei maggiori successi di Gigi D'Alessio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Andrea Bocelli vinse tra le Nuove proposte di Sanremo, nel 1994?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Il mare calmo della sera",
+        "Con te partirò",
+        "Vivo per lei",
+        "Time to Say Goodbye"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "lirica"
+      ],
+      "notes": "Bocelli vinse le Nuove proposte 1994 con \"Il mare calmo della sera\"; \"Con te partirò\" è del 1995",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suonava il jazzista Miles Davis?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sassofono",
+        "Pianoforte",
+        "Contrabbasso",
+        "Tromba"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "jazz"
+      ],
+      "notes": "Miles Davis, trombettista, autore di \"Kind of Blue\" (1959)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante americano si fa chiamare \"Mister Worldwide\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Flo Rida",
+        "Pitbull",
+        "Will.i.am",
+        "Usher"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "soprannomi"
+      ],
+      "notes": "\"Mr. Worldwide\" è il soprannome del rapper di Miami Pitbull",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale rapper ha inciso \"Gangsta's Paradise\", nel 1995?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Dr. Dre",
+        "Snoop Dogg",
+        "Coolio",
+        "Ice Cube"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rap",
+        "anni-90"
+      ],
+      "notes": "\"Gangsta's Paradise\" di Coolio, dal film \"Pensieri pericolosi\" (1995)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento suona Squiddi, il vicino di casa di SpongeBob?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Sassofono",
+        "Clarinetto",
+        "Flauto",
+        "Trombone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "cartoni"
+      ],
+      "notes": "Squiddi (Squidward) suona, molto male, il clarinetto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Paranoid\", nel 1970?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Deep Purple",
+        "Led Zeppelin",
+        "Judas Priest",
+        "Black Sabbath"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "metal"
+      ],
+      "notes": "\"Paranoid\", singolo e album dei Black Sabbath del 1970",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band di Boy George ha inciso \"Karma Chameleon\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Culture Club",
+        "Spandau Ballet",
+        "Wham!",
+        "Duran Duran"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "anni-80"
+      ],
+      "notes": "Boy George era il cantante dei Culture Club",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante canadese ha inciso \"Summer of '69\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Neil Young",
+        "Michael Bublé",
+        "Bryan Adams",
+        "Paul Anka"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "anni-80"
+      ],
+      "notes": "\"Summer of '69\" di Bryan Adams, dall'album \"Reckless\" (1984)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale chitarrista è soprannominato \"Slowhand\", mano lenta?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Eric Clapton",
+        "Jimmy Page",
+        "Jeff Beck",
+        "Mark Knopfler"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "soprannomi"
+      ],
+      "notes": "\"Slowhand\" è il soprannome di Eric Clapton, che intitolò così un album del 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose il celebre \"Rondò alla turca\" per pianoforte?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Franz Joseph Haydn",
+        "Franz Schubert",
+        "Wolfgang Amadeus Mozart",
+        "Fryderyk Chopin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "mozart"
+      ],
+      "notes": "È il finale della Sonata per pianoforte K 331 di Mozart",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Amore disperato\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Anna Oxa",
+        "Viola Valentino",
+        "Alice",
+        "Nada"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-80"
+      ],
+      "notes": "\"Amore disperato\" di Nada, 1983",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Tre parole\", tormentone dell'estate 2001?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Valeria Rossi",
+        "Paola Turci",
+        "Irene Grandi",
+        "Elisa"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop-italiano",
+        "anni-2000"
+      ],
+      "notes": "\"Tre parole\" di Valeria Rossi, 2001",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band bolognese portò \"Una vita in vacanza\" al Festival di Sanremo del 2018?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Thegiornalisti",
+        "Lo Stato Sociale",
+        "The Kolors",
+        "Ex-Otago"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "indie"
+      ],
+      "notes": "Lo Stato Sociale arrivò secondo a Sanremo 2018",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale coppia vinse il Festival di Sanremo del 1984 con \"Ci sarà\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Wess e Dori Ghezzi",
+        "Anna Oxa e Fausto Leali",
+        "Mietta e Amedeo Minghi",
+        "Al Bano e Romina Power"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "anni-80"
+      ],
+      "notes": "Al Bano e Romina vinsero Sanremo 1984 con \"Ci sarà\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore ha scritto \"Il gatto e la volpe\", ispirata a Pinocchio?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Francesco De Gregori",
+        "Lucio Dalla",
+        "Rino Gaetano",
+        "Edoardo Bennato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori"
+      ],
+      "notes": "Dall'album \"Burattino senza fili\" di Edoardo Bennato (1977)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "\"E vui durmiti ancora\" è una celebre serenata popolare di quale regione?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Campania",
+        "Calabria",
+        "Sicilia",
+        "Puglia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sicilia",
+        "canzone-popolare"
+      ],
+      "notes": "Serenata siciliana nata a Catania nel 1910 (musica di Gaetano Emanuel Calì)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è il nome d'arte di Anna Maria Mazzini?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Milva",
+        "Mina",
+        "Mietta",
+        "Nada"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop-italiano",
+        "nomi-arte"
+      ],
+      "notes": "Mina è nata a Busto Arsizio nel 1940 come Anna Maria Mazzini",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Per quale bambino, figlio di un altro Beatle, Paul McCartney scrisse \"Hey Jude\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Sean Lennon",
+        "Zak Starkey",
+        "Dhani Harrison",
+        "Julian Lennon"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "beatles",
+        "trabocchetto"
+      ],
+      "notes": "McCartney la scrisse nel 1968 per consolare Julian, figlio di John Lennon e Cynthia; in origine era \"Hey Jules\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale sinfonia di Beethoven è detta \"Pastorale\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Terza",
+        "Quinta",
+        "Settima",
+        "Sesta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "beethoven"
+      ],
+      "notes": "La Sinfonia n. 6 in fa maggiore (1808) è la \"Pastorale\"",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi Paesi ha un inno nazionale senza testo ufficiale?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Francia",
+        "Germania",
+        "Spagna",
+        "Portogallo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "inni",
+        "trabocchetto"
+      ],
+      "notes": "La \"Marcha Real\" spagnola è un inno senza parole ufficiali",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il sirtaki, celebre ballo greco, fu inventato nel 1964 per quale film?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Mai di domenica",
+        "Zorba il greco",
+        "I cannoni di Navarone",
+        "Il colosso di Rodi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "danza",
+        "cinema",
+        "trabocchetto"
+      ],
+      "notes": "Il sirtaki fu ideato per \"Zorba il greco\", con musica di Mikis Theodorakis: non è una danza antica",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi incise per primo \"Proud Mary\", poi resa celebre anche da Ike e Tina Turner?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "The Byrds",
+        "Creedence Clearwater Revival",
+        "The Band",
+        "Steppenwolf"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "\"Proud Mary\" dei Creedence Clearwater Revival, 1969; la versione di Ike e Tina è del 1971",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento elettronico si suona muovendo le mani nell'aria, senza toccarlo?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Sintetizzatore",
+        "Vocoder",
+        "Theremin",
+        "Mellotron"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Il theremin, inventato da Lev Termen nel 1920, si suona avvicinando le mani a due antenne",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo vinse il Festival di Sanremo del 2000 con \"Sentimento\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Piccola Orchestra Avion Travel",
+        "Matia Bazar",
+        "Pooh",
+        "Subsonica"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "notes": "La Piccola Orchestra Avion Travel vinse Sanremo 2000",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Nilla Pizzi vinse il Festival di Sanremo del 1952?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Vola colomba",
+        "Grazie dei fiori",
+        "Papaveri e papere",
+        "Vecchio scarpone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "anni-50"
+      ],
+      "notes": "Nel 1952 Nilla Pizzi vinse con \"Vola colomba\"; \"Grazie dei fiori\" aveva vinto nel 1951",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi strumenti a tastiera non ha corde?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Pianoforte",
+        "Clavicembalo",
+        "Clavicordo",
+        "Celesta"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Nella celesta i martelletti colpiscono piastre di metallo, non corde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi compose l'opera \"La Wally\", del 1892?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Amilcare Ponchielli",
+        "Arrigo Boito",
+        "Alberto Franchetti",
+        "Alfredo Catalani"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "\"La Wally\" di Alfredo Catalani debuttò alla Scala nel 1892",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale band incise per prima \"Without You\", poi resa celebre da Harry Nilsson e Mariah Carey?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "The Hollies",
+        "Bee Gees",
+        "Badfinger",
+        "Bread"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "\"Without You\" è dei Badfinger (1970); Nilsson la riprese nel 1971, Mariah Carey nel 1994",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse e incise per primo \"Blue Suede Shoes\", poi ripresa da Elvis Presley?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Chuck Berry",
+        "Little Richard",
+        "Jerry Lee Lewis",
+        "Carl Perkins"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock-and-roll",
+        "cover",
+        "trabocchetto"
+      ],
+      "notes": "Carl Perkins la pubblicò all'inizio del 1956; Elvis la incise pochi mesi dopo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La melodia di \"Can't Help Falling in Love\" di Elvis deriva da quale romanza francese del Settecento?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Au clair de la lune",
+        "Plaisir d'amour",
+        "Frère Jacques",
+        "Il était une bergère"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Riprende \"Plaisir d'amour\" di Jean-Paul-Égide Martini (1784)",
+      "verified": false
+    }
+  ]
+}

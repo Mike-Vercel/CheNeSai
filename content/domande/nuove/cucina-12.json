@@ -1,0 +1,1083 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Con quale salsa si condisce tradizionalmente il cocktail di gamberi?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Salsa verde",
+        "Pesto",
+        "Salsa rosa",
+        "Besciamella"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salse",
+        "antipasti"
+      ],
+      "notes": "Il cocktail di gamberi classico si serve con la salsa rosa (maionese e ketchup)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale frutto tropicale ha la polpa arancione e un grosso nocciolo piatto?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ananas",
+        "Kiwi",
+        "Mango",
+        "Banana"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "Il mango ha polpa arancione e un grande nocciolo appiattito",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il ragù?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un dolce al cucchiaio",
+        "Una zuppa di pesce",
+        "Un sugo di carne",
+        "Un tipo di pane"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "salse",
+        "primi"
+      ],
+      "notes": "Il ragù è un sugo a base di carne cotto a lungo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'utensile con cui si riduce il formaggio in polvere o in scaglie?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Mestolo",
+        "Grattugia",
+        "Schiumarola",
+        "Colino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "utensili"
+      ],
+      "notes": "La grattugia serve a grattugiare formaggio, pane, scorze",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è una macedonia?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Un formaggio greco",
+        "Frutta mista a pezzetti",
+        "Una minestra di verdure",
+        "Un tipo di gelato"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "frutta"
+      ],
+      "notes": "La macedonia è un miscuglio di frutta tagliata a pezzi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale cereale si prepara il porridge, tipica colazione britannica?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Riso",
+        "Mais",
+        "Orzo",
+        "Avena"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "colazione",
+        "cereali"
+      ],
+      "notes": "Il porridge è una pappa di fiocchi d'avena cotti in acqua o latte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di quale cereale sono fatti i classici corn flakes?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Farro",
+        "Grano",
+        "Riso",
+        "Mais"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "colazione",
+        "cereali"
+      ],
+      "notes": "Corn flakes: fiocchi di mais tostati (corn = mais in inglese americano)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale piccolo frutto blu si trova nei muffin americani più famosi?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ribes",
+        "Mirtillo",
+        "Lampone",
+        "Ciliegia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "frutta"
+      ],
+      "notes": "I blueberry muffin sono i muffin ai mirtilli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente si aggiunge all'impasto per far gonfiare il pane?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Zucchero",
+        "Lievito",
+        "Sale",
+        "Olio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pane"
+      ],
+      "notes": "Il lievito produce anidride carbonica che fa crescere l'impasto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale alimento si ottiene facendo cagliare il latte e poi stagionando la cagliata?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Burro",
+        "Yogurt",
+        "Panna",
+        "Formaggio"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Il formaggio nasce dalla coagulazione del latte con il caglio e dalla lavorazione della cagliata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pesce persico, dove vive?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "In mare aperto",
+        "Nelle barriere coralline",
+        "In laghi e fiumi",
+        "Negli abissi oceanici"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pesce",
+        "trabocchetto"
+      ],
+      "notes": "Il persico (Perca fluviatilis) è un pesce d'acqua dolce, tipico dei laghi lombardi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prende il nome il succo ACE?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Da tre vitamine",
+        "Da tre frutti",
+        "Dal suo inventore",
+        "Da una città spagnola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande",
+        "trabocchetto"
+      ],
+      "notes": "ACE: vitamine A (dal betacarotene della carota), C ed E",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il coq au vin è un gallo cotto tradizionalmente in che cosa?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Birra",
+        "Sidro",
+        "Vino rosso",
+        "Cognac"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-francese"
+      ],
+      "notes": "Coq au vin: gallo stufato nel vino rosso, tipico della Borgogna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire sfumare con il vino durante la cottura?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Servirlo a parte",
+        "Farlo evaporare a fuoco vivo",
+        "Aggiungerlo a freddo alla fine",
+        "Marinarci la carne per una notte"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "tecniche"
+      ],
+      "notes": "Sfumare: versare il vino e lasciarne evaporare la parte alcolica a fiamma vivace",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pomodoro San Marzano DOP si coltiva in quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Puglia",
+        "Campania",
+        "Sicilia",
+        "Lazio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verdure",
+        "prodotti-tipici"
+      ],
+      "notes": "Pomodoro San Marzano dell'Agro Sarnese-Nocerino DOP, in Campania",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In una brigata di cucina, chi è il sous-chef?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il vice dello chef",
+        "Il pasticciere",
+        "Il capo dei camerieri",
+        "Il lavapiatti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ristorazione"
+      ],
+      "notes": "Il sous-chef è il secondo in comando dopo lo chef",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il cassoulet, stufato di fagioli bianchi con carni, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Belgio",
+        "Portogallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cucina-francese"
+      ],
+      "notes": "Il cassoulet è un piatto della Linguadoca, nel sud-ovest della Francia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pretzel, ciambella salata a forma di nodo, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Portogallo",
+        "Spagna",
+        "Grecia",
+        "Germania"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pane",
+        "cucina-tedesca"
+      ],
+      "notes": "Il Brezel o pretzel è tipico della Germania meridionale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il kefir?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Salsa di soia",
+        "Tè affumicato",
+        "Pane di segale",
+        "Latte fermentato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Il kefir è latte fermentato con i granuli di kefir (lieviti e batteri)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale altro nome è noto il frutto della passione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Maracuja",
+        "Papaya",
+        "Guava",
+        "Litchi"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "Frutto della passione o maracuja (Passiflora edulis)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che forma ha una fetta di carambola?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cuore",
+        "Stella",
+        "Mezzaluna",
+        "Rombo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "Tagliata a fette, la carambola forma stelle a cinque punte",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Le costolette a scottadito, specialità romana, sono di quale animale?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Maiale",
+        "Vitello",
+        "Agnello",
+        "Cinghiale"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-romana",
+        "secondi"
+      ],
+      "notes": "L'abbacchio a scottadito: costolette di agnello alla griglia, da mangiare bollenti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è un caffè ristretto?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un caffè lungo",
+        "Un caffè con panna",
+        "Un caffè con ghiaccio",
+        "Un espresso con meno acqua"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "Il ristretto è un espresso estratto con meno acqua, più concentrato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nel cocktail Margarita, che cosa ricopre il bordo del bicchiere?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Sale",
+        "Zucchero",
+        "Cacao",
+        "Cocco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "La Margarita (tequila, triple sec, lime) si serve col bordo del bicchiere salato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La pappa al pomodoro è un piatto tipico di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Puglia",
+        "Campania",
+        "Toscana",
+        "Liguria"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "cucina-toscana"
+      ],
+      "notes": "Pappa al pomodoro: pane raffermo, pomodoro, basilico e olio, tipica toscana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale bevanda salentina unisce caffè espresso, ghiaccio e latte di mandorla?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Marocchino",
+        "Caffè leccese",
+        "Caffè shakerato",
+        "Caffè alla nocciola"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "caffè",
+        "cucina-pugliese"
+      ],
+      "notes": "Il caffè leccese: espresso versato sul ghiaccio con latte di mandorla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è il marocchino che si ordina al bar?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un tè alla menta",
+        "Un caffè con cacao e schiuma di latte",
+        "Un caffè con liquore all'anice",
+        "Un succo di datteri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "caffè"
+      ],
+      "notes": "Il marocchino: espresso con cacao in polvere e schiuma di latte, servito in un bicchierino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella ricetta classica del pan di Spagna, che cosa fa gonfiare l'impasto?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Il lievito di birra",
+        "Il bicarbonato",
+        "L'aria delle uova montate",
+        "Il lievito chimico"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "Il pan di Spagna classico non ha lievito: cresce grazie all'aria incorporata montando uova e zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il dulce de leche sudamericano si ottiene cuocendo a lungo che cosa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Uova e burro",
+        "Panna e miele",
+        "Latte e zucchero",
+        "Cocco e rum"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "cucina-sudamericana"
+      ],
+      "notes": "Il dulce de leche è latte con zucchero ridotto a lungo fino a diventare una crema caramellata",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa sono gli yakitori giapponesi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Ravioli al vapore",
+        "Spiedini di pollo alla griglia",
+        "Polpette di riso",
+        "Frittelle di polpo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-giapponese"
+      ],
+      "notes": "Yakitori: spiedini di pollo cotti alla griglia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il chili con carne è il piatto ufficiale di quale Stato americano?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "California",
+        "Louisiana",
+        "Texas",
+        "Florida"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-americana"
+      ],
+      "notes": "Il chili è il piatto ufficiale del Texas dal 1977",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La clam chowder del New England è una zuppa cremosa di che cosa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Aragosta",
+        "Granchio",
+        "Vongole",
+        "Salmone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-americana",
+        "zuppe"
+      ],
+      "notes": "Clam chowder: zuppa di vongole (clams) con patate e latte o panna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lo smørrebrød, pane di segale coperto di condimenti, è tipico di quale Paese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Islanda",
+        "Polonia",
+        "Olanda",
+        "Danimarca"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-internazionale"
+      ],
+      "notes": "Lo smørrebrød è il tipico panino aperto danese",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Nella shakshuka, piatto nordafricano e mediorientale, in che cosa si cuociono le uova?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Nella salsa di pomodoro e peperoni",
+        "Nel latte di cocco",
+        "Nello yogurt",
+        "Nel brodo di carne"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uova",
+        "cucina-mediorientale"
+      ],
+      "notes": "Shakshuka: uova in camicia in un sugo di pomodoro, peperoni e spezie",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Gli spaghetti all'assassina, cotti in padella fino a bruciacchiarsi, sono tipici di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Palermo",
+        "Napoli",
+        "Bari",
+        "Cagliari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi",
+        "cucina-pugliese"
+      ],
+      "notes": "Gli spaghetti all'assassina sono una ricetta barese nata negli anni Sessanta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I bigoli, grossi spaghetti fatti al torchio, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sardegna",
+        "Veneto",
+        "Calabria",
+        "Marche"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasta",
+        "cucina-veneta"
+      ],
+      "notes": "Bigoli, pasta lunga e spessa al torchio (bigolaro), tipica del Veneto",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il chinotto, che dà il nome a una bibita amarognola, che cos'è?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Un agrume",
+        "Una radice",
+        "Un'erba alpina",
+        "Una corteccia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta",
+        "trabocchetto"
+      ],
+      "notes": "Il chinotto (Citrus myrtifolia) è un agrume, coltivato soprattutto in Liguria (Savona)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il pepe di Caienna, nonostante il nome, che cos'è?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Semi di senape",
+        "Pepe nero macinato",
+        "Bacche di ginepro",
+        "Peperoncino in polvere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spezie",
+        "trabocchetto"
+      ],
+      "notes": "Il pepe di Caienna è peperoncino rosso essiccato e macinato (Capsicum)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La batata, o patata americana, appartiene alla stessa famiglia di quale pianta?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Pomodoro",
+        "Girasole",
+        "Convolvolo",
+        "Carota"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "botanica",
+        "trabocchetto"
+      ],
+      "notes": "Ipomoea batatas è una Convolvulacea; la patata invece è una Solanacea come il pomodoro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il kvass, bevanda dell'Europa orientale, si ottiene fermentando che cosa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Latte di cavalla",
+        "Pane di segale",
+        "Mele selvatiche",
+        "Bacche di sorbo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "Il kvass è una bevanda poco alcolica ottenuta fermentando pane di segale",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il melone cantalupo prende il nome da una località vicina a quale città?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Napoli",
+        "Firenze",
+        "Genova"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta",
+        "etimologia"
+      ],
+      "notes": "Treccani: da Cantalupo, villa dei papi presso Roma, dove sarebbe stato coltivato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si serve la vichyssoise, vellutata di porri e patate?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Flambé",
+        "Gratinata in forno",
+        "Con crostini di pesce",
+        "Fredda"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "zuppe",
+        "cucina-francese"
+      ],
+      "notes": "La vichyssoise è una crema di porri e patate servita fredda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La fabada, stufato di fagioli bianchi e salumi, è tipica di quale regione spagnola?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Murcia",
+        "Andalusia",
+        "Catalogna",
+        "Asturie"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cucina-spagnola"
+      ],
+      "notes": "La fabada asturiana: fabes, chorizo, morcilla e pancetta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Gli scialatielli, pasta fresca corta e spessa, sono nati in quale zona?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Costiera amalfitana",
+        "Salento",
+        "Langhe",
+        "Maremma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta",
+        "cucina-campana"
+      ],
+      "notes": "Gli scialatielli furono ideati ad Amalfi dallo chef Enrico Cosentino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La finanziera piemontese è un piatto a base di che cosa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Trota e mandorle",
+        "Frattaglie e creste di gallo",
+        "Riso e castagne",
+        "Lumache e porri"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-piemontese"
+      ],
+      "notes": "La finanziera: creste e bargigli di gallo, animelle, filoni e funghi con Marsala",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi fu il primo cuoco italiano a ricevere tre stelle Michelin, nel 1985?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Gualtiero Marchesi",
+        "Gianfranco Vissani",
+        "Massimo Bottura",
+        "Nadia Santini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ristorazione"
+      ],
+      "notes": "Gualtiero Marchesi ottenne le tre stelle nel 1985 a Milano, primo in Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama in Sicilia il pecorino fresco appena cagliato, non ancora salato?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Piacentinu",
+        "Primosale",
+        "Canestrato",
+        "Tuma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "formaggi",
+        "sicilia"
+      ],
+      "notes": "La tuma è la cagliata fresca non salata; il primosale è quello alla prima salatura",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il maiorchino, pecorino usato anche in un gioco di lancio delle forme, è tipico di quale provincia?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Messina",
+        "Trapani",
+        "Agrigento",
+        "Enna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "formaggi",
+        "sicilia"
+      ],
+      "notes": "Il maiorchino si produce sui Peloritani e Nebrodi, in provincia di Messina; a Novara di Sicilia si lancia nella sfida del maiorchino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale umanista scrisse nel Quattrocento il trattato di cucina De honesta voluptate et valetudine?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Bartolomeo Scappi",
+        "Maestro Martino",
+        "Apicio",
+        "Il Platina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-cucina"
+      ],
+      "notes": "Bartolomeo Sacchi detto il Platina, che riprese molte ricette di Maestro Martino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Lo sciacchetrà è un vino passito di quale zona?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Collio",
+        "Langhe",
+        "Valpolicella",
+        "Cinque Terre"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Sciacchetrà: passito delle Cinque Terre DOC, in Liguria",
+      "verified": false
+    }
+  ]
+}

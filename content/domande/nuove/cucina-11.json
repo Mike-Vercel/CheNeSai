@@ -1,0 +1,1085 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Il burro di arachidi contiene burro?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sì, un po' di burro vaccino",
+        "Solo nella versione dolce",
+        "No, sono arachidi macinate",
+        "Sì, burro chiarificato"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ingredienti",
+        "trabocchetto"
+      ],
+      "notes": "Il burro di arachidi è una crema di arachidi tostate e macinate (con sale, a volte olio): niente burro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale pasta corta ha la forma di un tubo tagliato in obliquo?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Rigatoni",
+        "Orecchiette",
+        "Fusilli",
+        "Penne"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "Le penne sono tubi tagliati in diagonale, come il pennino di una penna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale formaggio fresco campano si fa con il latte di bufala?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Asiago",
+        "Gorgonzola",
+        "Mozzarella",
+        "Taleggio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "formaggi"
+      ],
+      "notes": "Mozzarella di bufala campana DOP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la pizza ripiegata a mezzaluna con il ripieno chiuso dentro?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Sfincione",
+        "Pinsa",
+        "Focaccia",
+        "Calzone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pizza"
+      ],
+      "notes": "Il calzone è una pizza ripiegata a mezzaluna e farcita",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale dolce di pasta frolla ha la marmellata coperta da strisce incrociate?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Plumcake",
+        "Ciambella",
+        "Strudel",
+        "Crostata"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci"
+      ],
+      "notes": "La crostata classica ha la confettura coperta da una grata di frolla",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da quale città tedesca prende il nome l'hamburger?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Berlino",
+        "Amburgo",
+        "Francoforte",
+        "Monaco di Baviera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia",
+        "cucina-internazionale"
+      ],
+      "notes": "Hamburger: dal nome della città di Amburgo (Hamburg)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'ingrediente principale della frittata?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Uova",
+        "Latte",
+        "Patate",
+        "Farina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "uova"
+      ],
+      "notes": "La frittata è a base di uova sbattute cotte in padella",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il dolce francese a mezzaluna di pasta sfogliata al burro?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Profiterole",
+        "Éclair",
+        "Macaron",
+        "Croissant"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "cucina-francese"
+      ],
+      "notes": "Il croissant è un lievitato sfogliato al burro a forma di mezzaluna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire mangiare la pasta in bianco?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Con la panna",
+        "Condita solo con burro o olio",
+        "Con il pesce",
+        "Cotta senza sale"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasta"
+      ],
+      "notes": "Pasta in bianco: senza sugo, condita con burro o olio ed eventualmente formaggio",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale frutto secco, chiuso in un mallo verde, ha il gheriglio simile a un piccolo cervello?",
+      "category": "Cucina",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Noce",
+        "Mandorla",
+        "Nocciola",
+        "Castagna"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "frutta-secca"
+      ],
+      "notes": "La noce ha il mallo verde e il gheriglio diviso in lobi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si mangiano i köttbullar, polpette servite con la marmellata di mirtilli rossi?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Norvegia",
+        "Danimarca",
+        "Svezia",
+        "Islanda"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cucina-internazionale"
+      ],
+      "notes": "Köttbullar: polpette svedesi servite con salsa e marmellata di mirtilli rossi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "A che cosa serve davvero il sale nell'acqua della pasta?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "A dare sapore alla pasta",
+        "A far bollire prima l'acqua",
+        "A non far attaccare la pasta",
+        "A non far traboccare la pentola"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pasta",
+        "trabocchetto"
+      ],
+      "notes": "Il sale serve a insaporire; non accelera l'ebollizione (anzi alza di pochissimo la temperatura di ebollizione)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I paccheri, grossi tubi di pasta liscia o rigata, sono tipici di quale regione?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Piemonte",
+        "Liguria",
+        "Campania",
+        "Sardegna"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pasta",
+        "cucina-campana"
+      ],
+      "notes": "I paccheri sono un formato tradizionale campano (Gragnano, Napoli)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Oltre al pomodoro, quali ingredienti caratterizzano gli spaghetti alla puttanesca?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Panna e prosciutto",
+        "Funghi e piselli",
+        "Olive e capperi",
+        "Zucchine e menta"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "primi"
+      ],
+      "notes": "La puttanesca: pomodoro, olive nere, capperi, aglio (e nella versione laziale acciughe)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il fegato alla veneziana si cuoce insieme a quale ingrediente?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cipolle",
+        "Mele",
+        "Funghi",
+        "Patate"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "secondi",
+        "cucina-veneta"
+      ],
+      "notes": "Fegato alla veneziana: fegato di vitello con molte cipolle stufate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il radicchio rosso tardivo IGP è tipico di quale città?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Treviso",
+        "Udine",
+        "Belluno",
+        "Bergamo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verdure",
+        "prodotti-tipici"
+      ],
+      "notes": "Radicchio Rosso di Treviso IGP, tipologie precoce e tardivo",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è il riso Venere?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nero",
+        "Rosso",
+        "Verde",
+        "Giallo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cereali"
+      ],
+      "notes": "Il riso Venere è un riso integrale nero aromatico coltivato in Italia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il gin è aromatizzato soprattutto con le bacche di quale pianta?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ginepro",
+        "Mirto",
+        "Sambuco",
+        "Alloro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bevande",
+        "distillati"
+      ],
+      "notes": "Il gin deve il suo aroma principale alle bacche di ginepro",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Bloody Mary è un cocktail a base di vodka e succo di…?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Arancia",
+        "Mirtillo",
+        "Pomodoro",
+        "Pompelmo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cocktail"
+      ],
+      "notes": "Bloody Mary: vodka, succo di pomodoro, limone, Worcestershire, tabasco",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale altro nome sono conosciuti i cantucci toscani?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Brutti ma buoni",
+        "Cavallucci",
+        "Ricciarelli",
+        "Biscotti di Prato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "cucina-toscana"
+      ],
+      "notes": "Cantucci o Cantuccini toscani IGP, detti anche biscotti di Prato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Con quale altro nome si chiama il branzino?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Spigola",
+        "Orata",
+        "Sarago",
+        "Dentice"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pesce"
+      ],
+      "notes": "Branzino e spigola sono nomi dello stesso pesce, Dicentrarchus labrax",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale città nasce l'usanza del caffè sospeso, pagato in anticipo per uno sconosciuto?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Trieste",
+        "Torino",
+        "Napoli",
+        "Palermo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "caffè",
+        "tradizioni"
+      ],
+      "notes": "Il caffè sospeso è una tradizione napoletana",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il durian, frutto tropicale del Sud-est asiatico, è famoso per che cosa?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Il colore blu",
+        "L'odore fortissimo",
+        "Il sapore piccante",
+        "Il nocciolo enorme"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "frutta"
+      ],
+      "notes": "Il durian ha un odore così forte che in molti hotel e mezzi pubblici asiatici è vietato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale popolo introdusse in Sicilia la coltivazione di agrumi, riso e canna da zucchero?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Normanni",
+        "Greci",
+        "Arabi",
+        "Spagnoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "storia-della-cucina",
+        "sicilia"
+      ],
+      "notes": "Durante la dominazione araba (IX-XI secolo) arrivarono in Sicilia agrumi, riso e canna da zucchero",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cos'è la kombucha?",
+      "category": "Cucina",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Una salsa di pesce",
+        "Un formaggio di soia",
+        "Un'alga essiccata",
+        "Un tè fermentato"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "bevande"
+      ],
+      "notes": "La kombucha è una bevanda di tè zuccherato fermentato da una colonia di lieviti e batteri",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese sono nati i biscotti della fortuna serviti nei ristoranti cinesi?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Cina",
+        "Hong Kong",
+        "Stati Uniti",
+        "Corea del Sud"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "curiosità",
+        "trabocchetto"
+      ],
+      "notes": "I fortune cookies si diffusero in California all'inizio del Novecento, da immigrati giapponesi; in Cina sono quasi sconosciuti",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il wasabi servito nei sushi bar fuori dal Giappone spesso è in realtà che cosa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Avocado piccante",
+        "Rafano colorato di verde",
+        "Basilico tritato",
+        "Alga nori frullata"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cucina-giapponese",
+        "trabocchetto"
+      ],
+      "notes": "Il wasabi vero è raro e costoso: spesso si usa una pasta di rafano, senape e colorante verde",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il seitan, alternativa vegetale alla carne, si ricava da che cosa?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Glutine di frumento",
+        "Soia fermentata",
+        "Ceci macinati",
+        "Funghi essiccati"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ingredienti",
+        "trabocchetto"
+      ],
+      "notes": "Il seitan è glutine di frumento cotto e insaporito (non contiene soia, che invece è nel tofu)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il famoso sale rosa dell'Himalaya viene estratto soprattutto in quale Paese?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Pakistan",
+        "India",
+        "Cina",
+        "Nepal"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ingredienti",
+        "trabocchetto"
+      ],
+      "notes": "Proviene soprattutto dalle miniere di Khewra, nella Salt Range del Punjab pakistano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Da chi prende il nome la pavlova, dolce di meringa con panna e frutta?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Da una cantante lirica",
+        "Da una zarina",
+        "Da una scrittrice",
+        "Da una ballerina"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "dolci",
+        "etimologia"
+      ],
+      "notes": "Dedicata alla ballerina russa Anna Pavlova durante le sue tournée in Australia e Nuova Zelanda",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale crostata austriaca con marmellata di ribes porta il nome della città di Linz?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Sachertorte",
+        "Linzer Torte",
+        "Strudel",
+        "Gugelhupf"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "cucina-austriaca"
+      ],
+      "notes": "La Linzer Torte, crostata con frutta secca e marmellata di ribes rosso, prende il nome da Linz",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Di che cosa è un distillato il cognac?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Di vino",
+        "Di sidro",
+        "Di cereali",
+        "Di canna da zucchero"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "distillati"
+      ],
+      "notes": "Il cognac è un'acquavite di vino bianco della zona di Cognac, invecchiata in rovere",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale distillato della Normandia si ottiene dal sidro di mele?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Armagnac",
+        "Calvados",
+        "Cognac",
+        "Pastis"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "distillati",
+        "cucina-francese"
+      ],
+      "notes": "Il Calvados è l'acquavite di sidro (mele, a volte pere) della Normandia",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Secondo una leggenda bolognese, a che cosa si ispirò la forma del tortellino?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "A un anello nuziale",
+        "All'ombelico di Venere",
+        "A una conchiglia",
+        "A un orecchio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasta",
+        "leggende"
+      ],
+      "notes": "Leggenda dell'oste che, spiando Venere, ne imitò l'ombelico con la pasta",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "I cappellacci di zucca IGP sono tipici di quale città?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Piacenza",
+        "Ferrara",
+        "Parma",
+        "Rimini"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pasta",
+        "prodotti-tipici"
+      ],
+      "notes": "Cappellacci di zucca ferraresi IGP",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale ingrediente manca nella torta caprese tradizionale, al cioccolato e mandorle?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Uova",
+        "Burro",
+        "Farina",
+        "Zucchero"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "La torta caprese si fa con mandorle, cioccolato, burro, uova e zucchero: niente farina",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Provolone Valpadana DOP si produce soprattutto in quali regioni?",
+      "category": "Cucina",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Campania e Puglia",
+        "Lombardia e Veneto",
+        "Calabria e Basilicata",
+        "Sicilia e Sardegna"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "formaggi",
+        "trabocchetto"
+      ],
+      "notes": "Zona di produzione: Lombardia, Veneto e alcune province di Emilia-Romagna e Trentino",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale farmacista francese diffuse in Francia il consumo delle patate nel Settecento?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Marie-Antoine Carême",
+        "Louis Pasteur",
+        "Nicolas Appert",
+        "Antoine Parmentier"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-cucina"
+      ],
+      "notes": "Antoine-Augustin Parmentier promosse la patata in Francia; da lui il potage Parmentier",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il siciliano Procopio dei Coltelli aprì nel 1686 un celebre caffè in quale città?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Vienna",
+        "Parigi",
+        "Londra",
+        "Venezia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "storia-della-cucina",
+        "sicilia"
+      ],
+      "notes": "Il Café Procope di Parigi, aperto dal palermitano Francesco Procopio dei Coltelli",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il nome dello spritz viene da un verbo tedesco: che cosa significa?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Brindare",
+        "Rinfrescare",
+        "Mescolare",
+        "Spruzzare"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cocktail",
+        "etimologia"
+      ],
+      "notes": "Dal tedesco spritzen, spruzzare: i soldati austriaci allungavano il vino con acqua (Treccani)",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale vitigno viene chiamato zibibbo in Sicilia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Malvasia",
+        "Moscato d'Alessandria",
+        "Grillo",
+        "Inzolia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "vino",
+        "sicilia"
+      ],
+      "notes": "Zibibbo è il nome siciliano del Moscato d'Alessandria",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il Gewürztraminer prende il nome da Termeno, comune di quale provincia?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Bolzano",
+        "Trento",
+        "Udine",
+        "Belluno"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "vino"
+      ],
+      "notes": "Traminer da Tramin, in italiano Termeno, comune in provincia di Bolzano",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa è in realtà la polenta e osei, specialità di Bergamo?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Un risotto",
+        "Un dolce",
+        "Una zuppa",
+        "Un formaggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dolci",
+        "trabocchetto"
+      ],
+      "notes": "È un dolce di pan di Spagna ricoperto di pasta di mandorle gialla con uccellini di cioccolato",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "In Liguria e in Toscana, con quale nome sono chiamate le cozze?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Peoci",
+        "Arselle",
+        "Datteri",
+        "Muscoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pesce",
+        "nomi-regionali"
+      ],
+      "notes": "Muscoli in Liguria e Toscana; peoci a Venezia; le arselle sono altri molluschi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Che cosa si mangia dei ricci di mare?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Gli aculei",
+        "Il fegato",
+        "Le gonadi",
+        "I muscoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pesce"
+      ],
+      "notes": "La polpa arancione dei ricci, chiamata comunemente uova, sono le gonadi",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Quale miele sardo è famoso per il suo sapore amaro?",
+      "category": "Cucina",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Acacia",
+        "Arancio",
+        "Corbezzolo",
+        "Millefiori"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "prodotti-tipici",
+        "sardegna"
+      ],
+      "notes": "Il miele amaro di corbezzolo è una specialità della Sardegna",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse nel 1825 la Fisiologia del gusto?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Marie-Antoine Carême",
+        "Alexandre Dumas",
+        "Auguste Escoffier",
+        "Jean Anthelme Brillat-Savarin"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-cucina"
+      ],
+      "notes": "Physiologie du goût (1825) di Brillat-Savarin",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse nel 1773 il ricettario napoletano Il cuoco galante?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Pellegrino Artusi",
+        "Bartolomeo Scappi",
+        "Ippolito Cavalcanti",
+        "Vincenzo Corrado"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "storia-della-cucina"
+      ],
+      "notes": "Il cuoco galante di Vincenzo Corrado, Napoli 1773",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "La brovada friulana DOP è fatta con rape lasciate macerare in che cosa?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Nelle vinacce",
+        "Nell'aceto",
+        "Nell'acqua di mare",
+        "Nel siero di latte"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "prodotti-tipici"
+      ],
+      "notes": "Brovada DOP: rape bianche fermentate nelle vinacce, poi grattugiate",
+      "verified": false
+    },
+    {
+      "type": "single",
+      "text": "Il riso Vialone Nano IGP si coltiva nella pianura di quale provincia?",
+      "category": "Cucina",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Vercelli",
+        "Novara",
+        "Verona",
+        "Pavia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cereali",
+        "prodotti-tipici"
+      ],
+      "notes": "Riso Nano Vialone Veronese IGP, pianura veronese",
+      "verified": false
+    }
+  ]
+}
