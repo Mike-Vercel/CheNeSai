@@ -6,10 +6,8 @@
 REFERENCE
 playwright-report
 test-results
-.playwright-cli
+**/.playwright-cli
 .claude
 .serena
-tests
-docs
 supabase/.temp
 *.tsbuildinfo

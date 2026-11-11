@@ -46,7 +46,7 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /supabase/.temp/
-/.playwright-cli/
+.playwright-cli/
 /backups/
 
 # strumenti locali
