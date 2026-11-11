@@ -6,7 +6,7 @@ import { loadRoundStandingRows } from "@/lib/server/round-standings";
 import { skipIntroIfUnanimous, voteIntroSkip } from "@/lib/server/intro-skip";
 import { setDisplayMode } from "@/lib/server/display-mode";
 import { authorizePlayerLine, PLAYER_TTS_RATE } from "@/lib/server/player-voice";
-import { speechFor } from "@/features/game/script";
+import { FIXED_POOLS, speechFor } from "@/features/game/script";
 import { buildPublishedSession, cleanupSession, cmd, type Fixture } from "../support/fixtures";
 
 process.env.QZ_OPTIONS_READ_DELAY = "0";
@@ -133,7 +133,7 @@ describe("salta intro a votazione", () => {
     const [{ n }] = await sql<{ n: number }[]>`select count(*)::int as n from game_events where session_id = ${fx.sessionId} and command = 'START_ROUND'`;
     expect(n).toBe(1);
     // la battuta del salto apre il primo round
-    expect(speechFor(st, { phase: "INTRO" }, { readOptions: true })[0].text).toMatch(/si parte subito/);
+    expect(FIXED_POOLS.introSkipped.texts).toContain(speechFor(st, { phase: "INTRO" }, { readOptions: true })[0].text);
   });
 
   it("voti contemporanei: un solo START_ROUND, anche in automatico", async () => {

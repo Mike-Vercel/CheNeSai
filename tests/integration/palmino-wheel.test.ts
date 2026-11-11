@@ -163,6 +163,12 @@ describe("partita libera con la Ruota di Palmino", () => {
     const spin = st!.wheel!.spin!;
     expect(Date.parse(spin.startedAt)).toBeGreaterThan(Date.parse(st!.serverNow));
     const winner = wheel.segments[spin.winnerIndex];
+    // libreria ufficiale: una battuta "Durante la ruota" di un presentatore, saltabile, mai il risultato
+    const wheelLines = st!.showLines ?? [];
+    expect(wheelLines).toHaveLength(1);
+    expect(wheelLines[0]).toMatchObject({ event: "WHEEL_SPIN", optional: true, live: false });
+    expect(wheelLines[0].display).toBeTruthy();
+    expect(wheelLines[0].text).not.toContain(winner.label);
 
     // la vincente ha preso il posto del segnaposto; il segnaposto è tornato una riserva
     const [w] = await sql<{ is_reserve: boolean; position: number }[]>`select is_reserve, position from session_questions where id = ${winner.sqId}`;
