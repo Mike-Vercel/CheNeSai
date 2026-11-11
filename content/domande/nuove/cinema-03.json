@@ -1,0 +1,1105 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Che animale è Dumbo, il protagonista del film Disney del 1941?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un topo",
+    "Un cane",
+    "Un orso",
+    "Un elefante"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Dumbo è un elefantino dalle grandi orecchie che impara a volare",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale principessa Disney cade in un sonno profondo dopo essersi punta con un fuso?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Biancaneve",
+    "Ariel",
+    "Belle",
+    "Aurora"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Aurora, \"La bella addormentata nel bosco\" (1959); Biancaneve si addormenta con la mela",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Forrest Gump\", la vita è come una scatola di che cosa?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Biscotti",
+    "Fiammiferi",
+    "Cioccolatini",
+    "Caramelle"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "hollywood",
+    "battute"
+   ],
+   "notes": "La mamma di Forrest: la vita è come una scatola di cioccolatini, non sai mai quello che ti capita",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta Danny Zuko nel film musicale \"Grease\" del 1978?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Patrick Swayze",
+    "Richard Gere",
+    "John Travolta",
+    "Kevin Bacon"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "musical",
+    "hollywood"
+   ],
+   "notes": "Grease (1978): John Travolta e Olivia Newton-John",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama l'astronauta giocattolo di \"Toy Story\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Rex",
+    "Slinky",
+    "Buzz Lightyear",
+    "Mister Potato"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "pixar",
+    "animazione"
+   ],
+   "notes": "Buzz Lightyear, il ranger spaziale di Toy Story (1995)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Con quale oggetto Mary Poppins scende volando dal cielo?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Una scopa",
+    "Un ombrello",
+    "Un tappeto",
+    "Un aquilone"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "musical"
+   ],
+   "notes": "Mary Poppins (1964) arriva e riparte volando con il suo ombrello",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale piccolo maestro Jedi dalla pelle verde addestra Luke Skywalker?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Yoda",
+    "Obi-Wan Kenobi",
+    "Chewbecca",
+    "Jabba"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "star wars",
+    "fantascienza"
+   ],
+   "notes": "Yoda, sul pianeta Dagobah, ne \"L'Impero colpisce ancora\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta la protagonista di \"Pretty Woman\" (1990)?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Julia Roberts",
+    "Meg Ryan",
+    "Sandra Bullock",
+    "Sharon Stone"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "hollywood",
+    "commedia"
+   ],
+   "notes": "Julia Roberts è Vivian, accanto a Richard Gere",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale cantante interpreta Rami Malek nel film \"Bohemian Rhapsody\"?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Freddie Mercury",
+    "Elton John",
+    "David Bowie",
+    "Mick Jagger"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "biografie",
+    "musica"
+   ],
+   "notes": "Rami Malek vinse l'Oscar 2019 interpretando Freddie Mercury dei Queen",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale piatto mangiano insieme Lilli e il Vagabondo nella celebre scena del bacio?",
+   "category": "Cinema",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Spaghetti",
+    "Lasagne",
+    "Pizza",
+    "Risotto"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "cucina"
+   ],
+   "notes": "Spaghetti con polpette nel ristorante di Tony (1955)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale località è ambientato il film \"Vacanze di Natale\" del 1983?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Cortina d'Ampezzo",
+    "Courmayeur",
+    "Madonna di Campiglio",
+    "Cervinia"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Il primo cinepanettone dei Vanzina è ambientato a Cortina",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la moglie del ragionier Ugo Fantozzi?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Mariangela",
+    "Silvana",
+    "Anna",
+    "Pina"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Pina è la moglie; Mariangela la figlia; la signorina Silvani la collega amata",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta Michael Corleone ne \"Il Padrino\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Robert De Niro",
+    "Al Pacino",
+    "James Caan",
+    "Robert Duvall"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "hollywood",
+    "gangster"
+   ],
+   "notes": "Al Pacino è Michael; De Niro è il giovane Vito nel secondo film",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Kill Bill\", di che colore è la tuta da motociclista della Sposa?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Rossa",
+    "Gialla",
+    "Nera",
+    "Bianca"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "tarantino"
+   ],
+   "notes": "Tuta gialla con righe nere, omaggio a Bruce Lee",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quali animali ha paura Indiana Jones?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Dei ragni",
+    "Dei pipistrelli",
+    "Dei serpenti",
+    "Dei topi"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "avventura",
+    "hollywood"
+   ],
+   "notes": "\"Serpenti, perché proprio serpenti?\" ne \"I predatori dell'arca perduta\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il pistolero pigro e velocissimo interpretato da Terence Hill nel 1970?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Nessuno",
+    "Trinità",
+    "Sartana",
+    "Django"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "western",
+    "cinema italiano"
+   ],
+   "notes": "\"Lo chiamavano Trinità\" (1970) di E. B. Clucher",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale film di Paolo Genovese racconta una cena tra amici con i cellulari sul tavolo?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Perfetti sconosciuti",
+    "Immaturi",
+    "Tutta colpa di Freud",
+    "Una famiglia perfetta"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Perfetti sconosciuti (2016), rifatto in moltissimi Paesi",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale regione italiana è ambientato il film Pixar \"Luca\" (2021)?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Toscana",
+    "Sicilia",
+    "Campania",
+    "Liguria"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "pixar",
+    "italia"
+   ],
+   "notes": "Il paese immaginario di Portorosso sulla Riviera ligure, ispirato alle Cinque Terre",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale festa messicana è al centro del film Pixar \"Coco\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Il Giorno dei morti",
+    "Il Carnevale",
+    "Il Natale",
+    "La Pasqua"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "pixar",
+    "animazione"
+   ],
+   "notes": "Coco (2017) si svolge durante il Día de los Muertos",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Ne \"La carica dei 101\" di Disney, quanti sono i cuccioli?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "101",
+    "100",
+    "99",
+    "15"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "trabocchetto"
+   ],
+   "notes": "15 cuccioli di Pongo e Peggy più 84 comprati: 99 cuccioli; con i genitori fanno 101",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta lo scrittore Jack Torrance in \"Shining\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Jack Nicholson",
+    "Jack Lemmon",
+    "Robert De Niro",
+    "Dustin Hoffman"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "horror",
+    "kubrick"
+   ],
+   "notes": "Shining (1980) di Stanley Kubrick",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città Rocky Balboa sale di corsa la scalinata del museo d'arte?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Filadelfia",
+    "New York",
+    "Chicago",
+    "Boston"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "sport",
+    "hollywood"
+   ],
+   "notes": "La scalinata del Philadelphia Museum of Art, detta \"Rocky Steps\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama l'astronave di Han Solo in \"Guerre stellari\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Enterprise",
+    "Millennium Falcon",
+    "Galactica",
+    "Nostromo"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "star wars",
+    "fantascienza"
+   ],
+   "notes": "Il Millennium Falcon; l'Enterprise è di Star Trek, la Nostromo di Alien",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Con quale film Leonardo DiCaprio vinse l'Oscar come miglior attore?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Titanic",
+    "The Wolf of Wall Street",
+    "Revenant – Redivivo",
+    "The Aviator"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "oscar",
+    "hollywood"
+   ],
+   "notes": "Oscar 2016 per \"Revenant\" di Iñárritu",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama l'orso amico di Mowgli ne \"Il libro della giungla\"?",
+   "category": "Cinema",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Bagheera",
+    "Baloo",
+    "Shere Khan",
+    "Kaa"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "disney",
+    "animazione"
+   ],
+   "notes": "Baloo è l'orso; Bagheera la pantera, Shere Khan la tigre, Kaa il serpente",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale regista italiano vinse l'Oscar per la regia de \"L'ultimo imperatore\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Franco Zeffirelli",
+    "Bernardo Bertolucci",
+    "Sergio Leone",
+    "Giuseppe Tornatore"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "oscar",
+    "cinema italiano"
+   ],
+   "notes": "Bertolucci, Oscar 1988; il film vinse 9 statuette",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Charlot lavora in fabbrica e finisce tra gli ingranaggi di una macchina?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il monello",
+    "Tempi moderni",
+    "La febbre dell'oro",
+    "Luci della città"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "chaplin",
+    "cinema muto"
+   ],
+   "notes": "Tempi moderni (1936) di Charlie Chaplin",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Qual era il vero nome di Totò?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Antonio Esposito",
+    "Salvatore Russo",
+    "Antonio Scognamiglio",
+    "Antonio de Curtis"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "napoli"
+   ],
+   "notes": "Antonio de Curtis, nato a Napoli nel 1898",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Alberto Sordi dice \"Maccarone, m'hai provocato\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il vigile",
+    "Lo sceicco bianco",
+    "Il medico della mutua",
+    "Un americano a Roma"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Nando Mericoni in \"Un americano a Roma\" (1954)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta Brancaleone da Norcia nel film di Mario Monicelli?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Ugo Tognazzi",
+    "Nino Manfredi",
+    "Alberto Sordi",
+    "Vittorio Gassman"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "\"L'armata Brancaleone\" (1966) con Vittorio Gassman",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film Benigni e Troisi si ritrovano nell'anno 1492?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il piccolo diavolo",
+    "Non ci resta che piangere",
+    "Johnny Stecchino",
+    "Le vie del Signore sono finite"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "\"Non ci resta che piangere\" (1984), il paese è Frittole",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Qual è il primo film di Checco Zalone, uscito nel 2009?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Cado dalle nubi",
+    "Che bella giornata",
+    "Sole a catinelle",
+    "Tolo Tolo"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Cado dalle nubi (2009), regia di Gennaro Nunziante",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpreta Rossella O'Hara in \"Via col vento\"?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Vivien Leigh",
+    "Bette Davis",
+    "Olivia de Havilland",
+    "Joan Crawford"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "hollywood",
+    "classici"
+   ],
+   "notes": "Vivien Leigh vinse l'Oscar; Olivia de Havilland è Melania",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale film due musicisti si travestono da donne per sfuggire ai gangster?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Tootsie",
+    "Victor Victoria",
+    "La strana coppia",
+    "A qualcuno piace caldo"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "hollywood",
+    "commedia"
+   ],
+   "notes": "Some Like It Hot (1959) di Billy Wilder, con Jack Lemmon, Tony Curtis e Marilyn Monroe",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale creatura dei film di Miyazaki è diventata il simbolo dello Studio Ghibli?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Ponyo",
+    "Kiki",
+    "Totoro",
+    "Senza Volto"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "animazione",
+    "giappone"
+   ],
+   "notes": "Totoro, da \"Il mio vicino Totoro\" (1988), è nel logo dello Studio Ghibli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Secondo \"Indiana Jones e l'ultima crociata\", da chi prende il nome Indiana?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Dallo Stato americano",
+    "Dal nonno",
+    "Da un capo indiano",
+    "Dal cane di famiglia"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "avventura",
+    "trabocchetto"
+   ],
+   "notes": "Il padre rivela: \"Indiana era il nome del cane\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città è nata Sophia Loren?",
+   "category": "Cinema",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Pozzuoli",
+    "Napoli",
+    "Caserta",
+    "Roma"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "trabocchetto"
+   ],
+   "notes": "Nata a Roma nel 1934, cresciuta a Pozzuoli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Al Pacino vinse l'Oscar con il remake di quale film italiano?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Il sorpasso",
+    "I soliti ignoti",
+    "Profumo di donna",
+    "La grande guerra"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "oscar",
+    "cinema italiano"
+   ],
+   "notes": "\"Scent of a Woman\" (1992) rifà \"Profumo di donna\" di Dino Risi (1974) con Gassman",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Su quale isola delle Eolie si trova la casa di Neruda nel film \"Il postino\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Lipari",
+    "Salina",
+    "Stromboli",
+    "Vulcano"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "sicilia",
+    "cinema italiano"
+   ],
+   "notes": "La casa è a Pollara, sull'isola di Salina; altre scene a Procida",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale borgo siciliano Luchino Visconti girò \"La terra trema\" (1948)?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Mondello",
+    "Aci Trezza",
+    "Scopello",
+    "Marzamemi"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "sicilia",
+    "neorealismo"
+   ],
+   "notes": "Ispirato a \"I Malavoglia\" di Verga, girato ad Aci Trezza",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Su quale monumento si svolge il finale di \"Intrigo internazionale\" di Hitchcock?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Monte Rushmore",
+    "Statua della Libertà",
+    "Golden Gate",
+    "Empire State Building"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "hitchcock",
+    "hollywood"
+   ],
+   "notes": "Inseguimento finale sui volti presidenziali del Monte Rushmore (1959)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale artista italiano realizzò il pupazzo meccanico di E.T.?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Dante Ferretti",
+    "Mario Bava",
+    "Vittorio Storaro",
+    "Carlo Rambaldi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "effetti speciali",
+    "italiani a hollywood"
+   ],
+   "notes": "Carlo Rambaldi vinse l'Oscar per gli effetti visivi di E.T. (1983)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale film vinse l'Oscar come miglior film nel 2017, dopo il celebre scambio di buste?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "La La Land",
+    "Moonlight",
+    "Manchester by the Sea",
+    "Arrival"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "oscar",
+    "trabocchetto"
+   ],
+   "notes": "Fu annunciato per errore La La Land, ma il vincitore era Moonlight",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cosa fu usato come sangue nella scena della doccia di \"Psyco\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Vernice rossa",
+    "Succo di pomodoro",
+    "Sciroppo di cioccolato",
+    "Sangue di bue"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "hitchcock",
+    "trabocchetto"
+   ],
+   "notes": "Il film era in bianco e nero: Hitchcock usò sciroppo di cioccolato",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Ne \"Il buono, il brutto, il cattivo\", come si chiama \"il cattivo\"?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Sentenza",
+    "Tuco",
+    "Il Biondo",
+    "Ramon"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "western",
+    "sergio leone"
+   ],
+   "notes": "Sentenza (Lee Van Cleef); Tuco è il brutto, il Biondo il buono",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi diresse \"Il sorpasso\" (1962), con Vittorio Gassman?",
+   "category": "Cinema",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Mario Monicelli",
+    "Pietro Germi",
+    "Luigi Comencini",
+    "Dino Risi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cinema italiano",
+    "commedia"
+   ],
+   "notes": "Il sorpasso di Dino Risi, con Gassman e Jean-Louis Trintignant",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quanti Oscar per il miglior film straniero vinsero i film di Federico Fellini?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "2",
+    "4",
+    "3",
+    "5"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "oscar",
+    "fellini"
+   ],
+   "notes": "La strada, Le notti di Cabiria, Otto e mezzo, Amarcord",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale paese siciliano fu girata la piazza di Giancaldo, il paese di \"Nuovo Cinema Paradiso\"?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "palmino",
+   "answers": [
+    "Savoca",
+    "Forza d'Agrò",
+    "Palazzo Adriano",
+    "Noto"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "sicilia",
+    "tornatore"
+   ],
+   "notes": "La piazza di Giancaldo è piazza Umberto I a Palazzo Adriano (Palermo); altre scene a Cefalù, Bagheria e Lascari",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale poeta scrisse le didascalie del kolossal muto \"Cabiria\" (1914)?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "professore",
+   "answers": [
+    "Giovanni Pascoli",
+    "Filippo Tommaso Marinetti",
+    "Gabriele D'Annunzio",
+    "Guido Gozzano"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cinema muto",
+    "storia del cinema"
+   ],
+   "notes": "Cabiria di Giovanni Pastrone, didascalie di D'Annunzio",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamava il cane Jack Russell, star del film muto \"The Artist\" (2011)?",
+   "category": "Cinema",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Asta",
+    "Rex",
+    "Uggie",
+    "Milo"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "animali",
+    "oscar"
+   ],
+   "notes": "Uggie, il terrier che vinse il Palm Dog al Festival di Cannes 2011",
+   "verified": true
+  }
+ ]
+}

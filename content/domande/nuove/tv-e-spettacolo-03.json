@@ -1,0 +1,1105 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Come si chiama il pupazzo rosso di \"Striscia la notizia\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Uan",
+    "Five",
+    "Gabibbo",
+    "Dodò"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "tv italiana",
+    "pupazzi"
+   ],
+   "notes": "Il Gabibbo, pupazzo rosso di Striscia dal 1990",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale verdura sgranocchia sempre Bugs Bunny?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "La lattuga",
+    "Il sedano",
+    "Il ravanello",
+    "La carota"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "looney tunes"
+   ],
+   "notes": "Bugs Bunny e la sua carota: \"Che succede, amico?\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Dove lavora Homer Simpson?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "In una fabbrica di birra",
+    "In un ufficio postale",
+    "In una scuola",
+    "In una centrale nucleare"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Homer è addetto alla sicurezza della centrale nucleare di Springfield",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Bing, il protagonista dell'omonimo cartone per bambini?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un orsetto",
+    "Un gattino",
+    "Un cagnolino",
+    "Un coniglietto"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "bambini"
+   ],
+   "notes": "Bing è un coniglietto nero che vive con Flop",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Ne \"La casa di carta\", come si fa chiamare la mente della banda?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Il Professore",
+    "Il Dottore",
+    "Il Capitano",
+    "Il Maestro"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "Il Professore, interpretato da Álvaro Morte",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale strumento suona Lisa Simpson?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Il sassofono",
+    "Il violino",
+    "Il pianoforte",
+    "La chitarra"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Lisa è una bravissima sassofonista",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di che colore è Barbapapà?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Azzurro",
+    "Giallo",
+    "Verde",
+    "Rosa"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "bambini"
+   ],
+   "notes": "Barbapapà è rosa, Barbamamma nera",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quante sono le Tartarughe Ninja?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Tre",
+    "Cinque",
+    "Sei",
+    "Quattro"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "curiosità"
+   ],
+   "notes": "Leonardo, Raffaello, Donatello e Michelangelo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi ha scritto i romanzi da cui è nata la serie \"Il commissario Montalbano\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "professore",
+   "answers": [
+    "Leonardo Sciascia",
+    "Andrea Camilleri",
+    "Carlo Lucarelli",
+    "Maurizio de Giovanni"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fiction",
+    "sicilia"
+   ],
+   "notes": "Andrea Camilleri, nato a Porto Empedocle",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale era Flipper, protagonista di una serie TV degli anni Sessanta?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Una foca",
+    "Un delfino",
+    "Un'orca",
+    "Un leone marino"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "telefilm",
+    "animali"
+   ],
+   "notes": "Flipper, il delfino amico della famiglia Ricks",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Pippo, l'amico spilungone di Topolino?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Un cavallo",
+    "Un asino",
+    "Una mucca",
+    "Un cane"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "trabocchetto"
+   ],
+   "notes": "Pippo è un cane, anche se cammina e parla come un uomo; Orazio è il cavallo, Clarabella la mucca",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nel suo abbigliamento classico, che cosa non porta mai Paperino?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Il cappello",
+    "La giacca",
+    "I pantaloni",
+    "Il papillon"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "trabocchetto"
+   ],
+   "notes": "Paperino porta casacca da marinaio, cappello e fiocco, ma niente pantaloni",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cos'è, in realtà, SpongeBob?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Una spugna da cucina",
+    "Un formaggio",
+    "Un pesce",
+    "Una spugna di mare"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "trabocchetto"
+   ],
+   "notes": "SpongeBob è una spugna marina, anche se sembra una spugna da cucina",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale agente del commissariato di Montalbano storpia le parole e i nomi delle persone?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Catarella",
+    "Fazio",
+    "Augello",
+    "Gallo"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fiction",
+    "sicilia"
+   ],
+   "notes": "Agatino Catarella, interpretato da Angelo Russo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale maschera della commedia dell'arte è il simbolo di Milano?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Gianduia",
+    "Stenterello",
+    "Meneghino",
+    "Rugantino"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "teatro",
+    "maschere"
+   ],
+   "notes": "Meneghino è milanese; Gianduia torinese, Stenterello fiorentino, Rugantino romano",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Ne \"Il Trono di Spade\", come si chiama il Lannister interpretato da Peter Dinklage?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Jaime",
+    "Tywin",
+    "Joffrey",
+    "Tyrion"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "serie tv",
+    "fantasy"
+   ],
+   "notes": "Tyrion Lannister; Dinklage vinse quattro Emmy per il ruolo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore inglese interpreta il dottor House?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Hugh Grant",
+    "Colin Firth",
+    "Hugh Laurie",
+    "Jude Law"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "serie tv",
+    "medical"
+   ],
+   "notes": "Hugh Laurie, nella serie dal 2004 al 2012",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpretava Rachel Green nella serie \"Friends\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Jennifer Aniston",
+    "Courteney Cox",
+    "Lisa Kudrow",
+    "Helen Hunt"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "serie tv",
+    "sitcom"
+   ],
+   "notes": "Jennifer Aniston; Cox era Monica, Kudrow Phoebe",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Breaking Bad\", quale soprannome usa Walter White?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Heisenberg",
+    "Einstein",
+    "Newton",
+    "Fermi"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "serie tv"
+   ],
+   "notes": "Heisenberg, dal fisico tedesco del principio di indeterminazione",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Squid Game\", quale gioco infantile si fa davanti alla bambola gigante?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Nascondino",
+    "Un, due, tre, stella",
+    "Mosca cieca",
+    "Campana"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "Il primo gioco della serie coreana del 2021",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il bar dove Homer Simpson va a bere?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Central Perk",
+    "Cheers",
+    "La taverna di Boe",
+    "Il Krusty Burger"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "La taverna di Boe (Moe's Tavern)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Qual è la grande passione di Sampei, protagonista di un celebre cartone giapponese?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "La caccia",
+    "La pesca",
+    "Il calcio",
+    "Il kendo"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Sampei, il ragazzo pescatore (Tsurikichi Sanpei)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la cagnolina bianca a pois rossi creata da Altan?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Pippi",
+    "Pimpa",
+    "Pina",
+    "Lola"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "fumetti italiani"
+   ],
+   "notes": "La Pimpa, nata nel 1975 sul Corriere dei Piccoli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il bambino padrone del cane Snoopy?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Charlie Brown",
+    "Linus",
+    "Schroeder",
+    "Calvin"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fumetti",
+    "cartoni"
+   ],
+   "notes": "Charlie Brown, protagonista dei Peanuts di Charles Schulz",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Da quale romanzo prende il nome il reality \"Grande Fratello\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "1984",
+    "Il mondo nuovo",
+    "Fahrenheit 451",
+    "La fattoria degli animali"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "reality",
+    "letteratura"
+   ],
+   "notes": "Il Grande Fratello che sorveglia tutti è in \"1984\" di George Orwell",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città è nato Fiorello?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Palermo",
+    "Catania",
+    "Messina",
+    "Augusta"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "sicilia",
+    "trabocchetto"
+   ],
+   "notes": "Rosario Fiorello è nato a Catania nel 1960 ed è cresciuto ad Augusta",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamavano di cognome le gemelle tedesche del \"Da-da-un-pa\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Müller",
+    "Schneider",
+    "Kessler",
+    "Bauer"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "varietà",
+    "rai"
+   ],
+   "notes": "Alice ed Ellen Kessler, star del varietà Rai anni Sessanta",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale programma comico di Italia 1 degli anni Ottanta era ambientato come un cinema all'aperto per auto?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Mai dire Gol",
+    "Drive In",
+    "Emilio",
+    "Zelig"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "comici",
+    "anni ottanta"
+   ],
+   "notes": "Drive In (1983-1988), ideato da Antonio Ricci",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale trio commentava fuori campo le immagini di \"Mai dire Gol\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il Trio",
+    "La Smorfia",
+    "Gialappa's Band",
+    "I Gatti di Vicolo Miracoli"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "comici",
+    "calcio"
+   ],
+   "notes": "La Gialappa's Band: Carlo Taranto, Marco Santin e Giorgio Gherarducci",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamava il trio di Massimo Troisi, Lello Arena ed Enzo Decaro?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Il Trio",
+    "La Smorfia",
+    "I Gatti di Vicolo Miracoli",
+    "I Legnanesi"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "comici",
+    "napoli"
+   ],
+   "notes": "La Smorfia, nata a Napoli negli anni Settanta",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale quartiere di Roma è ambientata la serie \"I Cesaroni\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Trastevere",
+    "Garbatella",
+    "Testaccio",
+    "Monti"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fiction",
+    "roma"
+   ],
+   "notes": "I Cesaroni (2006-2014) gestiscono una bottiglieria alla Garbatella",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città umbra erano ambientate le prime stagioni di \"Don Matteo\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Gubbio",
+    "Spoleto",
+    "Perugia",
+    "Assisi"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fiction",
+    "umbria"
+   ],
+   "notes": "Le prime otto stagioni a Gubbio, poi la serie si è spostata a Spoleto",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città è ambientata la fiction \"Imma Tataranni – Sostituto procuratore\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Potenza",
+    "Bari",
+    "Lecce",
+    "Matera"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fiction",
+    "basilicata"
+   ],
+   "notes": "Imma Tataranni, interpretata da Vanessa Scalera, lavora a Matera",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la scuola frequentata da Mercoledì Addams nella serie Netflix \"Mercoledì\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Hogwarts",
+    "Riverdale",
+    "Nevermore",
+    "Rosewood"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "La Nevermore Academy, scuola per ragazzi \"diversi\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il furgone di Scooby-Doo e dei suoi amici?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Mystery Machine",
+    "Supercar",
+    "Batmobile",
+    "Generale Lee"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "La Mystery Machine, furgone decorato a fiori",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quante sono le sorelle ladre di \"Occhi di gatto\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Due",
+    "Quattro",
+    "Cinque",
+    "Tre"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Sheila, Kelly e Tati, che gestiscono il bar Occhi di gatto",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Secondo la sua storia, perché Calimero è tutto nero?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Perché è nato così",
+    "Perché è malato",
+    "Perché è sporco",
+    "Perché è stato dipinto"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "carosello",
+    "trabocchetto"
+   ],
+   "notes": "Nel Carosello l'Olandesina lo lava: \"Tu non sei nero, sei solo sporco\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale varietà musicale della Rai, abbinato alla Lotteria di Capodanno, andò in onda dal 1958 al 1975?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Canzonissima",
+    "Studio Uno",
+    "Il Musichiere",
+    "Fantastico"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "varietà",
+    "rai"
+   ],
+   "notes": "Canzonissima, legata alla lotteria nazionale",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale maestro insegnava a leggere e scrivere agli italiani con \"Non è mai troppo tardi\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "professore",
+   "answers": [
+    "Alberto Manzi",
+    "Mario Lodi",
+    "Gianni Rodari",
+    "Don Lorenzo Milani"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "storia della tv",
+    "rai"
+   ],
+   "notes": "Il maestro Alberto Manzi, in onda dal 1960 al 1968",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale frazione di Santa Croce Camerina si trova la casa sul mare di Montalbano nella serie?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Marina di Ragusa",
+    "Punta Secca",
+    "Sampieri",
+    "Donnalucata"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fiction",
+    "sicilia"
+   ],
+   "notes": "La casa di Marinella è a Punta Secca, in provincia di Ragusa",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta il commissario Corrado Cattani ne \"La piovra\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Remo Girone",
+    "Raoul Bova",
+    "Michele Placido",
+    "Giancarlo Giannini"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "fiction",
+    "rai"
+   ],
+   "notes": "Michele Placido, nelle prime quattro stagioni; Remo Girone era Tano Cariddi",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale programma di Renzo Arbore si celebrava il finto prodotto \"Cacao Meravigliao\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Quelli della notte",
+    "L'altra domenica",
+    "Doc",
+    "Indietro tutta!"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "varietà",
+    "arbore"
+   ],
+   "notes": "Indietro tutta! (1987-1988), con Nino Frassica e le ragazze Coccodè",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è il pinguino di plastilina Pingu?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Norvegia",
+    "Svizzera",
+    "Finlandia",
+    "Canada"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "trabocchetto"
+   ],
+   "notes": "Pingu fu creato dallo svizzero Otmar Gutmann e prodotto in Svizzera dal 1990",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città è nato il grande illusionista Harry Houdini?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "New York",
+    "Vienna",
+    "Budapest",
+    "Praga"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "illusionismo",
+    "trabocchetto"
+   ],
+   "notes": "Erik Weisz, poi Harry Houdini, nacque a Budapest nel 1874",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Friends\", come si chiama la scimmietta di Ross?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Charlie",
+    "Marcel",
+    "George",
+    "Bubbles"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "serie tv",
+    "sitcom"
+   ],
+   "notes": "Marcel, la scimmietta cappuccina della prima stagione",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Pronto, Raffaella?\", che cosa dovevano indovinare i telespettatori al telefono?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Le caramelle nel vaso",
+    "Le palline nella boccia",
+    "I bottoni nella scatola",
+    "I fagioli nel barattolo"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "varietà",
+    "rai"
+   ],
+   "notes": "Il gioco dei fagioli del programma di mezzogiorno di Raffaella Carrà (1983)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quanti anni ha il Grande Puffo?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "palmino",
+   "answers": [
+    "100",
+    "542",
+    "300",
+    "1000"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "fumetti"
+   ],
+   "notes": "Il Grande Puffo ha 542 anni, secondo i fumetti di Peyo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore animava in TV il pupazzo Provolino?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Walter Chiari",
+    "Raimondo Vianello",
+    "Raffaele Pisu",
+    "Gino Bramieri"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "pupazzi",
+    "storia della tv"
+   ],
+   "notes": "Raffaele Pisu animava Provolino (dal 1968); la voce era di Oreste Lionello",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nelle prime stagioni di \"Boris\", come si chiama la fiction che la troupe sta girando?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Gli occhi del cuore",
+    "Il cuore altrove",
+    "Un amore a Roma",
+    "Il segreto del convento"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "serie tv",
+    "comici"
+   ],
+   "notes": "\"Gli occhi del cuore\" e poi \"Gli occhi del cuore 2\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore catanese, morto nel 1937, fu il grande interprete del teatro dialettale siciliano?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "professore",
+   "answers": [
+    "Angelo Musco",
+    "Totò",
+    "Eduardo Scarpetta",
+    "Ettore Petrolini"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "teatro",
+    "sicilia"
+   ],
+   "notes": "Angelo Musco (1872-1937), per cui scrissero anche Pirandello e Martoglio",
+   "verified": true
+  }
+ ]
+}

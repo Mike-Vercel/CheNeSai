@@ -1,0 +1,1097 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Chi canta \"Despacito\" insieme a Daddy Yankee?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "J Balvin",
+        "Ricky Martin",
+        "Luis Fonsi",
+        "Enrique Iglesias"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Despacito\" (2017) è di Luis Fonsi con Daddy Yankee",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa usa di solito il direttore d'orchestra per dirigere?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Bacchetta",
+        "Diapason",
+        "Archetto",
+        "Metronomo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "orchestra"
+      ],
+      "notes": "Il direttore d'orchestra dirige con la bacchetta (o a mani nude)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"...Baby One More Time\", nel 1998?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Christina Aguilera",
+        "Mariah Carey",
+        "Britney Spears",
+        "Jennifer Lopez"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "Singolo d'esordio di Britney Spears (1998)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Gelato al cioccolato\", successo del 1979?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Riccardo Fogli",
+        "Pupo",
+        "Umberto Tozzi",
+        "Toto Cutugno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Gelato al cioccolato\" (1979) è il primo grande successo di Pupo, scritto con Cristiano Malgioglio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"L'italiano\", quella di \"lasciatemi cantare\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Adriano Celentano",
+        "Gianni Morandi",
+        "Al Bano",
+        "Toto Cutugno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"L'italiano\" fu presentata da Toto Cutugno al Festival di Sanremo 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Poker Face\" e \"Bad Romance\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Beyoncé",
+        "Rihanna",
+        "Katy Perry",
+        "Lady Gaga"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "Entrambi i brani sono di Lady Gaga (2008 e 2009)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa usa spesso un chitarrista per pizzicare le corde?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bacchetta",
+        "Archetto",
+        "Martelletto",
+        "Plettro"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Il plettro è la piccola lamina usata per pizzicare o strimpellare le corde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Like a Virgin\", nel 1984?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Madonna",
+        "Whitney Houston",
+        "Cyndi Lauper",
+        "Kylie Minogue"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Like a Virgin\" (1984) è uno dei successi più noti di Madonna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante linee ha il pentagramma?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il pentagramma ha cinque linee e quattro spazi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo svedese cantava \"Dancing Queen\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Roxette",
+        "ABBA",
+        "Europe",
+        "Ace of Base"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Dancing Queen\" (1976) degli ABBA",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il sitar è uno strumento a corde tipico di quale Paese?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "India",
+        "Egitto",
+        "Turchia",
+        "Giappone"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "Il sitar è il celebre liuto della musica classica indiana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è conosciuto nel rock come \"the Boss\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bob Seger",
+        "Tom Petty",
+        "Bruce Springsteen",
+        "Jon Bon Jovi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"The Boss\" è il soprannome di Bruce Springsteen",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'ukulele è legato soprattutto a quale arcipelago?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Azzorre",
+        "Canarie",
+        "Hawaii",
+        "Filippine"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti",
+        "mondo"
+      ],
+      "notes": "L'ukulele si sviluppò alle Hawaii nell'Ottocento ed è simbolo della loro musica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale canzone Diodato vinse il Festival di Sanremo 2020?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Musica leggerissima",
+        "Soldi",
+        "Fai rumore",
+        "Tikibombom"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Diodato vinse Sanremo 2020 con \"Fai rumore\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante romana ha inciso \"Gocce di memoria\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Elisa",
+        "Laura Pausini",
+        "Irene Grandi",
+        "Giorgia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Gocce di memoria\" (2003) è di Giorgia, nata a Roma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band irlandese ha inciso \"Zombie\", nel 1994?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "The Cranberries",
+        "Thin Lizzy",
+        "The Corrs",
+        "The Pogues"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"Zombie\" (1994) dei Cranberries, voce di Dolores O'Riordan",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento ha la \"coulisse\", una pompa che si allunga e si accorcia?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Tuba",
+        "Tromba",
+        "Corno",
+        "Trombone"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Il trombone a coulisse cambia nota allungando la pompa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nell'opera lirica, che cos'è il libretto?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "La partitura dell'orchestra",
+        "Il programma di sala",
+        "Il testo cantato",
+        "L'elenco dei cantanti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "Il libretto è il testo poetico dell'opera, scritto dal librettista",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel pianoforte, come nasce il suono?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Corde pizzicate da plettri",
+        "Aria soffiata in canne",
+        "Lamelle di metallo vibranti",
+        "Martelletti che colpiscono corde"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti",
+        "trabocchetto"
+      ],
+      "notes": "Il pianoforte è a corde percosse da martelletti; le corde pizzicate sono del clavicembalo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale duo pavese cantava \"Hanno ucciso l'Uomo Ragno\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Articolo 31",
+        "Righeira",
+        "883",
+        "Lùnapop"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Hanno ucciso l'Uomo Ragno\" (1992) è il primo successo degli 883 di Max Pezzali, di Pavia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore scrisse \"Sapore di sale\", nel 1963?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Edoardo Vianello",
+        "Gino Paoli",
+        "Luigi Tenco",
+        "Sergio Endrigo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Sapore di sale\" (1963) è di Gino Paoli, arrangiamento di Ennio Morricone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale duo torinese cantava \"Vamos a la playa\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Righeira",
+        "Ricchi e Poveri",
+        "Collage",
+        "Matia Bazar"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Vamos a la playa\" (1983) è dei Righeira, duo torinese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band inglese ha inciso \"Smoke on the Water\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Uriah Heep",
+        "Black Sabbath",
+        "Deep Purple",
+        "Led Zeppelin"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"Smoke on the Water\" (1972) è dei Deep Purple",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il brano strumentale che apre un'opera lirica?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Recitativo",
+        "Ouverture",
+        "Cadenza",
+        "Coda"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "L'ouverture (o sinfonia) è il brano orchestrale introduttivo dell'opera",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il più grande teatro lirico d'Italia, che si trova a Palermo?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Teatro Politeama",
+        "Teatro Bellini",
+        "Teatro Biondo",
+        "Teatro Massimo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teatri",
+        "sicilia"
+      ],
+      "notes": "Il Teatro Massimo Vittorio Emanuele di Palermo è il più grande teatro lirico d'Italia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale opera di Verdi è tratta da \"La signora delle camelie\" di Dumas figlio?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "La traviata",
+        "Il trovatore",
+        "Rigoletto",
+        "Luisa Miller"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica",
+        "verdi"
+      ],
+      "notes": "\"La traviata\" (1853), libretto di Piave dal dramma di Dumas figlio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse \"Il Messia\", con il celebre coro \"Alleluia\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Johann Sebastian Bach",
+        "Georg Friedrich Händel",
+        "Joseph Haydn",
+        "Antonio Vivaldi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "\"Messiah\" (1741), oratorio di Händel",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale posto arrivò \"Soldi\" di Mahmood all'Eurovision del 2019?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Quinto",
+        "Terzo",
+        "Secondo",
+        "Primo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "eurovision",
+        "italia"
+      ],
+      "notes": "All'Eurovision 2019 vinse l'olandese Duncan Laurence; Mahmood fu secondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A chi aveva dedicato all'inizio Beethoven la sua Terza Sinfonia, l'\"Eroica\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Horatio Nelson",
+        "Arciduca Rodolfo",
+        "Federico il Grande",
+        "Napoleone Bonaparte"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Beethoven cancellò la dedica a Napoleone quando questi si proclamò imperatore (1804)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo italiano ha inciso \"Vacanze romane\", nel 1983?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Matia Bazar",
+        "Pooh",
+        "New Trolls",
+        "Ricchi e Poveri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Vacanze romane\" dei Matia Bazar, Sanremo 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Nessuno mi può giudicare\", successo del 1966?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Rita Pavone",
+        "Gigliola Cinquetti",
+        "Patty Pravo",
+        "Caterina Caselli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Caterina Caselli la portò al Festival di Sanremo 1966",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città morì Wolfgang Amadeus Mozart?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Praga",
+        "Vienna",
+        "Salisburgo",
+        "Monaco di Baviera"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Mozart morì a Vienna il 5 dicembre 1791",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale duo vinse il Festival di Sanremo 1997 con \"Fiumi di parole\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Al Bano e Romina",
+        "Paola e Chiara",
+        "Jalisse",
+        "Righeira"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "I Jalisse (Alessandra Drusian e Fabio Ricci) vinsero Sanremo 1997",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore veneziano era soprannominato \"il Prete rosso\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Baldassare Galuppi",
+        "Benedetto Marcello",
+        "Antonio Vivaldi",
+        "Tomaso Albinoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica",
+        "italia"
+      ],
+      "notes": "Vivaldi era sacerdote e aveva i capelli rossi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante catanese incise \"Montagne verdi\", nel 1972?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Carmen Consoli",
+        "Marcella Bella",
+        "Giuni Russo",
+        "Nada"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "sicilia"
+      ],
+      "notes": "\"Montagne verdi\" (Sanremo 1972) di Marcella Bella, scritta dal fratello Gianni Bella con Giancarlo Bigazzi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore francese scrisse \"Clair de lune\" per pianoforte?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Claude Debussy",
+        "Georges Bizet",
+        "Maurice Ravel",
+        "Erik Satie"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "\"Clair de lune\" è il terzo brano della \"Suite bergamasque\" di Debussy",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale trio vinse il Festival di Sanremo 1987 con \"Si può dare di più\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Morandi, Dalla e De Gregori",
+        "Morandi, Ruggeri e Tozzi",
+        "Baglioni, Venditti e Zero",
+        "Ramazzotti, Masini e Nek"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Gianni Morandi, Enrico Ruggeri e Umberto Tozzi vinsero Sanremo 1987",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi scrisse \"Nothing Compares 2 U\", portata al successo da Sinéad O'Connor?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Prince",
+        "George Michael",
+        "Stevie Wonder",
+        "Lionel Richie"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "pop",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Prince la scrisse nel 1985 per il gruppo The Family",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale regione nacque la polka, nell'Ottocento?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Austria",
+        "Boemia",
+        "Polonia",
+        "Ungheria"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "danze",
+        "trabocchetto"
+      ],
+      "notes": "La polka nasce in Boemia intorno al 1830, nonostante il nome faccia pensare alla Polonia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "L'inno nazionale tedesco usa una melodia di quale compositore?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Richard Wagner",
+        "Franz Joseph Haydn",
+        "Johann Sebastian Bach",
+        "Ludwig van Beethoven"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "inni",
+        "trabocchetto"
+      ],
+      "notes": "La melodia è l'\"Inno all'imperatore\" di Haydn (1797)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale artista milanese inventò il \"teatro canzone\" insieme a Sandro Luporini?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Giorgio Gaber",
+        "Walter Chiari",
+        "Dario Fo",
+        "Enzo Jannacci"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Giorgio Gaber e Sandro Luporini crearono il teatro canzone dal 1970",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'aria più famosa della \"Norma\" di Vincenzo Bellini?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Casta diva",
+        "Una furtiva lagrima",
+        "Vissi d'arte",
+        "Sempre libera"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica",
+        "sicilia"
+      ],
+      "notes": "\"Casta diva\" è la cavatina di Norma nel primo atto (1831)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo italiano di rock progressivo incise \"Impressioni di settembre\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Premiata Forneria Marconi",
+        "Banco del Mutuo Soccorso",
+        "New Trolls",
+        "Le Orme"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "\"Impressioni di settembre\" (1971-72) della PFM, testo di Mogol",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanti movimenti hanno in tutto i quattro concerti delle \"Quattro stagioni\" di Vivaldi?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "4",
+        "16",
+        "8",
+        "12"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "Ogni concerto ha tre movimenti: 4 per 3 fa 12",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il vero nome di Sting?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Paul Hewson",
+        "David Evans",
+        "Steven Tyler",
+        "Gordon Sumner"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "Sting è Gordon Matthew Sumner; Paul Hewson è Bono, David Evans è The Edge",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu la grande rivale di Maria Callas negli anni Cinquanta?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Mirella Freni",
+        "Renata Tebaldi",
+        "Renata Scotto",
+        "Katia Ricciarelli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "La rivalità Callas-Tebaldi divise i melomani negli anni Cinquanta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "\"Hound Dog\" di Elvis Presley era stata incisa prima da quale cantante blues?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Big Mama Thornton",
+        "Bessie Smith",
+        "Billie Holiday",
+        "Etta James"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Willie Mae \"Big Mama\" Thornton la incise nel 1952; Elvis nel 1956",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante corde ha un'arpa da concerto?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "52",
+        "36",
+        "40",
+        "47"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "L'arpa a pedali da concerto ha 47 corde e 7 pedali",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore scrisse il \"Te Deum\" usato come sigla dell'Eurovisione?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Jean-Philippe Rameau",
+        "Marc-Antoine Charpentier",
+        "François Couperin",
+        "Jean-Baptiste Lully"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "Il preludio del \"Te Deum\" di Charpentier (fine Seicento) è la sigla dell'Eurovisione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "\"Tainted Love\" dei Soft Cell era la cover di un brano di quale cantante?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Dionne Warwick",
+        "Gloria Jones",
+        "Gloria Gaynor",
+        "Diana Ross"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "L'originale è di Gloria Jones (1964); la cover dei Soft Cell è del 1981",
+      "verified": true
+    }
+  ]
+}

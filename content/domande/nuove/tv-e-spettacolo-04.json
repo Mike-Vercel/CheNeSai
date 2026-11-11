@@ -1,0 +1,1104 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Quale attore era il protagonista della sitcom \"Willy, il principe di Bel-Air\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Eddie Murphy",
+    "Denzel Washington",
+    "Jamie Foxx",
+    "Will Smith"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "sitcom",
+    "anni novanta"
+   ],
+   "notes": "Will Smith interpretava se stesso, ospite degli zii a Bel-Air",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quali creature minacciano i sopravvissuti di \"The Walking Dead\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "I vampiri",
+    "Gli alieni",
+    "I lupi mannari",
+    "Gli zombi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "serie tv",
+    "horror"
+   ],
+   "notes": "I \"vaganti\", morti che tornano in vita",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale esclamazione era il tormentone di Mike Bongiorno?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Allegria!",
+    "Evviva!",
+    "Che spettacolo!",
+    "Bravissimo!"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "tv italiana",
+    "conduttori"
+   ],
+   "notes": "\"Allegria!\", il saluto con cui apriva i suoi quiz",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore inglese interpreta Mr. Bean?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Hugh Grant",
+    "Hugh Laurie",
+    "John Cleese",
+    "Rowan Atkinson"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "comici",
+    "serie tv"
+   ],
+   "notes": "Rowan Atkinson, dal 1990",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale canzone italiana cantano i rapinatori de \"La casa di carta\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Volare",
+    "Funiculì funiculà",
+    "'O sole mio",
+    "Bella ciao"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "\"Bella ciao\" diventò famosa nel mondo grazie alla serie spagnola",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale gatto robot blu arriva dal futuro per aiutare il pasticcione Nobita?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Hello Kitty",
+    "Doraemon",
+    "Garfield",
+    "Gatto Silvestro"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Doraemon, dal manga di Fujiko F. Fujio",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città vive Topolino nei fumetti Disney?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Paperopoli",
+    "Springfield",
+    "Topolinia",
+    "Gotham City"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "Topolino vive a Topolinia, Paperino a Paperopoli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale programma di Maria De Filippi l'ospite decide se aprire la busta?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Uomini e donne",
+    "Amici",
+    "C'è posta per te",
+    "Tú sí que vales"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "tv italiana",
+    "mediaset"
+   ],
+   "notes": "In C'è posta per te chi riceve l'invito sceglie se aprire la busta",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di che colore sono i Puffi?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Verdi",
+    "Blu",
+    "Gialli",
+    "Rosa"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "fumetti"
+   ],
+   "notes": "I Puffi sono blu, creati dal belga Peyo nel 1958",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale cibo adorano le Tartarughe Ninja?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Gli hamburger",
+    "Il sushi",
+    "Gli spaghetti",
+    "La pizza"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "curiosità"
+   ],
+   "notes": "Le tartarughe mutanti vivono nelle fogne di New York e mangiano pizza",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale maschera veneziana è un vecchio mercante avaro e brontolone?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Arlecchino",
+    "Pantalone",
+    "Balanzone",
+    "Brighella"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "teatro",
+    "maschere"
+   ],
+   "notes": "Pantalone de' Bisognosi, mercante veneziano della commedia dell'arte",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale mostro blu di \"Sesamo apriti\" va matto per i biscotti?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Elmo",
+    "Grover",
+    "Cookie Monster",
+    "Oscar"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "pupazzi",
+    "bambini"
+   ],
+   "notes": "Cookie Monster; Elmo è rosso, Grover blu ma non goloso di biscotti",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale divulgatore ha condotto \"Ulisse – Il piacere della scoperta\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Piero Angela",
+    "Alberto Angela",
+    "Mario Tozzi",
+    "Licia Colò"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "divulgazione",
+    "rai"
+   ],
+   "notes": "Alberto Angela, figlio di Piero, conduce Ulisse su Rai 1",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamava il gioco in cui squadre di città europee si sfidavano in prove buffe?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Campanile sera",
+    "Scommettiamo che...?",
+    "Mezzogiorno in famiglia",
+    "Giochi senza frontiere"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "giochi",
+    "storia della tv"
+   ],
+   "notes": "Giochi senza frontiere, in onda dal 1965 al 1999",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Da quali romanzi è tratta la serie \"L'amica geniale\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Da quelli di Elsa Morante",
+    "Da quelli di Dacia Maraini",
+    "Da quelli di Natalia Ginzburg",
+    "Da quelli di Elena Ferrante"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fiction",
+    "rai"
+   ],
+   "notes": "La tetralogia di Elena Ferrante, serie Rai-HBO dal 2018",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale drammaturgo siciliano scrisse \"Così è (se vi pare)\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "professore",
+   "answers": [
+    "Luigi Pirandello",
+    "Giovanni Verga",
+    "Nino Martoglio",
+    "Leonardo Sciascia"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "teatro",
+    "sicilia"
+   ],
+   "notes": "Commedia di Pirandello del 1917",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale programma di Italia 1 ha inviati in abito nero e occhiali scuri?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Le Iene",
+    "Striscia la notizia",
+    "Lucignolo",
+    "Mistero"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "tv italiana",
+    "mediaset"
+   ],
+   "notes": "Le Iene, dal 1997, ispirate al look del film di Tarantino",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale quiz di Canale 5 chi sbaglia precipita in una botola?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Caduta libera",
+    "Avanti un altro!",
+    "Chi vuol essere milionario?",
+    "Il pranzo è servito"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "quiz",
+    "mediaset"
+   ],
+   "notes": "In Caduta libera il concorrente sparisce sotto il pavimento",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale famoso ladro è nipote Lupin III?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Robin Hood",
+    "Arsenio Lupin",
+    "Diabolik",
+    "Fantomas"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Lupin III è nipote del ladro gentiluomo di Maurice Leblanc",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale arcipelago vive l'investigatore privato Magnum?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Bahamas",
+    "Florida Keys",
+    "Canarie",
+    "Hawaii"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "telefilm",
+    "anni ottanta"
+   ],
+   "notes": "Magnum P.I., con Tom Selleck, è ambientato alle Hawaii",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"The Big Bang Theory\", come si chiama la vicina di casa di Sheldon e Leonard?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Amy",
+    "Bernadette",
+    "Penny",
+    "Rachel"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "sitcom"
+   ],
+   "notes": "Penny, cameriera e aspirante attrice",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale personaggio dei Simpson dice \"Ciucciati il calzino\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Bart",
+    "Homer",
+    "Nelson",
+    "Milhouse"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Il tormentone di Bart nel doppiaggio italiano",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quante volte Willy il Coyote riesce a mangiare Beep Beep nei cartoni classici?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Mai",
+    "Una volta",
+    "Due volte",
+    "Tre volte"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "looney tunes",
+    "trabocchetto"
+   ],
+   "notes": "Tra le regole di Chuck Jones: il Coyote non deve mai catturare Beep Beep",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nella prima parte de \"La casa di carta\", quale edificio assaltano i rapinatori?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Il Museo del Prado",
+    "La Zecca di Spagna",
+    "Il Palazzo Reale",
+    "La Borsa di Madrid"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "La Fábrica Nacional de Moneda y Timbre, la zecca di Madrid",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Dove dorme di solito Snoopy?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Dentro la cuccia",
+    "Nel letto di Charlie Brown",
+    "Sotto un albero",
+    "Sul tetto della cuccia"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fumetti",
+    "trabocchetto"
+   ],
+   "notes": "Snoopy dorme sdraiato sul tetto della sua cuccia rossa",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi ha ideato \"Striscia la notizia\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Antonio Ricci",
+    "Gianni Boncompagni",
+    "Maurizio Costanzo",
+    "Renzo Arbore"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "tv italiana",
+    "mediaset"
+   ],
+   "notes": "Antonio Ricci, autore anche di Drive In",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale cantante ha condotto per anni \"OK, il prezzo è giusto!\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Iva Zanicchi",
+    "Orietta Berti",
+    "Rita Pavone",
+    "Ornella Vanoni"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "quiz",
+    "mediaset"
+   ],
+   "notes": "Iva Zanicchi, dal 1987 al 2001, dopo Gigi Sabani",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale giornalista ha fondato la trasmissione d'inchiesta \"Report\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Lilli Gruber",
+    "Milena Gabanelli",
+    "Federica Sciarelli",
+    "Bianca Berlinguer"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "giornalismo",
+    "rai"
+   ],
+   "notes": "Milena Gabanelli, dal 1997 su Rai 3",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice era Elisa nella fiction \"Elisa di Rivombrosa\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Anna Valle",
+    "Vittoria Puccini",
+    "Vanessa Incontrada",
+    "Cristiana Capotondi"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fiction",
+    "mediaset"
+   ],
+   "notes": "Vittoria Puccini, accanto ad Alessandro Preziosi (2003)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città viene trasferito il vicequestore Rocco Schiavone?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Aosta",
+    "Bolzano",
+    "Trento",
+    "Belluno"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "fiction",
+    "rai"
+   ],
+   "notes": "Da Roma ad Aosta; interpretato da Marco Giallini, dai romanzi di Antonio Manzini",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale provincia sono state girate gran parte delle scene del \"Commissario Montalbano\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Agrigento",
+    "Ragusa",
+    "Trapani",
+    "Palermo"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "sicilia",
+    "trabocchetto"
+   ],
+   "notes": "Vigàta si ispira a Porto Empedocle (Agrigento), ma si girava nel Ragusano: Scicli, Ragusa Ibla, Punta Secca",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiamavano le ragazze che ballavano a \"Passaparola\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Veline",
+    "Ragazze Coccodè",
+    "Letterine",
+    "Professoresse"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "quiz",
+    "mediaset"
+   ],
+   "notes": "Le Letterine del quiz di Gerry Scotti",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Spock di \"Star Trek\" è vulcaniano solo per metà: e per l'altra metà?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Klingon",
+    "Romulano",
+    "Androide",
+    "Umano"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "serie tv",
+    "trabocchetto"
+   ],
+   "notes": "Spock è figlio del vulcaniano Sarek e dell'umana Amanda Grayson",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale illusionista italiano ha reso famosa la formula \"Sim sala bim\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Mago Forest",
+    "Giucas Casella",
+    "Silvan",
+    "Arturo Brachetti"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "illusionismo",
+    "tv italiana"
+   ],
+   "notes": "Silvan, nome d'arte di Aldo Savoldello",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama in Italia la famiglia del futuro di Hanna-Barbera, contraria degli Antenati?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "I Robinson",
+    "Gli Spaziali",
+    "I Pronipoti",
+    "I Futuristi"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "The Jetsons, in Italia I Pronipoti (1962)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese era Peyo, il creatore dei Puffi?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Francia",
+    "Belgio",
+    "Paesi Bassi",
+    "Svizzera"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "fumetti",
+    "trabocchetto"
+   ],
+   "notes": "Pierre Culliford, in arte Peyo, era belga di Bruxelles",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale sport pratica Gigi la trottola, protagonista dell'omonimo cartone?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Pallavolo",
+    "Pallacanestro",
+    "Calcio",
+    "Baseball"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "sport"
+   ],
+   "notes": "Gigi la trottola, piccolo e velocissimo cestista",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi condusse la prima edizione di \"Domenica in\", nel 1976?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Corrado",
+    "Pippo Baudo",
+    "Mike Bongiorno",
+    "Raffaella Carrà"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "storia della tv",
+    "rai"
+   ],
+   "notes": "Corrado condusse le prime tre edizioni, dal 1976",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il locale dove si ritrovano i ragazzi di \"Happy Days\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Central Perk",
+    "Moe's",
+    "Arnold's",
+    "Luke's"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "telefilm",
+    "sitcom"
+   ],
+   "notes": "Arnold's, il drive-in di Milwaukee dove Fonzie ha il suo \"ufficio\" nel bagno",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta \"Il giovane Montalbano\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Alessio Boni",
+    "Lino Guanciale",
+    "Giuseppe Fiorello",
+    "Michele Riondino"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fiction",
+    "sicilia"
+   ],
+   "notes": "Michele Riondino, nella serie dal 2012",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore interpreta il commissario Ricciardi nella fiction Rai?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Alessandro Gassmann",
+    "Raoul Bova",
+    "Lino Guanciale",
+    "Luca Argentero"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "fiction",
+    "rai"
+   ],
+   "notes": "Lino Guanciale, dai romanzi di Maurizio de Giovanni ambientati a Napoli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attore fu il commissario Maigret negli sceneggiati Rai degli anni Sessanta?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Tino Buazzelli",
+    "Gino Cervi",
+    "Ubaldo Lay",
+    "Paolo Stoppa"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "sceneggiati",
+    "storia della tv"
+   ],
+   "notes": "Gino Cervi; Buazzelli era Nero Wolfe, Ubaldo Lay il tenente Sheridan",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Su quale rete andò in onda la prima edizione italiana di \"X Factor\", nel 2008?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Canale 5",
+    "Rai 2",
+    "Italia 1",
+    "Sky Uno"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "talent",
+    "storia della tv"
+   ],
+   "notes": "Le prime quattro edizioni su Rai 2, poi su Sky",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cosa significava in origine la sigla Rai?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "professore",
+   "answers": [
+    "Radio Audizioni Italiane",
+    "Radiotelevisione Italiana",
+    "Rete Audiovisiva Italiana",
+    "Radio Arte Italiana"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "storia della tv",
+    "trabocchetto"
+   ],
+   "notes": "Nel 1944 Rai voleva dire Radio Audizioni Italiane; Radiotelevisione italiana venne dopo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Da quale Paese arriva il format di \"Un medico in famiglia\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Stati Uniti",
+    "Regno Unito",
+    "Spagna",
+    "Germania"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "fiction",
+    "trabocchetto"
+   ],
+   "notes": "Adattamento della serie spagnola \"Médico de familia\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Su quale rete andò in onda la prima stagione di \"Striscia la notizia\", nel 1988?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Italia 1",
+    "Canale 5",
+    "Rete 4",
+    "Rai 2"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "mediaset",
+    "trabocchetto"
+   ],
+   "notes": "Nata su Italia 1 nel novembre 1988, passò a Canale 5 l'anno dopo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale conduttore presentava \"Il Musichiere\" alla fine degli anni Cinquanta?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Mike Bongiorno",
+    "Corrado",
+    "Enzo Tortora",
+    "Mario Riva"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "storia della tv",
+    "quiz"
+   ],
+   "notes": "Mario Riva, dal 1957 al 1960",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale teatro romano andavano in scena gli spettacoli del Bagaglino?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Salone Margherita",
+    "Teatro Sistina",
+    "Teatro Quirino",
+    "Teatro Argentina"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cabaret",
+    "roma"
+   ],
+   "notes": "Il Salone Margherita in via Due Macelli",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nel circo, come si chiama il clown goffo dal naso rosso che fa coppia con il clown bianco?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "palmino",
+   "answers": [
+    "Arlecchino",
+    "Pierrot",
+    "Augusto",
+    "Zanni"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "circo"
+   ],
+   "notes": "Il clown bianco elegante e l'Augusto pasticcione",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In che anno il Festival di Sanremo si trasferì per la prima volta al Teatro Ariston?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "1958",
+    "1968",
+    "1977",
+    "1985"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "sanremo",
+    "storia della tv"
+   ],
+   "notes": "Dal 1951 al 1976 si tenne al Casinò, dal 1977 all'Ariston",
+   "verified": true
+  }
+ ]
+}

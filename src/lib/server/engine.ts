@@ -115,7 +115,9 @@ interface RunOptions {
  * appeso non può più fermare la partita per minuti (prima non c'era nessun limite).
  */
 export const COMMAND_LOCK_TIMEOUT = "5s";
-export const COMMAND_STATEMENT_TIMEOUT = "10s";
+export const COMMAND_STATEMENT_TIMEOUT = "20s";
+/** Passi automatici: se il lucchetto è occupato un altro client sta già eseguendo il passo. */
+export const AUTO_LOCK_TIMEOUT = "1500ms";
 export const COMMAND_IDLE_TX_TIMEOUT = "15s";
 
 /** Errori "riprova tra poco" del database: lucchetto occupato, query o transazione scadute, connessione caduta. */
@@ -127,8 +129,10 @@ export function isTransientDbError(e: unknown): boolean {
 async function runCommand(sessionId: string, actor: Actor, input: CommandInput, onFrom: (phase: GamePhase) => void, opts: RunOptions = {}): Promise<CommandResult> {
   const sql = getSql();
   return sql.begin(async (tx) => {
+    // Nessun comando può restare appeso: attesa del lucchetto breve (per i passi automatici brevissima:
+    // un altro client lo sta già eseguendo), tetto a ogni istruzione e alle transazioni ferme.
     await tx`
-      select set_config('lock_timeout', ${COMMAND_LOCK_TIMEOUT}, true),
+      select set_config('lock_timeout', ${opts.auto ? AUTO_LOCK_TIMEOUT : COMMAND_LOCK_TIMEOUT}, true),
              set_config('statement_timeout', ${COMMAND_STATEMENT_TIMEOUT}, true),
              set_config('idle_in_transaction_session_timeout', ${COMMAND_IDLE_TX_TIMEOUT}, true)`;
     const st = await loadStateRow(tx, sessionId, "update");

@@ -1,0 +1,1103 @@
+{
+ "format": "quizzone-questions",
+ "version": 1,
+ "questions": [
+  {
+   "type": "single",
+   "text": "Come si chiama lo zio ricchissimo e tirchio di Paperino?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Paperone",
+    "Archimede",
+    "Gastone",
+    "Ciccio"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "Paperon de' Paperoni, il papero più ricco del mondo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale gattone prepotente è il nemico storico di Topolino?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Macchia Nera",
+    "Rockerduck",
+    "Gambadilegno",
+    "Amelia"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "Pietro Gambadilegno; Macchia Nera è un altro cattivo, Rockerduck rivale di Paperone",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cosa sogna di diventare Ash, protagonista dei Pokémon?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un professore",
+    "Un campione di calcio",
+    "Un pirata",
+    "Un Maestro di Pokémon"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "anime",
+    "pokemon"
+   ],
+   "notes": "Ash Ketchum vuole diventare il più grande Maestro di Pokémon",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale programma i vip ballano in coppia con maestri professionisti?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "Ballando con le stelle",
+    "Amici",
+    "Tale e quale show",
+    "Ciao Darwin"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "tv italiana",
+    "rai"
+   ],
+   "notes": "Ballando con le stelle, su Rai 1 dal 2005",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Holly e Benji\", in che ruolo gioca Benji?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Portiere",
+    "Attaccante",
+    "Difensore",
+    "Allenatore"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "anime",
+    "calcio"
+   ],
+   "notes": "Benji Price, il portiere col cappellino",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale personaggio dei cartoni vive a Bikini Bottom e prepara panini al Krusty Krab?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Patrick",
+    "Squiddi",
+    "SpongeBob",
+    "Plankton"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "nickelodeon"
+   ],
+   "notes": "SpongeBob cuoco del Krusty Krab; Squiddi fa il cassiere",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di che colore sono le trecce di Pippi Calzelunghe?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Rosse",
+    "Bionde",
+    "Nere",
+    "Castane"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "telefilm",
+    "bambini"
+   ],
+   "notes": "Pippi ha le trecce rosse all'insù (serie svedese del 1969)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale reality i concorrenti sopravvivono come naufraghi su un'isola tropicale?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "regina",
+   "answers": [
+    "L'isola dei famosi",
+    "Grande Fratello",
+    "Pechino Express",
+    "Temptation Island"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "reality",
+    "tv italiana"
+   ],
+   "notes": "L'isola dei famosi, in Italia dal 2003",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Odie, l'amico di Garfield?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Un gatto",
+    "Un topo",
+    "Un cane",
+    "Un coniglio"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "fumetti"
+   ],
+   "notes": "Odie è il cane un po' tonto che Garfield prende sempre in giro",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il cucciolo preistorico che vive con la famiglia Flintstone?",
+   "category": "TV e spettacolo",
+   "difficulty": 1,
+   "presenter": "palmino",
+   "answers": [
+    "Rex",
+    "Bronto",
+    "Yoghi",
+    "Dino"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "Dino, che abbaia e scodinzola come un cane",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale programma di cucina di Rai 1 ha reso celebre Antonella Clerici?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "MasterChef",
+    "La prova del cuoco",
+    "Cotto e mangiato",
+    "Il pranzo è servito"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cucina",
+    "rai"
+   ],
+   "notes": "La prova del cuoco, dal 2000",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di che razza è il cane protagonista de \"Il commissario Rex\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Labrador",
+    "Rottweiler",
+    "Dobermann",
+    "Pastore tedesco"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "telefilm",
+    "animali"
+   ],
+   "notes": "Rex è un pastore tedesco della polizia di Vienna",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Peppa Pig\", che animale è la sua amica Suzy?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Una pecora",
+    "Una coniglietta",
+    "Una zebra",
+    "Una gattina"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "bambini"
+   ],
+   "notes": "Suzy Sheep è la migliore amica di Peppa",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la strega che vive alle pendici del Vesuvio nei fumetti Disney?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Nocciola",
+    "Brigitta",
+    "Paperetta",
+    "Amelia"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "Amelia, la fattucchiera che ammalia; Nocciola è un'altra strega Disney che vive nel bosco",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale gioco di Rai 1 si devono indovinare le identità di otto sconosciuti?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Affari tuoi",
+    "I soliti ignoti",
+    "L'eredità",
+    "Reazione a catena"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "quiz",
+    "rai"
+   ],
+   "notes": "I soliti ignoti: il gioco delle identità",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quanto tempo racconta ciascuna stagione della serie \"24\" con Jack Bauer?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Una settimana",
+    "Un mese",
+    "Un giorno",
+    "Un anno"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "serie tv",
+    "azione"
+   ],
+   "notes": "Ogni stagione: 24 episodi, un'ora ciascuno, in tempo reale",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che cosa muove Samantha di \"Vita da strega\" per fare un incantesimo?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Le orecchie",
+    "Il naso",
+    "Le dita",
+    "Le sopracciglia"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "telefilm",
+    "anni sessanta"
+   ],
+   "notes": "Il celebre movimento del naso di Elizabeth Montgomery",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è il topo velocissimo Speedy Gonzales?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Spagna",
+    "Messico",
+    "Argentina",
+    "Cuba"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "looney tunes"
+   ],
+   "notes": "Speedy Gonzales, \"il topo più veloce di tutto il Messico\"",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il vicino di casa religiosissimo di Homer Simpson?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Boe Szyslak",
+    "Montgomery Burns",
+    "Ned Flanders",
+    "Lenny"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Ned Flanders, sempre gentile e devoto",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Heidi\", come si chiama la bambina sulla sedia a rotelle che vive a Francoforte?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Greta",
+    "Clara",
+    "Rottenmeier",
+    "Dete"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Clara Sesemann; la signorina Rottenmeier è la governante, Dete la zia di Heidi",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il clown della TV che Bart Simpson adora?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Krusty",
+    "Pennywise",
+    "Bozo",
+    "Telespalla Bob"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "simpson"
+   ],
+   "notes": "Krusty il clown; Telespalla Bob è la sua ex spalla",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è il cartone \"Peppa Pig\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Stati Uniti",
+    "Australia",
+    "Regno Unito",
+    "Canada"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "cartoni",
+    "bambini"
+   ],
+   "notes": "Peppa Pig è prodotta in Inghilterra dal 2004",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "A che cosa corrispondono i nomi in codice dei rapinatori de \"La casa di carta\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "A pianeti",
+    "A città",
+    "A pittori",
+    "A fiumi"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "Tokyo, Berlino, Mosca, Nairobi, Rio, Denver, Helsinki, Oslo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il continente dei Sette Regni ne \"Il Trono di Spade\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "regina",
+   "answers": [
+    "Westeros",
+    "Essos",
+    "Mordor",
+    "Narnia"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "serie tv",
+    "fantasy"
+   ],
+   "notes": "Westeros; Essos è il continente orientale di Daenerys",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che animale è Orazio, l'amico di Topolino?",
+   "category": "TV e spettacolo",
+   "difficulty": 2,
+   "presenter": "palmino",
+   "answers": [
+    "Una mucca",
+    "Un cane",
+    "Un cavallo",
+    "Un asino"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "Orazio Cavezza è un cavallo, fidanzato di Clarabella la mucca",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città è nata Raffaella Carrà?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Roma",
+    "Rimini",
+    "Bologna",
+    "Milano"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "conduttori",
+    "varietà"
+   ],
+   "notes": "Raffaella Pelloni nacque a Bologna nel 1943 e crebbe a Bellaria",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la prima moneta guadagnata da zio Paperone?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Numero Uno",
+    "Primo Cent",
+    "Dollarino",
+    "Stella d'oro"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "disney",
+    "fumetti"
+   ],
+   "notes": "La Numero Uno, la moneta portafortuna che Amelia vuole rubare",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama la strada di \"Desperate Housewives\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Elm Street",
+    "Sesame Street",
+    "Wisteria Lane",
+    "Melrose Place"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "serie tv"
+   ],
+   "notes": "Wisteria Lane, nel sobborgo di Fairview",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale lingua parla Pingu, il pinguino di plastilina?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Svizzero tedesco",
+    "Inglese",
+    "Norvegese",
+    "Una lingua inventata"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "cartoni",
+    "trabocchetto"
+   ],
+   "notes": "Pingu parla il \"pinguinese\", lingua senza senso inventata dai doppiatori",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è la serie animata \"Bluey\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Nuova Zelanda",
+    "Australia",
+    "Canada",
+    "Regno Unito"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "cartoni",
+    "bambini"
+   ],
+   "notes": "Bluey è prodotta a Brisbane, in Australia, dal 2018",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale creatura è sigillata dentro il ninja Naruto?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Un drago a tre teste",
+    "Un lupo bianco",
+    "Una tigre alata",
+    "Una volpe a nove code"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "Kurama, la Volpe a nove code",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Che lavoro fa Fred Flintstone negli \"Antenati\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Lavora in una cava",
+    "Fa il pescatore",
+    "Fa il cuoco",
+    "Fa il poliziotto"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "cartoni",
+    "hanna-barbera"
+   ],
+   "notes": "Fred manovra una gru-dinosauro nella cava di pietre di Bedrock",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Con quale nome erano noti Anna Marchesini, Massimo Lopez e Tullio Solenghi?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "La Smorfia",
+    "I Gufi",
+    "Il Trio",
+    "I Legnanesi"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "comici",
+    "rai"
+   ],
+   "notes": "Il Trio, celebre per la parodia dei Promessi sposi (1990)",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale artista, nata in una famiglia circense, era chiamata \"la regina del circo\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Wanda Osiris",
+    "Delia Scala",
+    "Carla Fracci",
+    "Moira Orfei"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "circo"
+   ],
+   "notes": "Moira Orfei (1931-2015); Wanda Osiris era la regina della rivista",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il premio della critica del Festival di Sanremo?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Premio Mia Martini",
+    "Premio Rino Gaetano",
+    "Premio Domenico Modugno",
+    "Premio Lucio Battisti"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "sanremo",
+    "musica"
+   ],
+   "notes": "Il premio della critica, nato nel 1982, porta dal 1996 il nome di Mia Martini; il premio della Sala Stampa è intitolato a Lucio Dalla",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In quale città è ambientata la soap \"Il paradiso delle signore\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "regina",
+   "answers": [
+    "Torino",
+    "Roma",
+    "Firenze",
+    "Milano"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "fiction",
+    "rai"
+   ],
+   "notes": "Il grande magazzino Il Paradiso, nella Milano degli anni Cinquanta e Sessanta",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "In \"Kiss Me Licia\", come si chiama la band di Mirko?",
+   "category": "TV e spettacolo",
+   "difficulty": 3,
+   "presenter": "palmino",
+   "answers": [
+    "Beatles",
+    "Rolling Mice",
+    "Happy Bees",
+    "Bee Hive"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "anime",
+    "cartoni"
+   ],
+   "notes": "I Bee Hive, poi protagonisti anche dei telefilm con Cristina D'Avena",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Di quale Paese è la serie Netflix \"Dark\" (2017)?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Germania",
+    "Danimarca",
+    "Svezia",
+    "Norvegia"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "serie tv",
+    "netflix"
+   ],
+   "notes": "Dark, prima serie Netflix in lingua tedesca",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quante edizioni consecutive del Festival di Sanremo ha condotto Amadeus dal 2020?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Tre",
+    "Quattro",
+    "Sei",
+    "Cinque"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "sanremo",
+    "conduttori"
+   ],
+   "notes": "Dal 2020 al 2024",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Chi condusse per primo \"Quelli che il calcio\", dal 1993?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Simona Ventura",
+    "Fabio Fazio",
+    "Bruno Pizzul",
+    "Paolo Bonolis"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "calcio",
+    "rai"
+   ],
+   "notes": "Fabio Fazio fino al 2001, poi Simona Ventura",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Come si chiama il cavallo a pois di Pippi Calzelunghe?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Fulmine",
+    "Zietto",
+    "Furia",
+    "Pallino"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "telefilm",
+    "animali"
+   ],
+   "notes": "Zietto, il cavallo che Pippi solleva con le braccia",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale regista diresse lo sceneggiato \"Gesù di Nazareth\" del 1977?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Pier Paolo Pasolini",
+    "Luigi Comencini",
+    "Franco Zeffirelli",
+    "Roberto Rossellini"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "sceneggiati",
+    "storia della tv"
+   ],
+   "notes": "Franco Zeffirelli, con Robert Powell",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nello sceneggiato \"Le avventure di Pinocchio\" del 1972, chi era la Fata Turchina?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Sophia Loren",
+    "Claudia Cardinale",
+    "Gina Lollobrigida",
+    "Monica Vitti"
+   ],
+   "correct": [
+    2
+   ],
+   "tags": [
+    "sceneggiati",
+    "storia della tv"
+   ],
+   "notes": "Gina Lollobrigida, nello sceneggiato di Luigi Comencini",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Winnie, l'orsa che ispirò Winnie the Pooh, prendeva il nome da quale città canadese?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "palmino",
+   "answers": [
+    "Toronto",
+    "Winnipeg",
+    "Vancouver",
+    "Montréal"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "curiosità",
+    "trabocchetto"
+   ],
+   "notes": "L'orsa Winnie, dello zoo di Londra, era stata portata da un soldato di Winnipeg",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Quale attrice interpretò Elisabetta II nelle prime due stagioni di \"The Crown\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Olivia Colman",
+    "Claire Foy",
+    "Imelda Staunton",
+    "Helen Mirren"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "serie tv",
+    "regno unito"
+   ],
+   "notes": "Claire Foy; poi Olivia Colman e Imelda Staunton",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Con quale titolo nacque nel 2001 il talent poi diventato \"Amici\"?",
+   "category": "TV e spettacolo",
+   "difficulty": 4,
+   "presenter": "regina",
+   "answers": [
+    "Grandi speranze",
+    "Fame",
+    "Generazione talento",
+    "Saranno famosi"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "talent",
+    "mediaset"
+   ],
+   "notes": "Saranno famosi (2001-2002), poi Amici di Maria De Filippi",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Qual è il vero nome di battesimo di Gerry Scotti?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Gerardo",
+    "Gennaro",
+    "Germano",
+    "Virginio"
+   ],
+   "correct": [
+    3
+   ],
+   "tags": [
+    "conduttori",
+    "trabocchetto"
+   ],
+   "notes": "Gerry Scotti si chiama Virginio Scotti",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Nel 1990 dove si tenne il Festival di Sanremo, invece che al Teatro Ariston?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Al Casinò",
+    "Al Palafiori",
+    "Al Teatro Carlo Felice",
+    "Al Forum di Assago"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "sanremo",
+    "trabocchetto"
+   ],
+   "notes": "Il 40° Festival si svolse al Palafiori di Sanremo",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Secondo la tradizione, in quale città è nato Pulcinella?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "professore",
+   "answers": [
+    "Acerra",
+    "Napoli",
+    "Sorrento",
+    "Caserta"
+   ],
+   "correct": [
+    0
+   ],
+   "tags": [
+    "teatro",
+    "trabocchetto"
+   ],
+   "notes": "La tradizione vuole Pulcinella nato ad Acerra, dove c'è un museo a lui dedicato",
+   "verified": true
+  },
+  {
+   "type": "single",
+   "text": "Qual era il cognome del conduttore conosciuto semplicemente come Corrado?",
+   "category": "TV e spettacolo",
+   "difficulty": 5,
+   "presenter": "regina",
+   "answers": [
+    "Mantovani",
+    "Mantoni",
+    "Marchetti",
+    "Manzoni"
+   ],
+   "correct": [
+    1
+   ],
+   "tags": [
+    "conduttori",
+    "storia della tv"
+   ],
+   "notes": "Corrado Mantoni (1924-1999)",
+   "verified": true
+  }
+ ]
+}

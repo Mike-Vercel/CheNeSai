@@ -1,0 +1,1069 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale articolo indeterminativo va davanti alla parola \"zio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Una",
+        "Uno",
+        "Lo",
+        "Un"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "grammatica",
+        "articoli"
+      ],
+      "notes": "Davanti a parola maschile che inizia per z si usa uno: uno zio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere un diavolo per capello\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avere i capelli ricci",
+        "Essere molto furbi",
+        "Essere molto arrabbiati",
+        "Avere paura del buio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Avere un diavolo per capello: essere di pessimo umore, furiosi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi va piano va sano e…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Arriva primo",
+        "Va spedito",
+        "Torna presto",
+        "Va lontano"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Proverbio: chi va piano va sano e va lontano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il contrario di \"concavo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Convesso",
+        "Piatto",
+        "Curvo",
+        "Profondo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "contrari"
+      ],
+      "notes": "Concavo (incavato) si oppone a convesso (bombato)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"carpe diem\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Cogli l'attimo",
+        "Ricordati che devi morire",
+        "Il dado è tratto",
+        "Conosci te stesso"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Orazio, Odi I 11: carpe diem, cogli il giorno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"rompere il ghiaccio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Litigare con qualcuno",
+        "Rovinare un'amicizia",
+        "Superare l'imbarazzo iniziale",
+        "Annunciare l'inverno"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Rompere il ghiaccio: avviare un rapporto o una conversazione superando l'imbarazzo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Il lupo perde il pelo ma non il…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vizio",
+        "Dente",
+        "Branco",
+        "Coraggio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Il lupo perde il pelo ma non il vizio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che tempo verbale è \"io amavo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Trapassato prossimo",
+        "Passato remoto",
+        "Presente",
+        "Imperfetto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Amavo: indicativo imperfetto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il femminile di \"eroe\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Erora",
+        "Eroa",
+        "Eroina",
+        "Eroessa"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "femminili"
+      ],
+      "notes": "Eroe, femminile eroina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"carusu\"?",
+      "category": "Lingua italiana",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ragazzo",
+        "Carretto",
+        "Cuscino",
+        "Formaggio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Carusu (caruso): ragazzo, giovanotto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste parole è scritta correttamente?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Ecezione",
+        "Eccezzione",
+        "Eccezione",
+        "Eccezsione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Si scrive eccezione, con due c e una sola z",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si scrive la terza persona del verbo \"fare\", in \"lui … i compiti\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Fà, con l'accento grave",
+        "Fá, con l'accento acuto",
+        "Fa', con l'apostrofo",
+        "Fa, senza accento"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ortografia",
+        "trabocchetto"
+      ],
+      "notes": "Fa, monosillabo, non vuole l'accento (Treccani, Crusca); fa' con l'apostrofo è l'imperativo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pronome è corretto in \"Ho visto Anna e … ho detto ciao\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Li",
+        "Lo",
+        "La",
+        "Le"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "grammatica",
+        "pronomi"
+      ],
+      "notes": "A lei si dice le (Ho visto Anna e le ho detto ciao); gli riferito a una donna è sentito come errore nella lingua curata (Crusca), quindi tolto dalle opzioni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"centinaio\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Le centinaie",
+        "Le centinaia",
+        "I centinai",
+        "I centinaii"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Centinaio ha il plurale femminile centinaia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che genere è la parola \"mano\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Femminile",
+        "Neutro",
+        "Maschile e femminile",
+        "Maschile"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "genere",
+        "trabocchetto"
+      ],
+      "notes": "La mano: nome femminile nonostante la desinenza in -o",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"mettere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Misi",
+        "Mettessi",
+        "Mettii",
+        "Mettei"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Mettere: io misi, tu mettesti, egli mise",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"essere una mosca bianca\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Essere fastidiosi",
+        "Essere innocenti",
+        "Essere una rarità",
+        "Essere molto pallidi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Mosca bianca: persona o cosa rarissima",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa il proverbio: \"Chi la fa…\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Se ne pente",
+        "L'aspetti",
+        "La rifà",
+        "Lo sa"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "proverbi"
+      ],
+      "notes": "Proverbio: chi la fa l'aspetti (chi fa un torto se lo aspetti a sua volta)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"ad hoc\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Di nascosto",
+        "Per sempre",
+        "Senza un motivo",
+        "Fatto apposta per uno scopo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Ad hoc: per questo, appositamente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"lungimirante\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Che parla a lungo",
+        "Che ha la vista debole",
+        "Che sa prevedere e guardare lontano",
+        "Che vive a lungo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Lungimirante: che vede lontano, previdente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In veneto, che cosa sono gli \"schei\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bambini",
+        "Soldi",
+        "Scarpe",
+        "Biscotti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "dialetti"
+      ],
+      "notes": "Schei: soldi, dal tedesco Scheidemünze (moneta spicciola)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In napoletano, chi è uno \"scugnizzo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Un venditore di pizze",
+        "Un pescatore",
+        "Un ragazzo di strada",
+        "Un vecchio brontolone"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "dialetti"
+      ],
+      "notes": "Scugnizzo: ragazzo di strada napoletano, vivace e furbo (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama un gruppo di uccelli in volo?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Gregge",
+        "Mandria",
+        "Stormo",
+        "Sciame"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "collettivi"
+      ],
+      "notes": "Stormo: gruppo di uccelli in volo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il mese di luglio prende il nome da?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Giano",
+        "Giulio Cesare",
+        "Giunone",
+        "Augusto"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Iulius, in onore di Giulio Cesare; agosto da Augusto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che modo verbale è \"parlerei\"?",
+      "category": "Lingua italiana",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Imperativo",
+        "Indicativo",
+        "Congiuntivo",
+        "Condizionale"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Parlerei: condizionale presente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è la grafia corretta?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Accellerare",
+        "Accelerare",
+        "Acelerare",
+        "Accelerrare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ortografia"
+      ],
+      "notes": "Accelerare, con una sola l (latino accelerare)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è l'infinito del verbo che ha come participio \"redatto\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Redarre",
+        "Redigere",
+        "Redire",
+        "Redattare"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Redatto è il participio passato di redigere",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Completa correttamente: \"Benché … tardi, uscimmo lo stesso\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Sia",
+        "Era",
+        "Fosse",
+        "Sarebbe"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "verbi",
+        "congiuntivo"
+      ],
+      "notes": "Benché vuole il congiuntivo; con il passato remoto nella principale: fosse",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale maschile di \"belga\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Belga",
+        "Belgi",
+        "Belgii",
+        "Belghi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "plurali"
+      ],
+      "notes": "Belga, plurale maschile belgi (eccezione ai nomi in -ga)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che genere è la parola \"dinamo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Femminile",
+        "Maschile",
+        "Maschile e femminile",
+        "Neutro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "genere",
+        "trabocchetto"
+      ],
+      "notes": "La dinamo: femminile, come la radio e la moto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il passato remoto di \"nascere\" alla prima persona singolare?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nacqui",
+        "Nasqui",
+        "Nascetti",
+        "Nascei"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "verbi"
+      ],
+      "notes": "Nascere: io nacqui",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"sibillino\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Velenoso",
+        "Rapidissimo",
+        "Fischiante",
+        "Oscuro, enigmatico"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Dalle Sibille, profetesse dai responsi oscuri: sibillino è enigmatico",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi è una \"Cassandra\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Una padrona di casa ospitale",
+        "Chi prevede sventure senza essere creduto",
+        "Chi tradisce gli amici",
+        "Una donna bellissima"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire",
+        "mitologia"
+      ],
+      "notes": "Cassandra, profetessa troiana condannata a non essere mai creduta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"avere la coda di paglia\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Vestirsi in modo trasandato",
+        "Scappare davanti al pericolo",
+        "Essere molto pigri",
+        "Sentirsi in colpa e reagire sulla difensiva"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "modi-di-dire"
+      ],
+      "notes": "Ha la coda di paglia chi, sentendosi in colpa, si offende al minimo accenno",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa l'espressione latina \"ex aequo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "In anticipo",
+        "Senza vincitori",
+        "Per eccezione",
+        "A pari merito"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "latino"
+      ],
+      "notes": "Ex aequo: alla pari, a pari merito",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Acireale?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Nisseni",
+        "Licatesi",
+        "Netini",
+        "Acesi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "demonimi",
+        "sicilia"
+      ],
+      "notes": "Acireale: acesi (Noto netini, Caltanissetta nisseni, Licata licatesi)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "La parola \"quarantena\" si riferisce in origine a…?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Quaranta persone isolate",
+        "Un ospedale con quaranta letti",
+        "Quaranta giorni di isolamento",
+        "Una nave con quaranta marinai"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "etimologia"
+      ],
+      "notes": "Dal veneziano quarantena: i 40 giorni di isolamento imposti a navi e viaggiatori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante sillabe ha la parola \"aereo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sillabe",
+        "trabocchetto"
+      ],
+      "notes": "A-e-re-o: a ed e sono vocali forti in iato e stanno in sillabe diverse",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il plurale di \"eco\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Gli echi",
+        "Le eco",
+        "Le eche",
+        "Gli eco"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "plurali",
+        "trabocchetto"
+      ],
+      "notes": "Treccani: eco s. f. o m., pl. echi, unicamente maschile: gli echi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"pedissequo\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Che è molto preciso",
+        "Che imita senza originalità",
+        "Che è lento",
+        "Che va a piedi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Pedissequo (lat. pedisequus, servo che segue): che segue o imita servilmente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa vuol dire \"andare a Canossa\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Fare un lungo viaggio",
+        "Umiliarsi ammettendo un errore",
+        "Prepararsi alla guerra",
+        "Cambiare idea di continuo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "modi-di-dire",
+        "storia"
+      ],
+      "notes": "Nel 1077 l'imperatore Enrico IV si umiliò a Canossa davanti a papa Gregorio VII",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica è dire \"le vele\" per indicare le navi, la parte per il tutto?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Metafora",
+        "Sineddoche",
+        "Litote",
+        "Anafora"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "La sineddoche usa la parte per il tutto (vele per navi)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti del Madagascar?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Malgasci",
+        "Madagaschi",
+        "Madagassi",
+        "Madagascarini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "demonimi"
+      ],
+      "notes": "Madagascar: malgasci (Treccani)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il \"galateo\" prende il nome da un trattato di quale autore del Cinquecento?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Niccolò Machiavelli",
+        "Baldassarre Castiglione",
+        "Pietro Bembo",
+        "Giovanni Della Casa"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "etimologia",
+        "storia-lingua"
+      ],
+      "notes": "Il Galateo overo de' costumi di Giovanni Della Casa (1558), dedicato a Galeazzo (Galatheo) Florimonte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In siciliano, che cosa vuol dire \"ammuttari\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ammucchiare",
+        "Ammutolire",
+        "Mettere in salvo",
+        "Spingere"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "siciliano"
+      ],
+      "notes": "Ammuttari: spingere (ammutta! = spingi!)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che parte del discorso è \"carponi\"?",
+      "category": "Lingua italiana",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Verbo",
+        "Aggettivo",
+        "Avverbio",
+        "Nome"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "grammatica",
+        "trabocchetto"
+      ],
+      "notes": "Carponi è un avverbio di modo (camminare carponi), come ginocchioni e penzoloni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa \"tetragono\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Molto anziano",
+        "Triste e cupo",
+        "Saldo e irremovibile",
+        "Di forma triangolare"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "significati"
+      ],
+      "notes": "Dante, Paradiso XVII: \"ben tetragono ai colpi di ventura\", cioè saldo, incrollabile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che figura retorica dispone le parole a incrocio, come in \"Le donne, i cavallier, l'arme, gli amori\"?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Chiasmo",
+        "Climax",
+        "Endiadi",
+        "Anafora"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "retorica"
+      ],
+      "notes": "Ariosto: donne/amori e cavallier/arme si corrispondono a incrocio (chiasmo)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano gli abitanti di Gubbio?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Eugubini",
+        "Tifernati",
+        "Spoletini",
+        "Folignati"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "demonimi"
+      ],
+      "notes": "Gubbio, l'antica Iguvium: eugubini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu fondato l'Istituto dell'Enciclopedia Italiana di Giovanni Treccani?",
+      "category": "Lingua italiana",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1925",
+        "1946",
+        "1861",
+        "1903"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "storia-lingua"
+      ],
+      "notes": "L'Istituto Giovanni Treccani fu fondato il 18 febbraio 1925",
+      "verified": true
+    }
+  ]
+}

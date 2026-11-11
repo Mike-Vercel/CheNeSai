@@ -1,0 +1,1101 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale strumento ha un mantice che si apre e si chiude mentre si suona?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fisarmonica",
+        "Armonica a bocca",
+        "Clarinetto",
+        "Clavicembalo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "La fisarmonica produce il suono con l'aria spinta da un mantice",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Fin che la barca va\", nel 1970?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Iva Zanicchi",
+        "Orietta Berti",
+        "Milva",
+        "Rita Pavone"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Fin che la barca va\" (1970) è il grande successo di Orietta Berti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Certe notti\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Vasco Rossi",
+        "Francesco Renga",
+        "Piero Pelù",
+        "Luciano Ligabue"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "rock",
+        "italia"
+      ],
+      "notes": "\"Certe notti\" (1995) è uno dei brani più noti di Ligabue, dall'album \"Buon compleanno Elvis\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante sudcoreano lanciò il tormentone \"Gangnam Style\", nel 2012?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "G-Dragon",
+        "Rain",
+        "Jungkook",
+        "Psy"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Gangnam Style\" (2012) del rapper sudcoreano Psy",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band britannica ha inciso \"Yellow\" e \"Viva la Vida\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Radiohead",
+        "Coldplay",
+        "Oasis",
+        "Muse"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Yellow\" (2000) e \"Viva la Vida\" (2008) sono dei Coldplay",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Strani amori\", del 1994?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Irene Grandi",
+        "Laura Pausini",
+        "Elisa",
+        "Giorgia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"Strani amori\" (1994) è uno dei primi successi di Laura Pausini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trova il Teatro La Fenice?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Verona",
+        "Trieste",
+        "Venezia",
+        "Padova"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "teatri",
+        "italia"
+      ],
+      "notes": "La Fenice è il teatro d'opera di Venezia, inaugurato nel 1792",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Questo piccolo grande amore\"?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Riccardo Cocciante",
+        "Renato Zero",
+        "Antonello Venditti",
+        "Claudio Baglioni"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Brano e album del 1972 di Claudio Baglioni",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi ha cantato \"Imagine\", nel 1971?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Bob Dylan",
+        "John Lennon",
+        "Elton John",
+        "Paul McCartney"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "pop",
+        "mondo"
+      ],
+      "notes": "\"Imagine\" è il singolo solista di John Lennon del 1971",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nota viene subito dopo il \"mi\" nella scala di do?",
+      "category": "Musica",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Fa",
+        "Sol",
+        "Re",
+        "La"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Do, re, mi, fa, sol, la, si",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città italiana si tenne l'Eurovision del 2022, dopo la vittoria dei Måneskin?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Torino",
+        "Sanremo",
+        "Roma",
+        "Milano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "eurovision",
+        "italia"
+      ],
+      "notes": "L'Eurovision Song Contest 2022 si svolse al PalaOlimpico di Torino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale opera di Verdi si canta \"La donna è mobile\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Aida",
+        "Il trovatore",
+        "La traviata",
+        "Rigoletto"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica",
+        "verdi"
+      ],
+      "notes": "\"La donna è mobile\" è l'aria del Duca di Mantova nel \"Rigoletto\" (1851)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il segno che alza una nota di un semitono?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Corona",
+        "Bemolle",
+        "Bequadro",
+        "Diesis"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "teoria"
+      ],
+      "notes": "Il diesis alza di un semitono, il bemolle abbassa, il bequadro annulla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante vinse il Festival di Sanremo 2017 con \"Occidentali's Karma\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Marco Masini",
+        "Francesco Gabbani",
+        "Ermal Meta",
+        "Fabrizio Moro"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Gabbani vinse Sanremo 2017 con \"Occidentali's Karma\", quella della scimmia che balla",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore cantò \"Tutto il resto è noia\", nel 1977?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Antonello Venditti",
+        "Renato Zero",
+        "Franco Califano",
+        "Claudio Baglioni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Tutto il resto è noia\" (1977) è di Franco Califano, detto \"il Califfo\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi canta \"Margherita\", successo del 1976?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Riccardo Cocciante",
+        "Renato Zero",
+        "Umberto Tozzi",
+        "Claudio Baglioni"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "\"Margherita\" (1976) è di Riccardo Cocciante",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale balletto di Čajkovskij si svolge la vigilia di Natale?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Il lago dei cigni",
+        "Giselle",
+        "La bella addormentata",
+        "Lo schiaccianoci"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "balletto"
+      ],
+      "notes": "\"Lo schiaccianoci\" (1892) inizia con la festa della vigilia di Natale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose \"Per Elisa\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Franz Schubert",
+        "Fryderyk Chopin",
+        "Ludwig van Beethoven",
+        "Wolfgang Amadeus Mozart"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "\"Für Elise\" è una bagatella per pianoforte di Beethoven",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Sullo spartito, che cosa indica la parola \"crescendo\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Aumentare piano piano il volume",
+        "Accelerare piano piano il tempo",
+        "Ripetere la frase",
+        "Salire di un'ottava"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "teoria",
+        "trabocchetto"
+      ],
+      "notes": "\"Crescendo\" indica un aumento graduale dell'intensità sonora, non della velocità",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi tenori NON faceva parte dei Tre Tenori?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Andrea Bocelli",
+        "Luciano Pavarotti",
+        "José Carreras",
+        "Plácido Domingo"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "lirica",
+        "trabocchetto"
+      ],
+      "notes": "I Tre Tenori (dal 1990): Pavarotti, Domingo e Carreras. Bocelli non ne faceva parte",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale strumento a percussione è formato da piastre di legno colpite con le bacchette?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Glockenspiel",
+        "Timpano",
+        "Xilofono",
+        "Vibrafono"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "strumenti"
+      ],
+      "notes": "Lo xilofono ha piastre di legno; vibrafono e glockenspiel le hanno di metallo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band bolognese ha inciso \"50 Special\", nel 1999?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Modà",
+        "883",
+        "Negramaro",
+        "Lùnapop"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "\"50 Special\" (1999) dei Lùnapop di Cesare Cremonini",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si svolge lo Zecchino d'Oro?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Bologna",
+        "Milano",
+        "Torino",
+        "Roma"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bambini",
+        "italia"
+      ],
+      "notes": "Lo Zecchino d'Oro si tiene all'Antoniano di Bologna",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di queste opere NON è di Giuseppe Verdi?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Rigoletto",
+        "Falstaff",
+        "Tosca",
+        "Otello"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "lirica",
+        "verdi",
+        "trabocchetto"
+      ],
+      "notes": "\"Tosca\" è di Giacomo Puccini (1900)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi cantava \"Abbronzatissima\" e \"I Watussi\"?",
+      "category": "Musica",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Gianni Morandi",
+        "Jimmy Fontana",
+        "Edoardo Vianello",
+        "Little Tony"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "pop",
+        "italia"
+      ],
+      "notes": "Due successi del 1963 di Edoardo Vianello",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band ha inciso \"The Final Countdown\", nel 1986?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Europe",
+        "Bon Jovi",
+        "Def Leppard",
+        "Scorpions"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "\"The Final Countdown\" è degli svedesi Europe (1986)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale compositore è la celebre sinfonia \"Incompiuta\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Joseph Haydn",
+        "Franz Schubert",
+        "Ludwig van Beethoven",
+        "Johannes Brahms"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "classica"
+      ],
+      "notes": "La Sinfonia in si minore \"Incompiuta\" è di Franz Schubert (1822)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gruppo inglese era formato da Sting, Andy Summers e Stewart Copeland?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Genesis",
+        "The Clash",
+        "The Police",
+        "Dire Straits"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "Il trio dei Police (1977-1986)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città umbra si tiene il \"Festival dei Due Mondi\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Spoleto",
+        "Perugia",
+        "Todi",
+        "Gubbio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "festival",
+        "italia"
+      ],
+      "notes": "Fondato da Gian Carlo Menotti a Spoleto nel 1958",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città nacque Gaetano Donizetti?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Cremona",
+        "Bergamo",
+        "Bologna",
+        "Brescia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica",
+        "italia"
+      ],
+      "notes": "Donizetti nacque a Bergamo nel 1797",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore vinse il Festival di Sanremo 2011 con \"Chiamami ancora amore\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Enrico Ruggeri",
+        "Eugenio Finardi",
+        "Roberto Vecchioni",
+        "Gino Paoli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Roberto Vecchioni vinse Sanremo 2011",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la villa di Elvis Presley a Memphis?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Paisley Park",
+        "Graceland",
+        "Neverland",
+        "Xanadu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "mondo"
+      ],
+      "notes": "Graceland, a Memphis, fu la casa di Elvis dal 1957",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantautore presentò \"Ciao amore, ciao\" al Festival di Sanremo del 1967?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Sergio Endrigo",
+        "Luigi Tenco",
+        "Bruno Lauzi",
+        "Gino Paoli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cantautori",
+        "sanremo"
+      ],
+      "notes": "Luigi Tenco, Sanremo 1967 (in coppia con Dalida)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la band di Bob Marley?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "The Wailers",
+        "Toots and the Maytals",
+        "UB40",
+        "The Skatalites"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "reggae",
+        "mondo"
+      ],
+      "notes": "Bob Marley and the Wailers",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale direttore d'orchestra parmense guidò la Scala e poi l'orchestra della NBC a New York?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Carlo Maria Giulini",
+        "Claudio Abbado",
+        "Arturo Toscanini",
+        "Riccardo Muti"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "direttori",
+        "italia"
+      ],
+      "notes": "Arturo Toscanini, nato a Parma, diresse la NBC Symphony Orchestra dal 1937",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale compositore americano scrisse la \"Rapsodia in blu\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Aaron Copland",
+        "Leonard Bernstein",
+        "Cole Porter",
+        "George Gershwin"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "mondo"
+      ],
+      "notes": "\"Rhapsody in Blue\" (1924) è di George Gershwin",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cantante vinse il Festival di Sanremo del 1995 con \"Come saprei\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Irene Grandi",
+        "Elisa",
+        "Laura Pausini",
+        "Giorgia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Giorgia vinse Sanremo 1995 con \"Come saprei\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose la \"Marcia nuziale\" del \"Sogno di una notte di mezza estate\"?",
+      "category": "Musica",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Franz Schubert",
+        "Richard Wagner",
+        "Robert Schumann",
+        "Felix Mendelssohn"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "La marcia è di Mendelssohn (1842); quella di Wagner è il coro nuziale del \"Lohengrin\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città marchigiana è nata l'industria italiana della fisarmonica?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Fabriano",
+        "Castelfidardo",
+        "Recanati",
+        "Ascoli Piceno"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "strumenti",
+        "italia"
+      ],
+      "notes": "Paolo Soprani avviò la produzione a Castelfidardo nel 1863",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale band vinse il Festival di Sanremo 2016 con \"Un giorno mi dirai\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Stadio",
+        "Negramaro",
+        "Pooh",
+        "Modà"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sanremo",
+        "italia"
+      ],
+      "notes": "Gli Stadio, band bolognese, vinsero Sanremo 2016",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi compose la celebre \"Marcia di Radetzky\"?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Johann Strauss figlio",
+        "Josef Strauss",
+        "Franz Lehár",
+        "Johann Strauss padre"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "classica",
+        "trabocchetto"
+      ],
+      "notes": "La marcia (1848) è di Johann Strauss padre; il figlio è l'autore di \"Sul bel Danubio blu\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale famiglia di liutai è considerata la fondatrice della scuola di Cremona?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ruggeri",
+        "Amati",
+        "Guarneri",
+        "Bergonzi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "liuteria",
+        "italia"
+      ],
+      "notes": "Andrea Amati (XVI secolo) fondò la scuola liutaria cremonese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si tenne l'Eurovision del 1991, organizzato dall'Italia?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Sanremo",
+        "Milano",
+        "Roma",
+        "Torino"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "eurovision",
+        "italia"
+      ],
+      "notes": "Dopo la vittoria di Toto Cutugno, l'edizione 1991 si svolse a Roma, negli studi di Cinecittà",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato americano nacque Elvis Presley?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Louisiana",
+        "Mississippi",
+        "Texas",
+        "Tennessee"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "rock",
+        "mondo",
+        "trabocchetto"
+      ],
+      "notes": "Elvis nacque a Tupelo, Mississippi (1935); si trasferì poi a Memphis, Tennessee",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fu l'ultima opera di Giuseppe Verdi, andata in scena nel 1893?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Don Carlos",
+        "Otello",
+        "Aida",
+        "Falstaff"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "lirica",
+        "verdi"
+      ],
+      "notes": "\"Falstaff\" debuttò alla Scala il 9 febbraio 1893",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fondò e diresse per anni il Piccolo Coro dell'Antoniano?",
+      "category": "Musica",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Mariele Ventre",
+        "Cino Tortorella",
+        "Rita Pavone",
+        "Orietta Berti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "bambini",
+        "italia"
+      ],
+      "notes": "Mariele Ventre fondò il coro nel 1963 e lo diresse fino al 1995",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale paroliere Lucio Battisti scrisse i suoi ultimi album, dopo Mogol?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "regina",
+      "answers": [
+        "Pasquale Panella",
+        "Franco Migliacci",
+        "Sergio Bardotti",
+        "Vito Pallavicini"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "cantautori",
+        "italia"
+      ],
+      "notes": "Gli album dal 1986 (\"Don Giovanni\") al 1994 hanno i testi di Pasquale Panella",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno il \"Canto degli Italiani\" diventò per legge l'inno nazionale ufficiale?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "1861",
+        "1948",
+        "2017",
+        "1946"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "inni",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Era inno \"provvisorio\" dal 1946; è ufficiale con la legge n. 181 del 4 dicembre 2017",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si trovava Eduardo Di Capua quando compose \"'O sole mio\"?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Parigi",
+        "Napoli",
+        "Odessa",
+        "New York"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "napoletana",
+        "trabocchetto"
+      ],
+      "notes": "Di Capua compose la melodia nel 1898 mentre era in tournée a Odessa, sul Mar Nero",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale nome d'arte era noto il cantante castrato Carlo Broschi?",
+      "category": "Musica",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Caffarelli",
+        "Farinelli",
+        "Guadagni",
+        "Senesino"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "lirica"
+      ],
+      "notes": "Carlo Broschi (1705-1782) era il celebre Farinelli",
+      "verified": true
+    }
+  ]
+}

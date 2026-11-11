@@ -1,0 +1,1076 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quale fonte di energia sfruttano le turbine eoliche?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Il sole",
+        "L'acqua",
+        "Il calore della terra",
+        "Il vento"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "energia"
+      ],
+      "notes": "Eolico viene da Eolo, dio dei venti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale mezzo pubblico viaggia sotto terra nelle grandi città?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Tram",
+        "Filobus",
+        "Metropolitana",
+        "Funivia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "La metropolitana corre in gallerie sotterranee",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamano le piccole immagini di faccine e cuori che si usano in chat?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Avatar",
+        "Emoji",
+        "Hashtag",
+        "Meme"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Le emoji sono pittogrammi usati nei messaggi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'agenzia spaziale degli Stati Uniti?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "NASA",
+        "ESA",
+        "ASI",
+        "Roscosmos"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "NASA, fondata nel 1958; ESA è europea, ASI italiana, Roscosmos russa",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale motocarro a tre ruote produce la Piaggio dal 1948?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Vespa",
+        "Ciao",
+        "Lambretta",
+        "Ape"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "L'Ape Piaggio nasce nel 1948; la Lambretta era della Innocenti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale apparecchio collegato al computer mette i documenti su carta?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Scanner",
+        "Monitor",
+        "Stampante",
+        "Router"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "La stampante produce copie su carta",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale frutto è il simbolo dell'azienda Apple?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Una pera",
+        "Una mela",
+        "Un'arancia",
+        "Una ciliegia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aziende"
+      ],
+      "notes": "Il logo è una mela morsicata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la piccola memoria portatile che si infila nella porta USB?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Chiavetta",
+        "Scheda madre",
+        "Ventola",
+        "Alimentatore"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "La chiavetta USB è una memoria flash portatile",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parola segreta che serve per entrare in un account?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Username",
+        "Hashtag",
+        "Avatar",
+        "Password"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "La password protegge l'accesso all'account",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale mezzo vola grazie a grandi pale che girano sopra la cabina?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Aliante",
+        "Mongolfiera",
+        "Elicottero",
+        "Idrovolante"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aviazione"
+      ],
+      "notes": "Le pale del rotore danno all'elicottero la spinta verso l'alto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale elettrodomestico nacque dopo che un radar sciolse una barretta di cioccolato?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Frigorifero",
+        "Forno a microonde",
+        "Lavastoviglie",
+        "Tostapane"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "casa",
+        "invenzioni"
+      ],
+      "notes": "Percy Spencer, Raytheon, brevetto del 1945",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama una trasmissione audio da ascoltare quando si vuole su Internet?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Podcast",
+        "Videochiamata",
+        "Blog",
+        "Newsletter"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Podcast unisce iPod e broadcast",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale mezzo l'uomo volò per la prima volta, nel 1783 in Francia?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Aliante",
+        "Dirigibile",
+        "Elicottero",
+        "Mongolfiera"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "aviazione"
+      ],
+      "notes": "21 novembre 1783: Pilâtre de Rozier e d'Arlandes su una mongolfiera dei Montgolfier",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il veliero scuola della Marina Militare detto \"la nave più bella del mondo\"?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Cristoforo Colombo",
+        "Andrea Doria",
+        "Amerigo Vespucci",
+        "Giuseppe Garibaldi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "navi",
+        "italia"
+      ],
+      "notes": "Varata nel 1931, è il veliero scuola più famoso della Marina",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la cosiddetta scatola nera degli aerei?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nera",
+        "Arancione",
+        "Grigia",
+        "Blu"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aviazione",
+        "trabocchetto"
+      ],
+      "notes": "È arancione o rossa fluorescente per essere ritrovata più facilmente",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale lettore portatile di cassette lanciò la Sony nel 1979?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Walkman",
+        "Discman",
+        "iPod",
+        "Stereo 8"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "musica",
+        "elettronica"
+      ],
+      "notes": "Il primo Walkman, TPS-L2, uscì nel luglio 1979",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa produceva Ferruccio Lamborghini prima delle auto sportive?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Motociclette",
+        "Biciclette",
+        "Aerei",
+        "Trattori"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Lamborghini Trattori fu fondata nel 1948, le auto arrivarono nel 1963",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Qual è il prefisso telefonico internazionale dell'Italia?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "33",
+        "34",
+        "39",
+        "41"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telefonia",
+        "italia"
+      ],
+      "notes": "Italia +39; Francia +33, Spagna +34, Svizzera +41",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali fratelli francesi presentarono il cinematografo a Parigi nel 1895?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Montgolfier",
+        "Lumière",
+        "Pathé",
+        "Michelin"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "cinema",
+        "invenzioni"
+      ],
+      "notes": "Prima proiezione pubblica a pagamento: 28 dicembre 1895, Grand Café di Parigi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa produce l'azienda bergamasca Brembo, famosa in Formula 1?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Freni",
+        "Pneumatici",
+        "Motori",
+        "Volanti"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto",
+        "sport"
+      ],
+      "notes": "Brembo, fondata nel 1961, è specializzata in impianti frenanti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su molti programmi per computer, quale tasto apre la guida?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "F5",
+        "F12",
+        "Esc",
+        "F1"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "F1 apre di solito l'aiuto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale veicolo spaziale americano partiva come un razzo e atterrava come un aereo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Saturn",
+        "Soyuz",
+        "Space Shuttle",
+        "Apollo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Lo Space Shuttle volò dal 1981 al 2011",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indica la sigla 4K su un televisore?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "La grandezza",
+        "La risoluzione",
+        "Il consumo",
+        "Il numero di canali"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "televisione"
+      ],
+      "notes": "4K: circa 4000 pixel in orizzontale",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la parola preceduta dal cancelletto che si usa sui social?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Hashtag",
+        "Menzione",
+        "Link",
+        "Emoji"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Il cancelletto davanti a una parola crea un hashtag",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa raffigura il simbolo verde di Android?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un alieno",
+        "Una rana",
+        "Un dinosauro",
+        "Un robot"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "La mascotte di Android è un piccolo robot verde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu nel 2013 il primo italiano a fare una passeggiata spaziale?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Paolo Nespoli",
+        "Roberto Vittori",
+        "Luca Parmitano",
+        "Umberto Guidoni"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Parmitano uscì dalla Stazione spaziale il 9 luglio 2013",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale computer Commodore del 1982 prendeva il nome dalla sua memoria in kilobyte?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Vic-20",
+        "Commodore 64",
+        "Amiga 500",
+        "Commodore 16"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Il Commodore 64 aveva 64 kilobyte di RAM",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda costruì il cellulare usato per la prima telefonata portatile, nel 1973?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Motorola",
+        "Nokia",
+        "Ericsson",
+        "Siemens"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Martin Cooper chiamò da un prototipo Motorola DynaTAC il 3 aprile 1973",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale codice identifica in modo unico ogni telefono cellulare?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "PIN",
+        "PUK",
+        "SIM",
+        "IMEI"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "L'IMEI è il numero di serie internazionale del dispositivo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la stazione spaziale sovietica e poi russa in orbita dal 1986 al 2001?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Skylab",
+        "Tiangong",
+        "Mir",
+        "Columbus"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "La Mir fu fatta rientrare nel marzo 2001; Skylab era americana",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il sistema di scrittura facilitata dei vecchi cellulari a tasti?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "T12",
+        "T9",
+        "Qwerty",
+        "Swype"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "T9 significa text on 9 keys",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale computer dell'IBM sconfisse nel 1997 il campione di scacchi Garry Kasparov?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Deep Blue",
+        "Watson",
+        "Deep Thought",
+        "Big Blue"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Deep Blue vinse il match del maggio 1997 per 3,5 a 2,5",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi fu nel 1992 il primo astronauta italiano a volare nello spazio?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Luca Parmitano",
+        "Paolo Nespoli",
+        "Umberto Guidoni",
+        "Franco Malerba"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "spazio",
+        "italia"
+      ],
+      "notes": "Malerba volò sullo Space Shuttle Atlantis, missione STS-46, nel 1992",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da che cosa prendono il nome le Lancia Aurelia, Appia e Flaminia?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Imperatrici romane",
+        "Città italiane",
+        "Strade romane",
+        "Dee greche"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Sono le antiche vie consolari romane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese è nato il videogioco Angry Birds?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Svezia",
+        "Finlandia",
+        "Corea del Sud",
+        "Canada"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Angry Birds è della finlandese Rovio, 2009",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Paese si trova il cosmodromo di Baikonur, da cui partì Gagarin?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Kazakistan",
+        "Russia",
+        "Ucraina",
+        "Mongolia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio",
+        "trabocchetto"
+      ],
+      "notes": "Baikonur è in Kazakistan, affittato dalla Russia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città americana Enrico Fermi realizzò nel 1942 il primo reattore nucleare?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "New York",
+        "Los Alamos",
+        "Boston",
+        "Chicago"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "nucleare",
+        "italia"
+      ],
+      "notes": "Chicago Pile-1, prima reazione a catena controllata il 2 dicembre 1942",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quanto durava la batteria in conversazione del primo cellulare in vendita, il DynaTAC del 1983?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Circa una settimana",
+        "Circa due giorni",
+        "Circa mezz'ora",
+        "Circa dieci ore"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telefonia",
+        "trabocchetto"
+      ],
+      "notes": "Il Motorola DynaTAC 8000X: 30 minuti di conversazione, 10 ore di ricarica",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale azienda italiana sviluppò il treno ad assetto variabile Pendolino?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Ansaldo",
+        "Fiat Ferroviaria",
+        "Breda",
+        "Piaggio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "Il Pendolino fu sviluppato da Fiat Ferroviaria; l'ETR 450 entrò in servizio nel 1988",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il nome dei test CAPTCHA, che distinguono umani e computer, cita quale matematico?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Alan Turing",
+        "John von Neumann",
+        "Charles Babbage",
+        "Blaise Pascal"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Tra quali due città inglesi viaggiò nel 1825 la prima ferrovia pubblica a vapore?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Liverpool e Manchester",
+        "Londra e Birmingham",
+        "Leeds e York",
+        "Stockton e Darlington"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "La Stockton and Darlington Railway aprì il 27 settembre 1825",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi furono i primi passeggeri di una mongolfiera, nel settembre 1783?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Due contadini",
+        "Il re e la regina",
+        "Una pecora, un'anatra e un gallo",
+        "Due soldati"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "aviazione",
+        "trabocchetto"
+      ],
+      "notes": "Volo di prova a Versailles il 19 settembre 1783, davanti a Luigi XVI",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Con quale aereo Charles Lindbergh attraversò l'Atlantico da solo nel 1927?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Southern Cross",
+        "Spirit of St. Louis",
+        "Wright Flyer",
+        "Gipsy Moth"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aviazione"
+      ],
+      "notes": "Volo New York-Parigi del 20-21 maggio 1927",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fu la prima autostrada italiana, inaugurata nel 1924?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Milano-Laghi",
+        "Torino-Milano",
+        "Napoli-Pompei",
+        "Firenze-Mare"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "Milano-Laghi 1924; Napoli-Pompei 1929, Torino-Milano e Firenze-Mare 1932-33",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significa la parola hawaiana wiki, da cui viene il nome Wikipedia?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Sapere",
+        "Libro",
+        "Insieme",
+        "Veloce"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Wiki wiki in hawaiano significa veloce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "A quale pianta si ispirò lo svizzero George de Mestral per inventare il velcro?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Ortica",
+        "Edera",
+        "Bardana",
+        "Girasole"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "I frutti uncinati della bardana gli si attaccavano ai vestiti e al cane",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale satellite trasmise nel 1962 le prime immagini televisive in diretta tra America ed Europa?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sputnik",
+        "Telstar",
+        "Echo",
+        "Early Bird"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Telstar 1, luglio 1962",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa fu il primo prodotto venduto leggendo il codice a barre, nel 1974?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Un pacchetto di gomme da masticare",
+        "Una scatola di cereali",
+        "Una bottiglia di latte",
+        "Un barattolo di caffè"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "commercio"
+      ],
+      "notes": "Gomme Juicy Fruit, supermercato Marsh di Troy (Ohio), 26 giugno 1974",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città Angelo Moriondo brevettò nel 1884 una macchina per il caffè espresso?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Milano",
+        "Napoli",
+        "Trieste",
+        "Torino"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "caffè",
+        "italia"
+      ],
+      "notes": "Brevetto del 1884, presentata all'Esposizione generale di Torino",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale frase biblica trasmise Samuel Morse nel primo messaggio telegrafico ufficiale del 1844?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Sia fatta la luce",
+        "In principio era il Verbo",
+        "Che cosa ha operato Dio",
+        "Ama il prossimo tuo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telecomunicazioni"
+      ],
+      "notes": "\"What hath God wrought\" (Numeri 23,23; nella CEI \"che cosa opera Dio\"), da Washington a Baltimora, 24 maggio 1844",
+      "verified": true
+    }
+  ]
+}

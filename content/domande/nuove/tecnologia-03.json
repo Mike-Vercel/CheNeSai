@@ -1,0 +1,1074 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Quali luci dell'auto illuminano la strada di notte?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "I fari",
+        "Le frecce",
+        "Le luci di stop",
+        "I retronebbia posteriori"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "I fari anteriori illuminano la strada; frecce e stop servono a segnalare",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la leva usata nei vecchi videogiochi per muovere il personaggio?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Mouse",
+        "Volante",
+        "Pedale",
+        "Joystick"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Joystick in inglese significa letteralmente \"bastone della gioia\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali due Paesi collega il tunnel ferroviario sotto la Manica?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Francia e Belgio",
+        "Regno Unito e Irlanda",
+        "Francia e Regno Unito",
+        "Belgio e Paesi Bassi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "L'Eurotunnel, aperto nel 1994, unisce Coquelles e Folkestone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale dispositivo dell'auto si gonfia in un attimo in caso di urto?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Cintura di sicurezza",
+        "Airbag",
+        "Poggiatesta",
+        "Paraurti"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "auto",
+        "sicurezza"
+      ],
+      "notes": "L'airbag è un cuscino che si gonfia con un gas",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la rete che collega i computer di tutto il mondo?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Internet",
+        "Intranet",
+        "Televideo",
+        "Radio"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Internet è la rete mondiale delle reti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama l'apparecchio che si collega alla TV per giocare ai videogiochi?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Decoder",
+        "Modem",
+        "Proiettore",
+        "Console"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "PlayStation, Xbox e Nintendo Switch sono console",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale eroe baffuto dei videogiochi Nintendo salta su funghi e tartarughe?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Sonic",
+        "Pac-Man",
+        "Super Mario",
+        "Donkey Kong"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Mario esordì nel 1981, la serie Super Mario Bros nel 1985",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa brevettò Alexander Graham Bell nel 1876?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "professore",
+      "answers": [
+        "Il telegrafo",
+        "Il telefono",
+        "Il grammofono",
+        "La radio"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Brevetto statunitense 174.465 del 7 marzo 1876",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica tedesca produceva il celebre Maggiolino?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "regina",
+      "answers": [
+        "Volkswagen",
+        "Opel",
+        "Audi",
+        "Mercedes-Benz"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "Il Maggiolino (Typ 1) è la Volkswagen prodotta dal 1938 al 2003",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale elettrodomestico tiene al fresco il cibo in cucina?",
+      "category": "Tecnologia",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Forno",
+        "Lavatrice",
+        "Tostapane",
+        "Frigorifero"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "casa"
+      ],
+      "notes": "Il frigorifero conserva i cibi a bassa temperatura",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale casa automobilistica ha nel logo il biscione di Milano?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Lancia",
+        "Maserati",
+        "Alfa Romeo",
+        "Fiat"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "italia"
+      ],
+      "notes": "Il logo Alfa Romeo unisce croce rossa e biscione visconteo di Milano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la ferrovia che collega Catania a Riposto passando per Adrano, Bronte e Randazzo?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Circumvesuviana",
+        "Circumetnea",
+        "Transiberiana",
+        "Porrettana"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti",
+        "sicilia"
+      ],
+      "notes": "La Ferrovia Circumetnea gira attorno all'Etna da Catania a Riposto, passando per Adrano, Bronte e Randazzo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa costruiva Henry Ford con la sua famosa catena di montaggio?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Automobili",
+        "Aerei",
+        "Locomotive",
+        "Biciclette"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "auto"
+      ],
+      "notes": "La Ford Modello T dal 1913 fu prodotta in catena di montaggio",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale animale compare al centro dello stemma della Porsche?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Un toro",
+        "Un leone",
+        "Un'aquila",
+        "Un cavallo"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "È il cavallo dello stemma di Stoccarda",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quali città collega l'Autostrada del Sole?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma e Reggio Calabria",
+        "Torino e Trieste",
+        "Milano e Napoli",
+        "Bologna e Bari"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti",
+        "italia"
+      ],
+      "notes": "L'A1 fu completata nel 1964 da Milano a Napoli",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa produce soprattutto la Pirelli, fondata a Milano nel 1872?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Elettrodomestici",
+        "Pneumatici",
+        "Motociclette",
+        "Occhiali"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "aziende",
+        "italia"
+      ],
+      "notes": "Pirelli è nota soprattutto per gli pneumatici",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale Stato americano si trova la base di lancio di Cape Canaveral?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Florida",
+        "Texas",
+        "California",
+        "Arizona"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Cape Canaveral è in Florida; Houston (Texas) è il controllo missione",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale leggenda antica dà il nome ai virus informatici detti trojan?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Il labirinto del Minotauro",
+        "Il vaso di Pandora",
+        "Il tallone d'Achille",
+        "Il cavallo di Troia"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "sicurezza"
+      ],
+      "notes": "Trojan horse: il programma nasconde codice dannoso come il cavallo di Troia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale marchio automobilistico tedesco ha come logo quattro anelli?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Opel",
+        "BMW",
+        "Audi",
+        "Volkswagen"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "loghi"
+      ],
+      "notes": "I quattro anelli ricordano l'unione di Audi, DKW, Horch e Wanderer nel 1932",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale Paese inaugurò nel 1964 il primo treno ad alta velocità, detto treno proiettile?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Francia",
+        "Giappone",
+        "Germania",
+        "Italia"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Lo Shinkansen Tokyo-Osaka fu aperto il 1 ottobre 1964",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale inventore americano dà il nome al codice fatto di punti e linee?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Samuel Morse",
+        "Thomas Edison",
+        "Alexander Bell",
+        "Benjamin Franklin"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telecomunicazioni"
+      ],
+      "notes": "Il codice Morse fu sviluppato da Samuel Morse e Alfred Vail negli anni 1830-40",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale parola inglese viene il nome del tasto Esc?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Escalate",
+        "Escort",
+        "Execute",
+        "Escape"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer"
+      ],
+      "notes": "Esc sta per escape, cioè uscire o sfuggire",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il cucciolo virtuale giapponese a forma di uovo, popolare negli anni Novanta?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "Furby",
+        "Pokémon",
+        "Tamagotchi",
+        "Game Boy"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "Il Tamagotchi di Bandai uscì nel 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale casa motociclistica italiana ha un'aquila nel marchio?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Ducati",
+        "Moto Guzzi",
+        "Aprilia",
+        "Benelli"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "moto",
+        "italia"
+      ],
+      "notes": "L'aquila di Moto Guzzi (Mandello del Lario); Benelli ha un leone",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il codice segreto che si digita per sbloccare la SIM all'accensione?",
+      "category": "Tecnologia",
+      "difficulty": 2,
+      "presenter": "regina",
+      "answers": [
+        "PIN",
+        "PUK",
+        "IMEI",
+        "IBAN"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "Il PIN sblocca la SIM; il PUK serve se il PIN viene bloccato",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il protagonista dei videogiochi di The Legend of Zelda?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Zelda",
+        "Ganon",
+        "Navi",
+        "Link"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "videogiochi",
+        "trabocchetto"
+      ],
+      "notes": "Zelda è la principessa; il protagonista è Link",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale utilitaria Fiat del 1980, squadrata come una scatola, fu disegnata da Giugiaro?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Uno",
+        "Ritmo",
+        "Panda",
+        "Tipo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "auto",
+        "design"
+      ],
+      "notes": "La prima Panda (1980) fu disegnata da Giorgetto Giugiaro; la Uno è del 1983",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città ha il prefisso telefonico zero nove uno?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Catania",
+        "Palermo",
+        "Messina",
+        "Agrigento"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "telefonia"
+      ],
+      "notes": "091 Palermo; 095 Catania, 090 Messina, 0922 Agrigento",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel sistema binario, quale numero si scrive uno, zero, uno, zero?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "10",
+        "2",
+        "5",
+        "12"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "1010 in base due vale 8 + 2 = 10",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama il programma malevolo che blocca i file e chiede un riscatto?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Spyware",
+        "Adware",
+        "Firewall",
+        "Ransomware"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "internet",
+        "sicurezza"
+      ],
+      "notes": "Ransom in inglese significa riscatto",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa significano le lettere del segnale SOS?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Save our souls",
+        "Save our ship",
+        "Niente, è solo facile da trasmettere",
+        "Stop other signals"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "telecomunicazioni",
+        "trabocchetto"
+      ],
+      "notes": "SOS fu scelto nel 1906 per la sequenza Morse semplice; i significati sono inventati dopo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale videogioco del 1981 debuttò il personaggio che poi diventò Super Mario?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Pac-Man",
+        "Donkey Kong",
+        "Space Invaders",
+        "Galaga"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "In Donkey Kong si chiamava Jumpman",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale astronauta dell'Apollo 11 restò in orbita mentre gli altri due scendevano sulla Luna?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Michael Collins",
+        "Buzz Aldrin",
+        "Jim Lovell",
+        "Alan Shepard"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Collins pilotava il modulo di comando Columbia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Prima delle macchine, chi era un \"computer\"?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un registro contabile",
+        "Un abaco",
+        "Un orologio astronomico",
+        "Una persona che faceva calcoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "computer",
+        "trabocchetto"
+      ],
+      "notes": "In inglese computer indicava chi eseguiva calcoli a mano",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa mostrava il primo video caricato su YouTube, nel 2005?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Un gatto che suona",
+        "Un concerto rock",
+        "Una visita allo zoo",
+        "Una partita di calcio"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "\"Me at the zoo\", caricato il 23 aprile 2005 da Jawed Karim",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale di questi è il nome di uno dei fantasmi di Pac-Man?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "regina",
+      "answers": [
+        "Bowser",
+        "Blinky",
+        "Kirby",
+        "Yoshi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "videogiochi"
+      ],
+      "notes": "I fantasmi sono Blinky, Pinky, Inky e Clyde",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa muoveva il carro di Cugnot del 1769, considerato il primo veicolo semovente?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il vapore",
+        "La benzina",
+        "L'elettricità",
+        "Una molla"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Il fardier di Nicolas-Joseph Cugnot era a vapore",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di quale metallo era il filamento delle classiche lampadine a incandescenza del Novecento?",
+      "category": "Tecnologia",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Rame",
+        "Ferro",
+        "Argento",
+        "Tungsteno"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "elettricità"
+      ],
+      "notes": "Il tungsteno resiste a temperature altissime",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale macchina per scrivere portatile presentò la Olivetti nel 1950?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Valentine",
+        "Lexikon 80",
+        "Lettera 22",
+        "Programma 101"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "design",
+        "italia"
+      ],
+      "notes": "La Lettera 22, disegnata da Marcello Nizzoli, uscì nel 1950",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il primo satellite artificiale degli Stati Uniti, lanciato nel 1958?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Vanguard 1",
+        "Explorer 1",
+        "Telstar",
+        "Echo 1"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Explorer 1 fu lanciato il 31 gennaio 1958; Vanguard 1 a marzo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale località toscana nel 1904 si produsse elettricità per la prima volta dal calore della terra?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Larderello",
+        "Montecatini",
+        "Saturnia",
+        "Chianciano"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "energia",
+        "italia"
+      ],
+      "notes": "Esperimento di Piero Ginori Conti, 4 luglio 1904",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale elettrodomestico brevettò nel 1886 l'americana Josephine Cochrane?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Lavatrice",
+        "Aspirapolvere",
+        "Frigorifero",
+        "Lavastoviglie"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "invenzioni"
+      ],
+      "notes": "Cochrane brevettò la lavastoviglie nel 1886",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale locomotiva di George e Robert Stephenson vinse nel 1829 la gara di Rainhill?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Puffing Billy",
+        "Novelty",
+        "Rocket",
+        "Sans Pareil"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "La Rocket vinse le prove di Rainhill per la Liverpool-Manchester",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città fu acceso nel 1868 il primo semaforo, a gas?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Parigi",
+        "Londra",
+        "New York",
+        "Detroit"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "trasporti"
+      ],
+      "notes": "Davanti al Parlamento di Westminster, dicembre 1868",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale missione Apollo, nel 1972, fu l'ultima del programma a sbarcare sulla Luna?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "Apollo 17",
+        "Apollo 13",
+        "Apollo 15",
+        "Apollo 20"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Apollo 17, dicembre 1972; Apollo 13 non sbarcò e Apollo 20 fu cancellata",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi realizzò la più antica fotografia dal vero giunta fino a noi?",
+      "category": "Tecnologia",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Louis Daguerre",
+        "William Fox Talbot",
+        "Nadar",
+        "Nicéphore Niépce"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "fotografia"
+      ],
+      "notes": "\"Vista dalla finestra a Le Gras\", circa 1826-27",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava il lander della missione Rosetta che si posò su una cometa nel 2014?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Huygens",
+        "Beagle 2",
+        "Philae",
+        "Schiaparelli"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Philae toccò la cometa 67P il 12 novembre 2014",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quanti giorni Brendan Eich scrisse la prima versione di JavaScript, nel 1995?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Circa tre",
+        "Circa dieci",
+        "Circa cento",
+        "Circa trenta"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "internet"
+      ],
+      "notes": "Eich scrisse il prototipo in circa dieci giorni nel maggio 1995 a Netscape",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiamava la missione NASA che nel 1997 portò su Marte il piccolo rover Sojourner?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Mars Pathfinder",
+        "Viking 1",
+        "Mars Express",
+        "Phoenix"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "spazio"
+      ],
+      "notes": "Mars Pathfinder atterrò il 4 luglio 1997",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Su quale isola, oggi canadese, Marconi ricevette nel 1901 il primo segnale radio transatlantico?",
+      "category": "Tecnologia",
+      "difficulty": 5,
+      "presenter": "professore",
+      "answers": [
+        "Isola del Principe Edoardo",
+        "Isola di Vancouver",
+        "Isola di Baffin",
+        "Terranova"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "radio",
+        "italia"
+      ],
+      "notes": "Segnale partito da Poldhu (Cornovaglia) e ricevuto a Signal Hill, St. John's, Terranova (allora dominio britannico a sé), 12 dicembre 1901",
+      "verified": true
+    }
+  ]
+}

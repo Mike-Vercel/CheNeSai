@@ -1,0 +1,1111 @@
+{
+  "format": "quizzone-questions",
+  "version": 1,
+  "questions": [
+    {
+      "type": "single",
+      "text": "Il sumo è lo sport tradizionale di quale Paese?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Giappone",
+        "Cina",
+        "Corea del Sud",
+        "Thailandia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "sumo",
+        "mondo"
+      ],
+      "notes": "Il sumo è la lotta tradizionale giapponese",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale città ospitò le Olimpiadi estive del 2016?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Londra",
+        "Rio de Janeiro",
+        "Pechino",
+        "Tokyo"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi"
+      ],
+      "notes": "Rio 2016, le prime Olimpiadi in Sud America",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra gioca in casa allo stadio intitolato a Diego Armando Maradona?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Salernitana",
+        "Lazio",
+        "Napoli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Lo stadio San Paolo di Napoli fu intitolato a Maradona nel dicembre 2020",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale velocista italiano vinse i 100 metri alle Olimpiadi di Tokyo 2020?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Pietro Mennea",
+        "Filippo Tortu",
+        "Fausto Desalu",
+        "Marcell Jacobs"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Marcell Jacobs vinse i 100 metri il 1° agosto 2021 in 9,80",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il \"derby d'Italia\" si gioca tra la Juventus e quale squadra?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Torino",
+        "Inter",
+        "Milan",
+        "Roma"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il derby d'Italia è Inter-Juventus",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra spagnola gioca le partite in casa al Camp Nou?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Valencia",
+        "Barcellona",
+        "Atlético Madrid",
+        "Real Madrid"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "Il Camp Nou è lo stadio del FC Barcelona",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale calciatore brasiliano è chiamato \"O Rei\", il re?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Ronaldo",
+        "Zico",
+        "Pelé",
+        "Garrincha"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "\"O Rei\" è Pelé, tre volte campione del mondo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale sport si usano i termini \"stoccata\" e \"affondo\"?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Judo",
+        "Lotta",
+        "Pugilato",
+        "Scherma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "scherma"
+      ],
+      "notes": "Stoccata e affondo sono termini tecnici della scherma",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra di calcio ha i colori giallorossi e la lupa nello stemma?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "Lazio",
+        "Roma",
+        "Catanzaro",
+        "Benevento"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "La lupa capitolina è il simbolo dell'AS Roma, che veste giallorosso (anche il Lecce, giallorosso, ha un lupo nello stemma: tolto dalle opzioni)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel tennis, quale punteggio viene subito dopo il 15?",
+      "category": "Sport",
+      "difficulty": 1,
+      "presenter": "palmino",
+      "answers": [
+        "30",
+        "20",
+        "25",
+        "40"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "regole"
+      ],
+      "notes": "La sequenza è 15, 30, 40, game",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel rugby, in quale direzione si può passare il pallone con le mani?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "All'indietro o di lato",
+        "In qualsiasi direzione",
+        "Solo in avanti",
+        "In avanti o di lato"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rugby",
+        "regole"
+      ],
+      "notes": "Nel rugby il passaggio con le mani non può andare in avanti: è valido all'indietro o in parallelo (di lato)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante del Cagliari era soprannominato \"Rombo di tuono\"?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Paolo Pulici",
+        "Pietro Anastasi",
+        "Roberto Boninsegna",
+        "Gigi Riva"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "\"Rombo di tuono\" è il soprannome dato da Gianni Brera a Gigi Riva",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana conquistò il \"triplete\" nel 2010?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Roma",
+        "Milan",
+        "Juventus",
+        "Inter"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "champions",
+        "italia"
+      ],
+      "notes": "Nel 2010 l'Inter di Mourinho vinse scudetto, Coppa Italia e Champions League",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel golf, come si chiama mandare la palla in buca con un solo colpo?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Birdie",
+        "Hole in one",
+        "Albatross",
+        "Eagle"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "golf"
+      ],
+      "notes": "L'\"hole in one\" (buca in uno) è la buca fatta al primo colpo",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il rosso delle Ferrari da corsa era in origine il colore assegnato a quale nazione?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Francia",
+        "Spagna",
+        "Italia",
+        "Svizzera"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Il \"rosso corsa\" era il colore delle auto italiane nelle gare internazionali",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Contro quale nazionale l'Italia perse ai rigori la finale dei Mondiali del 1994?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Brasile",
+        "Germania",
+        "Olanda",
+        "Argentina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Finale di Pasadena, Brasile-Italia 3-2 ai rigori",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale grande campione fu il rivale di Fausto Coppi negli anni Quaranta e Cinquanta?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Alfredo Binda",
+        "Felice Gimondi",
+        "Fiorenzo Magni",
+        "Gino Bartali"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ciclismo",
+        "italia"
+      ],
+      "notes": "La rivalità Coppi-Bartali divise l'Italia del dopoguerra",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Di che colore è la maglia della classifica a punti al Tour de France?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Azzurra",
+        "Rosa",
+        "Verde",
+        "Bianca"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "Al Tour la maglia verde va al leader della classifica a punti",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che colore ha lo sfondo della bandiera olimpica?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Bianco",
+        "Blu",
+        "Oro",
+        "Azzurro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "La bandiera olimpica ha cinque cerchi colorati su sfondo bianco",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Nel rugby a 15, quanti punti vale un calcio di punizione che passa tra i pali?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "3",
+        "7",
+        "5",
+        "2"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "rugby",
+        "regole"
+      ],
+      "notes": "Il calcio di punizione (e il drop) valgono 3 punti; la trasformazione dopo la meta ne vale 2",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Chi era il commissario tecnico dell'Italia campione del mondo nel 1982?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "professore",
+      "answers": [
+        "Azeglio Vicini",
+        "Ferruccio Valcareggi",
+        "Enzo Bearzot",
+        "Arrigo Sacchi"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "mondiali",
+        "italia"
+      ],
+      "notes": "Enzo Bearzot guidò gli azzurri al titolo di Madrid 1982",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale ginnasta italiano, detto \"il signore degli anelli\", vinse l'oro olimpico ad Atlanta 1996?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Franco Menichelli",
+        "Igor Cassina",
+        "Matteo Morandi",
+        "Jury Chechi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "ginnastica",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Jury Chechi, oro agli anelli ad Atlanta 1996",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale aveva partecipato a tutte le edizioni dei Mondiali di calcio, fino a quella del 2022?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Brasile",
+        "Germania",
+        "Argentina",
+        "Italia"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "mondiali"
+      ],
+      "notes": "Il Brasile è stato presente a tutte le 22 edizioni dal 1930 al 2022",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale nazionale vinse in casa la Coppa del mondo di rugby del 1995, premiata da Nelson Mandela?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Nuova Zelanda",
+        "Inghilterra",
+        "Sudafrica",
+        "Australia"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby",
+        "mondo"
+      ],
+      "notes": "Il Sudafrica batté la Nuova Zelanda a Johannesburg; Mandela consegnò la coppa a Pienaar",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Come si chiama la danza Maori che gli All Blacks eseguono prima delle partite?",
+      "category": "Sport",
+      "difficulty": 2,
+      "presenter": "palmino",
+      "answers": [
+        "Hula",
+        "Kapa",
+        "Haka",
+        "Siva"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "rugby",
+        "mondo"
+      ],
+      "notes": "La haka (la più nota è \"Ka Mate\") precede le partite degli All Blacks",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota italiano vinse il Mondiale di Formula 1 nel 1952 e nel 1953 con la Ferrari?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Alberto Ascari",
+        "Luigi Villoresi",
+        "Piero Taruffi",
+        "Giuseppe Farina"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "f1",
+        "italia"
+      ],
+      "notes": "Alberto Ascari, due titoli con la Ferrari",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale corsa ciclistica è soprannominata \"l'Inferno del Nord\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Amstel Gold Race",
+        "Parigi-Roubaix",
+        "Giro delle Fiandre",
+        "Liegi-Bastogne-Liegi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo"
+      ],
+      "notes": "La Parigi-Roubaix, per i suoi tratti di pavé",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Il cavallino rampante della Ferrari era in origine l'emblema di quale aviatore?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Gabriele D'Annunzio",
+        "Francesco De Pinedo",
+        "Francesco Baracca",
+        "Italo Balbo"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1",
+        "italia"
+      ],
+      "notes": "Il cavallino era dipinto sull'aereo dell'asso della Prima guerra mondiale Francesco Baracca",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale campione americano sfidò Boris Spassky per il titolo mondiale di scacchi a Reykjavík nel 1972?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Bobby Fischer",
+        "Garry Kasparov",
+        "Anatolij Karpov",
+        "Paul Morphy"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "scacchi"
+      ],
+      "notes": "La \"sfida del secolo\" di Reykjavík, vinta da Bobby Fischer",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale attaccante olandese era soprannominato \"il Cigno di Utrecht\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Johan Cruijff",
+        "Marco van Basten",
+        "Dennis Bergkamp",
+        "Ruud Gullit"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "mondo"
+      ],
+      "notes": "Van Basten, nato a Utrecht, era \"il Cigno di Utrecht\"",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale città si concluse il Tour de France del 2024, per la prima volta lontano da Parigi?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Parigi",
+        "Marsiglia",
+        "Nizza",
+        "Lione"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "ciclismo",
+        "trabocchetto"
+      ],
+      "notes": "Per le Olimpiadi di Parigi il Tour 2024 finì con una cronometro a Nizza",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale pilota italiano vinse in tutto 15 titoli mondiali di motociclismo, tra 350 e 500?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Max Biaggi",
+        "Giacomo Agostini",
+        "Valentino Rossi",
+        "Loris Capirossi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motogp",
+        "italia"
+      ],
+      "notes": "Giacomo Agostini vinse 8 titoli in 500 e 7 in 350",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale portiere italiano fu premiato miglior giocatore degli Europei vinti nel 2021?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Salvatore Sirigu",
+        "Gianluigi Donnarumma",
+        "Alex Meret",
+        "Gianluigi Buffon"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "calcio",
+        "europei",
+        "italia"
+      ],
+      "notes": "Donnarumma fu eletto miglior giocatore del torneo dalla UEFA",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale tennista italiana raggiunse nel 2024 la finale sia al Roland Garros sia a Wimbledon?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Jasmine Paolini",
+        "Camila Giorgi",
+        "Martina Trevisan",
+        "Sara Errani"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "tennis",
+        "italia"
+      ],
+      "notes": "Jasmine Paolini perse le due finali contro Świątek e Krejčíková",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante facce ha in tutto il classico pallone da calcio a esagoni e pentagoni?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "24",
+        "20",
+        "32",
+        "36"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "regole",
+        "trabocchetto"
+      ],
+      "notes": "Il pallone tradizionale ha 20 esagoni e 12 pentagoni: 32 facce",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale maratoneta etiope vinse l'oro olimpico a Roma nel 1960 correndo scalzo?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Mamo Wolde",
+        "Haile Gebrselassie",
+        "Kenenisa Bekele",
+        "Abebe Bikila"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "atletica",
+        "olimpiadi"
+      ],
+      "notes": "Abebe Bikila vinse a piedi nudi la maratona di Roma 1960",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Che cosa indicava in origine la parola \"Olimpiade\"?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "professore",
+      "answers": [
+        "Il premio per il vincitore",
+        "La gara di corsa più lunga",
+        "Il luogo delle gare",
+        "Il periodo di quattro anni tra due Giochi"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Nell'antica Grecia l'olimpiade era il quadriennio fra due edizioni dei Giochi",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale cestista italiano vinse il titolo NBA con i San Antonio Spurs nel 2014?",
+      "category": "Sport",
+      "difficulty": 3,
+      "presenter": "palmino",
+      "answers": [
+        "Andrea Bargnani",
+        "Danilo Gallinari",
+        "Gigi Datome",
+        "Marco Belinelli"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "basket",
+        "italia"
+      ],
+      "notes": "Belinelli fu il primo italiano campione NBA",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno fu inaugurato l'autodromo di Monza?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "1950",
+        "1922",
+        "1906",
+        "1935"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "motori",
+        "italia"
+      ],
+      "notes": "L'autodromo di Monza fu inaugurato nel settembre 1922",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale scultore italiano disegnò la Coppa del Mondo di calcio assegnata dal 1974?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "regina",
+      "answers": [
+        "Silvio Gazzaniga",
+        "Giacomo Manzù",
+        "Arnaldo Pomodoro",
+        "Giò Pomodoro"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il trofeo FIFA attuale è opera del milanese Silvio Gazzaniga",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale gioco, oggi tipico delle sagre, fu sport olimpico dal 1900 al 1920?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Corsa nei sacchi",
+        "Salto della corda",
+        "Palla prigioniera",
+        "Tiro alla fune"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Il tiro alla fune fu disciplina olimpica in cinque edizioni, dal 1900 al 1920",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Da quale città partì il Giro d'Italia del 2018, la prima partenza fuori dall'Europa?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Tel Aviv",
+        "Gerusalemme",
+        "Il Cairo",
+        "Tunisi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "ciclismo",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Il Giro 2018 partì con una cronometro a Gerusalemme",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale specialità il siracusano Giuseppe Gibilisco vinse i Mondiali di atletica del 2003?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Salto in alto",
+        "Salto triplo",
+        "Salto con l'asta",
+        "Lancio del giavellotto"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "atletica",
+        "sicilia"
+      ],
+      "notes": "Gibilisco vinse l'asta ai Mondiali di Parigi 2003 con 5,90 metri",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quante volte Londra ha ospitato le Olimpiadi estive?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "4",
+        "3",
+        "1",
+        "2"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "olimpiadi",
+        "trabocchetto"
+      ],
+      "notes": "Londra ospitò i Giochi nel 1908, 1948 e 2012",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale squadra italiana vinse la Coppa UEFA nel 1999, battendo il Marsiglia in finale?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "palmino",
+      "answers": [
+        "Juventus",
+        "Lazio",
+        "Inter",
+        "Parma"
+      ],
+      "correct": [
+        3
+      ],
+      "tags": [
+        "calcio",
+        "coppe",
+        "italia"
+      ],
+      "notes": "Il Parma vinse 3-0 a Mosca contro il Marsiglia",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale fu, secondo la tradizione, l'unica gara delle prime Olimpiadi antiche, nel 776 avanti Cristo?",
+      "category": "Sport",
+      "difficulty": 4,
+      "presenter": "professore",
+      "answers": [
+        "La corsa dello stadio",
+        "La lotta",
+        "Il lancio del disco",
+        "La corsa dei carri"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "olimpiadi",
+        "storia"
+      ],
+      "notes": "La prima gara fu la corsa di uno stadio (circa 192 metri), vinta da Corebo di Elide",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale velodromo milanese Fausto Coppi stabilì il record dell'ora, nel 1942?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Vigorelli",
+        "Velodromo Sempione",
+        "Arena Civica",
+        "Velodromo di Monza"
+      ],
+      "correct": [
+        0
+      ],
+      "tags": [
+        "ciclismo",
+        "italia"
+      ],
+      "notes": "Il 7 novembre 1942 al Vigorelli Coppi percorse 45,798 km",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In che anno il Gran Premio d'Italia di Formula 1 si corse a Imola invece che a Monza?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1972",
+        "1988",
+        "1980",
+        "1994"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "f1",
+        "italia",
+        "trabocchetto"
+      ],
+      "notes": "Nel 1980, per i lavori a Monza, il GP d'Italia si disputò a Imola (vinse Piquet)",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "In quale stagione nacque la Serie A a girone unico?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "1934-35",
+        "1898-99",
+        "1929-30",
+        "1946-47"
+      ],
+      "correct": [
+        2
+      ],
+      "tags": [
+        "calcio",
+        "italia"
+      ],
+      "notes": "Il primo campionato a girone unico fu quello 1929-30, vinto dall'Ambrosiana-Inter",
+      "verified": true
+    },
+    {
+      "type": "single",
+      "text": "Quale schermidore italiano vinse 13 medaglie olimpiche tra il 1936 e il 1960?",
+      "category": "Sport",
+      "difficulty": 5,
+      "presenter": "palmino",
+      "answers": [
+        "Aldo Montano",
+        "Edoardo Mangiarotti",
+        "Giuseppe Delfino",
+        "Nedo Nadi"
+      ],
+      "correct": [
+        1
+      ],
+      "tags": [
+        "scherma",
+        "olimpiadi",
+        "italia"
+      ],
+      "notes": "Edoardo Mangiarotti, 6 ori, 5 argenti e 2 bronzi",
+      "verified": true
+    }
+  ]
+}
