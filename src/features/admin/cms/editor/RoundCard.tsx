@@ -22,6 +22,7 @@ interface Props {
   onEdit: () => void;
   onDelete: () => void;
   onAddQuestions: () => void;
+  onAddRandom: () => void;
   onPreview: (q: SessionQuestionItem) => void;
   onChanged: () => void;
 }
@@ -42,7 +43,7 @@ function schedulableFor(defs: EventDefinition[], kind: RoundDetail["kind"]) {
   return defs.filter((d) => d.enabled && d.type !== "mystery_question" && d.type !== "palmino_decides" && d.allowedRoundKinds.includes(eventRoundKind(kind)));
 }
 
-export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eventCounts, onMoveRound, onEdit, onDelete, onAddQuestions, onPreview, onChanged }: Props) {
+export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eventCounts, onMoveRound, onEdit, onDelete, onAddQuestions, onAddRandom, onPreview, onChanged }: Props) {
   const confirm = useConfirm();
   const { busy, run } = useRunner();
   const kind = ROUND_KIND[round.kind];
@@ -342,9 +343,14 @@ export function RoundCard({ sessionId, round, index, rounds, readOnly, defs, eve
           </div>
         ))}
         {!readOnly && (
-          <Button variant="outline" className="w-full" onClick={onAddQuestions}>
-            + Aggiungi domande dall&apos;archivio
-          </Button>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Button variant="outline" className="w-full" onClick={onAddQuestions}>
+              + Aggiungi domande dall&apos;archivio
+            </Button>
+            <Button variant="outline" className="w-full" onClick={onAddRandom}>
+              🎲 Aggiungi domande casuali
+            </Button>
+          </div>
         )}
       </div>
     </section>

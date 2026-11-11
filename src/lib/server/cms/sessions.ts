@@ -6,14 +6,18 @@ import {
   sessionInputSchema,
   sessionSettingsSchema,
   specialEventScheduleSchema,
+  type RoundInput,
   type SessionSettings,
 } from "@/lib/validation/schemas";
+import type { z } from "zod";
 import { audit, CmsError } from "../audit";
 import type { Actor } from "../engine";
 import { effectiveSettings, loadGlobalSettings, teamSettingsOf } from "../settings";
 import { MAX_TEAMS, MIN_TEAMS, teamsEnabled } from "@/lib/game-engine/teams";
 import { rebroadcast } from "../engine";
 import { copyTeams } from "./teams";
+
+type SessionInput = z.output<typeof sessionInputSchema>;
 
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 export function generateSessionCode(len = 6): string {
@@ -378,16 +382,19 @@ export async function createSession(raw: unknown, actor: Actor): Promise<string>
   const p = sessionInputSchema.safeParse(raw);
   if (!p.success) throw new CmsError("Dati sessione non validi", 422, p.error.issues);
   const sql = getSql();
-  return sql.begin(async (tx) => {
-    const code = await uniqueCode(tx);
-    const [row] = await tx<{ id: string }[]>`
-      insert into game_sessions (title, description, scheduled_at, is_test, season_id, settings, code, created_by)
-      values (${p.data.title}, ${p.data.description ?? null}, ${p.data.scheduledAt ?? null}, ${p.data.isTest},
-              ${p.data.seasonId ?? null}, ${tx.json(mergeSettings({}, p.data.settings))}, ${code}, ${actor.userId})
-      returning id`;
-    await audit(tx, actor, "session.create", { sessionId: row.id, type: "session", id: row.id });
-    return row.id;
-  });
+  return sql.begin((tx) => insertSession(tx, p.data, actor));
+}
+
+/** Crea la sessione dentro una transazione già aperta (usato anche dalla serata rapida). */
+export async function insertSession(tx: Tx, data: SessionInput, actor: Actor, details?: Record<string, unknown>): Promise<string> {
+  const code = await uniqueCode(tx);
+  const [row] = await tx<{ id: string }[]>`
+    insert into game_sessions (title, description, scheduled_at, is_test, season_id, settings, code, created_by)
+    values (${data.title}, ${data.description ?? null}, ${data.scheduledAt ?? null}, ${data.isTest},
+            ${data.seasonId ?? null}, ${tx.json(mergeSettings({}, data.settings))}, ${code}, ${actor.userId})
+    returning id`;
+  await audit(tx, actor, "session.create", { sessionId: row.id, type: "session", id: row.id, details });
+  return row.id;
 }
 
 /** Titolo, descrizione, data e impostazioni sono modificabili anche dopo la pubblicazione (registrato). */
@@ -680,24 +687,26 @@ export async function createRound(sessionId: string, raw: unknown, actor: Actor)
   const p = roundInputSchema.safeParse(raw);
   if (!p.success) throw new CmsError("Round non valido", 422, p.error.issues);
   const sql = getSql();
-  return sql.begin(async (tx) => {
-    await requireDraft(tx, sessionId);
-    const [{ pos }] = await tx<{ pos: number }[]>`select coalesce(max(position) + 1, 0)::int as pos from game_rounds where session_id = ${sessionId}`;
-    const r = p.data;
-    const [row] = await tx<{ id: string }[]>`
-      insert into game_rounds (session_id, position, title, kind, presenter, description, points_multiplier, penalty_multiplier, no_penalty,
-        correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
-        bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
-      values (${sessionId}, ${pos}, ${r.title}, ${r.kind}, ${r.presenter}, ${r.description ?? null}, ${r.pointsMultiplier},
-        ${r.penaltyMultiplier}, ${r.noPenalty}, ${r.correctPoints ?? null}, ${r.wrongPenalty ?? null}, ${r.durationSeconds ?? null},
-        ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults},
-        ${r.betMinStake}, ${r.betDefaultTier}, ${r.comebackMultiplier}, ${r.comebackLeaderPenalty})
-      returning id`;
-    if (r.kind === "bet") await dropScheduledEvents(tx, row.id);
-    if (isCategoryRound(r.kind)) await syncVoteOptions(tx, row.id, r.voteOptions);
-    await audit(tx, actor, "round.create", { sessionId, type: "round", id: row.id });
-    return row.id;
-  });
+  return sql.begin((tx) => insertRound(tx, sessionId, p.data, actor));
+}
+
+/** Aggiunge un round in coda dentro una transazione già aperta. */
+export async function insertRound(tx: Tx, sessionId: string, r: RoundInput, actor: Actor): Promise<string> {
+  await requireDraft(tx, sessionId);
+  const [{ pos }] = await tx<{ pos: number }[]>`select coalesce(max(position) + 1, 0)::int as pos from game_rounds where session_id = ${sessionId}`;
+  const [row] = await tx<{ id: string }[]>`
+    insert into game_rounds (session_id, position, title, kind, presenter, description, points_multiplier, penalty_multiplier, no_penalty,
+      correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
+      bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
+    values (${sessionId}, ${pos}, ${r.title}, ${r.kind}, ${r.presenter}, ${r.description ?? null}, ${r.pointsMultiplier},
+      ${r.penaltyMultiplier}, ${r.noPenalty}, ${r.correctPoints ?? null}, ${r.wrongPenalty ?? null}, ${r.durationSeconds ?? null},
+      ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults},
+      ${r.betMinStake}, ${r.betDefaultTier}, ${r.comebackMultiplier}, ${r.comebackLeaderPenalty})
+    returning id`;
+  if (r.kind === "bet") await dropScheduledEvents(tx, row.id);
+  if (isCategoryRound(r.kind)) await syncVoteOptions(tx, row.id, r.voteOptions);
+  await audit(tx, actor, "round.create", { sessionId, type: "round", id: row.id });
+  return row.id;
 }
 
 async function dropScheduledEvents(tx: Tx, roundId: string) {
@@ -784,27 +793,37 @@ export async function addQuestionsToRound(
   actor: Actor,
 ): Promise<void> {
   const sql = getSql();
-  await sql.begin(async (tx) => {
-    const [r] = await tx<{ session_id: string; kind: RoundKind }[]>`select session_id, kind from game_rounds where id = ${roundId}`;
-    if (!r) throw new CmsError("Round non trovato", 404);
-    await requireDraft(tx, r.session_id);
-    if (isCategoryRound(r.kind) && !opts.voteOptionId && !opts.isReserve) {
-      throw new CmsError(r.kind === "category_wheel" ? "Nei round con la ruota ogni domanda va assegnata a una categoria" : "Nei round con votazione ogni domanda va assegnata a una categoria", 422);
-    }
-    if (opts.voteOptionId) {
-      const [o] = await tx`select 1 from category_vote_options where id = ${opts.voteOptionId} and round_id = ${roundId}`;
-      if (!o) throw new CmsError("Categoria non valida", 422);
-    }
-    let [{ pos }] = await tx<{ pos: number }[]>`select coalesce(max(position) + 1, 0)::int as pos from session_questions where round_id = ${roundId}`;
-    for (const qid of questionIds) {
-      const [q] = await tx`select 1 from question_bank where id = ${qid} and status <> 'archived'`;
-      if (!q) throw new CmsError("Domanda non trovata o archiviata", 404);
-      await tx`
-        insert into session_questions (session_id, round_id, position, question_id, vote_option_id, is_reserve)
-        values (${r.session_id}, ${roundId}, ${pos++}, ${qid}, ${opts.voteOptionId ?? null}, ${opts.isReserve ?? false})`;
-    }
-    await audit(tx, actor, "round.add_questions", { sessionId: r.session_id, type: "round", id: roundId, details: { count: questionIds.length } });
-  });
+  await sql.begin((tx) => insertRoundQuestions(tx, roundId, questionIds, opts, actor));
+}
+
+/** Inserisce domande in coda al round dentro una transazione già aperta. */
+export async function insertRoundQuestions(
+  tx: Tx,
+  roundId: string,
+  questionIds: string[],
+  opts: { voteOptionId?: string | null; isReserve?: boolean },
+  actor: Actor,
+  details?: Record<string, unknown>,
+): Promise<void> {
+  const [r] = await tx<{ session_id: string; kind: RoundKind }[]>`select session_id, kind from game_rounds where id = ${roundId}`;
+  if (!r) throw new CmsError("Round non trovato", 404);
+  await requireDraft(tx, r.session_id);
+  if (isCategoryRound(r.kind) && !opts.voteOptionId && !opts.isReserve) {
+    throw new CmsError(r.kind === "category_wheel" ? "Nei round con la ruota ogni domanda va assegnata a una categoria" : "Nei round con votazione ogni domanda va assegnata a una categoria", 422);
+  }
+  if (opts.voteOptionId) {
+    const [o] = await tx`select 1 from category_vote_options where id = ${opts.voteOptionId} and round_id = ${roundId}`;
+    if (!o) throw new CmsError("Categoria non valida", 422);
+  }
+  let [{ pos }] = await tx<{ pos: number }[]>`select coalesce(max(position) + 1, 0)::int as pos from session_questions where round_id = ${roundId}`;
+  for (const qid of questionIds) {
+    const [q] = await tx`select 1 from question_bank where id = ${qid} and status <> 'archived'`;
+    if (!q) throw new CmsError("Domanda non trovata o archiviata", 404);
+    await tx`
+      insert into session_questions (session_id, round_id, position, question_id, vote_option_id, is_reserve)
+      values (${r.session_id}, ${roundId}, ${pos++}, ${qid}, ${opts.voteOptionId ?? null}, ${opts.isReserve ?? false})`;
+  }
+  await audit(tx, actor, "round.add_questions", { sessionId: r.session_id, type: "round", id: roundId, details: { count: questionIds.length, ...details } });
 }
 
 export async function updateSessionQuestion(sqId: string, patch: { voteOptionId?: string | null; isReserve?: boolean }, actor: Actor) {

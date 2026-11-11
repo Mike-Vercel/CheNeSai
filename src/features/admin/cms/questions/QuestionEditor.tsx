@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Badge, Button, Field, Input, Panel, Select, Textarea, useConfirm, useToast } from "@/components/ui";
 import { PRESENTERS, type MediaKind, type Presenter, type QuestionType } from "@/lib/game-engine/types";
 import { errorMessage, fieldErrors, send, useApi } from "../api";
-import { Checkbox, ErrorBlock, InfoNote, LinkButton, LoadingBlock, MEDIA_ICON, PageHeader } from "../common";
+import { Checkbox, ErrorBlock, InfoNote, LinkButton, LoadingBlock, MEDIA_ICON, PageHeader, PlayedBadge } from "../common";
 import { ANSWER_COLORS, fmtDuration, fmtStamp, intOrNull, LETTERS, PRESENTER_LABEL, QUESTION_STATUS } from "../format";
 import { MediaPickerModal } from "../media/MediaPickerModal";
 import { QuestionPreviewModal, type PreviewBase } from "../QuestionPreviewModal";
@@ -246,6 +246,7 @@ function QuestionForm({ question }: { question: QuestionRecord | null }) {
                 Versione {question.version} · aggiornata {fmtStamp(question.updatedAt)}
               </span>
               {question.source === "import" && <Badge color="violet">Importata</Badge>}
+              <PlayedBadge lastPlayedAt={question.lastPlayedAt} timesPlayed={question.timesPlayed} />
             </span>
           )
         }

@@ -12,6 +12,7 @@ import { QuestionPreviewModal, type PreviewBase } from "../QuestionPreviewModal"
 import { DuplicateSessionModal, SessionInfoModal, sessionInfoFrom } from "../sessions/SessionForms";
 import type { EventDefinition, GlobalSettings, PublishIssue, QuestionRecord, RoundDetail, Season, SessionDetail, SessionQuestionItem } from "../types";
 import { QuestionPickerModal } from "./QuestionPickerModal";
+import { RandomQuestionsModal } from "./RandomQuestionsModal";
 import { RoundCard } from "./RoundCard";
 import { RoundFormModal } from "./RoundFormModal";
 import { RunningOrderPanel } from "./RunningOrderPanel";
@@ -38,6 +39,7 @@ export function SessionEditor({ id }: { id: string }) {
   const [editSettings, setEditSettings] = useState(false);
   const [roundModal, setRoundModal] = useState<{ round: RoundDetail | null } | null>(null);
   const [picker, setPicker] = useState<RoundDetail | null>(null);
+  const [randomFor, setRandomFor] = useState<RoundDetail | null>(null);
   const [preview, setPreview] = useState<PreviewBase | null>(null);
   const [publishErrors, setPublishErrors] = useState<PublishIssue[] | null>(null);
   const [dupOpen, setDupOpen] = useState(false);
@@ -340,6 +342,7 @@ export function SessionEditor({ id }: { id: string }) {
                 onEdit={() => setRoundModal({ round: r })}
                 onDelete={() => deleteRound(r)}
                 onAddQuestions={() => setPicker(r)}
+                onAddRandom={() => setRandomFor(r)}
                 onPreview={(q) => openPreview(q, r)}
                 onChanged={refresh}
               />
@@ -537,6 +540,25 @@ export function SessionEditor({ id }: { id: string }) {
           onAdded={(n) => {
             setPicker(null);
             toast("ok", n === 1 ? "Domanda aggiunta" : `${n} domande aggiunte`);
+            refresh();
+          }}
+        />
+      )}
+      {randomFor && (
+        <RandomQuestionsModal
+          round={randomFor}
+          onClose={() => setRandomFor(null)}
+          onAdded={(res) => {
+            setRandomFor(null);
+            const s = res.summary;
+            const repeated = s.repeats + s.planned;
+            const base = res.added === 1 ? "1 domanda aggiunta" : `${res.added} domande aggiunte`;
+            toast(
+              repeated > 0 || s.missing > 0 ? "info" : "ok",
+              repeated > 0 || s.missing > 0
+                ? `${base}: ${s.fresh} mai giocate${repeated ? `, ${repeated} ripetute` : ""}${s.missing ? `, ${s.missing} mancanti (archivio esaurito)` : ""}`
+                : `${base}, tutte mai giocate`,
+            );
             refresh();
           }}
         />

@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Button, EmptyState, useConfirm } from "@/components/ui";
+import { Button, EmptyState, useConfirm, useToast } from "@/components/ui";
 import { useCan } from "@/features/admin/AdminShell";
 import type { SessionStatus } from "@/lib/game-engine/types";
 import { qs, send, useApi, useRunner } from "../api";
 import { ErrorBlock, LinkButton, LoadingBlock, PageHeader, Segmented, StatusBadge, TestBadge } from "../common";
 import { fmtDateTime, fmtNum, PHASE_LABEL } from "../format";
 import type { SessionSummary } from "../types";
+import { QuickSessionModal } from "./QuickSessionModal";
 import { DuplicateSessionModal, emptySessionInfo, SessionInfoModal } from "./SessionForms";
 
 type Filter = "all" | SessionStatus;
@@ -28,6 +29,8 @@ export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
   const isAdmin = useCan("admin");
   const [filter, setFilter] = useState<Filter>("all");
   const [creating, setCreating] = useState(openCreate && isAdmin);
+  const [quick, setQuick] = useState(false);
+  const toast = useToast();
   const [dup, setDup] = useState<SessionSummary | null>(null);
   const { data, error, loading, reload } = useApi<{ sessions: SessionSummary[] }>(`/api/admin/sessions${qs({ status: filter === "all" ? undefined : filter })}`);
   const { busy, run } = useRunner();
@@ -72,9 +75,14 @@ export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
         subtitle="Prepara, pubblica e conduci le serate di CHE NE SAI?!"
         actions={
           isAdmin && (
-            <Button variant="gold" onClick={() => setCreating(true)}>
-              + Crea serata
-            </Button>
+            <>
+              <Button variant="primary" onClick={() => setQuick(true)}>
+                ⚡ Serata rapida
+              </Button>
+              <Button variant="gold" onClick={() => setCreating(true)}>
+                + Crea serata
+              </Button>
+            </>
           )
         }
       />
@@ -172,6 +180,22 @@ export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
             const r = await send<{ id: string }>("/api/admin/sessions", "POST", { settings: {}, ...body });
             setCreating(false);
             router.push(`/admin/sessions/${r.id}`);
+          }}
+        />
+      )}
+      {quick && (
+        <QuickSessionModal
+          onClose={() => setQuick(false)}
+          onCreated={(r) => {
+            setQuick(false);
+            const s = r.summary;
+            toast(
+              s.repeats + s.planned > 0 ? "info" : "ok",
+              s.repeats + s.planned > 0
+                ? `Serata creata: ${s.fresh} domande mai giocate, ${s.repeats + s.planned} ripetute`
+                : `Serata creata con ${s.picked} domande mai giocate`,
+            );
+            if (r.sessionId) router.push(`/admin/sessions/${r.sessionId}`);
           }}
         />
       )}

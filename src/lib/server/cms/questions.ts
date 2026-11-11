@@ -37,6 +37,9 @@ export interface QuestionRecord {
   source: string;
   version: number;
   usedInSessions: number;
+  /** Registro: ultima volta mostrata in una serata reale (null = mai giocata). */
+  lastPlayedAt: string | null;
+  timesPlayed: number;
   createdAt: string;
   updatedAt: string;
 }
@@ -67,6 +70,8 @@ interface QuestionRow {
   source: string;
   version: number;
   used_in_sessions: number;
+  last_played_at: Date | null;
+  times_played: number;
   created_at: Date;
   updated_at: Date;
   options: { position: number; text: string; isCorrect: boolean }[];
@@ -78,6 +83,8 @@ const SELECT = (db: Db) => db`
          q.audio_start_ms, q.audio_duration_ms, q.audio_plays, q.animation, q.notes, q.status, q.answer_confirmed, q.source,
          q.version, q.created_at, q.updated_at,
          (select count(distinct sq.session_id)::int from session_questions sq where sq.question_id = q.id) as used_in_sessions,
+         (select max(p.played_at) from question_plays p where p.question_id = q.id) as last_played_at,
+         (select count(*)::int from question_plays p where p.question_id = q.id) as times_played,
          coalesce((select json_agg(json_build_object('position', o.position, 'text', o.text, 'isCorrect', o.is_correct) order by o.position)
                    from question_options o where o.question_id = q.id), '[]'::json) as options
   from question_bank q left join media_assets m on m.id = q.media_id`;
@@ -110,6 +117,8 @@ function toRecord(r: QuestionRow): QuestionRecord {
     source: r.source,
     version: r.version,
     usedInSessions: r.used_in_sessions,
+    lastPlayedAt: iso(r.last_played_at),
+    timesPlayed: r.times_played,
     createdAt: iso(r.created_at)!,
     updatedAt: iso(r.updated_at)!,
   };
