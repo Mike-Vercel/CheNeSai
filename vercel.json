@@ -14,5 +14,11 @@
         }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/chiudi-partite",
+      "schedule": "15 4 * * *"
+    }
   ]
 }

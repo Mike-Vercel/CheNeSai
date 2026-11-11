@@ -16,6 +16,7 @@ import { speechFor } from "@/features/game/speech";
 import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
 import { TvPauseOverlay } from "./TvScreens";
 import { TvStage } from "./TvStage";
+import { PortraitStage } from "./PortraitStage";
 import { CharacterModeProvider } from "@/features/three/characters/character-mode";
 import { TvScreenAgent } from "./TvScreenControls";
 import { useTvPrefs, type TvPrefs } from "./tv-prefs";
@@ -92,13 +93,13 @@ const SPEAKER_NAMES: Record<string, string> = { professore: "Professore", regina
  * Battuta senza voce (clip non arrivata, voce professionale non disponibile): il personaggio parla
  * e il testo compare qui, come sottotitolo, al posto di una voce sintetica.
  */
-function SilentSubtitle() {
+function SilentSubtitle({ portrait = false }: { portrait?: boolean }) {
   const line = useSilentLine();
   if (!line) return null;
   const who = SPEAKER_NAMES[line.who] ?? "";
   return (
-    <div className="pointer-events-none absolute inset-x-[12cqw] bottom-[4cqh] z-[45] flex justify-center" aria-live="polite">
-      <p className="rounded-[2cqh] bg-black/75 px-[2.6cqh] py-[1.4cqh] text-center text-[3.2cqh] font-extrabold leading-snug text-white shadow-2xl">
+    <div className={portrait ? "pointer-events-none absolute inset-x-[4cqw] top-[19cqh] z-[45] flex justify-center" : "pointer-events-none absolute inset-x-[12cqw] bottom-[4cqh] z-[45] flex justify-center"} aria-live="polite">
+      <p className={portrait ? "rounded-[3cqw] bg-black/80 px-[3.4cqw] py-[2cqw] text-center text-[4.4cqw] font-extrabold leading-snug text-white shadow-2xl" : "rounded-[2cqh] bg-black/75 px-[2.6cqh] py-[1.4cqh] text-center text-[3.2cqh] font-extrabold leading-snug text-white shadow-2xl"}>
         {who && <span className="mr-[1cqh] text-gold">{who}:</span>}
         {line.text}
       </p>
@@ -111,7 +112,16 @@ export function DisplayApp({
   displayKey,
   renderOverlay,
   hostMode = false,
+  layout = "landscape",
+  onViewState,
 }: {
+  /**
+   * "portrait": lo show sul telefono in verticale (1080×1920, gioco libero modalità B): schermate
+   * e intro ricomposte in colonna. Default "landscape": il TV 16:9 di sempre.
+   */
+  layout?: "landscape" | "portrait";
+  /** lo stato mostrato (per chi avvolge lo show: es. l'host che gioca dallo stesso telefono) */
+  onViewState?: (state: PublicState | null) => void;
   sessionId: string;
   displayKey: string;
   /** comandi sovrapposti al TV (gioco libero: comandi e impostazioni dell'host) */
@@ -285,7 +295,8 @@ export function DisplayApp({
   const stateRef = useRef<PublicState | null>(null);
   useEffect(() => {
     stateRef.current = view;
-  }, [view]);
+    onViewState?.(view);
+  }, [view, onViewState]);
 
   // Scorrimento automatico: il TV chiama /tick quando arriva l'orario del prossimo passo
   // (funziona anche con la regia chiusa; il server esegue il passo solo se è dovuto).
@@ -461,9 +472,10 @@ export function DisplayApp({
   };
 
   // ---------------------------------------------------------------- render
+  const Stage = layout === "portrait" ? PortraitStage : TvStage;
   const screen = (
     <CharacterModeProvider prefer3d={prefs.characters3d} lowPower={prefs.lowPower}>
-    <TvStage
+    <Stage
       state={view}
       now={now}
       live
@@ -487,6 +499,7 @@ export function DisplayApp({
             scoring={view.intro.scoring}
             reducedMotion={prefs.reducedMotion}
             lowPower={prefs.lowPower}
+            portrait={layout === "portrait"}
           />
         ) : null
       }
@@ -498,7 +511,7 @@ export function DisplayApp({
     <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={hostMode ? undefined : () => setShowSettings((s) => !s)}>
       {screen}
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
-      <SilentSubtitle />
+      <SilentSubtitle portrait={layout === "portrait"} />
       {(started || hostMode) && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
       {(started || hostMode) && renderOverlay?.(view, overlayCtx)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />

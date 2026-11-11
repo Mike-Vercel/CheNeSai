@@ -10,6 +10,7 @@ import { tvWindowName } from "@/features/display/screen-picker";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import type { PublicState } from "@/lib/game-engine/types";
 import { AudioSettings, DisplaySettings, GameSettings, PlayersSettings, Section, TvScreenSettings, useHostStatus, VoicesProgress } from "./HostSettings";
+import { InviteButton } from "./InviteButton";
 import { RematchControls } from "./RematchControls";
 import { useHostCommand } from "./use-host-command";
 import { useVoicePrep } from "./use-voice-prep";
@@ -173,6 +174,7 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
           <p className="px-2 text-base font-bold text-white/85">
             {state.playerCount < 1 ? "Aspetta che entri almeno un giocatore dal telefono." : `${state.playerCount} ${state.playerCount === 1 ? "giocatore pronto" : "giocatori pronti"}: si parte con l'intro e le regole.`}
           </p>
+          <InviteButton code={state.code} tone="sheet" className="px-1" />
           {start.error && (
             <p role="alert" className="px-2 text-sm font-bold text-[#ffb3c1]">
               {start.error}
@@ -241,6 +243,7 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
                 >
                   ▦ Mostra QR e codice sul TV
                 </button>
+                <InviteButton code={state.code} tone="sheet" />
                 <PlayersSettings sessionId={sessionId} status={status} onChanged={refreshStatus} />
               </Section>
               <Section title="Schermo">

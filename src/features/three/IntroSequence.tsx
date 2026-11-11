@@ -30,6 +30,8 @@ export interface IntroSequenceProps {
   /** Punti reali della sessione per le schede delle regole (default 1000 / −400 / 0). */
   scoring?: Partial<RulesScoring>;
   onFinished?: () => void; // called once when the timeline passes the end
+  /** Telefono in verticale (1080x1920): didascalie, regole e sottotitoli impilati sopra e sotto la scena. */
+  portrait?: boolean;
 }
 
 /**
@@ -65,7 +67,7 @@ export function preloadIntroAssets(): void {
 
 /** Variante con opzioni extra (anteprima admin): `forceFallback` mostra sempre l'intro 2D. */
 export function IntroSequenceView({ forceFallback = false, ...props }: IntroSequenceProps & { forceFallback?: boolean }) {
-  const { startedAtMs, now, reducedMotion = false, lowPower = false, muted = false, music = true, voice = true, explainRules = true, scoring, onFinished } = props;
+  const { startedAtMs, now, reducedMotion = false, lowPower = false, muted = false, music = true, voice = true, explainRules = true, scoring, onFinished, portrait = false } = props;
   const schedule = useIntroSchedule(explainRules);
   const fullScoring: RulesScoring = { ...DEFAULT_SCORING, ...scoring };
   const [webgl] = useState(detectWebGL);
@@ -99,7 +101,7 @@ export function IntroSequenceView({ forceFallback = false, ...props }: IntroSequ
   }, [contextLost]);
 
   const use3D = webgl && !forceFallback && !sceneFailed;
-  const fallback = <IntroFallback2D state={timeline} reducedMotion={reducedMotion} startedAtMs={startedAtMs} now={now} scoring={fullScoring} />;
+  const fallback = <IntroFallback2D state={timeline} reducedMotion={reducedMotion} startedAtMs={startedAtMs} now={now} scoring={fullScoring} portrait={portrait} />;
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#07020d]" data-intro-mode={use3D && !contextLost ? "3d" : "2d"}>
@@ -119,7 +121,7 @@ export function IntroSequenceView({ forceFallback = false, ...props }: IntroSequ
                 onContextRestored={onContextRestored}
               />
             </Suspense>
-            <IntroOverlay state={timeline} reducedMotion={reducedMotion} scoring={fullScoring} />
+            <IntroOverlay state={timeline} reducedMotion={reducedMotion} scoring={fullScoring} portrait={portrait} />
           </IntroErrorBoundary>
           {/* contesto WebGL perso: il canvas resta montato (per il ripristino) sotto al fallback 2D */}
           {contextLost && <div className="absolute inset-0">{fallback}</div>}

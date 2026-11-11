@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { HostTv } from "@/features/gioca/HostTv";
 import { getSql } from "@/lib/database/db";
-import { getHostUser, getOwnedGame, loadPublicGamesSettings, quotaOf } from "@/lib/server/gioco-libero";
+import { getHostUser, loadPublicGamesSettings, openOwnedGame, quotaOf } from "@/lib/server/gioco-libero";
 
 export const metadata = { title: "Schermo TV" };
 
@@ -11,7 +11,7 @@ export default async function HostTvPage({ params }: { params: Promise<{ id: str
   const host = await getHostUser();
   if (!host) redirect(`/accedi?next=/gioca/tv/${id}`);
   const sql = getSql();
-  const game = await getOwnedGame(sql, host.userId, id);
+  const game = await openOwnedGame(host.userId, id);
   if (!game) notFound();
   const quota = quotaOf(host, await loadPublicGamesSettings(sql));
   return <HostTv sessionId={game.id} displayKey={game.displayKey} canCreateMore={quota.canCreate} />;

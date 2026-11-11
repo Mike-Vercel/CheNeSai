@@ -3,7 +3,7 @@ import type { HostGameSummary } from "@/lib/server/gioco-libero";
 
 const fmt = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Rome" });
 
-function statusLabel(g: HostGameSummary): string {
+export function statusLabel(g: Pick<HostGameSummary, "status" | "phase">): string {
   if (g.status === "finished" || g.status === "archived" || g.phase === "FINISHED") return "Terminata";
   if (g.phase === "LOBBY") return "In attesa dei giocatori";
   if (g.phase === "PAUSED") return "In pausa";
