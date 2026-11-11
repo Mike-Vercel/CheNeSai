@@ -18,7 +18,9 @@ const MP3_BYTES_PER_MS = 16;
 /** Tra una battuta e l'altra: richiesta della clip, avvio dell'audio e la pausa del TV (120 ms). */
 const LINE_GAP_MS = 350;
 /** Battuta non ancora in archivio: il TV la chiede al volo; la generazione su Vercel può richiedere alcuni secondi. */
-const CLIP_WAIT_MS = 7000;
+/** battute con nomi/punti (generate al momento) e battute fisse (domanda, risposte: di solito già pronte) */
+const CLIP_WAIT_LIVE_MS = 6000;
+const CLIP_WAIT_MS = 1500;
 /** Media senza durata nota (audio intero o video): attesa prudente. */
 const MEDIA_FALLBACK_MS = 30_000;
 /** Pausa del TV tra una ripetizione e l'altra dell'estratto audio (DisplayApp). */
@@ -56,18 +58,22 @@ export async function estimateLinesMs(tx: Tx, lines: SpokenLine[]): Promise<numb
   }
   let total = 0;
   let missing = false;
+  let missingLive = false;
   said.forEach((l, i) => {
     const key = keys[i];
     const bytes = key ? sizes.get(key) : undefined;
     if (bytes) total += bytes / MP3_BYTES_PER_MS;
     else {
       total += estimateSpeechMs(l.text);
-      if (key && ttsConfigured()) missing = true;
+      if (key && ttsConfigured()) {
+        missing = true;
+        if (l.live) missingLive = true;
+      }
     }
     total += LINE_GAP_MS;
   });
   // le clip mancanti si generano in parallelo appena le battute entrano in coda: l'attesa si paga una volta
-  if (missing) total += CLIP_WAIT_MS;
+  if (missing) total += missingLive ? CLIP_WAIT_LIVE_MS : CLIP_WAIT_MS;
   return Math.round(total);
 }
 
