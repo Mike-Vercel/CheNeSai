@@ -2,8 +2,8 @@
 /* eslint-disable @next/next/no-img-element -- media delle domande serviti tramite URL firmati temporanei */
 
 import { clsx } from "clsx";
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { motion } from "motion/react";
+import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type {
   GamePhase,
   LeaderboardEntry,
@@ -32,13 +32,16 @@ import { useCharacterMode } from "@/features/three/characters/character-mode";
 import type { CharacterAnimation } from "@/features/three/characters/types";
 import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { presenterCue, type PresenterCue } from "./presenter-cue";
+import { TrioSlot } from "./TvTrio";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
 /**
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
  * altrimenti l'illustrazione originale che "parla" a ritmo della voce.
+ * Memorizzato (props tutte primitive): il conto alla rovescia (5 render al secondo) e i
+ * sondaggi dello stato non rifanno il render della scena 3D.
  */
-export function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
+export const TalkingCharacter = memo(function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
   const { animation = "idle", ...imgProps } = props;
   const speaker = useSpeaker();
   const { mode, lowPower, fallback } = useCharacterMode();
@@ -54,46 +57,47 @@ export function TalkingCharacter(props: React.ComponentProps<typeof Character> &
   }
   const cls = (imgProps.className ?? "").replace(/animate-float\S*/g, talking ? "" : "$&");
   return <Character {...imgProps} className={clsx(cls, talking && "qz-talking")} />;
-}
+});
 
 /** Chi è in scena durante i momenti del regista: chi dice la battuta, con la sua animazione. */
 function useDirectedCue(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined): PresenterCue {
   return presenterCue(host, idle, lines, useHeldSpeech());
 }
 
-/**
- * Personaggio nel suo riquadro: se la battuta è di un altro presentatore, il padrone di casa esce
- * di lato ed entra l'ospite (stesso riquadro, quindi mai sopra testi o risposte); poi si torna.
- */
-function CueCharacter({ cue, from, priority }: { cue: PresenterCue; from: "left" | "right"; priority?: boolean }) {
-  const off = from === "right" ? "45%" : "-45%";
-  return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={cue.who}
-        initial={{ x: off, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: off, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 170, damping: 20 }}
-        className="w-full"
-      >
-        <TalkingCharacter who={cue.who} priority={priority} className="w-full" animation={cue.animation} />
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
 // ---------------------------------------------------------------------------
 // Cornice dello studio (sfondo comune a tutte le schermate)
 // ---------------------------------------------------------------------------
+/**
+ * Ovale colorato al 30% sfocato di `blur` px, disegnato con un gradiente radiale: il riquadro si
+ * allarga di 2·blur per lato e le tappe seguono il profilo di una sfocatura gaussiana
+ * (pieno fino a ~2σ dentro il bordo, metà sul bordo, quasi nullo a 2σ fuori).
+ */
+function spot(rgb: string, blur: number, box: { left?: string; right?: string; top?: string; bottom?: string; width: string; height: string }): React.CSSProperties {
+  const pad = 2 * blur;
+  const grow = (v: string | undefined) => (v === undefined ? undefined : `calc(${v} - ${pad}px)`);
+  const c = (a: number) => `rgba(${rgb},${a})`;
+  return {
+    left: grow(box.left),
+    right: grow(box.right),
+    top: grow(box.top),
+    bottom: grow(box.bottom),
+    width: `calc(${box.width} + ${2 * pad}px)`,
+    height: `calc(${box.height} + ${2 * pad}px)`,
+    background: `radial-gradient(closest-side, ${c(0.3)} 0%, ${c(0.3)} 30%, ${c(0.27)} 45%, ${c(0.23)} 56%, ${c(0.17)} 66%, ${c(0.08)} 77%, ${c(0.03)} 88%, ${c(0)} 100%)`,
+  };
+}
+
 export function TvFrame({ children, calm = false }: { children: ReactNode; calm?: boolean }) {
   return (
     <div className="qz-stage relative h-full w-full overflow-hidden">
+      {/* spotlight colorati: sfumature radiali che imitano un ovale sfocato (blur 90–100 px) senza
+          filtri, che costavano a ogni nuovo disegno dello sfondo */}
+      <div aria-hidden className="absolute" style={spot("8,124,255", 90, { left: "-10cqw", top: "-20cqh", width: "40cqw", height: "70cqh" })} />
+      <div aria-hidden className="absolute" style={spot("255,20,147", 90, { right: "-10cqw", top: "-20cqh", width: "40cqw", height: "70cqh" })} />
+      <div aria-hidden className="absolute" style={spot("131,43,255", 100, { left: "20cqw", bottom: "-30cqh", width: "60cqw", height: "60cqh" })} />
+      {/* raggi SOPRA le luci: così le luci (ferme) restano nello sfondo e la GPU, mentre i raggi
+          girano, non deve ricomporre a ogni frame anche tre grandi livelli semitrasparenti */}
       <div aria-hidden className={clsx("qz-rays absolute -inset-[30%] opacity-70", !calm && "animate-spin-slow")} />
-      {/* spotlight colorati */}
-      <div aria-hidden className="absolute -left-[10cqw] -top-[20cqh] h-[70cqh] w-[40cqw] rounded-full bg-electric/30 blur-[90px]" />
-      <div aria-hidden className="absolute -right-[10cqw] -top-[20cqh] h-[70cqh] w-[40cqw] rounded-full bg-fuchsia/30 blur-[90px]" />
-      <div aria-hidden className="absolute bottom-[-30cqh] left-[20cqw] h-[60cqh] w-[60cqw] rounded-full bg-violet/30 blur-[100px]" />
       {/* arco di lampadine */}
       <div aria-hidden className="absolute inset-x-[4cqw] top-[1.5cqh] h-[2.2cqh] qz-bulbs animate-marquee opacity-90" style={{ backgroundSize: "3.2cqh 2.2cqh" }} />
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-[24cqh] bg-gradient-to-t from-black/70 to-transparent" />
@@ -169,13 +173,12 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
       {/* presentatore (non copre mai testo, risposte o timer) */}
       {!visualMedia && (
         <motion.div
-          key={q.presenter}
           initial={{ x: "-30%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 120, damping: 16 }}
-          className="absolute bottom-0 left-[1cqw] z-10 w-[31cqw]"
+          className="absolute bottom-0 left-[0.5cqw] z-10 w-[32.5cqw]"
         >
-          <TalkingCharacter who={q.presenter} priority className="w-full animate-float" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} />
+          <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : optionsVisible ? "point" : "idle"} />
           {line && (
             <SpeechBubble className="absolute left-[3cqw] top-[-6cqh] max-w-[26cqw] text-[3cqh] leading-tight">{line}</SpeechBubble>
           )}
@@ -194,8 +197,8 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
         </motion.div>
       )}
       {visualMedia && (
-        <div className="absolute bottom-0 left-[1cqw] z-20 w-[13cqw]">
-          <TalkingCharacter who={q.presenter} small className="w-full" />
+        <div className="absolute bottom-0 left-0 z-20 w-[17cqw]">
+          <TrioSlot host={q.presenter} className="w-full" animation={revealed ? "celebrate" : "idle"} />
         </div>
       )}
 
@@ -420,8 +423,8 @@ export function TvBetResultsScreen({ bets, who, questionId }: { bets: PublicBets
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <div className="absolute bottom-0 right-[1cqw] w-[22cqw]">
-        <TalkingCharacter who={who} className="w-full" animation={wins.length > 0 ? "celebrate" : "surprised"} />
+      <div className="absolute bottom-0 right-[0.5cqw] w-[34cqw]">
+        <TrioSlot host={who} className="w-full" animation={wins.length > 0 ? "celebrate" : "surprised"} />
         <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[28cqw] text-[2.8cqh] leading-tight">
           {quip}
         </SpeechBubble>
@@ -480,6 +483,9 @@ export function BottomTicker({ left, right }: { left: string; right: string }) {
 // ---------------------------------------------------------------------------
 // Lobby con QR code
 // ---------------------------------------------------------------------------
+/** Nomi mostrati in lobby (una o due righe), gli altri come "+N altri". */
+const LOBBY_NAMES = 16;
+
 export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: PublicState; qrDataUrl: string | null; joinUrl: string; extra?: ReactNode }) {
   const ready = state.phase === "READY";
   return (
@@ -531,17 +537,23 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: Pub
 
       {state.recentPlayers && state.recentPlayers.length > 0 && (
         <div className={clsx("absolute inset-x-[4cqw] flex flex-wrap justify-center gap-[1cqh]", extra ? "bottom-[9cqh]" : "bottom-[2.5cqh]")}>
-          {state.recentPlayers.slice(0, 16).map((n, i) => (
+          {state.recentPlayers.slice(0, LOBBY_NAMES).map((n, i) => (
             <motion.span
               key={n}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: i * 0.03 }}
-              className="rounded-full border-[0.3cqh] border-gold/70 bg-violet/80 px-[1.8cqh] py-[0.5cqh] text-[2.4cqh] font-extrabold text-white"
+              className="max-w-[18cqw] truncate rounded-full border-[0.3cqh] border-gold/70 bg-violet/80 px-[1.8cqh] py-[0.5cqh] text-[2.4cqh] font-extrabold text-white"
             >
               {n}
             </motion.span>
           ))}
+          {/* tanti giocatori: gli ultimi entrati per nome, gli altri contati */}
+          {state.playerCount > Math.min(LOBBY_NAMES, state.recentPlayers.length) && (
+            <span className="rounded-full border-[0.3cqh] border-white/40 bg-black/55 px-[1.8cqh] py-[0.5cqh] text-[2.4cqh] font-extrabold text-white/90">
+              +{state.playerCount - Math.min(LOBBY_NAMES, state.recentPlayers.length)} {state.playerCount - Math.min(LOBBY_NAMES, state.recentPlayers.length) === 1 ? "altro" : "altri"}
+            </span>
+          )}
         </div>
       )}
       {extra}
@@ -555,8 +567,7 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: Pub
 export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRound; vote: PublicVote | null; showLines?: readonly PublicShowLine[] | null }) {
   const presenter = round.kind === "category_vote" ? "palmino" : round.presenter;
   const c = CHARACTERS[presenter];
-  // inizio della finale: chi nomina primo e secondo entra in scena mentre lo dice
-  const cue = useDirectedCue(presenter, "intro", showLines);
+  // inizio della finale: chi nomina primo e secondo passa davanti mentre lo dice (vedi TrioSlot)
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -566,9 +577,9 @@ export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRo
         initial={{ x: "-40%", opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 90, damping: 14 }}
-        className="absolute bottom-0 left-[3cqw] w-[34cqw]"
+        className="absolute bottom-0 left-[1cqw] w-[37cqw]"
       >
-        <CueCharacter cue={cue} from="left" priority />
+        <TrioSlot host={presenter} animation="intro" lines={showLines} className="w-full" />
       </motion.div>
       <div className="absolute left-[40cqw] right-[4cqw] top-[22cqh] flex flex-col items-start gap-[2.4cqh]">
         <Pill tone="dark">
@@ -637,8 +648,8 @@ export function TvVotingScreen({ vote, remainingMs, totalMs, phase }: { vote: Pu
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <motion.div initial={{ y: "40%", rotate: -8 }} animate={{ y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 120, damping: 9 }} className="absolute bottom-0 left-[2cqw] w-[24cqw]">
-        <TalkingCharacter who="palmino" priority className="w-full" animation={closed ? "celebrate" : "point"} />
+      <motion.div initial={{ y: "40%", rotate: -8 }} animate={{ y: 0, rotate: 0 }} transition={{ type: "spring", stiffness: 120, damping: 9 }} className="absolute bottom-0 left-[0.5cqw] w-[28cqw]">
+        <TrioSlot host="palmino" className="w-full" animation={closed ? "celebrate" : "point"} />
         <SpeechBubble className="absolute left-[4cqw] top-[-8cqh] text-[3.4cqh]">{closed ? "Avete deciso!" : "ADESSO DECIDETE VOI!"}</SpeechBubble>
       </motion.div>
       <div className="absolute left-[30cqw] right-[4cqw] top-[19cqh]">
@@ -712,9 +723,9 @@ export function TvSpecialEventScreen({ event }: { event: PublicEvent }) {
         initial={{ scale: 0.2, rotate: -25, y: "40%" }}
         animate={{ scale: 1, rotate: 0, y: 0 }}
         transition={{ type: "spring", stiffness: 160, damping: 8 }}
-        className="absolute bottom-0 left-1/2 w-[27cqw] -translate-x-1/2"
+        className="absolute bottom-0 left-1/2 w-[38cqw] -translate-x-1/2"
       >
-        <TalkingCharacter who="palmino" priority className="w-full" animation="celebrate" />
+        <TrioSlot host="palmino" className="w-full" animation="celebrate" />
       </motion.div>
       <div className="absolute inset-x-0 top-[5cqh] flex flex-col items-center gap-[1.6cqh] text-center">
         <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }} className="font-display text-[12cqh] leading-none">
@@ -771,8 +782,8 @@ export function TvAnswerPointsScreen({
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-        <CueCharacter cue={cue} from="right" />
+      <div className="absolute bottom-0 right-[0.5cqw] w-[36cqw]">
+        <TrioSlot host={who} animation="point" lines={showLines} className="w-full" />
         <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[30cqw] text-[2.8cqh] leading-tight">
           {quip}
         </SpeechBubble>
@@ -821,8 +832,8 @@ export function TvLeaderboardScreen({
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
         <Logo size="tv" />
       </div>
-      <div className="absolute bottom-0 right-[1cqw] w-[24cqw]">
-        <CueCharacter cue={cue} from="right" />
+      <div className="absolute bottom-0 right-[0.5cqw] w-[27cqw]">
+        <TrioSlot host="professore" animation="point" lines={showLines} className="w-full" />
         {/* fumetto stretto sopra il personaggio, a destra della classifica (non la copre) */}
         {cue.line && (
           <SpeechBubble tail="right" className="absolute bottom-full right-[1cqw] mb-[1cqh] w-[22cqw] !px-[1.6cqh] !py-[1.2cqh] text-[2.4cqh] leading-tight">
@@ -977,8 +988,9 @@ export function TvPodiumScreen({
 
       {/* tutti gli altri, dal fondo al 4° posto: compaiono mentre la voce li legge */}
       {plan.rest.entries.length > 0 && t >= plan.rest.at && t < (plan.steps[0]?.drumAt ?? plan.winnerAt) && (
-        <div className="absolute left-1/2 top-[22cqh] z-20 w-[44cqw] -translate-x-1/2">
-          <div className={clsx("grid gap-[0.6cqh]", plan.rest.entries.length > 8 ? "grid-cols-2" : "grid-cols-1")}>
+        <div className={clsx("absolute left-1/2 top-[22cqh] z-20 max-h-[60cqh] -translate-x-1/2 overflow-hidden", plan.rest.entries.length > 24 ? "w-[56cqw]" : "w-[44cqw]")}>
+          {/* tanti giocatori (fino a 37 oltre il podio): tre colonne, così l'elenco non esce dallo schermo */}
+          <div className={clsx("grid gap-[0.6cqh]", plan.rest.entries.length > 24 ? "grid-cols-3" : plan.rest.entries.length > 8 ? "grid-cols-2" : "grid-cols-1")}>
             {[...plan.rest.entries].reverse().map((e) => {
               const order = plan.rest.entries.indexOf(e);
               const shown = t >= plan.rest.at + 1.5 + Math.min(order, 19) * plan.rest.perName;

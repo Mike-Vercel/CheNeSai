@@ -154,12 +154,16 @@ export function OpenTvButton({ url, sessionId, className, compact }: { url: stri
  * comando discreto (in basso a sinistra, compare muovendo il mouse) per lo schermo intero e
  * per cambiare schermo. Se il browser vuole un clic, mostra "Tocca per schermo intero".
  */
-export function TvScreenAgent({ sessionId }: { sessionId: string }) {
+export function TvScreenAgent({ sessionId, showButton = true, audioOn = true }: { sessionId: string; showButton?: boolean; audioOn?: boolean }) {
   const [needsTap, setNeedsTap] = useState<string | null | false>(false);
   const [visible, setVisible] = useState(false);
   const [menu, setMenu] = useState(false);
   const [screens, setScreens] = useState<ScreenInfo[]>([]);
   const keyRef = useRef<string | null>(null);
+  const audioRef = useRef(audioOn);
+  useEffect(() => {
+    audioRef.current = audioOn;
+  }, [audioOn]);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const goFullscreen = useCallback(async (key: string | null) => {
@@ -175,7 +179,7 @@ export function TvScreenAgent({ sessionId }: { sessionId: string }) {
     ch.onmessage = (e) => {
       if (!isTvScreenMessage(e.data)) return;
       const m = e.data;
-      if (m.type === "ping") ch.postMessage({ type: "pong", key: keyRef.current ?? loadScreenChoice(), fullscreen: !!document.fullscreenElement } satisfies TvScreenMessage);
+      if (m.type === "ping") ch.postMessage({ type: "pong", key: keyRef.current ?? loadScreenChoice(), fullscreen: !!document.fullscreenElement, audio: audioRef.current } satisfies TvScreenMessage);
       else if (m.type === "move") void goFullscreen(m.key);
       else if (m.type === "fullscreen") void goFullscreen(keyRef.current);
     };
@@ -208,6 +212,7 @@ export function TvScreenAgent({ sessionId }: { sessionId: string }) {
 
   return (
     <>
+      {showButton && (
       <div className={clsx("absolute left-[1cqw] top-[3.5cqh] z-[65] flex flex-col-reverse transition-opacity duration-300", visible || menu ? "opacity-100" : "pointer-events-none opacity-0")} onDoubleClick={(e) => e.stopPropagation()}>
         {menu && (
           <div className="mt-2 w-72 rounded-xl border border-white/15 bg-[#1d0c30]/95 p-2 text-sm text-white shadow-2xl">
@@ -227,6 +232,7 @@ export function TvScreenAgent({ sessionId }: { sessionId: string }) {
           🖥 Schermo
         </button>
       </div>
+      )}
       {needsTap !== false && (
         <div className="absolute inset-0 z-[80] grid place-items-center bg-night/70 backdrop-blur-sm">
           <button

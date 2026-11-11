@@ -1,3 +1,4 @@
+import type { RefObject } from "react";
 import type { ThreeElements } from "@react-three/fiber";
 
 /**
@@ -15,6 +16,11 @@ export interface CharacterModelProps extends Omit<ThreeElements["group"], "ref">
    * il personaggio "parla" anche se l'animazione è idle.
    */
   mouthOpen?: number;
+  /**
+   * Come `mouthOpen` ma letto a ogni frame (ha la precedenza): il TV lo usa per non rifare il
+   * render di React a ogni frame mentre il personaggio parla.
+   */
+  mouthRef?: RefObject<number>;
   /** Ritmo delle animazioni (1 = normale). */
   speed?: number;
   /** Qualità ridotta (meno segmenti) per TV/PC poco potenti. */

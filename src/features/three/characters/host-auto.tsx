@@ -1,6 +1,7 @@
 "use client";
 
-import { Component, Suspense, type ReactNode } from "react";
+import { Component, Suspense, useRef, useState, type ComponentType, type ReactNode } from "react";
+import { useFrame } from "@react-three/fiber";
 import type { Presenter } from "@/lib/game-engine/types";
 import type { CharacterModelProps } from "./types";
 import { CHARACTER_MODELS_PROCEDURAL } from "./registry";
@@ -22,6 +23,24 @@ export class GlbBoundary extends Component<{ who: Presenter; fallback: ReactNode
   }
 }
 
+/**
+ * Il modello procedurale vuole la bocca come numero: qui il `mouthRef` diventa stato (solo quando
+ * cambia davvero), come faceva prima il palco del TV. Il GLB invece legge il ref a ogni frame.
+ */
+function ProceduralWithRef({ Model, mouthRef, ...props }: CharacterModelProps & { Model: ComponentType<CharacterModelProps> }) {
+  const [mouth, setMouth] = useState(0);
+  const last = useRef(0);
+  useFrame(() => {
+    if (!mouthRef) return;
+    const v = mouthRef.current;
+    if (Math.abs(v - last.current) > 0.05 || (v === 0 && last.current !== 0)) {
+      last.current = v;
+      setMouth(v);
+    }
+  });
+  return <Model {...props} mouthOpen={mouthRef ? mouth : props.mouthOpen} />;
+}
+
 type AutoProps = CharacterModelProps & Pick<HostGlbProps, "fullBody" | "walkRef" | "walkRate" | "walkRateRef" | "talkVariant">;
 
 /**
@@ -31,7 +50,7 @@ type AutoProps = CharacterModelProps & Pick<HostGlbProps, "fullBody" | "walkRef"
 function HostAuto({ who, ...props }: AutoProps & { who: Presenter }) {
   const { fullBody, walkRef, walkRate, walkRateRef, talkVariant, ...base } = props;
   const Proc = CHARACTER_MODELS_PROCEDURAL[who];
-  const procedural = <Proc {...base} />;
+  const procedural = base.mouthRef ? <ProceduralWithRef Model={Proc} {...base} /> : <Proc {...base} />;
   if (!hostGlbEnabled(who)) return procedural;
   return (
     <GlbBoundary who={who} fallback={procedural}>

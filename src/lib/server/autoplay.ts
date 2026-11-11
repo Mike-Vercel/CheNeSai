@@ -17,8 +17,12 @@ import { loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 const MP3_BYTES_PER_MS = 16;
 /** Tra una battuta e l'altra: richiesta della clip, avvio dell'audio e la pausa del TV (120 ms). */
 const LINE_GAP_MS = 350;
-/** Battuta non ancora in archivio: il TV la chiede al volo; la generazione su Vercel può richiedere alcuni secondi. */
-/** battute con nomi/punti (generate al momento) e battute fisse (domanda, risposte: di solito già pronte) */
+/**
+ * Battuta non ancora in archivio: il TV la chiede al volo (generazione su Vercel: alcuni secondi).
+ * Stima di riserva: il TV segnala quando ha davvero finito di parlare (tv_presence), così il passo
+ * non taglia il presentatore e, se le clip erano pronte prima, si anticipa senza silenzi.
+ * Battute con nomi/punti (generate al momento) e battute fisse (domanda, risposte: di solito già pronte).
+ */
 const CLIP_WAIT_LIVE_MS = 6000;
 const CLIP_WAIT_MS = 1500;
 /** Media senza durata nota (audio intero o video): attesa prudente. */

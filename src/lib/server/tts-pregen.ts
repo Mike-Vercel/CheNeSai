@@ -20,7 +20,7 @@ import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
 import { CmsError } from "./audit";
 import { getSessionDetail } from "./cms/sessions";
 import { listQuestions } from "./cms/questions";
-import { appUsage, cachedKeys, ensureClip, loadVoiceConfig, planClip, TtsError, ttsConfigured, type PlannedClip } from "./tts";
+import { appUsage, cachedKeys, ensureClip, loadVoiceConfig, planClip, TtsError, ttsConfigured, type PlannedClip, type TtsPriority } from "./tts";
 
 /**
  * Pre-generazione delle voci a piccoli lotti (adatta a Vercel: nessun processo lungo).
@@ -196,11 +196,11 @@ export interface PregenBatchResult extends PregenProgress {
 }
 
 /** Genera al massimo `batch` battute mancanti (richiamare finché missing = 0). */
-export async function runScopeBatch(db: Db, scope: PregenScope, batch: number): Promise<PregenBatchResult> {
+export async function runScopeBatch(db: Db, scope: PregenScope, batch: number, opts: { priority?: TtsPriority } = {}): Promise<PregenBatchResult> {
   if (!ttsConfigured()) throw new TtsError("TTS_OFF", "Voce professionale non configurata (ELEVENLABS_API_KEY)");
   const { cfg, plans, missing, noVoice } = await plan(db, scope);
   const todo = missing.slice(0, Math.max(1, Math.min(10, batch)));
-  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "pregen", cfg)));
+  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "pregen", cfg, { priority: opts.priority })));
   let generated = 0;
   let billedChars = 0;
   const errors: string[] = [];

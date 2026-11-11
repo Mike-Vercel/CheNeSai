@@ -233,7 +233,7 @@ export async function appUsage(db: Db = getSql()): Promise<AppUsage> {
  * un posto e non liberarlo mai più: per questo un posto scade da solo dopo SLOT_STALE_MS e una
  * battuta richiesta dal TV non aspetta mai più di SLOT_WAIT_NORMAL_MS (poi passa comunque).
  */
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, Math.max(0, ms)));
 const slots = new Map<number, number>();
 let slotSeq = 0;
 let normalWaiting = 0;
@@ -271,8 +271,25 @@ async function acquire(priority: TtsPriority = "normal", until?: number): Promis
 
 /** Tempo minimo utile per una chiamata a ElevenLabs: sotto questo si rinuncia subito. */
 const MIN_CALL_MS = 2_500;
+/** Scadenza predefinita di una clip senza scadenza esplicita (lavori di fondo, preparazione voci). */
+export const SYNTH_DEADLINE_MS = 30_000;
+/** Storage (upload, download, URL firmati): risposta entro questo tempo o errore. */
+const STORAGE_TIMEOUT_MS = 10_000;
 
-async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal", deadline?: number): Promise<{ audio: Buffer; billed: number }> {
+/** Una richiesta che non risponde entro `ms` fallisce (storage, rete): niente attese infinite. */
+export function withTimeout<T>(p: PromiseLike<T>, ms: number, label: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  return Promise.race([
+    Promise.resolve(p),
+    new Promise<never>((_, reject) => {
+      timer = setTimeout(() => reject(new TtsError("TTS_PROVIDER", `${label}: nessuna risposta entro ${Math.round(ms / 1000)} s`)), Math.max(0, ms));
+    }),
+  ]).finally(() => clearTimeout(timer));
+}
+
+async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: TtsPriority = "normal", until?: number): Promise<{ audio: Buffer; billed: number }> {
+  // sempre una scadenza: mai tentativi e pause senza fine
+  const deadline = until ?? Date.now() + SYNTH_DEADLINE_MS;
   const apiKey = process.env.ELEVENLABS_API_KEY;
   if (!apiKey) throw new TtsError("TTS_OFF", "Voce professionale non configurata");
   let withLanguage = true;
@@ -287,7 +304,7 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
     const callMs = deadline === undefined ? 15_000 : Math.max(MIN_CALL_MS, Math.min(15_000, deadline - Date.now()));
     let res: Response;
     try {
-      res = await fetch(`${API}/v1/text-to-speech/${encodeURIComponent(plan.voiceId)}?output_format=mp3_44100_128`, {
+      res = await withTimeout(fetch(`${API}/v1/text-to-speech/${encodeURIComponent(plan.voiceId)}?output_format=mp3_44100_128`, {
         method: "POST",
         headers: { "xi-api-key": apiKey, "Content-Type": "application/json", Accept: "audio/mpeg" },
         body: JSON.stringify({
@@ -301,9 +318,9 @@ async function synthesize(plan: PlannedClip, s: RoleVoiceSettings, priority: Tts
             : { stability: s.stability, similarity_boost: s.similarity, style: s.style, speed: s.speed, use_speaker_boost: true },
         }),
         signal: AbortSignal.timeout(callMs),
-      });
+      }), callMs + 500, "ElevenLabs");
       if (res.ok) {
-        const audio = Buffer.from(await res.arrayBuffer());
+        const audio = Buffer.from(await withTimeout(res.arrayBuffer(), callMs, "ElevenLabs"));
         // Crediti addebitati: v4 li dichiara in "character-cost" (totale della richiesta,
         // verificato sull'abbonamento); v2/flash in "x-character-count". In mancanza, la lunghezza del testo.
         const costHeader = res.headers.get("character-cost");
@@ -390,7 +407,7 @@ export async function ensureClip(db: Db, plan: PlannedClip, source: TtsSource, c
     // Clip generata prima dell'archivio tts_clips (solo modelli v2/flash): si recupera senza pagarla di nuovo.
     const storage = getSupabaseAdmin().storage.from(BUCKET);
     if (!modelSupportsTags(plan.model)) {
-      const legacy = await storage.createSignedUrl(path, 60);
+      const legacy = await withTimeout(storage.createSignedUrl(path, 60), STORAGE_TIMEOUT_MS, "Archivio audio");
       if (legacy.data?.signedUrl) {
         await recordClip(db, plan, path, source, 0);
         return { key: plan.key, path, cached: true, billedChars: 0 };
@@ -423,7 +440,7 @@ export async function assertBudget(db: Db, config: VoiceConfig, chars: number): 
 export async function storeClip(db: Db, plan: PlannedClip, audio: Buffer, source: TtsSource, billed: number, savedChars = 0): Promise<string> {
   const path = pathFor(plan);
   await ensureBucket();
-  const up = await getSupabaseAdmin().storage.from(BUCKET).upload(path, audio, { contentType: "audio/mpeg", upsert: true });
+  const up = await withTimeout(getSupabaseAdmin().storage.from(BUCKET).upload(path, audio, { contentType: "audio/mpeg", upsert: true }), STORAGE_TIMEOUT_MS, "Salvataggio audio");
   if (up.error) throw new Error(`Salvataggio audio non riuscito: ${up.error.message}`);
   await recordClip(db, plan, path, source, billed, savedChars);
   return path;
@@ -431,7 +448,7 @@ export async function storeClip(db: Db, plan: PlannedClip, audio: Buffer, source
 
 /** Scarica l'mp3 di una clip in archivio. */
 export async function downloadClip(path: string): Promise<Buffer> {
-  const { data, error } = await getSupabaseAdmin().storage.from(BUCKET).download(path);
+  const { data, error } = await withTimeout(getSupabaseAdmin().storage.from(BUCKET).download(path), STORAGE_TIMEOUT_MS, "Archivio audio");
   if (error || !data) throw new Error(`Audio non disponibile (${path}): ${error?.message ?? "vuoto"}`);
   return Buffer.from(await data.arrayBuffer());
 }
@@ -444,7 +461,7 @@ async function recordClip(db: Db, plan: PlannedClip, path: string, source: TtsSo
 }
 
 export async function signedClipUrl(path: string, seconds = 3600): Promise<string> {
-  const signed = await getSupabaseAdmin().storage.from(BUCKET).createSignedUrl(path, seconds);
+  const signed = await withTimeout(getSupabaseAdmin().storage.from(BUCKET).createSignedUrl(path, seconds), STORAGE_TIMEOUT_MS, "Archivio audio");
   if (!signed.data?.signedUrl) throw new Error("URL audio non disponibile");
   return signed.data.signedUrl;
 }

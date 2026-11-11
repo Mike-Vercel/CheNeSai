@@ -51,3 +51,40 @@ export function presenterCue(host: Presenter, idle: CharacterAnimation, lines: r
   if (speech?.who === host) return { who: host, animation: "talk", line: null, guest: false };
   return { who: host, animation: idle, line: null, guest: false };
 }
+
+// ---------------------------------------------------------------------------------- il trio
+export type TrioRole = "front" | "left" | "right";
+
+export interface TrioMember {
+  who: Presenter;
+  role: TrioRole;
+  animation: CharacterAnimation;
+}
+
+/** Posti fissi di chi ascolta: l'ordine resta stabile quando cambia chi parla (si scambiano in due). */
+const SEATS: readonly Presenter[] = ["professore", "regina", "palmino"];
+
+/** Gesti a cui reagiscono anche gli altri due (festa e sorpresa sono di tutti). */
+const SHARED: ReadonlySet<CharacterAnimation> = new Set<CharacterAnimation>(["celebrate", "surprised"]);
+
+/**
+ * Tutti e tre in scena: davanti chi parla (o la battuta del regista, o il padrone di casa),
+ * dietro a sinistra e a destra gli altri due che ascoltano e reagiscono ai momenti di festa o
+ * sorpresa della schermata.
+ */
+export function trioCast(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined, speech: SpeechNow | null): { cue: PresenterCue; members: TrioMember[] } {
+  const cue = presenterCue(host, idle, lines, speech);
+  // chi sta parlando va davanti anche se non è una battuta del regista (es. battute di rito)
+  const front = speech?.who ?? cue.who;
+  const frontAnim: CharacterAnimation = front === cue.who ? cue.animation : "talk";
+  const listen: CharacterAnimation = SHARED.has(idle) ? idle : "idle";
+  const [left, right] = SEATS.filter((w) => w !== front);
+  return {
+    cue,
+    members: [
+      { who: front, role: "front", animation: frontAnim },
+      { who: left, role: "left", animation: listen },
+      { who: right, role: "right", animation: listen },
+    ],
+  };
+}

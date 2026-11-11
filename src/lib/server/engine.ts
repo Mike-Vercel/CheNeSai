@@ -1,6 +1,8 @@
 import { createHash, randomBytes, randomInt } from "node:crypto";
+import { after } from "next/server";
 import { getSql, num, type Tx } from "@/lib/database/db";
 import { COMMAND_LABELS, isCommandAllowed } from "@/lib/game-engine/transitions";
+import { AUTO_MIN_PHASE_MS } from "@/lib/game-engine/autoplay";
 import { applyDelta, evaluateAnswer, PENALTY_STREAK, scoreAnswer } from "@/lib/game-engine/scoring";
 import { applyComeback, comebackRole, computeStake, scoreBet, type BetInput } from "@/lib/game-engine/special-rounds";
 import { rankParticipants } from "@/lib/game-engine/ranking";
@@ -106,13 +108,33 @@ interface RunOptions {
   auto?: boolean;
 }
 
+/**
+ * Limiti di ogni transazione di comando (valgono solo dentro la transazione, anche col pooler):
+ * un comando non aspetta mai all'infinito il lucchetto della partita né una query lenta, e se il
+ * client si blocca a metà transazione il database la chiude e libera il lucchetto. Così un /tick
+ * appeso non può più fermare la partita per minuti (prima non c'era nessun limite).
+ */
+export const COMMAND_LOCK_TIMEOUT = "5s";
+export const COMMAND_STATEMENT_TIMEOUT = "20s";
+/** Passi automatici: se il lucchetto è occupato un altro client sta già eseguendo il passo. */
+export const AUTO_LOCK_TIMEOUT = "1500ms";
+export const COMMAND_IDLE_TX_TIMEOUT = "15s";
+
+/** Errori "riprova tra poco" del database: lucchetto occupato, query o transazione scadute, connessione caduta. */
+export function isTransientDbError(e: unknown): boolean {
+  const code = (e as { code?: string } | null)?.code;
+  return code === "55P03" || code === "57014" || code === "25P03" || code === "40001" || code === "40P01" || code === "57P01" || code === "CONNECTION_CLOSED" || code === "CONNECTION_ENDED" || code === "CONNECT_TIMEOUT";
+}
+
 async function runCommand(sessionId: string, actor: Actor, input: CommandInput, onFrom: (phase: GamePhase) => void, opts: RunOptions = {}): Promise<CommandResult> {
   const sql = getSql();
   return sql.begin(async (tx) => {
-    // Nessun comando può restare appeso: attesa del lock breve (per i passi automatici brevissima:
-    // se un altro client lo sta già eseguendo si rinuncia) e tetto alla durata di ogni istruzione.
-    await tx.unsafe(`set local lock_timeout = '${opts.auto ? "1500ms" : "5s"}'`);
-    await tx.unsafe(`set local statement_timeout = '20s'`);
+    // Nessun comando può restare appeso: attesa del lucchetto breve (per i passi automatici brevissima:
+    // un altro client lo sta già eseguendo), tetto a ogni istruzione e alle transazioni ferme.
+    await tx`
+      select set_config('lock_timeout', ${opts.auto ? AUTO_LOCK_TIMEOUT : COMMAND_LOCK_TIMEOUT}, true),
+             set_config('statement_timeout', ${COMMAND_STATEMENT_TIMEOUT}, true),
+             set_config('idle_in_transaction_session_timeout', ${COMMAND_IDLE_TX_TIMEOUT}, true)`;
     const st = await loadStateRow(tx, sessionId, "update");
     if (!st) throw new GameError("NOT_FOUND", "Sessione non trovata o non pubblicata");
     onFrom(st.phase);
@@ -204,6 +226,53 @@ export interface AutoTickResult {
   waiting: string | null;
 }
 
+/** Il TV si è fatto sentire entro questo tempo: si aspetta la fine delle sue battute. */
+export const TV_ALIVE_MS = 15_000;
+/** Attesa massima oltre l'orario previsto per un TV che sta ancora parlando. */
+export const TV_SPEECH_CAP_MS = 15_000;
+/** Il TV ha finito: il passo si può anticipare fino a tanto (attesa prudente delle clip non pronte). */
+export const TV_EARLY_MS = 10_000;
+/** Fasi in cui il passo segue solo il parlato (niente timer dei giocatori, media o puntate): si può anticipare. */
+const EARLY_PHASES: readonly GamePhase[] = ["ROUND_INTRO", "CATEGORY_RESULT", "SPECIAL_EVENT", "QUESTION_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL", "SCORE_REVEAL", "LEADERBOARD"];
+
+/**
+ * Il TV segnala a che punto è con le battute per la versione `version` dello stato:
+ * `speaking` = sta ancora parlando (o aspetta la clip), altrimenti ha finito.
+ * Quando ha finito: se il passo automatico è in programma per questa versione ed è già passata la
+ * durata minima della fase, il passo si anticipa (fino a TV_EARLY_MS), così non restano silenzi
+ * quando le clip erano già pronte; poi si prova subito il passo (autoTick).
+ */
+export async function reportTvSpeech(sessionId: string, version: number, speaking: boolean): Promise<AutoTickResult | null> {
+  const sql = getSql();
+  await sql`
+    insert into tv_presence (session_id, spoken_version, speaking_version, seen_at)
+    values (${sessionId}, ${speaking ? null : version}, ${speaking ? version : null}, clock_timestamp())
+    on conflict (session_id) do update set
+      seen_at = clock_timestamp(),
+      spoken_version = case when ${speaking}::boolean then tv_presence.spoken_version
+                            else greatest(coalesce(tv_presence.spoken_version, -1), ${version}::bigint) end,
+      speaking_version = case when ${speaking}::boolean then ${version}::bigint else tv_presence.speaking_version end`;
+  if (speaking) return null;
+  // passo anticipato (solo fasi "parlate", solo per questa versione, mai prima della durata minima)
+  const minMs = AUTO_MIN_PHASE_MS;
+  const [g] = await sql<{ phase: GamePhase; elapsed_ms: number; early_ms: number | null; media: string | null; round_kind: string | null }[]>`
+    select gs.phase, extract(epoch from (clock_timestamp() - gs.phase_started_at)) * 1000 as elapsed_ms,
+      extract(epoch from (gs.auto_next_at - clock_timestamp())) * 1000 as early_ms,
+      qs.media_kind::text as media, r.kind::text as round_kind
+    from game_state gs
+    left join question_snapshots qs on qs.session_question_id = gs.current_session_question_id
+    left join game_rounds r on r.id = gs.current_round_id
+    where gs.session_id = ${sessionId} and gs.version = ${version} and gs.auto_version = ${version}`;
+  // domanda: le risposte appena il presentatore ha finito di leggerla (non con audio/video da ascoltare o puntate da fare)
+  const questionWaits = g?.phase === "QUESTION_VISIBLE" && (g.media !== null || g.round_kind === "bet");
+  if (g && EARLY_PHASES.includes(g.phase) && !questionWaits && g.early_ms !== null && g.early_ms > 0 && g.early_ms <= TV_EARLY_MS && g.elapsed_ms >= (minMs[g.phase] ?? 0)) {
+    await sql`
+      update game_state set auto_next_at = least(auto_next_at, clock_timestamp())
+      where session_id = ${sessionId} and version = ${version} and auto_version = ${version}`;
+  }
+  return autoTick(sessionId);
+}
+
 /** commandId deterministico per (sessione, versione): più TV che chiamano insieme eseguono il passo una volta sola. */
 export function autoCommandId(sessionId: string, version: number): string {
   const h = createHash("sha256").update(`qz-auto|${sessionId}|${version}`).digest("hex");
@@ -221,9 +290,15 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
   const sql = getSql();
   const [g] = await sql<{ auto_command: string | null; auto_version: number | null; auto_next_at: Date | null; auto_waiting: string | null; due: boolean; enabled: boolean }[]>`
     select gs.auto_command, gs.auto_version, gs.auto_next_at, gs.auto_waiting,
-           coalesce(gs.auto_next_at <= clock_timestamp(), false) and gs.phase <> 'PAUSED' as due,
+           coalesce(gs.auto_next_at <= clock_timestamp(), false) and gs.phase <> 'PAUSED'
+             -- il TV sta ancora parlando per questa versione: si aspetta (al massimo TV_SPEECH_CAP oltre l'orario)
+             and (tp.session_id is null
+                  or tp.seen_at < clock_timestamp() - make_interval(secs => ${TV_ALIVE_MS / 1000}::float8)
+                  or coalesce(tp.spoken_version, -1) >= gs.auto_version
+                  or gs.auto_next_at < clock_timestamp() - make_interval(secs => ${TV_SPEECH_CAP_MS / 1000}::float8)) as due,
            coalesce(gs.auto_mode, s.settings->>'advanceMode' = 'auto') as enabled
     from game_state gs join game_sessions s on s.id = gs.session_id
+    left join tv_presence tp on tp.session_id = gs.session_id
     where gs.session_id = ${sessionId}`;
   if (!g) throw new GameError("NOT_FOUND", "Sessione non trovata o non pubblicata");
   const idle = (): AutoTickResult => ({
@@ -246,8 +321,8 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
       waiting: null,
     };
   } catch (e) {
-    // lock occupato: un altro client (TV o console) sta già eseguendo il passo
-    if (isLockTimeout(e)) return { ...idle(), nextAt: null, version: null };
+    // lucchetto occupato / database lento: il passo resta in programma e il TV riprova subito dopo
+    if (isTransientDbError(e)) return idle();
     if (!(e instanceof GameError)) throw e;
     // un altro client l'ha già eseguito, la regia ha cambiato qualcosa o non è più dovuto: niente da fare
     if (e.code === "AUTO_NOT_DUE" || e.code === "VERSION_CONFLICT") return { ...idle(), nextAt: null, version: null };
@@ -261,8 +336,51 @@ export async function autoTick(sessionId: string): Promise<AutoTickResult> {
   }
 }
 
-function isLockTimeout(e: unknown): boolean {
-  return typeof e === "object" && e !== null && (e as { code?: string }).code === "55P03";
+/** Passo automatico in ritardo di oltre questo tempo (più dei 15 s che il TV può aspettare la fine di una battuta): chi legge lo stato lo fa eseguire. */
+export const AUTO_WATCHDOG_MS = 20_000;
+
+/**
+ * Rete di sicurezza dello scorrimento automatico: se uno stato letto da TV, regia o telefoni ha un
+ * passo in ritardo di oltre AUTO_WATCHDOG_MS (es. il /tick del TV si è perso o è rimasto appeso),
+ * il passo si esegue in background dopo la risposta. Stessi controlli di autoTick (idempotente:
+ * più richieste insieme lo eseguono una volta sola), mai bloccante per chi legge.
+ */
+export function watchdogTick(state: Pick<PublicState, "sessionId" | "auto" | "phase"> | null | undefined, nowMs = Date.now()): boolean {
+  if (!state?.auto?.nextAt || state.phase === "PAUSED") return false;
+  if (Date.parse(state.auto.nextAt) > nowMs - AUTO_WATCHDOG_MS) return false;
+  const run = () => autoTick(state.sessionId).catch((e) => console.warn("[quizzone] passo automatico di sicurezza non riuscito", e instanceof Error ? e.message : e));
+  try {
+    after(run);
+  } catch {
+    void run(); // fuori da una richiesta (test, script)
+  }
+  return true;
+}
+
+/**
+ * Tutti i giocatori attivi hanno risposto: le risposte si chiudono subito (ANSWERS_LOCKED), senza
+ * aspettare la fine del timer. In automatico la partita prosegue da sola; in manuale la regia vede
+ * le risposte chiuse e il timer fermo. Vale per serate e partite libere. Mai un errore per il
+ * giocatore: se non è il momento (fase cambiata, pausa, comando concorrente) non fa nulla.
+ */
+export async function closeAnswersIfAllAnswered(sessionId: string, sessionQuestionId: string): Promise<boolean> {
+  const sql = getSql();
+  const [g] = await sql<{ phase: GamePhase; current: string | null; version: number; players: number; answered: number }[]>`
+    select gs.phase, gs.current_session_question_id as current, gs.version,
+      (select count(*)::int from participants p where p.session_id = gs.session_id and p.status = 'active') as players,
+      (select count(distinct a.participant_id)::int from answer_submissions a join participants p on p.id = a.participant_id
+        where a.session_question_id = ${sessionQuestionId} and p.status = 'active') as answered
+    from game_state gs where gs.session_id = ${sessionId}`;
+  if (!g || g.phase !== "OPTIONS_VISIBLE" || g.current !== sessionQuestionId || g.players === 0 || g.answered < g.players) return false;
+  try {
+    const commandId = createHash("sha256").update(`qz-all-answered|${sessionQuestionId}`).digest("hex");
+    const id = `${commandId.slice(0, 8)}-${commandId.slice(8, 12)}-5${commandId.slice(13, 16)}-a${commandId.slice(17, 20)}-${commandId.slice(20, 32)}`;
+    const res = await executeCommand(sessionId, AUTO_ACTOR, { command: "CLOSE_ANSWERS", commandId: id, expectedVersion: num(g.version), args: { reason: "Tutti hanno risposto" } });
+    return !res.duplicate;
+  } catch (e) {
+    if (e instanceof GameError || isTransientDbError(e)) return false;
+    throw e;
+  }
 }
 
 /** Ripubblica lo stato corrente (es. dopo una modifica collaterale). */
@@ -594,7 +712,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
     const rules = await rulesForQuestion(ctx.tx, q.id, ctx.settings.allowNegative);
     if (!rules) throw new GameError("NOT_FOUND", "Regole della domanda non disponibili");
     // Le risposte compaiono subito, ma il tempo parte quando il presentatore ha finito di leggerle.
-    const readSec = (await optionsReadMs(q.id)) / 1000;
+    const readSec = (await optionsReadMs(ctx.tx, q.id)) / 1000;
     await ctx.tx`
       update session_questions set rules = ${ctx.tx.json(JSON.parse(JSON.stringify(rules)))},
         options_opened_at = clock_timestamp() + make_interval(secs => ${readSec}::float8),

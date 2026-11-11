@@ -68,6 +68,8 @@ export interface StateRow {
   auto_command: string | null;
   auto_version: number | null;
   auto_waiting: string | null;
+  /** gioco libero: rivincita che ha preso il posto di questa partita */
+  next_session_id: string | null;
   server_now: Date;
 }
 
@@ -79,6 +81,7 @@ export async function loadStateRow(db: Db, sessionId: string, lock: "update" | "
            gs.phase_started_at, gs.intro_started_at, gs.paused_from_phase, gs.paused_remaining_ms, gs.paused_at,
            gs.active_event_id, gs.show_lines,
            gs.auto_mode, gs.auto_next_at, gs.auto_command, gs.auto_version, gs.auto_waiting,
+           s.next_session_id,
            clock_timestamp() as server_now
     from game_state gs
     join game_sessions s on s.id = gs.session_id
@@ -175,6 +178,7 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
     recentPlayers,
     showLines: showLinesForPhase(vp, st.show_lines),
     auto: publicAuto(st),
+    rematch: st.next_session_id ? { sessionId: st.next_session_id } : null,
   };
 }
 

@@ -3,6 +3,9 @@ import { fail, ok, route } from "@/lib/http";
 import { verifyDisplayKey } from "@/lib/server/display";
 import { autoTick } from "@/lib/server/engine";
 
+// un tick dura pochi secondi: lucchetti e query hanno limiti propri (vedi runCommand)
+export const maxDuration = 60;
+
 /**
  * Scorrimento automatico guidato dal TV: quando arriva l'orario del prossimo passo il TV chiama
  * questo endpoint. Il server esegue il passo SOLO se l'automatico è attivo e il passo è dovuto

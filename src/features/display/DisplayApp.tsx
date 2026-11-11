@@ -11,13 +11,14 @@ import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick
 import { getSoundEngine, type CueName } from "@/features/media/audio-engine";
 import { Confetti } from "@/features/game/components/effects";
 import { Logo } from "@/features/game/components/brand";
-import { getVoice } from "@/features/media/voice";
+import { getVoice, useSilentLine } from "@/features/media/voice";
 import { speechFor } from "@/features/game/speech";
 import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
 import { TvPauseOverlay } from "./TvScreens";
 import { TvStage } from "./TvStage";
 import { CharacterModeProvider } from "@/features/three/characters/character-mode";
 import { TvScreenAgent } from "./TvScreenControls";
+import { useTvPrefs, type TvPrefs } from "./tv-prefs";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -34,22 +35,6 @@ type MediaControl =
   | { action: "stop"; at: number }
   | { action: "test-tone"; at: number };
 
-interface TvPrefs {
-  musicVolume: number;
-  sfxVolume: number;
-  muted: boolean;
-  reducedMotion: boolean;
-  lowPower: boolean;
-  voice: boolean;
-  readOptions: boolean;
-  theme: boolean;
-  characters3d: boolean;
-  /** Segmento "Spiega le regole" nell'intro. */
-  rules: boolean;
-}
-const PREFS_KEY = "qz.tv.prefs";
-const DEFAULT_PREFS: TvPrefs = { musicVolume: 0.8, sfxVolume: 0.9, muted: false, reducedMotion: false, lowPower: false, voice: true, readOptions: true, theme: true, characters3d: true, rules: true };
-
 /** Sigla per fase: in sottofondo in lobby e classifica, piena al finale, spenta durante le domande. */
 function themeFor(phase: GamePhase): { volume: number; loop: boolean } | null {
   if (phase === "READY" || phase === "LOBBY") return { volume: 0.4, loop: true };
@@ -57,16 +42,6 @@ function themeFor(phase: GamePhase): { volume: number; loop: boolean } | null {
   // finale: sigla bassa durante la suspense del podio (la fanfara arriva col vincitore)
   if (phase === "FINISHED") return { volume: 0.35, loop: true };
   return null;
-}
-
-function loadPrefs(): TvPrefs {
-  if (typeof window === "undefined") return DEFAULT_PREFS;
-  try {
-    const raw = localStorage.getItem(PREFS_KEY);
-    return raw ? { ...DEFAULT_PREFS, ...(JSON.parse(raw) as Partial<TvPrefs>) } : DEFAULT_PREFS;
-  } catch {
-    return DEFAULT_PREFS;
-  }
 }
 
 /** Elemento audio riutilizzato per gli estratti musicali (fuori dal componente: mutabile). */
@@ -95,19 +70,63 @@ const PHASE_CUES: Partial<Record<GamePhase, CueName>> = {
   PAUSED: "pause",
 };
 
+/** Respiro dopo l'ultima battuta prima di dire al server "ho finito" (il passo successivo parte subito dopo). */
+const SPOKEN_BREATH_MS = 350;
+
+/** Richiesta di attivare l'audio dai comandi dell'host (un clic: regola dei browser). */
+const ACTIVATE_EVENT = "qz:tv-activate-audio";
+
+/** Quello che il TV passa ai comandi sovrapposti dell'host (gioco libero). */
+export interface TvOverlayContext {
+  qrDataUrl: string | null;
+  joinUrl: string;
+  /** audio e voce attivi (serve un clic sul TV, regola del browser) */
+  audioOn: boolean;
+  activateAudio: () => void;
+  testVoices: () => void;
+}
+
+const SPEAKER_NAMES: Record<string, string> = { professore: "Professore", regina: "Regina", palmino: "Palmino", annunciatore: "" };
+
+/**
+ * Battuta senza voce (clip non arrivata, voce professionale non disponibile): il personaggio parla
+ * e il testo compare qui, come sottotitolo, al posto di una voce sintetica.
+ */
+function SilentSubtitle() {
+  const line = useSilentLine();
+  if (!line) return null;
+  const who = SPEAKER_NAMES[line.who] ?? "";
+  return (
+    <div className="pointer-events-none absolute inset-x-[12cqw] bottom-[4cqh] z-[45] flex justify-center" aria-live="polite">
+      <p className="rounded-[2cqh] bg-black/75 px-[2.6cqh] py-[1.4cqh] text-center text-[3.2cqh] font-extrabold leading-snug text-white shadow-2xl">
+        {who && <span className="mr-[1cqh] text-gold">{who}:</span>}
+        {line.text}
+      </p>
+    </div>
+  );
+}
+
 export function DisplayApp({
   sessionId,
   displayKey,
   renderOverlay,
+  hostMode = false,
 }: {
   sessionId: string;
   displayKey: string;
-  /** comandi sovrapposti al TV (gioco libero: controlli minimi dell'host) */
-  renderOverlay?: (state: PublicState | null) => ReactNode;
+  /** comandi sovrapposti al TV (gioco libero: comandi e impostazioni dell'host) */
+  renderOverlay?: (state: PublicState | null, ctx: TvOverlayContext) => ReactNode;
+  /**
+   * TV del gioco libero: lo schermo si vede subito (QR in lobby) senza la schermata "ATTIVA AUDIO";
+   * se il browser lo consente l'audio parte da solo, altrimenti basta un clic ovunque.
+   * Le impostazioni stanno nell'icona a ingranaggio dell'host (niente doppio clic).
+   */
+  hostMode?: boolean;
 }) {
   useAutoReload();
   const [started, setStarted] = useState(false);
-  const [prefs, setPrefs] = useState<TvPrefs>(loadPrefs);
+  const [prefs, updatePrefs] = useTvPrefs();
+  const setPrefs = useCallback((p: TvPrefs) => updatePrefs(p), [updatePrefs]);
   const [showSettings, setShowSettings] = useState(false);
   const [confetti, setConfetti] = useState(0);
   const [confettiIntensity, setConfettiIntensity] = useState(1);
@@ -129,15 +148,11 @@ export function DisplayApp({
   const startedRef = useRef(false);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
-    } catch {
-      /* archiviazione non disponibile: si usano i valori in memoria */
-    }
-    sound.setSettings({ musicVolume: prefs.musicVolume, sfxVolume: prefs.sfxVolume, muted: prefs.muted });
-    voice.configure({ enabled: prefs.voice && !prefs.muted, readOptions: prefs.readOptions });
+    sound.setSettings({ musicVolume: prefs.musicVolume, sfxVolume: prefs.sfxVolume, muted: prefs.muted, masterVolume: prefs.masterVolume });
+    // voce del browser: mai con ElevenLabs attivo; senza, solo se scelta (serate della regia: come sempre)
+    voice.configure({ enabled: prefs.voice && !prefs.muted, readOptions: prefs.readOptions, volume: prefs.masterVolume, browserVoice: hostMode ? prefs.browserVoice : true });
     prefsRef.current = prefs;
-  }, [prefs, sound, voice]);
+  }, [prefs, sound, voice, hostMode]);
 
   const mediaUrl = useCallback((id: string) => `/api/display/${sessionId}/media/${id}?k=${encodeURIComponent(displayKey)}`, [sessionId, displayKey]);
 
@@ -229,7 +244,8 @@ export function DisplayApp({
       }
       // Voce dei presentatori
       const lines = startedRef.current ? speechFor(s, prev, { readOptions: p.readOptions }) : [];
-      if (phaseChanged && lines.length > 0) voice.stop();
+      // all'avvio dell'intro nessuna battuta rimasta in coda (es. un saluto della lobby in attesa della clip)
+      if (phaseChanged && (lines.length > 0 || s.phase === "INTRO")) voice.stop();
       const spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { live: l.live })));
       // Lobby: saluti ai nuovi arrivati decisi dal server (solo quelli nuovi, mai dopo un ricaricamento)
       if (startedRef.current) for (const l of lobbyGreetingLines(s, prev)) void voice.say(l.who, l.text, { live: l.live });
@@ -266,6 +282,10 @@ export function DisplayApp({
   });
 
   const view = state;
+  const stateRef = useRef<PublicState | null>(null);
+  useEffect(() => {
+    stateRef.current = view;
+  }, [view]);
 
   // Scorrimento automatico: il TV chiama /tick quando arriva l'orario del prossimo passo
   // (funziona anche con la regia chiusa; il server esegue il passo solo se è dovuto).
@@ -273,7 +293,40 @@ export function DisplayApp({
     () => api<AutoTickResponse>(`/api/display/${sessionId}/tick?k=${encodeURIComponent(displayKey)}`, { method: "POST", timeoutMs: 20000 }),
     [sessionId, displayKey],
   );
-  useAutoTick({ auto: state?.auto, now, tick: autoTickRequest });
+  // mentre il presentatore parla (o la sua clip sta arrivando) il TV non manda avanti la partita
+  const voiceBusy = useCallback(() => voice.pending, [voice]);
+  useAutoTick({ auto: state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
+
+  // Il TV dice al server quando ha finito di parlare per questo momento della partita: lo
+  // scorrimento automatico non taglia il presentatore e, appena ha finito, passa subito oltre
+  // (dopo un respiro breve) invece di aspettare la stima dal testo.
+  const autoOn = !!state?.auto;
+  const version = state?.version ?? null;
+  useEffect(() => {
+    if (!autoOn || version === null) return;
+    const url = `/api/display/${sessionId}/spoken?k=${encodeURIComponent(displayKey)}`;
+    const post = (speaking: boolean) => api(url, { method: "POST", json: { version, speaking }, timeoutMs: 20000 }).catch(() => undefined);
+    let toldSpeaking = false;
+    let idleSince: number | null = null;
+    let done = false;
+    const t = setInterval(() => {
+      if (done) return;
+      if (voice.pending) {
+        idleSince = null;
+        if (!toldSpeaking) {
+          toldSpeaking = true;
+          void post(true);
+        }
+        return;
+      }
+      idleSince ??= Date.now();
+      if (Date.now() - idleSince >= SPOKEN_BREATH_MS) {
+        done = true;
+        void post(false);
+      }
+    }, 100);
+    return () => clearInterval(t);
+  }, [autoOn, version, sessionId, displayKey, voice]);
 
   // QR code per la lobby
   const joinUrl = useMemo(() => {
@@ -342,16 +395,19 @@ export function DisplayApp({
   }, [remainingMs, timerActive, sound]);
 
   async function start() {
+    if (startedRef.current) return;
     await sound.unlock();
     sound.play("join");
     startedRef.current = true;
     const th = view ? themeFor(view.phase) : null;
     if (th && prefs.theme) sound.playTheme({ loop: th.loop, volume: th.volume });
     void voice.say(WELCOME_LINE.who, WELCOME_LINE.text);
-    try {
-      await document.documentElement.requestFullscreen?.();
-    } catch {
-      /* fullscreen non disponibile */
+    if (!document.fullscreenElement) {
+      try {
+        await document.documentElement.requestFullscreen?.();
+      } catch {
+        /* fullscreen non disponibile */
+      }
     }
     setStarted(true);
   }
@@ -360,6 +416,49 @@ export function DisplayApp({
     startedRef.current = true;
     setStarted(true);
   }
+
+  // TV del gioco libero: se la pagina ha già avuto un clic (es. "CREA PARTITA" appena premuto)
+  // l'audio parte da solo; altrimenti il primo clic sul TV lo attiva.
+  const autoStarted = useRef(false);
+  useEffect(() => {
+    if (!hostMode || autoStarted.current) return;
+    autoStarted.current = true;
+    const ua = (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation;
+    if (!ua?.hasBeenActive) return;
+    const t = setTimeout(() => {
+      void (async () => {
+        if (!(await sound.unlock())) return;
+        startedRef.current = true;
+        sound.play("join");
+        const p = prefsRef.current;
+        const th = stateRef.current ? themeFor(stateRef.current.phase) : null;
+        if (th && p.theme) sound.playTheme({ loop: th.loop, volume: th.volume });
+        void voice.say(WELCOME_LINE.who, WELCOME_LINE.text);
+        setStarted(true);
+      })();
+    }, 0);
+    return () => clearTimeout(t);
+  }, [hostMode, sound, voice]);
+  useEffect(() => {
+    if (!hostMode || started) return;
+    const onTap = () => void start();
+    window.addEventListener("pointerdown", onTap);
+    window.addEventListener("keydown", onTap);
+    window.addEventListener(ACTIVATE_EVENT, onTap);
+    return () => {
+      window.removeEventListener("pointerdown", onTap);
+      window.removeEventListener("keydown", onTap);
+      window.removeEventListener(ACTIVATE_EVENT, onTap);
+    };
+  });
+
+  const overlayCtx: TvOverlayContext = {
+    qrDataUrl: qr,
+    joinUrl,
+    audioOn: started,
+    activateAudio: () => window.dispatchEvent(new Event(ACTIVATE_EVENT)),
+    testVoices: () => void Promise.all(MIC_TEST_LINES.map((l) => voice.say(l.who, l.text))),
+  };
 
   // ---------------------------------------------------------------- render
   const screen = (
@@ -396,11 +495,12 @@ export function DisplayApp({
   );
 
   return (
-    <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={() => setShowSettings((s) => !s)}>
+    <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={hostMode ? undefined : () => setShowSettings((s) => !s)}>
       {screen}
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
-      {started && <TvScreenAgent sessionId={sessionId} />}
-      {started && renderOverlay?.(view)}
+      <SilentSubtitle />
+      {(started || hostMode) && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
+      {(started || hostMode) && renderOverlay?.(view, overlayCtx)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />
 
       {status !== "live" && started && (
@@ -409,7 +509,7 @@ export function DisplayApp({
         </div>
       )}
 
-      {!started && (
+      {!started && !hostMode && (
         <div className="absolute inset-0 z-[60] grid place-items-center bg-night/85 backdrop-blur">
           <div className="flex flex-col items-center gap-6 text-center">
             <Logo size="lg" />
@@ -426,7 +526,7 @@ export function DisplayApp({
         </div>
       )}
 
-      {showSettings && (
+      {showSettings && !hostMode && (
         <div className="absolute bottom-4 right-4 z-[70] w-80 rounded-2xl border-2 border-gold/60 bg-[#1d0c30] p-4 text-sm text-white shadow-2xl" onDoubleClick={(e) => e.stopPropagation()}>
           <p className="mb-2 font-display text-lg text-gold">Impostazioni schermo</p>
           <label className="flex items-center justify-between gap-2 py-1">

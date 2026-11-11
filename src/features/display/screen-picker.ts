@@ -104,6 +104,19 @@ export function chooseScreen(screens: readonly ScreenInfo[], savedKey: string | 
   return screens.find((s) => !s.isPrimary) ?? screens[0];
 }
 
+/**
+ * Schermo su cui aprire il TV quando l'host è su `currentKey` (gioco libero, dopo "CREA PARTITA"):
+ * quello salvato se c'è ancora, altrimenti il primo diverso da questo (preferendo un non principale).
+ * null = il TV va su QUESTO schermo (un solo schermo, oppure l'host ha scelto proprio questo).
+ */
+export function pickTvScreen(screens: readonly ScreenInfo[], savedKey: string | null, currentKey: string | null): ScreenInfo | null {
+  if (screens.length <= 1) return null;
+  const saved = savedKey ? screens.find((s) => s.key === savedKey) : undefined;
+  if (saved) return saved.key === currentKey ? null : saved;
+  const others = screens.filter((s) => s.key !== currentKey);
+  return others.find((s) => !s.isPrimary) ?? others[0] ?? null;
+}
+
 /** Caratteristiche della finestra popup che copre l'area utile dello schermo scelto. */
 export function popupFeatures(s: Pick<ScreenInfo, "availLeft" | "availTop" | "availWidth" | "availHeight"> | null, fullscreen = false): string {
   if (!s) return "popup,width=1280,height=720";
@@ -151,7 +164,7 @@ export type TvScreenMessage =
   | { type: "move"; key: string }
   | { type: "fullscreen" }
   | { type: "ping" }
-  | { type: "pong"; key: string | null; fullscreen: boolean };
+  | { type: "pong"; key: string | null; fullscreen: boolean; /** audio del TV già attivato (serve un clic sul TV) */ audio?: boolean };
 
 export function tvChannelName(sessionId: string): string {
   return `qz-tv:${sessionId}`;
@@ -213,6 +226,12 @@ export async function loadScreens(): Promise<{ screens: ScreenInfo[]; raw: Map<s
   } catch {
     return null;
   }
+}
+
+/** Chiave dello schermo su cui si trova questa finestra (null se l'elenco non è disponibile). */
+export async function currentScreenKey(): Promise<string | null> {
+  if (!(await loadScreens()) || !cachedDetails) return null;
+  return screenKey(cachedDetails.currentScreen);
 }
 
 /** Oggetto ScreenDetailed originale (serve a requestFullscreen({ screen })). */

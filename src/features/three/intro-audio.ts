@@ -66,6 +66,16 @@ function clipAvailable(url: string): Promise<boolean> {
   return p;
 }
 
+/**
+ * Voci registrate dell'intro e delle regole (public/audio): verificate e scaricate già in lobby,
+ * così all'avvio dell'intro si usano sempre le clip registrate (mai la voce generata al volo).
+ */
+export function preloadIntroClips(): void {
+  if (typeof window === "undefined") return;
+  for (const l of INTRO_SPEECH) void clipAvailable(`${CLIP_DIR}${l.clip}.mp3`);
+  for (const r of RULES) void clipAvailable(`${RULES_AUDIO_DIR}${r.file}`);
+}
+
 // ------------------------------------------------------------------ sigla in loop
 const THEME_URL = "/audio/theme.mp3";
 /** Coda finale quasi silenziosa tagliata e dissolvenza incrociata fra un giro e l'altro (niente click). */

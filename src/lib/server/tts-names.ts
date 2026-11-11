@@ -5,6 +5,7 @@ import { PRESENTERS } from "@/lib/game-engine/types";
 import { nameVariants, PREWARM_NUMBERS, segmentPause, splitByNames, type SpeechSegment } from "@/features/game/name-segments";
 import { stripAudioTags, type SpokenLine } from "@/features/game/script";
 import { concatMp3 } from "./mp3";
+import { isPublicSession } from "./public-session";
 import {
   cachedKeys,
   downloadClip,
@@ -16,9 +17,11 @@ import {
   storeClip,
   TtsError,
   ttsConfigured,
+  withTimeout,
   type ClipResult,
   type NamesMode,
   type PartKind,
+  type TtsPriority,
   type PlannedClip,
   type TtsSource,
   type VoiceConfig,
@@ -113,11 +116,11 @@ export function planSplice(cfg: VoiceConfig, whole: PlannedClip, names: readonly
 
 const inflight = new Map<string, Promise<ClipResult>>();
 
-/** Genera le parti mancanti, le unisce e salva la frase intera. */
 /** Tempo massimo per comporre una battuta dalle parti; poi si genera intera (entro WHOLE_DEADLINE_MS dall'inizio). */
-const SPLICE_DEADLINE_MS = 9_000;
+export const SPLICE_DEADLINE_MS = 9_000;
 const WHOLE_DEADLINE_MS = 24_000;
 
+/** Genera le parti mancanti, le unisce e salva la frase intera. */
 async function spliceClip(db: Db, cfg: VoiceConfig, sp: SplicePlan, deadline: number): Promise<ClipResult> {
   const results = await Promise.all(sp.parts.map((p) => ensureClip(db, p.plan, partKind(p.segment), cfg, { deadline })));
   const audios = await Promise.all(results.map((r) => r.audio ?? downloadClip(r.path)));
@@ -161,7 +164,9 @@ export async function ensureLineClip(db: Db, cfg: VoiceConfig, line: SpokenLine,
     }
     if (!sp) return ensureClip(db, whole, source, cfg, { deadline: wholeDeadline });
     try {
-      return await spliceClip(db, cfg, sp, started + SPLICE_DEADLINE_MS);
+      // scadenza: se le parti non arrivano in tempo (ElevenLabs lento, archivio lento) si genera la
+      // frase intera, così il TV riceve comunque la voce professionale e la richiesta non resta appesa
+      return await withTimeout(spliceClip(db, cfg, sp, started + SPLICE_DEADLINE_MS), SPLICE_DEADLINE_MS + 1000, "Nomi salvati");
     } catch (e) {
       // budget esaurito: come oggi (il TV usa la voce del browser)
       if (e instanceof TtsError && e.code === "TTS_BUDGET") throw e;
@@ -192,18 +197,51 @@ export async function ttsLineUrl(line: SpokenLine, opts: LineClipOptions = {}): 
  * Genera (se mancano) le varianti più usate del nome ("Gigi", "Gigi,", "Gigi!", "Gigi.")
  * con le voci dei tre presentatori, a bassa priorità: le battute del TV passano prima.
  */
-export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: string): Promise<{ generated: number; billedChars: number }> {
-  if (cfg.namesMode !== "spliced") return { generated: 0, billedChars: 0 };
-  const plans = PRESENTERS.flatMap((who) =>
+function nameClipPlans(cfg: VoiceConfig, nickname: string): PlannedClip[] {
+  return PRESENTERS.flatMap((who) =>
     nameVariants(nickname).map((v) => {
       const plan = planPart(cfg, who, v, "name");
       if (plan) plan.context = NAME_VARIANT_CONTEXT[v.endsWith("!") ? "exclaim" : segmentPause(v)];
       return plan;
     }),
   ).filter((p) => p !== null);
+}
+
+function numberClipPlans(cfg: VoiceConfig): PlannedClip[] {
+  return PRESENTERS.flatMap((who) =>
+    PREWARM_NUMBERS.map((n) => {
+      const plan = planPart(cfg, who, n, "number");
+      if (plan) plan.context = NUMBER_PREWARM_CONTEXT;
+      return plan;
+    }),
+  ).filter((p) => p !== null);
+}
+
+/**
+ * Parti dei "nomi salvati" ancora da preparare per una serata: nickname dei giocatori attivi con
+ * varianti mancanti e numeri piccoli (una sola query sull'archivio). Vuoto se la modalità non è "spliced".
+ */
+export async function pendingLiveParts(db: Db, cfg: VoiceConfig, sessionId: string, namesMode?: NamesMode): Promise<{ names: string[]; numbers: boolean }> {
+  if (resolveNamesMode(cfg, namesMode) !== "spliced") return { names: [], numbers: false };
+  const players = await db<{ nickname: string }[]>`
+    select nickname from participants where session_id = ${sessionId} and status = 'active' and not is_bot order by joined_at`;
+  const byName = players.map((p) => ({ name: p.nickname, keys: nameClipPlans(cfg, p.nickname).map((x) => x.key) }));
+  const numberKeys = numberClipPlans(cfg).map((x) => x.key);
+  const cached = await cachedKeys(db, [...byName.flatMap((n) => n.keys), ...numberKeys]);
+  return { names: byName.filter((n) => n.keys.some((k) => !cached.has(k))).map((n) => n.name), numbers: numberKeys.some((k) => !cached.has(k)) };
+}
+
+export async function prewarmNameClips(
+  db: Db,
+  cfg: VoiceConfig,
+  nickname: string,
+  opts: { namesMode?: NamesMode; priority?: TtsPriority } = {},
+): Promise<{ generated: number; billedChars: number }> {
+  if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
+  const plans = nameClipPlans(cfg, nickname);
   const cached = await cachedKeys(db, plans.map((p) => p.key));
   const todo = plans.filter((p) => !cached.has(p.key));
-  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "name", cfg, { priority: "low" })));
+  const results = await Promise.allSettled(todo.map((p) => ensureClip(db, p, "name", cfg, { priority: opts.priority ?? "low" })));
   let generated = 0;
   let billedChars = 0;
   for (const r of results) {
@@ -218,17 +256,15 @@ export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: strin
  * Numeri piccoli (1–20, forma semplice) per i tre presentatori: serie, posizioni, domande,
  * "e altri N". Costo una tantum minimo (~60 clip da 1–2 caratteri), poi gratis per sempre.
  */
-export async function prewarmNumberClips(db: Db, cfg: VoiceConfig): Promise<{ generated: number; billedChars: number }> {
-  if (cfg.namesMode !== "spliced") return { generated: 0, billedChars: 0 };
-  const plans = PRESENTERS.flatMap((who) =>
-    PREWARM_NUMBERS.map((n) => {
-      const plan = planPart(cfg, who, n, "number");
-      if (plan) plan.context = NUMBER_PREWARM_CONTEXT;
-      return plan;
-    }),
-  ).filter((p) => p !== null);
+export async function prewarmNumberClips(
+  db: Db,
+  cfg: VoiceConfig,
+  opts: { namesMode?: NamesMode; priority?: TtsPriority } = {},
+): Promise<{ generated: number; billedChars: number }> {
+  if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
+  const plans = numberClipPlans(cfg);
   const cached = await cachedKeys(db, plans.map((p) => p.key));
-  const results = await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, "number", cfg, { priority: "low" })));
+  const results = await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, "number", cfg, { priority: opts.priority ?? "low" })));
   let generated = 0;
   let billedChars = 0;
   for (const r of results) {
@@ -239,14 +275,18 @@ export async function prewarmNumberClips(db: Db, cfg: VoiceConfig): Promise<{ ge
   return { generated, billedChars };
 }
 
-/** All'ingresso di un nuovo giocatore: nomi preparati in background (mai bloccante). */
-export function scheduleNamePrewarm(nickname: string): void {
+/**
+ * All'ingresso di un nuovo giocatore: nomi preparati in background (mai bloccante).
+ * Partite libere (`sessionId` pubblica): sempre "nomi salvati".
+ */
+export function scheduleNamePrewarm(nickname: string, sessionId: string | null = null): void {
   try {
     if (!ttsConfigured() || process.env.VITEST) return;
     after(async () => {
       try {
         const db = getSql();
-        await prewarmNameClips(db, await loadVoiceConfig(db), nickname);
+        const namesMode = sessionId && (await isPublicSession(sessionId, db)) ? "spliced" : undefined;
+        await prewarmNameClips(db, await loadVoiceConfig(db), nickname, { namesMode });
       } catch (e) {
         console.warn("[quizzone] preparazione del nome non riuscita", e instanceof Error ? e.message : e);
       }

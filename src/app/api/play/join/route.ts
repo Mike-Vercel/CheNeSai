@@ -14,7 +14,7 @@ export const POST = route(async (req: Request) => {
   await writePlayerToken(body.code, body.slot, result.participantToken);
   if (result.deviceToken) await writeDeviceToken(result.deviceToken);
   // voce: il nome del nuovo giocatore si prepara subito (in background), così la prima battuta che lo nomina parte veloce
-  if (!result.rejoined) scheduleNamePrewarm(result.nickname);
+  if (!result.rejoined) scheduleNamePrewarm(result.nickname, result.sessionId);
   return ok({
     participantId: result.participantId,
     nickname: result.nickname,

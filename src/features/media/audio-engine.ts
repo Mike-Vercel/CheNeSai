@@ -41,6 +41,8 @@ export interface AudioSettings {
   musicVolume: number; // 0..1
   sfxVolume: number; // 0..1
   muted: boolean;
+  /** volume generale del TV (bus principale: musica, effetti e voci registrate) 0..1 */
+  masterVolume?: number;
 }
 
 type Listener = (s: { unlocked: boolean; settings: AudioSettings }) => void;
@@ -144,7 +146,7 @@ class SoundEngine {
   private applySettings() {
     if (!this.ctx || !this.master || !this.musicBus || !this.sfxBus) return;
     const t = this.ctx.currentTime;
-    this.master.gain.setTargetAtTime(this.settings.muted ? 0 : 1, t, 0.02);
+    this.master.gain.setTargetAtTime(this.settings.muted ? 0 : (this.settings.masterVolume ?? 1), t, 0.02);
     this.musicBus.gain.setTargetAtTime(this.settings.musicVolume, t, 0.05);
     this.sfxBus.gain.setTargetAtTime(this.settings.sfxVolume, t, 0.05);
   }

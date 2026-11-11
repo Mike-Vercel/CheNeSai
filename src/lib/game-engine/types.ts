@@ -349,6 +349,11 @@ export interface PublicState {
    * Assente o null = scorrimento manuale o nessun passo in programma.
    */
   auto?: PublicAuto | null;
+  /**
+   * Gioco libero: l'host ha fatto partire la RIVINCITA (nuova partita con lo stesso codice).
+   * TV e telefoni di questa partita passano da soli alla nuova.
+   */
+  rematch?: { sessionId: string } | null;
 }
 
 export interface PublicAuto {

@@ -5,11 +5,14 @@ import { getSql } from "@/lib/database/db";
 import { fail, ok, route } from "@/lib/http";
 import { verifyDisplayKey } from "@/lib/server/display";
 import { checkRateLimit } from "@/lib/server/players";
-import { TtsError, ttsConfigured } from "@/lib/server/tts";
+import { isPublicSession } from "@/lib/server/public-session";
+import { TtsError, ttsConfigured, withTimeout } from "@/lib/server/tts";
 import { ttsLineUrl } from "@/lib/server/tts-names";
 import { TTS_MAX_CHARS, TTS_ROLES } from "@/features/game/script";
 
 export const maxDuration = 30;
+/** Risposta sempre entro questo tempo (la funzione ne ha 30). */
+const TTS_ROUTE_DEADLINE_MS = 24_000;
 
 /**
  * GET /api/tts?status=1                          → { provider: "elevenlabs" | "browser" }
@@ -40,7 +43,15 @@ export const GET = route(async (req: Request) => {
   if (!(await checkRateLimit(sql, `tts:${q.s ?? "admin"}`, 180, 60))) return fail(429, "RATE_LIMITED", "Troppe richieste");
   let signed: string;
   try {
-    signed = await ttsLineUrl({ who: q.who, text: q.text, live: q.live === "1" }, { sessionId: fromDisplay ? q.s : null });
+    // partite libere: sempre "nomi salvati" per le battute con i nickname, qualunque sia l'impostazione del pannello Voci
+    const sessionId = fromDisplay ? (q.s ?? null) : null;
+    const forceSpliced = !!sessionId && q.live === "1" && (await isPublicSession(sessionId, sql));
+    // scadenza ben sotto i 30 s della funzione: oltre, il TV usa subito la voce del browser
+    signed = await withTimeout(
+      ttsLineUrl({ who: q.who, text: q.text, live: q.live === "1" }, { sessionId, namesMode: forceSpliced ? "spliced" : undefined }),
+      TTS_ROUTE_DEADLINE_MS,
+      "Voce",
+    );
   } catch (e) {
     if (e instanceof TtsError) return fail(e.code === "TTS_BUDGET" ? 503 : 502, e.code, e.message);
     throw e;

@@ -86,6 +86,9 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   }, [code, q]);
 
   const onState = useCallback((s: PublicState, prev: PublicState | null) => {
+    // gioco libero: RIVINCITA con lo stesso codice. Il telefono è già dentro la nuova partita
+    // (stesso nickname): basta ricaricare lo stato, che arriva dalla nuova sessione.
+    if (s.rematch && !prev?.rematch) setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);
     if (prev && s.phase !== prev.phase && REFRESH_SELF_PHASES.includes(s.phase)) {
       // jitter: evita che 200 telefoni interroghino il server nello stesso istante
       setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);

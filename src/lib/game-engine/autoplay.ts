@@ -22,8 +22,11 @@ export const ADVANCE_MODE_LABELS: Record<AdvanceMode, string> = {
   auto: "Automatico",
 };
 
-/** Respiro dopo l'ultima battuta, prima del passo successivo. */
-export const AUTO_BREATH_MS = 1500;
+/**
+ * Respiro dopo l'ultima battuta, prima del passo successivo (breve: niente silenzi). Con il TV
+ * collegato il passo parte comunque appena il TV dice di aver finito (vedi reportTvSpeech).
+ */
+export const AUTO_BREATH_MS = 600;
 /** Passo mai prima di così (anche quando tutto è già "scaduto"): la regia ha il tempo di vedere cosa succede. */
 export const AUTO_MIN_STEP_MS = 1000;
 /** Appena attivato l'automatico a fase in corso: un attimo prima di muoversi. */
@@ -38,16 +41,19 @@ export const AUTO_BET_WINDOW_MS = 10_000;
  * ciascuna). Misurata sulle clip registrate, con un piccolo margine.
  */
 export const AUTO_INTRO_MS = 104_000;
-/** Durata minima a schermo di ogni fase (animazioni del TV), anche se il presentatore tace. */
+/**
+ * Durata minima a schermo di ogni fase (il tempo delle animazioni del TV), anche se il presentatore
+ * tace: solo quanto serve, così in automatico non restano silenzi.
+ */
 export const AUTO_MIN_PHASE_MS: Partial<Record<GamePhase, number>> = {
-  ROUND_INTRO: 5000,
-  CATEGORY_RESULT: 4000,
-  SPECIAL_EVENT: 4000,
-  QUESTION_VISIBLE: 4000,
-  ANSWERS_LOCKED: 2500,
-  ANSWER_REVEAL: 4000,
-  SCORE_REVEAL: 5000,
-  LEADERBOARD: 7000,
+  ROUND_INTRO: 4000,
+  CATEGORY_RESULT: 3000,
+  SPECIAL_EVENT: 3500,
+  QUESTION_VISIBLE: 2500,
+  ANSWERS_LOCKED: 1200,
+  ANSWER_REVEAL: 3000,
+  SCORE_REVEAL: 4000,
+  LEADERBOARD: 6000,
 };
 /** Risposte aperte senza un orario di chiusura (non dovrebbe succedere): attesa prudente. */
 const OPTIONS_FALLBACK_MS = 30_000;

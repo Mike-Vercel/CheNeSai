@@ -4,6 +4,7 @@ import {
   describeScreens,
   isTvScreenMessage,
   loadScreenChoice,
+  pickTvScreen,
   popupFeatures,
   saveScreenChoice,
   SCREEN_STORAGE_KEY,
@@ -97,5 +98,29 @@ describe("schermo TV: finestra e messaggi", () => {
     expect(isTvScreenMessage({ type: "ping" })).toBe(true);
     expect(isTvScreenMessage({ type: "boom" })).toBe(false);
     expect(isTvScreenMessage(null)).toBe(false);
+  });
+});
+
+describe("gioco libero: su quale schermo va il TV dopo CREA PARTITA", () => {
+  const list = describeScreens([laptop, tv]);
+  const here = screenKey(laptop);
+  it("un solo schermo: il TV va qui", () => {
+    expect(pickTvScreen(describeScreens([laptop]), null, here)).toBeNull();
+  });
+  it("due schermi senza scelta salvata: l'altro (il TV)", () => {
+    expect(pickTvScreen(list, null, here)?.key).toBe(screenKey(tv));
+  });
+  it("host sul televisore: il TV va sull'altro schermo", () => {
+    expect(pickTvScreen(list, null, screenKey(tv))?.key).toBe(here);
+  });
+  it("scelta salvata: si usa; se è proprio questo schermo, TV qui", () => {
+    expect(pickTvScreen(list, screenKey(tv), here)?.key).toBe(screenKey(tv));
+    expect(pickTvScreen(list, here, here)).toBeNull();
+  });
+  it("scelta salvata non più collegata: l'altro schermo", () => {
+    expect(pickTvScreen(list, "9999,0:1280x720", here)?.key).toBe(screenKey(tv));
+  });
+  it("il TV risponde anche con lo stato dell'audio", () => {
+    expect(isTvScreenMessage({ type: "pong", key: null, fullscreen: true, audio: false })).toBe(true);
   });
 });
