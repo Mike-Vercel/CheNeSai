@@ -11,6 +11,7 @@ import { Character, Logo } from "@/features/game/components/brand";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
 import { podiumPlan } from "@/features/game/script";
+import { InstallHint } from "@/features/pwa/InstallHint";
 import {
   PhoneCard,
   PhoneHeader,
@@ -311,6 +312,7 @@ function LobbyView({ self, state }: { self: PlayerSelf; state: PublicState }) {
           Il tuo codice giocatore per le classifiche mensili: <span className="font-display tracking-wider text-gold">{recovery}</span>
         </p>
       )}
+      <InstallHint />
     </div>
   );
 }

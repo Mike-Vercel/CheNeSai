@@ -119,6 +119,11 @@ body {
   background-size: 22px 22px;
 }
 
+/* intervallo nella scaletta a tempo (regia) */
+.qz-break-stripes {
+  background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0 6px, rgba(255, 255, 255, 0.08) 6px 12px);
+}
+
 .qz-safe {
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);

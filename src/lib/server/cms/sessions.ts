@@ -451,6 +451,16 @@ export async function duplicateSession(id: string, actor: Actor, opts: { title?:
         optMap.set(o.id, no.id);
       }
     }
+    // la scaletta a tempo è indicizzata per id round: si riporta sui round copiati
+    const ro = settings.runningOrder;
+    if (ro?.rounds) {
+      const rounds2: NonNullable<typeof ro.rounds> = {};
+      for (const [oldId, v] of Object.entries(ro.rounds)) {
+        const nid = roundMap.get(oldId);
+        if (nid) rounds2[nid] = v;
+      }
+      await tx`update game_sessions set settings = ${tx.json({ ...settings, runningOrder: { ...ro, rounds: rounds2 } })} where id = ${n.id}`;
+    }
     const sqs = await tx<{ id: string; round_id: string; position: number; question_id: string | null; vote_option_id: string | null; is_reserve: boolean }[]>`
       select id, round_id, position, question_id, vote_option_id, is_reserve from session_questions where session_id = ${id}`;
     for (const q of sqs) {
