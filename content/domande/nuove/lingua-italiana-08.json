@@ -21,7 +21,7 @@
         "modi-di-dire"
       ],
       "notes": "Fare il passo più lungo della gamba: tentare imprese superiori ai propri mezzi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "proverbi"
       ],
       "notes": "Chi non risica non rosica: chi non rischia non guadagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "proverbi"
       ],
       "notes": "Non è tutto oro quello che luccica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "nomi-collettivi"
       ],
       "notes": "Una flotta di navi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere il pollice verde: essere abili nel giardinaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "grammatica"
       ],
       "notes": "Libriccino: diminutivo di libro; librone e gattone sono accrescitivi, ragazzaccio peggiorativo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "modi-di-dire"
       ],
       "notes": "Costare un occhio della testa: avere un prezzo altissimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "lessico"
       ],
       "notes": "Loquace: che ama parlare, chiacchierone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "latino"
       ],
       "notes": "Errare humanum est: sbagliare è umano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "enigmistica"
       ],
       "notes": "Anagramma: stesse lettere in ordine diverso, come Roma e mora",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "trabocchetto"
       ],
       "notes": "Tra e fra hanno lo stesso significato: si sceglie per evitare suoni ripetuti, come fra tre giorni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "trabocchetto"
       ],
       "notes": "Ce n'è: ce (avverbio) più ne è eliso in n'è; scrivere c'è n'è è un errore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "trabocchetto"
       ],
       "notes": "Mille al plurale diventa mila: duemila, tremila",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -298,7 +298,7 @@
         "trabocchetto"
       ],
       "notes": "La boa è un galleggiante ancorato; il boa, al maschile, è il serpente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "modi-di-dire"
       ],
       "notes": "Mangiare la foglia: intuire un tranello o un'intenzione nascosta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +340,7 @@
         "modi-di-dire"
       ],
       "notes": "Fare lo gnorri: fingere di non capire o di non sapere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -361,7 +361,7 @@
         "modi-di-dire"
       ],
       "notes": "Sbarcare il lunario: riuscire a malapena a vivere con quel che si ha",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -382,7 +382,7 @@
         "lessico"
       ],
       "notes": "Lenire: mitigare, alleviare un dolore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -403,11 +403,11 @@
         "lessico"
       ],
       "notes": "Subdolo: che agisce di nascosto e con inganno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Che cosa vuol dire letteralmente il latino \"vademecum\"?",
+      "text": "Che cosa vuol dire l'espressione latina \"vade mecum\"?",
       "category": "Lingua italiana",
       "difficulty": 2,
       "presenter": "professore",
@@ -424,7 +424,7 @@
         "latino"
       ],
       "notes": "Vade mecum: va' con me, cioè vieni con me; oggi è un manualetto da portare sempre con sé",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -445,7 +445,7 @@
         "antonomasia"
       ],
       "notes": "Dal protagonista del romanzo di Cervantes, che combatte contro i mulini a vento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -466,7 +466,7 @@
         "analisi-del-periodo"
       ],
       "notes": "Affinché introduce lo scopo: proposizione finale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -487,7 +487,7 @@
         "verbi"
       ],
       "notes": "Piacere: io piacqui, tu piacesti, egli piacque",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -508,7 +508,7 @@
         "latino"
       ],
       "notes": "Alter ego: un altro io, persona che ne sostituisce un'altra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -529,7 +529,7 @@
         "nomi-collettivi"
       ],
       "notes": "Una muta di cani da caccia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -551,7 +551,7 @@
         "trabocchetto"
       ],
       "notes": "Il caccia è l'aereo da caccia; la caccia è l'attività venatoria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -573,7 +573,7 @@
         "trabocchetto"
       ],
       "notes": "Sosia è invariabile: il sosia, i sosia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "lessico"
       ],
       "notes": "Desueto: disusato, caduto in disuso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -615,7 +615,7 @@
         "lessico"
       ],
       "notes": "Iattura: grave danno, sventura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -636,7 +636,7 @@
         "lessico"
       ],
       "notes": "Vetusto: molto antico, come una vetusta tradizione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -657,7 +657,7 @@
         "retorica"
       ],
       "notes": "Allitterazione: ripetizione di suoni all'inizio o dentro parole vicine (Petrarca, Canzoniere 1)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -678,7 +678,7 @@
         "latino"
       ],
       "notes": "Do ut des: do affinché tu dia, uno scambio interessato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -699,7 +699,7 @@
         "latino"
       ],
       "notes": "Lupus in fabula: si dice quando compare la persona di cui si sta parlando",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -720,7 +720,7 @@
         "analisi-logica"
       ],
       "notes": "Per la paura indica il motivo del tremare: complemento di causa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -741,7 +741,7 @@
         "lessico"
       ],
       "notes": "Lapidario: breve ed efficace, come le iscrizioni sulle lapidi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -762,7 +762,7 @@
         "etimologia"
       ],
       "notes": "Dal turco kahve, a sua volta dall'arabo qahwa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -783,7 +783,7 @@
         "lessico"
       ],
       "notes": "Nugolo: moltitudine fitta, come una nuvola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -804,7 +804,7 @@
         "grammatica"
       ],
       "notes": "Nomi sovrabbondanti: hanno due forme di plurale, spesso con significati diversi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -825,7 +825,7 @@
         "lessico"
       ],
       "notes": "Precipuo: principale, essenziale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -846,7 +846,7 @@
         "etimologia"
       ],
       "notes": "Dal tedesco (ich) bring dir's, te lo porgo, arrivato attraverso lo spagnolo brindis",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -867,7 +867,7 @@
         "antonomasia"
       ],
       "notes": "Arpagone è il protagonista de L'avaro di Molière",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -888,7 +888,7 @@
         "lessico"
       ],
       "notes": "Morigerato: di costumi sobri e misurati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -909,7 +909,7 @@
         "grammatica"
       ],
       "notes": "Interno: interiore, intimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -930,7 +930,7 @@
         "etimologia"
       ],
       "notes": "Dal francese manche, manica: in origine un dono di cavalieri e dame",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -951,7 +951,7 @@
         "enigmistica"
       ],
       "notes": "Acrostico: le lettere iniziali dei versi, lette in verticale, formano un nome o una frase",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -972,7 +972,7 @@
         "retorica"
       ],
       "notes": "Preterizione: si dichiara di tacere qualcosa che intanto si dice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -993,7 +993,7 @@
         "retorica"
       ],
       "notes": "Catacresi: metafora entrata nell'uso comune per mancanza di un termine proprio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1014,7 +1014,7 @@
         "abitanti"
       ],
       "notes": "Dal latino Biturgia: gli abitanti di Sansepolcro sono i biturgensi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1035,7 +1035,7 @@
         "versi-animali"
       ],
       "notes": "Gloglottare è il verso del tacchino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1056,7 +1056,7 @@
         "lessico"
       ],
       "notes": "Misoneismo: avversione per ciò che è nuovo (da non confondere con misogino e misantropo)",
-      "verified": false
+      "verified": true
     }
   ]
 }

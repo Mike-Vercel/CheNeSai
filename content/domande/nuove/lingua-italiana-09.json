@@ -21,7 +21,7 @@
         "proverbi"
       ],
       "notes": "Meglio un uovo oggi che una gallina domani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "proverbi"
       ],
       "notes": "Quando il gatto non c'è i topi ballano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "proverbi"
       ],
       "notes": "Una rondine non fa primavera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "modi-di-dire"
       ],
       "notes": "Avere la testa tra le nuvole: essere sbadati, assorti nei propri pensieri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "modi-di-dire"
       ],
       "notes": "Fare le ore piccole: restare alzati fino alle prime ore del mattino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "grammatica"
       ],
       "notes": "Il leone e la leonessa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "grammatica"
       ],
       "notes": "Il dito, le dita",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "antonomasia"
       ],
       "notes": "Matusalemme, nella Bibbia, visse 969 anni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "lessico"
       ],
       "notes": "Sciatto: trasandato, trascurato nell'aspetto o nel lavoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "modi-di-dire"
       ],
       "notes": "Promettere mari e monti: fare promesse esagerate che non si potranno mantenere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -231,7 +231,7 @@
         "grammatica"
       ],
       "notes": "Il fine: lo scopo; la fine: il termine, la conclusione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -252,7 +252,7 @@
         "modi-di-dire"
       ],
       "notes": "Bastian contrario: chi per principio sostiene l'opposto degli altri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -273,7 +273,7 @@
         "modi-di-dire"
       ],
       "notes": "I gangheri sono i cardini della porta: uscirne vuol dire perdere il controllo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -294,7 +294,7 @@
         "modi-di-dire"
       ],
       "notes": "Lacrime di coccodrillo: pentimento falso, dopo aver fatto il danno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -315,7 +315,7 @@
         "proverbi"
       ],
       "notes": "Chi disprezza compra: chi critica una merce spesso vuole solo pagarla meno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -336,7 +336,7 @@
         "proverbi"
       ],
       "notes": "Cielo a pecorelle, acqua a catinelle: le nuvole a fiocchi annunciano pioggia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -357,7 +357,7 @@
         "lessico"
       ],
       "notes": "Zelante: che agisce con zelo, con impegno premuroso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -378,7 +378,7 @@
         "lessico"
       ],
       "notes": "Bislacco: strambo, stravagante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -399,7 +399,7 @@
         "lessico"
       ],
       "notes": "Nepotismo: da nipote, per i favori dei papi ai propri congiunti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -420,7 +420,7 @@
         "latino"
       ],
       "notes": "Frase attribuita a Cesare al passaggio del Rubicone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -441,7 +441,7 @@
         "verbi"
       ],
       "notes": "Avendo più participio passato: gerundio passato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "retorica"
       ],
       "notes": "Metafora: paragone senza il come; con il come sarebbe una similitudine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "trabocchetto"
       ],
       "notes": "Qui esercito è il presente del verbo esercitare, non il nome",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -506,7 +506,7 @@
         "trabocchetto"
       ],
       "notes": "L'apostrofo dopo un va solo davanti a nomi femminili: un'amica, ma un amico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "trabocchetto"
       ],
       "notes": "Gorilla è invariabile: il gorilla, i gorilla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -549,7 +549,7 @@
         "lessico"
       ],
       "notes": "Farraginoso: confuso, ingarbugliato, come una burocrazia farraginosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -570,7 +570,7 @@
         "lessico"
       ],
       "notes": "Tracotante: pieno di superbia e arroganza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -591,7 +591,7 @@
         "antonomasia"
       ],
       "notes": "Da Leopoldo Fregoli, attore celebre per i suoi rapidissimi cambi di costume",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -612,7 +612,7 @@
         "retorica"
       ],
       "notes": "Antitesi: contrapposizione di idee in espressioni simmetriche (odi et amo, Catullo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -633,7 +633,7 @@
         "latino"
       ],
       "notes": "Nomen omen: il destino di una persona è già scritto nel suo nome",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -655,7 +655,7 @@
         "greco"
       ],
       "notes": "Panta rei: tutto scorre, tutto è in divenire",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -676,7 +676,7 @@
         "latino"
       ],
       "notes": "Ad libitum: a volontà, a piacere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +697,7 @@
         "fonetica"
       ],
       "notes": "Dittongo: due vocali pronunciate in una sola emissione di voce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -718,7 +718,7 @@
         "etimologia"
       ],
       "notes": "Labor in latino è la fatica, lo sforzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +740,7 @@
         "trabocchetto"
       ],
       "notes": "Guai è un monosillabo: uai forma un trittongo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -762,7 +762,7 @@
         "trabocchetto"
       ],
       "notes": "Vaglia è invariabile; i vagli sono i setacci (plurale di vaglio)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -784,7 +784,7 @@
         "trabocchetto"
       ],
       "notes": "In cielo la i è solo grafica: indica la c dolce, come in cieco e cielo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -805,7 +805,7 @@
         "etimologia"
       ],
       "notes": "Dal latino rivalis, da rivus: chi usava lo stesso ruscello o canale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -826,7 +826,7 @@
         "etimologia"
       ],
       "notes": "Dal Carlone dei cantari cavallereschi, cioè Carlo Magno, ritratto come bonario e semplice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -847,7 +847,7 @@
         "lessico"
       ],
       "notes": "Epigono: chi segue le orme di altri senza originalità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -868,7 +868,7 @@
         "lessico"
       ],
       "notes": "Inopinato: imprevisto, inatteso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -889,7 +889,7 @@
         "latino"
       ],
       "notes": "Mutatis mutandis: fatte le debite modifiche",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -910,7 +910,7 @@
         "versi-animali"
       ],
       "notes": "Bubolare è il verso del gufo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -931,7 +931,7 @@
         "metrica"
       ],
       "notes": "Enjambement, o inarcatura: la frase scavalca la fine del verso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -952,7 +952,7 @@
         "antonomasia"
       ],
       "notes": "Da Ganimede, il bellissimo coppiere degli dei: oggi un damerino galante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -973,7 +973,7 @@
         "lessico"
       ],
       "notes": "Truculento: che ha un aspetto o un tono crudele e minaccioso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -994,7 +994,7 @@
         "enigmistica"
       ],
       "notes": "Bifronte: parola che letta a rovescio dà un'altra parola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1015,7 +1015,7 @@
         "lessico"
       ],
       "notes": "Palinodia: componimento o dichiarazione con cui si ritratta ciò che si era affermato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1036,7 +1036,7 @@
         "versi-animali"
       ],
       "notes": "Zirlare è il verso del tordo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1057,7 +1057,7 @@
         "retorica"
       ],
       "notes": "Endiadi: dal greco \"uno per mezzo di due\", come il virgiliano pateris et auro",
-      "verified": false
+      "verified": true
     }
   ]
 }

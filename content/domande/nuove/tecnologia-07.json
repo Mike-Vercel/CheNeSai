@@ -22,7 +22,7 @@
         "italia"
       ],
       "notes": "Massima commerciale sulle linee AV: 300 chilometri orari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "ufficio"
       ],
       "notes": "A3 = due fogli A4 affiancati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "computer"
       ],
       "notes": "La formattazione crea un nuovo file system, cancellando l'indice dei dati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "trasporti"
       ],
       "notes": "La funicolare corre su rotaie, la funivia è sospesa a funi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "smartphone"
       ],
       "notes": "Il caricabatterie (alimentatore) trasforma la corrente di casa per la batteria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,7 +128,7 @@
         "italia"
       ],
       "notes": "Centrale Edison di Santa Radegonda, vicino al Duomo, che illuminò anche la Scala",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -149,7 +149,7 @@
         "auto"
       ],
       "notes": "La stella a tre punte simboleggia terra, mare e cielo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -170,7 +170,7 @@
         "internet"
       ],
       "notes": "Street View, lanciato nel 2007",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "videogiochi"
       ],
       "notes": "Progettata da Ralph Baer, uscì nel 1972",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -213,7 +213,7 @@
         "trabocchetto"
       ],
       "notes": "Smeg = Smalterie Metallurgiche Emiliane Guastalla, provincia di Reggio Emilia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -234,7 +234,7 @@
         "navi"
       ],
       "notes": "L'ecoscandaglio misura il tempo di ritorno dell'eco dal fondale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -255,7 +255,7 @@
         "auto"
       ],
       "notes": "Testarossa del 1984 disegnata da Pininfarina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "invenzioni"
       ],
       "notes": "Mary Anderson brevettò un tergicristallo a manovella nel 1903",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +297,7 @@
         "computer"
       ],
       "notes": "Il tasto Shift (Maiuscolo); il Bloc Maiusc invece resta attivo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -318,7 +318,7 @@
         "invenzioni"
       ],
       "notes": "La draisina o macchina da corsa di Drais, antenata della bicicletta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +340,7 @@
         "trabocchetto"
       ],
       "notes": "La Mini fu progettata da Alec Issigonis per la British Motor Corporation; BMW ne rilevò il marchio molto dopo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -361,7 +361,7 @@
         "computer"
       ],
       "notes": "Il Solitario era incluso in Windows 3.0, uscito nel maggio 1990",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -382,7 +382,7 @@
         "invenzioni"
       ],
       "notes": "Booth costruì il \"Puffing Billy\", che girava per le strade su un carro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -404,7 +404,7 @@
         "trabocchetto"
       ],
       "notes": "I chip sono in silicio; il silicone è un polimero, da qui il nome Silicon Valley",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -426,7 +426,7 @@
         "internet"
       ],
       "notes": "LOL = laughing out loud",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -447,7 +447,7 @@
         "auto"
       ],
       "notes": "Dal 1994 il formato è due lettere, tre cifre, due lettere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -468,7 +468,7 @@
         "auto"
       ],
       "notes": "Il GPL è una miscela di propano e butano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -490,7 +490,7 @@
         "italia"
       ],
       "notes": "iCub, umanoide open source dell'IIT",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -511,7 +511,7 @@
         "social"
       ],
       "notes": "Follower, dall'inglese \"to follow\", seguire",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -532,7 +532,7 @@
         "spazio"
       ],
       "notes": "Durante Apollo 14 Shepard colpì due palline da golf",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -553,7 +553,7 @@
         "robot"
       ],
       "notes": "Isaac Asimov, nel racconto \"Circolo vizioso\" del 1942",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -574,7 +574,7 @@
         "auto"
       ],
       "notes": "Il catalizzatore riduce monossido di carbonio, idrocarburi e ossidi di azoto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -595,7 +595,7 @@
         "moto"
       ],
       "notes": "Yamaha nacque nel 1887 costruendo organi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "intelligenza artificiale"
       ],
       "notes": "AlphaGo vinse 4 a 1 a Seul nel marzo 2016",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "computer"
       ],
       "notes": "Otto bit danno 2 alla ottava, cioè 256 combinazioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -658,7 +658,7 @@
         "auto"
       ],
       "notes": "La Fiat Uno vinse il premio Car of the Year 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -680,13 +680,13 @@
         "italia"
       ],
       "notes": "Vega, in servizio dal 2012",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Che cosa significa la sigla GPT di ChatGPT?",
       "category": "Tecnologia",
-      "difficulty": 5,
+      "difficulty": 4,
       "presenter": "professore",
       "answers": [
         "General Purpose Technology",
@@ -701,7 +701,7 @@
         "intelligenza artificiale"
       ],
       "notes": "Generative Pre-trained Transformer, modelli di OpenAI",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -722,7 +722,7 @@
         "aerei"
       ],
       "notes": "L'Airbus A380 ha due ponti per tutta la lunghezza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -744,7 +744,7 @@
         "italia"
       ],
       "notes": "Il servizio \"ora esatta\" della SIP e poi di Telecom rispondeva al 161",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "internet"
       ],
       "notes": "Netiquette: il maiuscolo equivale a gridare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "internet"
       ],
       "notes": "Nell'uso comune \"hacker\" è chi forza i sistemi informatici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "internet"
       ],
       "notes": "Il ripetitore Wi-Fi rilancia il segnale del router",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "videogiochi"
       ],
       "notes": "PES, Pro Evolution Soccer, oggi eFootball",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "videogiochi"
       ],
       "notes": "Fortnite Battle Royale di Epic Games, 2017",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -871,7 +871,7 @@
         "tv"
       ],
       "notes": "Passaggio al digitale terrestre completato in Italia nel 2012",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -892,7 +892,7 @@
         "intelligenza artificiale"
       ],
       "notes": "IA = intelligenza artificiale (in inglese AI)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -914,7 +914,7 @@
         "trabocchetto"
       ],
       "notes": "La BMW smentisce il mito dell'elica, nato da una pubblicità del 1929",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -935,7 +935,7 @@
         "codici"
       ],
       "notes": "Codice EAN-13, tredici cifre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -957,7 +957,7 @@
         "trabocchetto"
       ],
       "notes": "Sintesi additiva RGB; rosso-giallo-blu sono i primari dei pittori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -978,7 +978,7 @@
         "invenzioni"
       ],
       "notes": "Il nylon fu sviluppato da Wallace Carothers alla DuPont",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -999,7 +999,7 @@
         "computer"
       ],
       "notes": "Molti programmi scrivevano l'anno con due cifre: il 2000 rischiava di diventare 1900",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1020,7 +1020,7 @@
         "smartphone"
       ],
       "notes": "Il pennino, o stilo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1041,7 @@
         "internet"
       ],
       "notes": "Googol è il numero 1 seguito da 100 zeri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1062,7 +1062,7 @@
         "auto"
       ],
       "notes": "Il leone Peugeot è il simbolo del marchio dal 1858",
-      "verified": false
+      "verified": true
     }
   ]
 }

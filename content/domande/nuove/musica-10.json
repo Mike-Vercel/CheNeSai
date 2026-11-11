@@ -21,7 +21,7 @@
         "strumenti"
       ],
       "notes": "Il violino è il più piccolo e acuto degli archi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "rock"
       ],
       "notes": "\"Highway to Hell\" degli AC/DC, 1979",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "anni-80"
       ],
       "notes": "Dall'album \"Slippery When Wet\" dei Bon Jovi; i Def Leppard sono inglesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "italia"
       ],
       "notes": "\"Caro amico ti scrivo, così mi distraggo un po'\" (1979)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "pop"
       ],
       "notes": "\"Crazy in Love\" di Beyoncé con Jay-Z, 2003",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "cinema"
       ],
       "notes": "Cantata da Timon e Pumbaa ne \"Il re leone\" (1994)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -150,7 +150,7 @@
         "infanzia"
       ],
       "notes": "La ninna nanna è il canto per addormentare i bambini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "italia"
       ],
       "notes": "\"Mamma Maria\" dei Ricchi e Poveri, 1982",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "italia"
       ],
       "notes": "\"Rose rosse\" di Massimo Ranieri, 1969",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -206,7 +206,7 @@
         "6 gennaio",
         "31 dicembre",
         "1 gennaio",
-        "30 dicembre"
+        "25 dicembre"
       ],
       "correct": [
         2
@@ -215,8 +215,8 @@
         "classica",
         "trabocchetto"
       ],
-      "notes": "Il Neujahrskonzert si tiene la mattina del primo gennaio al Musikverein",
-      "verified": false
+      "notes": "Il Neujahrskonzert si tiene la mattina del primo gennaio al Musikverein (il 30 e 31 dicembre ci sono solo anteprime dello stesso programma)",
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "trabocchetto"
       ],
       "notes": "Nel brano del 1972 Celentano imita il suono dell'inglese con parole senza senso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -259,7 +259,7 @@
         "sanremo"
       ],
       "notes": "\"L'essenziale\", Sanremo 2013; Mengoni vinse anche nel 2023",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -281,7 +281,7 @@
         "italia"
       ],
       "notes": "\"Pensiero stupendo\" di Patty Pravo, scritta da Ivano Fossati e Oscar Prudente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -303,7 +303,7 @@
         "italia"
       ],
       "notes": "\"Ti pretendo\" di Raf, Festivalbar 1989",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -325,7 +325,7 @@
         "anni-60"
       ],
       "notes": "\"Cuore matto\" di Little Tony, Sanremo 1967",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "italia"
       ],
       "notes": "Gigi D'Agostino, nato a Torino nel 1967",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -369,7 +369,7 @@
         "cinema"
       ],
       "notes": "\"Shallow\" (2018) vinse l'Oscar per la miglior canzone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -390,7 +390,7 @@
         "mondo"
       ],
       "notes": "Album del 1997 registrato all'Avana con Compay Segundo e Ibrahim Ferrer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -412,7 +412,7 @@
         "italia"
       ],
       "notes": "\"Mare mare\" di Luca Carboni, 1992",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -433,7 +433,7 @@
         "sanremo"
       ],
       "notes": "Noemi, terza a Sanremo 2012 con il brano di Fabrizio Moro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -454,7 +454,7 @@
         "musical"
       ],
       "notes": "\"The Phantom of the Opera\" di Andrew Lloyd Webber, 1986",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -476,7 +476,7 @@
         "mondiali"
       ],
       "notes": "Inno ufficiale di Francia '98, cantato da Ricky Martin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -498,7 +498,7 @@
         "anni-80"
       ],
       "notes": "\"Africa\" dei Toto, dall'album \"Toto IV\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -520,7 +520,7 @@
         "mondo"
       ],
       "notes": "Tim Bergling, in arte Avicii, era di Stoccolma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -542,7 +542,7 @@
         "trabocchetto"
       ],
       "notes": "Johann Strauss figlio, 1867; il padre compose la Marcia di Radetzky",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -564,7 +564,7 @@
         "trabocchetto"
       ],
       "notes": "L'ode \"An die Freude\" di Schiller (1785), nella Nona Sinfonia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -587,7 +587,7 @@
         "trabocchetto"
       ],
       "notes": "\"Hello\" di Lionel Richie (1984); quella di Adele è del 2015",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -609,7 +609,7 @@
         "italia"
       ],
       "notes": "Richiama gli zecchini d'oro che Pinocchio semina nel Campo dei miracoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -631,7 +631,7 @@
         "tv"
       ],
       "notes": "Duetto di Mina e Alberto Lupo nel programma \"Teatro 10\" (1972)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -643,17 +643,16 @@
         "Con l'archetto",
         "Da mancino",
         "Con sei corde",
-        "Senza plettro mai"
+        "Con tre sole corde"
       ],
       "correct": [
         1
       ],
       "tags": [
-        "beatles",
-        "trabocchetto"
+        "beatles"
       ],
       "notes": "McCartney è mancino e suona il basso (il famoso Höfner) al contrario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +674,7 @@
         "trabocchetto"
       ],
       "notes": "I Gipsy Kings sono gitani di origine catalana nati e cresciuti nel sud della Francia (Arles, Montpellier)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +696,7 @@
         "trabocchetto"
       ],
       "notes": "Nel pianoforte i martelletti percuotono le corde; arpa e chitarra le pizzicano, il violino le strofina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -718,7 +717,7 @@
         "sanremo"
       ],
       "notes": "\"Per Elisa\", scritta con Franco Battiato e Giusto Pio; seconda \"Maledetta primavera\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +739,7 @@
         "italia"
       ],
       "notes": "Antonella Ruggiero fu la voce del gruppo fino al 1989; poi arrivarono Laura Valente e Silvia Mezzanotte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -762,7 +761,7 @@
         "popolare"
       ],
       "notes": "Le launeddas sono uno strumento a fiato a tre canne della Sardegna meridionale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -784,7 +783,7 @@
         "eventi"
       ],
       "notes": "Bob Geldof, con Midge Ure, creò Band Aid (1984) e il Live Aid (1985)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -806,7 +805,7 @@
         "trabocchetto"
       ],
       "notes": "Ringo nacque il 7 luglio 1940, Lennon il 9 ottobre 1940",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -828,7 +827,7 @@
         "trabocchetto"
       ],
       "notes": "Händel fu naturalizzato britannico nel 1727 ed è sepolto nell'abbazia di Westminster",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +849,7 @@
         "trabocchetto"
       ],
       "notes": "Nicolas Chopin era nato in Lorena, in Francia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +871,7 @@
         "trabocchetto"
       ],
       "notes": "\"Attenti al lupo\" fu scritta da Ron (Rosalino Cellamare)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -894,7 +893,7 @@
         "trabocchetto"
       ],
       "notes": "Jacques Brel nacque a Schaerbeek, Bruxelles, nel 1929",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +915,7 @@
         "storia"
       ],
       "notes": "Mameli, nato nel settembre 1827, aveva 20 anni; morì nel 1849",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -938,7 +937,7 @@
         "letteratura"
       ],
       "notes": "Da \"Il libro dei gatti tuttofare\" (1939) di T. S. Eliot",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -960,7 +959,7 @@
         "jazz"
       ],
       "notes": "Mario Biondi, catanese, singolo del 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -981,7 +980,7 @@
         "sanremo"
       ],
       "notes": "\"Ti lascerò\", Anna Oxa e Fausto Leali, Sanremo 1989",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1003,7 +1002,7 @@
         "mondo"
       ],
       "notes": "Lo steelpan nacque a Trinidad negli anni Trenta e Quaranta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1025,7 +1024,7 @@
         "classica"
       ],
       "notes": "Bizet la credeva popolare: era \"El Arreglito\" di Yradier",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1047,11 +1046,11 @@
         "trabocchetto"
       ],
       "notes": "Lori Lieberman la incise nel 1971; Roberta Flack nel 1973, i Fugees nel 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale cantautore di Sassuolo incise \"Pescatore\" con Fiorella Mannoia, nel 1985?",
+      "text": "Quale cantautore di Sassuolo incise \"Pescatore\" in duetto con Fiorella Mannoia?",
       "category": "Musica",
       "difficulty": 5,
       "presenter": "regina",
@@ -1068,8 +1067,8 @@
         "cantautori",
         "italia"
       ],
-      "notes": "Pierangelo Bertoli, nato a Sassuolo nel 1942",
-      "verified": false
+      "notes": "Pierangelo Bertoli, nato a Sassuolo nel 1942; \"Pescatore\" con Fiorella Mannoia è nell'album \"Certi momenti\" (1980)",
+      "verified": true
     },
     {
       "type": "single",
@@ -1090,7 +1089,7 @@
         "sanremo"
       ],
       "notes": "Ron e Tosca vinsero Sanremo 1996",
-      "verified": false
+      "verified": true
     }
   ]
 }

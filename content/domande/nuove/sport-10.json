@@ -21,7 +21,7 @@
         "biliardo"
       ],
       "notes": "Nel biliardo si gioca con la stecca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "rugby"
       ],
       "notes": "La meta è il punto principale del rugby",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "colori"
       ],
       "notes": "Il Torino è la squadra granata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "colori"
       ],
       "notes": "La Sampdoria: maglia blu con fascia orizzontale bianca, rossa e nera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "sport-acquatici"
       ],
       "notes": "Il surf nasce nelle isole Hawaii",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "regole"
       ],
       "notes": "Canestro su azione 2 punti, da oltre l'arco 3, tiro libero 1",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "mondiali"
       ],
       "notes": "L'urlo di Tardelli dopo il gol del 2-0 alla Germania Ovest",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "olimpiadi"
       ],
       "notes": "Oro al primo, argento al secondo, bronzo al terzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "arti-marziali"
       ],
       "notes": "Si comincia con la cintura bianca; la nera indica i gradi dan",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,7 +216,7 @@
         "trabocchetto"
       ],
       "notes": "Il portiere può segnare in qualsiasi modo valido, anche su rinvio diretto nella porta avversaria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -237,19 +237,19 @@
         "calcio"
       ],
       "notes": "Il Manchester United ha un diavolo rosso nello stemma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Nel baseball, come si chiama il giocatore che lancia la palla al battitore?",
+      "text": "Nel baseball, come si chiama in inglese il giocatore che lancia la palla al battitore?",
       "category": "Sport",
       "difficulty": 2,
       "presenter": "palmino",
       "answers": [
-        "Esterno",
-        "Ricevitore",
-        "Interbase",
-        "Lanciatore"
+        "Catcher",
+        "Shortstop",
+        "Outfielder",
+        "Pitcher"
       ],
       "correct": [
         3
@@ -257,8 +257,8 @@
       "tags": [
         "baseball"
       ],
-      "notes": "Il lanciatore (pitcher) lancia dal monte verso il battitore; il ricevitore è dietro casa base",
-      "verified": false
+      "notes": "Il pitcher (lanciatore) lancia dal monte verso il battitore; il catcher (ricevitore) è dietro casa base, lo shortstop è l'interbase",
+      "verified": true
     },
     {
       "type": "single",
@@ -280,7 +280,7 @@
         "olimpiadi"
       ],
       "notes": "Errani e Paolini vinsero il primo oro olimpico del tennis italiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -301,7 +301,7 @@
         "basket"
       ],
       "notes": "Gli Harlem Globetrotters, fondati nel 1926",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -323,7 +323,7 @@
         "coppe"
       ],
       "notes": "Milan-Bologna 0-1 a Roma, gol di Ndoye, 14 maggio 2025",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -345,7 +345,7 @@
         "mondiali"
       ],
       "notes": "Francia-Brasile 3-0 allo Stade de France, doppietta di Zidane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -366,7 +366,7 @@
         "olimpiadi-invernali"
       ],
       "notes": "Arianna Fontana, pattinaggio di velocità su pista corta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -387,7 +387,7 @@
         "atletica"
       ],
       "notes": "Fiona May, campionessa del mondo nel 1995 e 2001; il padre è Gianni Iapichino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -408,7 +408,7 @@
         "tennis"
       ],
       "notes": "Sinner diventò numero 1 il 10 giugno 2024, primo italiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -429,7 +429,7 @@
         "ciclismo"
       ],
       "notes": "Pogačar è nato a Komenda, in Slovenia, nel 1998",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -450,7 +450,7 @@
         "olimpiadi-invernali"
       ],
       "notes": "Tina e Milo sono due ermellini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -473,7 +473,7 @@
         "trabocchetto"
       ],
       "notes": "In caso di parità si giocano tempi supplementari di 5 minuti fino a un vincitore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -495,7 +495,7 @@
         "lingua"
       ],
       "notes": "Juventus = gioventù: fu fondata nel 1897 da studenti del liceo D'Azeglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -516,7 +516,7 @@
         "rugby"
       ],
       "notes": "Gli All Blacks vinsero in casa battendo la Francia in finale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -537,7 +537,7 @@
         "calcio"
       ],
       "notes": "La coccarda tricolore spetta ai detentori della Coppa Italia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -559,7 +559,7 @@
         "coppe"
       ],
       "notes": "Doppia finale contro lo Stoccarda, maggio 1989",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -580,7 +580,7 @@
         "olimpiadi-invernali"
       ],
       "notes": "Zöggeler, slittino, medaglie da Lillehammer 1994 a Sochi 2014, ori nel 2002 e 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -601,7 +601,7 @@
         "tennis"
       ],
       "notes": "Sinner è nato a San Candido nel 2001 ed è cresciuto a Sesto Pusteria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -623,7 +623,7 @@
         "olimpiadi"
       ],
       "notes": "Baldini vinse la maratona arrivando nello stadio Panathinaiko",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -645,7 +645,7 @@
         "olimpiadi"
       ],
       "notes": "Patta, Jacobs, Desalu e Tortu, che vinse il testa a testa con la Gran Bretagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -666,7 +666,7 @@
         "ciclismo"
       ],
       "notes": "Simon Yates ribaltò la classifica sul Colle delle Finestre; del Toro fu secondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -687,7 +687,7 @@
         "motociclismo"
       ],
       "notes": "Márquez vinse il titolo 2025 con la Ducati ufficiale; i titoli precedenti erano con la Honda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -709,7 +709,7 @@
         "trabocchetto"
       ],
       "notes": "Apertura a San Siro il 6 febbraio, chiusura all'Arena di Verona il 22 febbraio 2026",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -731,7 +731,7 @@
         "trabocchetto"
       ],
       "notes": "Nel 1908 alcuni soci lasciarono il Milan per fondare un club aperto anche agli stranieri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -753,7 +753,7 @@
         "trabocchetto"
       ],
       "notes": "Nel 1893 nacque come Genoa Cricket and Athletic Club, fondato da inglesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -776,7 +776,7 @@
         "trabocchetto"
       ],
       "notes": "Dal 2001 si gioca a 11 punti (prima a 21), con almeno due di scarto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -799,7 +799,7 @@
         "trabocchetto"
       ],
       "notes": "Le fossette riducono la resistenza dell'aria e una pallina liscia vola molto meno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -821,7 +821,7 @@
         "sicilia"
       ],
       "notes": "Ortigia è l'isola del centro storico di Siracusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -843,7 +843,7 @@
         "sicilia"
       ],
       "notes": "Nella finale ripetuta Italia-Jugoslavia 2-0 (10 giugno 1968) segnarono Riva e Anastasi, che passò dal Varese alla Juventus quell'estate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -864,7 +864,7 @@
         "tennis"
       ],
       "notes": "Paolini batté Coco Gauff in finale; l'ultima italiana a vincere a Roma era stata Reggi nel 1985",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -886,7 +886,7 @@
         "serie-a"
       ],
       "notes": "Zico giocò due stagioni all'Udinese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -908,7 +908,7 @@
         "serie-a"
       ],
       "notes": "John Charles, gallese di Swansea, alla Juve dal 1957 al 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -930,7 +930,7 @@
         "regole"
       ],
       "notes": "L'area di rigore si estende per 16,5 metri (18 iarde) dalla linea di porta; l'area piccola 5,5",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -951,7 +951,7 @@
         "calcio"
       ],
       "notes": "La rabona, dal nome di un'espressione argentina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -973,7 +973,7 @@
         "sicilia"
       ],
       "notes": "La regata Palermo-Montecarlo, organizzata dal Circolo della Vela Sicilia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -994,7 +994,7 @@
         "ippica"
       ],
       "notes": "Varenne, \"il Capitano\", trottatore campione mondiale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1016,7 +1016,7 @@
         "olimpiadi"
       ],
       "notes": "Oro di Piero Gros davanti a Gustav Thöni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1038,7 +1038,7 @@
         "olimpiadi"
       ],
       "notes": "Alberto Cova, campione europeo, mondiale e olimpico dei 10.000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1060,7 +1060,7 @@
         "olimpiadi"
       ],
       "notes": "Maurizio Damilano, oro nella 20 km di marcia a Mosca 1980",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1082,7 +1082,7 @@
         "olimpiadi"
       ],
       "notes": "Josefa Idem, nata in Germania, vinse il K1 500 metri a Sydney 2000 per l'Italia",
-      "verified": false
+      "verified": true
     }
   ]
 }

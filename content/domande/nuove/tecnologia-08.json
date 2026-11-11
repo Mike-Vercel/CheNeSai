@@ -21,7 +21,7 @@
         "software"
       ],
       "notes": "Clippy (Clippit), la graffetta di Office 97",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "trasporti"
       ],
       "notes": "Car sharing; il car pooling è condividere un passaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "trabocchetto"
       ],
       "notes": "Diesel nacque a Parigi nel 1858 da genitori bavaresi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "aerei"
       ],
       "notes": "Il Boeing 747, primo aereo a fusoliera larga, volò nel 1969",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "internet"
       ],
       "notes": "Facebook pagò circa 19 miliardi di dollari nel febbraio 2014",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -127,7 +127,7 @@
         "smartphone"
       ],
       "notes": "Siri è di Apple, Cortana di Microsoft, Bixby di Samsung",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -148,7 +148,7 @@
         "criptovalute"
       ],
       "notes": "Satoshi Nakamoto è lo pseudonimo dell'autore del documento del 2008",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "spazio"
       ],
       "notes": "Tre per la posizione, il quarto per correggere l'orologio del ricevitore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "trabocchetto"
       ],
       "notes": "Le offerte indicano megabit al secondo; un byte è fatto di 8 bit",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -213,7 +213,7 @@
         "sicilia"
       ],
       "notes": "Radiotelescopio di Noto, in provincia di Siracusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -235,7 +235,7 @@
         "trabocchetto"
       ],
       "notes": "Floppy = flessibile: il disco interno era di plastica sottile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -256,7 +256,7 @@
         "videogiochi"
       ],
       "notes": "Bowser, re dei Koopa, nemico di Mario dal 1985",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -278,7 +278,7 @@
         "italia"
       ],
       "notes": "La SIP confluì in Telecom Italia nel 1994",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -299,7 +299,7 @@
         "smartphone"
       ],
       "notes": "Le tacche crescenti mostrano la ricezione della rete",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -320,7 +320,7 @@
         "ufficio"
       ],
       "notes": "Norma ISO 216: A4 = 210 per 297 millimetri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -341,7 +341,7 @@
         "computer"
       ],
       "notes": "Il cursore di testo lampeggia nel punto di inserimento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -362,7 +362,7 @@
         "social"
       ],
       "notes": "Una spunta grigia = inviato, due grigie = consegnato, due blu = letto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -383,7 +383,7 @@
         "computer"
       ],
       "notes": "MS-DOS, dal 1981, per i PC IBM",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -392,7 +392,7 @@
       "difficulty": 1,
       "presenter": "professore",
       "answers": [
-        "La velocità",
+        "La pressione delle gomme",
         "La distanza percorsa",
         "Il carburante rimasto",
         "La temperatura del motore"
@@ -403,8 +403,8 @@
       "tags": [
         "auto"
       ],
-      "notes": "Il contachilometri (odometro) somma i chilometri percorsi",
-      "verified": false
+      "notes": "Il contachilometri (odometro) somma i chilometri percorsi; nell'uso comune \"contachilometri\" indica anche il tachimetro (Treccani), quindi \"la velocità\" non può fare da distrattore",
+      "verified": true
     },
     {
       "type": "single",
@@ -425,7 +425,7 @@
         "orologi"
       ],
       "notes": "Gli orologi al quarzo contano le vibrazioni di un cristallo a 32.768 hertz",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -446,7 +446,7 @@
         "computer"
       ],
       "notes": "Il binario usa solo 0 e 1",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -468,7 +468,7 @@
         "trabocchetto"
       ],
       "notes": "Il vapore acqueo dello scarico condensa e ghiaccia nell'aria fredda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -490,7 +490,7 @@
         "sicilia"
       ],
       "notes": "Le carrozze vengono imbarcate sulle navi traghetto tra Villa San Giovanni e Messina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -511,7 +511,7 @@
         "software"
       ],
       "notes": "Ogni incrocio riga-colonna è una cella, indicata come A1, B2 e così via",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -533,7 +533,7 @@
         "trabocchetto"
       ],
       "notes": "A 400 chilometri la gravità è ancora circa il 90 per cento: è l'orbita a dare l'assenza di peso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -554,7 +554,7 @@
         "social"
       ],
       "notes": "Nel 2023 Twitter è stato ribattezzato X e ha cambiato logo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -575,7 +575,7 @@
         "elettricità"
       ],
       "notes": "LED = Light Emitting Diode",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -596,7 +596,7 @@
         "spazio"
       ],
       "notes": "Sei sbarchi riusciti, due astronauti ciascuno, dal 1969 al 1972",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -617,7 +617,7 @@
         "orologi"
       ],
       "notes": "Lo Swatch fu lanciato in Svizzera nel 1983",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -639,7 +639,7 @@
         "italia"
       ],
       "notes": "Prodotto dalla Montecatini dal 1957, celebre per la pubblicità con Gino Bramieri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -660,7 +660,7 @@
         "internet"
       ],
       "notes": "eBay, fondato da Pierre Omidyar; il primo oggetto fu un puntatore laser guasto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -681,7 +681,7 @@
         "elettricità"
       ],
       "notes": "Schuko viene da \"Schutzkontakt\", contatto di protezione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -702,7 +702,7 @@
         "computer"
       ],
       "notes": "Douglas Engelbart, Stanford Research Institute, 9 dicembre 1968",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -723,7 +723,7 @@
         "software"
       ],
       "notes": "Windows 95 introdusse il menu Start e la barra delle applicazioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -745,7 +745,7 @@
         "trabocchetto"
       ],
       "notes": "Freno e acceleratore: manca la frizione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -766,7 +766,7 @@
         "internet"
       ],
       "notes": "Selfie, parola dell'anno 2013 per Oxford Dictionaries",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "computer"
       ],
       "notes": "La foto \"Bliss\" fu scattata da Charles O'Rear nella contea di Sonoma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -809,7 +809,7 @@
         "trabocchetto"
       ],
       "notes": "Paul Fisher la sviluppò a sue spese; NASA e sovietici la comprarono poi a pochi dollari l'una",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -830,7 +830,7 @@
         "internet"
       ],
       "notes": "Dall'UCLA allo Stanford Research Institute arrivarono solo \"lo\" di \"login\", poi il sistema cadde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -852,7 +852,7 @@
         "italia"
       ],
       "notes": "Il Grillo, prodotto da Siemens Italia, Compasso d'oro 1967",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -874,7 +874,7 @@
         "trabocchetto"
       ],
       "notes": "Buzz Aldrin la vide cadere durante la partenza del modulo lunare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -895,7 +895,7 @@
         "invenzioni"
       ],
       "notes": "Ruota anteriore altissima e posteriore piccolissima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +916,7 @@
         "internet"
       ],
       "notes": "Page e Brin lo chiamarono BackRub nel 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -937,7 +937,7 @@
         "computer"
       ],
       "notes": "Le icone rappresentano programmi e file",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -959,7 +959,7 @@
         "trabocchetto"
       ],
       "notes": "Il cloud è fatto di server in grandi data center a terra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -980,7 +980,7 @@
         "videogiochi"
       ],
       "notes": "Sonic the Hedgehog uscì per Mega Drive nel 1991",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1001,7 +1001,7 @@
         "spazio"
       ],
       "notes": "Il Lunar Roving Vehicle, a batterie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1022,7 +1022,7 @@
         "computer"
       ],
       "notes": "1,44 megabyte; 4,7 gigabyte è un DVD, 650 megabyte un CD",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1043,7 @@
         "foto"
       ],
       "notes": "Kodak, 1888, fondata da George Eastman",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1064,7 +1064,7 @@
         "foto"
       ],
       "notes": "La pellicola 35 millimetri, formato 135",
-      "verified": false
+      "verified": true
     }
   ]
 }

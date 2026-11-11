@@ -21,7 +21,7 @@
         "auto"
       ],
       "notes": "Gli pneumatici invernali hanno mescola e battistrada per basse temperature",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "internet"
       ],
       "notes": "Codice HTTP 404 Not Found (l'accesso vietato è il 403)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "italia"
       ],
       "notes": "Primo tratto della Direttissima Roma-Firenze inaugurato nel 1977",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "trabocchetto"
       ],
       "notes": "Paradosso famoso: lo spegnimento si trovava nel menu Start",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "auto"
       ],
       "notes": "Le colonnine di ricarica, pubbliche o private",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,7 +128,7 @@
         "spazio"
       ],
       "notes": "SpaceX fondata nel 2002; Blue Origin è di Jeff Bezos",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -149,7 +149,7 @@
         "internet"
       ],
       "notes": "Jeff Bezos, a Seattle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -170,7 +170,7 @@
         "internet"
       ],
       "notes": "Il dominio .edu è riservato alle istituzioni accademiche statunitensi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "elettricità"
       ],
       "notes": "Il differenziale stacca la corrente se rileva una dispersione verso terra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -212,7 +212,7 @@
         "computer"
       ],
       "notes": "Le tastiere italiane e inglesi sono QWERTY; AZERTY è francese, QWERTZ tedesca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -233,7 +233,7 @@
         "auto"
       ],
       "notes": "Il \"double chevron\" ricorda gli ingranaggi a spina di pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,13 +254,13 @@
         "smartphone"
       ],
       "notes": "Il powerbank è una batteria portatile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Di che colore è la luce che esce dal telecomando del televisore?",
       "category": "Tecnologia",
-      "difficulty": 1,
+      "difficulty": 2,
       "presenter": "palmino",
       "answers": [
         "Invisibile all'occhio umano",
@@ -272,11 +272,11 @@
         0
       ],
       "tags": [
-        "trasporti",
+        "elettronica",
         "trabocchetto"
       ],
       "notes": "I telecomandi usano LED a infrarossi: si vedono solo con la fotocamera del telefono",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -298,7 +298,7 @@
         "trabocchetto"
       ],
       "notes": "Hideo Kodama nel 1981 e Chuck Hull, brevetto della stereolitografia nel 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "intelligenza artificiale"
       ],
       "notes": "ELIZA di Joseph Weizenbaum, MIT",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -340,7 +340,7 @@
         "software"
       ],
       "notes": "Excel è il foglio di calcolo del pacchetto Microsoft Office",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -362,7 +362,7 @@
         "trabocchetto"
       ],
       "notes": "Si mettono in coda, la parte che di solito resiste meglio agli impatti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -383,7 +383,7 @@
         "sicurezza"
       ],
       "notes": "L'autenticazione a due fattori richiede un secondo elemento, spesso un codice temporaneo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -404,7 +404,7 @@
         "computer"
       ],
       "notes": "Backspace cancella a sinistra, Canc a destra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -425,7 +425,7 @@
         "internet"
       ],
       "notes": ".va è il Vaticano; Vanuatu è .vu, il Venezuela .ve",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -446,7 +446,7 @@
         "invenzioni"
       ],
       "notes": "Otis tagliò la fune davanti al pubblico e la cabina non cadde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -467,7 +467,7 @@
         "videogiochi"
       ],
       "notes": "Warren Robinett nascose il suo nome in una stanza segreta di Adventure",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -489,7 +489,7 @@
         "sicilia"
       ],
       "notes": "Etna Valley, con STMicroelectronics e altre aziende di microelettronica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -510,7 +510,7 @@
         "auto"
       ],
       "notes": "Lo suggerì la madre di Baracca, asso della prima guerra mondiale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -532,7 +532,7 @@
         "trabocchetto"
       ],
       "notes": "Il motore elettrico ha coppia su un ampio arco di giri: quasi tutte usano un solo rapporto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -553,7 +553,7 @@
         "videogiochi"
       ],
       "notes": "Easter egg: contenuto segreto lasciato dagli autori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -574,7 +574,7 @@
         "telefonia"
       ],
       "notes": "140 caratteri fino al 2017, poi 280",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -595,7 +595,7 @@
         "computer"
       ],
       "notes": "Hardware = parti fisiche; software = programmi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "biciclette"
       ],
       "notes": "Le e-bike hanno un motore elettrico che aiuta mentre si pedala",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "auto"
       ],
       "notes": "La spia della cintura, spesso con un cicalino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -658,7 +658,7 @@
         "computer"
       ],
       "notes": "Lo spot \"1984\" fu trasmesso durante il Super Bowl",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -679,7 +679,7 @@
         "robot"
       ],
       "notes": "Dal ceco \"robota\", lavoro forzato; resa celebre dal dramma R.U.R. di Karel Čapek (1920)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -700,7 +700,7 @@
         "auto"
       ],
       "notes": "Lancia Stratos (1973) e Lancia Delta HF Integrale, regine dei rally",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -722,7 +722,7 @@
         "italia"
       ],
       "notes": "La vite aerea, disegnata intorno al 1489 nel Codice B",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +743,7 @@
         "aerei"
       ],
       "notes": "Orville Wright volò per 12 secondi coprendo circa 37 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -764,7 +764,7 @@
         "foto"
       ],
       "notes": "Il diaframma regola l'apertura; l'otturatore il tempo di esposizione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -786,7 +786,7 @@
         "italia"
       ],
       "notes": "Fondato da Nicola Grauso a Cagliari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "trabocchetto"
       ],
       "notes": "L'autoland, usato soprattutto con nebbia fitta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "internet"
       ],
       "notes": "ch viene da Confoederatio Helvetica; la Cina è .cn, il Cile .cl",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "motori"
       ],
       "notes": "Il CV è un'unità di potenza, circa 735 watt",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "italia"
       ],
       "notes": "Giovanni Battista Caproni, nato a Massone di Arco nel 1886; bombardieri Caproni Ca.3",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -893,7 +893,7 @@
         "internet"
       ],
       "notes": "Il link, o collegamento ipertestuale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -915,7 +915,7 @@
         "trabocchetto"
       ],
       "notes": "E. A. Johnson del Royal Radar Establishment lo descrisse nel 1965",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "auto"
       ],
       "notes": "Più ottani = meno battito in testa del motore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -958,7 +958,7 @@
         "trabocchetto"
       ],
       "notes": "Nel 1947 gli Stati Uniti lanciarono moscerini su un razzo V2; i cani arrivarono dopo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "internet"
       ],
       "notes": "Cadabra, poi cambiato perché sembrava \"cadaver\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1000,7 +1000,7 @@
         "computer"
       ],
       "notes": "Il monitor mostra l'immagine prodotta dalla scheda video",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1021,7 +1021,7 @@
         "internet"
       ],
       "notes": "Blu, rosso, giallo e verde (la seconda o è gialla)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1043,7 @@
         "trabocchetto"
       ],
       "notes": "La modalità aereo spegne le radio, ma Wi-Fi e Bluetooth si possono riattivare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1064,7 +1064,7 @@
         "computer"
       ],
       "notes": "Compact disc, sviluppato da Philips e Sony",
-      "verified": false
+      "verified": true
     }
   ]
 }

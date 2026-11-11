@@ -22,7 +22,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello: la parola \"sbagliata\" è sempre scritta così",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "mondo"
       ],
       "notes": "Davanti alla stazione di Shibuya, a Tokyo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "fumetti"
       ],
       "notes": "Angela e Luciana Giussani, Milano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "fumetti"
       ],
       "notes": "Groucho, ispirato a Groucho Marx",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "trabocchetto"
       ],
       "notes": "Tower Bridge, 1894; il London Bridge è un ponte molto più semplice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,11 +128,11 @@
         "simboli"
       ],
       "notes": "Due triangoli sovrapposti, sei punte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale figura delle carte francesi manca nelle carte napoletane?",
+      "text": "Quale figura delle carte napoletane non c'è nelle carte francesi?",
       "category": "Curiosità",
       "difficulty": 3,
       "presenter": "professore",
@@ -140,7 +140,7 @@
         "Il re",
         "Il fante",
         "L'asso",
-        "La donna"
+        "Il cavallo"
       ],
       "correct": [
         3
@@ -148,8 +148,8 @@
       "tags": [
         "carte"
       ],
-      "notes": "Nelle napoletane ci sono fante, cavallo e re; nelle francesi fante, donna e re",
-      "verified": false
+      "notes": "Napoletane: fante, cavallo e re; francesi: fante, donna e re. Il cavallo manca nel mazzo francese",
+      "verified": true
     },
     {
       "type": "single",
@@ -170,7 +170,7 @@
         "tradizioni"
       ],
       "notes": "In cambio del dente il mattino trovano una moneta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "giochi"
       ],
       "notes": "Griglia tre per tre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -212,7 +212,7 @@
         "misure"
       ],
       "notes": "Un primo d'arco di meridiano; il miglio terrestre misura 1609 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -233,7 +233,7 @@
         "carte"
       ],
       "notes": "Il sette vale 21 punti di primiera, il sei 18, l'asso 16",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -255,7 +255,7 @@
         "trabocchetto"
       ],
       "notes": "\"Tutte tranne 9\" vuol dire che ne restano 9",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "santi"
       ],
       "notes": "Patroni d'Italia proclamati da Pio Dodicesimo nel 1939",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -298,7 +298,7 @@
         "feste"
       ],
       "notes": "Le domeniche di ottobre a Zafferana Etnea",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -319,7 +319,7 @@
         "matrimonio"
       ],
       "notes": "Chi prende il bouquet, per tradizione, sarà la prossima sposa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -341,7 +341,7 @@
         "trabocchetto"
       ],
       "notes": "Gioco di parole: ma-R-e",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -362,7 +362,7 @@
         "simboli"
       ],
       "notes": "Scienza degli stemmi nobiliari e civici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -383,7 +383,7 @@
         "tempo"
       ],
       "notes": "Ante meridiem; p.m. = post meridiem",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -404,7 +404,7 @@
         "moda"
       ],
       "notes": "Il bikini, lanciato da Louis Réard nel 1946, dall'atollo di Bikini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -426,7 +426,7 @@
         "lotto"
       ],
       "notes": "Dieci città più la Ruota nazionale, dal 2005",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -447,7 +447,7 @@
         "numeri"
       ],
       "notes": "1+2+3+4+5+6 = 21",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -469,7 +469,7 @@
         "feste"
       ],
       "notes": "Altari e tavole imbandite il 19 marzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -491,7 +491,7 @@
         "pupi"
       ],
       "notes": "Personaggi comici del repertorio palermitano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -512,7 +512,7 @@
         "fumetti"
       ],
       "notes": "Mafalda, di Quino, dal 1964",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -534,7 +534,7 @@
         "trabocchetto"
       ],
       "notes": "Tre dita più il pollice, come quasi tutti i personaggi Disney",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -556,7 +556,7 @@
         "trabocchetto"
       ],
       "notes": "Aprile 1949, Mondadori; il Topolino giornale esisteva già dal 1932",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -577,7 +577,7 @@
         "carte"
       ],
       "notes": "Full house",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -598,7 +598,7 @@
         "mondo"
       ],
       "notes": "In Giappone il servizio è incluso e la mancia può imbarazzare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -619,7 +619,7 @@
         "giochi"
       ],
       "notes": "Cinque triangoli, un quadrato e un parallelogramma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -640,7 +640,7 @@
         "monete"
       ],
       "notes": "L'escudo era portoghese, la dracma greca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -661,13 +661,13 @@
         "superstizioni"
       ],
       "notes": "Tredici a tavola, come all'Ultima Cena",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Qual è il numero civico della Casa Bianca su Pennsylvania Avenue?",
       "category": "Curiosità",
-      "difficulty": 5,
+      "difficulty": 4,
       "presenter": "professore",
       "answers": [
         "10",
@@ -683,7 +683,7 @@
         "mondo"
       ],
       "notes": "1600 Pennsylvania Avenue, Washington",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -704,7 +704,7 @@
         "giochi"
       ],
       "notes": "Magic di Richard Garfield, Wizards of the Coast, 1993",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -725,7 +725,7 @@
         "feste"
       ],
       "notes": "Il primo giorno di aprile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -746,7 +746,7 @@
         "giocattoli"
       ],
       "notes": "Ken Carson, introdotto dalla Mattel nel 1961",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -767,7 +767,7 @@
         "giochi"
       ],
       "notes": "Una per lato del tabellone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -788,7 +788,7 @@
         "scacchi"
       ],
       "notes": "Il pedone cattura quello avversario appena avanzato di due case",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -810,7 +810,7 @@
         "superstizioni"
       ],
       "notes": "Superstizione universitaria bolognese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -832,7 +832,7 @@
         "francia"
       ],
       "notes": "La conquête du monde, 1957",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -854,7 +854,7 @@
         "feste"
       ],
       "notes": "Il Palio degli asini di Alba, dal 1932",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -876,7 +876,7 @@
         "mondo"
       ],
       "notes": "L'orologio astronomico della piazza della Città Vecchia, 1410",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -898,7 +898,7 @@
         "mondo"
       ],
       "notes": "Bonfire Night ricorda la Congiura delle polveri del 1605",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -919,7 +919,7 @@
         "numeri"
       ],
       "notes": "Maggiore età a 18 anni dal 1975",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -940,7 +940,7 @@
         "sicilia"
       ],
       "notes": "Dall'arabo Bint al-Riyah",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -962,7 +962,7 @@
         "mondo"
       ],
       "notes": "La Ball Drop di Times Square, dal 1907",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -983,7 +983,7 @@
         "monete"
       ],
       "notes": "Banconota del 1997, con la Scuola di Atene sul retro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1005,7 +1005,7 @@
         "napoli"
       ],
       "notes": "Il numero 1 è \"l'Italia\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1026,7 +1026,7 @@
         "superstizioni"
       ],
       "notes": "Il cappello sul letto è legato ai preti che portavano l'estrema unzione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1048,7 +1048,7 @@
         "storia"
       ],
       "notes": "Tasso fisso dal 1999: 1 euro = 1936,27 lire",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1069,7 +1069,7 @@
         "pasqua"
       ],
       "notes": "Pasqua è la prima domenica dopo il primo plenilunio di primavera",
-      "verified": false
+      "verified": true
     }
   ]
 }

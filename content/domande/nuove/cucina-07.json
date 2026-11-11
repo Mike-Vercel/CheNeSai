@@ -21,7 +21,7 @@
         "dolci"
       ],
       "notes": "Il marzapane è un impasto di mandorle tritate e zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "scienza-in-cucina"
       ],
       "notes": "Il lattosio è lo zucchero tipico del latte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "cocktail"
       ],
       "notes": "Il Cuba libre è rum, cola e lime",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "tecniche"
       ],
       "notes": "Al cartoccio: cotto avvolto in carta da forno o alluminio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "trabocchetto"
       ],
       "notes": "Il salame di cioccolato è un dolce di cacao, burro, zucchero e biscotti spezzettati: niente carne",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -127,7 +127,7 @@
         "cucina-cinese"
       ],
       "notes": "L'anatra laccata è detta anche anatra alla pechinese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -148,7 +148,7 @@
         "salumi"
       ],
       "notes": "Würstel è il diminutivo tedesco di Wurst, salsiccia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "vino"
       ],
       "notes": "Cannonau di Sardegna DOC",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "cucina-spagnola"
       ],
       "notes": "I churros fritti si servono con la cioccolata calda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "dolci"
       ],
       "notes": "La meringa è fatta di albumi montati e zucchero cotti a bassa temperatura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "cucina-romana"
       ],
       "notes": "Saltimbocca: fettine di vitello con prosciutto crudo e una foglia di salvia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -253,7 +253,7 @@
         "cucina-romana"
       ],
       "notes": "Specialità della cucina giudaico-romanesca del Ghetto di Roma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -274,7 +274,7 @@
         "pane"
       ],
       "notes": "Tradizionalmente nati a Torino nel Seicento, attribuiti al fornaio Antonio Brunero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -295,7 +295,7 @@
         "cucina-veneta"
       ],
       "notes": "L'ombra è il bicchiere di vino dei bacari veneziani, da bere con i cicchetti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -317,7 +317,7 @@
         "abruzzo"
       ],
       "notes": "Maccheroni alla chitarra: la sfoglia si taglia premendola su fili d'acciaio tesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -339,7 +339,7 @@
         "trabocchetto"
       ],
       "notes": "Spaghetti and meatballs nasce tra gli immigrati italiani negli Stati Uniti; in Italia le polpette grosse si servono come secondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -360,7 +360,7 @@
         "cucina-argentina"
       ],
       "notes": "Il chimichurri accompagna l'asado argentino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -381,7 +381,7 @@
         "cocktail"
       ],
       "notes": "Caipirinha: cachaça, lime e zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -402,7 +402,7 @@
         "cucina-mediorientale"
       ],
       "notes": "Il tabbouleh è soprattutto prezzemolo tritato con bulgur, pomodoro, cipolla e menta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -423,7 +423,7 @@
         "cucina-mediorientale"
       ],
       "notes": "La tahina è una crema di semi di sesamo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -445,7 +445,7 @@
         "letteratura"
       ],
       "notes": "La madeleine compare in Dalla parte di Swann",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -466,7 +466,7 @@
         "cucina-campana"
       ],
       "notes": "Il casatiello si prepara per Pasqua, con le uova intere incastonate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -488,7 +488,7 @@
         "umbria"
       ],
       "notes": "Norcino: macellaio e salumiere, dal nome di Norcia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -509,7 +509,7 @@
         "vino"
       ],
       "notes": "Il disciplinare del Chianti prevede soprattutto Sangiovese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -530,7 +530,7 @@
         "cucina-indiana"
       ],
       "notes": "Il ghee è burro chiarificato, base di molta cucina indiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -551,7 +551,7 @@
         "cucina-toscana"
       ],
       "notes": "Il lampredotto è l'abomaso, il quarto stomaco dei bovini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "formaggi"
       ],
       "notes": "Dal lombardo stracch: le vacche stanche al ritorno dagli alpeggi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "trabocchetto"
       ],
       "notes": "Oltre il 90% del Pecorino Romano DOP è prodotto in Sardegna (Consorzio di tutela)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -615,7 +615,7 @@
         "cucina-piemontese"
       ],
       "notes": "Il bagnet verd è prezzemolo tritato con aglio, acciughe, mollica, aceto e olio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "trabocchetto"
       ],
       "notes": "Nonostante il nome è una pastella salata cotta in forno, servita con l'arrosto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -659,7 +659,7 @@
         "trabocchetto"
       ],
       "notes": "Prende il nome dal cuoco Lucien Olivier, che la creò a Mosca nell'Ottocento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -681,7 +681,7 @@
         "trabocchetto"
       ],
       "notes": "La decaffeinizzazione non è totale: per legge ne resta al massimo lo 0,1% nel caffè crudo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -702,7 +702,7 @@
         "tecniche"
       ],
       "notes": "Fumetto: fondo di cottura a base di lische e teste di pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -723,7 +723,7 @@
         "vino"
       ],
       "notes": "Il Barolo DOCG è ottenuto al 100% da uve Nebbiolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -744,7 +744,7 @@
         "cucina-nordica"
       ],
       "notes": "Il gravlax è una preparazione tradizionale svedese e norvegese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "caffè"
       ],
       "notes": "La Robusta ha circa il doppio della caffeina dell'Arabica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "lombardia"
       ],
       "notes": "Cremona: Stradivari e la tradizionale Festa del torrone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "sicilia"
       ],
       "notes": "La manna di Castelbuono e Pollina è la linfa solidificata del frassino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -819,7 +819,7 @@
       "answers": [
         "Da un vitigno",
         "Da un fiume abruzzese",
-        "Da un comune toscano",
+        "Da un santo patrono",
         "Da una famiglia nobile"
       ],
       "correct": [
@@ -830,7 +830,7 @@
         "trabocchetto"
       ],
       "notes": "Montepulciano è il nome del vitigno; il Vino Nobile di Montepulciano toscano è un'altra cosa (Sangiovese)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -851,7 +851,7 @@
         "formaggi"
       ],
       "notes": "Dal francese racler: si raschia il formaggio fuso dalla forma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "cucina-africana"
       ],
       "notes": "L'injera si fa con farina di teff fermentata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -893,7 +893,7 @@
         "vino"
       ],
       "notes": "Metodo Martinotti-Charmat: rifermentazione in grandi recipienti chiusi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -915,7 +915,7 @@
         "piemonte"
       ],
       "notes": "La salsiccia di Bra è di vitello con poco grasso suino, e si mangia anche cruda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "liquori"
       ],
       "notes": "Antonio Benedetto Carpano creò il vermut a Torino nel 1786",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -957,7 +957,7 @@
         "cioccolato"
       ],
       "notes": "Linneo: dal greco theos, dio, e broma, cibo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,13 +979,13 @@
         "sicilia"
       ],
       "notes": "I masculini da magghia sono le acciughe pescate a Catania con la rete",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Il Primitivo pugliese è geneticamente identico a quale vitigno coltivato in California?",
       "category": "Cucina",
-      "difficulty": 5,
+      "difficulty": 4,
       "presenter": "palmino",
       "answers": [
         "Zinfandel",
@@ -1000,7 +1000,7 @@
         "vino"
       ],
       "notes": "L'analisi del DNA ha dimostrato che Primitivo e Zinfandel sono lo stesso vitigno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1021,7 +1021,7 @@
         "pasta"
       ],
       "notes": "Ricetta depositata alla Camera di Commercio di Bologna nel 1972: 8 mm da cotta, la 12270esima parte della Torre degli Asinelli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1043,7 @@
         "lombardia"
       ],
       "notes": "Coscia di capra salata e stagionata, affettata appoggiandola alla spalla come un violino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "frutta"
       ],
       "notes": "Pesca di Leonforte IGP: ogni frutto è insacchettato sull'albero e raccolto tardi, tra settembre e ottobre",
-      "verified": false
+      "verified": true
     }
   ]
 }

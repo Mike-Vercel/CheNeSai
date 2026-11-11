@@ -21,7 +21,7 @@
         "modi-di-dire"
       ],
       "notes": "Prendere lucciole per lanterne: scambiare una cosa per un'altra, prendere un abbaglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "proverbi"
       ],
       "notes": "Il mattino ha l'oro in bocca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -53,7 +53,7 @@
       "answers": [
         "Gatto",
         "Pecora",
-        "Cane",
+        "Cavallo",
         "Topo"
       ],
       "correct": [
@@ -63,7 +63,7 @@
         "versi-animali"
       ],
       "notes": "Squittire è il verso acuto dei topi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "nomi-collettivi"
       ],
       "notes": "Una mandria di bovini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "etimologia"
       ],
       "notes": "Mercoledì: dal latino Mercurii dies, giorno di Mercurio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "modi-di-dire"
       ],
       "notes": "Essere in alto mare: essere ancora lontani dal finire qualcosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "proverbi"
       ],
       "notes": "Tanto va la gatta al lardo che ci lascia lo zampino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "alfabeto"
       ],
       "notes": "La K si chiama cappa (o kappa)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "modi-di-dire"
       ],
       "notes": "Sputare il rospo: decidersi a dire ciò che si teneva dentro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "lessico"
       ],
       "notes": "Affabile: gentile e alla mano nel trattare con gli altri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -232,7 +232,7 @@
         "trabocchetto"
       ],
       "notes": "Ridere, participio passato riso: uguale al cereale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "trabocchetto"
       ],
       "notes": "Qui e qua non vogliono mai l'accento; ciò, già e può sì",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "trabocchetto"
       ],
       "notes": "Scien-za: sci è un trigramma che rende un solo suono, la i non fa sillaba",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -297,7 +297,7 @@
         "lessico"
       ],
       "notes": "Ameno: piacevole, gradevole alla vista",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -318,7 +318,7 @@
         "lessico"
       ],
       "notes": "Redarguire: riprendere, rimproverare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -339,7 +339,7 @@
         "modi-di-dire"
       ],
       "notes": "Conoscere i propri polli: conoscere bene le persone con cui si tratta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -360,7 +360,7 @@
         "modi-di-dire"
       ],
       "notes": "Dall'indovinello del lupo, della capra e dei cavoli da traghettare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -381,7 +381,7 @@
         "modi-di-dire"
       ],
       "notes": "Nel Vangelo di Matteo Pilato si lava le mani davanti alla folla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -402,7 +402,7 @@
         "antonomasia"
       ],
       "notes": "Da Mentore, l'amico di Ulisse sotto il cui aspetto Atena consiglia Telemaco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -423,7 +423,7 @@
         "modi-di-dire"
       ],
       "notes": "La gavetta era la scodella dei soldati semplici: fare la gavetta è salire di grado partendo dal fondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -444,7 +444,7 @@
         "grammatica"
       ],
       "notes": "Cattivo: peggiore, pessimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -465,7 +465,7 @@
         "verbi"
       ],
       "notes": "Imperfetto dell'ausiliare più participio: trapassato prossimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -486,7 +486,7 @@
         "verbi"
       ],
       "notes": "Congiuntivo presente di dare: che tu dia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -507,7 +507,7 @@
         "grammatica"
       ],
       "notes": "Compare e comare: padrino e madrina, o amici intimi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "lessico"
       ],
       "notes": "Gaudio: gioia, allegrezza, come in \"mal comune mezzo gaudio\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "trabocchetto"
       ],
       "notes": "Mi vale a me: complemento di termine; il soggetto è il gelato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "trabocchetto"
       ],
       "notes": "A-iuo-la: iuo è un trittongo e forma una sola sillaba",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "trabocchetto"
       ],
       "notes": "Basso: inferiore, infimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "trabocchetto"
       ],
       "notes": "Dal tifo, malattia febbrile: l'esaltazione dei fan paragonata al delirio della febbre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "lessico"
       ],
       "notes": "Acrimonia: asprezza d'animo, astio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -658,7 +658,7 @@
         "lessico"
       ],
       "notes": "Sedicente: che dice di essere ciò che non è, come un sedicente medico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -679,7 +679,7 @@
         "retorica"
       ],
       "notes": "Antonomasia: un nome proprio usato come nome comune, o viceversa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -700,7 +700,7 @@
         "segni"
       ],
       "notes": "La dieresi indica che due vocali vicine vanno pronunciate separate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -722,7 +722,7 @@
         "trabocchetto"
       ],
       "notes": "In Toscana sciocco vuol dire insipido: il pane toscano è sciocco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +743,7 @@
         "storia-della-lingua"
       ],
       "notes": "La Scuola poetica siciliana fiorì alla corte di Federico II, nella prima metà del Duecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -764,7 +764,7 @@
         "etimologia"
       ],
       "notes": "Dal latino tardo companio: cum e panis, chi mangia lo stesso pane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -785,7 +785,7 @@
         "storia-della-lingua"
       ],
       "notes": "Tullio De Mauro, Storia linguistica dell'Italia unita, Laterza 1963",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -806,7 +806,7 @@
         "retorica"
       ],
       "notes": "Sinestesia: accosta parole riferite a sfere sensoriali diverse",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -827,7 +827,7 @@
         "storia-della-lingua"
       ],
       "notes": "Se pareba boves: i buoi sono le dita, l'aratro la penna, il seme l'inchiostro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -848,7 +848,7 @@
         "etimologia"
       ],
       "notes": "Dal turco tülbend, turbante, per la forma del fiore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -870,7 +870,7 @@
         "sicilia"
       ],
       "notes": "A San Fratello, Nicosia, Piazza Armerina e altri centri si parlano dialetti portati da coloni dell'Italia settentrionale nel Medioevo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -891,7 +891,7 @@
         "lessico"
       ],
       "notes": "Pletora: quantità eccessiva, come una pletora di impiegati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -913,7 +913,7 @@
         "sicilia"
       ],
       "notes": "Gli abitanti di Noto sono i netini, dall'antica Netum",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -934,7 +934,7 @@
         "grammatica"
       ],
       "notes": "Esterno: esteriore, estremo (come interno: interiore, intimo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -955,7 +955,7 @@
         "modi-di-dire"
       ],
       "notes": "Pagare quando si riceverà l'eredità del padre, cioè chissà quando",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -976,29 +976,7 @@
         "etimologia"
       ],
       "notes": "Da Étienne de Silhouette, controllore generale delle finanze di Luigi XV",
-      "verified": false
-    },
-    {
-      "type": "single",
-      "text": "Quale animale, secondo i dizionari, \"blatera\"?",
-      "category": "Lingua italiana",
-      "difficulty": 5,
-      "presenter": "palmino",
-      "answers": [
-        "Asino",
-        "Cammello",
-        "Rana",
-        "Capra"
-      ],
-      "correct": [
-        1
-      ],
-      "tags": [
-        "versi-animali",
-        "trabocchetto"
-      ],
-      "notes": "Blaterare indica in origine il verso del cammello; poi parlare a vanvera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1019,7 +997,7 @@
         "enigmistica"
       ],
       "notes": "Pangramma: frase con tutte le lettere; lipogramma: testo senza una lettera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1040,7 +1018,7 @@
         "abitanti"
       ],
       "notes": "Dall'antico nome latino della città, Eporedia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1061,7 +1039,7 @@
         "lessico"
       ],
       "notes": "Irrefragabile: inconfutabile, come una prova irrefragabile",
-      "verified": false
+      "verified": true
     }
   ]
 }

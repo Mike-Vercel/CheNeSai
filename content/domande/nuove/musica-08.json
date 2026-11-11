@@ -21,7 +21,7 @@
         "pop"
       ],
       "notes": "\"Bad Guy\" di Billie Eilish, 2019, scritta con il fratello Finneas",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "italia"
       ],
       "notes": "\"La canzone del sole\" (1971) di Mogol e Battisti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "italia"
       ],
       "notes": "\"Cose della vita\" di Eros Ramazzotti, dall'album \"Tutte storie\" (1993)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "italia"
       ],
       "notes": "\"Il triangolo\" di Renato Zero, 1978",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "anni-70"
       ],
       "notes": "\"YMCA\" dei Village People, 1978",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "italia"
       ],
       "notes": "\"Ragazzo fortunato\" di Jovanotti, dall'album \"Lorenzo 1992\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "italia"
       ],
       "notes": "Canzone di Ligabue del 1999 dedicata al mediano Lele Oriali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "mondiali"
       ],
       "notes": "\"Waka Waka (This Time for Africa)\" di Shakira, inno di Sudafrica 2010",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "strumenti"
       ],
       "notes": "La batteria unisce tamburi, grancassa e piatti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "trabocchetto"
       ],
       "notes": "Cristofori lo chiamò \"gravicembalo col piano e forte\": i martelletti permettono di variare il volume",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "natale"
       ],
       "notes": "\"Last Christmas\" degli Wham! di George Michael, 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "mondo"
       ],
       "notes": "La versione di Ray Charles del 1960 divenne l'inno ufficiale della Georgia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "italia"
       ],
       "notes": "\"Vivo per lei\", duetto di Bocelli e Giorgia nell'album \"Bocelli\" (1995)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "mondo"
       ],
       "notes": "Il bouzouki è lo strumento simbolo del rebetiko e del sirtaki greci",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -326,8 +326,8 @@
       "tags": [
         "teoria"
       ],
-      "notes": "Allegro è un'indicazione di tempo (andamento veloce), non di carattere",
-      "verified": false
+      "notes": "Allegro è un'indicazione di andamento: tempo veloce",
+      "verified": true
     },
     {
       "type": "single",
@@ -348,7 +348,7 @@
         "pop"
       ],
       "notes": "\"Wrecking Ball\" di Miley Cyrus, 2013",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -370,7 +370,7 @@
         "anni-80"
       ],
       "notes": "Simon Le Bon, voce dei Duran Duran (il libro \"Sposerò Simon Le Bon\" è del 1985)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -391,7 +391,7 @@
         "pop"
       ],
       "notes": "\"Happy\" di Pharrell Williams, dal film \"Cattivissimo me 2\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -413,7 +413,7 @@
         "anni-70"
       ],
       "notes": "\"I Will Survive\" di Gloria Gaynor, 1978",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -435,7 +435,7 @@
         "strumenti"
       ],
       "notes": "Il pizzicato si esegue con le dita invece che con l'arco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -457,7 +457,7 @@
         "mondo"
       ],
       "notes": "\"White Christmas\" di Irving Berlin, dal film \"Holiday Inn\" (1942)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -479,7 +479,7 @@
         "italia"
       ],
       "notes": "Caparezza, di Molfetta, dall'album \"Verità supposte\" (2003)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -501,7 +501,7 @@
         "mondo"
       ],
       "notes": "Rihanna è nata a Saint Michael, Barbados, nel 1988",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -522,7 +522,7 @@
         "pop"
       ],
       "notes": "\"Firework\" di Katy Perry, dall'album \"Teenage Dream\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -544,7 +544,7 @@
         "italia"
       ],
       "notes": "Olly, vincitore di Sanremo 2025, rinunciò; andò il secondo classificato Lucio Corsi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -566,7 +566,7 @@
         "stadi"
       ],
       "notes": "\"Seven Nation Army\" dei White Stripes (2003), cantata dai tifosi italiani ai Mondiali 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -588,7 +588,7 @@
         "puccini"
       ],
       "notes": "Aria di Lauretta nel \"Gianni Schicchi\" (1918)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -610,7 +610,7 @@
         "cinema"
       ],
       "notes": "\"Eye of the Tiger\" dei Survivor, per \"Rocky III\" (1982)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -632,7 +632,7 @@
         "anni-70"
       ],
       "notes": "\"Rasputin\" dei Boney M., gruppo creato in Germania da Frank Farian",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -654,7 +654,7 @@
         "soprannomi"
       ],
       "notes": "James Brown, \"The Godfather of Soul\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -676,7 +676,7 @@
         "calcio"
       ],
       "notes": "\"'O surdato 'nnammurato\" di Califano e Cannio, 1915, cantata al Maradona",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -698,7 +698,7 @@
         "italia"
       ],
       "notes": "Il Premio Tenco del Club Tenco si tiene a Sanremo dal 1974",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -720,7 +720,7 @@
         "opera"
       ],
       "notes": "Versione in duetto di \"Con te partirò\" con Sarah Brightman (1996)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -742,7 +742,7 @@
         "nomi"
       ],
       "notes": "Stefani Joanne Angelina Germanotta; Ciccone è Madonna, Crocetti Dean Martin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -764,7 +764,7 @@
         "sicilia"
       ],
       "notes": "L'opera si svolge in un villaggio siciliano la mattina di Pasqua",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -786,7 +786,7 @@
         "eventi"
       ],
       "notes": "13 luglio 1985: Wembley a Londra e JFK Stadium a Filadelfia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "trabocchetto"
       ],
       "notes": "In \"4′33″\" (1952) l'esecutore non suona: la musica sono i rumori dell'ambiente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -830,7 +830,7 @@
         "orchestra"
       ],
       "notes": "I timpani hanno altezza definita e si accordano con viti o pedali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -853,7 +853,7 @@
         "trabocchetto"
       ],
       "notes": "Puccini morì in una clinica di Bruxelles il 29 novembre 1924",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -875,7 +875,7 @@
         "puccini"
       ],
       "notes": "Il finale fu completato da Franco Alfano; Toscanini diresse la prima nel 1926",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -897,7 +897,7 @@
         "barocco"
       ],
       "notes": "Eseguita su una chiatta sul Tamigi per re Giorgio Primo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -918,7 +918,7 @@
         "tormentoni"
       ],
       "notes": "\"Lambada\" dei Kaoma, gruppo franco-brasiliano, 1989",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -939,7 +939,7 @@
         "opera"
       ],
       "notes": "Balletto del terzo atto de \"La Gioconda\" (1876)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -960,7 +960,7 @@
         "blues"
       ],
       "notes": "B.B. King chiamava Lucille tutte le sue chitarre, dopo un incendio in un locale nel 1949",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -982,7 +982,7 @@
         "trabocchetto"
       ],
       "notes": "È il coro nuziale del \"Lohengrin\" di Wagner; la marcia di Mendelssohn si suona di solito all'uscita",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1004,13 +1004,13 @@
         "trabocchetto"
       ],
       "notes": "Il corno inglese è un oboe contralto ad ancia doppia, quindi un legno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Quale canzone italiana vinse il primo Grammy come disco dell'anno, nel 1959?",
       "category": "Musica",
-      "difficulty": 5,
+      "difficulty": 3,
       "presenter": "regina",
       "answers": [
         "Nel blu dipinto di blu",
@@ -1026,7 +1026,7 @@
         "premi"
       ],
       "notes": "Ai primi Grammy (1959) \"Nel blu dipinto di blu\" di Modugno fu disco e canzone dell'anno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1048,7 +1048,7 @@
         "strumenti"
       ],
       "notes": "Nella trascrizione di Wilhelmj (1871) dell'Aria di Bach si usa solo la corda di sol, la più grave",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1070,7 +1070,7 @@
         "italia"
       ],
       "notes": "Il Festivalbar nacque nel 1964 da Vittorio Salvetti; Radaelli creò il Cantagiro, Ravera organizzò Sanremo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1092,7 +1092,7 @@
         "trabocchetto"
       ],
       "notes": "Il Minuetto è dal Quintetto per archi opera 11 numero 5 (1771) di Boccherini; Puccini è l'altro lucchese famoso",
-      "verified": false
+      "verified": true
     }
   ]
 }

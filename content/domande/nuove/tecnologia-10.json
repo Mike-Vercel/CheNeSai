@@ -21,7 +21,7 @@
         "videogiochi"
       ],
       "notes": "Minecraft, nato nel 2009",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "auto"
       ],
       "notes": "Cilindrata in centimetri cubici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "computer"
       ],
       "notes": "Steve Jobs lo presentò il 27 gennaio 2010",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "italia"
       ],
       "notes": "Il servizio 12 fu sostituito dai numeri 12xy nel 2005",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -106,7 +106,7 @@
         "auto"
       ],
       "notes": "Giugiaro con Italdesign",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -128,7 +128,7 @@
         "trabocchetto"
       ],
       "notes": "La quarta ciminiera serviva alla ventilazione e all'estetica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -149,7 +149,7 @@
         "internet"
       ],
       "notes": "Open source: codice sorgente aperto, consultabile e modificabile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -170,7 +170,7 @@
         "telefonia"
       ],
       "notes": "Standard GSM: 160 caratteri a 7 bit",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -191,7 +191,7 @@
         "computer"
       ],
       "notes": "Lo zip è un archivio compresso che contiene uno o più file",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -212,7 +212,7 @@
         "computer"
       ],
       "notes": "Ridley Scott, appena reduce da \"Blade Runner\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -233,7 +233,7 @@
         "banche"
       ],
       "notes": "27 giugno 1967, Barclays di Enfield, Londra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "musica"
       ],
       "notes": "L'iPod fu presentato nell'ottobre 2001",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -276,7 +276,7 @@
         "trabocchetto"
       ],
       "notes": "In Donkey Kong era un carpentiere chiamato Jumpman",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -298,7 +298,7 @@
         "italia"
       ],
       "notes": "Thales Alenia Space di Torino ha costruito Columbus (struttura), Harmony, Tranquility e la Cupola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -320,7 +320,7 @@
         "trabocchetto"
       ],
       "notes": "Sakichi Toyoda inventò telai automatici; il reparto auto nacque negli anni Trenta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -342,7 +342,7 @@
         "italia"
       ],
       "notes": "Il bloccaggio rapido, nato dopo una corsa con le mani gelate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -363,7 +363,7 @@
         "banche"
       ],
       "notes": "Frank McNamara, New York, 1950",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -384,7 +384,7 @@
         "videogiochi"
       ],
       "notes": "Grand Theft Auto, Rockstar Games",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -405,7 +405,7 @@
         "elettricità"
       ],
       "notes": "Tensione nominale europea 230 volt a 50 hertz (un tempo si diceva 220)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -426,7 +426,7 @@
         "spazio"
       ],
       "notes": "L'ESA ha sede a Parigi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -447,11 +447,11 @@
         "energia"
       ],
       "notes": "Le centrali idroelettriche usano dighe e condotte forzate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale app di video brevi in verticale appartiene all'azienda cinese ByteDance?",
+      "text": "Quale app di video brevi in verticale è stata creata dall'azienda cinese ByteDance?",
       "category": "Tecnologia",
       "difficulty": 1,
       "presenter": "regina",
@@ -467,8 +467,8 @@
       "tags": [
         "social"
       ],
-      "notes": "TikTok è di ByteDance, Pechino",
-      "verified": false
+      "notes": "TikTok, lanciata da ByteDance (Pechino) nel 2016-2017 come versione internazionale di Douyin",
+      "verified": true
     },
     {
       "type": "single",
@@ -489,7 +489,7 @@
         "internet"
       ],
       "notes": "Francesco Lapi scrisse da Siviglia usando la chiocciola per l'anfora, misura di capacità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -510,7 +510,7 @@
         "treni"
       ],
       "notes": "Maglev = magnetic levitation, oltre 400 chilometri orari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -531,7 +531,7 @@
         "internet"
       ],
       "notes": "Chrome, Firefox, Safari ed Edge sono browser",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -553,7 +553,7 @@
         "italia"
       ],
       "notes": "Gaggia brevettò il sistema a pistone; la macchina a leva arrivò nel 1947",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -574,7 +574,7 @@
         "radio"
       ],
       "notes": "FM = Frequency Modulation; AM è modulazione di ampiezza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -596,7 +596,7 @@
         "italia"
       ],
       "notes": "L'Andrea Doria fu speronato dalla Stockholm il 25 luglio 1956",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -617,7 +617,7 @@
         "computer"
       ],
       "notes": "Brian Eno creò il \"Microsoft Sound\", lungo poco più di tre secondi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +638,7 @@
         "videogiochi"
       ],
       "notes": "Da Rosso e Blu in poi i tre iniziali sono di tipo erba, fuoco e acqua",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -659,7 +659,7 @@
         "spazio"
       ],
       "notes": "Volo inaugurale del Falcon Heavy, febbraio 2018",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -680,7 +680,7 @@
         "internet"
       ],
       "notes": "Netflix è un servizio di streaming video in abbonamento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -701,7 +701,7 @@
         "telefonia"
       ],
       "notes": "Telegram ha un aeroplanino azzurro, Viber è viola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -723,7 +723,7 @@
         "trabocchetto"
       ],
       "notes": "4G e 5G = quarta e quinta generazione di reti mobili",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -744,7 +744,7 @@
         "video"
       ],
       "notes": "Il DVD, dalla fine degli anni Novanta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -766,7 +766,7 @@
         "italia"
       ],
       "notes": "I prefissi GS1 Italia vanno da 800 a 839",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "videogiochi"
       ],
       "notes": "Nintendo Switch, console ibrida uscita nel marzo 2017",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "internet"
       ],
       "notes": "Safari di Apple",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "spazio"
       ],
       "notes": "Ingenuity, arrivato col rover Perseverance",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -851,7 +851,7 @@
         "italia"
       ],
       "notes": "Nelle targhe italiane mancano I, O, Q e U",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "smartphone"
       ],
       "notes": "Gli smartphone si sbloccano con PIN, sequenza, impronta o volto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -894,7 +894,7 @@
         "trabocchetto"
       ],
       "notes": "Opera 1995, Safari 2003, Firefox 2004, Chrome 2008",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -915,7 +915,7 @@
         "video"
       ],
       "notes": "Nel 2008 Toshiba abbandonò l'HD DVD, vinse il Blu-ray",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "computer"
       ],
       "notes": "Ctrl più Z annulla; Ctrl più Y ripete, Ctrl più X taglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -957,7 +957,7 @@
         "internet"
       ],
       "notes": "Netiquette, da net ed etiquette",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -978,7 +978,7 @@
         "criptovalute"
       ],
       "notes": "22 maggio 2010, \"Bitcoin Pizza Day\": due pizze per 10.000 bitcoin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -999,7 +999,7 @@
         "social"
       ],
       "notes": "Le Storie restano visibili 24 ore, salvo metterle in evidenza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1020,7 +1020,7 @@
         "videogiochi"
       ],
       "notes": "Principessa Peach, Nintendo (Zelda è di un'altra saga)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1041,7 @@
         "videogiochi"
       ],
       "notes": "Animal Crossing, nato nel 2001",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1062,7 +1062,7 @@
         "foto"
       ],
       "notes": "Più alto l'ISO, più il sensore è sensibile (con più rumore)",
-      "verified": false
+      "verified": true
     }
   ]
 }

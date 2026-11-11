@@ -21,7 +21,7 @@
         "bevande"
       ],
       "notes": "Irish coffee: caffè, whiskey, zucchero e panna leggermente montata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "vino"
       ],
       "notes": "Il Porto si produce nella valle del Douro, in Portogallo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "tecniche"
       ],
       "notes": "Il soffritto è un trito di cipolla, sedano e carota rosolato in olio o burro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "dolci"
       ],
       "notes": "La Foresta Nera unisce cioccolato, panna, ciliegie e kirsch",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "cucina-francese"
       ],
       "notes": "Specialità francese, soprattutto della Bretagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "dolci"
       ],
       "notes": "Il caramello è zucchero cotto fino a imbrunire",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "caffè"
       ],
       "notes": "Il macchiato è un espresso macchiato con poco latte o schiuma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -169,7 +169,7 @@
         "cucina-spagnola"
       ],
       "notes": "La crema catalana si caramella in superficie con un ferro rovente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -190,7 +190,7 @@
         "bevande"
       ],
       "notes": "Vin brulè: vino rosso caldo con zucchero, cannella, chiodi di garofano e scorza d'arancia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -211,7 +211,7 @@
         "cocktail"
       ],
       "notes": "Piña colada: rum, crema di cocco e succo d'ananas",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -233,7 +233,7 @@
         "cucina-francese"
       ],
       "notes": "La tarte Tatin classica è di mele caramellate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -254,7 +254,7 @@
         "cucina-francese"
       ],
       "notes": "La bouillabaisse è la zuppa di pesce di Marsiglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -275,7 +275,7 @@
         "cucina-francese"
       ],
       "notes": "Lorraine in francese è la Lorena",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -296,7 +296,7 @@
         "cucina-francese"
       ],
       "notes": "Pane in cassetta con prosciutto cotto e formaggio, gratinato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -317,7 +317,7 @@
         "cucina-europea"
       ],
       "notes": "I pierogi sono il piatto nazionale polacco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -338,7 +338,7 @@
         "cucina-asiatica"
       ],
       "notes": "Il bibimbap è un piatto della cucina coreana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -359,7 +359,7 @@
         "cucina-europea"
       ],
       "notes": "Le moules-frites sono considerate il piatto nazionale del Belgio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -380,7 +380,7 @@
         "pizza"
       ],
       "notes": "La pizza a portafoglio si piega a libretto e si mangia passeggiando",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -401,7 +401,7 @@
         "cucina-campana"
       ],
       "notes": "Il sartù di riso nacque alla corte borbonica di Napoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -422,7 +422,7 @@
         "salumi"
       ],
       "notes": "Ariccia è uno dei Castelli Romani, nel Lazio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -443,7 +443,7 @@
         "cucina-romana"
       ],
       "notes": "Piatto del quinto quarto della cucina romana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -464,7 +464,7 @@
         "sicilia"
       ],
       "notes": "La cuccìa è grano bollito servito con ricotta o crema, per Santa Lucia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -486,7 +486,7 @@
         "dolci"
       ],
       "notes": "Le ossa di morto si preparano per la festa dei Morti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -508,7 +508,7 @@
         "trabocchetto"
       ],
       "notes": "Fettine cotte in padella con pomodoro, aglio e origano: della pizza ha solo il condimento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -530,7 +530,7 @@
         "trabocchetto"
       ],
       "notes": "Il mais arrivò dalle Americhe; turco indicava genericamente qualcosa di esotico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -551,7 +551,7 @@
         "pasta"
       ],
       "notes": "Da zita, la sposa in napoletano: erano la pasta dei banchetti di nozze",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "pasta"
       ],
       "notes": "Dedicate alla principessa Mafalda di Savoia, nata nel 1902",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -593,7 +593,7 @@
         "cucina-pugliese"
       ],
       "notes": "Tiella barese: riso, patate e cozze",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -614,7 +614,7 @@
         "calabria"
       ],
       "notes": "Liquirizia di Calabria DOP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -636,7 +636,7 @@
         "sardegna"
       ],
       "notes": "Il carasau è detto carta da musica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -657,7 +657,7 @@
         "formaggi"
       ],
       "notes": "Formaggio di fossa DOP: stagiona in fosse scavate nell'arenaria, chiuse per settimane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -678,7 +678,7 @@
         "pasticceria"
       ],
       "notes": "I bignè si fanno con la pâte à choux, cotta in pentola e poi in forno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -699,7 +699,7 @@
         "cucina-asiatica"
       ],
       "notes": "In indonesiano nasi è riso cotto e goreng fritto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -721,7 +721,7 @@
         "cucina-spagnola"
       ],
       "notes": "Bellota in spagnolo significa ghianda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +743,7 @@
         "trabocchetto"
       ],
       "notes": "Il cocco è una drupa fibrosa, come la pesca e l'oliva, non una vera noce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "trabocchetto"
       ],
       "notes": "Il karkadè è un infuso di calici di ibisco: non contiene tè",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "trabocchetto"
       ],
       "notes": "Phaseolus vulgaris, la specie dei borlotti, è originaria delle Americhe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -808,7 +808,7 @@
         "dolci"
       ],
       "notes": "Gubana delle Valli del Natisone e di Cividale del Friuli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -829,7 +829,7 @@
         "cucina-friulana"
       ],
       "notes": "La jota è la minestra simbolo di Trieste",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -851,7 +851,7 @@
         "trabocchetto"
       ],
       "notes": "Le 'mpanatigghi sono dolci di frolla ripieni di carne macinata, cioccolato, mandorle e spezie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -873,7 +873,7 @@
         "frutta"
       ],
       "notes": "Ciaculli è una borgata di Palermo, Presidio Slow Food",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -895,7 +895,7 @@
         "trabocchetto"
       ],
       "notes": "Il pepe rosa è la bacca dello Schinus, albero sudamericano, non del Piper nigrum",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +916,7 @@
         "cucina-giapponese"
       ],
       "notes": "Pastella con cavolo e altri ingredienti cotta alla piastra, tipica di Osaka e Hiroshima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -937,7 +937,7 @@
         "cucina-asiatica"
       ],
       "notes": "Il rendang nasce tra i Minangkabau di Sumatra, in Indonesia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -958,7 +958,7 @@
         "dolci"
       ],
       "notes": "Il Dresdner Christstollen è lo Stollen più celebre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "vino"
       ],
       "notes": "Al mosto si aggiunge resina di pino d'Aleppo, uso antichissimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1001,7 +1001,7 @@
         "frutta"
       ],
       "notes": "Limone Interdonato Messina IGP: ibrido di limone e cedro ottenuto dal colonnello Interdonato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1022,7 +1022,7 @@
         "cucina-africana"
       ],
       "notes": "Il bobotie è un piatto della cucina sudafricana del Capo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1044,7 +1044,7 @@
         "lombardia"
       ],
       "notes": "I missoltini sono agoni essiccati al sole e pressati con sale e alloro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "caffè"
       ],
       "notes": "Il kopi luwak indonesiano si ricava dalle feci dello zibetto delle palme",
-      "verified": false
+      "verified": true
     }
   ]
 }

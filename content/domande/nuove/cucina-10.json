@@ -21,7 +21,7 @@
         "tecniche"
       ],
       "notes": "Sbollentare: scottare brevemente in acqua bollente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "bevande"
       ],
       "notes": "La cioccolata calda si fa con cacao o cioccolato sciolto nel latte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -63,7 +63,7 @@
         "cucina-mediorientale"
       ],
       "notes": "I falafel sono polpette fritte di ceci o di fave",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -84,7 +84,7 @@
         "bevande"
       ],
       "notes": "Il samovar è il bollitore russo per l'acqua del tè",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -105,7 +105,7 @@
         "primi"
       ],
       "notes": "L'arrabbiata è un sugo di pomodoro, aglio e peperoncino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -126,7 +126,7 @@
         "salse"
       ],
       "notes": "Il pesto alla genovese unisce basilico, pinoli, aglio, formaggi e olio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -147,7 +147,7 @@
         "cucina-romana"
       ],
       "notes": "La carbonara è l'unica delle quattro con le uova",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -168,7 +168,7 @@
         "utensili"
       ],
       "notes": "Lo scolapasta, o colapasta, separa la pasta dall'acqua",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -189,7 +189,7 @@
         "tradizioni"
       ],
       "notes": "Brunch: da breakfast e lunch",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -210,7 +210,7 @@
         "formaggi"
       ],
       "notes": "I buchi dell'Emmental si formano per l'anidride carbonica prodotta dai batteri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -231,7 +231,7 @@
         "cocktail"
       ],
       "notes": "L'Americano è Campari, vermut rosso e seltz; il Negroni ha anche il gin e niente soda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -252,7 +252,7 @@
         "liquori"
       ],
       "notes": "La sambuca con la mosca: chicchi di caffè galleggianti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -273,7 +273,7 @@
         "cucina-asiatica"
       ],
       "notes": "I dim sum sono tipici della cucina cantonese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -294,7 +294,7 @@
         "cucina-americana"
       ],
       "notes": "Poke in hawaiano significa tagliare a pezzi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -315,7 +315,7 @@
         "cucina-inglese"
       ],
       "notes": "La full English breakfast comprende uova, bacon, salsicce, fagioli, funghi e pomodoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -336,7 +336,7 @@
         "cucina-europea"
       ],
       "notes": "Gli spätzle vengono dalla Svevia, nel sud-ovest della Germania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -357,7 +357,7 @@
         "formaggi"
       ],
       "notes": "Camembert è un villaggio della Normandia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -378,7 +378,7 @@
         "cucina-giapponese"
       ],
       "notes": "I mochi si fanno con riso glutinoso pestato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -399,7 +399,7 @@
         "cucina-indiana"
       ],
       "notes": "Il paneer è un formaggio fresco che non fonde, ottenuto cagliando il latte con un acido",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -420,7 +420,7 @@
         "cucina-indiana"
       ],
       "notes": "Nel tandoor, forno cilindrico di argilla, si cuociono pollo tandoori e pane naan",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -442,7 +442,7 @@
         "toscana"
       ],
       "notes": "Ricciarelli di Siena IGP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -463,7 +463,7 @@
         "cucina-europea"
       ],
       "notes": "L'Irish stew tradizionale è di agnello o montone con patate e cipolle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -485,7 +485,7 @@
         "trabocchetto"
       ],
       "notes": "Il pepperoni americano è un salame piccante, non un ortaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -507,7 +507,7 @@
         "trabocchetto"
       ],
       "notes": "Le castagnole sono palline fritte di farina, uova e zucchero: niente castagne",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "storia-del-cibo"
       ],
       "notes": "La pasta secca era già documentata in Sicilia nel 1154 da al-Idrisi, prima di Marco Polo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -549,7 +549,7 @@
         "cucina-giapponese"
       ],
       "notes": "Gli edamame sono baccelli di soia raccolti verdi, bolliti e salati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -570,7 +570,7 @@
         "cucina-inglese"
       ],
       "notes": "Il cream tea: scone con clotted cream e marmellata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -591,7 +591,7 @@
         "cucina-spagnola"
       ],
       "notes": "È il pulpo a la gallega, della Galizia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -612,7 +612,7 @@
         "pane"
       ],
       "notes": "Tigelle o crescentine dell'Appennino modenese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -633,7 +633,7 @@
         "formaggi"
       ],
       "notes": "La Val Taleggio è in provincia di Bergamo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -654,7 +654,7 @@
         "cucina-lombarda"
       ],
       "notes": "La polenta taragna è tipica della Valtellina e delle valli bergamasche",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +675,7 @@
         "cocktail"
       ],
       "notes": "Il Negroni sbagliato nacque al Bar Basso di Milano usando spumante al posto del gin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -696,7 +696,7 @@
         "vino"
       ],
       "notes": "Nel metodo classico, o champenoise, la presa di spuma avviene in bottiglia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -717,7 +717,7 @@
         "vino"
       ],
       "notes": "Verdicchio dei Castelli di Jesi e di Matelica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -726,7 +726,7 @@
       "difficulty": 3,
       "presenter": "palmino",
       "answers": [
-        "Testicoli di agnello",
+        "Rognoni di agnello",
         "Midollo delle ossa",
         "Cervella di maiale",
         "Ghiandole del vitello come il timo"
@@ -739,7 +739,7 @@
         "trabocchetto"
       ],
       "notes": "Le animelle sono timo e pancreas di vitello o agnello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -762,7 +762,7 @@
         "trabocchetto"
       ],
       "notes": "Il tartufo di Pizzo è un gelato ripieno di cioccolato fuso, ricoperto di cacao",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -784,7 +784,7 @@
         "cucina-africana"
       ],
       "notes": "Il couscous non è un cereale a sé: è semola di grano duro inumidita e lavorata a granelli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -806,7 +806,7 @@
         "trabocchetto"
       ],
       "notes": "Nonostante il nome, coniglio gallese, è pane tostato coperto di salsa di formaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -827,7 +827,7 @@
         "vino"
       ],
       "notes": "Il Sassicaia della Tenuta San Guido ha una DOC propria, Bolgheri Sassicaia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -848,7 +848,7 @@
         "vino"
       ],
       "notes": "Il Tokaji Aszú è il celebre vino passito ungherese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -869,7 +869,7 @@
         "bevande"
       ],
       "notes": "L'oolong è un tè semiossidato, a metà tra verde e nero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -890,7 +890,7 @@
         "cucina-europea"
       ],
       "notes": "La currywurst nacque a Berlino nel 1949, attribuita a Herta Heuwer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -911,7 +911,7 @@
         "pasta"
       ],
       "notes": "I vincisgrassi sono il primo della festa marchigiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -932,7 +932,7 @@
         "calabria"
       ],
       "notes": "La sardella è una crema di pesce neonato salato e peperoncino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -953,7 +953,7 @@
         "pasta"
       ],
       "notes": "I corzetti si imprimono con stampi di legno che portano stemmi e disegni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -974,7 +974,7 @@
         "sicilia"
       ],
       "notes": "I tenerumi sono le cime tenere della zucchina lunga siciliana, cotte in minestra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -995,7 +995,7 @@
         "calabria"
       ],
       "notes": "Il morzeddu è il piatto simbolo di Catanzaro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1016,7 +1016,7 @@
         "cucina-emiliana"
       ],
       "notes": "L'erbazzone è una specialità reggiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1037,7 +1037,7 @@
         "dolci"
       ],
       "notes": "I rococò sono tra i dolci natalizi napoletani, con mostaccioli e struffoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1058,7 +1058,7 @@
         "tecniche"
       ],
       "notes": "Concassé: pomodoro sbollentato, pelato, privato dei semi e tagliato a dadini",
-      "verified": false
+      "verified": true
     }
   ]
 }

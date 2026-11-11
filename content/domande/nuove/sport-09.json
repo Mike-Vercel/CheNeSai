@@ -21,7 +21,7 @@
         "f1"
       ],
       "notes": "Il pit stop; il drive through è una penalità che obbliga a passare dalla corsia box senza fermarsi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "regole"
       ],
       "notes": "Vittoria 3 punti, pareggio 1, sconfitta 0",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "soprannomi"
       ],
       "notes": "Nadal ha vinto 14 volte il Roland Garros",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "calcio"
       ],
       "notes": "Il Bernabéu, a Madrid, porta il nome dello storico presidente del Real",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "regole"
       ],
       "notes": "Il calcio d'angolo si batte dall'angolo del campo, vicino alla bandierina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "ciclismo"
       ],
       "notes": "Il Giro si corre a maggio; il Tour a luglio, la Vuelta tra agosto e settembre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "toscana"
       ],
       "notes": "Il Palio è una corsa di cavalli montati a pelo, il 2 luglio e il 16 agosto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "calcio"
       ],
       "notes": "Il gallo è il simbolo della Francia e della sua nazionale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "bowling"
       ],
       "notes": "Nel bowling lo strike è l'abbattimento dei dieci birilli al primo lancio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "soprannomi"
       ],
       "notes": "Federica Pellegrini, oro a Pechino 2008 e più volte campionessa del mondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -237,7 +237,7 @@
         "soprannomi"
       ],
       "notes": "L'Atalanta prende il nome dall'eroina mitologica e ha la Dea nello stemma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -258,7 +258,7 @@
         "calcio"
       ],
       "notes": "Anfield è lo stadio del Liverpool; l'Everton ci giocava fino al 1892",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -279,7 +279,7 @@
         "sci"
       ],
       "notes": "La sciolina è la cera che si stende sotto gli sci",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -300,7 +300,7 @@
         "golf"
       ],
       "notes": "Il green è l'erba cortissima dove si usa il putter; il bunker è la sabbia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -322,7 +322,7 @@
         "serie-a"
       ],
       "notes": "Quarto scudetto del Napoli con Antonio Conte; il terzo (2023) fu di Spalletti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -343,7 +343,7 @@
         "calcio"
       ],
       "notes": "George Weah, Pallone d'oro 1995, presidente della Liberia dal 2018 al 2024",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -364,7 +364,7 @@
         "calcio"
       ],
       "notes": "Shevchenko è nato in Ucraina nel 1976",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -385,7 +385,7 @@
         "motociclismo"
       ],
       "notes": "Il Mugello è a Scarperia, in provincia di Firenze",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -407,7 +407,7 @@
         "serie-a"
       ],
       "notes": "Il trio olandese vinse con il Milan due Coppe dei Campioni (1989, 1990)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -428,7 +428,7 @@
         "olimpiadi"
       ],
       "notes": "Tania Cagnotto, argento e bronzo nei tuffi a Rio 2016",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -449,7 +449,7 @@
         "ciclismo"
       ],
       "notes": "Le Fiandre sono la regione fiamminga del Belgio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -471,7 +471,7 @@
         "stadi"
       ],
       "notes": "Il Ferraris è lo stadio di Genoa e Sampdoria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -492,7 +492,7 @@
         "olimpiadi"
       ],
       "notes": "Los Angeles 2028; Brisbane avrà quelle del 2032",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -513,7 +513,7 @@
         "pugilato"
       ],
       "notes": "Las Vegas, 28 giugno 1997: Tyson fu squalificato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -535,7 +535,7 @@
         "regole"
       ],
       "notes": "Tre tocchi al massimo; il tocco a muro non si conta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -557,7 +557,7 @@
         "coppe"
       ],
       "notes": "Juventus-Ajax 1-1, 5-3 ai rigori, all'Olimpico, 22 maggio 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -579,7 +579,7 @@
         "regole"
       ],
       "notes": "Il servizio che tocca la rete e cade buono è un let (in Italia anche net) e si ripete",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -601,7 +601,7 @@
         "olimpiadi"
       ],
       "notes": "I D'Inzeo parteciparono a otto Olimpiadi nel salto ostacoli, dal 1948 al 1976",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -623,7 +623,7 @@
         "mondiali"
       ],
       "notes": "Ciao era un omino stilizzato fatto di cubetti tricolori con la testa a pallone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -644,7 +644,7 @@
         "ciclismo"
       ],
       "notes": "Il versante di Prato dello Stelvio ha 48 tornanti numerati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -666,7 +666,7 @@
         "olimpiadi"
       ],
       "notes": "Ceccon vinse i 100 dorso il 29 luglio 2024",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -687,7 +687,7 @@
         "atletica"
       ],
       "notes": "Jacobs è nato a El Paso, in Texas, nel 1994, da padre americano e madre italiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -708,7 +708,7 @@
         "motori"
       ],
       "notes": "Era la Parigi-Dakar: da Parigi alla capitale del Senegal",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -730,7 +730,7 @@
         "soprannomi"
       ],
       "notes": "Alain Prost, quattro volte campione del mondo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -751,7 +751,7 @@
         "ciclismo"
       ],
       "notes": "Il Poggio di Sanremo è l'ultima salita, a circa 5 km dall'arrivo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -774,7 +774,7 @@
         "trabocchetto"
       ],
       "notes": "Non c'è fuorigioco su rimessa laterale, rimessa dal fondo e calcio d'angolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -796,7 +796,7 @@
         "trabocchetto"
       ],
       "notes": "Roland Garros fu un pioniere dell'aviazione, primo a sorvolare il Mediterraneo nel 1913",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -818,7 +818,7 @@
         "mondiali"
       ],
       "notes": "Middlesbrough, 19 luglio 1966: Corea del Nord-Italia 1-0",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -841,7 +841,7 @@
         "trabocchetto"
       ],
       "notes": "Dopo lo 0-0 l'Italia passò con il sorteggio della monetina; la finale fu poi ripetuta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -862,7 +862,7 @@
         "pugilato"
       ],
       "notes": "Rocky Marciano, di genitori abruzzesi, si ritirò imbattuto nel 1956",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -884,7 +884,7 @@
         "arti-marziali"
       ],
       "notes": "Il karate debuttò a Tokyo 2020 e non fu confermato a Parigi 2024",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -906,7 +906,7 @@
         "stadi"
       ],
       "notes": "Renzo Piano lo disegnò a forma di fiore; Nervi era già morto nel 1979",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -927,7 +927,7 @@
         "ciclismo"
       ],
       "notes": "Il Trofeo Senza Fine, una spirale dorata, consegnato dal 1999",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -949,7 +949,7 @@
         "olimpiadi"
       ],
       "notes": "Olimpiadi di Città del Messico, 18 ottobre 1968",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -972,7 +972,7 @@
         "trabocchetto"
       ],
       "notes": "Assegnate a Tokyo nel 1936; il Giappone rinunciò nel 1938 e poi i Giochi furono annullati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -995,7 +995,7 @@
         "trabocchetto"
       ],
       "notes": "Ordine dei misti individuali: farfalla, dorso, rana, stile libero; nella staffetta si parte a dorso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1016,7 +1016,7 @@
         "olimpiadi-invernali"
       ],
       "notes": "Monti vinse bob a due e bob a quattro a Grenoble 1968",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1038,7 +1038,7 @@
         "regole"
       ],
       "notes": "Il peso maschile è di 7,26 kg (16 libbre); quello femminile di 4 kg",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1059,7 +1059,7 @@
         "calcio"
       ],
       "notes": "Rivera vinse nel 1969; Sívori, oriundo argentino, aveva vinto nel 1961",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1082,7 +1082,7 @@
         "trabocchetto"
       ],
       "notes": "Si chiama Estádio Jornalista Mário Filho, dal giornalista che ne sostenne la costruzione",
-      "verified": false
+      "verified": true
     }
   ]
 }

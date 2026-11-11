@@ -21,7 +21,7 @@
         "mondo"
       ],
       "notes": "La mano sinistra è considerata impura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "istituzioni"
       ],
       "notes": "Montecitorio è la Camera, Palazzo Chigi il governo, Palazzo Madama il Senato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "trabocchetto"
       ],
       "notes": "Illustrazioni in rosso esistevano già nell'Ottocento; la Coca-Cola ne diffuse l'immagine dagli anni Trenta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "italia"
       ],
       "notes": "Atrani, sulla costiera amalfitana, circa 0,12 chilometri quadrati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello: solo le galline depongono uova",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "trabocchetto"
       ],
       "notes": "Oggi è lunedì, dopodomani mercoledì",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "trabocchetto"
       ],
       "notes": "Inventato da Elizabeth Magie per criticare la rendita fondiaria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "estate"
       ],
       "notes": "Le biglie, gioco da spiaggia italiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "giochi"
       ],
       "notes": "Cluedo, inventato in Inghilterra negli anni Quaranta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "moda"
       ],
       "notes": "Gianni Versace, nato a Reggio Calabria, fondò la maison nel 1978",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -236,7 +236,7 @@
         "numeri utili"
       ],
       "notes": "118 soccorso sanitario; 113 polizia, 115 vigili del fuoco, 117 Guardia di Finanza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -257,7 +257,7 @@
         "giochi"
       ],
       "notes": "Chi supera 21 \"sballa\" e perde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -279,7 +279,7 @@
         "mondo"
       ],
       "notes": "Luciadagen, 13 dicembre, in Svezia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -301,7 +301,7 @@
         "mondo"
       ],
       "notes": "Il nazar boncuğu; la hamsa è la mano di Fatima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -312,7 +312,7 @@
       "answers": [
         "Hogmanay",
         "Halloween",
-        "Samhain",
+        "Burns Night",
         "Beltane"
       ],
       "correct": [
@@ -322,8 +322,8 @@
         "capodanno",
         "mondo"
       ],
-      "notes": "Hogmanay, con il canto \"Auld Lang Syne\"",
-      "verified": false
+      "notes": "Hogmanay, con il canto \"Auld Lang Syne\"; Burns Night è il 25 gennaio (Samhain tolto: è detto anche \"capodanno celtico\")",
+      "verified": true
     },
     {
       "type": "single",
@@ -344,7 +344,7 @@
         "carte"
       ],
       "notes": "Asso 11, tre 10, re 4, cavallo 3, fante 2",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -366,7 +366,7 @@
         "trabocchetto"
       ],
       "notes": "100 diviso 7 dà resto 2: venerdì più due giorni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -388,7 +388,7 @@
         "pasqua"
       ],
       "notes": "Venti gruppi lignei portati dalle maestranze cittadine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -409,7 +409,7 @@
         "monete"
       ],
       "notes": "Serie del 1984 con Alessandro Volta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -430,7 +430,7 @@
         "misure"
       ],
       "notes": "Dodici pollici da 2,54 centimetri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -452,7 +452,7 @@
         "pasqua"
       ],
       "notes": "Diavolata di Adrano, con diavoli e l'arcangelo Michele",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -473,7 +473,7 @@
         "fumetti"
       ],
       "notes": "Alan Ford, dal 1969",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -494,7 +494,7 @@
         "giochi"
       ],
       "notes": "Jenga, ideato da Leslie Scott negli anni Ottanta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -515,7 +515,7 @@
         "calendario"
       ],
       "notes": "Ianuarius, mese di Giano bifronte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -537,7 +537,7 @@
         "lotto"
       ],
       "notes": "Il \"gioco del Seminario\" genovese, Cinquecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -558,7 +558,7 @@
         "fumetti"
       ],
       "notes": "Zagor, creato da Guido Nolitta e Gallieno Ferri nel 1961",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -579,7 +579,7 @@
         "pasqua"
       ],
       "notes": "Ricorda l'angelo che annunciò la Risurrezione; il lunedì santo viene prima di Pasqua",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -601,7 +601,7 @@
         "feste"
       ],
       "notes": "Giostra del Saracino di Arezzo, a giugno e settembre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -623,7 +623,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello classico: basta dire \"silenzio\" per romperlo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -645,7 +645,7 @@
         "mondo"
       ],
       "notes": "Il sombrero, da \"sombra\", ombra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -667,7 +667,7 @@
         "trabocchetto"
       ],
       "notes": "In Spagna \"martes y trece, ni te cases ni te embarques\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -688,7 +688,7 @@
         "fumetti"
       ],
       "notes": "Archimede Pitagorico (Gyro Gearloose), di Carl Barks",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -710,7 +710,7 @@
         "napoli"
       ],
       "notes": "Il cornicello rosso, di corallo o di altro materiale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -731,7 +731,7 @@
         "tempo"
       ],
       "notes": "Il Regno Unito è un'ora indietro, sia con l'ora solare sia con la legale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -753,7 +753,7 @@
         "trabocchetto"
       ],
       "notes": "Indovinello: l'arca è quella di Noè",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -775,7 +775,7 @@
         "mondo"
       ],
       "notes": "10 Downing Street; all'11 vive il Cancelliere dello Scacchiere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -797,7 +797,7 @@
         "toscana"
       ],
       "notes": "Stenterello, creato da Luigi Del Buono nel Settecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -819,7 +819,7 @@
         "trabocchetto"
       ],
       "notes": "Dopo la prima volta non si sottrae più da 25, ma da 20",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -841,7 +841,7 @@
         "musica"
       ],
       "notes": "Santa Cecilia, festa il 22 novembre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -863,7 +863,7 @@
         "trabocchetto"
       ],
       "notes": "Galleria Vittorio Emanuele: il toro è lo stemma di Torino, ma il mosaico è a Milano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -885,7 +885,7 @@
         "feste"
       ],
       "notes": "La Sartiglia di Oristano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -906,7 +906,7 @@
         "tempo"
       ],
       "notes": "Introdotta nel 1916, sospesa più volte, stabile dal 1966",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -927,7 +927,7 @@
         "natale"
       ],
       "notes": "Il bue e l'asinello, dalla tradizione popolare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -949,7 +949,7 @@
         "trabocchetto"
       ],
       "notes": "Dieci volte come unità e dieci come decine (90-99)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -970,7 +970,7 @@
         "moda"
       ],
       "notes": "James Brudenell, settimo conte di Cardigan",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -991,7 +991,7 @@
         "natale"
       ],
       "notes": "Dalla poesia \"A Visit from St. Nicholas\" del 1823",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1012,7 +1012,7 @@
         "misure"
       ],
       "notes": "Etto = cento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1034,7 +1034,7 @@
         "mare"
       ],
       "notes": "1530, numero gratuito per il soccorso in mare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1052,11 +1052,11 @@
         0
       ],
       "tags": [
-        "monete",
+        "numeri",
         "mondo"
       ],
       "notes": "In cinese \"otto\" suona simile a \"prosperare\"; le Olimpiadi di Pechino iniziarono l'8 agosto 2008",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1077,7 +1077,7 @@
         "mondo"
       ],
       "notes": "Il nome completo ha 58 lettere, sull'isola di Anglesey",
-      "verified": false
+      "verified": true
     }
   ]
 }
