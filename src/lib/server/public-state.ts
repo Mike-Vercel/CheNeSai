@@ -1,8 +1,10 @@
 import type { Db } from "@/lib/database/db";
 import { iso, num } from "@/lib/database/db";
 import type {
+  BetTier,
   GamePhase,
   LeaderboardEntry,
+  PublicBets,
   PublicEvent,
   PublicQuestion,
   PublicRound,
@@ -23,6 +25,8 @@ import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } 
 import { rulesForQuestion } from "./rules";
 import { showLinesForPhase } from "@/lib/show/moments";
 import { loadPublicTeams, loadTeamLeaderboard } from "./teams";
+import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
+import { BET_TIERS } from "@/lib/game-engine/types";
 
 export const QUESTION_PHASES: readonly GamePhase[] = [
   "QUESTION_VISIBLE",
@@ -178,9 +182,14 @@ async function loadPublicRound(db: Db, sessionId: string, roundId: string): Prom
       points_multiplier: string;
       penalty_multiplier: string;
       no_penalty: boolean;
+      bet_min_stake: number;
+      bet_default_tier: number;
+      comeback_multiplier: string;
+      comeback_leader_penalty: string;
     }[]
   >`
     select r.id, r.title, r.kind, r.presenter, r.description, r.points_multiplier, r.penalty_multiplier, r.no_penalty,
+           r.bet_min_stake, r.bet_default_tier, r.comeback_multiplier, r.comeback_leader_penalty,
            (select count(*)::int from game_rounds x where x.session_id = r.session_id and x.position <= r.position) as idx,
            (select count(*)::int from game_rounds x where x.session_id = r.session_id) as total
     from game_rounds r where r.id = ${roundId} and r.session_id = ${sessionId}`;
@@ -196,6 +205,7 @@ async function loadPublicRound(db: Db, sessionId: string, roundId: string): Prom
     pointsMultiplier: num(r.points_multiplier),
     penaltyMultiplier: num(r.penalty_multiplier),
     noPenalty: r.no_penalty,
+    special: roundSpecialSettings(r),
   };
 }
 
@@ -263,6 +273,7 @@ async function loadPublicQuestion(
     distribution = [0, 0, 0, 0];
     for (const r of rows) distribution[r.position] = r.c;
   }
+  const bets = rules.special?.kind === "bet" ? await loadPublicBets(db, sqId, vp) : null;
 
   return {
     id: q.id,
@@ -293,7 +304,36 @@ async function loadPublicQuestion(
     distribution,
     answeredCount,
     animation: q.animation,
+    bets,
   };
+}
+
+/**
+ * Puntate di una domanda "Scommetti tutto". Prima della chiusura solo quante sono state fatte;
+ * dopo, la distribuzione per quota e la posta totale; dopo i punti, le grandi vincite e perdite.
+ */
+async function loadPublicBets(db: Db, sqId: string, vp: GamePhase): Promise<PublicBets> {
+  const rows = await db<{ tier: BetTier; is_default: boolean; c: number; stake: number; locked: boolean }[]>`
+    select tier, is_default, count(*)::int as c, coalesce(sum(stake), 0)::int as stake, bool_and(locked_at is not null) as locked
+    from bets where session_question_id = ${sqId} group by tier, is_default`;
+  const placed = rows.filter((r) => !r.is_default).reduce((a, r) => a + r.c, 0);
+  const locked = rows.length > 0 && rows.every((r) => r.locked);
+  const out: PublicBets = { placed, locked, distribution: null, totalStake: null, wins: null, losses: null };
+  if (!locked) return out;
+  out.distribution = BET_TIERS.map((tier) => ({ tier, count: rows.filter((r) => r.tier === tier).reduce((a, r) => a + r.c, 0) }));
+  out.totalStake = rows.reduce((a, r) => a + r.stake, 0);
+  if (vp === "SCORE_REVEAL") {
+    const hl = await db<{ participant_id: string; nickname: string; tier: BetTier; stake: number; delta: number }[]>`
+      select e.participant_id, p.nickname, b.tier, b.stake, e.delta
+      from score_events e
+      join participants p on p.id = e.participant_id
+      join bets b on b.session_question_id = e.session_question_id and b.participant_id = e.participant_id
+      where e.session_question_id = ${sqId} and e.kind in ('answer', 'no_answer') and e.delta <> 0`;
+    const map = (r: (typeof hl)[number]) => ({ participantId: r.participant_id, nickname: r.nickname, tier: r.tier, stake: r.stake, delta: r.delta });
+    out.wins = hl.filter((r) => r.delta > 0).sort((a, b) => b.delta - a.delta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 5).map(map);
+    out.losses = hl.filter((r) => r.delta < 0).sort((a, b) => a.delta - b.delta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 5).map(map);
+  }
+  return out;
 }
 
 async function loadPublicEvent(db: Db, eventId: string): Promise<PublicEvent | null> {

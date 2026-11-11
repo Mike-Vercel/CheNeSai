@@ -16,6 +16,7 @@ import {
   scriptQuestionFromCms,
   type SpokenLine,
 } from "@/features/game/script";
+import { roundSpecialSettings } from "@/lib/game-engine/special-rounds";
 import { CmsError } from "./audit";
 import { getSessionDetail } from "./cms/sessions";
 import { listQuestions } from "./cms/questions";
@@ -76,7 +77,24 @@ export async function sessionLines(db: Db, sessionId: string): Promise<SpokenLin
   const rounds = [...s.roundsDetail].sort((a, b) => a.position - b.position);
   let questionCount = 0;
   rounds.forEach((r, i) => {
-    out.push(roundIntroLine({ index: i + 1, title: r.title, kind: r.kind, presenter: r.presenter, description: r.description, pointsMultiplier: r.pointsMultiplier, noPenalty: r.noPenalty }));
+    out.push(
+      roundIntroLine({
+        index: i + 1,
+        title: r.title,
+        kind: r.kind,
+        presenter: r.presenter,
+        description: r.description,
+        pointsMultiplier: r.pointsMultiplier,
+        noPenalty: r.noPenalty,
+        special: roundSpecialSettings({
+          kind: r.kind,
+          bet_min_stake: r.betMinStake,
+          bet_default_tier: r.betDefaultTier,
+          comeback_multiplier: r.comebackMultiplier,
+          comeback_leader_penalty: r.comebackLeaderPenalty,
+        }),
+      }),
+    );
     if (r.kind === "category_vote") for (const o of r.voteOptions) out.push(categoryResultLine(o.label));
     if (r.kind === "category_wheel") for (const o of r.voteOptions) out.push(wheelResultLine(o.label));
     for (const q of r.questions) {

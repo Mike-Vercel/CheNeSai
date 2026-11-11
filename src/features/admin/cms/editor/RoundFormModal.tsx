@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Button, Field, Input, Modal, Select, Textarea, Toggle } from "@/components/ui";
-import { isCategoryRound, maxCategories, MIN_CATEGORIES, PRESENTERS, ROUND_KINDS, type Presenter, type RoundKind } from "@/lib/game-engine/types";
+import { BET_TIERS, isCategoryRound, maxCategories, MIN_CATEGORIES, PRESENTERS, ROUND_KINDS, type BetTier, type Presenter, type RoundKind } from "@/lib/game-engine/types";
+import { BET_TIER_LABEL } from "@/lib/game-engine/special-rounds";
 import { errorMessage, fieldErrors } from "../api";
 import { Checkbox, InfoNote } from "../common";
 import { intOrNull, PRESENTER_LABEL, ROUND_KIND } from "../format";
@@ -24,6 +25,10 @@ interface RoundForm {
   voteTieBreak: "random" | "admin" | "first";
   voteLiveResults: boolean;
   voteOptions: string[];
+  betMinStake: string;
+  betDefaultTier: BetTier;
+  comebackMultiplier: string;
+  comebackLeaderPenalty: string;
 }
 
 function toForm(r: RoundDetail | null): RoundForm {
@@ -44,6 +49,10 @@ function toForm(r: RoundDetail | null): RoundForm {
       voteTieBreak: "random",
       voteLiveResults: true,
       voteOptions: ["", ""],
+      betMinStake: "500",
+      betDefaultTier: 0,
+      comebackMultiplier: "2",
+      comebackLeaderPenalty: "1",
     };
   }
   const opts = [...r.voteOptions].sort((a, b) => a.position - b.position).map((o) => o.label);
@@ -63,6 +72,10 @@ function toForm(r: RoundDetail | null): RoundForm {
     voteTieBreak: r.voteTieBreak,
     voteLiveResults: r.voteLiveResults,
     voteOptions: opts.length >= 2 ? opts : [...opts, "", ""].slice(0, 2),
+    betMinStake: String(r.betMinStake),
+    betDefaultTier: r.betDefaultTier,
+    comebackMultiplier: String(r.comebackMultiplier),
+    comebackLeaderPenalty: String(r.comebackLeaderPenalty),
   };
 }
 
@@ -86,6 +99,8 @@ export function RoundFormModal({
   const isVote = isCategoryRound(f.kind);
   const isWheel = f.kind === "category_wheel";
   const maxOptions = maxCategories(f.kind);
+  const isBet = f.kind === "bet";
+  const isComeback = f.kind === "comeback";
   const removedWithQuestions =
     round && isCategoryRound(round.kind)
       ? round.voteOptions.filter((o) => o.questions > 0 && (!isVote || o.position >= f.voteOptions.length))
@@ -126,6 +141,10 @@ export function RoundFormModal({
       voteTieBreak: f.voteTieBreak,
       voteLiveResults: f.voteLiveResults,
       voteOptions: isVote ? labels : [],
+      betMinStake: intOrNull(f.betMinStake) ?? 0,
+      betDefaultTier: f.betDefaultTier,
+      comebackMultiplier: Number(f.comebackMultiplier || 1),
+      comebackLeaderPenalty: Number(f.comebackLeaderPenalty || 1),
     };
     setSaving(true);
     try {
@@ -255,6 +274,49 @@ export function RoundFormModal({
             )}
           </fieldset>
         )}
+        {isBet && (
+          <fieldset className="space-y-3 rounded-xl border border-gold/30 bg-gold/5 p-3">
+            <legend className="px-1 font-display text-lg text-gold">🎰 Scommetti tutto</legend>
+            <p className="text-sm text-white/70">
+              A ogni domanda, prima di MOSTRA RISPOSTE, ogni giocatore punta dal telefono 0%, 25%, 50% o 100% (all in) dei suoi punti. Risposta esatta: +posta.
+              Risposta sbagliata, parziale o mancante: −posta. Niente punti base, bonus velocità o eventi speciali: conta solo la puntata. Le puntate si chiudono
+              quando mostri le risposte.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Field label="Puntata minima" error={errors.betMinStake} hint="Ogni puntata (tranne 0%) vale almeno questa cifra: anche chi ha 0 punti può giocare">
+                {(id) => <Input id={id} type="number" min={0} max={100000} step={50} value={f.betMinStake} onChange={(e) => set("betMinStake", e.target.value)} />}
+              </Field>
+              <Field label="Se il giocatore non sceglie" error={errors.betDefaultTier} hint="Consigliato: non punta (0%)">
+                {(id) => (
+                  <Select id={id} value={String(f.betDefaultTier)} onChange={(e) => set("betDefaultTier", Number(e.target.value) as BetTier)}>
+                    {BET_TIERS.map((t) => (
+                      <option key={t} value={t}>
+                        {t === 0 ? "Non punta (0%)" : `Punta ${BET_TIER_LABEL[t]}${t === 100 ? " (100%)" : ""}`}
+                      </option>
+                    ))}
+                  </Select>
+                )}
+              </Field>
+            </div>
+          </fieldset>
+        )}
+        {isComeback && (
+          <fieldset className="space-y-3 rounded-xl border border-gold/30 bg-gold/5 p-3">
+            <legend className="px-1 font-display text-lg text-gold">🚀 Grande ribaltone</legend>
+            <p className="text-sm text-white/70">
+              All&apos;apertura di ogni domanda chi è nella metà bassa della classifica riceve il BOOST: i punti guadagnati vengono moltiplicati. Facoltativo: il
+              capolista paga gli errori di più. L&apos;elenco dei giocatori col boost si decide quando mostri le risposte ed è visibile su TV e telefoni.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Field label="BOOST per chi insegue" error={errors.comebackMultiplier} hint="Moltiplica i punti guadagnati (1 = spento)">
+                {(id) => <Input id={id} type="number" min={1} max={10} step={0.5} value={f.comebackMultiplier} onChange={(e) => set("comebackMultiplier", e.target.value)} />}
+              </Field>
+              <Field label="Penalità del capolista" error={errors.comebackLeaderPenalty} hint="Moltiplica i punti persi da chi è primo (1 = spento)">
+                {(id) => <Input id={id} type="number" min={1} max={10} step={0.5} value={f.comebackLeaderPenalty} onChange={(e) => set("comebackLeaderPenalty", e.target.value)} />}
+              </Field>
+            </div>
+          </fieldset>
+        )}
         {removedWithQuestions.length > 0 && (
           <InfoNote tone="warn">
             Le domande delle categorie rimosse ({removedWithQuestions.map((o) => o.label).join(", ")}) resteranno nel round senza categoria: dovrai riassegnarle.
@@ -263,7 +325,8 @@ export function RoundFormModal({
 
         <fieldset className="space-y-3 rounded-xl border border-white/10 p-3">
           <legend className="px-1 font-display text-lg text-white/90">Punteggio e tempi del round</legend>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {isBet && <p className="text-xs text-gold/90">Nella manche Scommetti tutto punti, moltiplicatori e bonus velocità non contano: vale solo la posta. Resta valido il tempo per rispondere.</p>}
+          <div className={isBet ? "hidden" : "grid gap-3 sm:grid-cols-2 lg:grid-cols-4"}>
             <Field label="Moltiplicatore punti" error={errors.pointsMultiplier} hint="1 = normale, 2 = doppio">
               {(id) => <Input id={id} type="number" min={0} max={20} step={0.5} value={f.pointsMultiplier} onChange={(e) => set("pointsMultiplier", e.target.value)} />}
             </Field>

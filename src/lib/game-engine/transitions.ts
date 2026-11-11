@@ -28,7 +28,7 @@ const PHASE_COMMANDS: Record<GamePhase, readonly GameCommand[]> = {
 
 /** Comandi non legati a una fase (gestione giocatori, prova generale). */
 const ANY_PHASE_COMMANDS: readonly GameCommand[] = ["SET_JOIN", "KICK", "ADJUST_SCORE", "ASSIGN_TEAM", "BALANCE_TEAMS"];
-const TEST_ONLY_COMMANDS: readonly GameCommand[] = ["RESET_TEST", "SIM_ADD_BOTS", "SIM_BOTS_ANSWER", "SIM_BOTS_VOTE"];
+const TEST_ONLY_COMMANDS: readonly GameCommand[] = ["RESET_TEST", "SIM_ADD_BOTS", "SIM_BOTS_ANSWER", "SIM_BOTS_VOTE", "SIM_BOTS_BET"];
 
 /** Comandi che cambiano la fase (gli altri modificano solo dati collaterali). */
 export const PHASE_CHANGING_COMMANDS: readonly GameCommand[] = [
@@ -60,6 +60,7 @@ export function isCommandAllowed(phase: GamePhase, command: GameCommand, isTest:
     if (command === "SIM_ADD_BOTS") return phase !== "DRAFT" && phase !== "FINISHED";
     if (command === "SIM_BOTS_ANSWER") return phase === "OPTIONS_VISIBLE";
     if (command === "SIM_BOTS_VOTE") return phase === "CATEGORY_VOTING";
+    if (command === "SIM_BOTS_BET") return phase === "QUESTION_VISIBLE";
   }
   if (ANY_PHASE_COMMANDS.includes(command)) {
     return phase !== "DRAFT" && phase !== "FINISHED";
@@ -161,6 +162,7 @@ export const COMMAND_LABELS: Record<GameCommand, string> = {
   SIM_ADD_BOTS: "AGGIUNGI BOT",
   SIM_BOTS_ANSWER: "BOT: RISPONDI",
   SIM_BOTS_VOTE: "BOT: VOTA",
+  SIM_BOTS_BET: "BOT: PUNTA",
 };
 
 export const PHASE_LABELS: Record<GamePhase, string> = {

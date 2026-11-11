@@ -4,9 +4,10 @@
 import { clsx } from "clsx";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
-import type { GamePhase, LeaderboardEntry, PublicEvent, PublicQuestion, PublicVote, PublicWheel } from "@/lib/game-engine/types";
+import type { BetTier, GamePhase, LeaderboardEntry, PublicEvent, PublicQuestion, PublicVote, PublicWheel } from "@/lib/game-engine/types";
 import { spinElapsedMs } from "@/lib/game-engine/wheel";
 import { WheelGraphic, wheelColor } from "@/features/game/components/wheel";
+import { BET_TIER_LABEL, comebackRole, fmt, stakeOptions } from "@/lib/game-engine/special-rounds";
 import { AnswerButton, ANSWER_STYLES, LETTERS, type AnswerVisual } from "@/features/game/components/answers";
 import { Character, Logo } from "@/features/game/components/brand";
 import { TimerBar } from "@/features/game/components/effects";
@@ -99,9 +100,29 @@ export interface PhoneQuestionProps {
   result: { isCorrect: boolean; partial: boolean; delta: number | null } | null;
   onToggle: (position: number) => void;
   onConfirm: () => void;
+  /** Scommetti tutto: pannello delle puntate (prima delle risposte) e posta in gioco. */
+  bet?: PhoneBetProps | null;
+  /** id del giocatore (per sapere se ha il BOOST del Grande ribaltone) */
+  me?: string;
 }
 
-export function PhoneQuestionView({ question: q, phase, selected, submitStatus, submitError, remainingMs, startsInMs = 0, mediaUrl, event, result, onToggle, onConfirm }: PhoneQuestionProps) {
+export interface PhoneBetProps {
+  /** punti attuali (dal server) */
+  points: number;
+  minStake: number;
+  /** quota toccata ma non ancora confermata */
+  selected: BetTier | null;
+  /** puntata confermata dal server */
+  confirmed: { tier: BetTier; stake: number; isDefault: boolean; locked: boolean } | null;
+  /** quota predefinita (chi non sceglie) */
+  defaultTier: BetTier;
+  status: SubmitStatus;
+  error: string | null;
+  onSelect: (tier: BetTier) => void;
+  onConfirm: () => void;
+}
+
+export function PhoneQuestionView({ question: q, phase, selected, submitStatus, submitError, remainingMs, startsInMs = 0, mediaUrl, event, result, onToggle, onConfirm, bet = null, me }: PhoneQuestionProps) {
   // mentre il presentatore legge le risposte il tempo è fermo e non si può ancora rispondere
   const listening = phase === "OPTIONS_VISIBLE" && startsInMs > 0;
   const open = phase === "OPTIONS_VISIBLE" && remainingMs > 0 && !listening;
@@ -139,7 +160,11 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
       {q.media?.kind === "audio" && !q.options && <p className="text-center font-extrabold text-white/85">🎵 Ascolta il brano dall&apos;impianto del pub!</p>}
       {q.media?.kind === "video" && !q.options && <p className="text-center font-extrabold text-white/85">🎬 Guarda il video sul TV!</p>}
 
-      {!q.options && (
+      <PhoneSpecialBanner question={q} me={me} />
+
+      {!q.options && bet && <PhoneBetPanel bet={bet} phase={phase} />}
+
+      {!q.options && !bet && (
         <div className="mt-2 flex flex-col items-center gap-2 text-center">
           <div className="flex gap-2">
             {[0, 1, 2, 3].map((i) => (
@@ -156,6 +181,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
 
       {q.options && (
         <>
+          {bet && <BetStakeBanner bet={bet} />}
           {phase === "OPTIONS_VISIBLE" && !revealed && <TimerBar remainingMs={Math.min(remainingMs, q.rules.durationSeconds * 1000)} totalMs={q.rules.durationSeconds * 1000} />}
           <div className="flex flex-col gap-2.5">
             {q.options.map((o) => (
@@ -231,6 +257,124 @@ function ResultBanner({ result, hasAnswer, correct }: { result: PhoneQuestionPro
       )}
     </div>
   );
+}
+
+// ---------------------------------------------------------------------------
+// Manche speciali
+// ---------------------------------------------------------------------------
+const BET_TONE: Record<BetTier, string> = {
+  0: "border-white/40 bg-black/45",
+  25: "border-cyan bg-[#063a46]",
+  50: "border-violet bg-[#2a0f5c]",
+  100: "border-[#ff4fa3] bg-gradient-to-b from-[#7a0b45] to-[#3d0623]",
+};
+
+/** Scommetti tutto: scelta della quota (prima delle risposte), con la posta calcolata sui propri punti. */
+export function PhoneBetPanel({ bet, phase }: { bet: PhoneBetProps; phase: GamePhase }) {
+  const open = phase === "QUESTION_VISIBLE";
+  const options = stakeOptions(bet.points, bet.minStake);
+  const confirmed = bet.confirmed && !bet.confirmed.isDefault ? bet.confirmed : null;
+  const chosen = confirmed?.tier ?? bet.selected;
+  const chosenStake = chosen === null ? 0 : (options.find((o) => o.tier === chosen)?.stake ?? 0);
+  return (
+    <div className="flex flex-col gap-2.5">
+      <div className="text-center">
+        <p className="font-display text-2xl text-gold">🎰 QUANTO PUNTI?</p>
+        <p className="text-sm font-bold text-white/75">Giusta: vinci la posta · Sbagliata o nessuna risposta: la perdi</p>
+      </div>
+      <div className="grid grid-cols-2 gap-2.5">
+        {options.map((o) => {
+          const isChosen = chosen === o.tier;
+          return (
+            <button
+              key={o.tier}
+              type="button"
+              disabled={!open || !!confirmed || bet.status === "sending"}
+              onClick={() => bet.onSelect(o.tier)}
+              aria-pressed={isChosen}
+              className={clsx(
+                "flex min-h-20 flex-col items-center justify-center rounded-2xl border-4 px-2 py-2 text-center transition active:translate-y-[3px]",
+                BET_TONE[o.tier],
+                isChosen ? "scale-[1.03] ring-4 ring-gold" : chosen !== null ? "opacity-50" : "",
+              )}
+            >
+              <span className={clsx("font-display leading-none", o.tier === 100 ? "text-2xl text-[#ffd1e8]" : "text-2xl text-white")}>
+                {o.tier === 100 ? "ALL IN" : o.tier === 0 ? "NON PUNTO" : `${o.tier}%`}
+              </span>
+              <span className="mt-1 font-display text-lg text-gold">{o.tier === 0 ? "0" : formatPoints(o.stake)}</span>
+            </button>
+          );
+        })}
+      </div>
+      {confirmed ? (
+        <motion.div initial={{ scale: 0.6 }} animate={{ scale: 1 }} className="rounded-2xl border-[3px] border-lime bg-[#0b3a22] px-4 py-3 text-center font-display text-xl text-[#bfffdc]">
+          PUNTATA REGISTRATA: {confirmed.tier === 0 ? "NESSUNA" : `${formatPoints(confirmed.stake)} PUNTI`}
+          <span className="block font-sans text-sm font-bold text-white/80">Ora aspetta le risposte e rispondi!</span>
+        </motion.div>
+      ) : open ? (
+        <button
+          type="button"
+          onClick={bet.onConfirm}
+          disabled={bet.selected === null || bet.status === "sending"}
+          className="h-16 w-full rounded-2xl border-[3px] border-[#b8770a] bg-gradient-to-b from-[#ffe680] to-gold-deep font-display text-2xl text-ink shadow-[0_5px_0_#9a5d00] transition active:translate-y-[3px] active:shadow-none disabled:opacity-40"
+        >
+          {bet.status === "sending" ? "INVIO…" : bet.selected === null ? "SCEGLI LA PUNTATA" : bet.selected === 0 ? "CONFERMA: NON PUNTO" : `PUNTA ${formatPoints(chosenStake)}`}
+        </button>
+      ) : (
+        <p className="rounded-2xl bg-black/50 px-4 py-3 text-center font-display text-xl text-white">{phase === "PAUSED" ? "Gioco in pausa" : "Puntate chiuse"}</p>
+      )}
+      {!confirmed && (
+        <p className="text-center text-xs font-bold text-white/60">
+          Se non scegli: {bet.defaultTier === 0 ? "non punti nulla" : `punti ${BET_TIER_LABEL[bet.defaultTier]}`}. Le puntate si chiudono quando arrivano le risposte.
+        </p>
+      )}
+      {bet.error && <p className="text-center text-sm font-bold text-[#ffc2cd]">{bet.error}</p>}
+    </div>
+  );
+}
+
+/** Posta in gioco durante le risposte (dopo la chiusura delle puntate). */
+function BetStakeBanner({ bet }: { bet: PhoneBetProps }) {
+  const c = bet.confirmed;
+  const stake = c?.stake ?? 0;
+  return (
+    <div className={clsx("rounded-2xl border-[3px] px-3 py-2 text-center font-display", stake > 0 ? "border-[#ff4fa3] bg-[#3d0623]/90" : "border-white/30 bg-black/45")}>
+      {stake > 0 ? (
+        <>
+          🎰 In gioco: <span className="text-gold">{formatPoints(stake)}</span> punti{c?.tier === 100 ? " · ALL IN!" : ""}
+        </>
+      ) : (
+        "🎰 Nessuna puntata su questa domanda"
+      )}
+    </div>
+  );
+}
+
+/** Grande ribaltone: chi ha il BOOST (o la penalità del capolista) lo vede subito. */
+export function PhoneSpecialBanner({ question: q, me }: { question: PublicQuestion; me?: string }) {
+  const sp = q.rules.special;
+  if (!sp || sp.kind !== "comeback" || !me || q.correctPositions) return null;
+  const role = comebackRole(sp, me);
+  if (role === "boosted") {
+    return (
+      <motion.div initial={{ scale: 0.7 }} animate={{ scale: 1 }} className="animate-pulse-glow rounded-2xl border-[3px] border-lime bg-[#0b3a22] px-3 py-2 text-center">
+        <p className="font-display text-2xl text-[#bfffdc]">🚀 BOOST ×{fmt(sp.boostMultiplier)} PER TE!</p>
+        <p className="text-sm font-bold text-white/85">Sei tra chi insegue: i punti che prendi valgono {fmt(sp.boostMultiplier)} volte</p>
+      </motion.div>
+    );
+  }
+  if (role === "leader") {
+    return (
+      <div className="rounded-2xl border-[3px] border-gold bg-[#3a2b05] px-3 py-2 text-center">
+        <p className="font-display text-xl text-gold">👑 Sei in testa!</p>
+        <p className="text-sm font-bold text-white/85">Se sbagli perdi ×{fmt(sp.leaderPenaltyMultiplier)}: occhio!</p>
+      </div>
+    );
+  }
+  if (sp.boosted.length > 0) {
+    return <p className="text-center text-sm font-extrabold text-white/75">🚀 BOOST ×{fmt(sp.boostMultiplier)} a {sp.boosted.length} giocatori che inseguono</p>;
+  }
+  return null;
 }
 
 // ---------------------------------------------------------------------------

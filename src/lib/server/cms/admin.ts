@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { getSql, iso } from "@/lib/database/db";
 import { aggregateStandings } from "@/lib/game-engine/ranking";
+import { ROUND_KINDS } from "@/lib/game-engine/types";
 import { getSupabaseAdmin } from "@/lib/supabase/admin";
 import { audit, CmsError } from "../audit";
 import type { Actor } from "../engine";
@@ -262,7 +263,7 @@ export async function updateEventDefinition(id: string, raw: unknown, actor: Act
         })
         .optional(),
       maxPerSession: z.number().int().min(0).max(50).optional(),
-      allowedRoundKinds: z.array(z.enum(["standard", "music", "image", "video", "category_vote", "bonus", "final"])).min(1).optional(),
+      allowedRoundKinds: z.array(z.enum(ROUND_KINDS)).min(1).optional(),
       enabled: z.boolean().optional(),
     })
     .parse(raw);

@@ -149,8 +149,8 @@ function EventCard({ def, onSaved }: { def: EventDefinition; onSaved: () => void
         <fieldset>
           <legend className="mb-1 text-sm font-bold text-white/80">Round in cui è ammesso</legend>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {/* la Ruota impazzita segue le regole del Voto categoria */}
-            {ROUND_KINDS.filter((k) => k !== "category_wheel").map((k) => (
+            {/* la Ruota impazzita segue le regole del Voto categoria; in Scommetti tutto gli eventi non sono ammessi */}
+            {ROUND_KINDS.filter((k) => k !== "category_wheel" && k !== "bet").map((k) => (
               <Checkbox
                 key={k}
                 checked={kinds.includes(k)}

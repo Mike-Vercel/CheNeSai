@@ -2,7 +2,8 @@ import { createHash, randomBytes, randomInt } from "node:crypto";
 import { getSql, iso, type Db } from "@/lib/database/db";
 import { EARLY_JOIN_PHASES } from "@/lib/game-engine/transitions";
 import { validateNickname } from "@/lib/game-engine/nickname";
-import type { GamePhase, QuestionType } from "@/lib/game-engine/types";
+import type { BetTier, GamePhase, QuestionType } from "@/lib/game-engine/types";
+import { computeStake } from "@/lib/game-engine/special-rounds";
 import type { SessionSettings } from "@/lib/validation/schemas";
 import { effectiveSettings, loadGlobalSettings } from "./settings";
 
@@ -20,6 +21,7 @@ export type PlayerErrorCode =
   | "WRONG_QUESTION"
   | "TOO_LATE"
   | "ALREADY_ANSWERED"
+  | "ALREADY_BET"
   | "INVALID_ANSWER"
   | "RATE_LIMITED";
 
@@ -336,6 +338,71 @@ export async function submitAnswer(
 }
 
 // ===========================================================================
+// Puntata (manche "Scommetti tutto"): una sola, prima di MOSTRA RISPOSTE
+// ===========================================================================
+export interface BetResult {
+  status: "recorded" | "duplicate";
+  sessionQuestionId: string;
+  tier: BetTier;
+  /** posta calcolata sui punti del server (ricalcolata alla chiusura delle puntate) */
+  stake: number;
+  points: number;
+}
+
+export async function submitBet(
+  auth: PlayerAuth,
+  input: { sessionQuestionId: string; tier: BetTier; requestId: string },
+  ip: string | null,
+): Promise<BetResult> {
+  const sql = getSql();
+  const { defer, flush } = deferredSecurityLog(ip);
+  return withSecurityLog(flush, () => sql.begin(async (tx) => {
+    if (!(await checkRateLimit(tx, `bet:${auth.participantId}`, 20, 10))) throw new PlayerError("RATE_LIMITED", "Troppe richieste");
+    // FOR SHARE: serializza con MOSTRA RISPOSTE (che chiude le puntate con FOR UPDATE).
+    const [g] = await tx<
+      { phase: GamePhase; current_session_question_id: string | null; kind: string | null; bet_min_stake: number | null; options_opened_at: Date | null }[]
+    >`
+      select gs.phase, gs.current_session_question_id, r.kind::text as kind, r.bet_min_stake, sq.options_opened_at
+      from game_state gs
+      left join session_questions sq on sq.id = gs.current_session_question_id
+      left join game_rounds r on r.id = sq.round_id
+      where gs.session_id = ${auth.sessionId}
+      for share of gs`;
+
+    const [existing] = await tx<{ client_request_id: string | null; tier: BetTier; stake: number; points_at_bet: number; is_default: boolean }[]>`
+      select client_request_id, tier, stake, points_at_bet, is_default from bets
+      where session_question_id = ${input.sessionQuestionId} and participant_id = ${auth.participantId}`;
+    if (existing && !existing.is_default) {
+      if (existing.client_request_id === input.requestId) {
+        return { status: "duplicate", sessionQuestionId: input.sessionQuestionId, tier: existing.tier, stake: existing.stake, points: existing.points_at_bet };
+      }
+      defer("double_bet", auth.sessionId, auth.participantId, { sessionQuestionId: input.sessionQuestionId }, ip);
+      throw new PlayerError("ALREADY_BET", "Hai già confermato la tua puntata", { tier: existing.tier, stake: existing.stake });
+    }
+
+    if (!g || g.current_session_question_id !== input.sessionQuestionId) throw new PlayerError("WRONG_QUESTION", "Questa domanda non è più attiva");
+    if (g.kind !== "bet") throw new PlayerError("NOT_OPEN", "Questa domanda non prevede puntate");
+    if (g.phase !== "QUESTION_VISIBLE" || g.options_opened_at || existing) {
+      if (g.phase === "PAUSED") throw new PlayerError("NOT_OPEN", "Gioco in pausa");
+      defer("late_bet", auth.sessionId, auth.participantId, { phase: g.phase }, ip);
+      throw new PlayerError("TOO_LATE", "Puntate chiuse: le risposte sono già sul TV");
+    }
+
+    // la posta si calcola SOLO sui punti del server
+    const [t] = await tx<{ points: number }[]>`select points from score_totals where participant_id = ${auth.participantId}`;
+    const points = t?.points ?? 0;
+    const stake = computeStake(points, input.tier, g.bet_min_stake ?? 0);
+    const [b] = await tx<{ id: string }[]>`
+      insert into bets (session_id, session_question_id, participant_id, tier, stake, points_at_bet, client_request_id)
+      values (${auth.sessionId}, ${input.sessionQuestionId}, ${auth.participantId}, ${input.tier}, ${stake}, ${points}, ${input.requestId})
+      on conflict (session_question_id, participant_id) do nothing
+      returning id`;
+    if (!b) throw new PlayerError("ALREADY_BET", "Hai già confermato la tua puntata");
+    return { status: "recorded" as const, sessionQuestionId: input.sessionQuestionId, tier: input.tier, stake, points };
+  }));
+}
+
+// ===========================================================================
 // Voto categoria
 // ===========================================================================
 export async function submitVote(auth: PlayerAuth, input: { roundId: string; optionId: string }, ip: string | null) {
@@ -384,6 +451,8 @@ export interface PlayerSelf {
   totalPlayers: number;
   currentAnswer: { sessionQuestionId: string; positions: number[]; submittedAt: string } | null;
   currentResult: { sessionQuestionId: string; isCorrect: boolean; partial: boolean; delta: number | null } | null;
+  /** Scommetti tutto: la mia puntata sulla domanda corrente (locked = chiusa a MOSTRA RISPOSTE). */
+  currentBet: { sessionQuestionId: string; tier: BetTier; stake: number; isDefault: boolean; locked: boolean } | null;
   vote: { roundId: string; optionId: string } | null;
   /** squadra del giocatore (modalità squadre) */
   team: { id: string; name: string; color: string } | null;
@@ -411,7 +480,12 @@ export async function getPlayerSelf(db: Db, auth: PlayerAuth): Promise<PlayerSel
 
   let currentAnswer: PlayerSelf["currentAnswer"] = null;
   let currentResult: PlayerSelf["currentResult"] = null;
+  let currentBet: PlayerSelf["currentBet"] = null;
   if (gs?.current_session_question_id) {
+    const [bet] = await db<{ tier: BetTier; stake: number; is_default: boolean; locked: boolean }[]>`
+      select tier, stake, is_default, locked_at is not null as locked from bets
+      where session_question_id = ${gs.current_session_question_id} and participant_id = ${auth.participantId}`;
+    if (bet) currentBet = { sessionQuestionId: gs.current_session_question_id, tier: bet.tier, stake: bet.stake, isDefault: bet.is_default, locked: bet.locked };
     const [a] = await db<
       {
         selected_positions: number[];
@@ -438,10 +512,11 @@ export async function getPlayerSelf(db: Db, auth: PlayerAuth): Promise<PlayerSel
         select delta from score_events where session_question_id = ${gs.current_session_question_id} and participant_id = ${auth.participantId}
           and kind in ('answer', 'no_answer')`;
       // chi è entrato dopo la chiusura non ha né risposta né punteggio: nessun esito da mostrare
+      // nelle scommesse una risposta parziale è persa: niente "quasi"
       if (a || ev) currentResult = {
         sessionQuestionId: gs.current_session_question_id,
         isCorrect: a?.is_correct ?? false,
-        partial: !!a && !a.is_correct && (a.wrong_hits ?? 1) === 0 && (a.correct_hits ?? 0) > 0,
+        partial: !currentBet && !!a && !a.is_correct && (a.wrong_hits ?? 1) === 0 && (a.correct_hits ?? 0) > 0,
         delta: ev ? ev.delta : null,
       };
     }
@@ -484,6 +559,7 @@ export async function getPlayerSelf(db: Db, auth: PlayerAuth): Promise<PlayerSel
     totalPlayers: total,
     currentAnswer,
     currentResult,
+    currentBet,
     vote,
     team: team ?? null,
     history: history.map((h) => ({

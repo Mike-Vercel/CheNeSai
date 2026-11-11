@@ -19,6 +19,8 @@ export const ROUND_KIND: Record<RoundKind, { label: string; icon: string; hint: 
   category_wheel: { label: "Ruota impazzita", icon: "🎡", hint: "Una ruota sceglie a caso la categoria, si giocano le sue domande" },
   bonus: { label: "Bonus", icon: "⭐", hint: "Round speciale con punteggi maggiorati" },
   final: { label: "Finale", icon: "🏁", hint: "Round conclusivo" },
+  bet: { label: "Scommetti tutto", icon: "🎰", hint: "Prima delle risposte ognuno punta 0/25/50/100% dei suoi punti: giusta +posta, sbagliata −posta" },
+  comeback: { label: "Grande ribaltone", icon: "🚀", hint: "Chi è nella metà bassa della classifica ha il BOOST sui punti guadagnati" },
 };
 
 export const PRESENTER_LABEL: Record<Presenter, string> = {
