@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Badge, Button, EmptyState, Input, Select, useConfirm } from "@/components/ui";
 import { qs, send, useApi, useRunner } from "../api";
-import { ErrorBlock, LinkButton, LoadingBlock, MEDIA_ICON, PageHeader, Pager, Segmented, Stars } from "../common";
+import { ErrorBlock, LinkButton, LoadingBlock, MEDIA_ICON, PageHeader, Pager, PlayedBadge, Segmented, Stars } from "../common";
 import { fmtStamp, LETTERS, PRESENTER_LABEL, QUESTION_STATUS, TYPE_LABEL, plural } from "../format";
 import { QuestionPreviewModal, type PreviewBase } from "../QuestionPreviewModal";
 import type { CategoryCount, QuestionRecord } from "../types";
@@ -331,6 +331,7 @@ export function QuestionBank({ initial }: { initial: { status: string; category:
                         </button>
                       ))}
                       {it.source === "import" && <Badge color="violet">Importata</Badge>}
+                      <PlayedBadge lastPlayedAt={it.lastPlayedAt} timesPlayed={it.timesPlayed} />
                       {it.usedInSessions > 0 && <span>In {plural(it.usedInSessions, "serata", "serate")}</span>}
                       <span className="text-white/40">agg. {fmtStamp(it.updatedAt)}</span>
                     </div>

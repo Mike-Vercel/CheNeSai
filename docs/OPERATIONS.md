@@ -39,6 +39,31 @@ Credenziali necessarie (non incluse nel repository): account Vercel, account Sup
 
 Per la prova generale si consiglia una **copia di prova** della serata (Duplica → "Prova generale"): le sessioni di prova non entrano nelle classifiche.
 
+## 3-bis. Serata rapida e domande casuali
+
+**Serate → ⚡ Serata rapida** (admin e super admin): si scelgono solo titolo, numero di round, domande in tutto (predefinito 4 round × 5 domande),
+difficoltà (*bilanciata* = facile → media → difficile a ciclo, *più facile*, *più difficile*), riserve per la Domanda misteriosa, categorie
+(nessuna = tutte), domande con media sì/no e "serata di prova". L'anteprima a destra mostra quante domande **mai giocate** ci sono e avvisa se
+l'archivio non basta. "Crea e apri editor" crea serata, round e domande in un'unica transazione (audit `session.quick_create`); poi si
+ritocca nell'editor e si pubblica come sempre. L'ultimo round, se attivo, è la **Gran finale** (punti ×2, domande una fascia più difficile).
+
+In ogni round dell'editor c'è **🎲 Aggiungi domande casuali** (quante, difficoltà, categoria; nei round con voto/ruota si sceglie lo spicchio):
+stesse regole, mai una domanda già presente nella serata.
+
+Come sceglie le domande (`src/lib/game-engine/compose.ts`, testato in `tests/unit/compose.test.ts`):
+
+1. solo domande **approvate** con risposta confermata, mai quelle con tag `demo` o `test-automatico`; senza media salvo scelta esplicita;
+2. prima le **mai giocate** (e non già inserite in un'altra serata reale in programma), poi le **giocate meno di recente**, per ultime quelle
+   già inserite in un'altra serata reale in programma. L'admin vede quante sono ripetute;
+3. a parità: mai la stessa categoria due volte di fila, categorie distribuite tra i round, difficoltà secondo il mix (la freschezza vale più
+   della difficoltà: se mancano difficili mai giocate si usa una fresca di un'altra fascia, con avviso).
+
+**Registro delle domande giocate** (`question_plays`): un trigger sul database registra la domanda quando viene davvero **mostrata**
+(`shown_at`) in una serata **reale**; le serate di prova non consumano domande. Il registro resta anche se la serata viene eliminata.
+In archivio ogni domanda mostra *Mai giocata* / *Giocata il …*.
+
+Per il futuro "Gioca ora" pubblico la funzione da riusare è `composeAndCreateSession(getSql(), opzioni, null)` in `src/lib/server/cms/compose.ts`.
+
 ## 4. Serata: checklist tecnica
 
 - TV: browser Chrome/Edge a schermo intero, apri il link "Schermo TV" dalla regia, premi **ATTIVA AUDIO E AVVIA SCHERMO** (necessario per l'audio), collega l'uscita audio all'impianto.

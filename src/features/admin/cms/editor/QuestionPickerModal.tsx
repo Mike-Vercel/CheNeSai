@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Badge, Button, EmptyState, Field, Input, Modal, Select } from "@/components/ui";
 import { isCategoryRound } from "@/lib/game-engine/types";
 import { errorMessage, qs, send, useApi } from "../api";
-import { Checkbox, ErrorBlock, InfoNote, LoadingBlock, MEDIA_ICON, Pager, Stars } from "../common";
+import { Checkbox, ErrorBlock, InfoNote, LoadingBlock, MEDIA_ICON, Pager, PlayedBadge, Stars } from "../common";
 import { correctLetters, PRESENTER_LABEL, ROUND_KIND, TYPE_LABEL, plural } from "../format";
 import type { CategoryCount, QuestionRecord, RoundDetail } from "../types";
 
@@ -193,6 +193,7 @@ export function QuestionPickerModal({
                         <span>{PRESENTER_LABEL[it.presenter]}</span>
                         {it.mediaKind && <span title={it.mediaLabel ?? ""}>{MEDIA_ICON[it.mediaKind]}</span>}
                         <span className="text-[#5dffab]">Corretta: {correctLetters(it.options)}</span>
+                        <PlayedBadge lastPlayedAt={it.lastPlayedAt} timesPlayed={it.timesPlayed} />
                         {used && <Badge color="blue">Già in questa serata</Badge>}
                         {mismatch && <Badge color="red">Senza media {ROUND_KIND[round.kind].label.toLowerCase()}</Badge>}
                       </span>

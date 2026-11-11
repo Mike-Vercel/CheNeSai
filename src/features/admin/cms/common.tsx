@@ -282,3 +282,15 @@ export function MiniSelect({ className, ...rest }: React.SelectHTMLAttributes<HT
     />
   );
 }
+
+/** Registro delle domande: "Mai giocata" oppure "Giocata il …" (solo serate reali, mai le prove). */
+export function PlayedBadge({ lastPlayedAt, timesPlayed }: { lastPlayedAt: string | null; timesPlayed?: number }) {
+  if (!lastPlayedAt) return <Pill color="green" title="Mai mostrata in una serata reale">Mai giocata</Pill>;
+  const day = new Date(lastPlayedAt).toLocaleDateString("it-IT", { day: "numeric", month: "short", year: "numeric" });
+  return (
+    <Pill color="blue" title="Ultima volta mostrata in una serata reale">
+      Giocata il {day}
+      {timesPlayed && timesPlayed > 1 ? ` · ${timesPlayed} volte` : ""}
+    </Pill>
+  );
+}
