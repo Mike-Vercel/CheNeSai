@@ -22,7 +22,7 @@
         "italia"
       ],
       "notes": "Il cavallino era l'emblema dell'aviatore Francesco Baracca; la Lamborghini ha un toro, la Maserati un tridente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "casa"
       ],
       "notes": "Il router di casa distribuisce la connessione via Wi-Fi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "mobilità"
       ],
       "notes": "Il monopattino elettrico si guida in piedi sulla pedana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "telefonia"
       ],
       "notes": "La SIM identifica l'utente sulla rete mobile; la microSD serve solo come memoria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "videogiochi"
       ],
       "notes": "Sonic the Hedgehog debuttò nel 1991",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "periferiche"
       ],
       "notes": "Lo scanner digitalizza documenti e immagini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "reti"
       ],
       "notes": "La G sta per \"generazione\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "droni"
       ],
       "notes": "Il drone è comandato a distanza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "immagini"
       ],
       "notes": "JPG è un formato di immagine; MP3 è audio, DOCX testo, EXE programmi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "dispositivi indossabili"
       ],
       "notes": "Lo smartwatch è un orologio con sensori e funzioni da smartphone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -237,7 +237,7 @@
         "icone"
       ],
       "notes": "Il floppy disk è rimasto simbolo del \"salva\" anche dopo la sua scomparsa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -258,7 +258,7 @@
         "reti"
       ],
       "notes": "Il router smista i dati tra la rete di casa e Internet",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -279,7 +279,7 @@
         "criptovalute"
       ],
       "notes": "Bitcoin fu lanciato nel gennaio 2009 da Satoshi Nakamoto; Litecoin 2011, Dogecoin 2013, Ethereum 2015",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -301,7 +301,7 @@
         "fisica"
       ],
       "notes": "La fibra ottica trasmette dati come impulsi di luce in filamenti di vetro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -323,7 +323,7 @@
         "aziende"
       ],
       "notes": "La prima Xbox uscì nel 2001",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -344,7 +344,7 @@
         "videogiochi"
       ],
       "notes": "Tomb Raider debuttò nel 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -365,7 +365,7 @@
         "televisione"
       ],
       "notes": "HD sta per High Definition, alta definizione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -387,7 +387,7 @@
         "italia"
       ],
       "notes": "La Nuova 500 del 1957 e la 500 presentata nel 2007, a 50 anni esatti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -409,7 +409,7 @@
         "italia"
       ],
       "notes": "Entrambi hanno vissuto a bordo della ISS",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -430,7 +430,7 @@
         "telefonia"
       ],
       "notes": "I gigabyte indicano quanti dati Internet si possono usare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -451,7 +451,7 @@
         "realtà virtuale"
       ],
       "notes": "Il visore mostra immagini davanti agli occhi e segue i movimenti della testa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -473,7 +473,7 @@
         "dati"
       ],
       "notes": "Il cloud è uno spazio di archiviazione su server remoti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -495,7 +495,7 @@
         "computer"
       ],
       "notes": "Lo screenshot cattura l'immagine di ciò che appare sullo schermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -516,7 +516,7 @@
         "informatica"
       ],
       "notes": "\"Bug\", insetto in inglese, indica un difetto nel software",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -537,7 +537,7 @@
         "periferiche"
       ],
       "notes": "Il videoproiettore proietta l'immagine su una superficie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -559,7 +559,7 @@
         "storia"
       ],
       "notes": "La PlayStation uscì in Giappone il 3 dicembre 1994",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -581,7 +581,7 @@
         "satelliti"
       ],
       "notes": "GPS = Global Positioning System, il sistema satellitare americano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -603,7 +603,7 @@
         "italia"
       ],
       "notes": "La Lambretta, dal quartiere milanese di Lambrate, era prodotta dalla Innocenti dal 1947",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -625,7 +625,7 @@
         "storia"
       ],
       "notes": "Pong 1972, Space Invaders 1978, Pac-Man 1980, Tetris 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -647,7 +647,7 @@
         "telescopi"
       ],
       "notes": "Hubble fu lanciato nell'aprile 1990; Spitzer nel 2003, Kepler nel 2009, James Webb nel 2021",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -669,7 +669,7 @@
         "sigle"
       ],
       "notes": "SMS = Short Message Service",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -691,11 +691,11 @@
         "storia"
       ],
       "notes": "Google Inc. fu fondata il 4 settembre 1998",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Come si chiamava il browser di Microsoft integrato in Windows dal 1995?",
+      "text": "Come si chiamava il browser lanciato da Microsoft nel 1995?",
       "category": "Tecnologia",
       "difficulty": 3,
       "presenter": "professore",
@@ -712,8 +712,8 @@
         "web",
         "storia"
       ],
-      "notes": "Internet Explorer uscì nel 1995; Netscape era di un'altra azienda, Safari è di Apple",
-      "verified": false
+      "notes": "Internet Explorer uscì nell'agosto 1995 con il pacchetto Plus! per Windows 95; Netscape era di un'altra azienda, Safari è di Apple, Opera è norvegese",
+      "verified": true
     },
     {
       "type": "single",
@@ -735,7 +735,7 @@
         "linguaggi"
       ],
       "notes": "I fogli di stile CSS definiscono colori, caratteri e impaginazione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -757,7 +757,7 @@
         "internet"
       ],
       "notes": "Messaggi falsi che imitano banche o servizi per carpire password e dati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -780,7 +780,7 @@
         "trabocchetto"
       ],
       "notes": "Toru Iwatani raccontò di essersi ispirato a una pizza a cui mancava una fetta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -803,7 +803,7 @@
         "trabocchetto"
       ],
       "notes": "Nintendo nacque a Kyoto producendo carte hanafuda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -825,7 +825,7 @@
         "storia"
       ],
       "notes": "ENIAC, Università della Pennsylvania, febbraio 1946; Colossus era inglese, Z3 tedesco, UNIVAC del 1951",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -847,7 +847,7 @@
         "curiosità"
       ],
       "notes": "Java (Giava) era il caffè preferito dagli sviluppatori di Sun Microsystems",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -869,7 +869,7 @@
         "italia"
       ],
       "notes": "D'Ascanio la progettò su incarico di Enrico Piaggio; Giacosa progettò la Fiat 500",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -891,7 +891,7 @@
         "storia"
       ],
       "notes": "Apple fu fondata il 1° aprile 1976 da Jobs, Wozniak e Wayne",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -914,7 +914,7 @@
         "trabocchetto"
       ],
       "notes": "La \"Trojan Room coffee pot\" mostrava se c'era caffè; dal 1993 fu visibile sul web",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "storia"
       ],
       "notes": "La macchina analitica di Babbage (1837) è considerata un antenato del computer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -958,7 +958,7 @@
         "storia"
       ],
       "notes": "La falena fu incollata sul registro del Mark II con la nota \"first actual case of bug being found\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -980,7 +980,7 @@
         "italia"
       ],
       "notes": "Il 30 aprile 1986 il CNUCE-CNR di Pisa si collegò alla rete",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1002,7 +1002,7 @@
         "robot"
       ],
       "notes": "Curiosity atterrò il 6 agosto 2012 nel cratere Gale; Sojourner 1997, Spirit e Opportunity 2004",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1024,7 +1024,7 @@
         "storia"
       ],
       "notes": "Creeper girava su ARPANET; Brain è del 1986, Melissa del 1999, ILOVEYOU del 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1046,7 +1046,7 @@
         "storia"
       ],
       "notes": "Architettura di von Neumann, descritta nel 1945",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1068,7 +1068,7 @@
         "storia"
       ],
       "notes": "Il browser WorldWideWeb fu poi rinominato Nexus",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1090,7 +1090,7 @@
         "internet"
       ],
       "notes": "Gli indirizzi IPv4 sono di 32 bit, gli IPv6 di 128",
-      "verified": false
+      "verified": true
     }
   ]
 }

@@ -22,7 +22,7 @@
         "trabocchetto"
       ],
       "notes": "Tutti i dodici mesi hanno almeno 28 giorni; solo febbraio si ferma lì",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "disney"
       ],
       "notes": "Qui, Quo e Qua sono i nipoti di Paperino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "tradizioni"
       ],
       "notes": "San Giuseppe, padre putativo di Gesù; in Sicilia si preparano le tavolate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "toscana"
       ],
       "notes": "Il Palio di Siena si corre in Piazza del Campo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "geometria"
       ],
       "notes": "Dal greco októ, otto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "giochi"
       ],
       "notes": "Il cavallo si muove di due caselle in una direzione e una di lato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "giochi da tavolo"
       ],
       "notes": "Risiko!, versione italiana di Risk",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "calendario"
       ],
       "notes": "Febbraio ha 28 giorni, 29 negli anni bisestili",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "capodanno"
       ],
       "notes": "L'intimo rosso a Capodanno porta fortuna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,7 +216,7 @@
         "fiabe"
       ],
       "notes": "Dotto, Brontolo, Pisolo, Mammolo, Eolo, Gongolo e Cucciolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "feste"
       ],
       "notes": "La festa di Sant'Agata si celebra dal 3 al 5 febbraio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "città"
       ],
       "notes": "La Repubblica di Venezia era detta Serenissima",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -282,7 +282,7 @@
         "italia"
       ],
       "notes": "Il ritratto di Dante dipinto da Raffaello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -303,7 +303,7 @@
         "collezionismo"
       ],
       "notes": "La numismatica studia monete e medaglie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -325,7 +325,7 @@
         "tradizioni"
       ],
       "notes": "Il crisantemo fiorisce a novembre ed è legato alla commemorazione dei defunti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -347,7 +347,7 @@
         "etimologia"
       ],
       "notes": "Luglio, da Iulius; agosto deriva invece da Augusto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -368,7 +368,7 @@
         "gioielli"
       ],
       "notes": "Lo smeraldo è una varietà verde di berillo; il rubino è rosso, lo zaffiro di solito blu",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -389,7 +389,7 @@
         "scacchi"
       ],
       "notes": "Nell'arrocco re e torre si muovono nello stesso turno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -411,7 +411,7 @@
         "caffè"
       ],
       "notes": "La moka fu ideata da Alfonso Bialetti nel 1933",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -433,7 +433,7 @@
         "italia"
       ],
       "notes": "Creato da Tiziano Sclavi nel 1986",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -455,7 +455,7 @@
         "italia"
       ],
       "notes": "Diabolik, creato dalle sorelle Giussani nel 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -477,7 +477,7 @@
         "europa"
       ],
       "notes": "La statua, ispirata alla fiaba di Andersen, è del 1913",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -499,7 +499,7 @@
         "feste"
       ],
       "notes": "Santa Lucia è patrona di Siracusa; in Sicilia quel giorno si mangia la cuccìa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -521,7 +521,7 @@
         "giochi"
       ],
       "notes": "Nella scopa si distribuiscono tre carte a testa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -542,7 +542,7 @@
         "misure"
       ],
       "notes": "Un quintale vale 100 kg; mille chili sono una tonnellata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -564,7 +564,7 @@
         "carnevale"
       ],
       "notes": "Arlecchino nasce come servo bergamasco della Commedia dell'arte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -586,7 +586,7 @@
         "feste"
       ],
       "notes": "A Noto via Nicolaci si copre di quadri di petali a maggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -608,7 +608,7 @@
         "calendario"
       ],
       "notes": "Dal latino dies Dominicus",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -630,7 +630,7 @@
         "numeri"
       ],
       "notes": "7 giorni per 24 ore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -651,7 +651,7 @@
         "giochi da tavolo"
       ],
       "notes": "Dopo quattro case si può costruire l'albergo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -673,7 +673,7 @@
         "trabocchetto"
       ],
       "notes": "È rivestita di rame: il verde è la patina che si è formata col tempo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -694,7 +694,7 @@
         "stelle"
       ],
       "notes": "Le sette stelle del Grande Carro fanno parte dell'Orsa Maggiore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -716,7 +716,7 @@
         "tradizioni"
       ],
       "notes": "Si grida un numero e vince chi indovina la somma delle dita mostrate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -738,7 +738,7 @@
         "storia"
       ],
       "notes": "Le Feriae Augusti furono istituite da Augusto nel 18 avanti Cristo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -760,7 +760,7 @@
         "trabocchetto"
       ],
       "notes": "San Nicola fu vescovo di Myra, in Licia, oggi in Turchia; le sue reliquie sono a Bari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -782,7 +782,7 @@
         "trabocchetto"
       ],
       "notes": "Big Ben è il nome della grande campana; la torre si chiama Elizabeth Tower",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -804,7 +804,7 @@
         "natale"
       ],
       "notes": "Nel Mercante in fiera i giocatori comprano e vendono le carte all'asta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -826,7 +826,7 @@
         "racconti"
       ],
       "notes": "Giufà, protagonista di racconti popolari raccolti anche da Pitrè",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -848,7 +848,7 @@
         "tradizioni"
       ],
       "notes": "A Nola i Gigli in onore di San Paolino; Gubbio ha i Ceri, Viterbo la Macchina di Santa Rosa, Sassari i Candelieri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -870,7 +870,7 @@
         "isole"
       ],
       "notes": "Il lago di origine vulcanica è nel nord di Pantelleria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -892,7 +892,7 @@
         "trabocchetto"
       ],
       "notes": "Le goccioline di un cumulo medio pesano complessivamente circa 500 tonnellate (stima USGS)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -914,7 +914,7 @@
         "comunicazioni"
       ],
       "notes": "S = tre punti, O = tre linee",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -936,7 +936,7 @@
         "isole"
       ],
       "notes": "Vista dall'alto Favignana ricorda una farfalla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -958,7 +958,7 @@
         "feste"
       ],
       "notes": "I giganti Mata e Grifone sono considerati i mitici fondatori di Messina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "alfabeti"
       ],
       "notes": "Da alfa a omega, 24 lettere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1001,7 +1001,7 @@
         "trabocchetto"
       ],
       "notes": "In russo si chiamano \"amerikanskie gorki\", montagne americane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1023,7 +1023,7 @@
         "feste"
       ],
       "notes": "La Vara, alta circa 13 metri, viene trainata a mano per le vie di Messina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1045,7 +1045,7 @@
         "luoghi"
       ],
       "notes": "La scogliera di marna bianca si trova nel territorio di Realmonte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1067,7 +1067,7 @@
         "teatro"
       ],
       "notes": "Il museo, fondato da Antonio Pasqualino, ha sede a Palermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1089,7 +1089,7 @@
         "cavalleria"
       ],
       "notes": "I dodici paladini di Carlo Magno, protagonisti anche dell'Opera dei pupi",
-      "verified": false
+      "verified": true
     }
   ]
 }

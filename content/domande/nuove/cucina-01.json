@@ -22,7 +22,7 @@
         "formaggi"
       ],
       "notes": "La Margherita: pomodoro, mozzarella e basilico (disciplinare STG Pizza Napoletana)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "dolci"
       ],
       "notes": "Il tiramisù: savoiardi bagnati nel caffè, crema di mascarpone e cacao",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "caffè"
       ],
       "notes": "Il cappuccino unisce espresso e latte montato a schiuma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "salse"
       ],
       "notes": "La maionese è un'emulsione di tuorlo e olio con limone o aceto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "emilia"
       ],
       "notes": "Il Parmigiano Reggiano DOP è soprannominato \"re dei formaggi\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "sicilia"
       ],
       "notes": "La pasta alla Norma catanese: pomodoro, melanzane fritte, basilico e ricotta salata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "liguria"
       ],
       "notes": "Il pesto alla genovese: basilico, pinoli, aglio, formaggi e olio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "ingredienti"
       ],
       "notes": "Il cioccolato si fa con le fave della pianta del cacao (Theobroma cacao)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "emilia"
       ],
       "notes": "Le lasagne alla bolognese alternano sfoglia, ragù e besciamella",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,7 +216,7 @@
         "primi"
       ],
       "notes": "Gli gnocchi classici si fanno con patate lesse e farina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "trabocchetto"
       ],
       "notes": "Nonostante il nome, è un dolce italiano (Emilia, Toscana) con crema, alchermes e pan di Spagna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -260,7 +260,7 @@
         "trabocchetto"
       ],
       "notes": "Il pomodoro è una bacca che contiene i semi; carota (radice), patata (tubero) e lattuga (foglie) no",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -282,8 +282,8 @@
         "emilia",
         "trabocchetto"
       ],
-      "notes": "La ricetta depositata nel 1982 dall'Accademia Italiana della Cucina prevede tagliatelle, non spaghetti",
-      "verified": false
+      "notes": "A Bologna il ragù si serve con le tagliatelle (o nelle lasagne), non con gli spaghetti; ricetta del ragù depositata dall'Accademia Italiana della Cucina nel 1982",
+      "verified": true
     },
     {
       "type": "single",
@@ -305,7 +305,7 @@
         "lazio"
       ],
       "notes": "La carbonara romana: guanciale, uova, pecorino romano e pepe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -327,7 +327,7 @@
         "primi"
       ],
       "notes": "Carnaroli, Arborio e Vialone Nano sono i risi da risotto; basmati e jasmine sono risi asiatici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "pesce"
       ],
       "notes": "Il cuscusu trapanese, di origine nordafricana, si fa con brodo di pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -371,7 +371,7 @@
         "sardegna"
       ],
       "notes": "Il carasau, o \"carta da musica\", è il pane sottile e croccante della Sardegna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -393,7 +393,7 @@
         "street food"
       ],
       "notes": "Le panelle sono frittelle di farina di ceci, servite nel pane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -415,7 +415,7 @@
         "contorni"
       ],
       "notes": "La caponata di melanzane è condita in agrodolce con aceto e zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -436,7 +436,7 @@
         "cucina giapponese"
       ],
       "notes": "Il miso, pasta di soia fermentata, è la base della zuppa di miso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -458,7 +458,7 @@
         "puglia"
       ],
       "notes": "La burrata di Andria IGP: involucro di pasta filata con dentro la stracciatella",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -480,7 +480,7 @@
         "sicilia"
       ],
       "notes": "Gli anelletti al forno sono il classico pasticcio di pasta palermitano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -502,7 +502,7 @@
         "calabria"
       ],
       "notes": "La 'nduja di Spilinga (Vibo Valentia) è un insaccato morbido e piccante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "cucina spagnola"
       ],
       "notes": "Il gazpacho andaluso si serve freddo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -544,7 +544,7 @@
         "tecniche"
       ],
       "notes": "Il bagnomaria scalda il cibo in un recipiente posto dentro un altro con acqua calda",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -566,7 +566,7 @@
         "trabocchetto"
       ],
       "notes": "Le inventò Alfredo Di Lelio nel suo ristorante di Roma all'inizio del Novecento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -589,7 +589,7 @@
         "trabocchetto"
       ],
       "notes": "La ricetta tradizionale milanese prevede la frittura nel burro chiarificato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -612,7 +612,7 @@
         "trabocchetto"
       ],
       "notes": "I capperi sono i boccioli non ancora aperti della pianta; i frutti si chiamano cucunci",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -633,7 +633,7 @@
         "cucina asiatica"
       ],
       "notes": "Il pho è il piatto nazionale del Vietnam",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -655,7 +655,7 @@
         "toscana"
       ],
       "notes": "Brunello di Montalcino DOCG; a Montepulciano si fa il Vino Nobile, a San Gimignano la Vernaccia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -677,7 +677,7 @@
         "sicilia"
       ],
       "notes": "Il Cioccolato di Modica IGP è lavorato a freddo e resta granuloso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -699,7 +699,7 @@
         "sicilia"
       ],
       "notes": "Il Passito di Pantelleria DOC si fa con zibibbo (moscato d'Alessandria) appassito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -721,7 +721,7 @@
         "toscana"
       ],
       "notes": "Il lardo di Colonnata IGP stagiona nelle conche di marmo di Carrara",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +743,7 @@
         "botanica"
       ],
       "notes": "La vaniglia è il frutto di un'orchidea rampicante (Vanilla planifolia)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "abruzzo"
       ],
       "notes": "Gli arrosticini si fanno con carne ovina, tradizionalmente di pecora o castrato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "cucina europea"
       ],
       "notes": "Il borsch è una zuppa a base di barbabietola rossa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -809,7 +809,7 @@
         "libri"
       ],
       "notes": "Il manuale di Artusi, pubblicato nel 1891, è il ricettario italiano più famoso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -831,7 +831,7 @@
         "sicilia"
       ],
       "notes": "Il buccellato (cucciddatu) natalizio è ripieno di fichi secchi, frutta secca e agrumi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -853,7 +853,7 @@
         "trabocchetto"
       ],
       "notes": "La inventò il ristoratore italiano Caesar Cardini a Tijuana, in Messico, nel 1924",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -875,7 +875,7 @@
         "trabocchetto"
       ],
       "notes": "Il cioccolato bianco contiene burro di cacao (almeno il 20% per la normativa UE), latte e zucchero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -897,7 +897,7 @@
         "piemonte"
       ],
       "notes": "Il bunet: uova, latte, zucchero, cacao e amaretti sbriciolati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -919,13 +919,13 @@
         "sardegna"
       ],
       "notes": "I culurgiones d'Ogliastra IGP: chiusura a spighetta, ripieno di patate, formaggio e menta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Come si chiama la cottura sottovuoto a bassa temperatura?",
       "category": "Cucina",
-      "difficulty": 4,
+      "difficulty": 3,
       "presenter": "regina",
       "answers": [
         "Julienne",
@@ -940,7 +940,7 @@
         "tecniche"
       ],
       "notes": "Sous vide: cibo sigillato sottovuoto e cotto in acqua a temperatura controllata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -962,7 +962,7 @@
         "lombardia"
       ],
       "notes": "La mostarda è frutta candita in sciroppo aromatizzato con essenza di senape",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -984,7 +984,7 @@
         "sardegna"
       ],
       "notes": "La fregola è pasta di semola lavorata a palline irregolari e tostata in forno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1006,7 +1006,7 @@
         "friuli"
       ],
       "notes": "Il frico si prepara con formaggio Montasio e patate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1028,7 +1028,7 @@
         "antica roma"
       ],
       "notes": "Il De re coquinaria porta il nome di Marco Gavio Apicio, gastronomo del I secolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1049,7 +1049,7 @@
         "spezie"
       ],
       "notes": "Il macis è l'arillo che avvolge il seme della noce moscata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1070,7 +1070,7 @@
         "storia"
       ],
       "notes": "Scappi fu cuoco segreto di papa Pio V; la sua \"Opera\" uscì a Venezia nel 1570",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1092,7 +1092,7 @@
         "cucina francese"
       ],
       "notes": "Il Roquefort, di latte di pecora, stagiona nelle grotte del Combalou",
-      "verified": false
+      "verified": true
     }
   ]
 }

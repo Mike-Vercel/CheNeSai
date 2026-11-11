@@ -22,7 +22,7 @@
         "tradizioni"
       ],
       "notes": "Rosso, arancione, giallo, verde, azzurro, indaco e violetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "pasqua"
       ],
       "notes": "La sorpresa è nascosta dentro l'uovo di cioccolato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -67,7 +67,7 @@
         "trabocchetto"
       ],
       "notes": "In Italia porta male il venerdì 17 (in latino VIXI, \"ho vissuto\"); il 13 è sfortunato nei Paesi anglosassoni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "zodiaco"
       ],
       "notes": "Dall'Ariete ai Pesci, dodici segni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "tradizioni"
       ],
       "notes": "I numeri della tombola vanno da 1 a 90",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -132,7 +132,7 @@
         "roma"
       ],
       "notes": "Si lancia una moneta di spalle alla fontana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -154,7 +154,7 @@
         "capodanno"
       ],
       "notes": "Le lenticchie, a forma di monetina, portano denaro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -176,7 +176,7 @@
         "simboli"
       ],
       "notes": "Le tre gambe richiamano i tre capi dell'isola: Peloro, Passero e Lilibeo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -198,7 +198,7 @@
         "carnevale"
       ],
       "notes": "Pulcinella ha camiciotto bianco e maschera nera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -219,7 +219,7 @@
         "superstizioni"
       ],
       "notes": "Il gatto nero che attraversa la strada è la superstizione più famosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -241,7 +241,7 @@
         "feste"
       ],
       "notes": "Il Festino di Santa Rosalia si celebra il 14 e 15 luglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -263,7 +263,7 @@
         "giochi"
       ],
       "notes": "Quattro semi (coppe, denari, spade, bastoni) da dieci carte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -285,7 +285,7 @@
         "tradizioni"
       ],
       "notes": "Orlando, Rinaldo e gli altri paladini del ciclo carolingio; l'Opera dei pupi è patrimonio UNESCO",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -307,7 +307,7 @@
         "numeri"
       ],
       "notes": "60 minuti per 60 secondi; 1440 sono i minuti in un giorno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -329,7 +329,7 @@
         "giochi"
       ],
       "notes": "L'asso vale 11 punti, il tre 10, il re 4",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -351,7 +351,7 @@
         "tempo"
       ],
       "notes": "Nella clessidra la sabbia passa da un'ampolla all'altra in un tempo fisso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -373,7 +373,7 @@
         "giochi"
       ],
       "notes": "Nel tressette sono i segnali consentiti al compagno (busso, volo, striscio)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -395,7 +395,7 @@
         "italia"
       ],
       "notes": "Tex nacque nel 1948 da Gian Luigi Bonelli e Aurelio Galleppini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -417,7 +417,7 @@
         "disney"
       ],
       "notes": "Paperopoli (Duckburg); Topolinia è la città di Topolino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -439,7 +439,7 @@
         "europa"
       ],
       "notes": "Il 112 vale in tutta l'Unione Europea; 911 è il numero americano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -461,7 +461,7 @@
         "trabocchetto"
       ],
       "notes": "In Italia si \"tocca ferro\", nei Paesi anglosassoni si tocca il legno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -483,7 +483,7 @@
         "europa"
       ],
       "notes": "Il drago rosso su campo bianco e verde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -505,7 +505,7 @@
         "numeri"
       ],
       "notes": "In un dado classico le facce opposte sommano sempre 7",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -527,7 +527,7 @@
         "tradizioni"
       ],
       "notes": "San Francesco celebrò il Natale a Greccio nel 1223",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -548,7 +548,7 @@
         "numeri"
       ],
       "notes": "Un miliardo = 1.000.000.000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -570,7 +570,7 @@
         "simboli"
       ],
       "notes": "Al centro c'è il gorgoneion, la testa della Gorgone Medusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -592,7 +592,7 @@
         "napoli"
       ],
       "notes": "90 'a paura; 1 l'Italia, 22 'o pazzo, 33 gli anni di Cristo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -614,7 +614,7 @@
         "giochi"
       ],
       "notes": "Nel sette e mezzo il re di denari può assumere qualsiasi valore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -636,7 +636,7 @@
         "trabocchetto"
       ],
       "notes": "Inizia a metà o fine settembre e si chiude la prima domenica di ottobre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -658,7 +658,7 @@
         "trabocchetto"
       ],
       "notes": "I \"Panama\" sono intrecciati in Ecuador; il nome viene dal canale, dove erano molto usati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -681,7 +681,7 @@
         "trabocchetto"
       ],
       "notes": "Plinio le chiama Canariae insulae per i grandi cani (canes) che vi si trovavano; il canarino prende il nome dalle isole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -703,7 +703,7 @@
         "luoghi"
       ],
       "notes": "La Conca d'Oro, un tempo coperta di agrumeti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -725,7 +725,7 @@
         "feste"
       ],
       "notes": "Il Palio dei Normanni di Piazza Armerina rievoca l'ingresso del conte Ruggero, dal 12 al 14 agosto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -746,7 +746,7 @@
         "anniversari"
       ],
       "notes": "In Italia le nozze di diamante celebrano 60 anni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -768,7 +768,7 @@
         "calendario"
       ],
       "notes": "Il 29, 30 e 31 gennaio, per tradizione i più freddi dell'anno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -790,7 +790,7 @@
         "leggende"
       ],
       "notes": "Secondo la leggenda Colapesce regge la colonna che sta per cedere sotto Capo Peloro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -812,7 +812,7 @@
         "numeri"
       ],
       "notes": "52 tasti bianchi e 36 neri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -834,7 +834,7 @@
         "trabocchetto"
       ],
       "notes": "L'unicorno è l'animale nazionale scozzese e compare negli stemmi reali",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -855,7 +855,7 @@
         "fobie"
       ],
       "notes": "Dal greco treiskaideka, tredici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -876,8 +876,8 @@
         "luoghi",
         "trabocchetto"
       ],
-      "notes": "Il ferro si dilata: la sommità può salire di circa 15 centimetri (sito ufficiale della Torre Eiffel)",
-      "verified": false
+      "notes": "Il ferro si dilata col caldo: tra inverno ed estate la sommità può variare di circa 12-15 centimetri (stime più citate)",
+      "verified": true
     },
     {
       "type": "single",
@@ -899,7 +899,7 @@
         "toscana"
       ],
       "notes": "Le contrade sono 17, ma a ogni Palio ne corrono 10",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -921,7 +921,7 @@
         "storia"
       ],
       "notes": "Nel calendario di Romolo l'anno iniziava a marzo: per questo settembre era il settimo mese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -943,7 +943,7 @@
         "tradizioni"
       ],
       "notes": "Il 17 gennaio si benedicono gli animali nel giorno di Sant'Antonio abate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -965,7 +965,7 @@
         "italia"
       ],
       "notes": "1 euro: Uomo vitruviano di Leonardo; 5 centesimi Colosseo, 1 centesimo Castel del Monte, 10 centesimi Venere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -987,7 +987,7 @@
         "luoghi"
       ],
       "notes": "La Fontana Pretoria di Palermo fu soprannominata così per le sue statue nude",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1008,7 +1008,7 @@
         "giochi da tavolo"
       ],
       "notes": "Il percorso classico del Gioco dell'oca ha 63 caselle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1030,7 +1030,7 @@
         "luoghi"
       ],
       "notes": "142 gradini, ciascuno decorato con maioliche",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1052,7 +1052,7 @@
         "gioielli"
       ],
       "notes": "Il carato metrico, adottato nel 1907, vale 200 milligrammi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1074,7 +1074,7 @@
         "storia"
       ],
       "notes": "Il Penny Black fu emesso nel Regno Unito il 1° maggio 1840",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1095,7 +1095,7 @@
         "misure"
       ],
       "notes": "Per accordo internazionale del 1959 un pollice vale 2,54 cm",
-      "verified": false
+      "verified": true
     }
   ]
 }

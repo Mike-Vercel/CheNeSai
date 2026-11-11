@@ -22,7 +22,7 @@
         "sensi"
       ],
       "notes": "Vista, udito, olfatto, gusto e tatto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "pianeti"
       ],
       "notes": "Gli anelli di Saturno sono i più vistosi del Sistema solare; Marte, Mercurio e Venere non ne hanno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "strumenti"
       ],
       "notes": "Lo stetoscopio fu inventato da Laennec nel 1816",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "acqua"
       ],
       "notes": "L'evaporazione trasforma il liquido in vapore; la condensazione è il passaggio inverso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "terra"
       ],
       "notes": "La rotazione terrestre dura circa 24 ore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -132,7 +132,7 @@
         "stagioni"
       ],
       "notes": "Il giorno più lungo è il solstizio d'estate, intorno al 21 giugno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -154,7 +154,7 @@
         "ossa"
       ],
       "notes": "Il cranio racchiude e protegge l'encefalo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -176,7 +176,7 @@
         "acqua"
       ],
       "notes": "A pressione normale l'acqua pura solidifica a 0 °C",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -198,7 +198,7 @@
         "italia"
       ],
       "notes": "Eruzione del Vesuvio del 79 d.C., descritta da Plinio il Giovane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -221,7 +221,7 @@
         "trabocchetto"
       ],
       "notes": "\"Un fulmine non cade due volte nello stesso punto\" è falso: l'Empire State Building è colpito circa 20-25 volte l'anno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -243,7 +243,7 @@
         "metalli"
       ],
       "notes": "Il rame è un ottimo conduttore, duttile ed economico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -264,7 +264,7 @@
         "geologia"
       ],
       "notes": "Dal greco seismós, scossa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -286,7 +286,7 @@
         "chimica"
       ],
       "notes": "L'ozono della stratosfera assorbe gran parte dei raggi UV del Sole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -308,7 +308,7 @@
         "pianeti"
       ],
       "notes": "La Grande Macchia Rossa è un'enorme tempesta di Giove osservata da secoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -330,7 +330,7 @@
         "sangue"
       ],
       "notes": "I globuli rossi contengono emoglobina, che lega l'ossigeno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -352,7 +352,7 @@
         "scienziati"
       ],
       "notes": "Pasteur mise a punto il metodo negli anni Sessanta dell'Ottocento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -374,7 +374,7 @@
         "misure"
       ],
       "notes": "La densità dell'acqua è di circa 1 kg per litro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -396,7 +396,7 @@
         "evoluzione"
       ],
       "notes": "Nome dato da Linneo nel 1758",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -418,7 +418,7 @@
         "piante"
       ],
       "notes": "La clorofilla assorbe luce rossa e blu e riflette il verde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -440,7 +440,7 @@
         "animali"
       ],
       "notes": "Laika volò sullo Sputnik 2 nel novembre 1957; Belka, Strelka e Mushka volarono nel 1960",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "laboratori"
       ],
       "notes": "Il CERN sorge a Meyrin, alle porte di Ginevra, a cavallo del confine franco-svizzero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "piante"
       ],
       "notes": "Con la fotosintesi le piante trasformano acqua e anidride carbonica in zuccheri e ossigeno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -506,7 +506,7 @@
         "digestione"
       ],
       "notes": "La bile è prodotta dal fegato e raccolta nella cistifellea",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "elementi"
       ],
       "notes": "L'idrogeno ha numero atomico 1 ed è il più leggero degli elementi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "scienziati"
       ],
       "notes": "Röntgen scoprì i raggi X nel novembre 1895 e vinse il primo Nobel per la fisica (1901)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "sangue"
       ],
       "notes": "AB positivo non ha anticorpi anti-A né anti-B e ha il fattore Rh: può ricevere globuli rossi da tutti i gruppi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "trabocchetto"
       ],
       "notes": "Lo smalto è composto per circa il 96 per cento da minerale (idrossiapatite), più duro delle ossa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "comete"
       ],
       "notes": "Halley è passata nel 1986 e tornerà nel 2061; Swift-Tuttle ha un periodo di circa 133 anni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +638,7 @@
         "scienziati"
       ],
       "notes": "Esperimento mentale del gatto di Schrödinger, 1935",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -660,7 +660,7 @@
         "cervello"
       ],
       "notes": "Il cervelletto regola equilibrio, postura e coordinazione dei movimenti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -683,7 +683,7 @@
         "italia"
       ],
       "notes": "La scala Mercalli, del sismologo milanese Giuseppe Mercalli, misura l'intensità dagli effetti; la Richter la magnitudo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -706,7 +706,7 @@
         "trabocchetto"
       ],
       "notes": "Il Sole emette luce bianca; ci appare giallo per la diffusione nell'atmosfera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -728,7 +728,7 @@
         "stati della materia"
       ],
       "notes": "Esempio: il ghiaccio secco che diventa gas senza fondere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -750,7 +750,7 @@
         "fisica"
       ],
       "notes": "Nel nucleo del Sole l'idrogeno si fonde in elio liberando energia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -772,7 +772,7 @@
         "ossa"
       ],
       "notes": "La staffa, nell'orecchio medio, misura circa 3 millimetri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -795,7 +795,7 @@
         "italia"
       ],
       "notes": "Galvani pubblicò i suoi studi sull'\"elettricità animale\" nel 1791",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -817,7 +817,7 @@
         "elementi"
       ],
       "notes": "Ag dal latino argentum; Ar è l'argon, As l'arsenico, Al l'alluminio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -839,7 +839,7 @@
         "pianeti"
       ],
       "notes": "Fobos e Deimos, scoperte da Asaph Hall nel 1877",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -861,7 +861,7 @@
         "atomo"
       ],
       "notes": "Esperimento della lamina d'oro (1909-1911); Thomson scoprì l'elettrone, Chadwick il neutrone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -883,7 +883,7 @@
         "minerali"
       ],
       "notes": "Scala di Mohs: 1 talco, 2 gesso, 3 calcite, 4 fluorite",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -906,7 +906,7 @@
         "italia"
       ],
       "notes": "Nobel per la fisica 2021 a Parisi, con Manabe e Hasselmann; Rubbia vinse nel 1984, Giacconi nel 2002",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -928,7 +928,7 @@
         "italia"
       ],
       "notes": "Il marmo deriva da calcari trasformati da calore e pressione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -951,7 +951,7 @@
         "trabocchetto"
       ],
       "notes": "Lo schiocco della frusta è un piccolo \"bang\" supersonico della punta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -974,7 +974,7 @@
         "trabocchetto"
       ],
       "notes": "Le stelle azzurre superano i 10.000 gradi in superficie, le rosse sono le più fredde",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -995,7 +995,7 @@
         "astronomia"
       ],
       "notes": "Plutone è uno degli oggetti della fascia di Kuiper; la fascia principale è tra Marte e Giove",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1018,7 +1018,7 @@
         "trabocchetto"
       ],
       "notes": "Il nucleo interno di ferro e nichel è solido per l'enorme pressione; quello esterno è liquido",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1041,7 +1041,7 @@
         "italia"
       ],
       "notes": "L'anello di Pacinotti (1860), base di dinamo e motori a corrente continua",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1063,7 +1063,7 @@
         "satelliti"
       ],
       "notes": "Geyser di Encelado scoperti dalla sonda Cassini nel 2005",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1085,7 +1085,7 @@
         "elementi"
       ],
       "notes": "Oro 79, argento 47, platino 78, mercurio 80",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1108,7 +1108,7 @@
         "sicilia"
       ],
       "notes": "Il \"Sunto\" di Cannizzaro, distribuito a Karlsruhe nel 1860, chiarì pesi atomici e molecolari",
-      "verified": false
+      "verified": true
     }
   ]
 }

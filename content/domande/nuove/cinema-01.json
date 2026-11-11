@@ -22,7 +22,7 @@
         "saghe"
       ],
       "notes": "Emma Watson è Hermione in tutti gli 8 film della saga (2001-2011)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "attori"
       ],
       "notes": "Pirati dei Caraibi, dal 2003",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "mostri"
       ],
       "notes": "Scena finale di King Kong (1933)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "cinema italiano"
       ],
       "notes": "Paolo Villaggio creò e interpretò Fantozzi dal 1975",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "dreamworks"
       ],
       "notes": "Shrek, DreamWorks 2001",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -132,7 +132,7 @@
         "pixar"
       ],
       "notes": "Ratatouille (2007), il topo Rémy",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -154,7 +154,7 @@
         "attori"
       ],
       "notes": "Top Gun (1986), seguito nel 2022 da Top Gun: Maverick",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -176,7 +176,7 @@
         "avventura"
       ],
       "notes": "Harrison Ford, dal 1981 con \"I predatori dell'arca perduta\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -198,7 +198,7 @@
         "disney"
       ],
       "notes": "Olaf; Sven è la renna, Kristoff e Hans sono umani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -220,7 +220,7 @@
         "disney"
       ],
       "notes": "Crudelia De Mon, Disney 1961",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -242,7 +242,7 @@
         "cinema italiano"
       ],
       "notes": "Quo vado? (2016), regia di Gennaro Nunziante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -264,7 +264,7 @@
         "classici"
       ],
       "notes": "Brando vinse l'Oscar; Pacino è Michael, Caan è Sonny, Duvall è Tom Hagen",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -286,7 +286,7 @@
         "fellini"
       ],
       "notes": "Scena celebre del film di Fellini, 1960",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -308,7 +308,7 @@
         "cinema italiano"
       ],
       "notes": "Antonio de Curtis, in arte Totò",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -330,7 +330,7 @@
         "attori"
       ],
       "notes": "Agente 007 – Licenza di uccidere, 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -352,7 +352,7 @@
         "cinema italiano"
       ],
       "notes": "I David di Donatello, assegnati dal 1956",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -374,7 +374,7 @@
         "fantasy"
       ],
       "notes": "Peter Jackson, 2001-2003; 11 Oscar per Il ritorno del re",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -396,7 +396,7 @@
         "fantascienza"
       ],
       "notes": "Christopher Nolan, 2010 e 2014",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -418,7 +418,7 @@
         "anni 90"
       ],
       "notes": "Film del 1990 con Johnny Depp e Winona Ryder",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -440,7 +440,7 @@
         "pixar"
       ],
       "notes": "WALL-E (2008); EVE è la robot di cui si innamora",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "azione"
       ],
       "notes": "Mission: Impossible, dal 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "horror"
       ],
       "notes": "Tutti tratti da romanzi di Stephen King",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -506,7 +506,7 @@
         "curiosità"
       ],
       "notes": "Il ciak indica scena e numero della ripresa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "trabocchetto"
       ],
       "notes": "Stitch è l'Esperimento 626, creatura aliena scambiata per un cane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "disney"
       ],
       "notes": "Pumbaa è un facocero, amico del suricato Timon",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "cinema italiano"
       ],
       "notes": "Oscar 1992 come miglior film straniero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "tornatore"
       ],
       "notes": "Film del 1998, dal monologo Novecento di Alessandro Baricco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "classici"
       ],
       "notes": "Corleone è nella città metropolitana di Palermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,11 +638,11 @@
         "sorrentino"
       ],
       "notes": "Film autobiografico del 2021",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "In quale film Totò e Peppino dettano la lettera \"Signorina, veniamo noi con questa mia\"?",
+      "text": "In quale film Totò e Peppino scrivono la lettera \"Signorina, veniamo noi con questa mia\"?",
       "category": "Cinema",
       "difficulty": 3,
       "presenter": "regina",
@@ -660,7 +660,7 @@
         "cinema italiano"
       ],
       "notes": "Film del 1956 di Camillo Mastrocinque",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -682,7 +682,7 @@
         "cinema italiano"
       ],
       "notes": "The Pursuit of Happyness, 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -704,7 +704,7 @@
         "battute"
       ],
       "notes": "Rhett Butler a Rossella O'Hara nel finale di Via col vento (1939)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -726,7 +726,7 @@
         "trabocchetto"
       ],
       "notes": "Nato a Londra nel 1889, lavorò a Hollywood senza mai prendere la cittadinanza americana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -748,7 +748,7 @@
         "premi"
       ],
       "notes": "Orso d'oro della Berlinale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -770,7 +770,7 @@
         "giappone"
       ],
       "notes": "Spirited Away, Oscar 2003",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -792,7 +792,7 @@
         "fantascienza"
       ],
       "notes": "John Williams, Oscar 1978",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -814,7 +814,7 @@
         "fellini"
       ],
       "notes": "Giulietta Masina, sposata con Fellini dal 1943",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -836,7 +836,7 @@
         "trabocchetto"
       ],
       "notes": "Guerre stellari (1977) è l'Episodio 4, Una nuova speranza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -858,7 +858,7 @@
         "classici"
       ],
       "notes": "Film del 1963, Palma d'oro; Alain Delon è Tancredi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -880,7 +880,7 @@
         "registi"
       ],
       "notes": "Monicelli girò il film ideato da Pietro Germi, morto prima delle riprese",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -902,7 +902,7 @@
         "cinema italiano"
       ],
       "notes": "Un sacco bello (1980), prodotto da Sergio Leone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -924,7 +924,7 @@
         "remake"
       ],
       "notes": "Bienvenue chez les Ch'tis (2008), in Italia \"Giù al Nord\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -946,7 +946,7 @@
         "oscar"
       ],
       "notes": "Oscar 2016, dopo quello alla carriera del 2007",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -968,7 +968,7 @@
         "registi"
       ],
       "notes": "Kathryn Bigelow per The Hurt Locker",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -990,7 +990,7 @@
         "trabocchetto"
       ],
       "notes": "Benigni, che era stato Pinocchio nel suo film del 2002; Proietti è Mangiafuoco, Ceccherini la Volpe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1011,8 +1011,8 @@
         "cinema italiano",
         "trabocchetto"
       ],
-      "notes": "Diretto dal britannico Michael Radford (1994)",
-      "verified": false
+      "notes": "Diretto dal britannico Michael Radford (1994); Troisi è protagonista e sceneggiatore, non co-regista",
+      "verified": true
     },
     {
       "type": "single",
@@ -1034,7 +1034,7 @@
         "cinema italiano"
       ],
       "notes": "Celebre finale del film di Monicelli (1958)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1056,7 +1056,7 @@
         "oscar"
       ],
       "notes": "Nicola Piovani, Oscar 1999; Bacalov lo vinse per Il postino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1078,7 +1078,7 @@
         "cinema italiano"
       ],
       "notes": "Ferruccio Amendola (1930-2001)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1100,7 +1100,7 @@
         "set"
       ],
       "notes": "Bruce, dal nome dell'avvocato di Spielberg",
-      "verified": false
+      "verified": true
     }
   ]
 }

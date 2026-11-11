@@ -21,7 +21,7 @@
         "salse"
       ],
       "notes": "Il ketchup è una salsa agrodolce a base di concentrato di pomodoro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "street food"
       ],
       "notes": "Arancina a Palermo, arancino a Catania: riso, ragù o burro, impanati e fritti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "ingredienti"
       ],
       "notes": "L'olio extravergine si ottiene solo dalle olive, con procedimenti meccanici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "feste"
       ],
       "notes": "Chiacchiere (o frappe, bugie, crostoli) sono il dolce di Carnevale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "liguria"
       ],
       "notes": "La focaccia genovese (fugassa) è il pane simbolo della Liguria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "bevande"
       ],
       "notes": "La birra si fa con acqua, malto (di solito d'orzo), luppolo e lievito",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "cucina turca"
       ],
       "notes": "Il döner kebab è carne cotta su uno spiedo verticale, tipico della Turchia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "cucina messicana"
       ],
       "notes": "I tacos sono tortillas di mais ripiene, simbolo della cucina messicana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -194,7 +194,7 @@
         "sicilia"
       ],
       "notes": "La granita siciliana si mangia anche a colazione con la brioche col tuppo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "ortaggi"
       ],
       "notes": "La carota è tra gli ortaggi più ricchi di betacarotene",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -238,7 +238,7 @@
         "trabocchetto"
       ],
       "notes": "Il pomodoro è originario del Centro-Sud America e arrivò in Europa dopo i viaggi di Colombo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -261,7 +261,7 @@
         "trabocchetto"
       ],
       "notes": "La Bresaola della Valtellina IGP si ottiene dalla coscia di manzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "trabocchetto"
       ],
       "notes": "Marinara: pomodoro, aglio, origano e olio; niente pesce, malgrado il nome",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -305,7 +305,7 @@
         "cucina giapponese"
       ],
       "notes": "Il sashimi è pesce crudo a fette; il sushi prevede sempre il riso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -327,7 +327,7 @@
         "veneto"
       ],
       "notes": "Il pandoro nasce a Verona: brevetto di Domenico Melegatti, 1894",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "frutta secca"
       ],
       "notes": "Bronte (Catania) è sul versante occidentale dell'Etna; il pistacchio è DOP",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -371,7 +371,7 @@
         "piemonte"
       ],
       "notes": "La bagna cauda piemontese: aglio, acciughe e olio, con verdure da intingere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -393,7 +393,7 @@
         "street food"
       ],
       "notes": "Lo sfincione è la pizza alta palermitana con pomodoro, cipolla, acciughe e caciocavallo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -415,7 +415,7 @@
         "sicilia"
       ],
       "notes": "Pasta con le sarde: sarde, finocchietto, uvetta, pinoli e mollica tostata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -437,7 +437,7 @@
         "trentino"
       ],
       "notes": "Lo strudel, di tradizione austriaca, è il dolce tipico del Trentino-Alto Adige",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -459,7 +459,7 @@
         "piemonte"
       ],
       "notes": "Il tartufo bianco d'Alba (Tuber magnatum) ha la sua fiera internazionale ad Alba",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -481,7 +481,7 @@
         "sicilia"
       ],
       "notes": "La frutta martorana è pasta reale di mandorle modellata e dipinta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -502,7 +502,7 @@
         "liquori"
       ],
       "notes": "La grappa si distilla dalle vinacce; il brandy dal vino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "spezie"
       ],
       "notes": "La curcuma è l'ingrediente che colora di giallo il curry in polvere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -544,7 +544,7 @@
         "cucina greca"
       ],
       "notes": "La moussaka greca a strati è gratinata con la besciamella",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -567,7 +567,7 @@
         "trabocchetto"
       ],
       "notes": "L'arachide (Arachis hypogaea) è una leguminosa, parente di fagioli e piselli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -589,7 +589,7 @@
         "trabocchetto"
       ],
       "notes": "La ricotta si ricava dal siero ricotto, non dalla cagliata: è un latticino, non un formaggio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -610,7 +610,7 @@
         "spezie"
       ],
       "notes": "Lo zafferano sono gli stimmi essiccati del Crocus sativus, tre per fiore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -631,7 +631,7 @@
         "cucina sudamericana"
       ],
       "notes": "La feijoada è considerata il piatto nazionale brasiliano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -653,7 +653,7 @@
         "sicilia"
       ],
       "notes": "Le minne ricordano il martirio di Sant'Agata, patrona di Catania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -675,7 +675,7 @@
         "sicilia"
       ],
       "notes": "Woodhouse spedì il vino di Marsala in Inghilterra nel 1773, avviandone il successo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -697,7 +697,7 @@
         "napoli"
       ],
       "notes": "Iscrizione nella lista Unesco del 7 dicembre 2017",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -718,7 +718,7 @@
         "vini"
       ],
       "notes": "Il Franciacorta DOCG si produce in provincia di Brescia, in Lombardia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -740,7 +740,7 @@
         "cucina messicana"
       ],
       "notes": "La tequila si distilla dall'agave blu (Agave tequilana), che non è un cactus",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -761,7 +761,7 @@
         "dolci"
       ],
       "notes": "Il baklava della tradizione turca e mediorientale è fatto con pasta fillo, noci o pistacchi e sciroppo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -782,7 +782,7 @@
         "pesce"
       ],
       "notes": "Lo stoccafisso è merluzzo seccato all'aria (Norvegia); il baccalà è conservato sotto sale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -804,7 +804,7 @@
         "veneto"
       ],
       "notes": "Il Bellini è prosecco con purea di pesca bianca; con le fragole è il Rossini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -826,7 +826,7 @@
         "trabocchetto"
       ],
       "notes": "La creò Sam Panopoulos a Chatham, in Ontario, nel 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -849,7 +849,7 @@
         "trabocchetto"
       ],
       "notes": "I veri frutti sono gli acheni, i \"semini\" esterni; la polpa è un ricettacolo ingrossato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -871,7 +871,7 @@
         "trabocchetto"
       ],
       "notes": "Il kiwi (Actinidia) è originario della Cina; la Nuova Zelanda lo ha coltivato e ribattezzato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -893,7 +893,7 @@
         "emilia"
       ],
       "notes": "Il disciplinare DOP prevede una stagionatura minima di 12 mesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -915,7 +915,7 @@
         "cucina francese"
       ],
       "notes": "Il roux è la base addensante di burro e farina, usata per besciamella e vellutate",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -937,7 +937,7 @@
         "sicilia"
       ],
       "notes": "Avola è in provincia di Siracusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -959,17 +959,17 @@
         "emilia"
       ],
       "notes": "Esistono due DOP: Aceto Balsamico Tradizionale di Modena e di Reggio Emilia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "La cubaita siciliana è un torrone di sesamo e quale altro ingrediente?",
+      "text": "La cubaita siciliana è un torrone di sesamo legato con quale ingrediente?",
       "category": "Cucina",
       "difficulty": 4,
       "presenter": "palmino",
       "answers": [
-        "Pistacchi",
-        "Cioccolato",
+        "Ricotta",
+        "Burro",
         "Fichi secchi",
         "Miele"
       ],
@@ -980,8 +980,8 @@
         "dolci",
         "sicilia"
       ],
-      "notes": "La cubaita (cubbaita), di origine araba, si fa con sesamo, miele e spesso mandorle",
-      "verified": false
+      "notes": "La cubaita (cubbaita), di origine araba, si fa con sesamo e miele (spesso con zucchero e mandorle)",
+      "verified": true
     },
     {
       "type": "single",
@@ -1003,7 +1003,7 @@
         "tecniche"
       ],
       "notes": "Reazione tra zuccheri e amminoacidi col calore: dà crosta e aromi a carne e pane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1025,7 +1025,7 @@
         "sicilia"
       ],
       "notes": "Presidio Slow Food: semola di grano duro con farina integrale di tumminia (timilia)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1047,7 +1047,7 @@
         "cucina francese"
       ],
       "notes": "Il clafoutis classico si fa con ciliegie intere, spesso con il nocciolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1069,7 +1069,7 @@
         "normative"
       ],
       "notes": "Il regolamento UE fissa per l'extravergine un'acidità libera massima dello 0,8%",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1091,7 +1091,7 @@
         "sicilia"
       ],
       "notes": "Il Piacentinu Ennese DOP contiene zafferano e grani di pepe nero",
-      "verified": false
+      "verified": true
     }
   ]
 }

@@ -22,7 +22,7 @@
         "grammatica"
       ],
       "notes": "Plurale irregolare: l'uomo, gli uomini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "grammatica"
       ],
       "notes": "Il femminile di re è regina (rea è il femminile di reo)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "fonetica"
       ],
       "notes": "Mam-ma: due sillabe (le doppie si dividono)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "grammatica"
       ],
       "notes": "Gallina/gallo; il pulcino è il piccolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "proverbi"
       ],
       "notes": "\"Chi dorme non piglia pesci\": chi non si dà da fare non ottiene nulla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "grammatica"
       ],
       "notes": "Casetta è diminutivo; casone accrescitivo, casaccia peggiorativo, casale è un'altra parola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "modi di dire"
       ],
       "notes": "A catinelle: come se l'acqua si versasse da un catino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "sicilia"
       ],
       "notes": "Picciriddu (picciridda al femminile) è il bambino in siciliano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "punteggiatura"
       ],
       "notes": "L'apostrofo segnala la caduta della vocale finale (lo albero diventa l'albero)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -207,7 +207,7 @@
       "answers": [
         "Rompito",
         "Rotto",
-        "Rotte",
+        "Rompato",
         "Rompiuto"
       ],
       "correct": [
@@ -218,7 +218,7 @@
         "grammatica"
       ],
       "notes": "Rompere ha participio irregolare: rotto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -241,7 +241,7 @@
         "trabocchetto"
       ],
       "notes": "Davanti a gn si usano lo, gli, uno: lo gnocco, gli gnocchi (dire \"il gnocco\" è un errore)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -263,7 +263,7 @@
         "trabocchetto"
       ],
       "notes": "Le parole in -zia, -zie, -zio si scrivono con una sola z (polizia); pazzia viene da pazzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -286,7 +286,7 @@
         "trabocchetto"
       ],
       "notes": "Il problema, i problemi: nome maschile in -a, di origine greca",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,8 +306,8 @@
       "tags": [
         "ortografia"
       ],
-      "notes": "Soqquadro è l'unica parola italiana con la doppia q",
-      "verified": false
+      "notes": "Soqquadro (con i suoi derivati) è l'unica parola italiana con la doppia q",
+      "verified": true
     },
     {
       "type": "single",
@@ -329,7 +329,7 @@
         "significati"
       ],
       "notes": "Effimero, dal greco: che dura un solo giorno, passeggero (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -350,7 +350,7 @@
         "modi di dire"
       ],
       "notes": "\"In bocca al lupo\", a cui si risponde \"crepi\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -372,7 +372,7 @@
         "congiuntivo"
       ],
       "notes": "Congiuntivo presente: che io vada, che tu vada",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -394,7 +394,7 @@
         "nomi"
       ],
       "notes": "Pescecane unisce pesce e cane; gli altri sono derivati e alterati di pesce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -416,7 +416,7 @@
         "napoli"
       ],
       "notes": "Partenope è l'antico nome di Napoli; felsinei sono i bolognesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -438,7 +438,7 @@
         "retorica"
       ],
       "notes": "Onomatopea: parola che riproduce un suono o un rumore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -460,7 +460,7 @@
         "parentela"
       ],
       "notes": "La moglie del figlio è la nuora",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -482,7 +482,7 @@
         "analisi logica"
       ],
       "notes": "A chi? a Luca: complemento di termine",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -503,7 +503,7 @@
         "modi di dire"
       ],
       "notes": "Fare orecchie da mercante: far finta di non sentire per non agire",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -525,7 +525,7 @@
         "sicilia"
       ],
       "notes": "Taliare (talìa!) significa guardare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -546,7 +546,7 @@
         "istituzioni"
       ],
       "notes": "La Crusca ha sede nella Villa medicea di Castello, a Firenze",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -568,7 +568,7 @@
         "trabocchetto"
       ],
       "notes": "Jeans dal francese Gênes, Genova, da cui partiva il tessuto; denim deriva invece da Nîmes",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -591,7 +591,7 @@
         "trabocchetto"
       ],
       "notes": "Congiuntivo imperfetto: che io stessi; \"stassi\" è un errore comune",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -614,7 +614,7 @@
         "trabocchetto"
       ],
       "notes": "Un paio, due paia: plurale femminile in -a",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -635,7 +635,7 @@
         "etimologia"
       ],
       "notes": "Dal ceco robota \"lavoro forzato\", nel dramma R.U.R. di Karel Čapek (1920)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -657,7 +657,7 @@
         "antica roma"
       ],
       "notes": "Dal latino candidatus, vestito di bianco: i candidati portavano la toga candida",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -679,7 +679,7 @@
         "significati"
       ],
       "notes": "Prolisso: che si dilunga troppo, eccessivamente lungo (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -701,7 +701,7 @@
         "significati"
       ],
       "notes": "Refuso: errore tipografico, una lettera al posto di un'altra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -723,7 +723,7 @@
         "aggettivi"
       ],
       "notes": "Buono: comparativo organico migliore, superlativo ottimo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -745,7 +745,7 @@
         "ausiliari"
       ],
       "notes": "Sono nato: nascere si coniuga sempre con essere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -767,7 +767,7 @@
         "tempi"
       ],
       "notes": "Avrò mangiato: futuro anteriore dell'indicativo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -788,11 +788,11 @@
         "modi di dire"
       ],
       "notes": "Menare il can per l'aia: tergiversare, non arrivare mai al punto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale parola inventò Gabriele D'Annunzio per sostituire l'inglese \"sandwich\"?",
+      "text": "Quale parola, attribuita a Gabriele D'Annunzio, doveva sostituire l'inglese \"sandwich\"?",
       "category": "Lingua italiana",
       "difficulty": 3,
       "presenter": "professore",
@@ -809,8 +809,8 @@
         "etimologia",
         "neologismi"
       ],
-      "notes": "Tramezzino è un neologismo dannunziano degli anni Venti (Treccani)",
-      "verified": false
+      "notes": "Tramezzino, diminutivo di tramezzo, proposto per sandwich (Treccani); il conio è tradizionalmente attribuito a D'Annunzio, anni Venti",
+      "verified": true
     },
     {
       "type": "single",
@@ -832,7 +832,7 @@
         "animali"
       ],
       "notes": "L'elefante barrisce; il leone ruggisce, il cervo bramisce, il maiale grugnisce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -855,7 +855,7 @@
         "trabocchetto"
       ],
       "notes": "Pusillanime: d'animo debole, codardo (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -876,7 +876,7 @@
         "etimologia"
       ],
       "notes": "Da Charles Boycott, amministratore di terre in Irlanda isolato dai contadini nel 1880",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -898,7 +898,7 @@
         "storia"
       ],
       "notes": "Da Mausolo, re di Caria, la cui tomba ad Alicarnasso era una delle sette meraviglie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -920,7 +920,7 @@
         "letteratura"
       ],
       "notes": "Ignavo: pigro, vile; Dante mette gli ignavi nell'Antinferno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -941,7 +941,7 @@
         "retorica"
       ],
       "notes": "Litote: affermare negando il contrario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -963,7 +963,7 @@
         "tempi"
       ],
       "notes": "Ebbi parlato: trapassato remoto dell'indicativo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -985,7 +985,7 @@
         "sicilia"
       ],
       "notes": "Muccaturi, da muccu (moccio): il fazzoletto da naso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1007,7 +1007,7 @@
         "dante"
       ],
       "notes": "Il De vulgari eloquentia (1303-1305) teorizza il volgare illustre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1030,7 +1030,7 @@
         "trabocchetto"
       ],
       "notes": "Esiziale: che porta rovina o morte (Treccani); spesso confuso con essenziale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1052,7 +1052,7 @@
         "significati"
       ],
       "notes": "Icastico: che rappresenta la realtà in modo vivo, incisivo (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1074,7 +1074,7 @@
         "istituzioni"
       ],
       "notes": "La prima edizione del Vocabolario fu stampata a Venezia nel 1612",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1095,7 +1095,7 @@
         "storia della lingua"
       ],
       "notes": "\"Sao ko kelle terre...\": il Placito di Capua del 960",
-      "verified": false
+      "verified": true
     }
   ]
 }

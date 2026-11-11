@@ -22,7 +22,7 @@
         "pixar"
       ],
       "notes": "Lo sceriffo Woody; Buzz Lightyear è il ranger spaziale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "disney"
       ],
       "notes": "Aladdin, Disney 1992",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "disney"
       ],
       "notes": "Cenerentola, Disney 1950",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "marvel"
       ],
       "notes": "Peter Parker è l'Uomo Ragno della Marvel",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "fantascienza"
       ],
       "notes": "Terminator di James Cameron, 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -132,7 +132,7 @@
         "attori"
       ],
       "notes": "Bud Spencer e Terence Hill, coppia da \"Lo chiamavano Trinità\" in poi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -154,7 +154,7 @@
         "luoghi"
       ],
       "notes": "Cinecittà, inaugurata a Roma nel 1937",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -176,7 +176,7 @@
         "dc"
       ],
       "notes": "Bruce Wayne, miliardario di Gotham City",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -198,7 +198,7 @@
         "disney"
       ],
       "notes": "Scar è il fratello di Mufasa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -220,7 +220,7 @@
         "cinema italiano"
       ],
       "notes": "Film del 1997, esordio del trio al cinema",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -242,7 +242,7 @@
         "commedia"
       ],
       "notes": "Kevin McCallister, interpretato da Macaulay Culkin",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -264,7 +264,7 @@
         "classici"
       ],
       "notes": "Coppola, 1972, dal romanzo di Mario Puzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -286,7 +286,7 @@
         "cinema italiano"
       ],
       "notes": "Film di Mario Monicelli con Alberto Sordi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -308,7 +308,7 @@
         "film storici"
       ],
       "notes": "Russell Crowe vinse l'Oscar; Phoenix interpreta Commodo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -330,7 +330,7 @@
         "cinema italiano"
       ],
       "notes": "Primo film da regista di Massimo Troisi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -352,7 +352,7 @@
         "marvel"
       ],
       "notes": "Robert Downey Jr. è Iron Man; Evans è Capitan America, Hemsworth Thor, Ruffalo Hulk",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -374,7 +374,7 @@
         "luoghi"
       ],
       "notes": "Riprese in Nuova Zelanda, patria di Peter Jackson",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -396,7 +396,7 @@
         "thriller"
       ],
       "notes": "Anthony Hopkins, Oscar come miglior attore nel 1992",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -418,7 +418,7 @@
         "pixar"
       ],
       "notes": "Tristezza è blu; Paura è viola, Disgusto verde, Rabbia rossa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -440,7 +440,7 @@
         "anni 90"
       ],
       "notes": "Mrs. Doubtfire – Mammo per sempre, 1993",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -462,7 +462,7 @@
         "azione"
       ],
       "notes": "Die Hard (1988), in Italia \"Trappola di cristallo\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -484,7 +484,7 @@
         "cinema italiano"
       ],
       "notes": "Esordio alla regia di Paola Cortellesi, film in bianco e nero",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -506,7 +506,7 @@
         "trabocchetto"
       ],
       "notes": "Frankenstein è lo scienziato creatore; la creatura non ha nome",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -528,7 +528,7 @@
         "trabocchetto"
       ],
       "notes": "Hollywood è un distretto di Los Angeles, non una città autonoma",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -550,7 +550,7 @@
         "scene celebri"
       ],
       "notes": "Celebre scena del film di Coppola, 1972",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "trabocchetto"
       ],
       "notes": "Nel film sono scarpette di rubino; nel romanzo di Baum erano d'argento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "sicilia"
       ],
       "notes": "Film di Tornatore (2000) ambientato in un paese siciliano, girato tra Siracusa e Noto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,7 +616,7 @@
         "registi"
       ],
       "notes": "Capolavoro del neorealismo con Anna Magnani e Aldo Fabrizi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +638,7 @@
         "cinema italiano"
       ],
       "notes": "Toni Servillo, protagonista del film di Sorrentino premiato con l'Oscar",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -660,7 +660,7 @@
         "cinema italiano"
       ],
       "notes": "Matteo Garrone, Gran Premio della giuria a Cannes 2008",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -682,7 +682,7 @@
         "classici"
       ],
       "notes": "Accanto a Humphrey Bogart, 1942",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -704,7 +704,7 @@
         "trabocchetto"
       ],
       "notes": "88 miglia orarie, circa 141 chilometri orari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -726,7 +726,7 @@
         "italia"
       ],
       "notes": "Il museo ha sede nella Mole Antonelliana dal 2000",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -748,7 +748,7 @@
         "sicilia"
       ],
       "notes": "Taormina Film Fest, al Teatro Antico",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -770,7 +770,7 @@
         "asia"
       ],
       "notes": "Primo film non in lingua inglese premiato come miglior film",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -792,7 +792,7 @@
         "fellini"
       ],
       "notes": "Nino Rota collaborò con Fellini da Lo sceicco bianco a Prova d'orchestra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -814,7 +814,7 @@
         "classici"
       ],
       "notes": "Vacanze romane, 1953",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -836,7 +836,7 @@
         "sicilia"
       ],
       "notes": "Nato a Bagheria nel 1956, che racconta nel film \"Baarìa\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -858,7 +858,7 @@
         "sicilia"
       ],
       "notes": "Pietro Germi, Oscar per la sceneggiatura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -880,7 +880,7 @@
         "attrici"
       ],
       "notes": "Anna Magnani, Oscar come miglior attrice protagonista",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -902,7 +902,7 @@
         "cinema italiano"
       ],
       "notes": "Esordio di Gabriele Mainetti, con Claudio Santamaria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -924,7 +924,7 @@
         "classici"
       ],
       "notes": "The Seven Year Itch (1955) di Billy Wilder",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -946,7 +946,7 @@
         "cinema italiano"
       ],
       "notes": "Carlo Pedersoli; Mario Girotti è Terence Hill, Ranucci è Rascel, de Curtis è Totò",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -968,7 +968,7 @@
         "trabocchetto"
       ],
       "notes": "La battuta è \"No, io sono tuo padre\": \"Luke, io sono tuo padre\" è una citazione sbagliata",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -990,7 +990,7 @@
         "trabocchetto"
       ],
       "notes": "Cinque candidature e nessuna vittoria; ricevette solo il premio Thalberg nel 1968",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1012,7 +1012,7 @@
         "trabocchetto"
       ],
       "notes": "Nato a Beirut nel 1964, cresciuto a Toronto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1034,7 +1034,7 @@
         "documentari"
       ],
       "notes": "Primo documentario a vincere il Leone d'oro; Fuocoammare vinse l'Orso d'oro 2016",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1056,7 +1056,7 @@
         "fellini"
       ],
       "notes": "La strada di Fellini; prima di allora il premio era solo onorario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1078,7 +1078,7 @@
         "cinema italiano"
       ],
       "notes": "Nei titoli del 1964 compariva \"Bob Robertson\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1100,7 +1100,7 @@
         "trabocchetto"
       ],
       "notes": "Fargo è nel Dakota del Nord, ma il film si svolge quasi tutto in Minnesota (Brainerd e Minneapolis)",
-      "verified": false
+      "verified": true
     }
   ]
 }

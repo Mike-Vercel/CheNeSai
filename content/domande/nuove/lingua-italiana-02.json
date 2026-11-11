@@ -22,7 +22,7 @@
         "lessico"
       ],
       "notes": "Pesante/leggero sono antonimi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "lessico"
       ],
       "notes": "Iniziare e cominciare sono sinonimi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "nomi"
       ],
       "notes": "Roma indica una città precisa: è un nome proprio e si scrive con la maiuscola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "lessico"
       ],
       "notes": "Entrare/uscire sono antonimi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "proverbi"
       ],
       "notes": "Proverbio: tra il dire e il fare c'è di mezzo il mare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "modi di dire"
       ],
       "notes": "Avere le mani bucate: spendere con troppa facilità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "analisi logica"
       ],
       "notes": "Luca mangia che cosa? una mela: complemento oggetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "storia della lingua"
       ],
       "notes": "Dante, con la Commedia, è tradizionalmente detto padre della lingua italiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "grammatica"
       ],
       "notes": "Tre coniugazioni: in -are, -ere e -ire",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -217,7 +217,7 @@
         "meteo"
       ],
       "notes": "\"Rosso di sera, bel tempo si spera\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -239,7 +239,7 @@
         "trabocchetto"
       ],
       "notes": "Dal latino dies dominica, giorno del Signore (in inglese invece Sunday è il giorno del sole)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "trabocchetto"
       ],
       "notes": "Radio (abbreviazione di radiofonia) è invariabile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "grammatica"
       ],
       "notes": "Per le braccia del corpo il plurale è \"le braccia\"; \"i bracci\" vale per oggetti (i bracci di una gru)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "fonetica"
       ],
       "notes": "Città ha l'accento sull'ultima sillaba; casa è piana, albero e tavolo sdrucciole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -327,7 +327,7 @@
         "modi di dire"
       ],
       "notes": "Fare il portoghese: entrare a spettacoli o viaggiare senza pagare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "coniugazioni"
       ],
       "notes": "Passato remoto di essere: io fui, tu fosti, egli fu",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -370,7 +370,7 @@
         "lessico"
       ],
       "notes": "Antonimo: parola di significato contrario (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -391,7 +391,7 @@
         "proverbi"
       ],
       "notes": "\"Ride bene chi ride ultimo\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -413,7 +413,7 @@
         "significati"
       ],
       "notes": "Filantropo, dal greco: amico degli uomini; il misantropo li odia, il filatelico colleziona francobolli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -434,7 +434,7 @@
         "giochi di parole"
       ],
       "notes": "Attore e teatro usano le stesse sei lettere: a, t, t, o, r, e",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -456,7 +456,7 @@
         "fonetica"
       ],
       "notes": "L'acca è muta: serve per distinguere ho da o o per i suoni duri (che, ghi)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -477,7 +477,7 @@
         "modi di dire"
       ],
       "notes": "Prendere un granchio: commettere un errore, prendere un abbaglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -499,7 +499,7 @@
         "animali"
       ],
       "notes": "Sciame per api e insetti; stormo per gli uccelli; branco e gregge per mammiferi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -521,7 +521,7 @@
         "venezia"
       ],
       "notes": "A Venezia le vie si chiamano calli; a Genova carruggi; vanedde in Sicilia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -543,7 +543,7 @@
         "animali"
       ],
       "notes": "L'asino raglia; il cavallo nitrisce, la pecora bela, la mucca muggisce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -565,7 +565,7 @@
         "trabocchetto"
       ],
       "notes": "Bistecca è l'adattamento dell'inglese beefsteak (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -587,7 +587,7 @@
         "trabocchetto"
       ],
       "notes": "Aiuole: a, i, u, o, e più la sola consonante l",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -609,7 +609,7 @@
         "sicilia"
       ],
       "notes": "Nisseni da Nissa, nome antico della città; calatini sono di Caltagirone, netini di Noto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -630,7 +630,7 @@
         "etimologia"
       ],
       "notes": "Dal latino salarium, legato al sale: in origine la somma data per comprarlo (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -651,7 +651,7 @@
         "etimologia"
       ],
       "notes": "Dal latino sabbatum, che riprende l'ebraico shabbat, giorno di riposo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -673,7 +673,7 @@
         "significati"
       ],
       "notes": "Tergiversare: prendere tempo, eludere una decisione con pretesti (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -694,7 +694,7 @@
         "retorica"
       ],
       "notes": "Iperbole: esagerazione per eccesso o per difetto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -716,7 +716,7 @@
         "composti"
       ],
       "notes": "Arcobaleno è ormai una parola unica: il plurale è arcobaleni (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -738,7 +738,7 @@
         "fonetica"
       ],
       "notes": "Parola piana: accento sulla penultima, il caso più comune in italiano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -760,7 +760,7 @@
         "nomi"
       ],
       "notes": "Nozze è un nome difettivo del singolare (Treccani: s. f. pl.)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -782,7 +782,7 @@
         "sicilia"
       ],
       "notes": "I babbaluci sono le lumache, tipiche a Palermo per il Festino di Santa Rosalia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -804,7 +804,7 @@
         "letteratura"
       ],
       "notes": "Manzoni andò a Firenze per adottare il fiorentino colto: \"risciacquare i panni in Arno\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -826,7 +826,7 @@
         "trabocchetto"
       ],
       "notes": "Dal latino schola, dal greco scholé: ozio, tempo libero dedicato allo studio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -849,7 +849,7 @@
         "trabocchetto"
       ],
       "notes": "Porre viene dal latino ponere: è della seconda coniugazione, come trarre e condurre",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -870,7 +870,7 @@
         "etimologia"
       ],
       "notes": "Dall'arabo amir, comandante (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -892,7 +892,7 @@
         "significati"
       ],
       "notes": "Ottemperare: conformarsi, ubbidire a un ordine o a una norma (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -913,7 +913,7 @@
         "retorica"
       ],
       "notes": "Il contenente per il contenuto è un tipo di metonimia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -935,7 +935,7 @@
         "significati"
       ],
       "notes": "Serendipità: trovare qualcosa di prezioso cercando altro, dall'inglese serendipity",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -957,7 +957,7 @@
         "fonetica"
       ],
       "notes": "Te-lè-fo-na-no: accento sulla quartultima; telefono è sdrucciola, telefonata e telefonista piane",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -979,7 +979,7 @@
         "sicilia"
       ],
       "notes": "Gli arbëreshë, albanesi d'Italia, parlano arbëresh; il griko è greco del Salento",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1001,7 +1001,7 @@
         "significati"
       ],
       "notes": "Da Pantagruel, gigante di Rabelais: pasto pantagruelico, enorme",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1022,7 +1022,7 @@
         "etimologia"
       ],
       "notes": "Dal veneziano gazeta, piccola moneta: il prezzo dei primi fogli di notizie (Treccani)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1044,7 +1044,7 @@
         "significati"
       ],
       "notes": "Apotropaico: che scaccia il male, come il corno portafortuna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "storia della lingua"
       ],
       "notes": "Bembo propose il fiorentino del Trecento come modello letterario",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1086,7 +1086,7 @@
         "etimologia"
       ],
       "notes": "Incrocio di ciarlare con cerretano, abitante di Cerreto (Treccani)",
-      "verified": false
+      "verified": true
     }
   ]
 }

@@ -22,7 +22,7 @@
         "internet"
       ],
       "notes": "Esempio: nome@dominio.it, dove @ è la chiocciola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -43,7 +43,7 @@
         "videogiochi"
       ],
       "notes": "Mario debuttò nel 1981 in Donkey Kong di Nintendo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "illuminazione"
       ],
       "notes": "I LED consumano fino all'80-90 per cento in meno delle lampadine a incandescenza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "storia"
       ],
       "notes": "Kitty Hawk, 17 dicembre 1903; i Montgolfier volarono in mongolfiera nel 1783",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "software"
       ],
       "notes": "\"App\" è l'abbreviazione di \"application\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "motori"
       ],
       "notes": "La Vespa fu progettata da Corradino D'Ascanio; la Lambretta era della Innocenti, Ape e Ciao arrivarono dopo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "assistenti vocali"
       ],
       "notes": "Siri è integrata negli iPhone dal 2011 (iPhone 4S)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "videogiochi"
       ],
       "notes": "Pac-Man, Namco, 1980",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "storia"
       ],
       "notes": "Gutenberg stampò la sua Bibbia a Magonza intorno al 1455",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -219,7 +219,7 @@
         "storia"
       ],
       "notes": "Fabbrica Italiana Automobili Torino, 11 luglio 1899; Lancia 1906 (Torino), Alfa Romeo 1910 (Milano), Maserati 1914 (Bologna)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -241,7 +241,7 @@
         "italia"
       ],
       "notes": "Meucci, nato a Firenze nel 1808; nel 2002 il Congresso USA ne riconobbe il ruolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "invenzioni"
       ],
       "notes": "Edison presentò la lampadina a filamento di carbonio a Menlo Park nel dicembre 1879",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "scorciatoie"
       ],
       "notes": "Ctrl+V incolla, Ctrl+C copia, Ctrl+X taglia, Ctrl+Z annulla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -305,7 +305,7 @@
         "videogiochi"
       ],
       "notes": "Il Wii, con il telecomando sensibile al movimento, uscì a fine 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -326,7 +326,7 @@
         "videogiochi"
       ],
       "notes": "Tetris fu creato da Aleksej Pažitnov a Mosca nel 1984",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -348,7 +348,7 @@
         "formati"
       ],
       "notes": "L'MP3 fu sviluppato dal Fraunhofer Institute; WAV e AIFF non sono compressi, MIDI non è audio registrato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -370,7 +370,7 @@
         "dati"
       ],
       "notes": "Il backup permette di recuperare i dati persi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -392,7 +392,7 @@
         "europa"
       ],
       "notes": "Galileo è il sistema di posizionamento dell'Unione Europea; Copernicus è per l'osservazione della Terra, Glonass è russo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -414,7 +414,7 @@
         "aziende"
       ],
       "notes": "Fondata da Jeff Bezos a Seattle nel 1994; eBay nacque nel 1995",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -435,7 +435,7 @@
         "aviazione"
       ],
       "notes": "Il Concorde anglo-francese volava a circa due volte la velocità del suono",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -457,7 +457,7 @@
         "sigle"
       ],
       "notes": "E-mail sta per electronic mail",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -479,7 +479,7 @@
         "gps"
       ],
       "notes": "Il navigatore satellitare calcola la posizione con i segnali dei satelliti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -500,7 +500,7 @@
         "stampa 3d"
       ],
       "notes": "La stampante 3D costruisce oggetti tridimensionali strato dopo strato",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -522,7 +522,7 @@
         "trabocchetto"
       ],
       "notes": "I pannelli solari termici scaldano l'acqua; solo quelli fotovoltaici producono corrente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -544,7 +544,7 @@
         "interfacce"
       ],
       "notes": "È il cosiddetto menu \"hamburger\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -566,7 +566,7 @@
         "video"
       ],
       "notes": "YouTube fu fondato nel febbraio 2005; Netflix nel 1997, Vimeo nel 2004, Twitch nel 2011",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -588,7 +588,7 @@
         "hardware"
       ],
       "notes": "La RAM è una memoria volatile",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -610,7 +610,7 @@
         "curiosità"
       ],
       "notes": "Harald \"Dente azzurro\" Gormsson, re di Danimarca nel X secolo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -633,7 +633,7 @@
         "italia"
       ],
       "notes": "Inaugurata il 3 ottobre 1839 nel Regno delle Due Sicilie; la Milano-Monza è del 1840",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -655,7 +655,7 @@
         "sicurezza"
       ],
       "notes": "HTTPS = HTTP Secure, con crittografia dei dati scambiati",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -677,7 +677,7 @@
         "privacy"
       ],
       "notes": "I cookie sono piccoli file di testo che i siti salvano nel browser",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -699,7 +699,7 @@
         "storia"
       ],
       "notes": "Il Game Boy uscì in Giappone il 21 aprile 1989",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -721,7 +721,7 @@
         "storia"
       ],
       "notes": "Il 3 dicembre 1992 Neil Papworth inviò \"Merry Christmas\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,11 +743,11 @@
         "reti"
       ],
       "notes": "Il firewall filtra le connessioni in entrata e in uscita",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quante lettere ci sono nella prima riga di una tastiera americana?",
+      "text": "In una tastiera americana, quante lettere ci sono nella fila che comincia con la Q?",
       "category": "Tecnologia",
       "difficulty": 3,
       "presenter": "professore",
@@ -765,7 +765,7 @@
         "tastiera"
       ],
       "notes": "Q, W, E, R, T, Y, U, I, O, P: dieci lettere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,11 +787,11 @@
         "open source"
       ],
       "notes": "Il pinguino Tux, disegnato nel 1996; lo gnu è il simbolo del progetto GNU",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "In che anno fu messo online il primo sito web della storia, al CERN?",
+      "text": "In che anno fu reso pubblico il primo sito web della storia, creato al CERN?",
       "category": "Tecnologia",
       "difficulty": 3,
       "presenter": "professore",
@@ -808,8 +808,8 @@
         "web",
         "storia"
       ],
-      "notes": "Il sito info.cern.ch di Tim Berners-Lee fu aperto al pubblico nell'agosto 1991",
-      "verified": false
+      "notes": "Il sito info.cern.ch di Tim Berners-Lee, attivo sulla rete del CERN da fine 1990, fu annunciato al pubblico nell'agosto 1991",
+      "verified": true
     },
     {
       "type": "single",
@@ -831,7 +831,7 @@
         "linguaggi"
       ],
       "notes": "Guido van Rossum lo chiamò così in onore dei Monty Python",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -854,11 +854,11 @@
         "trabocchetto"
       ],
       "notes": "Alexander Bain brevettò la trasmissione di immagini via telegrafo nel 1843; telefono 1876, lampadina 1879, automobile 1886",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Il nome del browser Firefox in inglese indica quale animale?",
+      "text": "Secondo Mozilla, quale animale indica il nome inglese del browser Firefox?",
       "category": "Tecnologia",
       "difficulty": 4,
       "presenter": "professore",
@@ -877,7 +877,7 @@
         "trabocchetto"
       ],
       "notes": "\"Firefox\" è un nome inglese del panda rosso, come spiega Mozilla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -900,7 +900,7 @@
         "musica"
       ],
       "notes": "Cristofori costruì a Firenze il \"gravicembalo col piano e forte\" intorno al 1700",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -910,7 +910,7 @@
       "presenter": "professore",
       "answers": [
         "Volta e Galvani",
-        "Benz e Daimler",
+        "Ferraris e Pacinotti",
         "Meucci e Marconi",
         "Barsanti e Matteucci"
       ],
@@ -923,7 +923,7 @@
         "italia"
       ],
       "notes": "Eugenio Barsanti e Felice Matteucci depositarono la loro memoria a Firenze nel 1853",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -946,7 +946,7 @@
         "trabocchetto"
       ],
       "notes": "Il prototipo di Douglas Engelbart (1964) era una scatoletta di legno con due rotelle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -969,7 +969,7 @@
         "trabocchetto"
       ],
       "notes": "Nokia nacque come cartiera fondata da Fredrik Idestam",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -991,7 +991,7 @@
         "storia"
       ],
       "notes": "Martin Cooper di Motorola chiamò da un prototipo il 3 aprile 1973",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1013,7 +1013,7 @@
         "italia"
       ],
       "notes": "Galileo Ferraris, nato in provincia di Vercelli, lo presentò nel 1888",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1035,7 +1035,7 @@
         "italia"
       ],
       "notes": "San Marco 1, lanciato il 15 dicembre 1964 dalla base di Wallops Island",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1057,7 +1057,7 @@
         "italia"
       ],
       "notes": "Giuseppe Ravizza, nato a Novara nel 1811, brevettò il cembalo scrivano nel 1855",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1079,7 +1079,7 @@
         "storia"
       ],
       "notes": "Il linguaggio C nacque tra il 1969 e il 1973 per scrivere Unix",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1101,7 +1101,7 @@
         "italia"
       ],
       "notes": "L'Elea 9003 fu progettato dal gruppo di Mario Tchou",
-      "verified": false
+      "verified": true
     }
   ]
 }

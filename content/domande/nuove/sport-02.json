@@ -22,7 +22,7 @@
         "tour de france"
       ],
       "notes": "La maglia gialla (maillot jaune) dal 1919, colore delle pagine del giornale L'Auto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "mondiali"
       ],
       "notes": "Berlino, 9 luglio 2006: Italia-Francia 1-1, 5-3 ai rigori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "sicilia"
       ],
       "notes": "Il Palermo è il \"rosanero\": maglia rosa e nera dal 1907",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -87,7 +87,7 @@
         "football americano"
       ],
       "notes": "Il Super Bowl è la finale della NFL, il campionato di football americano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -109,7 +109,7 @@
         "regole"
       ],
       "notes": "Il cartellino rosso espelle il giocatore; il giallo è un'ammonizione",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "campioni italiani"
       ],
       "notes": "Valentino Rossi: 9 titoli mondiali nel motomondiale (125, 250, 500 e MotoGP)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,8 +152,8 @@
         "calcio",
         "serie a"
       ],
-      "notes": "Lo scudetto (idea di D'Annunzio, 1920) va al campione d'Italia; la coccarda a chi vince la Coppa Italia",
-      "verified": false
+      "notes": "Lo scudetto (idea di D'Annunzio, 1920; sulle maglie dal 1924) va al campione d'Italia; la coccarda a chi vince la Coppa Italia",
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "regole"
       ],
       "notes": "La bandiera a scacchi bianchi e neri indica l'arrivo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "nuoto"
       ],
       "notes": "Il dorso è l'unico stile olimpico nuotato sulla schiena",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "europei"
       ],
       "notes": "11 luglio 2021: Italia-Inghilterra 1-1, l'Italia vince ai rigori (Euro 2020)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "trabocchetto"
       ],
       "notes": "Rinviate per la pandemia, si svolsero dal 23 luglio all'8 agosto 2021 mantenendo il nome Tokyo 2020",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "regole"
       ],
       "notes": "Il percorso standard ha 18 buche (fissato a St Andrews nel 1764)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "regole"
       ],
       "notes": "Ace: battuta vincente senza che il ricevitore tocchi la palla",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -307,7 +307,7 @@
         "stadi"
       ],
       "notes": "Lo stadio Renzo Barbera (ex Favorita) è lo stadio del Palermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -330,7 +330,7 @@
         "stadi"
       ],
       "notes": "Lo stadio Angelo Massimino (ex Cibali) è lo stadio del Catania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -352,7 +352,7 @@
         "mondiali"
       ],
       "notes": "Madrid, 11 luglio 1982: Italia-Germania Ovest 3-1",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -374,7 +374,7 @@
         "formula 1"
       ],
       "notes": "La sede e la fabbrica Ferrari sono a Maranello (Modena); a Sant'Agata Bolognese c'è la Lamborghini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -395,7 +395,7 @@
         "tennis"
       ],
       "notes": "Australian Open, Roland Garros, Wimbledon e US Open formano il Grande Slam",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -416,7 +416,7 @@
         "sport invernali"
       ],
       "notes": "Il biathlon alterna fondo e poligono; la combinata nordica unisce fondo e salto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -437,7 +437,7 @@
         "nuoto"
       ],
       "notes": "Lo stile farfalla (delfino) ha bracciata simultanea e gambata ondulatoria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -459,7 +459,7 @@
         "soprannomi"
       ],
       "notes": "La Fiorentina gioca in maglia viola dal 1929",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -481,7 +481,7 @@
         "campioni italiani"
       ],
       "notes": "Pantani fece la doppietta Giro-Tour nel 1998",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -503,7 +503,7 @@
         "mondiali"
       ],
       "notes": "1934, 1938, 1982 e 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -525,7 +525,7 @@
         "mondiali"
       ],
       "notes": "Argentina-Inghilterra 2-1, Città del Messico, 22 giugno 1986",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -547,7 +547,7 @@
         "sicilia"
       ],
       "notes": "La Targa Florio, ideata da Vincenzo Florio, si corre sulle Madonie dal 1906",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -570,7 +570,7 @@
         "trabocchetto"
       ],
       "notes": "Pierre de Coubertin era francese; il CIO nacque a Parigi nel 1894, poi si trasferì a Losanna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -593,7 +593,7 @@
         "trabocchetto"
       ],
       "notes": "Wimbledon passò dalle palline bianche a quelle gialle nel 1986; il bianco resta obbligatorio solo per i completi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -614,8 +614,8 @@
         "olimpiadi",
         "trabocchetto"
       ],
-      "notes": "Dal 1912 le medaglie d'oro sono d'argento placcato: almeno 92,5% argento e 6 grammi d'oro (CIO)",
-      "verified": false
+      "notes": "Le ultime medaglie d'oro massiccio furono quelle di Stoccolma 1912; oggi sono d'argento placcato: almeno 92,5% argento e 6 grammi d'oro (CIO)",
+      "verified": true
     },
     {
       "type": "single",
@@ -637,7 +637,7 @@
         "tour de france"
       ],
       "notes": "Grand Départ del 29 giugno 2024: tappa Firenze-Rimini, prima partenza del Tour dall'Italia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -659,7 +659,7 @@
         "regole"
       ],
       "notes": "Sei giocatori di movimento più il portiere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -681,7 +681,7 @@
         "campioni italiani"
       ],
       "notes": "Bartali vinse il Tour a dieci anni di distanza, nel 1938 e nel 1948",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -703,7 +703,7 @@
         "mondiali"
       ],
       "notes": "Finale all'Olympiastadion di Berlino, 9 luglio 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -725,7 +725,7 @@
         "stadi"
       ],
       "notes": "Il Maracanã, inaugurato nel 1950, è a Rio de Janeiro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -747,7 +747,7 @@
         "classiche"
       ],
       "notes": "La Milano-Sanremo, la più lunga delle classiche, è detta Classicissima o Corsa di primavera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -769,7 +769,7 @@
         "serie a"
       ],
       "notes": "Lo storico scudetto del Cagliari 1969-70, con Riva capocannoniere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -791,11 +791,11 @@
         "trofei"
       ],
       "notes": "La coppa della Champions League (ex Coppa dei Campioni) ha due grandi manici",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Quale arte marziale giapponese, il cui nome significa \"via della cedevolezza\", è olimpica dal 1964?",
+      "text": "Quale arte marziale giapponese, il cui nome significa \"via della cedevolezza\", debuttò alle Olimpiadi nel 1964?",
       "category": "Sport",
       "difficulty": 3,
       "presenter": "professore",
@@ -812,8 +812,8 @@
         "arti marziali",
         "olimpiadi"
       ],
-      "notes": "Il judo debuttò ai Giochi di Tokyo 1964; il karate solo a Tokyo 2020",
-      "verified": false
+      "notes": "Il judo debuttò ai Giochi di Tokyo 1964 (assente nel 1968, stabile dal 1972); il karate solo a Tokyo 2020",
+      "verified": true
     },
     {
       "type": "single",
@@ -836,7 +836,7 @@
         "trabocchetto"
       ],
       "notes": "Il National Sports of Canada Act (1994) indica il lacrosse per l'estate e l'hockey per l'inverno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -858,7 +858,7 @@
         "storia"
       ],
       "notes": "13 maggio 1950, Gran Premio di Gran Bretagna a Silverstone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -880,7 +880,7 @@
         "europei"
       ],
       "notes": "Europeo 1968 giocato in Italia: finale ripetuta vinta 2-0 sulla Jugoslavia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -902,7 +902,7 @@
         "campioni italiani"
       ],
       "notes": "Di Centa vinse 15 e 30 km a Lillehammer 1994 (cinque medaglie in tutto)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -924,7 +924,7 @@
         "serie a"
       ],
       "notes": "L'Hellas Verona di Osvaldo Bagnoli vinse il suo unico scudetto nel 1985",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -946,7 +946,7 @@
         "storia"
       ],
       "notes": "I primi Giochi invernali si svolsero a Chamonix nel 1924",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -968,7 +968,7 @@
         "campioni italiani"
       ],
       "notes": "Carnera conquistò il titolo mondiale dei massimi battendo Jack Sharkey nel 1933",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -990,7 +990,7 @@
         "coppe europee"
       ],
       "notes": "Parigi, 13 giugno 1956: Real Madrid-Reims 4-3",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1012,7 +1012,7 @@
         "italia"
       ],
       "notes": "La Minardi di Giancarlo Minardi corse in F1 dal 1985 al 2005, poi fu venduta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1034,7 +1034,7 @@
         "storia"
       ],
       "notes": "Nino Farina, su Alfa Romeo, campione del mondo 1950",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1056,7 +1056,7 @@
         "storia"
       ],
       "notes": "Roma rinunciò dopo l'eruzione del Vesuvio del 1906; i Giochi si tennero a Londra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1078,7 +1078,7 @@
         "ferrari"
       ],
       "notes": "Alberto Ascari fu campione con la Ferrari nel 1952 e nel 1953",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1100,7 +1100,7 @@
         "storia"
       ],
       "notes": "I primi Giochi del Mediterraneo si tennero ad Alessandria d'Egitto nel 1951",
-      "verified": false
+      "verified": true
     }
   ]
 }

@@ -22,7 +22,7 @@
         "anni 60"
       ],
       "notes": "Adriano Celentano, Sanremo 1966",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "tenori"
       ],
       "notes": "Andrea Bocelli, Sanremo 1995",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "pop"
       ],
       "notes": "Adele, 2010 e 2015",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "pop"
       ],
       "notes": "Ed Sheeran, 2017",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "band"
       ],
       "notes": "Rolling Stones, dal 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "anni 80"
       ],
       "notes": "Al Bano e Romina, Sanremo 1982",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "latino"
       ],
       "notes": "Nata a Barranquilla, in Colombia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -174,7 +174,7 @@
         "pop"
       ],
       "notes": "Oscar 1998 per la miglior canzone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "anni 90"
       ],
       "notes": "Eros Ramazzotti, 1996",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -218,7 +218,7 @@
         "scuola"
       ],
       "notes": "Il flauto dolce, spesso di plastica",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -240,7 +240,7 @@
         "anni 70"
       ],
       "notes": "Umberto Tozzi, 1977",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -261,7 +261,7 @@
         "sanremo"
       ],
       "notes": "Mahmood e Blanco, 2022",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -283,7 +283,7 @@
         "anni 90"
       ],
       "notes": "Nek, 1997",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -305,7 +305,7 @@
         "anni 70"
       ],
       "notes": "Mogol, pseudonimo di Giulio Rapetti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -327,7 +327,7 @@
         "anni 80"
       ],
       "notes": "Gianna Nannini, 1986",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -349,7 +349,7 @@
         "verdi"
       ],
       "notes": "Nell'antico Egitto; Aida è una principessa etiope fatta schiava",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -371,7 +371,7 @@
         "soprannomi"
       ],
       "notes": "Maria Callas (1923-1977)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -392,7 +392,7 @@
         "classica"
       ],
       "notes": "Salisburgo, 1756",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -414,7 +414,7 @@
         "danza"
       ],
       "notes": "Valzer del 1867",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -436,7 +436,7 @@
         "trabocchetto"
       ],
       "notes": "\"Piano\" è un'indicazione di intensità, non di velocità",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -458,7 +458,7 @@
         "orchestra"
       ],
       "notes": "Il contrabbasso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -480,7 +480,7 @@
         "beatles"
       ],
       "notes": "Negli studi di Abbey Road, a Londra, i Beatles registrarono quasi tutti i loro dischi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -502,7 +502,7 @@
         "anni 70"
       ],
       "notes": "Eagles, 1976",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -523,7 +523,7 @@
         "sanremo"
       ],
       "notes": "Il Volo, 2015",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -532,7 +532,7 @@
       "difficulty": 2,
       "presenter": "professore",
       "answers": [
-        "In chiesa",
+        "Improvvisando",
         "Senza strumenti",
         "In coro",
         "A bassa voce"
@@ -545,7 +545,7 @@
         "trabocchetto"
       ],
       "notes": "Solo voci, senza accompagnamento strumentale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -567,7 +567,7 @@
         "band"
       ],
       "notes": "Pooh, 1990",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -589,7 +589,7 @@
         "anni 70"
       ],
       "notes": "Francesco Guccini, 1972",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -611,7 +611,7 @@
         "nomi d'arte"
       ],
       "notes": "Zucchero Fornaciari, nato a Roncocesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -633,7 +633,7 @@
         "trabocchetto"
       ],
       "notes": "Nato a Polignano a Mare nel 1928; agli inizi cantava in siciliano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -655,7 +655,7 @@
         "verdi"
       ],
       "notes": "Violetta Valéry; Mimì è della Bohème, Gilda del Rigoletto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -677,7 +677,7 @@
         "italia"
       ],
       "notes": "Pesaro, 1792, sede del Rossini Opera Festival",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -699,7 +699,7 @@
         "trabocchetto"
       ],
       "notes": "Nato a Bonn nel 1770; visse e morì a Vienna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -721,7 +721,7 @@
         "sicilia"
       ],
       "notes": "Il marranzano; il friscalettu è un piccolo flauto siciliano",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -743,7 +743,7 @@
         "anni 80"
       ],
       "notes": "Speciale Motown 25, 1983",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -765,7 +765,7 @@
         "trabocchetto"
       ],
       "notes": "A Sydney nel 1973, dai fratelli Young nati in Scozia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -787,7 +787,7 @@
         "sanremo"
       ],
       "notes": "Prima vittoria italiana all'Eurovision",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -809,7 +809,7 @@
         "trabocchetto"
       ],
       "notes": "Scritta da Totò nel 1951",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -831,7 +831,7 @@
         "opera"
       ],
       "notes": "Dall'opera La Valchiria di Wagner",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -853,7 +853,7 @@
         "napoli"
       ],
       "notes": "Il San Carlo di Napoli; La Fenice è del 1792, la Scala del 1778",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -875,7 +875,7 @@
         "storia"
       ],
       "notes": "Testo di Goffredo Mameli, musica di Michele Novaro, 1847",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -897,7 +897,7 @@
         "nomi d'arte"
       ],
       "notes": "Reginald Dwight; Sumner è Sting, Bulsara è Freddie Mercury, Jones è David Bowie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -918,7 +918,7 @@
         "eurovision"
       ],
       "notes": "Seconda vittoria italiana, a Zagabria",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -940,7 +940,7 @@
         "anni 80"
       ],
       "notes": "Perdere l'amore, Sanremo 1988",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -962,7 +962,7 @@
         "soprannomi"
       ],
       "notes": "Claudio Villa, quattro volte vincitore di Sanremo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -984,7 +984,7 @@
         "trabocchetto"
       ],
       "notes": "Usa un'ancia come il clarinetto, quindi è un legno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1006,7 +1006,7 @@
         "produttori"
       ],
       "notes": "Nato a Ortisei nel 1940, produsse \"I Feel Love\" per Donna Summer",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1026,8 +1026,8 @@
       "tags": [
         "canzone napoletana"
       ],
-      "notes": "Musica di Eduardo Di Capua, testo di Giovanni Capurro",
-      "verified": false
+      "notes": "Musica di Eduardo Di Capua, testo di Giovanni Capurro (nel 2002 un tribunale riconobbe anche Alfredo Mazzucchi come coautore della musica)",
+      "verified": true
     },
     {
       "type": "single",
@@ -1049,7 +1049,7 @@
         "barocco"
       ],
       "notes": "Claudio Monteverdi, tra le prime opere della storia",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1071,7 +1071,7 @@
         "strumenti"
       ],
       "notes": "Flauto l'uccellino, oboe l'anatra, fagotto il nonno, clarinetto il gatto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1093,7 +1093,7 @@
         "verdi"
       ],
       "notes": "Le Roncole, oggi Roncole Verdi; a Sant'Agata (Villanova sull'Arda) ebbe la villa",
-      "verified": false
+      "verified": true
     }
   ]
 }

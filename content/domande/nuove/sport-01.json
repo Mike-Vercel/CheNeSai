@@ -23,7 +23,7 @@
         "trabocchetto"
       ],
       "notes": "11 per squadra, quindi 22 in totale: chi risponde 11 cade nel tranello",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -45,7 +45,7 @@
         "regole"
       ],
       "notes": "Ogni tiro libero segnato vale un punto (regolamento FIBA)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -66,7 +66,7 @@
         "baseball"
       ],
       "notes": "Nel baseball il battitore colpisce e corre lungo le quattro basi del diamante",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -88,7 +88,7 @@
         "nazionale"
       ],
       "notes": "Gli \"Azzurri\": il colore richiama Casa Savoia; la maglia azzurra è in uso dal 1911",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -110,7 +110,7 @@
         "regole"
       ],
       "notes": "Sei giocatori per squadra in campo (regolamento FIVB)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -131,7 +131,7 @@
         "sport invernali"
       ],
       "notes": "Lo snowboard si pratica su una sola tavola; slittino, bob e skeleton sono slitte",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -153,7 +153,7 @@
         "regole"
       ],
       "notes": "Due tempi da 45 minuti ciascuno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -175,7 +175,7 @@
         "ruoli"
       ],
       "notes": "Il portiere è l'unico che può usare le mani nella propria area",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -197,7 +197,7 @@
         "soprannomi"
       ],
       "notes": "Il Milan rossonero è detto \"il Diavolo\"; l'Inter è il Biscione, la Juventus la Vecchia Signora",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -219,11 +219,11 @@
         "campioni italiani"
       ],
       "notes": "Sinner batté Medvedev nella finale di Melbourne del 28 gennaio 2024",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "In quale Paese furono scritte nel 1863 le prime regole ufficiali del calcio moderno?",
+      "text": "In quale Paese nacque nel 1863 la Football Association, che fissò le regole del calcio moderno?",
       "category": "Sport",
       "difficulty": 2,
       "presenter": "professore",
@@ -238,11 +238,10 @@
       ],
       "tags": [
         "calcio",
-        "storia",
-        "trabocchetto"
+        "storia"
       ],
-      "notes": "La Football Association nacque a Londra nel 1863 e ne fissò le regole",
-      "verified": false
+      "notes": "La Football Association nacque a Londra il 26 ottobre 1863 e ne fissò le regole",
+      "verified": true
     },
     {
       "type": "single",
@@ -263,7 +262,7 @@
         "badminton"
       ],
       "notes": "Il volano (shuttlecock) si usa solo nel badminton",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +283,7 @@
         "atletica"
       ],
       "notes": "I quattro lanci olimpici: peso, disco, martello e giavellotto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +305,7 @@
         "simboli"
       ],
       "notes": "L'aquila è l'emblema della S.S. Lazio; la lupa è della Roma, il grifone del Genoa, il biscione dell'Inter",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -328,7 +327,7 @@
         "derby"
       ],
       "notes": "Il derby di Milano prende il nome dalla Madonnina del Duomo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -350,7 +349,7 @@
         "regole"
       ],
       "notes": "La meta vale 5 punti dal 1992; la trasformazione ne aggiunge 2",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -372,7 +371,7 @@
         "mondiali"
       ],
       "notes": "Paolo Rossi segnò 6 gol a Spagna 1982 e vinse anche il Pallone d'oro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -394,7 +393,7 @@
         "campioni italiani"
       ],
       "notes": "1 agosto 2021: oro condiviso con Mutaz Barshim nel salto in alto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -416,7 +415,7 @@
         "regole"
       ],
       "notes": "Il dischetto è a 11 metri (12 yard) dalla linea di porta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -437,7 +436,7 @@
         "scherma"
       ],
       "notes": "Le tre armi della scherma: fioretto, spada e sciabola",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -458,7 +457,7 @@
         "formula 1"
       ],
       "notes": "La pole position spetta al più veloce nelle qualifiche",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -480,7 +479,7 @@
         "soprannomi"
       ],
       "notes": "Roberto Baggio, Pallone d'oro 1993, famoso per il codino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -502,7 +501,7 @@
         "sicilia"
       ],
       "notes": "Il messinese Nibali vinse il Tour 2014; aveva già vinto la Vuelta 2010 e il Giro 2013",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -524,7 +523,7 @@
         "italia"
       ],
       "notes": "XX Giochi olimpici invernali, Torino, febbraio 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -546,7 +545,7 @@
         "olimpiadi"
       ],
       "notes": "Phelps vinse 8 ori a Pechino 2008, superando i 7 di Spitz (1972)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -569,7 +568,7 @@
         "trabocchetto"
       ],
       "notes": "Il golf moderno nasce in Scozia nel Quattrocento; St Andrews è la \"casa del golf\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -592,7 +591,7 @@
         "trabocchetto"
       ],
       "notes": "Il ping pong nacque come passatempo nell'Inghilterra vittoriana; la Cina lo ha dominato solo dopo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -615,7 +614,7 @@
         "trabocchetto"
       ],
       "notes": "Il GP di San Marino si corse all'Autodromo Enzo e Dino Ferrari di Imola dal 1981 al 2006",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -638,7 +637,7 @@
         "trabocchetto"
       ],
       "notes": "William Morgan la inventò a Holyoke, Massachusetts, nel 1895",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -660,7 +659,7 @@
         "campioni"
       ],
       "notes": "Senna fu campione nel 1988, 1990 e 1991 con la McLaren",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -681,7 +680,7 @@
         "atletica"
       ],
       "notes": "Dick Fosbury la impose vincendo l'oro a Città del Messico 1968",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -703,7 +702,7 @@
         "tour de france"
       ],
       "notes": "La maglia a pois è del Gran premio della montagna; la verde è a punti, la bianca ai giovani; azzurra è quella del Giro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -725,7 +724,7 @@
         "mondiali"
       ],
       "notes": "Marcello Lippi guidò gli Azzurri al titolo in Germania",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -747,7 +746,7 @@
         "campioni italiani"
       ],
       "notes": "Panatta vinse a Parigi nel 1976, anno della Coppa Davis italiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -769,7 +768,7 @@
         "ferrari"
       ],
       "notes": "Räikkönen vinse il titolo 2007 all'ultima gara in Brasile, con un punto su Hamilton e Alonso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -791,7 +790,7 @@
         "serie a"
       ],
       "notes": "Campionato 1986-87, scudetto vinto il 10 maggio 1987; il secondo arrivò nel 1990",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -813,7 +812,7 @@
         "campioni italiani"
       ],
       "notes": "Vezzali vinse il fioretto individuale a Sydney, Atene e Pechino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -835,7 +834,7 @@
         "sicilia"
       ],
       "notes": "L'Autodromo di Pergusa circonda il lago di Pergusa, in provincia di Enna",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -858,7 +857,7 @@
         "trabocchetto"
       ],
       "notes": "Naismith, nato in Ontario, inventò il basket a Springfield (USA) nel 1891",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -880,7 +879,7 @@
         "coppa davis"
       ],
       "notes": "Panatta, Barazzutti, Bertolucci e Zugarelli vinsero in Cile nel dicembre 1976",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -902,7 +901,7 @@
         "campioni italiani"
       ],
       "notes": "Compagnoni: superG ad Albertville 1992, gigante a Lillehammer 1994 e a Nagano 1998",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -924,13 +923,13 @@
         "storia"
       ],
       "notes": "Il Genoa vinse il torneo disputato a Torino l'8 maggio 1898",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Quanti minuti di gioco dura una partita di basket NBA, supplementari esclusi?",
       "category": "Sport",
-      "difficulty": 4,
+      "difficulty": 3,
       "presenter": "palmino",
       "answers": [
         "45",
@@ -946,7 +945,7 @@
         "regole"
       ],
       "notes": "Quattro quarti da 12 minuti nella NBA; da 10 minuti (40 totali) nelle regole FIBA",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -968,7 +967,7 @@
         "storia"
       ],
       "notes": "Con l'ingresso dell'Italia nel 2000 il Cinque Nazioni divenne Sei Nazioni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -990,7 +989,7 @@
         "storia"
       ],
       "notes": "Il padel fu inventato da Enrique Corcuera ad Acapulco nel 1969, poi si diffuse in Spagna e Argentina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1012,7 +1011,7 @@
         "coppe europee"
       ],
       "notes": "Il Milan batté il Benfica 2-1 a Wembley il 22 maggio 1963",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1035,7 +1034,7 @@
         "trabocchetto"
       ],
       "notes": "Per le leggi australiane sulla quarantena dei cavalli, l'equitazione si svolse a Stoccolma nel giugno 1956",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1057,7 +1056,7 @@
         "storia"
       ],
       "notes": "Il friulano Bottecchia vinse il Tour nel 1924 e nel 1925",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1079,7 +1078,7 @@
         "storia"
       ],
       "notes": "Ondina Valla vinse gli 80 metri ostacoli a Berlino 1936",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1101,7 +1100,7 @@
         "storia"
       ],
       "notes": "Il primo Mondiale FIBA si giocò a Buenos Aires nel 1950 e lo vinse l'Argentina",
-      "verified": false
+      "verified": true
     }
   ]
 }

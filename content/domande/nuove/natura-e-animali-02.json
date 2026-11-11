@@ -21,7 +21,7 @@
         "mammiferi"
       ],
       "notes": "La proboscide dell'elefante è naso e labbro superiore fusi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "mare"
       ],
       "notes": "Le stelle marine hanno in genere cinque braccia e le ricrescono se le perdono",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "letargo"
       ],
       "notes": "L'orso trascorre l'inverno in un sonno profondo nella tana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -85,7 +85,7 @@
         "aracnidi"
       ],
       "notes": "Il ragno tesse la ragnatela con la seta prodotta dalle filiere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -107,7 +107,7 @@
         "natale"
       ],
       "notes": "L'abete è l'albero di Natale tradizionale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "fattoria"
       ],
       "notes": "Il gallo è il maschio della gallina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "africa"
       ],
       "notes": "Il rinoceronte ha uno o due corni sul muso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -172,7 +172,7 @@
         "uccelli"
       ],
       "notes": "Pappagalli come il cenerino imitano parole e suoni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -193,7 +193,7 @@
         "anfibi"
       ],
       "notes": "Il girino vive in acqua e respira con le branchie prima della metamorfosi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -215,7 +215,7 @@
         "modi di dire"
       ],
       "notes": "Il ghiro va in letargo anche per sei mesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -236,7 +236,7 @@
         "rettili"
       ],
       "notes": "Rana, tritone e rospo sono anfibi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -258,7 +258,7 @@
         "mare"
       ],
       "notes": "Il \"nero di seppia\" è usato anche in cucina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -279,7 +279,7 @@
         "fiori"
       ],
       "notes": "Appellativo tradizionale della rosa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -300,7 +300,7 @@
         "mammiferi"
       ],
       "notes": "Il cavallo \"blocca\" le articolazioni delle zampe e sonnecchia in piedi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -322,7 +322,7 @@
         "proverbi"
       ],
       "notes": "\"Una rondine non fa primavera\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -344,7 +344,7 @@
         "sicilia"
       ],
       "notes": "Ad Agrigento si celebra a febbraio la Sagra del Mandorlo in fiore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -365,7 +365,7 @@
         "primati"
       ],
       "notes": "Il gorilla orientale può superare i 200 kg",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -387,7 +387,7 @@
         "evoluzione"
       ],
       "notes": "Uomo e scimpanzé condividono circa il 98-99 per cento del DNA",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -408,7 +408,7 @@
         "uccelli"
       ],
       "notes": "Il picchio scava il legno con il becco robusto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -429,7 +429,7 @@
         "mammiferi"
       ],
       "notes": "La lingua del formichiere gigante supera i 50 centimetri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -439,7 +439,7 @@
       "presenter": "palmino",
       "answers": [
         "Corvo",
-        "Storno",
+        "Rondine",
         "Merlo",
         "Cornacchia"
       ],
@@ -450,7 +450,7 @@
         "uccelli"
       ],
       "notes": "Il merlo maschio è nero con becco e anello oculare giallo-arancio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -471,7 +471,7 @@
         "fiori"
       ],
       "notes": "Il papavero comune fiorisce tra le spighe a maggio e giugno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -492,7 +492,7 @@
         "alberi"
       ],
       "notes": "La betulla bianca ha la tipica corteccia chiara con segni scuri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -514,7 +514,7 @@
         "tradizioni"
       ],
       "notes": "La leggenda della cicogna che porta i bambini",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -536,7 +536,7 @@
         "falsi miti"
       ],
       "notes": "Esperimenti hanno mostrato che i pesci rossi ricordano per mesi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -559,7 +559,7 @@
         "trabocchetto"
       ],
       "notes": "Il maschio del cavalluccio marino ha una tasca incubatrice",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -581,7 +581,7 @@
         "sicilia"
       ],
       "notes": "Il fico d'India è l'Opuntia ficus-indica, un cactus arrivato dalle Americhe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -602,7 +602,7 @@
         "crostacei"
       ],
       "notes": "Aragoste e gamberi sono decapodi: dieci zampe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -624,7 +624,7 @@
         "seta"
       ],
       "notes": "Il baco da seta mangia le foglie del gelso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -647,7 +647,7 @@
         "montagna"
       ],
       "notes": "Il parco nacque nel 1922 per proteggere lo stambecco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -669,7 +669,7 @@
         "italia"
       ],
       "notes": "L'orso bruno marsicano è nel logo del parco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -691,7 +691,7 @@
         "sicilia"
       ],
       "notes": "La pesca tradizionale del pesce spada con le feluche, barche con alberi e passerelle altissime",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -713,7 +713,7 @@
         "etimologia"
       ],
       "notes": "Dal greco hippos (cavallo) e potamós (fiume)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -735,7 +735,7 @@
         "fiori"
       ],
       "notes": "Lo stame è l'organo maschile del fiore",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -757,7 +757,7 @@
         "sicilia"
       ],
       "notes": "Il Castagno dei Cento Cavalli a Sant'Alfio è tra gli alberi più antichi d'Europa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -778,7 +778,7 @@
         "insetti"
       ],
       "notes": "Le formiche vivono in tutti i continenti tranne l'Antartide",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -800,29 +800,7 @@
         "trabocchetto"
       ],
       "notes": "I bovini non distinguono bene il rosso: il toro carica il drappo perché si muove",
-      "verified": false
-    },
-    {
-      "type": "single",
-      "text": "Perché lo struzzo sembra infilare la testa sotto la sabbia?",
-      "category": "Natura e animali",
-      "difficulty": 3,
-      "presenter": "palmino",
-      "answers": [
-        "Per dormire",
-        "Per cercare acqua",
-        "Per nascondersi",
-        "Per girare le uova nel nido"
-      ],
-      "correct": [
-        3
-      ],
-      "tags": [
-        "uccelli",
-        "trabocchetto"
-      ],
-      "notes": "Lo struzzo non nasconde la testa: abbassa il capo per girare le uova nella buca del nido",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -844,7 +822,7 @@
         "trabocchetto"
       ],
       "notes": "Le farfalle hanno recettori del gusto sulle zampe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -866,7 +844,7 @@
         "trabocchetto"
       ],
       "notes": "Lo zoccolo è l'unghia di un solo dito, il terzo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -888,7 +866,7 @@
         "sicilia"
       ],
       "notes": "Il suino Nero siciliano, detto anche nero dei Nebrodi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -909,7 +887,7 @@
         "alberi"
       ],
       "notes": "Il Ginkgo biloba esiste quasi invariato da milioni di anni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -931,13 +909,13 @@
         "funghi"
       ],
       "notes": "Il lichene è una simbiosi tra un fungo e un'alga o un cianobatterio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
       "text": "Quanti puntini neri ha la coccinella più comune in Italia?",
       "category": "Natura e animali",
-      "difficulty": 4,
+      "difficulty": 3,
       "presenter": "palmino",
       "answers": [
         "5",
@@ -952,7 +930,7 @@
         "insetti"
       ],
       "notes": "Coccinella septempunctata: la coccinella dai sette punti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -974,7 +952,7 @@
         "trabocchetto"
       ],
       "notes": "La lingua della giraffa è blu-violacea scura, forse per proteggerla dal sole",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -995,7 +973,7 @@
         "insetti"
       ],
       "notes": "Gli adulti delle effimere (efemerotteri) vivono da poche ore a un paio di giorni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1017,7 +995,7 @@
         "sicilia"
       ],
       "notes": "Linosa ospita una delle più grandi colonie di berta maggiore del Mediterraneo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1039,7 +1017,7 @@
         "italia"
       ],
       "notes": "Il proteo (Proteus anguinus) vive nelle acque sotterranee del Carso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1061,7 +1039,7 @@
         "montagna"
       ],
       "notes": "Il gipeto lascia cadere le ossa sulle rocce per spezzarle e mangiarne il midollo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1083,7 +1061,7 @@
         "italia"
       ],
       "notes": "La Pinguicula vulgaris ha foglie appiccicose che catturano gli insetti",
-      "verified": false
+      "verified": true
     }
   ]
 }

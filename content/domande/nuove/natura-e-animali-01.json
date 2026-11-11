@@ -22,7 +22,7 @@
         "mammiferi"
       ],
       "notes": "Il piccolo del cavallo è il puledro",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -44,7 +44,7 @@
         "mammiferi"
       ],
       "notes": "Solo il leone maschio ha la criniera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -65,7 +65,7 @@
         "insetti"
       ],
       "notes": "Gli insetti hanno tre paia di zampe; i ragni (aracnidi) ne hanno otto",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "mammiferi"
       ],
       "notes": "Il collo della giraffa può superare i 2 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "simboli"
       ],
       "notes": "La colomba con il ramoscello d'ulivo è simbolo di pace",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -129,7 +129,7 @@
         "insetti"
       ],
       "notes": "La lucciola produce luce per bioluminescenza",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -151,7 +151,7 @@
         "modi di dire"
       ],
       "notes": "In Italia si dice che il gatto abbia sette vite (nei Paesi anglosassoni nove)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "stagioni"
       ],
       "notes": "Gli alberi a foglia caduca perdono le foglie in autunno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -195,7 +195,7 @@
         "trabocchetto"
       ],
       "notes": "Il dromedario ha una gobba sola; il cammello battriano ne ha due",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -216,7 +216,7 @@
         "uccelli"
       ],
       "notes": "La \"ruota\" del pavone maschio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -239,7 +239,7 @@
         "mare"
       ],
       "notes": "La tartaruga Caretta caretta nidifica alla Spiaggia dei Conigli di Lampedusa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -261,7 +261,7 @@
         "mare"
       ],
       "notes": "Il polpo ha otto braccia; calamari e seppie hanno otto braccia più due tentacoli, il nautilo decine di tentacoli",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -283,7 +283,7 @@
         "mammiferi"
       ],
       "notes": "La tigre siberiana può superare i 300 kg, più del leone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "trabocchetto"
       ],
       "notes": "La balena è un mammifero, non un pesce; lo squalo balena supera i 12 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -327,7 +327,7 @@
         "insetti"
       ],
       "notes": "I maschi di cicala \"cantano\" sugli alberi con organi chiamati timballi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -348,7 +348,7 @@
         "mammiferi"
       ],
       "notes": "La talpa vive sotto terra e scava con le zampe anteriori larghe come pale",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -369,7 +369,7 @@
         "mammiferi"
       ],
       "notes": "Il bradipo si muove a pochi metri al minuto, appeso ai rami",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -391,7 +391,7 @@
         "migrazioni"
       ],
       "notes": "Il salmone torna al fiume natale per riprodursi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -413,7 +413,7 @@
         "api"
       ],
       "notes": "I fuchi servono a fecondare la regina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -434,7 +434,7 @@
         "uccelli"
       ],
       "notes": "I gufi ruotano la testa fino a circa 270 gradi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -455,7 +455,7 @@
         "uccelli"
       ],
       "notes": "Il cuculo è un \"parassita di cova\"",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -477,7 +477,7 @@
         "api"
       ],
       "notes": "Le api costruiscono celle esagonali di cera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -499,7 +499,7 @@
         "italia"
       ],
       "notes": "In Italia le uniche specie pericolose sono le vipere; biacco, natrice e saettone sono innocui",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -520,7 +520,7 @@
         "rettili"
       ],
       "notes": "Con la muta il serpente si libera della vecchia pelle",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -542,7 +542,7 @@
         "australia"
       ],
       "notes": "Ornitorinco ed echidna sono monotremi, mammiferi che depongono uova",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -565,7 +565,7 @@
         "trabocchetto"
       ],
       "notes": "La pelle nera assorbe il calore; i peli sono trasparenti e cavi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -587,7 +587,7 @@
         "trabocchetto"
       ],
       "notes": "I pulcini hanno piumino grigio-biancastro; il rosa arriva in 2-3 anni grazie ai carotenoidi della dieta",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -608,7 +608,7 @@
         "mammiferi"
       ],
       "notes": "L'elefante adulto non stacca mai tutte e quattro le zampe da terra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -630,7 +630,7 @@
         "ruminanti"
       ],
       "notes": "Rumine, reticolo, omaso e abomaso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -652,7 +652,7 @@
         "crostacei"
       ],
       "notes": "Il krill antartico è il cibo principale di molte balenottere",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -674,7 +674,7 @@
         "sicilia"
       ],
       "notes": "Il papiro del Ciane è una delle rare colonie spontanee d'Europa",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -696,7 +696,7 @@
         "mare"
       ],
       "notes": "La \"zanna\" del narvalo è un dente che può superare i 2 metri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -719,7 +719,7 @@
         "italia"
       ],
       "notes": "La foca monaca mediterranea è avvistata talvolta anche nei mari italiani",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -741,7 +741,7 @@
         "velocità"
       ],
       "notes": "In picchiata il falco pellegrino supera i 300 km/h",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -763,7 +763,7 @@
         "longevità"
       ],
       "notes": "Diversi esemplari hanno superato i 150 anni",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -785,7 +785,7 @@
         "trabocchetto"
       ],
       "notes": "Le mosche sono ditteri (\"due ali\"): il secondo paio è ridotto a bilancieri",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -807,7 +807,7 @@
         "africa"
       ],
       "notes": "I rami spogli del baobab sembrano radici rivolte al cielo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -828,7 +828,7 @@
         "cani"
       ],
       "notes": "Il Chow chow (come lo Shar-pei) ha la lingua blu-nera",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -850,7 +850,7 @@
         "trabocchetto"
       ],
       "notes": "Come l'uomo e quasi tutti i mammiferi, 7 vertebre cervicali, solo molto lunghe",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -872,7 +872,7 @@
         "sicilia"
       ],
       "notes": "I semi di carrubo (in greco keràtion) erano usati come pesi per l'oro e le gemme",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -894,7 +894,7 @@
         "sicilia"
       ],
       "notes": "Il Cirneco dell'Etna è un'antica razza siciliana da caccia al coniglio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -916,7 +916,7 @@
         "sicilia"
       ],
       "notes": "Chamaerops humilis, in siciliano \"giummarra\", unica palma autoctona italiana",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -937,7 +937,7 @@
         "uccelli"
       ],
       "notes": "L'albatro urlatore supera i 3 metri e mezzo di apertura alare",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -959,7 +959,7 @@
         "trabocchetto"
       ],
       "notes": "Il mito del latte rosa nasce dalla secrezione rossastra della pelle dell'ippopotamo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -981,7 +981,7 @@
         "trabocchetto"
       ],
       "notes": "Gli organi timpanici del grillo sono sulle tibie delle zampe anteriori",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1002,7 +1002,7 @@
         "mammiferi"
       ],
       "notes": "Nella renna entrambi i sessi hanno i palchi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1024,7 +1024,7 @@
         "riproduzione"
       ],
       "notes": "L'opossum della Virginia partorisce dopo circa 12-13 giorni; il criceto dopo circa 16, il topo dopo circa 20",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1046,7 +1046,7 @@
         "sudamerica"
       ],
       "notes": "I pulcini di hoatzin usano gli artigli alari per arrampicarsi tra i rami",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1068,7 +1068,7 @@
         "mare"
       ],
       "notes": "Il cervello del capodoglio pesa circa 8 kg",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1090,7 +1090,7 @@
         "europa"
       ],
       "notes": "Il regolo pesa 5-6 grammi",
-      "verified": false
+      "verified": true
     }
   ]
 }

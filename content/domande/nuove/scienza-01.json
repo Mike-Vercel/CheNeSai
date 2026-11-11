@@ -21,7 +21,7 @@
         "astronomia"
       ],
       "notes": "La Luna è l'unico satellite naturale della Terra (Fobos è di Marte, Titano di Saturno, Europa di Giove)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -42,7 +42,7 @@
         "corpo umano"
       ],
       "notes": "Lo scambio di ossigeno e anidride carbonica avviene negli alveoli polmonari",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -64,7 +64,7 @@
         "acqua"
       ],
       "notes": "Sotto 0 °C l'acqua solidifica in ghiaccio; rugiada e nebbia sono acqua liquida",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -86,7 +86,7 @@
         "scienziati"
       ],
       "notes": "Aneddoto raccontato dallo stesso Newton al biografo William Stukeley",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -108,7 +108,7 @@
         "gas"
       ],
       "notes": "L'elio è molto più leggero dell'aria; ossigeno, azoto e anidride carbonica no",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -130,7 +130,7 @@
         "galassie"
       ],
       "notes": "Il Sole è una delle centinaia di miliardi di stelle della Via Lattea",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -152,7 +152,7 @@
         "vitamine"
       ],
       "notes": "Gli agrumi sono ricchi di acido ascorbico, cioè vitamina C",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -173,7 +173,7 @@
         "corpo umano"
       ],
       "notes": "La retina è la membrana sensibile alla luce sul fondo dell'occhio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -196,7 +196,7 @@
         "italia"
       ],
       "notes": "Galileo nacque a Pisa nel 1564 e puntò il cannocchiale al cielo dal 1609 (Volta nacque a Como, Torricelli a Roma o Faenza, Leonardo a Vinci)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -217,7 +217,7 @@
         "matematica"
       ],
       "notes": "Pi greco è il rapporto tra circonferenza e diametro: 3,14159...; Nepero 2,718, sezione aurea 1,618, radice di 2 1,414",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -239,7 +239,7 @@
         "sicilia"
       ],
       "notes": "Vitruvio racconta che Archimede gridò \"Eureka\" scoprendo come verificare la corona di Gerone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -262,7 +262,7 @@
         "nobel"
       ],
       "notes": "Nobel 1986 con Stanley Cohen per la scoperta del fattore di crescita nervoso (NGF)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -284,7 +284,7 @@
         "elementi"
       ],
       "notes": "Fe dal latino ferrum; Fr è il francio, F il fluoro, Ir l'iridio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -306,7 +306,7 @@
         "unità di misura"
       ],
       "notes": "1 hertz = un ciclo al secondo; decibel per il suono, pascal per la pressione, kelvin per la temperatura",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -328,7 +328,7 @@
         "terremoti"
       ],
       "notes": "L'ipocentro è il punto in profondità dove nasce il sisma, l'epicentro è sulla sua verticale in superficie",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -350,7 +350,7 @@
         "combustione"
       ],
       "notes": "La combustione è una reazione con l'ossigeno, il comburente",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -372,7 +372,7 @@
         "storia"
       ],
       "notes": "Gagarin, Vostok 1, 12 aprile 1961; Shepard volò il 5 maggio 1961, Glenn nel 1962",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -394,7 +394,7 @@
         "italia"
       ],
       "notes": "Cristoforetti partì il 23 novembre 2014 (missione Futura dell'ASI)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -416,7 +416,7 @@
         "ormoni"
       ],
       "notes": "L'insulina è prodotta dalle cellule beta delle isole di Langerhans nel pancreas",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -438,7 +438,7 @@
         "denti"
       ],
       "notes": "La dentatura permanente completa conta 32 denti, 28 senza i denti del giudizio",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -460,7 +460,7 @@
         "scienziati"
       ],
       "notes": "Mendeleev presentò la tavola periodica nel 1869",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -481,7 +481,7 @@
         "corpo umano"
       ],
       "notes": "I reni filtrano il sangue e producono l'urina",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -504,7 +504,7 @@
         "trabocchetto"
       ],
       "notes": "Il sangue venoso è rosso scuro: le vene sembrano blu per come la pelle assorbe e riflette la luce",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -526,7 +526,7 @@
         "biologia"
       ],
       "notes": "Il microscopio ingrandisce oggetti invisibili a occhio nudo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -549,7 +549,7 @@
         "trabocchetto"
       ],
       "notes": "Il mito del 10 per cento è smentito dalle neuroimmagini: nell'arco della giornata tutte le aree sono attive",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -572,7 +572,7 @@
         "trabocchetto"
       ],
       "notes": "Venere supera i 460 °C per l'effetto serra della sua atmosfera densa; Mercurio è più vicino al Sole ma più freddo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -594,7 +594,7 @@
         "trabocchetto"
       ],
       "notes": "La pelle copre circa 2 metri quadrati e pesa alcuni chili; il fegato è il più grande organo interno",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -616,11 +616,11 @@
         "sicilia"
       ],
       "notes": "Le esplosioni continue dello Stromboli erano visibili di notte dai naviganti",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
-      "text": "Chi inventò il barometro a mercurio nel 1643?",
+      "text": "Chi inventò il barometro a mercurio nel Seicento?",
       "category": "Scienza",
       "difficulty": 3,
       "presenter": "professore",
@@ -638,8 +638,8 @@
         "scienziati",
         "italia"
       ],
-      "notes": "Esperienza di Torricelli, 1643, che misurò la pressione atmosferica con una colonna di mercurio",
-      "verified": false
+      "notes": "Esperienza di Torricelli (1643-1644): misurò la pressione atmosferica con una colonna di mercurio",
+      "verified": true
     },
     {
       "type": "single",
@@ -661,7 +661,7 @@
         "genetica"
       ],
       "notes": "23 coppie di cromosomi, 46 in tutto; solo i gameti ne hanno 23",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -683,7 +683,7 @@
         "luce"
       ],
       "notes": "150 milioni di km a 300.000 km/s: circa 500 secondi, cioè 8 minuti e 20 secondi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -706,7 +706,7 @@
         "italia"
       ],
       "notes": "Margherita Hack, nata a Firenze nel 1922, diresse l'Osservatorio di Trieste dal 1964 al 1987",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -729,7 +729,7 @@
         "trabocchetto"
       ],
       "notes": "Diffusione di Rayleigh: le molecole dell'aria diffondono soprattutto le lunghezze d'onda corte (blu)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -751,7 +751,7 @@
         "particelle"
       ],
       "notes": "Scoperta annunciata il 4 luglio 2012 dagli esperimenti ATLAS e CMS; Nobel 2013 a Higgs ed Englert",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -774,7 +774,7 @@
         "sicilia"
       ],
       "notes": "Majorana, nato a Catania nel 1906, sparì nel marzo 1938 dopo un viaggio in nave tra Napoli e Palermo",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -797,7 +797,7 @@
         "trabocchetto"
       ],
       "notes": "Sirio ha magnitudine apparente -1,46; la Polare è molto meno luminosa (circa la cinquantesima)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -820,7 +820,7 @@
         "trabocchetto"
       ],
       "notes": "Il vetro è un solido amorfo; il mito delle vetrate antiche \"colate\" verso il basso è falso",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -843,7 +843,7 @@
         "italia"
       ],
       "notes": "Apparato di Golgi, descritto nel 1898; Nobel 1906 condiviso con Ramón y Cajal",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -865,7 +865,7 @@
         "pianeti"
       ],
       "notes": "L'asse di rotazione di Urano è inclinato di circa 98 gradi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -887,7 +887,7 @@
         "temperatura"
       ],
       "notes": "Zero assoluto: -273,15 °C (-459,67 °F); -196 °C è l'ebollizione dell'azoto liquido",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -909,7 +909,7 @@
         "digestione"
       ],
       "notes": "L'amilasi salivare (ptialina) scinde l'amido; la pepsina agisce nello stomaco, la tripsina nell'intestino",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -930,7 +930,7 @@
         "astronomia"
       ],
       "notes": "La Terra è all'afelio a inizio luglio e al perielio a inizio gennaio; l'apogeo riguarda le orbite intorno alla Terra",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -952,7 +952,7 @@
         "scienziati"
       ],
       "notes": "La costante di Planck (h) fu introdotta da Max Planck nel 1900",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -975,7 +975,7 @@
         "storia della scienza"
       ],
       "notes": "Empedocle (V secolo a.C.) teorizzò le quattro \"radici\": terra, acqua, aria, fuoco",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -997,7 +997,7 @@
         "pianeti"
       ],
       "notes": "Mercurio e Venere sono gli unici pianeti del Sistema solare senza lune",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1020,7 +1020,7 @@
         "italia"
       ],
       "notes": "Amedeo Avogadro nacque a Torino nel 1776",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1043,7 +1043,7 @@
         "italia"
       ],
       "notes": "Esperimenti di Spallanzani (anni 1760) contro la generazione spontanea dei microrganismi",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1065,7 +1065,7 @@
         "elementi"
       ],
       "notes": "Urano fu scoperto da Herschel nel 1781; Klaproth chiamò uranio il nuovo elemento nel 1789 (Nettuno 1846, Plutone 1930, Cerere 1801)",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1087,7 +1087,7 @@
         "pianeti"
       ],
       "notes": "Periodo orbitale di Nettuno: 164,8 anni; 84 è Urano, 29 Saturno, 248 Plutone",
-      "verified": false
+      "verified": true
     },
     {
       "type": "single",
@@ -1110,7 +1110,7 @@
         "sicilia"
       ],
       "notes": "Giuseppe Piazzi scoprì Cerere il 1° gennaio 1801 dall'Osservatorio di Palermo",
-      "verified": false
+      "verified": true
     }
   ]
 }
