@@ -32,6 +32,7 @@ import { useCharacterMode } from "@/features/three/characters/character-mode";
 import type { CharacterAnimation } from "@/features/three/characters/types";
 import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { presenterCue, type PresenterCue } from "./presenter-cue";
+import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
 /**
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
@@ -258,7 +259,7 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
         {!optionsVisible && !special && (q.rules.modifiers.length > 0 || q.rules.correctPoints !== 1000) && (
           <div className="mt-[2cqh] flex flex-wrap gap-[1.2cqh]">
             <Pill tone="dark">Vale {formatPoints(q.rules.correctPoints + q.rules.bonusPoints)} punti</Pill>
-            {q.rules.wrongPenalty === 0 ? <Pill tone="dark">Nessuna penalità</Pill> : <Pill tone="dark">Errore −{formatPoints(q.rules.wrongPenalty)}</Pill>}
+            {q.rules.wrongPenalty === 0 ? <Pill tone="dark">Nessuna penalità</Pill> : <Pill tone="dark">Errore da −{formatPoints(wrongPenaltyRange(q.rules.wrongPenalty).min)} a −{formatPoints(wrongPenaltyRange(q.rules.wrongPenalty).max)}</Pill>}
           </div>
         )}
 

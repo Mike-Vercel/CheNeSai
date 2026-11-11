@@ -82,6 +82,34 @@ export interface AnswerInput {
   responseMs: number;
 }
 
+/**
+ * Penalità variabile per una risposta sbagliata (la base è `wrongPenalty`, già moltiplicata da
+ * punti doppi, penalità di round ecc.):
+ * - fretta: il tempo per rispondere è diviso in 5 fasce uguali; chi sbaglia nella prima perde di
+ *   più (×1,5), poi ×1,25, ×1, ×0,75 e ×0,5 nell'ultima (numeri pochi e sempre uguali);
+ * - serie di errori: 2° errore di fila ×1,25, dal 3° in poi ×1,5 (tetto).
+ * Arrotondata alla decina (numeri "puliti", anche per l'archivio delle voci).
+ */
+export const PENALTY_SPEED_BANDS = [1.5, 1.25, 1, 0.75, 0.5] as const;
+export const PENALTY_SPEED_MAX = PENALTY_SPEED_BANDS[0];
+export const PENALTY_SPEED_MIN = PENALTY_SPEED_BANDS[PENALTY_SPEED_BANDS.length - 1];
+export const PENALTY_STREAK = [1, 1.25, 1.5] as const;
+
+export function wrongPenaltyFor(base: number, responseMs: number, durationMs: number, priorWrongStreak = 0): { penalty: number; speedFactor: number; streakFactor: number } {
+  if (base <= 0) return { penalty: 0, speedFactor: 1, streakFactor: 1 };
+  const frac = durationMs > 0 ? Math.min(1, Math.max(0, responseMs / durationMs)) : 0.5;
+  const speedFactor = PENALTY_SPEED_BANDS[Math.min(PENALTY_SPEED_BANDS.length - 1, Math.floor(frac * PENALTY_SPEED_BANDS.length))];
+  const streakFactor = PENALTY_STREAK[Math.min(PENALTY_STREAK.length - 1, Math.max(0, Math.floor(priorWrongStreak)))];
+  return { penalty: roundTen(base * speedFactor * streakFactor), speedFactor, streakFactor };
+}
+
+/** Intervallo della penalità senza serie (per le scritte "errore da −200 a −600"). */
+export function wrongPenaltyRange(base: number): { min: number; max: number } {
+  return { min: roundTen(base * PENALTY_SPEED_MIN), max: roundTen(base * PENALTY_SPEED_MAX) };
+}
+
+const roundTen = (n: number) => Math.round(n / 10) * 10;
+
 export interface AnswerEvaluation {
   isCorrect: boolean;
   partial: boolean;
@@ -117,6 +145,8 @@ export interface ScoreOutcome {
     wrongHits: number;
     totalCorrect: number;
     rules: QuestionRules;
+    /** risposta sbagliata: fattori della penalità variabile */
+    penalty?: { penalty: number; speedFactor: number; streakFactor: number };
   };
 }
 
@@ -127,7 +157,7 @@ export interface ScoreOutcome {
  *   errata è selezionata, altrimenti penalità.
  * - Errata: -penalità.  Nessuna risposta: -penalità mancata risposta.
  */
-export function scoreAnswer(rules: QuestionRules, correct: number[], answer: AnswerInput | null): ScoreOutcome {
+export function scoreAnswer(rules: QuestionRules, correct: number[], answer: AnswerInput | null, opts: { priorWrongStreak?: number } = {}): ScoreOutcome {
   const totalCorrect = correct.length;
   if (!answer) {
     return {
@@ -144,7 +174,7 @@ export function scoreAnswer(rules: QuestionRules, correct: number[], answer: Ans
     const durationMs = rules.durationSeconds * 1000;
     const speedBonus =
       rules.speedBonusMax > 0
-        ? Math.round(rules.speedBonusMax * Math.max(0, 1 - Math.min(answer.responseMs, durationMs) / durationMs))
+        ? roundTen(rules.speedBonusMax * Math.max(0, 1 - Math.min(answer.responseMs, durationMs) / durationMs))
         : 0;
     const delta = rules.correctPoints + rules.bonusPoints + speedBonus;
     return {
@@ -167,13 +197,14 @@ export function scoreAnswer(rules: QuestionRules, correct: number[], answer: Ans
       details: { base, bonus: 0, speedBonus: 0, correctHits: ev.correctHits, wrongHits: 0, totalCorrect, rules },
     };
   }
+  const wp = wrongPenaltyFor(rules.wrongPenalty, answer.responseMs, rules.durationSeconds * 1000, opts.priorWrongStreak ?? 0);
   return {
     kind: "answer",
-    delta: -rules.wrongPenalty,
+    delta: -wp.penalty,
     isCorrect: false,
     partial: false,
-    reason: rules.wrongPenalty > 0 ? "Risposta errata (penalità)" : "Risposta errata",
-    details: { base: -rules.wrongPenalty, bonus: 0, speedBonus: 0, correctHits: ev.correctHits, wrongHits: ev.wrongHits, totalCorrect, rules },
+    reason: wp.penalty > 0 ? (wp.streakFactor > 1 ? "Risposta errata (penalità, errori di fila)" : "Risposta errata (penalità)") : "Risposta errata",
+    details: { base: -wp.penalty, bonus: 0, speedBonus: 0, correctHits: ev.correctHits, wrongHits: ev.wrongHits, totalCorrect, rules, penalty: wp },
   };
 }
 

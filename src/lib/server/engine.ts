@@ -1,7 +1,7 @@
 import { createHash, randomBytes, randomInt } from "node:crypto";
 import { getSql, num, type Tx } from "@/lib/database/db";
 import { COMMAND_LABELS, isCommandAllowed } from "@/lib/game-engine/transitions";
-import { applyDelta, evaluateAnswer, scoreAnswer } from "@/lib/game-engine/scoring";
+import { applyDelta, evaluateAnswer, PENALTY_STREAK, scoreAnswer } from "@/lib/game-engine/scoring";
 import { applyComeback, comebackRole, computeStake, scoreBet, type BetInput } from "@/lib/game-engine/special-rounds";
 import { rankParticipants } from "@/lib/game-engine/ranking";
 import { tallyVotes } from "@/lib/game-engine/voting";
@@ -645,6 +645,26 @@ const HANDLERS: Record<GameCommand, Handler> = {
       select participant_id, selected_positions, response_ms from answer_submissions where session_question_id = ${q.id}`;
     const byPlayer = new Map(answers.map((a) => [a.participant_id, a]));
     const special = rules.special ?? null;
+    // Errori di fila prima di questa domanda (penalità variabile): si contano le ultime risposte
+    // date (le mancate risposte non contano), fermandosi alla prima giusta o parziale.
+    const streakRows = await tx<{ participant_id: string; wrong: boolean }[]>`
+      select e.participant_id,
+        (not coalesce((e.details->>'partial')::boolean, false)
+          and coalesce((e.details->>'correctHits')::int < (e.details->>'totalCorrect')::int, e.delta < 0)) as wrong
+      from (
+        select se.*, row_number() over (partition by se.participant_id order by se.created_at desc, se.id desc) as rn
+        from score_events se
+        where se.session_id = ${sessionId} and se.kind = 'answer' and se.session_question_id is distinct from ${q.id}
+      ) e
+      where e.rn <= ${PENALTY_STREAK.length}
+      order by e.participant_id, e.rn`;
+    const priorWrong = new Map<string, number>();
+    const streakDone = new Set<string>();
+    for (const r of streakRows) {
+      if (streakDone.has(r.participant_id)) continue;
+      if (r.wrong) priorWrong.set(r.participant_id, (priorWrong.get(r.participant_id) ?? 0) + 1);
+      else streakDone.add(r.participant_id);
+    }
     // Scommetti tutto: solo le puntate chiuse a MOSTRA RISPOSTE (chi è entrato dopo non ha posta).
     const bets = new Map<string, BetInput>();
     if (special?.kind === "bet") {
@@ -660,7 +680,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
       const a = byPlayer.get(p.id);
       const input = a ? { selectedPositions: a.selected_positions, responseMs: a.response_ms } : null;
       const bet = bets.get(p.id) ?? null;
-      let outcome = special?.kind === "bet" ? scoreBet(rules, q.correct_positions, input, bet) : scoreAnswer(rules, q.correct_positions, input);
+      let outcome = special?.kind === "bet" ? scoreBet(rules, q.correct_positions, input, bet) : scoreAnswer(rules, q.correct_positions, input, { priorWrongStreak: priorWrong.get(p.id) ?? 0 });
       const role = comebackRole(special, p.id);
       if (special?.kind === "comeback") outcome = applyComeback(outcome, role, special);
       const applied = applyDelta(p.points, outcome.delta, rules.allowNegative);
@@ -678,6 +698,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
           correctHits: outcome.details.correctHits,
           wrongHits: outcome.details.wrongHits,
           totalCorrect: outcome.details.totalCorrect,
+          ...(outcome.details.penalty ? { penalty: outcome.details.penalty } : {}),
           partial: outcome.partial,
           clamped: applied.delta !== outcome.delta,
           modifiers: rules.modifiers,

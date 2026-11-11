@@ -169,14 +169,14 @@ describe("serata completa (server-authoritative)", () => {
     const s = await cmd(fx.sessionId, "SCORE");
     expect(s.state.phase).toBe("SCORE_REVEAL");
     expect(await points("anna")).toBe(1000);
-    expect(await points("bruno")).toBe(-400);
+    expect(await points("bruno")).toBe(-600); // sbaglia subito: 400 × 1,5
     expect(await points("carla")).toBe(0);
     const evs = await sql<{ kind: string; points_before: number; delta: number; points_after: number; reason: string }[]>`
       select kind, points_before, delta, points_after, reason from score_events
       where session_question_id = ${fx.sessionQuestions.q1} order by delta desc`;
     expect(evs).toHaveLength(3);
     expect(evs[0]).toMatchObject({ kind: "answer", points_before: 0, delta: 1000, points_after: 1000 });
-    expect(evs[2]).toMatchObject({ kind: "answer", delta: -400 });
+    expect(evs[2]).toMatchObject({ kind: "answer", delta: -600 });
     expect(evs.some((e) => e.kind === "no_answer")).toBe(true);
     // gli eventi di punteggio sono immutabili
     await expect(sql`update score_events set delta = 99999 where session_question_id = ${fx.sessionQuestions.q1}`).rejects.toThrow(/APPEND_ONLY/);
@@ -205,8 +205,9 @@ describe("serata completa (server-authoritative)", () => {
     await cmd(fx.sessionId, "REVEAL");
     await cmd(fx.sessionId, "SCORE");
     expect(await points("anna")).toBe(3000);
-    expect(await points("bruno")).toBe(-1200);
-    expect(await points("carla")).toBe(-800);
+    // punti doppi: 800 × 1,5 (fretta); Bruno al secondo errore di fila × 1,25 → −1500
+    expect(await points("bruno")).toBe(-2100);
+    expect(await points("carla")).toBe(-1200);
   });
 
   it("NESSUNA PENALITÀ e scadenza del timer server-side", async () => {
@@ -221,7 +222,7 @@ describe("serata completa (server-authoritative)", () => {
     // a tempo scaduto la soluzione si può rivelare senza conferma
     await cmd(fx.sessionId, "REVEAL");
     await cmd(fx.sessionId, "SCORE");
-    expect(await points("bruno")).toBe(-1200);
+    expect(await points("bruno")).toBe(-2100);
     expect(await points("anna")).toBe(3000);
     // limite di frequenza dell'evento raro
     await expectGameError(cmd(fx.sessionId, "ACTIVATE_EVENT", { definitionKey: "no-penalty" }), "EVENT_LIMIT");
@@ -238,7 +239,7 @@ describe("serata completa (server-authoritative)", () => {
     await cmd(fx.sessionId, "CLOSE_ANSWERS");
     await cmd(fx.sessionId, "REVEAL");
     await cmd(fx.sessionId, "SCORE");
-    expect(await points("carla")).toBe(700);
+    expect(await points("carla")).toBe(300);
     await expectGameError(cmd(fx.sessionId, "SHOW_QUESTION"), "NO_MORE_QUESTIONS");
   });
 

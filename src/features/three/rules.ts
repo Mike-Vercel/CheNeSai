@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CAPTIONS, INTRO_DURATION_S, T, type Speaker } from "./timeline";
 import { INTRO_SPEECH } from "@/features/game/speech";
 import { formatPoints } from "@/features/game/lines";
+import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
 /**
  * SPIEGAZIONE DELLE REGOLE (dopo la presentazione, prima del 3·2·1).
@@ -34,7 +35,7 @@ export const RULES: readonly RuleLine[] = [
   { file: "regola-01.mp3", who: "professore", text: "Prima di cominciare, ecco le regole. Sono semplici, promesso!", title: "LE REGOLE", body: "In 30 secondi", icon: "book" },
   { file: "regola-02.mp3", who: "regina", text: "Le domande compaiono qui sullo schermo. Voi rispondete dal vostro telefono, toccando la risposta giusta.", title: "COME SI GIOCA", body: "Rispondi dal telefono", icon: "phone" },
   { file: "regola-03.mp3", who: "professore", text: "Avete pochi secondi: tenete d'occhio il timer! E attenzione, una volta confermata, la risposta non si cambia.", title: "TEMPO", body: "Occhio al timer · niente ripensamenti", icon: "timer" },
-  { file: "regola-04.mp3", who: "regina", text: "Risposta giusta? Guadagnate punti. Risposta sbagliata? Ne perdete un po'. Quindi niente risposte a caso!", title: "PUNTI", body: "Giusta +{correct} · Sbagliata −{wrong}", icon: "points" },
+  { file: "regola-04.mp3", who: "regina", text: "Risposta giusta? Guadagnate punti. Risposta sbagliata? Ne perdete un po'. Quindi niente risposte a caso!", title: "PUNTI", body: "Giusta +{correct} · Sbagliata da −{wrongMin} a −{wrongMax}: di fretta perdi di più", icon: "points" },
   { file: "regola-05.mp3", who: "professore", text: "Occhio: alcune domande hanno più risposte giuste. Per fare punti pieni dovete selezionare tutte le molteplici risposte corrette!", title: "PIÙ RISPOSTE", body: "Selezionale tutte", icon: "multi" },
   { file: "regola-06.mp3", who: "palmino", text: "E poi ci sono io! Ogni tanto arrivo con una sorpresa: punti doppi, sfide lampo, super bonus… e chissà cos'altro!", title: "SORPRESE DI PALMINO", body: "Punti doppi · Sfida lampo · Super bonus", icon: "gift" },
   { file: "regola-07.mp3", who: "regina", text: "In certi momenti sarete voi a scegliere la categoria: votate dal telefono, vince la più votata.", title: "SCEGLI LA CATEGORIA", body: "Vota dal telefono", icon: "vote" },
@@ -59,7 +60,12 @@ export const DEFAULT_SCORING: RulesScoring = { correct: 1000, wrong: 400, noAnsw
 const fmt = (n: number) => formatPoints(Math.abs(Math.round(n)));
 
 export function ruleBody(rule: RuleLine, scoring: RulesScoring): string {
-  return rule.body.replace("{correct}", fmt(scoring.correct)).replace("{wrong}", fmt(scoring.wrong));
+  const range = wrongPenaltyRange(scoring.wrong);
+  return rule.body
+    .replace("{correct}", fmt(scoring.correct))
+    .replace("{wrongMin}", fmt(range.min))
+    .replace("{wrongMax}", fmt(range.max))
+    .replace("{wrong}", fmt(scoring.wrong));
 }
 
 export interface RulesSlot {

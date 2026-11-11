@@ -80,7 +80,11 @@ describe("manche speciali (server-authoritative)", () => {
     await cmd(sessionId, "START_ROUND");
     await cmd(sessionId, "SHOW_QUESTION");
     await playQuestion({ anna: [0], bruno: [0], carla: [1] }, sq.q1);
-    expect([await points("anna"), await points("bruno"), await points("carla"), await points("dario")]).toEqual([1000, 1000, -400, 0]);
+    // Carla sbaglia subito: penalità variabile della prima fascia di tempo (400 × 1,5)
+    expect([await points("anna"), await points("bruno"), await points("carla"), await points("dario")]).toEqual([1000, 1000, -600, 0]);
+    // rettifica della regia: si riparte dai valori su cui sono costruiti i test delle manche
+    await cmd(sessionId, "ADJUST_SCORE", { participantId: players.carla.participantId, delta: 200, reason: "Allineamento test" });
+    expect(await points("carla")).toBe(-400);
   });
 
   it("Scommetti tutto: presentazione del round con le regole", async () => {
@@ -205,8 +209,8 @@ describe("manche speciali (server-authoritative)", () => {
     await cmd(sessionId, "CLOSE_ANSWERS");
     await cmd(sessionId, "REVEAL");
     await cmd(sessionId, "SCORE");
-    // Anna −400×2, Bruno +1000×2, Carla +1000 (nessun boost), Dario +1000×2 (sopra i 5000 della rettifica)
-    expect([await points("anna"), await points("bruno"), await points("carla"), await points("dario")]).toEqual([1600, 2000, 1100, 7000]);
+    // Anna −(400×1,5 fretta)×2 capolista, Bruno +1000×2, Carla +1000 (nessun boost), Dario +1000×2 (sopra i 5000 della rettifica)
+    expect([await points("anna"), await points("bruno"), await points("carla"), await points("dario")]).toEqual([1200, 2000, 1100, 7000]);
     const evs = await sql<{ participant_id: string; reason: string; details: { comeback?: string } }[]>`
       select participant_id, reason, details from score_events where session_question_id = ${sq.c1}`;
     expect(evs.find((e) => e.participant_id === players.bruno.participantId)?.details.comeback).toBe("boosted");

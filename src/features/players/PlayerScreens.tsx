@@ -12,6 +12,7 @@ import { AnswerButton, ANSWER_STYLES, LETTERS, type AnswerVisual } from "@/featu
 import { Character, Logo } from "@/features/game/components/brand";
 import { TimerBar } from "@/features/game/components/effects";
 import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
+import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 
 export function PhoneShell({ children, header }: { children: ReactNode; header?: ReactNode }) {
   return (
@@ -173,7 +174,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
           </div>
           <p className="font-extrabold text-white/80">Le risposte arrivano tra un attimo…</p>
           <p className="text-sm text-white/60">
-            Vale {formatPoints(q.rules.correctPoints + q.rules.bonusPoints)} punti · errore {q.rules.wrongPenalty ? `−${formatPoints(q.rules.wrongPenalty)}` : "senza penalità"} · {q.rules.durationSeconds}s
+            Vale {formatPoints(q.rules.correctPoints + q.rules.bonusPoints)} punti · errore {q.rules.wrongPenalty ? `da −${formatPoints(wrongPenaltyRange(q.rules.wrongPenalty).min)} a −${formatPoints(wrongPenaltyRange(q.rules.wrongPenalty).max)} (di fretta perdi di più)` : "senza penalità"} · {q.rules.durationSeconds}s
           </p>
           {q.rules.speedBonusMax > 0 && <p className="text-sm font-extrabold text-gold">⚡ Più sei veloce, più punti: fino a +{formatPoints(q.rules.speedBonusMax)}</p>}
         </div>

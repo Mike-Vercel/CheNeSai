@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyDelta, evaluateAnswer, resolveQuestionRules, scoreAnswer } from "@/lib/game-engine/scoring";
+import { applyDelta, evaluateAnswer, resolveQuestionRules, scoreAnswer, wrongPenaltyFor, wrongPenaltyRange } from "@/lib/game-engine/scoring";
 import { aggregateStandings, rankParticipants } from "@/lib/game-engine/ranking";
 import { tallyVotes } from "@/lib/game-engine/voting";
 import { validateNickname, nicknameKey } from "@/lib/game-engine/nickname";
@@ -11,10 +11,10 @@ const snap = { type: "single" as const, correctPoints: 1000, wrongPenalty: 400, 
 const round = { title: "Round 1", pointsMultiplier: 1, penaltyMultiplier: 1, noPenalty: false, speedBonusMax: 0 };
 
 describe("regole e punteggi", () => {
-  it("valori iniziali: +1000 / -400 / 0", () => {
+  it("valori iniziali: +1000 / da -200 a -600 / 0", () => {
     const rules = resolveQuestionRules(snap, round, [], true);
     expect(scoreAnswer(rules, [0], { selectedPositions: [0], responseMs: 3000 }).delta).toBe(1000);
-    expect(scoreAnswer(rules, [0], { selectedPositions: [2], responseMs: 3000 }).delta).toBe(-400);
+    expect(scoreAnswer(rules, [0], { selectedPositions: [2], responseMs: 3000 }).delta).toBe(-600); // errore nella prima fascia di tempo
     const none = scoreAnswer(rules, [0], null);
     expect(none.delta === 0).toBe(true);
     expect(none.kind).toBe("no_answer");
@@ -61,8 +61,8 @@ describe("regole e punteggi", () => {
     const multi = { ...snap, type: "multiple" as const };
     const rules = resolveQuestionRules(multi, round, [], true);
     expect(scoreAnswer(rules, [0, 2], { selectedPositions: [2, 0], responseMs: 1 }).delta).toBe(1000);
-    expect(scoreAnswer(rules, [0, 2], { selectedPositions: [0], responseMs: 1 }).delta).toBe(-400);
-    expect(scoreAnswer(rules, [0, 2], { selectedPositions: [0, 1, 2], responseMs: 1 }).delta).toBe(-400);
+    expect(scoreAnswer(rules, [0, 2], { selectedPositions: [0], responseMs: 1 }).delta).toBe(-600);
+    expect(scoreAnswer(rules, [0, 2], { selectedPositions: [0, 1, 2], responseMs: 1 }).delta).toBe(-600);
   });
 
   it("selezione multipla con punteggio parziale", () => {
@@ -70,7 +70,7 @@ describe("regole e punteggi", () => {
     const out = scoreAnswer(rules, [0, 1, 2], { selectedPositions: [0, 1], responseMs: 1 });
     expect(out.partial).toBe(true);
     expect(out.delta).toBe(667);
-    expect(scoreAnswer(rules, [0, 1, 2], { selectedPositions: [0, 3], responseMs: 1 }).delta).toBe(-400);
+    expect(scoreAnswer(rules, [0, 1, 2], { selectedPositions: [0, 3], responseMs: 1 }).delta).toBe(-600);
   });
 
   it("evaluateAnswer conta corrette ed errate", () => {
@@ -212,5 +212,32 @@ describe("importazione domande", () => {
     expect(valid[0].options[0].isCorrect).toBe(true);
     expect(valid[0].durationSeconds).toBe(15);
     expect(valid[0].tags).toEqual(["europa", "capitali"]);
+  });
+});
+
+describe("penalità variabile per le risposte sbagliate", () => {
+  it("chi sbaglia di fretta perde di più: 5 fasce di tempo", () => {
+    const d = 15000;
+    expect([0, 2999, 3000, 6000, 9000, 12000, 14999, 15000].map((ms) => wrongPenaltyFor(400, ms, d).penalty)).toEqual([600, 600, 500, 400, 300, 200, 200, 200]);
+  });
+  it("errori di fila: x1,25 al secondo, x1,5 dal terzo (tetto)", () => {
+    expect([0, 1, 2, 3, 9].map((n) => wrongPenaltyFor(400, 0, 15000, n).penalty)).toEqual([600, 750, 900, 900, 900]);
+    expect(wrongPenaltyFor(400, 14000, 15000, 1).penalty).toBe(250);
+  });
+  it("senza penalità resta zero; intervallo per le scritte", () => {
+    expect(wrongPenaltyFor(0, 0, 15000, 5).penalty).toBe(0);
+    expect(wrongPenaltyRange(400)).toEqual({ min: 200, max: 600 });
+    expect(wrongPenaltyRange(800)).toEqual({ min: 400, max: 1200 });
+  });
+  it("la serie passa da scoreAnswer e finisce nei dettagli", () => {
+    const rules = resolveQuestionRules(snap, round, [], true);
+    const o = scoreAnswer(rules, [0], { selectedPositions: [1], responseMs: 19000 }, { priorWrongStreak: 1 });
+    expect(o.delta).toBe(-250);
+    expect(o.details.penalty).toEqual({ penalty: 250, speedFactor: 0.5, streakFactor: 1.25 });
+    expect(o.reason).toContain("errori di fila");
+  });
+  it("bonus velocità arrotondato alla decina", () => {
+    const rules = resolveQuestionRules(snap, { ...round, speedBonusMax: 500 }, [], true);
+    expect(scoreAnswer(rules, [0], { selectedPositions: [0], responseMs: 1234 }).details.speedBonus % 10).toBe(0);
   });
 });

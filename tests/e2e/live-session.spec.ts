@@ -145,7 +145,8 @@ test("serata live: regia + TV + 3 giocatori sincronizzati", async ({ browser }) 
   // a metà round il TV mostra solo i punti di questa risposta (con il bonus velocità)
   await expect(tv.getByText("PUNTI DI QUESTA RISPOSTA")).toBeVisible();
   await expect(players[0].page.getByText(/\+1\.\d{3}/).first()).toBeVisible();
-  await expect(players[1].page.getByText("−400").first()).toBeVisible();
+  // penalità variabile: da −200 (ultimo istante) a −600 (subito)
+  await expect(players[1].page.getByText(/−[2-6]00/).first()).toBeVisible();
 
   // ricarica TV e regia: stato corrente ripristinato
   await tv.reload();
