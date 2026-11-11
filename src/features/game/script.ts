@@ -592,6 +592,24 @@ export function dedupeLines(lines: SpokenLine[]): SpokenLine[] {
 // ---------------------------------------------------------------------------
 // Copione per transizione di stato (TV) — usato anche dal server per il pre-riscaldamento
 // ---------------------------------------------------------------------------
+/** Battute del regista automatico per il momento corrente (sempre live: contengono nomi veri). */
+export function directedLines(s: Pick<PublicState, "showLines">): SpokenLine[] {
+  return (s.showLines ?? []).map((l) => ({ who: l.who, text: l.text, live: true }));
+}
+
+/**
+ * Saluti della lobby da dire ADESSO: solo quelli comparsi rispetto allo stato precedente
+ * (riconosciuti dall'id del registro). Dopo un ricaricamento del TV (`prev` null) non si ripete
+ * niente; fuori dalla lobby (anche in pausa) non si saluta nessuno.
+ */
+export function lobbyGreetingLines(s: Pick<PublicState, "phase" | "showLines">, prev: Pick<PublicState, "phase" | "showLines"> | null): SpokenLine[] {
+  if (!prev || s.phase !== "LOBBY") return [];
+  const seen = new Set((prev.showLines ?? []).map((l) => l.id ?? `${l.who}|${l.text}`));
+  return (s.showLines ?? [])
+    .filter((l) => l.event === "PLAYERS_JOINED" && !seen.has(l.id ?? `${l.who}|${l.text}`))
+    .map((l) => ({ who: l.who, text: l.text, live: true }));
+}
+
 /**
  * Copione parlato per una transizione di stato (solo TV).
  * Deterministico: un TV che ricarica non cambia le battute (le varianti
@@ -623,6 +641,8 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
     case "ROUND_INTRO":
       if (s.round) out.push(roundIntroLine(s.round));
+      // inizio della finale: il regista nomina primo e secondo (battuta live, nomi veri)
+      out.push(...directedLines(s));
       break;
     case "CATEGORY_VOTING":
       out.push(fixedLine(FIXED_POOLS.voting, s.round?.id ?? s.sessionId));
@@ -661,7 +681,7 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       break;
     case "SCORE_REVEAL": {
       // battute del regista automatico: eventi reali della classifica con i nomi veri
-      const directed = (s.showLines ?? []).map((l) => ({ who: l.who, text: l.text, live: true }));
+      const directed = directedLines(s);
       if (directed.length > 0) {
         out.push(...directed);
         // a metà round, se il regista ha detto una sola cosa, ci sta anche una battuta

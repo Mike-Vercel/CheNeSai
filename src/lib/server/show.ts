@@ -5,7 +5,17 @@ import type { Db, Tx } from "@/lib/database/db";
 import type { Presenter } from "@/lib/game-engine/types";
 import { detectShowEvents, type ShowPlayer } from "@/lib/show/events";
 import { directShow, validateTemplate } from "@/lib/show/director";
-import { DEFAULT_DIRECTOR_CONFIG, SHOW_EVENT_TYPES, type CharacterAnimationName, type DialogueTemplate, type DirectorConfig, type ShowEventType, type ShowLine } from "@/lib/show/types";
+import { finalRoundStartEvent, lobbyGreetingEvent } from "@/lib/show/moments";
+import {
+  DEFAULT_DIRECTOR_CONFIG,
+  SHOW_EVENT_TYPES,
+  type CharacterAnimationName,
+  type DialogueTemplate,
+  type DirectorConfig,
+  type ShowEvent,
+  type ShowEventType,
+  type ShowLine,
+} from "@/lib/show/types";
 
 /**
  * Regista automatico lato server: dopo i punti di una domanda (stessa transazione del SCORE)
@@ -19,6 +29,8 @@ export interface PublicShowLine {
   text: string;
   animation: CharacterAnimationName | null;
   event: ShowEventType;
+  /** id della riga nel registro (il TV riconosce i saluti nuovi della lobby senza ripeterli) */
+  id?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -236,12 +248,114 @@ export async function directAfterScore(tx: Tx, sessionId: string, sqId: string):
     seed: sqId,
   });
 
-  for (const l of lines) {
-    await tx`
-      insert into show_dialogue_log (session_id, session_question_id, round_id, template_id, character, event_type, text, participant_ids)
-      values (${sessionId}, ${sqId}, ${pos?.round_id ?? null}, ${l.templateId}, ${l.who}, ${l.event}, ${l.text}, ${tx.array(l.mentions)}::uuid[])`;
-  }
-  const pub: PublicShowLine[] = lines.map((l) => ({ who: l.who, text: l.text, animation: l.animation, event: l.event }));
-  await tx`update game_state set show_lines = ${tx.json(JSON.parse(JSON.stringify(pub)))} where session_id = ${sessionId}`;
+  await publishLines(tx, sessionId, await logLines(tx, sessionId, lines, { sqId, roundId: pos?.round_id ?? null }));
   return lines;
+}
+
+// ---------------------------------------------------------------------------
+// Registro e stato del TV (comuni a tutti i momenti)
+// ---------------------------------------------------------------------------
+/** Registra le battute (cooldown, menzioni, saluti già fatti) e le restituisce pronte per il TV. */
+async function logLines(tx: Tx, sessionId: string, lines: ShowLine[], at: { sqId: string | null; roundId: string | null }): Promise<PublicShowLine[]> {
+  const out: PublicShowLine[] = [];
+  for (const l of lines) {
+    const [row] = await tx<{ id: number }[]>`
+      insert into show_dialogue_log (session_id, session_question_id, round_id, template_id, character, event_type, text, participant_ids)
+      values (${sessionId}, ${at.sqId}, ${at.roundId}, ${l.templateId}, ${l.who}, ${l.event}, ${l.text}, ${tx.array(l.mentions)}::uuid[])
+      returning id`;
+    out.push({ who: l.who, text: l.text, animation: l.animation, event: l.event, id: String(row.id) });
+  }
+  return out;
+}
+
+async function publishLines(tx: Tx, sessionId: string, pub: PublicShowLine[] | null): Promise<void> {
+  if (pub === null) {
+    await tx`update game_state set show_lines = null where session_id = ${sessionId}`;
+    return;
+  }
+  await tx`update game_state set show_lines = ${tx.json(JSON.parse(JSON.stringify(pub)))} where session_id = ${sessionId}`;
+}
+
+/**
+ * Una battuta per un momento fuori dai punti (lobby, inizio finale), con le stesse regole del
+ * regista: libreria, cooldown delle battute, eventi abilitati in regia, limiti di menzioni.
+ */
+async function directMoment(tx: Tx, sessionId: string, event: ShowEvent, at: { seed: string; roundId: string | null }): Promise<PublicShowLine[]> {
+  const config = await loadDirectorConfig(tx);
+  if (!config.enabled) return [];
+  // evento nuovo per un archivio già popolato: si importano dal file solo le sue battute
+  const [{ n }] = await tx<{ n: number }[]>`select count(*)::int as n from dialogue_templates where event_type = ${event.type}`;
+  if (n === 0) await importLibrary(tx, readLibraryFile().filter((l) => l.event === event.type));
+  const templates = await loadTemplates(tx);
+  const used = await tx<{ template_id: string; at: Date }[]>`
+    select template_id, max(created_at) as at from show_dialogue_log where session_id = ${sessionId} group by template_id`;
+  const mentions = await tx<{ pid: string; n: number }[]>`
+    select pid, count(*)::int as n from show_dialogue_log, unnest(participant_ids) as pid
+    where session_id = ${sessionId} and round_id is not distinct from ${at.roundId}
+    group by pid`;
+  const [{ now }] = await tx<{ now: Date }[]>`select clock_timestamp() as now`;
+  const lines = directShow({
+    events: [event],
+    templates,
+    history: { lastUsed: new Map(used.map((u) => [u.template_id, u.at.getTime()])), mentionsThisRound: new Map(mentions.map((m) => [m.pid, m.n])) },
+    // un momento = una battuta sola (voce breve, costo contenuto)
+    config: { ...config, maxLines: Math.min(1, config.maxLines) },
+    nowMs: now.getTime(),
+    seed: at.seed,
+  });
+  return logLines(tx, sessionId, lines, { sqId: null, roundId: at.roundId });
+}
+
+// ---------------------------------------------------------------------------
+// Inizio del round finale (dentro la transazione di START_ROUND)
+// ---------------------------------------------------------------------------
+export async function directFinalRoundStart(tx: Tx, sessionId: string, roundId: string): Promise<PublicShowLine[]> {
+  const standings = await tx<{ id: string; nickname: string; points: number; rank: number | null }[]>`
+    select p.id, p.nickname, t.points, t.rank from participants p join score_totals t on t.participant_id = p.id
+    where p.session_id = ${sessionId} and p.status = 'active'`;
+  const event = finalRoundStartEvent(standings);
+  const pub = event ? await directMoment(tx, sessionId, event, { seed: `final|${roundId}`, roundId }) : [];
+  await publishLines(tx, sessionId, pub.length ? pub : null);
+  return pub;
+}
+
+// ---------------------------------------------------------------------------
+// Saluti della lobby
+// ---------------------------------------------------------------------------
+/**
+ * Saluta per nome i nuovi arrivati in lobby. Scelta lato server (non sul TV): i nomi arrivano dal
+ * database (validati all'ingresso, poi ripuliti con cleanSpeech), il registro garantisce che
+ * nessuno venga salutato due volte e che cooldown e tetto valgano anche con più TV o dopo un
+ * ricaricamento, e la battuta si può pre-riscaldare. Lo innesca il polling del TV in lobby
+ * (nessun timer sul server: senza TV acceso non c'è nessuno da salutare); il lock su game_state
+ * evita due saluti contemporanei. Non cambia la versione dello stato, così la regia non riceve
+ * conflitti di versione: i TV leggono il saluto al polling successivo.
+ */
+export async function directLobbyGreeting(db: Db, sessionId: string): Promise<PublicShowLine | null> {
+  return db.begin(async (tx) => {
+    const [st] = await tx<{ phase: string }[]>`select phase::text as phase from game_state where session_id = ${sessionId} for update`;
+    if (st?.phase !== "LOBBY") return null;
+    const [log] = await tx<{ n: number; last: Date | null }[]>`
+      select count(*)::int as n, max(created_at) as last
+      from show_dialogue_log where session_id = ${sessionId} and event_type = 'PLAYERS_JOINED'`;
+    const greeted = await tx<{ pid: string }[]>`
+      select distinct pid from show_dialogue_log, unnest(participant_ids) as pid
+      where session_id = ${sessionId} and event_type = 'PLAYERS_JOINED'`;
+    const players = await tx<{ id: string; nickname: string; joined_at: Date }[]>`
+      select id, nickname, joined_at from participants where session_id = ${sessionId} and status = 'active' and not is_bot`;
+    const [{ now }] = await tx<{ now: Date }[]>`select clock_timestamp() as now`;
+    const n = log?.n ?? 0;
+    const event = lobbyGreetingEvent({
+      players: players.map((p) => ({ id: p.id, nickname: p.nickname, joinedAtMs: p.joined_at.getTime() })),
+      greetedIds: new Set(greeted.map((g) => g.pid)),
+      lastGreetingMs: log?.last ? log.last.getTime() : null,
+      greetingsSoFar: n,
+      nowMs: now.getTime(),
+    });
+    if (!event) return null;
+    const [line] = await directMoment(tx, sessionId, event, { seed: `lobby|${sessionId}|${n}`, roundId: null });
+    if (!line) return null;
+    await publishLines(tx, sessionId, [line]);
+    return line;
+  });
 }

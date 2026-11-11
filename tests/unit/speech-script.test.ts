@@ -18,6 +18,7 @@ import {
   speechFor,
   ttsText,
   type SpokenLine,
+  lobbyGreetingLines,
 } from "@/features/game/script";
 
 /**
@@ -334,5 +335,32 @@ describe("numeri romani nelle domande", () => {
   });
   it("altrove restano come sono", () => {
     expect(spellRomanNumerals("In quale secolo, il XX, nacque il cinema sonoro?")).toBe("In quale secolo, il XX, nacque il cinema sonoro?");
+  });
+});
+
+describe("battute del regista fuori dai punti", () => {
+  const greeting = (id: string, text: string) => ({ who: "regina" as const, text, animation: "wave", event: "PLAYERS_JOINED", id });
+
+  it("lobby: si dicono solo i saluti nuovi, mai dopo un ricaricamento o fuori dalla lobby", () => {
+    const a = greeting("1", "AMOOOORE! Che entrata, Vodka e Gigi!");
+    const b = greeting("2", "Un applauso per Lalla!");
+    const s1 = baseState("LOBBY", { showLines: [a] });
+    expect(lobbyGreetingLines(s1, baseState("LOBBY"))).toEqual([{ who: "regina", text: a.text, live: true }]);
+    // stesso saluto al polling successivo: niente ripetizioni
+    expect(lobbyGreetingLines(s1, s1)).toEqual([]);
+    expect(lobbyGreetingLines(baseState("LOBBY", { showLines: [b] }), s1)).toEqual([{ who: "regina", text: b.text, live: true }]);
+    // TV appena ricaricato: nessun saluto ripetuto
+    expect(lobbyGreetingLines(s1, null)).toEqual([]);
+    expect(lobbyGreetingLines(baseState("PAUSED", { showLines: [b] }), s1)).toEqual([]);
+  });
+
+  it("inizio della finale: dopo la presentazione del round, la battuta live con primo e secondo", () => {
+    const final = ROUNDS.find((r) => r.kind === "final")!;
+    const line = { who: "palmino" as const, text: "MIIII, siamo alla finale! Vodka davanti, Gigi col fiato sul collo.", animation: "point", event: "FINAL_ROUND_START" };
+    const out = speechFor(baseState("ROUND_INTRO", { round: final, showLines: [line] }), { phase: "SCORE_REVEAL" }, { readOptions: true });
+    expect(out[0]).toEqual(roundIntroLine(final));
+    expect(out[1]).toEqual({ who: "palmino", text: line.text, live: true });
+    // senza battute del regista: solo la presentazione
+    expect(speechFor(baseState("ROUND_INTRO", { round: final }), { phase: "SCORE_REVEAL" }, { readOptions: true })).toEqual([roundIntroLine(final)]);
   });
 });

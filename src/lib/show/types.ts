@@ -26,7 +26,11 @@ export type ShowEvent =
   | { type: "ALL_WRONG" }
   | { type: "ALL_CORRECT" }
   | { type: "POINTS_MILESTONE"; who: PlayerRef; threshold: number }
-  | { type: "ROUND_WINNER"; leaders: PlayerRef[]; points: number };
+  | { type: "ROUND_WINNER"; leaders: PlayerRef[]; points: number }
+  /** lobby: nuovi arrivati salutati per nome (`named`), gli altri contati in `others`; `greeted` = tutti i salutati */
+  | { type: "PLAYERS_JOINED"; named: PlayerRef[]; others: number; greeted: PlayerRef[] }
+  /** inizio del round finale: primo e secondo della classifica ufficiale */
+  | { type: "FINAL_ROUND_START"; leader: PlayerRef; runnerUp: PlayerRef; gap: number };
 
 export type ShowEventType = ShowEvent["type"];
 
@@ -45,6 +49,8 @@ export const SHOW_EVENT_TYPES = [
   "ALL_CORRECT",
   "POINTS_MILESTONE",
   "ROUND_WINNER",
+  "PLAYERS_JOINED",
+  "FINAL_ROUND_START",
 ] as const satisfies readonly ShowEventType[];
 
 /** Segnaposto ammessi per ogni evento: le battute che ne usano altri vengono rifiutate. */
@@ -63,6 +69,8 @@ export const ALLOWED_PLACEHOLDERS: Record<ShowEventType, readonly string[]> = {
   ALL_CORRECT: [],
   POINTS_MILESTONE: ["nome", "soglia"],
   ROUND_WINNER: ["nome_primo", "punti_primo"],
+  PLAYERS_JOINED: ["nomi"],
+  FINAL_ROUND_START: ["nome_primo", "nome_secondo"],
 };
 
 /** Importanza di base del momento (le battute possono alzarla o abbassarla). */
@@ -81,7 +89,13 @@ export const EVENT_PRIORITY: Record<ShowEventType, number> = {
   LEADER_KEPT: 45,
   WRONG_STREAK: 35,
   NEW_LAST: 35,
+  // momenti a sé (lobby, inizio finale): non competono con gli eventi dei punti
+  FINAL_ROUND_START: 80,
+  PLAYERS_JOINED: 40,
 };
+
+/** Eventi dei punti di una risposta (SCORE_REVEAL); gli altri hanno un momento proprio. */
+export const SCORE_EVENT_TYPES: readonly ShowEventType[] = SHOW_EVENT_TYPES.filter((e) => e !== "PLAYERS_JOINED" && e !== "FINAL_ROUND_START");
 
 export const CHARACTER_ANIMATIONS = ["celebrate", "point", "surprised", "wave", "talk", "idle"] as const;
 export type CharacterAnimationName = (typeof CHARACTER_ANIMATIONS)[number];

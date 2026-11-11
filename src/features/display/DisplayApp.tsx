@@ -12,7 +12,7 @@ import { Confetti } from "@/features/game/components/effects";
 import { Logo } from "@/features/game/components/brand";
 import { getVoice } from "@/features/media/voice";
 import { speechFor } from "@/features/game/speech";
-import { MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
+import { lobbyGreetingLines, MIC_TEST_LINES, WELCOME_LINE } from "@/features/game/script";
 import { TvPauseOverlay } from "./TvScreens";
 import { TvStage } from "./TvStage";
 import { CharacterModeProvider } from "@/features/three/characters/character-mode";
@@ -219,6 +219,8 @@ export function DisplayApp({ sessionId, displayKey }: { sessionId: string; displ
       const lines = startedRef.current ? speechFor(s, prev, { readOptions: p.readOptions }) : [];
       if (phaseChanged && lines.length > 0) voice.stop();
       const spoken = Promise.all(lines.map((l) => voice.say(l.who, l.text, { live: l.live })));
+      // Lobby: saluti ai nuovi arrivati decisi dal server (solo quelli nuovi, mai dopo un ricaricamento)
+      if (startedRef.current) for (const l of lobbyGreetingLines(s, prev)) void voice.say(l.who, l.text, { live: l.live });
       // Manche musicale: il TV riproduce l'estratto dopo la presentazione (una sola volta).
       if (s.phase === "QUESTION_VISIBLE" && s.question?.media?.kind === "audio" && (phaseChanged || questionChanged)) {
         const key = "qz.played." + s.question.id;

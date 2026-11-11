@@ -32,6 +32,8 @@ export const EVENT_LABEL: Record<ShowEventType, string> = {
   ALL_CORRECT: "Tutti rispondono giusto",
   POINTS_MILESTONE: "Supera una soglia di punti",
   ROUND_WINNER: "Vincitore del round",
+  PLAYERS_JOINED: "Lobby: saluto ai nuovi arrivati",
+  FINAL_ROUND_START: "Inizio del round finale",
 };
 
 function DirectorPanel() {

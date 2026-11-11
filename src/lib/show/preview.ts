@@ -14,6 +14,8 @@ export function previewText(event: ShowEventType, text: string, name: string): s
     nome_ex_primo: other,
     nome_superato: other,
     nomi_primi: `${name} e ${other}`,
+    nomi: `${name}, ${other} e Tano`,
+    nome_secondo: other,
     punti_primo: event === "ROUND_WINNER" ? "18500" : "12500",
     domande: "3",
     posizioni: "4",
