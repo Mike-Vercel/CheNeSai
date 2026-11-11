@@ -16,6 +16,7 @@ import { RoundCard } from "./RoundCard";
 import { RoundFormModal } from "./RoundFormModal";
 import { RunningOrderPanel } from "./RunningOrderPanel";
 import { SessionSettingsModal } from "./SessionSettingsModal";
+import { TeamsPanel } from "./TeamsPanel";
 import { usePregen, VoicePrepBox } from "../voices/VoicePrep";
 
 export function SessionEditor({ id }: { id: string }) {
@@ -439,6 +440,8 @@ export function SessionEditor({ id }: { id: string }) {
             </dl>
             {session.status !== "draft" && <p className="mt-3 text-xs text-white/50">Punteggi e tempi congelati alla pubblicazione.</p>}
           </Panel>
+
+          <TeamsPanel session={session} canEdit={isAdmin} onChanged={refresh} />
 
           <Panel title="Eventi di Palmino">
             <p className="text-sm text-white/70">

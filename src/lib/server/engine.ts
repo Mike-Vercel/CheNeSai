@@ -4,6 +4,7 @@ import { isCommandAllowed } from "@/lib/game-engine/transitions";
 import { applyDelta, evaluateAnswer, scoreAnswer } from "@/lib/game-engine/scoring";
 import { rankParticipants } from "@/lib/game-engine/ranking";
 import { tallyVotes } from "@/lib/game-engine/voting";
+import { balanceTeams, MIN_TEAMS, teamsEnabled } from "@/lib/game-engine/teams";
 import {
   GameError,
   type GameCommand,
@@ -23,6 +24,7 @@ import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } 
 import { rulesForQuestion } from "./rules";
 import { optionsReadMs } from "./read-time";
 import { directAfterScore, directFinalRoundStart } from "./show";
+import { computeSessionTeamStandings, rerankTeams } from "./teams";
 import { scheduleSessionPrep, schedulePrewarm } from "./tts-prewarm";
 import { PALMINO_DECIDES_PREFIX } from "@/features/game/script";
 
@@ -259,6 +261,8 @@ export async function rerank(tx: Tx, sessionId: string): Promise<void> {
   await tx`
     update score_totals t set rank = null
     from participants p where p.id = t.participant_id and p.session_id = ${sessionId} and p.status <> 'active'`;
+  // classifica a squadre (solo se la serata è a squadre)
+  await rerankTeams(tx, sessionId);
 }
 
 // ===========================================================================
@@ -681,7 +685,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
     return { to: from, patch: { paused_from_phase: null, paused_remaining_ms: null, paused_at: null } };
   },
 
-  async FINISH({ tx, st, sessionId }) {
+  async FINISH({ tx, st, sessionId, settings }) {
     if (st.current_session_question_id) {
       await tx`
         update session_questions set answers_closed_at = coalesce(answers_closed_at, clock_timestamp()),
@@ -699,7 +703,15 @@ const HANDLERS: Record<GameCommand, Handler> = {
       where p.session_id = ${sessionId} and p.status = 'active' and not p.is_bot and t.rank is not null
       on conflict do nothing`;
     await tx`update game_sessions set status = 'finished', finished_at = clock_timestamp() where id = ${sessionId}`;
-    return { to: "FINISHED", patch: { paused_from_phase: null, paused_remaining_ms: null, paused_at: null, active_event_id: null } };
+    // classifica finale a squadre registrata nel log della partita (le squadre non entrano nelle classifiche mensili)
+    const teams = teamsEnabled(settings.teams.mode)
+      ? (await computeSessionTeamStandings(tx, sessionId, settings.teams.aggregation)).standings.map((t) => ({ teamId: t.teamId, name: t.name, rank: t.rank, points: t.points, members: t.members }))
+      : null;
+    return {
+      to: "FINISHED",
+      patch: { paused_from_phase: null, paused_remaining_ms: null, paused_at: null, active_event_id: null },
+      result: teams ? { teams, aggregation: settings.teams.aggregation } : undefined,
+    };
   },
 
   async SET_JOIN({ tx, st, args, sessionId }) {
@@ -738,6 +750,45 @@ const HANDLERS: Record<GameCommand, Handler> = {
     return { to: st.phase, result: { delta: applied.delta, points: applied.after } };
   },
 
+  async ASSIGN_TEAM({ tx, st, args, sessionId }) {
+    if (!args.participantId) throw new GameError("VALIDATION", "Giocatore non specificato");
+    if (args.teamId === undefined) throw new GameError("VALIDATION", "Squadra non specificata");
+    const [p] = await tx<{ id: string; team_id: string | null }[]>`
+      select id, team_id from participants
+      where id = ${args.participantId} and session_id = ${sessionId} and status = 'active' for update`;
+    if (!p) throw new GameError("NOT_FOUND", "Giocatore non trovato o espulso");
+    let teamName: string | null = null;
+    if (args.teamId) {
+      const [t] = await tx<{ name: string }[]>`select name from teams where id = ${args.teamId} and session_id = ${sessionId}`;
+      if (!t) throw new GameError("NOT_FOUND", "Squadra non trovata in questa serata");
+      teamName = t.name;
+    }
+    await tx`update participants set team_id = ${args.teamId} where id = ${p.id}`;
+    await rerankTeams(tx, sessionId);
+    return { to: st.phase, result: { participantId: p.id, from: p.team_id, teamId: args.teamId, team: teamName } };
+  },
+
+  async BALANCE_TEAMS({ tx, st, args, sessionId }) {
+    const teams = await tx<{ id: string; position: number }[]>`select id, position from teams where session_id = ${sessionId} order by position`;
+    if (teams.length < MIN_TEAMS) throw new GameError("VALIDATION", `Servono almeno ${MIN_TEAMS} squadre per bilanciare`);
+    const players = await tx<{ id: string; points: number; teamId: string | null }[]>`
+      select p.id, coalesce(t.points, 0) as points, p.team_id as "teamId"
+      from participants p left join score_totals t on t.participant_id = p.id
+      where p.session_id = ${sessionId} and p.status = 'active'
+      order by p.id
+      for update of p`;
+    const moves = balanceTeams(teams, players, { onlyUnassigned: args.onlyUnassigned ?? false });
+    if (moves.length > 0) {
+      await tx`
+        update participants p set team_id = v.team
+        from (select unnest(${tx.array(moves.map((m) => m.participantId))}::uuid[]) as pid,
+                     unnest(${tx.array(moves.map((m) => m.teamId))}::uuid[]) as team) v
+        where p.id = v.pid and p.session_id = ${sessionId}`;
+    }
+    await rerankTeams(tx, sessionId);
+    return { to: st.phase, result: { moved: moves.length, players: players.length, onlyUnassigned: args.onlyUnassigned ?? false } };
+  },
+
   async RESET_TEST({ tx, sessionId }) {
     await tx`select set_config('qz.allow_reset', 'on', true)`;
     await tx`delete from leaderboards where session_id = ${sessionId}`;
@@ -755,6 +806,7 @@ const HANDLERS: Record<GameCommand, Handler> = {
         winning_option_id = null, vote_result = null
       where session_id = ${sessionId}`;
     await tx`update game_state set intro_started_at = null where session_id = ${sessionId}`;
+    await tx`update teams set rank = null, previous_rank = null where session_id = ${sessionId}`;
     await tx`update game_sessions set status = 'live', finished_at = null where id = ${sessionId}`;
     await tx`select set_config('qz.allow_reset', 'off', true)`;
     return {

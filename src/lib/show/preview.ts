@@ -22,6 +22,9 @@ export function previewText(event: ShowEventType, text: string, name: string): s
     secondi: "2,4",
     serie: event === "WRONG_STREAK" ? "3" : "5",
     soglia: "10000",
+    nome_squadra: "I Fenicotteri",
+    nome_ex_squadra: "Gli Squali",
+    punti_squadra: "15400",
   };
   return text.replace(/\{([a-z_]+)\}/g, (m, k: string) => values[k] ?? m);
 }

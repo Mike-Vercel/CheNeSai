@@ -10,7 +10,10 @@ import {
 } from "@/lib/validation/schemas";
 import { audit, CmsError } from "../audit";
 import type { Actor } from "../engine";
-import { effectiveSettings, loadGlobalSettings } from "../settings";
+import { effectiveSettings, loadGlobalSettings, teamSettingsOf } from "../settings";
+import { MAX_TEAMS, MIN_TEAMS, teamsEnabled } from "@/lib/game-engine/teams";
+import { rebroadcast } from "../engine";
+import { copyTeams } from "./teams";
 
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 export function generateSessionCode(len = 6): string {
@@ -377,18 +380,28 @@ export async function createSession(raw: unknown, actor: Actor): Promise<string>
 export async function updateSession(id: string, raw: unknown, actor: Actor): Promise<void> {
   const p = sessionInputSchema.partial().safeParse(raw);
   if (!p.success) throw new CmsError("Dati sessione non validi", 422, p.error.issues);
+  // con .partial() zod applica comunque i valori predefiniti (isTest: false, settings: {}):
+  // si considerano solo i campi davvero inviati
+  const sent = raw && typeof raw === "object" ? new Set(Object.keys(raw)) : new Set<string>();
+  const d = Object.fromEntries(Object.entries(p.data).filter(([k]) => sent.has(k))) as typeof p.data;
   const sql = getSql();
-  await sql.begin(async (tx) => {
-    const [s] = await tx<{ status: SessionStatus; settings: SessionSettings }[]>`select status, settings from game_sessions where id = ${id} for update`;
+  const status = await sql.begin(async (tx) => {
+    const [s] = await tx<{ status: SessionStatus; settings: SessionSettings; is_test: boolean }[]>`
+      select status, settings, is_test from game_sessions where id = ${id} for update`;
     if (!s) throw new CmsError("Sessione non trovata", 404);
     if (s.status === "archived") throw new CmsError("Sessione archiviata", 409);
-    const d = p.data;
-    if (d.isTest !== undefined && s.status !== "draft") throw new CmsError("La modalità prova si sceglie prima della pubblicazione", 409);
+    if (d.isTest !== undefined && d.isTest !== s.is_test && s.status !== "draft") throw new CmsError("La modalità prova si sceglie prima della pubblicazione", 409);
     if (d.settings && s.status !== "draft") {
       const scoringKeys = ["correctPoints", "wrongPenalty", "noAnswerPenalty", "durationSeconds"] as const;
       if (scoringKeys.some((k) => d.settings?.[k] !== undefined && d.settings[k] !== s.settings[k])) {
         throw new CmsError("Punteggi e tempi sono congelati alla pubblicazione", 409);
       }
+    }
+    // modalità squadre su una serata già pubblicata: le squadre devono esserci già (2–8)
+    if (d.settings?.teams && teamsEnabled(d.settings.teams.mode) && s.status !== "draft") {
+      if (s.status === "finished") throw new CmsError("La serata è conclusa: la modalità squadre non si cambia più", 409);
+      const [{ n }] = await tx<{ n: number }[]>`select count(*)::int as n from teams where session_id = ${id}`;
+      if (n < MIN_TEAMS || n > MAX_TEAMS) throw new CmsError(`Per giocare a squadre servono da ${MIN_TEAMS} a ${MAX_TEAMS} squadre`, 409);
     }
     await tx`
       update game_sessions set
@@ -400,7 +413,16 @@ export async function updateSession(id: string, raw: unknown, actor: Actor): Pro
         settings = ${d.settings ? tx.json(mergeSettings(s.settings, d.settings)) : tx`settings`}
       where id = ${id}`;
     await audit(tx, actor, "session.update", { sessionId: id, type: "session", id, details: d as Record<string, unknown> });
+    return s.status;
   });
+  // cambio della modalità squadre a serata pubblicata: TV e telefoni si aggiornano subito
+  if (d.settings?.teams !== undefined && status !== "draft") {
+    try {
+      await rebroadcast(id);
+    } catch (e) {
+      console.warn("[quizzone] aggiornamento modalità squadre non trasmesso", e instanceof Error ? e.message : e);
+    }
+  }
 }
 
 export async function deleteSession(id: string, actor: Actor): Promise<void> {
@@ -482,6 +504,7 @@ export async function duplicateSession(id: string, actor: Actor, opts: { title?:
         insert into special_events (session_id, definition_id, type, title, tagline, params, target_session_question_id, status, source, created_by)
         values (${n.id}, ${e.definition_id}, ${e.type}::special_event_type, ${e.title}, ${e.tagline}, ${tx.json(e.params)}, ${t}, 'scheduled', 'scheduled', ${actor.userId})`;
     }
+    await copyTeams(tx, id, n.id);
     await audit(tx, actor, "session.duplicate", { sessionId: n.id, type: "session", id: n.id, details: { from: id } });
     return n.id;
   });
@@ -524,6 +547,12 @@ export async function validateForPublish(db: Db, sessionId: string): Promise<Pub
       if (q.status !== "approved") issues.push({ level: "error", sessionQuestionId: q.id, message: `"${q.text.slice(0, 60)}": domanda non approvata` });
       if (r.kind === "music" && q.mediaKind !== "audio") issues.push({ level: "warning", sessionQuestionId: q.id, message: `"${q.text.slice(0, 60)}": round musicale senza audio` });
     }
+  }
+  const ts = teamSettingsOf(detail.settings);
+  if (teamsEnabled(ts.mode)) {
+    const [{ n }] = await db<{ n: number }[]>`select count(*)::int as n from teams where session_id = ${sessionId}`;
+    if (n < MIN_TEAMS) issues.push({ level: "error", message: `Serata a squadre: crea almeno ${MIN_TEAMS} squadre (ora ${n})` });
+    if (n > MAX_TEAMS) issues.push({ level: "error", message: `Serata a squadre: al massimo ${MAX_TEAMS} squadre (ora ${n})` });
   }
   const unlicensed = await db<{ text: string }[]>`
     select qb.text from session_questions sq join question_bank qb on qb.id = sq.question_id

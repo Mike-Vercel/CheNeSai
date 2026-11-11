@@ -34,7 +34,7 @@ import { presenterCue, type PresenterCue } from "./presenter-cue";
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
  * altrimenti l'illustrazione originale che "parla" a ritmo della voce.
  */
-function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
+export function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
   const { animation = "idle", ...imgProps } = props;
   const speaker = useSpeaker();
   const { mode, lowPower, fallback } = useCharacterMode();
@@ -308,7 +308,7 @@ export function BottomTicker({ left, right }: { left: string; right: string }) {
 // ---------------------------------------------------------------------------
 // Lobby con QR code
 // ---------------------------------------------------------------------------
-export function TvLobbyScreen({ state, qrDataUrl, joinUrl }: { state: PublicState; qrDataUrl: string | null; joinUrl: string }) {
+export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: PublicState; qrDataUrl: string | null; joinUrl: string; extra?: ReactNode }) {
   const ready = state.phase === "READY";
   return (
     <TvFrame>
@@ -358,7 +358,7 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl }: { state: PublicStat
       </div>
 
       {state.recentPlayers && state.recentPlayers.length > 0 && (
-        <div className="absolute inset-x-[4cqw] bottom-[2.5cqh] flex flex-wrap justify-center gap-[1cqh]">
+        <div className={clsx("absolute inset-x-[4cqw] flex flex-wrap justify-center gap-[1cqh]", extra ? "bottom-[9cqh]" : "bottom-[2.5cqh]")}>
           {state.recentPlayers.slice(0, 16).map((n, i) => (
             <motion.span
               key={n}
@@ -372,6 +372,7 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl }: { state: PublicStat
           ))}
         </div>
       )}
+      {extra}
     </TvFrame>
   );
 }
@@ -680,8 +681,14 @@ export function TvPodiumScreen({
   now = Date.now,
   live = false,
   onCelebrate,
+  titles = { pending: "LA CLASSIFICA FINALE", done: "I CAMPIONI DELLA SERATA" },
+  banner,
 }: {
   entries: LeaderboardEntry[];
+  /** titoli prima e dopo la rivelazione del vincitore (es. squadre) */
+  titles?: { pending: string; done: string };
+  /** mostrato dopo la rivelazione del vincitore (es. squadra vincitrice) */
+  banner?: ReactNode;
   /** inizio della fase FINISHED (ora del server) */
   startedAt: string;
   seed: string;
@@ -762,7 +769,7 @@ export function TvPodiumScreen({
     <TvFrame>
       <div className="absolute left-1/2 top-[2cqh] z-20 -translate-x-1/2 text-center">
         <Logo size="tv" />
-        <p className="mt-[1cqh] font-display text-[6cqh] text-white [text-shadow:0_0.5vh_0_#6b1020]">{winnerShown ? "I CAMPIONI DELLA SERATA" : "LA CLASSIFICA FINALE"}</p>
+        <p className="mt-[1cqh] font-display text-[6cqh] text-white [text-shadow:0_0.5vh_0_#6b1020]">{winnerShown ? titles.done : titles.pending}</p>
       </div>
       <div className="absolute bottom-0 left-0 w-[22cqw]">
         <TalkingCharacter who="professore" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
@@ -773,6 +780,8 @@ export function TvPodiumScreen({
       <div className="absolute bottom-[1cqh] left-[24cqw] w-[10cqw]">
         <TalkingCharacter who="palmino" className="w-full animate-float" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
       </div>
+
+      {winnerShown && banner}
 
       {/* tutti gli altri, dal fondo al 4° posto: compaiono mentre la voce li legge */}
       {plan.rest.entries.length > 0 && t >= plan.rest.at && t < (plan.steps[0]?.drumAt ?? plan.winnerAt) && (

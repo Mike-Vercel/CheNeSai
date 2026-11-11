@@ -4,8 +4,10 @@ import type { GameCommand, PublicState, QuestionType, SpecialEventType } from "@
 import { buildPublicState, loadStateRow, visualPhase } from "./public-state";
 import { resolveNextQuestion } from "./engine";
 import { getSessionDetail, type RoundDetail } from "./cms/sessions";
-import { effectiveSettings, loadGlobalSettings } from "./settings";
+import { effectiveSettings, loadGlobalSettings, teamSettingsOf } from "./settings";
 import { planFromRounds, type LiveRoundActual, type LiveTimingInput, type ResolvedPlan } from "@/lib/show/running-order";
+import { listTeams, type TeamAdmin } from "./cms/teams";
+import type { TeamSettings } from "@/lib/game-engine/teams";
 
 export interface AdminLiveState {
   public: PublicState;
@@ -39,7 +41,11 @@ export interface AdminLiveState {
     answeredCurrent: boolean;
     lastSeenAt: string;
     anomalies: number;
+    teamId: string | null;
   }[];
+  /** squadre della serata (anche in modalità individuale, per prepararle) */
+  teams: TeamAdmin[];
+  teamSettings: TeamSettings;
   displayKey: string;
   code: string;
   isTest: boolean;
@@ -154,9 +160,10 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
       answered_current: boolean;
       last_seen_at: Date;
       anomalies: number;
+      team_id: string | null;
     }[]
   >`
-    select p.id, p.nickname, t.points, t.rank, p.last_seen_at > now() - interval '60 seconds' as online, p.status, p.is_bot,
+    select p.id, p.nickname, t.points, t.rank, p.last_seen_at > now() - interval '60 seconds' as online, p.status, p.is_bot, p.team_id,
       exists (select 1 from answer_submissions a where a.participant_id = p.id and a.session_question_id = ${st.current_session_question_id}) as answered_current,
       p.last_seen_at,
       (select count(*)::int from security_events e where e.participant_id = p.id) as anomalies
@@ -246,7 +253,10 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
       answeredCurrent: p.answered_current,
       lastSeenAt: iso(p.last_seen_at)!,
       anomalies: p.anomalies,
+      teamId: p.team_id,
     })),
+    teams: await listTeams(sql, sessionId),
+    teamSettings: teamSettingsOf(st.settings),
     displayKey: detail.displayKey,
     code: detail.code,
     isTest: detail.isTest,

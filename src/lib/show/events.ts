@@ -16,8 +16,15 @@
  * - ALL_CORRECT: tutti i giocatori (almeno 3) hanno risposto giusto.
  * - POINTS_MILESTONE: superata una soglia (10.000, 20.000, 30.000, 50.000).
  * - ROUND_WINNER: all'ultima domanda del round, chi è primo.
+ *
+ * Solo in modalità squadre (detectTeamEvents, su punteggi di squadra somma/media):
+ * - TEAM_LEADER_CHANGED: una sola squadra in testa che prima non lo era (prima c'era una sola squadra
+ *   in testa con punti > 0). Almeno 2 squadre con giocatori.
+ * - TEAM_ROUND_WINNER: all'ultima domanda del round, la squadra (o le squadre a pari merito) in testa.
+ * Nella modalità "teams" la vittoria del round è della squadra: la ROUND_WINNER individuale non si annuncia.
  */
-import type { PlayerRef, ShowEvent } from "./types";
+import { teamsEnabled, type TeamMode } from "@/lib/game-engine/teams";
+import type { PlayerRef, ShowEvent, TeamRef } from "./types";
 
 export interface ShowPlayer {
   id: string;
@@ -144,9 +151,67 @@ export function detectShowEvents(input: DetectInput): ShowEvent[] {
   return out;
 }
 
-/** Concorrenti a cui l'evento si riferisce (per i limiti di menzioni). */
+export interface ShowTeam {
+  id: string;
+  name: string;
+  /** punteggio di squadra dopo la domanda (somma o media, come la classifica a squadre) */
+  points: number;
+  /** punteggio di squadra prima della domanda */
+  prevPoints: number;
+  members: number;
+}
+
+export interface DetectTeamInput {
+  mode: TeamMode;
+  teams: ShowTeam[];
+  endOfRound: boolean;
+}
+
+const teamRef = (t: ShowTeam): TeamRef => ({ id: t.id, name: t.name });
+
+/** Eventi delle squadre (vuoto se la serata non è a squadre). Funzione pura e deterministica. */
+export function detectTeamEvents(input: DetectTeamInput): ShowEvent[] {
+  if (!teamsEnabled(input.mode)) return [];
+  const teams = input.teams.filter((t) => t.members > 0);
+  if (teams.length < 2) return [];
+  const out: ShowEvent[] = [];
+  const now = ranksByPoints(teams, (t) => t.points);
+  const before = ranksByPoints(teams, (t) => t.prevPoints);
+  const leaders = teams.filter((t) => now.get(t.id) === 1);
+  const prevLeaders = teams.filter((t) => before.get(t.id) === 1);
+  const prevTop = Math.max(...teams.map((t) => t.prevPoints));
+  if (leaders.length === 1 && prevLeaders.length === 1 && prevTop > 0 && prevLeaders[0].id !== leaders[0].id) {
+    out.push({ type: "TEAM_LEADER_CHANGED", team: teamRef(leaders[0]), previous: teamRef(prevLeaders[0]), points: leaders[0].points });
+  }
+  if (input.endOfRound && leaders[0].points > 0) {
+    out.push({ type: "TEAM_ROUND_WINNER", teams: leaders.map(teamRef), points: leaders[0].points });
+  }
+  return out;
+}
+
+/**
+ * Eventi del momento secondo la modalità: individuale → solo giocatori; "both" → giocatori + squadre;
+ * "teams" → giocatori + squadre, ma la vittoria del round è solo della squadra.
+ */
+export function combineShowEvents(mode: TeamMode, individual: ShowEvent[], team: ShowEvent[]): ShowEvent[] {
+  if (!teamsEnabled(mode)) return individual;
+  const own = mode === "teams" ? individual.filter((e) => e.type !== "ROUND_WINNER") : individual;
+  return [...own, ...team];
+}
+
+/** Squadre a cui l'evento si riferisce (per non nominarle due volte nello stesso momento). */
+export function eventTeams(e: ShowEvent): TeamRef[] {
+  if (e.type === "TEAM_LEADER_CHANGED") return [e.team, e.previous];
+  if (e.type === "TEAM_ROUND_WINNER") return e.teams;
+  return [];
+}
+
+/** Concorrenti a cui l'evento si riferisce (per i limiti di menzioni). Gli eventi di squadra non nominano giocatori. */
 export function eventPlayers(e: ShowEvent): PlayerRef[] {
   switch (e.type) {
+    case "TEAM_LEADER_CHANGED":
+    case "TEAM_ROUND_WINNER":
+      return [];
     case "LEADER_CHANGED":
       return [e.leader, e.previous];
     case "LEADER_TIE":

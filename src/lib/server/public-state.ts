@@ -21,6 +21,7 @@ import type { SessionSettings } from "@/lib/validation/schemas";
 import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } from "./settings";
 import { rulesForQuestion } from "./rules";
 import { showLinesForPhase } from "@/lib/show/moments";
+import { loadPublicTeams, loadTeamLeaderboard } from "./teams";
 
 export const QUESTION_PHASES: readonly GamePhase[] = [
   "QUESTION_VISIBLE",
@@ -112,6 +113,9 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
   const vote =
     round && round.kind === "category_vote" && VOTE_PHASES.includes(vp) ? await loadPublicVote(db, round.id, vp) : null;
   const leaderboard = LEADERBOARD_PHASES.includes(vp) ? await loadLeaderboard(db, sessionId, vp === "SCORE_REVEAL" || vp === "FINISHED" ? 40 : 10) : null;
+  // modalità squadre: elenco squadre sempre, classifica a squadre nelle stesse fasi di quella individuale
+  const teams = await loadPublicTeams(db, sessionId, settings.teams);
+  const teamLeaderboard = teams && LEADERBOARD_PHASES.includes(vp) ? await loadTeamLeaderboard(db, sessionId, settings.teams.aggregation) : null;
 
   let recentPlayers: string[] | null = null;
   if (LOBBY_PHASES.includes(vp)) {
@@ -146,6 +150,8 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
     event: showEvent ? event : null,
     vote,
     leaderboard,
+    teams,
+    teamLeaderboard,
     pausedFrom: st.phase === "PAUSED" ? st.paused_from_phase : null,
     recentPlayers,
     showLines: showLinesForPhase(vp, st.show_lines),

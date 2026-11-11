@@ -1,5 +1,6 @@
 import type { Db } from "@/lib/database/db";
 import type { SessionSettings } from "@/lib/validation/schemas";
+import { DEFAULT_TEAM_SETTINGS, type TeamSettings } from "@/lib/game-engine/teams";
 
 export interface GlobalSettings {
   scoring: { correctPoints: number; wrongPenalty: number; noAnswerPenalty: number; allowNegative: boolean };
@@ -43,6 +44,7 @@ export interface EffectiveSessionSettings {
   autoEvents: boolean;
   palminoPool: string[];
   answerGraceMs: number;
+  teams: TeamSettings;
 }
 
 export const DEFAULT_PALMINO_POOL = ["double-points", "no-penalty", "lightning", "super-bonus", "impossible-comeback"];
@@ -62,5 +64,16 @@ export function effectiveSettings(global: GlobalSettings, session: SessionSettin
     autoEvents: (s.autoEvents ?? true) && global.events.autoEventsEnabled,
     palminoPool: s.palminoPool && s.palminoPool.length > 0 ? s.palminoPool : DEFAULT_PALMINO_POOL,
     answerGraceMs: global.timing.answerGraceMs,
+    teams: teamSettingsOf(s),
+  };
+}
+
+/** Impostazioni squadre di una sessione (predefinito: individuale). */
+export function teamSettingsOf(session: SessionSettings | null | undefined): TeamSettings {
+  const t = session?.teams;
+  return {
+    mode: t?.mode ?? DEFAULT_TEAM_SETTINGS.mode,
+    selfSelect: t?.selfSelect ?? DEFAULT_TEAM_SETTINGS.selfSelect,
+    aggregation: t?.aggregation ?? DEFAULT_TEAM_SETTINGS.aggregation,
   };
 }

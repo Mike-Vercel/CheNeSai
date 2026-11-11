@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { COMMANDS, PRESENTERS, QUESTION_TYPES, ROUND_KINDS, SPECIAL_EVENT_TYPES } from "@/lib/game-engine/types";
+import { MAX_TEAMS, TEAM_AGGREGATIONS, TEAM_MODES } from "@/lib/game-engine/teams";
 
 const uuid = z.uuid();
 
@@ -126,6 +127,15 @@ export const sessionSettingsSchema = z.object({
   autoEvents: z.boolean().nullable().optional(),
   palminoPool: z.array(z.string().min(2).max(40)).max(10).nullable().optional(),
   runningOrder: runningOrderSchema.nullable().optional(),
+  /** modalità squadre (assente = individuale) */
+  teams: z
+    .object({
+      mode: z.enum(TEAM_MODES).default("individual"),
+      selfSelect: z.boolean().default(false),
+      aggregation: z.enum(TEAM_AGGREGATIONS).default("sum"),
+    })
+    .nullable()
+    .optional(),
 });
 export type SessionSettingsInput = z.infer<typeof sessionSettingsSchema>;
 /** Impostazioni salvate: le chiavi null vengono rimosse (= eredita dal globale). */
@@ -179,10 +189,28 @@ export const commandSchema = z.object({
       joinLocked: z.boolean().optional(),
       allowLateJoin: z.boolean().optional(),
       count: z.number().int().min(1).max(200).optional(),
+      /** squadra di destinazione (null = nessuna squadra) */
+      teamId: uuid.nullable().optional(),
+      onlyUnassigned: z.boolean().optional(),
     })
     .default({}),
 });
 export type CommandInput = z.infer<typeof commandSchema>;
+
+// ---------------------------------------------------------------------------
+// Squadre
+// ---------------------------------------------------------------------------
+const teamColor = z.string().regex(/^#[0-9a-fA-F]{6}$/, "Colore non valido");
+export const teamInputSchema = z.object({
+  name: z.string().trim().min(2, "Nome troppo corto").max(24, "Max 24 caratteri").refine((v) => !/[<>{}]/.test(v), "Caratteri non ammessi"),
+  // senza colore: il primo libero della tavolozza (scelto dal server)
+  color: teamColor.optional(),
+});
+export const teamUpdateSchema = z.object({
+  name: teamInputSchema.shape.name.optional(),
+  color: teamColor.optional(),
+  position: z.number().int().min(0).max(MAX_TEAMS - 1).optional(),
+});
 
 export const specialEventScheduleSchema = z.object({
   definitionKey: z.string().min(2).max(40),
@@ -220,6 +248,12 @@ export const answerSchema = z.object({
   sessionQuestionId: uuid,
   positions: z.array(z.number().int().min(0).max(3)).min(1).max(4),
   requestId: uuid,
+  slot: z.string().regex(/^[a-z0-9]{1,8}$/).optional(),
+});
+
+export const teamChoiceSchema = z.object({
+  code: z.string().trim().toUpperCase().regex(/^[A-Z0-9]{4,8}$/),
+  teamId: uuid,
   slot: z.string().regex(/^[a-z0-9]{1,8}$/).optional(),
 });
 

@@ -34,6 +34,8 @@ export const EVENT_LABEL: Record<ShowEventType, string> = {
   ROUND_WINNER: "Vincitore del round",
   PLAYERS_JOINED: "Lobby: saluto ai nuovi arrivati",
   FINAL_ROUND_START: "Inizio del round finale",
+  TEAM_LEADER_CHANGED: "Squadre: nuova squadra in testa",
+  TEAM_ROUND_WINNER: "Squadre: squadra vincitrice del round",
 };
 
 function DirectorPanel() {
