@@ -1,6 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
 
 export const LETTERS = ["A", "B", "C", "D"] as const;
@@ -36,42 +37,56 @@ export function AnswerBar({
 }) {
   const st = ANSWER_STYLES[position];
   return (
-    <div
-      className={clsx(
-        "relative flex items-center overflow-hidden rounded-full border-4 transition-all duration-500 animate-pop-in",
-        size === "tv" ? "min-h-[7.4cqh] gap-[1.2cqw] pr-[2cqw]" : "min-h-14 gap-3 pr-4",
-        visual === "dimmed" && "opacity-35 saturate-50",
-        visual === "wrong" && "opacity-40 grayscale",
-        visual === "correct" && "scale-[1.03] animate-pulse-glow",
+    <div className="relative">
+      {/* bagliore della risposta giusta: pulsa solo l'opacità di un alone fisso (lavoro del compositore);
+          il drop-shadow animato di animate-pulse-glow ridisegnava la barra a ogni frame */}
+      {visual === "correct" && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 scale-[1.03] rounded-full"
+          style={{ boxShadow: "0 0 22px 6px rgba(255,212,59,.95)" }}
+          initial={{ opacity: 0.3 }}
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        />
       )}
-      style={{
-        background: st.bg,
-        borderColor: visual === "correct" ? "#ffd43b" : "rgba(255,212,59,.85)",
-        boxShadow:
-          visual === "correct"
-            ? "0 0 0 4px #fff, 0 0 40px 8px rgba(255,212,59,.9)"
-            : `0 6px 0 ${st.edge}, 0 10px 24px rgba(0,0,0,.45)`,
-        animationDelay: `${delayIndex * 90}ms`,
-      }}
-    >
-      <span
+      <div
         className={clsx(
-          "grid shrink-0 place-items-center rounded-full border-4 border-[#ffd43b] bg-gradient-to-b from-[#fff3a6] to-[#ffb800] font-display text-ink",
-          size === "tv" ? "ml-[0.5cqw] h-[6cqh] w-[6cqh] text-[3.8cqh]" : "ml-1 h-11 w-11 text-2xl",
+          "relative flex items-center overflow-hidden rounded-full border-4 transition-all duration-500 animate-pop-in",
+          size === "tv" ? "min-h-[7.4cqh] gap-[1.2cqw] pr-[2cqw]" : "min-h-14 gap-3 pr-4",
+          visual === "dimmed" && "opacity-35 saturate-50",
+          visual === "wrong" && "opacity-40 grayscale",
+          visual === "correct" && "scale-[1.03]",
         )}
+        style={{
+          background: st.bg,
+          borderColor: visual === "correct" ? "#ffd43b" : "rgba(255,212,59,.85)",
+          boxShadow:
+            visual === "correct"
+              ? "0 0 0 4px #fff, 0 0 40px 8px rgba(255,212,59,.9)"
+              : `0 6px 0 ${st.edge}, 0 10px 24px rgba(0,0,0,.45)`,
+          animationDelay: `${delayIndex * 90}ms`,
+        }}
       >
-        {LETTERS[position]}
-      </span>
-      <span
-        className={clsx(
-          "min-w-0 flex-1 font-extrabold leading-tight text-white [text-shadow:0_2px_0_rgba(0,0,0,.35)]",
-          size === "tv" ? "text-[3.6cqh]" : "text-lg",
-        )}
-      >
-        {text}
-      </span>
-      {visual === "correct" && <span className={clsx("font-display text-gold", size === "tv" ? "text-[3.6cqh]" : "text-2xl")}>✓</span>}
-      {trailing}
+        <span
+          className={clsx(
+            "grid shrink-0 place-items-center rounded-full border-4 border-[#ffd43b] bg-gradient-to-b from-[#fff3a6] to-[#ffb800] font-display text-ink",
+            size === "tv" ? "ml-[0.5cqw] h-[6cqh] w-[6cqh] text-[3.8cqh]" : "ml-1 h-11 w-11 text-2xl",
+          )}
+        >
+          {LETTERS[position]}
+        </span>
+        <span
+          className={clsx(
+            "min-w-0 flex-1 font-extrabold leading-tight text-white [text-shadow:0_2px_0_rgba(0,0,0,.35)]",
+            size === "tv" ? "text-[3.6cqh]" : "text-lg",
+          )}
+        >
+          {text}
+        </span>
+        {visual === "correct" && <span className={clsx("font-display text-gold", size === "tv" ? "text-[3.6cqh]" : "text-2xl")}>✓</span>}
+        {trailing}
+      </div>
     </div>
   );
 }

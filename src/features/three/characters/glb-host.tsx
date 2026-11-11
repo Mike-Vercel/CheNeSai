@@ -316,7 +316,8 @@ function vowelOf(n: number): 0 | 1 | 2 {
 export function HostGlbModel({
   who,
   animation = "idle",
-  mouthOpen = 0,
+  mouthOpen: mouthOpenProp = 0,
+  mouthRef,
   speed = 1,
   lowPower = false,
   fullBody = false,
@@ -416,6 +417,7 @@ export function HostGlbModel({
   useFrame((_, rawDt) => {
     const dt = Math.min(0.1, rawDt) * speed;
     const s = st.current;
+    const mouthOpen = mouthRef ? mouthRef.current : mouthOpenProp;
     s.t += dt;
     const walk = Math.max(0, Math.min(1, walkRef?.current ?? 0));
     s.walk += (walk - s.walk) * (1 - Math.exp(-dt / FADE_TAU));

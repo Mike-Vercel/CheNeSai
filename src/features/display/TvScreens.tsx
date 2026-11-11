@@ -3,7 +3,7 @@
 
 import { clsx } from "clsx";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import type {
   GamePhase,
   LeaderboardEntry,
@@ -37,8 +37,10 @@ import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 /**
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
  * altrimenti l'illustrazione originale che "parla" a ritmo della voce.
+ * Memorizzato (props tutte primitive): il conto alla rovescia (5 render al secondo) e i
+ * sondaggi dello stato non rifanno il render della scena 3D.
  */
-export function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
+export const TalkingCharacter = memo(function TalkingCharacter(props: React.ComponentProps<typeof Character> & { animation?: CharacterAnimation }) {
   const { animation = "idle", ...imgProps } = props;
   const speaker = useSpeaker();
   const { mode, lowPower, fallback } = useCharacterMode();
@@ -54,7 +56,7 @@ export function TalkingCharacter(props: React.ComponentProps<typeof Character> &
   }
   const cls = (imgProps.className ?? "").replace(/animate-float\S*/g, talking ? "" : "$&");
   return <Character {...imgProps} className={clsx(cls, talking && "qz-talking")} />;
-}
+});
 
 /** Chi è in scena durante i momenti del regista: chi dice la battuta, con la sua animazione. */
 function useDirectedCue(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined): PresenterCue {
@@ -86,14 +88,37 @@ function CueCharacter({ cue, from, priority }: { cue: PresenterCue; from: "left"
 // ---------------------------------------------------------------------------
 // Cornice dello studio (sfondo comune a tutte le schermate)
 // ---------------------------------------------------------------------------
+/**
+ * Ovale colorato al 30% sfocato di `blur` px, disegnato con un gradiente radiale: il riquadro si
+ * allarga di 2·blur per lato e le tappe seguono il profilo di una sfocatura gaussiana
+ * (pieno fino a ~2σ dentro il bordo, metà sul bordo, quasi nullo a 2σ fuori).
+ */
+function spot(rgb: string, blur: number, box: { left?: string; right?: string; top?: string; bottom?: string; width: string; height: string }): React.CSSProperties {
+  const pad = 2 * blur;
+  const grow = (v: string | undefined) => (v === undefined ? undefined : `calc(${v} - ${pad}px)`);
+  const c = (a: number) => `rgba(${rgb},${a})`;
+  return {
+    left: grow(box.left),
+    right: grow(box.right),
+    top: grow(box.top),
+    bottom: grow(box.bottom),
+    width: `calc(${box.width} + ${2 * pad}px)`,
+    height: `calc(${box.height} + ${2 * pad}px)`,
+    background: `radial-gradient(closest-side, ${c(0.3)} 0%, ${c(0.3)} 30%, ${c(0.27)} 45%, ${c(0.23)} 56%, ${c(0.17)} 66%, ${c(0.08)} 77%, ${c(0.03)} 88%, ${c(0)} 100%)`,
+  };
+}
+
 export function TvFrame({ children, calm = false }: { children: ReactNode; calm?: boolean }) {
   return (
     <div className="qz-stage relative h-full w-full overflow-hidden">
+      {/* spotlight colorati: sfumature radiali che imitano un ovale sfocato (blur 90–100 px) senza
+          filtri, che costavano a ogni nuovo disegno dello sfondo */}
+      <div aria-hidden className="absolute" style={spot("8,124,255", 90, { left: "-10cqw", top: "-20cqh", width: "40cqw", height: "70cqh" })} />
+      <div aria-hidden className="absolute" style={spot("255,20,147", 90, { right: "-10cqw", top: "-20cqh", width: "40cqw", height: "70cqh" })} />
+      <div aria-hidden className="absolute" style={spot("131,43,255", 100, { left: "20cqw", bottom: "-30cqh", width: "60cqw", height: "60cqh" })} />
+      {/* raggi SOPRA le luci: così le luci (ferme) restano nello sfondo e la GPU, mentre i raggi
+          girano, non deve ricomporre a ogni frame anche tre grandi livelli semitrasparenti */}
       <div aria-hidden className={clsx("qz-rays absolute -inset-[30%] opacity-70", !calm && "animate-spin-slow")} />
-      {/* spotlight colorati */}
-      <div aria-hidden className="absolute -left-[10cqw] -top-[20cqh] h-[70cqh] w-[40cqw] rounded-full bg-electric/30 blur-[90px]" />
-      <div aria-hidden className="absolute -right-[10cqw] -top-[20cqh] h-[70cqh] w-[40cqw] rounded-full bg-fuchsia/30 blur-[90px]" />
-      <div aria-hidden className="absolute bottom-[-30cqh] left-[20cqw] h-[60cqh] w-[60cqw] rounded-full bg-violet/30 blur-[100px]" />
       {/* arco di lampadine */}
       <div aria-hidden className="absolute inset-x-[4cqw] top-[1.5cqh] h-[2.2cqh] qz-bulbs animate-marquee opacity-90" style={{ backgroundSize: "3.2cqh 2.2cqh" }} />
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-[24cqh] bg-gradient-to-t from-black/70 to-transparent" />

@@ -13,7 +13,9 @@ export function TimerRing({ remainingMs, totalMs, size = 220, label = "secondi" 
   const color = frac > 0.5 ? "#00d46a" : frac > 0.25 ? "#ffd43b" : "#f72545";
   const urgent = secs <= 5 && secs > 0;
   return (
-    <div className={clsx("relative grid place-items-center", urgent && "animate-pulse")} style={{ width: dim, height: dim }} role="timer" aria-live="off">
+    // livello proprio (will-change): l'anello si ridisegna a ogni frame durante la transizione e così
+    // non trascina con sé il cartiglio della domanda e il suo grande bagliore
+    <div className={clsx("relative grid place-items-center [will-change:transform]", urgent && "animate-pulse")} style={{ width: dim, height: dim }} role="timer" aria-live="off">
       <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
         <circle cx="50" cy="50" r="49" fill="#170824" stroke="#ffd43b" strokeWidth="2" />
         <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="7" />

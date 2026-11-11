@@ -6,6 +6,7 @@ import type { Presenter } from "@/lib/game-engine/types";
 import { getVoice } from "@/features/media/voice";
 import type { CharacterAnimation } from "./types";
 import { CHARACTER_MODELS as MODELS } from "./registry";
+import { effectiveAnimation, GESTURE_MS } from "./gesture";
 
 /** Inquadratura predefinita per personaggio (presentatori a mezzo busto, Palmino intero). */
 export const FRAMING: Record<Presenter, { camera: [number, number, number]; target: [number, number, number]; fov: number }> = {
@@ -22,25 +23,44 @@ export interface CastMember {
   scale?: number;
 }
 
+/** true quando il gesto richiesto è già stato fatto (riparte a ogni cambio di animazione). */
+function useGestureDone(animation: CharacterAnimation): boolean {
+  const [g, setG] = useState({ anim: animation, done: false });
+  // nuovo gesto richiesto: si riparte (aggiornamento durante il render, schema consigliato da React)
+  if (g.anim !== animation) setG({ anim: animation, done: false });
+  useEffect(() => {
+    const ms = GESTURE_MS[animation];
+    if (!ms) return;
+    const t = setTimeout(() => setG((p) => (p.anim === animation ? { anim: animation, done: true } : p)), ms);
+    return () => clearTimeout(t);
+  }, [animation]);
+  return g.anim === animation && g.done;
+}
+
 function Member({ m, lowPower }: { m: CastMember; lowPower: boolean }) {
   const Model = MODELS[m.who];
-  const [mouth, setMouth] = useState(0);
-  const last = useRef(0);
   const [talking, setTalking] = useState(false);
-  useEffect(() => getVoice().subscribe((who) => setTalking(who === m.who)), [m.who]);
-  // Lip-sync: la voce (sintesi del browser) fornisce l'apertura della bocca a ogni frame.
+  const talkingRef = useRef(false);
+  useEffect(
+    () =>
+      getVoice().subscribe((who) => {
+        talkingRef.current = who === m.who;
+        setTalking(who === m.who);
+      }),
+    [m.who],
+  );
+  // Lip-sync: la voce fornisce l'apertura della bocca a ogni frame. Va in un ref letto dal modello
+  // nel suo useFrame: niente render di React a ogni frame mentre il personaggio parla.
+  const mouthRef = useRef(0);
   useFrame((_, dt) => {
     const v = getVoice().mouthOpen(m.who, dt);
-    if (Math.abs(v - last.current) > 0.05 || (v === 0 && last.current !== 0)) {
-      last.current = v;
-      setMouth(v);
-    }
+    mouthRef.current = talkingRef.current ? v : 0;
   });
-  const animation: CharacterAnimation = talking && (m.animation === "idle" || m.animation === "point") ? "talk" : m.animation;
+  const animation = effectiveAnimation(m.animation, useGestureDone(m.animation), talking);
   return (
     <Model
       animation={animation}
-      mouthOpen={talking ? mouth : 0}
+      mouthRef={mouthRef}
       lowPower={lowPower}
       position={m.position ?? [0, 0, 0]}
       rotation={[0, m.rotationY ?? 0, 0]}
@@ -51,14 +71,17 @@ function Member({ m, lowPower }: { m: CastMember; lowPower: boolean }) {
 
 /**
  * Si torna alle immagini 2D solo se il PC è DAVVERO troppo lento (sotto ~12 fps per 15 s di fila).
- * Le misure con la scheda in secondo piano o appena dopo un cambio schermata non contano:
- * il browser rallenta da solo le schede nascoste e non vuol dire che il PC non regga il 3D.
+ * Le misure con la scheda in secondo piano, con la finestra coperta o appena dopo un cambio
+ * schermata non contano: il browser rallenta da solo quei casi e non vuol dire che il PC non regga.
  */
 function FpsGuard({ onSlow }: { onSlow: (reason: string) => void }) {
   const acc = useRef({ t: 0, frames: 0, warm: 0, slow: 0 });
   useFrame((_, dt) => {
     const a = acc.current;
-    if (typeof document !== "undefined" && document.visibilityState !== "visible") {
+    // finestra coperta o schermo spento: il browser dà ~1 frame al secondo pur restando "visible";
+    // non è il PC lento (un PC lento fa comunque più frame al secondo), quindi non conta
+    const throttled = dt > 0.75;
+    if (throttled || (typeof document !== "undefined" && document.visibilityState !== "visible")) {
       a.t = 0;
       a.frames = 0;
       a.warm = 0;
