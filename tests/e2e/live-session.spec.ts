@@ -115,11 +115,12 @@ test("serata live: regia + TV + 3 giocatori sincronizzati", async ({ browser }) 
   const phoneOrder = await players[1].page.getByRole("button", { name: /Tirana|Durazzo|Valona|Scutari/ }).allInnerTexts();
   expect(phoneOrder.map((t) => t.replace(/^[A-D]\s*/, "").trim().split("\n").pop())).toEqual(tvOrder);
 
+  // mentre il presentatore legge le risposte non si può ancora rispondere; poi un tocco = risposta data
+  await expect(players[0].page.getByRole("button", { name: /Tirana/ })).toBeEnabled({ timeout: 20_000 });
   await players[0].page.getByRole("button", { name: /Tirana/ }).click();
-  await players[0].page.getByRole("button", { name: "CONFERMA" }).click();
   await expect(players[0].page.getByText("RISPOSTA REGISTRATA!")).toBeVisible();
+  await expect(players[1].page.getByRole("button", { name: /Valona/ })).toBeEnabled({ timeout: 20_000 });
   await players[1].page.getByRole("button", { name: /Valona/ }).click();
-  await players[1].page.getByRole("button", { name: "CONFERMA" }).click();
   await expect(players[1].page.getByText("RISPOSTA REGISTRATA!")).toBeVisible();
   await tv.screenshot({ path: `${SHOTS}/05-tv-options.png` });
   await players[0].page.screenshot({ path: `${SHOTS}/06-phone-answered.png` });
@@ -141,16 +142,17 @@ test("serata live: regia + TV + 3 giocatori sincronizzati", async ({ browser }) 
   await players[0].page.screenshot({ path: `${SHOTS}/08-phone-reveal.png` });
 
   await command(admin, /ASSEGNA PUNTEGGI/);
-  await expect(tv.getByText("PUNTI ASSEGNATI")).toBeVisible();
-  await expect(players[0].page.getByText("+1.000").first()).toBeVisible();
+  // a metà round il TV mostra solo i punti di questa risposta (con il bonus velocità)
+  await expect(tv.getByText("PUNTI DI QUESTA RISPOSTA")).toBeVisible();
+  await expect(players[0].page.getByText(/\+1\.\d{3}/).first()).toBeVisible();
   await expect(players[1].page.getByText("−400").first()).toBeVisible();
 
   // ricarica TV e regia: stato corrente ripristinato
   await tv.reload();
   await tv.getByRole("button", { name: "Continua senza audio" }).click();
-  await expect(tv.getByText("PUNTI ASSEGNATI")).toBeVisible();
+  await expect(tv.getByText("PUNTI DI QUESTA RISPOSTA")).toBeVisible();
   await admin.reload();
-  await expect(admin.getByText("Punti assegnati").first()).toBeVisible();
+  await expect(admin.getByText("Punteggi assegnati").first()).toBeVisible();
   await tv.screenshot({ path: `${SHOTS}/09-tv-scores.png` });
 
   // ---------------------------------------------------------------- disconnessione
@@ -182,8 +184,11 @@ test("serata live: regia + TV + 3 giocatori sincronizzati", async ({ browser }) 
   await admin.getByRole("button", { name: "TERMINA PARTITA" }).first().click();
   await admin.getByPlaceholder("Scrivi FINE per confermare").fill("FINE");
   await admin.getByRole("button", { name: "TERMINA", exact: true }).click();
-  await expect(tv.getByText("I CAMPIONI DELLA SERATA")).toBeVisible();
-  await expect(players[0].page.getByText("Partita finita!")).toBeVisible();
+  // classifica finale con suspense: prima il podio coperto (e i telefoni aspettano), poi il vincitore
+  await expect(tv.getByText("LA CLASSIFICA FINALE")).toBeVisible();
+  await expect(players[0].page.getByText("Guarda il TV", { exact: false })).toBeVisible();
+  await expect(tv.getByText("I CAMPIONI DELLA SERATA")).toBeVisible({ timeout: 60_000 });
+  await expect(players[0].page.getByText("Partita finita!")).toBeVisible({ timeout: 15_000 });
   await expect(players[0].page.getByText("CAMPIONE DELLA SERATA", { exact: false })).toBeVisible();
   await tv.waitForTimeout(2500);
   await tv.screenshot({ path: `${SHOTS}/12-tv-podium.png` });

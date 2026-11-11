@@ -6,7 +6,8 @@ import path from "node:path";
 export default function globalSetup() {
   mkdirSync("test-results", { recursive: true });
   const out = path.join("test-results", "e2e-session.json");
-  execFileSync(process.execPath, [path.join("node_modules", "tsx", "dist", "cli.mjs"), "scripts/seed-demo.ts", "--e2e", out], {
+  // --conditions=react-server: gli script usano moduli "server-only"
+  execFileSync(process.execPath, [path.join("node_modules", "tsx", "dist", "cli.mjs"), "--conditions=react-server", "scripts/seed-demo.ts", "--e2e", out], {
     stdio: "inherit",
   });
 }
