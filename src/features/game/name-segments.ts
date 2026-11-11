@@ -18,11 +18,17 @@ import { cleanSpeech, ttsText } from "./script";
  *   delle frasi, così le frasi senza numeri restano riusabili (lo stacco cade su una pausa vera);
  * - gli audio tag iniziali vanno sulla prima parte fissa (porta l'interpretazione della
  *   battuta e si paga una volta); un tag subito prima di un nome resta sul nome;
+ * - NUMERI salvati come i nomi: ogni numero detto (punti, "più 1250", "2,4 secondi", posizioni,
+ *   serie, soglie, "e altri 3") è una parte a sé, archiviata per voce sul valore normalizzato
+ *   (+ la punteggiatura che lo segue) e riusata in tutte le serate; il testo attorno resta
+ *   fisso e riusabile ("{nome}, con {punti} punti!" → nome + fisso + numero + fisso);
  * - se le parti fisse sono troppo corte non conviene dividere: null (frase intera).
  */
 
+export type SegmentKind = "fixed" | "name" | "number";
+
 export interface SpeechSegment {
-  kind: "fixed" | "name";
+  kind: SegmentKind;
   /** testo da sintetizzare (forma canonica ttsText) */
   text: string;
 }
@@ -71,6 +77,31 @@ interface Range {
   end: number;
 }
 
+/**
+ * Numeri come li scrivono copione e regista: interi (String(n)), negativi ("-400"), decimali con
+ * la virgola ("2,4" dei secondi) e, per sicurezza, migliaia con il punto ("1.250"). Mai attaccati
+ * a lettere ("MP3", "Gigi99" restano testo o nome).
+ */
+const NUMBER = /(?<![\p{L}\p{N}])(?:-(?=\d))?\d+(?:[.,]\d+)*(?![\p{L}\p{N}])/gu;
+
+/**
+ * Forma canonica di un numero: lo stesso valore → sempre la stessa clip.
+ * Il punto delle migliaia sparisce ("1.250" → "1250"), la virgola dei decimali resta.
+ */
+export function normalizeNumber(token: string): string {
+  return token.replace(/(?<=\d)\.(?=\d{3}(?!\d))/g, "");
+}
+
+/** Posizioni dei numeri nel testo, fuori dai tratti già occupati (nomi, audio tag). */
+function findNumbers(text: string, taken: Range[]): Range[] {
+  const out: Range[] = [];
+  for (const m of text.matchAll(NUMBER)) {
+    const r = { start: m.index, end: m.index + m[0].length };
+    if (!taken.some((t) => r.start < t.end && t.start < r.end)) out.push(r);
+  }
+  return out;
+}
+
 /** Posizioni dei nomi nel testo (senza sovrapposizioni, mai dentro un audio tag). */
 export function findNames(text: string, nicknames: readonly string[]): Range[] {
   const taken: Range[] = [...text.matchAll(TAG)].map((m) => ({ start: m.index, end: m.index + m[0].length }));
@@ -92,7 +123,7 @@ export function findNames(text: string, nicknames: readonly string[]): Range[] {
 }
 
 interface Piece {
-  kind: "fixed" | "name";
+  kind: SegmentKind;
   text: string;
 }
 
@@ -108,16 +139,24 @@ function trailingTags(s: string): { tags: string; rest: string } {
 
 const join = (...parts: string[]) => parts.filter((p) => p.length > 0).join(" ");
 
+export interface SplitOptions {
+  /** anche i numeri diventano parti in archivio (predefinito: sì) */
+  numbers?: boolean;
+}
+
 /**
- * Divide una battuta in parti fisse e parti con i nomi.
- * Restituisce null se non c'è nessun nome o se dividere non conviene.
+ * Divide una battuta in parti fisse, nomi e numeri.
+ * Restituisce null se non c'è nessun nome/numero o se dividere non conviene.
  */
-export function splitByNames(text: string, nicknames: readonly string[]): SpeechSegment[] | null {
+export function splitByNames(text: string, nicknames: readonly string[], opts: SplitOptions = {}): SpeechSegment[] | null {
   const src = ttsText(text);
-  const found = findNames(src, nicknames);
+  const names = findNames(src, nicknames);
+  const tags = [...src.matchAll(TAG)].map((m) => ({ start: m.index, end: m.index + m[0].length }));
+  const numbers = opts.numbers === false ? [] : findNumbers(src, [...tags, ...names]);
+  const found = [...names.map((r) => ({ ...r, kind: "name" as const })), ...numbers.map((r) => ({ ...r, kind: "number" as const }))].sort((a, b) => a.start - b.start);
   if (found.length === 0) return null;
 
-  // 1. pezzi alterni (fisso / nome), con la punteggiatura attaccata al nome
+  // 1. pezzi alterni (fisso / nome / numero), con la punteggiatura attaccata al nome o al numero
   let pieces: Piece[] = [];
   let at = 0;
   for (const r of found) {
@@ -126,14 +165,15 @@ export function splitByNames(text: string, nicknames: readonly string[]): Speech
     let end = r.end;
     const punct = TRAILING_PUNCT.exec(src.slice(end));
     if (punct) end += punct[0].length;
-    pieces.push({ kind: "name", text: src.slice(r.start, end) });
+    const body = src.slice(r.start, r.end);
+    pieces.push({ kind: r.kind, text: (r.kind === "number" ? normalizeNumber(body) : body) + src.slice(r.end, end) });
     at = end;
   }
   if (at < src.length) pieces.push({ kind: "fixed", text: src.slice(at) });
 
-  // 2. tag in coda a un pezzo fisso (es. "Al terzo posto… [excited] Bruno!") → vanno sul nome
+  // 2. tag in coda a un pezzo fisso (es. "Al terzo posto… [excited] Bruno!") → vanno sul nome/numero
   for (let i = 0; i < pieces.length - 1; i++) {
-    if (pieces[i].kind !== "fixed" || pieces[i + 1].kind !== "name") continue;
+    if (pieces[i].kind !== "fixed" || pieces[i + 1].kind === "fixed") continue;
     const t = trailingTags(pieces[i].text);
     if (!t.tags) continue;
     pieces[i] = { ...pieces[i], text: t.rest };
@@ -150,7 +190,7 @@ export function splitByNames(text: string, nicknames: readonly string[]): Speech
     const noWords = p.kind === "fixed" && words(p.text) === 0 && !leadingTags(p.text).tags;
     if (p.kind === "name" && prev?.kind === "name") {
       prev.text = `${prev.text.trimEnd()} ${p.text.trimStart()}`;
-    } else if ((isLink || noWords) && prev?.kind === "name") {
+    } else if ((isLink && prev?.kind === "name") || (noWords && prev && prev.kind !== "fixed")) {
       prev.text = `${prev.text}${p.text}`;
     } else if (noWords && next) {
       pieces[i + 1] = { ...next, text: `${p.text}${next.text}` };
@@ -172,8 +212,8 @@ export function splitByNames(text: string, nicknames: readonly string[]): Speech
     pieces[0].text = `${first.text.trimEnd()} ${pieces[0].text.trimStart()}`;
   }
 
-  // 5. tag iniziali della battuta: sulla prima parte fissa (il nome resta "neutro" e riusabile)
-  if (pieces[0]?.kind === "name") {
+  // 5. tag iniziali della battuta: sulla prima parte fissa (nome e numero restano "neutri" e riusabili)
+  if (pieces[0] && pieces[0].kind !== "fixed") {
     const lead = leadingTags(pieces[0].text);
     const firstFixed = pieces.findIndex((p) => p.kind === "fixed");
     if (lead.tags && firstFixed > 0) {
@@ -188,7 +228,7 @@ export function splitByNames(text: string, nicknames: readonly string[]): Speech
   const segments: SpeechSegment[] = pieces.map((p) => ({ kind: p.kind, text: ttsText(p.text) })).filter((s) => s.text.length > 0);
   // conviene dividere solo se c'è abbastanza testo fisso riusabile (senza numeri)
   const fixedChars = segments.filter((s) => s.kind === "fixed" && !hasDigits(s.text)).reduce((a, s) => a + s.text.replace(TAG, "").trim().length, 0);
-  if (!segments.some((s) => s.kind === "name") || fixedChars < MIN_FIXED_CHARS) return null;
+  if (!segments.some((s) => s.kind !== "fixed") || fixedChars < MIN_FIXED_CHARS) return null;
   // ogni parte deve avere qualcosa da dire (non solo tag o punteggiatura)
   if (segments.some((s) => words(s.text) === 0)) return null;
   return segments;
@@ -210,6 +250,9 @@ export function splitSentences(text: string): string[] {
   out.push(text.slice(at));
   return out.filter((t) => t.trim().length > 0);
 }
+
+/** Numeri piccoli da preparare in anticipo (serie, posizioni, domande, "e altri N"): 1–20, forma semplice. */
+export const PREWARM_NUMBERS: readonly string[] = Array.from({ length: 20 }, (_, i) => String(i + 1));
 
 /** Varianti del nome da preparare in anticipo (le più frequenti nelle battute: "Gigi", "Gigi,", "Gigi!", "Gigi."). */
 export function nameVariants(nickname: string): string[] {

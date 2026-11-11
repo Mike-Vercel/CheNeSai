@@ -5,7 +5,7 @@ import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import { podiumLines, speechFor, wheelStopLine, type SpokenLine } from "@/features/game/script";
 import { standingsForShow } from "@/features/game/teams-view";
 import { cachedKeys, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
-import { ensureLineClip } from "./tts-names";
+import { ensureLineClip, prewarmNumberClips } from "./tts-names";
 import { ensureOptionsClip } from "./read-time";
 import { runScopeBatch } from "./tts-pregen";
 
@@ -102,6 +102,8 @@ export function scheduleSessionPrep(sessionId: string): void {
       let billed = 0;
       try {
         const db = getSql();
+        // numeri piccoli dei "nomi salvati" (una volta per sempre: dopo è solo un controllo in archivio)
+        await prewarmNumberClips(db, await loadVoiceConfig(db)).catch(() => undefined);
         let stuck = 0;
         while (Date.now() - t0 < PREP_MAX_MS) {
           const r = await runScopeBatch(db, { kind: "session", sessionId }, 4);

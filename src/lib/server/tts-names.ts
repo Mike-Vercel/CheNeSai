@@ -2,7 +2,7 @@ import "server-only";
 import { after } from "next/server";
 import { getSql, num, type Db } from "@/lib/database/db";
 import { PRESENTERS } from "@/lib/game-engine/types";
-import { nameVariants, segmentPause, splitByNames, type SpeechSegment } from "@/features/game/name-segments";
+import { nameVariants, PREWARM_NUMBERS, segmentPause, splitByNames, type SpeechSegment } from "@/features/game/name-segments";
 import { stripAudioTags, type SpokenLine } from "@/features/game/script";
 import { concatMp3 } from "./mp3";
 import {
@@ -18,6 +18,7 @@ import {
   ttsConfigured,
   type ClipResult,
   type NamesMode,
+  type PartKind,
   type PlannedClip,
   type TtsSource,
   type VoiceConfig,
@@ -35,8 +36,13 @@ import {
  * esaurito si comporta come prima (TTS_BUDGET → voce del browser sul TV).
  */
 
-/** Silenzio massimo fra due parti quando la prima non finisce con punteggiatura (ms). */
-const TAIL_NO_PAUSE_MS = 30;
+/**
+ * Silenzio massimo in coda a una parte (mai aggiunto), secondo come finisce: senza punteggiatura
+ * quasi niente; virgola/due punti come la pausa di una frase detta intera (~100 ms misurati);
+ * fine frase come lo stacco fra due frasi (~250 ms). Una parte generata da sola termina come
+ * una battuta intera (fino a ~300 ms di coda): senza limite la frase composta si allunga.
+ */
+const TAIL_MS = { none: 30, comma: 110, stop: 260 } as const;
 /** Contesto per l'intonazione delle parti (previous_text/next_text): al massimo questi caratteri. */
 const CONTEXT_CHARS = 200;
 
@@ -53,6 +59,12 @@ const NAME_VARIANT_CONTEXT: Record<"none" | "comma" | "stop" | "exclaim", { prev
   exclaim: { previous: "E il vincitore della serata è…" },
   stop: { previous: "Adesso al comando della classifica c'è" },
 };
+
+/** Contesto generico per i numeri piccoli preparati in anticipo (serie, posizioni, "e altri N"). */
+const NUMBER_PREWARM_CONTEXT = { previous: "Ne ha azzeccate", next: "di fila, che serie!" };
+
+/** Parte della battuta → tipo di clip in archivio. */
+const partKind = (s: SpeechSegment): PartKind => (s.kind === "fixed" ? "segment" : s.kind);
 
 export interface LineClipOptions {
   /** serata della battuta: servono i nomi dei suoi giocatori */
@@ -88,7 +100,7 @@ export function planSplice(cfg: VoiceConfig, whole: PlannedClip, names: readonly
   if (!segments || segments.length < 2) return null;
   const parts: SplicePlan["parts"] = [];
   for (const [i, segment] of segments.entries()) {
-    const plan = planPart(cfg, whole.role, segment.text, segment.kind === "name" ? "name" : "segment", whole.model);
+    const plan = planPart(cfg, whole.role, segment.text, partKind(segment), whole.model);
     if (!plan) return null;
     // intonazione: la parte "sa" cosa viene prima e dopo nella frase (la prima generazione vince in archivio)
     const previous = contextText(segments.slice(0, i).map((s) => s.text)).slice(-CONTEXT_CHARS);
@@ -103,13 +115,13 @@ const inflight = new Map<string, Promise<ClipResult>>();
 
 /** Genera le parti mancanti, le unisce e salva la frase intera. */
 async function spliceClip(db: Db, cfg: VoiceConfig, sp: SplicePlan): Promise<ClipResult> {
-  const results = await Promise.all(sp.parts.map((p) => ensureClip(db, p.plan, p.segment.kind === "name" ? "name" : "segment", cfg)));
+  const results = await Promise.all(sp.parts.map((p) => ensureClip(db, p.plan, partKind(p.segment), cfg)));
   const audios = await Promise.all(results.map((r) => r.audio ?? downloadClip(r.path)));
   const joined = concatMp3(
     audios.map((audio, i) => {
       const last = i === audios.length - 1;
-      // dopo una virgola o un punto la pausa naturale dell'mp3 resta; altrimenti si accorcia
-      return { audio, tailMs: last || segmentPause(sp.parts[i].segment.text) !== "none" ? undefined : TAIL_NO_PAUSE_MS };
+      // pause fra le parti come in una frase detta intera (l'ultima parte resta com'è)
+      return { audio, tailMs: last ? undefined : TAIL_MS[segmentPause(sp.parts[i].segment.text)] };
     }),
   );
   const billed = results.reduce((a, r) => a + r.billedChars, 0);
@@ -196,6 +208,31 @@ export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: strin
   return { generated, billedChars };
 }
 
+/**
+ * Numeri piccoli (1–20, forma semplice) per i tre presentatori: serie, posizioni, domande,
+ * "e altri N". Costo una tantum minimo (~60 clip da 1–2 caratteri), poi gratis per sempre.
+ */
+export async function prewarmNumberClips(db: Db, cfg: VoiceConfig): Promise<{ generated: number; billedChars: number }> {
+  if (cfg.namesMode !== "spliced") return { generated: 0, billedChars: 0 };
+  const plans = PRESENTERS.flatMap((who) =>
+    PREWARM_NUMBERS.map((n) => {
+      const plan = planPart(cfg, who, n, "number");
+      if (plan) plan.context = NUMBER_PREWARM_CONTEXT;
+      return plan;
+    }),
+  ).filter((p) => p !== null);
+  const cached = await cachedKeys(db, plans.map((p) => p.key));
+  const results = await Promise.allSettled(plans.filter((p) => !cached.has(p.key)).map((p) => ensureClip(db, p, "number", cfg, { priority: "low" })));
+  let generated = 0;
+  let billedChars = 0;
+  for (const r of results) {
+    if (r.status !== "fulfilled") continue;
+    generated++;
+    billedChars += r.value.billedChars;
+  }
+  return { generated, billedChars };
+}
+
 /** All'ingresso di un nuovo giocatore: nomi preparati in background (mai bloccante). */
 export function scheduleNamePrewarm(nickname: string): void {
   try {
@@ -221,6 +258,9 @@ export interface NamesArchiveStats {
   names: number;
   /** clip di nomi (varianti per voce e punteggiatura) */
   nameClips: number;
+  /** numeri diversi in archivio e clip di numeri (varianti per voce e punteggiatura) */
+  numbers: number;
+  numberClips: number;
   /** parti fisse in archivio */
   segments: number;
   /** battute composte */
@@ -231,18 +271,22 @@ export interface NamesArchiveStats {
 }
 
 export async function namesArchiveStats(db: Db = getSql()): Promise<NamesArchiveStats> {
-  const [r] = await db<{ names: number; name_clips: number; segments: number; spliced: number; saved: string | number; month_saved: string | number }[]>`
+  const [r] = await db<{ names: number; name_clips: number; numbers: number; number_clips: number; segments: number; spliced: number; saved: string | number; month_saved: string | number }[]>`
     select
       count(distinct lower(regexp_replace(text, '[[:punct:][:space:]…]+$', ''))) filter (where source = 'name')::int as names,
       count(*) filter (where source = 'name')::int as name_clips,
+      count(distinct regexp_replace(text, '[^0-9,-]+$', '')) filter (where source = 'number')::int as numbers,
+      count(*) filter (where source = 'number')::int as number_clips,
       count(*) filter (where source = 'segment')::int as segments,
       count(*) filter (where source = 'spliced')::int as spliced,
       coalesce(sum(saved_chars), 0) as saved,
       coalesce(sum(saved_chars) filter (where created_at >= date_trunc('month', now())), 0) as month_saved
-    from tts_clips where source in ('name', 'segment', 'spliced')`;
+    from tts_clips where source in ('name', 'number', 'segment', 'spliced')`;
   return {
     names: r?.names ?? 0,
     nameClips: r?.name_clips ?? 0,
+    numbers: r?.numbers ?? 0,
+    numberClips: r?.number_clips ?? 0,
     segments: r?.segments ?? 0,
     spliced: r?.spliced ?? 0,
     savedChars: num(r?.saved ?? 0),
