@@ -65,11 +65,10 @@ function PlayerShowOverlay({ state, ctx, code, slot, nickname }: { state: Public
       ) : (
         <button
           type="button"
-          aria-pressed={!prefs.muted}
           aria-label={prefs.muted ? "Attiva l'audio" : "Togli l'audio"}
           onClick={() => setPrefs({ muted: !prefs.muted })}
-          className="absolute right-3 top-3 z-[66] grid h-11 w-11 place-items-center rounded-full bg-black/55 text-xl text-white backdrop-blur"
-          style={{ marginTop: "env(safe-area-inset-top)" }}
+          className="absolute bottom-3 right-3 z-[66] grid h-11 w-11 place-items-center rounded-full bg-black/55 text-xl text-white backdrop-blur"
+          style={{ marginBottom: "env(safe-area-inset-bottom)" }}
         >
           {prefs.muted ? "🔇" : "🔊"}
         </button>

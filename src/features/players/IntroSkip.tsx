@@ -93,7 +93,7 @@ export function IntroSkipCounter({ skip, portrait = false }: { skip: PublicIntro
     <div
       className={clsx(
         "pointer-events-none absolute z-[44] rounded-2xl bg-black/70 text-white shadow-xl backdrop-blur",
-        portrait ? "left-1/2 top-[11cqh] w-[86cqw] -translate-x-1/2 px-[3cqw] py-[1.6cqw] text-center" : "right-[2cqw] top-[3cqh] max-w-[34cqw] px-[1.6cqh] py-[1cqh]",
+        portrait ? "bottom-[17cqh] left-1/2 w-[86cqw] -translate-x-1/2 px-[3cqw] py-[1.6cqw] text-center" : "right-[2cqw] top-[3cqh] max-w-[34cqw] px-[1.6cqh] py-[1cqh]",
       )}
       data-testid="intro-skip-counter"
     >

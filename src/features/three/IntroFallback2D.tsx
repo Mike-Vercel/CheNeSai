@@ -176,26 +176,26 @@ export function IntroFallback2D({
 
       {/* i tre personaggi entrano insieme */}
       <motion.div
-        className="qz-fb-char left-[1%] h-[60%]"
+        className={portrait ? "qz-fb-char left-[-5%] h-[36%]" : "qz-fb-char left-[1%] h-[60%]"}
         initial={false}
         animate={chars ? { opacity: 1, ...emph("professore") } : { x: "-130%", opacity: 1 }}
-        style={{ transformOrigin: "50% 100%" }}
+        style={{ transformOrigin: "50% 100%", ...(portrait ? { bottom: "21%" } : {}) }}
         transition={reducedMotion ? { duration: 0.4 } : { type: "spring", stiffness: 60, damping: 14 }}
       >
         <img src={CHARACTERS.professore.src} alt="Il Professore" className={`h-full w-auto ${reducedMotion ? "" : "qz-fb-idle"}`} draggable={false} />
       </motion.div>
       <motion.div
-        className="qz-fb-char right-[0%] h-[56%]"
+        className={portrait ? "qz-fb-char right-[-5%] h-[33%]" : "qz-fb-char right-[0%] h-[56%]"}
         initial={false}
         animate={chars ? { opacity: 1, ...emph("regina") } : { x: "130%", opacity: 1 }}
-        style={{ transformOrigin: "50% 100%" }}
+        style={{ transformOrigin: "50% 100%", ...(portrait ? { bottom: "23%" } : {}) }}
         transition={reducedMotion ? { duration: 0.4 } : { type: "spring", stiffness: 60, damping: 14, delay: dReg }}
       >
         <img src={CHARACTERS.regina.src} alt="La Regina" className={`h-full w-auto ${reducedMotion ? "" : "qz-fb-idle"}`} draggable={false} />
       </motion.div>
       <motion.div
-        className="qz-fb-char left-1/2 h-[42%]"
-        style={{ translateX: "-50%", transformOrigin: "50% 100%" }}
+        className={portrait ? "qz-fb-char left-1/2 h-[22%]" : "qz-fb-char left-1/2 h-[42%]"}
+        style={{ translateX: "-50%", transformOrigin: "50% 100%", ...(portrait ? { bottom: "17%" } : {}) }}
         initial={false}
         animate={chars ? { rotate: 0, opacity: 1, ...emph("palmino") } : { y: "-260%", rotate: -360, opacity: 1 }}
         transition={reducedMotion ? { duration: 0.4 } : { type: "spring", stiffness: 140, damping: 11, delay: dPalm }}

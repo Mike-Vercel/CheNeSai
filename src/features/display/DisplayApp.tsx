@@ -23,6 +23,7 @@ import { CharacterModeProvider } from "@/features/three/characters/character-mod
 import { TvScreenAgent } from "./TvScreenControls";
 import { useTvPrefs, type TvPrefs } from "./tv-prefs";
 import { IntroSkipCounter } from "@/features/players/IntroSkip";
+import { StageBoundary } from "./StageBoundary";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -167,6 +168,8 @@ export function DisplayApp({
   const [prefs, updatePrefs] = useTvPrefs();
   const setPrefs = useCallback((p: TvPrefs) => updatePrefs(p), [updatePrefs]);
   const [showSettings, setShowSettings] = useState(false);
+  /** una schermata è andata in errore: da qui in poi personaggi 2D (più leggeri), mai schermo bianco */
+  const [safe2d, setSafe2d] = useState(false);
   const [confetti, setConfetti] = useState(0);
   const [confettiIntensity, setConfettiIntensity] = useState(1);
   // coriandoli quando il podio rivela il vincitore
@@ -603,7 +606,8 @@ export function DisplayApp({
   // ---------------------------------------------------------------- render
   const Stage = layout === "portrait" ? PortraitStage : TvStage;
   const screen = (
-    <CharacterModeProvider prefer3d={prefs.characters3d} lowPower={prefs.lowPower}>
+    <StageBoundary portrait={layout === "portrait"} onError={() => setSafe2d(true)}>
+    <CharacterModeProvider prefer3d={prefs.characters3d && !safe2d} lowPower={prefs.lowPower}>
     <Stage
       state={view}
       now={now}
@@ -635,6 +639,7 @@ export function DisplayApp({
       }
     />
     </CharacterModeProvider>
+    </StageBoundary>
   );
 
   return (
