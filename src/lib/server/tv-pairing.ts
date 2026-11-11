@@ -1,4 +1,5 @@
 import "server-only";
+import { setDisplayMode } from "./display-mode";
 import { createHash, randomBytes, randomInt } from "node:crypto";
 import { getSql, iso, type Db } from "@/lib/database/db";
 import { remotePrefsSchema, type RemotePrefs } from "@/lib/validation/tv-remote";
@@ -137,6 +138,8 @@ export async function claimPairing(host: HostUser, rawCode: string, sessionId: s
     where code = ${code} and status = 'waiting' and expires_at > now()
     returning id`;
   if (!r) throw new GiocoError("PAIRING_INVALID", "Codice non valido o scaduto: controlla il numero sul televisore");
+  // lo show passa sul televisore: i telefoni dei giocatori tornano a "Guarda il TV"
+  await setDisplayMode(sessionId, "tv", db).catch(() => false);
   return { sessionId };
 }
 
@@ -154,6 +157,7 @@ export async function createCastPairing(host: HostUser, sessionId: string, db: D
     insert into tv_pairings (code, token_hash, status, session_id, claimed_by, claimed_at, created_ip, expires_at)
     values (${newCode()}, ${hashToken(token)}, 'claimed', ${sessionId}, ${host.userId}, now(), ${host.ip ?? null}, now() + make_interval(secs => ${CLAIM_GRACE_SECONDS}))
     returning id`;
+  await setDisplayMode(sessionId, "tv", db).catch(() => false);
   return { pairingId: r.id, token };
 }
 

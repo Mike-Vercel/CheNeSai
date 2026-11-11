@@ -4,6 +4,8 @@ import { num } from "@/lib/database/db";
 import { estimateSpeechMs, planAutoplay, AUTO_SWITCH_DELAY_MS, type AutoplayPlan } from "@/lib/game-engine/autoplay";
 import type { GamePhase, PublicState, RoundKind } from "@/lib/game-engine/types";
 import { speechFor, stripAudioTags, wheelStopLine, type SpokenLine } from "@/features/game/script";
+import { questionMoment } from "@/features/game/moment";
+import { questionIntroMs } from "@/features/game/question-intro";
 import { autoplayEnabled, publicAuto, type StateRow } from "./public-state";
 import { loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 
@@ -174,6 +176,7 @@ export async function computeAutoplayPlan(
     wheelStopSpeechMs,
     media,
     betRound: st.phase === "QUESTION_VISIBLE" && state.question?.rules.special?.kind === "bet",
+    questionIntroMs: st.phase === "QUESTION_VISIBLE" ? questionIntroMs(questionMoment(state)) : 0,
   });
 }
 

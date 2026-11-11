@@ -50,21 +50,68 @@ const LINES: Partial<Record<GamePhase, Record<Presenter, string[]>>> = {
   },
 };
 
-/** Commenti dopo la rivelazione: quasi tutti giusti / quasi tutti sbagliati. */
-export const REVEAL_QUIPS: Record<Presenter, { easy: string[]; hard: string[] }> = {
+/**
+ * Commenti dopo la rivelazione, divisi per esito (le frasi devono dire il VERO):
+ * - all: hanno risposto giusto letteralmente tutti i giocatori;
+ * - most: quasi tutti giusti (almeno il 70%, ma non tutti);
+ * - easy: domanda facile, frasi neutre (valgono per "tutti" e per "quasi tutti");
+ * - few: pochissimi giusti (25% o meno, ma ALMENO UNO);
+ * - hard: domanda difficile, frasi neutre (valgono per "pochi" e per "nessuno");
+ * - none: nessuno ha risposto giusto (almeno una risposta data).
+ */
+export interface RevealQuipPools {
+  all: string[];
+  most: string[];
+  easy: string[];
+  few: string[];
+  hard: string[];
+  none: string[];
+}
+
+export const REVEAL_QUIPS: Record<Presenter, RevealQuipPools> = {
   professore: {
-    easy: ["[excited] Bravissimi! Quasi tutti! Si vede che vi ho insegnato bene.", "Troppo facile per voi! La prossima la scelgo più cattiva.", "[clears throat] Un trionfo del sapere. Merito mio, ovviamente."],
-    hard: ["[sighs] Pochissimi ci sono riusciti. Una tragedia… greca!", "[sarcastic] Questa vi ha fregato! E io che vi credevo colti.", "[sighs] Che strage. Domani tutti in biblioteca!"],
+    all: ["[excited] Tutti giusti! Si vede che vi ho insegnato bene."],
+    most: ["[excited] Bravissimi! Quasi tutti! Si vede che vi ho insegnato bene."],
+    easy: ["Troppo facile per voi! La prossima la scelgo più cattiva.", "[clears throat] Un trionfo del sapere. Merito mio, ovviamente."],
+    few: ["[sighs] Pochissimi ci sono riusciti. Una tragedia… greca!"],
+    hard: ["[sarcastic] Questa vi ha fregato! E io che vi credevo colti.", "[sighs] Che strage. Domani tutti in biblioteca!"],
+    none: ["[sighs] Nessuno. Neanche uno di voi! Una tragedia… greca!", "[sarcastic] Zero risposte giuste. Socrate si sta rigirando nella tomba."],
   },
   regina: {
-    easy: ["[laughs] Tutti giusti? Mi fate quasi commuovere!", "Troppo facile per voi, eh? Allora alziamo il livello!", "[excited] Bravi tutti! Stasera siete quasi alla mia altezza."],
-    hard: ["[laughs] Ragazzi, che figuraccia!", "[sarcastic] Questa vi ha fregato tutti. Che spettacolo!", "[laughs] Pochissimi! Gli altri? Rimandati a settembre!"],
+    all: ["[laughs] Tutti giusti? Mi fate quasi commuovere!", "[excited] Bravi tutti! Stasera siete quasi alla mia altezza."],
+    most: ["[laughs] Quasi tutti giusti! Quasi. Chi ha sbagliato lo sa."],
+    easy: ["Troppo facile per voi, eh? Allora alziamo il livello!"],
+    few: ["[laughs] Pochissimi! Gli altri? Rimandati a settembre!"],
+    hard: ["[laughs] Ragazzi, che figuraccia!"],
+    none: ["[sarcastic] Questa vi ha fregato tutti. Che spettacolo!", "[laughs] Nessuno! Ma proprio nessuno! Mi tocca rifarmi il trucco dallo shock."],
   },
   palmino: {
-    easy: ["[shouts] Bravissimi tuttiii! Festa sulla spiaggia!", "[giggles] Troppo facile! Palmino è un po' deluso.", "[excited] Tutti giusti! Pioggia di noci di cocco!"],
-    hard: ["[giggles] Ahahah! Questa vi ha fregato!", "[shouts] Pochissimi ci sono riusciti! Disastro tropicale!", "[giggles] Oops! Vi è caduto il cocco in testa?"],
+    all: ["[shouts] Bravissimi tuttiii! Festa sulla spiaggia!", "[excited] Tutti giusti! Pioggia di noci di cocco!"],
+    most: ["[excited] Quasi tutti giusti! Palmino batte le foglie!"],
+    easy: ["[giggles] Troppo facile! Palmino è un po' deluso."],
+    few: ["[shouts] Pochissimi ci sono riusciti! Disastro tropicale!"],
+    hard: ["[giggles] Ahahah! Questa vi ha fregato!", "[giggles] Oops! Vi è caduto il cocco in testa?"],
+    none: ["[shouts] Nessuno! Neanche uno! Zero su tutta la linea!", "[giggles] Zero giusti! Palmino è caduto dalla palma per lo stupore!"],
   },
 };
+
+/** Esito della rivelazione per il commento (null = nessun commento: nessuno in gioco). */
+export type RevealOutcome = "all" | "most" | "split" | "few" | "none";
+
+/**
+ * `right` risposte giuste su `answered` risposte date, con `players` giocatori in gioco.
+ * "all" solo se hanno risposto giusto TUTTI i giocatori; "few" solo con almeno un giusto.
+ */
+export function revealOutcome(right: number, answered: number, players: number): RevealOutcome | null {
+  // nessuna risposta data: "nessuno" solo se c'era qualcuno in gioco
+  if (answered <= 0) return players > 0 ? "none" : null;
+  if (right <= 0) return "none";
+  if (right >= answered && right >= Math.max(1, players)) return "all";
+  const pct = right / answered;
+  if (pct >= 0.7) return "most";
+  if (pct <= 0.25) return "few";
+  return "split";
+}
 
 /** Toglie gli audio tag ([laughs], [shouts]…) dal testo da mostrare o da far leggere al browser. */
 export function stripAudioTags(text: string): string {
@@ -87,16 +134,21 @@ export function seededPick<T>(list: readonly T[], seed: string): T {
   return list[Math.abs(h) % list.length];
 }
 
-/** Battuta con gli audio tag (per la voce). Per lo schermo usare presenterBubble. */
-export function presenterLine(phase: GamePhase, presenter: Presenter, seed: string): string | null {
+/**
+ * Battuta con gli audio tag (per la voce). Per lo schermo usare presenterBubble.
+ * `fits`: filtro sul momento (es. ultima domanda: niente "la prossima…", vedi moment.ts);
+ * se nessuna battuta passa il filtro si usa la scelta normale.
+ */
+export function presenterLine(phase: GamePhase, presenter: Presenter, seed: string, fits?: (text: string) => boolean): string | null {
   const list = LINES[phase]?.[presenter];
   if (!list || list.length === 0) return null;
-  return seededPick(list, seed + phase);
+  const ok = fits ? list.filter(fits) : list;
+  return seededPick(ok.length > 0 ? ok : list, seed + phase);
 }
 
 /** Battuta per il fumetto a schermo: mai audio tag. */
-export function presenterBubble(phase: GamePhase, presenter: Presenter, seed: string): string | null {
-  const l = presenterLine(phase, presenter, seed);
+export function presenterBubble(phase: GamePhase, presenter: Presenter, seed: string, fits?: (text: string) => boolean): string | null {
+  const l = presenterLine(phase, presenter, seed, fits);
   return l === null ? null : stripAudioTags(l);
 }
 
@@ -130,4 +182,23 @@ export function formatPoints(n: number): string {
 
 export function signedPoints(n: number): string {
   return (n > 0 ? "+" : n < 0 ? "−" : "") + formatPoints(Math.abs(n));
+}
+
+const normalize = (t: string) => stripAudioTags(t).toLocaleLowerCase("it-IT");
+let quipSet: Set<string> | null = null;
+
+/**
+ * La battuta detta è un commento "da fumetto" della domanda (tempo che scorre, risposte chiuse,
+ * commento alla soluzione)? Il fumetto mostra SOLO queste, e solo mentre vengono dette: mai il
+ * testo della domanda o la lettura delle risposte (già sullo schermo).
+ */
+export function isQuestionQuip(text: string): boolean {
+  if (!quipSet) {
+    quipSet = new Set<string>();
+    for (const phase of ["OPTIONS_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL"] as const) {
+      for (const byPresenter of Object.values(LINES[phase] ?? {})) for (const t of byPresenter) quipSet.add(normalize(t));
+    }
+    for (const pools of Object.values(REVEAL_QUIPS)) for (const pool of Object.values(pools)) for (const t of pool) quipSet.add(normalize(t));
+  }
+  return quipSet.has(normalize(text));
 }

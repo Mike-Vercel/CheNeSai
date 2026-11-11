@@ -341,3 +341,38 @@ body {
 
 @keyframes qz-spin { to { transform: rotate(360deg); } }
 .qz-spinner { animation: qz-spin 0.8s linear infinite; }
+
+/* "Un attimo… sto preparando la voce": onda sonora animata */
+.qz-wave i {
+  display: block;
+  width: 0.22em;
+  height: 0.9em;
+  border-radius: 0.2em;
+  background: #ffc83d;
+  transform-origin: bottom;
+  animation: qz-wave 0.9s ease-in-out infinite;
+}
+.qz-wave i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.qz-wave i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.qz-wave i:nth-child(4) {
+  animation-delay: 0.45s;
+}
+@keyframes qz-wave {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qz-wave i {
+    animation: none;
+    transform: scaleY(0.6);
+  }
+}

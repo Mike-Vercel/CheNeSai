@@ -85,6 +85,8 @@ export interface AutoplayContext {
   media: { kind: "audio" | "video"; ms: number } | null;
   /** QUESTION_VISIBLE nella manche "Scommetti tutto": tempo per puntare */
   betRound: boolean;
+  /** QUESTION_VISIBLE: cartello "DOMANDA N. X" prima che la domanda compaia (vedi question-intro.ts) */
+  questionIntroMs?: number;
   /** attesa minima da adesso (es. appena attivato l'automatico) */
   minDelayMs?: number;
 }
@@ -146,8 +148,9 @@ function nextAutoCommand(ctx: AutoplayContext): GameCommand | { kind: "wait"; re
     case "ANSWER_REVEAL":
       return "SCORE";
     case "SCORE_REVEAL":
-      // la classifica si mostra solo a fine round
-      return ctx.hasNextQuestion ? "SHOW_QUESTION" : "SHOW_LEADERBOARD";
+      // fine round: classifica del round già sullo schermo, poi la generale; all'ultimo round si va
+      // dritti al podio (la classifica generale lo rovinerebbe: la suspense è lì)
+      return ctx.hasNextQuestion ? "SHOW_QUESTION" : ctx.hasNextRound ? "SHOW_LEADERBOARD" : "FINISH";
     case "LEADERBOARD":
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : afterRound;
   }
@@ -170,7 +173,8 @@ function dueAt(ctx: AutoplayContext): number {
       // audio: il TV lo fa partire DOPO la lettura; video: parte insieme alla domanda
       const audio = ctx.media?.kind === "audio" ? ctx.media.ms : 0;
       const video = ctx.media?.kind === "video" ? ctx.media.ms : 0;
-      const read = Math.max(ctx.speechMs + audio, video, AUTO_MIN_PHASE_MS.QUESTION_VISIBLE ?? 0);
+      // il cartello "DOMANDA N. X" si somma (prudente: il TV dice comunque quando ha finito di leggere)
+      const read = Math.max(ctx.speechMs + audio + (ctx.questionIntroMs ?? 0), video, AUTO_MIN_PHASE_MS.QUESTION_VISIBLE ?? 0);
       return start + read + (ctx.betRound ? AUTO_BET_WINDOW_MS : 0) + AUTO_BREATH_MS;
     }
     case "OPTIONS_VISIBLE":

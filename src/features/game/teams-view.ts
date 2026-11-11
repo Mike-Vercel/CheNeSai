@@ -1,4 +1,4 @@
-import type { LeaderboardEntry, PublicState, TeamLeaderboardEntry } from "@/lib/game-engine/types";
+import type { LeaderboardEntry, PublicState, RoundLeaderboardEntry, TeamLeaderboardEntry, TeamRoundLeaderboardEntry } from "@/lib/game-engine/types";
 
 /**
  * Modalità squadre lato schermo (TV, telefoni, voce): quale classifica raccontare.
@@ -32,4 +32,22 @@ export function standingsForShow(state: Pick<PublicState, "teams" | "teamLeaderb
 /** Squadre in testa (più di una se a pari merito). */
 export function leadingTeams(state: Pick<PublicState, "teamLeaderboard">): TeamLeaderboardEntry[] {
   return (state.teamLeaderboard ?? []).filter((t) => t.rank === 1);
+}
+
+/** Classifica del round come righe di classifica (punti = punti del round). */
+export function roundAsEntries(rows: readonly RoundLeaderboardEntry[]): LeaderboardEntry[] {
+  return rows.map((r) => ({ participantId: r.participantId, rank: r.rank, previousRank: null, nickname: r.nickname, points: r.points, lastDelta: r.points, correctCount: 0 }));
+}
+
+export function teamRoundAsEntries(rows: readonly TeamRoundLeaderboardEntry[]): LeaderboardEntry[] {
+  return rows.map((t) => ({ participantId: t.teamId, rank: t.rank, previousRank: null, nickname: t.name, points: t.points, lastDelta: t.points, correctCount: 0 }));
+}
+
+/**
+ * Classifica del ROUND per la voce: le squadre in modalità "teams", altrimenti i giocatori.
+ * null se lo stato non la contiene (fuori dalla fine del round).
+ */
+export function roundStandingsForShow(state: Pick<PublicState, "teams" | "roundLeaderboard" | "teamRoundLeaderboard">): LeaderboardEntry[] | null {
+  if (teamMode(state) === "teams") return state.teamRoundLeaderboard ? teamRoundAsEntries(state.teamRoundLeaderboard) : null;
+  return state.roundLeaderboard ? roundAsEntries(state.roundLeaderboard) : null;
 }

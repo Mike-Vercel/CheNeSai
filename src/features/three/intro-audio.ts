@@ -246,7 +246,10 @@ export function startIntroAudio(getElapsedSeconds: () => number, getSchedule: ()
       if (beeped.has(i)) return;
       if (t >= b.at && t < b.at + 0.5) {
         beeped.add(i);
-        eng.play(b.cue);
+        // pubblico: applausi registrati (ovazione piena alla fine dell'intro), altrimenti il suono sintetico
+        if (b.cue === "cheer") eng.applause(b.at >= T.end ? "big" : "medium");
+        else if (b.cue === "applause") eng.applause("light");
+        else eng.play(b.cue);
       } else if (t >= b.at + 0.5) beeped.add(i);
     });
     // "tic" della ruota a ogni spicchio che passa sotto il puntatore (al massimo uno per controllo)

@@ -228,8 +228,9 @@ describe("copione delle voci: pre-generazione === speechFor", () => {
     const q = QUESTIONS[0];
     const a = speechFor(baseState("QUESTION_VISIBLE", { question: publicQuestion(q, 3, "QUESTION_VISIBLE") }), { phase: "ROUND_INTRO" }, { readOptions: true });
     const b = speechFor(baseState("QUESTION_VISIBLE", { question: publicQuestion(q, 12, "QUESTION_VISIBLE") }), { phase: "ROUND_INTRO" }, { readOptions: true });
-    expect(a[0]).toEqual({ who: "annunciatore", text: "[excited] Domanda numero 3!" });
-    expect(b[0]).toEqual({ who: "annunciatore", text: "[excited] Domanda numero 12!" });
+    // detto durante il cartello "DOMANDA N. X" (beforeCard), prima che compaia la domanda
+    expect(a[0]).toEqual({ who: "annunciatore", text: "[excited] Domanda numero 3!", beforeCard: true });
+    expect(b[0]).toEqual({ who: "annunciatore", text: "[excited] Domanda numero 12!", beforeCard: true });
     expect(a[1]).toEqual(b[1]);
     expect(a[1].text).not.toMatch(/Domanda numero/);
   });

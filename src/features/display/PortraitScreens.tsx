@@ -8,12 +8,11 @@ import type { GamePhase, LeaderboardEntry, Presenter, PublicEvent, PublicQuestio
 import { AnswerButton, type AnswerVisual } from "@/features/game/components/answers";
 import { CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
-import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
-import { scoreQuipLine } from "@/features/game/script";
+import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { useSeatContext } from "@/features/gioca/use-seat";
 import { fmt } from "@/lib/game-engine/special-rounds";
 import { presenterCue } from "./presenter-cue";
-import { Pill, TvFrame } from "./TvScreens";
+import { Pill, TvFrame, useSpokenBubble } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
 import { useHeldSpeech } from "@/features/media/voice";
 
@@ -169,7 +168,8 @@ export function PortraitQuestionScreen({
   const listening = phase === "OPTIONS_VISIBLE" && startsInMs > 0;
   const open = phase === "OPTIONS_VISIBLE" && remainingMs > 0 && !listening;
   const hasImage = q.media?.kind === "image" && mediaUrl;
-  const line = presenterBubble(phase, q.presenter, q.id);
+  // fumetto solo mentre il presentatore dice un commento (mai prima, mai il testo della domanda)
+  const line = useSpokenBubble((text) => isQuestionQuip(text));
   const mine = seat?.selected ?? [];
   const locked = seat?.status === "recorded" || seat?.status === "sending";
   const multiple = q.type === "multiple";
@@ -381,10 +381,10 @@ function PortraitBoard({
   );
 }
 
-export function PortraitAnswerPointsScreen({ entries, who, questionId, showLines }: { entries: LeaderboardEntry[]; who: Presenter; questionId: string; showLines?: readonly PublicShowLine[] | null }) {
+export function PortraitAnswerPointsScreen({ entries, who, showLines }: { entries: LeaderboardEntry[]; who: Presenter; questionId?: string; showLines?: readonly PublicShowLine[] | null }) {
   const rows = [...entries].sort((a, b) => b.lastDelta - a.lastDelta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 7);
-  const cue = presenterCue(who, "point", showLines, useHeldSpeech());
-  const quip = stripAudioTags(cue.line ? cue.line.text : scoreQuipLine(who, questionId).text);
+  // fumetto solo mentre la voce dice la battuta (regista o battuta di rito)
+  const quip = useSpokenBubble();
   return (
     <PortraitBoard
       title="PUNTI DI QUESTA RISPOSTA"
@@ -400,7 +400,18 @@ export function PortraitAnswerPointsScreen({ entries, who, questionId, showLines
   );
 }
 
-export function PortraitLeaderboardScreen({ entries, title, showLines }: { entries: LeaderboardEntry[]; title: string; showLines?: readonly PublicShowLine[] | null }) {
+export function PortraitLeaderboardScreen({
+  entries,
+  title,
+  showLines,
+  value,
+}: {
+  entries: LeaderboardEntry[];
+  title: string;
+  showLines?: readonly PublicShowLine[] | null;
+  /** valore a destra di ogni riga (default: punti totali) */
+  value?: (e: LeaderboardEntry) => ReactNode;
+}) {
   const cue = presenterCue("professore", "point", showLines, useHeldSpeech());
   return (
     <PortraitBoard
@@ -410,7 +421,7 @@ export function PortraitLeaderboardScreen({ entries, title, showLines }: { entri
       bubble={cue.line ? stripAudioTags(cue.line.text) : null}
       lines={showLines}
       rank
-      value={(e) => <span className="font-display text-[5cqw]">{formatPoints(e.points)}</span>}
+      value={value ?? ((e) => <span className="font-display text-[5cqw]">{formatPoints(e.points)}</span>)}
     />
   );
 }

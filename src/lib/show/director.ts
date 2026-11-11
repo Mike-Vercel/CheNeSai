@@ -13,6 +13,7 @@
  */
 import type { Presenter } from "@/lib/game-engine/types";
 import { cleanSpeech } from "@/features/game/script";
+import { lineFitsMoment, NO_MOMENT, type MomentContext } from "@/features/game/moment";
 import { eventPlayers, eventTeams } from "./events";
 import {
   ALLOWED_PLACEHOLDERS,
@@ -41,6 +42,11 @@ export interface DirectInput {
   nowMs: number;
   /** seme stabile (es. id della domanda) */
   seed: string;
+  /**
+   * Ultima domanda del round/della serata: si scartano le battute che parlano della "prossima"
+   * domanda (e, sull'ultima della serata, quelle che danno per scontato che si continui).
+   */
+  moment?: MomentContext;
 }
 
 const PLACEHOLDER = /\{([a-z_]+)\}/g;
@@ -203,7 +209,7 @@ function candidatesFor(input: DirectInput, e: ShowEvent, usedTemplates: Set<stri
       return last === undefined || input.nowMs - last >= t.cooldownSec * 1000;
     })
     .map((t) => ({ t, text: resolveTemplate(t, e) }))
-    .filter((c): c is Candidate => c.text !== null);
+    .filter((c): c is Candidate => c.text !== null && lineFitsMoment(c.text, input.moment ?? NO_MOMENT));
 }
 
 /** Scelta pesata e deterministica (stesso seme → stessa battuta). */

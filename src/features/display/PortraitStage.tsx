@@ -2,10 +2,12 @@
 
 import type { GamePhase } from "@/lib/game-engine/types";
 import { Logo } from "@/features/game/components/brand";
-import { standingsForShow } from "@/features/game/teams-view";
+import { roundAsEntries, standingsForShow } from "@/features/game/teams-view";
+import { formatPoints, signedPoints } from "@/features/game/lines";
 import { LandscapeScreen, type TvStageProps } from "./TvStage";
 import { TvFrame, TvPodiumScreen } from "./TvScreens";
 import { TrioHost } from "./TvTrio";
+import { QuestionIntroScreen } from "./QuestionIntroScreen";
 import {
   PortraitAnswerPointsScreen,
   PortraitLeaderboardScreen,
@@ -54,6 +56,7 @@ function PortraitScreen(props: TvStageProps) {
     return <PortraitRoundIntroScreen round={view.round} showLines={view.showLines} />;
   }
   if (vp === "SPECIAL_EVENT" && view.event) return <PortraitSpecialEventScreen event={view.event} />;
+  if (view.question && vp === "QUESTION_VISIBLE" && props.questionIntro) return <QuestionIntroScreen portrait question={view.question} round={view.round} />;
   if (view.question && (vp === "QUESTION_VISIBLE" || vp === "OPTIONS_VISIBLE" || vp === "ANSWERS_LOCKED" || vp === "ANSWER_REVEAL") && view.question.rules.special?.kind !== "bet") {
     const m = view.question.media;
     const openedAt = vp === "OPTIONS_VISIBLE" ? view.question.openedAt : null;
@@ -73,9 +76,40 @@ function PortraitScreen(props: TvStageProps) {
   if (vp === "SCORE_REVEAL" && !view.question?.bets?.locked) {
     const q = view.question;
     if (q && q.positionInRound < q.totalInRound) return <PortraitAnswerPointsScreen entries={view.leaderboard ?? []} who={q.presenter} questionId={q.id} showLines={view.showLines} />;
+    // ultima domanda del round: la classifica DEL ROUND (punti fatti in questo round, totale in piccolo)
+    if (view.roundLeaderboard) {
+      const totals = new Map(view.roundLeaderboard.map((r) => [r.participantId, r.total]));
+      return (
+        <PortraitLeaderboardScreen
+          entries={roundAsEntries(view.roundLeaderboard)}
+          title={`CLASSIFICA DEL ROUND${view.round ? ` ${view.round.index}` : ""}`}
+          showLines={view.showLines}
+          value={(e) => (
+            <span className="flex flex-col items-end leading-none">
+              <span className="font-display text-[5cqw]">{e.points < 0 ? signedPoints(e.points) : formatPoints(e.points)}</span>
+              <span className="mt-[0.6cqw] text-[3cqw] font-extrabold opacity-70">tot. {formatPoints(totals.get(e.participantId) ?? 0)}</span>
+            </span>
+          )}
+        />
+      );
+    }
     return <PortraitLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA DI FINE ROUND" showLines={view.showLines} />;
   }
-  if (vp === "LEADERBOARD") return <PortraitLeaderboardScreen entries={view.leaderboard ?? []} title="CLASSIFICA" />;
+  if (vp === "LEADERBOARD") {
+    const rp = view.roundLeaderboard ? new Map(view.roundLeaderboard.map((r) => [r.participantId, r.points])) : null;
+    return (
+      <PortraitLeaderboardScreen
+        entries={view.leaderboard ?? []}
+        title="CLASSIFICA GENERALE"
+        value={(e) => (
+          <span className="flex flex-col items-end leading-none">
+            <span className="font-display text-[5cqw]">{formatPoints(e.points)}</span>
+            {rp && (rp.get(e.participantId) ?? 0) !== 0 && <span className="mt-[0.6cqw] text-[3cqw] font-extrabold opacity-75">{signedPoints(rp.get(e.participantId) ?? 0)} nel round</span>}
+          </span>
+        )}
+      />
+    );
+  }
   if (vp === "FINISHED") return <TvPodiumScreen portrait entries={standingsForShow(view)} startedAt={view.phaseStartedAt} seed={view.sessionId} now={now} live={live} onCelebrate={onCelebrate} />;
   // votazione, ruota, puntate: la schermata del TV in una fascia
   return <Letterbox {...props} />;

@@ -22,7 +22,7 @@ import { Character, CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
 import { getVoice, useHeldSpeech, useSpeaker } from "@/features/media/voice";
 import { getSoundEngine } from "@/features/media/audio-engine";
-import { betStarLine, podiumPlan, scoreQuipLine } from "@/features/game/script";
+import { podiumPlan } from "@/features/game/script";
 import { BET_TIER_LABEL, fmt } from "@/lib/game-engine/special-rounds";
 import { bleedStyle, CharacterStage, type StageBleed } from "@/features/three/characters/CharacterStage";
 
@@ -30,7 +30,7 @@ import { bleedStyle, CharacterStage, type StageBleed } from "@/features/three/ch
 const TV_BLEED: StageBleed = { left: 0.4, right: 0.25, top: 0.2 };
 import { useCharacterMode } from "@/features/three/characters/character-mode";
 import type { CharacterAnimation } from "@/features/three/characters/types";
-import { EVENT_ICON, formatPoints, presenterBubble, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
+import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints, stripAudioTags } from "@/features/game/lines";
 import { presenterCue, type PresenterCue } from "./presenter-cue";
 import { TrioSlot } from "./TvTrio";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
@@ -58,6 +58,18 @@ export const TalkingCharacter = memo(function TalkingCharacter(props: React.Comp
   const cls = (imgProps.className ?? "").replace(/animate-float\S*/g, talking ? "" : "$&");
   return <Character {...imgProps} className={clsx(cls, talking && "qz-talking")} />;
 });
+
+/**
+ * Fumetto: la battuta che il presentatore sta dicendo ADESSO (dall'inizio dell'audio a poco dopo la
+ * fine), mai prima che parli né per le battute in coda. `accept` sceglie quali battute vanno nel
+ * fumetto (es. sulla domanda solo i commenti, non il testo della domanda già sullo schermo).
+ */
+export function useSpokenBubble(accept: (text: string, who: Presenter) => boolean = () => true): string | null {
+  const speech = useHeldSpeech();
+  if (!speech || !accept(speech.text, speech.who)) return null;
+  const t = stripAudioTags(speech.text);
+  return t.length > 0 ? t : null;
+}
 
 /** Chi è in scena durante i momenti del regista: chi dice la battuta, con la sua animazione. */
 function useDirectedCue(host: Presenter, idle: CharacterAnimation, lines: readonly PublicShowLine[] | null | undefined): PresenterCue {
@@ -143,7 +155,7 @@ export interface TvQuestionProps {
   audioState?: "idle" | "playing" | "done" | "error";
 }
 
-export function TvQuestionScreen({ question: q, round, phase, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle" }: TvQuestionProps) {
+export function TvQuestionScreen({ question: q, round, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle" }: TvQuestionProps) {
   const revealed = !!q.correctPositions;
   const optionsVisible = !!q.options;
   const hasImage = q.media?.kind === "image" && mediaUrl;
@@ -152,8 +164,8 @@ export function TvQuestionScreen({ question: q, round, phase, remainingMs, event
   const visualMedia = hasImage || hasVideo;
   const totalMs = q.rules.durationSeconds * 1000;
   const showTimer = optionsVisible && !revealed;
-  // Fumetto: stessa battuta della voce, senza audio tag
-  const line = presenterBubble(phase, q.presenter, q.id);
+  // Fumetto: solo mentre il presentatore dice un commento (mai prima, mai il testo della domanda)
+  const line = useSpokenBubble((text) => isQuestionQuip(text));
   const totalAnswers = q.distribution?.reduce((a, b) => a + b, 0) ?? 0;
   const special = q.rules.special ?? null;
   const isBet = special?.kind === "bet";
@@ -413,11 +425,11 @@ function BetRow({ e, i, win }: { e: PublicBetHighlight; i: number; win: boolean 
 }
 
 /** Scommetti tutto dopo i punti: grandi vincite e grandi perdite della domanda. */
-export function TvBetResultsScreen({ bets, who, questionId }: { bets: PublicBets; who: "professore" | "regina" | "palmino"; questionId: string }) {
+export function TvBetResultsScreen({ bets, who }: { bets: PublicBets; who: "professore" | "regina" | "palmino"; questionId?: string }) {
   const wins = bets.wins ?? [];
   const losses = bets.losses ?? [];
-  const star = betStarLine(wins, who);
-  const quip = stripAudioTags((star ?? scoreQuipLine(who, questionId)).text);
+  // fumetto solo mentre la battuta viene detta
+  const quip = useSpokenBubble();
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -425,9 +437,11 @@ export function TvBetResultsScreen({ bets, who, questionId }: { bets: PublicBets
       </div>
       <div className="absolute bottom-0 right-[0.5cqw] w-[34cqw]">
         <TrioSlot host={who} className="w-full" animation={wins.length > 0 ? "celebrate" : "surprised"} />
-        <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[28cqw] text-[2.8cqh] leading-tight">
-          {quip}
-        </SpeechBubble>
+        {quip && (
+          <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[28cqw] text-[2.8cqh] leading-tight">
+            {quip}
+          </SpeechBubble>
+        )}
       </div>
       <div className="absolute left-[5cqw] right-[37cqw] top-[20cqh]">
         <h1 className="font-display text-[5cqh] text-gold [text-shadow:0_0.5vh_0_#6b1020]">🎰 SCOMMETTI TUTTO: COM&apos;È ANDATA</h1>
@@ -765,18 +779,16 @@ function Movement({ e }: { e: LeaderboardEntry }) {
 export function TvAnswerPointsScreen({
   entries,
   who,
-  questionId,
   showLines,
 }: {
   entries: LeaderboardEntry[];
   who: Presenter;
-  questionId: string;
+  questionId?: string;
   showLines?: readonly PublicShowLine[] | null;
 }) {
   const rows = [...entries].sort((a, b) => b.lastDelta - a.lastDelta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 10);
-  const cue = useDirectedCue(who, "point", showLines);
-  // la stessa battuta che dice la voce: quella del regista mentre la dice, altrimenti la battuta di rito
-  const quip = stripAudioTags(cue.line ? cue.line.text : scoreQuipLine(who, questionId).text);
+  // la battuta nel fumetto solo mentre la voce la dice (regista o battuta di rito)
+  const quip = useSpokenBubble();
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -784,9 +796,11 @@ export function TvAnswerPointsScreen({
       </div>
       <div className="absolute bottom-0 right-[0.5cqw] w-[36cqw]">
         <TrioSlot host={who} animation="point" lines={showLines} className="w-full" />
-        <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[30cqw] text-[2.8cqh] leading-tight">
-          {quip}
-        </SpeechBubble>
+        {quip && (
+          <SpeechBubble tail="right" className="absolute right-[6cqw] top-[-14cqh] w-[30cqw] text-[2.8cqh] leading-tight">
+            {quip}
+          </SpeechBubble>
+        )}
       </div>
       <div className="absolute left-[8cqw] right-[38cqw] top-[14cqh]">
         <h1 className="mb-[1.4cqh] font-display text-[5cqh] text-gold [text-shadow:0_0.5vh_0_#6b1020]">PUNTI DI QUESTA RISPOSTA</h1>
@@ -815,16 +829,27 @@ export function TvAnswerPointsScreen({
   );
 }
 
+/** Punti di una classifica del round: con il segno solo se negativi (0 resta 0). */
+function roundPointsLabel(n: number): string {
+  return n < 0 ? signedPoints(n) : formatPoints(n);
+}
+
 export function TvLeaderboardScreen({
   entries,
   title,
   showDelta,
   showLines,
+  round = null,
+  roundPoints = null,
 }: {
   entries: LeaderboardEntry[];
   title: string;
   showDelta: boolean;
   showLines?: readonly PublicShowLine[] | null;
+  /** classifica del ROUND: `entries` hanno i punti del round; il totale della serata in piccolo */
+  round?: { totals: Map<string, number> } | null;
+  /** classifica generale: punti fatti nel round (al posto della variazione dell'ultima domanda) */
+  roundPoints?: Map<string, number> | null;
 }) {
   const cue = useDirectedCue("professore", "point", showLines);
   return (
@@ -857,14 +882,22 @@ export function TvLeaderboardScreen({
               )}
             >
               <span className={clsx("w-[6cqh] text-center font-display text-[3.6cqh]", i === 0 ? "text-ink" : "text-gold")}>{e.rank}</span>
-              <Movement e={e} />
+              {!round && <Movement e={e} />}
               <span className={clsx("min-w-0 flex-1 truncate font-display text-[3.4cqh]", i === 0 ? "text-ink" : "text-white")}>{e.nickname}</span>
-              {showDelta && e.lastDelta !== 0 && (
+              {round && (
+                <span className={clsx("font-display text-[2.4cqh]", i === 0 ? "text-ink/70" : "text-white/60")}>tot. {formatPoints(round.totals.get(e.participantId) ?? 0)}</span>
+              )}
+              {!round && roundPoints && (roundPoints.get(e.participantId) ?? 0) !== 0 && (
+                <span className={clsx("font-display text-[2.6cqh]", (roundPoints.get(e.participantId) ?? 0) > 0 ? (i === 0 ? "text-[#04582c]" : "text-[#5dffab]") : "text-[#ff8098]")}>
+                  {signedPoints(roundPoints.get(e.participantId) ?? 0)} nel round
+                </span>
+              )}
+              {!round && !roundPoints && showDelta && e.lastDelta !== 0 && (
                 <span className={clsx("font-display text-[3cqh]", e.lastDelta > 0 ? (i === 0 ? "text-[#04582c]" : "text-[#5dffab]") : "text-[#ff8098]")}>
                   {signedPoints(e.lastDelta)}
                 </span>
               )}
-              <span className={clsx("w-[18cqh] text-right font-display text-[3.6cqh]", i === 0 ? "text-ink" : "text-white")}>{formatPoints(e.points)}</span>
+              <span className={clsx("w-[18cqh] text-right font-display text-[3.6cqh]", i === 0 ? "text-ink" : "text-white")}>{round ? roundPointsLabel(e.points) : formatPoints(e.points)}</span>
             </motion.li>
           ))}
         </ol>
@@ -922,6 +955,7 @@ export function TvPodiumScreen({
         if (t > st.at + 1.5) f.add(`r${st.rank}`);
       }
       if (t > plan.rest.at + 1.5) f.add("rest");
+      if (plan.tensionAt !== null && t > plan.tensionAt + 1.5) f.add("call");
       if (t > plan.closeAt + 1.5) f.add("close");
       fired.current = f;
     }
@@ -937,29 +971,39 @@ export function TvPodiumScreen({
     // tutti gli altri, letti dal fondo
     const restLine = plan.rest.line;
     if (restLine && t >= plan.rest.at) once("rest", () => void voice.say(restLine.who, restLine.text, { live: restLine.live }));
+    // "E il vincitore di stasera è…": Palmino lo dice PRIMA che il vincitore compaia; se la sua clip
+    // arrivasse tardi (vincitore già sullo schermo) non si dice più
+    const call = plan.winnerCall;
+    const winnerAt = plan.winnerAt;
+    if (call && plan.tensionAt !== null && t >= plan.tensionAt) {
+      once("call", () => {
+        // a rivelazione imminente la coda si libera (es. un nome del fondo classifica ancora in lettura)
+        voice.stop();
+        void voice.say(call.who, call.text, { live: call.live, skipIf: () => (now() - start) / 1000 >= winnerAt - 0.6 });
+      });
+    }
     for (const st of plan.steps) {
       if (st.drumAt !== null && t >= st.drumAt)
         once(`d${st.rank}`, () => {
           eng.play("drumroll");
-          if (st.rank === 1) {
-            // attesa lunga per il vincitore
-            setTimeout(() => eng.play("drumroll"), 1550);
-            setTimeout(() => eng.play("drumroll"), 3100);
-          }
+          // attesa lunga per il vincitore: il rullo continua fino alla rivelazione
+          if (st.rank === 1) setTimeout(() => eng.play("drumroll"), 1550);
         });
       if (t >= st.at)
         once(`r${st.rank}`, () => {
           // il 2° arriva insieme al vincitore: niente suoni in più, solo la voce dopo quella del vincitore
           if (st.drumAt !== null) {
             eng.play(st.rank === 1 ? "victory" : "reveal");
-            eng.play(st.rank === 1 ? "cheer" : "applause");
+            eng.applause(st.rank === 1 ? "big" : "medium");
           }
+          // il nome del vincitore subito, sopra a qualunque coda rimasta
+          if (st.rank === 1) voice.stop();
           void voice.say(st.line.who, st.line.text, { live: st.line.live });
           if (st.rank === 1) onCelebrate?.();
         });
     }
     if (t >= plan.closeAt) once("close", () => void voice.say(plan.closing.who, plan.closing.text));
-  }, [t, live, plan, onCelebrate]);
+  }, [t, live, plan, onCelebrate, now, start]);
 
   const tension = plan.tensionAt !== null && t >= plan.tensionAt && t < plan.winnerAt;
   const winnerShown = t >= plan.winnerAt && plan.tensionAt !== null;
@@ -999,7 +1043,7 @@ export function TvPodiumScreen({
       {winnerShown && banner}
 
       {/* tutti gli altri, dal fondo al 4° posto: compaiono mentre la voce li legge */}
-      {plan.rest.entries.length > 0 && t >= plan.rest.at && t < (plan.steps[0]?.drumAt ?? plan.winnerAt) && (
+      {plan.rest.entries.length > 0 && t >= plan.rest.at && t < (plan.steps.find((st) => st.rank === 3)?.drumAt ?? plan.tensionAt ?? plan.winnerAt) && (
         <div
           className={clsx(
             "absolute left-1/2 z-20 -translate-x-1/2 overflow-hidden",
@@ -1037,6 +1081,17 @@ export function TvPodiumScreen({
         transition={{ duration: 0.8 }}
         style={{ background: "radial-gradient(circle at 50% 70%, rgba(255,214,90,.18) 0, rgba(5,0,12,.82) 38%, rgba(5,0,12,.92) 100%)" }}
       />
+      {/* occhio di bue che cerca il vincitore nel buio */}
+      {tension && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-[11]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, backgroundPosition: ["20% 80%", "80% 75%", "35% 70%", "65% 80%", "50% 78%"] }}
+          transition={{ opacity: { duration: 0.5 }, backgroundPosition: { duration: 3.2, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" } }}
+          style={{ backgroundImage: "radial-gradient(circle, rgba(255,236,160,.32) 0, rgba(255,236,160,.12) 9%, transparent 18%)", backgroundSize: "200% 200%", mixBlendMode: "screen" }}
+        />
+      )}
       {tension && (
         <motion.p
           initial={{ scale: 0.6, opacity: 0 }}
