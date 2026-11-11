@@ -9,9 +9,9 @@
  *   DATABASE_URL, NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SECRET_KEY          (destinazione: produzione)
  *   npx tsx --conditions=react-server scripts/deploy/copy-content.ts [--dry-run]
  */
-import { existsSync, readdirSync, readFileSync } from "node:fs";
 import postgres, { type Sql } from "postgres";
 import { createClient } from "@supabase/supabase-js";
+import { importVerifiedQuestions } from "../domande/importa";
 
 const DRY = process.argv.includes("--dry-run");
 const need = (k: string) => {
@@ -116,38 +116,9 @@ async function main() {
   }
   console.log(`voci: ${await copyRows("tts_clips", okClips)} nuove (${clipFiles} file caricati)`);
 
-  // 5. domande pilota verificate (content/domande/verificate) che non ci sono ancora
-  const dir = "content/domande/verificate";
-  if (existsSync(dir)) {
-    const known = new Set((await dst<{ text: string }[]>`select text from question_bank`).map((r) => r.text));
-    for (const q of questions) known.add(q.text as string);
-    let added = 0;
-    for (const f of readdirSync(dir).filter((x) => x.endsWith(".json"))) {
-      const data = JSON.parse(readFileSync(`${dir}/${f}`, "utf8")) as {
-        questions: { type: "single" | "multiple"; text: string; category: string; difficulty: number; presenter: string; answers: string[]; correct: number[]; tags?: string[]; notes?: string }[];
-      };
-      for (const q of data.questions) {
-        if (known.has(q.text)) continue;
-        known.add(q.text);
-        if (DRY) {
-          added++;
-          continue;
-        }
-        await dst.begin(async (tx) => {
-          const [row] = await tx<{ id: string }[]>`
-            insert into question_bank (type, text, category, difficulty, tags, presenter, notes, status, answer_confirmed, source)
-            values (${q.type}, ${q.text}, ${q.category}, ${q.difficulty}, ${tx.array([...(q.tags ?? []), "pilot", "verificata"])},
-                    ${q.presenter}::presenter, ${q.notes ?? null}, 'approved', true, 'import')
-            returning id`;
-          for (let i = 0; i < q.answers.length; i++) {
-            await tx`insert into question_options (question_id, position, text, is_correct) values (${row.id}, ${i}, ${q.answers[i]}, ${q.correct.includes(i)})`;
-          }
-        });
-        added++;
-      }
-    }
-    console.log(`domande pilota verificate: ${added} nuove`);
-  }
+  // 5. domande verificate dei file (pilota + banca nuove) che non ci sono ancora
+  const imp = await importVerifiedQuestions(dst, { dry: DRY, skipTexts: questions.map((q) => q.text as string) });
+  console.log(`domande verificate dai file: ${imp.added} nuove`);
 
   const [{ n }] = await dst<{ n: number }[]>`select count(*)::int as n from question_bank where status = 'approved'`;
   console.log(`✔ Domande approvate in produzione: ${n}`);
