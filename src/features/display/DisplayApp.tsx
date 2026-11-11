@@ -7,6 +7,7 @@ import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import { api } from "@/lib/realtime/api-client";
 import { useGameState, useTicker } from "@/lib/realtime/use-game-state";
 import { useAutoReload } from "@/lib/realtime/use-auto-reload";
+import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick";
 import { getSoundEngine, type CueName } from "@/features/media/audio-engine";
 import { Confetti } from "@/features/game/components/effects";
 import { Logo } from "@/features/game/components/brand";
@@ -255,6 +256,14 @@ export function DisplayApp({ sessionId, displayKey }: { sessionId: string; displ
   });
 
   const view = state;
+
+  // Scorrimento automatico: il TV chiama /tick quando arriva l'orario del prossimo passo
+  // (funziona anche con la regia chiusa; il server esegue il passo solo se è dovuto).
+  const autoTickRequest = useCallback(
+    () => api<AutoTickResponse>(`/api/display/${sessionId}/tick?k=${encodeURIComponent(displayKey)}`, { method: "POST", timeoutMs: 20000 }),
+    [sessionId, displayKey],
+  );
+  useAutoTick({ auto: state?.auto, now, tick: autoTickRequest });
 
   // QR code per la lobby
   const joinUrl = useMemo(() => {

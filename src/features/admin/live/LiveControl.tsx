@@ -2,6 +2,7 @@
 
 import { clsx } from "clsx";
 import { useAutoReload } from "@/lib/realtime/use-auto-reload";
+import { useAutoTick, type AutoTickResponse } from "@/lib/realtime/use-auto-tick";
 import Link from "next/link";
 import QRCode from "qrcode";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -165,6 +166,15 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
     [pending, sessionId, load, confirm, toast],
   );
 
+  // Scorrimento automatico: anche la regia (se aperta) chiama /tick, un attimo dopo il TV;
+  // il server esegue il passo una volta sola, chiunque arrivi prima.
+  const autoTickRequest = useCallback(async () => {
+    const r = await api<AutoTickResponse>(`/api/admin/sessions/${sessionId}/tick`, { method: "POST", timeoutMs: 20000 });
+    if (r.advanced) void load();
+    return r;
+  }, [sessionId, load]);
+  useAutoTick({ auto: live?.public.auto, now: serverNow, tick: autoTickRequest, extraDelayMs: 800 });
+
   const media = useCallback(
     async (action: "play" | "stop" | "test-tone") => {
       try {
@@ -249,6 +259,14 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
       <div className="grid gap-3 xl:grid-cols-[1.25fr_1fr]">
         {/* colonna comandi */}
         <section className="flex flex-col gap-3">
+          <AutoplayPanel
+            autoplay={live.autoplay}
+            now={now}
+            canToggle={allowed.has("SET_AUTOPLAY")}
+            pending={!!pending}
+            onToggle={(v) => void send("SET_AUTOPLAY", { autoplay: v }, { skipConfirm: true })}
+          />
+
           <div className="rounded-2xl border-2 border-gold/50 bg-[#1d0c30] p-4">
             <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
               <h2 className="font-display text-xl text-white">Comandi</h2>
@@ -507,6 +525,81 @@ export function LiveControl({ sessionId, embedded = false }: { sessionId: string
 }
 
 // ---------------------------------------------------------------------------
+/** "MOSTRA RISPOSTE" → "Mostra risposte" */
+function sentenceCase(label: string): string {
+  const lower = label.toLocaleLowerCase("it-IT");
+  return lower.charAt(0).toLocaleUpperCase("it-IT") + lower.slice(1);
+}
+
+/**
+ * Scorrimento della serata: manuale (la regia preme ogni passo) o automatico (va da sola,
+ * aspettando che il presentatore finisca di parlare). Si cambia in qualsiasi momento;
+ * in automatico ogni pulsante resta attivo e vince sempre la regia.
+ */
+function AutoplayPanel({
+  autoplay,
+  now,
+  canToggle,
+  pending,
+  onToggle,
+}: {
+  autoplay: AdminLiveState["autoplay"];
+  /** ora del server stimata (ms) */
+  now: number;
+  canToggle: boolean;
+  pending: boolean;
+  onToggle: (auto: boolean) => void;
+}) {
+  const on = autoplay.enabled;
+  const secs = autoplay.nextAt ? Math.max(0, Math.ceil((Date.parse(autoplay.nextAt) - now) / 1000)) : null;
+  const next = autoplay.command ? sentenceCase(COMMAND_LABELS[autoplay.command]) : null;
+  let status: string;
+  if (!on) status = "MANUALE — vai avanti con i pulsanti";
+  else if (autoplay.waiting) status = `AUTOMATICO — In attesa della regia: ${autoplay.waiting}`;
+  else if (next && secs !== null) status = secs > 0 ? `AUTOMATICO — prossimo passo tra ${secs} s: ${next}` : `AUTOMATICO — ${next}…`;
+  else status = "AUTOMATICO — nessun passo in programma";
+  return (
+    <div
+      data-testid="autoplay-panel"
+      className={clsx(
+        "flex flex-wrap items-center gap-3 rounded-2xl border-2 px-4 py-3",
+        !on ? "border-white/15 bg-[#1d0c30]" : autoplay.waiting ? "border-gold bg-gold/15" : "border-lime/70 bg-lime/10",
+      )}
+    >
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-bold uppercase tracking-wider text-white/55">Scorrimento della serata</p>
+        <p data-testid="autoplay-status" className={clsx("font-display text-xl leading-tight md:text-2xl", !on ? "text-white" : autoplay.waiting ? "text-gold" : "text-lime")}>
+          {status}
+        </p>
+        {on && !autoplay.waiting && <p className="mt-0.5 text-xs text-white/55">Puoi premere qualsiasi pulsante: vince sempre la regia. PAUSA ferma l&apos;automatico finché non riprendi.</p>}
+      </div>
+      <div role="radiogroup" aria-label="Scorrimento della serata" className="flex overflow-hidden rounded-xl border border-white/15">
+        {(
+          [
+            [false, "✋ Manuale"],
+            [true, "▶ Automatico"],
+          ] as const
+        ).map(([value, label]) => (
+          <button
+            key={label}
+            role="radio"
+            aria-checked={on === value}
+            disabled={!canToggle || pending || on === value}
+            onClick={() => onToggle(value)}
+            className={clsx(
+              "px-4 py-2 text-sm font-extrabold transition disabled:cursor-default",
+              on === value ? (value ? "bg-lime text-ink" : "bg-white/85 text-ink") : "bg-transparent text-white/80 hover:bg-white/10",
+              !canToggle && on !== value && "opacity-40",
+            )}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const WHO_ICON: Record<string, string> = { professore: "🎓", regina: "👑", palmino: "🌴" };
 
 /** Presentatori in diretta: commenti automatici on/off e ultime battute dette (con i nomi veri). */

@@ -70,6 +70,32 @@ Facoltativo (serve `ELEVENLABS_API_KEY`); senza, il TV usa la voce gratuita del 
 - Cambiare voce o modello rende necessarie nuove clip (la chiave include voce e modello): rilancia **Prepara voci**. Cambiare solo le regolazioni (stabilità, stile…) vale per le battute generate da quel momento; quelle già in archivio restano come sono.
 - Un solo PC TV per serata: le clip sono servite con URL firmati temporanei, la chiave API non lascia mai il server.
 
+## 4-ter. Scorrimento: manuale o automatico
+
+Ogni serata ha l'impostazione **Scorrimento** (alla creazione e in *Regole della serata*):
+
+- **Manuale** (predefinito, come sempre): la regia preme ogni passo.
+- **Automatico**: la serata va da sola con la stessa sequenza di pulsanti della regia —
+  INIZIA ROUND → (AVVIA/CHIUDI VOTAZIONE o GIRA LA RUOTA) → MOSTRA DOMANDA → MOSTRA RISPOSTE → timer intero →
+  RIVELA SOLUZIONE → ASSEGNA PUNTEGGI → domanda successiva … → MOSTRA CLASSIFICA a fine round → round successivo … →
+  TERMINA PARTITA (podio). Ogni passo parte quando il presentatore ha finito di parlare sul TV (durata vera delle
+  clip ElevenLabs già in archivio, altrimenti una stima prudente dal testo) più una pausa di respiro; l'intro con le
+  regole dura ~1 min 45 s, l'audio delle manche musicali e i video vengono aspettati, nella manche *Scommetti tutto*
+  ci sono 10 s in più per puntare.
+
+In regia il riquadro **Scorrimento della serata** mostra lo stato ("AUTOMATICO — prossimo passo tra 7 s: Mostra risposte")
+e il selettore **Manuale / Automatico**, che si può cambiare in qualsiasi momento (il valore in diretta vive nello
+stato di gioco: l'impostazione della serata pubblicata resta quella di partenza).
+
+- Anche in automatico **la regia vince sempre**: ogni pulsante funziona e il piano riparte dalla nuova fase.
+- **PAUSA** ferma l'automatico finché non premi RIPRENDI; passare a **Manuale** annulla il passo in programma.
+- L'automatico parte quando la regia avvia la serata (AVVIA INTRO o INIZIA ROUND): la lobby resta aperta finché
+  non decidi tu. Si ferma e mostra "In attesa della regia: …" quando serve una decisione umana (es. parità nella
+  votazione con *Decide la regia*, o un passo rifiutato dal motore).
+- Non c'è nessun processo sul server (Vercel): a far scattare i passi sono il **TV** e la **regia** aperti, che chiamano
+  `/tick` quando è l'ora; il server esegue il passo solo se è davvero dovuto, una volta sola anche con più schermi.
+  Se TV e regia sono entrambi chiusi la serata resta ferma finché uno dei due non si riapre.
+
 ## 5. Backup e ripristino
 
 - **Automatico**: backup giornalieri Supabase (piano Pro) + Point-in-Time Recovery (opzionale).

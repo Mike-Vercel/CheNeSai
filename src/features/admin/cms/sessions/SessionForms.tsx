@@ -6,6 +6,7 @@ import { errorMessage, fieldErrors, send, useApi } from "../api";
 import { Checkbox, InfoNote } from "../common";
 import { fromLocalInput, toLocalInput } from "../format";
 import type { Season } from "../types";
+import { ADVANCE_MODE_LABELS, type AdvanceMode } from "@/lib/game-engine/autoplay";
 
 export interface SessionInfoValues {
   title: string;
@@ -13,14 +14,48 @@ export interface SessionInfoValues {
   scheduledAt: string; // datetime-local
   isTest: boolean;
   seasonId: string;
+  /** scorrimento della serata (scelto alla creazione; poi nelle Regole della serata e in regia) */
+  advanceMode: AdvanceMode;
 }
 
 export function emptySessionInfo(): SessionInfoValues {
-  return { title: "", description: "", scheduledAt: "", isTest: false, seasonId: "" };
+  return { title: "", description: "", scheduledAt: "", isTest: false, seasonId: "", advanceMode: "manual" };
+}
+
+const ADVANCE_MODE_HINTS: Record<AdvanceMode, string> = {
+  manual: "La regia preme ogni passo (domanda, risposte, soluzione, punti…).",
+  auto: "La serata va da sola: ogni passo parte quando il presentatore ha finito di parlare. La regia avvia la serata e può intervenire quando vuole.",
+};
+
+/** Scelta "Scorrimento": manuale o automatico (creazione e Regole della serata). */
+export function AdvanceModeField({
+  value,
+  onChange,
+  error,
+  published = false,
+}: {
+  value: AdvanceMode;
+  onChange: (v: AdvanceMode) => void;
+  error?: string;
+  published?: boolean;
+}) {
+  return (
+    <Field label="Scorrimento" error={error} hint={published ? "Vale dal prossimo passo se la regia non l'ha già cambiato in diretta." : "Si può cambiare anche dalla regia, a serata in corso."}>
+      {(id) => (
+        <div className="space-y-1">
+          <Select id={id} className="sm:max-w-sm" value={value} onChange={(e) => onChange(e.target.value as AdvanceMode)}>
+            <option value="manual">{ADVANCE_MODE_LABELS.manual} (come sempre)</option>
+            <option value="auto">{ADVANCE_MODE_LABELS.auto} (va da sola)</option>
+          </Select>
+          <p className="text-xs text-white/55">{ADVANCE_MODE_HINTS[value]}</p>
+        </div>
+      )}
+    </Field>
+  );
 }
 
 export function sessionInfoFrom(s: { title: string; description: string | null; scheduledAt: string | null; isTest: boolean; seasonId: string | null }): SessionInfoValues {
-  return { title: s.title, description: s.description ?? "", scheduledAt: toLocalInput(s.scheduledAt), isTest: s.isTest, seasonId: s.seasonId ?? "" };
+  return { title: s.title, description: s.description ?? "", scheduledAt: toLocalInput(s.scheduledAt), isTest: s.isTest, seasonId: s.seasonId ?? "", advanceMode: "manual" };
 }
 
 /** Form condiviso tra "Crea serata" e "Modifica dati serata". */
@@ -31,6 +66,7 @@ export function SessionInfoModal({
   initial,
   submitLabel,
   allowTestToggle,
+  showAdvanceMode = false,
   onSubmit,
 }: {
   open: boolean;
@@ -39,7 +75,16 @@ export function SessionInfoModal({
   initial: SessionInfoValues;
   submitLabel: string;
   allowTestToggle: boolean;
-  onSubmit: (body: { title: string; description: string | null; scheduledAt: string | null; isTest?: boolean; seasonId: string | null }) => Promise<void>;
+  /** creazione: scelta dello scorrimento (manuale/automatico) */
+  showAdvanceMode?: boolean;
+  onSubmit: (body: {
+    title: string;
+    description: string | null;
+    scheduledAt: string | null;
+    isTest?: boolean;
+    seasonId: string | null;
+    settings?: { advanceMode: AdvanceMode };
+  }) => Promise<void>;
 }) {
   const [v, setV] = useState(initial);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -59,6 +104,7 @@ export function SessionInfoModal({
         scheduledAt: fromLocalInput(v.scheduledAt),
         ...(allowTestToggle ? { isTest: v.isTest } : {}),
         seasonId: v.seasonId || null,
+        ...(showAdvanceMode ? { settings: { advanceMode: v.advanceMode } } : {}),
       });
     } catch (err) {
       const fe = fieldErrors(err);
@@ -111,6 +157,7 @@ export function SessionInfoModal({
             )}
           </Field>
         </div>
+        {showAdvanceMode && <AdvanceModeField value={v.advanceMode} onChange={(advanceMode) => setV({ ...v, advanceMode })} error={errors["settings.advanceMode"]} />}
         {allowTestToggle && (
           <Checkbox
             checked={v.isTest}

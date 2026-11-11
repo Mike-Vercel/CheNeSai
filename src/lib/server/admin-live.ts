@@ -1,7 +1,8 @@
 import { getSql, iso } from "@/lib/database/db";
 import { allowedCommands, suggestNextCommand } from "@/lib/game-engine/transitions";
 import type { GameCommand, PublicState, QuestionType, SpecialEventType } from "@/lib/game-engine/types";
-import { buildPublicState, loadStateRow, visualPhase } from "./public-state";
+import { autoplayEnabled, buildPublicState, loadStateRow, visualPhase } from "./public-state";
+import type { AdvanceMode } from "@/lib/game-engine/autoplay";
 import { resolveNextQuestion } from "./engine";
 import { getSessionDetail, type RoundDetail } from "./cms/sessions";
 import { effectiveSettings, loadGlobalSettings, teamSettingsOf } from "./settings";
@@ -49,6 +50,18 @@ export interface AdminLiveState {
   displayKey: string;
   code: string;
   isTest: boolean;
+  /** scorrimento automatico: stato live (la regia lo cambia con SET_AUTOPLAY) */
+  autoplay: {
+    enabled: boolean;
+    /** impostazione scelta alla creazione della serata */
+    sessionMode: AdvanceMode;
+    /** true = la regia ha cambiato modalità durante la serata */
+    overridden: boolean;
+    nextAt: string | null;
+    command: GameCommand | null;
+    /** in attesa della regia: motivo */
+    waiting: string | null;
+  };
   /** scaletta a tempo: piano + tempi registrati (il confronto lo calcola la regia con l'ora del server) */
   timing: { plan: ResolvedPlan; input: LiveTimingInput };
 }
@@ -264,6 +277,14 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
     displayKey: detail.displayKey,
     code: detail.code,
     isTest: detail.isTest,
+    autoplay: {
+      enabled: autoplayEnabled(st),
+      sessionMode: st.settings?.advanceMode ?? "manual",
+      overridden: st.auto_mode !== null,
+      nextAt: autoplayEnabled(st) && st.auto_next_at ? iso(st.auto_next_at) : null,
+      command: autoplayEnabled(st) ? ((st.auto_command as GameCommand | null) ?? null) : null,
+      waiting: autoplayEnabled(st) ? st.auto_waiting : null,
+    },
     timing,
   };
 }

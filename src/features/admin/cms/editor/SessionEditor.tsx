@@ -428,6 +428,7 @@ export function SessionEditor({ id }: { id: string }) {
                 ["Ingressi", st.joinLocked ? "Bloccati" : "Aperti", false],
                 ["Ingresso tardivo", st.allowLateJoin === false ? "No" : "Sì", false],
                 ["Eventi automatici", st.autoEvents === false ? "No" : "Sì", false],
+                ["Scorrimento", st.advanceMode === "auto" ? "Automatico" : "Manuale", st.advanceMode === undefined],
               ].map(([k, v, inherited]) => (
                 <div key={String(k)}>
                   <dt className="text-xs text-white/50">{k}</dt>

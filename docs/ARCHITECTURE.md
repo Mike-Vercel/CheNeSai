@@ -52,6 +52,20 @@ Garanzie di ogni comando (`executeCommand`):
 
 Le risposte usano `FOR SHARE` sullo stato: non possono "scavalcare" una chiusura o una rivelazione concorrente.
 
+### Scorrimento automatico
+
+- Decisione pura in `src/lib/game-engine/autoplay.ts` (`planAutoplay`): prossimo comando (lo stesso suggerito alla regia) e
+  istante in cui è dovuto (inizio fase + battute del TV + respiro, oppure scadenza di timer/voto/ruota).
+- Dopo **ogni** comando, nella stessa transazione, `src/lib/server/autoplay.ts` scrive il piano in `game_state`
+  (`auto_next_at`, `auto_command`, `auto_version`, `auto_waiting`; `auto_mode` = scelta live della regia, null = impostazione
+  della serata `settings.advanceMode`). La durata delle battute viene dallo stesso copione del TV (`speechFor`) e dalla
+  dimensione delle clip in `tts_clips` (16 byte/ms), con stima dal testo se la clip manca.
+- Lo stato pubblico contiene solo `auto: { nextAt, version }`. TV e regia chiamano `POST /api/display/:id/tick?k=…` /
+  `POST /api/admin/sessions/:id/tick` all'orario; `autoTick` controlla senza lock, poi esegue il comando con lo stesso
+  `executeCommand` (lock `FOR UPDATE`, verifica ripetuta sotto lock: automatico attivo, stessa versione, stesso comando,
+  orario passato) e un `commandId` deterministico per (sessione, versione): più client insieme → un solo passo.
+- Errori del passo (es. `TIE_NEEDS_ADMIN`) fermano l'automatico con un motivo mostrato in regia.
+
 ## Tempo
 
 - `answers_close_at = clock_timestamp() + durata` calcolato dal DB all'apertura.

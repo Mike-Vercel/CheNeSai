@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { COMMANDS, isCategoryRound, maxCategories, PRESENTERS, QUESTION_TYPES, ROUND_KINDS, SPECIAL_EVENT_TYPES } from "@/lib/game-engine/types";
 import { MAX_TEAMS, TEAM_AGGREGATIONS, TEAM_MODES } from "@/lib/game-engine/teams";
+import { ADVANCE_MODES } from "@/lib/game-engine/autoplay";
 
 const uuid = z.uuid();
 
@@ -127,6 +128,8 @@ export const sessionSettingsSchema = z.object({
   autoEvents: z.boolean().nullable().optional(),
   palminoPool: z.array(z.string().min(2).max(40)).max(10).nullable().optional(),
   runningOrder: runningOrderSchema.nullable().optional(),
+  /** scorrimento della serata: "manual" (predefinito, la regia preme ogni passo) o "auto" (va da sola) */
+  advanceMode: z.enum(ADVANCE_MODES).nullable().optional(),
   /** modalità squadre (assente = individuale) */
   teams: z
     .object({
@@ -204,6 +207,8 @@ export const commandSchema = z.object({
       delta: z.number().int().min(-100000).max(100000).optional(),
       joinLocked: z.boolean().optional(),
       allowLateJoin: z.boolean().optional(),
+      /** SET_AUTOPLAY: true = scorrimento automatico, false = manuale */
+      autoplay: z.boolean().optional(),
       count: z.number().int().min(1).max(200).optional(),
       /** squadra di destinazione (null = nessuna squadra) */
       teamId: uuid.nullable().optional(),

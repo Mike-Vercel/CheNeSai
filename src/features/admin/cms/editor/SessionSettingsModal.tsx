@@ -6,6 +6,8 @@ import { errorMessage, fieldErrors } from "../api";
 import { Checkbox, InfoNote } from "../common";
 import { intOrNull } from "../format";
 import type { EventDefinition, GlobalSettings, SessionSettings } from "../types";
+import { AdvanceModeField } from "../sessions/SessionForms";
+import type { AdvanceMode } from "@/lib/game-engine/autoplay";
 
 type Tri = "" | "yes" | "no";
 const triOf = (v: boolean | undefined): Tri => (v === undefined ? "" : v ? "yes" : "no");
@@ -43,6 +45,7 @@ export function SessionSettingsModal({
   const [nicknameMaxLength, setNicknameMaxLength] = useState(str(settings.nicknameMaxLength));
   const [autoEvents, setAutoEvents] = useState(settings.autoEvents ?? true);
   const [pool, setPool] = useState<string[]>(settings.palminoPool ?? []);
+  const [advanceMode, setAdvanceMode] = useState<AdvanceMode>(settings.advanceMode ?? "manual");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [general, setGeneral] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -58,6 +61,7 @@ export function SessionSettingsModal({
       allowLateJoin,
       autoEvents,
       palminoPool: pool,
+      advanceMode,
     };
     const nick = intOrNull(nicknameMaxLength);
     if (nick !== null) out.nicknameMaxLength = nick;
@@ -145,6 +149,11 @@ export function SessionSettingsModal({
               </Select>
             )}
           </Field>
+        </fieldset>
+
+        <fieldset className="space-y-3 rounded-xl border border-white/10 p-3">
+          <legend className="px-1 font-display text-lg text-white/90">Conduzione</legend>
+          <AdvanceModeField value={advanceMode} onChange={setAdvanceMode} error={errors.advanceMode} published={frozen} />
         </fieldset>
 
         <fieldset className="space-y-3 rounded-xl border border-white/10 p-3">

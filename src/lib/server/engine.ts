@@ -1,6 +1,6 @@
-import { randomBytes, randomInt } from "node:crypto";
+import { createHash, randomBytes, randomInt } from "node:crypto";
 import { getSql, num, type Tx } from "@/lib/database/db";
-import { isCommandAllowed } from "@/lib/game-engine/transitions";
+import { COMMAND_LABELS, isCommandAllowed } from "@/lib/game-engine/transitions";
 import { applyDelta, evaluateAnswer, scoreAnswer } from "@/lib/game-engine/scoring";
 import { applyComeback, comebackRole, computeStake, scoreBet, type BetInput } from "@/lib/game-engine/special-rounds";
 import { rankParticipants } from "@/lib/game-engine/ranking";
@@ -25,7 +25,8 @@ import {
   type TieBreakMethod,
 } from "@/lib/game-engine/types";
 import type { CommandInput } from "@/lib/validation/schemas";
-import { buildPublicState, loadStateRow, type StateRow } from "./public-state";
+import { autoplayEnabled, buildPublicState, loadStateRow, type StateRow } from "./public-state";
+import { markAutoWaiting, scheduleAutoplay } from "./autoplay";
 import { broadcastState } from "./realtime";
 import { effectiveSettings, loadGlobalSettings, type EffectiveSessionSettings } from "./settings";
 import { rulesForQuestion } from "./rules";
@@ -79,11 +80,17 @@ const randomUnit = () => randomInt(0, 2 ** 32) / 2 ** 32;
 // ===========================================================================
 // Esecuzione di un comando di regia
 // ===========================================================================
-export async function executeCommand(sessionId: string, actor: Actor, input: CommandInput): Promise<CommandResult> {
+export async function executeCommand(sessionId: string, actor: Actor, input: CommandInput, opts: RunOptions = {}): Promise<CommandResult> {
   const from: { phase: GamePhase | null } = { phase: null };
-  const res = await runCommand(sessionId, actor, input, (p) => {
-    from.phase = p;
-  });
+  const res = await runCommand(
+    sessionId,
+    actor,
+    input,
+    (p) => {
+      from.phase = p;
+    },
+    opts,
+  );
   // Dopo il commit: voci delle battute live in background (mai bloccante).
   if (!res.duplicate && from.phase) schedulePrewarm(from.phase, res.state);
   // Apertura della lobby: "Prepara voci" automatico mentre la gente entra.
@@ -91,7 +98,15 @@ export async function executeCommand(sessionId: string, actor: Actor, input: Com
   return res;
 }
 
-async function runCommand(sessionId: string, actor: Actor, input: CommandInput, onFrom: (phase: GamePhase) => void): Promise<CommandResult> {
+interface RunOptions {
+  /**
+   * Passo dello scorrimento automatico: si esegue solo se, sotto lock, l'automatico è ancora attivo
+   * e il passo in programma è proprio questo, per questa versione, ed è già dovuto.
+   */
+  auto?: boolean;
+}
+
+async function runCommand(sessionId: string, actor: Actor, input: CommandInput, onFrom: (phase: GamePhase) => void, opts: RunOptions = {}): Promise<CommandResult> {
   const sql = getSql();
   return sql.begin(async (tx) => {
     const st = await loadStateRow(tx, sessionId, "update");
@@ -105,6 +120,7 @@ async function runCommand(sessionId: string, actor: Actor, input: CommandInput, 
       const state = await buildPublicState(tx, sessionId);
       return { state: state!, duplicate: true, result: null };
     }
+    if (opts.auto) assertAutoStepDue(st, input.command);
     if (input.expectedVersion !== undefined && input.expectedVersion !== num(st.version)) {
       throw new GameError("VERSION_CONFLICT", "Lo stato è cambiato nel frattempo: aggiorna la regia e riprova", {
         currentVersion: num(st.version),
@@ -144,11 +160,99 @@ async function runCommand(sessionId: string, actor: Actor, input: CommandInput, 
       values (${actor.userId}, ${actor.email}, ${"live." + input.command.toLowerCase()}, ${sessionId}, 'game_state', ${sessionId},
               ${tx.json(JSON.parse(JSON.stringify({ from: st.phase, to: out.to, args: ctx.args })))}, ${actor.ip ?? null})`;
 
-    const state = await buildPublicState(tx, sessionId);
-    if (!state) throw new GameError("NOT_FOUND", "Stato non disponibile");
+    const row = await loadStateRow(tx, sessionId);
+    const built = row ? await buildPublicState(tx, sessionId, row) : null;
+    if (!row || !built) throw new GameError("NOT_FOUND", "Stato non disponibile");
+    // Scorrimento automatico: piano del prossimo passo (in manuale si limita a ripulire)
+    const justEnabled = input.command === "SET_AUTOPLAY" && ctx.args.autoplay === true;
+    const state: PublicState = { ...built, auto: await scheduleAutoplay(tx, row, built, resolveNextQuestion, { justEnabled }) };
     await broadcastState(tx, state);
     return { state, duplicate: false, result: out.result ?? null };
   });
+}
+
+/** Il passo automatico si esegue solo se è ancora quello in programma ed è già dovuto (vedi autoTick). */
+function assertAutoStepDue(st: StateRow, command: GameCommand) {
+  const due =
+    autoplayEnabled(st) &&
+    st.phase !== "PAUSED" &&
+    st.auto_command === command &&
+    st.auto_version !== null &&
+    num(st.auto_version) === num(st.version) &&
+    !!st.auto_next_at &&
+    st.auto_next_at.getTime() <= st.server_now.getTime();
+  if (!due) throw new GameError("AUTO_NOT_DUE", "Nessun passo automatico da eseguire adesso");
+}
+
+// ===========================================================================
+// Scorrimento automatico: il "tick" chiamato da TV e regia
+// ===========================================================================
+export const AUTO_ACTOR: Actor = { userId: null, email: "regia automatica", ip: null };
+
+export interface AutoTickResult {
+  /** true = questo tick ha eseguito il passo */
+  advanced: boolean;
+  command: GameCommand | null;
+  /** prossimo passo (ora del server) per chi deve richiamare */
+  nextAt: string | null;
+  version: number | null;
+  /** in attesa della regia (motivo) */
+  waiting: string | null;
+}
+
+/** commandId deterministico per (sessione, versione): più TV che chiamano insieme eseguono il passo una volta sola. */
+export function autoCommandId(sessionId: string, version: number): string {
+  const h = createHash("sha256").update(`qz-auto|${sessionId}|${version}`).digest("hex");
+  const variant = ((parseInt(h.slice(16, 18), 16) & 0x3f) | 0x80).toString(16);
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-5${h.slice(13, 16)}-${variant}${h.slice(18, 20)}-${h.slice(20, 32)}`;
+}
+
+/**
+ * Esegue il passo automatico SE è dovuto. Sicuro con molti client che chiamano insieme e
+ * idempotente: controllo veloce senza lock, poi esecuzione col lock dei comandi, con la verifica
+ * ripetuta sotto lock (automatico attivo, stessa versione, stesso comando, orario passato) e un
+ * commandId deterministico. Non può fare altro che il passo in programma.
+ */
+export async function autoTick(sessionId: string): Promise<AutoTickResult> {
+  const sql = getSql();
+  const [g] = await sql<{ auto_command: string | null; auto_version: number | null; auto_next_at: Date | null; auto_waiting: string | null; due: boolean; enabled: boolean }[]>`
+    select gs.auto_command, gs.auto_version, gs.auto_next_at, gs.auto_waiting,
+           coalesce(gs.auto_next_at <= clock_timestamp(), false) and gs.phase <> 'PAUSED' as due,
+           coalesce(gs.auto_mode, s.settings->>'advanceMode' = 'auto') as enabled
+    from game_state gs join game_sessions s on s.id = gs.session_id
+    where gs.session_id = ${sessionId}`;
+  if (!g) throw new GameError("NOT_FOUND", "Sessione non trovata o non pubblicata");
+  const idle = (): AutoTickResult => ({
+    advanced: false,
+    command: null,
+    nextAt: g.enabled && g.auto_next_at ? g.auto_next_at.toISOString() : null,
+    version: g.enabled && g.auto_version !== null ? num(g.auto_version) : null,
+    waiting: g.enabled ? g.auto_waiting : null,
+  });
+  if (!g.enabled || !g.due || !g.auto_command || g.auto_version === null) return idle();
+  const command = g.auto_command as GameCommand;
+  const version = num(g.auto_version);
+  try {
+    const res = await executeCommand(sessionId, AUTO_ACTOR, { command, commandId: autoCommandId(sessionId, version), expectedVersion: version, args: {} }, { auto: true });
+    return {
+      advanced: !res.duplicate,
+      command,
+      nextAt: res.state.auto?.nextAt ?? null,
+      version: res.state.auto?.version ?? null,
+      waiting: null,
+    };
+  } catch (e) {
+    if (!(e instanceof GameError)) throw e;
+    // un altro client l'ha già eseguito, la regia ha cambiato qualcosa o non è più dovuto: niente da fare
+    if (e.code === "AUTO_NOT_DUE" || e.code === "VERSION_CONFLICT") return { ...idle(), nextAt: null, version: null };
+    // situazione che richiede una decisione umana: l'automatico si ferma e aspetta la regia
+    const reason =
+      e.code === "TIE_NEEDS_ADMIN"
+        ? "parità nella votazione: scegli tu la categoria vincente"
+        : `${COMMAND_LABELS[command]} non riuscito (${e.message}): decidi tu come proseguire`;
+    await markAutoWaiting(sql, sessionId, version, reason);
+    return { advanced: false, command, nextAt: null, version: null, waiting: reason };
+  }
 }
 
 /** Ripubblica lo stato corrente (es. dopo una modifica collaterale). */
@@ -816,6 +920,14 @@ const HANDLERS: Record<GameCommand, Handler> = {
       patch: { paused_from_phase: null, paused_remaining_ms: null, paused_at: null, active_event_id: null },
       result: teams ? { teams, aggregation: settings.teams.aggregation } : undefined,
     };
+  },
+
+  async SET_AUTOPLAY({ tx, st, args, sessionId }) {
+    if (args.autoplay === undefined) throw new GameError("VALIDATION", "Indica se attivare lo scorrimento automatico");
+    // valore live nello stato di gioco (le impostazioni della serata pubblicata sono congelate);
+    // il piano del prossimo passo lo ricalcola runCommand subito dopo
+    await tx`update game_state set auto_mode = ${args.autoplay}, auto_waiting = null where session_id = ${sessionId}`;
+    return { to: st.phase, result: { autoplay: args.autoplay } };
   },
 
   async SET_JOIN({ tx, st, args, sessionId }) {
