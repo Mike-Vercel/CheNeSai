@@ -167,8 +167,9 @@ export function SessionsList({ openCreate = false }: { openCreate?: boolean }) {
           initial={emptySessionInfo()}
           submitLabel="Crea e apri editor"
           allowTestToggle
+          showAdvanceMode
           onSubmit={async (body) => {
-            const r = await send<{ id: string }>("/api/admin/sessions", "POST", { ...body, settings: {} });
+            const r = await send<{ id: string }>("/api/admin/sessions", "POST", { settings: {}, ...body });
             setCreating(false);
             router.push(`/admin/sessions/${r.id}`);
           }}

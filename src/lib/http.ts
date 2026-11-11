@@ -34,6 +34,7 @@ const GAME_STATUS: Record<GameError["code"], number> = {
   NOT_TEST_SESSION: 409,
   VALIDATION: 422,
   FORBIDDEN: 403,
+  AUTO_NOT_DUE: 409,
 };
 
 const PLAYER_STATUS: Record<PlayerError["code"], number> = {

@@ -343,6 +343,17 @@ export interface PublicState {
   recentPlayers: string[] | null;
   /** battute del regista automatico per il momento corrente: punti di una risposta, inizio finale, saluti in lobby */
   showLines: PublicShowLine[] | null;
+  /**
+   * Scorrimento automatico: quando è dovuto il prossimo passo (ora del server) e per quale versione.
+   * Serve solo a TV e regia per chiamare /tick al momento giusto (nessun cambiamento visibile).
+   * Assente o null = scorrimento manuale o nessun passo in programma.
+   */
+  auto?: PublicAuto | null;
+}
+
+export interface PublicAuto {
+  nextAt: string;
+  version: number;
 }
 
 export type TieBreakMethod = "random" | "admin" | "first";
@@ -366,6 +377,7 @@ export const COMMANDS = [
   "RESUME",
   "FINISH",
   "SET_JOIN",
+  "SET_AUTOPLAY",
   "KICK",
   "ADJUST_SCORE",
   "ASSIGN_TEAM",
@@ -392,7 +404,8 @@ export interface CommandError {
     | "NOT_FOUND"
     | "NOT_TEST_SESSION"
     | "VALIDATION"
-    | "FORBIDDEN";
+    | "FORBIDDEN"
+    | "AUTO_NOT_DUE";
   message: string;
   details?: Record<string, unknown>;
 }

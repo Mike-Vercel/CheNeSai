@@ -62,6 +62,12 @@ export interface StateRow {
   paused_at: Date | null;
   active_event_id: string | null;
   show_lines: PublicState["showLines"];
+  /** scorrimento automatico (vedi lib/game-engine/autoplay e server/autoplay) */
+  auto_mode: boolean | null;
+  auto_next_at: Date | null;
+  auto_command: string | null;
+  auto_version: number | null;
+  auto_waiting: string | null;
   server_now: Date;
 }
 
@@ -71,7 +77,9 @@ export async function loadStateRow(db: Db, sessionId: string, lock: "update" | "
     select gs.session_id, s.code, s.title, s.is_test, s.status, s.settings, gs.phase, gs.version,
            gs.current_round_id, gs.current_session_question_id, gs.forced_next_sq_id, gs.questions_played,
            gs.phase_started_at, gs.intro_started_at, gs.paused_from_phase, gs.paused_remaining_ms, gs.paused_at,
-           gs.active_event_id, gs.show_lines, clock_timestamp() as server_now
+           gs.active_event_id, gs.show_lines,
+           gs.auto_mode, gs.auto_next_at, gs.auto_command, gs.auto_version, gs.auto_waiting,
+           clock_timestamp() as server_now
     from game_state gs
     join game_sessions s on s.id = gs.session_id
     where gs.session_id = ${sessionId}
@@ -166,7 +174,19 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
     pausedFrom: st.phase === "PAUSED" ? st.paused_from_phase : null,
     recentPlayers,
     showLines: showLinesForPhase(vp, st.show_lines),
+    auto: publicAuto(st),
   };
+}
+
+/** Scorrimento automatico attivo? (scelta della regia in diretta, altrimenti impostazione della serata) */
+export function autoplayEnabled(st: Pick<StateRow, "auto_mode" | "settings">): boolean {
+  return st.auto_mode ?? st.settings?.advanceMode === "auto";
+}
+
+/** Prossimo passo automatico per TV e regia (solo l'orario: il comando resta lato server). */
+export function publicAuto(st: Pick<StateRow, "auto_mode" | "settings" | "auto_next_at" | "auto_version">): PublicState["auto"] {
+  if (!autoplayEnabled(st) || !st.auto_next_at || st.auto_version === null) return null;
+  return { nextAt: iso(st.auto_next_at)!, version: num(st.auto_version) };
 }
 
 async function loadPublicRound(db: Db, sessionId: string, roundId: string): Promise<PublicRound | null> {
