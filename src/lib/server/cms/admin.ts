@@ -34,7 +34,8 @@ export const globalSettingsSchema = z.object({
       enabled: z.boolean(),
       /** 0 = illimitate */
       gamesPerAccount: z.number().int().min(0).max(1000),
-      maxPlayers: z.number().int().min(2).max(200),
+      /** 0 = illimitati */
+      maxPlayers: z.number().int().min(0).max(500).refine((n) => n === 0 || n >= 2, { message: "0 (illimitati) oppure almeno 2" }),
     })
     .default({ ...DEFAULT_PUBLIC_GAMES }),
 });

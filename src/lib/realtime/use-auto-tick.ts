@@ -13,6 +13,10 @@ export interface AutoTickResponse {
 
 /** Tentativi massimi per lo stesso passo (orologi un po' diversi, rete che salta). */
 const MAX_ATTEMPTS = 6;
+/** Attesa massima in più concessa a `holdWhile` (es. presentatore ancora a metà battuta). */
+export const MAX_HOLD_MS = 15_000;
+/** Ogni quanto si ricontrolla `holdWhile`. */
+const HOLD_POLL_MS = 300;
 
 /**
  * Scorrimento automatico guidato dal client (TV e regia): quando arriva l'orario del prossimo passo
@@ -26,6 +30,7 @@ export function useAutoTick({
   tick,
   extraDelayMs = 0,
   enabled = true,
+  holdWhile,
 }: {
   auto: PublicAuto | null | undefined;
   /** ora del server stimata (ms) */
@@ -34,13 +39,20 @@ export function useAutoTick({
   /** ritardo in più (la regia lascia guidare il TV, se c'è) */
   extraDelayMs?: number;
   enabled?: boolean;
+  /**
+   * Il TV non chiama /tick mentre questa funzione dice true (il presentatore sta ancora parlando o
+   * la sua clip sta arrivando): il passo dovuto aspetta, al massimo MAX_HOLD_MS in più.
+   */
+  holdWhile?: () => boolean;
 }) {
   const tickRef = useRef(tick);
   const nowRef = useRef(now);
+  const holdRef = useRef(holdWhile);
   useEffect(() => {
     tickRef.current = tick;
     nowRef.current = now;
-  }, [tick, now]);
+    holdRef.current = holdWhile;
+  }, [tick, now, holdWhile]);
 
   // piano ricevuto dalla risposta del tick (arriva prima dello stato in tempo reale)
   const [fromTick, setFromTick] = useState<PublicAuto | null>(null);
@@ -53,6 +65,7 @@ export function useAutoTick({
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
     let attempts = 0;
+    let holdSince: number | null = null;
     const schedule = (atMs: number) => {
       // un po' di casualità: più TV non chiamano tutti nello stesso millisecondo
       const wait = Math.max(0, atMs - nowRef.current()) + extraDelayMs + Math.random() * 300;
@@ -60,6 +73,13 @@ export function useAutoTick({
     };
     const fire = async () => {
       if (cancelled) return;
+      if (holdRef.current?.()) {
+        holdSince ??= Date.now();
+        if (Date.now() - holdSince < MAX_HOLD_MS) {
+          timer = setTimeout(() => void fire(), HOLD_POLL_MS);
+          return;
+        }
+      }
       attempts += 1;
       try {
         const r = await tickRef.current();

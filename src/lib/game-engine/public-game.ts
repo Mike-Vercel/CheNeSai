@@ -106,11 +106,16 @@ export interface PublicGamesSettings {
   enabled: boolean;
   /** Partite per account (0 = illimitate). */
   gamesPerAccount: number;
-  /** Giocatori massimi per partita libera. */
+  /** Giocatori massimi per partita libera (0 = illimitati, "finché regge"). */
   maxPlayers: number;
 }
 
-export const DEFAULT_PUBLIC_GAMES: PublicGamesSettings = { enabled: true, gamesPerAccount: 0, maxPlayers: 20 };
+export const DEFAULT_PUBLIC_GAMES: PublicGamesSettings = { enabled: true, gamesPerAccount: 0, maxPlayers: 0 };
+
+/** Limite da scrivere nelle impostazioni della partita: null = nessun limite. */
+export function publicMaxPlayers(settings: Pick<PublicGamesSettings, "maxPlayers">): number | null {
+  return settings.maxPlayers > 0 ? settings.maxPlayers : null;
+}
 
 export interface QuotaInfo {
   /** null = illimitate */

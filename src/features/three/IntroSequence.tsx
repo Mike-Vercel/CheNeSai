@@ -5,7 +5,7 @@ import { IntroErrorBoundary, detectWebGL } from "./IntroErrorBoundary";
 import { IntroFallback2D } from "./IntroFallback2D";
 import { IntroOverlay, OVERLAY_CSS } from "./IntroOverlay";
 import { INTRO_FONT_FACE_CSS, preloadIntroAssets as preloadAssetFiles } from "./assets";
-import { startIntroAudio } from "./intro-audio";
+import { preloadIntroClips, startIntroAudio } from "./intro-audio";
 import { useIntroTimeline } from "./use-intro-timeline";
 import { DEFAULT_SCORING, useIntroSchedule, type RulesScoring } from "./rules";
 import { INTRO_DURATION_MS as DURATION } from "./timeline";
@@ -45,6 +45,7 @@ export const INTRO_DURATION_MS: number = DURATION;
 export function preloadIntroAssets(): void {
   if (typeof window === "undefined") return;
   preloadAssetFiles();
+  preloadIntroClips();
   if (detectWebGL()) {
     void import("./IntroScene").catch(() => undefined);
     // personaggi GLB (~4.5 MB in tutto): scaricati e decodificati in anticipo, così entrano senza attese

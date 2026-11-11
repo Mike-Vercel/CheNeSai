@@ -132,8 +132,8 @@ function GlobalSettingsForm({ initial, canEdit, onSaved }: { initial: GlobalSett
         <Field label="Partite per account" error={e("publicGames.gamesPerAccount")} hint="0 = illimitate. Admin e super admin non hanno limiti.">
           {(id) => <Input id={id} type="number" min={0} max={1000} disabled={dis} value={s.publicGames.gamesPerAccount} onChange={(ev) => num("publicGames", "gamesPerAccount", ev.target.value)} />}
         </Field>
-        <Field label="Giocatori massimi per partita" error={e("publicGames.maxPlayers")} hint="Vale per le nuove partite libere (2–200)">
-          {(id) => <Input id={id} type="number" min={2} max={200} disabled={dis} value={s.publicGames.maxPlayers} onChange={(ev) => num("publicGames", "maxPlayers", ev.target.value)} />}
+        <Field label="Giocatori massimi per partita (0 = illimitati)" error={e("publicGames.maxPlayers")} hint="Vale per le nuove partite libere: 0 = nessun limite, altrimenti 2–500">
+          {(id) => <Input id={id} type="number" min={0} max={500} disabled={dis} value={s.publicGames.maxPlayers} onChange={(ev) => num("publicGames", "maxPlayers", ev.target.value)} />}
         </Field>
       </fieldset>
       <p className="text-xs text-white/50">Le serate già pubblicate mantengono i punteggi congelati al momento della pubblicazione.</p>

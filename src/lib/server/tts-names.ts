@@ -5,6 +5,7 @@ import { PRESENTERS } from "@/lib/game-engine/types";
 import { nameVariants, PREWARM_NUMBERS, segmentPause, splitByNames, type SpeechSegment } from "@/features/game/name-segments";
 import { stripAudioTags, type SpokenLine } from "@/features/game/script";
 import { concatMp3 } from "./mp3";
+import { isPublicSession } from "./public-session";
 import {
   cachedKeys,
   downloadClip,
@@ -186,8 +187,8 @@ export async function ttsLineUrl(line: SpokenLine, opts: LineClipOptions = {}): 
  * Genera (se mancano) le varianti più usate del nome ("Gigi", "Gigi,", "Gigi!", "Gigi.")
  * con le voci dei tre presentatori, a bassa priorità: le battute del TV passano prima.
  */
-export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: string): Promise<{ generated: number; billedChars: number }> {
-  if (cfg.namesMode !== "spliced") return { generated: 0, billedChars: 0 };
+export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: string, opts: { namesMode?: NamesMode } = {}): Promise<{ generated: number; billedChars: number }> {
+  if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
   const plans = PRESENTERS.flatMap((who) =>
     nameVariants(nickname).map((v) => {
       const plan = planPart(cfg, who, v, "name");
@@ -212,8 +213,8 @@ export async function prewarmNameClips(db: Db, cfg: VoiceConfig, nickname: strin
  * Numeri piccoli (1–20, forma semplice) per i tre presentatori: serie, posizioni, domande,
  * "e altri N". Costo una tantum minimo (~60 clip da 1–2 caratteri), poi gratis per sempre.
  */
-export async function prewarmNumberClips(db: Db, cfg: VoiceConfig): Promise<{ generated: number; billedChars: number }> {
-  if (cfg.namesMode !== "spliced") return { generated: 0, billedChars: 0 };
+export async function prewarmNumberClips(db: Db, cfg: VoiceConfig, opts: { namesMode?: NamesMode } = {}): Promise<{ generated: number; billedChars: number }> {
+  if (resolveNamesMode(cfg, opts.namesMode) !== "spliced") return { generated: 0, billedChars: 0 };
   const plans = PRESENTERS.flatMap((who) =>
     PREWARM_NUMBERS.map((n) => {
       const plan = planPart(cfg, who, n, "number");
@@ -233,14 +234,18 @@ export async function prewarmNumberClips(db: Db, cfg: VoiceConfig): Promise<{ ge
   return { generated, billedChars };
 }
 
-/** All'ingresso di un nuovo giocatore: nomi preparati in background (mai bloccante). */
-export function scheduleNamePrewarm(nickname: string): void {
+/**
+ * All'ingresso di un nuovo giocatore: nomi preparati in background (mai bloccante).
+ * Partite libere (`sessionId` pubblica): sempre "nomi salvati".
+ */
+export function scheduleNamePrewarm(nickname: string, sessionId: string | null = null): void {
   try {
     if (!ttsConfigured() || process.env.VITEST) return;
     after(async () => {
       try {
         const db = getSql();
-        await prewarmNameClips(db, await loadVoiceConfig(db), nickname);
+        const namesMode = sessionId && (await isPublicSession(sessionId, db)) ? "spliced" : undefined;
+        await prewarmNameClips(db, await loadVoiceConfig(db), nickname, { namesMode });
       } catch (e) {
         console.warn("[quizzone] preparazione del nome non riuscita", e instanceof Error ? e.message : e);
       }

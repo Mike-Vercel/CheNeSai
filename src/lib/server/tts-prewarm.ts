@@ -8,6 +8,7 @@ import { cachedKeys, loadVoiceConfig, planClip, ttsConfigured } from "./tts";
 import { ensureLineClip, prewarmNumberClips } from "./tts-names";
 import { ensureOptionsClip } from "./read-time";
 import { runScopeBatch } from "./tts-pregen";
+import { isPublicSession } from "./public-session";
 
 /**
  * Pre-riscaldamento delle battute live: dopo il commit di una transizione si
@@ -60,7 +61,9 @@ async function warmLines(db: Db, lines: SpokenLine[], sessionId: string | null) 
   const cfg = await loadVoiceConfig(db);
   const todo = lines.map((l) => ({ l, p: planClip(cfg, l) })).filter((x) => x.p !== null);
   const cached = await cachedKeys(db, todo.map((x) => x.p!.key));
-  await Promise.allSettled(todo.filter((x) => !cached.has(x.p!.key)).map((x) => ensureLineClip(db, cfg, x.l, { sessionId })));
+  // partite libere: sempre "nomi salvati" (stessa clip finale che chiederà il TV)
+  const namesMode = sessionId && (await isPublicSession(sessionId, db)) ? "spliced" : undefined;
+  await Promise.allSettled(todo.filter((x) => !cached.has(x.p!.key)).map((x) => ensureLineClip(db, cfg, x.l, { sessionId, namesMode })));
 }
 
 /**
@@ -103,7 +106,8 @@ export function scheduleSessionPrep(sessionId: string): void {
       try {
         const db = getSql();
         // numeri piccoli dei "nomi salvati" (una volta per sempre: dopo è solo un controllo in archivio)
-        await prewarmNumberClips(db, await loadVoiceConfig(db)).catch(() => undefined);
+        const namesMode = (await isPublicSession(sessionId, db)) ? "spliced" : undefined;
+        await prewarmNumberClips(db, await loadVoiceConfig(db), { namesMode }).catch(() => undefined);
         let stuck = 0;
         while (Date.now() - t0 < PREP_MAX_MS) {
           const r = await runScopeBatch(db, { kind: "session", sessionId }, 4);

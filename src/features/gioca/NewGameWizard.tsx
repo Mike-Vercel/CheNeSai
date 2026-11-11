@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ScreenChoiceField } from "@/features/display/TvScreenControls";
 import { defaultRoundsFor, maxRoundsFor, PUBLIC_MAX_ROUNDS, PUBLIC_TOTAL_OPTIONS, type QuotaInfo } from "@/lib/game-engine/public-game";
+import { beginTvLaunch, cancelTvLaunch, completeTvLaunch } from "./launch";
 
 const MIXES = [
   { value: "facile", label: "Facile" },
@@ -79,16 +80,20 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
   async function create() {
     setBusy(true);
     setError(null);
+    // TV dritto dopo la creazione: finestra sull'altro schermo o schermo intero qui (serve questo clic)
+    const launch = await beginTvLaunch();
     try {
       const r = await fetch("/api/gioca/games", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ totalQuestions: total, rounds, mix }) });
       const d = (await r.json().catch(() => null)) as { sessionId?: string; error?: { message?: string } } | null;
       if (!r.ok || !d?.sessionId) {
+        cancelTvLaunch(launch);
         setError(d?.error?.message ?? "Creazione non riuscita, riprova");
         setBusy(false);
         return;
       }
-      router.push(`/gioca/partita/${d.sessionId}`);
+      router.push(completeTvLaunch(launch, d.sessionId));
     } catch {
+      cancelTvLaunch(launch);
       setError("Connessione assente, riprova");
       setBusy(false);
     }

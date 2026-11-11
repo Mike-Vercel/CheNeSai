@@ -5,6 +5,7 @@ import type { Presenter } from "@/lib/game-engine/types";
 import type { TtsRole } from "@/features/game/script";
 import { stripAudioTags } from "@/features/game/lines";
 import { getSoundEngine } from "./audio-engine";
+import { clipWaitMs, waitForClip } from "./voice-wait";
 
 /**
  * Voce dei presentatori (solo sul TV): sintesi vocale italiana del browser.
@@ -43,9 +44,6 @@ const FEMALE = /(isabella|elsa|palmira|alice|federica|paola|carla|bianca|google 
 /** Per quanto la battuta appena finita resta "in scena" (vedi heldSpeech). */
 const HELD_SPEECH_MS = 900;
 
-/** Se la clip ElevenLabs non è pronta entro questo tempo si parla con la voce del browser. */
-const CLIP_READY_TIMEOUT_MS = 2500;
-
 type SpeakingListener = (who: Presenter | null) => void;
 
 /** L'annunciatore è fuori campo: nessuna bocca si muove (ma la musica si abbassa). */
@@ -61,6 +59,8 @@ interface QueueItem {
   clip?: string;
   /** URL firmato della voce professionale, richiesto appena la battuta entra in coda (null = non disponibile). */
   prefetch?: Promise<string | null>;
+  /** battuta in diretta (nickname, punteggi) */
+  live?: boolean;
   resolve: () => void;
 }
 
@@ -215,7 +215,7 @@ class VoiceEngine {
   say(who: TtsRole, text: string, opts: { live?: boolean } = {}): Promise<void> {
     if ((!this.supported && this.provider === "browser") || !this.settings.enabled || !text.trim()) return Promise.resolve();
     return new Promise((resolve) => {
-      this.queue.push({ who, text, resolve, prefetch: this.prefetchClip(who, text, !!opts.live) });
+      this.queue.push({ who, text, resolve, live: !!opts.live, prefetch: this.prefetchClip(who, text, !!opts.live) });
       this.pump();
     });
   }
@@ -257,6 +257,14 @@ class VoiceEngine {
 
   private clipFallback = new Map<string, { who: Presenter; text: string }>();
 
+  /**
+   * true finché c'è una battuta in corso, in attesa della clip o in coda: lo scorrimento automatico
+   * del TV aspetta (useAutoTick holdWhile) invece di tagliare il presentatore a metà.
+   */
+  get pending(): boolean {
+    return this.busy || this.queue.length > 0;
+  }
+
   /** Interrompe tutto (es. cambio di fase improvviso). */
   stop() {
     this.queueEpoch++;
@@ -295,14 +303,10 @@ class VoiceEngine {
     }
     const line = { who: next.who, text: next.text, resolve: next.resolve };
     if (next.prefetch) {
-      // Voce professionale: si aspetta l'URL al massimo ~2,5 s, poi si ripiega sul browser.
+      // Voce professionale: si aspetta la clip anche se è lenta (generata al volo, fino a ~12 s);
+      // la voce del browser solo per un guasto vero (errore, budget esaurito, voce spenta) o oltre il tetto.
       const epoch = this.queueEpoch;
-      let timer: ReturnType<typeof setTimeout> | undefined;
-      const timeout = new Promise<null>((r) => {
-        timer = setTimeout(() => r(null), CLIP_READY_TIMEOUT_MS);
-      });
-      void Promise.race([next.prefetch, timeout]).then((url) => {
-        clearTimeout(timer);
+      void waitForClip(next.prefetch, clipWaitMs(!!next.live)).then((url) => {
         if (this.queueEpoch !== epoch) {
           line.resolve(); // fermato nel frattempo
           return;
@@ -347,6 +351,8 @@ class VoiceEngine {
         an.fftSize = 512;
         src.connect(an).connect(eng.sfx);
         this.analyser = an;
+        // passa dal mixer del TV: il volume generale lo applica già il bus principale
+        el.volume = 1;
       } catch {
         this.analyser = null;
       }

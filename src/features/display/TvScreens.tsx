@@ -480,6 +480,9 @@ export function BottomTicker({ left, right }: { left: string; right: string }) {
 // ---------------------------------------------------------------------------
 // Lobby con QR code
 // ---------------------------------------------------------------------------
+/** Nomi mostrati in lobby (una o due righe), gli altri come "+N altri". */
+const LOBBY_NAMES = 16;
+
 export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: PublicState; qrDataUrl: string | null; joinUrl: string; extra?: ReactNode }) {
   const ready = state.phase === "READY";
   return (
@@ -531,17 +534,23 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: Pub
 
       {state.recentPlayers && state.recentPlayers.length > 0 && (
         <div className={clsx("absolute inset-x-[4cqw] flex flex-wrap justify-center gap-[1cqh]", extra ? "bottom-[9cqh]" : "bottom-[2.5cqh]")}>
-          {state.recentPlayers.slice(0, 16).map((n, i) => (
+          {state.recentPlayers.slice(0, LOBBY_NAMES).map((n, i) => (
             <motion.span
               key={n}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: i * 0.03 }}
-              className="rounded-full border-[0.3cqh] border-gold/70 bg-violet/80 px-[1.8cqh] py-[0.5cqh] text-[2.4cqh] font-extrabold text-white"
+              className="max-w-[18cqw] truncate rounded-full border-[0.3cqh] border-gold/70 bg-violet/80 px-[1.8cqh] py-[0.5cqh] text-[2.4cqh] font-extrabold text-white"
             >
               {n}
             </motion.span>
           ))}
+          {/* tanti giocatori: gli ultimi entrati per nome, gli altri contati */}
+          {state.playerCount > Math.min(LOBBY_NAMES, state.recentPlayers.length) && (
+            <span className="rounded-full border-[0.3cqh] border-white/40 bg-black/55 px-[1.8cqh] py-[0.5cqh] text-[2.4cqh] font-extrabold text-white/90">
+              +{state.playerCount - Math.min(LOBBY_NAMES, state.recentPlayers.length)} {state.playerCount - Math.min(LOBBY_NAMES, state.recentPlayers.length) === 1 ? "altro" : "altri"}
+            </span>
+          )}
         </div>
       )}
       {extra}
@@ -977,8 +986,9 @@ export function TvPodiumScreen({
 
       {/* tutti gli altri, dal fondo al 4° posto: compaiono mentre la voce li legge */}
       {plan.rest.entries.length > 0 && t >= plan.rest.at && t < (plan.steps[0]?.drumAt ?? plan.winnerAt) && (
-        <div className="absolute left-1/2 top-[22cqh] z-20 w-[44cqw] -translate-x-1/2">
-          <div className={clsx("grid gap-[0.6cqh]", plan.rest.entries.length > 8 ? "grid-cols-2" : "grid-cols-1")}>
+        <div className={clsx("absolute left-1/2 top-[22cqh] z-20 max-h-[60cqh] -translate-x-1/2 overflow-hidden", plan.rest.entries.length > 24 ? "w-[56cqw]" : "w-[44cqw]")}>
+          {/* tanti giocatori (fino a 37 oltre il podio): tre colonne, così l'elenco non esce dallo schermo */}
+          <div className={clsx("grid gap-[0.6cqh]", plan.rest.entries.length > 24 ? "grid-cols-3" : plan.rest.entries.length > 8 ? "grid-cols-2" : "grid-cols-1")}>
             {[...plan.rest.entries].reverse().map((e) => {
               const order = plan.rest.entries.indexOf(e);
               const shown = t >= plan.rest.at + 1.5 + Math.min(order, 19) * plan.rest.perName;

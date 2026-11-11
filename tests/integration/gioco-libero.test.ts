@@ -11,16 +11,20 @@ import {
   createPublicGame,
   getOwnedGame,
   hostCommand,
+  hostGameStatus,
   isPublicSession,
   isUsernameAvailable,
   listHostGames,
   loadHostUser,
   quotaOf,
   loadPublicGamesSettings,
+  previousOptions,
+  rematchPublicGame,
   type HostAction,
   type HostUser,
 } from "@/lib/server/gioco-libero";
-import { joinSession, PlayerError } from "@/lib/server/players";
+import { authenticatePlayer, joinSession, PlayerError } from "@/lib/server/players";
+import { buildPublicState } from "@/lib/server/public-state";
 import { cleanupSession, makeQuestion, TEST_ACTOR } from "../support/fixtures";
 
 /**
@@ -30,6 +34,8 @@ import { cleanupSession, makeQuestion, TEST_ACTOR } from "../support/fixtures";
 const sql = getSql();
 const TAG = `gioco-${randomUUID().slice(0, 8)}`;
 const only = { onlyTag: TAG };
+/** archivio a parte per la rivincita (un host nuovo, nessuna interferenza con i test sopra) */
+const TAG2 = `rivincita-${randomUUID().slice(0, 8)}`;
 const CATS = ["Storia", "Geografia", "Cinema", "Musica", "Sport", "Scienza"];
 const created: string[] = [];
 const users: string[] = [];
@@ -86,7 +92,7 @@ beforeAll(async () => {
 afterAll(async () => {
   for (const id of created) await cleanupSession(id);
   await sql`delete from game_sessions where host_user_id = any(${sql.array(users)}::uuid[])`.catch(() => undefined);
-  await sql`delete from question_bank where ${TAG} = any(tags)`;
+  await sql`delete from question_bank where ${TAG} = any(tags) or ${TAG2} = any(tags)`;
   if (previousSetting) await sql`update application_settings set value = ${sql.json(previousSetting.value as never)} where key = 'publicGames'`;
   else await sql`delete from application_settings where key = 'publicGames'`;
   for (const id of users) await auth.auth.admin.deleteUser(id);
@@ -215,7 +221,7 @@ describe("comandi dell'host", () => {
     id = r.sessionId;
     code = r.code;
     created.push(id);
-    await setPublicGames({ maxPlayers: 20 });
+    await setPublicGames({ maxPlayers: 0 });
   });
 
   it("un altro account non può controllare la partita", async () => {
@@ -240,15 +246,163 @@ describe("comandi dell'host", () => {
     expect((e as PlayerError).code).toBe("GAME_FULL");
   });
 
-  it("inizia, pausa, riprendi, termina", async () => {
+  it("giocatori ed espulsione: solo il proprietario", async () => {
+    const status = await hostGameStatus(hostA, id);
+    expect(status.autoplay).toBe(true);
+    expect(status.players.map((p) => p.nickname)).toEqual(["Primo", "Secondo"]);
+    await expectGiocoError(hostGameStatus(hostB, id), "NOT_FOUND", 404);
+    const secondo = status.players.find((p) => p.nickname === "Secondo")!;
+    await expectGiocoError(hostCommand(hostB, id, "kick", undefined, { participantId: secondo.id }), "NOT_OWNER", 403);
+    await expectGiocoError(hostCommand(hostA, id, "kick"), "ACTION_NOT_ALLOWED");
+    const kicked = await hostCommand(hostA, id, "kick", undefined, { participantId: secondo.id });
+    expect(kicked.state.playerCount).toBe(1);
+    expect((await hostGameStatus(hostA, id)).players.map((p) => p.nickname)).toEqual(["Primo"]);
+  });
+
+  it("scorrimento automatico o manuale", async () => {
+    await expectGiocoError(hostCommand(hostB, id, "auto", undefined, { autoplay: false }), "NOT_OWNER", 403);
+    await expectGiocoError(hostCommand(hostA, id, "auto"), "ACTION_NOT_ALLOWED");
+    await hostCommand(hostA, id, "auto", undefined, { autoplay: false });
+    expect((await hostGameStatus(hostA, id)).autoplay).toBe(false);
+    await hostCommand(hostA, id, "auto", undefined, { autoplay: true });
+    expect((await hostGameStatus(hostA, id)).autoplay).toBe(true);
+  });
+
+  it("inizia, avanti (solo se sicuro), pausa, riprendi, termina", async () => {
+    await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED"); // in lobby si usa INIZIA PARTITA
     const started = await hostCommand(hostA, id, "start");
     expect(started.state.phase).toBe("INTRO");
     // da qui va avanti lo scorrimento automatico
     expect(started.state.auto?.nextAt).toBeTruthy();
     await expectGiocoError(hostCommand(hostA, id, "start"), "ACTION_NOT_ALLOWED");
     expect((await hostCommand(hostA, id, "pause")).state.phase).toBe("PAUSED");
+    await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED"); // in pausa no
     expect((await hostCommand(hostA, id, "resume")).state.phase).toBe("INTRO");
+    await expectGiocoError(hostCommand(hostB, id, "next"), "NOT_OWNER", 403);
+    // "Avanti": salta l'intro, poi la presentazione del round, poi la lettura della domanda
+    expect((await hostCommand(hostA, id, "next")).state.phase).toBe("ROUND_INTRO");
+    expect((await hostCommand(hostA, id, "next")).state.phase).toBe("QUESTION_VISIBLE");
+    const options = await hostCommand(hostA, id, "next");
+    expect(options.state.phase).toBe("OPTIONS_VISIBLE");
+    // risposte aperte: mai tagliare il tempo dei giocatori
+    expect(Date.parse(options.state.question!.closesAt!)).toBeGreaterThan(Date.now() + 1000);
+    await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED");
     expect((await hostCommand(hostA, id, "finish")).state.phase).toBe("FINISHED");
+  });
+});
+
+describe("giocatori illimitati (predefinito)", () => {
+  it("0 = nessun limite: la partita nasce senza tetto di giocatori", async () => {
+    await setPublicGames({ maxPlayers: 0 });
+    const r = await createPublicGame((hostA = await refresh(hostA)), { totalQuestions: 10, rounds: 1 }, only);
+    created.push(r.sessionId);
+    const d = await getSessionDetail(sql, r.sessionId);
+    expect(d!.settings.maxPlayers ?? null).toBeNull();
+    for (let i = 0; i < 25; i++) await joinSession({ code: r.code, nickname: `Folla${i}` }, { ip: `10.8.0.${i}`, deviceToken: null });
+    expect((await buildPublicState(sql, r.sessionId))!.playerCount).toBe(25);
+  });
+});
+
+describe("rivincita", () => {
+  let hostC: HostUser;
+  let oldId: string;
+  let code: string;
+  const tokens: Record<string, string> = {};
+  const onlyC = { onlyTag: TAG2 };
+
+  beforeAll(async () => {
+    for (let i = 0; i < 26; i++) {
+      await makeQuestion(`Domanda rivincita ${TAG2} n. ${i}?`, ["Uno", "Due", "Tre", "Quattro"], [i % 4], {
+        category: CATS[i % CATS.length],
+        difficulty: (i % 5) + 1,
+        tags: ["test-automatico", TAG2],
+      });
+    }
+    const c = await makeUser("host-c");
+    await createHostProfile(sql, c.id, `Riv_${randomUUID().slice(0, 6)}`);
+    hostC = await loadHostUser(sql, c.id, c.email);
+    const r = await createPublicGame(hostC, { totalQuestions: 10, rounds: 2, mix: "facile" }, onlyC);
+    oldId = r.sessionId;
+    code = r.code;
+    for (const [i, n] of ["Anna", "Bruno", "Carla"].entries()) {
+      tokens[n] = (await joinSession({ code, nickname: n }, { ip: `10.7.0.${i}`, deviceToken: null })).participantToken;
+    }
+  });
+
+  it("si propongono le stesse impostazioni di prima", async () => {
+    expect(await previousOptions(sql, oldId)).toEqual({ totalQuestions: 10, rounds: 2, mix: "facile" });
+  });
+
+  it("solo il proprietario e solo a partita finita", async () => {
+    await expectGiocoError(rematchPublicGame(hostA, oldId, null, onlyC), "NOT_OWNER", 403);
+    await expectGiocoError(rematchPublicGame(hostC, oldId, null, onlyC), "ACTION_NOT_ALLOWED");
+    await expectGiocoError(rematchPublicGame(hostC, randomUUID(), null, onlyC), "NOT_FOUND", 404);
+  });
+
+  it("stesso codice, giocatori dentro senza rientrare, domande nuove, vecchia archiviata", async () => {
+    // Carla viene espulsa: non passa nella rivincita
+    const carla = (await hostGameStatus(hostC, oldId)).players.find((p) => p.nickname === "Carla")!;
+    await hostCommand(hostC, oldId, "kick", undefined, { participantId: carla.id });
+    await hostCommand(hostC, oldId, "start");
+    // le domande della partita "escono" (come durante il gioco): restano nello storico dell'host
+    await sql`update session_questions set shown_at = now() where session_id = ${oldId}`;
+    await hostCommand(hostC, oldId, "finish");
+    const oldQuestions = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${oldId}`).map((r) => r.question_id));
+    const used = (await refresh(hostC)).profile!.gamesCreated;
+
+    const r = await rematchPublicGame((hostC = await refresh(hostC)), oldId, null, onlyC);
+    expect(r.existing).toBe(false);
+    expect(r.code).toBe(code);
+    expect(r.carried).toBe(2);
+    expect(r.lobbyOpen).toBe(true);
+    // nuova partita: stesso codice, lobby aperta, stesse impostazioni
+    const d = await getSessionDetail(sql, r.sessionId);
+    expect(d).toMatchObject({ code, phase: "LOBBY", status: "live", hostUserId: hostC.userId });
+    expect(d!.roundsDetail.map((x) => x.questions.length).reduce((a, b) => a + b, 0)).toBe(10);
+    // nessuna domanda già vista
+    const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId}`).map((x) => x.question_id);
+    expect(picked.filter((q) => oldQuestions.has(q))).toEqual([]);
+    // vecchia partita: archiviata, codice d'archivio, punta alla rivincita (TV e telefoni la seguono)
+    const [old] = await sql<{ code: string; status: string; next_session_id: string }[]>`select code, status, next_session_id from game_sessions where id = ${oldId}`;
+    expect(old.code).not.toBe(code);
+    expect(old.status).toBe("archived");
+    expect(old.next_session_id).toBe(r.sessionId);
+    expect((await buildPublicState(sql, oldId))!.rematch).toEqual({ sessionId: r.sessionId });
+    expect((await buildPublicState(sql, r.sessionId))!.rematch).toBeNull();
+    // giocatori: stesso nickname, punti a zero, lo stesso cookie del telefono funziona nella nuova
+    const status = await hostGameStatus(hostC, r.sessionId);
+    expect(status.players.map((p) => [p.nickname, p.points])).toEqual([
+      ["Anna", 0],
+      ["Bruno", 0],
+    ]);
+    const anna = await authenticatePlayer(sql, code, tokens.Anna);
+    expect(anna).toMatchObject({ sessionId: r.sessionId, nickname: "Anna" });
+    await expect(authenticatePlayer(sql, code, tokens.Carla)).rejects.toBeInstanceOf(PlayerError);
+    // chi scansiona ora il QR entra nella rivincita
+    const late = await joinSession({ code, nickname: "Dario" }, { ip: "10.7.0.9", deviceToken: null });
+    expect(late.sessionId).toBe(r.sessionId);
+    // quota: senza limite la rivincita non consuma partite
+    expect((await refresh(hostC)).profile!.gamesCreated).toBe(used);
+    // doppio clic / due schermi: sempre la stessa rivincita
+    const again = await rematchPublicGame(hostC, oldId, null, onlyC);
+    expect(again).toMatchObject({ sessionId: r.sessionId, existing: true, code });
+    // una partita non finita non si "rivince"
+    await expectGiocoError(rematchPublicGame(hostC, r.sessionId, null, onlyC), "ACTION_NOT_ALLOWED");
+  });
+
+  it("impostazioni cambiate al volo; con un limite la rivincita conta come partita", async () => {
+    const [{ next }] = await sql<{ next: string }[]>`select next_session_id as next from game_sessions where id = ${oldId}`;
+    await hostCommand(hostC, next, "finish");
+    hostC = await refresh(hostC);
+    const used = hostC.profile!.gamesCreated;
+    await setPublicGames({ gamesPerAccount: used + 1 });
+    const r = await rematchPublicGame(hostC, next, { totalQuestions: 10, rounds: 1, mix: "difficile" }, onlyC);
+    await setPublicGames({ gamesPerAccount: 0 });
+    expect(r.code).toBe(code);
+    expect(await previousOptions(sql, r.sessionId)).toEqual({ totalQuestions: 10, rounds: 1, mix: "difficile" });
+    expect((await refresh(hostC)).profile!.gamesCreated).toBe(used + 1);
+    // tutti i giocatori della rivincita precedente (anche chi è entrato dopo) passano anche qui
+    expect((await hostGameStatus(hostC, r.sessionId)).players.map((p) => p.nickname)).toEqual(["Anna", "Bruno", "Dario"]);
   });
 });
 
