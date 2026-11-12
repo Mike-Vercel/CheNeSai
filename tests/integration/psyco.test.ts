@@ -118,11 +118,17 @@ describe("PSYCO – dispositivi personali", () => {
     expect(roles.filter((r) => r === "knower")).toHaveLength(3);
     psyco = all()[roles.indexOf("psyco")];
     knowers = all().filter((u) => u !== psyco);
-    // lo stato pubblico dice CHI è lo PSYCO (serve allo schermo) ma nessun segreto
-    expect(views[0].state.round?.psycoId).toBe(views[roles.indexOf("psyco")].view.me?.participantId);
+    // durante la rivelazione dei ruoli lo stato pubblico NON dice chi è lo PSYCO (ruoli privati)…
+    expect(views[0].state.round?.psycoId).toBeNull();
+    expect(views[0].state.round?.psycoNickname).toBe("");
+    expect(views[0].state.participants.every((p) => p.psycoCount === 0)).toBe(true);
+    // …lo sa solo chi è nella manche, dalla propria vista privata
+    expect(views[0].view.psycoNickname).toBe(views[roles.indexOf("psyco")].view.me?.nickname);
     for (const u of all()) await act(roomId, u, { action: "seen" });
     const s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("DIFFICULTY_VOTE");
+    // dopo la rivelazione il nome è pubblico (lo PSYCO deve «non guardare» mentre gli altri scelgono)
+    expect(s.round?.psycoId).toBe(views[roles.indexOf("psyco")].view.me?.participantId);
   });
 
   it("automatica: difficoltà scelta insieme, proposta, rifiuto → un'altra regola, conferma", async () => {
@@ -216,8 +222,9 @@ describe("PSYCO – dispositivi personali", () => {
       const s = (await view(roomId, host)).state!;
       expect(s.round!.no).toBe(i + 2);
       expect(s.round!.timer.totalMs).toBe(465_000);
-      psycos.push(s.round!.psycoId!);
-      await act(roomId, host, { action: "end_round" });
+      expect(s.round!.psycoId).toBeNull(); // nascosto durante la rivelazione dei ruoli
+      const ended = (await act(roomId, host, { action: "end_round" })).state!;
+      psycos.push(ended.round!.psycoId!);
     }
     expect(new Set(psycos).size).toBe(4);
     const [{ n }] = await sql<{ n: number }[]>`select count(*)::int as n from psyco_rooms where id = ${roomId}`;
@@ -227,10 +234,11 @@ describe("PSYCO – dispositivi personali", () => {
   it("libera: ognuno propone, parità → spareggio → vincente; il testo resta segreto per lo PSYCO", async () => {
     await act(roomId, host, { action: "next_round", settings: { timerMs: null, ruleMode: "free", psycoPick: "manual" }, psycoId: (await view(roomId, p4)).view.me!.participantId });
     let s = (await view(roomId, host)).state!;
-    expect(s.round!.psycoNickname).toBe("Giulia");
+    expect((await view(roomId, p2)).view.psycoNickname).toBe("Giulia");
     expect(s.round!.timer.totalMs).toBeNull();
     for (const u of [host, p2, p3, p4]) await act(roomId, u, { action: "seen" });
     s = (await view(roomId, host)).state!;
+    expect(s.round!.psycoNickname).toBe("Giulia");
     expect(s.phase).toBe("RULE_PROPOSALS");
     await expectCode(act(roomId, p4, { action: "propose", text: "Lo PSYCO non può proporre" }), "FORBIDDEN");
     await expectCode(act(roomId, host, { action: "propose", text: "   " }), "VALIDATION");
@@ -389,7 +397,10 @@ describe("PSYCO – un solo dispositivo (un account, nickname locali)", () => {
     await act(roomId, host, { action: "next_round" });
     s = (await view(roomId, host)).state!;
     expect(s.round!.no).toBe(2);
-    expect(s.round!.psycoId).not.toBe(psycoId);
+    const newPsyco = (await view(roomId, host, ids[0])).view.psycoNickname;
+    const oldPsyco = v.state.participants.find((p) => p.id === psycoId)!.nickname;
+    expect(newPsyco).toBeTruthy();
+    expect(newPsyco).not.toBe(oldPsyco);
     // il proprietario non può usare "as" con un id di un'altra stanza
     await expectCode(view(roomId, host, randomUUID()), "NOT_FOUND");
     // un altro account non può agire come un giocatore locale

@@ -189,6 +189,8 @@ export interface PsycoPrivateView {
   /** null = fuori dalla manche (entrato dopo, o in sala d'attesa) */
   role: Role | null;
   roleSeen: boolean;
+  /** nome dello PSYCO della manche, solo per chi è nella manche (durante la rivelazione dei ruoli non è pubblico) */
+  psycoNickname: string | null;
   ready: boolean;
   /** voto già espresso nella votazione in corso */
   myVote: string | null;

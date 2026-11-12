@@ -187,6 +187,8 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
   const hostP = participants.find((p) => p.kind === "account" && p.user_id === room.host_user_id) ?? null;
 
   let publicRound: PsycoPublicState["round"] = null;
+  const hidePsyco = room.phase === "ROLE_REVEAL";
+  const hiddenPsycoId = hidePsyco ? (round?.psyco_participant_id ?? null) : null;
   if (round && room.phase !== "LOBBY") {
     let vote: PublicVote | null = null;
     const eligible = eligibleKnowers(members, active);
@@ -219,8 +221,9 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
     const ended = room.phase === "ROUND_END";
     publicRound = {
       no: round.round_no,
-      psycoId: round.psyco_participant_id,
-      psycoNickname: round.psyco_nickname,
+      // durante la rivelazione dei ruoli nessuno schermo pubblico dice chi è lo PSYCO (ruoli privati)
+      psycoId: hidePsyco ? null : round.psyco_participant_id,
+      psycoNickname: hidePsyco ? "" : round.psyco_nickname,
       ruleMode: round.rule_mode,
       difficulty: round.difficulty,
       members: members.map((m) => m.participant_id).filter((x) => active.has(x)),
@@ -267,7 +270,8 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
       online: p.kind === "local" ? true : nowMs - p.last_seen_at.getTime() < ONLINE_MS,
       isHost: room.mode === "personal" && p.user_id !== null && p.user_id === room.host_user_id,
       inRound: memberIds.has(p.id),
-      psycoCount: p.psyco_count,
+      // il conteggio del PSYCO appena scelto si vede solo dopo la rivelazione dei ruoli
+      psycoCount: p.id === hiddenPsycoId ? Math.max(0, p.psyco_count - 1) : p.psyco_count,
     })),
     activeCount: participants.length,
     round: publicRound,
@@ -298,6 +302,7 @@ export async function buildPrivateView(
     isOwner: flags.isOwner,
     role: null,
     roleSeen: false,
+    psycoNickname: null,
     ready: false,
     myVote: null,
     myProposal: null,
@@ -312,6 +317,8 @@ export async function buildPrivateView(
   if (!m) return view;
   view.role = m.role;
   view.roleSeen = !!m.seen_at;
+  // chi conosce la regola sa chi è lo PSYCO (e lo PSYCO sa di esserlo)
+  view.psycoNickname = round.psyco_nickname;
   view.ready = !!m.ready_at;
   if (round.vote) {
     const [v] = await db<{ choice: string }[]>`

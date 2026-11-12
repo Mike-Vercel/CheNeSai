@@ -308,7 +308,7 @@ function PassTheDevice({ state, run, busy, roomId }: { state: PsycoPublicState; 
   return (
     <div className="flex w-full flex-col items-center gap-5">
       <p className="psy-chip">Tocca a {holder.nickname}</p>
-      {state.phase === "ROLE_REVEAL" && <SharedRole view={hv} psycoName={psycoName} onSeen={() => void act({ action: "seen" })} />}
+      {state.phase === "ROLE_REVEAL" && <SharedRole view={hv} psycoName={hv.psycoNickname ?? psycoName} onSeen={() => void act({ action: "seen" })} />}
       {state.phase === "DIFFICULTY_VOTE" && v && <DifficultyVote myVote={hv.myVote} busy={!!busy} onVote={(c) => void act({ action: "vote", ballot: v.ballot, choice: c })} />}
       {state.phase === "RULE_VOTE" && v && hv.secret?.candidate && (
         <CandidateVote candidate={hv.secret.candidate} myVote={hv.myVote} busy={!!busy} shown={r.candidatesShown} onVote={(c) => void act({ action: "vote", ballot: v.ballot, choice: c })} />

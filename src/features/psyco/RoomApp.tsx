@@ -92,7 +92,7 @@ function Shell({ children, state, view, onLeave }: { children: React.ReactNode; 
           PSYCO
         </Link>
         {state && (
-          <span className="psy-chip !min-h-8 font-mono tracking-[0.2em]" aria-label={`Codice ${state.code}`}>
+          <span className="psy-chip !min-h-8 hidden font-mono tracking-[0.2em] min-[420px]:inline-flex" aria-label={`Codice ${state.code}`}>
             {state.code}
           </span>
         )}
@@ -178,7 +178,7 @@ function Phase({ state, view, run, busy, now, roomId }: { state: PsycoPublicStat
 
   switch (state.phase) {
     case "ROLE_REVEAL":
-      return <RoleReveal key={r?.no} view={view} psycoName={psycoName} onSeen={() => void run({ action: "seen" })} seen={r?.seen.length ?? 0} total={r?.members.length ?? 0} />;
+      return <RoleReveal key={r?.no} view={view} psycoName={view.psycoNickname ?? psycoName} onSeen={() => void run({ action: "seen" })} seen={r?.seen.length ?? 0} total={r?.members.length ?? 0} />;
 
     case "DIFFICULTY_VOTE":
       if (isPsyco) return <PsycoWait state={state} sub="Gli altri stanno scegliendo la regola. Tu non puoi vederla: preparati a scoprirla!" />;

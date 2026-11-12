@@ -201,7 +201,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   await expectNoSecrets(psycoTraffic, rejected); // le regole bocciate non arrivano mai allo PSYCO
   await expectNoSecrets(tvTraffic, rejected);
   // e la regola scelta non è arrivata prima della fine: nessuna risposta/evento con fase diversa da ROUND_END la contiene
-  for (const chunk of [...psycoTraffic.chunks(), ...tvTraffic.chunks()]) if (chunk.includes(rule1)) expect(chunk).toContain('"phase":"ROUND_END"');
+  for (const chunk of [...psycoTraffic.chunks(), ...tvTraffic.chunks()]) if (chunk.includes(rule1)) expect(chunk).toMatch(/"phase":\s*"ROUND_END"/);
   expect(psycoTraffic.count()).toBeGreaterThan(3);
 
   // ------------------------------------------------ manche 2: LIBERA, senza limite di tempo, PSYCO a rotazione
