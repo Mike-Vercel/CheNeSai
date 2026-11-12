@@ -39,6 +39,7 @@ API (`src/app/api/psyco/…`): `POST/GET rooms`, `GET rooms/[id]?as=`, `POST roo
 ## Sicurezza (segreti)
 
 - `buildPublicState` non legge mai testo della regola/proposte finché la manche non è finita; lo stato pubblico va a tutti (telefoni, TV, realtime).
+- Durante la rivelazione dei ruoli neanche CHI è lo PSYCO è pubblico (`psycoId` nullo, conteggi corretti): lo sa solo chi è nella manche, dalla propria vista privata. Dopo, il nome è pubblico (serve: «Mike, non guardare!»).
 - `buildPrivateView` dà la regola, il candidato e le proposte SOLO a chi ha ruolo `knower` nella manche (doppio controllo: mai al partecipante PSYCO).
 - Realtime: topic privato `qz:game:psyco-<id>` (policy RLS esistente: i client ricevono soltanto) con il solo stato pubblico; quando `secretRev` cambia, i client rileggono la loro vista dall'endpoint autenticato.
 - Codici stanza: 6 simboli casuali (31^6), limiti di frequenza su ricerca/ingresso (per account e per rete) e sulla creazione. Testi liberi: puliti da caratteri invisibili, 8–280 caratteri, mostrati sempre come testo (React fa l'escape). Le regole dei giocatori non entrano nell'archivio.
@@ -58,6 +59,12 @@ API (`src/app/api/psyco/…`): `POST/GET rooms`, `GET rooms/[id]?as=`, `POST roo
 ## Posto del narratore 3D
 
 `src/features/psyco/NarratorSlot.tsx` → `<PsycoNarratorSlot size="sm|md|lg|tv" render? />`, già nelle schermate: TV (in basso a sinistra, `size="tv"`), dispositivo condiviso (in alto, `md`), telefono dell'host senza TV (`sm`). Stato da `getNarrator().onState(fn)` → `{ speaking, audible, id, text }`; `getNarrator().getAnalyser()` = AnalyserNode della voce (lip sync). Attributi DOM `data-psyco-narrator`, `data-speaking`, `data-voice-id`. Per il modello `INVESTIGATORE_PARLANTE.glb`: passare `render={(s) => <ModelloInvestigatore speaking={s.speaking} analyser={s.analyser} />}`.
+
+## Test
+
+- `tests/unit/psyco.test.ts`, `tests/unit/psyco-narrator.test.ts`: timer libero, riferimento al server, rotazione, votazioni, input, archivio, momenti della voce.
+- `tests/integration/psyco.test.ts`: tutto il motore contro il database locale (minimo 3, un posto per account, ruoli, automatica/libera, spareggi, timer, uscite, un solo dispositivo, segreti mai nello stato pubblico, pulizia). `tests/integration/psyco-scale.test.ts`: 50 e 100 partecipanti (vedi LIMITI.md).
+- e2e: `psyco-shared.spec.ts` (un telefono, 5 nickname, 2 manche, clip della voce), `psyco-multi.spec.ts` (PC host + TV senza account + QR con registrazione e ritorno + 4 telefoni, minimo 3, timer/pausa/refresh, tentativi, manche libera, traffico HTTP e realtime dello PSYCO e della TV senza segreti), `psyco-pages.spec.ts` (catalogo, home del gioco, accesso richiesto). Con `PSYCO_SHOTS_DIR=…` salvano gli screenshot.
 
 ## Pubblicazione
 

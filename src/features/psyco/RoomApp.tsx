@@ -92,8 +92,10 @@ function Shell({ children, state, view, onLeave }: { children: React.ReactNode; 
           PSYCO
         </Link>
         {state && (
-          <span className="psy-chip !min-h-8 hidden font-mono tracking-[0.2em] min-[420px]:inline-flex" aria-label={`Codice ${state.code}`}>
-            {state.code}
+          <span className="hidden min-[420px]:inline-flex">
+            <span className="psy-chip !min-h-8 font-mono tracking-[0.2em]" aria-label={`Codice ${state.code}`}>
+              {state.code}
+            </span>
           </span>
         )}
         {state?.round && state.phase !== "LOBBY" && <span className="hidden text-sm font-black text-paper/70 sm:inline">Manche {state.round.no}</span>}
