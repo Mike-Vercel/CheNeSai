@@ -76,7 +76,7 @@ Voce «Gottfried - Dark Thriller & Crime» (`ELEVENLABS_VOICE_INVESTIGATORE`), m
 
 Effetti (sintetizzati con ffmpeg, nessun costo): `squillo` (campanello 440+480 Hz con trillo, doppio «drin» ogni 3 s, in loop sul telefono dello PSYCO), `squillo-breve` (un doppio «drin»: TV e altri telefoni), `notifica` (due note: arriva il messaggio), `riattacca` (clic + tre toni di occupato a 425 Hz). Se un file manca il gioco li sintetizza al volo con Web Audio.
 
-Dove suonano: la chiamata (suoneria, voce, notifica, vibrazione) **solo sul dispositivo dello PSYCO** (anche se non è «voiced»: rispetta muto, voce ed effetti del pannello Audio); su TV e altri telefoni solo `squillo-breve` con l'avviso. Durante la chiamata il narratore tace (`getNarrator().hold(true)`: le frasi aspettano, poi riprende con le più recenti) e la voce dell'Investigatore passa davanti (`sayNow`); sulla TV il narratore si ferma ~2,5 s durante lo squillo breve.
+Dove suonano: la chiamata (suoneria, voce, notifica, vibrazione) **solo sul dispositivo dello PSYCO** (anche se non è «voiced»: rispetta muto, voce ed effetti del pannello Audio); su TV e altri telefoni solo `squillo-breve` con l'avviso. Durante la chiamata il narratore tace (`getNarrator().holdForCall(true)`: le frasi aspettano, poi riprende con le più recenti; è un'attesa indipendente da quella dell'intro 3D, `hold/release`) e la voce dell'Investigatore passa davanti (`sayNow`); sulla TV il narratore si ferma ~2,5 s durante lo squillo breve.
 
 ## Voce con il nome del giocatore (non ancora fatta)
 

@@ -44,6 +44,13 @@ import {
 import { clone as cloneSkinned } from "three/examples/jsm/utils/SkeletonUtils.js";
 import type { Presenter } from "@/lib/game-engine/types";
 import type { CharacterAnimation, CharacterModelProps } from "./types";
+import { investigatoreUrl } from "./investigatore";
+
+/**
+ * Personaggi con un GLB riggato: i tre presentatori del quiz e l'Investigatore (voce narrante di PSYCO,
+ * NON è un presentatore: non entra in HOST_GLB, nei preload del quiz né nei tipi del motore di gioco).
+ */
+export type GlbCharacter = Presenter | "investigatore";
 
 // ------------------------------------------------------------------ configurazione per personaggio
 interface HostGlbConfig {
@@ -76,6 +83,16 @@ export const HOST_GLB: Record<Presenter, HostGlbConfig> = {
   palmino: { url: "/models/palmino.glb", env: process.env.NEXT_PUBLIC_QZ_GLB_PALMINO, origin: "feet", height: 1.6, idleRate: 1.2, talkRate: 1.3, walkSpeed: 0.9, waveTwist: 0.8, blinkMax: 1 },
 };
 
+/** Personaggi GLB fuori dal quiz (stessa configurazione, file scelto altrove). */
+const OTHER_GLB: Record<Exclude<GlbCharacter, Presenter>, HostGlbConfig> = {
+  // variante del file (A dal _PARLANTE, B con la bocca dello script Blender): src/features/three/characters/investigatore.ts
+  investigatore: { url: investigatoreUrl(), env: process.env.NEXT_PUBLIC_QZ_GLB_INVESTIGATORE, origin: "waist", height: 1.8, idleRate: 1, talkRate: 1, walkSpeed: 0.9, waveTwist: 0.8, blinkMax: 1 },
+};
+
+export function glbConfig(who: GlbCharacter): HostGlbConfig {
+  return who === "investigatore" ? OTHER_GLB.investigatore : HOST_GLB[who];
+}
+
 /**
  * Attivazione dei GLB (robusta anche senza riavviare il server):
  *  - default ATTIVI (i file sono in public/models/);
@@ -83,9 +100,9 @@ export const HOST_GLB: Record<Presenter, HostGlbConfig> = {
  *  - ?glb=0 / ?glb=1 nell'URL forza tutti; ?glb_regina=0 (ecc.) forza un solo personaggio;
  *  - se un file non si carica, per il resto della sessione quel personaggio usa il procedurale.
  */
-const failed = new Set<Presenter>();
+const failed = new Set<GlbCharacter>();
 
-export function hostGlbEnabled(who: Presenter): boolean {
+export function hostGlbEnabled(who: GlbCharacter): boolean {
   if (failed.has(who)) return false;
   if (typeof window !== "undefined") {
     const sp = new URLSearchParams(window.location.search);
@@ -96,18 +113,18 @@ export function hostGlbEnabled(who: Presenter): boolean {
     if (all === "0") return false;
     if (all === "1") return true;
   }
-  const env = HOST_GLB[who].env;
+  const env = glbConfig(who).env;
   return !(env === "off" || env === "0" || env === "false");
 }
 
-export function reportHostGlbFailure(who: Presenter) {
+export function reportHostGlbFailure(who: GlbCharacter) {
   failed.add(who);
 }
 
 /** URL del file (env o predefinito), nella variante leggera se richiesto. */
-export function hostGlbUrl(who: Presenter, lowPower: boolean): string {
-  const env = HOST_GLB[who].env;
-  const base = env && env.startsWith("/") ? env : HOST_GLB[who].url;
+export function hostGlbUrl(who: GlbCharacter, lowPower: boolean, src?: string): string {
+  const env = glbConfig(who).env;
+  const base = src ?? (env && env.startsWith("/") ? env : glbConfig(who).url);
   return lowPower ? base.replace(/\.glb$/, "-low.glb") : base;
 }
 
@@ -119,7 +136,16 @@ export function preloadHostGlbs(lowPower = false) {
 const FADE_TAU = 0.1;
 
 export interface HostGlbProps extends CharacterModelProps {
-  who: Presenter;
+  who: GlbCharacter;
+  /** File da usare al posto di quello configurato (anteprime: confronto delle varianti). */
+  src?: string;
+  /** Chiamato una volta quando il modello è pronto (ossa per i passi, ombre, «caricato»). */
+  onReady?: (model: Object3D) => void;
+  /**
+   * Seduta 0..1 letta a ogni frame (intro di PSYCO): clip "Sitting" del file se c'è, altrimenti
+   * posa procedurale sulle ossa mixamo (anche abbassate dalla scena, cosce e ginocchia a 90°).
+   */
+  sitRef?: RefObject<number>;
   /** Origine ai piedi e unità in metri (intro con camminata). */
   fullBody?: boolean;
   /** Camminata 0..1 (peso della clip Walking), letto a ogni frame. */
@@ -142,6 +168,8 @@ interface Prepared {
   idle: AnimationClip;
   talk: AnimationClip[];
   walk: AnimationClip | null;
+  /** Clip di seduta (Mixamo "Sitting" aggiunta al file), se c'è: sostituisce la posa procedurale. */
+  sit: AnimationClip | null;
   height: number;
   hipsY: number;
 }
@@ -220,8 +248,10 @@ function prepare(scene: Object3D, animations: AnimationClip[]): Prepared {
   const walk = walkRaw ? inPlace(walkRaw, bindHips, false) : null;
   const idleRaw = find(/idle/i);
   const idle = idleRaw ? inPlace(idleRaw, bindHips, true) : restClip(scene, walk);
+  const sitRaw = find(/sit/i);
+  const sit = sitRaw ? inPlace(sitRaw, bindHips, true) : null;
   const talk = [find(/passionate/i), find(/hands_?open|talk/i)]
-    .filter((c, i, arr): c is AnimationClip => c !== null && arr.indexOf(c) === i)
+    .filter((c, i, arr): c is AnimationClip => c !== null && c !== sitRaw && arr.indexOf(c) === i)
     .map((c) => inPlace(c, bindHips, true));
   scene.updateMatrixWorld(true);
   const box = new Box3().setFromObject(scene);
@@ -229,16 +259,17 @@ function prepare(scene: Object3D, animations: AnimationClip[]): Prepared {
   scene.traverse((o) => {
     if ((o as Bone).isBone && /Hips$/.test(o.name)) hipsY = o.getWorldPosition(new Vector3()).y;
   });
-  const p: Prepared = { idle, talk, walk, height: box.max.y - box.min.y, hipsY };
+  const p: Prepared = { idle, talk, walk, sit, height: box.max.y - box.min.y, hipsY };
   prepCache.set(scene, p);
   return p;
 }
 
 // ------------------------------------------------------------------ pose procedurali (solo dove manca una clip)
 type Pose = Partial<Record<BoneKey, [number, number, number]>>;
-type BoneKey = "chest" | "neck" | "head" | "lArm" | "lFore" | "lHand" | "rArm" | "rFore" | "rHand";
+type BoneKey = "spine" | "chest" | "neck" | "head" | "lArm" | "lFore" | "lHand" | "rArm" | "rFore" | "rHand" | "lThigh" | "lShin" | "lFoot" | "rThigh" | "rShin" | "rFoot";
 
 const BONE_NAMES: Record<BoneKey, string> = {
+  spine: "mixamorigSpine",
   chest: "mixamorigSpine2",
   neck: "mixamorigNeck",
   head: "mixamorigHead",
@@ -248,6 +279,34 @@ const BONE_NAMES: Record<BoneKey, string> = {
   rArm: "mixamorigRightArm",
   rFore: "mixamorigRightForeArm",
   rHand: "mixamorigRightHand",
+  lThigh: "mixamorigLeftUpLeg",
+  lShin: "mixamorigLeftLeg",
+  lFoot: "mixamorigLeftFoot",
+  rThigh: "mixamorigRightUpLeg",
+  rShin: "mixamorigRightLeg",
+  rFoot: "mixamorigRightFoot",
+};
+const LEG_KEYS: BoneKey[] = ["lThigh", "lShin", "lFoot", "rThigh", "rShin", "rFoot"];
+
+/**
+ * Seduta procedurale (il GLB non ha una clip di seduta), stessi assi delle pose qui sotto.
+ * Gambe: si riparte dalla posa di bind (dritte) -> cosce in avanti ~86 gradi, ginocchia piegate ~90,
+ * piedi piatti. Busto un po' in avanti, avambracci appoggiati sulla scrivania. Le anche le abbassa
+ * la scena (SIT_DROP metri a piena seduta), cosi' la clip di riposo continua a respirare.
+ */
+export const SIT_DROP = 0.44;
+const SIT_POSE: Pose = {
+  lThigh: [-1.5, 0, 0.1],
+  rThigh: [-1.5, 0, -0.1],
+  lShin: [1.55, 0, 0],
+  rShin: [1.55, 0, 0],
+  spine: [0.1, 0, 0],
+  chest: [0.08, 0, 0],
+  head: [-0.12, 0, 0],
+  lArm: [-0.55, 0, -0.18],
+  rArm: [-0.55, 0, 0.18],
+  lFore: [-1.05, 0, -0.25],
+  rFore: [-1.05, 0, 0.25],
 };
 
 /**
@@ -376,10 +435,13 @@ export function HostGlbModel({
   walkRateRef,
   talkVariant,
   faceOverride,
+  src,
+  onReady,
+  sitRef,
   ...group
 }: HostGlbProps) {
-  const cfg = HOST_GLB[who];
-  const gltf = useGLTF(hostGlbUrl(who, lowPower));
+  const cfg = glbConfig(who);
+  const gltf = useGLTF(hostGlbUrl(who, lowPower, src));
   const prep = useMemo(() => prepare(gltf.scene, gltf.animations), [gltf]);
   const model = useMemo(() => {
     const m = cloneSkinned(gltf.scene);
@@ -431,8 +493,16 @@ export function HostGlbModel({
     const idle = mixer.clipAction(prep.idle);
     const talk = prep.talk.map((c) => mixer.clipAction(c));
     const walk = prep.walk ? mixer.clipAction(prep.walk) : null;
-    return { idle, talk, walk, all: [idle, ...talk, ...(walk ? [walk] : [])] as AnimationAction[] };
+    const sit = prep.sit ? mixer.clipAction(prep.sit) : null;
+    return { idle, talk, walk, sit, all: [idle, ...talk, ...(walk ? [walk] : []), ...(sit ? [sit] : [])] as AnimationAction[] };
   }, [mixer, prep]);
+  const readyCb = useRef(onReady);
+  useEffect(() => {
+    readyCb.current = onReady;
+  });
+  useEffect(() => {
+    readyCb.current?.(model);
+  }, [model]);
   // play/stop in un effetto (in StrictMode il doppio montaggio fermerebbe un'azione avviata nel render)
   useEffect(() => {
     for (const a of actions.all) {
@@ -451,6 +521,7 @@ export function HostGlbModel({
     poseW: {} as Partial<Record<CharacterAnimation, number>>,
     t: 0,
     walk: 0,
+    sit: 0,
     talking: false,
     talkIdx: 0,
     talkCount: 0,
@@ -475,7 +546,11 @@ export function HostGlbModel({
     s.t += dt;
     const walk = Math.max(0, Math.min(1, walkRef?.current ?? 0));
     s.walk += (walk - s.walk) * (1 - Math.exp(-dt / FADE_TAU));
-    const still = 1 - s.walk;
+    // seduta: gia' morbida nella scena (timeline), qui solo un filtro corto
+    const sitIn = Math.max(0, Math.min(1, sitRef?.current ?? 0));
+    s.sit += (sitIn - s.sit) * (1 - Math.exp(-dt / 0.05));
+    const sitClip = actions.sit ? s.sit : 0;
+    const still = (1 - s.walk) * (1 - sitClip);
 
     // parlata: a ogni nuova battuta si sceglie la clip (dal copione o alternando) e la si fa ripartire
     const talking = animation === "talk" || mouthOpen > 0.05;
@@ -493,7 +568,8 @@ export function HostGlbModel({
     let sum = 0;
     actions.all.forEach((a, i) => {
       let target = 0;
-      if (a === actions.walk) target = s.walk;
+      if (a === actions.walk) target = s.walk * (1 - sitClip);
+      else if (a === actions.sit) target = sitClip;
       else if (a === actions.idle) target = still * (talking && nTalk > 0 ? 0 : 1);
       else target = still * (talking && actions.talk[s.talkIdx] === a ? 1 : 0);
       const prev = s.clipW[i] ?? (a === actions.idle ? 1 : 0);
@@ -507,6 +583,15 @@ export function HostGlbModel({
     actions.walk?.setEffectiveTimeScale(s.walk < 0.01 ? 0 : (walkRateRef?.current ?? walkRate));
     for (const [b, q] of bind) b.quaternion.copy(q);
     mixer.update(dt);
+    // seduta procedurale: le gambe tornano dritte (bind) prima di piegarsi, qualunque cosa faccia la clip
+    const sitPose = actions.sit ? 0 : s.sit;
+    if (sitPose > 0.001) {
+      for (const key of LEG_KEYS) {
+        const b = bones.get(BONE_NAMES[key]);
+        const q = b && bind.get(b);
+        if (b && q) b.quaternion.slerp(q, sitPose);
+      }
+    }
 
     // pose procedurali (saluto, indicare, festa, sorpresa) sopra alle clip, attenuate in camminata
     for (const a of POSE_KEYS) {
@@ -536,6 +621,12 @@ export function HostGlbModel({
         eTmp.x += p[0] * w;
         eTmp.y += p[1] * w;
         eTmp.z += p[2] * w;
+      }
+      const sp = sitPose > 0.001 ? SIT_POSE[key] : undefined;
+      if (sp) {
+        eTmp.x += sp[0] * sitPose;
+        eTmp.y += sp[1] * sitPose;
+        eTmp.z += sp[2] * sitPose;
       }
       if (key === "neck") eTmp.x += speech * 0.6;
       if (key === "head") eTmp.x += speech;

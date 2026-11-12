@@ -16,6 +16,7 @@ superiore giù / inferiore su (±1–1.7 cm); browsUp = +7 mm. Interno bocca: ma
 Uso (Blender 5.2, headless; gli originali in REFERENCE/ non vengono mai toccati):
   blender --background --python blender_add_mouth.py -- REFERENCE/GIOCHI/CHE_NE_SAI/MODELLI-3D/PRESENTATRICE_DONNA.glb <out>/PRESENTATRICE_DONNA_PARLANTE.glb mouth_regina.json
   blender --background --python blender_add_mouth.py -- REFERENCE/GIOCHI/CHE_NE_SAI/MODELLI-3D/PALMINO.glb <out>/PALMINO_PARLANTE.glb mouth_palmino.json
+  blender --background --python blender_add_mouth.py -- REFERENCE/GIOCHI/PSYCO/MODELLI-3D/INVESTIGATORE.glb <out>/INVESTIGATORE_B.glb mouth_investigatore.json  (variante B, public/models/investigatore-b*.glb)
 poi ottimizzazione come gli altri GLB (gltf-transform resize + optimize --compress meshopt --texture-compress webp,
 i morph target e i targetNames restano) in public/models/regina*.glb e palmino*.glb.
 I punti di labbra/occhi/sopracciglia nei JSON sono stati presi dal render frontale di blender_render_face.py.

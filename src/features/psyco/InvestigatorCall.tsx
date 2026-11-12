@@ -6,6 +6,7 @@ import { getSoundEngine } from "@/features/media/audio-engine";
 import type { InvestigatorMessage, PsycoPublicState, PublicTimer } from "@/lib/psyco/types";
 import { getAudioPrefs } from "./audio-prefs";
 import { CALL_VOICES, getNarrator, VOICE_LINES, type VoiceId } from "./narrator";
+import { PsycoNarratorSlot } from "./NarratorSlot";
 import { Silhouette } from "./ui";
 
 /**
@@ -258,15 +259,15 @@ export function CallNotice({ state, hidden = false, className, sound = true, hol
     const show = setTimeout(() => {
       setVisibleFor(at);
       if (sound) playRingShort();
-      if (holdNarrator) getNarrator().hold(true);
+      if (holdNarrator) getNarrator().holdForCall(true);
     }, 0);
-    const release = setTimeout(() => holdNarrator && getNarrator().hold(false), 2600);
+    const release = setTimeout(() => holdNarrator && getNarrator().holdForCall(false), 2600);
     const hide = setTimeout(() => setVisibleFor(null), 6500);
     return () => {
       clearTimeout(show);
       clearTimeout(release);
       clearTimeout(hide);
-      if (holdNarrator) getNarrator().hold(false);
+      if (holdNarrator) getNarrator().holdForCall(false);
     };
   }, [at, hidden, sound, holdNarrator]);
   if (!ev || visibleFor !== at || hidden) return null;
@@ -325,7 +326,7 @@ export function IncomingCall({
   // suoneria + vibrazione; il narratore tace per tutta la chiamata
   useEffect(() => {
     alive.current = true;
-    getNarrator().hold(true);
+    getNarrator().holdForCall(true);
     stopRing.current = startRinging();
     const missed = setTimeout(() => {
       stopRing.current?.();
@@ -335,7 +336,7 @@ export function IncomingCall({
       alive.current = false;
       clearTimeout(missed);
       stopRing.current?.();
-      getNarrator().hold(false);
+      getNarrator().holdForCall(false);
     };
   }, []);
 
@@ -448,8 +449,12 @@ export function IncomingCall({
         {forName && <p className="psy-chip !min-h-8 text-sm">Per {forName}: prendi tu il telefono</p>}
       </div>
       <div className="flex flex-col items-center gap-5">
-        <div className={clsx("relative grid h-44 w-44 place-items-center rounded-full bg-gradient-to-b from-[#3a2c24] to-[#120d0b] ring-4 ring-lamp/40", step === "ringing" && "psy-call-rings")}>
-          <Silhouette className="h-36 w-36 translate-y-3 [&_path]:fill-[#c9b48a] [&_circle]:fill-[#c9b48a]" />
+        {/*
+          Il ritratto dell'Investigatore (3D se il dispositivo lo regge, altrimenti la silhouette): la sua voce
+          al telefono passa dal narratore (`sayNow`), quindi la bocca si muove anche qui.
+        */}
+        <div className={clsx("relative grid h-44 w-44 place-items-center overflow-hidden rounded-full bg-gradient-to-b from-[#3a2c24] to-[#120d0b] ring-4 ring-lamp/40", step === "ringing" && "psy-call-rings")}>
+          <PsycoNarratorSlot size="lg" className="!h-44 !w-44 !rounded-full" />
         </div>
         <div className="w-full">
           <p className="psy-display text-[min(3rem,8.2vw)] leading-none text-paper">INVESTIGATORE</p>

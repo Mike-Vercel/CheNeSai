@@ -196,7 +196,9 @@ class Narrator {
   /** frasi che passano davanti a tutto (la voce dell'Investigatore al telefono), con chi aspetta la fine */
   private priority: { id: VoiceId; done: () => void }[] = [];
   /** chiamata in corso: le frasi normali aspettano in coda (il narratore non parla sopra la chiamata) */
-  private held = false;
+  private callHeld = false;
+  /** In attesa (intro 3D): le frasi si accodano ma non partono finché l'intro non le libera. */
+  private introHeld = false;
   private playing = false;
   private listeners = new Set<CaptionListener>();
   private stateListeners = new Set<StateListener>();
@@ -213,6 +215,10 @@ class Narrator {
     this.stateListeners.add(fn);
     fn(this.state);
     return () => this.stateListeners.delete(fn);
+  }
+  /** Due motivi indipendenti per trattenere le frasi: l'intro 3D e la chiamata dell'Investigatore. */
+  private get held(): boolean {
+    return this.introHeld || this.callHeld;
   }
   private setState(s: NarratorState) {
     this.state = s;
@@ -247,6 +253,21 @@ class Narrator {
     // al massimo pochi clip in attesa: se il gioco corre più veloce della voce, si saltano i vecchi
     this.queue.push(...ids);
     if (this.queue.length > 4) this.queue = this.queue.slice(-4);
+    if (!this.playing && !this.held) void this.next();
+  }
+
+  /**
+   * Intro di PSYCO: trattiene le frasi del gioco (si accodano, non partono) finché l'intro non arriva
+   * al momento della voce. Mai bloccante: l'intro chiama sempre `release` (fine, «Salta», errore, uscita).
+   */
+  hold() {
+    this.introHeld = true;
+  }
+
+  /** Libera la coda; `first` = frasi da dire subito, davanti alle altre (senza doppioni). */
+  release(first: VoiceId[] = []) {
+    if (first.length) this.queue = [...first, ...this.queue.filter((id) => !first.includes(id))];
+    this.introHeld = false;
     if (!this.playing) void this.next();
   }
 
@@ -257,19 +278,23 @@ class Narrator {
   }
 
   /**
-   * Chiamata dell'Investigatore: `hold(true)` = il narratore non comincia nuove frasi (quella in corso
-   * finisce, le nuove aspettano in coda); `hold(false)` = riprende, solo con le frasi più recenti.
+   * Chiamata dell'Investigatore: `holdForCall(true)` = il narratore non comincia nuove frasi (quella in
+   * corso finisce, le nuove aspettano in coda); `holdForCall(false)` = riprende, solo con le più recenti.
+   * Indipendente dall'attesa dell'intro 3D (`hold`/`release`).
    */
-  hold(on: boolean) {
-    if (this.held === on) return;
-    this.held = on;
+  holdForCall(on: boolean) {
+    if (this.callHeld === on) return;
+    this.callHeld = on;
     if (!on) {
       this.queue = this.queue.slice(-2);
       if (!this.playing) void this.next();
     }
   }
 
-  /** Frase che passa davanti alla coda (anche durante `hold`): risolve quando è finita (o saltata). */
+  /**
+   * Frase che passa davanti alla coda (anche durante le attese): risolve quando è finita (o saltata).
+   * Passa dallo stesso analyser/stato del narratore: il ritratto 3D, se è visibile, muove la bocca.
+   */
   sayNow(id: VoiceId): Promise<void> {
     return new Promise((done) => {
       this.priority.push({ id, done });

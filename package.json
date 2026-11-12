@@ -20,7 +20,8 @@
     "show:import": "tsx --conditions=react-server scripts/import-battute.ts",
     "deploy:setup": "node scripts/deploy/setup-production.mjs",
     "deploy:migrate": "node scripts/deploy/migrate-production.mjs",
-    "psyco:voci": "node scripts/psyco/voci.mjs"
+    "psyco:voci": "node scripts/psyco/voci.mjs",
+    "psyco:sfx": "node scripts/psyco/sfx.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
