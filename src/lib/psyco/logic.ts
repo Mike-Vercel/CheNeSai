@@ -8,7 +8,6 @@ import { NICKNAME_MAX, RULE_TEXT_MAX, TIMER_MAX_MS, type PublicTimer } from "./t
 // Testi scritti dagli utenti
 // ---------------------------------------------------------------------------
 /** caratteri di controllo e invisibili (a capo compresi: nickname e regole stanno su una riga) */
-// eslint-disable-next-line no-control-regex
 const INVISIBLE = /[\u0000-\u001f\u007f-\u009f​-‏‪-‮⁠-⁤﻿]/g;
 
 function clean(raw: unknown): string {
