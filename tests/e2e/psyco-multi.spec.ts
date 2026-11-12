@@ -149,11 +149,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   await shot(knowers[0].page, knowers[0].page === pc ? "pc-03-regola-proposta" : "telefono-13-regola-proposta");
   for (const k of knowers.slice(0, 3)) await k.page.getByRole("button", { name: "UN'ALTRA" }).click();
   await expect(tv.getByText("Regola proposta n. 2")).toBeVisible({ timeout: 20_000 });
-  for (const k of knowers) {
-    const b = k.page.getByRole("button", { name: "SÌ, QUESTA!" });
-    await b.waitFor({ timeout: 20_000 }).catch(() => undefined);
-    if (await b.isVisible()) await b.click().catch(() => undefined);
-  }
+  for (const k of knowers.slice(0, 3)) await k.page.getByRole("button", { name: "SÌ, QUESTA!" }).click({ timeout: 20_000 });
   await expect(tv.getByRole("heading", { name: "LA REGOLA È STATA SCELTA!" })).toBeVisible({ timeout: 20_000 });
   await expect(psyco!.page.getByRole("heading", { name: "LA REGOLA È STATA SCELTA!" })).toBeVisible();
   await expect(psyco!.page.getByText("PREPARATI A SCOPRIRLA!")).toBeVisible();
@@ -186,11 +182,12 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   await psyco!.page.getByRole("button", { name: "HO CAPITO LA REGOLA!" }).click();
   await expect(tv.getByText(/HA CAPITO\?/)).toBeVisible({ timeout: 15_000 });
   await shot(tv, "tv-05-verifica");
-  for (const k of knowers) await k.page.getByRole("button", { name: "NO", exact: true }).click({ timeout: 15_000 }).catch(() => undefined);
+  // 3 «no» su 4 = maggioranza: la votazione si chiude da sola
+  for (const k of knowers.slice(0, 3)) await k.page.getByRole("button", { name: "NO", exact: true }).click({ timeout: 15_000 });
   await expect(tv.getByText("SBAGLIATO! SI CONTINUA")).toBeVisible({ timeout: 15_000 });
   await psyco!.page.getByRole("button", { name: "HO CAPITO LA REGOLA!" }).click();
   await shot(knowers[0].page, knowers[0].page === pc ? "pc-06-verifica" : "telefono-17-verifica");
-  for (const k of knowers) await k.page.getByRole("button", { name: "SÌ, ESATTO" }).click({ timeout: 15_000 }).catch(() => undefined);
+  for (const k of knowers.slice(0, 3)) await k.page.getByRole("button", { name: "SÌ, ESATTO" }).click({ timeout: 15_000 });
   await expect(tv.getByRole("heading", { name: "VINCE LO PSYCO!" })).toBeVisible({ timeout: 15_000 });
 
   // ------------------------------------------------ SICUREZZA: lo PSYCO e la TV non hanno mai ricevuto la regola né le proposte scartate

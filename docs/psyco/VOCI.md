@@ -54,3 +54,7 @@ Se un clip manca o non si carica: nessun errore, si mostra solo il sottotitolo. 
 | vince-psyco / vince-gruppo | … | esito della manche |
 | nuova-manche | Nuova manche. Nuovo Psyco. Nuova regola. | dalla seconda manche |
 | fine-partita | Fine della partita… | stanza chiusa |
+
+## Voce con il nome del giocatore (non ancora fatta)
+
+La voce dei clip è «Gottfried - Dark Thriller & Crime» di ElevenLabs (id nella variabile `ELEVENLABS_VOICE_INVESTIGATORE`, solo in `.env.local`/Vercel, documentata senza valore in `.env.example`). Le battute col nome («Mike, tocca a te…») tramite il TTS del quiz NON sono state aggiunte: il ruolo voce è un tipo chiuso usato da pannello Voci, configurazione per ruolo, battute del quiz e da un vincolo `check (role in ('professore','regina','palmino','annunciatore'))` su `tts_clips`. Aggiungere «investigatore» richiede una migrazione che cambia quel vincolo (tabella del quiz) e modifiche al pannello admin: non è un intervento «semplice e senza rischi» per il quiz, quindi è rimandato. Quando si farà: nuovo ruolo in `TTS_ROLES` (src/features/game/script.ts) + `VOICE_ENV.investigatore = "ELEVENLABS_VOICE_INVESTIGATORE"` (src/lib/server/tts.ts) + migrazione sul vincolo + endpoint autenticato per la stanza PSYCO; sul client, in `PassTheDevice` (SharedApp.tsx), provare la clip col nome con un limite di 1,5 s e ripiegare su `passa-telefono` / `guarda-ruolo`.

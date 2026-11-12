@@ -221,8 +221,10 @@ class Narrator {
     for (const id of ids) void engine.loadBuffer(voiceUrl(id)).then((b) => !b && this.missing.add(id));
   }
 
-  say(ids: VoiceId[]) {
+  /** `replace`: nuova fase del gioco → si scartano le frasi vecchie ancora in coda (quella in corso finisce). */
+  say(ids: VoiceId[], replace = false) {
     if (ids.length === 0) return;
+    if (replace) this.queue = [];
     // al massimo pochi clip in attesa: se il gioco corre più veloce della voce, si saltano i vecchi
     this.queue.push(...ids);
     if (this.queue.length > 4) this.queue = this.queue.slice(-4);

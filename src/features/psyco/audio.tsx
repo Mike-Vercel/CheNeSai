@@ -97,7 +97,7 @@ export function usePsycoAudio(state: PsycoPublicState | null, now: () => number,
     const p = prev.current;
     prev.current = state;
     if (p && p.version === state.version && p.roomId === state.roomId) return;
-    if (narrate) getNarrator().say(cuesFor(p, state));
+    if (narrate) getNarrator().say(cuesFor(p, state), !!p && (p.phase !== state.phase || p.round?.no !== state.round?.no));
     if (!sfx || !p) return;
     const e = getSoundEngine();
     const phaseChanged = p.phase !== state.phase || p.round?.no !== state.round?.no;

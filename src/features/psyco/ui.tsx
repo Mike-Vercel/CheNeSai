@@ -113,10 +113,10 @@ export function BigTimer({ timer, now, size = "md", className }: { timer: Public
       <span className={clsx("psy-clock", cls, urgent ? "text-blood psy-flicker" : warn ? "text-lamp" : "text-paper")}>
         {unlimited ? formatClock(elapsed) : formatClock(remaining ?? 0)}
       </span>
-      <div className="mt-3 h-2 w-[min(80vw,28rem)] overflow-hidden rounded-full bg-white/10" aria-hidden>
+      <div className={clsx("mt-3 overflow-hidden rounded-full bg-white/10", size === "tv" ? "h-[1.2vh] w-[50vw]" : "h-2 w-[min(80vw,28rem)]")} aria-hidden>
         <div className={clsx("h-full rounded-full transition-[width] duration-300", urgent ? "bg-blood" : "bg-gradient-to-r from-blood to-lamp")} style={{ width: `${Math.max(0, Math.min(1, pct)) * 100}%` }} />
       </div>
-      <span className="psy-type mt-2 text-sm text-paper/70 md:text-base">
+      <span className={clsx("psy-type mt-2 text-paper/70", size === "tv" ? "text-[2.6vh]" : "text-sm md:text-base")}>
         {timer.pausedAt ? "IN PAUSA" : unlimited ? "senza limite di tempo · tempo trascorso" : `su ${formatDuration(timer.totalMs)}`}
       </span>
     </div>
