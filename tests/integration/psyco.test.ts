@@ -103,8 +103,8 @@ describe("PSYCO – dispositivi personali", () => {
     // solo l'host avvia
     await expectCode(act(roomId, p2, { action: "start_game" }), "FORBIDDEN");
     const r = await act(roomId, host, { action: "start_game" });
-    expect(r.state.phase).toBe("ROLE_REVEAL");
-    expect(r.state.round?.members).toHaveLength(4);
+    expect(r.state!.phase).toBe("ROLE_REVEAL");
+    expect(r.state!.round?.members).toHaveLength(4);
   });
 
   let psyco: PsycoUser;
@@ -121,18 +121,18 @@ describe("PSYCO – dispositivi personali", () => {
     // lo stato pubblico dice CHI è lo PSYCO (serve allo schermo) ma nessun segreto
     expect(views[0].state.round?.psycoId).toBe(views[roles.indexOf("psyco")].view.me?.participantId);
     for (const u of all()) await act(roomId, u, { action: "seen" });
-    const s = (await view(roomId, host)).state;
+    const s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("DIFFICULTY_VOTE");
   });
 
   it("automatica: difficoltà scelta insieme, proposta, rifiuto → un'altra regola, conferma", async () => {
-    let s = (await view(roomId, host)).state;
+    let s = (await view(roomId, host)).state!;
     const ballot = s.round!.vote!.ballot;
     // lo PSYCO non vota
     await expectCode(act(roomId, psyco, { action: "vote", ballot, choice: "facile" }), "FORBIDDEN");
     await act(roomId, knowers[0], { action: "vote", ballot, choice: "media" });
     await act(roomId, knowers[1], { action: "vote", ballot, choice: "media" });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_VOTE");
     expect(s.round!.difficulty).toBe("media");
     // chi conosce la regola vede la proposta, lo PSYCO no
@@ -150,7 +150,7 @@ describe("PSYCO – dispositivi personali", () => {
     const b2 = s.round!.vote!.ballot;
     await act(roomId, knowers[0], { action: "vote", ballot: b2, choice: "no" });
     await act(roomId, knowers[1], { action: "vote", ballot: b2, choice: "no" });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_VOTE");
     expect(s.event?.kind).toBe("rule_rejected");
     expect(s.round!.candidatesShown).toBe(2);
@@ -161,7 +161,7 @@ describe("PSYCO – dispositivi personali", () => {
     // maggioranza: confermata
     const b3 = s.round!.vote!.ballot;
     await voteAll(roomId, host, knowers, b3, "yes");
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_CONFIRMED");
     firstRule = cand2.text;
     expect((await view(roomId, knowers[0])).view.secret!.rule!.text).toBe(firstRule);
@@ -171,7 +171,7 @@ describe("PSYCO – dispositivi personali", () => {
 
   it("pronti → conto alla rovescia → PLAYING; tentativo sbagliato (timer in pausa e poi riprende), poi giusto", async () => {
     for (const u of all()) await act(roomId, u, { action: "ready" });
-    let s = (await view(roomId, host)).state;
+    let s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("PLAYING");
     // prima del via non si può dire «ho capito»
     await expectCode(act(roomId, psyco, { action: "guess" }), "WRONG_PHASE");
@@ -179,23 +179,23 @@ describe("PSYCO – dispositivi personali", () => {
     // solo lo PSYCO (o l'host)
     const notHostKnower = knowers.find((u) => u !== host)!;
     await expectCode(act(roomId, notHostKnower, { action: "guess" }), "FORBIDDEN");
-    s = (await act(roomId, psyco, { action: "guess" })).state;
+    s = (await act(roomId, psyco, { action: "guess" })).state!;
     expect(s.phase).toBe("GUESS_VOTE");
     expect(s.round!.timer.pausedAt).not.toBeNull();
     const frozen = remainingMs(s.round!.timer, Date.parse(s.serverNow))!;
     const gb = s.round!.vote!.ballot;
     await voteAll(roomId, host, knowers, gb, "no");
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("PLAYING");
     expect(s.event?.kind).toBe("guess_wrong");
     expect(s.round!.timer.pausedAt).toBeNull();
     // riprende dal tempo residuo (± qualche centinaio di ms)
     expect(Math.abs(remainingMs(s.round!.timer, Date.parse(s.serverNow))! - frozen)).toBeLessThan(1500);
     // secondo tentativo: giusto
-    s = (await act(roomId, psyco, { action: "guess" })).state;
+    s = (await act(roomId, psyco, { action: "guess" })).state!;
     const gb2 = s.round!.vote!.ballot;
     await voteAll(roomId, host, knowers, gb2, "yes");
-    s = (await view(roomId, psyco)).state;
+    s = (await view(roomId, psyco)).state!;
     expect(s.phase).toBe("ROUND_END");
     expect(s.round!.outcome).toBe("guessed");
     expect(s.round!.attempts).toBe(2);
@@ -213,7 +213,7 @@ describe("PSYCO – dispositivi personali", () => {
     psycos.push(first);
     for (let i = 0; i < 3; i++) {
       await act(roomId, host, { action: "next_round", settings: { timerMs: 7 * 60_000 + 45_000, ruleMode: "free", psycoPick: "auto" } });
-      const s = (await view(roomId, host)).state;
+      const s = (await view(roomId, host)).state!;
       expect(s.round!.no).toBe(i + 2);
       expect(s.round!.timer.totalMs).toBe(465_000);
       psycos.push(s.round!.psycoId!);
@@ -226,22 +226,22 @@ describe("PSYCO – dispositivi personali", () => {
 
   it("libera: ognuno propone, parità → spareggio → vincente; il testo resta segreto per lo PSYCO", async () => {
     await act(roomId, host, { action: "next_round", settings: { timerMs: null, ruleMode: "free", psycoPick: "manual" }, psycoId: (await view(roomId, p4)).view.me!.participantId });
-    let s = (await view(roomId, host)).state;
+    let s = (await view(roomId, host)).state!;
     expect(s.round!.psycoNickname).toBe("Giulia");
     expect(s.round!.timer.totalMs).toBeNull();
     for (const u of [host, p2, p3, p4]) await act(roomId, u, { action: "seen" });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_PROPOSALS");
     await expectCode(act(roomId, p4, { action: "propose", text: "Lo PSYCO non può proporre" }), "FORBIDDEN");
     await expectCode(act(roomId, host, { action: "propose", text: "   " }), "VALIDATION");
     const texts = ["Si risponde sempre toccandosi un orecchio", "Ogni risposta contiene un nome di città <script>alert(1)</script>", "Si risponde parlando lentissimo"];
     await act(roomId, host, { action: "propose", text: texts[0] });
     await act(roomId, p2, { action: "propose", text: texts[1] });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.round!.proposed).toHaveLength(2);
     assertNoSecret(s, texts);
     await act(roomId, p3, { action: "propose", text: texts[2] });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("PROPOSAL_VOTE");
     const kv = (await view(roomId, p3)).view.secret!.proposals;
     expect(kv).toHaveLength(3);
@@ -255,14 +255,14 @@ describe("PSYCO – dispositivi personali", () => {
     await act(roomId, host, { action: "vote", ballot, choice: a });
     await act(roomId, p2, { action: "vote", ballot, choice: b });
     await act(roomId, p3, { action: "vote", ballot, choice: c });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("PROPOSAL_VOTE");
     expect(s.event?.kind).toBe("runoff");
     expect(s.round!.vote!.runoff).toHaveLength(3);
     const ballot2 = s.round!.vote!.ballot;
     await act(roomId, host, { action: "vote", ballot: ballot2, choice: b });
     await act(roomId, p2, { action: "vote", ballot: ballot2, choice: b });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_CONFIRMED");
     const rule = (await view(roomId, p3)).view.secret!.rule!.text;
     expect(rule).toBe(kv.find((p) => p.id === b)!.text);
@@ -272,38 +272,38 @@ describe("PSYCO – dispositivi personali", () => {
     // senza limite: il round non scade mai
     await act(roomId, host, { action: "start_round" });
     await sql`update psyco_rounds set started_at = now() - interval '3 hours' where room_id = ${roomId} and round_no = ${s.round!.no}`;
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("PLAYING");
     // conclusione manuale autorizzata
     await expectCode(act(roomId, p2, { action: "end_round" }), "FORBIDDEN");
-    s = (await act(roomId, host, { action: "end_round" })).state;
+    s = (await act(roomId, host, { action: "end_round" })).state!;
     expect(s.round!.outcome).toBe("ended");
   });
 
   it("timer: pausa, ripresa e scadenza (vince il gruppo) con riferimento al server", async () => {
     await act(roomId, host, { action: "next_round", settings: { timerMs: 12 * 60_000 + 10_000, ruleMode: "auto", psycoPick: "auto" } });
     for (const u of all()) await act(roomId, u, { action: "seen" });
-    let s = (await view(roomId, host)).state;
+    let s = (await view(roomId, host)).state!;
     const kn: PsycoUser[] = [];
     for (const u of all()) if ((await view(roomId, u)).view.role === "knower") kn.push(u);
     await voteAll(roomId, host, kn, s.round!.vote!.ballot, "sorpresa");
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_VOTE");
     await act(roomId, host, { action: "close_vote" }); // nessun voto → nessun consenso → un'altra regola
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_VOTE");
     await voteAll(roomId, host, kn, s.round!.vote!.ballot, "yes");
     await act(roomId, host, { action: "start_round" });
     await sql`update psyco_rounds set started_at = now() - interval '60 seconds' where room_id = ${roomId} and round_no = ${s.round!.no}`;
-    s = (await act(roomId, host, { action: "pause" })).state;
+    s = (await act(roomId, host, { action: "pause" })).state!;
     const atPause = remainingMs(s.round!.timer, Date.parse(s.serverNow))!;
     expect(atPause).toBeGreaterThan(12 * 60_000 + 10_000 - 62_000);
     expect(atPause).toBeLessThan(12 * 60_000 + 10_000 - 58_000);
     // durante la pausa il tempo non scende (refresh = nuovo calcolo dal server)
     await new Promise((r) => setTimeout(r, 1200));
-    s = (await view(roomId, p2)).state;
+    s = (await view(roomId, p2)).state!;
     expect(remainingMs(s.round!.timer, Date.parse(s.serverNow))).toBe(atPause);
-    s = (await act(roomId, host, { action: "resume" })).state;
+    s = (await act(roomId, host, { action: "resume" })).state!;
     expect(s.round!.timer.pausedMs).toBeGreaterThanOrEqual(1000);
     // scadenza: chiunque legga lo stato (anche lo schermo) chiude la manche
     await sql`update psyco_rounds set started_at = now() - interval '13 minutes' where room_id = ${roomId} and round_no = ${s.round!.no}`;
@@ -315,18 +315,18 @@ describe("PSYCO – dispositivi personali", () => {
 
   it("uscite: l'host se ne va → gestione al giocatore entrato prima; lo PSYCO se ne va → fine manche", async () => {
     await act(roomId, host, { action: "leave" });
-    let s = (await view(roomId, p2)).state;
+    let s = (await view(roomId, p2)).state!;
     expect(s.event?.kind).toBe("host_changed");
     expect(s.participants.find((p) => p.isHost)?.nickname).toBe("Mike");
     expect((await view(roomId, p2)).view.isHost).toBe(true);
     await expectCode(view(roomId, host), "NOT_MEMBER");
     // rientro con lo stesso account: stesso posto
     await joinRoom(host, code, "Sara");
-    s = (await view(roomId, p2)).state;
+    s = (await view(roomId, p2)).state!;
     expect(s.activeCount).toBe(4);
     await act(roomId, p2, { action: "next_round", psycoId: s.participants.find((p) => p.nickname === "Luca")!.id, settings: { timerMs: 60_000, ruleMode: "auto", psycoPick: "manual" } });
     await act(roomId, p3, { action: "leave" });
-    s = (await view(roomId, p2)).state;
+    s = (await view(roomId, p2)).state!;
     expect(s.phase).toBe("ROUND_END");
     expect(s.round!.outcome).toBe("psyco_left");
     // espulso: non rientra
@@ -362,12 +362,12 @@ describe("PSYCO – un solo dispositivo (un account, nickname locali)", () => {
     expect(Object.values(roles).filter((x) => x === "psyco")).toHaveLength(1);
     const psycoId = ids.find((id) => roles[id] === "psyco")!;
     const knowers = ids.filter((id) => id !== psycoId);
-    let s = (await view(roomId, host)).state;
+    let s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("DIFFICULTY_VOTE");
     // lo PSYCO non vota nemmeno sul telefono condiviso
     await expectCode(act(roomId, host, { action: "vote", ballot: s.round!.vote!.ballot, choice: "facile" }, psycoId), "FORBIDDEN");
     await voteAll(roomId, host, knowers, s.round!.vote!.ballot, "facile");
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.round!.difficulty).toBe("facile");
     // vista dello PSYCO: niente regola
     expect((await view(roomId, host, psycoId)).view.secret).toBeNull();
@@ -376,18 +376,18 @@ describe("PSYCO – un solo dispositivo (un account, nickname locali)", () => {
     const cand = (await view(roomId, host, knowers[0])).view.secret!.candidate!;
     assertNoSecret(s, [cand.text]);
     await voteAll(roomId, host, knowers, s.round!.vote!.ballot, "yes");
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.phase).toBe("RULE_CONFIRMED");
     await act(roomId, host, { action: "start_round" });
     await sql`update psyco_rounds set started_at = now() - interval '5 seconds' where room_id = ${roomId}`;
     // «HO CAPITO!» premuto sul telefono condiviso
-    s = (await act(roomId, host, { action: "guess" })).state;
+    s = (await act(roomId, host, { action: "guess" })).state!;
     await voteAll(roomId, host, knowers, s.round!.vote!.ballot, "yes");
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.round!.outcome).toBe("guessed");
     // seconda manche: un altro PSYCO
     await act(roomId, host, { action: "next_round" });
-    s = (await view(roomId, host)).state;
+    s = (await view(roomId, host)).state!;
     expect(s.round!.no).toBe(2);
     expect(s.round!.psycoId).not.toBe(psycoId);
     // il proprietario non può usare "as" con un id di un'altra stanza
@@ -421,7 +421,7 @@ describe("PSYCO – sicurezza dello stato pubblico e pulizia", () => {
     for (const action of ["start_round", "pause", "resume"] as const) {
       if (action === "pause") await sql`update psyco_rounds set started_at = now() - interval '5 seconds' where room_id = ${r.roomId}`;
       const res = await act(r.roomId, host, { action });
-      assertNoSecret(res.state, [rule_text]); // = payload inviato sul canale realtime
+      assertNoSecret(res.state!, [rule_text]); // = payload inviato sul canale realtime
       assertNoSecret((await buildPublicState(sql, r.roomId))!, [rule_text]);
     }
   });

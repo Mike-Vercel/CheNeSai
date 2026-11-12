@@ -85,7 +85,8 @@ interface Ctx {
 }
 
 export interface ActionResult {
-  state: PsycoPublicState;
+  /** null = aggiornamento minore in una stanza grande: stato non ricostruito (lo leggono i client al prossimo giro) */
+  state: PsycoPublicState | null;
   changed: boolean;
 }
 
@@ -239,6 +240,7 @@ async function apply(ctx: Ctx, a: PsycoAction): Promise<void> {
       await tx`update psyco_round_members set seen_at = now() where round_id = ${round(ctx).id} and participant_id = ${p.id}`;
       m.seen_at = ctx.room.db_now;
       ctx.changed = true;
+      ctx.minorChange = true;
       return advance(ctx, false);
     }
 
@@ -325,6 +327,7 @@ async function apply(ctx: Ctx, a: PsycoAction): Promise<void> {
       await tx`update psyco_round_members set ready_at = now() where round_id = ${round(ctx).id} and participant_id = ${p.id}`;
       m.ready_at = ctx.room.db_now;
       ctx.changed = true;
+      ctx.minorChange = true;
       return advance(ctx, false);
     }
 
@@ -795,8 +798,9 @@ async function commit(ctx: Ctx): Promise<ActionResult> {
   room.version = u.version;
   room.secret_rev = u.secret_rev;
   if (ctx.event !== undefined) room.event = ctx.event;
+  if (throttle) return { state: null, changed: true };
   const fresh = (await loadRoom(tx, room.id))!;
   const state = await buildPublicStateFrom(tx, fresh);
-  if (!throttle) await broadcastPsyco(tx, state);
+  await broadcastPsyco(tx, state);
   return { state, changed: true };
 }
