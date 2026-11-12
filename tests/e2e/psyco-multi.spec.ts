@@ -89,7 +89,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   // ------------------------------------------------ minimo 3: con 2 non si comincia
   await expect(pc.getByText("Servono almeno 3 giocatori per cominciare (ora 2)")).toBeVisible({ timeout: 15_000 });
   await pc.getByRole("button", { name: "INIZIA LA PARTITA" }).click();
-  await expect(pc.getByText("RUOLI ASSEGNATI")).toHaveCount(0);
+  await expect(pc.getByRole("heading", { name: "RUOLI ASSEGNATI" })).toHaveCount(0);
   expect((await pc.request.post(`/api/psyco/rooms/${roomId}/action`, { data: { action: "start_game" } })).status()).toBe(409);
 
   // ------------------------------------------------ altri tre telefoni con account (login → ritorno alla stanza)
@@ -121,7 +121,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
 
   // ------------------------------------------------ via! ruoli privati
   await pc.getByRole("button", { name: "INIZIA LA PARTITA" }).click();
-  await expect(tv.getByText("RUOLI ASSEGNATI")).toBeVisible({ timeout: 15_000 });
+  await expect(tv.getByRole("heading", { name: "RUOLI ASSEGNATI" })).toBeVisible({ timeout: 15_000 });
   await phones[3].page.context().setOffline(false);
   const all: { page: Page; name: string }[] = [{ page: pc, name: "Sara" }, ...phones];
   let psyco: { page: Page; name: string } | null = null;
@@ -143,7 +143,8 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   // ------------------------------------------------ automatica: difficoltà, regola rifiutata, regola accettata
   await expect(psyco!.page.getByText("NON GUARDARE!")).toBeVisible({ timeout: 20_000 });
   await shot(tv, "tv-03-scelta-regola");
-  for (const k of knowers) await k.page.getByRole("button", { name: /Difficile/ }).click({ timeout: 20_000 });
+  // chi arriva dopo la maggioranza trova già la schermata successiva
+  for (const [i, k] of knowers.entries()) await k.page.getByRole("button", { name: /Difficile/ }).click({ timeout: i < 3 ? 20_000 : 4000 }).catch(() => undefined);
   await expect(knowers[0].page.getByRole("button", { name: "SÌ, QUESTA!" })).toBeVisible({ timeout: 20_000 });
   await shot(knowers[0].page, knowers[0].page === pc ? "pc-03-regola-proposta" : "telefono-13-regola-proposta");
   for (const k of knowers.slice(0, 3)) await k.page.getByRole("button", { name: "UN'ALTRA" }).click();
@@ -153,8 +154,8 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
     await b.waitFor({ timeout: 20_000 }).catch(() => undefined);
     if (await b.isVisible()) await b.click().catch(() => undefined);
   }
-  await expect(tv.getByText("LA REGOLA È STATA SCELTA!")).toBeVisible({ timeout: 20_000 });
-  await expect(psyco!.page.getByText("LA REGOLA È STATA SCELTA!")).toBeVisible();
+  await expect(tv.getByRole("heading", { name: "LA REGOLA È STATA SCELTA!" })).toBeVisible({ timeout: 20_000 });
+  await expect(psyco!.page.getByRole("heading", { name: "LA REGOLA È STATA SCELTA!" })).toBeVisible();
   await expect(psyco!.page.getByText("PREPARATI A SCOPRIRLA!")).toBeVisible();
   const rule1 = (await currentRuleText(roomId))!;
   expect(rule1.length).toBeGreaterThan(5);
@@ -190,7 +191,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   await psyco!.page.getByRole("button", { name: "HO CAPITO LA REGOLA!" }).click();
   await shot(knowers[0].page, knowers[0].page === pc ? "pc-06-verifica" : "telefono-17-verifica");
   for (const k of knowers) await k.page.getByRole("button", { name: "SÌ, ESATTO" }).click({ timeout: 15_000 }).catch(() => undefined);
-  await expect(tv.getByText("VINCE LO PSYCO!")).toBeVisible({ timeout: 15_000 });
+  await expect(tv.getByRole("heading", { name: "VINCE LO PSYCO!" })).toBeVisible({ timeout: 15_000 });
 
   // ------------------------------------------------ SICUREZZA: lo PSYCO e la TV non hanno mai ricevuto la regola né le proposte scartate
   const secrets = await candidateTexts(roomId);
@@ -210,7 +211,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   await pc.getByRole("radio", { name: /LIBERA/ }).click();
   await pc.getByRole("checkbox", { name: "SENZA LIMITE DI TEMPO" }).check();
   await pc.getByRole("button", { name: "NUOVA MANCHE" }).click();
-  await expect(tv.getByText("RUOLI ASSEGNATI")).toBeVisible({ timeout: 15_000 });
+  await expect(tv.getByRole("heading", { name: "RUOLI ASSEGNATI" })).toBeVisible({ timeout: 15_000 });
   let psyco2: { page: Page; name: string } | null = null;
   for (const p of all) {
     await p.page.getByRole("button", { name: "Tocca per scoprire il tuo ruolo" }).click({ timeout: 20_000 });
@@ -230,15 +231,15 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   }
   await expect(knowers2[0].page.getByText("Votate la regola migliore")).toBeVisible({ timeout: 20_000 });
   await shot(knowers2[1].page, knowers2[1].page === pc ? "pc-09-voto-proposte" : "telefono-20-voto-proposte");
-  for (const k of knowers2) await k.page.getByRole("button", { name: new RegExp(proposals[1]) }).click();
-  await expect(tv.getByText("LA REGOLA È STATA SCELTA!")).toBeVisible({ timeout: 20_000 });
+  for (const [i, k] of knowers2.entries()) await k.page.getByRole("button", { name: new RegExp(proposals[1]) }).click({ timeout: i < 3 ? 20_000 : 4000 }).catch(() => undefined);
+  await expect(tv.getByRole("heading", { name: "LA REGOLA È STATA SCELTA!" })).toBeVisible({ timeout: 20_000 });
   expect(await currentRuleText(roomId)).toBe(proposals[1]);
   await expectNoSecrets(psyco2Traffic, proposals);
   await expectNoSecrets(tvTraffic, proposals);
   await pc.getByRole("button", { name: "Inizia anche se non tutti sono pronti" }).click();
   await expect(tv.getByText(/senza limite di tempo/)).toBeVisible({ timeout: 20_000 });
   await pc.getByRole("button", { name: "Termina la manche" }).click();
-  await expect(tv.getByText("MANCHE CONCLUSA")).toBeVisible({ timeout: 15_000 });
+  await expect(tv.getByRole("heading", { name: "MANCHE CONCLUSA" })).toBeVisible({ timeout: 15_000 });
 
   // ------------------------------------------------ registro delle manche (niente punteggi, solo eventi)
   const rounds = await sql<{ round_no: number; outcome: string; attempts: number; rule_mode: string; timer_ms: number | null; participants_count: number }[]>`

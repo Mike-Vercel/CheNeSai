@@ -142,7 +142,7 @@ export function ScreenPanel({ roomId }: { roomId: string }) {
             Oppure sul televisore apri <b>/tv</b> e scrivi qui il codice di 4 cifre:
           </label>
           <div className="flex gap-2">
-            <input id="psy-tv-code" inputMode="numeric" maxLength={4} className="psy-input w-32 text-center text-2xl tracking-[0.4em]" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} />
+            <input id="psy-tv-code" inputMode="numeric" maxLength={4} className="psy-input !w-32 text-center text-2xl tracking-[0.4em]" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} />
             <button type="submit" className="psy-btn text-xl" disabled={busy || code.length !== 4}>
               Collega
             </button>

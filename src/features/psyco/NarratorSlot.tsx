@@ -90,7 +90,7 @@ export function PsycoNarratorSlot({ size = "md", className, render }: { size?: k
               <Silhouette />
             </g>
             {/* bocca (si apre quando parla) */}
-            <ellipse ref={mouth} cx="60" cy="69" rx="4.2" ry="0.8" fill="#e0161f" opacity={s.speaking ? 0.9 : 0} />
+            <ellipse ref={mouth} cx="60" cy="69" rx="3.2" ry="0.8" fill="#5a0a10" stroke="#e0161f" strokeWidth="0.6" opacity={s.speaking ? 0.95 : 0} />
             {/* occhi che brillano sotto la tesa */}
             <circle cx="54" cy="60" r="1.4" fill="#ffb547" opacity={s.speaking ? 1 : 0.55} />
             <circle cx="66" cy="60" r="1.4" fill="#ffb547" opacity={s.speaking ? 1 : 0.55} />

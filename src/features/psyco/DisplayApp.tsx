@@ -67,7 +67,7 @@ export function DisplayApp({ displayKey }: { displayKey: string }) {
       )}
       {/* posto del narratore (l'Investigatore): illustrazione provvisoria, poi il modello 3D */}
       <PsycoNarratorSlot size="tv" className="fixed bottom-[3vh] left-[2vw] z-30" />
-      <Captions className="!bottom-[5vh] !left-[16vw] [&_p]:!text-[3vh]" />
+      <Captions position="bottom" className="!bottom-[5vh] !left-[16vw] [&_p]:!text-[3vh]" />
     </main>
   );
 }

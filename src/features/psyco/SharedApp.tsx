@@ -82,7 +82,7 @@ function Frame({ children, state }: { children: React.ReactNode; state?: PsycoPu
         <Link href="/psyco" aria-label="Home di PSYCO" className="psy-title text-3xl">
           PSYCO
         </Link>
-        <span className="psy-chip !min-h-8">Un solo dispositivo</span>
+        <span className="psy-chip !min-h-8 hidden sm:inline-flex">Un solo dispositivo</span>
         {state?.round && state.phase !== "LOBBY" && <span className="hidden text-sm font-black text-paper/70 sm:inline">Manche {state.round.no}</span>}
         <div className="ml-auto flex items-center gap-2">
           {state && <AudioPanel voiced={!state.displayOnline} />}

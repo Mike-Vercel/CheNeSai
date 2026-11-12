@@ -93,9 +93,11 @@ export function PlayerList({
 // Timer (riferimento: ora del server)
 // ---------------------------------------------------------------------------
 export function useRoundClock(timer: PublicTimer | null | undefined, now: () => number, active: boolean) {
-  useTick(active, 200);
+  "use no memo"; // React Compiler: il risultato dipende dall'ora, non va memorizzato
+  const tick = useTick(active, 200);
   if (!timer) return { countdown: 0, remaining: null as number | null, elapsed: 0 };
-  const t = now();
+  // `tick` entra nel calcolo: a ogni giro si rilegge l'ora del server stimata
+  const t = tick >= 0 ? now() : 0;
   return { countdown: countdownMs(timer, t), remaining: remainingMs(timer, t), elapsed: elapsedMs(timer, t) };
 }
 
@@ -160,7 +162,7 @@ export function RoleFace({ role, psycoName, compact = false }: { role: "psyco" |
     return (
       <div className={clsx("flex h-full flex-col items-center justify-center gap-3 bg-[radial-gradient(circle_at_50%_30%,#5a0a10,#120809_70%)] p-6 text-center", compact && "gap-2 p-4")}>
         <Silhouette className={clsx(compact ? "h-20" : "h-32 md:h-40")} />
-        <p className={clsx("psy-title", compact ? "text-5xl" : "text-6xl md:text-7xl")}>SEI LO PSYCO!</p>
+        <p className={clsx("psy-title", compact ? "text-[clamp(2.2rem,10vw,3rem)]" : "text-[clamp(2.6rem,13vw,4.5rem)]")}>SEI LO PSYCO!</p>
         <p className="psy-type text-lg text-paper md:text-xl">Gli altri conoscono una regola segreta. Scoprila prima che finisca il tempo!</p>
       </div>
     );
@@ -168,7 +170,7 @@ export function RoleFace({ role, psycoName, compact = false }: { role: "psyco" |
   return (
     <div className={clsx("psy-paper flex h-full flex-col items-center justify-center gap-3 p-6 text-center !shadow-none", compact && "gap-2 p-4")}>
       <span className="psy-stamp text-base">regola segreta</span>
-      <p className={clsx("psy-display text-[#8e0b12]", compact ? "text-4xl" : "text-5xl md:text-6xl")}>CONOSCERAI LA REGOLA!</p>
+      <p className={clsx("psy-display leading-[0.95] text-[#8e0b12]", compact ? "text-[clamp(1.8rem,8vw,2.25rem)]" : "text-[clamp(2.2rem,10.5vw,3.75rem)]")}>CONOSCERAI LA REGOLA!</p>
       <p className="psy-type text-lg md:text-xl">Insieme agli altri dovrai scegliere una regola e rispettarla durante la manche.</p>
       {psycoName && (
         <p className="mt-1 text-base font-extrabold text-[#4a3220]">

@@ -55,7 +55,7 @@ export function SettingsForm({
             <input
               inputMode="numeric"
               aria-label="Minuti"
-              className="psy-input w-24 text-center text-3xl"
+              className="psy-input !w-24 text-center text-3xl"
               value={minutes}
               disabled={unlimited}
               onChange={(e) => {
@@ -71,7 +71,7 @@ export function SettingsForm({
             <input
               inputMode="numeric"
               aria-label="Secondi"
-              className="psy-input w-24 text-center text-3xl"
+              className="psy-input !w-24 text-center text-3xl"
               value={seconds}
               disabled={unlimited}
               onChange={(e) => {

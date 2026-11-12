@@ -75,15 +75,15 @@ test("un solo telefono: 5 nickname, un account, due manche", async ({ browser })
     await expect(page.getByText("SEI LO PSYCO!")).toHaveCount(0);
     await expect(page.getByText("CONOSCERAI LA REGOLA!")).toHaveCount(0);
   });
-  expect(revealed.sort()).toEqual([...NAMES].sort());
-  expect(NAMES).toContain(psyco1);
+  expect(revealed.sort()).toEqual(NAMES.map((n) => n.toUpperCase()).sort());
+  expect(NAMES.map((n) => n.toUpperCase())).toContain(psyco1);
 
   // ------------------------------------------------ difficoltà scelta da chi conosce la regola (lo PSYCO non è mai chiamato)
   await expect(page.getByText(`${psyco1}, NON GUARDARE!`, { exact: false })).toBeVisible({ timeout: 15_000 });
   await shot(page, "telefono-04-passa-il-telefono");
   const voters = await passAround(page, "voto", async () => {
     await page.getByRole("button", { name: /Media/ }).click();
-  }, 4);
+  }, 3); // 3 voti su 4 = maggioranza: la votazione si chiude da sola
   expect(voters).not.toContain(psyco1);
 
   // ------------------------------------------------ regola proposta: bocciata (3 su 4), poi accettata
@@ -97,15 +97,17 @@ test("un solo telefono: 5 nickname, un account, due manche", async ({ browser })
   expect(rejected).toBe(3);
   await passAround(page, "voto", async () => {
     await page.getByRole("button", { name: "SÌ, QUESTA!" }).click();
-  }, 4);
+  }, 3);
 
   // ------------------------------------------------ regola scelta → via
-  await expect(page.getByText("LA REGOLA È STATA SCELTA!")).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByRole("heading", { name: "LA REGOLA È STATA SCELTA!" })).toBeVisible({ timeout: 15_000 });
   await expect(page.locator("article.psy-paper")).toHaveCount(0); // nessuna regola a schermo
   await page.getByRole("button", { name: "TUTTI PRONTI: VIA!" }).click();
   await expect(page.getByRole("timer")).toBeVisible();
   await expect(page.getByRole("timer")).toContainText(/01:(2\d|30)|00:/, { timeout: 10_000 });
-  await page.waitForTimeout(4000);
+  await page.waitForTimeout(5500);
+  // il tempo scorre davvero (dopo il conto alla rovescia di 3,5 s)
+  await expect(page.getByRole("timer").locator("span").first()).toHaveText(/01:[12]\d/);
   await shot(page, "telefono-06-manche-timer");
 
   // ------------------------------------------------ «HO CAPITO!» → verifica sul telefono condiviso → vince lo PSYCO
@@ -118,7 +120,7 @@ test("un solo telefono: 5 nickname, un account, due manche", async ({ browser })
     await yes.click();
     await page.waitForTimeout(300);
   }
-  await expect(page.getByText("VINCE LO PSYCO!")).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByRole("heading", { name: "VINCE LO PSYCO!" })).toBeVisible({ timeout: 15_000 });
   await expect(page.getByText("ecco qual era la regola")).toBeVisible();
   await shot(page, "telefono-08-fine-manche");
 
@@ -134,7 +136,7 @@ test("un solo telefono: 5 nickname, un account, due manche", async ({ browser })
   expect(psyco2).not.toBe("");
   expect(psyco2).not.toBe(psyco1);
   await page.getByRole("button", { name: "Termina la manche" }).click();
-  await expect(page.getByText("MANCHE CONCLUSA")).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByRole("heading", { name: "MANCHE CONCLUSA" })).toBeVisible({ timeout: 15_000 });
 
   // ------------------------------------------------ database: 5 partecipanti locali, nessun account nuovo
   const [{ locals }] = await sql<{ locals: number }[]>`select count(*)::int as locals from psyco_participants where room_id = ${roomId} and kind = 'local' and user_id is null`;

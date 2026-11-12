@@ -161,12 +161,20 @@ export function usePsycoAudio(state: PsycoPublicState | null, now: () => number,
 }
 
 /** Sottotitolo del narratore (anche quando il clip manca o l'audio è spento). */
-export function Captions({ className }: { className?: string }) {
+export function Captions({ className, position = "top" }: { className?: string; position?: "top" | "bottom" }) {
   const [text, setText] = useState<string | null>(null);
   useEffect(() => getNarrator().onCaption(setText), []);
   if (!text) return null;
   return (
-    <div aria-live="polite" className={clsx("pointer-events-none fixed inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex justify-center px-4", className)}>
+    <div
+      aria-live="polite"
+      className={clsx(
+        "pointer-events-none fixed inset-x-0 z-40 flex justify-center px-4",
+        // sui telefoni in alto, sotto la barra: non copre mai i pulsanti
+        position === "top" ? "top-[calc(4.75rem+env(safe-area-inset-top))] md:top-[calc(5.75rem+env(safe-area-inset-top))]" : "bottom-[max(1rem,env(safe-area-inset-bottom))]",
+        className,
+      )}
+    >
       <p className="psy-type psy-caption max-w-3xl rounded-xl px-4 py-2 text-center text-base text-paper md:text-xl">{text}</p>
     </div>
   );
