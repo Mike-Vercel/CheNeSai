@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { normalizeRoomCode } from "@/lib/psyco/logic";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { ErrorNote } from "./panels";
@@ -92,7 +93,7 @@ export function JoinRoom({ code }: { code: string }) {
       </div>
     );
   }
-  if (!preview) return <p className="psy-type text-lg">Cerco la stanza {code}…</p>;
+  if (!preview) return <LoadingSplash game="psyco" label={`Cerco la stanza ${code}…`} className="fixed inset-0 z-50" />;
   const r = preview.room;
   if (r.status === "closed") return <p className="text-center text-xl font-extrabold">Questa partita è terminata.</p>;
   if (r.mode === "shared") return <p className="max-w-sm text-center text-xl font-extrabold">Questa partita si gioca su un solo dispositivo: non serve entrare dal telefono.</p>;

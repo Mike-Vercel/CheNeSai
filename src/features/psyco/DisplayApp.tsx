@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { DIFFICULTY_LABEL, type PsycoPublicState } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
@@ -33,11 +34,7 @@ export function DisplayApp({ displayKey }: { displayKey: string }) {
     );
   }
   if (!state) {
-    return (
-      <main className="grid min-h-dvh place-items-center">
-        <PsycoLogo size="xl" className="psy-flicker" />
-      </main>
-    );
+    return <LoadingSplash game="psyco" label="Accendo lo schermo…" />;
   }
   const url = joinUrl(state.code);
   return (

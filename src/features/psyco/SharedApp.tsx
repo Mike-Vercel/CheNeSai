@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ExitButton } from "@/features/game/components/ExitButton";
+import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import type { PsycoPrivateView, PsycoPublicState, PsycoView, PublicParticipant } from "@/lib/psyco/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
@@ -39,13 +40,7 @@ export function SharedApp({ roomId }: { roomId: string }) {
     );
   }
   if (!state || !view) {
-    return (
-      <Frame>
-        <div className="grid min-h-[60vh] place-items-center">
-          <PsycoLogo className="psy-flicker" />
-        </div>
-      </Frame>
-    );
+    return <LoadingSplash game="psyco" label="Preparo il tavolo…" />;
   }
   if (state.status === "closed") {
     return (
