@@ -5,14 +5,16 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ExitButton } from "@/features/game/components/ExitButton";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
-import type { PsycoPrivateView, PsycoPublicState, PsycoView, PublicParticipant } from "@/lib/psyco/types";
+import { useDeviceKind } from "@/features/gioca/use-device";
+import type { InvestigatorMessage, PsycoPrivateView, PsycoPublicState, PsycoView, PublicParticipant } from "@/lib/psyco/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { CallButton, CallsChip, IncomingCall, MessagesSheet, useLive } from "./InvestigatorCall";
 import { PsycoNarratorSlot } from "./NarratorSlot";
 import { HostBar, ScreenPanel, StartPanel } from "./HostControls";
 import { getNarrator } from "./narrator";
 import { CandidateVote, DifficultyVote, DontLook, ErrorNote, ProposalForm, ProposalVote, useActions } from "./panels";
-import { usePsyco } from "./use-psyco";
+import { psycoAct, usePsyco } from "./use-psyco";
 import { BigTimer, CountdownOverlay, History, LinkBadge, PlayerList, Progress, PsycoLogo, RoleFlipCard, RoundResult, RuleCard, EventFlash } from "./ui";
 
 /**
@@ -20,7 +22,8 @@ import { BigTimer, CountdownOverlay, History, LinkBadge, PlayerList, Progress, P
  * gli altri sono nickname locali. Il telefono passa di mano: schermate di copertura tra un giocatore
  * e l'altro, la regola si vede SOLO dopo «SONO LUCA» e sparisce appena si conferma. Lo PSYCO non
  * partecipa mai alla scelta. (La segretezza dipende anche da come si passa il telefono: nessuno deve
- * sbirciare.)
+ * sbirciare.) Su PC/portatile il dispositivo non «passa di mano»: i testi diventano «Tocca a X: gli
+ * altri non guardino lo schermo».
  */
 export function SharedApp({ roomId }: { roomId: string }) {
   const { state, view, status, error, refresh, applyView, now } = usePsyco({ source: { kind: "room", roomId } });
@@ -62,7 +65,7 @@ export function SharedApp({ roomId }: { roomId: string }) {
       <div className="flex w-full flex-col items-center gap-6">
         {!state.displayOnline && <PsycoNarratorSlot size="md" />}
         <ErrorNote error={actError} onClose={clearError} />
-        <SharedPhase key={`${state.round?.no ?? 0}:${state.phase}`} state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} />
+        <SharedPhase key={`${state.round?.no ?? 0}:${state.phase}`} state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} refresh={() => void refresh()} />
         {state.phase !== "LOBBY" && state.phase !== "ROUND_END" && <HostBar state={state} view={view} run={(a) => run(a)} busy={busy} />}
       </div>
       <Captions />
@@ -113,9 +116,26 @@ function nextHolder(state: PsycoPublicState): PublicParticipant | null {
   }
 }
 
-function SharedPhase({ state, view, run, busy, now, roomId }: { state: PsycoPublicState; view: PsycoPrivateView; run: Run; busy: string | null; now: () => number; roomId: string }) {
+function SharedPhase({
+  state,
+  view,
+  run,
+  busy,
+  now,
+  roomId,
+  refresh,
+}: {
+  state: PsycoPublicState;
+  view: PsycoPrivateView;
+  run: Run;
+  busy: string | null;
+  now: () => number;
+  roomId: string;
+  refresh: () => void;
+}) {
   const r = state.round;
   const psycoName = r?.psycoNickname ?? "";
+  const desktop = useDeviceKind() === "desktop";
 
   if (state.phase === "LOBBY") return <SharedLobby state={state} run={run} busy={busy} roomId={roomId} />;
 
@@ -128,7 +148,11 @@ function SharedPhase({ state, view, run, busy, now, roomId }: { state: PsycoPubl
       <section className="flex w-full flex-col items-center gap-5 text-center">
         <h2 className="psy-title psy-stamp-in text-6xl md:text-7xl">LA REGOLA È STATA SCELTA!</h2>
         <p className="psy-display text-3xl text-lamp">{psycoName}, PREPARATI A SCOPRIRLA!</p>
-        <p className="psy-type max-w-md text-lg text-paper/85">Mettete il telefono al centro del tavolo, ben visibile a tutti: da qui in poi mostra solo il timer.</p>
+        <p className="psy-type max-w-md text-lg text-paper/85">
+          {desktop
+            ? "Girate lo schermo verso tutti: da qui in poi mostra solo il timer."
+            : "Mettete il telefono al centro del tavolo, ben visibile a tutti: da qui in poi mostra solo il timer."}
+        </p>
         <button type="button" className="psy-btn w-full max-w-sm text-3xl" disabled={!!busy} onClick={() => void run({ action: "start_round" })}>
           TUTTI PRONTI: VIA!
         </button>
@@ -140,8 +164,11 @@ function SharedPhase({ state, view, run, busy, now, roomId }: { state: PsycoPubl
   if (state.phase === "PLAYING" && r) {
     return (
       <section className="flex w-full flex-col items-center gap-6 text-center">
-        <p className="psy-type text-lg text-paper/80">
-          PSYCO: <b className="text-blood">{psycoName}</b> · tentativi {r.attempts}
+        <p className="psy-type flex flex-wrap items-center justify-center gap-2 text-lg text-paper/80">
+          <span>
+            PSYCO: <b className="text-blood">{psycoName}</b> · tentativi {r.attempts}
+          </span>
+          <CallsChip state={state} className="!min-h-8 !text-sm" />
         </p>
         <BigTimer timer={r.timer} now={now} size="lg" />
         <EventFlash state={state} kind="guess_wrong" className="text-2xl">
@@ -151,6 +178,7 @@ function SharedPhase({ state, view, run, busy, now, roomId }: { state: PsycoPubl
           HO CAPITO LA REGOLA!
         </button>
         <p className="text-sm font-bold text-paper/60">Lo preme {psycoName} quando crede di aver capito.</p>
+        <SharedCall state={state} roomId={roomId} refresh={refresh} now={now} />
         <PeekRule state={state} roomId={roomId} />
       </section>
     );
@@ -176,10 +204,15 @@ function SharedPhase({ state, view, run, busy, now, roomId }: { state: PsycoPubl
 }
 
 function SharedLobby({ state, run, busy, roomId }: { state: PsycoPublicState; run: Run; busy: string | null; roomId: string }) {
+  const desktop = useDeviceKind() === "desktop";
   return (
     <div className="flex w-full flex-col items-center gap-6">
       <PsycoLogo size="lg" tagline />
-      <p className="psy-type max-w-lg text-center text-lg text-paper/85">Un telefono per tutti: si passa di mano. Nessuno deve uscire dalla stanza, basta non sbirciare.</p>
+      <p className="psy-type max-w-lg text-center text-lg text-paper/85">
+        {desktop
+          ? "Un solo schermo per tutti: a turno, chi tocca guarda e gli altri no. Nessuno deve uscire dalla stanza, basta non sbirciare."
+          : "Un telefono per tutti: si passa di mano. Nessuno deve uscire dalla stanza, basta non sbirciare."}
+      </p>
       <ManageLocals state={state} run={run} busy={busy} />
       <StartPanel state={state} run={run} busy={busy} label="INIZIA LA PARTITA" />
       <ScreenPanel roomId={roomId} />
@@ -221,16 +254,18 @@ function PassTheDevice({ state, run, busy, roomId }: { state: PsycoPublicState; 
   const psycoName = r.psycoNickname;
   const choosing = state.phase !== "ROLE_REVEAL";
   const announced = useRef<string | null>(null);
+  // su PC/portatile lo schermo non passa di mano: «tocca a…», gli altri non guardano
+  const desktop = useDeviceKind() === "desktop";
 
-  // «Passa il telefono…»: la voce lo dice a ogni passaggio
+  // «Passa il telefono…» / «Tocca al prossimo…»: la voce lo dice a ogni passaggio
   const nextId = next?.id ?? null;
   useEffect(() => {
     if (holder || !nextId) return;
     const key = `${state.phase}:${r.vote?.ballot ?? ""}:${nextId}`;
     if (announced.current === key) return;
     announced.current = key;
-    getNarrator().say(["passa-telefono"]);
-  }, [holder, nextId, state.phase, r.vote?.ballot]);
+    getNarrator().say([desktop ? "tocca-al-prossimo" : "passa-telefono"]);
+  }, [holder, nextId, state.phase, r.vote?.ballot, desktop]);
 
   // il voto/la fase sono cambiati sotto le mani (es. maggioranza raggiunta): si torna alla copertura
   const ballot = r.vote?.ballot ?? state.phase;
@@ -294,9 +329,11 @@ function PassTheDevice({ state, run, busy, roomId }: { state: PsycoPublicState; 
         )}
         <p className="psy-type text-xl text-paper/80">{state.phase === "ROLE_REVEAL" ? "Ruoli segreti" : phaseTitle(state.phase)}</p>
         <h2 className="psy-display text-4xl leading-tight md:text-5xl">
-          PASSA IL TELEFONO A<br />
+          {desktop ? "TOCCA A" : "PASSA IL TELEFONO A"}
+          <br />
           <span className="psy-title text-6xl md:text-7xl">{next.nickname.toUpperCase()}</span>
         </h2>
+        {desktop && <p className="psy-type -mt-2 text-lg text-lamp">Gli altri non guardino lo schermo.</p>}
         <button type="button" className="psy-btn w-full max-w-md py-5 text-2xl" disabled={loading} onClick={() => void take(next)}>
           SONO {next.nickname.toUpperCase()} — {label}
         </button>
@@ -321,14 +358,16 @@ function PassTheDevice({ state, run, busy, roomId }: { state: PsycoPublicState; 
           myPassed={hv.myPassed}
           others={hv.secret.proposals}
           busy={!!busy}
-          onPropose={(text) => act({ action: "propose", text })}
+          onPropose={(text, category, hint) => act({ action: "propose", text, category, hint })}
           onPass={() => void act({ action: "pass" })}
         />
       )}
       {state.phase === "PROPOSAL_VOTE" && v && hv.secret && (
         <ProposalVote proposals={hv.secret.proposals} runoff={v.runoff} myVote={hv.myVote} busy={!!busy} onVote={(id) => void act({ action: "vote", ballot: v.ballot, choice: id })} />
       )}
-      {hv.role === "psyco" && state.phase !== "ROLE_REVEAL" && <DontLook sub="Sei lo PSYCO: questa scelta non è per te. Passa il telefono." />}
+      {hv.role === "psyco" && state.phase !== "ROLE_REVEAL" && (
+        <DontLook sub={desktop ? "Sei lo PSYCO: questa scelta non è per te. Lascia il posto al prossimo." : "Sei lo PSYCO: questa scelta non è per te. Passa il telefono."} />
+      )}
       <button type="button" className="psy-chip" onClick={done}>
         Copri lo schermo
       </button>
@@ -353,6 +392,76 @@ function SharedRole({ view, psycoName, onSeen }: { view: PsycoPrivateView; psyco
         HO VISTO IL MIO RUOLO
       </button>
     </section>
+  );
+}
+
+/**
+ * «CHIAMA L'INVESTIGATORE» sul dispositivo condiviso: la chiamata è per lo PSYCO (schermata a tutto
+ * schermo «per MIKE»), l'indizio arriva dalla vista privata dello PSYCO (`as`), mai da quella pubblica.
+ * I messaggi si rileggono scegliendo «SONO MIKE» (come la regola per chi la conosce).
+ */
+function SharedCall({ state, roomId, refresh, now }: { state: PsycoPublicState; roomId: string; refresh: () => void; now: () => number }) {
+  const r = state.round!;
+  const [ringing, setRinging] = useState(false);
+  const [reading, setReading] = useState<InvestigatorMessage[] | null>(null);
+  const [asking, setAsking] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const live = useLive(r.timer, now);
+  const psycoId = r.psycoId;
+  if (r.calls.max <= 0 || !psycoId) return null;
+  const playing = state.phase === "PLAYING" && live;
+
+  async function openMessages() {
+    setErr(null);
+    try {
+      const v = await api<PsycoView>(`/api/psyco/rooms/${roomId}?as=${psycoId}`);
+      setReading(v.view.investigator?.messages ?? []);
+      setAsking(false);
+    } catch (e) {
+      setErr(e instanceof ApiError ? e.message : "Connessione assente");
+    }
+  }
+
+  return (
+    <div className="flex w-full flex-col items-center gap-3">
+      <CallButton max={r.calls.max} used={r.calls.used} disabled={!playing} onCall={() => setRinging(true)} />
+      {r.calls.used > 0 &&
+        (asking ? (
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-sm font-bold text-paper/75">Solo {r.psycoNickname} può leggerli. Gli altri non guardino.</p>
+            <div className="flex gap-2">
+              <button type="button" className="psy-btn psy-btn-paper text-lg" onClick={() => void openMessages()}>
+                SONO {r.psycoNickname.toUpperCase()}: MOSTRA
+              </button>
+              <button type="button" className="psy-chip" onClick={() => setAsking(false)}>
+                Annulla
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button type="button" className="psy-chip" onClick={() => setAsking(true)}>
+            📩 Messaggi di {r.psycoNickname} ({r.calls.used})
+          </button>
+        ))}
+      <ErrorNote error={err} />
+      {ringing && (
+        <IncomingCall
+          active={state.phase === "PLAYING"}
+          forName={r.psycoNickname}
+          isLast={r.calls.used + 1 >= r.calls.max}
+          onAnswer={async (id) => {
+            const res = await psycoAct(roomId, { action: "call_investigator", requestId: id }, psycoId);
+            refresh();
+            const list = "state" in res ? (res.view.investigator?.messages ?? []) : [];
+            const last = list[list.length - 1];
+            if (!last) throw new Error("La linea è caduta: riprova");
+            return last;
+          }}
+          onClose={() => setRinging(false)}
+        />
+      )}
+      {reading && <MessagesSheet messages={reading} forName={r.psycoNickname} onClose={() => setReading(null)} />}
+    </div>
   );
 }
 

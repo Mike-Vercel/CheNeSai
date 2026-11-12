@@ -2,7 +2,7 @@
  * PSYCO – logica pura (nessun accesso al database): validazioni, timer, rotazione, votazioni.
  * Usata dal server (fonte di verità) e, per la sola visualizzazione, dai client. Testata in tests/unit/psyco.test.ts.
  */
-import { NICKNAME_MAX, RULE_TEXT_MAX, TIMER_MAX_MS, type PublicTimer } from "./types";
+import { HINT_TEXT_MAX, NICKNAME_MAX, RULE_TEXT_MAX, TIMER_MAX_MS, type PublicTimer } from "./types";
 
 // ---------------------------------------------------------------------------
 // Testi scritti dagli utenti
@@ -38,6 +38,19 @@ export function checkRuleText(raw: unknown): TextCheck {
   if (!v) return { ok: false, message: "Scrivi la regola prima di inviarla" };
   if ([...v].length < 8) return { ok: false, message: "La regola è troppo corta: spiegala in una frase" };
   if ([...v].length > RULE_TEXT_MAX) return { ok: false, message: `La regola può avere al massimo ${RULE_TEXT_MAX} caratteri` };
+  return { ok: true, value: v };
+}
+
+/**
+ * Indizio facoltativo per lo PSYCO (regole libere): vuoto = nessun indizio (null), altrimenti 6–140
+ * caratteri su una riga. Mostrato sempre come testo (React fa l'escape): qui si puliscono i caratteri
+ * invisibili e di controllo e si tolgono i simboli di markup.
+ */
+export function checkHintText(raw: unknown): { ok: true; value: string | null } | { ok: false; message: string } {
+  const v = clean(raw).replace(/[<>]/g, "");
+  if (!v) return { ok: true, value: null };
+  if ([...v].length < 6) return { ok: false, message: "L'indizio è troppo corto: scrivi qualche parola in più (o lascialo vuoto)" };
+  if ([...v].length > HINT_TEXT_MAX) return { ok: false, message: `L'indizio può avere al massimo ${HINT_TEXT_MAX} caratteri` };
   return { ok: true, value: v };
 }
 

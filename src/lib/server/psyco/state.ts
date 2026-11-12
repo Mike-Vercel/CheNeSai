@@ -10,10 +10,12 @@ import {
   type PsycoPrivateView,
   type PsycoPublicState,
   type PsycoSettings,
+  type InvestigatorMessage,
   type PublicVote,
   type Role,
   type RoomMode,
   type RoundOutcome,
+  type RuleCategory,
   type RuleMode,
   type SecretRule,
   type VoteKind,
@@ -42,6 +44,8 @@ export interface RoomRow {
   code: string;
   display_key: string;
   mode: RoomMode;
+  /** creata da un PC come schermo pubblico (colonna aggiunta: può mancare su righe vecchie lette prima della migrazione) */
+  screen_mode?: boolean | null;
   owner_user_id: string;
   host_user_id: string | null;
   status: "open" | "closed";
@@ -79,6 +83,12 @@ export interface RoundRow {
   rule_id: string | null;
   rule_title: string | null;
   rule_text: string | null;
+  /** regola libera: categoria e indizio della proposta vincente (SEGRETI) */
+  rule_category: RuleCategory | null;
+  rule_hint: string | null;
+  /** chiamate all'Investigatore permesse / usate nella manche */
+  calls_max: number;
+  calls_used: number;
   timer_ms: number | null;
   countdown_ms: number;
   vote: RoundVoteMeta | null;
@@ -219,6 +229,11 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
       }
     }
     const ended = room.phase === "ROUND_END";
+    let lastCallAt: string | null = null;
+    if (round.calls_used > 0) {
+      const [c] = await db<{ at: Date | null }[]>`select max(answered_at) as at from psyco_calls where round_id = ${round.id}`;
+      lastCallAt = iso(c?.at ?? null);
+    }
     publicRound = {
       no: round.round_no,
       // durante la rivelazione dei ruoli nessuno schermo pubblico dice chi è lo PSYCO (ruoli privati)
@@ -239,6 +254,8 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
       outcome: round.outcome,
       endedAt: iso(round.ended_at),
       elapsedMs: round.elapsed_ms === null ? null : Number(round.elapsed_ms),
+      // SOLO i numeri delle chiamate all'Investigatore: l'indizio non esce mai di qui
+      calls: { max: round.calls_max ?? 0, used: round.calls_used ?? 0, lastAt: lastCallAt },
       // la regola diventa pubblica SOLO a manche finita
       revealedRule: ended && round.rule_text ? { title: round.rule_title, text: round.rule_text, source: round.rule_source } : null,
     };
@@ -253,6 +270,7 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
     roomId: room.id,
     code: room.code,
     mode: room.mode,
+    screen: !!room.screen_mode,
     status: room.status,
     phase: room.phase,
     version: Number(room.version),
@@ -287,6 +305,9 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Psyco
   };
 }
 
+/** Fasi in cui lo PSYCO può rileggere i messaggi dell'Investigatore (per tutta la manche, anche a fine manche). */
+const INVESTIGATOR_PHASES: PsycoPhase[] = ["PLAYING", "GUESS_VOTE", "ROUND_END"];
+
 /** Fasi in cui chi conosce la regola può vederne i dettagli. */
 const SECRET_PHASES: PsycoPhase[] = ["RULE_VOTE", "RULE_PROPOSALS", "PROPOSAL_VOTE", "RULE_CONFIRMED", "PLAYING", "GUESS_VOTE", "ROUND_END"];
 
@@ -307,6 +328,7 @@ export async function buildPrivateView(
     myVote: null,
     myProposal: null,
     myPassed: false,
+    investigator: null,
     secret: null,
   };
   if (!participant || participant.status !== "active" || room.phase === "LOBBY") return view;
@@ -328,11 +350,18 @@ export async function buildPrivateView(
 
   // ---------------- segreti: SOLO a chi conosce la regola, MAI allo PSYCO
   const isPsyco = m.role === "psyco" || round.psyco_participant_id === participant.id;
+  if (isPsyco && round.psyco_participant_id === participant.id && INVESTIGATOR_PHASES.includes(room.phase)) {
+    // i messaggi dell'Investigatore: SOLO allo PSYCO della manche (mai a chi conosce la regola, mai agli schermi)
+    const rows = await db<{ call_no: number; level: number; hint_text: string; answered_at: Date }[]>`
+      select call_no, level, hint_text, answered_at from psyco_calls where round_id = ${round.id} order by call_no`;
+    const messages: InvestigatorMessage[] = rows.map((x) => ({ no: x.call_no, level: x.level, text: x.hint_text, at: iso(x.answered_at)! }));
+    view.investigator = { messages };
+  }
   if (isPsyco || m.role !== "knower" || !SECRET_PHASES.includes(room.phase)) return view;
 
   if (room.phase === "RULE_PROPOSALS") {
-    const [mine] = await db<{ id: string; text: string }[]>`
-      select id, text from psyco_candidates where round_id = ${round.id} and kind = 'custom' and author_participant_id = ${participant.id}`;
+    const [mine] = await db<{ id: string; text: string; category: RuleCategory | null; hint: string | null }[]>`
+      select id, text, category, hint from psyco_candidates where round_id = ${round.id} and kind = 'custom' and author_participant_id = ${participant.id}`;
     view.myProposal = mine ?? null;
     const [p] = await db`select 1 from psyco_votes where round_id = ${round.id} and ballot = ${passBallot(round)} and participant_id = ${participant.id}`;
     view.myPassed = !!p;
@@ -347,11 +376,13 @@ export async function buildPrivateView(
     secret.candidate = c ? { id: c.id, title: c.title, text: c.text, difficulty: c.difficulty ?? round.difficulty, instructions: c.instructions, example: c.example } : null;
   }
   if (room.phase === "RULE_PROPOSALS" || room.phase === "PROPOSAL_VOTE") {
-    const rows = await db<{ id: string; text: string; author_participant_id: string | null }[]>`
-      select id, text, author_participant_id from psyco_candidates
+    const rows = await db<{ id: string; text: string; author_participant_id: string | null; category: RuleCategory | null }[]>`
+      select id, text, author_participant_id, category from psyco_candidates
       where round_id = ${round.id} and kind = 'custom' order by created_at, id`;
     const allowed = room.phase === "PROPOSAL_VOTE" && round.vote?.runoff ? new Set(round.vote.runoff) : null;
-    secret.proposals = rows.filter((r) => !allowed || allowed.has(r.id)).map((r) => ({ id: r.id, text: r.text, mine: r.author_participant_id === participant.id }));
+    secret.proposals = rows
+      .filter((r) => !allowed || allowed.has(r.id))
+      .map((r) => ({ id: r.id, text: r.text, mine: r.author_participant_id === participant.id, category: r.category }));
   }
   if (round.rule_text && ["RULE_CONFIRMED", "PLAYING", "GUESS_VOTE", "ROUND_END"].includes(room.phase)) {
     let extra: { instructions: string | null; example: string | null } = { instructions: null, example: null };

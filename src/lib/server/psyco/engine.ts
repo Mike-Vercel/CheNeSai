@@ -1,7 +1,9 @@
 import "server-only";
 import { getSql, type Tx } from "@/lib/database/db";
-import { checkNickname, checkRuleText, drawOne, elapsedMs, isExpired, pickPsyco, resolvePlurality, resolveYesNo } from "@/lib/psyco/logic";
+import { pickHint } from "@/lib/psyco/hints";
+import { checkHintText, checkNickname, checkRuleText, drawOne, elapsedMs, isExpired, pickPsyco, resolvePlurality, resolveYesNo } from "@/lib/psyco/logic";
 import {
+  callsOf,
   DIFFICULTIES,
   MIN_PLAYERS,
   type Difficulty,
@@ -277,11 +279,15 @@ async function apply(ctx: Ctx, a: PsycoAction): Promise<void> {
       if (!eligible(ctx).includes(p.id)) fail("FORBIDDEN", "Solo chi conosce la regola può proporla");
       const t = checkRuleText(a.text);
       if (!t.ok) fail("VALIDATION", t.message);
+      // categoria e indizio per lo PSYCO: facoltativi, segreti come la regola
+      const h = checkHintText(a.hint);
+      if (!h.ok) fail("VALIDATION", h.message);
+      const category = a.category ?? null;
       await tx`
-        insert into psyco_candidates (round_id, room_id, kind, text, author_participant_id)
-        values (${r.id}, ${ctx.room.id}, 'custom', ${t.value}, ${p.id})
+        insert into psyco_candidates (round_id, room_id, kind, text, author_participant_id, category, hint)
+        values (${r.id}, ${ctx.room.id}, 'custom', ${t.value}, ${p.id}, ${category}, ${h.value})
         on conflict (round_id, author_participant_id) where kind = 'custom'
-        do update set text = excluded.text, updated_at = now()`;
+        do update set text = excluded.text, category = excluded.category, hint = excluded.hint, updated_at = now()`;
       await tx`delete from psyco_votes where round_id = ${r.id} and ballot = ${passBallot(r)} and participant_id = ${p.id}`;
       ctx.changed = true;
       ctx.secretChanged = true;
@@ -372,6 +378,42 @@ async function apply(ctx: Ctx, a: PsycoAction): Promise<void> {
           paused_at = ${pauseNow ? tx`now()` : tx`paused_at`}, paused_by_guess = ${pauseNow}
         where id = ${r.id}`;
       setPhase(ctx, "GUESS_VOTE");
+      await reloadRound(ctx);
+      return;
+    }
+
+    case "call_investigator": {
+      // SOLO lo PSYCO della manche (dal suo telefono, o dal dispositivo condiviso «come» lui)
+      const p = requireParticipant(ctx);
+      requirePhase(ctx, "PLAYING");
+      const r = round(ctx);
+      if (r.psyco_participant_id !== p.id) fail("FORBIDDEN", "Solo lo PSYCO può chiamare l'Investigatore");
+      // la stessa chiamata ripetuta (rete ballerina, doppio tocco) non ne consuma due
+      const [dup] = await tx`select 1 from psyco_calls where round_id = ${r.id} and request_id = ${a.requestId}`;
+      if (dup) return;
+      if (!r.started_at || r.started_at.getTime() > ctx.room.db_now.getTime()) fail("WRONG_PHASE", "Aspetta il via");
+      if (r.paused_at) fail("WRONG_PHASE", "La manche è in pausa: l'Investigatore richiama dopo");
+      if (r.calls_max <= 0) fail("NO_CALLS_LEFT", "In questa manche l'Investigatore non risponde");
+      if (r.calls_used >= r.calls_max) fail("NO_CALLS_LEFT", "Hai già usato tutte le chiamate di questa manche");
+      const no = r.calls_used + 1;
+      let ruleHints: (string | null)[] | null = null;
+      if (r.rule_source === "archive" && r.rule_id) {
+        const [x] = await tx<{ hint_1: string | null; hint_2: string | null; hint_3: string | null }[]>`
+          select hint_1, hint_2, hint_3 from psyco_rules where id = ${r.rule_id}`;
+        if (x) ruleHints = [x.hint_1, x.hint_2, x.hint_3];
+      }
+      const hint = pickHint({
+        level: no,
+        ruleHints,
+        customHint: r.rule_source === "custom" ? r.rule_hint : null,
+        category: r.rule_source === "custom" ? r.rule_category : null,
+      });
+      await tx`
+        insert into psyco_calls (round_id, room_id, call_no, level, request_id, hint_source, hint_text)
+        values (${r.id}, ${ctx.room.id}, ${no}, ${hint.level}, ${a.requestId}, ${hint.source}, ${hint.text})`;
+      await tx`update psyco_rounds set calls_used = ${no} where id = ${r.id}`;
+      // pubblico SOLO il numero della chiamata (avviso su TV e telefoni), mai l'indizio
+      emit(ctx, "investigator_call", { no, max: r.calls_max });
       await reloadRound(ctx);
       return;
     }
@@ -467,8 +509,8 @@ async function newRound(ctx: Ctx, chosen: string | null) {
   const psyco = ctx.active.find((p) => p.id === psycoId)!;
   const no = ctx.room.round_no + 1;
   const [r] = await tx<{ id: string }[]>`
-    insert into psyco_rounds (room_id, round_no, psyco_participant_id, psyco_nickname, rule_mode, timer_ms, participants_count)
-    values (${ctx.room.id}, ${no}, ${psyco.id}, ${psyco.nickname}, ${ctx.settings.ruleMode}, ${ctx.settings.timerMs}, ${ctx.active.length})
+    insert into psyco_rounds (room_id, round_no, psyco_participant_id, psyco_nickname, rule_mode, timer_ms, participants_count, calls_max)
+    values (${ctx.room.id}, ${no}, ${psyco.id}, ${psyco.nickname}, ${ctx.settings.ruleMode}, ${ctx.settings.timerMs}, ${ctx.active.length}, ${callsOf(ctx.settings)})
     returning id`;
   const ids = ctx.active.map((p) => p.id);
   const roles = ctx.active.map((p) => (p.id === psyco.id ? "psyco" : "knower"));
@@ -553,12 +595,14 @@ async function proposeArchiveRule(ctx: Ctx, difficulty: Difficulty) {
 async function confirmRule(ctx: Ctx, candidateId: string) {
   const { tx } = ctx;
   const r = round(ctx);
-  const [c] = await tx<{ id: string; kind: "archive" | "custom"; rule_id: string | null; title: string | null; text: string }[]>`
-    select id, kind, rule_id, title, text from psyco_candidates where id = ${candidateId} and round_id = ${r.id}`;
+  const [c] = await tx<{ id: string; kind: "archive" | "custom"; rule_id: string | null; title: string | null; text: string; category: string | null; hint: string | null }[]>`
+    select id, kind, rule_id, title, text, category, hint from psyco_candidates where id = ${candidateId} and round_id = ${r.id}`;
   if (!c) fail("NOT_FOUND", "Regola non trovata");
   await tx`update psyco_candidates set status = 'winner', updated_at = now() where id = ${c.id}`;
+  // categoria e indizio della proposta vincente diventano parte del segreto (mai pubblici)
   await tx`
-    update psyco_rounds set rule_source = ${c.kind}, rule_id = ${c.rule_id}, rule_title = ${c.title}, rule_text = ${c.text}, vote = null
+    update psyco_rounds set rule_source = ${c.kind}, rule_id = ${c.rule_id}, rule_title = ${c.title}, rule_text = ${c.text},
+      rule_category = ${c.kind === "custom" ? c.category : null}, rule_hint = ${c.kind === "custom" ? c.hint : null}, vote = null
     where id = ${r.id}`;
   ctx.secretChanged = true;
   setPhase(ctx, "RULE_CONFIRMED");

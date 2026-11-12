@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { ExitButton } from "@/features/game/components/ExitButton";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
-import type { DifficultyChoice, PsycoPrivateView, PsycoPublicState, SecretRule } from "@/lib/psyco/types";
+import { useDeviceKind } from "@/features/gioca/use-device";
+import type { DifficultyChoice, PsycoPrivateView, PsycoPublicState, PsycoView, SecretRule } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { CallNotice, CallsChip, PsycoCallControls } from "./InvestigatorCall";
 import { PsycoNarratorSlot } from "./NarratorSlot";
 import { HostBar, ScreenPanel, StartPanel } from "./HostControls";
 import { CandidateVote, DifficultyVote, DontLook, ErrorNote, GuessVote, ProposalForm, ProposalVote, useActions } from "./panels";
-import { usePsyco } from "./use-psyco";
+import { psycoAct, usePsyco } from "./use-psyco";
 import { BigTimer, CountdownOverlay, History, InvitePanel, LinkBadge, PlayerList, Progress, PsycoLogo, RoleFlipCard, RoundResult, RuleCard, EventFlash } from "./ui";
 
 /**
@@ -66,8 +68,11 @@ export function RoomApp({ roomId }: { roomId: string }) {
       <div className="flex w-full flex-col items-center gap-6">
         {view.isHost && !state.displayOnline && <PsycoNarratorSlot size="sm" />}
         <HostOffline state={state} view={view} onClaim={() => void run({ action: "claim_host" })} />
+        <ScreenHint state={state} view={view} roomId={roomId} />
         <ErrorNote error={actError} onClose={clearError} />
-        <Phase state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} />
+        {/* avviso pubblico della chiamata all'Investigatore: lo PSYCO non lo vede (sta già telefonando) */}
+        <CallNotice state={state} hidden={view.role === "psyco"} className="w-full max-w-xl" />
+        <Phase state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} applyView={applyView} />
         {view.isHost && state.phase !== "LOBBY" && state.phase !== "ROUND_END" && <HostBar state={state} view={view} run={run} busy={busy} />}
         {state.phase !== "LOBBY" && (
           <section className="w-full max-w-2xl">
@@ -135,9 +140,42 @@ function HostOffline({ state, view, onClaim }: { state: PsycoPublicState; view: 
   );
 }
 
+/**
+ * Partita «Schermo + telefoni» aperta dall'host su un COMPUTER: qui si gioca come su un telefono
+ * (ruolo compreso). Se questo computer è lo schermo per tutti, va aperto lo schermo pubblico.
+ */
+function ScreenHint({ state, view, roomId }: { state: PsycoPublicState; view: PsycoPrivateView; roomId: string }) {
+  const device = useDeviceKind();
+  if (!state.screen || !view.isHost || device !== "desktop") return null;
+  return (
+    <div role="note" className="flex w-full max-w-xl flex-wrap items-center justify-between gap-3 rounded-2xl bg-lamp/15 px-4 py-3 text-sm font-bold text-lamp ring-1 ring-lamp/40">
+      <span>Questo computer è lo schermo per tutti? Aprilo come SCHERMO PUBBLICO: qui vedresti il tuo ruolo.</span>
+      <Link href={`/psyco/schermo/apri/${roomId}`} className="psy-chip" prefetch={false}>
+        📺 Apri lo schermo
+      </Link>
+    </div>
+  );
+}
+
 type Run = ReturnType<typeof useActions>["run"];
 
-function Phase({ state, view, run, busy, now, roomId }: { state: PsycoPublicState; view: PsycoPrivateView; run: Run; busy: string | null; now: () => number; roomId: string }) {
+function Phase({
+  state,
+  view,
+  run,
+  busy,
+  now,
+  roomId,
+  applyView,
+}: {
+  state: PsycoPublicState;
+  view: PsycoPrivateView;
+  run: Run;
+  busy: string | null;
+  now: () => number;
+  roomId: string;
+  applyView: (v: PsycoView) => void;
+}) {
   const r = state.round;
   const v = r?.vote ?? null;
   const vote = (choice: string) => v && void run({ action: "vote", ballot: v.ballot, choice });
@@ -210,7 +248,7 @@ function Phase({ state, view, run, busy, now, roomId }: { state: PsycoPublicStat
             myPassed={view.myPassed}
             others={view.secret.proposals}
             busy={!!busy}
-            onPropose={(text) => run({ action: "propose", text })}
+            onPropose={(text, category, hint) => run({ action: "propose", text, category, hint })}
             onPass={() => void run({ action: "pass" })}
           />
           <Progress done={(r?.proposed.length ?? 0) + (r?.passed.length ?? 0)} total={(r?.members.length ?? 1) - 1} label="Hanno proposto o passato" />
@@ -248,8 +286,11 @@ function Phase({ state, view, run, busy, now, roomId }: { state: PsycoPublicStat
     case "PLAYING":
       return r ? (
         <section className="flex w-full flex-col items-center gap-6 text-center">
-          <p className="psy-type text-lg text-paper/80">
-            PSYCO: <b className="text-blood">{psycoName}</b> · tentativi {r.attempts}
+          <p className="psy-type flex flex-wrap items-center justify-center gap-2 text-lg text-paper/80">
+            <span>
+              PSYCO: <b className="text-blood">{psycoName}</b> · tentativi {r.attempts}
+            </span>
+            <CallsChip state={state} className="!min-h-8 !text-sm" />
           </p>
           <BigTimer timer={r.timer} now={now} size="lg" />
           <EventFlash state={state} kind="guess_wrong" className="text-2xl">
@@ -261,6 +302,18 @@ function Phase({ state, view, run, busy, now, roomId }: { state: PsycoPublicStat
               <button type="button" className="psy-btn psy-glow w-full max-w-sm py-6 text-4xl" disabled={!!busy || !!r.timer.pausedAt} onClick={() => void run({ action: "guess" })}>
                 HO CAPITO LA REGOLA!
               </button>
+              <PsycoCallControls
+                state={state}
+                messages={view.investigator?.messages ?? []}
+                disabled={!!busy}
+                now={now}
+                call={async (requestId) => {
+                  const res = await psycoAct(roomId, { action: "call_investigator", requestId });
+                  if (!("state" in res)) return [];
+                  applyView(res);
+                  return res.view.investigator?.messages ?? [];
+                }}
+              />
             </>
           ) : (
             view.secret?.rule && <RuleReminder rule={view.secret.rule} />

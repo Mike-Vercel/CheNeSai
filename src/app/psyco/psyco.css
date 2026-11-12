@@ -249,3 +249,60 @@
   .psy-glow, .psy-flicker, .psy-rise, .psy-stamp-in, .psy-count, .psy-shake { animation: none; }
   .psy-flip-inner { transition: none; }
 }
+
+/* ---------------------------------------------------------------------
+   «CHIAMA L'INVESTIGATORE»: chiamata in arrivo, messaggi, avviso pubblico
+   --------------------------------------------------------------------- */
+.psy-call-bg {
+  color: #f6ecd6;
+  background:
+    radial-gradient(ellipse 80% 45% at 50% 0%, rgba(255, 181, 71, 0.18), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 110%, rgba(142, 11, 18, 0.55), transparent 65%),
+    #0b0909;
+}
+@keyframes psy-call-rings {
+  0% { box-shadow: 0 0 0 0 rgba(255, 181, 71, 0.45), 0 0 0 0 rgba(255, 181, 71, 0.25); }
+  70% { box-shadow: 0 0 0 26px rgba(255, 181, 71, 0), 0 0 0 52px rgba(255, 181, 71, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 181, 71, 0), 0 0 0 0 rgba(255, 181, 71, 0); }
+}
+.psy-call-rings { animation: psy-call-rings 1.6s ease-out infinite; }
+@keyframes psy-answer {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  10% { transform: translateY(-6px) rotate(-12deg); }
+  20% { transform: translateY(-6px) rotate(12deg); }
+  30% { transform: translateY(0) rotate(0); }
+}
+.psy-answer { animation: psy-answer 1.4s ease-in-out infinite; }
+@keyframes psy-ring-shake {
+  0%, 100% { transform: rotate(0); }
+  10%, 30%, 50% { transform: rotate(-18deg); }
+  20%, 40%, 60% { transform: rotate(18deg); }
+  70% { transform: rotate(0); }
+}
+.psy-ring-shake { display: inline-block; animation: psy-ring-shake 1.2s ease-in-out infinite; }
+/* bolla del messaggio: carta invecchiata, angolo «a fumetto» */
+.psy-bubble {
+  max-width: min(88%, 34rem);
+  color: #2a1a10;
+  background: linear-gradient(175deg, #f3e7cb, #e2cfa4 75%, #d4bb88);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.35rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.9);
+}
+.psy-typing { display: inline-flex; gap: 0.3rem; padding: 0.35rem 0.2rem; }
+.psy-typing i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: #6b4a2c;
+  animation: psy-typing 1s ease-in-out infinite;
+}
+.psy-typing i:nth-child(2) { animation-delay: 0.15s; }
+.psy-typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes psy-typing {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .psy-call-rings, .psy-answer, .psy-ring-shake, .psy-typing i { animation: none; }
+}

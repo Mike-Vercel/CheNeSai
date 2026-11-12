@@ -2,7 +2,18 @@
 
 import { clsx } from "clsx";
 import { useState } from "react";
-import { RULE_TEXT_MAX, DIFFICULTY_LABEL, type DifficultyChoice, type PsycoAction, type PsycoView, type SecretRule } from "@/lib/psyco/types";
+import {
+  CATEGORY_LABEL,
+  DIFFICULTY_LABEL,
+  HINT_TEXT_MAX,
+  RULE_CATEGORIES,
+  RULE_TEXT_MAX,
+  type DifficultyChoice,
+  type PsycoAction,
+  type PsycoView,
+  type RuleCategory,
+  type SecretRule,
+} from "@/lib/psyco/types";
 import { ApiError } from "@/lib/realtime/api-client";
 import { psycoAct } from "./use-psyco";
 import { Lens, RuleCard } from "./ui";
@@ -115,14 +126,16 @@ export function ProposalForm({
   onPass,
   busy,
 }: {
-  myProposal: { id: string; text: string } | null;
+  myProposal: { id: string; text: string; category: RuleCategory | null; hint: string | null } | null;
   myPassed: boolean;
-  others: { id: string; text: string; mine: boolean }[];
-  onPropose: (text: string) => Promise<boolean>;
+  others: { id: string; text: string; mine: boolean; category?: RuleCategory | null }[];
+  onPropose: (text: string, category: RuleCategory | null, hint: string | null) => Promise<boolean>;
   onPass: () => void;
   busy: boolean;
 }) {
   const [text, setText] = useState(myProposal?.text ?? "");
+  const [category, setCategory] = useState<RuleCategory | "">(myProposal?.category ?? "");
+  const [hint, setHint] = useState(myProposal?.hint ?? "");
   const [editing, setEditing] = useState(!myProposal);
   const left = RULE_TEXT_MAX - text.length;
   return (
@@ -133,7 +146,7 @@ export function ProposalForm({
           className="flex flex-col gap-3"
           onSubmit={(e) => {
             e.preventDefault();
-            void onPropose(text).then((ok) => ok && setEditing(false));
+            void onPropose(text, category || null, hint.trim() || null).then((ok) => ok && setEditing(false));
           }}
         >
           <label htmlFor="psy-proposal" className="font-bold text-paper/80">
@@ -151,6 +164,34 @@ export function ProposalForm({
             <span>Niente nomi offensivi: la vedranno tutti a fine manche.</span>
             <span aria-live="polite">{left} caratteri</span>
           </div>
+          <details className="rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-white/10" open={!!(myProposal?.category || myProposal?.hint)}>
+            <summary className="cursor-pointer text-sm font-extrabold text-paper/85">📞 Per l&apos;Investigatore (facoltativo)</summary>
+            <div className="mt-3 flex flex-col gap-3">
+              <label className="flex flex-col gap-1 text-sm font-bold text-paper/80">
+                Che tipo di regola è?
+                <select className="psy-input" value={category} onChange={(e) => setCategory(e.target.value as RuleCategory | "")} aria-label="Categoria della regola">
+                  <option value="">— non lo dico —</option>
+                  {RULE_CATEGORIES.map((c) => (
+                    <option key={c} value={c}>
+                      {CATEGORY_LABEL[c]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="flex flex-col gap-1 text-sm font-bold text-paper/80">
+                Indizio per lo PSYCO (se chiama l&apos;Investigatore)
+                <input
+                  className="psy-input"
+                  maxLength={HINT_TEXT_MAX}
+                  value={hint}
+                  onChange={(e) => setHint(e.target.value)}
+                  placeholder="Es. Ascolta come cominciano le risposte…"
+                  aria-label="Indizio per lo PSYCO"
+                />
+              </label>
+              <p className="text-xs font-bold text-paper/55">Né facilissimo né impossibile. Resta segreto: lo legge solo lo PSYCO, alla prima chiamata.</p>
+            </div>
+          </details>
           <div className="grid grid-cols-[1fr_auto] gap-3">
             <button type="submit" className="psy-btn" disabled={busy || text.trim().length < 8}>
               {myProposal ? "AGGIORNA" : "PROPONI"}
@@ -166,6 +207,13 @@ export function ProposalForm({
       ) : (
         <div className="flex flex-col items-center gap-3">
           <RuleCard rule={{ title: null, text: myProposal?.text ?? text, difficulty: null }} label="la tua proposta" className="w-full" />
+          {(myProposal?.category || myProposal?.hint) && (
+            <p className="text-center text-sm font-bold text-paper/70">
+              {myProposal.category ? `Categoria: ${CATEGORY_LABEL[myProposal.category]}` : ""}
+              {myProposal.category && myProposal.hint ? " · " : ""}
+              {myProposal.hint ? `Indizio: «${myProposal.hint}»` : ""}
+            </p>
+          )}
           <button type="button" className="psy-chip" onClick={() => setEditing(true)}>
             Modifica
           </button>
@@ -194,7 +242,7 @@ export function ProposalVote({
   onVote,
   busy,
 }: {
-  proposals: { id: string; text: string; mine: boolean }[];
+  proposals: { id: string; text: string; mine: boolean; category?: RuleCategory | null }[];
   runoff: string[] | null;
   myVote: string | null;
   onVote: (id: string) => void;
@@ -218,6 +266,7 @@ export function ProposalVote({
               <span className={clsx("text-xs font-black uppercase tracking-widest", myVote === p.id ? "text-[#8e0b12]" : "text-paper/60")}>
                 Proposta {i + 1}
                 {p.mine ? " · tua" : ""}
+                {p.category ? ` · ${CATEGORY_LABEL[p.category]}` : ""}
               </span>
               <span className={clsx("psy-type mt-1 block text-lg", myVote === p.id ? "text-[#2a1a10]" : "text-paper")}>{p.text}</span>
             </button>

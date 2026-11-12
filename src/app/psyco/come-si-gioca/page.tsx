@@ -11,7 +11,10 @@ const STEPS: { title: string; text: string }[] = [
     title: "2. La regola segreta",
     text: "Tutti tranne lo PSYCO scelgono INSIEME una regola: dall'archivio (facile, media, difficile o a sorpresa, votando se tenerla o cambiarla) oppure inventandola (ognuno propone, poi si vota; in caso di parità si fa lo spareggio).",
   },
-  { title: "3. Si gioca", text: "Parte il timer. Lo PSYCO fa domande a voce a chi vuole; gli altri rispondono RISPETTANDO la regola. Nessuno scrive niente: si parla e basta, seduti insieme." },
+  {
+    title: "3. Si gioca",
+    text: "Parte il timer. Lo PSYCO fa domande a voce a chi vuole; gli altri rispondono RISPETTANDO la regola. Nessuno scrive niente: si parla e basta, seduti insieme. Bloccato? Lo PSYCO può «CHIAMARE L'INVESTIGATORE»: squilla il suo telefono e arriva un messaggio con un indizio, solo per lui (ogni chiamata è più chiara della precedente; il timer intanto corre).",
+  },
   { title: "4. «HO CAPITO LA REGOLA!»", text: "Quando crede di averla capita, lo PSYCO preme il pulsante (il timer si ferma) e la spiega a voce. Gli altri votano: serve la maggioranza. Se ha sbagliato si continua dal tempo rimasto." },
   { title: "5. Fine della manche", text: "Vince lo PSYCO se indovina, vince il gruppo se scade il tempo. La regola viene svelata a tutti. Poi nuova manche: nuovo PSYCO, nuova regola, stessa stanza." },
 ];
@@ -52,7 +55,7 @@ export default async function ComeSiGioca() {
           {[
             ["Un solo telefono", "Basta l'account di chi crea la partita: gli altri sono nickname. Il telefono passa di mano, con schermate di copertura tra un giocatore e l'altro."],
             ["Ognuno il suo telefono", "Chi crea mostra QR e codice; gli altri entrano col proprio account (se non sono registrati, si iscrivono e tornano da soli alla stanza)."],
-            ["PC o TV per tutti", "Lo schermo grande mostra QR, giocatori, timer e risultati. Non mostra mai la regola né i voti, e non serve un account."],
+            ["PC o TV per tutti", "Dal PC scegli «Schermo + telefoni»: lo schermo grande mostra QR, giocatori, timer e risultati, e tutti (tu compreso) giocano dal telefono. Non mostra mai ruoli, regola né voti; una TV non ha bisogno di un account."],
           ].map(([t, d]) => (
             <div key={t} className="psy-paper p-5">
               <h3 className="psy-display text-2xl text-[#8e0b12]">{t}</h3>

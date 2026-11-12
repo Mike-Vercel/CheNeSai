@@ -49,6 +49,25 @@ export const TIMER_MAX_MS = 24 * 60 * 60 * 1000;
 /** Lunghezza massima di una regola scritta dai giocatori (limite tecnico, non di gioco). */
 export const RULE_TEXT_MAX = 280;
 export const NICKNAME_MAX = 20;
+/** Indizio facoltativo che il gruppo scrive per lo PSYCO (regole libere): limite tecnico. */
+export const HINT_TEXT_MAX = 140;
+
+/** Chiamate all'Investigatore per manche: 0 = disattivate, al massimo 3 (un livello d'indizio per chiamata). */
+export const CALLS_MAX = 3;
+export const DEFAULT_CALLS = 2;
+
+/** Categorie (facoltative) delle regole LIBERE: servono a scegliere l'indizio generico dell'Investigatore. */
+export const RULE_CATEGORIES = ["parole", "lettere", "gesti", "persone", "verita", "numeri", "altro"] as const;
+export type RuleCategory = (typeof RULE_CATEGORIES)[number];
+export const CATEGORY_LABEL: Record<RuleCategory, string> = {
+  parole: "Parole",
+  lettere: "Lettere e suoni",
+  gesti: "Gesti e corpo",
+  persone: "Persone e ruoli",
+  verita: "Verità e bugie",
+  numeri: "Numeri e conteggi",
+  altro: "Altro",
+};
 
 export const settingsSchema = z.object({
   /** null = SENZA LIMITE DI TEMPO */
@@ -56,9 +75,12 @@ export const settingsSchema = z.object({
   ruleMode: z.enum(["auto", "free"]),
   /** PSYCO a rotazione automatica (equa) oppure scelto dall'host a ogni manche */
   psycoPick: z.enum(["auto", "manual"]),
+  /** chiamate all'Investigatore per manche (0–3); assente = DEFAULT_CALLS (stanze create prima) */
+  calls: z.number().int().min(0).max(CALLS_MAX).optional(),
 });
 export type PsycoSettings = z.infer<typeof settingsSchema>;
-export const DEFAULT_SETTINGS: PsycoSettings = { timerMs: 5 * 60_000, ruleMode: "auto", psycoPick: "auto" };
+export const DEFAULT_SETTINGS: PsycoSettings = { timerMs: 5 * 60_000, ruleMode: "auto", psycoPick: "auto", calls: DEFAULT_CALLS };
+export const callsOf = (s: Pick<PsycoSettings, "calls">): number => s.calls ?? DEFAULT_CALLS;
 
 /** Ultimo avvenimento pubblico (per i messaggi a schermo e la voce narrante). */
 export type PsycoEventKind =
@@ -71,7 +93,9 @@ export type PsycoEventKind =
   | "host_changed"
   | "psyco_left"
   | "round_ended"
-  | "no_proposals";
+  | "no_proposals"
+  /** lo PSYCO ha chiamato l'Investigatore: pubblico SOLO il numero della chiamata, mai l'indizio */
+  | "investigator_call";
 export interface PsycoEvent {
   kind: PsycoEventKind;
   at: string;
@@ -136,6 +160,8 @@ export interface PublicRound {
   outcome: RoundOutcome | null;
   endedAt: string | null;
   elapsedMs: number | null;
+  /** chiamate all'Investigatore: solo i numeri (l'indizio va unicamente allo PSYCO) */
+  calls: { max: number; used: number; lastAt: string | null };
   /** la regola diventa pubblica SOLO a manche finita */
   revealedRule: { title: string | null; text: string; source: "archive" | "custom" | null } | null;
 }
@@ -153,6 +179,8 @@ export interface PsycoPublicState {
   roomId: string;
   code: string;
   mode: RoomMode;
+  /** creata da un PC come SCHERMO PUBBLICO: tutti, host compreso, giocano dal telefono */
+  screen: boolean;
   status: "open" | "closed";
   phase: PsycoPhase;
   version: number;
@@ -194,14 +222,28 @@ export interface PsycoPrivateView {
   ready: boolean;
   /** voto già espresso nella votazione in corso */
   myVote: string | null;
-  myProposal: { id: string; text: string } | null;
+  myProposal: { id: string; text: string; category: RuleCategory | null; hint: string | null } | null;
   myPassed: boolean;
+  /**
+   * SOLO per lo PSYCO della manche: i messaggi dell'Investigatore (indizi già ricevuti).
+   * null per chiunque altro (chi conosce la regola, schermi, chi è fuori dalla manche).
+   */
+  investigator: { messages: InvestigatorMessage[] } | null;
   /** SOLO per chi conosce la regola: candidato dell'archivio, proposte, regola confermata */
   secret: {
     candidate: (SecretRule & { id: string }) | null;
-    proposals: { id: string; text: string; mine: boolean }[];
+    proposals: { id: string; text: string; mine: boolean; category: RuleCategory | null }[];
     rule: SecretRule | null;
   } | null;
+}
+
+export interface InvestigatorMessage {
+  /** numero della chiamata nella manche (1…3) */
+  no: number;
+  /** livello dell'indizio: 1 vago → 3 quasi rivelatore */
+  level: number;
+  text: string;
+  at: string;
 }
 
 export interface PsycoView {
@@ -217,7 +259,12 @@ export const actionSchema = z.discriminatedUnion("action", [
   z.object({ action: z.literal("start_game"), psycoId: id.optional() }),
   z.object({ action: z.literal("seen") }),
   z.object({ action: z.literal("vote"), ballot: z.string().min(1).max(80), choice: z.string().min(1).max(64) }),
-  z.object({ action: z.literal("propose"), text: z.string().max(2000) }),
+  z.object({
+    action: z.literal("propose"),
+    text: z.string().max(2000),
+    category: z.enum(RULE_CATEGORIES).nullish(),
+    hint: z.string().max(2000).nullish(),
+  }),
   z.object({ action: z.literal("pass") }),
   z.object({ action: z.literal("close_vote") }),
   z.object({ action: z.literal("close_proposals") }),
@@ -227,6 +274,8 @@ export const actionSchema = z.discriminatedUnion("action", [
   z.object({ action: z.literal("pause") }),
   z.object({ action: z.literal("resume") }),
   z.object({ action: z.literal("guess") }),
+  /** lo PSYCO risponde alla chiamata dell'Investigatore: `requestId` rende la chiamata idempotente */
+  z.object({ action: z.literal("call_investigator"), requestId: id }),
   z.object({ action: z.literal("end_round") }),
   z.object({ action: z.literal("tick") }),
   z.object({ action: z.literal("next_round"), settings: settingsSchema.optional(), psycoId: id.optional() }),
@@ -249,5 +298,7 @@ export const createRoomSchema = z.object({
   /** dispositivi personali: anche l'host gioca (default sì) */
   hostPlays: z.boolean().optional(),
   hostNickname: z.string().max(60).optional(),
+  /** da PC: questo dispositivo diventa lo SCHERMO PUBBLICO e tutti giocano dal telefono (solo «personal») */
+  screen: z.boolean().optional(),
 });
 export type CreateRoomInput = z.infer<typeof createRoomSchema>;
