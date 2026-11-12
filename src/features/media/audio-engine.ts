@@ -486,7 +486,7 @@ class SoundEngine {
    * e volume generale), abbassa musica ed effetti mentre parla. Risolve a fine clip;
    * null = non riprodotto (audio bloccato o muto: chi chiama mostra solo il sottotitolo).
    */
-  playVoiceClip(buffer: AudioBuffer, gain = 1): Promise<void> | null {
+  playVoiceClip(buffer: AudioBuffer, gain = 1, tap: AudioNode | null = null): Promise<void> | null {
     const ctx = this.ctx;
     if (!ctx || ctx.state !== "running" || this.settings.muted || !this.master) return null;
     const src = ctx.createBufferSource();
@@ -494,6 +494,8 @@ class SoundEngine {
     const g = ctx.createGain();
     g.gain.value = gain;
     src.connect(g).connect(this.master);
+    // `tap`: es. un AnalyserNode per il lip sync del personaggio (solo lettura, non va all'uscita)
+    if (tap && tap.context === ctx) src.connect(tap);
     this.duck(true);
     return new Promise((resolve) => {
       src.onended = () => {

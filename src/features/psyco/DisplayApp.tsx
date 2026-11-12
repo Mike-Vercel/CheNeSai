@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { DIFFICULTY_LABEL, type PsycoPublicState } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { PsycoNarratorSlot } from "./NarratorSlot";
 import { usePsyco } from "./use-psyco";
 import { BigTimer, CountdownOverlay, EventFlash, joinUrl, Lens, LinkBadge, PlayerList, Progress, PsycoLogo, QrCode, RoundResult } from "./ui";
 
@@ -64,7 +65,9 @@ export function DisplayApp({ displayKey }: { displayKey: string }) {
           🔊 ATTIVA AUDIO
         </button>
       )}
-      <Captions className="!bottom-[5vh] [&_p]:!text-[3vh]" />
+      {/* posto del narratore (l'Investigatore): illustrazione provvisoria, poi il modello 3D */}
+      <PsycoNarratorSlot size="tv" className="fixed bottom-[3vh] left-[2vw] z-30" />
+      <Captions className="!bottom-[5vh] !left-[16vw] [&_p]:!text-[3vh]" />
     </main>
   );
 }

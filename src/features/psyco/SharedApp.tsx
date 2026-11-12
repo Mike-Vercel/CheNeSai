@@ -7,6 +7,7 @@ import { ExitButton } from "@/features/game/components/ExitButton";
 import type { PsycoPrivateView, PsycoPublicState, PsycoView, PublicParticipant } from "@/lib/psyco/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { PsycoNarratorSlot } from "./NarratorSlot";
 import { HostBar, ScreenPanel, StartPanel } from "./HostControls";
 import { getNarrator } from "./narrator";
 import { CandidateVote, DifficultyVote, DontLook, ErrorNote, ProposalForm, ProposalVote, useActions } from "./panels";
@@ -64,6 +65,7 @@ export function SharedApp({ roomId }: { roomId: string }) {
       <LinkBadge status={status} />
       {state.phase === "PLAYING" && state.round && <CountdownOverlay timer={state.round.timer} now={now} />}
       <div className="flex w-full flex-col items-center gap-6">
+        {!state.displayOnline && <PsycoNarratorSlot size="md" />}
         <ErrorNote error={actError} onClose={clearError} />
         <SharedPhase key={`${state.round?.no ?? 0}:${state.phase}`} state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} />
         {state.phase !== "LOBBY" && state.phase !== "ROUND_END" && <HostBar state={state} view={view} run={(a) => run(a)} busy={busy} />}

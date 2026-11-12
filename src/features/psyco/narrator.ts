@@ -165,18 +165,54 @@ export function voiceEnabled(): boolean {
   return getAudioPrefs().voice;
 }
 
+/** Stato del narratore: per i sottotitoli e per il personaggio (PsycoNarratorSlot, poi il modello 3D). */
+export interface NarratorState {
+  /** true mentre un clip è in riproduzione (o il sottotitolo è a schermo se il clip manca) */
+  speaking: boolean;
+  /** true solo se l'audio sta davvero suonando (clip caricato, audio sbloccato, non muto) */
+  audible: boolean;
+  id: VoiceId | null;
+  text: string | null;
+}
+type StateListener = (s: NarratorState) => void;
+
 class Narrator {
   private queue: VoiceId[] = [];
   private playing = false;
   private listeners = new Set<CaptionListener>();
+  private stateListeners = new Set<StateListener>();
   private missing = new Set<VoiceId>();
+  private analyser: AnalyserNode | null = null;
+  state: NarratorState = { speaking: false, audible: false, id: null, text: null };
 
   onCaption(fn: CaptionListener): () => void {
     this.listeners.add(fn);
     return () => this.listeners.delete(fn);
   }
-  private caption(t: string | null) {
-    for (const l of this.listeners) l(t);
+  /** Stato del narratore (parla / tace, clip, testo). Chiamato subito con lo stato attuale. */
+  onState(fn: StateListener): () => void {
+    this.stateListeners.add(fn);
+    fn(this.state);
+    return () => this.stateListeners.delete(fn);
+  }
+  private setState(s: NarratorState) {
+    this.state = s;
+    for (const l of this.listeners) l(s.text);
+    for (const l of this.stateListeners) l(s);
+  }
+
+  /**
+   * AnalyserNode collegato alla voce del narratore (per il lip sync del personaggio 3D, come gli
+   * analyser dei presentatori). null finché l'audio non è stato sbloccato.
+   */
+  getAnalyser(): AnalyserNode | null {
+    if (this.analyser) return this.analyser;
+    const ctx = getSoundEngine().context;
+    if (!ctx) return null;
+    this.analyser = ctx.createAnalyser();
+    this.analyser.fftSize = 1024;
+    this.analyser.smoothingTimeConstant = 0.6;
+    return this.analyser;
   }
 
   /** Precarica i clip (in sottofondo, senza errori se mancano). */
@@ -195,30 +231,30 @@ class Narrator {
 
   stop() {
     this.queue = [];
-    this.caption(null);
+    this.setState({ speaking: false, audible: false, id: null, text: null });
   }
 
   private async next() {
     const id = this.queue.shift();
     if (!id) {
       this.playing = false;
-      this.caption(null);
+      this.setState({ speaking: false, audible: false, id: null, text: null });
       return;
     }
     this.playing = true;
-    this.caption(VOICE_LINES[id]);
     const minShow = new Promise((r) => setTimeout(r, Math.min(3200, 900 + VOICE_LINES[id].length * 35)));
     let spoken: Promise<void> | null = null;
     if (voiceEnabled() && !this.missing.has(id)) {
       try {
         const engine = getSoundEngine();
         const buf = await Promise.race([engine.loadBuffer(voiceUrl(id)), new Promise<null>((r) => setTimeout(() => r(null), 1500))]);
-        if (buf) spoken = engine.playVoiceClip(buf);
+        if (buf) spoken = engine.playVoiceClip(buf, 1, this.getAnalyser());
         else this.missing.add(id);
       } catch {
         this.missing.add(id);
       }
     }
+    this.setState({ speaking: true, audible: !!spoken, id, text: VOICE_LINES[id] });
     // mai bloccati: un clip lunghissimo o rotto non ferma la coda oltre 12 s
     await Promise.race([Promise.all([spoken ?? Promise.resolve(), minShow]), new Promise((r) => setTimeout(r, 12_000))]);
     void this.next();

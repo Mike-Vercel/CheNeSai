@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ExitButton } from "@/features/game/components/ExitButton";
 import type { DifficultyChoice, PsycoPrivateView, PsycoPublicState, SecretRule } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { PsycoNarratorSlot } from "./NarratorSlot";
 import { HostBar, ScreenPanel, StartPanel } from "./HostControls";
 import { CandidateVote, DifficultyVote, DontLook, ErrorNote, GuessVote, ProposalForm, ProposalVote, useActions } from "./panels";
 import { usePsyco } from "./use-psyco";
@@ -68,6 +69,7 @@ export function RoomApp({ roomId }: { roomId: string }) {
       <LinkBadge status={status} />
       {state.phase === "PLAYING" && state.round && <CountdownOverlay timer={state.round.timer} now={now} />}
       <div className="flex w-full flex-col items-center gap-6">
+        {view.isHost && !state.displayOnline && <PsycoNarratorSlot size="sm" />}
         <HostOffline state={state} view={view} onClaim={() => void run({ action: "claim_host" })} />
         <ErrorNote error={actError} onClose={clearError} />
         <Phase state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} />

@@ -5,8 +5,9 @@
  *   npm run psyco:voci                       (cerca ./REFERENCE)
  *   npm run psyco:voci -- --ref ../QUIZZONE/REFERENCE
  *
- * Voci:  REFERENCE/AUDIO/PSYCO/<id>.mp3            → public/audio/psyco/<id>.mp3
- * Musica: REFERENCE/COLONNE_SONORE_GIOCHI/PSYCO.mp3 → public/audio/psyco/tema.mp3
+ * Voci:   REFERENCE/GIOCHI/PSYCO/AUDIO/NARRATORE/<id>.mp3   → public/audio/psyco/<id>.mp3
+ * Musica: REFERENCE/GIOCHI/PSYCO/COLONNE_SONORE/PSYCO.mp3  → public/audio/psyco/tema.mp3
+ * (vecchi percorsi REFERENCE/AUDIO/PSYCO e REFERENCE/COLONNE_SONORE_GIOCHI ancora accettati)
  *
  * Con ffmpeg disponibile: volume normalizzato (loudnorm EBU R128: voci -16 LUFS, musica -20 LUFS),
  * mp3 128 kbps, musica con dissolvenza in entrata/uscita (si ripete in loop senza scatti).
@@ -20,8 +21,10 @@ const args = process.argv.slice(2);
 const refArg = args.indexOf("--ref");
 const REF = path.resolve(refArg >= 0 ? args[refArg + 1] : "REFERENCE");
 const OUT = path.resolve("public/audio/psyco");
-const VOICES = path.join(REF, "AUDIO", "PSYCO");
-const MUSIC = path.join(REF, "COLONNE_SONORE_GIOCHI", "PSYCO.mp3");
+// percorsi attuali (REFERENCE organizzata per gioco, vedi REFERENCE/LEGGIMI.md), con ripiego sui vecchi
+const firstExisting = (...p) => p.find((x) => existsSync(x)) ?? p[0];
+const VOICES = firstExisting(path.join(REF, "GIOCHI", "PSYCO", "AUDIO", "NARRATORE"), path.join(REF, "AUDIO", "PSYCO"));
+const MUSIC = firstExisting(path.join(REF, "GIOCHI", "PSYCO", "COLONNE_SONORE", "PSYCO.mp3"), path.join(REF, "COLONNE_SONORE_GIOCHI", "PSYCO.mp3"));
 
 // id attesi, letti dal narratore (unica fonte)
 const src = readFileSync(path.resolve("src/features/psyco/narrator.ts"), "utf8");

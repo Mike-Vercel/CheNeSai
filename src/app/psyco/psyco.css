@@ -9,6 +9,9 @@
 }
 
 .psy-root {
+  /* i caratteri di next/font sono definiti su questo elemento: le variabili vanno risolte qui */
+  --font-psyco: var(--font-psyco-title), "Rubik Dirt", Impact, system-ui, sans-serif;
+  --font-type: var(--font-psyco-type), "Special Elite", "Courier New", monospace;
   position: relative;
   isolation: isolate;
   background:
