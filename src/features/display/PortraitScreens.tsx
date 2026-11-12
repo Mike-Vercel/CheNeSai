@@ -16,6 +16,7 @@ import { Equalizer, Pill, questionRoundLabel, roundIntroTagline, showLineBubble,
 import { TrioSlot } from "./TvTrio";
 import { useRevealHeld } from "./reveal-hold";
 import { useHeldSpeech } from "@/features/media/voice";
+import { useAnswerKeys } from "@/features/shared/keyboard";
 
 /**
  * Lo show sul TELEFONO in verticale (1080×1920, modalità B del gioco libero): le stesse schermate
@@ -188,6 +189,16 @@ export function PortraitQuestionScreen({
   const mine = seat?.selected ?? [];
   const locked = seat?.status === "recorded" || seat?.status === "sending";
   const multiple = q.type === "multiple";
+  // dal PC con la finestra stretta: anche qui i tasti 1–4 e Invio (vedi features/shared/keyboard)
+  useAnswerKeys({
+    enabled: !!seat && open && !locked && !revealed && optionsVisible,
+    count: q.options?.length ?? 0,
+    onPick: (i) => {
+      const o = q.options?.[i];
+      if (o) seat?.toggle(o.position);
+    },
+    onConfirm: multiple && seat ? () => mine.length > 0 && seat.confirm() : null,
+  });
 
   const visual = (pos: number): AnswerVisual => {
     if (revealed) {
@@ -351,6 +362,14 @@ export function PortraitVoteScreen({ vote, round, phase, remainingMs }: { vote: 
   const mine = seat?.voteOptionId ?? null;
   const open = phase === "CATEGORY_VOTING" && remainingMs > 0 && !mine && seat?.voteStatus !== "sending";
   const winner = vote.options.find((o) => o.id === vote.winnerOptionId) ?? null;
+  useAnswerKeys({
+    enabled: !!seat && open,
+    count: vote.options.length,
+    onPick: (i) => {
+      const o = vote.options[i];
+      if (o) seat?.vote(o.id);
+    },
+  });
   const max = Math.max(1, ...vote.options.map((o) => o.votes ?? 0));
   return (
     <TvFrame calm>

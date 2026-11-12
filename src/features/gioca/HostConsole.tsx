@@ -203,6 +203,15 @@ export function HostConsole({ sessionId, displayKey, canCreateMore }: { sessionI
                 <p className="mt-1 break-all text-sm font-bold text-white/70">{joinUrl.replace(/^https?:\/\//, "")}</p>
               </div>
             </div>
+            {!handheld && phase !== "FINISHED" && (
+              <Link href={`/gioca/online/${sessionId}`} className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-white/8 px-4 py-3 text-sm font-black text-white hover:bg-white/15">
+                <span>
+                  🌐 Amici a distanza? Passa all&apos;ONLINE
+                  <span className="block text-xs font-bold text-white/60">Ognuno gioca dal suo dispositivo (PC, telefono, tablet) con il suo account, e tu giochi da questo PC</span>
+                </span>
+                <span aria-hidden>→</span>
+              </Link>
+            )}
           </section>
 
           <section className="rounded-[28px] bg-coal-1 p-5 ring-1 ring-white/8 md:p-7">

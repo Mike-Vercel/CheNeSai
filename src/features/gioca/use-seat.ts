@@ -55,19 +55,30 @@ export function useSeat(code: string | null, state: PublicState | null, slot: st
   const [local, setLocal] = useState<Local>({ qid: null, selected: [], status: "idle", error: null });
   const [voteLocal, setVoteLocal] = useState<{ roundId: string; optionId: string | null; status: SeatStatus; error: string | null } | null>(null);
   const busy = useRef(false);
+  /** richiesta arrivata mentre un'altra era in corso (es. subito dopo l'ingresso): si rifà alla fine */
+  const again = useRef(false);
 
   const refresh = useCallback(async () => {
-    if (!code || busy.current) return;
+    if (!code) return;
+    if (busy.current) {
+      again.current = true;
+      return;
+    }
     busy.current = true;
     try {
-      const r = await api<{ self: PlayerSelf }>(`/api/play/${code}/me${slot ? `?slot=${slot}` : ""}`);
-      setSelf(r.self);
-      setJoined("yes");
-    } catch (e) {
-      if (e instanceof ApiError && (e.status === 401 || e.status === 403 || e.status === 404)) {
-        setJoined("no");
-        setSelf(null);
-      }
+      do {
+        again.current = false;
+        try {
+          const r = await api<{ self: PlayerSelf }>(`/api/play/${code}/me${slot ? `?slot=${slot}` : ""}`);
+          setSelf(r.self);
+          setJoined("yes");
+        } catch (e) {
+          if (e instanceof ApiError && (e.status === 401 || e.status === 403 || e.status === 404)) {
+            setJoined("no");
+            setSelf(null);
+          }
+        }
+      } while (again.current);
     } finally {
       busy.current = false;
     }

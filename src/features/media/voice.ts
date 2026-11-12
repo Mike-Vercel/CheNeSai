@@ -144,6 +144,7 @@ class VoiceEngine {
   setDisplayCredentials(sessionId: string, displayKey: string) {
     this.creds = { s: sessionId, k: displayKey };
     this.player = null;
+    this.stream = null;
   }
 
   /**
@@ -153,8 +154,20 @@ class VoiceEngine {
   setPlayerCredentials(code: string, slot: string | null) {
     this.player = { code, slot };
     this.creds = null;
+    this.stream = null;
   }
   private player: { code: string; slot: string | null } | null = null;
+
+  /**
+   * VISTA LIVE (finestra per OBS): voci della partita senza codice né chiave dello schermo
+   * (/api/live/[sessionId]/tts, autorizzata dal cookie del giocatore o dall'account dell'host).
+   */
+  setStreamCredentials(sessionId: string, token: string | null = null) {
+    this.stream = { sessionId, token };
+    this.player = null;
+    this.creds = null;
+  }
+  private stream: { sessionId: string; token: string | null } | null = null;
 
   init() {
     if (typeof window !== "undefined") {
@@ -335,9 +348,13 @@ class VoiceEngine {
    */
   private prefetchClip(who: TtsRole, text: string, live: boolean): Promise<string | null> {
     return this.providerReady.then(async (provider) => {
-      if (provider !== "elevenlabs" || (!this.creds && !this.player)) return null;
+      if (provider !== "elevenlabs" || (!this.creds && !this.player && !this.stream)) return null;
       let endpoint: string;
-      if (this.player) {
+      if (this.stream) {
+        const qs = new URLSearchParams({ who, text });
+        if (this.stream.token) qs.set("t", this.stream.token);
+        endpoint = `/api/live/${this.stream.sessionId}/tts?${qs.toString()}`;
+      } else if (this.player) {
         const qs = new URLSearchParams({ code: this.player.code, who, text });
         if (this.player.slot) qs.set("slot", this.player.slot);
         endpoint = `/api/play/tts?${qs.toString()}`;

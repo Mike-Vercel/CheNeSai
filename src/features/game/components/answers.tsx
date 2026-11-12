@@ -19,7 +19,11 @@ export const ANSWER_STYLES = [
 
 export type AnswerVisual = "idle" | "selected" | "locked" | "correct" | "wrong" | "dimmed" | "missed";
 
-/** Barra risposta (TV e anteprime). */
+/**
+ * Barra risposta (TV e anteprime). Con `onPress` diventa un pulsante vero (show interattivo dal PC:
+ * clic, Tab + Invio/Spazio con l'anello di fuoco visibile, tasto numerico indicato da `keyHint`);
+ * senza resta la barra del TV di sempre, identica.
+ */
 export function AnswerBar({
   position,
   text,
@@ -27,6 +31,12 @@ export function AnswerBar({
   size = "tv",
   trailing,
   delayIndex = 0,
+  onPress,
+  disabled = false,
+  keyHint = null,
+  shortcut = null,
+  multiple = false,
+  dense = false,
 }: {
   position: number;
   text: string;
@@ -34,10 +44,23 @@ export function AnswerBar({
   size?: "tv" | "md";
   trailing?: ReactNode;
   delayIndex?: number;
+  /** risposta da cliccare (chi gioca dallo show) */
+  onPress?: () => void;
+  disabled?: boolean;
+  /** tasto della scorciatoia mostrato sulla barra (es. "1"), solo mentre si può rispondere */
+  keyHint?: string | null;
+  /** tasto della scorciatoia per i lettori di schermo (aria-keyshortcuts), sempre */
+  shortcut?: string | null;
+  /** risposta multipla: casella di spunta (solo se si può cliccare) */
+  multiple?: boolean;
+  /** barre un po' più basse (show interattivo: sotto c'è lo stato della risposta) */
+  dense?: boolean;
 }) {
   const st = ANSWER_STYLES[position];
-  return (
-    <div className="relative">
+  const interactive = !!onPress;
+  const selected = visual === "selected" || visual === "locked";
+  const inner = (
+    <>
       {/* bagliore della risposta giusta: pulsa solo l'opacità di un alone fisso (lavoro del compositore);
           il drop-shadow animato di animate-pulse-glow ridisegnava la barra a ogni frame */}
       {visual === "correct" && (
@@ -53,25 +76,30 @@ export function AnswerBar({
       <div
         className={clsx(
           "relative flex items-center overflow-hidden rounded-full border-4 transition-all duration-500 animate-pop-in",
-          size === "tv" ? "min-h-[7.4cqh] gap-[1.2cqw] pr-[2cqw]" : "min-h-14 gap-3 pr-4",
+          size === "tv" ? clsx(dense ? "min-h-[6.6cqh]" : "min-h-[7.4cqh]", "gap-[1.2cqw] pr-[2cqw]") : "min-h-14 gap-3 pr-4",
           visual === "dimmed" && "opacity-35 saturate-50",
           visual === "wrong" && "opacity-40 grayscale",
           visual === "correct" && "scale-[1.03]",
+          selected && "scale-[1.02]",
         )}
         style={{
           background: st.bg,
-          borderColor: visual === "correct" ? "#ffd43b" : "rgba(255,212,59,.85)",
+          borderColor: visual === "correct" ? "#ffd43b" : selected ? "#ffffff" : "rgba(255,212,59,.85)",
           boxShadow:
             visual === "correct"
               ? "0 0 0 4px #fff, 0 0 40px 8px rgba(255,212,59,.9)"
-              : `0 6px 0 ${st.edge}, 0 10px 24px rgba(0,0,0,.45)`,
+              : selected
+                ? `0 0 0 4px ${st.ring}, 0 0 30px 6px ${st.ring}`
+                : visual === "missed"
+                  ? `0 0 0 4px rgba(255,212,59,.75), 0 6px 0 ${st.edge}`
+                  : `0 6px 0 ${st.edge}, 0 10px 24px rgba(0,0,0,.45)`,
           animationDelay: `${delayIndex * 90}ms`,
         }}
       >
         <span
           className={clsx(
             "grid shrink-0 place-items-center rounded-full border-4 border-[#ffd43b] bg-gradient-to-b from-[#fff3a6] to-[#ffb800] font-display text-ink",
-            size === "tv" ? "ml-[0.5cqw] h-[6cqh] w-[6cqh] text-[3.8cqh]" : "ml-1 h-11 w-11 text-2xl",
+            size === "tv" ? (dense ? "ml-[0.5cqw] h-[5.4cqh] w-[5.4cqh] text-[3.4cqh]" : "ml-[0.5cqw] h-[6cqh] w-[6cqh] text-[3.8cqh]") : "ml-1 h-11 w-11 text-2xl",
           )}
         >
           {LETTERS[position]}
@@ -84,10 +112,47 @@ export function AnswerBar({
         >
           {text}
         </span>
+        {interactive && multiple && (
+          <span
+            aria-hidden
+            className={clsx(
+              "grid shrink-0 place-items-center rounded-[0.8cqh] border-[0.35cqh] border-white font-black",
+              size === "tv" ? "h-[4.4cqh] w-[4.4cqh] text-[3cqh]" : "h-8 w-8 text-xl",
+              selected ? "bg-white text-ink" : "bg-black/20 text-transparent",
+            )}
+          >
+            ✓
+          </span>
+        )}
+        {interactive && !multiple && selected && <span className={clsx("shrink-0 font-display text-white", size === "tv" ? "text-[3.2cqh]" : "text-2xl")}>●</span>}
         {visual === "correct" && <span className={clsx("font-display text-gold", size === "tv" ? "text-[3.6cqh]" : "text-2xl")}>✓</span>}
         {trailing}
+        {keyHint && (
+          <kbd
+            aria-hidden
+            className={clsx(
+              "shrink-0 rounded-[0.8cqh] border-b-[0.4cqh] border-black/40 bg-black/35 font-display leading-none text-white/95",
+              size === "tv" ? "px-[1cqh] py-[0.5cqh] text-[2.4cqh]" : "px-2 py-1 text-sm",
+            )}
+          >
+            {keyHint}
+          </kbd>
+        )}
       </div>
-    </div>
+    </>
+  );
+  if (!interactive) return <div className="relative">{inner}</div>;
+  return (
+    <button
+      type="button"
+      onClick={onPress}
+      disabled={disabled}
+      aria-pressed={selected}
+      aria-keyshortcuts={shortcut ?? keyHint ?? undefined}
+      className="relative block w-full rounded-full text-left outline-none transition focus-visible:ring-[0.7cqh] focus-visible:ring-cyan focus-visible:ring-offset-[0.5cqh] focus-visible:ring-offset-night enabled:hover:-translate-y-[0.3cqh] enabled:active:translate-y-[0.3cqh] disabled:cursor-default"
+    >
+      {inner}
+    </button>
   );
 }
 
@@ -99,6 +164,7 @@ export function AnswerButton({
   multiple,
   disabled,
   onPress,
+  keyHint = null,
 }: {
   position: number;
   text: string;
@@ -106,6 +172,8 @@ export function AnswerButton({
   multiple: boolean;
   disabled: boolean;
   onPress: () => void;
+  /** tasto della scorciatoia (dal PC), es. "1" */
+  keyHint?: string | null;
 }) {
   const st = ANSWER_STYLES[position];
   const selected = visual === "selected" || visual === "locked";
@@ -115,8 +183,9 @@ export function AnswerButton({
       onClick={onPress}
       disabled={disabled}
       aria-pressed={selected}
+      aria-keyshortcuts={keyHint ?? undefined}
       className={clsx(
-        "relative flex min-h-[64px] w-full items-center gap-3 rounded-2xl border-4 py-2 pl-2 pr-3 text-left transition active:translate-y-[3px] active:shadow-none disabled:active:translate-y-0",
+        "relative flex min-h-[64px] w-full items-center gap-3 rounded-2xl border-4 py-2 pl-2 pr-3 text-left outline-none transition focus-visible:ring-4 focus-visible:ring-cyan active:translate-y-[3px] active:shadow-none disabled:active:translate-y-0",
         visual === "dimmed" && "opacity-40",
         visual === "wrong" && "opacity-45 grayscale",
         visual === "missed" && "ring-4 ring-gold/70",
@@ -147,6 +216,11 @@ export function AnswerButton({
       )}
       {!multiple && selected && <span className="shrink-0 font-display text-2xl text-white">●</span>}
       {visual === "correct" && <span className="shrink-0 font-display text-2xl text-gold">✓</span>}
+      {keyHint && (
+        <kbd aria-hidden className="shrink-0 rounded-md border-b-2 border-black/40 bg-black/35 px-2 py-1 font-display text-sm leading-none text-white/95">
+          {keyHint}
+        </kbd>
+      )}
     </button>
   );
 }

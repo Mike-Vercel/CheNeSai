@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import type { GamePhase, PublicState } from "@/lib/game-engine/types";
 import {
+  type LobbyVariant,
   TvAnswerPointsScreen,
   TvBetResultsScreen,
   TvLeaderboardScreen,
@@ -41,6 +42,11 @@ export interface TvStageProps {
   lowPower?: boolean;
   /** cartello "DOMANDA N. X" in scena: la domanda non è ancora comparsa */
   questionIntro?: boolean;
+  /**
+   * Come si mostra lo show: "tv" il TV in salotto; "online" lo show interattivo sul PC (si gioca
+   * cliccando sullo show); "stream" la vista per la LIVE (niente codice, QR né link).
+   */
+  variant?: LobbyVariant;
 }
 
 /**
@@ -61,12 +67,12 @@ export function LandscapeScreen(props: TvStageProps) {
   return <StageScreen {...props} />;
 }
 
-function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now, live = false, onCelebrate, reducedMotion = false, lowPower = false, questionIntro = false }: TvStageProps) {
+function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, audioState = "idle", intro, now = Date.now, live = false, onCelebrate, reducedMotion = false, lowPower = false, questionIntro = false, variant = "tv" }: TvStageProps) {
   if (!view) return <TvMessageScreen title="Collegamento allo studio…" />;
   const vp: GamePhase = view.phase === "PAUSED" && view.pausedFrom ? view.pausedFrom : view.phase;
   const mode = teamMode(view);
   if (vp === "DRAFT" || vp === "READY" || vp === "LOBBY")
-    return <TvLobbyScreen state={view} qrDataUrl={qrDataUrl} joinUrl={joinUrl} extra={view.teams ? <TvLobbyTeams teams={view.teams} /> : undefined} />;
+    return <TvLobbyScreen state={view} qrDataUrl={qrDataUrl} joinUrl={joinUrl} variant={variant} extra={view.teams && variant !== "online" ? <TvLobbyTeams teams={view.teams} /> : undefined} />;
   // modalità squadre: classifica a squadre ("both": squadre + giocatori)
   const teamBoard = (title: string) =>
     view.teams && mode !== "individual" ? (
@@ -90,7 +96,7 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
   if ((vp === "ROUND_INTRO" || vp === "CATEGORY_VOTING" || vp === "CATEGORY_RESULT") && view.round) {
     if (vp !== "ROUND_INTRO" && view.vote) {
       const total = view.vote.closesAt && view.vote.openedAt ? Date.parse(view.vote.closesAt) - Date.parse(view.vote.openedAt) : 15000;
-      return <TvVotingScreen vote={view.vote} remainingMs={remainingMs} totalMs={total} phase={vp} />;
+      return <TvVotingScreen vote={view.vote} remainingMs={remainingMs} totalMs={total} phase={vp} paused={view.phase === "PAUSED"} />;
     }
     return <TvRoundIntroScreen round={view.round} vote={view.vote} showLines={vp === "ROUND_INTRO" ? view.showLines : null} />;
   }
@@ -98,12 +104,14 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
   if (view.question && vp === "QUESTION_VISIBLE" && questionIntro) return <QuestionIntroScreen question={view.question} round={view.round} />;
   if (view.question && (vp === "QUESTION_VISIBLE" || vp === "OPTIONS_VISIBLE" || vp === "ANSWERS_LOCKED" || vp === "ANSWER_REVEAL")) {
     const m = view.question.media;
+    const openedAt = vp === "OPTIONS_VISIBLE" ? view.question.openedAt : null;
     return (
       <TvQuestionScreen
         question={view.question}
         round={view.round}
-        phase={vp}
+        phase={view.phase === "PAUSED" ? "PAUSED" : vp}
         remainingMs={vp === "OPTIONS_VISIBLE" ? remainingMs : 0}
+        startsInMs={openedAt && view.phase !== "PAUSED" ? Math.max(0, Date.parse(openedAt) - now()) : 0}
         event={view.event}
         mediaUrl={m && m.kind !== "audio" ? mediaUrl(m.id) : null}
         questionsPlayed={view.questionsPlayed}

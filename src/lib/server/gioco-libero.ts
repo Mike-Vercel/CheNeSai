@@ -329,21 +329,26 @@ export async function rematchPublicGame(host: HostUser, oldSessionId: string, ra
     await tx`update game_sessions set display_mode = (select display_mode from game_sessions where id = ${oldSessionId}) where id = ${r.sessionId}`;
 
     // giocatori: stesso nickname, punti a zero; il token del telefono passa al nuovo partecipante
-    const players = await tx<{ id: string; identity_id: string | null; nickname: string; nickname_key: string; token_hash: string; gender: string | null }[]>`
-      select id, identity_id, nickname, nickname_key, token_hash, gender from participants
+    const players = await tx<{ id: string; identity_id: string | null; nickname: string; nickname_key: string; token_hash: string; gender: string | null; user_id: string | null }[]>`
+      select id, identity_id, nickname, nickname_key, token_hash, gender, user_id from participants
       where session_id = ${oldSessionId} and status = 'active' and not is_bot
       order by joined_at`;
     if (players.length > 0) {
       await tx`update participants set token_hash = 'rivincita:' || id::text where id = any(${players.map((p) => p.id)}::uuid[])`;
       const inserted = await tx<{ id: string }[]>`
-        insert into participants (session_id, identity_id, nickname, nickname_key, token_hash, gender)
-        select ${r.sessionId}::uuid, o.identity_id, o.nickname, o.nickname_key, o.token_hash, o.gender
+        insert into participants (session_id, identity_id, nickname, nickname_key, token_hash, gender, user_id)
+        select ${r.sessionId}::uuid, o.identity_id, o.nickname, o.nickname_key, o.token_hash, o.gender, o.user_id
         from unnest(${players.map((p) => p.identity_id)}::uuid[], ${players.map((p) => p.nickname)}::text[],
                     ${players.map((p) => p.nickname_key)}::text[], ${players.map((p) => p.token_hash)}::text[],
-                    ${players.map((p) => p.gender)}::text[])
-          as o(identity_id, nickname, nickname_key, token_hash, gender)
+                    ${players.map((p) => p.gender)}::text[], ${players.map((p) => p.user_id)}::uuid[])
+          as o(identity_id, nickname, nickname_key, token_hash, gender, user_id)
         returning id`;
       await tx`insert into score_totals (participant_id, session_id) select unnest(${inserted.map((x) => x.id)}::uuid[]), ${r.sessionId}::uuid`;
+      // partite online: anche gli altri dispositivi dello stesso account (PC + telefono) passano alla rivincita
+      await tx`
+        update participant_devices d set participant_id = n.id
+        from participants o join participants n on n.session_id = ${r.sessionId} and n.nickname_key = o.nickname_key
+        where d.participant_id = o.id and o.session_id = ${oldSessionId}`;
     }
     return { ...r, code: old.code, carried: players.length, existing: false as const };
   });

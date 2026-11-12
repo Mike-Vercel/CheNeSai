@@ -154,6 +154,40 @@ schermo intero dove il browser lo consente (Android sì, iPhone no).
 **Invita amici**: condivisione del sistema (WhatsApp, Telegram…) con link `/play/CODICE`; in più
 WhatsApp diretto (`wa.me`), copia link e QR. C'è anche nel foglio impostazioni del TV dal computer.
 
+## Partita ONLINE (anche dal PC)
+
+`display_mode = 'phone'` è la partita **ONLINE**: lo show completo è su ogni dispositivo e ognuno gioca
+dal suo (PC, telefono, tablet), anche a distanza.
+- **Dal PC**: in «Nuova partita» si sceglie «ONLINE — ognuno gioca dal suo dispositivo» (il TV in
+  salotto resta la scelta predefinita) → `/gioca/online/[id]`. Dal pannello dell'host (TV su un altro
+  schermo) c'è «Passa all'ONLINE». Dal telefono resta «Su questo telefono» (`/gioca/telefono/[id]`).
+- **Show interattivo orizzontale**: su PC e tablet in orizzontale (finestra ≥ 900×520 e larga almeno
+  1,2 volte l'altezza: `src/features/shared/device.ts`) lo show è quello del TV, con le risposte da
+  cliccare (o **tasti 1–4**, **Invio** per confermare le multiple, Tab + Spazio con l'anello di fuoco),
+  la materia da votare (1–3), l'esito e i punti dopo la soluzione, il proprio nome evidenziato nelle
+  classifiche e i propri punti in alto a destra. Telefoni e finestre strette: lo show verticale di sempre.
+  I tasti non scattano mai con il fuoco in un campo di testo o nel menu (`src/features/shared/keyboard.ts`,
+  riusabile dagli altri giochi). Anche il telefono-telecomando delle partite col TV accetta 1–4 dal PC.
+- **Account obbligatorio** (solo online, mai in salotto): chi entra da `/play/CODICE` deve avere fatto
+  l'accesso (`ACCOUNT_REQUIRED`, la pagina porta a `/accedi?next=/play/CODICE`). Un account = un
+  giocatore per partita (`participants.user_id`, indice unico): rientrando con lo stesso account da un
+  altro dispositivo si ritrova lo stesso giocatore con i suoi punti e il dispositivo di prima resta
+  collegato (`participant_devices`). Se una partita passa da TV a online con giocatori già dentro col
+  nickname, **non vengono espulsi**: il loro cookie vale ancora e rientrano dallo stesso dispositivo;
+  l'account serve solo a chi entra da nuovo (se poi fanno l'accesso dallo stesso dispositivo il loro
+  posto si lega all'account). Le serate di prova della regia (`is_test`) sono escluse.
+- **Host che sparisce**: se la scheda dell'host si chiude o perde la rete, i dispositivi dei giocatori
+  chiedono il passo di riserva (`POST /api/play/[code]/tick`, cookie del giocatore): il server lo esegue
+  solo se il passo è in ritardo di almeno 6 s (`FALLBACK_GRACE_MS`), con gli stessi controlli dello
+  scorrimento automatico (idempotente, una volta sola anche con tanti giocatori). L'host che riapre la
+  partita la ritrova e continua.
+- **Vista per la LIVE** (`/gioca/live/[sessionId]`): finestra a parte con lo show pulito in 16:9 da
+  catturare con OBS / TikTok LIVE Studio (Cattura finestra, oppure Sorgente browser con l'indirizzo
+  copiato, che contiene un gettone firmato valido solo per la vista e per le rivincite). Mai codice,
+  QR, link, comandi, puntatore, né la risposta scelta prima della soluzione; `?audio=0` = muta.
+  La apre un giocatore della partita (cookie) o l'host (account). Esempio: due creator, ognuno sul suo
+  PC, giocano in una finestra e catturano l'altra.
+
 ## Chiusura automatica dopo 24 ore
 
 Le partite **libere** (mai le serate della regia) non finite e senza attività da 24 ore (stato di
@@ -175,6 +209,10 @@ npm run deploy:migrate
 applica `20261111190000_gioco_libero.sql` (tabella `host_profiles`, `game_sessions.host_user_id`,
 `question_plays.host_user_id`, trigger aggiornato, registri append-only che consentono la cancellazione
 degli account). È idempotente.
+
+Le partite ONLINE con account richiedono anche `20261113100000_partite_online_account.sql`
+(`participants.user_id` con indice unico per partita, tabella `participant_devices`): solo aggiunte,
+idempotente. Va applicata PRIMA di pubblicare il codice che la usa.
 
 ### 2. Registrazioni con email
 

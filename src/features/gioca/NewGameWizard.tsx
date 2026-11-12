@@ -75,6 +75,8 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
   const maxR = maxRoundsFor(total);
   // dal telefono (o tablet) si sceglie DOPO dove giocare: televisore o questo telefono
   const handheld = useDeviceKind() === "handheld";
+  // dal PC: in salotto col TV (predefinito) oppure ONLINE, ognuno dal suo dispositivo
+  const [where, setWhere] = useState<"tv" | "online">("tv");
 
   function pickTotal(t: number) {
     setTotal(t);
@@ -86,6 +88,10 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
     setError(null);
     if (handheld) {
       await createFromPhone();
+      return;
+    }
+    if (where === "online") {
+      await createOnline();
       return;
     }
     // TV dritto dopo la creazione: finestra sull'altro schermo o schermo intero qui (serve questo clic)
@@ -102,6 +108,23 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
       router.push(completeTvLaunch(launch, d.sessionId));
     } catch {
       cancelTvLaunch(launch);
+      setError("Connessione assente, riprova");
+      setBusy(false);
+    }
+  }
+
+  /** ONLINE dal PC: niente TV; lo show (orizzontale) si apre qui e l'host gioca da questa finestra. */
+  async function createOnline() {
+    try {
+      const r = await fetch("/api/gioca/games", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ totalQuestions: total, rounds, mix }) });
+      const d = (await r.json().catch(() => null)) as { sessionId?: string; error?: { message?: string } } | null;
+      if (!r.ok || !d?.sessionId) {
+        setError(d?.error?.message ?? "Creazione non riuscita, riprova");
+        setBusy(false);
+        return;
+      }
+      router.push(`/gioca/online/${d.sessionId}`);
+    } catch {
       setError("Connessione assente, riprova");
       setBusy(false);
     }
@@ -148,7 +171,40 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
           📺 Dopo scegli dove giocare: sul <span className="text-white">televisore</span> (il telefono fa da telecomando) oppure tutto su <span className="text-white">questo telefono</span>.
         </p>
       ) : (
-        <ScreenChoiceField tone="public" />
+        <>
+          <fieldset>
+            <legend className="text-lg font-black text-white">Dove si gioca?</legend>
+            <div className="mt-3 grid gap-3 md:grid-cols-2">
+              {(
+                [
+                  ["tv", "📺 Sul TV, in salotto", "Lo show va sul televisore (o su questo schermo), gli amici rispondono dal telefono con un nickname."],
+                  ["online", "🌐 ONLINE — ognuno gioca dal suo dispositivo", "PC, telefono o tablet, anche a distanza: lo show è su ogni schermo e tu giochi da qui. Ognuno entra con il suo account."],
+                ] as const
+              ).map(([v, title, hint]) => (
+                <button
+                  key={v}
+                  type="button"
+                  aria-pressed={where === v}
+                  onClick={() => setWhere(v)}
+                  className={clsx(
+                    "flex flex-col gap-1 rounded-2xl p-4 text-left ring-2 transition outline-none focus-visible:ring-4 focus-visible:ring-cyan",
+                    where === v ? "bg-gold/15 ring-gold" : "bg-coal-3 ring-transparent hover:bg-coal-4",
+                  )}
+                >
+                  <span className="font-display text-2xl leading-tight text-white">{title}</span>
+                  <span className="text-sm font-bold text-white/75">{hint}</span>
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          {where === "tv" ? (
+            <ScreenChoiceField tone="public" />
+          ) : (
+            <p className="rounded-2xl bg-white/6 px-4 py-3 text-sm font-bold text-white/80">
+              🎥 Fai una diretta? Dalla partita apri la <span className="text-white">Vista per la LIVE</span>: lo show pulito da catturare con OBS o TikTok LIVE Studio, senza codice né risposte in anticipo.
+            </p>
+          )}
+        </>
       )}
       <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-base font-bold text-white/85">

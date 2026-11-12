@@ -4,6 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { config } from "dotenv";
 import postgres from "postgres";
 import { devices, expect, test, type Browser, type BrowserContext, type Page } from "@playwright/test";
+import { cleanupUsers, login, makeUser } from "./pc-online-helpers";
 
 /**
  * Partita creata dal TELEFONO (390×844):
@@ -50,6 +51,7 @@ test.beforeAll(async () => {
 });
 
 test.afterAll(async () => {
+  await cleanupUsers();
   if (!userId) return;
   const sql = postgres(process.env.DATABASE_URL!, { prepare: false, max: 1 });
   try {
@@ -129,10 +131,14 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   const friend = await friendCtx.newPage();
   const friendErrors: string[] = [];
   friend.on("pageerror", (e) => friendErrors.push(e.message));
+  // partita con lo show sui telefoni = partita ONLINE: l'amico entra con il suo account
   await friend.goto(`/play/${code}`);
+  await expect(friend.getByText("Partita ONLINE")).toBeVisible({ timeout: 30_000 });
+  const amico = await makeUser("amico");
+  await login(friend, amico, `/play/${code}`);
+  await friend.waitForURL(new RegExp(`/play/${code}$`), { timeout: 60_000 });
   await friend.getByLabel("Scegli il tuo nickname").fill("Amico");
   await friend.getByRole("button", { name: "ENTRA E GIOCA!" }).click();
-  await friend.getByRole("button", { name: "ANDIAMO!" }).click();
   await expect(friend.getByText(/Sei dentro come Amico/)).toBeVisible({ timeout: 30_000 });
   await expect(friend.getByText("Guarda il TV!")).toHaveCount(0);
   await shot(friend, "B1b-amico-lobby");

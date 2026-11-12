@@ -1,5 +1,6 @@
 import { clientIp } from "@/lib/auth/admin";
 import { ok, readJson, route } from "@/lib/http";
+import { getAccountUserId } from "@/lib/server/account";
 import { joinSession } from "@/lib/server/players";
 import { readDeviceToken, writeDeviceToken, writePlayerToken } from "@/lib/server/player-cookies";
 import { scheduleNamePrewarm } from "@/lib/server/tts-names";
@@ -9,7 +10,8 @@ export const POST = route(async (req: Request) => {
   const body = await readJson(req, joinSchema);
   const result = await joinSession(
     { code: body.code, nickname: body.nickname, recoveryCode: body.recoveryCode || null, slot: body.slot ?? null, gender: body.gender },
-    { ip: await clientIp(), deviceToken: await readDeviceToken() },
+    // account del sito: obbligatorio solo nelle partite ONLINE (vedi isOnlineSession), ignorato in salotto
+    { ip: await clientIp(), deviceToken: await readDeviceToken(), userId: body.slot ? null : await getAccountUserId() },
   );
   await writePlayerToken(body.code, body.slot, result.participantToken);
   if (result.deviceToken) await writeDeviceToken(result.deviceToken);

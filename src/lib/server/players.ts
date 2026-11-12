@@ -25,6 +25,8 @@ export type PlayerErrorCode =
   | "INVALID_ANSWER"
   | "RATE_LIMITED"
   | "GAME_FULL"
+  /** partita ONLINE: per entrare serve il proprio account */
+  | "ACCOUNT_REQUIRED"
   /** voci per i telefoni: la partita si guarda sul TV */
   | "TV_MODE"
   /** voci per i telefoni: battuta non prevista in questo momento della partita */
@@ -129,14 +131,30 @@ export interface JoinResult {
   rejoined: boolean;
 }
 
-export async function joinSession(input: JoinInput, ctx: { ip: string | null; deviceToken: string | null }): Promise<JoinResult> {
+/**
+ * Partita ONLINE: lo show è su ogni dispositivo (display_mode "phone") e i giocatori possono essere
+ * anche a distanza, quindi ognuno entra con il SUO account (un partecipante per account, ritrovato da
+ * qualunque dispositivo). Le serate di prova della regia (is_test, posti "slot") restano escluse.
+ * Nelle partite col TV in salotto si entra ancora con il solo nickname.
+ */
+export function isOnlineSession(s: { display_mode: string | null; is_test: boolean }): boolean {
+  return s.display_mode === "phone" && !s.is_test;
+}
+
+/** Dispositivi in più tenuti per lo stesso partecipante (i più vecchi si scollegano). */
+export const MAX_EXTRA_DEVICES = 6;
+
+export async function joinSession(
+  input: JoinInput,
+  ctx: { ip: string | null; deviceToken: string | null; /** account Supabase della richiesta (se ha fatto l'accesso) */ userId?: string | null },
+): Promise<JoinResult> {
   const sql = getSql();
   return sql.begin(async (tx) => {
     if (!(await checkRateLimit(tx, `join:${ctx.ip ?? "unknown"}`, 240, 60))) {
       throw new PlayerError("RATE_LIMITED", "Troppi tentativi, riprova tra qualche secondo");
     }
-    const [s] = await tx<{ id: string; status: string; is_test: boolean; settings: SessionSettings; phase: GamePhase }[]>`
-      select s.id, s.status, s.is_test, s.settings, gs.phase
+    const [s] = await tx<{ id: string; status: string; is_test: boolean; settings: SessionSettings; phase: GamePhase; display_mode: string | null }[]>`
+      select s.id, s.status, s.is_test, s.settings, gs.phase, s.display_mode
       from game_sessions s join game_state gs on gs.session_id = s.id
       where s.code = ${input.code.toUpperCase()}`;
     if (!s) throw new PlayerError("NOT_FOUND", "Codice sessione non valido");
@@ -146,6 +164,27 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
     if (s.status !== "live") throw new PlayerError("LOBBY_CLOSED", "La lobby non è ancora aperta: attendi il via dalla regia");
     const settings = effectiveSettings(await loadGlobalSettings(tx), s.settings);
     const slot = s.is_test ? (input.slot ?? null) : null;
+    const online = !slot && isOnlineSession(s);
+    // l'account conta solo nelle partite online (in salotto si resta col solo nickname, come sempre)
+    const userId = online ? (ctx.userId ?? null) : null;
+    const participantSecret = token();
+
+    // --- partita online: stesso account = stesso partecipante, da qualunque dispositivo ---
+    // (il dispositivo nuovo riceve un suo token: quello di prima resta collegato, niente doppioni)
+    if (userId) {
+      const [mine] = await tx<{ id: string; nickname: string; status: string }[]>`
+        select id, nickname, status from participants where session_id = ${s.id} and user_id = ${userId}`;
+      if (mine) {
+        if (mine.status !== "active") throw new PlayerError("KICKED", "Sei stato escluso da questa partita dalla regia");
+        const full = `${mine.id}.${participantSecret}`;
+        await tx`insert into participant_devices (token_hash, participant_id) values (${sha256(full)}, ${mine.id})`;
+        await tx`
+          delete from participant_devices where participant_id = ${mine.id} and token_hash not in (
+            select token_hash from participant_devices where participant_id = ${mine.id} order by created_at desc limit ${MAX_EXTRA_DEVICES})`;
+        await tx`update participants set last_seen_at = now() where id = ${mine.id}`;
+        return { participantId: mine.id, nickname: mine.nickname, sessionId: s.id, participantToken: full, deviceToken: null, recoveryCode: null, rejoined: true };
+      }
+    }
 
     // --- identità persistente (classifiche mensili/stagionali) ---
     let identityId: string | null = null;
@@ -173,7 +212,6 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
       }
     }
 
-    const participantSecret = token();
     // genere: scelta esplicita, altrimenti l'ultima della stessa identità (rientro con il codice giocatore)
     let gender: "m" | "f" | null = input.gender === "m" || input.gender === "f" ? input.gender : null;
     if (input.gender == null && identityId) {
@@ -182,13 +220,20 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
     }
 
     // --- rientro: stesso dispositivo/identità nella stessa sessione (il genere resta quello già scelto) ---
+    /** identità del dispositivo da legare al nuovo partecipante (null se è già di un altro account qui) */
+    let insertIdentity = identityId;
     if (identityId) {
-      const [existing] = await tx<{ id: string; nickname: string; status: string }[]>`
-        select id, nickname, status from participants where session_id = ${s.id} and identity_id = ${identityId}`;
-      if (existing) {
+      const [existing] = await tx<{ id: string; nickname: string; status: string; user_id: string | null }[]>`
+        select id, nickname, status, user_id from participants where session_id = ${s.id} and identity_id = ${identityId}`;
+      // partita online: questo dispositivo ha già giocato qui con un ALTRO account → non è un rientro
+      const otherAccount = online && !!existing?.user_id && existing.user_id !== userId;
+      if (existing && otherAccount) insertIdentity = null;
+      if (existing && !otherAccount) {
         if (existing.status !== "active") throw new PlayerError("KICKED", "Sei stato escluso da questa partita dalla regia");
         const full = `${existing.id}.${participantSecret}`;
         await tx`update participants set token_hash = ${sha256(full)}, last_seen_at = now() where id = ${existing.id}`;
+        // entrato col nickname prima che la partita diventasse online: da ora è legato al suo account
+        if (userId && !existing.user_id) await tx`update participants set user_id = ${userId} where id = ${existing.id}`;
         return {
           participantId: existing.id,
           nickname: existing.nickname,
@@ -212,12 +257,17 @@ export async function joinSession(input: JoinInput, ctx: { ip: string | null; de
       if (n >= settings.maxPlayers) throw new PlayerError("GAME_FULL", `La partita è al completo (massimo ${settings.maxPlayers} giocatori)`);
     }
 
+    // partita online: si entra solo con il proprio account (chi era già dentro col nickname resta: vedi sopra)
+    if (online && !userId) {
+      throw new PlayerError("ACCOUNT_REQUIRED", "Per giocare online entra con il tuo account: è gratis e lo usi sia dal PC sia dal telefono");
+    }
+
     const v = validateNickname(input.nickname, { minLength: settings.nicknameMinLength, maxLength: settings.nicknameMaxLength });
     if (!v.ok) throw new PlayerError("NICKNAME_INVALID", v.message, { issue: v.issue });
 
     const [p] = await tx<{ id: string }[]>`
-      insert into participants (session_id, identity_id, nickname, nickname_key, token_hash, gender)
-      values (${s.id}, ${identityId}, ${v.display}, ${v.key}, ${"pending:" + participantSecret}, ${gender})
+      insert into participants (session_id, identity_id, nickname, nickname_key, token_hash, gender, user_id)
+      values (${s.id}, ${insertIdentity}, ${v.display}, ${v.key}, ${"pending:" + participantSecret}, ${gender}, ${userId})
       on conflict (session_id, nickname_key) do nothing
       returning id`;
     if (!p) throw new PlayerError("NICKNAME_TAKEN", "Questo nickname è già in uso in questa partita: scegline un altro");
@@ -255,10 +305,18 @@ export async function authenticatePlayer(db: Db, code: string, rawToken: string 
   if (!rawToken || !/^[0-9a-f-]{36}\.[A-Za-z0-9_-]{20,}$/.test(rawToken)) {
     throw new PlayerError("NOT_JOINED", "Non sei ancora entrato in questa partita");
   }
-  const [p] = await db<{ id: string; session_id: string; nickname: string; status: string; code: string; is_test: boolean }[]>`
+  const hash = sha256(rawToken);
+  let [p] = await db<{ id: string; session_id: string; nickname: string; status: string; code: string; is_test: boolean }[]>`
     select p.id, p.session_id, p.nickname, p.status, s.code, s.is_test
     from participants p join game_sessions s on s.id = p.session_id
-    where p.token_hash = ${sha256(rawToken)}`;
+    where p.token_hash = ${hash}`;
+  // partita online: stesso account da un altro dispositivo (token in più dello stesso partecipante)
+  if (!p) {
+    [p] = await db<{ id: string; session_id: string; nickname: string; status: string; code: string; is_test: boolean }[]>`
+      select p.id, p.session_id, p.nickname, p.status, s.code, s.is_test
+      from participant_devices d join participants p on p.id = d.participant_id join game_sessions s on s.id = p.session_id
+      where d.token_hash = ${hash}`;
+  }
   if (!p || p.code !== code.toUpperCase()) throw new PlayerError("NOT_JOINED", "Sessione di gioco non valida: rientra con il tuo nickname");
   if (p.status !== "active") throw new PlayerError("KICKED", "Sei stato escluso da questa partita dalla regia");
   return { participantId: p.id, sessionId: p.session_id, nickname: p.nickname, isTest: p.is_test };

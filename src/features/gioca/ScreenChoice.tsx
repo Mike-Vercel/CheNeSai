@@ -82,7 +82,7 @@ export function ScreenChoice({ sessionId, code }: { sessionId: string; code: str
         <span className="min-w-0">
           <span className="block font-display text-3xl leading-none text-white">Su questo telefono</span>
           <span className="mt-1.5 block text-[15px] font-bold leading-snug text-white/75">Tutto lo show qui, in verticale: presentatori, voci e domande. E giochi anche tu.</span>
-          <span className="mt-1 block text-xs font-bold text-white/50">Gli amici entrano dal loro telefono con il link</span>
+          <span className="mt-1 block text-xs font-bold text-white/50">Anche ONLINE: gli amici entrano con il link dal loro telefono, PC o tablet, anche a distanza, con il loro account</span>
         </span>
       </button>
 

@@ -36,6 +36,9 @@ import { TrioSlot } from "./TvTrio";
 import { useRevealHeld } from "./reveal-hold";
 import { TrophyMoment } from "./Trophy";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
+import { useSeatContext, type Seat } from "@/features/gioca/use-seat";
+import { useAnswerKeys } from "@/features/shared/keyboard";
+import { useKeyHints } from "@/features/shared/device";
 
 /**
  * Personaggio del TV: modello 3D animato (con lip-sync) quando il PC lo regge,
@@ -176,9 +179,11 @@ export interface TvQuestionProps {
   audioState?: "idle" | "playing" | "done" | "error";
   /** battute del regista della fase (soluzione: reazione con la sua animazione) */
   showLines?: readonly PublicShowLine[] | null;
+  /** chi gioca dallo show: mentre il presentatore legge le risposte il tempo non è ancora partito */
+  startsInMs?: number;
 }
 
-export function TvQuestionScreen({ question: q, round, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle", showLines }: TvQuestionProps) {
+export function TvQuestionScreen({ question: q, round, phase, remainingMs, event, mediaUrl, questionsPlayed, totalQuestions, audioState = "idle", showLines, startsInMs = 0 }: TvQuestionProps) {
   // "La risposta giusta è…": la soluzione resta nascosta finché il presentatore non l'ha detto
   const held = useRevealHeld(q.id);
   const revealed = !!q.correctPositions && !held;
@@ -194,8 +199,35 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
   const totalAnswers = q.distribution?.reduce((a, b) => a + b, 0) ?? 0;
   const special = q.rules.special ?? null;
   const isBet = special?.kind === "bet";
+  // show interattivo (partita online dal PC): chi gioca risponde cliccando o con i tasti 1–4 (sul TV in salotto: null)
+  const seat = useSeatContext();
+  const keyHints = useKeyHints();
+  const mine = seat?.selected ?? [];
+  const locked = seat?.status === "recorded" || seat?.status === "sending";
+  const listening = !!seat && phase === "OPTIONS_VISIBLE" && startsInMs > 0;
+  const open = !!seat && phase === "OPTIONS_VISIBLE" && remainingMs > 0 && !listening && !revealed;
+  const multiple = q.type === "multiple";
+  const canAnswer = open && !locked && optionsVisible;
+  useAnswerKeys({
+    enabled: canAnswer,
+    count: q.options?.length ?? 0,
+    onPick: (i) => {
+      const o = q.options?.[i];
+      if (o) seat?.toggle(o.position);
+    },
+    onConfirm: multiple && seat ? () => mine.length > 0 && seat.confirm() : null,
+  });
 
   const visualFor = (pos: number): AnswerVisual => {
+    if (seat) {
+      if (revealed) {
+        if (q.correctPositions!.includes(pos)) return mine.includes(pos) ? "correct" : "missed";
+        return mine.includes(pos) ? "wrong" : "dimmed";
+      }
+      if (mine.includes(pos)) return locked ? "locked" : "selected";
+      if (!open || locked) return mine.length ? "dimmed" : "idle";
+      return "idle";
+    }
     if (!revealed) return "idle";
     return q.correctPositions!.includes(pos) ? "correct" : "dimmed";
   };
@@ -261,7 +293,7 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
           initial={{ y: -30, opacity: 0, scale: 0.96 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 160, damping: 18 }}
-          className="qz-question-card relative rounded-[3.2cqh] px-[4cqh] py-[3.2cqh] pr-[22cqh]"
+          className={clsx("qz-question-card relative rounded-[3.2cqh] px-[4cqh] pr-[22cqh]", seat ? "py-[2.4cqh]" : "py-[3.2cqh]")}
         >
           <p className={clsx("font-display leading-[1.12]", questionTextSize(q.text))}>{q.text}</p>
           {isMusic && !optionsVisible && (
@@ -305,7 +337,7 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
         )}
 
         {optionsVisible && (
-          <div className={clsx("mt-[2.4cqh] grid gap-[1.6cqh]", visualMedia ? "grid-cols-1" : "grid-cols-1")}>
+          <div className={clsx("grid grid-cols-1", seat ? "mt-[1.8cqh] gap-[1.1cqh]" : "mt-[2.4cqh] gap-[1.6cqh]")}>
             {q.options!.map((o, i) => (
               <AnswerBar
                 key={o.position}
@@ -313,6 +345,12 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
                 text={o.text}
                 visual={visualFor(o.position)}
                 delayIndex={i}
+                onPress={seat ? () => seat.toggle(o.position) : undefined}
+                disabled={!canAnswer}
+                keyHint={seat && keyHints && canAnswer ? String(i + 1) : null}
+                shortcut={seat ? String(i + 1) : null}
+                multiple={multiple}
+                dense={!!seat}
                 trailing={
                   revealed && q.distribution ? (
                     <span className="shrink-0 rounded-full bg-black/35 px-[1.6cqh] py-[0.4cqh] font-display text-[2.8cqh] text-white">
@@ -326,18 +364,114 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
         )}
       </div>
 
-      {/* barra inferiore */}
+      {/* barra inferiore (chi gioca dallo show: a destra lo stato della sua risposta, sotto alle risposte) */}
       <BottomTicker
         left={round ? `${round.title} · Round ${round.index}/${round.total}` : ""}
         right={
-          isBet && !optionsVisible
-            ? `${q.bets?.placed ?? 0} puntate ricevute`
-            : q.answeredCount !== null && !revealed
-              ? `${q.answeredCount} risposte ricevute`
-              : `Domande giocate: ${questionsPlayed}`
+          seat && optionsVisible
+            ? ""
+            : isBet && !optionsVisible
+              ? `${q.bets?.placed ?? 0} puntate ricevute`
+              : q.answeredCount !== null && !revealed
+                ? `${q.answeredCount} risposte ricevute`
+                : `Domande giocate: ${questionsPlayed}`
         }
       />
+      {seat && optionsVisible && (
+        <div className="absolute bottom-[1.4cqh] left-[43cqw] right-[3cqw] z-30 flex items-end justify-end">
+          <SeatAnswerStatus
+            seat={seat}
+            phase={phase}
+            open={open}
+            listening={listening}
+            revealed={revealed}
+            multiple={multiple}
+            keyHints={keyHints}
+            count={q.options?.length ?? 0}
+            answered={q.answeredCount}
+          />
+        </div>
+      )}
     </TvFrame>
+  );
+}
+
+/**
+ * Show interattivo (partita online dal PC): stato della MIA risposta sotto le risposte (registrata,
+ * conferma per la risposta multipla, tempo scaduto) e, dopo la soluzione, il mio esito con i punti.
+ */
+function SeatAnswerStatus({
+  seat,
+  phase,
+  open,
+  listening,
+  revealed,
+  multiple,
+  keyHints,
+  count,
+  answered,
+}: {
+  seat: Seat;
+  phase: GamePhase;
+  open: boolean;
+  listening: boolean;
+  revealed: boolean;
+  multiple: boolean;
+  keyHints: boolean;
+  count: number;
+  /** risposte arrivate (solo il numero) */
+  answered: number | null;
+}) {
+  const box = "rounded-full px-[2.4cqh] py-[0.9cqh] text-center font-display text-[2.8cqh] leading-tight";
+  const keys = `1–${Math.max(1, count)}`;
+  const tally = answered !== null && !revealed ? <span className="ml-[1.2cqh] font-sans text-[2.2cqh] font-extrabold opacity-80">{answered} risposte ricevute</span> : null;
+  if (revealed) {
+    if (!seat.result) return null;
+    const r = seat.result;
+    return (
+      <motion.p
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        data-testid="seat-result"
+        className={clsx("border-[0.4cqh] !text-[3.4cqh]", box, r.isCorrect ? "border-lime bg-[#0b3a22] text-[#bfffdc]" : r.partial ? "border-gold bg-[#3a300b] text-gold" : "border-[#ff8098] bg-[#3d0914] text-[#ffc2cd]")}
+      >
+        {r.isCorrect ? "Esatta!" : r.partial ? "Quasi!" : "Sbagliata…"}
+        {r.delta !== null && ` ${signedPoints(r.delta)}`}
+      </motion.p>
+    );
+  }
+  return (
+    <div className="flex max-w-full flex-col items-end gap-[0.6cqh]">
+      {seat.error && <p className="rounded-full bg-black/60 px-[1.6cqh] py-[0.4cqh] text-[2.2cqh] font-bold text-[#ffc2cd]">{seat.error}</p>}
+      {seat.status === "recorded" ? (
+        <p className={clsx("border-[0.4cqh] border-lime bg-[#0b3a22] text-[#bfffdc]", box)}>
+          RISPOSTA REGISTRATA!
+          {tally}
+        </p>
+      ) : listening ? (
+        <p className={clsx("bg-black/60 text-white", box)}>🎧 Ascolta le risposte…</p>
+      ) : open && multiple ? (
+        <button
+          type="button"
+          onClick={seat.confirm}
+          disabled={seat.selected.length === 0 || seat.status === "sending"}
+          aria-keyshortcuts="Enter"
+          className="flex items-center justify-center gap-[1.4cqh] rounded-full border-[0.4cqh] border-[#b8770a] bg-gradient-to-b from-[#ffe680] to-gold-deep px-[3.4cqh] py-[0.8cqh] font-display text-[3.2cqh] text-ink shadow-[0_0.6cqh_0_#9a5d00] outline-none focus-visible:ring-[0.7cqh] focus-visible:ring-cyan disabled:opacity-45"
+        >
+          {seat.status === "sending" ? "INVIO…" : seat.selected.length === 0 ? "SELEZIONA LE RISPOSTE" : "CONFERMA"}
+          {keyHints && seat.selected.length > 0 && seat.status !== "sending" && (
+            <kbd className="rounded-[0.8cqh] bg-black/20 px-[1cqh] py-[0.3cqh] text-[2.2cqh]">Invio</kbd>
+          )}
+        </button>
+      ) : open ? (
+        <p className={clsx("bg-black/60 text-white", box)}>
+          {seat.status === "sending" ? "INVIO…" : keyHints ? `Clicca la risposta o premi ${keys}: vale subito!` : "👆 Tocca la risposta: vale subito!"}
+          {tally}
+        </p>
+      ) : (
+        <p className={clsx("bg-black/60 text-white/85", box)}>{phase === "PAUSED" ? "Gioco in pausa" : "Tempo scaduto!"}</p>
+      )}
+    </div>
   );
 }
 
@@ -526,8 +660,16 @@ export function BottomTicker({ left, right }: { left: string; right: string }) {
 /** Nomi mostrati in lobby (una o due righe), gli altri come "+N altri". */
 const LOBBY_NAMES = 16;
 
-export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: PublicState; qrDataUrl: string | null; joinUrl: string; extra?: ReactNode }) {
-  const ready = state.phase === "READY";
+/**
+ * Come si mostra la lobby: "tv" il TV in salotto (QR grande); "online" lo show interattivo sul PC
+ * (elenco dei giocatori, codice e QR più piccoli, spazio in basso per i comandi di chi gioca);
+ * "stream" la vista per la LIVE (niente codice, QR né link).
+ */
+export type LobbyVariant = "tv" | "online" | "stream";
+
+export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra, variant = "tv" }: { state: PublicState; qrDataUrl: string | null; joinUrl: string; extra?: ReactNode; variant?: LobbyVariant }) {
+  if (variant === "online") return <OnlineLobbyScreen state={state} qrDataUrl={qrDataUrl} joinUrl={joinUrl} />;
+  const ready = state.phase === "READY" || variant === "stream";
   return (
     <TvFrame>
       {/* logo ufficiale con i tre personaggi */}
@@ -552,7 +694,9 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: Pub
         {ready ? (
           <div className="qz-panel mt-[6cqh] rounded-[3cqh] px-[4cqh] py-[4cqh] text-center">
             <p className="font-display text-[6cqh] leading-tight text-gold">Tra poco si comincia!</p>
-            <p className="mt-[1.4cqh] text-[3cqh] font-extrabold text-white/85">Prendete posto, ordinate da bere e preparate lo smartphone</p>
+            <p className="mt-[1.4cqh] text-[3cqh] font-extrabold text-white/85">
+              {variant === "stream" ? "I giocatori stanno arrivando: restate con noi!" : "Prendete posto, ordinate da bere e preparate lo smartphone"}
+            </p>
           </div>
         ) : (
           <>
@@ -597,6 +741,55 @@ export function TvLobbyScreen({ state, qrDataUrl, joinUrl, extra }: { state: Pub
         </div>
       )}
       {extra}
+    </TvFrame>
+  );
+}
+
+/** Lobby dello show interattivo sul PC (partita online): giocatori, codice e QR; in basso i comandi. */
+function OnlineLobbyScreen({ state, qrDataUrl, joinUrl }: { state: PublicState; qrDataUrl: string | null; joinUrl: string }) {
+  const names = state.recentPlayers ?? [];
+  const shown = names.slice(0, 24);
+  const more = state.playerCount - shown.length;
+  return (
+    <TvFrame>
+      <motion.div
+        initial={{ scale: 0.85, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 90, damping: 14 }}
+        className="absolute left-[4cqw] top-[4.5cqh] flex w-[50cqw] justify-center"
+      >
+        <Logo variant="full" size="tvxl" priority className="!h-[34cqh] w-auto animate-float" />
+      </motion.div>
+      <section aria-label="Giocatori collegati" className="absolute left-[4cqw] top-[41cqh] w-[50cqw]">
+        <p className="mb-[1.2cqh] flex items-baseline gap-[1.2cqh] font-display text-[3.6cqh] text-white">
+          <span className="text-[5cqh] leading-none text-gold">{state.playerCount}</span>{" "}
+          {state.playerCount === 1 ? "giocatore collegato" : "giocatori collegati"}
+        </p>
+        <ul className="flex max-h-[25cqh] flex-wrap gap-[1cqh] overflow-hidden">
+          {shown.map((n, i) => (
+            <motion.li
+              key={n}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: i * 0.03 }}
+              className="max-w-[22cqw] truncate rounded-full border-[0.3cqh] border-gold/70 bg-violet/80 px-[1.8cqh] py-[0.5cqh] text-[2.6cqh] font-extrabold text-white"
+            >
+              {n}
+            </motion.li>
+          ))}
+          {more > 0 && <li className="rounded-full border-[0.3cqh] border-white/40 bg-black/55 px-[1.8cqh] py-[0.5cqh] text-[2.6cqh] font-extrabold text-white/90">+{more}</li>}
+          {state.playerCount === 0 && <li className="text-[2.6cqh] font-extrabold text-white/70">Ancora nessuno: invita i tuoi amici con il link!</li>}
+        </ul>
+      </section>
+      <div className="absolute right-[4cqw] top-[5cqh] flex w-[34cqw] flex-col items-center gap-[1.6cqh] rounded-[3cqh] border-[0.5cqh] border-gold bg-night/80 px-[2.4cqh] py-[2cqh]">
+        <p className="text-[2.4cqh] font-extrabold uppercase tracking-wide text-white/75">codice partita</p>
+        <p className="font-display text-[8cqh] leading-none tracking-[0.16em] text-gold">{state.code}</p>
+        <div className="rounded-[2cqh] bg-white p-[1cqh]">
+          {qrDataUrl ? <img src={qrDataUrl} alt={`QR code per entrare: ${joinUrl}`} className="h-[24cqh] w-[24cqh]" /> : <div className="h-[24cqh] w-[24cqh] animate-pulse bg-ink/10" />}
+        </div>
+        <p className="max-w-full truncate text-[2.2cqh] font-extrabold text-white/80">{joinUrl.replace(/^https?:\/\//, "")}</p>
+        {state.joinLocked && <Pill tone="fuchsia">Ingressi chiusi</Pill>}
+      </div>
     </TvFrame>
   );
 }
@@ -679,10 +872,23 @@ export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRo
 // ---------------------------------------------------------------------------
 // Votazione categoria
 // ---------------------------------------------------------------------------
-export function TvVotingScreen({ vote, remainingMs, totalMs, phase }: { vote: PublicVote; remainingMs: number; totalMs: number; phase: GamePhase }) {
+export function TvVotingScreen({ vote, remainingMs, totalMs, phase, paused = false }: { vote: PublicVote; remainingMs: number; totalMs: number; phase: GamePhase; paused?: boolean }) {
   const closed = phase === "CATEGORY_RESULT";
   const max = Math.max(1, ...vote.options.map((o) => o.votes ?? 0));
   const winner = vote.options.find((o) => o.id === vote.winnerOptionId);
+  // show interattivo (partita online dal PC): la materia si vota cliccando o con i tasti 1–3
+  const seat = useSeatContext();
+  const keyHints = useKeyHints();
+  const mine = seat?.voteOptionId ?? null;
+  const canVote = !!seat && !closed && !paused && remainingMs > 0 && !mine && seat.voteStatus !== "sending";
+  useAnswerKeys({
+    enabled: canVote,
+    count: vote.options.length,
+    onPick: (i) => {
+      const o = vote.options[i];
+      if (o) seat?.vote(o.id);
+    },
+  });
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -698,16 +904,21 @@ export function TvVotingScreen({ vote, remainingMs, totalMs, phase }: { vote: Pu
           {!closed && <TimerRing remainingMs={remainingMs} totalMs={totalMs} size="16cqh" />}
         </div>
         <div className="flex flex-col gap-[1.8cqh]">
-          {vote.options.map((o) => {
+          {vote.options.map((o, i) => {
             const pct = vote.totalVotes ? Math.round(((o.votes ?? 0) / vote.totalVotes) * 100) : 0;
             const isWinner = closed && o.id === vote.winnerOptionId;
+            const isMine = mine === o.id;
+            const Row = seat ? "button" : "div";
             return (
-              <div
+              <Row
                 key={o.id}
+                {...(seat ? { type: "button" as const, onClick: () => seat.vote(o.id), disabled: !canVote, "aria-pressed": isMine, "aria-keyshortcuts": String(i + 1) } : {})}
                 className={clsx(
-                  "relative overflow-hidden rounded-full border-[0.5cqh] transition-all duration-700",
-                  isWinner ? "scale-[1.04] border-white animate-pulse-glow" : "border-gold/80",
-                  closed && !isWinner && "opacity-40",
+                  "relative block w-full overflow-hidden rounded-full border-[0.5cqh] text-left transition-all duration-700",
+                  isWinner || isMine ? "scale-[1.04] border-white" : "border-gold/80",
+                  isWinner && "animate-pulse-glow",
+                  ((closed && !isWinner) || (mine && !isMine)) && "opacity-40",
+                  seat && "outline-none focus-visible:ring-[0.7cqh] focus-visible:ring-cyan enabled:hover:-translate-y-[0.3cqh] disabled:cursor-default",
                 )}
                 style={{ background: "rgba(0,0,0,.45)" }}
               >
@@ -731,11 +942,23 @@ export function TvVotingScreen({ vote, remainingMs, totalMs, phase }: { vote: Pu
                       {o.votes} <span className="text-[2.6cqh]">voti · {pct}%</span>
                     </span>
                   )}
+                  {isMine && <span className="font-display text-[4.4cqh] text-white">✓</span>}
+                  {seat && keyHints && canVote && (
+                    <kbd aria-hidden className="rounded-[0.8cqh] border-b-[0.4cqh] border-black/40 bg-black/35 px-[1cqh] py-[0.5cqh] font-display text-[2.4cqh] leading-none text-white/95">
+                      {i + 1}
+                    </kbd>
+                  )}
                 </div>
-              </div>
+              </Row>
             );
           })}
         </div>
+        {seat && !closed && (
+          <p className={clsx("mt-[2cqh] font-display text-[3.2cqh]", mine ? "text-[#bfffdc]" : "text-white")}>
+            {mine ? "VOTO REGISTRATO!" : seat.voteStatus === "sending" ? "INVIO…" : remainingMs > 0 ? (keyHints ? `Clicca la materia o premi 1–${vote.options.length}` : "👆 Tocca la materia che vuoi giocare!") : "Votazione chiusa"}
+          </p>
+        )}
+        {seat?.voteError && <p className="mt-[1cqh] text-[2.4cqh] font-bold text-[#ffc2cd]">{seat.voteError}</p>}
         {!vote.liveResults && !closed && <p className="mt-[2cqh] text-[2.8cqh] font-extrabold text-white/80">I risultati restano segreti fino alla chiusura!</p>}
         {closed && winner && (
           <motion.p initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.4 }} className="mt-[3cqh] text-center font-display text-[8cqh] text-gold [text-shadow:0_0.6vh_0_#6b1020]">
@@ -815,6 +1038,7 @@ export function TvAnswerPointsScreen({
   const rows = [...entries].sort((a, b) => b.lastDelta - a.lastDelta || a.nickname.localeCompare(b.nickname, "it")).slice(0, 10);
   // la battuta nel fumetto solo mentre la voce la dice (regista o battuta di rito)
   const quip = useSpokenBubble();
+  const me = useSeatContext()?.participantId ?? null;
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -840,9 +1064,13 @@ export function TvAnswerPointsScreen({
               className={clsx(
                 "flex items-center gap-[1.6cqh] rounded-[1.6cqh] border-[0.3cqh] px-[2cqh] py-[0.25cqh]",
                 e.lastDelta > 0 ? "border-[#5dffab]/70 bg-[#0b3a22]/85" : e.lastDelta < 0 ? "border-[#ff8098]/60 bg-[#3d0914]/80" : "border-white/20 bg-black/45",
+                me === e.participantId && "ring-[0.45cqh] ring-cyan",
               )}
             >
-              <span className="min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3cqh] text-white">{e.nickname}</span>
+              <span className="min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3cqh] text-white">
+                {e.nickname}
+                {me === e.participantId && <span className="ml-[1cqh] text-[2.2cqh] text-cyan">(tu)</span>}
+              </span>
               <span className={clsx("font-display text-[3.2cqh]", e.lastDelta > 0 ? "text-[#5dffab]" : e.lastDelta < 0 ? "text-[#ff8098]" : "text-white/60")}>
                 {e.lastDelta === 0 ? "0" : signedPoints(e.lastDelta)}
               </span>
@@ -878,6 +1106,7 @@ export function TvLeaderboardScreen({
   roundPoints?: Map<string, number> | null;
 }) {
   const cue = useDirectedCue("professore", "point", showLines);
+  const me = useSeatContext()?.participantId ?? null;
   return (
     <TvFrame>
       <div className="absolute left-1/2 top-[3cqh] -translate-x-1/2">
@@ -905,11 +1134,15 @@ export function TvLeaderboardScreen({
               className={clsx(
                 "flex items-center gap-[2cqh] rounded-[1.8cqh] border-[0.35cqh] px-[2cqh] py-[0.45cqh]",
                 i === 0 ? "border-gold bg-gradient-to-r from-gold-deep/90 to-gold/60 text-ink" : i < 3 ? "border-gold/70 bg-violet/70" : "border-white/20 bg-black/45",
+                me === e.participantId && "ring-[0.45cqh] ring-cyan",
               )}
             >
               <span className={clsx("w-[6cqh] text-center font-display text-[3.6cqh]", i === 0 ? "text-ink" : "text-gold")}>{e.rank}</span>
               {!round && <Movement e={e} />}
-              <span className={clsx("min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3.4cqh]", i === 0 ? "text-ink" : "text-white")}>{e.nickname}</span>
+              <span className={clsx("min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3.4cqh]", i === 0 ? "text-ink" : "text-white")}>
+                {e.nickname}
+                {me === e.participantId && <span className={clsx("ml-[1cqh] text-[2.2cqh]", i === 0 ? "text-ink/70" : "text-cyan")}>(tu)</span>}
+              </span>
               {round && (
                 <span className={clsx("font-display text-[2.4cqh]", i === 0 ? "text-ink/70" : "text-white/60")}>tot. {formatPoints(round.totals.get(e.participantId) ?? 0)}</span>
               )}

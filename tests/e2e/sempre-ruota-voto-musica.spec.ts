@@ -4,6 +4,7 @@ import path from "node:path";
 import { config } from "dotenv";
 import postgres from "postgres";
 import { devices, expect, test, type Page } from "@playwright/test";
+import { cleanupUsers, login, makeUser } from "./pc-online-helpers";
 
 /**
  * PARTITA LIBERA: votazione delle materie, Ruota di Palmino e canzone SEMPRE presenti.
@@ -37,12 +38,13 @@ interface Saved {
 const QUIET = `try { localStorage.setItem("qz.tv.prefs", JSON.stringify({ voice: false })) } catch {}`;
 
 test.beforeAll(() => tsx("prepare"));
-test.afterAll(() => {
+test.afterAll(async () => {
   try {
     tsx("cleanup");
   } catch {
     // pulizia facoltativa
   }
+  await cleanupUsers();
 });
 
 test("partita libera: votazione dai telefoni, ruota e canzone «Ascolta» (TV e telefono, automatico)", async ({ browser }) => {
@@ -76,10 +78,12 @@ test("partita libera: votazione dai telefoni, ruota e canzone «Ascolta» (TV e 
     await phoneCtx.addInitScript(QUIET);
     const phone = await phoneCtx.newPage();
     phone.on("pageerror", (e) => errors.push(`telefono: ${e.message}`));
-    await phone.goto(`/play/${s.code}`);
+    // partita con lo show sui telefoni = partita ONLINE: si entra con il proprio account
+    const votante = await makeUser("votante");
+    await login(phone, votante, `/play/${s.code}`);
+    await phone.waitForURL(new RegExp(`/play/${s.code}$`), { timeout: 60_000 });
     await phone.getByLabel("Scegli il tuo nickname").fill("Votante");
     await phone.getByRole("button", { name: "ENTRA E GIOCA!" }).click();
-    await phone.getByRole("button", { name: "ANDIAMO!" }).click();
     await expect(phone.getByText(/Sei dentro come Votante/)).toBeVisible({ timeout: 30_000 });
     await phone.getByRole("button", { name: /TOCCA PER L'AUDIO/ }).click();
 

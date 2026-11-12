@@ -93,7 +93,14 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     }
   }, [code, q]);
 
+  /**
+   * Show sul dispositivo (partita online): lo stato arriva dallo show (un solo canale in tempo reale:
+   * due iscrizioni allo stesso canale nella stessa pagina condividono il canale e la seconda non risulta
+   * mai collegata). Qui niente sondaggi né canale; il battito di presenza resta (espulsione).
+   */
+  const [phoneShow, setPhoneShow] = useState(false);
   const onState = useCallback((s: PublicState, prev: PublicState | null) => {
+    setPhoneShow(s.displayMode === "phone");
     // gioco libero: RIVINCITA con lo stesso codice. Il telefono è già dentro la nuova partita
     // (stesso nickname): basta ricaricare lo stato, che arriva dalla nuova sessione.
     if (s.rematch && !prev?.rematch) setTimeout(() => void refreshRef.current(), 150 + Math.random() * 900);
@@ -111,7 +118,21 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     }
   }, []);
 
-  const { state, status, now, refresh } = useGameState({ fetchSnapshot, safetyPollMs: 20000, enabled: joined !== "no" && !kicked, onState });
+  const { state, status, now, refresh, applyState } = useGameState({ fetchSnapshot, safetyPollMs: 20000, enabled: joined !== "no" && !kicked && !phoneShow, onState });
+  const sessionRef = useRef<string | null>(null);
+  const applyRef = useRef(applyState);
+  const lastShown = useRef<PublicState | null>(null);
+  useEffect(() => {
+    sessionRef.current = state?.sessionId ?? null;
+    applyRef.current = applyState;
+  });
+  // stato visto dallo show (stessa partita): tiene aggiornata questa pagina (es. ritorno al TV, rivincita);
+  // solo gli stati nuovi (mai lo stesso due volte: niente giri di aggiornamenti)
+  const onShowState = useCallback((s: PublicState | null) => {
+    if (!s || s === lastShown.current || s.sessionId !== sessionRef.current) return;
+    lastShown.current = s;
+    applyRef.current(s);
+  }, []);
   useEffect(() => {
     refreshRef.current = refresh;
   }, [refresh]);
@@ -262,7 +283,7 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     return <LoadingSplash label="Collegamento allo studio…" />;
   }
   // show «Su questo telefono»: niente "Guarda il TV", lo show (immagini e audio) è qui, come sul telefono dell'host
-  if (state.displayMode === "phone") return <PlayerPhoneShow code={code} slot={slot} sessionId={state.sessionId} />;
+  if (state.displayMode === "phone") return <PlayerPhoneShow code={code} slot={slot} sessionId={state.sessionId} onShowState={onShowState} />;
 
   const vp: GamePhase = state.phase === "PAUSED" && state.pausedFrom ? state.pausedFrom : state.phase;
   // giusto/sbagliato insieme al TV: finché il TV non ha illuminato la risposta (dopo "La risposta giusta
@@ -586,8 +607,13 @@ function HistoryList({ self }: { self: PlayerSelf }) {
 }
 
 // ---------------------------------------------------------------------------
-// Ingresso: solo nickname (nessun account)
+// Ingresso: solo nickname (in salotto) oppure account (partita ONLINE)
 // ---------------------------------------------------------------------------
+/** Pagina di accesso con ritorno alla partita. */
+export function loginPathFor(code: string, mode: "signup" | "login" = "signup"): string {
+  return `/accedi?${mode === "login" ? "modo=accedi&" : ""}next=${encodeURIComponent(`/play/${code}`)}`;
+}
+
 function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | null; onJoined: () => void }) {
   const [nickname, setNickname] = useState("");
   const [gender, setGender] = useState<GenderChoice>(null);
@@ -597,12 +623,37 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
   const [loading, setLoading] = useState(false);
   const [info, setInfo] = useState<PublicState | null>(null);
   const [newCode, setNewCode] = useState<string | null>(null);
+  /** partita ONLINE (serve l'account) e account di chi apre la pagina (solo lo username) */
+  const [entry, setEntry] = useState<{ online: boolean; account: { username: string | null } | null } | null>(null);
 
   useEffect(() => {
     api<{ state: PublicState }>(`/api/game/${code}/state`)
       .then((r) => setInfo(r.state))
       .catch((e: unknown) => setError(e instanceof ApiError && e.status === 404 ? "Partita non trovata: controlla il codice sul TV" : null));
-  }, [code]);
+    if (slot) return;
+    let alive = true;
+    api<{ online: boolean; account: { username: string | null } | null }>(`/api/play/${code}/entry`)
+      .then(async (r) => {
+        if (!alive) return;
+        setEntry(r);
+        if (r.online && r.account) {
+          setNickname((n) => n || (r.account?.username ?? ""));
+          // stesso account già in partita da un altro dispositivo: si rientra subito (stesso giocatore e punti)
+          try {
+            await api("/api/play/join", { method: "POST", json: { code, nickname: "", recoveryCode: "" } });
+            if (alive) onJoined();
+          } catch {
+            /* non ancora in partita: si sceglie il nickname */
+          }
+        }
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- una volta per codice
+  }, [code, slot]);
+  const online = !!entry?.online;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -614,7 +665,8 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
         json: { code, nickname, recoveryCode: showRecovery ? recovery : "", ...(slot ? { slot } : {}), ...(gender ? { gender } : {}) },
       });
       vibrate([40, 30, 40]);
-      if (r.recoveryCode) {
+      // partita online: si entra con l'account, il codice giocatore non serve
+      if (r.recoveryCode && !online) {
         try {
           localStorage.setItem("qz.recovery", r.recoveryCode);
         } catch {
@@ -623,6 +675,8 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
         setNewCode(r.recoveryCode);
       } else onJoined();
     } catch (err) {
+      // la partita è diventata online nel frattempo: serve l'account
+      if (err instanceof ApiError && err.code === "ACCOUNT_REQUIRED") setEntry({ online: true, account: null });
       setError(err instanceof ApiError ? err.message : "Connessione assente, riprova");
     } finally {
       setLoading(false);
@@ -658,6 +712,23 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
             <p className="font-display text-2xl">Questa partita è terminata</p>
             <p className="mt-1 font-bold text-white/80">Grazie per aver giocato!</p>
           </PhoneCard>
+        ) : online && !entry?.account ? (
+          // partita ONLINE: ognuno con il suo account (lo stesso dal PC e dal telefono)
+          <PhoneCard className="flex w-full flex-col gap-3 text-left">
+            <p className="font-display text-2xl text-gold">Partita ONLINE</p>
+            <p className="font-bold text-white/85">Si gioca ognuno dal suo dispositivo, anche a distanza: per entrare serve il tuo account (gratis). È lo stesso dal PC e dal telefono, e se cambi dispositivo ritrovi i tuoi punti.</p>
+            {error && <p className="rounded-xl bg-flame/25 px-3 py-2 text-sm font-bold text-[#ffd1da]">{error}</p>}
+            <a
+              href={loginPathFor(code)}
+              className="grid h-16 w-full place-items-center rounded-2xl border-[3px] border-[#b8770a] bg-gradient-to-b from-[#ffe680] to-gold-deep font-display text-2xl text-ink shadow-[0_5px_0_#9a5d00]"
+            >
+              ACCEDI E GIOCA
+            </a>
+            <a href={loginPathFor(code, "login")} className="text-center text-sm font-bold text-white/75 underline">
+              Ho già un account
+            </a>
+            <p className="text-center text-xs text-white/60">Codice partita {code}</p>
+          </PhoneCard>
         ) : (
           <PhoneCard className="flex w-full flex-col gap-3 text-left">
             <label htmlFor="nick" className="font-display text-xl text-gold">
@@ -676,7 +747,7 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
               className="h-14 w-full rounded-2xl border-[3px] border-gold/70 bg-white px-4 text-[20px] font-extrabold text-ink placeholder:text-ink/40 focus:border-cyan focus:outline-none"
             />
             <GenderPicker value={gender} onChange={setGender} />
-            {showRecovery ? (
+            {online ? null : showRecovery ? (
               <input
                 value={recovery}
                 onChange={(e) => setRecovery(e.target.value.toUpperCase())}
@@ -697,7 +768,9 @@ function JoinScreen({ code, slot, onJoined }: { code: string; slot: string | nul
             >
               {loading ? "UN ATTIMO…" : "ENTRA E GIOCA!"}
             </button>
-            <p className="text-center text-xs text-white/60">Nessuna registrazione: basta il nickname. Codice partita {code}</p>
+            <p className="text-center text-xs text-white/60">
+              {online ? `Partita online: entri con il tuo account${entry?.account?.username ? ` (${entry.account.username})` : ""}. Codice partita ${code}` : `Nessuna registrazione: basta il nickname. Codice partita ${code}`}
+            </p>
           </PhoneCard>
         )}
       </form>

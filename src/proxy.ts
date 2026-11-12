@@ -16,8 +16,10 @@ export async function proxy(request: NextRequest) {
   const isAdminArea = path.startsWith("/admin") || path.startsWith("/api/admin");
   // Fuori dall'area admin: senza cookie di sessione non c'è nulla da rinnovare (i giocatori non hanno account).
   const hasSession = request.cookies.getAll().some((c) => c.name.startsWith(AUTH_COOKIE_NAME));
+  // vista per la LIVE: si apre anche senza account (cookie del giocatore o gettone della Sorgente browser di OBS)
+  const needsAccount = (path.startsWith("/gioca") && !path.startsWith("/gioca/live/")) || path.startsWith("/profilo");
   if (!isAdminArea && !hasSession) {
-    if (path.startsWith("/gioca") || path.startsWith("/profilo")) return toLogin(request, "/accedi");
+    if (needsAccount) return toLogin(request, "/accedi");
     return NextResponse.next({ request });
   }
 
@@ -39,7 +41,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.json({ error: { code: "UNAUTHENTICATED", message: "Sessione scaduta: rifai il login" } }, { status: 401 });
   }
   if (!data.user && path.startsWith("/admin") && !isLogin) return toLogin(request, "/admin/login");
-  if (!data.user && (path.startsWith("/gioca") || path.startsWith("/profilo"))) return toLogin(request, "/accedi");
+  if (!data.user && needsAccount) return toLogin(request, "/accedi");
   return response;
 }
 

@@ -47,17 +47,30 @@ function WhatsAppIcon() {
  * portata di mano, le alternative: WhatsApp diretto, copia link, QR da far inquadrare.
  * `tone`: "phone" pulsante grande a tutta larghezza; "sheet" compatto (foglio impostazioni del TV).
  */
-export function InviteButton({ code, host, tone = "phone", className }: { code: string; host?: string | null; tone?: "phone" | "sheet"; className?: string }) {
+export function InviteButton({
+  code,
+  host,
+  tone = "phone",
+  className,
+  online = false,
+}: {
+  code: string;
+  host?: string | null;
+  tone?: "phone" | "sheet";
+  className?: string;
+  /** partita ONLINE: il messaggio dice di entrare con il proprio account */
+  online?: boolean;
+}) {
   const joinUrl = useJoinUrl(code);
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showQr, setShowQr] = useState(false);
   const qr = useQr(showQr ? joinUrl : "");
-  const message = joinUrl ? inviteMessage({ code, joinUrl, host }) : "";
+  const message = joinUrl ? inviteMessage({ code, joinUrl, host, online }) : "";
 
   async function onInvite() {
     if (!joinUrl) return;
-    const r = await shareInvite({ code, joinUrl, host });
+    const r = await shareInvite({ code, joinUrl, host, online });
     if (r === "unsupported") setOpen(true);
   }
 

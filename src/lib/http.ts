@@ -57,6 +57,7 @@ const PLAYER_STATUS: Record<PlayerError["code"], number> = {
   INVALID_ANSWER: 422,
   RATE_LIMITED: 429,
   GAME_FULL: 409,
+  ACCOUNT_REQUIRED: 401,
   TV_MODE: 403,
   NOT_A_LINE: 403,
 };

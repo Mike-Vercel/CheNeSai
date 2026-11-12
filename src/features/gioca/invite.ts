@@ -9,6 +9,8 @@ export interface InviteInput {
   joinUrl: string;
   /** username dell'host, se c'è */
   host?: string | null;
+  /** partita ONLINE: si entra con il proprio account (dal PC, dal telefono o dal tablet) */
+  online?: boolean;
 }
 
 export const INVITE_TITLE = "CHE NE SAI?! – il quiz show";
@@ -19,8 +21,11 @@ export function joinLink(base: string, code: string): string {
 }
 
 /** Testo dell'invito: chi invita, cosa fare, codice e link (il link sempre in fondo, su una riga sua). */
-export function inviteMessage({ code, joinUrl, host }: InviteInput): string {
+export function inviteMessage({ code, joinUrl, host, online = false }: InviteInput): string {
   const who = host?.trim() ? `${host.trim()} ti sfida` : "Ti sfido";
+  if (online) {
+    return `🎤 ${who} a CHE NE SAI?!, il quiz show online: si gioca dal PC, dal telefono o dal tablet, anche a distanza!\nEntra con il codice ${code.toUpperCase()} (niente app: accedi con il tuo account, è gratis):\n${joinUrl}`;
+  }
   return `🎤 ${who} a CHE NE SAI?!, il quiz show da giocare col telefono!\nEntra con il codice ${code.toUpperCase()} (niente app, basta un nickname):\n${joinUrl}`;
 }
 

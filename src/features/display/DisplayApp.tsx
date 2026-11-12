@@ -26,6 +26,8 @@ import { useTvPrefs, type TvPrefs } from "./tv-prefs";
 import { IntroSkipCounter } from "@/features/players/IntroSkip";
 import { StageBoundary } from "./StageBoundary";
 import { holdReveal } from "./reveal-hold";
+import type { LobbyVariant } from "./TvScreens";
+import { streamSafeState } from "@/lib/game-engine/stream-view";
 
 const IntroSequence = dynamic(() => import("@/features/three/IntroSequence").then((m) => m.IntroSequence), {
   ssr: false,
@@ -101,6 +103,13 @@ const SPOKEN_BREATH_MS = 350;
 /** Richiesta di attivare l'audio dai comandi dell'host (un clic: regola dei browser). */
 const ACTIVATE_EVENT = "qz:tv-activate-audio";
 
+/**
+ * Partita online: ritardo (oltre l'orario del passo) dopo cui il dispositivo di un giocatore chiede
+ * il passo di riserva (/api/play/[code]/tick). Il server lo esegue solo oltre i 6 s (FALLBACK_GRACE_MS):
+ * di norma lo fa prima il dispositivo dell'host, che aspetta la fine delle voci.
+ */
+const FALLBACK_TICK_DELAY_MS = 6500;
+
 /** Quello che il TV passa ai comandi sovrapposti dell'host (gioco libero). */
 export interface TvOverlayContext {
   qrDataUrl: string | null;
@@ -117,12 +126,22 @@ const SPEAKER_NAMES: Record<string, string> = { professore: "Professore", regina
  * Battuta senza voce (clip non arrivata, voce professionale non disponibile): il personaggio parla
  * e il testo compare qui, come sottotitolo, al posto di una voce sintetica.
  */
-function SilentSubtitle({ portrait = false }: { portrait?: boolean }) {
+function SilentSubtitle({ portrait = false, online = false }: { portrait?: boolean; online?: boolean }) {
   const line = useSilentLine();
   if (!line) return null;
   const who = SPEAKER_NAMES[line.who] ?? "";
   return (
-    <div className={portrait ? "pointer-events-none absolute inset-x-[4cqw] top-[19cqh] z-[45] flex justify-center" : "pointer-events-none absolute inset-x-[12cqw] bottom-[4cqh] z-[45] flex justify-center"} aria-live="polite">
+    <div
+      className={
+        portrait
+          ? "pointer-events-none absolute inset-x-[4cqw] top-[19cqh] z-[45] flex justify-center"
+          : online
+            ? // show interattivo dal PC: in alto a sinistra (in basso ci sono risposte, stato e comandi)
+              "pointer-events-none absolute left-[2cqw] top-[19cqh] z-[45] flex w-[38cqw] justify-start"
+            : "pointer-events-none absolute inset-x-[12cqw] bottom-[4cqh] z-[45] flex justify-center"
+      }
+      aria-live="polite"
+    >
       <p className={portrait ? "rounded-[3cqw] bg-black/80 px-[3.4cqw] py-[2cqw] text-center text-[4.4cqw] font-extrabold leading-snug text-white shadow-2xl" : "rounded-[2cqh] bg-black/75 px-[2.6cqh] py-[1.4cqh] text-center text-[3.2cqh] font-extrabold leading-snug text-white shadow-2xl"}>
         {who && <span className="mr-[1cqh] text-gold">{who}:</span>}
         {line.text}
@@ -132,11 +151,21 @@ function SilentSubtitle({ portrait = false }: { portrait?: boolean }) {
 }
 
 /** Voce ancora in preparazione (clip generata al momento, es. un nome nuovo): niente silenzio muto. */
-function VoicePreparing({ portrait = false }: { portrait?: boolean }) {
+function VoicePreparing({ portrait = false, online = false }: { portrait?: boolean; online?: boolean }) {
   const on = useVoicePreparing();
   if (!on) return null;
   return (
-    <div className={portrait ? "pointer-events-none absolute inset-x-0 top-[13cqh] z-[45] flex justify-center" : "pointer-events-none absolute inset-x-0 bottom-[3cqh] z-[45] flex justify-center"} role="status" aria-live="polite">
+    <div
+      className={
+        portrait
+          ? "pointer-events-none absolute inset-x-0 top-[13cqh] z-[45] flex justify-center"
+          : online
+            ? "pointer-events-none absolute left-[1.5cqw] top-[7cqh] z-[45] flex"
+            : "pointer-events-none absolute inset-x-0 bottom-[3cqh] z-[45] flex justify-center"
+      }
+      role="status"
+      aria-live="polite"
+    >
       <p className={portrait ? "flex items-center gap-[2cqw] rounded-full bg-black/75 px-[3.6cqw] py-[1.6cqw] text-[3.8cqw] font-extrabold text-white/90" : "flex items-center gap-[1.2cqh] rounded-full bg-black/70 px-[2.4cqh] py-[1cqh] text-[2.4cqh] font-extrabold text-white/90"}>
         <span className="qz-wave flex items-end gap-[0.3em]" aria-hidden>
           <i />
@@ -158,7 +187,18 @@ export function DisplayApp({
   layout = "landscape",
   onViewState,
   viewer = null,
+  stream = null,
+  variant = "tv",
 }: {
+  /**
+   * VISTA PER LA LIVE (finestra da catturare con OBS): lo show orizzontale in un riquadro 16:9,
+   * senza codice, QR, link né comandi, senza puntatore; mai la risposta scelta prima della soluzione
+   * (qui nessun posto da giocatore). `token`: gettone per la Sorgente browser (senza i cookie);
+   * `audio` false = show muto (?audio=0).
+   */
+  stream?: { token: string | null; audio: boolean } | null;
+  /** schermate orizzontali: "tv" in salotto, "online" show interattivo dal PC, "stream" vista LIVE */
+  variant?: LobbyVariant;
   /**
    * Telefono di un GIOCATORE con lo show sul telefono: stesso show (immagini e audio) ma lo stato
    * arriva con il cookie del giocatore, le voci solo per le battute della partita e mai lo
@@ -207,25 +247,38 @@ export function DisplayApp({
   const voice = getVoice();
   const viewerCode = viewer?.code ?? null;
   const viewerSlot = viewer?.slot ?? null;
+  const streamToken = stream?.token ?? null;
+  const isStream = !!stream;
+  /** vista LIVE senza audio (?audio=0) */
+  const streamMuted = !!stream && !stream.audio;
+  /** solo guardare: giocatori (show sul loro dispositivo) e vista LIVE. Mai scorrimento, segnali al server o chiave dello schermo */
+  const readOnly = !!viewerCode || isStream;
   useEffect(() => {
-    if (viewerCode) voice.setPlayerCredentials(viewerCode, viewerSlot);
+    if (isStream) voice.setStreamCredentials(sessionId, streamToken);
+    else if (viewerCode) voice.setPlayerCredentials(viewerCode, viewerSlot);
     else voice.setDisplayCredentials(sessionId, displayKey);
-  }, [voice, sessionId, displayKey, viewerCode, viewerSlot]);
-  /** tocco sullo schermo per l'audio (niente schermata "ATTIVA AUDIO"): host del gioco libero e telefoni dei giocatori */
-  const tapToStart = hostMode || !!viewerCode;
+  }, [voice, sessionId, displayKey, viewerCode, viewerSlot, isStream, streamToken]);
+  /** tocco sullo schermo per l'audio (niente schermata "ATTIVA AUDIO"): host del gioco libero, giocatori e vista LIVE */
+  const tapToStart = hostMode || !!viewerCode || isStream;
   const prefsRef = useRef(prefs);
   const startedRef = useRef(false);
 
   useEffect(() => {
-    sound.setSettings({ musicVolume: prefs.musicVolume, sfxVolume: prefs.sfxVolume, muted: prefs.muted, masterVolume: prefs.masterVolume });
+    const muted = prefs.muted || streamMuted;
+    sound.setSettings({ musicVolume: prefs.musicVolume, sfxVolume: prefs.sfxVolume, muted, masterVolume: prefs.masterVolume });
     // voce del browser: mai con ElevenLabs attivo; senza, solo se scelta (serate della regia: come sempre)
-    voice.configure({ enabled: prefs.voice && !prefs.muted, readOptions: prefs.readOptions, volume: prefs.masterVolume, browserVoice: hostMode ? prefs.browserVoice : true });
+    voice.configure({ enabled: prefs.voice && !muted, readOptions: prefs.readOptions, volume: prefs.masterVolume, browserVoice: hostMode ? prefs.browserVoice : true });
     prefsRef.current = prefs;
-  }, [prefs, sound, voice, hostMode]);
+  }, [prefs, sound, voice, hostMode, streamMuted]);
 
   const mediaUrl = useCallback(
-    (id: string) => (viewerCode ? `/api/play/${viewerCode}/media/${id}` : `/api/display/${sessionId}/media/${id}?k=${encodeURIComponent(displayKey)}`),
-    [sessionId, displayKey, viewerCode],
+    (id: string) =>
+      isStream
+        ? `/api/live/${sessionId}/media/${id}${streamToken ? `?t=${encodeURIComponent(streamToken)}` : ""}`
+        : viewerCode
+          ? `/api/play/${viewerCode}/media/${id}`
+          : `/api/display/${sessionId}/media/${id}?k=${encodeURIComponent(displayKey)}`,
+    [sessionId, displayKey, viewerCode, isStream, streamToken],
   );
 
   // ---------------------------------------------------------------- cartello "DOMANDA N. X"
@@ -370,7 +423,7 @@ export function DisplayApp({
       const showReveal = () => {
         holdReveal(null);
         // i telefoni dei giocatori mostrano giusto/sbagliato da adesso, insieme al TV
-        if (!viewerCode && s.question) {
+        if (!readOnly && s.question) {
           void api(`/api/display/${sessionId}/cue?k=${encodeURIComponent(displayKey)}`, { method: "POST", json: { questionId: s.question.id, cue: "answer" }, timeoutMs: 10000 }).catch(() => undefined);
         }
         sound.play("reveal");
@@ -412,7 +465,7 @@ export function DisplayApp({
       const lines = startedRef.current ? speechFor(s, prev, { readOptions: p.readOptions }) : [];
       // all'avvio dell'intro nessuna battuta rimasta in coda (es. un saluto della lobby in attesa della clip);
       // sui telefoni dei giocatori mai battute vecchie: a ogni cambio di fase la coda si svuota
-      if (phaseChanged && (lines.length > 0 || s.phase === "INTRO" || viewerCode)) voice.stop();
+      if (phaseChanged && (lines.length > 0 || s.phase === "INTRO" || readOnly)) voice.stop();
       let spoken: Promise<unknown>;
       if (s.phase === "QUESTION_VISIBLE" && s.question && (phaseChanged || questionChanged)) {
         // cartello "DOMANDA N. X": annuncio (e suspense), una pausa muta fino al tempo minimo, poi la
@@ -487,11 +540,15 @@ export function DisplayApp({
         }
       }
     },
-    [playClip, sound, stopClip, voice, startedRef, viewerCode, sessionId, displayKey],
+    [playClip, sound, stopClip, voice, startedRef, readOnly, sessionId, displayKey],
   );
 
-  const { state, status, now } = useGameState({
+  const { state: rawState, status, now } = useGameState({
     fetchSnapshot: async () => {
+      if (isStream) {
+        const r = await api<{ state: PublicState }>(`/api/live/${sessionId}/state${streamToken ? `?t=${encodeURIComponent(streamToken)}` : ""}`);
+        return r.state;
+      }
       if (viewerCode) {
         const r = await api<{ state: PublicState }>(`/api/play/${viewerCode}/me${viewerSlot ? `?slot=${viewerSlot}` : ""}`);
         return r.state;
@@ -507,6 +564,8 @@ export function DisplayApp({
     extraEvents: ["media"],
   });
 
+  // vista LIVE: anche gli stati che arrivano in tempo reale perdono codice e piano dello scorrimento
+  const state = useMemo(() => (isStream && rawState ? streamSafeState(rawState) : rawState), [isStream, rawState]);
   const view = state;
   const stateRef = useRef<PublicState | null>(null);
   useEffect(() => {
@@ -524,12 +583,27 @@ export function DisplayApp({
   // (e mentre suona l'estratto musicale della domanda)
   const voiceBusy = useCallback(() => voice.pending || clipBusy.current, [voice]);
   // solo lo schermo dell'host guida la partita (mai i telefoni dei giocatori)
-  useAutoTick({ auto: viewerCode ? null : state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
+  useAutoTick({ auto: readOnly ? null : state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
+
+  // Partita online: se il dispositivo dell'host sparisce (scheda chiusa, rete persa) la partita non si
+  // ferma: i giocatori chiedono il passo di riserva, che il server esegue solo se è in ritardo di oltre
+  // 6 s (idempotente: con l'host e con tanti giocatori insieme il passo si fa una volta sola).
+  const fallbackRequest = useCallback(
+    () => api<AutoTickResponse>(`/api/play/${viewerCode}/tick${viewerSlot ? `?slot=${viewerSlot}` : ""}`, { method: "POST", timeoutMs: 20000 }),
+    [viewerCode, viewerSlot],
+  );
+  const [fallbackJitter] = useState(() => Math.round(Math.random() * 2500));
+  useAutoTick({
+    auto: viewerCode && !isStream && state?.displayMode === "phone" ? state.auto : null,
+    now,
+    tick: fallbackRequest,
+    extraDelayMs: FALLBACK_TICK_DELAY_MS + fallbackJitter,
+  });
 
   // Il TV dice al server quando ha finito di parlare per questo momento della partita: lo
   // scorrimento automatico non taglia il presentatore e, appena ha finito, passa subito oltre
   // (dopo un respiro breve) invece di aspettare la stima dal testo.
-  const autoOn = !!state?.auto && !viewerCode;
+  const autoOn = !!state?.auto && !readOnly;
   const version = state?.version ?? null;
   useEffect(() => {
     if (!autoOn || version === null) return;
@@ -564,9 +638,9 @@ export function DisplayApp({
     return () => clearInterval(t);
   }, [autoOn, version, sessionId, displayKey, voice, now]);
 
-  // QR code per la lobby
+  // QR code per la lobby (mai nella vista LIVE: lì il codice non c'è)
   const joinUrl = useMemo(() => {
-    if (!state) return "";
+    if (!state || !state.code) return "";
     const base = process.env.NEXT_PUBLIC_APP_URL && !process.env.NEXT_PUBLIC_APP_URL.includes("localhost") ? process.env.NEXT_PUBLIC_APP_URL : typeof window !== "undefined" ? window.location.origin : "";
     return `${base}/play/${state.code}`;
   }, [state]);
@@ -701,7 +775,7 @@ export function DisplayApp({
   }, [introQid, cardFor, introStart, now]);
   const questionIntro = !!introQid && cardFor !== introQid && !!introMoment && now() - introStart < questionIntroMaxMs(introMoment);
   // la domanda è comparsa sul TV (fine del cartello): i telefoni dei giocatori la mostrano adesso
-  const shownQid = !viewerCode && state?.phase === "QUESTION_VISIBLE" && state.question && !questionIntro ? state.question.id : null;
+  const shownQid = !readOnly && state?.phase === "QUESTION_VISIBLE" && state.question && !questionIntro ? state.question.id : null;
   useEffect(() => {
     if (!shownQid) return;
     void api(`/api/display/${sessionId}/cue?k=${encodeURIComponent(displayKey)}`, { method: "POST", json: { questionId: shownQid, cue: "question" }, timeoutMs: 10000 }).catch(() => undefined);
@@ -716,7 +790,8 @@ export function DisplayApp({
     const th = view ? themeFor(view.phase) : null;
     if (th && prefs.theme) sound.playTheme({ loop: th.loop, volume: th.volume });
     void voice.say(WELCOME_LINE.who, WELCOME_LINE.text);
-    if (!document.fullscreenElement) {
+    // schermo intero solo per il TV: chi gioca dal PC resta in finestra (accanto magari alla vista LIVE)
+    if (!document.fullscreenElement && !isStream && variant !== "online") {
       try {
         await document.documentElement.requestFullscreen?.();
       } catch {
@@ -738,10 +813,12 @@ export function DisplayApp({
     if (!tapToStart || autoStarted.current) return;
     autoStarted.current = true;
     const ua = (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation;
-    if (!ua?.hasBeenActive) return;
+    // vista LIVE: OBS (Sorgente browser) di solito consente l'audio senza clic; si prova comunque
+    if (!ua?.hasBeenActive && !isStream) return;
     const t = setTimeout(() => {
       void (async () => {
-        if (!(await sound.unlock())) return;
+        const unlocked = await Promise.race([sound.unlock(), new Promise<boolean>((r) => setTimeout(() => r(false), 1500))]);
+        if (!unlocked) return;
         startedRef.current = true;
         sound.preloadSfx();
         sound.play("join");
@@ -753,7 +830,7 @@ export function DisplayApp({
       })();
     }, 0);
     return () => clearTimeout(t);
-  }, [tapToStart, sound, voice]);
+  }, [tapToStart, sound, voice, isStream]);
   useEffect(() => {
     if (!tapToStart || started) return;
     const onTap = () => void start();
@@ -777,6 +854,7 @@ export function DisplayApp({
 
   // ---------------------------------------------------------------- render
   const Stage = layout === "portrait" ? PortraitStage : TvStage;
+  const stageVariant: LobbyVariant = isStream ? "stream" : variant;
   const screen = (
     <StageBoundary portrait={layout === "portrait"} onError={() => setSafe2d(true)}>
     <CharacterModeProvider prefer3d={prefs.characters3d && !safe2d} lowPower={prefs.lowPower}>
@@ -793,6 +871,7 @@ export function DisplayApp({
       joinUrl={joinUrl}
       audioState={audioState}
       questionIntro={questionIntro}
+      variant={stageVariant}
       intro={
         view?.intro ? (
           <IntroSequence
@@ -814,19 +893,25 @@ export function DisplayApp({
     </StageBoundary>
   );
 
-  return (
-    <div className="fixed inset-0 select-none overflow-hidden bg-night [container-type:size]" data-motion={prefs.reducedMotion ? "reduced" : undefined} onDoubleClick={tapToStart ? undefined : () => setShowSettings((s) => !s)}>
+  const body = (
+    <div
+      className={isStream ? "relative cursor-none select-none overflow-hidden bg-night [container-type:size]" : "fixed inset-0 select-none overflow-hidden bg-night [container-type:size]"}
+      style={isStream ? { width: "min(100vw, calc(100vh * 16 / 9))", height: "min(100vh, calc(100vw * 9 / 16))" } : undefined}
+      data-motion={prefs.reducedMotion ? "reduced" : undefined}
+      data-show-variant={stageVariant}
+      onDoubleClick={tapToStart ? undefined : () => setShowSettings((s) => !s)}
+    >
       {screen}
       {view?.phase === "PAUSED" && <TvPauseOverlay />}
-      <SilentSubtitle portrait={layout === "portrait"} />
-      <VoicePreparing portrait={layout === "portrait"} />
+      <SilentSubtitle portrait={layout === "portrait"} online={layout !== "portrait" && stageVariant === "online"} />
+      <VoicePreparing portrait={layout === "portrait"} online={layout !== "portrait" && stageVariant === "online"} />
       {themePhase === "INTRO" && <IntroSkipCounter skip={view?.introSkip} portrait={layout === "portrait"} />}
-      {(started || hostMode) && !viewerCode && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
+      {(started || hostMode) && !readOnly && <TvScreenAgent sessionId={sessionId} showButton={!hostMode} audioOn={started} />}
       {(started || tapToStart) && renderOverlay?.(view, overlayCtx)}
       <Confetti fire={prefs.reducedMotion ? 0 : confetti} intensity={prefs.lowPower ? confettiIntensity * 0.4 : confettiIntensity} className="z-40" />
 
-      {status !== "live" && started && (
-        <div className="absolute right-[1cqw] top-[1cqh] z-50 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white/80">
+      {status !== "live" && started && !isStream && (
+        <div className={stageVariant === "online" && layout !== "portrait" ? "absolute left-[1.5cqw] top-[1.8cqh] z-50 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white/80" : "absolute right-[1cqw] top-[1cqh] z-50 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white/80"}>
           {status === "offline" ? "Connessione assente…" : "Riconnessione…"}
         </div>
       )}
@@ -892,4 +977,7 @@ export function DisplayApp({
       )}
     </div>
   );
+  // vista LIVE: riquadro 16:9 al centro della finestra (bande nere se la finestra ha un'altra forma)
+  if (isStream) return <div className="fixed inset-0 grid cursor-none place-items-center overflow-hidden bg-black">{body}</div>;
+  return body;
 }

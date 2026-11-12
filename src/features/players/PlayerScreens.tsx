@@ -14,6 +14,8 @@ import { TimerBar } from "@/features/game/components/effects";
 import { EVENT_ICON, formatPoints, signedPoints } from "@/features/game/lines";
 import { wrongPenaltyRange } from "@/lib/game-engine/scoring";
 import { ExitButton } from "@/features/game/components/ExitButton";
+import { useAnswerKeys } from "@/features/shared/keyboard";
+import { useKeyHints } from "@/features/shared/device";
 
 export function PhoneShell({ children, header }: { children: ReactNode; header?: ReactNode }) {
   return (
@@ -132,6 +134,18 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
   const locked = submitStatus === "recorded" || submitStatus === "sending";
   const revealed = !!q.correctPositions;
   const multiple = q.type === "multiple";
+  // dal PC (telefono-telecomando aperto sul computer): tasti 1–4 e Invio per confermare la multipla
+  const keyHints = useKeyHints();
+  const canAnswer = open && !locked && !revealed && !!q.options;
+  useAnswerKeys({
+    enabled: canAnswer,
+    count: q.options?.length ?? 0,
+    onPick: (i) => {
+      const o = q.options?.[i];
+      if (o) onToggle(o.position);
+    },
+    onConfirm: multiple ? () => selected.length > 0 && onConfirm() : null,
+  });
   const visual = (pos: number): AnswerVisual => {
     if (revealed) {
       if (q.correctPositions!.includes(pos)) return selected.includes(pos) ? "correct" : "missed";
@@ -187,7 +201,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
           {bet && <BetStakeBanner bet={bet} />}
           {phase === "OPTIONS_VISIBLE" && !revealed && <TimerBar remainingMs={Math.min(remainingMs, q.rules.durationSeconds * 1000)} totalMs={q.rules.durationSeconds * 1000} />}
           <div className="flex flex-col gap-2.5">
-            {q.options.map((o) => (
+            {q.options.map((o, i) => (
               <AnswerButton
                 key={o.position}
                 position={o.position}
@@ -196,6 +210,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
                 visual={visual(o.position)}
                 disabled={!open || locked || revealed}
                 onPress={() => onToggle(o.position)}
+                keyHint={keyHints && canAnswer ? String(i + 1) : null}
               />
             ))}
           </div>
@@ -214,7 +229,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
                 </p>
               ) : open && !multiple ? (
                 <p className="w-full rounded-2xl bg-black/40 px-4 py-3 text-center font-display text-xl text-white">
-                  {submitStatus === "sending" ? "INVIO…" : submitStatus === "error" ? "Tocca di nuovo la risposta" : "👆 Tocca la risposta: vale subito!"}
+                  {submitStatus === "sending" ? "INVIO…" : submitStatus === "error" ? "Tocca di nuovo la risposta" : keyHints ? `Clicca la risposta o premi 1–${q.options.length}: vale subito!` : "👆 Tocca la risposta: vale subito!"}
                 </p>
               ) : open ? (
                 <button
@@ -223,7 +238,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
                   disabled={selected.length === 0 || submitStatus === "sending"}
                   className="h-16 w-full rounded-2xl border-[3px] border-[#b8770a] bg-gradient-to-b from-[#ffe680] to-gold-deep font-display text-2xl text-ink shadow-[0_5px_0_#9a5d00] transition active:translate-y-[3px] active:shadow-none disabled:opacity-40"
                 >
-                  {submitStatus === "sending" ? "INVIO…" : selected.length === 0 ? (multiple ? "SELEZIONA LE RISPOSTE" : "SCEGLI UNA RISPOSTA") : "CONFERMA"}
+                  {submitStatus === "sending" ? "INVIO…" : selected.length === 0 ? (multiple ? "SELEZIONA LE RISPOSTE" : "SCEGLI UNA RISPOSTA") : keyHints ? "CONFERMA (Invio)" : "CONFERMA"}
                 </button>
               ) : (
                 <p className="rounded-2xl bg-black/50 px-4 py-3 text-center font-display text-xl text-white">
@@ -386,6 +401,15 @@ export function PhoneSpecialBanner({ question: q, me }: { question: PublicQuesti
 export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, error, onVote }: { vote: PublicVote; phase: GamePhase; myOptionId: string | null; remainingMs: number; sending: boolean; error: string | null; onVote: (optionId: string) => void }) {
   const open = phase === "CATEGORY_VOTING" && remainingMs > 0 && !myOptionId;
   const closed = phase === "CATEGORY_RESULT";
+  const keyHints = useKeyHints();
+  useAnswerKeys({
+    enabled: open && !sending,
+    count: vote.options.length,
+    onPick: (i) => {
+      const o = vote.options[i];
+      if (o) onVote(o.id);
+    },
+  });
   return (
     <div className="flex flex-1 flex-col gap-3">
       <div className="flex items-center gap-3">
@@ -397,7 +421,7 @@ export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, e
       </div>
       {phase === "CATEGORY_VOTING" && vote.closesAt && <TimerBar remainingMs={remainingMs} totalMs={vote.openedAt ? Date.parse(vote.closesAt) - Date.parse(vote.openedAt) : 15000} />}
       <div className="flex flex-col gap-2.5">
-        {vote.options.map((o) => {
+        {vote.options.map((o, i) => {
           const mine = myOptionId === o.id;
           const winner = closed && vote.winnerOptionId === o.id;
           return (
@@ -406,8 +430,9 @@ export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, e
               type="button"
               disabled={!open || sending}
               onClick={() => onVote(o.id)}
+              aria-keyshortcuts={String(i + 1)}
               className={clsx(
-                "flex min-h-16 items-center gap-3 rounded-2xl border-4 px-3 text-left transition active:translate-y-[3px]",
+                "flex min-h-16 items-center gap-3 rounded-2xl border-4 px-3 text-left outline-none transition focus-visible:ring-4 focus-visible:ring-cyan active:translate-y-[3px]",
                 mine || winner ? "border-white" : "border-gold/80",
                 (closed && !winner) || (myOptionId && !mine) ? "opacity-45" : "",
                 winner && "animate-pulse-glow",
@@ -418,6 +443,11 @@ export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, e
               <span className="flex-1 font-display text-2xl text-white">{o.label}</span>
               {o.votes !== null && <span className="font-display text-lg">{o.votes}</span>}
               {mine && <span className="font-display">✓</span>}
+              {keyHints && open && (
+                <kbd aria-hidden className="rounded-md border-b-2 border-black/40 bg-black/35 px-2 py-1 font-display text-sm leading-none text-white/95">
+                  {i + 1}
+                </kbd>
+              )}
             </button>
           );
         })}
