@@ -52,7 +52,7 @@ export default async function Home() {
             <h1 id="featured-title" className="w-full">
               <span className="sr-only">CHE NE SAI?!</span>
               {/* telefono e tablet: la copertina del gioco, al centro, che sfuma nel nero */}
-              <span className="qz-hero-logo relative mx-auto block aspect-[1122/1402] w-[min(100%,26rem,calc(62svh*0.8))] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(131,43,255,0.55)] lg:hidden">
+              <span className="qz-hero-logo relative mx-auto block aspect-[1024/1536] w-[min(100%,24rem,calc(66svh*0.6667))] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(131,43,255,0.55)] lg:hidden">
                 <Image
                   src={g.cover.kind === "image" ? g.cover.src : "/games/che-ne-sai-copertina.webp"}
                   alt=""

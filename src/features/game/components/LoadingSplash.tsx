@@ -50,10 +50,11 @@ const THEMES: Record<SplashGame, SplashTheme> = {
     ],
   },
   giramente: {
-    image: "/games/giramente-logo.svg",
-    imageBg: "/games/giramente-logo.svg",
-    width: 640,
-    height: 400,
+    image: "/games/giramente-copertina-560.webp",
+    imageWide: { src: "/games/giramente-copertina-desktop-960.webp", width: 960, height: 540 },
+    imageBg: "/games/giramente-copertina-560.webp",
+    width: 560,
+    height: 840,
     alt: "GIRAMENTE!",
     tips: [
       "Don Patrizio si sistema la cravatta…",
@@ -119,7 +120,7 @@ export function LoadingSplash({ label, game = "che-ne-sai", children, className 
             alt={t.alt}
             className={clsx(
               "h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,.6)]",
-              noir ? "psy-splash-art w-[min(80vw,48vh)] [@media(min-aspect-ratio:5/4)]:w-[min(78vw,110vh)]" : gm ? "w-[min(88vw,70vh)]" : "qz-splash-art w-[min(92vw,62vh)]",
+              noir ? "psy-splash-art w-[min(80vw,48vh)] [@media(min-aspect-ratio:5/4)]:w-[min(78vw,110vh)]" : gm ? "psy-splash-art w-[min(70vw,46vh)] [@media(min-aspect-ratio:5/4)]:w-[min(78vw,110vh)]" : "qz-splash-art w-[min(92vw,62vh)]",
             )}
           />
         </picture>

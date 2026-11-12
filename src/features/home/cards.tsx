@@ -19,7 +19,10 @@ export function GameCard({ game, priority }: { game: GameEntry; priority?: boole
           height={game.cover.height}
           sizes="(min-width: 768px) 20rem, 72vw"
           loading={priority ? "eager" : "lazy"}
-          className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.06] group-focus-visible:scale-[1.06]"
+          className={clsx(
+            "h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.06] group-focus-visible:scale-[1.06]",
+            game.cover.position === "top" && "object-top",
+          )}
         />
       ) : game.cover.kind === "brand" ? (
         <GiramenteCover />

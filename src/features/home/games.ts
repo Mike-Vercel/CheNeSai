@@ -24,7 +24,7 @@ export interface GameEntry {
   href: string | null;
   /** copertina verticale (locandina 4:5 circa): immagine reale del gioco oppure campo di colore con una sigla */
   /** «brand»: copertina disegnata in CSS (in attesa dell'immagine ufficiale, slot /games/<id>-copertina.webp) */
-  cover: { kind: "image"; src: string; alt: string; width: number; height: number } | { kind: "placeholder"; color: string; mark: CoverMark } | { kind: "brand"; brand: "giramente" };
+  cover: { kind: "image"; src: string; alt: string; width: number; height: number; /** punto da tenere nel riquadro 4:5 (es. "top") */ position?: "top" | "center" } | { kind: "placeholder"; color: string; mark: CoverMark } | { kind: "brand"; brand: "giramente" };
 }
 
 export const GAMES: GameEntry[] = [
@@ -38,9 +38,10 @@ export const GAMES: GameEntry[] = [
     cover: {
       kind: "image",
       src: "/games/che-ne-sai-copertina.webp",
-      alt: "Copertina di CHE NE SAI?!: il Professore, Palmino e la Regina sul palco del quiz pub",
-      width: 1122,
-      height: 1402,
+      alt: "Copertina di CHE NE SAI?!: il Professore, Palmino e la Regina sul palco, «Bocciati!»",
+      width: 1024,
+      height: 1536,
+      position: "top",
     },
   },
   {
@@ -65,8 +66,13 @@ export const GAMES: GameEntry[] = [
     meta: ["Game show", "Da 2 giocatori o 2 squadre", "20–35 minuti", "Gratis"],
     status: "disponibile",
     href: "/giramente",
-    // copertina ufficiale non ancora caricata: card in CSS (slot pronto: /games/giramente-copertina.webp)
-    cover: { kind: "brand", brand: "giramente" },
+    cover: {
+      kind: "image",
+      src: "/games/giramente-copertina.webp",
+      alt: "Copertina di GIRAMENTE!: la ruota con il cervello al centro, «La ruota gira. La mente decide.»",
+      width: 1024,
+      height: 1536,
+    },
   },
 ];
 

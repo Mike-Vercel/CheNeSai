@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/features/home/SiteHeader";
 import { Logo } from "@/features/giramente/ui";
@@ -17,10 +18,22 @@ export default async function GiramenteHome() {
   return (
     <div className="min-h-dvh">
       <SiteHeader user={user} overlay />
-      <main className="relative mx-auto flex w-full max-w-3xl flex-col items-center gap-7 px-4 pb-16 pt-[calc(5.5rem+env(safe-area-inset-top))] text-center">
-        <div aria-hidden className="pointer-events-none absolute left-1/2 top-24 -z-10 h-72 w-[46rem] max-w-[120vw] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(57,255,20,.18),transparent_65%)]" />
+      {/* PC: la copertina ufficiale a tutta larghezza, che sfuma nel nero verso il menu */}
+      <div aria-hidden className="relative hidden aspect-[1672/941] max-h-[82svh] w-full overflow-hidden lg:block">
+        <Image src="/games/giramente-copertina-desktop.webp" alt="" fill preload sizes="100vw" className="object-cover object-center" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[14%] bg-gradient-to-t from-[#080b0d] to-transparent" />
+      </div>
+      <main className="relative mx-auto flex w-full max-w-3xl flex-col items-center gap-7 px-4 pb-16 pt-[calc(5.5rem+env(safe-area-inset-top))] text-center lg:-mt-4 lg:pt-0">
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-24 -z-10 h-72 w-[46rem] max-w-[120vw] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(57,255,20,.18),transparent_65%)] lg:hidden" />
         <h1 className="sr-only">GIRAMENTE!</h1>
-        <Logo size="xl" tagline />
+        {/* telefono e tablet: la copertina verticale (ha già il logo e lo slogan) */}
+        <div className="relative w-[min(82vw,22rem,calc(56svh*0.6667))] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(57,255,20,0.45)] ring-1 ring-white/10 lg:hidden">
+          <Image src="/games/giramente-copertina.webp" alt="Copertina di GIRAMENTE!" width={1024} height={1536} preload sizes="(min-width: 768px) 22rem, 82vw" className="h-auto w-full" />
+        </div>
+        <span className="sr-only">
+          <Logo size="xl" tagline />
+        </span>
         <p className="max-w-xl text-base font-bold text-white/85 md:text-lg">
           Il game show con la ruota: cinque manche, enigmi di logica, Verde o Rosso, i Jolly di Zafira e il Giro Decisivo. La fortuna sceglie la sfida, la tua mente decide come finisce.
         </p>
