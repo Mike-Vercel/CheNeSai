@@ -1,7 +1,7 @@
 # CHE NE SAI?! — LIBRERIA UFFICIALE DELLE BATTUTE (testo fornito dall'utente, da integrare parola per parola)
 
 > Palmino in italiano su richiesta dell'utente: le sue battute sono state riportate dal siciliano/dialetto
-> all'italiano ("MINCHIA" → "Mamma mia"/"Accidenti", "MIIII" → "Mamma mia", "Talìa" → "Guarda",
+> all'italiano ("MINCHIA" → "Oh mamma"/"Accidenti", "MIIII" → "Oh mamma", "Talìa" → "Guarda",
 > "Ma cu sì" → "Ma chi sei", "AMUNÌ" → "Forza"/"Dai, dai", "Professò" → "Professore", "Regì" → "Regina"…),
 > cambiando il minimo. Niente accento siciliano. Regole in scripts/palmino-italiano.mjs.
 
@@ -181,7 +181,7 @@ REGOLE FONDAMENTALI
 Palmino deve essere molto più spontaneo, comico e irriverente. [Aggiornato su richiesta dell'utente: parla in italiano, senza espressioni siciliane né accento.]
 
 ### Quando qualcuno sbaglia
-1. "MAMMA MIA… E CI HAI PURE PENSATO!"
+1. "UUUH… E CI HAI PURE PENSATO!"
 2. "MA PERCHÉ SEI VENUTO?!"
 3. "Questa la sapevo pure io… e sono una palma!"
 4. "Ti prego, dimmi che hai cliccato per sbaglio!"
@@ -241,14 +241,14 @@ Palmino deve essere molto più spontaneo, comico e irriverente. [Aggiornato su r
 52. "Che Dio ve la mandi buona… perché il Professore no!"
 
 ### Battute dinamiche con nomi
-53. "MAMMA MIA, {nome_primo}! MA CHI SEI, EINSTEIN?!"
+53. "UUUH, {nome_primo}! MA CHI SEI, EINSTEIN?!"
 54. "{nome_ultimo}, ma sei venuto a giocare o a fare presenza?!"
 55. "ATTENZIONE! {nome_sorpasso} HA SUPERATO {nome_superato}! MAMMA MIA, CHE RIMONTA!"
 56. "{nome_risposta_corretta}, MA ALLORA SAI QUALCOSA!"
 57. "{nome_risposta_errata}, MA CHI TI HA CONSIGLIATO QUESTA RISPOSTA?!"
 58. "FERMI TUTTI! {nome_vincitore} HA VINTO! CHIAMATE IL TELEGIORNALE!"
 59. "{nome_piu_veloce}, MA CHE HAI, IL TURBO NELLE DITA?!"
-60. "MAMMA MIA! {nome_rimonta} STA RECUPERANDO! SECONDO ME HA CAMBIATO CERVELLO!"
+60. "UUUH! {nome_rimonta} STA RECUPERANDO! SECONDO ME HA CAMBIATO CERVELLO!"
 61. "{nome_primo_precedente}, TI HANNO FREGATO IL PRIMO POSTO! FORZA, RISPONDI!"
 62. "{nome_ultimo}, SEI ULTIMO… MA GUARDA IL LATO POSITIVO: PEGGIO DI COSÌ È DIFFICILE!"
 63. "MA GUARDA {nome_nuovo_primo}! È DIVENTATO IL CAPO DELLA BARACCA!"
@@ -264,7 +264,7 @@ Palmino deve essere molto più spontaneo, comico e irriverente. [Aggiornato su r
 ### Tormentoni
 70. "MA CHE NE SAAA?!"
 71. "IO SONO UNA PALMA… VOI CHE SCUSA AVETE?!"
-72. "MAMMA MIA, CHE FIGURA!"
+72. "UUUH, CHE FIGURA!"
 73. "FORZA, CHE SI FA TARDI!"
 74. "Qua ci vuole un miracolo, non un suggerimento!"
 75. "SIETE PEGGIO DEL PUNTERUOLO ROSSO!"
@@ -365,7 +365,7 @@ Queste battute sono particolarmente importanti perché devono utilizzare il vero
 Primo classificato
 Professore: "Il nuovo leader della classifica è {nome_primo}! Complimenti!"
 Regina: "AMOOOORE, {nome_primo}! SEI IN TESTA! TI MERITI LA MIA CORONA!"
-Palmino: "MAMMA MIA, {nome_primo}! MA ALLORA SEI UN GENIO!"
+Palmino: "OH MAMMA, {nome_primo}! MA ALLORA SEI UN GENIO!"
 
 Ultimo classificato
 Professore: "{nome_ultimo}, la situazione è difficile, ma matematicamente potrebbe ancora recuperare."
@@ -385,7 +385,7 @@ Palmino: "MAMMA MIA, {nome_risposta_errata}! MA CHI TI HA SUGGERITO QUESTA COSA?
 Rimonta
 Professore: "Straordinario recupero di {nome_rimonta}, che sta risalendo la classifica!"
 Regina: "{nome_rimonta}, AMOOOORE! MA GUARDA COME STAI TORNANDO SU!"
-Palmino: "MAMMA MIA, {nome_rimonta}! MA PRIMA STAVI DORMENDO?!"
+Palmino: "OH MAMMA, {nome_rimonta}! MA PRIMA STAVI DORMENDO?!"
 
 Vittoria finale
 Professore: "Signore e signori, il vincitore di CHE NE SAI?! è {nome_vincitore}! Congratulazioni!"
@@ -441,25 +441,25 @@ La variabile {nome_giocatore} va sostituita con il nome del partecipante che non
 12. "AMORE, {nome_giocatore}! Il tempo è scaduto! Baci, abbracci e zero punti!"
 
 ## PALMINO — Irriverente e siciliano
-1. "MAMMA MIA, {nome_giocatore}! MA TI SEI ADDORMENTATO?!"
+1. "OH MAMMA, {nome_giocatore}! MA TI SEI ADDORMENTATO?!"
 2. "{nome_giocatore}, DAI, DAI! MA CHE STAI ASPETTANDO, NATALE?!"
 3. "OH, {nome_giocatore}! IL TELEFONO NON È UN SOPRAMMOBILE!"
 4. "{nome_giocatore}, MA SEI VIVO?! BATTI UN COLPO!"
-5. "MAMMA MIA, {nome_giocatore}! IO HO LE RADICI E MI MUOVO PIÙ VELOCE DI TE!"
+5. "UUUH, {nome_giocatore}! IO HO LE RADICI E MI MUOVO PIÙ VELOCE DI TE!"
 6. "{nome_giocatore}, ma che fai? Stai aspettando che ti chiami il Professore a casa?!"
 7. "OH, {nome_giocatore}! QUA SI DEVE RISPONDERE, NON MEDITARE!"
 8. "{nome_giocatore}, MAMMA MIA! MANCO UNA RISPOSTA A CASO SEI RIUSCITO A DARE!"
 9. "MA CHE FAI, {nome_giocatore}?! STAI CARICANDO IL CERVELLO AL 2 PER CENTO?!"
 10. "{nome_giocatore}, SEI PIÙ FERMO DI ME! E IO SONO PIANTATO PER TERRA!"
 11. "PROFESSOREEE! {nome_giocatore} NON RISPONDE! CHIAMIAMO CHI L'HA VISTO!"
-12. "{nome_giocatore}, MAMMA MIA! TI DEVO MANDARE UNA RACCOMANDATA PER FARTI CLICCARE?!"
+12. "{nome_giocatore}, OH MAMMA! TI DEVO MANDARE UNA RACCOMANDATA PER FARTI CLICCARE?!"
 
 ## BATTUTE SPECIALI BASATE SULLA CLASSIFICA
 
 Quando il primo classificato non risponde
 Professore: "{nome_giocatore}, è primo in classifica e decide di non rispondere? Una strategia che meriterebbe una ricerca scientifica."
 Regina: "{nome_giocatore}, AMOOOORE! SEI PRIMO E TI METTI A DORMIRE?! GUARDA CHE LA CORONA TE LA TOLGO!"
-Palmino: "MAMMA MIA, {nome_giocatore}! SEI PRIMO E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!"
+Palmino: "OH MAMMA, {nome_giocatore}! SEI PRIMO E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!"
 
 Quando l'ultimo classificato non risponde
 Professore: "{nome_giocatore}, occupa già l'ultima posizione. Il silenzio non migliorerà la situazione."
@@ -480,7 +480,7 @@ Palmino: "MAMMA MIA! MA SIETE TUTTI IN MODALITÀ AEREO?!"
 Scenetta 1 — Il concorrente scomparso
 Professore: "Abbiamo un problema. {nome_giocatore} non ha risposto."
 Regina: "{nome_giocatore}, amore, tutto bene? Ti dobbiamo venire a prendere?"
-Palmino: "MAMMA MIA! CHIAMATE CHI L'HA VISTO!"
+Palmino: "UUUH! CHIAMATE CHI L'HA VISTO!"
 
 Scenetta 2 — Il silenzio è d'oro
 Professore: "Il silenzio è d'oro."

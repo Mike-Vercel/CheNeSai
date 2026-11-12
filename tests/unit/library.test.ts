@@ -74,9 +74,9 @@ describe("voce delle battute curate: maiuscole → audio tag, testo dell'utente 
   it("a schermo resta il testo dell'utente (con il nome vero); le battute di sempre non cambiano", () => {
     const official = OFFICIAL.find((t) => t.id === "uff-palmino-nomi-53")!;
     const r = renderTemplate(official, { nome_primo: "Gigi" })!;
-    expect(r.display).toBe("MAMMA MIA, Gigi! MA CHI SEI, EINSTEIN?!");
+    expect(r.display).toBe("UUUH, Gigi! MA CHI SEI, EINSTEIN?!");
     // urlata ma in un momento bello (nuovo primo): entusiasmo; nessun accento
-    expect(r.text).toBe("[excited] Mamma mia, Gigi! Ma chi sei, Einstein?!");
+    expect(r.text).toBe("[excited] Uuuh, Gigi! Ma chi sei, Einstein?!");
     expect(r.live).toBe(true);
     const fixed = renderTemplate(OFFICIAL.find((t) => t.id === "uff-professore-sbaglia-14")!, {})!;
     expect(fixed.live).toBe(false);
