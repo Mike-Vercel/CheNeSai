@@ -188,7 +188,7 @@ export function PortraitQuestionScreen({
 
   return (
     <TvFrame calm={optionsVisible}>
-      <div className="absolute inset-0 flex flex-col gap-[1.4cqh] px-[4cqw] pb-[2cqh] pt-[calc(5.5cqh+env(safe-area-inset-top))]">
+      <div className="absolute inset-0 flex flex-col gap-[1.4cqh] overflow-y-auto overscroll-contain px-[4cqw] pb-[calc(9cqh+env(safe-area-inset-bottom))] pt-[calc(5.5cqh+env(safe-area-inset-top))]">
         <PortraitHeader
           right={
             <>
