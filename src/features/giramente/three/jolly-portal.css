@@ -1,0 +1,100 @@
+/* Portale della Jolly: velo di luce (le "luci cambiano") e versione 2D. */
+/* nel livello «components»: le classi utility di Tailwind passate con className hanno la precedenza */
+@layer components {
+.gr3-jp-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.gr3-jp-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 70% at 50% 55%, rgba(57, 255, 20, 0.18), transparent 70%),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.22), rgba(8, 11, 13, 0.55) 45%, rgba(8, 11, 13, 0.55) 55%, rgba(255, 37, 58, 0.22));
+  transition: opacity 0.6s ease;
+}
+.gr3-jp-wash-on {
+  opacity: 1;
+  animation: gr3-jp-wash-in 0.9s ease-out;
+}
+.gr3-jp-wash-off {
+  opacity: 0;
+  transition-delay: 0.6s;
+}
+@keyframes gr3-jp-wash-in {
+  0% {
+    opacity: 0;
+    filter: brightness(2.2);
+  }
+  25% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+/* ---- 2D ---- */
+.gr3-jp-flat {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.gr3-jp-ring {
+  position: absolute;
+  width: min(70%, 70vh);
+  aspect-ratio: 0.66;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(8, 11, 13, 0.95) 70%, transparent 72%), conic-gradient(from 0deg, #39ff14, #0b3a17, #ff253a, #4a0d14, #39ff14);
+  box-shadow:
+    0 0 40px rgba(57, 255, 20, 0.5),
+    0 0 80px rgba(255, 37, 58, 0.35);
+  transform: scale(0.2);
+  opacity: 0;
+  transition:
+    transform 0.55s cubic-bezier(0.2, 1.4, 0.4, 1),
+    opacity 0.4s ease;
+}
+.gr3-jp-portrait {
+  position: relative;
+  width: min(60%, 320px);
+  height: 80%;
+  opacity: 0;
+  transform: translateY(8%) scale(0.92);
+  transition:
+    opacity 0.45s ease 0.25s,
+    transform 0.45s ease 0.25s;
+}
+.gr3-jp-open .gr3-jp-ring {
+  transform: scale(1);
+  opacity: 1;
+}
+.gr3-jp-open .gr3-jp-portrait {
+  opacity: 1;
+  transform: none;
+}
+.gr3-jp-closing .gr3-jp-ring {
+  transform: scale(0.1);
+  opacity: 0;
+  transition-delay: 0.2s;
+}
+.gr3-jp-closing .gr3-jp-portrait {
+  opacity: 0;
+  transform: scale(0.85);
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gr3-jp-ring,
+  .gr3-jp-portrait,
+  .gr3-jp-wash {
+    transition-duration: 0.01s !important;
+    animation: none !important;
+  }
+}
+}
