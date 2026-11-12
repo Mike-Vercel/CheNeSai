@@ -20,8 +20,17 @@ import { GiramenteError } from "./errors";
  */
 /** Don Patrizio (chiave interna «dontralla»): ELEVENLABS_VOICE_DONPATRIZIO, con il vecchio nome come ripiego. */
 const VOICE_ENV: Record<Speaker, string[]> = { dontralla: ["ELEVENLABS_VOICE_DONPATRIZIO", "ELEVENLABS_VOICE_DONTRALLA"], zafira: ["ELEVENLABS_VOICE_ZAFIRA"] };
-/** Modello per le battute dinamiche: eleven_v3 (audio tag tra parentesi quadre), lingua italiana. */
-const MODEL = () => process.env.GIRAMENTE_TTS_MODEL || "eleven_v3";
+/**
+ * Modello per le battute dinamiche: Multilingual v2, lo stesso delle frasi preregistrate, così la voce
+ * resta identica (il v3 con le voci "professional" cambiava timbro da una frase all'altra).
+ * Gli audio tag si tolgono (vedi modelSupportsTags). GIRAMENTE_TTS_MODEL lo cambia senza toccare il codice.
+ */
+const MODEL = () => process.env.GIRAMENTE_TTS_MODEL || "eleven_multilingual_v2";
+/** Impostazioni fisse per personaggio: le stesse usate per le frasi preregistrate. */
+const VOICE_SETTINGS: Record<Speaker, Record<string, number | boolean>> = {
+  dontralla: { stability: 0.5, similarity_boost: 0.9, style: 0.3, use_speaker_boost: true, speed: 1.0 },
+  zafira: { stability: 0.45, similarity_boost: 0.9, style: 0.4, use_speaker_boost: true, speed: 0.95 },
+};
 const API = "https://api.elevenlabs.io";
 const BUCKET = "tts";
 
@@ -82,7 +91,7 @@ export async function giramenteVoiceUrl(roomId: string, req: VoiceRequest): Prom
   if (!(await checkRateLimit(sql, `giramente-voce:${roomId}`, 120, 60))) throw new GiramenteError("RATE_LIMITED", "Troppe battute in poco tempo");
   const model = MODEL();
   const sent = modelSupportsTags(model) ? text : captionOf(text);
-  const key = createHash("sha256").update(`${voiceId}|${model}|${sent}`).digest("hex");
+  const key = createHash("sha256").update(`${voiceId}|${model}|${JSON.stringify(VOICE_SETTINGS[who])}|${sent}`).digest("hex");
   const [hit] = await sql<{ storage_path: string }[]>`update giramente_tts_clips set last_used_at = now() where cache_key = ${key} returning storage_path`;
   if (hit) return { url: await signedClipUrl(hit.storage_path), caption, who };
 
@@ -94,7 +103,7 @@ export async function giramenteVoiceUrl(roomId: string, req: VoiceRequest): Prom
     fetch(`${API}/v1/text-to-speech/${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`, {
       method: "POST",
       headers: { "xi-api-key": apiKey, "Content-Type": "application/json", Accept: "audio/mpeg" },
-      body: JSON.stringify({ text: sent, model_id: model, language_code: "it", voice_settings: { stability: 0.4, similarity_boost: 0.8 } }),
+      body: JSON.stringify({ text: sent, model_id: model, language_code: "it", voice_settings: VOICE_SETTINGS[who] }),
       signal: AbortSignal.timeout(15_000),
     }),
     16_000,

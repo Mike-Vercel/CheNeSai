@@ -1,5 +1,6 @@
 "use client";
 
+import { clsx } from "clsx";
 import { lazy, Suspense, useState } from "react";
 import type { GiramenteWheelProps } from "./types";
 import Wheel2D from "./Wheel2D";
@@ -23,11 +24,14 @@ export default function GiramenteWheel(props: GiramenteWheelFullProps) {
   const [failed, setFailed] = useState(false);
   const use2d = props.quality === "2d" || failed;
   const center = props.center ?? "brain";
-  if (use2d) return <Wheel2D {...props} center={center} />;
+  // misura propria (anche per il 2D): il contenitore può dare solo una larghezza massima
+  const sized = clsx("relative mx-auto w-full", props.showStand === false ? "aspect-square" : "aspect-[4/5]", props.className);
+  if (use2d) return <Wheel2D {...props} className={sized} center={center} />;
   return (
-    <Suspense fallback={<Wheel2D {...props} center={center} />}>
+    <Suspense fallback={<Wheel2D {...props} className={sized} center={center} />}>
       <Wheel3D
         {...props}
+        className={sized}
         center={center}
         onFail={(r) => {
           console.warn(`[giramente] ruota 3D → 2D: ${r}`);
