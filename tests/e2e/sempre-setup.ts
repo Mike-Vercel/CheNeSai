@@ -106,7 +106,7 @@ async function main() {
       return q.id;
     };
     for (let i = 0; i < 40; i++) await make(i);
-    // la canzone: un estratto vero già caricato nell'archivio locale (le canzoni di REFERENCE/CANZONI)
+    // la canzone: un estratto vero già caricato nell'archivio locale (le canzoni di REFERENCE/GIOCHI/CHE_NE_SAI/CANZONI)
     const [m] = await sql<{ id: string; text: string; options: { text: string; is_correct: boolean }[] }[]>`
       select m.id, q.text,
         (select json_agg(json_build_object('text', o.text, 'is_correct', o.is_correct) order by o.position) from question_options o where o.question_id = q.id) as options

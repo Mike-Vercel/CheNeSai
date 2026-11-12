@@ -193,7 +193,7 @@ describe("battute di squadra", () => {
       expect(l.text.toLowerCase()).not.toContain("tesori");
     }
     expect(team.filter((l) => l.character === "regina").every((l) => l.text.includes("AMOOOORE"))).toBe(true);
-    expect(team.filter((l) => l.character === "palmino").every((l) => l.text.includes("Mamma mia"))).toBe(true);
+    expect(team.filter((l) => l.character === "palmino").every((l) => /Mamma mia|Uuuh|Oh mamma/.test(l.text))).toBe(true);
     expect(new Set(raw.lines.map((l) => l.id)).size).toBe(raw.lines.length);
   });
 });

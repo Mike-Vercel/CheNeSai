@@ -14,8 +14,8 @@ mouthO = come jaw al 70 % + labbra in avanti e strette; mouthE = 30 % + allargat
 superiore giù / inferiore su (±1–1.7 cm); browsUp = +7 mm. Interno bocca: materiale (0.07, 0.008, 0.012).
 
 Uso (Blender 5.2, headless; gli originali in REFERENCE/ non vengono mai toccati):
-  blender --background --python blender_add_mouth.py -- REFERENCE/MODELLI-3D/PRESENTATRICE_DONNA.glb <out>/PRESENTATRICE_DONNA_PARLANTE.glb mouth_regina.json
-  blender --background --python blender_add_mouth.py -- REFERENCE/MODELLI-3D/PALMINO.glb <out>/PALMINO_PARLANTE.glb mouth_palmino.json
+  blender --background --python blender_add_mouth.py -- REFERENCE/GIOCHI/CHE_NE_SAI/MODELLI-3D/PRESENTATRICE_DONNA.glb <out>/PRESENTATRICE_DONNA_PARLANTE.glb mouth_regina.json
+  blender --background --python blender_add_mouth.py -- REFERENCE/GIOCHI/CHE_NE_SAI/MODELLI-3D/PALMINO.glb <out>/PALMINO_PARLANTE.glb mouth_palmino.json
 poi ottimizzazione come gli altri GLB (gltf-transform resize + optimize --compress meshopt --texture-compress webp,
 i morph target e i targetNames restano) in public/models/regina*.glb e palmino*.glb.
 I punti di labbra/occhi/sopracciglia nei JSON sono stati presi dal render frontale di blender_render_face.py.
