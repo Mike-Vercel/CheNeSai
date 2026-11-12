@@ -1046,13 +1046,14 @@ export function TvPodiumScreen({
       {portrait ? (
         // in verticale i tre presentatori insieme (un solo canvas 3D) DIETRO a un bancone: mai tagliati a metà
         <>
-          <div className="absolute left-1/2 top-[17cqh] z-[5] w-[78cqw] -translate-x-1/2">
+          {/* trio grande; il bancone è agganciato all'altezza del trio (96cqw / 1.3 ≈ 74cqw): copre sempre il taglio */}
+          <div className="absolute left-1/2 top-[15cqh] z-[5] w-[96cqw] -translate-x-1/2">
             <TrioSlot host="professore" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
           </div>
-          <StageCounter className="top-[41cqh] z-[6] h-[4.6cqh]" />
+          <StageCounter className="top-[calc(15cqh+64cqw)] z-[6] h-[calc(12cqw+1cqh)]" />
           <TrophyMoment
             won={winnerShown}
-            className="left-[58cqw] top-[19cqh] z-[7] h-[22cqh] w-[36cqw]"
+            className="left-[60cqw] top-[calc(15cqh+64cqw-20cqh)] z-[7] h-[20cqh] w-[36cqw]"
             table={{ left: 68, bottom: 0, width: 26, height: 24 }}
             raised={{ left: 39, bottom: 66 }}
             cupClassName="w-[9cqw]"
@@ -1061,20 +1062,20 @@ export function TvPodiumScreen({
       ) : (
         <>
           {/* Professore e Regina dietro al bancone (figura sopra il piano, niente tagli a metà) */}
-          <div className="absolute bottom-[5cqh] left-[0.5cqw] z-[12] w-[18cqw]">
+          <div className="absolute bottom-[-2cqh] left-[0cqw] z-[12] w-[23cqw]">
             <TalkingCharacter who="professore" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
           </div>
-          <div className="absolute bottom-[5cqh] right-[0.5cqw] z-[12] w-[19cqw]">
+          <div className="absolute bottom-[-2cqh] right-[0cqw] z-[12] w-[24cqw]">
             <TalkingCharacter who="regina" className="w-full" animation={winnerShown ? "celebrate" : "idle"} />
           </div>
           {/* Palmino in piedi sul bancone, accanto al tavolino con la coppa: la alza quando arriva il vincitore */}
-          <div className="absolute bottom-[12cqh] left-[18.8cqw] z-[13] h-[30cqh] w-[13cqw]">
+          <div className="absolute bottom-[6.5cqh] left-[22.5cqw] z-[13] h-[30cqh] w-[13cqw]">
             <div className="absolute bottom-0 left-0 w-[9cqw]">
               <TalkingCharacter who="palmino" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
             </div>
             <TrophyMoment won={winnerShown} className="inset-0" table={{ left: 73, bottom: 0, width: 25, height: 17 }} raised={{ left: 35, bottom: 68 }} cupClassName="w-[3.6cqw]" />
           </div>
-          <StageCounter className="bottom-0 z-[14] h-[12.5cqh]" />
+          <StageCounter className="bottom-0 z-[14] h-[7cqh]" />
         </>
       )}
 

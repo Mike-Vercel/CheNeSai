@@ -92,7 +92,10 @@ function PortraitScreen(props: TvStageProps) {
           value={(e) => (
             <span className="flex flex-col items-end leading-none">
               <span className="font-display text-[5cqw]">{e.points < 0 ? signedPoints(e.points) : formatPoints(e.points)}</span>
-              <span className="mt-[0.6cqw] text-[3cqw] font-extrabold opacity-70">tot. {formatPoints(totals.get(e.participantId) ?? 0)}</span>
+              {/* ultimo round: niente totali (subito dopo c'è il podio: il vincitore non si svela prima) */}
+              {!(view.round && view.round.index >= view.round.total) && (
+                <span className="mt-[0.6cqw] text-[3cqw] font-extrabold opacity-70">tot. {formatPoints(totals.get(e.participantId) ?? 0)}</span>
+              )}
             </span>
           )}
         />

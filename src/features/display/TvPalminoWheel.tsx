@@ -200,9 +200,7 @@ export function TvPalminoWheelScreen({
         >
           <PalminoAtWheel animation={animation} gestureKey={spin?.startedAt ?? "x"} swing={swinging} className="w-full" />
         </motion.div>
-        {bubble && (
-          <p className="absolute right-[4cqw] top-[48cqh] z-30 max-w-[60cqw] rounded-[3cqw] border-[0.6cqw] border-gold bg-white px-[3cqw] py-[1.6cqw] text-[4cqw] font-extrabold leading-tight text-ink shadow-xl">{bubble}</p>
-        )}
+        {/* in verticale niente fumetto: copriva la ruota (la battuta si sente comunque) */}
         <div className="absolute inset-x-[5cqw] top-[78cqh] z-30 flex justify-center text-center">{result ?? statusLine}</div>
       </TvFrame>
     );

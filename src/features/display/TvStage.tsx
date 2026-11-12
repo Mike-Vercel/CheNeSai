@@ -140,7 +140,8 @@ function StageScreen({ state: view, remainingMs, mediaUrl, qrDataUrl, joinUrl, a
           title={roundTitle}
           showDelta={false}
           showLines={view.showLines}
-          round={{ totals: new Map(view.roundLeaderboard.map((r) => [r.participantId, r.total])) }}
+          // ultimo round: niente totali (subito dopo c'è il podio: il vincitore non si svela prima)
+          round={view.round && view.round.index >= view.round.total ? undefined : { totals: new Map(view.roundLeaderboard.map((r) => [r.participantId, r.total])) }}
         />
       );
     }
