@@ -13,7 +13,7 @@ import { cleanSpeech, ttsText } from "./script";
  * - la punteggiatura attaccata al nome va con il nome ("Gigi," / "Gigi!"): intonazione giusta;
  * - nomi separati solo da congiunzioni o da una parola breve ("Anna, Bruno e Carla",
  *   "Anna, secondo Carla") formano un'unica parte con i nomi: suona più naturale; lo stesso
- *   per una parola isolata attaccata al nome ("Solo Gigi", "Talìa Gigi:") se la frase continua;
+ *   per una parola isolata attaccata al nome ("Solo Gigi", "Guarda Gigi:") se la frase continua;
  * - una parte fissa con numeri (punti, secondi…) cambia a ogni serata: si divide alle fine
  *   delle frasi, così le frasi senza numeri restano riusabili (lo stacco cade su una pausa vera);
  * - gli audio tag iniziali vanno sulla prima parte fissa (porta l'interpretazione della

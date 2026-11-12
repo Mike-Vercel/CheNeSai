@@ -95,7 +95,7 @@ describe("regista e battute con i nomi veri", () => {
   const lib = [
     T("r1", "regina", "LEADER_CHANGED", "AMOOOORE, {nome_primo}! Hai superato {nome_ex_primo}!"),
     T("p1", "palmino", "ALL_WRONG", "[laughs] Zero per tutti!"),
-    T("p2", "palmino", "OVERTAKE", "MIIII, {nome_sorpasso} supera {nome_superato}!"),
+    T("p2", "palmino", "OVERTAKE", "Mamma mia, {nome_sorpasso} supera {nome_superato}!"),
     T("x1", "professore", "OVERTAKE", "Sorpasso di {nome_sorpasso} su {nome_superato}."),
   ];
 

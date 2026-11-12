@@ -61,16 +61,16 @@ export const VARIANTS = {
     n: "Ma guardate {nome_giocatore}! È qui al quiz solo per fare presenza!",
   },
   "uff-palmino-silenzio-01": {
-    f: "MIIII, {nome_giocatore}! MA TI SEI ADDORMENTATA?!",
-    n: "MIIII, {nome_giocatore}! MA STAI DORMENDO?!",
+    f: "MAMMA MIA, {nome_giocatore}! MA TI SEI ADDORMENTATA?!",
+    n: "MAMMA MIA, {nome_giocatore}! MA STAI DORMENDO?!",
   },
   "uff-palmino-silenzio-04": {
     f: "{nome_giocatore}, MA SEI VIVA?! BATTI UN COLPO!",
     n: "{nome_giocatore}, MA CI SEI?! BATTI UN COLPO!",
   },
   "uff-palmino-silenzio-08": {
-    f: "{nome_giocatore}, MIIII! MANCO UNA RISPOSTA A CASO SEI RIUSCITA A DARE!",
-    n: "{nome_giocatore}, MIIII! MANCO UNA RISPOSTA A CASO HAI DATO!",
+    f: "{nome_giocatore}, MAMMA MIA! MANCO UNA RISPOSTA A CASO SEI RIUSCITA A DARE!",
+    n: "{nome_giocatore}, MAMMA MIA! MANCO UNA RISPOSTA A CASO HAI DATO!",
   },
   // "PIANTATO" è Palmino che parla di sé: resta
   "uff-palmino-silenzio-10": {
@@ -86,16 +86,16 @@ export const VARIANTS = {
     n: "{nome_giocatore}, AMOOOORE! SEI IN TESTA E TI METTI A DORMIRE?! GUARDA CHE LA CORONA TE LA TOLGO!",
   },
   "uff-palmino-silenzio-primo": {
-    f: "MIIII, {nome_giocatore}! SEI PRIMA E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!",
-    n: "MIIII, {nome_giocatore}! SEI IN TESTA E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!",
+    f: "MAMMA MIA, {nome_giocatore}! SEI PRIMA E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!",
+    n: "MAMMA MIA, {nome_giocatore}! SEI IN TESTA E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!",
   },
   "uff-regina-silenzio-ultimo": {
     f: "{nome_giocatore}, tesoro, sei ultima e non rispondi nemmeno? Amore mio, così mi rendi il lavoro impossibile!",
     n: "{nome_giocatore}, tesoro, sei in fondo alla classifica e non rispondi nemmeno? Amore mio, così mi rendi il lavoro impossibile!",
   },
   "uff-palmino-silenzio-ultimo": {
-    f: "{nome_giocatore}, MA SEI ULTIMA E NON RISPONDI?! MIIII, MA VUOI FINIRE SOTTO TERRA?!",
-    n: "{nome_giocatore}, MA SEI IN FONDO E NON RISPONDI?! MIIII, MA VUOI FINIRE SOTTO TERRA?!",
+    f: "{nome_giocatore}, MA SEI ULTIMA E NON RISPONDI?! MAMMA MIA, MA VUOI FINIRE SOTTO TERRA?!",
+    n: "{nome_giocatore}, MA SEI IN FONDO E NON RISPONDI?! MAMMA MIA, MA VUOI FINIRE SOTTO TERRA?!",
   },
   "uff-silenzio-02-2": {
     f: "Professore, allora {nome_giocatore} stasera è milionaria!",
@@ -103,8 +103,8 @@ export const VARIANTS = {
   },
   // ---------------- libreria di sempre (content/show/battute.json) ----------------
   "palmino-leader-kept-04": {
-    f: "Ma cu sì, {nome_primo}, la padrona della classifica? Lasciane un pochino agli altri!",
-    n: "Talìa {nome_primo}, comanda sempre la classifica! Lasciane un pochino agli altri!",
+    f: "Ma chi sei, {nome_primo}, la padrona della classifica? Lasciane un pochino agli altri!",
+    n: "Guarda {nome_primo}, comanda sempre la classifica! Lasciane un pochino agli altri!",
   },
   "regina-overtake-02": {
     f: "{nome_superato}, amore mio, non piangere che si rovina il trucco. {nome_sorpasso} ti è appena sfrecciata accanto!",
@@ -115,8 +115,8 @@ export const VARIANTS = {
     n: "{nome_ultimo}, ma sei qui per giocare o per fare presenza?!",
   },
   "palmino-new-last-05": {
-    f: "Ma cu sì, {nome_ultimo}, la guardiana della classifica? Tieni la porta a tutti!",
-    n: "Talìa {nome_ultimo}, fai la guardia alla classifica? Tieni la porta a tutti!",
+    f: "Ma chi sei, {nome_ultimo}, la guardiana della classifica? Tieni la porta a tutti!",
+    n: "Guarda {nome_ultimo}, fai la guardia alla classifica? Tieni la porta a tutti!",
   },
   "regina-fastest-correct-03": {
     f: "{nome}, {secondi} secondi e risposta esatta. Velocità e classe: degna di una regina!",
@@ -127,8 +127,8 @@ export const VARIANTS = {
     n: "{nome}, l'unica risposta esatta in questo quesito. Platone ne sarebbe fiero.",
   },
   "palmino-only-one-correct-03": {
-    f: "Talìa, talìa! Solo {nome} ha risposto giusto! Ma cu sì, una professoressa travestita?",
-    n: "Talìa, talìa! Solo {nome} ha risposto giusto! Ma cu sì, un genio?",
+    f: "Guarda, guarda! Solo {nome} ha risposto giusto! Ma chi sei, una professoressa travestita?",
+    n: "Guarda, guarda! Solo {nome} ha risposto giusto! Ma chi sei, un genio?",
   },
 };
 

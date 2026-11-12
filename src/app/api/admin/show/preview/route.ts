@@ -2,10 +2,8 @@ import { z } from "zod";
 import { adminRoute } from "@/lib/admin-route";
 import { ok, readJson } from "@/lib/http";
 import { ttsUrl } from "@/lib/server/tts";
-import { getSql } from "@/lib/database/db";
-import { loadDirectorConfig } from "@/lib/server/show";
 import { previewText } from "@/lib/show/preview";
-import { curatedVoiceText, voiceOptionsOf } from "@/lib/show/library";
+import { curatedVoiceText } from "@/lib/show/library";
 import { SHOW_EVENT_TYPES } from "@/lib/show/types";
 
 export const maxDuration = 30;
@@ -24,7 +22,7 @@ const schema = z.object({
 export const POST = adminRoute("admin", async ({ req }) => {
   const b = await readJson(req, schema);
   const voice = b.curated
-    ? curatedVoiceText({ text: b.text, character: b.character, event: b.event, tags: b.tags }, voiceOptionsOf(await loadDirectorConfig(getSql())))
+    ? curatedVoiceText({ text: b.text, character: b.character, event: b.event, tags: b.tags })
     : b.text;
   const text = previewText(b.event, voice, b.name);
   return ok({ text, url: await ttsUrl(b.character, text, { source: "sample" }) });

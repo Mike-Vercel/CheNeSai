@@ -79,7 +79,6 @@ export async function loadDirectorConfig(db: Db | Tx): Promise<DirectorConfig> {
     banterPercent: clampInt(v.banterPercent, 0, 100, DEFAULT_DIRECTOR_CONFIG.banterPercent),
     comedyLevel: isComedyLevel(v.comedyLevel) ? v.comedyLevel : DEFAULT_DIRECTOR_CONFIG.comedyLevel,
     noAnswerLines: typeof v.noAnswerLines === "boolean" ? v.noAnswerLines : DEFAULT_DIRECTOR_CONFIG.noAnswerLines,
-    palminoAccent: typeof v.palminoAccent === "boolean" ? v.palminoAccent : DEFAULT_DIRECTOR_CONFIG.palminoAccent,
   };
 }
 
@@ -93,7 +92,6 @@ export async function saveDirectorConfig(db: Db, patch: Partial<DirectorConfig>)
     banterPercent: clampInt(patch.banterPercent, 0, 100, cur.banterPercent),
     comedyLevel: isComedyLevel(patch.comedyLevel) ? patch.comedyLevel : cur.comedyLevel,
     noAnswerLines: typeof patch.noAnswerLines === "boolean" ? patch.noAnswerLines : cur.noAnswerLines,
-    palminoAccent: typeof patch.palminoAccent === "boolean" ? patch.palminoAccent : cur.palminoAccent,
   };
   await db`
     insert into application_settings (key, value) values ('show', ${db.json(JSON.parse(JSON.stringify(next)))})
@@ -175,7 +173,8 @@ export async function importAllLibraries(db: Db | Tx): Promise<number> {
 
 /** Versione delle varianti per genere già portate nell'archivio (application_settings). */
 const VARIANTS_KEY = "show_gender_variants";
-const VARIANTS_VERSION = 1;
+// 2: Palmino in italiano (varianti riscritte)
+const VARIANTS_VERSION = 2;
 
 /**
  * Varianti per genere delle battute già in archivio (importate prima che esistessero): si aggiungono
@@ -359,7 +358,7 @@ function momentLines(
   return pickMomentLines({
     templates: opts.filter ? templates.filter(opts.filter) : templates,
     event,
-    render: (t) => renderFor(t, event, config),
+    render: (t) => renderFor(t, event),
     comedyLevel: config.comedyLevel,
     ctx,
     lastUsed: h.lastUsed,
@@ -750,7 +749,6 @@ export async function directPalminoWheel(tx: Tx, sessionId: string, roundId: str
       lastUsed: m.h.lastUsed,
       elsewhere: m.h.elsewhere,
       mode: ts.mode,
-      palminoAccent: m.config.palminoAccent,
       // qualsiasi presentatore (Palmino ha già detto la sua arrivando)
       first: null,
       max: 1,

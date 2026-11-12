@@ -25,7 +25,7 @@ import { palminoWheelLabels } from "./palmino-wheel";
 import { listQuestions } from "./cms/questions";
 import { appUsage, cachedKeys, ensureClip, loadVoiceConfig, planClip, planPart, TtsError, ttsConfigured, type PlannedClip, type TtsPriority, type TtsSource, type VoiceConfig } from "./tts";
 import { splitByNames } from "@/features/game/name-segments";
-import { isCuratedTemplate, levelAllowed, renderTemplate, voiceOptionsOf } from "@/lib/show/library";
+import { isCuratedTemplate, levelAllowed, renderTemplate } from "@/lib/show/library";
 import { loadDirectorConfig, loadTemplates } from "./show";
 
 /**
@@ -67,7 +67,6 @@ const SAMPLE_NAME = "Gigi";
  */
 export async function libraryVoicePlans(db: Db, cfg: VoiceConfig): Promise<{ lines: SpokenLine[]; parts: PlannedClip[] }> {
   const config = await loadDirectorConfig(db);
-  const opts = voiceOptionsOf(config);
   const templates = (await loadTemplates(db)).filter((t) => isCuratedTemplate(t) && levelAllowed(t.level, config.comedyLevel));
   const lines: SpokenLine[] = [];
   const parts: PlannedClip[] = [];
@@ -76,11 +75,11 @@ export async function libraryVoicePlans(db: Db, cfg: VoiceConfig): Promise<{ lin
   for (const t of variants) {
     const ph = [...t.text.matchAll(/\{([a-z_]+)\}/g)].map((m) => m[1]);
     if (ph.length === 0) {
-      const r = renderTemplate(t, {}, opts);
+      const r = renderTemplate(t, {});
       if (r) lines.push({ who: t.character, text: r.text, live: false });
       continue;
     }
-    const r = renderTemplate(t, Object.fromEntries(ph.map((k) => [k, SAMPLE_NAME])), opts);
+    const r = renderTemplate(t, Object.fromEntries(ph.map((k) => [k, SAMPLE_NAME])));
     const segments = r ? splitByNames(r.text, [SAMPLE_NAME]) : null;
     const ctx = (list: { text: string }[]) => stripAudioTags(list.map((x) => x.text).join(" ")).slice(0, 200);
     (segments ?? []).forEach((seg, i, all) => {

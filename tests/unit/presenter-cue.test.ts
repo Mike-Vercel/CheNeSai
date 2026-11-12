@@ -4,7 +4,7 @@ import { matchShowLine, presenterCue, trioCast } from "@/features/display/presen
 
 const lines: PublicShowLine[] = [
   { who: "regina", text: "[excited] AMOOOORE, Vodka!  Primo posto!", animation: "celebrate", event: "LEADER_CHANGED" },
-  { who: "palmino", text: "MIIII, tutti sbagliato!", animation: "bogus-anim", event: "ALL_WRONG" },
+  { who: "palmino", text: "Mamma mia, tutti sbagliato!", animation: "bogus-anim", event: "ALL_WRONG" },
 ];
 
 describe("personaggi guidati dalla battuta in corso", () => {
@@ -41,7 +41,7 @@ describe("trio sul TV: tutti e tre in scena", () => {
   });
 
   it("chi parla passa davanti (anche se non è il padrone di casa) e gli altri restano ai loro posti", () => {
-    expect(roles(trioCast("professore", "point", null, { who: "palmino", text: "MIIII" }).members)).toEqual({ front: "palmino:talk", left: "professore:idle", right: "regina:idle" });
+    expect(roles(trioCast("professore", "point", null, { who: "palmino", text: "Mamma mia" }).members)).toEqual({ front: "palmino:talk", left: "professore:idle", right: "regina:idle" });
   });
 
   it("battuta del regista: davanti chi la dice, con la sua animazione", () => {
