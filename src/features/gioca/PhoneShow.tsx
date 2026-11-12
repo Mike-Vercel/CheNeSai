@@ -234,7 +234,7 @@ function PhoneShowOverlay({
       )}
 
       {phase === "FINISHED" && !sheet && (
-        <button type="button" onClick={() => setSheet(true)} className="absolute right-3 top-3 z-[66] rounded-full bg-gold px-3 py-1.5 font-display text-base text-ink shadow-[0_4px_0_#9a5d00]">
+        <button type="button" onClick={() => setSheet(true)} className="absolute right-3 top-3 z-[66] rounded-full bg-gold px-4 py-2 font-display text-base text-ink shadow-[0_4px_0_#9a5d00]" style={{ marginTop: "env(safe-area-inset-top)" }}>
           ⟳ RIVINCITA
         </button>
       )}

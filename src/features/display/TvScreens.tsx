@@ -930,6 +930,11 @@ export function TvLeaderboardScreen({
 // ---------------------------------------------------------------------------
 // Finale con podio
 // ---------------------------------------------------------------------------
+/** Ritardo massimo della rivelazione del vincitore in attesa che Palmino finisca la frase (s). */
+const PODIUM_CALL_MAX_HOLD = 6;
+/** Rullo di tamburi fra la fine di "E il vincitore di stasera è…" e il nome (s). */
+const PODIUM_DRUM_AFTER_CALL = 1.3;
+
 export function TvPodiumScreen({
   entries,
   startedAt,
@@ -969,6 +974,10 @@ export function TvPodiumScreen({
     return () => clearInterval(id);
   }, [now, start]);
 
+  // Ritardo (s) della rivelazione del vincitore: mai sopra la voce di Palmino. Quando parte "E il
+  // vincitore di stasera è…" si tiene il massimo (6 s); appena finisce si accorcia a fine frase + rullo.
+  const [shift, setShift] = useState(0);
+  const lastDrum = useRef(-10);
   // Suoni e voci della rivelazione, una volta sola; dopo un ricaricamento non si ripetono quelli già passati.
   const fired = useRef<Set<string> | null>(null);
   useEffect(() => {
@@ -1000,22 +1009,32 @@ export function TvPodiumScreen({
     // "E il vincitore di stasera è…": Palmino lo dice PRIMA che il vincitore compaia; se la sua clip
     // arrivasse tardi (vincitore già sullo schermo) non si dice più
     const call = plan.winnerCall;
-    const winnerAt = plan.winnerAt;
+    const winnerAt = plan.winnerAt + shift;
     if (call && plan.tensionAt !== null && t >= plan.tensionAt) {
       once("call", () => {
         // a rivelazione imminente la coda si libera (es. un nome del fondo classifica ancora in lettura)
         voice.stop();
-        void voice.say(call.who, call.text, { live: call.live, skipIf: () => (now() - start) / 1000 >= winnerAt - 0.6 });
+        // finché Palmino non ha finito la frase il vincitore non si rivela (al massimo 6 s di ritardo)
+        void Promise.resolve().then(() => setShift(PODIUM_CALL_MAX_HOLD));
+        void voice
+          .say(call.who, call.text, { live: call.live, skipIf: () => (now() - start) / 1000 >= plan.winnerAt + PODIUM_CALL_MAX_HOLD - 1 })
+          .then(() => {
+            const end = (now() - start) / 1000;
+            setShift(Math.min(PODIUM_CALL_MAX_HOLD, Math.max(0, end + PODIUM_DRUM_AFTER_CALL - plan.winnerAt)));
+          });
       });
     }
+    // rullo di tamburi continuo durante l'attesa del vincitore (anche se la rivelazione slitta)
+    const firstDrum = plan.steps.find((x) => x.rank === 1)?.drumAt ?? null;
+    if (firstDrum !== null && t >= firstDrum && t < winnerAt - 0.2 && t - lastDrum.current >= 1.5) {
+      lastDrum.current = t;
+      eng.play("drumroll");
+    }
     for (const st of plan.steps) {
-      if (st.drumAt !== null && t >= st.drumAt)
-        once(`d${st.rank}`, () => {
-          eng.play("drumroll");
-          // attesa lunga per il vincitore: il rullo continua fino alla rivelazione
-          if (st.rank === 1) setTimeout(() => eng.play("drumroll"), 1550);
-        });
-      if (t >= st.at)
+      // il vincitore (e il 2°, che arriva insieme) seguono la rivelazione, che può slittare
+      const at = st.at >= plan.winnerAt ? st.at + shift : st.at;
+      if (st.drumAt !== null && st.rank !== 1 && t >= st.drumAt) once(`d${st.rank}`, () => eng.play("drumroll"));
+      if (t >= at)
         once(`r${st.rank}`, () => {
           // il 2° arriva insieme al vincitore: niente suoni in più, solo la voce dopo quella del vincitore
           if (st.drumAt !== null) {
@@ -1029,15 +1048,15 @@ export function TvPodiumScreen({
         });
     }
     // dopo il nome del vincitore (e il 2° posto, già in coda): battuta sul vincitore e scenetta finale
-    if (plan.after.length > 0 && t >= plan.winnerAt + 0.2)
+    if (plan.after.length > 0 && t >= winnerAt + 0.2)
       once("after", () => {
         for (const l of plan.after) void voice.say(l.who, l.text, { live: l.live, display: l.display, optional: l.optional, group: l.group });
       });
-    if (t >= plan.closeAt) once("close", () => void voice.say(plan.closing.who, plan.closing.text));
-  }, [t, live, plan, onCelebrate, now, start]);
+    if (t >= plan.closeAt + shift) once("close", () => void voice.say(plan.closing.who, plan.closing.text));
+  }, [t, live, plan, onCelebrate, now, start, shift]);
 
-  const tension = plan.tensionAt !== null && t >= plan.tensionAt && t < plan.winnerAt;
-  const winnerShown = t >= plan.winnerAt && plan.tensionAt !== null;
+  const tension = plan.tensionAt !== null && t >= plan.tensionAt && t < plan.winnerAt + shift;
+  const winnerShown = t >= plan.winnerAt + shift && plan.tensionAt !== null;
   const stepOf = (rank: number) => plan.steps.find((s) => s.rank === rank);
   const MEDAL: Record<number, string> = { 1: "🥇", 2: "🥈", 3: "🥉" };
   const HEIGHT: Record<number, string> = portrait ? { 1: "24cqh", 2: "17cqh", 3: "12cqh" } : { 1: "36cqh", 2: "26cqh", 3: "20cqh" };
@@ -1048,7 +1067,7 @@ export function TvPodiumScreen({
   };
   return (
     <TvFrame>
-      <div className={clsx("absolute left-1/2 z-20 -translate-x-1/2 text-center", portrait ? "top-[1.5cqh] w-[94cqw]" : "top-[2cqh]")}>
+      <div className={clsx("absolute left-1/2 z-20 -translate-x-1/2 text-center", portrait ? "top-[calc(4cqh+env(safe-area-inset-top))] w-[94cqw]" : "top-[2cqh]")}>
         <Logo size="tv" className={portrait ? "mx-auto !h-[8cqh]" : undefined} />
         <p className={clsx("mt-[1cqh] font-display text-white [text-shadow:0_0.5vh_0_#6b1020]", portrait ? "text-[7.4cqw] leading-tight" : "text-[6cqh]")}>{winnerShown ? titles.done : titles.pending}</p>
       </div>
@@ -1056,13 +1075,13 @@ export function TvPodiumScreen({
         // in verticale i tre presentatori insieme (un solo canvas 3D) DIETRO a un bancone: mai tagliati a metà
         <>
           {/* trio grande; il bancone è agganciato all'altezza del trio (96cqw / 1.3 ≈ 74cqw): copre sempre il taglio */}
-          <div className="absolute left-1/2 top-[15cqh] z-[5] w-[96cqw] -translate-x-1/2">
+          <div className="absolute left-1/2 top-[calc(17.5cqh+env(safe-area-inset-top))] z-[5] w-[96cqw] -translate-x-1/2">
             <TrioSlot host="professore" className="w-full" animation={winnerShown ? "celebrate" : tension ? "surprised" : "idle"} />
           </div>
-          <StageCounter className="top-[calc(15cqh+64cqw)] z-[6] h-[calc(12cqw+1cqh)]" />
+          <StageCounter className="top-[calc(17.5cqh+64cqw+env(safe-area-inset-top))] z-[6] h-[calc(12cqw+1cqh)]" />
           <TrophyMoment
             won={winnerShown}
-            className="left-[60cqw] top-[calc(15cqh+64cqw-20cqh)] z-[7] h-[20cqh] w-[36cqw]"
+            className="left-[60cqw] top-[calc(64cqw-2.5cqh+env(safe-area-inset-top))] z-[7] h-[20cqh] w-[36cqw]"
             table={{ left: 68, bottom: 0, width: 26, height: 24 }}
             raised={{ left: 39, bottom: 66 }}
             cupClassName="w-[9cqw]"
@@ -1160,7 +1179,7 @@ export function TvPodiumScreen({
           const st = stepOf(rank);
           const col = portrait ? "w-[30cqw]" : "w-[15cqw]";
           if (!st) return <div key={rank} className={col} />;
-          const shown = t >= st.at;
+          const shown = t >= (st.at >= plan.winnerAt ? st.at + shift : st.at);
           return (
             <div key={rank} className={clsx("flex flex-col items-center", col)}>
               {shown ? (
