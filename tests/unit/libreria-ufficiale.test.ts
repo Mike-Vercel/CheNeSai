@@ -5,6 +5,7 @@ import { validateTemplate } from "@/lib/show/director";
 import { lineFitsMoment } from "@/features/game/moment";
 import { displayOf } from "@/lib/show/library";
 import { SHOW_EVENT_TYPES, type ShowEventType } from "@/lib/show/types";
+import { DIALECT } from "../../scripts/palmino-italiano.mjs";
 
 /**
  * La libreria ufficiale deve contenere TUTTE le battute dell'utente, PAROLA PER PAROLA
@@ -47,8 +48,13 @@ describe("libreria ufficiale: testo dell'utente parola per parola", () => {
     }
   });
 
-  it("le parolacce sono irriverenti; la Regina 'cattivissima' pure", () => {
-    for (const l of lib.lines.filter((x) => /minchia/i.test(x.text))) expect(l.level).toBe("irriverente");
+  it("Palmino parla italiano (niente siciliano); la Regina 'cattivissima' è irriverente", () => {
+    for (const l of lib.lines.filter((x) => x.character === "palmino")) {
+      for (const t of [l.text, l.textF, l.textN]) if (t) expect(DIALECT.test(t), `${l.id}: ${t}`).toBe(false);
+    }
+    // anche le battute delle altre librerie che citano o fanno parlare Palmino
+    const base = JSON.parse(readFileSync(join(process.cwd(), "content", "show", "battute.json"), "utf8")) as { lines: { text: string; textF?: string; textN?: string }[] };
+    for (const l of base.lines) for (const t of [l.text, l.textF, l.textN]) if (t) expect(DIALECT.test(t), t).toBe(false);
     expect(lib.lines.find((l) => l.id === "uff-regina-cattivissima-50")?.level).toBe("irriverente");
     // le battute "per tutti" esistono per ogni evento principale
     for (const e of ["ANSWER_WRONG", "ANSWER_CORRECT", "TIME_RUNNING_OUT", "PLAYER_NO_ANSWER", "GAME_WINNER"] as const) {

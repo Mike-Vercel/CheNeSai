@@ -13,7 +13,6 @@ const schema = z.object({
   banterPercent: z.number().int().min(0).max(100).optional(),
   comedyLevel: z.enum(COMEDY_LEVELS).optional(),
   noAnswerLines: z.boolean().optional(),
-  palminoAccent: z.boolean().optional(),
 });
 
 /** Regia automatica dei presentatori: lettura (anche operatori, per la diretta) e modifica (admin). */

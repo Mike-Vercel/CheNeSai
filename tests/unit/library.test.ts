@@ -9,7 +9,6 @@ import {
   nextNoAnswerStreak,
   noAnswerEvent,
   normalizeCaps,
-  PALMINO_ACCENT_TAG,
   pickMomentLines,
   pickWheelLines,
   textForGender,
@@ -55,30 +54,29 @@ const cfg = (patch: Partial<DirectorConfig> = {}): DirectorConfig => ({ ...DEFAU
 
 describe("voce delle battute curate: maiuscole → audio tag, testo dell'utente a schermo", () => {
   it("le MAIUSCOLE diventano minuscole per la sintesi (sigle e nomi propri a posto)", () => {
-    expect(normalizeCaps("MINCHIA… E CI HAI PURE PENSATO!")).toBe("Minchia… e ci hai pure pensato!");
+    expect(normalizeCaps("MAMMA MIA… E CI HAI PURE PENSATO!")).toBe("Mamma mia… e ci hai pure pensato!");
     expect(normalizeCaps("PALMINO! PORTAMI UN BICCHIERE D'ACQUA.")).toBe("Palmino! Portami un bicchiere d'acqua.");
-    expect(normalizeCaps("E QUESTO CU È, EINSTEIN?!")).toBe("E questo cu è, Einstein?!");
+    expect(normalizeCaps("E QUESTO CHI È, EINSTEIN?!")).toBe("E questo chi è, Einstein?!");
     expect(normalizeCaps("patrimonio dell'UNESCO!")).toBe("patrimonio dell'UNESCO!");
     // i segnaposto non si toccano
-    expect(normalizeCaps("MIIII, {nome_primo}! MA CU SI', EINSTEIN?!")).toBe("Miiii, {nome_primo}! Ma cu si', Einstein?!");
+    expect(normalizeCaps("MAMMA MIA, {nome_primo}! MA CHI SEI, EINSTEIN?!")).toBe("Mamma mia, {nome_primo}! Ma chi sei, Einstein?!");
   });
 
-  it("urlata = [shouts]; esclamazione dentro una frase = [excited]; Palmino con l'accento siciliano", () => {
+  it("urlata = [shouts]; esclamazione dentro una frase = [excited]; Palmino in italiano, senza accento", () => {
     const t = (text: string, character: DialogueTemplate["character"], event: ShowEventType) => ({ text, character, event, tags: [] as string[] });
     expect(curatedVoiceText(t("MA COME SI FA A SBAGLIARE UNA COSA DEL GENERE?!", "professore", "LOSE_PATIENCE"))).toBe("[shouts] Ma come si fa a sbagliare una cosa del genere?!");
     expect(curatedVoiceText(t("AMOOOORE, {nome_giocatore}! Ti sei addormentato?!", "regina", "PLAYER_NO_ANSWER"))).toMatch(/^\[excited\] Amoooore, \{nome_giocatore\}!/);
-    expect(curatedVoiceText(t("MIIII, CHE FIGURA!", "palmino", "FILLER"), { palminoAccent: true })).toBe(`${PALMINO_ACCENT_TAG} [shouts] Miiii, che figura!`);
-    expect(curatedVoiceText(t("MIIII, CHE FIGURA!", "palmino", "FILLER"), { palminoAccent: false })).toBe("[shouts] Miiii, che figura!");
+    expect(curatedVoiceText(t("MAMMA MIA, CHE FIGURA!", "palmino", "FILLER"))).toBe("[shouts] Mamma mia, che figura!");
     // tag scelto a mano
     expect(curatedVoiceText({ text: "No… ditemi che non è vero…", character: "regina", event: "LOSE_PATIENCE", tags: ["voce:whispers"] })).toBe("[whispers] No… ditemi che non è vero…");
   });
 
   it("a schermo resta il testo dell'utente (con il nome vero); le battute di sempre non cambiano", () => {
     const official = OFFICIAL.find((t) => t.id === "uff-palmino-nomi-53")!;
-    const r = renderTemplate(official, { nome_primo: "Gigi" }, { palminoAccent: true })!;
-    expect(r.display).toBe("MIIII, Gigi! MA CU SI', EINSTEIN?!");
-    // urlata ma in un momento bello (nuovo primo): entusiasmo
-    expect(r.text).toBe(`${PALMINO_ACCENT_TAG} [excited] Miiii, Gigi! Ma cu si', Einstein?!`);
+    const r = renderTemplate(official, { nome_primo: "Gigi" })!;
+    expect(r.display).toBe("MAMMA MIA, Gigi! MA CHI SEI, EINSTEIN?!");
+    // urlata ma in un momento bello (nuovo primo): entusiasmo; nessun accento
+    expect(r.text).toBe("[excited] Mamma mia, Gigi! Ma chi sei, Einstein?!");
     expect(r.live).toBe(true);
     const fixed = renderTemplate(OFFICIAL.find((t) => t.id === "uff-professore-sbaglia-14")!, {})!;
     expect(fixed.live).toBe(false);
@@ -298,7 +296,7 @@ describe("vincitore SOLO al podio, dopo la rivelazione del nome", () => {
 
 describe("copione del TV con la libreria", () => {
   it("alla soluzione la reazione della libreria prende il posto della battuta di sempre", () => {
-    const reaction: PublicShowLine = { who: "palmino", text: "[shouts] Minchia…", animation: "surprised", event: "ANSWER_WRONG", live: false, optional: true, display: "MINCHIA…" };
+    const reaction: PublicShowLine = { who: "palmino", text: "[shouts] Accidenti…", animation: "surprised", event: "ANSWER_WRONG", live: false, optional: true, display: "ACCIDENTI…" };
     const s = {
       sessionId: "s",
       phase: "ANSWER_REVEAL",
@@ -326,7 +324,7 @@ describe("copione del TV con la libreria", () => {
     } as unknown as PublicState;
     const lines = speechFor(s, { phase: "ANSWERS_LOCKED" }, { readOptions: false });
     const said = lines.find((l) => l.text === reaction.text);
-    expect(said).toMatchObject({ who: "palmino", live: false, optional: true, display: "MINCHIA…" });
+    expect(said).toMatchObject({ who: "palmino", live: false, optional: true, display: "ACCIDENTI…" });
     expect(lines.filter((l) => l.who === "professore" && /Nessuno|Zero/.test(l.text))).toHaveLength(0);
   });
 });

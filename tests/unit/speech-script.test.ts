@@ -391,7 +391,7 @@ describe("battute del regista fuori dai punti", () => {
 
   it("inizio della finale: dopo la presentazione del round, la battuta live con primo e secondo", () => {
     const final = ROUNDS.find((r) => r.kind === "final")!;
-    const line = { who: "palmino" as const, text: "MIIII, siamo alla finale! Vodka davanti, Gigi col fiato sul collo.", animation: "point", event: "FINAL_ROUND_START" };
+    const line = { who: "palmino" as const, text: "Mamma mia, siamo alla finale! Vodka davanti, Gigi col fiato sul collo.", animation: "point", event: "FINAL_ROUND_START" };
     const out = speechFor(baseState("ROUND_INTRO", { round: final, showLines: [line] }), { phase: "SCORE_REVEAL" }, { readOptions: true });
     expect(out[0]).toEqual(roundIntroLine(final));
     expect(out[1]).toEqual({ who: "palmino", text: line.text, live: true });

@@ -329,8 +329,6 @@ export interface DirectorConfig {
   comedyLevel: ComedyLevel;
   /** battute su chi non risponde (PLAYER_NO_ANSWER e simili) */
   noAnswerLines: boolean;
-  /** Palmino con l'audio tag dell'accento siciliano nelle battute della libreria ufficiale */
-  palminoAccent: boolean;
 }
 
 export const DEFAULT_DIRECTOR_CONFIG: DirectorConfig = {
@@ -341,5 +339,4 @@ export const DEFAULT_DIRECTOR_CONFIG: DirectorConfig = {
   banterPercent: 50,
   comedyLevel: "irriverente",
   noAnswerLines: true,
-  palminoAccent: true,
 };

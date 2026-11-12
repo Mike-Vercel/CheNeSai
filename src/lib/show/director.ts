@@ -15,7 +15,7 @@ import type { Presenter } from "@/lib/game-engine/types";
 import { cleanSpeech } from "@/features/game/script";
 import { NO_MOMENT, type MomentContext } from "@/features/game/moment";
 import { eventPlayers, eventTeams } from "./events";
-import { candidateLines, eventGender, libraryCandidates, renderTemplate, SCENE_GAP_MS, voiceOptionsOf, type LibraryCandidate, type LineContext, type RenderedLine } from "./library";
+import { candidateLines, eventGender, libraryCandidates, renderTemplate, SCENE_GAP_MS, type LibraryCandidate, type LineContext, type RenderedLine } from "./library";
 import {
   ALLOWED_PLACEHOLDERS,
   EVENT_PRIORITY,
@@ -158,9 +158,9 @@ export function placeholderValues(e: ShowEvent): Record<string, string> {
  * Battuta pronta per l'evento (testo per la voce, testo da mostrare): null se un segnaposto manca o
  * non è ammesso. Le battute curate (libreria ufficiale, pannello) passano da renderTemplate.
  */
-export function renderFor(t: DialogueTemplate, e: ShowEvent, config: Pick<DirectorConfig, "palminoAccent">): RenderedLine | null {
+export function renderFor(t: DialogueTemplate, e: ShowEvent): RenderedLine | null {
   if (t.event !== e.type || validateTemplate(t).length > 0) return null;
-  return renderTemplate(t, placeholderValues(e), voiceOptionsOf(config));
+  return renderTemplate(t, placeholderValues(e));
 }
 
 /** Sostituisce i segnaposto; null se ne manca qualcuno o non è ammesso (battuta scartata). */
@@ -255,7 +255,7 @@ function candidatesFor(input: DirectInput, e: ShowEvent, usedTemplates: Set<stri
   return libraryCandidates({
     templates: input.templates,
     event: e.type,
-    render: (t) => renderFor(t, e, input.config),
+    render: (t) => renderFor(t, e),
     comedyLevel: input.config.comedyLevel ?? "irriverente",
     ctx: { ...input.ctx, moment: input.moment ?? input.ctx?.moment ?? NO_MOMENT },
     lastUsed: input.history.lastUsed,

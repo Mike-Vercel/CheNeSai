@@ -2,7 +2,7 @@
  * Stima una tantum dei caratteri ElevenLabs per pre-generare la libreria ufficiale:
  * frasi fisse (senza nomi) + parti fisse delle battute con i nomi ("nomi salvati").
  *
- *   npx tsx scripts/libreria-costo.ts [--level leggero|sarcastico|irriverente] [--no-accent] [--print]
+ *   npx tsx scripts/libreria-costo.ts [--level leggero|sarcastico|irriverente] [--print]
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -12,7 +12,6 @@ import type { ComedyLevel, DialogueTemplate } from "@/lib/show/types";
 
 const args = process.argv.slice(2);
 const level = (args[args.indexOf("--level") + 1] as ComedyLevel | undefined) ?? "irriverente";
-const accent = !args.includes("--no-accent");
 const file = JSON.parse(readFileSync(join(process.cwd(), "content", "show", "libreria-ufficiale.json"), "utf8")) as { lines: DialogueTemplate[] };
 
 let fixedChars = 0;
@@ -24,7 +23,7 @@ for (const raw of rows) {
   const t = { ...raw, origin: "ufficiale" as const };
   if (!levelAllowed(t.level, args.includes("--level") ? level : "irriverente")) continue;
   const ph = [...t.text.matchAll(/\{([a-z_]+)\}/g)].map((m) => m[1]);
-  const r = renderTemplate(t, Object.fromEntries(ph.map((k) => [k, "Gigi"])), { palminoAccent: accent });
+  const r = renderTemplate(t, Object.fromEntries(ph.map((k) => [k, "Gigi"])));
   if (!r) continue;
   if (args.includes("--print")) console.log(`${t.character.padEnd(10)} ${r.text}`);
   if (ph.length === 0) {
@@ -35,7 +34,7 @@ for (const raw of rows) {
   for (const s of splitByNames(r.text, ["Gigi"]) ?? []) if (s.kind === "fixed") segments.set(`${t.character}|${s.text}`, s.text.length);
 }
 const segChars = [...segments.values()].reduce((a, b) => a + b, 0);
-console.log(`livello ${level}, accento ${accent ? "sì" : "no"}`);
+console.log(`livello ${level}`);
 console.log(`frasi fisse: ${fixedLines} (${fixedChars} caratteri)`);
 console.log(`parti fisse delle battute con i nomi: ${segments.size} (${segChars} caratteri)`);
 console.log(`totale una tantum: ${fixedChars + segChars} caratteri`);

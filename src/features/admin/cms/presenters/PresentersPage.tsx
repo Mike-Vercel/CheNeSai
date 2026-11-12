@@ -131,12 +131,6 @@ function DirectorPanel() {
               onChange={(v) => void save({ noAnswerLines: v })}
               label={c.noAnswerLines ? "Battute su chi non risponde: ATTIVE" : "Battute su chi non risponde: spente"}
             />
-            <Toggle
-              checked={c.palminoAccent}
-              disabled={busy}
-              onChange={(v) => void save({ palminoAccent: v })}
-              label={c.palminoAccent ? "Palmino con accento siciliano" : "Palmino senza accento"}
-            />
           </div>
           <Field label="Battute per momento" hint="0 = nessuna, al massimo 3 (consigliato 2: un piccolo dialogo)">
             {(id) => (

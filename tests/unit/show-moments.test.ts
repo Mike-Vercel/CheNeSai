@@ -95,7 +95,7 @@ const empty = (): DirectorHistory => ({ lastUsed: new Map(), mentionsThisRound: 
 describe("nuovi eventi con le stesse regole del regista", () => {
   const lib = [
     T("j1", "regina", "PLAYERS_JOINED", "AMOOOORE! Che entrata, {nomi}!"),
-    T("j2", "palmino", "PLAYERS_JOINED", "MIIII, ciao {nomi}!"),
+    T("j2", "palmino", "PLAYERS_JOINED", "Mamma mia, ciao {nomi}!"),
     T("f1", "professore", "FINAL_ROUND_START", "In testa {nome_primo}, insegue {nome_secondo}."),
   ];
 
@@ -146,7 +146,7 @@ describe("libreria content/show/battute.json", () => {
     }
     const all = lib.lines.filter((l) => l.event === "PLAYERS_JOINED" || l.event === "FINAL_ROUND_START");
     expect(all.some((l) => l.character === "regina" && l.text.includes("AMOOOORE"))).toBe(true);
-    expect(all.some((l) => l.character === "palmino" && l.text.includes("MIIII"))).toBe(true);
+    expect(all.some((l) => l.character === "palmino" && l.text.includes("Mamma mia"))).toBe(true);
     expect(all.filter((l) => l.event === "PLAYERS_JOINED").every((l) => l.text.includes("{nomi}"))).toBe(true);
     expect(all.filter((l) => l.event === "FINAL_ROUND_START").every((l) => l.text.includes("{nome_primo}") && l.text.includes("{nome_secondo}"))).toBe(true);
   });

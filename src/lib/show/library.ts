@@ -11,7 +11,7 @@
  * - Testo per la voce: il testo dell'utente resta quello mostrato (sottotitolo/fumetto); per la
  *   sintesi le MAIUSCOLE diventano minuscole (ElevenLabs le leggerebbe come sigle o a caso) e
  *   l'emozione passa agli audio tag v4 già usati nel progetto ([shouts], [excited], [laughs],
- *   [sarcastic], [sighs], [giggles], [clears throat], [whispers]). Palmino: accento siciliano.
+ *   [sarcastic], [sighs], [giggles], [clears throat], [whispers]). Palmino parla italiano (niente accento).
  * - Scenette: righe con la stessa scene_key, dette in ordine con le voci dei rispettivi personaggi.
  * - Mancate risposte (PLAYER_NO_ANSWER): solo a tempo scaduto, mai chi è disconnesso, una sola
  *   battuta per domanda, nomi alternati, posizione verificata al momento, contatore lato server.
@@ -24,7 +24,6 @@ import {
   COMEDY_LEVELS,
   type ComedyLevel,
   type DialogueTemplate,
-  type DirectorConfig,
   type PlayerRef,
   type RevealFacts,
   type ShowEvent,
@@ -87,8 +86,6 @@ const ACRONYMS = new Set(["UNESCO", "TV", "OK", "DJ"]);
 /** Nomi propri che, scritti in maiuscolo, tornano con l'iniziale maiuscola. */
 const PROPER = /^(palmino|professore|professò+|regina|regì|einstein|natale|google|instagram|chatgpt|nobel|maestà|treccani)$/u;
 
-/** Accento di Palmino (audio tag v4; attivabile/disattivabile dal pannello Presentatori). */
-export const PALMINO_ACCENT_TAG = "[Sicilian accent]";
 
 /** Quota di lettere maiuscole (segnaposto esclusi). */
 export function shoutRatio(text: string): number {
@@ -112,7 +109,7 @@ export function normalizeCaps(text: string): string {
     if (ACRONYMS.has(letters)) return word;
     let w = word.toLocaleLowerCase("it-IT");
     const before = text.slice(0, offset);
-    // i puntini di sospensione non chiudono la frase ("Minchia… e ci hai pure pensato!")
+    // i puntini di sospensione non chiudono la frase ("Mamma mia… e ci hai pure pensato!")
     const sentenceStart = /(^|[.!?]\s+|^\s*\[[^\]]*\]\s*)$/u.test(before) || /^\s*["«]?$/.test(before);
     if (sentenceStart || PROPER.test(w.replace(/['’].*$/, ""))) w = w.charAt(0).toLocaleUpperCase("it-IT") + w.slice(1);
     return w;
@@ -165,25 +162,20 @@ export function autoAudioTag(text: string, who: Presenter, event: ShowEventType,
   const ratio = shoutRatio(text);
   // tutta in maiuscolo: urlata; nei momenti belli (indovinato, primo, vincitore) è entusiasmo più che rabbia
   if (ratio >= 0.6) return mood === "positive" ? "[excited]" : "[shouts]";
-  // un'esclamazione in maiuscolo ("AMOOOORE, …", "MIIII!") dentro una frase normale
+  // un'esclamazione in maiuscolo ("AMOOOORE, …", "OOOOH!") dentro una frase normale
   if (/\b\p{Lu}{4,}\b/u.test(text.replace(PLACEHOLDER_RE, ""))) return "[excited]";
   const pool = MOOD_TAGS[mood][who];
   return pool[hash(text) % pool.length];
-}
-
-export interface VoiceOptions {
-  palminoAccent?: boolean;
 }
 
 /**
  * Testo per la sintesi di una battuta curata (con i segnaposto ancora da riempire): maiuscole
  * normalizzate e audio tag. Se l'autore ha già scritto dei tag li si rispetta (niente tag automatici).
  */
-export function curatedVoiceText(t: Pick<DialogueTemplate, "text" | "character" | "event" | "tags">, opts: VoiceOptions = {}): string {
+export function curatedVoiceText(t: Pick<DialogueTemplate, "text" | "character" | "event" | "tags">): string {
   const body = normalizeCaps(t.text).replace(/\s+/g, " ").trim();
   const lead = TAG_RE.test(t.text) ? "" : autoAudioTag(t.text, t.character, t.event, t.tags ?? []);
-  const accent = t.character === "palmino" && opts.palminoAccent ? PALMINO_ACCENT_TAG : "";
-  return [accent, lead, body].filter((p) => p.length > 0).join(" ");
+  return [lead, body].filter((p) => p.length > 0).join(" ");
 }
 
 /** Testo da mostrare: quello scritto, senza audio tag. */
@@ -219,12 +211,12 @@ export interface RenderedLine {
  * Battuta pronta con i valori dei segnaposto. Le battute di sempre (origin "base") restano identiche
  * a prima (stesse chiavi di cache); quelle curate passano da curatedVoiceText.
  */
-export function renderTemplate(t: Pick<DialogueTemplate, "text" | "character" | "event" | "tags" | "origin">, values: Record<string, string>, opts: VoiceOptions = {}): RenderedLine | null {
+export function renderTemplate(t: Pick<DialogueTemplate, "text" | "character" | "event" | "tags" | "origin">, values: Record<string, string>): RenderedLine | null {
   if (!isCuratedTemplate(t)) {
     const text = fillPlaceholders(t.text, values);
     return text === null ? null : { text, live: true };
   }
-  const voice = fillPlaceholders(curatedVoiceText(t, opts), values);
+  const voice = fillPlaceholders(curatedVoiceText(t), values);
   const display = fillPlaceholders(displayOf(t.text), values);
   if (voice === null || display === null) return null;
   return { text: voice, display, live: (t.text.match(PLACEHOLDER_RE) ?? []).length > 0 };
@@ -636,7 +628,6 @@ export interface WheelLinesInput {
   lastUsed?: ReadonlyMap<string, number>;
   mode?: TeamMode;
   moment?: MomentContext;
-  palminoAccent?: boolean;
   /** battute al massimo (Palmino per primo, poi un altro presentatore); predefinito 1 */
   max?: number;
   /** chi parla per primo: predefinito Palmino; null = chiunque (scelta pesata) */
@@ -651,7 +642,7 @@ export interface WheelLinesInput {
  */
 export function pickWheelLines(input: WheelLinesInput): ShowLine[] {
   const max = Math.max(1, input.max ?? 1);
-  const render: Render = (t) => renderTemplate(t, {}, { palminoAccent: input.palminoAccent });
+  const render: Render = (t) => renderTemplate(t, {});
   const base: CandidateInput = {
     templates: input.templates,
     event: "WHEEL_SPIN",
@@ -689,5 +680,3 @@ export function wheelLineFits(msToStop: number, text: string): boolean {
   return msToStop >= spokenMs(text) + WHEEL_LINE_MARGIN_MS;
 }
 
-/** Configurazione di regia rilevante per le voci delle battute curate. */
-export const voiceOptionsOf = (c: Pick<DirectorConfig, "palminoAccent">): VoiceOptions => ({ palminoAccent: c.palminoAccent });

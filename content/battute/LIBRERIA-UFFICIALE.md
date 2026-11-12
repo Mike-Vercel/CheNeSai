@@ -1,5 +1,10 @@
 # CHE NE SAI?! — LIBRERIA UFFICIALE DELLE BATTUTE (testo fornito dall'utente, da integrare parola per parola)
 
+> Palmino in italiano su richiesta dell'utente: le sue battute sono state riportate dal siciliano/dialetto
+> all'italiano ("MINCHIA" → "Mamma mia"/"Accidenti", "MIIII" → "Mamma mia", "Talìa" → "Guarda",
+> "Ma cu sì" → "Ma chi sei", "AMUNÌ" → "Forza"/"Dai, dai", "Professò" → "Professore", "Regì" → "Regina"…),
+> cambiando il minimo. Niente accento siciliano. Regole in scripts/palmino-italiano.mjs.
+
 Professore, Regina e Palmino
 
 REGOLE FONDAMENTALI
@@ -173,17 +178,17 @@ REGOLE FONDAMENTALI
 62. "LA REGINA HA SEMPRE RAGIONE! ANCHE QUANDO NON CE L'HA!"
 
 ## 3. PALMINO
-Palmino deve essere molto più spontaneo, comico e irriverente. Deve usare occasionalmente espressioni siciliane e avere un accento riconoscibile, ma comprensibile.
+Palmino deve essere molto più spontaneo, comico e irriverente. [Aggiornato su richiesta dell'utente: parla in italiano, senza espressioni siciliane né accento.]
 
 ### Quando qualcuno sbaglia
-1. "MINCHIA… E CI HAI PURE PENSATO!"
-2. "MA CHI T'ARRICAMPASTI A FARI?!"
+1. "MAMMA MIA… E CI HAI PURE PENSATO!"
+2. "MA PERCHÉ SEI VENUTO?!"
 3. "Questa la sapevo pure io… e sono una palma!"
 4. "Ti prego, dimmi che hai cliccato per sbaglio!"
 5. "Manco con Google Maps trovi la risposta!"
 6. "Il cervello è in ferie, vero?"
 7. "E niente… un altro neurone ci ha lasciati!"
-8. "MINCHIA, MA L'HAI FATTO APPOSTA?!"
+8. "ACCIDENTI, MA L'HAI FATTO APPOSTA?!"
 9. "Ti giuro, mi stanno cadendo le foglie dalla vergogna!"
 10. "Questa risposta è un'offesa all'istruzione pubblica!"
 11. "Manco mia cugina, la palma nana!"
@@ -193,7 +198,7 @@ Palmino deve essere molto più spontaneo, comico e irriverente. Deve usare occas
 15. "Io ho le radici… tu hai proprio dei problemi!"
 16. "Se il cervello fosse Wi-Fi, tu saresti senza campo!"
 17. "Aspetta che chiamo il Professore… qua serve un esorcista!"
-18. "MA CU TI DETTI A PATENTI?!"
+18. "MA CHI TI HA DATO LA PATENTE?!"
 19. "Hai sbagliato con una convinzione che mi fa paura!"
 20. "QUATTRO RISPOSTE, TRE SBAGLIATE… E TU HAI TROVATO LA QUINTA!"
 21. "SE L'IGNORANZA FOSSE CONCIME, TU MI FARESTI DIVENTARE UNA FORESTA!"
@@ -203,15 +208,15 @@ Palmino deve essere molto più spontaneo, comico e irriverente. Deve usare occas
 
 ### Quando qualcuno indovina
 25. "OOOOH! MA ALLORA CI SEI!"
-26. "Minchia, abbiamo un premio Nobel!"
+26. "Accidenti, abbiamo un premio Nobel!"
 27. "Questa era fortuna, non mi freghi!"
 28. "FERMI TUTTI! QUESTO HA STUDIATO!"
 29. "Bravo, bravo… ma non ti allargare!"
-30. "E QUESTO CU È, EINSTEIN?!"
+30. "E QUESTO CHI È, EINSTEIN?!"
 31. "Ma allora le scuole funzionano ancora!"
 32. "Aspetta, aspetta… controlliamo se ha ChatGPT aperto!"
-33. "Professò, secondo me questo è un infiltrato!"
-34. "MIIII! HA ACCESO IL CERVELLO!"
+33. "Professore, secondo me questo è un infiltrato!"
+34. "MAMMA MIA! HA ACCESO IL CERVELLO!"
 35. "Abbiamo trovato l'unico che legge le domande!"
 36. "Complimenti! Ti meriti una noce di cocco!"
 
@@ -220,7 +225,7 @@ Palmino deve essere molto più spontaneo, comico e irriverente. Deve usare occas
 38. "Muoviti, che mi crescono le radici!"
 39. "Il tempo passa… il cervello no!"
 40. "OH, DEVI RISPONDERE, NON SCRIVERE UNA TESI!"
-41. "AMUNÌÌÌ! CA MI SPUNTANO I DATTERI!"
+41. "DAI, DAI! CHE MI SPUNTANO I DATTERI!"
 42. "Hai più tempo per scegliere la pizza che per questa risposta!"
 43. "SE NON SAI, TIRA A INDOVINARE!"
 44. "Ma stai aspettando che ti arrivi la risposta per posta?!"
@@ -231,20 +236,20 @@ Palmino deve essere molto più spontaneo, comico e irriverente. Deve usare occas
 47. "Se esce cultura generale, io me ne vado!"
 48. "Fermati dove vuoi… tanto sbagliano lo stesso!"
 49. "GIRA, GIRA, CHE TANTO QUA NON SANNO NIENTE!"
-50. "Professò, metti una domanda facile… tipo come si chiamano!"
+50. "Professore, metti una domanda facile… tipo come si chiamano!"
 51. "Se esce matematica, io mi disconnetto!"
 52. "Che Dio ve la mandi buona… perché il Professore no!"
 
 ### Battute dinamiche con nomi
-53. "MIIII, {nome_primo}! MA CU SI', EINSTEIN?!"
+53. "MAMMA MIA, {nome_primo}! MA CHI SEI, EINSTEIN?!"
 54. "{nome_ultimo}, ma sei venuto a giocare o a fare presenza?!"
-55. "ATTENZIONE! {nome_sorpasso} HA SUPERATO {nome_superato}! MIIII, CHE RIMONTA!"
+55. "ATTENZIONE! {nome_sorpasso} HA SUPERATO {nome_superato}! MAMMA MIA, CHE RIMONTA!"
 56. "{nome_risposta_corretta}, MA ALLORA SAI QUALCOSA!"
-57. "{nome_risposta_errata}, MA CHI MINCHIA TI CONSIGLIÒ STA RISPOSTA?!"
+57. "{nome_risposta_errata}, MA CHI TI HA CONSIGLIATO QUESTA RISPOSTA?!"
 58. "FERMI TUTTI! {nome_vincitore} HA VINTO! CHIAMATE IL TELEGIORNALE!"
 59. "{nome_piu_veloce}, MA CHE HAI, IL TURBO NELLE DITA?!"
-60. "MIIII! {nome_rimonta} STA RECUPERANDO! SECONDO ME HA CAMBIATO CERVELLO!"
-61. "{nome_primo_precedente}, TI HANNO FREGATO IL PRIMO POSTO! AMUNÌ, RISPONDI!"
+60. "MAMMA MIA! {nome_rimonta} STA RECUPERANDO! SECONDO ME HA CAMBIATO CERVELLO!"
+61. "{nome_primo_precedente}, TI HANNO FREGATO IL PRIMO POSTO! FORZA, RISPONDI!"
 62. "{nome_ultimo}, SEI ULTIMO… MA GUARDA IL LATO POSITIVO: PEGGIO DI COSÌ È DIFFICILE!"
 63. "MA GUARDA {nome_nuovo_primo}! È DIVENTATO IL CAPO DELLA BARACCA!"
 
@@ -252,15 +257,15 @@ Palmino deve essere molto più spontaneo, comico e irriverente. Deve usare occas
 64. "PRIMI IN CLASSIFICA! MA ULTIMI IN SIMPATIA!"
 65. "Ultimo posto? Almeno hai una bella visuale!"
 66. "Questa squadra non ha bisogno di punti… ha bisogno di ripetizioni!"
-67. "MIIII! Una rimonta più incredibile del prezzo delle granite!"
-68. "PROFESSÒÒÒ, STACCA TUTTO! QUA NON C'È SPERANZA!"
+67. "Mamma mia! Una rimonta più incredibile del prezzo delle granite!"
+68. "PROFESSOREEE, STACCA TUTTO! QUA NON C'È SPERANZA!"
 69. "MA VOI NON AVETE BISOGNO DI UN QUIZ… AVETE BISOGNO DI UN MIRACOLOOO!"
 
 ### Tormentoni
-70. "MA CHI MINCHIA NE SAAA?!"
+70. "MA CHE NE SAAA?!"
 71. "IO SONO UNA PALMA… VOI CHE SCUSA AVETE?!"
-72. "MIIII, CHE FIGURA!"
-73. "AMUNÌ, CA SI FA TARDU!"
+72. "MAMMA MIA, CHE FIGURA!"
+73. "FORZA, CHE SI FA TARDI!"
 74. "Qua ci vuole un miracolo, non un suggerimento!"
 75. "SIETE PEGGIO DEL PUNTERUOLO ROSSO!"
 76. "PALMINO VE L'AVEVA DETTOOO!"
@@ -282,7 +287,7 @@ Regina: "Sì, ma probabilmente è il barista!"
 
 Scenetta 4 — I neuroni
 Professore: "Palmino, il cervello umano contiene circa 86 miliardi di neuroni."
-Palmino: "Professò, e questi dove li hanno parcheggiati?"
+Palmino: "Professore, e questi dove li hanno parcheggiati?"
 Professore: "È precisamente quello che sto cercando di capire."
 
 Scenetta 5 — La Regina e Palmino
@@ -298,7 +303,7 @@ Regina: "Con moltissimo rispetto!"
 Scenetta 7 — La corona
 Palmino: "Regina, quanto costa la tua corona?"
 Regina: "Più di quanto tu possa permetterti!"
-Palmino: "Miii, e non ti hanno dato nemmeno il cervello incluso?!"
+Palmino: "Mamma mia, e non ti hanno dato nemmeno il cervello incluso?!"
 Regina: "PROFESSORE! PORTATE VIA QUESTA PIANTA!"
 
 Scenetta 8 — Le fidanzate del Professore
@@ -309,17 +314,17 @@ Palmino: "BUUUUUM! QUESTA FACEVA MALE!"
 
 Scenetta 9 — La Regina si sente bellissima
 Regina: "Palmino, secondo te sono la più bella del programma?"
-Palmino: "Regì, sei l'unica femmina!"
+Palmino: "Regina, sei l'unica femmina!"
 Regina: "Non era questa la domanda!"
 Palmino: "E allora chiedi al Professore, che io voglio vivere!"
 
 Scenetta 10 — Il Professore e la ruota
 Professore: "Palmino, questa domanda è di livello universitario."
-Palmino: "Professò, questi ancora devono finire le elementari!"
+Palmino: "Professore, questi ancora devono finire le elementari!"
 
 Scenetta 11 — Tutti sbagliano
 Professore: "Mi rifiuto di credere che nessuno conoscesse la risposta."
-Palmino: "Professò, ma hai visto con chi stiamo giocando?"
+Palmino: "Professore, ma hai visto con chi stiamo giocando?"
 Regina: "Ragazzi, io vi adoro… ma siete una tragedia!"
 
 Scenetta 12 — Una rimonta
@@ -332,17 +337,17 @@ Regina: "No… ditemi che non è vero…"
 Professore: "Purtroppo, Maestà, è tutto vero."
 Regina: "IO NON POSSO VIVERE IN UN MONDO DEL GENERE!"
 (La Regina sviene teatralmente.)
-Palmino: "Professò, la lasciamo lì o facciamo la prossima domanda?"
+Palmino: "Professore, la lasciamo lì o facciamo la prossima domanda?"
 
 Scenetta 14 — La Regina vuole un applauso
 Regina: "Scusate, ma è da dieci minuti che nessuno mi fa un complimento!"
 Professore: "Stiamo conducendo un quiz, Maestà."
 Regina: "E QUINDI?!"
-Palmino: "Regì, vuoi un applauso o una visita specialistica?"
+Palmino: "Regina, vuoi un applauso o una visita specialistica?"
 
 Scenetta 15 — Il Professore si dimette
 Professore: "Ho preso tre lauree. Ho scritto dodici libri. Ho dedicato quarant'anni alla divulgazione scientifica…"
-Palmino: "E quindi, professò?"
+Palmino: "E quindi, professore?"
 Professore: "E QUINDI MI DIMETTO!"
 (Il Professore esce dalla scena.)
 Regina: "Palmino, vai a riprenderlo!"
@@ -360,7 +365,7 @@ Queste battute sono particolarmente importanti perché devono utilizzare il vero
 Primo classificato
 Professore: "Il nuovo leader della classifica è {nome_primo}! Complimenti!"
 Regina: "AMOOOORE, {nome_primo}! SEI IN TESTA! TI MERITI LA MIA CORONA!"
-Palmino: "MIIII, {nome_primo}! MA ALLORA SEI UN GENIO!"
+Palmino: "MAMMA MIA, {nome_primo}! MA ALLORA SEI UN GENIO!"
 
 Ultimo classificato
 Professore: "{nome_ultimo}, la situazione è difficile, ma matematicamente potrebbe ancora recuperare."
@@ -375,23 +380,23 @@ Palmino: "OOOOH, {nome_risposta_corretta}! MA ALLORA IL CERVELLO FUNZIONA!"
 Risposta sbagliata
 Professore: "{nome_risposta_errata}, questa volta la risposta non è corretta."
 Regina: "{nome_risposta_errata}, amore mio, questa proprio non dovevi sbagliarla!"
-Palmino: "MIIII, {nome_risposta_errata}! MA CHI TI HA SUGGERITO STA COSA?!"
+Palmino: "MAMMA MIA, {nome_risposta_errata}! MA CHI TI HA SUGGERITO QUESTA COSA?!"
 
 Rimonta
 Professore: "Straordinario recupero di {nome_rimonta}, che sta risalendo la classifica!"
 Regina: "{nome_rimonta}, AMOOOORE! MA GUARDA COME STAI TORNANDO SU!"
-Palmino: "MIIII, {nome_rimonta}! MA PRIMA STAVI DORMENDO?!"
+Palmino: "MAMMA MIA, {nome_rimonta}! MA PRIMA STAVI DORMENDO?!"
 
 Vittoria finale
 Professore: "Signore e signori, il vincitore di CHE NE SAI?! è {nome_vincitore}! Congratulazioni!"
 Regina: "AMOOOORE, {nome_vincitore}! HAI VINTO! SEI UFFICIALMENTE DEGNO DELLA MIA CORONA!"
-Palmino: "MIIIIII! {nome_vincitore} HA VINTOOO! MA CHI MINCHIA SE L'ASPETTAVA?!"
+Palmino: "MAMMA MIAAA! {nome_vincitore} HA VINTOOO! MA CHI SE L'ASPETTAVA?!"
 
 ## 6. REGOLE FINALI DI IMPLEMENTAZIONE
 1. Contestualizzazione: ogni frase associata a uno specifico evento della partita. Non far pronunciare una battuta di vittoria durante una semplice risposta corretta.
 2. Nomi dinamici: tutti i segnaposto sostituiti con i dati reali della sessione.
 3. Pronuncia vocale: il nome pronunciato realmente dal personaggio tramite TTS, non solo visualizzato.
-4. Voci coerenti: Professore voce maschile autorevole, Regina voce femminile teatrale, Palmino voce comica con inflessione siciliana.
+4. Voci coerenti: Professore voce maschile autorevole, Regina voce femminile teatrale, Palmino voce comica (in italiano, senza inflessione siciliana: aggiornato su richiesta dell'utente).
 5. Espressività: punteggiatura, maiuscole e indicazioni emotive rappresentano lo stile. Non affidarsi solo alle maiuscole per urla o emozioni: usare i controlli supportati dal provider vocale.
 6. Animazioni: associare le battute a movimenti ed espressioni appropriate dei modelli 3D.
 7. Variazione: non ripetere continuamente le stesse frasi. Selezione contestuale e pesata.
@@ -436,46 +441,46 @@ La variabile {nome_giocatore} va sostituita con il nome del partecipante che non
 12. "AMORE, {nome_giocatore}! Il tempo è scaduto! Baci, abbracci e zero punti!"
 
 ## PALMINO — Irriverente e siciliano
-1. "MIIII, {nome_giocatore}! MA TI SEI ADDORMENTATO?!"
-2. "{nome_giocatore}, AMUNÌÌÌ! MA CHE STAI ASPETTANDO, NATALE?!"
+1. "MAMMA MIA, {nome_giocatore}! MA TI SEI ADDORMENTATO?!"
+2. "{nome_giocatore}, DAI, DAI! MA CHE STAI ASPETTANDO, NATALE?!"
 3. "OH, {nome_giocatore}! IL TELEFONO NON È UN SOPRAMMOBILE!"
 4. "{nome_giocatore}, MA SEI VIVO?! BATTI UN COLPO!"
-5. "MIIII, {nome_giocatore}! IO HO LE RADICI E MI MUOVO PIÙ VELOCE DI TE!"
+5. "MAMMA MIA, {nome_giocatore}! IO HO LE RADICI E MI MUOVO PIÙ VELOCE DI TE!"
 6. "{nome_giocatore}, ma che fai? Stai aspettando che ti chiami il Professore a casa?!"
 7. "OH, {nome_giocatore}! QUA SI DEVE RISPONDERE, NON MEDITARE!"
-8. "{nome_giocatore}, MIIII! MANCO UNA RISPOSTA A CASO SEI RIUSCITO A DARE!"
+8. "{nome_giocatore}, MAMMA MIA! MANCO UNA RISPOSTA A CASO SEI RIUSCITO A DARE!"
 9. "MA CHE FAI, {nome_giocatore}?! STAI CARICANDO IL CERVELLO AL 2 PER CENTO?!"
 10. "{nome_giocatore}, SEI PIÙ FERMO DI ME! E IO SONO PIANTATO PER TERRA!"
-11. "PROFESSÒÒÒ! {nome_giocatore} NON RISPONDE! CHIAMIAMO CHI L'HA VISTO!"
-12. "{nome_giocatore}, MIIII! TI DEVO MANDARE UNA RACCOMANDATA PER FARTI CLICCARE?!"
+11. "PROFESSOREEE! {nome_giocatore} NON RISPONDE! CHIAMIAMO CHI L'HA VISTO!"
+12. "{nome_giocatore}, MAMMA MIA! TI DEVO MANDARE UNA RACCOMANDATA PER FARTI CLICCARE?!"
 
 ## BATTUTE SPECIALI BASATE SULLA CLASSIFICA
 
 Quando il primo classificato non risponde
 Professore: "{nome_giocatore}, è primo in classifica e decide di non rispondere? Una strategia che meriterebbe una ricerca scientifica."
 Regina: "{nome_giocatore}, AMOOOORE! SEI PRIMO E TI METTI A DORMIRE?! GUARDA CHE LA CORONA TE LA TOLGO!"
-Palmino: "MIIII, {nome_giocatore}! SEI PRIMO E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!"
+Palmino: "MAMMA MIA, {nome_giocatore}! SEI PRIMO E ORA TI RIPOSI?! MA TI SENTI GIÀ IN VACANZA?!"
 
 Quando l'ultimo classificato non risponde
 Professore: "{nome_giocatore}, occupa già l'ultima posizione. Il silenzio non migliorerà la situazione."
 Regina: "{nome_giocatore}, tesoro, sei ultimo e non rispondi nemmeno? Amore mio, così mi rendi il lavoro impossibile!"
-Palmino: "{nome_giocatore}, MA SEI ULTIMO E NON RISPONDI?! MIIII, MA VUOI FINIRE SOTTO TERRA?!"
+Palmino: "{nome_giocatore}, MA SEI ULTIMO E NON RISPONDI?! MAMMA MIA, MA VUOI FINIRE SOTTO TERRA?!"
 
 Quando un giocatore non risponde per tre domande consecutive
 Professore: "{nome_giocatore}, tre domande senza risposta. Comincio a sospettare che abbia scambiato questo quiz per una lezione di meditazione."
 Regina: "{nome_giocatore}, amore, sono tre domande che non ti sentiamo! Ti devo venire a cercare personalmente?!"
-Palmino: "MIIII, {nome_giocatore}! TRE DOMANDE SENZA RISPONDERE?! MA HAI MESSO IL TELEFONO IN FERIE?!"
+Palmino: "MAMMA MIA, {nome_giocatore}! TRE DOMANDE SENZA RISPONDERE?! MA HAI MESSO IL TELEFONO IN FERIE?!"
 
 Quando tanti concorrenti non rispondono
 Professore: "Signori, a quanto pare abbiamo organizzato un quiz per un pubblico di statue!"
 Regina: "AMORI MIEI! Ma siete venuti a giocare o a contemplare il soffitto?!"
-Palmino: "MIIII! MA SIETE TUTTI IN MODALITÀ AEREO?!"
+Palmino: "MAMMA MIA! MA SIETE TUTTI IN MODALITÀ AEREO?!"
 
 ## SCENETTE SPECIALI
 Scenetta 1 — Il concorrente scomparso
 Professore: "Abbiamo un problema. {nome_giocatore} non ha risposto."
 Regina: "{nome_giocatore}, amore, tutto bene? Ti dobbiamo venire a prendere?"
-Palmino: "MIIII! CHIAMATE CHI L'HA VISTO!"
+Palmino: "MAMMA MIA! CHIAMATE CHI L'HA VISTO!"
 
 Scenetta 2 — Il silenzio è d'oro
 Professore: "Il silenzio è d'oro."
@@ -485,11 +490,11 @@ Palmino: "SÌ, MA DI PUNTI NE HA ZERO!"
 Scenetta 3 — La squadra addormentata
 Regina: "Professore, ma perché quella squadra non risponde?"
 Professore: "Forse stanno riflettendo."
-Palmino: "PROFESSÒ, QUA NON STANNO RIFLETTENDO! STANNO FACENDO LA PENNICHELLA!"
+Palmino: "PROFESSORE, QUA NON STANNO RIFLETTENDO! STANNO FACENDO LA PENNICHELLA!"
 
 Scenetta 4 — La ricerca del concorrente
 Regina: "Palmino, vai a controllare se {nome_giocatore} è ancora con noi!"
-Palmino: "REGÌ, IO SONO UNA PALMA! MICA IL SERVIZIO CLIENTI!"
+Palmino: "REGINA, IO SONO UNA PALMA! MICA IL SERVIZIO CLIENTI!"
 Professore: "Possiamo semplicemente passare alla prossima domanda?"
 
 ## REGOLE TECNICHE

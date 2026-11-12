@@ -162,7 +162,7 @@ const empty = (): DirectorHistory => ({ lastUsed: new Map(), mentionsThisRound: 
 describe("battute di squadra", () => {
   const lib = [
     T("tl", "regina", "TEAM_LEADER_CHANGED", "AMOOOORE! {nome_squadra} supera {nome_ex_squadra}!"),
-    T("tw", "palmino", "TEAM_ROUND_WINNER", "MIIII! Round a {nome_squadra} con {punti_squadra} punti!"),
+    T("tw", "palmino", "TEAM_ROUND_WINNER", "Mamma mia! Round a {nome_squadra} con {punti_squadra} punti!"),
     T("rw", "professore", "ROUND_WINNER", "Round a {nome_primo}."),
   ];
 
@@ -179,7 +179,7 @@ describe("battute di squadra", () => {
     ];
     const lines = directShow({ events, templates: lib, history: empty(), config: DEFAULT_DIRECTOR_CONFIG, nowMs: 0, seed: "q" });
     expect(lines).toHaveLength(1);
-    expect(lines[0]).toMatchObject({ event: "TEAM_ROUND_WINNER", text: "MIIII! Round a Leoni e Squali con 4200 punti!", mentions: [] });
+    expect(lines[0]).toMatchObject({ event: "TEAM_ROUND_WINNER", text: "Mamma mia! Round a Leoni e Squali con 4200 punti!", mentions: [] });
     const leader = resolveTemplate(lib[0], events[1]);
     expect(leader).toBe("AMOOOORE! Leoni supera Aquile!");
   });
@@ -193,7 +193,7 @@ describe("battute di squadra", () => {
       expect(l.text.toLowerCase()).not.toContain("tesori");
     }
     expect(team.filter((l) => l.character === "regina").every((l) => l.text.includes("AMOOOORE"))).toBe(true);
-    expect(team.filter((l) => l.character === "palmino").every((l) => l.text.includes("MIIII"))).toBe(true);
+    expect(team.filter((l) => l.character === "palmino").every((l) => l.text.includes("Mamma mia"))).toBe(true);
     expect(new Set(raw.lines.map((l) => l.id)).size).toBe(raw.lines.length);
   });
 });

@@ -186,6 +186,8 @@ const OVERRIDES = {
   "palmino:nomi:60": { level: "sarcastico" },
   "palmino:nomi:61": { tags: ["non_finale"] },
   "palmino:nomi:62": { level: "sarcastico" },
+  // Palmino in italiano: senza parolacce queste non sono più "irriverenti"
+  "palmino:nomi:57": { level: "sarcastico" },
   "palmino:classifica:65": { level: "leggero" },
   "palmino:classifica:66": { tags: ["squadre"] },
   "palmino:classifica:67": { level: "leggero", tags: ["rimonta"] },
@@ -195,6 +197,7 @@ const OVERRIDES = {
   "professore:ultimo:1": { tags: ["non_finale"] },
   "regina:ultimo:1": { tags: ["non_finale"] },
   "palmino:ultimo:1": { level: "sarcastico" },
+  "palmino:vittoria:1": { level: "sarcastico" },
   "palmino:errata:1": { level: "sarcastico" },
   "palmino:rimonta:1": { level: "sarcastico" },
   // ---- mancate risposte ----
