@@ -9,8 +9,8 @@ import { devices, expect, test, type Page } from "@playwright/test";
  * Gioco libero dall'inizio alla fine: un ragazzo apre la home, preme GIOCA, si registra
  * (username + email + password) e crea una partita da 10 domande: con un solo schermo si va
  * DRITTI al TV (lobby con QR e codice, niente secondo "avvia"). Un telefono entra con il codice,
- * l'host preme INIZIA PARTITA sul TV, usa l'ingranaggio (impostazioni, "Avanti") fino alla prima
- * domanda, apre il pannello dell'host (come sul secondo schermo), termina e fa la RIVINCITA:
+ * l'host preme INIZIA PARTITA sul TV, usa l'ingranaggio (impostazioni, "Avanti"), il telefono vota
+ * la materia del primo round (votazione sempre presente) e si arriva alla prima domanda, apre il pannello dell'host (come sul secondo schermo), termina e fa la RIVINCITA:
  * stesso codice, il telefono resta dentro con lo stesso nickname.
  * Alla fine l'account e le sue partite vengono eliminati (anche lo storico delle domande uscite).
  */
@@ -51,7 +51,8 @@ test("gioco libero: registrazione, CREA PARTITA → TV dritto, telefono, INIZIA 
 
   // ------------------------------------------------------------- home → registrazione
   await host.goto("/");
-  await expect(host.getByRole("heading", { level: 1, name: "CHE NE SAI?!" })).toBeVisible();
+  // home su PC: copertina a tutto schermo, il titolo resta nella pagina (per i lettori di schermo)
+  await expect(host.getByRole("heading", { level: 1, name: "CHE NE SAI?!" })).toBeAttached();
   await host.getByRole("link", { name: /GIOCA/ }).first().click();
   await host.waitForURL(/\/accedi\?next=%2Fgioca/);
   await host.getByLabel("Username").fill(username);
@@ -120,6 +121,11 @@ test("gioco libero: registrazione, CREA PARTITA → TV dritto, telefono, INIZIA 
     await tv.waitForTimeout(800);
     await tv.keyboard.press("Escape");
   }
+  // il primo dei 2 round è a votazione delle materie (sempre una per partita): il telefono vota
+  await expect(tv.getByText("Votate la categoria!")).toBeVisible({ timeout: 30_000 });
+  await phone.locator("button.min-h-16").first().click();
+  await expect(phone.getByText("VOTO REGISTRATO!")).toBeVisible({ timeout: 15_000 });
+  await shot(tv, "04b-tv-votazione");
   await expect(phone.getByText("Domanda 1")).toBeVisible({ timeout: 60_000 });
   await expect(tv.getByText(/Domanda 1 di 10/)).toBeVisible({ timeout: 20_000 });
   await tv.waitForTimeout(2500);

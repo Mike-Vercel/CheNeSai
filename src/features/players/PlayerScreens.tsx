@@ -160,7 +160,7 @@ export function PhoneQuestionView({ question: q, phase, selected, submitStatus, 
       </motion.div>
 
       {mediaUrl && q.media?.kind === "image" && <img src={mediaUrl} alt="Immagine della domanda" className="max-h-56 w-full rounded-2xl border-[3px] border-gold object-contain bg-black" />}
-      {q.media?.kind === "audio" && !q.options && <p className="text-center font-extrabold text-white/85">🎵 Ascolta il brano dall&apos;impianto del pub!</p>}
+      {q.media?.kind === "audio" && !q.options && <p className="text-center font-extrabold text-white/85">🎧 Ascolta la canzone: suona dal TV!</p>}
       {q.media?.kind === "video" && !q.options && <p className="text-center font-extrabold text-white/85">🎬 Guarda il video sul TV!</p>}
 
       <PhoneSpecialBanner question={q} me={me} />

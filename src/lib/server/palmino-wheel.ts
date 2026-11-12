@@ -4,6 +4,7 @@ import { iso } from "@/lib/database/db";
 import { bandOf } from "@/lib/game-engine/compose";
 import {
   palminoSegmentId,
+  palminoWheelEligible,
   pickWheelSegments,
   planPalminoWheels,
   PALMINO_WHEEL_LEAD_MS,
@@ -44,6 +45,8 @@ export interface PalminoPlanOptions {
   seed?: string;
   /** test: numeri di domanda in cui la ruota compare di sicuro */
   force?: number[];
+  /** partite libere: almeno una ruota per partita (se c'è un posto ammesso) */
+  atLeastOne?: boolean;
 }
 
 export interface PalminoPlanResult {
@@ -59,21 +62,33 @@ export async function planPalminoWheelsTx(tx: Tx, sessionId: string, opts: Palmi
     select exists (select 1 from game_rounds where session_id = ${sessionId} and palmino_wheel is not null) as planned`;
   if (planned) return { slots: [] };
   const rounds = await tx<{ id: string; kind: RoundKind }[]>`select id, kind from game_rounds where session_id = ${sessionId} order by position`;
-  const qs = await tx<{ id: string; round_id: string; vote_option_id: string | null; difficulty: number | null; question_id: string | null }[]>`
-    select sq.id, sq.round_id, sq.vote_option_id, qb.difficulty, sq.question_id
+  const qs = await tx<{ id: string; round_id: string; vote_option_id: string | null; difficulty: number | null; question_id: string | null; position: number; media: boolean }[]>`
+    select sq.id, sq.round_id, sq.vote_option_id, qb.difficulty, sq.question_id, sq.position, qb.media_id is not null as media
     from session_questions sq left join question_bank qb on qb.id = sq.question_id
     where sq.session_id = ${sessionId} and not sq.is_reserve and not sq.wheel_candidate
     order by sq.position`;
   const planRounds: WheelPlanRound[] = rounds.map((r) => {
     const mine = qs.filter((q) => q.round_id === r.id);
-    if (!isCategoryRound(r.kind)) return { id: r.id, kind: r.kind, questions: mine.map((q) => ({ sqId: q.id })) };
+    if (!isCategoryRound(r.kind)) return { id: r.id, kind: r.kind, questions: mine.map((q) => ({ sqId: q.id, media: q.media })) };
     // categorie: se ne gioca una sola, si conta la più corta (numerazione prudente)
     const per = new Map<string, number>();
     for (const q of mine) if (q.vote_option_id) per.set(q.vote_option_id, (per.get(q.vote_option_id) ?? 0) + 1);
-    return { id: r.id, kind: r.kind, questions: [], playedCount: per.size > 0 ? Math.min(...per.values()) : 0 };
+    const voted = per.size > 0 ? Math.min(...per.values()) : 0;
+    // domande comuni (round a votazione della partita libera di un round): si giocano dopo quelle
+    // votate; fanno da segnaposto solo quelle che vengono dopo TUTTE le domande delle materie
+    const lastVoted = Math.max(-1, ...mine.filter((q) => q.vote_option_id).map((q) => q.position));
+    const common = mine.filter((q) => !q.vote_option_id);
+    const before = common.filter((q) => q.position < lastVoted).length;
+    const after = common.filter((q) => q.position > lastVoted);
+    return {
+      id: r.id,
+      kind: r.kind,
+      questions: [...Array.from({ length: voted + before }, () => ({ sqId: "" })), ...after.map((q) => ({ sqId: q.id, media: q.media, common: true }))],
+      playedCount: voted + common.length,
+    };
   });
   const seed = opts.seed ?? sessionId;
-  const slots = planPalminoWheels(planRounds, seed, { force: opts.force });
+  const slots = planPalminoWheels(planRounds, seed, { force: opts.force, atLeastOne: opts.atLeastOne });
   if (slots.length === 0) return { slots: [] };
 
   const hostUserId = opts.hostUserId === undefined ? s.host_user_id : opts.hostUserId;
@@ -81,10 +96,18 @@ export async function planPalminoWheelsTx(tx: Tx, sessionId: string, opts: Palmi
   const inSession = await tx<{ question_id: string }[]>`select question_id from session_questions where session_id = ${sessionId} and question_id is not null`;
   const exclude = new Set(inSession.map((q) => q.question_id));
   const out: PalminoPlanResult = { slots: [] };
-  for (const slot of slots) {
+  // almeno una ruota: se gli spicchi mancano nel posto scelto si prova negli altri posti ammessi
+  const fallback = opts.atLeastOne ? palminoWheelEligible(planRounds).filter((e) => !slots.some((x) => x.sqId === e.sqId)) : [];
+  const queue = [...slots];
+  while (queue.length > 0) {
+    const slot = queue.shift()!;
     const q = qs.find((x) => x.id === slot.sqId);
     const segs = pickWheelSegments({ candidates, band: bandOf(q?.difficulty ?? 3), seed: `${seed}|${slot.number}`, excludeIds: exclude });
-    if (segs.length === 0) continue; // archivio troppo piccolo: niente ruota qui
+    if (segs.length === 0) {
+      // archivio troppo piccolo: niente ruota qui (partita libera: si prova un altro posto)
+      if (out.slots.length === 0 && queue.length === 0 && fallback.length > 0) queue.push(fallback.shift()!);
+      continue;
+    }
     const [{ pos }] = await tx<{ pos: number }[]>`select coalesce(max(position) + 1, 0)::int as pos from session_questions where round_id = ${slot.roundId}`;
     const [{ slot_position }] = await tx<{ slot_position: number }[]>`select position as slot_position from session_questions where id = ${slot.sqId}`;
     const segments: StoredPalminoWheel["segments"] = [];

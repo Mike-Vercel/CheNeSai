@@ -17,12 +17,14 @@ import {
   PortraitQuestionScreen,
   PortraitRoundIntroScreen,
   PortraitSpecialEventScreen,
+  PortraitVoteScreen,
 } from "./PortraitScreens";
 
 /**
  * Lo show in VERTICALE (telefono, 1080×1920): come TvStage ma con le schermate ricomposte in
- * colonna. I momenti rari che il gioco libero non usa (votazione della categoria, ruota, puntate,
- * squadre) restano le schermate 16:9 del TV, centrate in una fascia: si vedono comunque bene.
+ * colonna (anche la votazione delle materie, con le materie da toccare). I momenti rari che il gioco
+ * libero non usa (Ruota impazzita, puntate, squadre) restano le schermate 16:9 del TV, centrate in
+ * una fascia: si vedono comunque bene.
  */
 export function PortraitStage(props: TvStageProps) {
   return (
@@ -57,8 +59,12 @@ function PortraitScreen(props: TvStageProps) {
   if (vp === "WHEEL_SPIN" && view.wheel?.kind === "palmino") {
     return <TvPalminoWheelScreen portrait wheel={view.wheel} round={view.round} now={now} live={live} reducedMotion={props.reducedMotion} lowPower={props.lowPower} onCelebrate={onCelebrate} />;
   }
-  if (vp === "ROUND_INTRO" && view.round && view.round.kind !== "category_wheel" && view.round.kind !== "category_vote") {
-    return <PortraitRoundIntroScreen round={view.round} showLines={view.showLines} />;
+  if (vp === "ROUND_INTRO" && view.round && view.round.kind !== "category_wheel") {
+    return <PortraitRoundIntroScreen round={view.round} showLines={view.showLines} vote={view.vote} />;
+  }
+  // votazione delle materie: in verticale, con le materie da toccare per chi gioca da qui
+  if ((vp === "CATEGORY_VOTING" || vp === "CATEGORY_RESULT") && view.vote) {
+    return <PortraitVoteScreen vote={view.vote} round={view.round} phase={vp} remainingMs={vp === "CATEGORY_VOTING" && view.phase !== "PAUSED" ? remainingMs : 0} />;
   }
   if (vp === "SPECIAL_EVENT" && view.event) return <PortraitSpecialEventScreen event={view.event} />;
   if (view.question && vp === "QUESTION_VISIBLE" && props.questionIntro) return <QuestionIntroScreen portrait question={view.question} round={view.round} />;
@@ -75,6 +81,7 @@ function PortraitScreen(props: TvStageProps) {
         event={view.event}
         mediaUrl={m && m.kind === "image" ? mediaUrl(m.id) : null}
         totalQuestions={view.totalQuestions}
+        audioState={props.audioState}
       />
     );
   }

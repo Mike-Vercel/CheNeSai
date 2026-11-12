@@ -82,8 +82,10 @@ export function estimateRound(round: EstimateRound, defaultDuration: number = ES
     seconds += round.voteDurationSeconds + ESTIMATE.voteResultSeconds;
     // si gioca solo la categoria vincente: si stima la media (il piano non cambia dopo il voto)
     const groups = round.voteOptions.map((o) => playable.filter((q) => q.voteOptionId === o.id));
-    questions = Math.round(groups.reduce((a, g) => a + g.length, 0) / groups.length);
-    seconds += groups.reduce((a, g) => a + cost(g), 0) / groups.length;
+    // domande comuni (partita libera di un round): si giocano comunque, dopo quelle votate
+    const common = playable.filter((q) => !q.voteOptionId);
+    questions = Math.round(groups.reduce((a, g) => a + g.length, 0) / groups.length) + common.length;
+    seconds += groups.reduce((a, g) => a + cost(g), 0) / groups.length + cost(common);
   } else {
     seconds += cost(playable);
   }
