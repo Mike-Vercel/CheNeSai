@@ -106,6 +106,8 @@ export interface RoundDetail {
   voteDurationSeconds: number;
   voteTieBreak: "random" | "admin" | "first";
   voteLiveResults: boolean;
+  /** voto a metà round: domande comuni prima del voto (null = a inizio round) */
+  voteAfter?: number | null;
   voteOptions: { id: string; position: number; label: string; questions: number }[];
   /** Scommetti tutto: puntata minima e quota predefinita per chi non sceglie. */
   betMinStake: number;
@@ -235,6 +237,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
       vote_duration_seconds: number;
       vote_tie_break: "random" | "admin" | "first";
       vote_live_results: boolean;
+      vote_after: number | null;
       bet_min_stake: number;
       bet_default_tier: BetTier;
       comeback_multiplier: string;
@@ -327,6 +330,7 @@ export async function getSessionDetail(db: Db, id: string): Promise<SessionDetai
     voteDurationSeconds: r.vote_duration_seconds,
     voteTieBreak: r.vote_tie_break,
     voteLiveResults: r.vote_live_results,
+    voteAfter: r.vote_after ?? null,
     voteOptions: voteOptions.filter((o) => o.round_id === r.id).map((o) => ({ id: o.id, position: o.position, label: o.label, questions: o.questions })),
     betMinStake: r.bet_min_stake,
     betDefaultTier: r.bet_default_tier,
@@ -512,10 +516,10 @@ export async function duplicateSession(id: string, actor: Actor, opts: { title?:
       const [nr] = await tx<{ id: string }[]>`
         insert into game_rounds (session_id, position, title, kind, presenter, description, points_multiplier, penalty_multiplier,
           no_penalty, correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
-          bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
+          vote_after, bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
         select ${n.id}, position, title, kind, presenter, description, points_multiplier, penalty_multiplier, no_penalty,
           correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
-          bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty
+          vote_after, bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty
         from game_rounds where id = ${r.id} returning id`;
       roundMap.set(r.id, nr.id);
       const opts2 = await tx<{ id: string; position: number; label: string }[]>`select id, position, label from category_vote_options where round_id = ${r.id}`;
@@ -757,10 +761,10 @@ export async function insertRound(tx: Tx, sessionId: string, r: RoundInput, acto
   const [row] = await tx<{ id: string }[]>`
     insert into game_rounds (session_id, position, title, kind, presenter, description, points_multiplier, penalty_multiplier, no_penalty,
       correct_points, wrong_penalty, duration_seconds, speed_bonus_max, vote_duration_seconds, vote_tie_break, vote_live_results,
-      bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
+      vote_after, bet_min_stake, bet_default_tier, comeback_multiplier, comeback_leader_penalty)
     values (${sessionId}, ${pos}, ${r.title}, ${r.kind}, ${r.presenter}, ${r.description ?? null}, ${r.pointsMultiplier},
       ${r.penaltyMultiplier}, ${r.noPenalty}, ${r.correctPoints ?? null}, ${r.wrongPenalty ?? null}, ${r.durationSeconds ?? null},
-      ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults},
+      ${r.speedBonusMax}, ${r.voteDurationSeconds}, ${r.voteTieBreak}, ${r.voteLiveResults}, ${r.kind === "category_vote" ? (r.voteAfter ?? null) : null},
       ${r.betMinStake}, ${r.betDefaultTier}, ${r.comebackMultiplier}, ${r.comebackLeaderPenalty})
     returning id`;
   if (r.kind === "bet") await dropScheduledEvents(tx, row.id);

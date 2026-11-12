@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { getSql } from "@/lib/database/db";
-import { freeVoteRoundIndex, FREE_SINGLE_ROUND_VOTED } from "@/lib/game-engine/free-game";
+import { freeVoteRoundIndex, FREE_SINGLE_ROUND_VOTED, FREE_VOTE_AFTER } from "@/lib/game-engine/free-game";
 import type { StoredPalminoWheel } from "@/lib/game-engine/palmino-wheel";
 import type { PublicState } from "@/lib/game-engine/types";
 import { createHostProfile, createPublicGame, hostCommand, loadHostUser, rematchPublicGame, type HostUser } from "@/lib/server/gioco-libero";
@@ -64,6 +64,12 @@ afterAll(async () => {
   await sql.end();
 });
 
+/** passo che lo scorrimento automatico ha in programma (game_state.auto_command) */
+async function autoCommand(sessionId: string): Promise<string | null> {
+  const [g] = await sql<{ auto_command: string | null }[]>`select auto_command from game_state where session_id = ${sessionId}`;
+  return g?.auto_command ?? null;
+}
+
 interface Sq {
   id: string;
   round_index: number;
@@ -77,8 +83,8 @@ interface Sq {
 }
 
 async function shape(sessionId: string) {
-  const rounds = await sql<{ id: string; position: number; kind: string; palmino_wheel: StoredPalminoWheel | null; options: number }[]>`
-    select r.id, r.position, r.kind::text as kind, r.palmino_wheel,
+  const rounds = await sql<{ id: string; position: number; kind: string; palmino_wheel: StoredPalminoWheel | null; options: number; vote_after: number | null }[]>`
+    select r.id, r.position, r.kind::text as kind, r.palmino_wheel, r.vote_after,
       (select count(*)::int from category_vote_options o where o.round_id = r.id) as options
     from game_rounds r where r.session_id = ${sessionId} order by r.position`;
   const qs = await sql<Sq[]>`
@@ -133,23 +139,33 @@ describe("garanzie della partita libera (composizione)", () => {
       const per = new Map<string, number>();
       for (const q of voteQs) if (q.vote_option_id) per.set(q.vote_option_id, (per.get(q.vote_option_id) ?? 0) + 1);
       expect(per.size).toBe(3);
-      const voted = rounds === 1 ? Math.min(FREE_SINGLE_ROUND_VOTED, Math.floor(total / 2)) : null;
-      for (const n of per.values()) expect(n).toBe(voted ?? n);
-      if (rounds > 1) {
+      const counts = new Set(per.values());
+      expect(counts.size).toBe(1);
+      const voted = [...counts][0];
+      if (rounds >= 3) {
+        // round intermedio: si vota all'inizio, dopo almeno un round intero
         expect(voteQs.filter((q) => !q.vote_option_id)).toEqual([]);
-        expect(vote.position).not.toBe(rounds - 1); // mai la finale
-        if (rounds >= 3) expect(vote.position).toBeGreaterThan(0);
+        expect(vote.vote_after).toBeNull();
+        expect(vote.position).toBeGreaterThan(0);
       } else {
-        // round unico: le comuni vengono DOPO tutte quelle delle materie
+        // 1-2 round: voto a metà del primo round, dopo 3 domande comuni (posizioni prima delle materie)
+        expect(vote.vote_after).toBe(FREE_VOTE_AFTER);
+        const firstVoted = Math.min(...voteQs.filter((q) => q.vote_option_id).map((q) => q.position));
         const lastVoted = Math.max(...voteQs.filter((q) => q.vote_option_id).map((q) => q.position));
         const common = voteQs.filter((q) => !q.vote_option_id);
-        expect(common).toHaveLength(total - voted!);
-        for (const q of common) expect(q.position).toBeGreaterThan(lastVoted);
+        expect(common.filter((q) => q.position < firstVoted)).toHaveLength(FREE_VOTE_AFTER);
+        expect(common.filter((q) => q.position > firstVoted && q.position < lastVoted)).toEqual([]);
+        expect(voted).toBe(Math.min(FREE_SINGLE_ROUND_VOTED, s.qs.filter((q) => q.round_index === 0 && !q.is_reserve && !q.vote_option_id).length + voted - FREE_VOTE_AFTER));
       }
+      if (rounds >= 2) expect(vote.position).not.toBe(rounds - 1); // mai la finale
 
       // CANZONE: una sola, fuori dalle materie votate, mai prima del round, mai ultima della partita
       const played = playedOrder(s.qs, s.rounds);
       expect(played).toHaveLength(total);
+      // il voto arriva dopo almeno 3 domande giocate (mai la prima cosa della partita)
+      const firstVotedPlayed = played.findIndex((q) => q.vote_option_id);
+      expect(firstVotedPlayed).toBeGreaterThanOrEqual(FREE_VOTE_AFTER);
+      if (rounds <= 2) expect(firstVotedPlayed).toBe(FREE_VOTE_AFTER); // "alla 4ª domanda"
       const songs = s.qs.filter((q) => q.media && !q.is_reserve);
       expect(songs).toHaveLength(1);
       expect(music).toContain(songs[0].question_id);
@@ -167,6 +183,8 @@ describe("garanzie della partita libera (composizione)", () => {
         const slot = s.qs.find((q) => q.id === w.palmino_wheel!.slotSqId)!;
         expect(slot.media).toBe(false);
         expect(slot.vote_option_id).toBeNull();
+        // mai sulla prima domanda dopo il voto (quella è della materia votata)
+        expect(played.findIndex((q) => q.id === slot.id)).not.toBe(firstVotedPlayed);
         expect(w.palmino_wheel!.segments.length).toBeGreaterThanOrEqual(3);
         const n = played.findIndex((q) => q.id === slot.id) + 1;
         expect(n).toBeGreaterThanOrEqual(5);
@@ -214,8 +232,8 @@ describe("la canzone: prima quelle mai sentite, poi la meno recente", () => {
   });
 });
 
-describe("partita di un solo round: si gioca davvero (votazione, materia votata, comuni, ruota, canzone)", () => {
-  it("dal voto al podio con i comandi del motore", async () => {
+describe("voto a metà round: si gioca davvero (3 comuni, voto, materia votata, comuni, ruota, canzone)", () => {
+  it("10 domande in 1 round: dal voto al podio con i comandi del motore", async () => {
     const host = await makeHost("unico");
     const r = await createPublicGame(host, { totalQuestions: 10, rounds: 1 }, only);
     created.push(r.sessionId);
@@ -223,22 +241,35 @@ describe("partita di un solo round: si gioca davvero (votazione, materia votata,
     const joined = await joinSession({ code: r.code, nickname: "Vota" }, { ip: "10.6.0.1", deviceToken: null });
     const player = await authenticatePlayer(sql, r.code, joined.participantToken);
     await hostCommand(host, id, "start");
-    await cmd(id, "START_ROUND");
-    const voting = await cmd(id, "START_VOTE");
-    expect(voting.state.phase).toBe("CATEGORY_VOTING");
-    const vote = voting.state.vote!;
-    expect(vote.options).toHaveLength(3);
-    // il giocatore vota la seconda materia: vince quella
-    await submitVote(player, { roundId: vote.roundId, optionId: vote.options[1].id }, "10.6.0.1");
-    const result = await cmd(id, "CLOSE_VOTE");
-    expect(result.state.phase).toBe("CATEGORY_RESULT");
-    expect(result.state.vote?.winnerOptionId).toBe(vote.options[1].id);
-    const winner = vote.options[1].label;
+    const intro = await cmd(id, "START_ROUND");
+    expect(intro.state.round?.voteAfter).toBe(FREE_VOTE_AFTER);
+    // presentazione del round: niente voto subito, si parte con una domanda
+    expect(await autoCommand(id)).toBe("SHOW_QUESTION");
+    await expect(cmd(id, "SHOW_OPTIONS")).rejects.toThrow();
 
-    const seen: { category: string; audio: boolean; number: number }[] = [];
+    const seen: { category: string; audio: boolean; number: number; pos: number; tot: number }[] = [];
     let wheels = 0;
-    let state: PublicState = result.state;
-    for (let guard = 0; guard < 40 && seen.length < 10; guard++) {
+    let voteAt = -1;
+    let winner = "";
+    let state: PublicState = intro.state;
+    for (let guard = 0; guard < 60 && seen.length < 10; guard++) {
+      if (seen.length === FREE_VOTE_AFTER && voteAt < 0) {
+        // dopo i punti della 3ª domanda: lo scorrimento automatico vuole la votazione (e MOSTRA DOMANDA è bloccato)
+        expect(state.phase).toBe("SCORE_REVEAL");
+        expect(await autoCommand(id)).toBe("START_VOTE");
+        await expect(cmd(id, "SHOW_QUESTION")).rejects.toThrow();
+        const voting = await cmd(id, "START_VOTE");
+        expect(voting.state.phase).toBe("CATEGORY_VOTING");
+        const vote = voting.state.vote!;
+        expect(vote.options).toHaveLength(3);
+        await submitVote(player, { roundId: vote.roundId, optionId: vote.options[1].id }, "10.6.0.1");
+        const result = await cmd(id, "CLOSE_VOTE");
+        expect(result.state.vote?.winnerOptionId).toBe(vote.options[1].id);
+        winner = vote.options[1].label;
+        voteAt = seen.length;
+        state = result.state;
+        continue;
+      }
       let shown = await cmd(id, "SHOW_QUESTION", state.phase === "WHEEL_SPIN" ? { force: true } : {});
       if (shown.state.phase === "WHEEL_SPIN") {
         wheels++;
@@ -248,35 +279,88 @@ describe("partita di un solo round: si gioca davvero (votazione, materia votata,
       state = shown.state;
       expect(state.phase).toBe("QUESTION_VISIBLE");
       const q = state.question!;
-      seen.push({ category: q.category, audio: q.media?.kind === "audio", number: q.number });
+      seen.push({ category: q.category, audio: q.media?.kind === "audio", number: q.number, pos: q.positionInRound, tot: q.totalInRound });
       if (q.media?.kind === "audio") {
         // scorrimento automatico: il passo alle risposte aspetta lettura + estratto (10 s)
-        expect(state.auto?.nextAt).toBeTruthy();
         expect(Date.parse(state.auto!.nextAt!) - Date.parse(state.phaseStartedAt)).toBeGreaterThanOrEqual(10_000);
-        expect(q.media.audioPlays).toBeGreaterThanOrEqual(1);
       }
       await cmd(id, "SHOW_OPTIONS");
       await cmd(id, "REVEAL", { force: true });
       state = (await cmd(id, "SCORE")).state;
     }
+    expect(voteAt).toBe(FREE_VOTE_AFTER); // il voto "alla 4ª domanda"
     expect(seen.map((x) => x.number)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    // prima le 5 della materia votata, poi le comuni (fra cui la canzone, mai l'ultima)
-    expect(seen.slice(0, 5).every((x) => x.category === winner)).toBe(true);
-    expect(seen.filter((x) => x.audio)).toHaveLength(1);
+    // conteggio del round giusto per tutto il round (anche prima del voto)
+    expect(seen.map((x) => x.pos)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(new Set(seen.map((x) => x.tot))).toEqual(new Set([10]));
+    // dopo il voto le 5 della materia votata, poi le comuni
+    expect(seen.slice(3, 8).every((x) => x.category === winner)).toBe(true);
+    // la canzone fra le comuni prima del voto (2ª o 3ª), la ruota sulle comuni dopo
     const song = seen.findIndex((x) => x.audio);
-    expect(song).toBeGreaterThanOrEqual(5);
-    expect(song).toBeLessThan(9);
+    expect([1, 2]).toContain(song);
     expect(wheels).toBe(1);
     expect(state.totalQuestions).toBe(10);
+    // ultima domanda: dritti al podio
+    expect(await autoCommand(id)).toBe("FINISH");
     expect((await cmd(id, "FINISH")).state.phase).toBe("FINISHED");
 
-    // RIVINCITA: stesse garanzie
+    // RIVINCITA: stesse regole
     const again = await rematchPublicGame(host, id, null, only);
     created.push(again.sessionId);
-    const s = await shape(again.sessionId);
-    expect(s.rounds.map((x) => x.kind)).toEqual(["category_vote"]);
-    expect(s.rounds[0].palmino_wheel).not.toBeNull();
-    expect(s.qs.filter((q) => q.media && !q.is_reserve)).toHaveLength(1);
+    const s2 = await shape(again.sessionId);
+    expect(s2.rounds.map((x) => [x.kind, x.vote_after])).toEqual([["category_vote", FREE_VOTE_AFTER]]);
+    expect(s2.rounds[0].palmino_wheel).not.toBeNull();
+    expect(s2.qs.filter((q) => q.media && !q.is_reserve)).toHaveLength(1);
     expect((await buildPublicState(sql, again.sessionId))!.totalQuestions).toBe(10);
   });
+});
+
+describe("scorrimento automatico fino al podio (il passo lo decide il piano del server)", () => {
+  /** Esegue sempre il passo che lo scorrimento automatico ha in programma, fino al podio. */
+  async function autoplayToPodium(id: string) {
+    const steps: string[] = [];
+    let state = (await buildPublicState(sql, id))!;
+    for (let guard = 0; guard < 400 && state.phase !== "FINISHED"; guard++) {
+      const command = await autoCommand(id);
+      expect(command, `nessun passo in programma in ${state.phase}`).toBeTruthy();
+      steps.push(command!);
+      const force = command === "REVEAL" || (command === "SHOW_QUESTION" && state.phase === "WHEEL_SPIN");
+      state = (await cmd(id, command as Parameters<typeof cmd>[1], force ? { force: true } : {})).state;
+    }
+    expect(state.phase).toBe("FINISHED");
+    return steps;
+  }
+
+  const CASES: [number, number][] = [
+    [10, 1],
+    [10, 2],
+    [15, 3],
+    [20, 4],
+  ];
+  for (const [total, rounds] of CASES) {
+    it(`${total} domande in ${rounds} round: voto dopo almeno 3 domande, ruota, canzone, podio`, async () => {
+      const host = await makeHost("auto");
+      const r = await createPublicGame(host, { totalQuestions: total, rounds }, only);
+      created.push(r.sessionId);
+      await joinSession({ code: r.code, nickname: "Auto" }, { ip: `10.5.${rounds}.${total}`, deviceToken: null });
+      await hostCommand(host, r.sessionId, "start");
+      const steps = await autoplayToPodium(r.sessionId);
+      const scores = steps.filter((x) => x === "SCORE").length;
+      expect(scores).toBe(total);
+      // il voto: una volta sola, dopo almeno 3 domande giocate
+      expect(steps.filter((x) => x === "START_VOTE")).toHaveLength(1);
+      const before = steps.slice(0, steps.indexOf("START_VOTE")).filter((x) => x === "SCORE").length;
+      expect(before).toBeGreaterThanOrEqual(FREE_VOTE_AFTER);
+      if (rounds <= 2) expect(before).toBe(FREE_VOTE_AFTER);
+      expect(steps[steps.indexOf("START_VOTE") + 1]).toBe("CLOSE_VOTE");
+      // la ruota di Palmino è girata (MOSTRA DOMANDA due volte di fila: ruota, poi la domanda scelta)
+      const [{ spun }] = await sql<{ spun: number }[]>`select count(*)::int as spun from game_rounds where session_id = ${r.sessionId} and palmino_wheel ? 'winnerSqId'`;
+      expect(spun).toBeGreaterThanOrEqual(1);
+      // la canzone è uscita
+      const [{ songs }] = await sql<{ songs: number }[]>`
+        select count(*)::int as songs from session_questions sq join question_snapshots qs on qs.session_question_id = sq.id
+        where sq.session_id = ${r.sessionId} and qs.media_kind = 'audio' and sq.shown_at is not null`;
+      expect(songs).toBe(1);
+    });
+  }
 });

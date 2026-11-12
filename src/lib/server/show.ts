@@ -313,8 +313,11 @@ async function questionPosition(tx: Tx, sessionId: string, sqId: string): Promis
   const [pos] = await tx<{ round_id: string; pos: number; tot: number }[]>`
     select sq.round_id,
       (select count(*)::int from session_questions x where x.round_id = sq.round_id and not x.is_reserve and x.shown_at is not null and x.shown_at <= coalesce(sq.shown_at, clock_timestamp())) as pos,
-      (select count(*)::int from session_questions x where x.round_id = sq.round_id and not x.is_reserve
-         and (sq.vote_option_id is null or x.vote_option_id = sq.vote_option_id)) as tot
+      (select count(*)::int from session_questions x join game_rounds xr on xr.id = x.round_id
+             where x.round_id = sq.round_id and not x.is_reserve
+               -- round con le categorie: le comuni (senza materia) + quelle della materia scelta (prima del voto: la prima)
+               and (x.vote_option_id is null or x.vote_option_id = coalesce(xr.winning_option_id, sq.vote_option_id,
+                 (select o.id from category_vote_options o where o.round_id = sq.round_id order by o.position limit 1)))) as tot
     from session_questions sq where sq.id = ${sqId}`;
   const endOfRound = !!pos && pos.pos >= pos.tot;
   const [{ more }] = pos

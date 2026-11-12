@@ -74,17 +74,26 @@ Ogni partita libera (e ogni rivincita) è composta da `composeFreeGameTx` (`src/
 regole pure in `src/lib/game-engine/free-game.ts`) con tre garanzie; il wizard le dice sotto le scelte.
 
 - **Votazione delle materie** (round `category_vote`, 3 materie, 15 s, voto dai telefoni o dallo show in
-  verticale): con 3+ round è un round intermedio (il 2° con 3–4 round, il 3° con 5), mai il primo né la
-  finale; con 2 round è il primo. Le materie sono quelle con abbastanza domande fresche per l'host.
-  **Un round solo**: il round stesso è a votazione, ma solo le prime 5 domande (al massimo metà) sono
-  della materia votata; le altre sono *comuni* (materie miste, `vote_option_id` nullo, giocate dopo:
-  il motore le gioca già così) e lì possono stare la ruota e la canzone.
+  verticale). **Mai la prima cosa della partita**: arriva sempre dopo almeno 3 domande giocate.
+  Con 3+ round è un round intermedio (il 2° con 3–4 round, il 3° con 5) e si vota all'inizio di quel round.
+  Con **1 o 2 round** è il primo round con il **voto a metà round** (`game_rounds.vote_after = 3`):
+  3 domande *comuni* (materie miste, `vote_option_id` nullo), poi la votazione "alla 4ª domanda", poi fino
+  a 5 domande della materia votata, poi le eventuali altre comuni. Le materie sono quelle con abbastanza
+  domande fresche per l'host.
+  - Motore: `resolveNextQuestion` dà le prime `vote_after` comuni, poi risponde "voto in sospeso";
+    `START_VOTE` è ammesso anche dopo i punti (SCORE_REVEAL/LEADERBOARD) e solo a comuni giocate;
+    scorrimento automatico, "Avanti" dell'host e pulsante suggerito in regia usano `voteDue`.
+  - Presentazione del round: "Dopo 3 domande la materia la scegliete voi!"; al voto Palmino annuncia
+    "E adesso decidete voi la materia…" (`FIXED_POOLS.votingMidRound`). "Domanda X di N" e l'ultima del
+    round contano le comuni più la materia scelta.
+  - Serate della regia: `vote_after` resta nullo, voto a inizio round come sempre.
 - **Ruota di Palmino**: almeno una (`atLeastOne` nel piano, stesso seme = id della partita). Le regole
   restano (mai prima della 5ª, mai prima domanda di un round, mai l'ultima): con il minimo di 10 domande
-  c'è sempre un posto. Mai nel round votato (salvo le domande comuni del round unico), mai sulla canzone.
+  c'è sempre un posto. Mai sulle domande della materia votata (dunque mai sulla prima dopo il voto): solo
+  sulle comuni dopo il voto o in un altro round; mai sulla canzone.
 - **Canzone ("Ascolta")**: una domanda con l'estratto audio, se l'archivio ne ha, al posto di una domanda
   di un round normale (non votato; la finale solo se non c'è altro), mai prima domanda del round né ultima
-  della partita. Prima quelle che l'host non ha mai sentito, poi la sentita meno di recente. Il TV (e con
+  della partita; con un round solo è la 2ª o la 3ª domanda (fra le comuni prima del voto). Prima quelle che l'host non ha mai sentito, poi la sentita meno di recente. Il TV (e con
   lo show sul telefono ogni telefono) la suona con Web Audio dopo la lettura; lo scorrimento automatico
   apre le risposte solo a estratto finito.
 - Archivio troppo piccolo (solo nei test): niente votazione o niente canzone, con un avviso; la partita

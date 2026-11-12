@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { splitQuestions, type ComposeCandidate } from "@/lib/game-engine/compose";
 import {
   FREE_SINGLE_ROUND_VOTED,
+  FREE_VOTE_AFTER,
   freeGameHighlights,
   freeVoteRoundIndex,
   pickMusicQuestion,
@@ -22,8 +23,8 @@ function shapes(total: number, rounds: number): FreeRoundShape[] {
 const COMBOS: [number, number][] = PUBLIC_TOTAL_OPTIONS.flatMap((t) => Array.from({ length: maxRoundsFor(t) }, (_, i) => [t, i + 1] as [number, number]));
 
 /**
- * Piano della ruota come lo costruisce la pubblicazione: round votato con le domande della materia
- * (non note prima) seguite dalle comuni; la canzone segnata come media.
+ * Piano della ruota come lo costruisce la pubblicazione: round votato con le comuni prima del voto,
+ * le domande della materia (non note prima) e le comuni dopo; la canzone segnata come media.
  */
 function wheelRounds(total: number, rounds: number, seed: string): WheelPlanRound[] {
   const sh = shapes(total, rounds);
@@ -31,27 +32,37 @@ function wheelRounds(total: number, rounds: number, seed: string): WheelPlanRoun
   return sh.map((s, i) => {
     const kind = i === plan.voteRound ? "category_vote" : s.kind;
     if (i === plan.voteRound) {
-      const common = Array.from({ length: plan.common }, (_, j) => ({ sqId: `r${i}c${j}`, common: true, media: plan.music.round === i && plan.music.index === j }));
-      return { id: `r${i}`, kind, questions: [...Array.from({ length: plan.voted }, () => ({ sqId: "" })), ...common], playedCount: plan.voted + plan.common };
+      const pre = Array.from({ length: plan.pre }, (_, j) => ({ sqId: `r${i}p${j}`, common: true, media: plan.music.round === i && plan.music.index === j }));
+      const post = Array.from({ length: plan.post }, (_, j) => ({ sqId: `r${i}c${j}`, common: true }));
+      const questions = [...pre, ...Array.from({ length: plan.voted }, () => ({ sqId: "" })), ...post];
+      return { id: `r${i}`, kind, questions, playedCount: questions.length };
     }
     return { id: `r${i}`, kind, questions: Array.from({ length: s.count }, (_, j) => ({ sqId: `r${i}q${j}`, media: plan.music.round === i && plan.music.index === j })) };
   });
 }
 
 describe("partita libera: dove stanno votazione e canzone", () => {
-  it("votazione: round intermedio con 3+ round, il primo con 2, il round stesso con 1", () => {
+  it("votazione: mai la prima cosa della partita, sempre dopo almeno 3 domande", () => {
     expect([1, 2, 3, 4, 5].map(freeVoteRoundIndex)).toEqual([0, 0, 1, 1, 2]);
     for (const [t, r] of COMBOS) {
-      const p = planFreeGame(shapes(t, r), `s-${t}-${r}`);
+      const sh = shapes(t, r);
+      const p = planFreeGame(sh, `s-${t}-${r}`);
       if (r >= 2) expect(p.voteRound).toBeLessThan(r - 1); // mai la finale
-      if (r >= 3) expect(p.voteRound).toBeGreaterThan(0); // mai il primo
-      if (r === 1) {
-        expect(p.voted).toBe(Math.min(FREE_SINGLE_ROUND_VOTED, Math.floor(t / 2)));
-        expect(p.voted + p.common).toBe(t);
-        expect(p.common).toBeGreaterThanOrEqual(5);
+      // domande giocate prima del voto: i round prima del votato + le comuni prima del voto
+      const before = sh.slice(0, p.voteRound).reduce((a, x) => a + x.count, 0) + p.pre;
+      expect(before).toBeGreaterThanOrEqual(FREE_VOTE_AFTER);
+      expect(p.pre + p.voted + p.post).toBe(sh[p.voteRound].count);
+      expect(p.voted).toBeGreaterThanOrEqual(2);
+      expect(p.voted).toBeLessThanOrEqual(r <= 2 ? FREE_SINGLE_ROUND_VOTED : sh[p.voteRound].count);
+      if (r <= 2) {
+        // 1-2 round: voto a metà del primo round, "alla 4ª domanda"
+        expect(p.voteRound).toBe(0);
+        expect(p.voteAfter).toBe(FREE_VOTE_AFTER);
+        expect(p.pre).toBe(FREE_VOTE_AFTER);
       } else {
-        expect(p.common).toBe(0);
-        expect(p.voted).toBe(shapes(t, r)[p.voteRound].count);
+        expect(p.voteRound).toBeGreaterThan(0); // mai il primo
+        expect(p.voteAfter).toBeNull();
+        expect(p.pre + p.post).toBe(0);
       }
     }
   });
@@ -62,9 +73,10 @@ describe("partita libera: dove stanno votazione e canzone", () => {
         const sh = shapes(t, r);
         const p = planFreeGame(sh, `m${k}`);
         if (r === 1) {
+          // round unico: fra le comuni prima del voto, mai la prima
           expect(p.music.round).toBe(0);
-          expect(p.music.index).toBeGreaterThanOrEqual(0);
-          expect(p.music.index).toBeLessThan(p.common - 1); // mai l'ultima della partita
+          expect(p.music.index).toBeGreaterThanOrEqual(1);
+          expect(p.music.index).toBeLessThan(p.pre);
           continue;
         }
         expect(p.music.round).not.toBe(p.voteRound);
@@ -126,10 +138,11 @@ describe("partita libera: dove stanno votazione e canzone", () => {
   });
 
   it("riga del wizard", () => {
-    expect(freeGameHighlights(1, 10)).toContain("prime 5 domande");
-    expect(freeGameHighlights(3, 15)).toContain("2° round");
-    expect(freeGameHighlights(5, 30)).toContain("3° round");
-    expect(freeGameHighlights(2, 10)).toMatch(/Ruota di Palmino.*canzone/);
+    expect(freeGameHighlights(1)).toContain("dopo 3 domande");
+    expect(freeGameHighlights(2)).toContain("dopo 3 domande");
+    expect(freeGameHighlights(3)).toContain("2° round");
+    expect(freeGameHighlights(5)).toContain("3° round");
+    expect(freeGameHighlights(2)).toMatch(/Ruota di Palmino.*canzone/);
   });
 });
 

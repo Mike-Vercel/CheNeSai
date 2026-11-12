@@ -4,24 +4,27 @@ import { composeQuestions, freshnessOf, seededRandom, type ComposeCandidate, typ
  * PARTITA LIBERA: cosa c'è SEMPRE in ogni partita (funzioni pure, nessun database).
  *
  *  - VOTAZIONE DELLE MATERIE: un round "category_vote" (i giocatori votano dal telefono fra 3
- *    materie, si gioca quella vincente).
+ *    materie, si gioca quella vincente). MAI come prima cosa della partita: arriva sempre dopo
+ *    almeno 3 domande giocate.
  *      · 3 round o più: un round intermedio (mai il primo, mai la finale): il 2° con 3-4 round,
- *        il 3° con 5 round;
- *      · 2 round: il primo (l'altro è la finale);
- *      · 1 round: il round stesso diventa a votazione, ma solo le prime domande sono della materia
- *        votata (5, al massimo metà del round); le altre sono "comuni" (materie miste, giocate
- *        dopo quelle votate): lì può girare la Ruota di Palmino e lì va la canzone.
- *  - RUOTA DI PALMINO: almeno una (vedi palmino-wheel.ts, `atLeastOne`): mai nel round votato
- *    (salvo le domande comuni del round unico), mai sulla canzone.
+ *        il 3° con 5 round; si vota all'inizio di quel round (dopo il primo round intero);
+ *      · 1 o 2 round: il primo round, con il VOTO A METÀ ROUND (game_rounds.vote_after = 3): prima
+ *        3 domande "comuni" (materie miste), poi la votazione ("alla 4ª domanda"), poi fino a 5
+ *        domande della materia votata, poi le eventuali altre comuni.
+ *  - RUOTA DI PALMINO: almeno una (vedi palmino-wheel.ts, `atLeastOne`): mai sulle domande della
+ *    materia votata (solo sulle comuni dopo il voto o in un altro round), mai sulla canzone.
  *  - CANZONE ("Ascolta"): una domanda con l'estratto audio, se l'archivio ne ha, in un round
  *    "normale" (non votato, non la finale se c'è altro), mai prima domanda del round né ultima
- *    della partita: prima quelle che questo host non ha mai sentito, poi la meno recente.
+ *    della partita; con un round solo fra le prime domande comuni (2ª o 3ª). Prima quelle che
+ *    questo host non ha mai sentito, poi la meno recente.
  */
 
 /** Materie proposte nella votazione. */
 export const FREE_VOTE_OPTIONS = 3;
-/** Round unico: domande della materia votata (al massimo metà del round). */
+/** Domande della materia votata (al massimo; nei round piccoli quelle che restano dopo le comuni). */
 export const FREE_SINGLE_ROUND_VOTED = 5;
+/** Voto a metà round (1 o 2 round): domande comuni giocate PRIMA della votazione. */
+export const FREE_VOTE_AFTER = 3;
 
 export type FreeRoundKind = "standard" | "final" | "category_vote";
 
@@ -34,11 +37,15 @@ export interface FreeRoundShape {
 export interface FreeGamePlan {
   /** indice del round a votazione */
   voteRound: number;
-  /** domande della materia votata (per ciascuna materia); le altre del round sono comuni */
+  /** voto a metà round: domande comuni prima del voto (null = voto a inizio round) */
+  voteAfter: number | null;
+  /** domande comuni prima del voto */
+  pre: number;
+  /** domande della materia votata (per ciascuna materia) */
   voted: number;
-  /** domande comuni nel round votato (solo con un round unico) */
-  common: number;
-  /** canzone: round e posizione (nel round; nel round votato: fra le domande comuni) */
+  /** domande comuni dopo quelle della materia votata */
+  post: number;
+  /** canzone: round e posizione (nel round votato: fra le comuni prima del voto) */
   music: { round: number; index: number };
 }
 
@@ -56,14 +63,17 @@ export function planFreeGame(shapes: readonly FreeRoundShape[], seed: string): F
   const n = shapes.length;
   const voteRound = freeVoteRoundIndex(n);
   const count = shapes[voteRound]?.count ?? 0;
-  const voted = n === 1 ? Math.min(FREE_SINGLE_ROUND_VOTED, Math.floor(count / 2)) : count;
-  const common = n === 1 ? count - voted : 0;
-  // canzone: un round normale (non votato, non finale) a caso; altrimenti la finale; con un round
-  // solo fra le domande comuni (mai l'ultima della partita)
+  // 1-2 round: il voto cade nel primo round → a metà, dopo 3 domande comuni
+  const mid = n <= 2;
+  const pre = mid ? Math.min(FREE_VOTE_AFTER, Math.max(0, count - 2)) : 0;
+  const voted = mid ? Math.min(FREE_SINGLE_ROUND_VOTED, count - pre) : count;
+  const post = count - pre - voted;
   let music: FreeGamePlan["music"];
   if (n === 1) {
-    music = { round: 0, index: Math.floor(rand() * Math.max(1, common - 1)) };
+    // round unico: fra le comuni prima del voto, mai la prima (2ª o 3ª domanda della partita)
+    music = { round: 0, index: 1 + Math.floor(rand() * Math.max(1, pre - 1)) };
   } else {
+    // un round normale (non votato, non finale) a caso; altrimenti la finale
     const normal = shapes.map((s, i) => ({ s, i })).filter(({ s, i }) => i !== voteRound && s.kind === "standard");
     const pool = normal.length > 0 ? normal : shapes.map((s, i) => ({ s, i })).filter(({ i }) => i !== voteRound);
     const pick = pool[Math.floor(rand() * pool.length)];
@@ -72,7 +82,7 @@ export function planFreeGame(shapes: readonly FreeRoundShape[], seed: string): F
     const slots = Math.max(1, pick.s.count - 1 - (last ? 1 : 0));
     music = { round: pick.i, index: Math.min(pick.s.count - 1, 1 + Math.floor(rand() * slots)) };
   }
-  return { voteRound, voted, common, music };
+  return { voteRound, voteAfter: pre > 0 ? pre : null, pre, voted, post, music };
 }
 
 // ---------------------------------------------------------------------------
@@ -178,13 +188,9 @@ export function pickMusicQuestion(candidates: readonly MusicCandidate[], seed: s
 const ORDINAL_SHORT = ["1°", "2°", "3°", "4°", "5°"];
 
 /** Riga del wizard: cosa c'è sempre nella partita (votazione, ruota, canzone). */
-export function freeGameHighlights(rounds: number, totalQuestions: number): string {
+export function freeGameHighlights(rounds: number): string {
   const n = Math.max(1, rounds);
   const voteRound = freeVoteRoundIndex(n);
-  const voted = n === 1 ? Math.min(FREE_SINGLE_ROUND_VOTED, Math.floor(totalQuestions / 2)) : 0;
-  const vote =
-    n === 1
-      ? `🗳️ si vota la materia delle prime ${voted} domande`
-      : `🗳️ nel ${ORDINAL_SHORT[voteRound] ?? `${voteRound + 1}°`} round votate voi la materia`;
+  const vote = n <= 2 ? `🗳️ dopo ${FREE_VOTE_AFTER} domande votate voi la materia` : `🗳️ nel ${ORDINAL_SHORT[voteRound] ?? `${voteRound + 1}°`} round votate voi la materia`;
   return `Sempre in partita: ${vote}, 🎡 la Ruota di Palmino e 🎧 una canzone da indovinare.`;
 }

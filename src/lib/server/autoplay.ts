@@ -167,6 +167,8 @@ export async function computeAutoplayPlan(
     ...base,
     roundKind: round?.kind ?? null,
     voteDone: !!round?.winning_option_id,
+    // voto a metà round: la prossima mossa è la votazione solo quando il motore la richiede
+    voteDue: round?.kind === "category_vote" && !round.winning_option_id && !!next && "blocked" in next,
     hasNextQuestion,
     hasNextRound: more,
     speechMs,

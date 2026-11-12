@@ -8,11 +8,11 @@ import type { GamePhase, LeaderboardEntry, Presenter, PublicEvent, PublicQuestio
 import { AnswerButton, ANSWER_STYLES, LETTERS, type AnswerVisual } from "@/features/game/components/answers";
 import { CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
-import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints } from "@/features/game/lines";
+import { EVENT_ICON, formatPoints, isQuestionQuip, signedPoints } from "@/features/game/lines";
 import { useSeatContext } from "@/features/gioca/use-seat";
 import { fmt } from "@/lib/game-engine/special-rounds";
 import { presenterCue } from "./presenter-cue";
-import { Equalizer, Pill, questionRoundLabel, showLineBubble, TvFrame, useSpokenBubble } from "./TvScreens";
+import { Equalizer, Pill, questionRoundLabel, roundIntroTagline, showLineBubble, TvFrame, useSpokenBubble } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
 import { useRevealHeld } from "./reveal-hold";
 import { useHeldSpeech } from "@/features/media/voice";
@@ -104,10 +104,10 @@ export function PortraitRoundIntroScreen({ round, showLines, vote = null }: { ro
           {round.title}
         </motion.h1>
         <p className="font-display text-[6cqw]" style={{ color: c.accent === "#087cff" ? "#7fc3ff" : c.accent }}>
-          {round.kind === "category_vote" ? "ADESSO DECIDETE VOI!" : ROUND_KIND_LABEL[round.kind]}
+          {roundIntroTagline(round)}
         </p>
         {round.description && <p className="text-[4.4cqw] font-extrabold text-white/90">{round.description}</p>}
-        {vote && vote.options.length > 0 && (
+        {vote && vote.options.length > 0 && !round.voteAfter && (
           <div className="flex flex-wrap justify-center gap-[2cqw]">
             {vote.options.map((o) => (
               <span key={o.id} className="rounded-[3cqw] border-[0.6cqw] border-gold px-[3.5cqw] py-[1.2cqw] font-display text-[5.4cqw] text-white" style={{ background: ANSWER_STYLES[o.position].bg }}>

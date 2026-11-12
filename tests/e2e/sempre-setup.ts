@@ -4,8 +4,6 @@
  *       canzone vera (estratto audio già nell'archivio locale), partita libera VERA da 10 domande in
  *       1 round creata come da /gioca (createPublicGame), show sui telefoni (verticale), lobby aperta.
  *   sempre-setup.ts start <in.json>     → parte il round (senza intro): da lì guida il TV (automatico).
- *   sempre-setup.ts song <in.json>      → in manuale, gioca fino alla canzone e la mostra; poi di nuovo
- *       automatico: il TV legge, fa sentire l'estratto e solo dopo apre le risposte.
  *   sempre-setup.ts cleanup <in.json>   → elimina account, partite e domande di prova.
  */
 import { randomUUID } from "node:crypto";
@@ -52,32 +50,6 @@ async function main() {
       const s = JSON.parse(readFileSync(file, "utf8")) as Saved;
       await run(s.sessionId, "START_ROUND");
       console.log("✔ round iniziato: guida il TV");
-      return;
-    }
-
-    if (mode === "song") {
-      const s = JSON.parse(readFileSync(file, "utf8")) as Saved;
-      const { loadStateRow } = await import("@/lib/server/public-state");
-      const { resolveNextQuestion } = await import("@/lib/server/engine");
-      await run(s.sessionId, "SET_AUTOPLAY", { autoplay: false });
-      for (let guard = 0; guard < 60; guard++) {
-        const st = (await loadStateRow(sql, s.sessionId))!;
-        if (st.phase === "QUESTION_VISIBLE") await run(s.sessionId, "SHOW_OPTIONS");
-        else if (st.phase === "OPTIONS_VISIBLE" || st.phase === "ANSWERS_LOCKED") await run(s.sessionId, "REVEAL", { force: true });
-        else if (st.phase === "ANSWER_REVEAL") await run(s.sessionId, "SCORE");
-        else {
-          const next = await sql.begin((tx) => resolveNextQuestion(tx, st));
-          if (next && !("blocked" in next) && next.id === s.musicSqId) {
-            await run(s.sessionId, "SHOW_QUESTION", { force: true });
-            const after = (await loadStateRow(sql, s.sessionId))!;
-            if (after.phase === "QUESTION_VISIBLE") break;
-            continue; // ruota di Palmino proprio prima della canzone: un altro giro
-          }
-          await run(s.sessionId, "SHOW_QUESTION", { force: true });
-        }
-      }
-      await run(s.sessionId, "SET_AUTOPLAY", { autoplay: true });
-      console.log("✔ canzone in scena: il TV la fa sentire e poi apre le risposte");
       return;
     }
 

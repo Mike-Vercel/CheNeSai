@@ -61,7 +61,7 @@ export async function planPalminoWheelsTx(tx: Tx, sessionId: string, opts: Palmi
   const [{ planned }] = await tx<{ planned: boolean }[]>`
     select exists (select 1 from game_rounds where session_id = ${sessionId} and palmino_wheel is not null) as planned`;
   if (planned) return { slots: [] };
-  const rounds = await tx<{ id: string; kind: RoundKind }[]>`select id, kind from game_rounds where session_id = ${sessionId} order by position`;
+  const rounds = await tx<{ id: string; kind: RoundKind; vote_after: number | null }[]>`select id, kind, vote_after from game_rounds where session_id = ${sessionId} order by position`;
   const qs = await tx<{ id: string; round_id: string; vote_option_id: string | null; difficulty: number | null; question_id: string | null; position: number; media: boolean }[]>`
     select sq.id, sq.round_id, sq.vote_option_id, qb.difficulty, sq.question_id, sq.position, qb.media_id is not null as media
     from session_questions sq left join question_bank qb on qb.id = sq.question_id
@@ -74,18 +74,24 @@ export async function planPalminoWheelsTx(tx: Tx, sessionId: string, opts: Palmi
     const per = new Map<string, number>();
     for (const q of mine) if (q.vote_option_id) per.set(q.vote_option_id, (per.get(q.vote_option_id) ?? 0) + 1);
     const voted = per.size > 0 ? Math.min(...per.values()) : 0;
-    // domande comuni (round a votazione della partita libera di un round): si giocano dopo quelle
-    // votate; fanno da segnaposto solo quelle che vengono dopo TUTTE le domande delle materie
-    const lastVoted = Math.max(-1, ...mine.filter((q) => q.vote_option_id).map((q) => q.position));
-    const common = mine.filter((q) => !q.vote_option_id);
-    const before = common.filter((q) => q.position < lastVoted).length;
-    const after = common.filter((q) => q.position > lastVoted);
-    return {
-      id: r.id,
-      kind: r.kind,
-      questions: [...Array.from({ length: voted + before }, () => ({ sqId: "" })), ...after.map((q) => ({ sqId: q.id, media: q.media, common: true }))],
-      playedCount: voted + common.length,
-    };
+    // ordine di gioco: le prime `vote_after` domande comuni (voto a metà round), poi in ordine di
+    // posizione le comuni e il blocco della materia votata (non si sa quale: posti senza segnaposto).
+    // Le comuni fanno da segnaposto solo se la loro posizione non dipende dalla materia votata.
+    const optPos = mine.filter((q) => q.vote_option_id).map((q) => q.position);
+    const first = optPos.length > 0 ? Math.min(...optPos) : Infinity;
+    const last = optPos.length > 0 ? Math.max(...optPos) : -Infinity;
+    const pre = r.kind === "category_vote" && r.vote_after ? mine.filter((q) => !q.vote_option_id).slice(0, r.vote_after) : [];
+    const seq: WheelPlanRound["questions"] = pre.map((q) => ({ sqId: q.id, media: q.media, common: true }));
+    let placed = false;
+    for (const q of mine) {
+      if (pre.includes(q)) continue;
+      if (q.vote_option_id) {
+        if (!placed) seq.push(...Array.from({ length: voted }, () => ({ sqId: "" })));
+        placed = true;
+      } else if (q.position > first && q.position < last) seq.push({ sqId: "" });
+      else seq.push({ sqId: q.id, media: q.media, common: true });
+    }
+    return { id: r.id, kind: r.kind, questions: seq, playedCount: seq.length };
   });
   const seed = opts.seed ?? sessionId;
   const slots = planPalminoWheels(planRounds, seed, { force: opts.force, atLeastOne: opts.atLeastOne });

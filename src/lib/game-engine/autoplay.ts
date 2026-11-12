@@ -63,6 +63,11 @@ export interface AutoplayContext {
   roundKind: RoundKind | null;
   /** categoria del round già decisa (voto chiuso o ruota girata) */
   voteDone: boolean;
+  /**
+   * La prossima mossa è la votazione (materia non scelta e nessuna domanda comune da giocare prima:
+   * voto a metà round). Assente = come sempre: votazione a inizio round.
+   */
+  voteDue?: boolean;
   hasNextQuestion: boolean;
   hasNextRound: boolean;
   /** ora del server (ms) */
@@ -127,7 +132,7 @@ function nextAutoCommand(ctx: AutoplayContext): GameCommand | { kind: "wait"; re
     case "INTRO":
       return afterRound;
     case "ROUND_INTRO":
-      if (ctx.roundKind === "category_vote" && !ctx.voteDone) return "START_VOTE";
+      if (ctx.roundKind === "category_vote" && !ctx.voteDone && (ctx.voteDue ?? true)) return "START_VOTE";
       if (ctx.roundKind === "category_wheel" && !ctx.voteDone) return "SPIN_WHEEL";
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : afterRound;
     case "CATEGORY_VOTING":
@@ -148,10 +153,13 @@ function nextAutoCommand(ctx: AutoplayContext): GameCommand | { kind: "wait"; re
     case "ANSWER_REVEAL":
       return "SCORE";
     case "SCORE_REVEAL":
+      // voto a metà round: dopo le prime domande comuni si vota (poi le domande della materia scelta)
+      if (ctx.voteDue) return "START_VOTE";
       // fine round: classifica del round già sullo schermo, poi la generale; all'ultimo round si va
       // dritti al podio (la classifica generale lo rovinerebbe: la suspense è lì)
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : ctx.hasNextRound ? "SHOW_LEADERBOARD" : "FINISH";
     case "LEADERBOARD":
+      if (ctx.voteDue) return "START_VOTE";
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : afterRound;
   }
 }

@@ -259,6 +259,8 @@ export async function getAdminLiveState(sessionId: string): Promise<AdminLiveSta
     hasNextQuestion,
     hasNextRound,
     timerExpired: current?.timerExpired ?? false,
+    // voto a metà round: il pulsante giusto è AVVIA VOTAZIONE quando il motore lo richiede
+    voteDue: currentRound?.kind === "category_vote" && !voteDone && !!n && "blocked" in n,
   });
 
   return {

@@ -392,7 +392,7 @@ export function PhoneVoteView({ vote, phase, myOptionId, remainingMs, sending, e
         <Character who="palmino" small className="w-24" />
         <div>
           <p className="font-display text-2xl leading-tight">{closed ? "Avete deciso!" : "ADESSO DECIDETE VOI!"}</p>
-          <p className="font-bold text-white/80">{closed ? "Ecco la categoria scelta" : "Vota la categoria del prossimo round"}</p>
+          <p className="font-bold text-white/80">{closed ? "Ecco la materia scelta" : "Vota la materia delle prossime domande"}</p>
         </div>
       </div>
       {phase === "CATEGORY_VOTING" && vote.closesAt && <TimerBar remainingMs={remainingMs} totalMs={vote.openedAt ? Date.parse(vote.closesAt) - Date.parse(vote.openedAt) : 15000} />}

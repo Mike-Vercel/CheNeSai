@@ -167,3 +167,44 @@ describe("stima della durata di una battuta senza clip", () => {
     expect(estimateSpeechMs("a".repeat(130))).toBe(10_300);
   });
 });
+
+describe("votazione a metà round (game_rounds.vote_after)", () => {
+  const step = (over: Partial<AutoplayContext>) => {
+    const p = planAutoplay(ctx(over));
+    return p.kind === "step" ? p.command : p.kind;
+  };
+
+  it("presentazione del round: prima le domande comuni, il voto solo quando è dovuto", () => {
+    // come sempre (serate della regia): voto subito
+    expect(step({ phase: "ROUND_INTRO", roundKind: "category_vote" })).toBe("START_VOTE");
+    expect(step({ phase: "ROUND_INTRO", roundKind: "category_vote", voteDue: true })).toBe("START_VOTE");
+    // voto a metà round: si parte con una domanda comune
+    expect(step({ phase: "ROUND_INTRO", roundKind: "category_vote", voteDue: false, hasNextQuestion: true })).toBe("SHOW_QUESTION");
+  });
+
+  it("dopo i punti della 3ª domanda comune: AVVIA VOTAZIONE (mai classifica o fine partita)", () => {
+    expect(step({ phase: "SCORE_REVEAL", roundKind: "category_vote", voteDue: true, hasNextQuestion: false, hasNextRound: false })).toBe("START_VOTE");
+    expect(step({ phase: "LEADERBOARD", roundKind: "category_vote", voteDue: true, hasNextQuestion: false })).toBe("START_VOTE");
+    // fra una comune e l'altra si va avanti con le domande
+    expect(step({ phase: "SCORE_REVEAL", roundKind: "category_vote", voteDue: false, hasNextQuestion: true })).toBe("SHOW_QUESTION");
+    // a voto fatto, come sempre
+    expect(step({ phase: "SCORE_REVEAL", roundKind: "category_vote", voteDone: true, hasNextQuestion: false, hasNextRound: false })).toBe("FINISH");
+  });
+
+  it("la regia può avviare la votazione anche dopo i punti", () => {
+    expect(isCommandAllowed("SCORE_REVEAL", "START_VOTE", false)).toBe(true);
+    expect(isCommandAllowed("LEADERBOARD", "START_VOTE", false)).toBe(true);
+    expect(isCommandAllowed("QUESTION_VISIBLE", "START_VOTE", false)).toBe(false);
+  });
+});
+
+describe("votazione a metà round: suggerimento della regia", async () => {
+  const { suggestNextCommand } = await import("@/lib/game-engine/transitions");
+  const base = { roundKind: "category_vote", voteDone: false, hasNextQuestion: false, hasNextRound: true, timerExpired: false };
+  it("pulsante giusto al momento giusto", () => {
+    expect(suggestNextCommand({ ...base, phase: "ROUND_INTRO" })).toBe("START_VOTE");
+    expect(suggestNextCommand({ ...base, phase: "ROUND_INTRO", voteDue: false, hasNextQuestion: true })).toBe("SHOW_QUESTION");
+    expect(suggestNextCommand({ ...base, phase: "SCORE_REVEAL", voteDue: true })).toBe("START_VOTE");
+    expect(suggestNextCommand({ ...base, phase: "SCORE_REVEAL", voteDue: false, hasNextQuestion: true })).toBe("SHOW_QUESTION");
+  });
+});

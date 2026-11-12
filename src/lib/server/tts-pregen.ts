@@ -131,6 +131,7 @@ export async function sessionLines(db: Db, sessionId: string): Promise<SpokenLin
         description: r.description,
         pointsMultiplier: r.pointsMultiplier,
         noPenalty: r.noPenalty,
+        voteAfter: r.voteAfter ?? null,
         special: roundSpecialSettings({
           kind: r.kind,
           bet_min_stake: r.betMinStake,

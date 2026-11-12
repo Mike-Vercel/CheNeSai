@@ -155,18 +155,7 @@ test("modalità B: tutto lo show sul telefono in verticale, l'host gioca dallo s
   await page.getByRole("button", { name: /SALTA INTRO/ }).click();
   await expect(page.locator("[data-intro-mode]")).toHaveCount(0, { timeout: 30_000 });
 
-  // votazione delle materie (il primo dei 2 round, sempre presente): in verticale, da toccare sullo show
-  await expect(page.getByRole("heading", { name: "Votate la materia!" })).toBeVisible({ timeout: 60_000 });
-  await expect(friend.getByRole("heading", { name: "Votate la materia!" })).toBeVisible({ timeout: 30_000 });
-  await page.waitForTimeout(600);
-  await shot(page, "B2f-votazione-verticale");
-  await page.locator("button[aria-pressed]").first().click();
-  await expect(page.getByText("VOTO REGISTRATO!")).toBeVisible({ timeout: 20_000 });
-  await friend.locator("button[aria-pressed]").nth(1).click();
-  await expect(friend.getByText("VOTO REGISTRATO!")).toBeVisible({ timeout: 20_000 });
-  await shot(friend, "B2g-amico-votazione");
-  await expect(page.getByRole("heading", { name: "La materia scelta è…" })).toBeVisible({ timeout: 40_000 });
-  await shot(page, "B2h-materia-scelta");
+  // (la votazione delle materie arriva dopo 3 domande: vedi sempre-ruota-voto-musica.spec.ts)
 
   // "Avanti" dal menu fino alla prima domanda
   for (let i = 0; i < 4; i++) {

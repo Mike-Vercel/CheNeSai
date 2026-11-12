@@ -154,7 +154,7 @@ export function NewGameWizard({ quota }: { quota: QuotaInfo }) {
         <p className="text-base font-bold text-white/85">
           {rounds} {rounds === 1 ? "round" : "round"} da {perRound}
           {total % rounds ? "–" + (perRound + 1) : ""} domande · circa {estimateMinutes(total)} minuti
-          <span className="block text-sm text-white/70">{freeGameHighlights(rounds, total)}</span>
+          <span className="block text-sm text-white/70">{freeGameHighlights(rounds)}</span>
           {quota.remaining !== null && (
             <span className="block text-sm text-white/70">
               {quota.remaining === 1 ? "Ti resta 1 partita" : `Ti restano ${quota.remaining} partite`}

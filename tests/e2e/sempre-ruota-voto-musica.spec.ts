@@ -8,11 +8,11 @@ import { devices, expect, test, type Page } from "@playwright/test";
 /**
  * PARTITA LIBERA: votazione delle materie, Ruota di Palmino e canzone SEMPRE presenti.
  * Partita vera da 10 domande in 1 round creata come da /gioca (vedi sempre-setup.ts), show sui
- * telefoni (verticale). Scorrimento AUTOMATICO guidato dal TV: votazione (il giocatore vota dallo
- * show sul suo telefono), risultato, prima domanda della materia votata; poi si salta alla canzone:
- * cartello "Ascolta", il TV e il telefono fanno sentire l'estratto (Web Audio) e solo DOPO si aprono
- * le risposte. Voci dei presentatori spente (niente ElevenLabs nei test): conta il resto.
- * Screenshot (QZ_SHOTS_DIR=cartella): votazione in verticale, "Ascolta" su TV 16:9 e telefono.
+ * telefoni (verticale). Scorrimento AUTOMATICO guidato dal TV dall'inizio: prime 3 domande comuni
+ * (fra queste la canzone: cartello "Ascolta", il TV e il telefono fanno sentire l'estratto con Web
+ * Audio e solo DOPO si aprono le risposte), poi la VOTAZIONE A METÀ ROUND (il giocatore vota dallo
+ * show sul suo telefono), il risultato e la 4ª domanda, della materia votata. Voci dei presentatori spente (niente ElevenLabs nei test): conta il resto.
+ * Screenshot (QZ_SHOTS_DIR=cartella): voto a metà round su TV e telefono, "Ascolta" su TV e telefono.
  */
 config({ path: ".env.local", quiet: true });
 
@@ -46,7 +46,7 @@ test.afterAll(() => {
 });
 
 test("partita libera: votazione dai telefoni, ruota e canzone «Ascolta» (TV e telefono, automatico)", async ({ browser }) => {
-  test.setTimeout(300_000);
+  test.setTimeout(480_000);
   const s = JSON.parse(readFileSync(FILE, "utf8")) as Saved;
   const sql = postgres(process.env.DATABASE_URL!, { prepare: false, max: 1 });
   const errors: string[] = [];
@@ -85,33 +85,13 @@ test("partita libera: votazione dai telefoni, ruota e canzone «Ascolta» (TV e 
 
     // ---------------------------------------------------------------- il round (automatico, guidato dal TV)
     tsx("start");
-    await expect(phone.getByText("ADESSO DECIDETE VOI!").first()).toBeVisible({ timeout: 30_000 });
-    // votazione in verticale: le materie da toccare
-    await expect(phone.getByRole("heading", { name: "Votate la materia!" })).toBeVisible({ timeout: 40_000 });
-    await expect(tv.getByText("Votate la categoria!")).toBeVisible({ timeout: 10_000 });
-    const options = phone.locator("button[aria-pressed]");
-    await expect(options).toHaveCount(3);
-    await phone.waitForTimeout(600);
-    await shot(phone, "V1-telefono-votazione");
-    await shot(tv, "V1-tv-votazione");
-    const label = (await options.nth(1).locator("span.flex-1").innerText()).trim();
-    await options.nth(1).click();
-    await expect(phone.getByText("VOTO REGISTRATO!")).toBeVisible({ timeout: 10_000 });
-    await expect(options.nth(1)).toHaveAttribute("aria-pressed", "true");
-    await shot(phone, "V2-telefono-voto-registrato");
-    // chiusura a tempo scaduto (15 s) e risultato: vince l'unico voto
-    await expect(phone.getByRole("heading", { name: "La materia scelta è…" })).toBeVisible({ timeout: 30_000 });
-    await expect(phone.getByText(`${label}!`)).toBeVisible();
-    await phone.waitForTimeout(800);
-    await shot(phone, "V3-telefono-materia-scelta");
-    await shot(tv, "V3-tv-materia-scelta");
-    // poi, da sola, la prima domanda: della materia votata
+    // round unico a votazione, ma il voto arriva dopo 3 domande: si parte con le domande
+    await expect(phone.getByText("Dopo 3 domande la materia la scegliete voi!")).toBeVisible({ timeout: 30_000 });
+    await shot(phone, "VM0-telefono-presentazione-round");
     await expect(phone.getByText(/^1\/10$/)).toBeVisible({ timeout: 60_000 });
-    await expect(phone.getByText(label, { exact: true }).first()).toBeVisible();
 
-    // ---------------------------------------------------------------- la canzone
-    tsx("song");
-    await expect(tv.getByText("🎧 Ascolta la canzone")).toBeVisible({ timeout: 40_000 });
+    // ---------------------------------------------------------------- la canzone (2ª o 3ª domanda, prima del voto)
+    await expect(tv.getByText("🎧 Ascolta la canzone")).toBeVisible({ timeout: 150_000 });
     await expect(phone.getByText("🎧 Ascolta la canzone")).toBeVisible({ timeout: 20_000 });
     // l'estratto parte (Web Audio, già sbloccato) su TV e telefono
     await expect(tv.getByText("Ascoltate bene…")).toBeVisible({ timeout: 30_000 });
@@ -124,7 +104,33 @@ test("partita libera: votazione dai telefoni, ruota e canzone «Ascolta» (TV e 
     const [t] = await sql<{ waited_ms: number }[]>`
       select extract(epoch from (options_opened_at - shown_at)) * 1000 as waited_ms from session_questions where id = ${s.musicSqId}`;
     expect(Number(t.waited_ms)).toBeGreaterThanOrEqual(10_000);
-    await shot(phone, "A2-telefono-risposte-dopo-canzone");
+
+    // ---------------------------------------------------------------- votazione a metà round (dopo la 3ª domanda)
+    await expect(phone.getByRole("heading", { name: "Votate la materia!" })).toBeVisible({ timeout: 150_000 });
+    await expect(tv.getByText("Votate la materia!")).toBeVisible({ timeout: 10_000 });
+    const [{ shown }] = await sql<{ shown: number }[]>`
+      select count(*)::int as shown from session_questions where session_id = ${s.sessionId} and shown_at is not null and not is_reserve`;
+    expect(shown).toBe(3);
+    const options = phone.locator("button[aria-pressed]");
+    await expect(options).toHaveCount(3);
+    await phone.waitForTimeout(600);
+    await shot(phone, "VM1-telefono-voto-meta-round");
+    await shot(tv, "VM1-tv-voto-meta-round");
+    const label = (await options.nth(1).locator("span.flex-1").innerText()).trim();
+    await options.nth(1).click();
+    await expect(phone.getByText("VOTO REGISTRATO!")).toBeVisible({ timeout: 10_000 });
+    await expect(options.nth(1)).toHaveAttribute("aria-pressed", "true");
+    await shot(phone, "VM2-telefono-voto-registrato");
+    // chiusura a tempo scaduto (15 s) e risultato: vince l'unico voto
+    await expect(phone.getByRole("heading", { name: "La materia scelta è…" })).toBeVisible({ timeout: 30_000 });
+    await expect(phone.getByText(`${label}!`)).toBeVisible();
+    await phone.waitForTimeout(800);
+    await shot(phone, "VM3-telefono-materia-scelta");
+    await shot(tv, "VM3-tv-materia-scelta");
+    // poi, da sola, la 4ª domanda: della materia votata
+    await expect(phone.getByText(/^4\/10$/)).toBeVisible({ timeout: 60_000 });
+    await expect(phone.getByText(label, { exact: true }).first()).toBeVisible();
+    await shot(phone, "VM4-telefono-quarta-domanda");
     expect(errors, errors.join("\n")).toEqual([]);
     await Promise.all([tvCtx.close(), phoneCtx.close()]);
   } finally {

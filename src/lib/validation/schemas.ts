@@ -175,6 +175,8 @@ export const roundInputSchema = z.object({
   voteDurationSeconds: z.number().int().min(5).max(120).default(15),
   voteTieBreak: z.enum(["random", "admin", "first"]).default("random"),
   voteLiveResults: z.boolean().default(true),
+  /** voto a metà round: domande comuni prima del voto (null = voto a inizio round; partite libere: 3) */
+  voteAfter: z.number().int().min(1).max(30).nullable().default(null),
   voteOptions: z.array(z.string().trim().min(2).max(40)).max(8).default([]),
   // Scommetti tutto
   betMinStake: z.number().int().min(0).max(100000).default(500),

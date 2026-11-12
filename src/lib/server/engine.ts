@@ -418,12 +418,14 @@ interface RoundRow {
   vote_closed_at: Date | null;
   winning_option_id: string | null;
   wheel_spun_at: Date | null;
+  /** voto a metà round: domande comuni prima del voto (null = voto a inizio round) */
+  vote_after: number | null;
 }
 
 async function getRound(tx: Tx, roundId: string | null): Promise<RoundRow | null> {
   if (!roundId) return null;
   const [r] = await tx<RoundRow[]>`
-    select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id, wheel_spun_at
+    select id, position, kind, title, vote_duration_seconds, vote_tie_break, vote_opened_at, vote_closed_at, winning_option_id, wheel_spun_at, vote_after
     from game_rounds where id = ${roundId}`;
   return r ?? null;
 }
@@ -440,7 +442,18 @@ export async function resolveNextQuestion(tx: Tx, st: StateRow): Promise<NextQue
   if (st.forced_next_sq_id) return { id: st.forced_next_sq_id, source: "forced" };
   const round = await getRound(tx, st.current_round_id);
   if (!round) return null;
-  if (isCategoryRound(round.kind) && !round.winning_option_id) return { blocked: "VOTE_PENDING" };
+  if (isCategoryRound(round.kind) && !round.winning_option_id) {
+    // voto a metà round: prima `vote_after` domande comuni (senza materia), poi la votazione
+    if (round.kind === "category_vote" && round.vote_after && !round.vote_opened_at) {
+      const [pre] = await tx<{ id: string; shown: number }[]>`
+        select q.id, (select count(*)::int from session_questions x where x.round_id = ${round.id} and not x.is_reserve and x.shown_at is not null) as shown
+        from session_questions q
+        where q.round_id = ${round.id} and not q.is_reserve and q.shown_at is null and q.options_opened_at is null and q.vote_option_id is null
+        order by q.position limit 1`;
+      if (pre && pre.shown < round.vote_after) return { id: pre.id, source: "sequence" };
+    }
+    return { blocked: "VOTE_PENDING" };
+  }
   const [q] = await tx<{ id: string }[]>`
     select id from session_questions
     where round_id = ${round.id} and not is_reserve and shown_at is null and options_opened_at is null
@@ -625,6 +638,11 @@ const HANDLERS: Record<GameCommand, Handler> = {
     const round = await getRound(tx, st.current_round_id);
     if (!round || round.kind !== "category_vote") throw new GameError("INVALID_TRANSITION", "Il round corrente non prevede una votazione");
     if (round.vote_opened_at) throw new GameError("INVALID_TRANSITION", "La votazione di questo round è già stata svolta");
+    // voto a metà round (dopo i punti di una domanda): solo quando le domande comuni previste sono state giocate
+    if (st.phase !== "ROUND_INTRO") {
+      const next = await resolveNextQuestion(tx, st);
+      if (!next || !("blocked" in next)) throw new GameError("INVALID_TRANSITION", "La votazione arriva dopo le prime domande del round");
+    }
     const [{ c }] = await tx<{ c: number }[]>`select count(*)::int as c from category_vote_options where round_id = ${round.id}`;
     if (c < 2) throw new GameError("VALIDATION", "Servono almeno 2 categorie votabili");
     await tx`

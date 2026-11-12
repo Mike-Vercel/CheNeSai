@@ -190,8 +190,8 @@ describe("creazione della partita libera", () => {
     created.push(r.sessionId);
     second = r.sessionId;
     const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId} and not wheel_candidate`).map((x) => x.question_id);
-    // 2 round: il primo a votazione (3 materie da 5), poi la finale da 5
-    expect(picked).toHaveLength(20);
+    // 2 round: il primo con 3 comuni, poi il voto (3 materie da 2), poi la finale da 5
+    expect(picked).toHaveLength(14);
     expect(picked.filter((q) => seen.has(q))).toEqual([]);
     expect(r.warnings.some((w) => w.includes("tua partita precedente"))).toBe(false);
   });
@@ -310,8 +310,23 @@ describe("comandi dell'host", () => {
     await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED"); // in pausa no
     expect((await hostCommand(hostA, id, "resume")).state.phase).toBe("INTRO");
     await expectGiocoError(hostCommand(hostB, id, "next"), "NOT_OWNER", 403);
-    // "Avanti": salta l'intro, poi la presentazione del round (unico: a votazione delle materie)
+    // "Avanti": salta l'intro, poi la presentazione del round (unico, a votazione: prima 3 domande comuni)
     expect((await hostCommand(hostA, id, "next")).state.phase).toBe("ROUND_INTRO");
+    for (let n = 1; n <= 3; n++) {
+      // la lettura della domanda
+      const shown = await hostCommand(hostA, id, "next");
+      expect(shown.state.phase).toBe("QUESTION_VISIBLE");
+      expect(shown.state.question?.number).toBe(n);
+      const options = await hostCommand(hostA, id, "next");
+      expect(options.state.phase).toBe("OPTIONS_VISIBLE");
+      // risposte aperte: mai tagliare il tempo dei giocatori
+      expect(Date.parse(options.state.question!.closesAt!)).toBeGreaterThan(Date.now() + 1000);
+      await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED");
+      await sql`update session_questions set answers_close_at = now() - interval '2 seconds' where id = ${options.state.question!.id}`;
+      expect((await hostCommand(hostA, id, "next")).state.phase).toBe("ANSWER_REVEAL");
+      expect((await hostCommand(hostA, id, "next")).state.phase).toBe("SCORE_REVEAL");
+    }
+    // dopo la 3ª domanda: la votazione delle materie (a metà round)
     const voting = await hostCommand(hostA, id, "next");
     expect(voting.state.phase).toBe("CATEGORY_VOTING");
     expect(voting.state.vote?.options).toHaveLength(3);
@@ -319,13 +334,9 @@ describe("comandi dell'host", () => {
     await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED");
     await sql`update game_rounds set vote_closes_at = now() - interval '2 seconds' where id = ${voting.state.vote!.roundId}`;
     expect((await hostCommand(hostA, id, "next")).state.phase).toBe("CATEGORY_RESULT");
-    // poi la lettura della domanda
-    expect((await hostCommand(hostA, id, "next")).state.phase).toBe("QUESTION_VISIBLE");
-    const options = await hostCommand(hostA, id, "next");
-    expect(options.state.phase).toBe("OPTIONS_VISIBLE");
-    // risposte aperte: mai tagliare il tempo dei giocatori
-    expect(Date.parse(options.state.question!.closesAt!)).toBeGreaterThan(Date.now() + 1000);
-    await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED");
+    const fourth = await hostCommand(hostA, id, "next");
+    expect(fourth.state.phase).toBe("QUESTION_VISIBLE");
+    expect(fourth.state.question?.number).toBe(4);
     expect((await hostCommand(hostA, id, "finish")).state.phase).toBe("FINISHED");
   });
 });

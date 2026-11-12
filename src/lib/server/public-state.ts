@@ -256,9 +256,10 @@ async function loadPublicRound(db: Db, sessionId: string, roundId: string): Prom
       bet_default_tier: number;
       comeback_multiplier: string;
       comeback_leader_penalty: string;
+      vote_after: number | null;
     }[]
   >`
-    select r.id, r.title, r.kind, r.presenter, r.description, r.points_multiplier, r.penalty_multiplier, r.no_penalty,
+    select r.id, r.title, r.kind, r.presenter, r.description, r.points_multiplier, r.penalty_multiplier, r.no_penalty, r.vote_after,
            r.bet_min_stake, r.bet_default_tier, r.comeback_multiplier, r.comeback_leader_penalty,
            (select count(*)::int from game_rounds x where x.session_id = r.session_id and x.position <= r.position) as idx,
            (select count(*)::int from game_rounds x where x.session_id = r.session_id) as total
@@ -276,6 +277,7 @@ async function loadPublicRound(db: Db, sessionId: string, roundId: string): Prom
     penaltyMultiplier: num(r.penalty_multiplier),
     noPenalty: r.no_penalty,
     special: roundSpecialSettings(r),
+    voteAfter: r.kind === "category_vote" ? (r.vote_after ?? null) : null,
   };
 }
 
@@ -319,9 +321,11 @@ async function loadPublicQuestion(
            sq.options_opened_at, sq.answers_close_at, sq.answers_closed_at, sq.revealed_at,
            (select count(*)::int from session_questions x
              where x.round_id = sq.round_id and not x.is_reserve and x.shown_at is not null and x.shown_at <= coalesce(sq.shown_at, clock_timestamp())) as position_in_round,
-           (select count(*)::int from session_questions x
+           (select count(*)::int from session_questions x join game_rounds xr on xr.id = x.round_id
              where x.round_id = sq.round_id and not x.is_reserve
-               and (sq.vote_option_id is null or x.vote_option_id = sq.vote_option_id)) as total_in_round
+               -- round con le categorie: le comuni (senza materia) + quelle della materia scelta (prima del voto: la prima)
+               and (x.vote_option_id is null or x.vote_option_id = coalesce(xr.winning_option_id, sq.vote_option_id,
+                 (select o.id from category_vote_options o where o.round_id = sq.round_id order by o.position limit 1)))) as total_in_round
     from session_questions sq
     join question_snapshots qs on qs.session_question_id = sq.id
     where sq.id = ${sqId}`;

@@ -20,8 +20,9 @@ const PHASE_COMMANDS: Record<GamePhase, readonly GameCommand[]> = {
   OPTIONS_VISIBLE: ["CLOSE_ANSWERS", "REVEAL", "PAUSE", "FINISH"],
   ANSWERS_LOCKED: ["REVEAL", "PAUSE", "FINISH"],
   ANSWER_REVEAL: ["SCORE", "PAUSE", "FINISH"],
-  SCORE_REVEAL: ["SHOW_LEADERBOARD", "SHOW_QUESTION", "START_ROUND", "ACTIVATE_EVENT", "PAUSE", "FINISH"],
-  LEADERBOARD: ["SHOW_QUESTION", "START_ROUND", "ACTIVATE_EVENT", "PAUSE", "FINISH"],
+  // START_VOTE anche a metà round (round a votazione con le prime domande comuni: vedi game_rounds.vote_after)
+  SCORE_REVEAL: ["SHOW_LEADERBOARD", "SHOW_QUESTION", "START_VOTE", "START_ROUND", "ACTIVATE_EVENT", "PAUSE", "FINISH"],
+  LEADERBOARD: ["SHOW_QUESTION", "START_VOTE", "START_ROUND", "ACTIVATE_EVENT", "PAUSE", "FINISH"],
   PAUSED: ["RESUME", "FINISH"],
   FINISHED: [],
 };
@@ -93,6 +94,11 @@ export interface NextActionContext {
   hasNextQuestion: boolean;
   hasNextRound: boolean;
   timerExpired: boolean;
+  /**
+   * La prossima mossa è la votazione (round a votazione, materia non ancora scelta, nessuna domanda
+   * comune da giocare prima). Assente = come sempre: votazione a inizio round.
+   */
+  voteDue?: boolean;
 }
 
 /** Suggerimento per la regia: qual è il passo naturale successivo. */
@@ -105,7 +111,7 @@ export function suggestNextCommand(ctx: NextActionContext): GameCommand | null {
     case "INTRO":
       return "START_ROUND";
     case "ROUND_INTRO":
-      if (ctx.roundKind === "category_vote" && !ctx.voteDone) return "START_VOTE";
+      if (ctx.roundKind === "category_vote" && !ctx.voteDone && (ctx.voteDue ?? true)) return "START_VOTE";
       if (ctx.roundKind === "category_wheel" && !ctx.voteDone) return "SPIN_WHEEL";
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : ctx.hasNextRound ? "START_ROUND" : "FINISH";
     case "CATEGORY_VOTING":
@@ -123,9 +129,12 @@ export function suggestNextCommand(ctx: NextActionContext): GameCommand | null {
     case "ANSWER_REVEAL":
       return "SCORE";
     case "SCORE_REVEAL":
+      // voto a metà round: dopo le prime domande comuni
+      if (ctx.voteDue) return "START_VOTE";
       // a metà round la domanda successiva; a fine round la classifica generale; all'ultimo round il podio
       return ctx.hasNextQuestion ? "SHOW_QUESTION" : ctx.hasNextRound ? "SHOW_LEADERBOARD" : "FINISH";
     case "LEADERBOARD":
+      if (ctx.voteDue) return "START_VOTE";
       if (ctx.hasNextQuestion) return "SHOW_QUESTION";
       return ctx.hasNextRound ? "START_ROUND" : "FINISH";
     case "PAUSED":

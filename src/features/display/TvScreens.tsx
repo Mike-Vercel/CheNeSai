@@ -148,6 +148,12 @@ export function questionRoundLabel(kind: PublicRound["kind"]): string | null {
   return kind === "standard" || kind === "category_vote" || kind === "category_wheel" ? null : ROUND_KIND_LABEL[kind];
 }
 
+/** Sottotitolo della presentazione del round (round a votazione: subito o dopo le prime domande). */
+export function roundIntroTagline(round: Pick<PublicRound, "kind" | "voteAfter">): string {
+  if (round.kind === "category_vote") return round.voteAfter ? `Dopo ${round.voteAfter} domande la materia la scegliete voi!` : "ADESSO DECIDETE VOI!";
+  return ROUND_KIND_LABEL[round.kind];
+}
+
 export function questionTextSize(text: string): string {
   if (text.length <= 60) return "text-[6cqh]";
   if (text.length <= 110) return "text-[4.8cqh]";
@@ -628,7 +634,7 @@ export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRo
           {round.title}
         </motion.h1>
         <p className="font-display text-[4.4cqh]" style={{ color: c.accent === "#087cff" ? "#7fc3ff" : c.accent }}>
-          {round.kind === "category_vote" ? "ADESSO DECIDETE VOI!" : ROUND_KIND_LABEL[round.kind]}
+          {roundIntroTagline(round)}
         </p>
         {round.description && <p className="max-w-[50cqw] text-[3.2cqh] font-extrabold text-white/90">{round.description}</p>}
         {round.special?.kind === "bet" ? (
@@ -656,7 +662,7 @@ export function TvRoundIntroScreen({ round, vote, showLines }: { round: PublicRo
             {round.penaltyMultiplier > 1 && !round.noPenalty && <Pill tone="violet">Penalità ×{round.penaltyMultiplier}</Pill>}
           </div>
         )}
-        {vote && (
+        {vote && !round.voteAfter && (
           <div className="mt-[1cqh] grid grid-cols-2 gap-[1.6cqh]">
             {vote.options.map((o) => (
               <span key={o.id} className="rounded-[2cqh] border-[0.4cqh] border-gold px-[3cqh] py-[1.2cqh] font-display text-[4cqh] text-white" style={{ background: ANSWER_STYLES[o.position].bg }}>
@@ -688,7 +694,7 @@ export function TvVotingScreen({ vote, remainingMs, totalMs, phase }: { vote: Pu
       </motion.div>
       <div className="absolute left-[30cqw] right-[4cqw] top-[19cqh]">
         <div className="mb-[2cqh] flex items-center justify-between">
-          <h1 className="font-display text-[6cqh] text-white">{closed ? "La categoria scelta è…" : "Votate la categoria!"}</h1>
+          <h1 className="font-display text-[6cqh] text-white">{closed ? "La materia scelta è…" : "Votate la materia!"}</h1>
           {!closed && <TimerRing remainingMs={remainingMs} totalMs={totalMs} size="16cqh" />}
         </div>
         <div className="flex flex-col gap-[1.8cqh]">

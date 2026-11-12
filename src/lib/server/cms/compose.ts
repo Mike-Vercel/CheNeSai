@@ -385,8 +385,8 @@ export async function composeFreeGameTx(
   const voteRound = voteOptions.length >= 2 ? plan.voteRound : null;
   const voteUsed = voteOptions.flatMap((v) => v.picks.map((p) => p.questionId));
 
-  // 2) gli altri round (e le domande comuni del round unico a votazione)
-  const specs: ComposeRoundSpec[] = base.map((r, i) => (i === voteRound ? { count: plan.common } : { count: r.count, harder: r.harder }));
+  // 2) gli altri round (e le domande comuni del round a votazione: prima e dopo il voto)
+  const specs: ComposeRoundSpec[] = base.map((r, i) => (i === voteRound ? { count: plan.pre + plan.post } : { count: r.count, harder: r.harder }));
   const main = composeQuestions({ candidates, rounds: specs, mix: o.mix, seed, excludeIds: voteUsed });
   const pool = poolStats(candidates);
   if (main.summary.missing > 0) {
@@ -398,13 +398,11 @@ export async function composeFreeGameTx(
   }
   const rounds = main.rounds.map((list) => list.map((p) => ({ questionId: p.questionId, category: p.category })));
 
-  // 3) la canzone: al posto di una domanda di un round normale (o fra le comuni del round unico)
+  // 3) la canzone: al posto di una domanda di un round normale (round unico: fra le comuni prima del voto)
   const music = pickMusicQuestion(await loadMusicCandidates(tx, { onlyTag: opts.onlyTag, hostUserId: opts.hostUserId }), seed);
   if (music) {
     const target = rounds[plan.music.round];
-    // round unico senza votazione: la canzone resta nella seconda parte del round
-    const index = plan.music.round === voteRound || o.rounds > 1 ? plan.music.index : plan.voted + plan.music.index;
-    if (target && target.length > 0) target.splice(Math.min(index, target.length - 1), 1, { questionId: music.id, category: music.category });
+    if (target && target.length > 0) target.splice(Math.min(plan.music.index, target.length - 1), 1, { questionId: music.id, category: music.category });
   }
 
   const sessionId = await insertSession(
@@ -422,18 +420,22 @@ export async function composeFreeGameTx(
       sessionId,
       roundInputSchema.parse(
         isVote
-          ? { title: r.title, kind: "category_vote", presenter: "palmino", pointsMultiplier: r.pointsMultiplier, voteOptions: voteOptions.map((v) => v.label) }
+          ? { title: r.title, kind: "category_vote", presenter: "palmino", pointsMultiplier: r.pointsMultiplier, voteOptions: voteOptions.map((v) => v.label), voteAfter: plan.voteAfter }
           : { title: r.title, kind: r.kind, presenter: r.presenter, pointsMultiplier: r.pointsMultiplier },
       ),
       actor,
     );
     if (isVote) {
-      // prima le domande di ogni materia (si gioca quella votata), poi quelle comuni
+      // in ordine di posizione: le comuni prima del voto, le domande di ogni materia (si gioca quella
+      // votata), poi le altre comuni
+      const pre = rounds[i].slice(0, plan.pre);
+      const post = rounds[i].slice(plan.pre);
+      if (pre.length > 0) await insertRoundQuestions(tx, roundId, pre.map((p) => p.questionId), { common: true }, actor, { random: true, common: "prima del voto" });
       const opts2 = await tx<{ id: string; position: number }[]>`select id, position from category_vote_options where round_id = ${roundId} order by position`;
       for (let k = 0; k < voteOptions.length; k++) {
         await insertRoundQuestions(tx, roundId, voteOptions[k].picks.map((p) => p.questionId), { voteOptionId: opts2[k].id }, actor, { random: true, vote: voteOptions[k].label });
       }
-      if (rounds[i].length > 0) await insertRoundQuestions(tx, roundId, rounds[i].map((p) => p.questionId), { common: true }, actor, { random: true, common: true });
+      if (post.length > 0) await insertRoundQuestions(tx, roundId, post.map((p) => p.questionId), { common: true }, actor, { random: true, common: "dopo il voto" });
     } else {
       await insertRoundQuestions(tx, roundId, rounds[i].map((p) => p.questionId), {}, actor, { random: true });
     }
@@ -456,8 +458,10 @@ export async function composeFreeGameTx(
       summary,
       voteRound,
       voteOptions: voteOptions.map((v) => v.label),
+      voteAfter: voteRound !== null ? plan.voteAfter : null,
+      pre: voteRound !== null ? plan.pre : 0,
       voted: plan.voted,
-      common: voteRound !== null ? plan.common : 0,
+      post: voteRound !== null ? plan.post : 0,
       musicQuestionId: music?.id ?? null,
       hostUserId: opts.hostUserId,
     },

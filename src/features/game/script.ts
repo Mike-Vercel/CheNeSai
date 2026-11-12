@@ -122,6 +122,15 @@ export const FIXED_POOLS = {
       "[shouts] Tutti al voto! Palmino conta i voti con le dita… e ne ha solo dieci!",
     ],
   },
+  // votazione a metà round (dopo le prime domande comuni): Palmino annuncia che adesso si sceglie
+  votingMidRound: {
+    who: "palmino",
+    texts: [
+      "[excited] E adesso decidete voi la materia delle prossime domande! Votate dal telefono!",
+      "[giggles] Basta riscaldamento! Adesso la materia la scegliete voi: votate dal telefono, presto presto!",
+      "[shouts] Momento del voto! Scegliete dal telefono la materia delle prossime domande!",
+    ],
+  },
   // partenza della Ruota impazzita (la battuta di arrivo dipende dalla categoria: wheelResultLine)
   wheelSpin: {
     who: "palmino",
@@ -487,6 +496,8 @@ export interface ScriptRound {
   pointsMultiplier: number;
   noPenalty: boolean;
   special?: RoundSpecialSettings | null;
+  /** round a votazione: domande comuni prima del voto (assente/null = voto subito) */
+  voteAfter?: number | null;
 }
 
 /** "2", "1,5" (come si dice a voce) */
@@ -526,6 +537,9 @@ function roundCall(r: Pick<ScriptRound, "index" | "title">): string {
 }
 
 export function roundIntroLine(r: ScriptRound): SpokenLine {
+  if (r.kind === "category_vote" && r.voteAfter) {
+    return { who: "palmino", text: `[giggles] ${roundCall(r)}. Si parte con ${spokenNumber(r.voteAfter)} domande… poi la materia la scegliete voi!` };
+  }
   if (r.kind === "category_vote") return { who: "palmino", text: `[giggles] ${roundCall(r)}. Adesso decidete voi… tanto vinco io!` };
   if (r.kind === "category_wheel") return { who: "palmino", text: `[excited] ${roundCall(r)}. Arriva la Ruota impazzita: la categoria la sceglie lei!` };
   const special = specialRulesSpeech(r.kind, r.special);
@@ -959,7 +973,8 @@ export function speechFor(s: PublicState, prev: Pick<PublicState, "phase">, opts
       out.push(...directedLines(s));
       break;
     case "CATEGORY_VOTING":
-      out.push(fixedLine(FIXED_POOLS.voting, s.round?.id ?? s.sessionId));
+      // a metà round (dopo le prime domande) l'annuncio del voto; a inizio round l'invito a votare
+      out.push(fixedLine(s.round?.voteAfter ? FIXED_POOLS.votingMidRound : FIXED_POOLS.voting, s.round?.id ?? s.sessionId));
       break;
     case "CATEGORY_RESULT": {
       const w = s.vote?.options.find((o) => o.id === s.vote?.winnerOptionId);

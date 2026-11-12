@@ -201,6 +201,8 @@ export interface PublicRound {
   noPenalty: boolean;
   /** Impostazioni della manche speciale (null nei round normali). */
   special?: RoundSpecialSettings | null;
+  /** Round a votazione: domande comuni giocate prima del voto (null/assente = voto a inizio round). */
+  voteAfter?: number | null;
 }
 
 export interface PublicEvent {
