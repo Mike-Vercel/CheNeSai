@@ -86,7 +86,7 @@ export async function createPairing(ip: string | null, db: Db = getSql()): Promi
 
 export type PairingPoll =
   | { status: "waiting"; code: string; expiresAt: string }
-  | { status: "paired"; sessionId: string; displayKey: string }
+  | { status: "paired"; sessionId: string; displayKey: string; kind?: "psyco" }
   | { status: "expired" }
   | { status: "used" };
 
@@ -95,14 +95,17 @@ export async function pollPairing(pairingId: string, token: string, db: Db = get
   if (!UUID.test(pairingId) || !token) throw new GiocoError("PAIRING_INVALID", "Abbinamento non trovato");
   const hash = hashToken(token);
   // consegna atomica: solo la prima richiesta dopo l'abbinamento riceve la chiave dello schermo
-  const [delivered] = await db<{ session_id: string; display_key: string }[]>`
+  // (partita del quiz oppure stanza PSYCO: psyco_room_id, vedi migrazione 20261112130000_psyco)
+  const [delivered] = await db<{ session_id: string | null; display_key: string | null; psyco_room_id: string | null; psyco_key: string | null }[]>`
     with d as (
       update tv_pairings set status = 'delivered', delivered_at = now()
       where id = ${pairingId} and token_hash = ${hash} and status = 'claimed' and expires_at > now()
-      returning session_id
+      returning session_id, psyco_room_id
     )
-    select d.session_id, s.display_key from d join game_sessions s on s.id = d.session_id`;
-  if (delivered) return { status: "paired", sessionId: delivered.session_id, displayKey: delivered.display_key };
+    select d.session_id, s.display_key, d.psyco_room_id, r.display_key as psyco_key
+    from d left join game_sessions s on s.id = d.session_id left join psyco_rooms r on r.id = d.psyco_room_id`;
+  if (delivered?.psyco_room_id && delivered.psyco_key) return { status: "paired", kind: "psyco", sessionId: delivered.psyco_room_id, displayKey: delivered.psyco_key };
+  if (delivered?.session_id && delivered.display_key) return { status: "paired", sessionId: delivered.session_id, displayKey: delivered.display_key };
   const [p] = await db<{ code: string; status: string; expires_at: Date }[]>`
     select code, status, expires_at from tv_pairings where id = ${pairingId} and token_hash = ${hash}`;
   if (!p) throw new GiocoError("PAIRING_INVALID", "Abbinamento non trovato");
