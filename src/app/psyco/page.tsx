@@ -69,17 +69,24 @@ export default async function PsycoHome() {
               </h2>
               <ul className="mt-2 flex flex-col gap-2">
                 {rooms.map((r) => (
-                  <li key={r.roomId}>
+                  <li key={r.roomId} className="flex items-stretch gap-2">
                     <Link
                       href={r.mode === "shared" ? `/psyco/un-dispositivo/${r.roomId}` : `/psyco/stanza/${r.roomId}`}
                       prefetch={false}
-                      className="flex items-center justify-between gap-3 rounded-2xl bg-white/6 px-4 py-3 font-bold hover:bg-white/12"
+                      className="flex flex-1 items-center justify-between gap-3 rounded-2xl bg-white/6 px-4 py-3 font-bold hover:bg-white/12"
                     >
                       <span>
                         <span className="font-mono tracking-widest">{r.code}</span> · {r.mode === "shared" ? "un solo dispositivo" : `${r.players} giocatori`}
+                        {r.screen && r.isHost && <span className="block text-xs text-paper/60">📱 gioca da qui (telefono)</span>}
                       </span>
                       <span className="text-sm text-paper/70">{r.roundNo > 0 ? `manche ${r.roundNo} · ` : ""}{PHASE_LABEL[r.phase] ?? "scelta della regola"}</span>
                     </Link>
+                    {/* «Schermo + telefoni»: il PC riapre lo SCHERMO PUBBLICO, mai la stanza col ruolo */}
+                    {r.screen && r.isHost && (
+                      <Link href={`/psyco/schermo/apri/${r.roomId}`} prefetch={false} className="flex items-center rounded-2xl bg-white/6 px-4 py-3 text-sm font-black hover:bg-white/12" aria-label={`Apri lo schermo della partita ${r.code}`}>
+                        📺 Schermo
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

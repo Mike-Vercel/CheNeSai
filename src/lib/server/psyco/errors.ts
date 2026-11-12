@@ -13,6 +13,7 @@ export type PsycoErrorCode =
   | "NICKNAME_TAKEN"
   | "KICKED"
   | "RATE_LIMITED"
+  | "NO_CALLS_LEFT"
   | "BUSY";
 
 const STATUS: Record<PsycoErrorCode, number> = {
@@ -29,6 +30,7 @@ const STATUS: Record<PsycoErrorCode, number> = {
   NICKNAME_TAKEN: 409,
   KICKED: 403,
   RATE_LIMITED: 429,
+  NO_CALLS_LEFT: 409,
   BUSY: 503,
 };
 

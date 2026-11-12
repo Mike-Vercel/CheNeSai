@@ -6,9 +6,10 @@ import { remainingMs } from "@/lib/psyco/logic";
 import type { PsycoPublicState } from "@/lib/psyco/types";
 
 /**
- * NARRATORE DI PSYCO – voce propria del gioco (registrata dall'utente, NON ElevenLabs).
+ * NARRATORE DI PSYCO – voce propria del gioco (l'Investigatore: «Gottfried - Dark Thriller & Crime»).
  *
- * File: public/audio/psyco/<id>.mp3 (copiati da REFERENCE/AUDIO/PSYCO con `npm run psyco:voci`).
+ * File: public/audio/psyco/<id>.mp3 (copiati da REFERENCE/GIOCHI/PSYCO/AUDIO/NARRATORE con `npm run psyco:voci`;
+ * le battute della CHIAMATA e «tocca-al-prossimo» si generano con `npm run psyco:voci -- --genera`).
  * Se un file manca o non si carica: nessun errore, nessun blocco, si mostra solo il sottotitolo.
  * Il narratore NON comanda mai il gioco: lo stato del server avanza senza aspettare i clip.
  *
@@ -56,11 +57,25 @@ export const VOICE_LINES = {
   "vince-gruppo": "Vince il gruppo!",
   "nuova-manche": "Nuova manche. Nuovo Psyco. Nuova regola.",
   "fine-partita": "Fine della partita. Grazie per aver giocato a PSYCO.",
+  // un solo dispositivo su PC/tablet (lo schermo non si passa di mano: si cambia chi lo guarda)
+  "tocca-al-prossimo": "Tocca al prossimo giocatore. Gli altri… non guardate lo schermo.",
+  // «CHIAMA L'INVESTIGATORE»: la voce al telefono dello PSYCO (mai l'indizio: quello arriva per messaggio)
+  "investigatore-1": "Pronto? …Sì, sono io. Non posso parlare a lungo. Ti ho mandato un messaggio. Leggilo… e non farti vedere.",
+  "investigatore-2": "Ascolta bene, Psyco. Le risposte non mentono mai… ma vanno lette. Ti ho scritto tutto.",
+  "investigatore-3": "Non dire il mio nome ad alta voce. Controlla i messaggi: lì c'è quello che ti serve.",
+  "investigatore-4": "Ho seguito la pista per te. Non è molto… ma è qualcosa. Ti ho appena scritto.",
+  "investigatore-5": "Sono io. Niente domande. Ti ho mandato un messaggio: leggilo, prima che sia tardi.",
+  "investigatore-fine": "Era l'ultima volta che rispondo. Da qui in poi… sei solo.",
 } as const;
 export type VoiceId = keyof typeof VOICE_LINES;
 export const VOICE_IDS = Object.keys(VOICE_LINES) as VoiceId[];
 
 export const voiceUrl = (id: VoiceId) => `/audio/psyco/${id}.mp3`;
+
+/** Varianti della risposta dell'Investigatore al telefono (una a caso per chiamata). */
+export const CALL_VOICES: VoiceId[] = ["investigatore-1", "investigatore-2", "investigatore-3", "investigatore-4", "investigatore-5"];
+/** Clip che non partono mai da soli (li chiede la chiamata o il dispositivo condiviso): niente precaricamento ovunque. */
+const ON_DEMAND = new Set<VoiceId>([...CALL_VOICES, "investigatore-fine", "tocca-al-prossimo"]);
 
 /** Avvisi del timer: secondi rimasti → clip (solo se la durata totale li supera, mai durante la verifica). */
 export const TIMER_WARNINGS: { atMs: number; id: VoiceId }[] = [
@@ -178,6 +193,10 @@ type StateListener = (s: NarratorState) => void;
 
 class Narrator {
   private queue: VoiceId[] = [];
+  /** frasi che passano davanti a tutto (la voce dell'Investigatore al telefono), con chi aspetta la fine */
+  private priority: { id: VoiceId; done: () => void }[] = [];
+  /** chiamata in corso: le frasi normali aspettano in coda (il narratore non parla sopra la chiamata) */
+  private held = false;
   private playing = false;
   private listeners = new Set<CaptionListener>();
   private stateListeners = new Set<StateListener>();
@@ -216,7 +235,7 @@ class Narrator {
   }
 
   /** Precarica i clip (in sottofondo, senza errori se mancano). */
-  preload(ids: VoiceId[] = VOICE_IDS) {
+  preload(ids: VoiceId[] = VOICE_IDS.filter((id) => !ON_DEMAND.has(id))) {
     const engine = getSoundEngine();
     for (const id of ids) void engine.loadBuffer(voiceUrl(id)).then((b) => !b && this.missing.add(id));
   }
@@ -233,11 +252,34 @@ class Narrator {
 
   stop() {
     this.queue = [];
+    for (const p of this.priority.splice(0)) p.done();
     this.setState({ speaking: false, audible: false, id: null, text: null });
   }
 
+  /**
+   * Chiamata dell'Investigatore: `hold(true)` = il narratore non comincia nuove frasi (quella in corso
+   * finisce, le nuove aspettano in coda); `hold(false)` = riprende, solo con le frasi più recenti.
+   */
+  hold(on: boolean) {
+    if (this.held === on) return;
+    this.held = on;
+    if (!on) {
+      this.queue = this.queue.slice(-2);
+      if (!this.playing) void this.next();
+    }
+  }
+
+  /** Frase che passa davanti alla coda (anche durante `hold`): risolve quando è finita (o saltata). */
+  sayNow(id: VoiceId): Promise<void> {
+    return new Promise((done) => {
+      this.priority.push({ id, done });
+      if (!this.playing) void this.next();
+    });
+  }
+
   private async next() {
-    const id = this.queue.shift();
+    const first = this.priority.shift();
+    const id = first?.id ?? (this.held ? undefined : this.queue.shift());
     if (!id) {
       this.playing = false;
       this.setState({ speaking: false, audible: false, id: null, text: null });
@@ -259,6 +301,7 @@ class Narrator {
     this.setState({ speaking: true, audible: !!spoken, id, text: VOICE_LINES[id] });
     // mai bloccati: un clip lunghissimo o rotto non ferma la coda oltre 12 s
     await Promise.race([Promise.all([spoken ?? Promise.resolve(), minShow]), new Promise((r) => setTimeout(r, 12_000))]);
+    first?.done();
     void this.next();
   }
 }

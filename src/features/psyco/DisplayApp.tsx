@@ -1,11 +1,14 @@
 "use client";
 
+import { clsx } from "clsx";
 import { useEffect, useState } from "react";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { DIFFICULTY_LABEL, type PsycoPublicState } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { CallNotice, CallsChip } from "./InvestigatorCall";
 import { PsycoNarratorSlot } from "./NarratorSlot";
+import { ScreenHostControls, useScreenHost } from "./ScreenHost";
 import { usePsyco } from "./use-psyco";
 import { BigTimer, CountdownOverlay, EventFlash, joinUrl, Lens, LinkBadge, PlayerList, Progress, PsycoLogo, QrCode, RoundResult } from "./ui";
 
@@ -13,9 +16,14 @@ import { BigTimer, CountdownOverlay, EventFlash, joinUrl, Lens, LinkBadge, Playe
  * SCHERMO PUBBLICO (TV o PC): logo, codice, QR, giocatori, stato, timer, manche, risultati.
  * Non è un partecipante, non ha account e riceve SOLO lo stato pubblico: niente regola, proposte,
  * voti individuali o ruoli segreti (il server non glieli manda proprio). Qui suonano voce e musica.
+ *
+ * «Schermo + telefoni» da PC: se chi guarda è l'host (stesso account), compaiono anche i pochi comandi
+ * che non rivelano nulla (avvia, via, pausa, ripresa, nuova manche). Il PC resta un non-partecipante:
+ * nessun ruolo, nessuna regola, nemmeno se l'host gioca ed è lo PSYCO.
  */
 export function DisplayApp({ displayKey }: { displayKey: string }) {
-  const { state, status, error, now } = usePsyco({ source: { kind: "display", displayKey } });
+  const { state, status, error, now, refresh } = usePsyco({ source: { kind: "display", displayKey } });
+  const host = useScreenHost(displayKey);
   usePsycoAudio(state, now, { voiced: true });
   const [audioOn, setAudioOn] = useState(false);
   useEffect(() => getSoundEngine().subscribe((s) => setAudioOn(s.unlocked)), []);
@@ -48,14 +56,26 @@ export function DisplayApp({ displayKey }: { displayKey: string }) {
           <span className="psy-chip !text-[2.2vh]">👥 {state.activeCount}</span>
           <span className="psy-clock rounded-xl bg-white/8 px-[1vw] py-[0.6vh] text-[3.6vh] tracking-[0.2em]">{state.code}</span>
           {state.phase !== "LOBBY" && <QrCode text={url} className="h-[11vh] w-[11vh] !p-1" />}
+          {host && state.phase === "PLAYING" && <ScreenHostControls displayKey={displayKey} state={state} now={now} onDone={() => void refresh()} />}
           <AudioPanel voiced />
-          <button type="button" className="psy-chip" onClick={() => void (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => undefined)}>
+          <button
+            type="button"
+            className="psy-chip"
+            aria-label="Schermo intero"
+            title="Schermo intero"
+            onClick={() => void (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(() => undefined)}
+          >
             ⛶
           </button>
+          {host && (
+            <a href="/psyco" className="psy-chip" title="Esci dallo schermo (la partita continua)">
+              Esci
+            </a>
+          )}
         </div>
       </header>
       <section className="flex min-h-0 flex-1 flex-col items-center justify-center gap-[3vh] text-center">
-        <DisplayPhase state={state} now={now} url={url} />
+        <DisplayPhase state={state} now={now} url={url} hostControls={host ? <ScreenHostControls displayKey={displayKey} state={state} now={now} onDone={() => void refresh()} big /> : null} />
       </section>
       {!audioOn && state.status === "open" && (
         <button type="button" className="psy-btn fixed bottom-[4vh] right-[3vw] z-40 !text-[2.6vh]" onClick={() => void getSoundEngine().unlock()}>
@@ -69,7 +89,7 @@ export function DisplayApp({ displayKey }: { displayKey: string }) {
   );
 }
 
-function DisplayPhase({ state, now, url }: { state: PsycoPublicState; now: () => number; url: string }) {
+function DisplayPhase({ state, now, url, hostControls }: { state: PsycoPublicState; now: () => number; url: string; hostControls: React.ReactNode }) {
   const r = state.round;
   const v = r?.vote;
   if (state.status === "closed") {
@@ -85,19 +105,26 @@ function DisplayPhase({ state, now, url }: { state: PsycoPublicState; now: () =>
       return (
         <div className="grid w-full max-w-[1600px] grid-cols-[auto_1fr] items-center gap-[4vw] text-left">
           <div className="flex flex-col items-center gap-[2vh]">
-            <QrCode text={url} className="h-[44vh] w-[44vh]" />
+            <QrCode text={url} className={state.screen ? "h-[40vh] w-[40vh]" : "h-[44vh] w-[44vh]"} />
             <p className="psy-type text-[2.6vh] text-paper/80">{url.replace(/^https?:\/\//, "")}</p>
           </div>
-          <div className="flex min-w-0 flex-col gap-[3vh]">
-            <PsycoLogo size="tv" tagline className="!items-start" />
+          {/* «Schermo + telefoni»: qualche riga in più (spiegazione, comandi) → tutto un po' più compatto */}
+          <div className={clsx("flex min-w-0 flex-col", state.screen ? "gap-[2.2vh]" : "gap-[3vh]")}>
+            <PsycoLogo size="tv" tagline className={clsx("!items-start", state.screen && "[&>span:first-child]:!text-[10.5vh]")} />
             <p className="psy-display text-[4vh] text-paper">
               Inquadra il QR o vai su <span className="text-lamp">/psyco/entra</span> e scrivi
             </p>
-            <p className="psy-clock text-[12vh] tracking-[0.25em] text-paper">{state.code}</p>
+            <p className={clsx("psy-clock tracking-[0.25em] text-paper", state.screen ? "text-[10vh]" : "text-[12vh]")}>{state.code}</p>
             <p className="text-[2.4vh] font-extrabold text-paper/75">
               {state.activeCount < state.minPlayers ? `Servono almeno ${state.minPlayers} giocatori (ora ${state.activeCount})` : `${state.activeCount} giocatori pronti: si può cominciare!`}
             </p>
+            {state.screen && (
+              <p className="psy-type text-[2.2vh] text-paper/80">
+                📱 Si gioca tutti dal telefono, anche chi ha creato la partita (con lo stesso account). Questo schermo non mostra mai ruoli né regole.
+              </p>
+            )}
             <PlayerList players={state.participants} maxVisible={40} className="[&_li]:!text-[2.2vh]" />
+            {hostControls && <div className="flex justify-start">{hostControls}</div>}
           </div>
         </div>
       );
@@ -133,6 +160,7 @@ function DisplayPhase({ state, now, url }: { state: PsycoPublicState; now: () =>
           <p className="psy-display text-[5vh] text-lamp">{r?.psycoNickname}, preparati a scoprirla!</p>
           {r?.difficulty && <p className="psy-chip !text-[2.4vh]">Difficoltà: {DIFFICULTY_LABEL[r.difficulty]}</p>}
           {r && state.mode === "personal" && <Progress done={r.ready.length} total={r.members.length} label="Pronti" />}
+          {hostControls}
         </>
       );
     case "PLAYING":
@@ -142,13 +170,18 @@ function DisplayPhase({ state, now, url }: { state: PsycoPublicState; now: () =>
             PSYCO: <span className="text-blood">{r.psycoNickname}</span>
           </p>
           <BigTimer timer={r.timer} now={now} size="tv" />
-          <p className="psy-type text-[3vh] text-paper/80">
-            Tentativi: {r.attempts}
-            {r.difficulty ? ` · ${DIFFICULTY_LABEL[r.difficulty]}` : ""}
+          <p className="psy-type flex items-center gap-[1vw] text-[3vh] text-paper/80">
+            <span>
+              Tentativi: {r.attempts}
+              {r.difficulty ? ` · ${DIFFICULTY_LABEL[r.difficulty]}` : ""}
+            </span>
+            <CallsChip state={state} className="!text-[2.4vh]" />
           </p>
           <EventFlash state={state} kind="guess_wrong" className="text-[5vh]">
             SBAGLIATO! SI CONTINUA
           </EventFlash>
+          {/* la chiamata all'Investigatore: SOLO l'avviso, mai l'indizio (che lo schermo non riceve) */}
+          <CallNotice state={state} holdNarrator className="!px-[2vw] !py-[1.4vh] text-[3.4vh]" />
         </>
       ) : null;
     case "GUESS_VOTE":
@@ -160,7 +193,12 @@ function DisplayPhase({ state, now, url }: { state: PsycoPublicState; now: () =>
         </>
       );
     case "ROUND_END":
-      return <RoundResult state={state} big />;
+      return (
+        <>
+          <RoundResult state={state} big />
+          {hostControls}
+        </>
+      );
   }
   return null;
 }

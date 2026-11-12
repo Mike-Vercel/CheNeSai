@@ -3,7 +3,7 @@
 import { clsx } from "clsx";
 import { useState } from "react";
 import { timerFromParts, timerParts } from "@/lib/psyco/logic";
-import type { PsycoSettings } from "@/lib/psyco/types";
+import { callsOf, type PsycoSettings } from "@/lib/psyco/types";
 
 /**
  * Impostazioni della manche: tempo LIBERO (minuti e secondi, o senza limite), modalità della regola
@@ -25,16 +25,17 @@ export function SettingsForm({
   const [unlimited, setUnlimited] = useState(p0.unlimited);
   const [ruleMode, setRuleMode] = useState(initial.ruleMode);
   const [psycoPick, setPsycoPick] = useState(initial.psycoPick);
+  const [calls, setCalls] = useState(callsOf(initial));
   const [error, setError] = useState<string | null>(null);
 
-  function emit(next: { minutes?: string; seconds?: string; unlimited?: boolean; ruleMode?: PsycoSettings["ruleMode"]; psycoPick?: PsycoSettings["psycoPick"] }) {
+  function emit(next: { minutes?: string; seconds?: string; unlimited?: boolean; ruleMode?: PsycoSettings["ruleMode"]; psycoPick?: PsycoSettings["psycoPick"]; calls?: number }) {
     const m = next.minutes ?? minutes;
     const s = next.seconds ?? seconds;
     const u = next.unlimited ?? unlimited;
     const t = timerFromParts(m.trim() === "" ? "0" : m, s.trim() === "" ? "0" : s, u);
     const err = t.ok ? null : t.message;
     setError(err);
-    onChange(t.ok ? { timerMs: t.ms, ruleMode: next.ruleMode ?? ruleMode, psycoPick: next.psycoPick ?? psycoPick } : null, err);
+    onChange(t.ok ? { timerMs: t.ms, ruleMode: next.ruleMode ?? ruleMode, psycoPick: next.psycoPick ?? psycoPick, calls: next.calls ?? calls } : null, err);
   }
 
   const quick = [
@@ -166,6 +167,28 @@ export function SettingsForm({
               className={clsx("psy-chip", psycoPick === v && "!bg-paper !text-[#2a1a10]")}
             >
               {label}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="flex flex-col gap-2">
+        <legend className="psy-display mb-2 text-2xl text-paper">📞 Chiamate all&apos;Investigatore</legend>
+        <p className="text-sm font-bold text-paper/70">Quante volte, in ogni manche, lo PSYCO può chiamare l&apos;Investigatore per un indizio (ogni chiamata è più chiara della precedente). Il timer non si ferma.</p>
+        <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Chiamate all'Investigatore per manche">
+          {[0, 1, 2, 3].map((n) => (
+            <button
+              key={n}
+              type="button"
+              role="radio"
+              aria-checked={calls === n}
+              onClick={() => {
+                setCalls(n);
+                emit({ calls: n });
+              }}
+              className={clsx("psy-chip min-w-14 justify-center", calls === n && "!bg-paper !text-[#2a1a10]")}
+            >
+              {n === 0 ? "Nessuna" : n}
             </button>
           ))}
         </div>

@@ -15,12 +15,18 @@ interface Rule {
   difficulty: Difficulty;
   instructions: string | null;
   example: string | null;
+  hints: [string | null, string | null, string | null];
   active: boolean;
   timesShown: number;
   timesChosen: number;
 }
-type Draft = { id?: string; title: string; description: string; difficulty: Difficulty; instructions: string; example: string; active: boolean };
-const EMPTY: Draft = { title: "", description: "", difficulty: "facile", instructions: "", example: "", active: true };
+type Draft = { id?: string; title: string; description: string; difficulty: Difficulty; instructions: string; example: string; hints: [string, string, string]; active: boolean };
+const EMPTY: Draft = { title: "", description: "", difficulty: "facile", instructions: "", example: "", hints: ["", "", ""], active: true };
+const HINT_HELP = [
+  "Livello 1 – vago ma utile (es. «Non conta cosa dicono… conta come cominciano.»)",
+  "Livello 2 – più preciso",
+  "Livello 3 – quasi rivelatore, ma senza dire la regola",
+];
 const LABEL: Record<Difficulty, string> = { facile: "Facile", media: "Media", difficile: "Difficile" };
 
 /**
@@ -68,7 +74,15 @@ export function PsycoRules() {
     if (!draft) return;
     setSaving(true);
     try {
-      const body = { title: draft.title, description: draft.description, difficulty: draft.difficulty, instructions: draft.instructions || null, example: draft.example || null, active: draft.active };
+      const body = {
+        title: draft.title,
+        description: draft.description,
+        difficulty: draft.difficulty,
+        instructions: draft.instructions || null,
+        example: draft.example || null,
+        hints: draft.hints.map((h) => h.trim() || null),
+        active: draft.active,
+      };
       if (draft.id) await send(`/api/admin/psyco/rules/${draft.id}`, "PATCH", body);
       else await send("/api/admin/psyco/rules", "POST", body);
       toast("ok", "Regola salvata");
@@ -118,11 +132,26 @@ export function PsycoRules() {
               <p className="mt-1 text-sm text-white/85">{r.description}</p>
               {r.example && <p className="mt-1 text-xs italic text-white/60">Esempio: {r.example}</p>}
               <p className="mt-1 text-xs text-white/50">
-                Proposta {r.timesShown} volte · scelta {r.timesChosen}
+                Proposta {r.timesShown} volte · scelta {r.timesChosen} · indizi dell&apos;Investigatore: {r.hints.filter(Boolean).length}/3
               </p>
             </div>
             <div className="flex shrink-0 gap-2">
-              <Button size="sm" variant="ghost" onClick={() => setDraft({ id: r.id, title: r.title, description: r.description, difficulty: r.difficulty, instructions: r.instructions ?? "", example: r.example ?? "", active: r.active })}>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() =>
+                  setDraft({
+                    id: r.id,
+                    title: r.title,
+                    description: r.description,
+                    difficulty: r.difficulty,
+                    instructions: r.instructions ?? "",
+                    example: r.example ?? "",
+                    hints: [r.hints[0] ?? "", r.hints[1] ?? "", r.hints[2] ?? ""],
+                    active: r.active,
+                  })
+                }
+              >
                 Modifica
               </Button>
               <Button size="sm" variant={r.active ? "danger" : "success"} onClick={() => void toggle(r)}>
@@ -173,6 +202,21 @@ export function PsycoRules() {
               Esempio (facoltativo)
               <Textarea value={draft.example} maxLength={400} rows={2} onChange={(e) => setDraft({ ...draft, example: e.target.value })} />
             </label>
+            <fieldset className="flex flex-col gap-2 rounded-xl border border-white/10 p-3">
+              <legend className="px-1 text-sm font-extrabold">📞 Indizi dell&apos;Investigatore (segreti: li legge solo lo PSYCO che chiama)</legend>
+              {draft.hints.map((h, i) => (
+                <label key={i} className="flex flex-col gap-1 text-xs font-bold text-white/80">
+                  {HINT_HELP[i]}
+                  <Textarea
+                    value={h}
+                    maxLength={300}
+                    rows={2}
+                    onChange={(e) => setDraft({ ...draft, hints: draft.hints.map((x, j) => (j === i ? e.target.value : x)) as Draft["hints"] })}
+                  />
+                </label>
+              ))}
+              <p className="text-xs text-white/50">Vuoti = l&apos;Investigatore usa un indizio generico.</p>
+            </fieldset>
             <label className="flex items-center gap-2 text-sm font-bold">
               <input type="checkbox" checked={draft.active} onChange={(e) => setDraft({ ...draft, active: e.target.checked })} /> Attiva
             </label>

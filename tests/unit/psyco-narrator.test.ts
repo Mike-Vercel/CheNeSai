@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cuesFor, startCues, timerWarning, VOICE_IDS, VOICE_LINES } from "@/features/psyco/narrator";
+import { CALL_VOICES, cuesFor, startCues, timerWarning, VOICE_IDS, VOICE_LINES } from "@/features/psyco/narrator";
 import type { PsycoPublicState, PublicRound } from "@/lib/psyco/types";
 
 const round = (o: Partial<PublicRound> = {}): PublicRound => ({
@@ -21,6 +21,7 @@ const round = (o: Partial<PublicRound> = {}): PublicRound => ({
   outcome: null,
   endedAt: null,
   elapsedMs: null,
+  calls: { max: 2, used: 0, lastAt: null },
   revealedRule: null,
   ...o,
 });
@@ -29,6 +30,7 @@ const st = (phase: PsycoPublicState["phase"], r: PublicRound | null = round(), e
   roomId: "r",
   code: "ABCDEF",
   mode: "personal",
+  screen: false,
   status: "open",
   phase,
   version: v++,
@@ -48,8 +50,9 @@ const st = (phase: PsycoPublicState["phase"], r: PublicRound | null = round(), e
 });
 
 describe("PSYCO – narratore: momenti → clip", () => {
-  it("34 clip, ognuno col suo sottotitolo", () => {
-    expect(VOICE_IDS).toHaveLength(34);
+  it("41 clip (34 del narratore + 7 della chiamata e del dispositivo condiviso su PC), ognuno col suo sottotitolo", () => {
+    expect(VOICE_IDS).toHaveLength(41);
+    expect(CALL_VOICES).toHaveLength(5);
     for (const id of VOICE_IDS) expect(VOICE_LINES[id].length).toBeGreaterThan(3);
   });
   it("benvenuto in sala d'attesa, ruoli, scelta, regola, via", () => {

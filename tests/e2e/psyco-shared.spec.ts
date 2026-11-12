@@ -110,6 +110,24 @@ test("un solo telefono: 5 nickname, un account, due manche", async ({ browser })
   await expect(page.getByRole("timer").locator("span").first()).toHaveText(/01:[12]\d/);
   await shot(page, "telefono-06-manche-timer");
 
+  // ------------------------------------------------ «CHIAMA L'INVESTIGATORE» sul telefono condiviso: la chiamata è per lo PSYCO
+  await page.getByTestId("psyco-call-button").click();
+  const call = page.getByRole("dialog", { name: "Chiamata in arrivo dall'Investigatore" });
+  await expect(call).toBeVisible();
+  await expect(call.getByText(new RegExp(`Per ${psyco1}`, "i"))).toBeVisible();
+  await page.getByRole("button", { name: "Rispondi alla chiamata" }).click();
+  await expect(page.getByTestId("psyco-call-hint")).toBeVisible({ timeout: 25_000 });
+  await expect(page.getByTestId("psyco-call-hint")).toContainText("Indizio n. 1");
+  await shot(page, "telefono-06b-messaggio-investigatore-condiviso");
+  await page.getByRole("button", { name: "HO LETTO" }).click();
+  const [{ calls }] = await sql<{ calls: number }[]>`select count(*)::int as calls from psyco_calls where room_id = ${roomId}`;
+  expect(calls).toBe(1);
+  // i messaggi si rileggono solo dichiarandosi lo PSYCO
+  await page.getByRole("button", { name: new RegExp(`Messaggi di ${psyco1}`, "i") }).click();
+  await page.getByRole("button", { name: new RegExp(`SONO ${psyco1}: MOSTRA`, "i") }).click();
+  await expect(page.getByTestId("psyco-messages")).toBeVisible();
+  await page.getByRole("button", { name: "Chiudi" }).click();
+
   // ------------------------------------------------ «HO CAPITO!» → verifica sul telefono condiviso → vince lo PSYCO
   await page.getByRole("button", { name: "HO CAPITO LA REGOLA!" }).click();
   await expect(page.getByText("HA INDOVINATO?")).toBeVisible();
@@ -156,4 +174,6 @@ test("voce narrante: tutti i clip esistono (HTTP 200) e la colonna sonora c'è",
     expect(r.status(), id).toBe(200);
   }
   expect((await request.get("/audio/psyco/tema.mp3")).status()).toBe(200);
+  // effetti della chiamata all'Investigatore
+  for (const fx of ["squillo", "squillo-breve", "notifica", "riattacca"]) expect((await request.get(`/audio/psyco/${fx}.mp3`)).status(), fx).toBe(200);
 });

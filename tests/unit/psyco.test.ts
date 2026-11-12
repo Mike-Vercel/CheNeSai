@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
+import { CATEGORY_HINTS, pickHint } from "@/lib/psyco/hints";
 import {
+  checkHintText,
   checkNickname,
   checkRuleText,
   countdownMs,
@@ -13,7 +15,7 @@ import {
   resolveYesNo,
   timerFromParts,
 } from "@/lib/psyco/logic";
-import { actionSchema, settingsSchema, type PublicTimer } from "@/lib/psyco/types";
+import { actionSchema, callsOf, createRoomSchema, RULE_CATEGORIES, settingsSchema, type PublicTimer } from "@/lib/psyco/types";
 import rules from "../../content/psyco/regole.json";
 
 describe("PSYCO – timer libero (minuti e secondi)", () => {
@@ -143,5 +145,54 @@ describe("PSYCO – archivio delle regole", () => {
       expect(r.description.length).toBeGreaterThan(10);
       expect(r.description.length).toBeLessThanOrEqual(400);
     }
+  });
+});
+
+describe("PSYCO – chiamata all'Investigatore: indizi graduati", () => {
+  it("ogni regola dell'archivio ha 3 indizi diversi, brevi, che non ripetono la regola", () => {
+    for (const r of rules as { slug: string; description: string; hints?: string[] }[]) {
+      expect(r.hints, r.slug).toHaveLength(3);
+      expect(new Set(r.hints).size, r.slug).toBe(3);
+      for (const h of r.hints!) {
+        expect(h.length, r.slug).toBeGreaterThan(15);
+        expect(h.length, r.slug).toBeLessThanOrEqual(200);
+        expect(h, r.slug).not.toBe(r.description);
+      }
+    }
+  });
+  it("archivio: livello = numero della chiamata (1 → 3), mai oltre il 3", () => {
+    const ruleHints = ["uno", "due", "tre"];
+    expect(pickHint({ level: 1, ruleHints })).toEqual({ text: "uno", source: "rule", level: 1 });
+    expect(pickHint({ level: 2, ruleHints })).toEqual({ text: "due", source: "rule", level: 2 });
+    expect(pickHint({ level: 3, ruleHints })).toEqual({ text: "tre", source: "rule", level: 3 });
+    expect(pickHint({ level: 9, ruleHints }).level).toBe(3);
+    // indizio mancante (regola nuova dal pannello): ripiego generico, mai vuoto
+    expect(pickHint({ level: 2, ruleHints: ["uno", null, "tre"] })).toEqual({ text: CATEGORY_HINTS.altro[1], source: "generic", level: 2 });
+  });
+  it("regole libere: chiamata 1 = indizio del gruppo, poi la categoria, in ultima istanza «Altro»", () => {
+    expect(pickHint({ level: 1, customHint: "Guarda le mani", category: "gesti" })).toEqual({ text: "Guarda le mani", source: "custom", level: 1 });
+    expect(pickHint({ level: 2, customHint: "Guarda le mani", category: "gesti" })).toEqual({ text: CATEGORY_HINTS.gesti[1], source: "category", level: 2 });
+    expect(pickHint({ level: 1, category: "numeri" })).toEqual({ text: CATEGORY_HINTS.numeri[0], source: "category", level: 1 });
+    expect(pickHint({ level: 3, category: "altro" })).toEqual({ text: CATEGORY_HINTS.altro[2], source: "category", level: 3 });
+    expect(pickHint({ level: 1 })).toEqual({ text: CATEGORY_HINTS.altro[0], source: "generic", level: 1 });
+    for (const c of RULE_CATEGORIES) expect(new Set(CATEGORY_HINTS[c]).size).toBe(3);
+  });
+  it("indizio scritto dai giocatori: facoltativo, pulito, 6–140 caratteri", () => {
+    expect(checkHintText("")).toEqual({ ok: true, value: null });
+    expect(checkHintText("   ")).toEqual({ ok: true, value: null });
+    expect(checkHintText("ciao")).toMatchObject({ ok: false });
+    expect(checkHintText("x".repeat(141))).toMatchObject({ ok: false });
+    expect(checkHintText("<b>Guarda​ le\nmani</b>")).toEqual({ ok: true, value: "bGuarda le mani/b" });
+  });
+  it("impostazioni: chiamate 0–3 (predefinite 2 anche per le stanze vecchie), azione con requestId", () => {
+    expect(settingsSchema.safeParse({ timerMs: 60_000, ruleMode: "auto", psycoPick: "auto", calls: 3 }).success).toBe(true);
+    expect(settingsSchema.safeParse({ timerMs: 60_000, ruleMode: "auto", psycoPick: "auto", calls: 4 }).success).toBe(false);
+    expect(callsOf({})).toBe(2);
+    expect(callsOf({ calls: 0 })).toBe(0);
+    expect(actionSchema.safeParse({ action: "call_investigator", requestId: "8b0f0c0e-3b8a-4c1e-9a55-2d5c0f3a9e11" }).success).toBe(true);
+    expect(actionSchema.safeParse({ action: "call_investigator" }).success).toBe(false);
+    expect(actionSchema.safeParse({ action: "propose", text: "Regola di prova lunga", category: "gesti", hint: "Guarda le mani" }).success).toBe(true);
+    expect(actionSchema.safeParse({ action: "propose", text: "Regola di prova lunga", category: "boh" }).success).toBe(false);
+    expect(createRoomSchema.safeParse({ mode: "personal", settings: { timerMs: null, ruleMode: "auto", psycoPick: "auto" }, screen: true }).success).toBe(true);
   });
 });

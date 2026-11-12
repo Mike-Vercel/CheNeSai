@@ -1,8 +1,9 @@
 import "server-only";
 import { randomBytes, randomInt } from "node:crypto";
+import { z } from "zod";
 import { getSql, iso, type Db } from "@/lib/database/db";
 import { checkNickname, isExpired, isRoomCode, normalizeRoomCode, ROOM_CODE_ALPHABET, ROOM_CODE_LENGTH } from "@/lib/psyco/logic";
-import { createRoomSchema, type PsycoPhase, type PsycoPublicState, type PsycoView, type RoomMode } from "@/lib/psyco/types";
+import { createRoomSchema, type PsycoAction, type PsycoPhase, type PsycoPublicState, type PsycoView, type RoomMode } from "@/lib/psyco/types";
 import { checkRateLimit } from "@/lib/server/players";
 import { runAction, SYSTEM_ACTOR } from "./engine";
 import { PsycoError } from "./errors";
@@ -85,8 +86,9 @@ export async function createRoom(user: PsycoUser, raw: unknown): Promise<{ roomI
     try {
       return await sql.begin(async (tx) => {
         const [room] = await tx<{ id: string }[]>`
-          insert into psyco_rooms (code, display_key, mode, owner_user_id, host_user_id, settings)
-          values (${code}, ${randomBytes(24).toString("base64url")}, ${input.mode}, ${user.userId}, ${user.userId}, ${tx.json(input.settings as never)})
+          insert into psyco_rooms (code, display_key, mode, owner_user_id, host_user_id, settings, screen_mode)
+          values (${code}, ${randomBytes(24).toString("base64url")}, ${input.mode}, ${user.userId}, ${user.userId}, ${tx.json(input.settings as never)},
+            ${input.mode === "personal" && input.screen === true})
           returning id`;
         if (input.mode === "shared" && locals.length > 0) {
           const seats = locals.map((_, i) => i + 1);
@@ -277,6 +279,46 @@ export async function getDisplayState(displayKey: string): Promise<PsycoPublicSt
   return buildPublicStateFrom(sql, room);
 }
 
+// ---------------------------------------------------------------------------
+// PC come SCHERMO PUBBLICO con i comandi di chi gestisce la partita
+// ---------------------------------------------------------------------------
+/**
+ * Comandi che lo schermo pubblico può dare (solo se chi lo guarda è l'host autenticato): NESSUNO
+ * rivela qualcosa. Niente scelta manuale dello PSYCO, niente impostazioni, niente voti, niente
+ * «HO CAPITO»: quelli si danno dal telefono. Lo schermo resta un NON-partecipante.
+ */
+export const SCREEN_ACTIONS = ["start_game", "start_round", "pause", "resume", "next_round"] as const;
+export type ScreenAction = (typeof SCREEN_ACTIONS)[number];
+const screenActionSchema = z.object({ action: z.enum(SCREEN_ACTIONS) });
+
+async function roomIdByDisplayKey(displayKey: string): Promise<{ id: string; host_user_id: string | null; screen_mode: boolean | null }> {
+  if (!/^[A-Za-z0-9_-]{24,64}$/.test(displayKey)) throw new PsycoError("NOT_FOUND", "Schermo non valido");
+  const [found] = await getSql()<{ id: string; host_user_id: string | null; screen_mode: boolean | null }[]>`
+    select id, host_user_id, screen_mode from psyco_rooms where display_key = ${displayKey}`;
+  if (!found) throw new PsycoError("NOT_FOUND", "Schermo non valido");
+  return found;
+}
+
+/**
+ * Chi sta guardando lo schermo è l'host della stanza? (per mostrare i comandi). Solo un sì/no:
+ * mai ruolo, regola o vista privata, nemmeno se l'host gioca ed è lo PSYCO.
+ */
+export async function screenControl(user: PsycoUser | null, displayKey: string): Promise<{ host: boolean; screenMode: boolean }> {
+  const room = await roomIdByDisplayKey(displayKey);
+  return { host: !!user && room.host_user_id === user.userId, screenMode: !!room.screen_mode };
+}
+
+/** Comando dato dallo schermo pubblico (host autenticato): risponde SOLO con lo stato pubblico. */
+export async function runScreenAction(user: PsycoUser, displayKey: string, raw: unknown): Promise<PsycoPublicState> {
+  const parsed = screenActionSchema.safeParse(raw);
+  if (!parsed.success) throw new PsycoError("FORBIDDEN", "Questo comando si dà dal telefono");
+  const room = await roomIdByDisplayKey(displayKey);
+  if (room.host_user_id !== user.userId) throw new PsycoError("FORBIDDEN", "Solo chi gestisce la partita può dare comandi dallo schermo");
+  // si ricostruisce l'azione da zero: niente psycoId, impostazioni o altri campi arrivati dal client
+  await runAction(room.id, { userId: user.userId, ip: user.ip }, { action: parsed.data.action } as PsycoAction);
+  return getDisplayState(displayKey);
+}
+
 /** Chiave dello schermo: solo per chi gestisce la stanza (host o proprietario). */
 export async function getDisplayKey(user: PsycoUser, roomId: string): Promise<string> {
   if (!UUID.test(roomId)) throw new PsycoError("NOT_FOUND", "Stanza non trovata");
@@ -297,12 +339,16 @@ export interface MyRoom {
   players: number;
   roundNo: number;
   isOwner: boolean;
+  /** gestisce la partita (può aprire lo schermo pubblico) */
+  isHost: boolean;
+  /** creata da un PC come schermo pubblico */
+  screen: boolean;
   updatedAt: string;
 }
 
 export async function listMyRooms(userId: string, limitN = 5): Promise<MyRoom[]> {
-  const rows = await getSql()<{ id: string; code: string; mode: RoomMode; phase: PsycoPhase; round_no: number; owner_user_id: string; last_activity_at: Date; players: number }[]>`
-    select r.id, r.code, r.mode, r.phase, r.round_no, r.owner_user_id, r.last_activity_at,
+  const rows = await getSql()<{ id: string; code: string; mode: RoomMode; phase: PsycoPhase; round_no: number; owner_user_id: string; host_user_id: string | null; screen_mode: boolean | null; last_activity_at: Date; players: number }[]>`
+    select r.id, r.code, r.mode, r.phase, r.round_no, r.owner_user_id, r.host_user_id, r.screen_mode, r.last_activity_at,
       (select count(*)::int from psyco_participants x where x.room_id = r.id and x.status = 'active') as players
     from psyco_rooms r
     where r.status = 'open' and r.last_activity_at > now() - make_interval(hours => ${STALE_HOURS})
@@ -317,6 +363,8 @@ export async function listMyRooms(userId: string, limitN = 5): Promise<MyRoom[]>
     players: r.players,
     roundNo: r.round_no,
     isOwner: r.owner_user_id === userId,
+    isHost: r.host_user_id === userId,
+    screen: !!r.screen_mode,
     updatedAt: iso(r.last_activity_at)!,
   }));
 }
