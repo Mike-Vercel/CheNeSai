@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 import { useEffect, useState, type ReactNode } from "react";
 
 /** Gioco della schermata di caricamento: ognuno ha la sua atmosfera. */
-export type SplashGame = "che-ne-sai" | "psyco";
+export type SplashGame = "che-ne-sai" | "psyco" | "giramente";
 
 interface SplashTheme {
   image: string;
@@ -49,6 +49,20 @@ const THEMES: Record<SplashGame, SplashTheme> = {
       "Chiudo il fascicolo segreto…",
     ],
   },
+  giramente: {
+    image: "/games/giramente-logo.svg",
+    imageBg: "/games/giramente-logo.svg",
+    width: 640,
+    height: 400,
+    alt: "GIRAMENTE!",
+    tips: [
+      "Don Patrizio si sistema la cravatta…",
+      "Lucidiamo la ruota…",
+      "Accendiamo il cervello al centro della ruota…",
+      "Zafira si nasconde dietro le quinte…",
+      "Mescoliamo gli enigmi…",
+    ],
+  },
 };
 
 /** Frase che cambia ogni ~2,4 s (la prima è quella passata da chi chiama, se c'è). */
@@ -71,15 +85,18 @@ export function LoadingSplash({ label, game = "che-ne-sai", children, className 
   const t = THEMES[game];
   const tip = useRotatingTip(label, t.tips);
   const noir = game === "psyco";
+  const gm = game === "giramente";
   return (
     <div
-      className={clsx("qz-splash relative isolate flex min-h-dvh flex-col items-center justify-center overflow-hidden", noir ? "bg-black" : "bg-[#0b0418]", className)}
+      className={clsx("qz-splash relative isolate flex min-h-dvh flex-col items-center justify-center overflow-hidden", noir ? "bg-black" : gm ? "bg-[#080b0d]" : "bg-[#0b0418]", className)}
       role="status"
       aria-live="polite"
     >
       {/* sfondo: la stessa illustrazione, grande e sfocata (riempie anche i TV), più le luci del gioco */}
       <img src={t.imageBg} alt="" aria-hidden className={clsx("absolute inset-0 -z-20 h-full w-full scale-125 object-cover blur-3xl", noir ? "opacity-30" : "opacity-40")} />
-      {noir ? (
+      {gm ? (
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_0%_40%,rgba(57,255,20,.28),transparent_55%),radial-gradient(ellipse_at_100%_40%,rgba(255,37,58,.28),transparent_55%)]" />
+      ) : noir ? (
         <>
           <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_35%,rgba(190,20,20,.35),transparent_60%)]" />
           <div aria-hidden className="psy-splash-lamp absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_78%_12%,rgba(255,200,120,.32),transparent_45%)]" />
@@ -102,21 +119,21 @@ export function LoadingSplash({ label, game = "che-ne-sai", children, className 
             alt={t.alt}
             className={clsx(
               "h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,.6)]",
-              noir ? "psy-splash-art w-[min(80vw,48vh)] [@media(min-aspect-ratio:5/4)]:w-[min(78vw,110vh)]" : "qz-splash-art w-[min(92vw,62vh)]",
+              noir ? "psy-splash-art w-[min(80vw,48vh)] [@media(min-aspect-ratio:5/4)]:w-[min(78vw,110vh)]" : gm ? "w-[min(88vw,70vh)]" : "qz-splash-art w-[min(92vw,62vh)]",
             )}
           />
         </picture>
         <div
           className={clsx(
             "relative h-3.5 w-[min(72vw,22rem)] overflow-hidden rounded-full border-2 bg-black/60",
-            noir ? "border-[#b31414]/80 shadow-[0_0_22px_rgba(200,20,20,.45)]" : "border-gold/80 shadow-[0_0_22px_rgba(255,212,59,.45)]",
+            noir ? "border-[#b31414]/80 shadow-[0_0_22px_rgba(200,20,20,.45)]" : gm ? "border-[#39ff14]/80 shadow-[0_0_22px_rgba(57,255,20,.45)]" : "border-gold/80 shadow-[0_0_22px_rgba(255,212,59,.45)]",
           )}
           role="progressbar"
           aria-label={tip}
         >
-          <div className={clsx("qz-loading-bar h-full rounded-full bg-gradient-to-r", noir ? "from-[#5c0606] via-[#d11a1a] to-[#ff8a7a]" : "from-gold-deep via-gold to-[#fff3a6]")} />
+          <div className={clsx("qz-loading-bar h-full rounded-full bg-gradient-to-r", noir ? "from-[#5c0606] via-[#d11a1a] to-[#ff8a7a]" : gm ? "from-[#0f7a2a] via-[#39ff14] to-[#ff253a]" : "from-gold-deep via-gold to-[#fff3a6]")} />
         </div>
-        <p key={tip} className={clsx("qz-splash-tip min-h-[1.6em] text-center text-lg md:text-xl", noir ? "font-mono font-bold tracking-wide text-[#f3e6d0]/90" : "font-display text-white/90")}>
+        <p key={tip} className={clsx("qz-splash-tip min-h-[1.6em] text-center text-lg md:text-xl", noir ? "font-mono font-bold tracking-wide text-[#f3e6d0]/90" : gm ? "font-bold italic text-white/90" : "font-display text-white/90")}>
           {tip}
         </p>
         {children}

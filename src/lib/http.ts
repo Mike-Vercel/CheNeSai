@@ -8,6 +8,7 @@ import { AuthError } from "@/lib/auth/admin";
 import { TtsError } from "@/lib/server/tts";
 import { GiocoError } from "@/lib/server/gioco-errors";
 import { PsycoError } from "@/lib/server/psyco/errors";
+import { GiramenteError } from "@/lib/server/giramente/errors";
 
 export interface ApiErrorBody {
   error: { code: string; message: string; details?: unknown };
@@ -70,6 +71,7 @@ export function handleError(e: unknown) {
   if (e instanceof CmsError) return fail(e.status, "CMS_ERROR", e.message, e.details);
   if (e instanceof GiocoError) return fail(e.status, e.code, e.message, e.details);
   if (e instanceof PsycoError) return fail(e.status, e.code, e.message, e.details);
+  if (e instanceof GiramenteError) return fail(e.status, e.code, e.message, e.details);
   if (e instanceof TtsError) return fail(e.code === "TTS_BUDGET" ? 503 : e.code === "TTS_PROVIDER" ? 502 : 409, e.code, e.message);
   if (e instanceof z.ZodError) return fail(422, "VALIDATION", "Dati non validi", e.issues);
   const pg = e as { code?: string; message?: string };

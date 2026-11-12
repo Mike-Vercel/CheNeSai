@@ -21,6 +21,8 @@ export function GameCard({ game, priority }: { game: GameEntry; priority?: boole
           loading={priority ? "eager" : "lazy"}
           className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.06] group-focus-visible:scale-[1.06]"
         />
+      ) : game.cover.kind === "brand" ? (
+        <GiramenteCover />
       ) : (
         <div className="absolute inset-0 grid place-items-center overflow-hidden" style={{ backgroundColor: game.cover.color }}>
           <div className="qz-rays absolute -inset-1/2 opacity-70" />
@@ -57,6 +59,25 @@ export function GameCard({ game, priority }: { game: GameEntry; priority?: boole
     >
       {body}
     </Link>
+  );
+}
+
+/** GIRAMENTE!: copertina provvisoria in CSS (nero, verde elettrico sopra, rosso sotto, ruota e titolo). */
+function GiramenteCover() {
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-[#080b0d]">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(57,255,20,.55),transparent_60%),radial-gradient(ellipse_at_50%_100%,rgba(255,37,58,.55),transparent_60%)]" />
+      <div className="absolute left-1/2 top-[14%] aspect-square w-[64%] -translate-x-1/2 rounded-full border-[6px] border-[#9aa4ab] bg-[conic-gradient(#0f7a2a_0_12.5%,#efe6d2_0_25%,#c3162a_0_37.5%,#0f7a2a_0_50%,#c3162a_0_62.5%,#efe6d2_0_75%,#0f7a2a_0_87.5%,#c3162a_0)] shadow-[0_0_40px_rgba(57,255,20,.45)] transition duration-700 group-hover:rotate-[135deg]">
+        <span className="absolute left-1/2 top-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-[#39ff14] bg-[#071009]" />
+      </div>
+      <span className="absolute left-1/2 top-[9%] h-0 w-0 -translate-x-1/2 border-x-[12px] border-t-[20px] border-x-transparent border-t-[#39ff14]" />
+      <div className="absolute inset-x-0 bottom-[22%] text-center">
+        <p className="-skew-x-6 font-display text-[2.6rem] leading-none text-white drop-shadow-[0_3px_0_#000] md:text-5xl">
+          GIRAMENTE<span className="text-[#39ff14]">!</span>
+        </p>
+        <p className="mx-auto mt-2 w-fit -rotate-2 rounded bg-white px-2 py-0.5 text-xs font-black italic text-black">La ruota gira. La mente decide.</p>
+      </div>
+    </div>
   );
 }
 

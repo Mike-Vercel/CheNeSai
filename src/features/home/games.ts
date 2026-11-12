@@ -23,7 +23,8 @@ export interface GameEntry {
   /** dove porta "Gioca" (null = non ancora disponibile) */
   href: string | null;
   /** copertina verticale (locandina 4:5 circa): immagine reale del gioco oppure campo di colore con una sigla */
-  cover: { kind: "image"; src: string; alt: string; width: number; height: number } | { kind: "placeholder"; color: string; mark: CoverMark };
+  /** «brand»: copertina disegnata in CSS (in attesa dell'immagine ufficiale, slot /games/<id>-copertina.webp) */
+  cover: { kind: "image"; src: string; alt: string; width: number; height: number } | { kind: "placeholder"; color: string; mark: CoverMark } | { kind: "brand"; brand: "giramente" };
 }
 
 export const GAMES: GameEntry[] = [
@@ -56,6 +57,16 @@ export const GAMES: GameEntry[] = [
       width: 1055,
       height: 1318,
     },
+  },
+  {
+    id: "giramente",
+    title: "GIRAMENTE!",
+    tagline: "La ruota gira. La mente decide. Il game show con la ruota, cinque manche, Jolly e Giro Decisivo.",
+    meta: ["Game show", "Da 2 giocatori o 2 squadre", "20–35 minuti", "Gratis"],
+    status: "disponibile",
+    href: "/giramente",
+    // copertina ufficiale non ancora caricata: card in CSS (slot pronto: /games/giramente-copertina.webp)
+    cover: { kind: "brand", brand: "giramente" },
   },
 ];
 
