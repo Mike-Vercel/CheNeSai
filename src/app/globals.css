@@ -21,6 +21,18 @@
   --color-ink: #1b0b2b;
   --color-cream: #fff8e6;
 
+  /* PSYCO (minigioco noir): nero, rosso sangue, carta invecchiata, luce di lampada */
+  --color-blood: #e0161f;
+  --color-blood-deep: #8e0b12;
+  --color-paper: #efe2c4;
+  --color-paper-2: #d9c59b;
+  --color-noir: #0b0909;
+  --color-noir-2: #161112;
+  --color-noir-3: #231a1b;
+  --color-lamp: #ffb547;
+  --font-psyco: var(--font-psyco-title), "Rubik Dirt", Impact, system-ui, sans-serif;
+  --font-type: var(--font-psyco-type), "Special Elite", "Courier New", monospace;
+
   /* piattaforma (home, accesso, gioco libero): nero da sala cinema, superfici per gradini di tono */
   --color-coal: #000000;
   --color-coal-1: #0a0a0a;

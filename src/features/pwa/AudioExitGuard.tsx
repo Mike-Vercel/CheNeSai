@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { silenceGame } from "@/features/game/components/ExitButton";
 
 /** Pagine dove suonano musica, effetti e voci (TV, telefoni, regia, anteprime). */
-const GAME_ROUTE = /^\/(gioca\/(partita|tv|telefono|schermo|telecomando|collega)|display|play|tv|preview)(\/|$)/;
+const GAME_ROUTE = /^\/(gioca\/(partita|tv|telefono|schermo|telecomando|collega)|psyco\/(stanza|un-dispositivo|schermo)|display|play|tv|preview)(\/|$)/;
 
 /**
  * Quando si lascia il gioco senza ricaricare la pagina (tasto indietro, logo, link del sito) il

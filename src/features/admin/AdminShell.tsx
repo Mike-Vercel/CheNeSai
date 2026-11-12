@@ -37,6 +37,7 @@ const NAV: { href: string; label: string; icon: string; min: AdminRole }[] = [
   { href: "/admin/events", label: "Eventi Palmino", icon: "🌴", min: "admin" },
   { href: "/admin/voices", label: "Voci", icon: "🎙️", min: "admin" },
   { href: "/admin/presentatori", label: "Presentatori", icon: "🎭", min: "admin" },
+  { href: "/admin/psyco", label: "PSYCO · Regole", icon: "🔎", min: "admin" },
   { href: "/admin/leaderboards", label: "Classifiche", icon: "🏆", min: "admin" },
   { href: "/admin/stats", label: "Statistiche", icon: "📊", min: "admin" },
   { href: "/admin/settings", label: "Impostazioni", icon: "⚙️", min: "admin" },

@@ -42,6 +42,21 @@ export const GAMES: GameEntry[] = [
       height: 1402,
     },
   },
+  {
+    id: "psyco",
+    title: "PSYCO",
+    tagline: "Tutti conoscono la regola. Tranne te. Il party game psicologico da giocare seduti insieme.",
+    meta: ["Party game", "Da 3 giocatori in su", "Manche a tempo libero", "Gratis"],
+    status: "disponibile",
+    href: "/psyco",
+    cover: {
+      kind: "image",
+      src: "/games/psyco-copertina.webp",
+      alt: "Copertina di PSYCO: lente d'ingrandimento, lampada e il fascicolo «Regola segreta»",
+      width: 1055,
+      height: 1318,
+    },
+  },
 ];
 
 export const FEATURED_GAME = GAMES[0];

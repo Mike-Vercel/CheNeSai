@@ -52,5 +52,5 @@ function toLogin(request: NextRequest, loginPath: string) {
 }
 
 export const config = {
-  matcher: ["/", "/admin/:path*", "/api/admin/:path*", "/gioca/:path*", "/profilo/:path*", "/accedi/:path*", "/api/account/:path*", "/api/gioca/:path*"],
+  matcher: ["/", "/admin/:path*", "/api/admin/:path*", "/gioca/:path*", "/profilo/:path*", "/accedi/:path*", "/api/account/:path*", "/api/gioca/:path*", "/psyco/:path*", "/api/psyco/:path*"],
 };

@@ -1,0 +1,251 @@
+/* =====================================================================
+   PSYCO – identità visiva del minigioco (noir/detective, dalle copertine):
+   nero, rosso sangue, carta invecchiata, filo rosso, luce calda della lampada.
+   Solo classi con prefisso psy-: nessun effetto sul resto del sito.
+   ===================================================================== */
+
+:root:has(.psy-root) {
+  --bg: #0b0909;
+}
+
+.psy-root {
+  /* i caratteri di next/font sono definiti su questo elemento: le variabili vanno risolte qui */
+  --font-psyco: var(--font-psyco-title), "Rubik Dirt", Impact, system-ui, sans-serif;
+  --font-type: var(--font-psyco-type), "Special Elite", "Courier New", monospace;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 60% 45% at 78% 0%, rgba(255, 181, 71, 0.16), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 115%, rgba(142, 11, 18, 0.45), transparent 65%),
+    radial-gradient(ellipse 70% 70% at 0% 40%, rgba(142, 11, 18, 0.18), transparent 70%),
+    #0b0909;
+  color: #f6ecd6;
+}
+/* grana della pellicola */
+.psy-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.psy-title {
+  font-family: var(--font-psyco);
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  background: linear-gradient(180deg, #fff3e2 0%, #f3d8c4 38%, #e0161f 62%, #8e0b12 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.85)) drop-shadow(0 0 22px rgba(224, 22, 31, 0.35));
+}
+.psy-type {
+  font-family: var(--font-type);
+}
+.psy-display {
+  font-family: var(--font-psyco);
+  letter-spacing: 0.02em;
+}
+
+/* carta invecchiata (biglietti, regola, cartellini) */
+.psy-paper {
+  color: #2a1a10;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.35), transparent 50%),
+    radial-gradient(ellipse at 90% 100%, rgba(120, 72, 20, 0.28), transparent 55%),
+    linear-gradient(175deg, #f3e7cb, #e2cfa4 70%, #d4bb88);
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.85), inset 0 0 40px rgba(120, 72, 20, 0.25);
+  clip-path: polygon(0% 2%, 4% 0%, 18% 1.5%, 35% 0%, 52% 1.2%, 70% 0%, 86% 1.4%, 100% 0%, 99% 30%, 100% 62%, 99% 100%, 80% 98.6%, 60% 100%, 38% 98.4%, 18% 100%, 0% 98.8%, 1% 66%, 0% 34%);
+}
+.psy-stamp {
+  display: inline-block;
+  border: 3px solid currentColor;
+  border-radius: 6px;
+  padding: 0.15em 0.5em;
+  color: #c81019;
+  font-family: var(--font-type);
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  mix-blend-mode: multiply;
+}
+
+/* pannelli scuri (cartella, scrivania) */
+.psy-panel {
+  background: linear-gradient(180deg, rgba(35, 26, 27, 0.92), rgba(16, 12, 12, 0.96));
+  border: 1px solid rgba(239, 226, 196, 0.12);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* pulsanti */
+.psy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-psyco);
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: #fff6ea;
+  background: linear-gradient(180deg, #f2333b, #c50f18 55%, #8e0b12);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08), 0 10px 30px -8px rgba(224, 22, 31, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.2s ease;
+}
+.psy-btn:hover { filter: brightness(1.08); }
+.psy-btn:active { transform: scale(0.97); }
+.psy-btn:focus-visible { outline: 3px solid #ffb547; outline-offset: 3px; }
+.psy-btn:disabled { filter: grayscale(0.8) brightness(0.6); cursor: not-allowed; transform: none; }
+.psy-btn-paper {
+  color: #2a1a10;
+  background: linear-gradient(180deg, #f6ebd2, #dcc596);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.psy-btn-ghost {
+  color: #f6ecd6;
+  background: rgba(239, 226, 196, 0.06);
+  box-shadow: inset 0 0 0 2px rgba(239, 226, 196, 0.22);
+}
+.psy-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #f6ecd6;
+  background: rgba(239, 226, 196, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(239, 226, 196, 0.18);
+}
+.psy-chip:hover { background: rgba(239, 226, 196, 0.15); }
+.psy-chip:focus-visible { outline: 3px solid #ffb547; outline-offset: 2px; }
+
+/* campo di testo "dattiloscritto" */
+.psy-input {
+  width: 100%;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-type);
+  font-size: 1.15rem;
+  color: #2a1a10;
+  background: linear-gradient(180deg, #f6ebd2, #e8d6ad);
+  box-shadow: inset 0 2px 6px rgba(80, 50, 10, 0.35);
+}
+.psy-input:focus { outline: 3px solid #e0161f; outline-offset: 2px; }
+
+/* filo rosso con le puntine (decorazione) */
+.psy-string {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, #8e0b12, #e0161f, #8e0b12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  transform-origin: left center;
+}
+.psy-pin {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 30%, #ff8a8f, #d0101a 55%, #6d070c);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* carta del ruolo che si gira */
+.psy-flip {
+  perspective: 1400px;
+}
+.psy-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.2, 0.9, 0.25, 1.15);
+}
+.psy-flip[data-open="true"] .psy-flip-inner { transform: rotateY(180deg); }
+.psy-flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+.psy-flip-back { transform: rotateY(180deg); }
+
+/* luce che pulsa dietro gli elementi importanti */
+@keyframes psy-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 22, 31, 0.0), 0 0 40px rgba(224, 22, 31, 0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(224, 22, 31, 0.18), 0 0 70px rgba(224, 22, 31, 0.55); }
+}
+.psy-glow { animation: psy-glow 2.2s ease-in-out infinite; }
+
+@keyframes psy-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.55; }
+  95% { opacity: 1; }
+  97% { opacity: 0.7; }
+}
+.psy-flicker { animation: psy-flicker 5s linear infinite; }
+
+@keyframes psy-rise {
+  0% { opacity: 0; transform: translateY(18px) scale(0.98); }
+  100% { opacity: 1; transform: none; }
+}
+.psy-rise { animation: psy-rise 0.5s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+
+@keyframes psy-stamp-in {
+  0% { opacity: 0; transform: scale(2.4) rotate(-14deg); }
+  60% { opacity: 1; transform: scale(0.92) rotate(-5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-4deg); }
+}
+.psy-stamp-in { animation: psy-stamp-in 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+
+@keyframes psy-count {
+  0% { opacity: 0; transform: scale(2.2); filter: blur(6px); }
+  25% { opacity: 1; transform: scale(1); filter: none; }
+  80% { opacity: 1; transform: scale(0.9); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+.psy-count { animation: psy-count 1s ease-out both; }
+
+@keyframes psy-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px) rotate(-1deg); }
+  40% { transform: translateX(8px) rotate(1deg); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+.psy-shake { animation: psy-shake 0.5s ease-in-out both; }
+
+/* timer: cifre grandi a spaziatura fissa */
+.psy-clock {
+  font-family: var(--font-psyco);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.psy-caption {
+  background: rgba(11, 9, 9, 0.88);
+  box-shadow: 0 0 0 1px rgba(239, 226, 196, 0.15), 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* lista giocatori grande: scorre dentro il suo riquadro */
+.psy-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(239, 226, 196, 0.3) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psy-glow, .psy-flicker, .psy-rise, .psy-stamp-in, .psy-count, .psy-shake { animation: none; }
+  .psy-flip-inner { transition: none; }
+}

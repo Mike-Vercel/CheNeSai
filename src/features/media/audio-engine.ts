@@ -73,6 +73,7 @@ class SoundEngine {
   /** Bus del pubblico (applausi/ovazioni): si abbassa anche lui quando parla un personaggio. */
   private crowdGain: GainNode | null = null;
   private themeFade: ReturnType<typeof setTimeout> | null = null;
+  private themeUrl: string | null = null;
   settings: AudioSettings = { musicVolume: 0.7, sfxVolume: 0.9, muted: false };
 
   get unlocked(): boolean {
@@ -381,8 +382,10 @@ class SoundEngine {
    * un buffer Web Audio: sui telefoni parte anche senza un nuovo tocco (basta l'audio sbloccato).
    * Passa per il bus musica, quindi rispetta volume/muto e il "ducking" della voce.
    * `from`: riparte da quel secondo (es. 0 al podio); senza, se sta già suonando continua.
+   * `url`: un'altra colonna sonora al posto della sigla del quiz (es. il tema di PSYCO).
    */
-  playTheme(opts: { from?: number; loop?: boolean; volume?: number; fadeMs?: number } = {}) {
+  playTheme(opts: { from?: number; loop?: boolean; volume?: number; fadeMs?: number; url?: string } = {}) {
+    const url = opts.url ?? THEME_URL;
     const ctx = this.ensure();
     if (!ctx || !this.musicBus) return;
     if (!this.themeGain) {
@@ -403,14 +406,15 @@ class SoundEngine {
       g.gain.setValueAtTime(g.gain.value, t);
       g.gain.linearRampToValueAtTime(target, t + fade);
     };
-    if (this.themeSrc && opts.from === undefined) {
+    if (this.themeSrc && opts.from === undefined && this.themeUrl === url) {
       this.themeSrc.loop = opts.loop ?? false;
       ramp();
       return;
     }
-    void this.loadBuffer(THEME_URL).then((buf) => {
+    void this.loadBuffer(url).then((buf) => {
       if (!buf || want !== this.themeWant || !this.ctx) return;
       this.stopThemeSource();
+      this.themeUrl = url;
       const src = ctx.createBufferSource();
       src.buffer = buf;
       src.loop = opts.loop ?? false;
@@ -475,6 +479,31 @@ class SoundEngine {
 
   get themePlaying(): boolean {
     return this.themeSrc !== null && this.themeWant > 0;
+  }
+
+  /**
+   * Clip vocale già decodificato (es. il narratore di PSYCO): passa dal bus principale (rispetta muto
+   * e volume generale), abbassa musica ed effetti mentre parla. Risolve a fine clip;
+   * null = non riprodotto (audio bloccato o muto: chi chiama mostra solo il sottotitolo).
+   */
+  playVoiceClip(buffer: AudioBuffer, gain = 1, tap: AudioNode | null = null): Promise<void> | null {
+    const ctx = this.ctx;
+    if (!ctx || ctx.state !== "running" || this.settings.muted || !this.master) return null;
+    const src = ctx.createBufferSource();
+    src.buffer = buffer;
+    const g = ctx.createGain();
+    g.gain.value = gain;
+    src.connect(g).connect(this.master);
+    // `tap`: es. un AnalyserNode per il lip sync del personaggio (solo lettura, non va all'uscita)
+    if (tap && tap.context === ctx) src.connect(tap);
+    this.duck(true);
+    return new Promise((resolve) => {
+      src.onended = () => {
+        this.duck(false);
+        resolve();
+      };
+      src.start(ctx.currentTime + 0.02);
+    });
   }
 
   /** Abbassa la musica mentre parla un personaggio. */

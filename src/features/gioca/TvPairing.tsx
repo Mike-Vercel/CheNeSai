@@ -47,7 +47,7 @@ interface Created {
   token: string;
   expiresAt: string;
 }
-type Poll = { status: "waiting"; code: string; expiresAt: string } | { status: "paired"; sessionId: string; displayKey: string } | { status: "expired" } | { status: "used" };
+type Poll = { status: "waiting"; code: string; expiresAt: string } | { status: "paired"; sessionId: string; displayKey: string; kind?: "psyco" } | { status: "expired" } | { status: "used" };
 
 /**
  * /tv: il televisore mostra un codice di 4 cifre (e un QR) finché l'host non lo scrive sul telefono;
@@ -122,7 +122,9 @@ function PairingCode({ direct, onPaired }: { direct: { pairingId: string; token:
       try {
         const r = await api<Poll>(`/api/tv/pair/${pairing.pairingId}?t=${encodeURIComponent(pairing.token)}`);
         if (!alive) return;
-        if (r.status === "paired") onPaired({ sessionId: r.sessionId, displayKey: r.displayKey });
+        // stanza PSYCO: il TV diventa il suo schermo pubblico (pagina dedicata, nessun dato privato)
+        if (r.status === "paired" && r.kind === "psyco") window.location.assign(`/psyco/schermo/${encodeURIComponent(r.displayKey)}`);
+        else if (r.status === "paired") onPaired({ sessionId: r.sessionId, displayKey: r.displayKey });
         else if (r.status === "expired" || r.status === "used") {
           setPairing(null);
           setNonce((n) => n + 1);
