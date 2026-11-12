@@ -118,6 +118,15 @@ export function CandidateVote({ candidate, myVote, onVote, busy, shown }: { cand
   );
 }
 
+/** Esempi di regole VERITÀ O FALSITÀ per la modalità libera (spunti, non limiti). */
+const TRUTH_EXAMPLES = [
+  "Se dici la verità ti gratti, altrimenti dici una bugia.",
+  "Al primo giro tutti dicono bugie, al secondo tutti la verità, e così via.",
+  "Chi mente sorride, chi dice la verità resta serio.",
+  "Sul cibo si mente sempre, su tutto il resto si dice la verità.",
+  "Se lo PSYCO ti guarda negli occhi menti, altrimenti dici la verità.",
+] as const;
+
 export function ProposalForm({
   myProposal,
   myPassed,
@@ -125,6 +134,7 @@ export function ProposalForm({
   onPropose,
   onPass,
   busy,
+  truthMode = false,
 }: {
   myProposal: { id: string; text: string; category: RuleCategory | null; hint: string | null } | null;
   myPassed: boolean;
@@ -132,9 +142,11 @@ export function ProposalForm({
   onPropose: (text: string, category: RuleCategory | null, hint: string | null) => Promise<boolean>;
   onPass: () => void;
   busy: boolean;
+  /** partita VERITÀ O FALSITÀ: esempi a portata di tocco e categoria «Verità e bugie» già scelta */
+  truthMode?: boolean;
 }) {
   const [text, setText] = useState(myProposal?.text ?? "");
-  const [category, setCategory] = useState<RuleCategory | "">(myProposal?.category ?? "");
+  const [category, setCategory] = useState<RuleCategory | "">(myProposal?.category ?? (truthMode ? "verita" : ""));
   const [hint, setHint] = useState(myProposal?.hint ?? "");
   const [editing, setEditing] = useState(!myProposal);
   const left = RULE_TEXT_MAX - text.length;
@@ -156,10 +168,26 @@ export function ProposalForm({
             id="psy-proposal"
             className="psy-input min-h-28 resize-none"
             maxLength={RULE_TEXT_MAX}
-            placeholder="Es. Ogni volta che lo PSYCO fa una domanda, tutti rispondono con una parola che inizia con la S."
+            placeholder={
+              truthMode
+                ? "Es. Se dici la verità ti gratti, altrimenti dici una bugia."
+                : "Es. Ogni volta che lo PSYCO fa una domanda, tutti rispondono con una parola che inizia con la S."
+            }
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          {truthMode && (
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-paper/60">Verità o falsità: tocca un esempio e cambialo come vuoi</p>
+              <div className="flex flex-wrap gap-2">
+                {TRUTH_EXAMPLES.map((ex) => (
+                  <button key={ex} type="button" className="psy-chip text-left !text-sm" onClick={() => setText(ex)}>
+                    {ex}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="flex items-center justify-between text-xs font-bold text-paper/60">
             <span>Niente nomi offensivi: la vedranno tutti a fine manche.</span>
             <span aria-live="polite">{left} caratteri</span>

@@ -54,7 +54,7 @@ test("un solo telefono: 5 nickname, un account, due manche", async ({ browser })
   }
   await page.getByRole("button", { name: "01:30" }).click();
   await shot(page, "telefono-01-creazione-un-dispositivo");
-  await page.getByRole("button", { name: "CREA LA PARTITA" }).click();
+  await page.getByRole("button", { name: "▶ AVVIA", exact: true }).click();
   await page.waitForURL(/\/psyco\/un-dispositivo\/[0-9a-f-]{36}$/);
   const roomId = page.url().split("/").pop()!;
   await expect(page.getByText("Giocatori (5)")).toBeVisible();

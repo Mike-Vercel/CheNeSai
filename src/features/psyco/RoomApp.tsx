@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ExitButton } from "@/features/game/components/ExitButton";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { useDeviceKind } from "@/features/gioca/use-device";
-import type { DifficultyChoice, PsycoPrivateView, PsycoPublicState, PsycoView, SecretRule } from "@/lib/psyco/types";
+import { rulesOf, type DifficultyChoice, type PsycoPrivateView, type PsycoPublicState, type PsycoView, type SecretRule } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
 import { CallNotice, CallsChip, PsycoCallControls } from "./InvestigatorCall";
 import { PsycoIntro } from "./intro/PsycoIntro";
@@ -251,6 +251,7 @@ function Phase({
       return (
         <>
           <ProposalForm
+            truthMode={rulesOf(state.settings) === "verita"}
             key={r?.no}
             myProposal={view.myProposal}
             myPassed={view.myPassed}

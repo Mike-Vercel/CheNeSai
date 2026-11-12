@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ExitButton } from "@/features/game/components/ExitButton";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { useDeviceKind } from "@/features/gioca/use-device";
-import type { InvestigatorMessage, PsycoPrivateView, PsycoPublicState, PsycoView, PublicParticipant } from "@/lib/psyco/types";
+import { rulesOf, type InvestigatorMessage, type PsycoPrivateView, type PsycoPublicState, type PsycoView, type PublicParticipant } from "@/lib/psyco/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
 import { CallButton, CallsChip, IncomingCall, MessagesSheet, useLive } from "./InvestigatorCall";
@@ -377,6 +377,7 @@ function PassTheDevice({ state, run, busy, roomId, onPrivate }: { state: PsycoPu
       )}
       {state.phase === "RULE_PROPOSALS" && hv.secret && (
         <ProposalForm
+            truthMode={rulesOf(state.settings) === "verita"}
           myProposal={hv.myProposal}
           myPassed={hv.myPassed}
           others={hv.secret.proposals}

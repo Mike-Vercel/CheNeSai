@@ -48,7 +48,7 @@ test("dispositivi personali + schermo TV: accesso, QR, minimo 3, manche automati
   await pc.getByLabel("Minuti").fill("12");
   await pc.getByLabel("Secondi").fill("10");
   await shot(pc, "pc-01-crea-partita");
-  await pc.getByRole("button", { name: "CREA LA PARTITA", exact: true }).click();
+  await pc.getByRole("button", { name: "▶ AVVIA", exact: true }).click();
   await pc.waitForURL(/\/psyco\/stanza\/[0-9a-f-]{36}$/);
   const roomId = pc.url().split("/").pop()!;
   const code = (await pc.getByLabel(/^Codice [A-Z0-9 ]+$/).first().getAttribute("aria-label"))!.replace("Codice ", "").replace(/ /g, "");

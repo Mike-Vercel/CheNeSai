@@ -7,6 +7,7 @@ import { useDeviceKind } from "@/features/gioca/use-device";
 import { checkNickname } from "@/lib/psyco/logic";
 import { DEFAULT_SETTINGS, MIN_PLAYERS, type PsycoSettings, type RoomMode } from "@/lib/psyco/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
+import { markIntroSeen } from "./intro/PsycoIntro";
 import { ErrorNote } from "./panels";
 import { SettingsForm } from "./SettingsForm";
 
@@ -20,7 +21,7 @@ import { SettingsForm } from "./SettingsForm";
  */
 type Choice = "screen" | "personal" | "shared";
 
-export function CreateForm({ initialMode, username }: { initialMode: RoomMode; username: string | null }) {
+export function CreateForm({ initialMode, username, introPlayed = false }: { initialMode: RoomMode; username: string | null; introPlayed?: boolean }) {
   const router = useRouter();
   const device = useDeviceKind();
   const desktop = device === "desktop";
@@ -49,6 +50,8 @@ export function CreateForm({ initialMode, username }: { initialMode: RoomMode; u
           ? { mode, settings, nicknames: filled }
           : { mode, settings, hostPlays, hostNickname: hostPlays ? hostNick : undefined, screen: choice === "screen" };
       const r = await api<{ roomId: string }>("/api/psyco/rooms", { method: "POST", json: body });
+      // l'intro l'hanno appena vista qui: in sala d'attesa (o sullo schermo) non riparte
+      if (introPlayed) markIntroSeen(r.roomId);
       if (choice === "screen") {
         // il PC diventa lo SCHERMO PUBBLICO: mai la stanza (dove arriverebbe il ruolo dell'host)
         const { displayKey } = await api<{ displayKey: string }>(`/api/psyco/rooms/${r.roomId}/schermo`);
@@ -181,7 +184,7 @@ export function CreateForm({ initialMode, username }: { initialMode: RoomMode; u
         className="psy-btn psy-glow w-full py-5 text-3xl"
         disabled={busy || !settings || !!settingsError || (mode === "shared" && (dupes || filled.some((n) => !checkNickname(n).ok))) || (mode === "personal" && hostPlays && !checkNickname(hostNick).ok)}
       >
-        {busy ? "CREO LA STANZA…" : choice === "screen" ? "CREA LA PARTITA E APRI LO SCHERMO" : "CREA LA PARTITA"}
+        {busy ? "PREPARO LA STANZA…" : choice === "screen" ? "▶ AVVIA E APRI LO SCHERMO" : "▶ AVVIA"}
       </button>
     </form>
   );

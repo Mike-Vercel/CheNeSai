@@ -46,6 +46,33 @@ export function shouldShowIntro(roomId: string): boolean {
   }
 }
 
+/** La stanza appena creata ha già avuto l'intro (nella pagina «Nuova partita»): in sala d'attesa non si ripete. */
+export function markIntroSeen(roomId: string) {
+  markSeen(roomId);
+}
+
+const CREATE_KEY = "psyco.intro.nuova.v1";
+/** Intro all'ingresso in «Nuova partita»: una volta per scheda (rivincite e ritorni non la ripetono). */
+export function shouldShowCreateIntro(): boolean {
+  if (typeof window === "undefined") return false;
+  const p = new URLSearchParams(window.location.search).get("intro");
+  if (p === "0") return false;
+  if (p === "1") return true;
+  if (navigator.webdriver) return false;
+  try {
+    return sessionStorage.getItem(CREATE_KEY) !== "1";
+  } catch {
+    return true;
+  }
+}
+export function markCreateIntroSeen() {
+  try {
+    sessionStorage.setItem(CREATE_KEY, "1");
+  } catch {
+    /* modalità privata: pazienza */
+  }
+}
+
 function markSeen(roomId: string) {
   try {
     localStorage.setItem(seenKey(roomId), "1");

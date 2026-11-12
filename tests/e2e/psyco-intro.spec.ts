@@ -20,7 +20,7 @@ test("intro: salta, sala d'attesa usabile, niente intro non richiesta", async ({
   await login(page, owner, "/psyco/nuova?modo=condiviso");
   await page.waitForURL(/\/psyco\/nuova\?modo=condiviso/);
   for (const [i, n] of ["Sara", "Mike", "Luca"].entries()) await page.getByRole("textbox", { name: `Nickname ${i + 1}`, exact: true }).fill(n);
-  await page.getByRole("button", { name: "CREA LA PARTITA" }).click();
+  await page.getByRole("button", { name: "▶ AVVIA", exact: true }).click();
   await page.waitForURL(/\/psyco\/un-dispositivo\/[0-9a-f-]{36}$/);
   const url = page.url();
   // senza ?intro=1 nei test non c'è
@@ -37,6 +37,31 @@ test("intro: salta, sala d'attesa usabile, niente intro non richiesta", async ({
   await expect(intro).toHaveCount(0, { timeout: 5000 });
   await page.getByRole("button", { name: "INIZIA LA PARTITA" }).click();
   await expect(page.getByRole("button", { name: /^SONO .+ — MOSTRA IL MIO RUOLO$/ })).toBeVisible({ timeout: 15_000 });
+  await ctx.close();
+});
+
+test("nuova partita: prima l'intro, poi le impostazioni (anche VERITÀ O FALSITÀ), poi AVVIA", async ({ browser }) => {
+  test.setTimeout(120_000);
+  const { ctx, page } = await newPage(browser, PHONE);
+  await login(page, owner, "/psyco/nuova?modo=condiviso&intro=1");
+  await page.waitForURL(/\/psyco\/nuova\?modo=condiviso/);
+  // l'intro parte subito e le impostazioni non ci sono ancora
+  const intro = page.getByTestId("psyco-intro");
+  await expect(intro).toBeVisible();
+  await expect(page.getByRole("button", { name: "▶ AVVIA", exact: true })).toBeHidden();
+  await page.waitForTimeout(1500);
+  await page.getByRole("button", { name: /SALTA INTRO/ }).click();
+  await expect(intro).toHaveCount(0, { timeout: 5000 });
+  // le impostazioni, con la nuova famiglia di regole
+  await page.getByRole("radio", { name: /VERITÀ O FALSITÀ/ }).click();
+  await expect(page.getByRole("radio", { name: /VERITÀ O FALSITÀ/ })).toHaveAttribute("aria-checked", "true");
+  await shot(page, "telefono-22-impostazioni-verita");
+  for (const [i, n] of ["Sara", "Mike", "Luca"].entries()) await page.getByRole("textbox", { name: `Nickname ${i + 1}`, exact: true }).fill(n);
+  await page.getByRole("button", { name: "▶ AVVIA", exact: true }).click();
+  await page.waitForURL(/\/psyco\/un-dispositivo\/[0-9a-f-]{36}$/);
+  await expect(page.getByText("Giocatori (3)")).toBeVisible();
+  // la stanza appena creata non ripete l'intro (già vista in «Nuova partita»)
+  await expect(page.getByTestId("psyco-intro")).toHaveCount(0);
   await ctx.close();
 });
 

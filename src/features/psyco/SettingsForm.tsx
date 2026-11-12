@@ -3,7 +3,7 @@
 import { clsx } from "clsx";
 import { useState } from "react";
 import { timerFromParts, timerParts } from "@/lib/psyco/logic";
-import { callsOf, type PsycoSettings } from "@/lib/psyco/types";
+import { callsOf, rulesOf, type PsycoSettings, type RuleFamily } from "@/lib/psyco/types";
 
 /**
  * Impostazioni della manche: tempo LIBERO (minuti e secondi, o senza limite), modalità della regola
@@ -26,16 +26,28 @@ export function SettingsForm({
   const [ruleMode, setRuleMode] = useState(initial.ruleMode);
   const [psycoPick, setPsycoPick] = useState(initial.psycoPick);
   const [calls, setCalls] = useState(callsOf(initial));
+  const [rules, setRules] = useState<RuleFamily>(rulesOf(initial));
   const [error, setError] = useState<string | null>(null);
 
-  function emit(next: { minutes?: string; seconds?: string; unlimited?: boolean; ruleMode?: PsycoSettings["ruleMode"]; psycoPick?: PsycoSettings["psycoPick"]; calls?: number }) {
+  function emit(next: {
+    minutes?: string;
+    seconds?: string;
+    unlimited?: boolean;
+    ruleMode?: PsycoSettings["ruleMode"];
+    psycoPick?: PsycoSettings["psycoPick"];
+    calls?: number;
+    rules?: RuleFamily;
+  }) {
     const m = next.minutes ?? minutes;
     const s = next.seconds ?? seconds;
     const u = next.unlimited ?? unlimited;
     const t = timerFromParts(m.trim() === "" ? "0" : m, s.trim() === "" ? "0" : s, u);
     const err = t.ok ? null : t.message;
     setError(err);
-    onChange(t.ok ? { timerMs: t.ms, ruleMode: next.ruleMode ?? ruleMode, psycoPick: next.psycoPick ?? psycoPick, calls: next.calls ?? calls } : null, err);
+    onChange(
+      t.ok ? { timerMs: t.ms, ruleMode: next.ruleMode ?? ruleMode, psycoPick: next.psycoPick ?? psycoPick, calls: next.calls ?? calls, rules: next.rules ?? rules } : null,
+      err,
+    );
   }
 
   const quick = [
@@ -144,6 +156,38 @@ export function SettingsForm({
             </button>
           ))}
         </div>
+      </fieldset>
+
+      <fieldset className="flex flex-col gap-2">
+        <legend className="psy-display mb-2 text-2xl text-paper">Che regole</legend>
+        <div className="grid gap-2 sm:grid-cols-3" role="radiogroup" aria-label="Famiglia delle regole">
+          {(
+            [
+              ["tutte", "TUTTE", "Classiche e di verità o falsità, mescolate."],
+              ["classiche", "CLASSICHE", "Parole, gesti, lettere: come si risponde."],
+              ["verita", "VERITÀ O FALSITÀ", "Quando si dice il vero e quando si mente: «chi dice la verità si gratta», «primo giro tutte bugie»…"],
+            ] as const
+          ).map(([v, label, desc]) => (
+            <button
+              key={v}
+              type="button"
+              role="radio"
+              aria-checked={rules === v}
+              onClick={() => {
+                setRules(v);
+                emit({ rules: v });
+              }}
+              className={clsx("relative rounded-2xl p-4 text-left transition", rules === v ? "psy-paper" : "bg-white/6 ring-1 ring-white/15 hover:bg-white/10")}
+            >
+              {v === "verita" && <span className="absolute right-3 top-3 rounded-full bg-blood px-2 py-0.5 text-[0.65rem] font-black uppercase tracking-wider text-white">Nuovo</span>}
+              <span className={clsx("psy-display block pr-10 text-xl", rules === v ? "text-[#8e0b12]" : "text-paper")}>{label}</span>
+              <span className={clsx("mt-1 block text-sm font-bold", rules === v ? "text-[#4a3220]" : "text-paper/75")}>{desc}</span>
+            </button>
+          ))}
+        </div>
+        {ruleMode === "free" && rules === "verita" && (
+          <p className="text-sm font-bold text-lamp">Con la regola LIBERA il gruppo la inventa: vi suggeriremo esempi di verità o falsità.</p>
+        )}
       </fieldset>
 
       <fieldset className="flex flex-col gap-2">

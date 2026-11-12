@@ -88,8 +88,14 @@ export const TIMER_WARNINGS: { atMs: number; id: VoiceId }[] = [
  * Momenti del gioco → clip, dal confronto tra lo stato pubblico precedente e il nuovo.
  * Pura (testata in tests/unit/psyco-narrator.test.ts). `mode` cambia solo i momenti del passaggio del telefono.
  */
+/** Il benvenuto è già stato detto in questa pagina (intro di «Nuova partita»): in sala d'attesa non si ripete. */
+let welcomed = false;
+export function markWelcomed() {
+  welcomed = true;
+}
+
 export function cuesFor(prev: PsycoPublicState | null, next: PsycoPublicState): VoiceId[] {
-  if (!prev) return next.phase === "LOBBY" && next.status === "open" ? ["benvenuti", "lobby-attesa"] : [];
+  if (!prev) return next.phase === "LOBBY" && next.status === "open" ? (welcomed ? ["lobby-attesa"] : ["benvenuti", "lobby-attesa"]) : [];
   if (prev.roomId !== next.roomId) return [];
   if (prev.status === "open" && next.status === "closed") return ["fine-partita"];
   const out: VoiceId[] = [];

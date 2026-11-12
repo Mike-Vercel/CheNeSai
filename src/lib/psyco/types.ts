@@ -77,10 +77,19 @@ export const settingsSchema = z.object({
   psycoPick: z.enum(["auto", "manual"]),
   /** chiamate all'Investigatore per manche (0–3); assente = DEFAULT_CALLS (stanze create prima) */
   calls: z.number().int().min(0).max(CALLS_MAX).optional(),
+  /** famiglia delle regole d'archivio: tutte, solo classiche o solo VERITÀ O FALSITÀ; assente = tutte */
+  rules: z.enum(["tutte", "classiche", "verita"]).optional(),
 });
 export type PsycoSettings = z.infer<typeof settingsSchema>;
-export const DEFAULT_SETTINGS: PsycoSettings = { timerMs: 5 * 60_000, ruleMode: "auto", psycoPick: "auto", calls: DEFAULT_CALLS };
+export const DEFAULT_SETTINGS: PsycoSettings = { timerMs: 5 * 60_000, ruleMode: "auto", psycoPick: "auto", calls: DEFAULT_CALLS, rules: "tutte" };
 export const callsOf = (s: Pick<PsycoSettings, "calls">): number => s.calls ?? DEFAULT_CALLS;
+
+/** Quali regole pescare: «tutte» (predefinita), «classiche» o solo «verita» (VERITÀ O FALSITÀ). */
+export type RuleFamily = NonNullable<PsycoSettings["rules"]>;
+export const rulesOf = (s: Pick<PsycoSettings, "rules">): RuleFamily => s.rules ?? "tutte";
+/** Tema delle regole d'archivio (psyco_rules.theme) da pescare per una famiglia; null = tutti. */
+export const themeOf = (f: RuleFamily): "classica" | "verita" | null => (f === "classiche" ? "classica" : f === "verita" ? "verita" : null);
+export const RULE_FAMILY_LABEL: Record<RuleFamily, string> = { tutte: "Tutte le regole", classiche: "Classiche", verita: "Verità o falsità" };
 
 /** Ultimo avvenimento pubblico (per i messaggi a schermo e la voce narrante). */
 export type PsycoEventKind =

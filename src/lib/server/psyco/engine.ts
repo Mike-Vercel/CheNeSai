@@ -15,6 +15,8 @@ import {
   type PsycoSettings,
   type PublicTimer,
   type RoundOutcome,
+  rulesOf,
+  themeOf,
 } from "@/lib/psyco/types";
 import { PsycoError } from "./errors";
 import { broadcastPsyco } from "./realtime";
@@ -548,15 +550,23 @@ async function proposeArchiveRule(ctx: Ctx, difficulty: Difficulty) {
   const { tx } = ctx;
   const r = round(ctx);
   type Pick = { id: string; title: string; description: string; difficulty: Difficulty };
+  // famiglia scelta nelle impostazioni (VERITÀ O FALSITÀ, classiche o tutte); se si esaurisce si allarga
+  const theme = themeOf(rulesOf(ctx.settings));
+  const byTheme = theme ? tx`and theme = ${theme}` : tx``;
   const tries = [
     () => tx<Pick[]>`
       select id, title, description, difficulty from psyco_rules
-      where active and difficulty = ${difficulty}
+      where active and difficulty = ${difficulty} ${byTheme}
         and id not in (select rule_id from psyco_candidates where room_id = ${ctx.room.id} and rule_id is not null)
       order by random() limit 1`,
     () => tx<Pick[]>`
       select id, title, description, difficulty from psyco_rules
-      where active and difficulty = ${difficulty}
+      where active and difficulty = ${difficulty} ${byTheme}
+        and id not in (select rule_id from psyco_candidates where round_id = ${r.id} and rule_id is not null)
+      order by random() limit 1`,
+    () => tx<Pick[]>`
+      select id, title, description, difficulty from psyco_rules
+      where active ${byTheme}
         and id not in (select rule_id from psyco_candidates where round_id = ${r.id} and rule_id is not null)
       order by random() limit 1`,
     () => tx<Pick[]>`

@@ -441,3 +441,15 @@
 @media (prefers-reduced-motion: reduce) {
   .psy-hero-float { animation: none; }
 }
+
+/* «Nuova partita»: le impostazioni entrano dopo l'intro */
+.psy-fade-in {
+  animation: psy-fade-in 0.7s ease-out both;
+}
+@keyframes psy-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .psy-fade-in { animation: none; }
+}

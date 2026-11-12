@@ -58,7 +58,7 @@ test("PC = schermo pubblico, tutti dal telefono; chiamata all'Investigatore con 
   await pc.getByText("Altri modi di giocare").click();
   await shot(pc, "pc-1440-02-nuova-partita-altri-modi");
   await pc.getByRole("radio", { name: /SCHERMO \+ TELEFONI/ }).click();
-  await pc.getByRole("button", { name: "CREA LA PARTITA E APRI LO SCHERMO" }).click();
+  await pc.getByRole("button", { name: "▶ AVVIA E APRI LO SCHERMO" }).click();
   await pc.waitForURL(/\/psyco\/schermo\/[A-Za-z0-9_-]{24,64}$/);
   const key = decodeURIComponent(pc.url().split("/").pop()!);
   const [room] = await sql<{ id: string; code: string; screen_mode: boolean }[]>`select id, code, screen_mode from psyco_rooms where display_key = ${key}`;
@@ -244,7 +244,7 @@ test("un solo dispositivo su PC: «TOCCA A …», mai «PASSA IL TELEFONO»", as
   await page.waitForURL(/\/psyco\/nuova\?modo=condiviso/);
   await expect(page.getByRole("radio", { name: /UN SOLO DISPOSITIVO/ })).toHaveAttribute("aria-checked", "true");
   for (const [i, nick] of ["Sara", "Mike", "Luca"].entries()) await page.getByRole("textbox", { name: `Nickname ${i + 1}`, exact: true }).fill(nick);
-  await page.getByRole("button", { name: "CREA LA PARTITA", exact: true }).click();
+  await page.getByRole("button", { name: "▶ AVVIA", exact: true }).click();
   await page.waitForURL(/\/psyco\/un-dispositivo\/[0-9a-f-]{36}$/);
   await page.getByRole("button", { name: "INIZIA LA PARTITA" }).click();
   await expect(page.getByRole("heading", { name: /TOCCA A/ })).toBeVisible({ timeout: 15_000 });
