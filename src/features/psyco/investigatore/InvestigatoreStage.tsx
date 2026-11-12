@@ -9,9 +9,9 @@ import { createNarratorMouth } from "./lipsync";
 
 /**
  * L'Investigatore 3D a mezzo busto che parla con la voce del narratore (slot delle schermate PSYCO).
- * Un canvas trasparente sopra la cornice del ritratto (NarratorSlot). Prestazioni da telefono:
- *  - disegno "a richiesta": ~24 fps quando tace, ~50 quando parla, fermo se il ritratto non si vede;
- *  - dpr massimo 1.5 (1 su lowPower, che usa anche il file -low), niente ombre né antialias su lowPower.
+ * Un canvas trasparente DENTRO la finestra della cornice (NarratorSlot): vetro e ombre del bordo gli stanno sopra. Prestazioni da telefono:
+ *  - disegno "a richiesta": ~30 fps quando tace, ~60 quando parla, fermo se il ritratto non si vede;
+ *  - nitido: dpr fino a 2 (1.5 su lowPower, che usa il file -low), antialias sempre (il canvas è piccolo).
  * Luci noir: lampada calda davanti in alto a sinistra, controluce rosso da dietro, riempimento quasi nero.
  */
 export type StageFraming = "bust" | "face";
@@ -131,15 +131,15 @@ export interface InvestigatoreStageProps {
 export default function InvestigatoreStage({ lowPower, framing = "bust", visible = true, src, onReady, onFail, speakingOverride, faceOverride, className }: InvestigatoreStageProps) {
   const [speaking, setSpeaking] = useState(false);
   useEffect(() => getNarrator().onState((s) => setSpeaking(s.speaking)), []);
-  const fps = !visible ? 0 : speaking || speakingOverride ? 50 : 24;
+  const fps = !visible ? 0 : speaking || speakingOverride ? 60 : 30;
   return (
     <Boundary onError={(r) => onFail?.(`errore 3D: ${r}`)}>
       <Canvas
         className={className}
         frameloop="demand"
-        dpr={lowPower ? 1 : [1, 1.5]}
+        dpr={lowPower ? [1, 1.5] : [1, 2]}
         resize={{ offsetSize: true }}
-        gl={{ alpha: true, antialias: !lowPower, powerPreference: lowPower ? "low-power" : "default" }}
+        gl={{ alpha: true, antialias: true, powerPreference: lowPower ? "default" : "high-performance" }}
         camera={{ position: [0, 1.4, 2], fov: 26, near: 0.1, far: 20 }}
         onCreated={({ gl }) => {
           gl.setClearColor(0x000000, 0);
@@ -156,6 +156,10 @@ export default function InvestigatoreStage({ lowPower, framing = "bust", visible
         {/* controluce rosso da dietro a destra (bordo della sagoma) */}
         <directionalLight position={[1.8, 2.2, -2.2]} intensity={3.2} color="#ff2330" />
         <directionalLight position={[-2, 1.2, -1.5]} intensity={0.8} color="#8e0b12" />
+        {/* luce morbida davanti al viso: occhi vivi (riflesso) e ombre del cappello meno chiuse */}
+        <pointLight position={[0.15, 1.62, 0.9]} intensity={0.9} distance={2.2} decay={2} color="#ffd9a8" />
+        {/* riflesso caldo dal basso (la scrivania illuminata dalla lampada) */}
+        <directionalLight position={[0, 0.2, 1.6]} intensity={0.35} color="#ff9f5a" />
         <Suspense fallback={null}>
           <Narrator3D lowPower={lowPower} src={src} onReady={() => onReady?.()} speakingOverride={speakingOverride} faceOverride={faceOverride} />
         </Suspense>

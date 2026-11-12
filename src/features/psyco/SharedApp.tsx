@@ -66,7 +66,7 @@ export function SharedApp({ roomId }: { roomId: string }) {
       <LinkBadge status={status} />
       {state.phase === "PLAYING" && state.round && <CountdownOverlay timer={state.round.timer} now={now} />}
       <div className="flex w-full flex-col items-center gap-6">
-        {!state.displayOnline && <PsycoNarratorDock compact={privateOpen} />}
+        <PsycoNarratorDock compact={privateOpen} />
         <ErrorNote error={actError} onClose={clearError} />
         <SharedPhase
           key={`${state.round?.no ?? 0}:${state.phase}`}

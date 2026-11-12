@@ -69,7 +69,8 @@ export function RoomApp({ roomId }: { roomId: string }) {
       <LinkBadge status={status} />
       {state.phase === "PLAYING" && state.round && <CountdownOverlay timer={state.round.timer} now={now} />}
       <div className="flex w-full flex-col items-center gap-6">
-        {narratorHere && <PsycoNarratorDock compact={SECRET_PHASES.has(state.phase)} />}
+        {/* l'Investigatore c'è su ogni telefono fin dalla sala d'attesa (parla solo dove suona la voce) */}
+        <PsycoNarratorDock compact={SECRET_PHASES.has(state.phase)} />
         <HostOffline state={state} view={view} onClaim={() => void run({ action: "claim_host" })} />
         <ScreenHint state={state} view={view} roomId={roomId} />
         <ErrorNote error={actError} onClose={clearError} />

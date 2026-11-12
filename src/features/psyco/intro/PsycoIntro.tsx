@@ -14,7 +14,7 @@ const IntroScene3D = lazy(() => import("./IntroScene3D"));
  * INTRODUZIONE DI PSYCO (una volta per stanza, all'apertura della sala d'attesa).
  *
  * Dove: schermo TV/PC, dispositivo condiviso, telefono di chi gestisce senza TV (cioè dove suona la voce).
- * 3D (IntroScene3D) se il dispositivo regge; altrimenti — WebGL assente/software, lowPower, movimento
+ * 3D (IntroScene3D) sempre se c'è WebGL vero (lowPower: file -low e dpr 1); altrimenti — WebGL assente/software, movimento
  * ridotto, errore, caricamento oltre 9 s — la versione illustrata 2D con la stessa voce.
  * Mai bloccante: «SALTA INTRO» sempre visibile, fine sicura a 25 s anche se la scheda è in pausa,
  * e le frasi del gioco trattenute durante l'intro (narrator.hold) ripartono sempre (release).
@@ -56,16 +56,27 @@ function markSeen(roomId: string) {
 
 /** Da mettere nelle schermate con voce: `eligible` = sala d'attesa aperta su un dispositivo che parla. */
 export function PsycoIntro({ roomId, eligible }: { roomId: string; eligible: boolean }) {
+  // parte appena la stanza è pronta (anche se `eligible` diventa vero dopo il primo disegno), una volta sola
   const [show, setShow] = useState(() => eligible && shouldShowIntro(roomId));
+  const [done, setDone] = useState(false);
+  if (eligible && !show && !done && shouldShowIntro(roomId)) setShow(true);
   if (!show) return null;
-  return <IntroPlayer roomId={roomId} onDone={() => setShow(false)} />;
+  return (
+    <IntroPlayer
+      roomId={roomId}
+      onDone={() => {
+        setShow(false);
+        setDone(true);
+      }}
+    />
+  );
 }
 
 type Phase = "loading" | "gate" | "play" | "out";
 
 export function IntroPlayer({ roomId, onDone, contained = false, force2d = false, freezeAt = null }: { roomId?: string; onDone: () => void; contained?: boolean; force2d?: boolean; freezeAt?: number | null }) {
   const caps = deviceCaps();
-  const [mode, setMode] = useState<"3d" | "2d">(() => (!force2d && caps.webgl && !caps.lowPower && !caps.reducedMotion ? "3d" : "2d"));
+  const [mode, setMode] = useState<"3d" | "2d">(() => (!force2d && caps.webgl && !caps.reducedMotion ? "3d" : "2d"));
   const [phase, setPhase] = useState<Phase>("loading");
   const [caption, setCaption] = useState<string | null>(null);
   const timeRef = useRef(freezeAt ?? 0);

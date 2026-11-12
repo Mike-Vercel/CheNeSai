@@ -36,8 +36,12 @@ const SIZE = {
   lg: "h-56 w-44",
   tvs: "h-[29vh] w-[23vh]",
   tv: "h-[36vh] w-[29vh]",
+  /** home di PSYCO: ritratto grande (telefono e PC). */
+  hero: "h-[min(62vw,22rem)] w-[min(50vw,17.5rem)] lg:h-[26rem] lg:w-[20.5rem]",
 } as const;
 export type NarratorSlotSize = keyof typeof SIZE;
+/** Spessore della cornice per grandezza (psyco.css, .psy-portrait[data-frame]). */
+const FRAME: Record<NarratorSlotSize, string> = { xs: "sm", sm: "sm", md: "md", lg: "lg", tvs: "tv", tv: "tv", hero: "lg" };
 
 function useNarratorState(): NarratorState {
   const [s, setS] = useState<NarratorState>({ speaking: false, audible: false, id: null, text: null });
@@ -106,7 +110,18 @@ function SilhouettePortrait({ s }: { s: NarratorState }) {
   );
 }
 
-export function PsycoNarratorSlot({ size = "md", className, render }: { size?: NarratorSlotSize; className?: string; render?: (s: NarratorSlotState) => React.ReactNode }) {
+export function PsycoNarratorSlot({
+  size = "md",
+  className,
+  render,
+  plate = false,
+}: {
+  size?: NarratorSlotSize;
+  className?: string;
+  render?: (s: NarratorSlotState) => React.ReactNode;
+  /** targhetta d'ottone «L'Investigatore» sul bordo basso (ritratti grandi). */
+  plate?: boolean;
+}) {
   const s = useNarratorState();
   const box = useRef<HTMLDivElement | null>(null);
   const onScreen = useOnScreen(box);
@@ -123,33 +138,38 @@ export function PsycoNarratorSlot({ size = "md", className, render }: { size?: N
       data-speaking={s.speaking ? "true" : "false"}
       data-voice-id={s.id ?? ""}
       data-mode={use3d && ready ? "3d" : "2d"}
+      data-frame={FRAME[size]}
       aria-hidden
-      className={clsx("psy-portrait relative shrink-0 overflow-hidden rounded-2xl transition-[box-shadow] duration-300", SIZE[size], className)}
+      className={clsx("psy-portrait relative shrink-0 rounded-2xl", SIZE[size], className)}
     >
-      {render ? (
-        render({ ...s, analyser: getNarrator().getAnalyser() })
-      ) : (
-        <>
-          <div className={clsx("absolute inset-0 transition-opacity duration-500", use3d && ready ? "opacity-0" : "opacity-100")}>
-            <SilhouettePortrait s={s} />
-          </div>
-          {use3d && (
-            <Suspense fallback={null}>
-              <InvestigatoreStage
-                lowPower={lowPower}
-                visible={onScreen}
-                framing={size === "xs" ? "face" : "bust"}
-                onReady={() => setReady(true)}
-                onFail={(r) => {
-                  setReady(false);
-                  report3dFailure(r);
-                }}
-                className={clsx("!absolute inset-0 transition-opacity duration-500", ready ? "opacity-100" : "opacity-0")}
-              />
-            </Suspense>
-          )}
-        </>
-      )}
+      {/* la finestra della cornice: il personaggio sta dentro, vetro e ombre del bordo sono sopra di lui */}
+      <div className="psy-portrait-window">
+        {render ? (
+          render({ ...s, analyser: getNarrator().getAnalyser() })
+        ) : (
+          <>
+            <div className={clsx("absolute inset-0 transition-opacity duration-500", use3d && ready ? "opacity-0" : "opacity-100")}>
+              <SilhouettePortrait s={s} />
+            </div>
+            {use3d && (
+              <Suspense fallback={null}>
+                <InvestigatoreStage
+                  lowPower={lowPower}
+                  visible={onScreen}
+                  framing={size === "xs" ? "face" : "bust"}
+                  onReady={() => setReady(true)}
+                  onFail={(r) => {
+                    setReady(false);
+                    report3dFailure(r);
+                  }}
+                  className={clsx("!absolute inset-0 transition-opacity duration-700", ready ? "opacity-100" : "opacity-0")}
+                />
+              </Suspense>
+            )}
+          </>
+        )}
+      </div>
+      {plate && <span className="psy-plate">L&apos;Investigatore</span>}
     </div>
   );
 }

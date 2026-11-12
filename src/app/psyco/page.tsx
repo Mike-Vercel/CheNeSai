@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/features/home/SiteHeader";
+import { HomeInvestigator } from "@/features/psyco/HomeInvestigator";
 import { PsycoLogo } from "@/features/psyco/ui";
 import { getHostUser } from "@/lib/server/gioco-libero";
 import { listMyRooms } from "@/lib/server/psyco/rooms";
@@ -30,7 +31,9 @@ export default async function PsycoHome() {
           <div className="absolute inset-0 bg-gradient-to-r from-noir via-noir/70 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-noir to-transparent" />
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-noir/90 to-transparent" />
+          <div className="absolute inset-y-0 right-0 w-[45%] bg-gradient-to-l from-noir/70 to-transparent" />
         </div>
+        <HomeInvestigator variant="desktop" />
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-4 pb-12 pt-[calc(5rem+env(safe-area-inset-top))] lg:min-h-[min(100svh,56vw)] lg:items-start lg:justify-center lg:pt-24">
           <div className="relative w-[min(78vw,22rem)] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(224,22,31,0.55)] ring-1 ring-white/10 lg:hidden">
             <Image src="/games/psyco-copertina.webp" alt="Copertina di PSYCO" width={1055} height={1318} preload sizes="(min-width: 768px) 22rem, 78vw" className="h-auto w-full" />
@@ -45,6 +48,7 @@ export default async function PsycoHome() {
               Uno di voi è lo PSYCO. Gli altri scelgono una regola segreta e la rispettano mentre rispondono alle sue domande. Lui deve scoprirla prima che finisca il tempo. Nessuno esce dalla stanza.
             </p>
           </div>
+          <HomeInvestigator variant="mobile" />
           <nav aria-label="Come vuoi giocare" className="grid w-full max-w-xl gap-3 sm:grid-cols-2">
             <Link href={guard("/psyco/nuova?modo=personale")} prefetch={false} className="psy-btn psy-glow text-2xl">
               CREA PARTITA
