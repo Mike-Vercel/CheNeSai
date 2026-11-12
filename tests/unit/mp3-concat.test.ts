@@ -73,8 +73,10 @@ describe("mp3: analisi dei frame", () => {
   it("toglie il silenzio solo in coda, lasciando quanto richiesto", () => {
     const buf = Buffer.concat([frame({ gain: 120 }), frame(), frame(), ...Array.from({ length: 6 }, () => frame({ gain: 115 }))]);
     const p = parseMp3(buf);
-    expect(trimTrailingSilence(p, 0)).toHaveLength(3); // il silenzio iniziale resta
-    expect(trimTrailingSilence(p, 52)).toHaveLength(5); // ~2 frame da 26 ms
+    // il silenzio iniziale resta; in coda sempre almeno 3 frame di margine (mai sillabe mangiate)
+    expect(trimTrailingSilence(p, 0)).toHaveLength(6);
+    expect(trimTrailingSilence(p, 52)).toHaveLength(6); // ~2 frame da 26 ms: vale il margine minimo
+    expect(trimTrailingSilence(p, 130)).toHaveLength(8); // ~5 frame
     expect(trimTrailingSilence(p, 10_000)).toHaveLength(9); // mai aggiunto
   });
 });
@@ -122,8 +124,8 @@ describe("mp3: unione delle parti", () => {
     const trimmed = concatMp3([{ audio: a, tailMs: 30 }, { audio: b }]);
     const silentTail = pa.frames.length - 1 - pa.frames.findLastIndex((f) => !isSilentFrame(f));
     expect(silentTail).toBeGreaterThan(5);
-    expect(trimmed.trimmedMs).toBeCloseTo(((silentTail - 1) * 1152) / 44.1, 3);
-    expect(parseMp3(trimmed.audio).frames).toHaveLength(pa.frames.length - (silentTail - 1) + pb.frames.length);
+    expect(trimmed.trimmedMs).toBeCloseTo(((silentTail - 3) * 1152) / 44.1, 3);
+    expect(parseMp3(trimmed.audio).frames).toHaveLength(pa.frames.length - (silentTail - 3) + pb.frames.length);
     // durata = byte / 16 (128 kbit/s), come la stima del tempo di lettura
     expect(trimmed.audio.length / 16).toBeCloseTo(trimmed.durationMs, -1);
   });

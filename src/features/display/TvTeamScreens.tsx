@@ -64,7 +64,7 @@ function TeamRows({ teams, showDelta, big }: { teams: TeamLeaderboardEntry[]; sh
           <span className={clsx("w-[6cqh] text-center font-display text-gold", big ? "text-[4.4cqh]" : "text-[3.4cqh]")}>{t.rank}</span>
           <Movement rank={t.rank} previousRank={t.previousRank} />
           <Swatch color={t.color} className={big ? "h-[4cqh] w-[4cqh]" : "h-[3cqh] w-[3cqh]"} />
-          <span className={clsx("min-w-0 flex-1 truncate font-display text-white", big ? "text-[4.2cqh]" : "text-[3.2cqh]")}>
+          <span className={clsx("min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-white", big ? "text-[4.2cqh]" : "text-[3.2cqh]")}>
             {t.name}
             <span className={clsx("ml-[1.2cqh] font-sans font-extrabold text-white/60", big ? "text-[2.4cqh]" : "text-[2cqh]")}>
               {t.members === 1 ? "1 giocatore" : `${t.members} giocatori`}
@@ -133,7 +133,7 @@ export function TvTeamLeaderboardScreen({
               >
                 <span className="w-[4.5cqh] text-center font-display text-[2.8cqh] text-gold">{e.rank}</span>
                 <Movement rank={e.rank} previousRank={e.previousRank} />
-                <span className="min-w-0 flex-1 truncate font-display text-[2.8cqh] text-white">{e.nickname}</span>
+                <span className="min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[2.8cqh] text-white">{e.nickname}</span>
                 <span className="font-display text-[2.8cqh] text-white">{formatPoints(e.points)}</span>
               </motion.li>
             ))}

@@ -156,9 +156,10 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
             if (!document.fullscreenElement) void document.documentElement.requestFullscreen?.().catch(() => undefined);
             ctx.activateAudio();
           }}
-          className="absolute left-1/2 top-[5cqh] z-[67] -translate-x-1/2 rounded-full bg-gold px-8 py-4 font-display text-[clamp(1.2rem,2.2cqw,2.2rem)] text-ink shadow-[0_6px_0_#9a5d00] transition hover:bg-white"
+          // piccolo, in alto a sinistra: non copre lo show
+          className="absolute left-[1.2cqw] top-[1.6cqh] z-[67] rounded-full bg-gold px-4 py-2 font-display text-[clamp(0.85rem,1.05cqw,1.15rem)] text-ink shadow-[0_3px_0_#9a5d00] transition hover:bg-white"
         >
-          {!fullscreen && !ctx.audioOn ? "▶ AVVIA IL TV (schermo intero e audio)" : !fullscreen ? "⛶ SCHERMO INTERO" : "🔊 ATTIVA L'AUDIO"}
+          {!fullscreen && !ctx.audioOn ? "▶ Avvia il TV (schermo intero e audio)" : !fullscreen ? "⛶ Schermo intero" : "🔊 Attiva l'audio"}
         </button>
       )}
 
@@ -194,7 +195,7 @@ function HostTvOverlay({ sessionId, displayKey, state, ctx, canCreateMore }: { s
       )}
 
       {phase === "FINISHED" && (
-        <div className="absolute left-[2cqw] top-[3cqh] z-[66] flex max-w-[40cqw] flex-col gap-3 rounded-[28px] bg-night/85 p-5 backdrop-blur-sm">
+        <div className={clsx("absolute left-[2cqw] z-[66] flex max-w-[40cqw] flex-col gap-3 rounded-[28px] bg-night/85 p-5 backdrop-blur-sm", !ctx.audioOn || !fullscreen ? "top-[8cqh]" : "top-[3cqh]")}>
           <RematchControls sessionId={sessionId} onStarted={goTo} size="tv" />
           <div className="flex flex-wrap gap-2">
             {canCreateMore && (

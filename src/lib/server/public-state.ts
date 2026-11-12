@@ -171,7 +171,22 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
     recentPlayers = rows.map((r) => r.nickname);
   }
 
+  // soluzione: il TV ha già illuminato la risposta giusta? (telefoni in sincronia con il TV)
+  // e la domanda è già comparsa sul TV (dopo il cartello)?
+  let revealShown: boolean | undefined;
+  let questionShown: boolean | undefined;
+  if ((vp === "ANSWER_REVEAL" || vp === "QUESTION_VISIBLE") && st.current_session_question_id) {
+    const [tv] = await db<{ revealed: boolean; shown: boolean }[]>`
+      select revealed_question_id = ${st.current_session_question_id} as revealed,
+             question_shown_id = ${st.current_session_question_id} as shown
+      from tv_presence where session_id = ${sessionId}`;
+    if (vp === "ANSWER_REVEAL") revealShown = !!tv?.revealed;
+    else questionShown = !!tv?.shown;
+  }
+
   return {
+    ...(revealShown !== undefined ? { revealShown } : {}),
+    ...(questionShown !== undefined ? { questionShown } : {}),
     sessionId,
     code: st.code,
     title: st.title,

@@ -51,6 +51,11 @@ interface MeResponse {
   state: PublicState;
 }
 
+/** Attesa massima del segnale del TV prima di mostrare comunque la soluzione sul telefono. */
+const REVEAL_SYNC_MAX_MS = 6500;
+/** Attesa massima della domanda sul TV (cartello + annuncio) prima di mostrarla comunque. */
+const QUESTION_SYNC_MAX_MS = 10000;
+
 const REFRESH_SELF_PHASES: GamePhase[] = ["ANSWER_REVEAL", "SCORE_REVEAL", "LEADERBOARD", "FINISHED", "CATEGORY_RESULT", "LOBBY"];
 const vibrate = (p: number | number[]) => {
   try {
@@ -167,7 +172,9 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
     return () => clearInterval(id);
   }, [joined, code, q]);
 
-  const timerActive = state?.phase === "OPTIONS_VISIBLE" || state?.phase === "CATEGORY_VOTING" || state?.phase === "WHEEL_SPIN";
+  // soluzione in attesa del TV ("La risposta giusta è…"): il ticker fa scattare il tetto di sicurezza
+  const revealWaiting = (state?.phase === "ANSWER_REVEAL" && state.revealShown === false) || (state?.phase === "QUESTION_VISIBLE" && state.questionShown === false);
+  const timerActive = state?.phase === "OPTIONS_VISIBLE" || state?.phase === "CATEGORY_VOTING" || state?.phase === "WHEEL_SPIN" || revealWaiting;
   useTicker(timerActive, 250);
 
   const toggle = (pos: number) => {
@@ -258,6 +265,11 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
   if (state.displayMode === "phone") return <PlayerPhoneShow code={code} slot={slot} sessionId={state.sessionId} />;
 
   const vp: GamePhase = state.phase === "PAUSED" && state.pausedFrom ? state.pausedFrom : state.phase;
+  // giusto/sbagliato insieme al TV: finché il TV non ha illuminato la risposta (dopo "La risposta giusta
+  // è…") il telefono resta su "risposte chiuse"; tetto di sicurezza 6,5 s se il segnale non arriva
+  const revealHeld = vp === "ANSWER_REVEAL" && state.revealShown === false && now() < Date.parse(state.phaseStartedAt) + REVEAL_SYNC_MAX_MS;
+  // la domanda compare insieme al TV (dopo il cartello "DOMANDA N. X"); tetto di sicurezza 10 s
+  const questionHeld = vp === "QUESTION_VISIBLE" && state.questionShown === false && now() < Date.parse(state.phaseStartedAt) + QUESTION_SYNC_MAX_MS;
   // dopo una risposta a metà round: niente totali né posizione, solo i punti di quella risposta
   const hideTotals = vp === "SCORE_REVEAL" && !!state.question && state.question.positionInRound < state.question.totalInRound;
   const closesAt = vp === "CATEGORY_VOTING" ? state.vote?.closesAt : state.question?.closesAt;
@@ -342,6 +354,13 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
         <p className="text-lg font-bold">{state.event.tagline}</p>
       </div>
     );
+  } else if (state.question && questionHeld) {
+    // come il TV: prima il cartello, poi la domanda
+    body = (
+      <PhoneMessage title={`DOMANDA ${state.question.number}`}>
+        {state.question.positionInRound >= state.question.totalInRound ? "Ultima del round… occhi sul TV!" : "Occhi sul TV…"}
+      </PhoneMessage>
+    );
   } else if (state.question && ["QUESTION_VISIBLE", "OPTIONS_VISIBLE", "ANSWERS_LOCKED", "ANSWER_REVEAL"].includes(vp)) {
     const m = state.question.media;
     const sp = state.question.rules.special;
@@ -369,8 +388,8 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
         : null;
     body = (
       <PhoneQuestionView
-        question={state.question}
-        phase={state.phase}
+        question={revealHeld ? { ...state.question, correctPositions: null, distribution: null } : state.question}
+        phase={revealHeld ? "ANSWERS_LOCKED" : state.phase}
         selected={selected}
         submitStatus={submitStatus}
         submitError={submitError}
@@ -378,7 +397,7 @@ export function PlayerApp({ code, slot }: { code: string; slot: string | null })
         startsInMs={startsInMs}
         mediaUrl={m && m.kind === "image" ? `/api/play/${code}/media/${m.id}` : null}
         event={state.event}
-        result={result}
+        result={revealHeld ? null : result}
         onToggle={toggle}
         onConfirm={() => void confirm()}
         bet={bet}

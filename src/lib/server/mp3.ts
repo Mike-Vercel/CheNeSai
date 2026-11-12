@@ -199,6 +199,9 @@ export function isSilentFrame(f: Mp3Frame): boolean {
   return f.gain <= SILENT_MAX_GAIN;
 }
 
+/** Frame (≈26 ms l'uno a 44,1 kHz) sempre tenuti dopo l'ultimo frame sonoro. */
+const SAFETY_TAIL_FRAMES = 3;
+
 /**
  * Frame da tenere togliendo il silenzio in coda oltre `keepMs` (mai aggiunto: se il silenzio
  * è già più corto resta com'è). Restituisce almeno un frame.
@@ -208,7 +211,9 @@ export function trimTrailingSilence(p: ParsedMp3, keepMs: number): Mp3Frame[] {
   let last = frames.length - 1;
   while (last > 0 && isSilentFrame(frames[last])) last--;
   const frameMs = framesMs(p, [frames[0]]);
-  const keep = Math.max(0, Math.round(keepMs / frameMs));
+  // margine di sicurezza: la fine di una parola detta piano (consonante, respiro) può sembrare
+  // silenzio; almeno ~80 ms oltre l'ultimo frame "sonoro" restano sempre (mai sillabe mangiate)
+  const keep = Math.max(SAFETY_TAIL_FRAMES, Math.round(keepMs / frameMs));
   return frames.slice(0, Math.min(frames.length, last + 1 + keep));
 }
 

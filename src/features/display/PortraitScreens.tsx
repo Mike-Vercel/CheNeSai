@@ -488,7 +488,7 @@ function PortraitBoard({
                 )}
               >
                 {rank && <span className={clsx("w-[7cqw] text-center font-display text-[5cqw]", i === 0 && !me ? "text-ink" : "text-gold")}>{e.rank}</span>}
-                <span className={clsx("min-w-0 flex-1 truncate font-display text-[5cqw]", rank && i === 0 && !me ? "text-ink" : "text-white")}>
+                <span className={clsx("min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[5cqw]", rank && i === 0 && !me ? "text-ink" : "text-white")}>
                   {e.nickname}
                   {me && <span className="ml-[1.5cqw] text-[3.4cqw] text-cyan">(tu)</span>}
                 </span>

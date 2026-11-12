@@ -50,7 +50,8 @@ export function useGameState({ fetchSnapshot, safetyPollMs, enabled = true, onSt
   const apply = useCallback((next: PublicState, source: "snapshot" | "realtime") => {
     const prev = stateRef.current;
     if (prev && prev.sessionId === next.sessionId && next.version < prev.version) return; // fuori ordine
-    if (prev && prev.sessionId === next.sessionId && next.version === prev.version && source === "realtime") return;
+    // stessa versione via realtime: si accetta solo l'avviso "il TV ha illuminato la risposta"
+    if (prev && prev.sessionId === next.sessionId && next.version === prev.version && source === "realtime" && next.revealShown === prev.revealShown && next.questionShown === prev.questionShown) return;
     if (source === "realtime") {
       // stima grezza dell'offset anche dai broadcast (latenza inclusa): usata solo se non c'è di meglio
       if (!Number.isFinite(bestRttRef.current)) offsetRef.current = Date.parse(next.serverNow) - Date.now();

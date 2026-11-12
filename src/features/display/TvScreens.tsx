@@ -437,7 +437,7 @@ function BetRow({ e, i, win }: { e: PublicBetHighlight; i: number; win: boolean 
         win ? "border-[#5dffab]/70 bg-[#0b3a22]/85" : "border-[#ff8098]/60 bg-[#3d0914]/80",
       )}
     >
-      <span className="min-w-0 flex-1 truncate font-display text-[3cqh] text-white">{e.nickname}</span>
+      <span className="min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3cqh] text-white">{e.nickname}</span>
       <span className={clsx("rounded-full border-[0.3cqh] px-[1.2cqh] font-display text-[2cqh]", BET_PILL[e.tier])}>{e.tier === 0 ? "—" : BET_TIER_LABEL[e.tier]}</span>
       <span className={clsx("w-[14cqh] text-right font-display text-[3.2cqh]", win ? "text-[#5dffab]" : "text-[#ff8098]")}>{signedPoints(e.delta)}</span>
     </motion.div>
@@ -836,7 +836,7 @@ export function TvAnswerPointsScreen({
                 e.lastDelta > 0 ? "border-[#5dffab]/70 bg-[#0b3a22]/85" : e.lastDelta < 0 ? "border-[#ff8098]/60 bg-[#3d0914]/80" : "border-white/20 bg-black/45",
               )}
             >
-              <span className="min-w-0 flex-1 truncate font-display text-[3cqh] text-white">{e.nickname}</span>
+              <span className="min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3cqh] text-white">{e.nickname}</span>
               <span className={clsx("font-display text-[3.2cqh]", e.lastDelta > 0 ? "text-[#5dffab]" : e.lastDelta < 0 ? "text-[#ff8098]" : "text-white/60")}>
                 {e.lastDelta === 0 ? "0" : signedPoints(e.lastDelta)}
               </span>
@@ -903,7 +903,7 @@ export function TvLeaderboardScreen({
             >
               <span className={clsx("w-[6cqh] text-center font-display text-[3.6cqh]", i === 0 ? "text-ink" : "text-gold")}>{e.rank}</span>
               {!round && <Movement e={e} />}
-              <span className={clsx("min-w-0 flex-1 truncate font-display text-[3.4cqh]", i === 0 ? "text-ink" : "text-white")}>{e.nickname}</span>
+              <span className={clsx("min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[3.4cqh]", i === 0 ? "text-ink" : "text-white")}>{e.nickname}</span>
               {round && (
                 <span className={clsx("font-display text-[2.4cqh]", i === 0 ? "text-ink/70" : "text-white/60")}>tot. {formatPoints(round.totals.get(e.participantId) ?? 0)}</span>
               )}
@@ -1112,7 +1112,7 @@ export function TvPodiumScreen({
                   className="flex items-center gap-[1.4cqh] rounded-[1.4cqh] border-[0.3cqh] border-white/25 bg-black/55 px-[1.6cqh] py-[0.2cqh]"
                 >
                   <span className="w-[5cqh] text-center font-display text-[2.8cqh] text-gold">{e.rank}°</span>
-                  <span className="min-w-0 flex-1 truncate font-display text-[2.8cqh] text-white">{e.nickname}</span>
+                  <span className="min-w-0 flex-1 leading-tight [overflow-wrap:anywhere] font-display text-[2.8cqh] text-white">{e.nickname}</span>
                   <span className="font-display text-[2.4cqh] text-white/75">{formatPoints(e.points)}</span>
                 </motion.div>
               );
@@ -1172,7 +1172,7 @@ export function TvPodiumScreen({
                 >
                   <span className={portrait ? "text-[10cqw]" : "text-[7cqh]"}>{MEDAL[rank]}</span>
                   {st.entries.map((e) => (
-                    <span key={e.nickname} className={clsx("max-w-full truncate font-display leading-tight text-white [text-shadow:0_4px_0_rgba(0,0,0,.5)]", portrait ? "text-[6.4cqw]" : "text-[4.4cqh]")}>
+                    <span key={e.nickname} className={clsx("max-w-full text-center font-display leading-tight [overflow-wrap:anywhere] text-white [text-shadow:0_4px_0_rgba(0,0,0,.5)]", portrait ? "text-[6.4cqw]" : "text-[4.4cqh]")}>
                       {e.nickname}
                     </span>
                   ))}

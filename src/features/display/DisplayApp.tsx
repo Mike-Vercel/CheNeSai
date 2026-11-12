@@ -369,6 +369,10 @@ export function DisplayApp({
       if (phaseChanged && s.phase !== "ANSWER_REVEAL") holdReveal(null);
       const showReveal = () => {
         holdReveal(null);
+        // i telefoni dei giocatori mostrano giusto/sbagliato da adesso, insieme al TV
+        if (!viewerCode && s.question) {
+          void api(`/api/display/${sessionId}/cue?k=${encodeURIComponent(displayKey)}`, { method: "POST", json: { questionId: s.question.id, cue: "answer" }, timeoutMs: 10000 }).catch(() => undefined);
+        }
         sound.play("reveal");
         setConfettiIntensity(0.5);
         setConfetti((c) => c + 1);
@@ -483,7 +487,7 @@ export function DisplayApp({
         }
       }
     },
-    [playClip, sound, stopClip, voice, startedRef, viewerCode],
+    [playClip, sound, stopClip, voice, startedRef, viewerCode, sessionId, displayKey],
   );
 
   const { state, status, now } = useGameState({
@@ -696,6 +700,12 @@ export function DisplayApp({
     // eslint-disable-next-line react-hooks/exhaustive-deps -- il momento dipende solo dalla domanda
   }, [introQid, cardFor, introStart, now]);
   const questionIntro = !!introQid && cardFor !== introQid && !!introMoment && now() - introStart < questionIntroMaxMs(introMoment);
+  // la domanda è comparsa sul TV (fine del cartello): i telefoni dei giocatori la mostrano adesso
+  const shownQid = !viewerCode && state?.phase === "QUESTION_VISIBLE" && state.question && !questionIntro ? state.question.id : null;
+  useEffect(() => {
+    if (!shownQid) return;
+    void api(`/api/display/${sessionId}/cue?k=${encodeURIComponent(displayKey)}`, { method: "POST", json: { questionId: shownQid, cue: "question" }, timeoutMs: 10000 }).catch(() => undefined);
+  }, [shownQid, sessionId, displayKey]);
 
   async function start() {
     if (startedRef.current) return;

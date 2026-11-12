@@ -367,6 +367,13 @@ export interface PublicShowLine {
 }
 
 export interface PublicState {
+  /**
+   * Soluzione (ANSWER_REVEAL): il TV ha già illuminato la risposta giusta dopo "La risposta giusta
+   * è…". I telefoni dei giocatori mostrano giusto/sbagliato solo da qui (insieme al TV).
+   */
+  revealShown?: boolean;
+  /** QUESTION_VISIBLE: la domanda è già comparsa sul TV (dopo il cartello): i telefoni la mostrano da qui. */
+  questionShown?: boolean;
   sessionId: string;
   code: string;
   title: string;
