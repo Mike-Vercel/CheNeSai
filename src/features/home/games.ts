@@ -1,7 +1,7 @@
 /**
  * Piattaforma dei giochi: nome e catalogo della home.
  * Per aggiungere un gioco basta aggiungere una voce a GAMES (e la sua copertina verticale in /public/games,
- * ricavata dall'originale in REFERENCE/GIOCHI).
+ * ricavata dall'originale in REFERENCE/GIOCHI/CHE_NE_SAI/COPERTINE).
  */
 
 /** Nome provvisorio della piattaforma (barra in alto, piè di pagina): si cambia qui. */

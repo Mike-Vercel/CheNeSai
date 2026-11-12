@@ -2,7 +2,7 @@
 import bpy, sys, json
 from mathutils import Vector
 
-REF = r"C:\Users\micha\Desktop\LAVORO\SARA_MANNINA\QUIZZONE\REFERENCE\MODELLI-3D"
+REF = r"C:\Users\micha\Desktop\LAVORO\SARA_MANNINA\QUIZZONE\REFERENCE\GIOCHI\CHE_NE_SAI\MODELLI-3D"
 out = {}
 
 def load(name):
