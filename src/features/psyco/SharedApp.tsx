@@ -8,7 +8,8 @@ import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import type { PsycoPrivateView, PsycoPublicState, PsycoView, PublicParticipant } from "@/lib/psyco/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
-import { PsycoNarratorSlot } from "./NarratorSlot";
+import { PsycoIntro } from "./intro/PsycoIntro";
+import { PsycoNarratorDock } from "./NarratorSlot";
 import { HostBar, ScreenPanel, StartPanel } from "./HostControls";
 import { getNarrator } from "./narrator";
 import { CandidateVote, DifficultyVote, DontLook, ErrorNote, ProposalForm, ProposalVote, useActions } from "./panels";
@@ -26,6 +27,8 @@ export function SharedApp({ roomId }: { roomId: string }) {
   const { state, view, status, error, refresh, applyView, now } = usePsyco({ source: { kind: "room", roomId } });
   const { run, busy, error: actError, clearError } = useActions(roomId, applyView, () => void refresh());
   usePsycoAudio(state, now, { voiced: !state?.displayOnline });
+  // schermata privata aperta (ruolo, regola, voto segreto): ritratto del narratore ridotto
+  const [privateOpen, setPrivateOpen] = useState(false);
 
   if (error && !state) {
     return (
@@ -60,12 +63,14 @@ export function SharedApp({ roomId }: { roomId: string }) {
       <LinkBadge status={status} />
       {state.phase === "PLAYING" && state.round && <CountdownOverlay timer={state.round.timer} now={now} />}
       <div className="flex w-full flex-col items-center gap-6">
-        {!state.displayOnline && <PsycoNarratorSlot size="md" />}
+        {!state.displayOnline && <PsycoNarratorDock compact={privateOpen} />}
         <ErrorNote error={actError} onClose={clearError} />
-        <SharedPhase key={`${state.round?.no ?? 0}:${state.phase}`} state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} />
+        <SharedPhase key={`${state.round?.no ?? 0}:${state.phase}`} state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} onPrivate={setPrivateOpen} />
         {state.phase !== "LOBBY" && state.phase !== "ROUND_END" && <HostBar state={state} view={view} run={(a) => run(a)} busy={busy} />}
       </div>
-      <Captions />
+      {/* senza TV il sottotitolo è nel fumetto accanto al ritratto; con la TV resta quello fisso */}
+      {state.displayOnline && <Captions />}
+      <PsycoIntro roomId={roomId} eligible={!state.displayOnline && state.phase === "LOBBY"} />
     </Frame>
   );
 }
@@ -113,14 +118,14 @@ function nextHolder(state: PsycoPublicState): PublicParticipant | null {
   }
 }
 
-function SharedPhase({ state, view, run, busy, now, roomId }: { state: PsycoPublicState; view: PsycoPrivateView; run: Run; busy: string | null; now: () => number; roomId: string }) {
+function SharedPhase({ state, view, run, busy, now, roomId, onPrivate }: { state: PsycoPublicState; view: PsycoPrivateView; run: Run; busy: string | null; now: () => number; roomId: string; onPrivate: (open: boolean) => void }) {
   const r = state.round;
   const psycoName = r?.psycoNickname ?? "";
 
   if (state.phase === "LOBBY") return <SharedLobby state={state} run={run} busy={busy} roomId={roomId} />;
 
   if (["ROLE_REVEAL", "DIFFICULTY_VOTE", "RULE_VOTE", "RULE_PROPOSALS", "PROPOSAL_VOTE"].includes(state.phase)) {
-    return <PassTheDevice state={state} run={run} busy={busy} roomId={roomId} />;
+    return <PassTheDevice state={state} run={run} busy={busy} roomId={roomId} onPrivate={onPrivate} />;
   }
 
   if (state.phase === "RULE_CONFIRMED") {
@@ -211,7 +216,7 @@ function ManageLocals({ state, run, busy }: { state: PsycoPublicState; run: Run;
 }
 
 /** Il cuore del dispositivo condiviso: «PASSA IL TELEFONO A …» → «SONO … » → schermata privata → copertura. */
-function PassTheDevice({ state, run, busy, roomId }: { state: PsycoPublicState; run: Run; busy: string | null; roomId: string }) {
+function PassTheDevice({ state, run, busy, roomId, onPrivate }: { state: PsycoPublicState; run: Run; busy: string | null; roomId: string; onPrivate: (open: boolean) => void }) {
   const [holder, setHolder] = useState<PublicParticipant | null>(null);
   const [hv, setHv] = useState<PsycoPrivateView | null>(null);
   const [loading, setLoading] = useState(false);
@@ -231,6 +236,12 @@ function PassTheDevice({ state, run, busy, roomId }: { state: PsycoPublicState; 
     announced.current = key;
     getNarrator().say(["passa-telefono"]);
   }, [holder, nextId, state.phase, r.vote?.ballot]);
+
+  const privateOpen = !!holder;
+  useEffect(() => {
+    onPrivate(privateOpen);
+    return () => onPrivate(false);
+  }, [privateOpen, onPrivate]);
 
   // il voto/la fase sono cambiati sotto le mani (es. maggioranza raggiunta): si torna alla copertura
   const ballot = r.vote?.ballot ?? state.phase;

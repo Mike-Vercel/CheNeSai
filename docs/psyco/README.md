@@ -53,18 +53,21 @@ API (`src/app/api/psyco/…`): `POST/GET rooms`, `GET rooms/[id]?as=`, `POST roo
 
 - `src/lib/psyco/` tipi condivisi e logica pura (timer, voti, rotazione, validazioni)
 - `src/lib/server/psyco/` motore (`engine.ts`), stanze/ingresso/schermo (`rooms.ts`), stato pubblico e privato (`state.ts`), realtime, regole admin
-- `src/features/psyco/` interfacce: `RoomApp` (dispositivo personale), `SharedApp` (un solo dispositivo), `DisplayApp` (TV), `CreateForm`, `JoinFlow`, `SettingsForm`, `HostControls`, `panels`, `ui`, `audio`, `narrator`, `NarratorSlot`
+- `src/features/psyco/` interfacce: `RoomApp` (dispositivo personale), `SharedApp` (un solo dispositivo), `DisplayApp` (TV), `CreateForm`, `JoinFlow`, `SettingsForm`, `HostControls`, `panels`, `ui`, `audio`, `narrator`, `NarratorSlot`, `investigatore/` (busto 3D del narratore), `intro/` (introduzione 3D)
 - `src/app/psyco/` pagine, `layout.tsx` (caratteri Rubik Dirt + Special Elite, OFL), `psyco.css` (identità noir)
 
-## Posto del narratore 3D
+## Il narratore 3D (l'Investigatore) e l'introduzione
 
-`src/features/psyco/NarratorSlot.tsx` → `<PsycoNarratorSlot size="sm|md|lg|tv" render? />`, già nelle schermate: TV (in basso a sinistra, `size="tv"`), dispositivo condiviso (in alto, `md`), telefono dell'host senza TV (`sm`). Stato da `getNarrator().onState(fn)` → `{ speaking, audible, id, text }`; `getNarrator().getAnalyser()` = AnalyserNode della voce (lip sync). Attributi DOM `data-psyco-narrator`, `data-speaking`, `data-voice-id`. Per il modello `INVESTIGATORE_PARLANTE.glb`: passare `render={(s) => <ModelloInvestigatore speaking={s.speaking} analyser={s.analyser} />}`.
+Vedi [INVESTIGATORE.md](INVESTIGATORE.md): varianti A/B del modello (si cambia in `src/features/three/characters/investigatore.ts`),
+`<PsycoNarratorSlot size="xs|sm|md|lg|tv" />` (TV in basso a sinistra) e `<PsycoNarratorDock compact? />` (telefono dell'host senza TV
+e dispositivo condiviso: ritratto + fumetto), labbra a tempo sulla voce (`getNarrator().getAnalyser()`), introduzione 3D una volta per
+stanza con «SALTA INTRO», anteprime `/preview/investigatore`. Attributi DOM `data-psyco-narrator`, `data-speaking`, `data-voice-id`, `data-mode="3d|2d"`.
 
 ## Test
 
 - `tests/unit/psyco.test.ts`, `tests/unit/psyco-narrator.test.ts`: timer libero, riferimento al server, rotazione, votazioni, input, archivio, momenti della voce.
 - `tests/integration/psyco.test.ts`: tutto il motore contro il database locale (minimo 3, un posto per account, ruoli, automatica/libera, spareggi, timer, uscite, un solo dispositivo, segreti mai nello stato pubblico, pulizia). `tests/integration/psyco-scale.test.ts`: 50 e 100 partecipanti (vedi LIMITI.md).
-- e2e: `psyco-shared.spec.ts` (un telefono, 5 nickname, 2 manche, clip della voce), `psyco-multi.spec.ts` (PC host + TV senza account + QR con registrazione e ritorno + 4 telefoni, minimo 3, timer/pausa/refresh, tentativi, manche libera, traffico HTTP e realtime dello PSYCO e della TV senza segreti), `psyco-pages.spec.ts` (catalogo, home del gioco, accesso richiesto). Con `PSYCO_SHOTS_DIR=…` salvano gli screenshot.
+- e2e: `psyco-shared.spec.ts` (un telefono, 5 nickname, 2 manche, clip della voce), `psyco-multi.spec.ts` (PC host + TV senza account + QR con registrazione e ritorno + 4 telefoni, minimo 3, timer/pausa/refresh, tentativi, manche libera, traffico HTTP e realtime dello PSYCO e della TV senza segreti), `psyco-pages.spec.ts` (catalogo, home del gioco, accesso richiesto), `psyco-intro.spec.ts` (intro: «SALTA INTRO», fine da sola, effetti e modelli presenti). Con `PSYCO_SHOTS_DIR=…` salvano gli screenshot.
 
 ## Pubblicazione
 

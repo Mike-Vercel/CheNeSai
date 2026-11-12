@@ -183,6 +183,8 @@ class Narrator {
   private stateListeners = new Set<StateListener>();
   private missing = new Set<VoiceId>();
   private analyser: AnalyserNode | null = null;
+  /** In attesa (intro 3D): le frasi si accodano ma non partono finché l'intro non le libera. */
+  private held = false;
   state: NarratorState = { speaking: false, audible: false, id: null, text: null };
 
   onCaption(fn: CaptionListener): () => void {
@@ -228,6 +230,21 @@ class Narrator {
     // al massimo pochi clip in attesa: se il gioco corre più veloce della voce, si saltano i vecchi
     this.queue.push(...ids);
     if (this.queue.length > 4) this.queue = this.queue.slice(-4);
+    if (!this.playing && !this.held) void this.next();
+  }
+
+  /**
+   * Intro di PSYCO: trattiene le frasi del gioco (si accodano, non partono) finché l'intro non arriva
+   * al momento della voce. Mai bloccante: l'intro chiama sempre `release` (fine, «Salta», errore, uscita).
+   */
+  hold() {
+    this.held = true;
+  }
+
+  /** Libera la coda; `first` = frasi da dire subito, davanti alle altre (senza doppioni). */
+  release(first: VoiceId[] = []) {
+    if (first.length) this.queue = [...first, ...this.queue.filter((id) => !first.includes(id))];
+    this.held = false;
     if (!this.playing) void this.next();
   }
 
@@ -237,7 +254,7 @@ class Narrator {
   }
 
   private async next() {
-    const id = this.queue.shift();
+    const id = this.held ? undefined : this.queue.shift();
     if (!id) {
       this.playing = false;
       this.setState({ speaking: false, audible: false, id: null, text: null });

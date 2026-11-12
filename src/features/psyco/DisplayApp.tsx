@@ -5,6 +5,7 @@ import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { DIFFICULTY_LABEL, type PsycoPublicState } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
+import { PsycoIntro } from "./intro/PsycoIntro";
 import { PsycoNarratorSlot } from "./NarratorSlot";
 import { usePsyco } from "./use-psyco";
 import { BigTimer, CountdownOverlay, EventFlash, joinUrl, Lens, LinkBadge, PlayerList, Progress, PsycoLogo, QrCode, RoundResult } from "./ui";
@@ -62,9 +63,11 @@ export function DisplayApp({ displayKey }: { displayKey: string }) {
           🔊 ATTIVA AUDIO
         </button>
       )}
-      {/* posto del narratore (l'Investigatore): illustrazione provvisoria, poi il modello 3D */}
-      <PsycoNarratorSlot size="tv" className="fixed bottom-[3vh] left-[2vw] z-30" />
-      <Captions position="bottom" className="!bottom-[5vh] !left-[16vw] [&_p]:!text-[3vh]" />
+      {/* il narratore: l'Investigatore 3D in basso a sinistra, il sottotitolo accanto */}
+      {/* in sala d'attesa un po' più piccolo: resta sotto il QR e il suo indirizzo senza toccarli */}
+      <PsycoNarratorSlot size={state.phase === "LOBBY" && state.status === "open" ? "tvs" : "tv"} className="fixed bottom-[3vh] left-[2vw] z-30" />
+      <Captions position="bottom" className="!bottom-[5vh] !left-[calc(4vw+29vh)] !right-[2vw] [&_p]:!text-[3vh]" />
+      <PsycoIntro roomId={state.roomId} eligible={state.phase === "LOBBY" && state.status === "open"} />
     </main>
   );
 }

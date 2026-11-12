@@ -6,7 +6,8 @@ import { ExitButton } from "@/features/game/components/ExitButton";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import type { DifficultyChoice, PsycoPrivateView, PsycoPublicState, SecretRule } from "@/lib/psyco/types";
 import { AudioPanel, Captions, usePsycoAudio } from "./audio";
-import { PsycoNarratorSlot } from "./NarratorSlot";
+import { PsycoIntro } from "./intro/PsycoIntro";
+import { PsycoNarratorDock } from "./NarratorSlot";
 import { HostBar, ScreenPanel, StartPanel } from "./HostControls";
 import { CandidateVote, DifficultyVote, DontLook, ErrorNote, GuessVote, ProposalForm, ProposalVote, useActions } from "./panels";
 import { usePsyco } from "./use-psyco";
@@ -59,12 +60,14 @@ export function RoomApp({ roomId }: { roomId: string }) {
     );
   }
 
+  // il narratore parla solo qui (host senza TV): ritratto con il fumetto, al posto del sottotitolo fisso
+  const narratorHere = view.isHost && !state.displayOnline;
   return (
     <Shell state={state} view={view} onLeave={() => void run({ action: "leave" }).then((ok) => ok && window.location.assign("/psyco"))}>
       <LinkBadge status={status} />
       {state.phase === "PLAYING" && state.round && <CountdownOverlay timer={state.round.timer} now={now} />}
       <div className="flex w-full flex-col items-center gap-6">
-        {view.isHost && !state.displayOnline && <PsycoNarratorSlot size="sm" />}
+        {narratorHere && <PsycoNarratorDock compact={SECRET_PHASES.has(state.phase)} />}
         <HostOffline state={state} view={view} onClaim={() => void run({ action: "claim_host" })} />
         <ErrorNote error={actError} onClose={clearError} />
         <Phase state={state} view={view} run={run} busy={busy} now={now} roomId={roomId} />
@@ -78,10 +81,14 @@ export function RoomApp({ roomId }: { roomId: string }) {
           </section>
         )}
       </div>
-      <Captions />
+      {!narratorHere && <Captions />}
+      <PsycoIntro roomId={roomId} eligible={narratorHere && state.phase === "LOBBY"} />
     </Shell>
   );
 }
+
+/** Fasi con schermate segrete (ruolo, scelta della regola): ritratto del narratore ridotto. */
+const SECRET_PHASES = new Set<PsycoPublicState["phase"]>(["ROLE_REVEAL", "DIFFICULTY_VOTE", "RULE_VOTE", "RULE_PROPOSALS", "PROPOSAL_VOTE"]);
 
 function Shell({ children, state, view, onLeave }: { children: React.ReactNode; state?: PsycoPublicState; view?: PsycoPrivateView; onLeave?: () => void }) {
   const [menu, setMenu] = useState(false);

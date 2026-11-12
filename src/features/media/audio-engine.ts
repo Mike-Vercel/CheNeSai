@@ -506,6 +506,42 @@ class SoundEngine {
     });
   }
 
+  /**
+   * Campione già decodificato sul bus degli effetti (rispetta muto e volume degli effetti), es. i passi
+   * dell'intro di PSYCO. `rate` cambia tono e durata (variazione tra un passo e l'altro), `loop` per i
+   * sottofondi (pioggia). Restituisce la sorgente (per fermarla) oppure null se l'audio è bloccato o muto.
+   */
+  playBuffer(buffer: AudioBuffer, opts: { gain?: number; rate?: number; loop?: boolean; fadeInMs?: number } = {}): { stop: (fadeMs?: number) => void } | null {
+    const ctx = this.ctx;
+    if (!ctx || ctx.state !== "running" || this.settings.muted || !this.sfxBus) return null;
+    const src = ctx.createBufferSource();
+    src.buffer = buffer;
+    src.loop = !!opts.loop;
+    src.playbackRate.value = opts.rate ?? 1;
+    const g = ctx.createGain();
+    const target = opts.gain ?? 1;
+    const t0 = ctx.currentTime;
+    if (opts.fadeInMs) {
+      g.gain.setValueAtTime(0, t0);
+      g.gain.linearRampToValueAtTime(target, t0 + opts.fadeInMs / 1000);
+    } else g.gain.value = target;
+    src.connect(g).connect(this.sfxBus);
+    src.start(t0 + 0.005);
+    return {
+      stop: (fadeMs = 0) => {
+        try {
+          const t = ctx.currentTime;
+          g.gain.cancelScheduledValues(t);
+          g.gain.setValueAtTime(g.gain.value, t);
+          g.gain.linearRampToValueAtTime(0, t + Math.max(0.01, fadeMs / 1000));
+          src.stop(t + Math.max(0.02, fadeMs / 1000 + 0.02));
+        } catch {
+          /* già fermata */
+        }
+      },
+    };
+  }
+
   /** Abbassa la musica mentre parla un personaggio. */
   duck(on: boolean) {
     if (!this.ctx || !this.duckGain) return;
