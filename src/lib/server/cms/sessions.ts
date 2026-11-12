@@ -596,7 +596,10 @@ export async function validateForPublish(db: Db, sessionId: string): Promise<Pub
         if (n === 0) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": la categoria "${o.label}" non ha domande pronte` });
       }
       const orphan = playable.filter((q) => !q.voteOptionId);
-      if (orphan.length > 0) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": ${orphan.length} domande non sono assegnate a una categoria` });
+      // partita libera di un solo round: le domande "comuni" si giocano dopo quelle della materia votata
+      if (orphan.length > 0 && r.kind === "category_vote" && detail.hostUserId) {
+        issues.push({ level: "warning", roundId: r.id, message: `Round "${r.title}": ${orphan.length} domande comuni, dopo quelle della materia votata` });
+      } else if (orphan.length > 0) issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": ${orphan.length} domande non sono assegnate a una categoria` });
     } else if (playable.length === 0) {
       issues.push({ level: "error", roundId: r.id, message: `Round "${r.title}": nessuna domanda` });
     }
@@ -858,14 +861,16 @@ export async function insertRoundQuestions(
   tx: Tx,
   roundId: string,
   questionIds: string[],
-  opts: { voteOptionId?: string | null; isReserve?: boolean },
+  opts: { voteOptionId?: string | null; isReserve?: boolean; common?: boolean },
   actor: Actor,
   details?: Record<string, unknown>,
 ): Promise<void> {
   const [r] = await tx<{ session_id: string; kind: RoundKind }[]>`select session_id, kind from game_rounds where id = ${roundId}`;
   if (!r) throw new CmsError("Round non trovato", 404);
   await requireDraft(tx, r.session_id);
-  if (isCategoryRound(r.kind) && !opts.voteOptionId && !opts.isReserve) {
+  // domande "comuni" di un round a votazione (partita libera di un solo round): si giocano dopo quelle votate
+  const common = !!opts.common && r.kind === "category_vote";
+  if (isCategoryRound(r.kind) && !opts.voteOptionId && !opts.isReserve && !common) {
     throw new CmsError(r.kind === "category_wheel" ? "Nei round con la ruota ogni domanda va assegnata a una categoria" : "Nei round con votazione ogni domanda va assegnata a una categoria", 422);
   }
   if (opts.voteOptionId) {

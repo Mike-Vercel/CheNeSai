@@ -140,6 +140,14 @@ export function Pill({ children, tone = "gold", className }: { children: ReactNo
   );
 }
 
+/**
+ * Etichetta del tipo di round sulla domanda: niente per i round normali e per quelli con le categorie
+ * (votazione, Ruota impazzita): durante le domande "Scegliete la categoria" sarebbe fuori luogo.
+ */
+export function questionRoundLabel(kind: PublicRound["kind"]): string | null {
+  return kind === "standard" || kind === "category_vote" || kind === "category_wheel" ? null : ROUND_KIND_LABEL[kind];
+}
+
 export function questionTextSize(text: string): string {
   if (text.length <= 60) return "text-[6cqh]";
   if (text.length <= 110) return "text-[4.8cqh]";
@@ -232,8 +240,9 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
             Domanda {q.number} di {Math.max(totalQuestions, q.number)}
           </Pill>
           <Pill tone="dark">{q.category}</Pill>
+          {isMusic && <Pill tone="fuchsia">🎧 Ascolta la canzone</Pill>}
           {q.type === "multiple" && <Pill tone="cyan">Più risposte corrette</Pill>}
-          {round && round.kind !== "standard" && <Pill tone="violet">{ROUND_KIND_LABEL[round.kind]}</Pill>}
+          {round && questionRoundLabel(round.kind) && <Pill tone="violet">{questionRoundLabel(round.kind)}</Pill>}
           {event && (
             <Pill tone="fuchsia" className="animate-pulse-glow">
               {EVENT_ICON[event.type]} {event.title}
@@ -252,7 +261,7 @@ export function TvQuestionScreen({ question: q, round, remainingMs, event, media
           {isMusic && !optionsVisible && (
             <div className="mt-[1.6cqh] flex items-center gap-[2cqh] text-[3cqh] font-extrabold text-violet">
               <Equalizer active={audioState === "playing"} />
-              {audioState === "playing" ? "Ascoltate bene…" : audioState === "error" ? "Audio dalla regia" : "In ascolto"}
+              {audioState === "playing" ? "Ascoltate bene…" : audioState === "error" ? "Audio dalla regia" : audioState === "done" ? "Ora indovinate!" : "Sta per partire la canzone…"}
             </div>
           )}
           {!optionsVisible && !isMusic && !isBet && (
@@ -478,13 +487,13 @@ export function TvBetResultsScreen({ bets, who }: { bets: PublicBets; who: "prof
   );
 }
 
-function Equalizer({ active }: { active: boolean }) {
+export function Equalizer({ active, className = "h-[4cqh] gap-[0.5cqh]", barClassName = "w-[0.9cqh]" }: { active: boolean; className?: string; barClassName?: string }) {
   return (
-    <span className="flex h-[4cqh] items-end gap-[0.5cqh]" aria-hidden>
+    <span className={clsx("flex items-end", className)} aria-hidden>
       {[0, 1, 2, 3, 4].map((i) => (
         <span
           key={i}
-          className="w-[0.9cqh] rounded-full bg-gradient-to-t from-violet to-fuchsia"
+          className={clsx("rounded-full bg-gradient-to-t from-violet to-fuchsia", barClassName)}
           style={{
             height: active ? undefined : "30%",
             animation: active ? `qz-eq 0.${5 + i}s ease-in-out ${i * 0.07}s infinite alternate` : undefined,

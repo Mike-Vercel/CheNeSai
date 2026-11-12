@@ -4,15 +4,15 @@
 import { clsx } from "clsx";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
-import type { GamePhase, LeaderboardEntry, Presenter, PublicEvent, PublicQuestion, PublicRound, PublicShowLine, PublicState } from "@/lib/game-engine/types";
-import { AnswerButton, type AnswerVisual } from "@/features/game/components/answers";
+import type { GamePhase, LeaderboardEntry, Presenter, PublicEvent, PublicQuestion, PublicRound, PublicShowLine, PublicState, PublicVote } from "@/lib/game-engine/types";
+import { AnswerButton, ANSWER_STYLES, LETTERS, type AnswerVisual } from "@/features/game/components/answers";
 import { CHARACTERS, Logo } from "@/features/game/components/brand";
 import { SpeechBubble, TimerRing } from "@/features/game/components/effects";
 import { EVENT_ICON, formatPoints, isQuestionQuip, ROUND_KIND_LABEL, signedPoints } from "@/features/game/lines";
 import { useSeatContext } from "@/features/gioca/use-seat";
 import { fmt } from "@/lib/game-engine/special-rounds";
 import { presenterCue } from "./presenter-cue";
-import { Pill, showLineBubble, TvFrame, useSpokenBubble } from "./TvScreens";
+import { Equalizer, Pill, questionRoundLabel, showLineBubble, TvFrame, useSpokenBubble } from "./TvScreens";
 import { TrioSlot } from "./TvTrio";
 import { useRevealHeld } from "./reveal-hold";
 import { useHeldSpeech } from "@/features/media/voice";
@@ -85,7 +85,7 @@ export function PortraitLobbyScreen({ state, qrDataUrl, joinUrl }: { state: Publ
 // ---------------------------------------------------------------------------
 // Presentazione del round
 // ---------------------------------------------------------------------------
-export function PortraitRoundIntroScreen({ round, showLines }: { round: PublicRound; showLines?: readonly PublicShowLine[] | null }) {
+export function PortraitRoundIntroScreen({ round, showLines, vote = null }: { round: PublicRound; showLines?: readonly PublicShowLine[] | null; vote?: PublicVote | null }) {
   const presenter = round.kind === "category_vote" ? "palmino" : round.presenter;
   const c = CHARACTERS[presenter];
   return (
@@ -107,6 +107,15 @@ export function PortraitRoundIntroScreen({ round, showLines }: { round: PublicRo
           {round.kind === "category_vote" ? "ADESSO DECIDETE VOI!" : ROUND_KIND_LABEL[round.kind]}
         </p>
         {round.description && <p className="text-[4.4cqw] font-extrabold text-white/90">{round.description}</p>}
+        {vote && vote.options.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-[2cqw]">
+            {vote.options.map((o) => (
+              <span key={o.id} className="rounded-[3cqw] border-[0.6cqw] border-gold px-[3.5cqw] py-[1.2cqw] font-display text-[5.4cqw] text-white" style={{ background: ANSWER_STYLES[o.position].bg }}>
+                {LETTERS[o.position]} · {o.label}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="flex flex-wrap justify-center gap-[1.6cqw]">
           {round.pointsMultiplier !== 1 && (
             <Pill tone="fuchsia" className={smallPill}>
@@ -151,6 +160,7 @@ export function PortraitQuestionScreen({
   event,
   mediaUrl,
   totalQuestions,
+  audioState = "idle",
 }: {
   question: PublicQuestion;
   round: PublicRound | null;
@@ -161,8 +171,11 @@ export function PortraitQuestionScreen({
   event: PublicEvent | null;
   mediaUrl: string | null;
   totalQuestions: number;
+  /** canzone della domanda: estratto in arrivo, in riproduzione, finito */
+  audioState?: "idle" | "playing" | "done" | "error";
 }) {
   const seat = useSeatContext();
+  const isMusic = q.media?.kind === "audio";
   const held = useRevealHeld(q.id);
   const revealed = !!q.correctPositions && !held;
   const optionsVisible = !!q.options;
@@ -201,16 +214,21 @@ export function PortraitQuestionScreen({
             </>
           }
         />
-        {(event || multiple || (round && round.kind !== "standard")) && (
+        {(event || multiple || isMusic || (round && questionRoundLabel(round.kind))) && (
           <div className="flex flex-wrap justify-center gap-[1.5cqw]">
+            {isMusic && (
+              <Pill tone="fuchsia" className={smallPill}>
+                🎧 Ascolta la canzone
+              </Pill>
+            )}
             {multiple && (
               <Pill tone="cyan" className={smallPill}>
                 Più risposte giuste
               </Pill>
             )}
-            {round && round.kind !== "standard" && (
+            {round && questionRoundLabel(round.kind) && (
               <Pill tone="violet" className={smallPill}>
-                {ROUND_KIND_LABEL[round.kind]}
+                {questionRoundLabel(round.kind)}
               </Pill>
             )}
             {event && (
@@ -254,7 +272,13 @@ export function PortraitQuestionScreen({
           className="qz-question-card relative z-10 shrink-0 rounded-[4cqw] px-[4.5cqw] py-[3.5cqw] text-center"
         >
           <p className={clsx("font-display leading-[1.12]", questionSize(q.text))}>{q.text}</p>
-          {!optionsVisible && <p className="mt-[1.5cqw] text-[3.6cqw] font-extrabold text-ink/60">Le risposte stanno per arrivare…</p>}
+          {!optionsVisible && isMusic && (
+            <div className="mt-[2cqw] flex items-center justify-center gap-[3cqw] font-display text-[5.2cqw] text-violet">
+              <Equalizer active={audioState === "playing"} className="h-[7cqw] gap-[1cqw]" barClassName="w-[1.6cqw]" />
+              {audioState === "playing" ? "Ascoltate bene…" : audioState === "done" ? "Ora indovinate!" : audioState === "error" ? "Audio non partito, leggi e indovina!" : "Sta per partire la canzone…"}
+            </div>
+          )}
+          {!optionsVisible && !isMusic && <p className="mt-[1.5cqw] text-[3.6cqw] font-extrabold text-ink/60">Le risposte stanno per arrivare…</p>}
         </motion.div>
 
         {optionsVisible && (
@@ -312,6 +336,110 @@ export function PortraitQuestionScreen({
         <p className="mt-auto text-center text-[3.4cqw] font-extrabold text-white/70">
           {q.answeredCount !== null && !revealed ? `${q.answeredCount} risposte ricevute` : round ? `${round.title} · Round ${round.index}/${round.total}` : ""}
         </p>
+      </div>
+    </TvFrame>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Votazione delle materie (anche da toccare: chi guarda lo show sul telefono vota da qui)
+// ---------------------------------------------------------------------------
+export function PortraitVoteScreen({ vote, round, phase, remainingMs }: { vote: PublicVote; round: PublicRound | null; phase: GamePhase; remainingMs: number }) {
+  const seat = useSeatContext();
+  const closed = phase === "CATEGORY_RESULT";
+  const totalMs = vote.closesAt && vote.openedAt ? Date.parse(vote.closesAt) - Date.parse(vote.openedAt) : 15000;
+  const mine = seat?.voteOptionId ?? null;
+  const open = phase === "CATEGORY_VOTING" && remainingMs > 0 && !mine && seat?.voteStatus !== "sending";
+  const winner = vote.options.find((o) => o.id === vote.winnerOptionId) ?? null;
+  const max = Math.max(1, ...vote.options.map((o) => o.votes ?? 0));
+  return (
+    <TvFrame calm>
+      <div className="absolute inset-0 flex flex-col gap-[1.6cqh] px-[4cqw] pb-[2cqh] pt-[calc(5.5cqh+env(safe-area-inset-top))]">
+        <PortraitHeader
+          right={
+            round ? (
+              <Pill tone="dark" className={smallPill}>
+                Round {round.index} di {round.total}
+              </Pill>
+            ) : undefined
+          }
+        />
+        <div className="relative flex shrink-0 items-end justify-center">
+          <motion.div initial={{ y: "20%", opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 110, damping: 12 }} className="w-[58cqw]">
+            <TrioSlot host="palmino" className="w-full" animation={closed ? "celebrate" : "point"} />
+          </motion.div>
+          <SpeechBubble tail="none" className="absolute left-0 top-[1cqh] max-w-[46cqw] !rounded-[3cqw] !border-[0.8cqw] !px-[3cqw] !py-[2cqw] text-[4.4cqw] leading-tight">
+            {closed ? "Avete deciso!" : "ADESSO DECIDETE VOI!"}
+          </SpeechBubble>
+          {!closed && (
+            <div className="absolute right-0 top-0">
+              <TimerRing remainingMs={Math.min(remainingMs, totalMs)} totalMs={totalMs} size="24cqw" />
+            </div>
+          )}
+        </div>
+        <h1 className="text-center font-display text-[7.4cqw] leading-tight text-white [text-shadow:0_0.4cqh_0_#6b1020]">
+          {closed ? "La materia scelta è…" : "Votate la materia!"}
+        </h1>
+        <div className="flex flex-col gap-[2.2cqw]">
+          {vote.options.map((o) => {
+            const isMine = mine === o.id;
+            const isWinner = closed && o.id === vote.winnerOptionId;
+            const pct = vote.totalVotes ? Math.round(((o.votes ?? 0) / vote.totalVotes) * 100) : 0;
+            return (
+              <button
+                key={o.id}
+                type="button"
+                disabled={!seat || !open}
+                onClick={() => seat?.vote(o.id)}
+                aria-pressed={isMine}
+                className={clsx(
+                  "relative flex min-h-[9cqh] items-center gap-[3cqw] overflow-hidden rounded-[4cqw] border-[0.9cqw] px-[3cqw] text-left transition active:translate-y-[3px] disabled:cursor-default",
+                  isMine || isWinner ? "border-white" : "border-gold/80",
+                  ((closed && !isWinner) || (mine && !isMine)) && "opacity-45",
+                  isWinner && "scale-[1.03] animate-pulse-glow",
+                )}
+                style={{ background: "rgba(0,0,0,.45)" }}
+              >
+                {o.votes !== null ? (
+                  <motion.span
+                    className="absolute inset-y-0 left-0"
+                    style={{ background: ANSWER_STYLES[o.position].bg }}
+                    initial={{ width: 0 }}
+                    animate={{ width: `${Math.max(10, ((o.votes ?? 0) / max) * 100)}%` }}
+                    transition={{ type: "spring", stiffness: 80, damping: 18 }}
+                  />
+                ) : (
+                  <span className="absolute inset-0" style={{ background: ANSWER_STYLES[o.position].bg }} />
+                )}
+                <span className="relative grid h-[13cqw] w-[13cqw] shrink-0 place-items-center rounded-full border-[0.7cqw] border-gold bg-gradient-to-b from-[#fff3a6] to-gold-deep font-display text-[7cqw] text-ink">
+                  {LETTERS[o.position]}
+                </span>
+                <span className="relative flex-1 font-display text-[7cqw] leading-tight text-white [text-shadow:0_3px_0_rgba(0,0,0,.4)]">{o.label}</span>
+                {o.votes !== null && (
+                  <span className="relative text-right font-display text-[6cqw] leading-none text-white">
+                    {o.votes}
+                    <span className="block text-[3.4cqw]">{pct}%</span>
+                  </span>
+                )}
+                {isMine && <span className="relative font-display text-[7cqw] text-white">✓</span>}
+              </button>
+            );
+          })}
+        </div>
+        {closed && winner ? (
+          <motion.p initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.4 }} className="text-center font-display text-[11cqw] leading-none text-gold [text-shadow:0_0.5cqh_0_#6b1020]">
+            {winner.label}!
+          </motion.p>
+        ) : seat ? (
+          <p className={clsx("text-center font-display text-[5cqw]", mine ? "text-[#bfffdc]" : "text-white")}>
+            {mine ? "VOTO REGISTRATO!" : seat.voteStatus === "sending" ? "INVIO…" : remainingMs > 0 ? "👆 Tocca la materia che vuoi giocare!" : "Votazione chiusa"}
+          </p>
+        ) : (
+          <p className="text-center font-display text-[5cqw] text-white">Votate dal telefono!</p>
+        )}
+        {seat?.voteError && <p className="text-center text-sm font-bold text-[#ffc2cd]">{seat.voteError}</p>}
+        {closed && vote.tieBreak && <p className="text-center text-[3.4cqw] font-extrabold text-white/80">Parità! Spareggio: {vote.tieBreak.method === "random" ? "estrazione a sorte" : vote.tieBreak.method === "admin" ? "decide la regia" : "ordine di presentazione"}</p>}
+        {!vote.liveResults && !closed && <p className="text-center text-[3.4cqw] font-extrabold text-white/80">I voti restano segreti fino alla chiusura!</p>}
       </div>
     </TvFrame>
   );

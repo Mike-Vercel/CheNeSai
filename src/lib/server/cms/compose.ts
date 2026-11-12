@@ -13,6 +13,7 @@ import {
   type DifficultyMix,
   type PoolStats,
 } from "@/lib/game-engine/compose";
+import { mergeSummaries, pickMusicQuestion, pickVoteCategories, planFreeGame, type MusicCandidate } from "@/lib/game-engine/free-game";
 import { isCategoryRound, type Presenter, type RoundKind, type SessionStatus } from "@/lib/game-engine/types";
 import { roundInputSchema, type SessionSettings } from "@/lib/validation/schemas";
 import { audit, CmsError } from "../audit";
@@ -310,6 +311,171 @@ export async function composeAndCreateSessionTx(tx: Tx, raw: unknown, actor: Act
     });
     return result;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Partita libera: votazione, ruota e canzone sempre presenti (vedi game-engine/free-game.ts)
+// ---------------------------------------------------------------------------
+/** Domande con l'estratto audio (la canzone "Ascolta"), con l'ultima volta che questo host le ha sentite. */
+export async function loadMusicCandidates(db: Db, f: { onlyTag?: string; hostUserId?: string | null } = {}): Promise<MusicCandidate[]> {
+  const host = f.hostUserId ?? null;
+  const rows = await db<{ id: string; category: string; difficulty: number; host_seen_at: Date | null; last_played_at: Date | null }[]>`
+    select q.id, q.category, q.difficulty,
+      ${
+        host
+          ? db`greatest(
+        (select max(hp.played_at) from question_plays hp where hp.question_id = q.id and hp.host_user_id = ${host}::uuid),
+        (select max(hq.shown_at) from session_questions hq join game_sessions hs on hs.id = hq.session_id
+          where hq.question_id = q.id and hs.host_user_id = ${host}::uuid and hq.shown_at is not null))`
+          : db`null::timestamptz`
+      } as host_seen_at,
+      (select max(p.played_at) from question_plays p where p.question_id = q.id) as last_played_at
+    from question_bank q join media_assets m on m.id = q.media_id
+    where q.status = 'approved' and q.answer_confirmed and m.kind = 'audio' and not m.archived
+      and exists (select 1 from question_options o where o.question_id = q.id and o.is_correct)
+      and ${f.onlyTag ? db`${f.onlyTag} = any(q.tags)` : db`not (q.tags && ${db.array(EXCLUDED_TAGS)}::text[])`}`;
+  return rows.map((r) => ({
+    id: r.id,
+    category: r.category,
+    difficulty: r.difficulty,
+    hostSeenAt: r.host_seen_at ? r.host_seen_at.toISOString() : null,
+    lastPlayedAt: r.last_played_at ? r.last_played_at.toISOString() : null,
+  }));
+}
+
+export interface FreeGameComposeInput {
+  title: string;
+  rounds: number;
+  totalQuestions: number;
+  mix: DifficultyMix;
+  seed?: string;
+}
+
+export interface FreeGameComposed {
+  sessionId: string;
+  warnings: string[];
+  /** indice del round a votazione (null = archivio senza materie sufficienti) */
+  voteRound: number | null;
+  /** domanda musicale scelta (null = archivio senza canzoni) */
+  musicQuestionId: string | null;
+}
+
+/**
+ * Crea la partita libera (bozza) in UNA transazione: round come la serata rapida, più le garanzie
+ * del gioco libero: un round a votazione delle materie e una canzone con l'estratto audio (se
+ * l'archivio ne ha). La Ruota di Palmino la decide la pubblicazione (atLeastOne).
+ */
+export async function composeFreeGameTx(
+  tx: Tx,
+  o: FreeGameComposeInput,
+  actor: Actor,
+  opts: { hostUserId: string; onlyTag?: string; settings?: SessionSettings },
+): Promise<FreeGameComposed> {
+  const seed = o.seed ?? randomUUID();
+  await tx`select pg_advisory_xact_lock(hashtext('qz.compose'))`;
+  const base = planQuickRounds({ rounds: o.rounds, totalQuestions: o.totalQuestions, finalRound: o.rounds > 1 });
+  const plan = planFreeGame(
+    base.map((r) => ({ kind: r.kind === "final" ? "final" : "standard", count: r.count })),
+    seed,
+  );
+  const candidates = await loadCandidates(tx, { onlyTag: opts.onlyTag, hostUserId: opts.hostUserId });
+
+  // 1) materie della votazione (domande fresche di 3 materie); se l'archivio non basta, round normale
+  const voteOptions = pickVoteCategories({ candidates, count: plan.voted, mix: o.mix, seed });
+  const voteRound = voteOptions.length >= 2 ? plan.voteRound : null;
+  const voteUsed = voteOptions.flatMap((v) => v.picks.map((p) => p.questionId));
+
+  // 2) gli altri round (e le domande comuni del round unico a votazione)
+  const specs: ComposeRoundSpec[] = base.map((r, i) => (i === voteRound ? { count: plan.common } : { count: r.count, harder: r.harder }));
+  const main = composeQuestions({ candidates, rounds: specs, mix: o.mix, seed, excludeIds: voteUsed });
+  const pool = poolStats(candidates);
+  if (main.summary.missing > 0) {
+    throw new CmsError(
+      `L'archivio non basta: servono ${main.summary.requested} domande, con questi filtri ce ne sono solo ${pool.usable}. Riduci le domande o allarga le categorie.`,
+      422,
+      { summary: main.summary, pool },
+    );
+  }
+  const rounds = main.rounds.map((list) => list.map((p) => ({ questionId: p.questionId, category: p.category })));
+
+  // 3) la canzone: al posto di una domanda di un round normale (o fra le comuni del round unico)
+  const music = pickMusicQuestion(await loadMusicCandidates(tx, { onlyTag: opts.onlyTag, hostUserId: opts.hostUserId }), seed);
+  if (music) {
+    const target = rounds[plan.music.round];
+    // round unico senza votazione: la canzone resta nella seconda parte del round
+    const index = plan.music.round === voteRound || o.rounds > 1 ? plan.music.index : plan.voted + plan.music.index;
+    if (target && target.length > 0) target.splice(Math.min(index, target.length - 1), 1, { questionId: music.id, category: music.category });
+  }
+
+  const sessionId = await insertSession(
+    tx,
+    { title: o.title, description: null, scheduledAt: null, isTest: false, seasonId: null, settings: opts.settings ?? {} },
+    actor,
+    { quick: true, public: true, free: true },
+    opts.hostUserId,
+  );
+  for (let i = 0; i < base.length; i++) {
+    const r = base[i];
+    const isVote = i === voteRound;
+    const roundId = await insertRound(
+      tx,
+      sessionId,
+      roundInputSchema.parse(
+        isVote
+          ? { title: r.title, kind: "category_vote", presenter: "palmino", pointsMultiplier: r.pointsMultiplier, voteOptions: voteOptions.map((v) => v.label) }
+          : { title: r.title, kind: r.kind, presenter: r.presenter, pointsMultiplier: r.pointsMultiplier },
+      ),
+      actor,
+    );
+    if (isVote) {
+      // prima le domande di ogni materia (si gioca quella votata), poi quelle comuni
+      const opts2 = await tx<{ id: string; position: number }[]>`select id, position from category_vote_options where round_id = ${roundId} order by position`;
+      for (let k = 0; k < voteOptions.length; k++) {
+        await insertRoundQuestions(tx, roundId, voteOptions[k].picks.map((p) => p.questionId), { voteOptionId: opts2[k].id }, actor, { random: true, vote: voteOptions[k].label });
+      }
+      if (rounds[i].length > 0) await insertRoundQuestions(tx, roundId, rounds[i].map((p) => p.questionId), { common: true }, actor, { random: true, common: true });
+    } else {
+      await insertRoundQuestions(tx, roundId, rounds[i].map((p) => p.questionId), {}, actor, { random: true });
+    }
+  }
+
+  const summary = voteOptions.reduce((acc, v) => mergeSummaries(acc, summarize(v.picks)), main.summary);
+  const warnings = warningsFor(summary, pool);
+  if (voteRound === null) warnings.push("Archivio troppo piccolo per la votazione delle materie: niente votazione in questa partita.");
+  if (!music) warnings.push("Nell'archivio non ci sono canzoni: niente domanda musicale in questa partita.");
+  await audit(tx, actor, "session.quick_create", {
+    sessionId,
+    type: "session",
+    id: sessionId,
+    details: {
+      free: true,
+      rounds: o.rounds,
+      totalQuestions: o.totalQuestions,
+      mix: o.mix,
+      seed,
+      summary,
+      voteRound,
+      voteOptions: voteOptions.map((v) => v.label),
+      voted: plan.voted,
+      common: voteRound !== null ? plan.common : 0,
+      musicQuestionId: music?.id ?? null,
+      hostUserId: opts.hostUserId,
+    },
+  });
+  return { sessionId, warnings, voteRound, musicQuestionId: music?.id ?? null };
+}
+
+/** Riepilogo delle domande scelte per una materia della votazione. */
+function summarize(picks: readonly ComposedPick[]): ComposeSummary {
+  const s: ComposeSummary = { requested: picks.length, picked: picks.length, missing: 0, fresh: 0, repeats: 0, planned: 0, seen: 0, offBand: 0 };
+  for (const p of picks) {
+    if (p.freshness === "nuova") s.fresh++;
+    else if (p.freshness === "giocata") s.repeats++;
+    else if (p.freshness === "prenotata") s.planned++;
+    else s.seen++;
+    if (p.band !== p.targetBand) s.offBand++;
+  }
+  return s;
 }
 
 // ---------------------------------------------------------------------------

@@ -36,6 +36,8 @@ const TAG = `gioco-${randomUUID().slice(0, 8)}`;
 const only = { onlyTag: TAG };
 /** archivio a parte per la rivincita (un host nuovo, nessuna interferenza con i test sopra) */
 const TAG2 = `rivincita-${randomUUID().slice(0, 8)}`;
+/** archivio minuscolo: la partita non si può comporre */
+const TAG3 = `piccolo-${randomUUID().slice(0, 8)}`;
 const CATS = ["Storia", "Geografia", "Cinema", "Musica", "Sport", "Scienza"];
 const created: string[] = [];
 const users: string[] = [];
@@ -58,6 +60,20 @@ async function setPublicGames(v: { enabled?: boolean; gamesPerAccount?: number; 
     on conflict (key) do update set value = excluded.value`;
 }
 
+/**
+ * Le domande di una partita "escono" (come durante il gioco): il trigger le registra per l'host.
+ * Nel round a votazione esce solo la prima materia (le altre restano mai viste); le candidate della
+ * Ruota di Palmino restano riserve.
+ */
+async function markPlayed(sessionId: string) {
+  await sql`
+    update session_questions sq set shown_at = now()
+    from game_rounds r
+    where r.id = sq.round_id and sq.session_id = ${sessionId} and not sq.is_reserve and not sq.wheel_candidate
+      and (sq.vote_option_id is null
+           or sq.vote_option_id = (select o.id from category_vote_options o where o.round_id = r.id order by o.position limit 1))`;
+}
+
 async function expectGiocoError(p: Promise<unknown>, code: string, status?: number) {
   const e = await p.then(
     () => null,
@@ -76,7 +92,8 @@ const refresh = async (h: HostUser) => loadHostUser(sql, h.userId, h.email);
 beforeAll(async () => {
   [previousSetting] = await sql<{ value: unknown }[]>`select value from application_settings where key = 'publicGames'`;
   await setPublicGames({ enabled: true, gamesPerAccount: 0, maxPlayers: 20 });
-  for (let i = 0; i < 24; i++) {
+  // 10 domande per materia: bastano per la votazione (3 materie) anche nelle partite da 30
+  for (let i = 0; i < 60; i++) {
     await makeQuestion(`Domanda libera ${TAG} n. ${i}?`, ["Uno", "Due", "Tre", "Quattro"], [i % 4], {
       category: CATS[i % CATS.length],
       difficulty: (i % 5) + 1,
@@ -92,7 +109,7 @@ beforeAll(async () => {
 afterAll(async () => {
   for (const id of created) await cleanupSession(id);
   await sql`delete from game_sessions where host_user_id = any(${sql.array(users)}::uuid[])`.catch(() => undefined);
-  await sql`delete from question_bank where ${TAG} = any(tags) or ${TAG2} = any(tags)`;
+  await sql`delete from question_bank where ${TAG} = any(tags) or ${TAG2} = any(tags) or ${TAG3} = any(tags)`;
   if (previousSetting) await sql`update application_settings set value = ${sql.json(previousSetting.value as never)} where key = 'publicGames'`;
   else await sql`delete from application_settings where key = 'publicGames'`;
   for (const id of users) await auth.auth.admin.deleteUser(id);
@@ -127,6 +144,7 @@ describe("account host e username", () => {
 
 describe("creazione della partita libera", () => {
   let first: string;
+  let second: string;
 
   it("crea, pubblica e apre la lobby con scorrimento automatico", async () => {
     const r = await createPublicGame(hostA, { totalQuestions: 10, rounds: 3, mix: "bilanciata" }, only);
@@ -138,11 +156,18 @@ describe("creazione della partita libera", () => {
     const d = await getSessionDetail(sql, first);
     expect(d).toMatchObject({ status: "live", phase: "LOBBY", hostUserId: hostA.userId, hostUsername: hostA.profile!.username, isTest: false });
     expect(d!.settings).toMatchObject({ advanceMode: "auto", maxPlayers: 20 });
-    expect(d!.roundsDetail.map((x) => [x.kind, x.questions.length])).toEqual([
+    // sempre una votazione delle materie: il round intermedio (3 materie da 3 domande, se ne gioca una)
+    expect(d!.roundsDetail.map((x) => [x.kind, x.questions.filter((q) => !q.isReserve).length])).toEqual([
       ["standard", 4],
-      ["standard", 3],
+      ["category_vote", 9],
       ["final", 3],
     ]);
+    expect(d!.roundsDetail[1].voteOptions).toHaveLength(3);
+    expect((await buildPublicState(sql, first))!.totalQuestions).toBe(10);
+    // e la Ruota di Palmino (almeno una), mai nel round votato
+    const wheels = await sql<{ position: number }[]>`select position from game_rounds where session_id = ${first} and palmino_wheel is not null`;
+    expect(wheels.length).toBeGreaterThanOrEqual(1);
+    expect(wheels.map((w) => w.position)).not.toContain(1);
     expect(await isPublicSession(first)).toBe(true);
     expect((await refresh(hostA)).profile?.gamesCreated).toBe(1);
     expect(await getOwnedGame(sql, hostA.userId, first)).toMatchObject({ id: first, code: r.code });
@@ -157,22 +182,24 @@ describe("creazione della partita libera", () => {
 
   it("la partita successiva evita le domande che l'host ha già visto", async () => {
     // le domande della prima partita "escono" (come durante il gioco): il trigger le registra per l'host
-    // (le candidate della Ruota di Palmino restano riserve: non escono mai tutte)
-    await sql`update session_questions set shown_at = now() where session_id = ${first} and not wheel_candidate`;
+    await markPlayed(first);
     const [{ n }] = await sql<{ n: number }[]>`select count(*)::int as n from question_plays where session_id = ${first} and host_user_id = ${hostA.userId}`;
     expect(n).toBe(10);
-    const seen = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${first} and not wheel_candidate`).map((r) => r.question_id));
+    const seen = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${first} and shown_at is not null`).map((r) => r.question_id));
     const r = await createPublicGame((hostA = await refresh(hostA)), { totalQuestions: 10, rounds: 2 }, only);
     created.push(r.sessionId);
+    second = r.sessionId;
     const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId} and not wheel_candidate`).map((x) => x.question_id);
-    expect(picked).toHaveLength(10);
+    // 2 round: il primo a votazione (3 materie da 5), poi la finale da 5
+    expect(picked).toHaveLength(20);
     expect(picked.filter((q) => seen.has(q))).toEqual([]);
     expect(r.warnings.some((w) => w.includes("tua partita precedente"))).toBe(false);
   });
 
   it("se l'archivio nuovo per l'host non basta, ripesca le già viste (con avviso)", async () => {
-    // 24 domande: 10 viste, 10 nella seconda partita (non ancora uscite), 4 mai usate
-    const r = await createPublicGame((hostA = await refresh(hostA)), { totalQuestions: 15, rounds: 3 }, only);
+    // 60 domande: 20 viste (prime due partite); da 30 in 5 round ne servono 42 (24 + 3 materie da 6)
+    await markPlayed(second);
+    const r = await createPublicGame((hostA = await refresh(hostA)), { totalQuestions: 30, rounds: 5 }, only);
     created.push(r.sessionId);
     expect(r.warnings.some((w) => w.includes("tua partita precedente"))).toBe(true);
   });
@@ -184,7 +211,10 @@ describe("creazione della partita libera", () => {
   });
 
   it("archivio insufficiente: errore chiaro", async () => {
-    await expectGiocoError(createPublicGame(hostB, { totalQuestions: 30, rounds: 5 }, only), "ARCHIVE_TOO_SMALL", 422);
+    for (let i = 0; i < 8; i++) {
+      await makeQuestion(`Domanda piccola ${TAG3} n. ${i}?`, ["Uno", "Due", "Tre", "Quattro"], [0], { category: CATS[i % 2], tags: ["test-automatico", TAG3] });
+    }
+    await expectGiocoError(createPublicGame(hostB, { totalQuestions: 10, rounds: 1 }, { onlyTag: TAG3 }), "ARCHIVE_TOO_SMALL", 422);
   });
 });
 
@@ -280,8 +310,16 @@ describe("comandi dell'host", () => {
     await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED"); // in pausa no
     expect((await hostCommand(hostA, id, "resume")).state.phase).toBe("INTRO");
     await expectGiocoError(hostCommand(hostB, id, "next"), "NOT_OWNER", 403);
-    // "Avanti": salta l'intro, poi la presentazione del round, poi la lettura della domanda
+    // "Avanti": salta l'intro, poi la presentazione del round (unico: a votazione delle materie)
     expect((await hostCommand(hostA, id, "next")).state.phase).toBe("ROUND_INTRO");
+    const voting = await hostCommand(hostA, id, "next");
+    expect(voting.state.phase).toBe("CATEGORY_VOTING");
+    expect(voting.state.vote?.options).toHaveLength(3);
+    // votazione aperta: mai tagliare il tempo dei giocatori
+    await expectGiocoError(hostCommand(hostA, id, "next"), "ACTION_NOT_ALLOWED");
+    await sql`update game_rounds set vote_closes_at = now() - interval '2 seconds' where id = ${voting.state.vote!.roundId}`;
+    expect((await hostCommand(hostA, id, "next")).state.phase).toBe("CATEGORY_RESULT");
+    // poi la lettura della domanda
     expect((await hostCommand(hostA, id, "next")).state.phase).toBe("QUESTION_VISIBLE");
     const options = await hostCommand(hostA, id, "next");
     expect(options.state.phase).toBe("OPTIONS_VISIBLE");
@@ -312,7 +350,7 @@ describe("rivincita", () => {
   const onlyC = { onlyTag: TAG2 };
 
   beforeAll(async () => {
-    for (let i = 0; i < 26; i++) {
+    for (let i = 0; i < 70; i++) {
       await makeQuestion(`Domanda rivincita ${TAG2} n. ${i}?`, ["Uno", "Due", "Tre", "Quattro"], [i % 4], {
         category: CATS[i % CATS.length],
         difficulty: (i % 5) + 1,
@@ -346,9 +384,9 @@ describe("rivincita", () => {
     await hostCommand(hostC, oldId, "kick", undefined, { participantId: carla.id });
     await hostCommand(hostC, oldId, "start");
     // le domande della partita "escono" (come durante il gioco): restano nello storico dell'host
-    await sql`update session_questions set shown_at = now() where session_id = ${oldId} and not wheel_candidate`;
+    await markPlayed(oldId);
     await hostCommand(hostC, oldId, "finish");
-    const oldQuestions = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${oldId} and not wheel_candidate`).map((r) => r.question_id));
+    const oldQuestions = new Set((await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${oldId} and shown_at is not null`).map((r) => r.question_id));
     const used = (await refresh(hostC)).profile!.gamesCreated;
 
     const r = await rematchPublicGame((hostC = await refresh(hostC)), oldId, null, onlyC);
@@ -359,7 +397,11 @@ describe("rivincita", () => {
     // nuova partita: stesso codice, lobby aperta, stesse impostazioni
     const d = await getSessionDetail(sql, r.sessionId);
     expect(d).toMatchObject({ code, phase: "LOBBY", status: "live", hostUserId: hostC.userId });
-    expect(d!.roundsDetail.map((x) => x.questions.length).reduce((a, b) => a + b, 0)).toBe(10);
+    expect((await buildPublicState(sql, r.sessionId))!.totalQuestions).toBe(10);
+    // stesse garanzie della partita: votazione delle materie e Ruota di Palmino
+    expect(d!.roundsDetail.map((x) => x.kind)).toEqual(["category_vote", "final"]);
+    const [{ wheels }] = await sql<{ wheels: number }[]>`select count(*)::int as wheels from game_rounds where session_id = ${r.sessionId} and palmino_wheel is not null`;
+    expect(wheels).toBeGreaterThanOrEqual(1);
     // nessuna domanda già vista
     const picked = (await sql<{ question_id: string }[]>`select question_id from session_questions where session_id = ${r.sessionId} and not wheel_candidate`).map((x) => x.question_id);
     expect(picked.filter((q) => oldQuestions.has(q))).toEqual([]);

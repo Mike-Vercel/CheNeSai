@@ -16,7 +16,13 @@ import { isCategoryRound, type RoundKind } from "./types";
  *  - al massimo una per round e 2 per serata (3 dalle 20 domande in su);
  *  - mai due volte di fila;
  *  - ogni domanda ammessa ha ~25% di probabilità;
- *  - solo nei round "normali" (niente categorie già scelte, manche musicali/immagini/video).
+ *  - solo nei round "normali" (niente categorie già scelte, manche musicali/immagini/video);
+ *    nel round a votazione solo sulle domande "comuni" (fuori dalla categoria votata) che vengono
+ *    dopo quelle votate (partita libera di un solo round);
+ *  - mai su una domanda con audio/immagine/video (la sostituirebbe la candidata di solo testo);
+ *  - partite libere (`atLeastOne`): se il caso non ne ha scelta nessuna, ne compare comunque UNA in
+ *    un posto ammesso scelto con lo stesso seme. Con le regole sopra serve una partita di almeno
+ *    6 domande (la 5ª ammessa e non ultima): il gioco libero parte da 10, quindi c'è sempre.
  */
 
 /** La ruota compare al più presto prima di questa domanda (numero d'ordine nella serata, da 1). */
@@ -42,11 +48,20 @@ export function maxWheelsPerGame(totalQuestions: number): number {
   return totalQuestions >= 20 ? 3 : 2;
 }
 
+export interface WheelPlanQuestion {
+  /** "" = domanda non nota prima (categoria ancora da votare): mai segnaposto */
+  sqId: string;
+  /** domanda con audio/immagine/video: mai segnaposto */
+  media?: boolean;
+  /** round a votazione: domanda comune (fuori dalla categoria votata), può fare da segnaposto */
+  common?: boolean;
+}
+
 export interface WheelPlanRound {
   id: string;
   kind: RoundKind;
   /** domande giocabili del round in ordine (riserve escluse) */
-  questions: { sqId: string }[];
+  questions: WheelPlanQuestion[];
   /**
    * Round con categorie: si gioca una sola categoria, quante domande non si sa prima.
    * Si conta il minimo (stima prudente della numerazione).
@@ -66,6 +81,31 @@ export interface WheelPlanOptions {
   probability?: number;
   /** test: numeri di domanda in cui la ruota compare di sicuro (se ammessi dalle regole) */
   force?: readonly number[];
+  /** partite libere: almeno una ruota per partita (se c'è un posto ammesso) */
+  atLeastOne?: boolean;
+}
+
+/** Posti ammessi dalle regole (in ordine di serata), prima del caso. */
+export function palminoWheelEligible(rounds: readonly WheelPlanRound[]): (WheelSlot & { roundIndex: number })[] {
+  const eligible: (WheelSlot & { roundIndex: number })[] = [];
+  let number = 0;
+  let total = 0;
+  for (const r of rounds) total += r.playedCount ?? r.questions.length;
+  rounds.forEach((r, ri) => {
+    const count = r.playedCount ?? r.questions.length;
+    const kindOk = palminoWheelRoundKind(r.kind);
+    for (let i = 0; i < count; i++) {
+      number++;
+      const q = r.questions[i];
+      if (!q || !q.sqId || i === 0) continue; // mai sulla prima domanda di un round
+      if (!kindOk && !(r.kind === "category_vote" && q.common)) continue;
+      if (q.media) continue;
+      if (number < PALMINO_WHEEL_MIN_NUMBER) continue;
+      if (number >= total) continue; // mai sull'ultima domanda della serata
+      eligible.push({ roundId: r.id, sqId: q.sqId, number, roundIndex: ri });
+    }
+  });
+  return eligible;
 }
 
 /** Piano deterministico delle ruote di una serata. */
@@ -73,24 +113,9 @@ export function planPalminoWheels(rounds: readonly WheelPlanRound[], seed: strin
   const probability = opts.probability ?? PALMINO_WHEEL_PROBABILITY;
   const force = new Set(opts.force ?? []);
   const rand = seededRandom(`palmino-wheel|${seed}`);
-  // numerazione della serata e posti ammessi
-  const eligible: { slot: WheelSlot; roundIndex: number }[] = [];
-  let number = 0;
+  const eligible = palminoWheelEligible(rounds);
   let total = 0;
   for (const r of rounds) total += r.playedCount ?? r.questions.length;
-  rounds.forEach((r, ri) => {
-    const count = r.playedCount ?? r.questions.length;
-    const ok = palminoWheelRoundKind(r.kind);
-    for (let i = 0; i < count; i++) {
-      number++;
-      if (!ok) continue;
-      const q = r.questions[i];
-      if (!q || i === 0) continue; // mai sulla prima domanda di un round
-      if (number < PALMINO_WHEEL_MIN_NUMBER) continue;
-      if (number >= total) continue; // mai sull'ultima domanda della serata
-      eligible.push({ slot: { roundId: r.id, sqId: q.sqId, number }, roundIndex: ri });
-    }
-  });
   const max = maxWheelsPerGame(total);
   const out: WheelSlot[] = [];
   const usedRounds = new Set<number>();
@@ -98,14 +123,20 @@ export function planPalminoWheels(rounds: readonly WheelPlanRound[], seed: strin
   for (const e of eligible) {
     // un numero casuale per ogni domanda ammessa, sempre: il piano non dipende dalle scelte precedenti
     const r = rand();
-    const picked = force.size > 0 ? force.has(e.slot.number) : r < probability;
+    const picked = force.size > 0 ? force.has(e.number) : r < probability;
     if (!picked) continue;
     if (out.length >= max) continue;
     if (usedRounds.has(e.roundIndex)) continue;
-    if (e.slot.number - lastNumber <= 1) continue; // mai due di fila
-    out.push(e.slot);
+    if (e.number - lastNumber <= 1) continue; // mai due di fila
+    out.push({ roundId: e.roundId, sqId: e.sqId, number: e.number });
     usedRounds.add(e.roundIndex);
-    lastNumber = e.slot.number;
+    lastNumber = e.number;
+  }
+  // partite libere: il caso non ne ha scelta nessuna → una comunque, in un posto ammesso
+  // (seme a parte: il piano "normale" resta identico a prima)
+  if (opts.atLeastOne && out.length === 0 && eligible.length > 0 && force.size === 0) {
+    const e = eligible[Math.floor(seededRandom(`palmino-wheel-min|${seed}`)() * eligible.length)];
+    out.push({ roundId: e.roundId, sqId: e.sqId, number: e.number });
   }
   return out;
 }

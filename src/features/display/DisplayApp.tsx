@@ -235,24 +235,83 @@ export function DisplayApp({
   const gateFor = useRef<string | null>(null);
 
   // ---------------------------------------------------------------- audio clip
+  /**
+   * Estratto musicale in arrivo o in riproduzione: per lo scorrimento automatico il TV "sta ancora
+   * parlando" (il passo alle risposte non taglia la canzone; il server aspetta al massimo 15 s in più).
+   */
+  const clipBusy = useRef(false);
+  const clipTurn = useRef(0);
+  const clipSource = useRef<AudioBufferSourceNode | null>(null);
   const stopClip = useCallback(() => {
+    clipTurn.current++;
+    clipBusy.current = false;
     if (stopTimer.current) clearTimeout(stopTimer.current);
     stopTimer.current = null;
     audioRef.current?.pause();
+    try {
+      clipSource.current?.stop();
+    } catch {
+      // già ferma
+    }
+    clipSource.current = null;
   }, []);
 
   const playClip = useCallback(
     async (mediaId: string, startMs: number, durationMs: number | null, plays: number) => {
       stopClip();
-      const el = prepareAudio(audioRef, mediaUrl(mediaId), prefs.muted ? 0 : prefs.musicVolume);
+      const turn = clipTurn.current;
+      const mine = () => turn === clipTurn.current;
+      const finish = (st: "done" | "error") => {
+        if (!mine()) return;
+        clipBusy.current = false;
+        clipSource.current = null;
+        setAudioState(st);
+      };
+      clipBusy.current = true;
       let remaining = Math.max(1, plays);
+      // Web Audio già sbloccato (tocco su "Attiva audio", "Su questo telefono"…): sui telefoni, iPhone
+      // compreso, un elemento audio avviato senza un tocco verrebbe bloccato; da qui no.
+      const ctx = sound.context;
+      const bus = sound.music;
+      if (ctx && bus && ctx.state === "running") {
+        try {
+          const res = await fetch(mediaUrl(mediaId), { cache: "force-cache", signal: AbortSignal.timeout(12_000) });
+          if (!res.ok) throw new Error(String(res.status));
+          const buffer = await ctx.decodeAudioData(await res.arrayBuffer());
+          if (!mine()) return;
+          const offset = Math.min(buffer.duration, Math.max(0, startMs / 1000));
+          const length = durationMs ? Math.min(durationMs / 1000, buffer.duration - offset) : buffer.duration - offset;
+          const once = () => {
+            if (!mine()) return;
+            const src = ctx.createBufferSource();
+            src.buffer = buffer;
+            src.connect(bus);
+            src.onended = () => {
+              if (!mine()) return;
+              remaining -= 1;
+              if (remaining > 0) stopTimer.current = setTimeout(once, 1500);
+              else finish("done");
+            };
+            clipSource.current = src;
+            setAudioState("playing");
+            src.start(0, offset, Math.max(0.1, length));
+          };
+          once();
+          return;
+        } catch {
+          if (!mine()) return;
+          // rete o decodifica non riuscite: si prova con l'elemento audio
+        }
+      }
+      const el = prepareAudio(audioRef, mediaUrl(mediaId), prefs.muted ? 0 : prefs.musicVolume);
       const once = async (): Promise<void> => {
+        if (!mine()) return;
         try {
           el.currentTime = startMs / 1000;
           setAudioState("playing");
           await el.play();
         } catch {
-          setAudioState("error");
+          finish("error");
           return;
         }
         if (durationMs) {
@@ -260,19 +319,19 @@ export function DisplayApp({
             el.pause();
             remaining -= 1;
             if (remaining > 0) stopTimer.current = setTimeout(() => void once(), 1500);
-            else setAudioState("done");
+            else finish("done");
           }, durationMs);
         } else {
           el.onended = () => {
             remaining -= 1;
-            if (remaining > 0) setTimeout(() => void once(), 1500);
-            else setAudioState("done");
+            if (remaining > 0) stopTimer.current = setTimeout(() => void once(), 1500);
+            else finish("done");
           };
         }
       };
       await once();
     },
-    [mediaUrl, prefs.musicVolume, prefs.muted, stopClip],
+    [mediaUrl, prefs.musicVolume, prefs.muted, sound, stopClip],
   );
 
   const onEvent = useCallback(
@@ -295,9 +354,12 @@ export function DisplayApp({
   const [pollMs, setPollMs] = useState(4000);
   /** fase dell'ultimo stato ricevuto (per le battute che si saltano se la fase è cambiata) */
   const phaseRef = useRef<GamePhase | null>(null);
+  /** domanda dell'ultimo stato ricevuto (l'estratto musicale parte solo se è ancora quella) */
+  const questionRef = useRef<string | null>(null);
   const onState = useCallback(
     (s: PublicState, prev: PublicState | null) => {
       phaseRef.current = s.phase;
+      questionRef.current = s.question?.id ?? null;
       setPollMs(s.phase === "LOBBY" ? 2500 : s.phase === "CATEGORY_VOTING" || s.phase === "OPTIONS_VISIBLE" ? 1500 : 4000);
       if (!prev) return;
       const phaseChanged = s.phase !== prev.phase;
@@ -407,7 +469,17 @@ export function DisplayApp({
         }
         if (!already) {
           const m = s.question.media;
-          void spoken.then(() => playClip(m.id, m.audioStartMs, m.audioDurationMs, m.audioPlays));
+          const qid = s.question.id;
+          // da subito "occupato": lo scorrimento automatico aspetta lettura + estratto
+          clipBusy.current = true;
+          void spoken.then(() => {
+            // momento già passato (es. "Avanti" durante la lettura): niente canzone fuori tempo
+            if (phaseRef.current !== "QUESTION_VISIBLE" || questionRef.current !== qid) {
+              clipBusy.current = false;
+              return;
+            }
+            return playClip(m.id, m.audioStartMs, m.audioDurationMs, m.audioPlays);
+          });
         }
       }
     },
@@ -445,7 +517,8 @@ export function DisplayApp({
     [sessionId, displayKey],
   );
   // mentre il presentatore parla (o la sua clip sta arrivando) il TV non manda avanti la partita
-  const voiceBusy = useCallback(() => voice.pending, [voice]);
+  // (e mentre suona l'estratto musicale della domanda)
+  const voiceBusy = useCallback(() => voice.pending || clipBusy.current, [voice]);
   // solo lo schermo dell'host guida la partita (mai i telefoni dei giocatori)
   useAutoTick({ auto: viewerCode ? null : state?.auto, now, tick: autoTickRequest, holdWhile: voiceBusy });
 
@@ -470,7 +543,7 @@ export function DisplayApp({
     };
     const t = setInterval(() => {
       if (done) return;
-      if (voice.pending || wheelTurning()) {
+      if (voice.pending || clipBusy.current || wheelTurning()) {
         idleSince = null;
         if (!toldSpeaking) {
           toldSpeaking = true;

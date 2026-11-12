@@ -28,6 +28,11 @@ export interface Seat {
   result: { isCorrect: boolean; partial: boolean; delta: number | null } | null;
   toggle: (pos: number) => void;
   confirm: () => void;
+  /** votazione delle materie: la materia votata (anche dopo un ricaricamento) e lo stato dell'invio */
+  voteOptionId: string | null;
+  voteStatus: SeatStatus;
+  voteError: string | null;
+  vote: (optionId: string) => void;
 }
 
 export const SeatContext = createContext<Seat | null>(null);
@@ -35,7 +40,7 @@ export function useSeatContext(): Seat | null {
   return useContext(SeatContext);
 }
 
-const REFRESH_PHASES: readonly GamePhase[] = ["LOBBY", "QUESTION_VISIBLE", "ANSWER_REVEAL", "SCORE_REVEAL", "LEADERBOARD", "FINISHED"];
+const REFRESH_PHASES: readonly GamePhase[] = ["LOBBY", "CATEGORY_VOTING", "QUESTION_VISIBLE", "ANSWER_REVEAL", "SCORE_REVEAL", "LEADERBOARD", "FINISHED"];
 
 interface Local {
   qid: string | null;
@@ -48,6 +53,7 @@ export function useSeat(code: string | null, state: PublicState | null, slot: st
   const [self, setSelf] = useState<PlayerSelf | null>(null);
   const [joined, setJoined] = useState<"unknown" | "no" | "yes">("unknown");
   const [local, setLocal] = useState<Local>({ qid: null, selected: [], status: "idle", error: null });
+  const [voteLocal, setVoteLocal] = useState<{ roundId: string; optionId: string | null; status: SeatStatus; error: string | null } | null>(null);
   const busy = useRef(false);
 
   const refresh = useCallback(async () => {
@@ -142,6 +148,33 @@ export function useSeat(code: string | null, state: PublicState | null, slot: st
     }
   };
 
+  // votazione delle materie (round a votazione): un voto per round, come il telefono dei giocatori
+  const voteRoundId = state?.vote?.roundId ?? null;
+  const myVoteLocal = voteLocal && voteLocal.roundId === voteRoundId ? voteLocal : null;
+  const voteOptionId = myVoteLocal?.optionId ?? (self?.vote && self.vote.roundId === voteRoundId ? self.vote.optionId : null);
+  const voteStatus: SeatStatus = myVoteLocal?.status ?? (voteOptionId ? "recorded" : "idle");
+  const castVote = async (optionId: string) => {
+    const roundId = voteRoundId;
+    if (!code || !roundId || voteStatus === "sending" || voteStatus === "recorded") return;
+    setVoteLocal({ roundId, optionId, status: "sending", error: null });
+    try {
+      await withRetry(() => api("/api/play/vote", { method: "POST", json: { code, roundId, optionId, ...(slot ? { slot } : {}) } }));
+      setVoteLocal({ roundId, optionId, status: "recorded", error: null });
+      try {
+        navigator.vibrate?.([30, 40, 30]);
+      } catch {
+        /* non supportato */
+      }
+    } catch (e) {
+      if (e instanceof ApiError && e.code === "ALREADY_ANSWERED") {
+        const prev = (e.details as { optionId?: string } | undefined)?.optionId ?? optionId;
+        setVoteLocal({ roundId, optionId: prev, status: "recorded", error: null });
+        return;
+      }
+      setVoteLocal({ roundId, optionId: null, status: "error", error: e instanceof ApiError ? e.message : "Voto non inviato, riprova" });
+    }
+  };
+
   const seat: Seat | null =
     joined === "yes" && self
       ? {
@@ -164,6 +197,10 @@ export function useSeat(code: string | null, state: PublicState | null, slot: st
             else patch({ selected: selected.includes(pos) ? selected.filter((x) => x !== pos) : [...selected, pos].sort() });
           },
           confirm: () => void send(selected),
+          voteOptionId,
+          voteStatus,
+          voteError: myVoteLocal?.error ?? null,
+          vote: (optionId: string) => void castVote(optionId),
         }
       : null;
 

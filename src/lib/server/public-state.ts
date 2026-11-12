@@ -121,8 +121,9 @@ export async function buildPublicState(db: Db, sessionId: string, preloaded?: St
         when r.kind::text in ('category_vote', 'category_wheel') then (
           select count(*) from session_questions q
           where q.round_id = r.id and not q.is_reserve
-            and q.vote_option_id = coalesce(r.winning_option_id,
-              (select o.id from category_vote_options o where o.round_id = r.id order by o.position limit 1)))
+            -- domande comuni (senza materia) si giocano comunque, dopo quelle della materia scelta
+            and (q.vote_option_id is null or q.vote_option_id = coalesce(r.winning_option_id,
+              (select o.id from category_vote_options o where o.round_id = r.id order by o.position limit 1))))
         else (select count(*) from session_questions q where q.round_id = r.id and not q.is_reserve)
       end), 0)::int as total_questions
     from game_rounds r where r.session_id = ${sessionId}`;

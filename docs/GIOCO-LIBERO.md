@@ -21,7 +21,7 @@ Comandi dell'host (solo questi, solo sulle **sue** partite): **INIZIA PARTITA** 
 giocatore: parte l'intro con le regole e poi lo scorrimento automatico porta avanti tutto), **Pausa /
 Riprendi**, **Termina partita**; dopo il podio **Nuova partita** e **Torna alla home**.
 
-La nuova partita nasce già: composta (`composeAndCreateSession`), con scorrimento **automatico**,
+La nuova partita nasce già: composta (`composeFreeGameTx`: sempre votazione, ruota e canzone, vedi sotto), con scorrimento **automatico**,
 pubblicata (stessi controlli delle serate) e con la lobby aperta. Il titolo è "Partita di <username>".
 
 ## Account host
@@ -67,6 +67,28 @@ pubblicata (stessi controlli delle serate) e con la lobby aperta. Il titolo è "
   una ruota che sceglie la categoria della domanda successiva. Le candidate degli spicchi seguono le stesse
   regole (prima le mai viste da questo host); conta come "vista" solo la domanda che esce davvero.
   Dettagli in `docs/ARCHITECTURE.md`.
+
+## Sempre in partita: votazione, Ruota di Palmino, canzone
+
+Ogni partita libera (e ogni rivincita) è composta da `composeFreeGameTx` (`src/lib/server/cms/compose.ts`,
+regole pure in `src/lib/game-engine/free-game.ts`) con tre garanzie; il wizard le dice sotto le scelte.
+
+- **Votazione delle materie** (round `category_vote`, 3 materie, 15 s, voto dai telefoni o dallo show in
+  verticale): con 3+ round è un round intermedio (il 2° con 3–4 round, il 3° con 5), mai il primo né la
+  finale; con 2 round è il primo. Le materie sono quelle con abbastanza domande fresche per l'host.
+  **Un round solo**: il round stesso è a votazione, ma solo le prime 5 domande (al massimo metà) sono
+  della materia votata; le altre sono *comuni* (materie miste, `vote_option_id` nullo, giocate dopo:
+  il motore le gioca già così) e lì possono stare la ruota e la canzone.
+- **Ruota di Palmino**: almeno una (`atLeastOne` nel piano, stesso seme = id della partita). Le regole
+  restano (mai prima della 5ª, mai prima domanda di un round, mai l'ultima): con il minimo di 10 domande
+  c'è sempre un posto. Mai nel round votato (salvo le domande comuni del round unico), mai sulla canzone.
+- **Canzone ("Ascolta")**: una domanda con l'estratto audio, se l'archivio ne ha, al posto di una domanda
+  di un round normale (non votato; la finale solo se non c'è altro), mai prima domanda del round né ultima
+  della partita. Prima quelle che l'host non ha mai sentito, poi la sentita meno di recente. Il TV (e con
+  lo show sul telefono ogni telefono) la suona con Web Audio dopo la lettura; lo scorrimento automatico
+  apre le risposte solo a estratto finito.
+- Archivio troppo piccolo (solo nei test): niente votazione o niente canzone, con un avviso; la partita
+  nasce comunque.
 
 ## Partite libere nella regia
 

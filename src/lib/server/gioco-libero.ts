@@ -6,7 +6,7 @@ import type { GameCommand, GamePhase, SessionStatus } from "@/lib/game-engine/ty
 import type { AdminRole } from "@/lib/auth/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { CmsError } from "./audit";
-import { composeAndCreateSessionTx } from "./cms/compose";
+import { composeFreeGameTx } from "./cms/compose";
 import { generateSessionCode, publishSessionTx } from "./cms/sessions";
 import { computeAutoplayPlan } from "./autoplay";
 import { closeStaleFreeGames } from "./auto-close";
@@ -181,25 +181,17 @@ async function composePublicTx(
   }
   let res;
   try {
-    res = await composeAndCreateSessionTx(
+    // partita libera: sempre una votazione delle materie, una canzone (se l'archivio ne ha) e, alla
+    // pubblicazione, almeno una Ruota di Palmino (vedi game-engine/free-game.ts)
+    res = await composeFreeGameTx(
       tx,
-      {
-        title: opts.title(p.username),
-        rounds: o.rounds,
-        totalQuestions: o.totalQuestions,
-        mix: o.mix,
-        finalRound: o.rounds > 1,
-        reserves: 0,
-        isTest: false,
-        categories: [],
-        includeMedia: false,
-      },
+      { title: opts.title(p.username), rounds: o.rounds, totalQuestions: o.totalQuestions, mix: o.mix },
       actor,
       {
         hostUserId: host.userId,
         onlyTag: opts.onlyTag,
         // nessun limite di giocatori se l'impostazione è 0 ("finché regge")
-        // Ruota di Palmino: ogni tanto, dalla 5ª domanda, sceglie la categoria della domanda successiva
+        // Ruota di Palmino: dalla 5ª domanda, almeno una per partita, sceglie la categoria della domanda successiva
         settings: { advanceMode: "auto", allowLateJoin: true, palminoWheel: true, ...(publicMaxPlayers(settings) ? { maxPlayers: publicMaxPlayers(settings)! } : {}) },
       },
     );
@@ -209,9 +201,9 @@ async function composePublicTx(
     }
     throw e;
   }
-  const sessionId = res.sessionId!;
+  const sessionId = res.sessionId;
   // candidate della ruota dallo stesso archivio, prima quelle che questo host non ha mai visto
-  await publishSessionTx(tx, sessionId, actor, { palminoWheel: { onlyTag: opts.onlyTag, hostUserId: host.userId } });
+  await publishSessionTx(tx, sessionId, actor, { palminoWheel: { onlyTag: opts.onlyTag, hostUserId: host.userId, atLeastOne: true } });
   await tx`update game_sessions set public_options = ${tx.json({ totalQuestions: o.totalQuestions, rounds: o.rounds, mix: o.mix })} where id = ${sessionId}`;
   const counts = opts.countsAsGame(quota);
   if (counts) await tx`update host_profiles set games_created = games_created + 1, updated_at = now() where user_id = ${host.userId}`;
