@@ -90,7 +90,8 @@ export async function giramenteVoiceUrl(roomId: string, req: VoiceRequest): Prom
   const sql = getSql();
   if (!(await checkRateLimit(sql, `giramente-voce:${roomId}`, 120, 60))) throw new GiramenteError("RATE_LIMITED", "Troppe battute in poco tempo");
   const model = MODEL();
-  const sent = modelSupportsTags(model) ? text : captionOf(text);
+  // pronuncia: «manche» alla francese («mansh»), solo per la voce (il sottotitolo resta «manche»)
+  const sent = (modelSupportsTags(model) ? text : captionOf(text)).replace(/manche/gi, "mansh");
   const key = createHash("sha256").update(`${voiceId}|${model}|${JSON.stringify(VOICE_SETTINGS[who])}|${sent}`).digest("hex");
   const [hit] = await sql<{ storage_path: string }[]>`update giramente_tts_clips set last_used_at = now() where cache_key = ${key} returning storage_path`;
   if (hit) return { url: await signedClipUrl(hit.storage_path), caption, who };
