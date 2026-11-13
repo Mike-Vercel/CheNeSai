@@ -54,6 +54,8 @@ const turn = (over: Partial<NonNullable<PublicState["turn"]>> = {}): NonNullable
 describe("GIRAMENTE! – regia delle battute", () => {
   it("benvenuto in sala d'attesa, introduzione della manche, turno con il nome", () => {
     expect(direct(null, base()).cues.map((c) => c.line)).toEqual(["benvenuti", "sala-attesa"]);
+    // dopo l'intro di «Nuova partita» il benvenuto non si ripete
+    expect(direct(null, base(), { welcomed: true }).cues.map((c) => c.line)).toEqual(["sala-attesa"]);
     const intro = direct(base(), base({ phase: "ROUND_INTRO", roundNo: 3, version: 2 }));
     expect(intro.cues[0].line).toBe("manche-3");
     expect(intro.replace).toBe(true);

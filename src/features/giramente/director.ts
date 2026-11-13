@@ -22,10 +22,14 @@ export interface Direction {
   replace: boolean;
 }
 
-export function direct(prev: PublicState | null, next: PublicState): Direction {
+/**
+ * `welcomed`: chi gestisce ha appena visto l'intro di «Nuova partita» (Don Patrizio ha già dato il benvenuto):
+ * all'apertura della sala d'attesa niente secondo «Benvenuti», solo l'invito ad entrare.
+ */
+export function direct(prev: PublicState | null, next: PublicState, opts: { welcomed?: boolean } = {}): Direction {
   const out: Direction = { cues: [], sfx: [], replace: false };
   if (!prev) {
-    if (next.phase === "LOBBY" && next.status === "open") out.cues.push({ line: "benvenuti" }, { line: "sala-attesa" });
+    if (next.phase === "LOBBY" && next.status === "open") out.cues.push(...(opts.welcomed ? [] : [{ line: "benvenuti" }]), { line: "sala-attesa" });
     return out;
   }
   if (prev.roomId !== next.roomId) return out;

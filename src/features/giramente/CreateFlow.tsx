@@ -5,6 +5,7 @@ import { useState } from "react";
 import { estimateMinutes } from "@/lib/giramente/rules";
 import { DEFAULT_SETTINGS, MAX_PLAYERS, MAX_TEAM_MEMBERS, MAX_TEAMS, type Difficulty, type Settings } from "@/lib/giramente/types";
 import { api, ApiError } from "@/lib/realtime/api-client";
+import { introPlayedHere, markRoomWelcomed } from "./intro/flags";
 
 /**
  * NUOVA PARTITA: modalità (individuale / a squadre), dispositivi (uno a testa / uno solo), difficoltà,
@@ -50,6 +51,8 @@ export function CreateFlow({ username, initialMode = "individual", initialAdvanc
           teams: mode === "teams" ? teams.map((t) => ({ name: t.name, members: devices === "shared" ? t.members : undefined })) : undefined,
         },
       });
+      // l'intro di questa pagina ha già dato il benvenuto: la sala d'attesa non lo ripete
+      if (introPlayedHere()) markRoomWelcomed(r.roomId);
       window.location.assign(r.devices === "shared" ? `/giramente/un-dispositivo/${r.roomId}` : `/giramente/stanza/${r.roomId}`);
     } catch (e) {
       setError(e instanceof ApiError ? e.message : "Non riesco a creare la partita: riprova");

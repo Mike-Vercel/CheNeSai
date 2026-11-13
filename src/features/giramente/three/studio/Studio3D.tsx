@@ -55,8 +55,22 @@ export interface Studio3DProps {
   onFail?: (reason: string) => void;
   /** inquadratura forzata (anteprime) */
   shot?: ShotId | null;
+  /**
+   * Copione al posto della regia della partita (l'intro di «Nuova partita»): dal tempo trascorso (ms, orologio `now`
+   * meno `cue.since`) e da chi parla decide inquadratura, azione, segno e luci. Puro, chiamato a ogni fotogramma.
+   */
+  script?: StudioScript | null;
+  /** luci di sala 0..1 (esposizione): l'intro le accende piano; senza, sempre accese */
+  lights?: (() => number) | null;
+  /** la scena è pronta (Don Patrizio caricato e disegnato): l'intro parte da qui */
+  onReady?: () => void;
   className?: string;
 }
+
+export type StudioScript = (elapsedMs: number, speaking: boolean) => StudioDirection;
+
+/** Esposizione normale dello studio (luci di sala piene). */
+const EXPOSURE = 1.05;
 
 // ------------------------------------------------------------------ regia (ogni fotogramma, prima di tutto)
 interface Live {
@@ -68,14 +82,14 @@ interface Live {
   busy: { cam: boolean; wheel: boolean; walk: boolean; zafira: boolean };
 }
 
-function Director({ cue, now, speaking, shot, liveRef, onChange }: { cue: StudioCue; now: () => number; speaking: boolean; shot: ShotId | null; liveRef: RefObject<Live>; onChange: (d: StudioDirection) => void }) {
+function Director({ cue, now, speaking, shot, script, liveRef, onChange }: { cue: StudioCue; now: () => number; speaking: boolean; shot: ShotId | null; script: StudioScript | null; liveRef: RefObject<Live>; onChange: (d: StudioDirection) => void }) {
   const last = useRef("");
   useFrame((_, dt) => {
     const L0 = liveRef.current;
     const t = now();
     const since = effectiveSince(cue, L0.phase, t);
     L0.phase = { key: cue.key, since };
-    const d = directStudio(cue, t - since, speaking);
+    const d = script ? script(t - since, speaking) : directStudio(cue, t - since, speaking);
     if (shot) d.shot = shot;
     const L = liveRef.current;
     if (d.mood !== L.mood.mood) L.mood = { mood: d.mood, since: 0 };
@@ -206,7 +220,7 @@ function angleTo(from: number, to: number): number {
   return d;
 }
 
-function Presenter({ quality, action, mark, speaking, mouthRef, enter, liveRef }: { quality: "high" | "low"; action: CharacterAction; mark: MarkId; speaking: boolean; mouthRef?: RefObject<number>; enter: boolean; liveRef: RefObject<Live> }) {
+function Presenter({ quality, action, mark, speaking, mouthRef, enter, liveRef, onLoaded }: { quality: "high" | "low"; action: CharacterAction; mark: MarkId; speaking: boolean; mouthRef?: RefObject<number>; enter: boolean; liveRef: RefObject<Live>; onLoaded?: () => void }) {
   const root = useRef<Group>(null);
   const walk = useRef(0);
   const busy = useRef(false);
@@ -288,6 +302,7 @@ function Presenter({ quality, action, mark, speaking, mouthRef, enter, liveRef }
               }
               if (process.env.NODE_ENV !== "production") (window as unknown as { __gmPresenter?: unknown }).__gmPresenter = { rawHeight: h, scale: g.scale.x };
             }
+            onLoaded?.();
           }}
         />
       </Suspense>
@@ -456,6 +471,35 @@ function FrameCounter() {
   return null;
 }
 
+/** Luci di sala (esposizione del renderer): l'intro le porta dal buio alla piena luce. */
+function HouseLights({ lights }: { lights: () => number }) {
+  useFrame((state) => {
+    state.gl.toneMappingExposure = EXPOSURE * Math.max(0, Math.min(1, lights()));
+  }, -1);
+  return null;
+}
+
+/** «Pronta»: Don Patrizio caricato e tre fotogrammi disegnati (niente comparse a metà). */
+function ReadySignal({ loaded, onReady }: { loaded: boolean; onReady?: () => void }) {
+  const frames = useRef(0);
+  const done = useRef(false);
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    if (loaded) invalidate();
+  }, [loaded, invalidate]);
+  useFrame(() => {
+    if (!loaded || done.current) return;
+    frames.current += 1;
+    if (frames.current < 3) {
+      invalidate();
+      return;
+    }
+    done.current = true;
+    onReady?.();
+  });
+  return null;
+}
+
 function ContextGuard({ onFail }: { onFail?: (r: string) => void }) {
   const gl = useThree((s) => s.gl);
   useEffect(() => {
@@ -468,7 +512,7 @@ function ContextGuard({ onFail }: { onFail?: (r: string) => void }) {
 }
 
 // ------------------------------------------------------------------ la scena
-function Scene({ quality, cue, wheel, led, speech, now, onTick, onFail, shot }: Studio3DProps) {
+function Scene({ quality, cue, wheel, led, speech, now, onTick, onFail, shot, script, lights, onReady }: Studio3DProps) {
   const low = quality !== "high";
   const [reduced] = useState(prefersReducedMotion);
   const family = useGameFont();
@@ -476,7 +520,7 @@ function Scene({ quality, cue, wheel, led, speech, now, onTick, onFail, shot }: 
   const [start] = useState(() => {
     const t = now();
     const since = effectiveSince(cue, null, t);
-    return { phase: { key: cue.key, since }, dir: directStudio(cue, t - since, speaking), elapsed: t - since };
+    return { phase: { key: cue.key, since }, dir: script ? script(t - since, speaking) : directStudio(cue, t - since, speaking), elapsed: t - since };
   });
   const [dir, setDir] = useState<StudioDirection>(start.dir);
   const liveRef = useRef<Live>({ phase: start.phase, dir: start.dir, mood: { mood: start.dir.mood, since: 0 }, busy: { cam: false, wheel: false, walk: false, zafira: false } });
@@ -485,12 +529,14 @@ function Scene({ quality, cue, wheel, led, speech, now, onTick, onFail, shot }: 
   const enter = start.phase.key.startsWith("INTRO|") && start.elapsed < WALK_IN_MS * 0.7;
   // bocca dalla voce vera (analizzatore) per chi parla; senza audio (solo sottotitolo) bocca simulata
   const mouthRef = speech.mouthRef;
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <>
       <color attach="background" args={["#040607"]} />
       <fog attach="fog" args={["#040607", 18, 60]} />
-      <Director cue={cue} now={now} speaking={speaking && speech.who !== "zafira"} shot={shot ?? null} liveRef={liveRef} onChange={setDir} />
+      <Director cue={cue} now={now} speaking={speaking && speech.who !== "zafira"} shot={shot ?? null} script={script ?? null} liveRef={liveRef} onChange={setDir} />
+      {lights && <HouseLights lights={lights} />}
       <CameraRig liveRef={liveRef} reduced={reduced} />
       <RoomEnv intensity={low ? 0.28 : 0.35} />
       <StudioLighting moodRef={moodRef} quality={quality} />
@@ -515,9 +561,15 @@ function Scene({ quality, cue, wheel, led, speech, now, onTick, onFail, shot }: 
           }}
         />
       </group>
-      <Boundary3D onError={(r) => console.warn(`[giramente] Don Patrizio 3D non caricato: ${r}`)}>
-        <Presenter quality={quality} action={dir.action} mark={dir.mark} speaking={speaking && speech.who !== "zafira"} mouthRef={mouthRef} enter={enter} liveRef={liveRef} />
+      <Boundary3D
+        onError={(r) => {
+          console.warn(`[giramente] Don Patrizio 3D non caricato: ${r}`);
+          setLoaded(true);
+        }}
+      >
+        <Presenter quality={quality} action={dir.action} mark={dir.mark} speaking={speaking && speech.who !== "zafira"} mouthRef={mouthRef} enter={enter} liveRef={liveRef} onLoaded={() => setLoaded(true)} />
       </Boundary3D>
+      {onReady && <ReadySignal loaded={loaded} onReady={onReady} />}
       <Boundary3D onError={(r) => console.warn(`[giramente] Zafira 3D non caricata: ${r}`)}>
         <Suspense fallback={null}>
           <ZafiraStage show={dir.zafira} quality={quality} speaking={speaking && speech.who === "zafira"} mouthRef={mouthRef} liveRef={liveRef} />
@@ -547,7 +599,7 @@ export default function Studio3D(props: Studio3DProps) {
         gl={{ antialias: true, alpha: false, powerPreference: high ? "high-performance" : "default", stencil: false }}
         camera={{ position: [0, 3, 14], fov: 34, near: 0.1, far: 90 }}
         onCreated={({ gl }) => {
-          gl.toneMappingExposure = 1.05;
+          gl.toneMappingExposure = EXPOSURE;
         }}
         style={{ pointerEvents: "none" }}
       >
