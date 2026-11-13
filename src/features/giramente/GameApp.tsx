@@ -10,23 +10,9 @@ import type { GiramenteAction, GiramenteView, PrivateView, PublicState } from "@
 import { ApiError } from "@/lib/realtime/api-client";
 import { useGiramenteAudio } from "./audio";
 import { Lobby, openScreen } from "./lobby";
-import {
-  ChoicePanel,
-  FinalPanel,
-  IntroScreen,
-  PausedBanner,
-  PlayPanel,
-  QuestionPanel,
-  RevealPanel,
-  RoundIntroScreen,
-  RoundResultsPanel,
-  SectorPanel,
-  SkipButton,
-  SpinButton,
-  TurnReady,
-  WheelStage,
-  type StageProps,
-} from "./stage";
+import { PausedBanner, PhaseContent, SkipButton, WheelStage, type StageProps } from "./stage";
+import { StudioBackdrop, useStudio } from "./studio";
+import { StudioPlayerHud } from "./StudioHud";
 import { AudioMenu, CaptionBar, ErrorNote, Leaderboard, LinkBadge, Logo, PresenterDock, RoundBadge, nameOf } from "./ui";
 import { gmAct, useGiramente } from "./use-giramente";
 
@@ -36,6 +22,7 @@ import { gmAct, useGiramente } from "./use-giramente";
  *  - un solo dispositivo (`shared`): il telefono passa di mano, «TOCCA A …» nasconde le prove a turno.
  * PC = dispositivo di gioco completo (mouse e tastiera: 1–4, Invio), impaginazione larga; telefono =
  * interazioni essenziali con pulsanti grandi. Lo stato arriva SEMPRE dal server.
+ * Con il 3D disponibile la pagina è lo STUDIO (scena unica sotto l'HUD, vedi studio.tsx); altrimenti il 2D di sempre.
  */
 function useActions(roomId: string, applyView: (v: GiramenteView) => void, refresh: () => void) {
   const [busy, setBusy] = useState(false);
@@ -70,6 +57,7 @@ export function GameApp({ roomId }: { roomId: string }) {
   const { run, busy, error: actError, clearError } = useActions(roomId, applyView, () => void refresh());
   const keyHints = useKeyHints();
   const layout = useShowLayout();
+  const studio = useStudio();
   // voce e sigla: dispositivo condiviso, oppure telefono/PC di chi gestisce se nessuno schermo TV è collegato
   const voiced = !!state && (state.devices === "shared" || (!!view?.isHost && !state.displayOnline));
   useGiramenteAudio(state, { voiced, source: { roomId } });
@@ -107,12 +95,24 @@ export function GameApp({ roomId }: { roomId: string }) {
 
   const props: StageProps = { state, view, now, act: run, busy, keyHints };
   const wide = layout === "landscape";
+  const leave = () => void run({ action: "leave" }).then((ok) => ok && window.location.assign("/giramente"));
+
+  if (studio.on) {
+    return (
+      <Shell state={state} view={view} roomId={roomId} onLeave={leave} act={run} studio={wide ? "fixed" : "scroll"}>
+        <StudioBackdrop state={state} now={now} quality={studio.quality} onFail={studio.fail} />
+        <LinkBadge status={status} />
+        <PausedBanner state={state} />
+        <StudioPlayerHud state={state} view={view} now={now} act={run} busy={busy} keyHints={keyHints} roomId={roomId} wide={wide} error={actError} clearError={clearError} />
+      </Shell>
+    );
+  }
   const myTurn = view.canAct && ["CHOICE", "SPIN", "WHEEL_RESULT", "QUESTION"].includes(state.phase) && state.devices === "personal";
   const turnName = nameOf(state, state.turn?.competitorId);
   const showWheel = WHEEL_PHASES.has(state.phase) || (wide && ["CHOICE", "QUESTION", "TURN_RESULT"].includes(state.phase) && !!state.turn);
 
   return (
-    <Shell state={state} view={view} roomId={roomId} onLeave={() => void run({ action: "leave" }).then((ok) => ok && window.location.assign("/giramente"))} act={run}>
+    <Shell state={state} view={view} roomId={roomId} onLeave={leave} act={run}>
       <LinkBadge status={status} />
       <PausedBanner state={state} />
       <div className="flex w-full flex-col items-center gap-4">
@@ -141,7 +141,7 @@ export function GameApp({ roomId }: { roomId: string }) {
               )}
               <div className="flex w-full flex-col items-center gap-4">
                 {!wide && WHEEL_PHASES.has(state.phase) && <WheelStage state={state} now={now} className="max-w-[20rem]" />}
-                <PhaseContent {...props} />
+                <PhaseContent {...props} onNew={() => window.location.assign("/giramente/nuova")} />
                 <SkipButton state={state} view={view} act={run} busy={busy} />
                 {wide && showWheel && <Leaderboard state={state} highlight={view.competitorId} compact />}
               </div>
@@ -160,43 +160,28 @@ export function GameApp({ roomId }: { roomId: string }) {
   );
 }
 
-function PhaseContent(props: StageProps) {
-  const { state, view } = props;
-  switch (state.phase) {
-    case "INTRO":
-      return <IntroScreen state={state} />;
-    case "ROUND_INTRO":
-      return <RoundIntroScreen state={state} />;
-    case "CHOICE":
-      return <ChoicePanel {...props} />;
-    case "SPIN":
-    case "SPINNING":
-      return <SpinButton {...props} />;
-    case "WHEEL_RESULT":
-      return <SectorPanel {...props} />;
-    case "QUESTION":
-    case "TURN_RESULT":
-      return <QuestionPanel {...props} />;
-    case "TURN_READY":
-      return <TurnReady {...props} />;
-    case "PLAY":
-      return <PlayPanel {...props} />;
-    case "REVEAL":
-      return <RevealPanel state={state} />;
-    case "ROUND_RESULTS":
-      return <RoundResultsPanel state={state} view={view} />;
-    case "FINAL":
-      return <FinalPanel state={state} view={view} onNew={() => window.location.assign("/giramente/nuova")} />;
-    default:
-      return null;
-  }
-}
-
-function Shell({ children, state, view, roomId, onLeave, act }: { children: React.ReactNode; state?: PublicState; view?: PrivateView; roomId?: string; onLeave?: () => void; act?: (a: GiramenteAction) => Promise<boolean> }) {
+export function Shell({
+  children,
+  state,
+  view,
+  roomId,
+  onLeave,
+  act,
+  studio,
+}: {
+  children: React.ReactNode;
+  state?: PublicState;
+  view?: PrivateView;
+  roomId?: string;
+  onLeave?: () => void;
+  act?: (a: GiramenteAction) => Promise<boolean>;
+  /** studio 3D: "fixed" = pagina a tutta altezza (PC), "scroll" = l'HUD scorre sopra la scena (telefono) */
+  studio?: "fixed" | "scroll";
+}) {
   const [menu, setMenu] = useState(false);
   return (
-    <div className="min-h-dvh">
-      <header className="qz-safe-header sticky top-0 z-30 flex items-center gap-3 bg-[#080b0d]/85 backdrop-blur">
+    <div className={clsx(studio === "fixed" ? "flex h-dvh flex-col overflow-hidden" : "min-h-dvh", studio && "relative")}>
+      <header className={clsx("qz-safe-header sticky top-0 z-30 flex shrink-0 items-center gap-3", studio ? "bg-gradient-to-b from-[#080b0d]/95 via-[#080b0d]/70 to-transparent" : "bg-[#080b0d]/85 backdrop-blur")}>
         <Link href="/giramente" aria-label="Home di GIRAMENTE!" className="shrink-0">
           <Logo size="sm" />
         </Link>
@@ -253,7 +238,13 @@ function Shell({ children, state, view, roomId, onLeave, act }: { children: Reac
           <ExitButton to="/giramente" size="sm" />
         </div>
       </header>
-      <main className="mx-auto flex w-full max-w-6xl flex-col items-center px-3 pb-28 pt-4 sm:px-6">{children}</main>
+      {studio === "fixed" ? (
+        <main className="relative flex min-h-0 flex-1 flex-col">{children}</main>
+      ) : studio === "scroll" ? (
+        <main className="relative flex w-full flex-col items-center">{children}</main>
+      ) : (
+        <main className="mx-auto flex w-full max-w-6xl flex-col items-center px-3 pb-28 pt-4 sm:px-6">{children}</main>
+      )}
     </div>
   );
 }

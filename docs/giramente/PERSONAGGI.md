@@ -42,7 +42,8 @@ Tabella anche nel codice: `ACTION_PLAN` in `characters.ts`; pose in `character-m
 | `sorpresa` | `Idle_3` | **procedurale**: busto indietro, avambracci su, sopracciglia su, bocca aperta |
 | `delusione` | `Idle_3` | **procedurale**: spalle e testa giù, piccolo «no» con la testa |
 | `pensiero` | `Idle_3` | **procedurale**: mano al mento, testa inclinata, altra mano sulla pancia |
-| `vittoria` | `Idle_3` | **procedurale**: braccia in alto che pompano, piccolo saltello |
+| `vittoria` | `Idle_3` | **procedurale**: braccia avanti e avambracci in su (pugni sopra la testa) che pompano dal gomito, piccolo saltello |
+| `spinta` | `Idle_3` | **procedurale**: carica il braccio verso il bordo della ruota e la spinge con uno strappo verso il basso (studio 3D, inizio del giro) |
 | `ingresso` | clip `Walking` | spostamento della radice (entra di lato in 1,9 s e si gira verso il pubblico) |
 | `uscita` | clip `Walking` | spostamento della radice (si gira ed esce di lato) |
 
@@ -129,6 +130,39 @@ Disegno originale GIRAMENTE! (CSS 3D, niente WebGL): pannello grafite con filo v
 rilievo che si girano con una lama di luce, accensione progressiva, parole intere mandate a capo e righe bilanciate
 (`layoutBoard`, testato), punteggiatura sempre scoperta, categoria sopra, movimento ridotto rispettato. Riceve solo
 caselle mascherate (`char: null` = coperta). `maskPhrase()` serve al server o alle anteprime.
+
+## Limiti delle pose (giacca)
+
+I pesi della pelle dei modelli (Meshy + rig Mixamo) reggono la spalla solo fino a ~60–65° di alzata del braccio: oltre,
+collo e busto della giacca si tirano dietro il braccio (stiramenti e strappi all'ascella). Le pose procedurali tengono
+quindi il braccio (`Arm`) entro ~1 rad dal riposo, distribuiscono un filo sulla clavicola (`Shoulder` ≤ 0,12) e danno
+il resto dell'altezza con il gomito (`ForeArm`). Verifica: `/preview/giramente/pose?who=…&variant=a|b&action=…&t=…&view=front|side|back`
+(posa ferma al culmine) e `node scripts/giramente/pose-shots.mjs http://localhost:PORTA cartella`.
+
+## Lo studio 3D (`three/studio/`)
+
+Con qualità `high` o `low` la pagina del gioco (PC, telefono, dispositivo condiviso) e lo schermo TV/LIVE diventano uno
+STUDIO televisivo: UN canvas fisso montato una volta per tutta la partita (`StudioBackdrop` in `studio.tsx`), con l'HUD
+di gioco sopra (`StudioHud.tsx`). Con qualità `2d`, `?studio=0` o se il 3D si rompe resta l'impaginazione 2D di prima.
+
+- **Set** (`StudioSet.tsx`): pavimento lucido (riflesso vero `MeshReflectorMaterial` solo in `high`), podio con neon e
+  lampadine da casinò, americane con 8 fari e coni di luce additivi, colonne al neon, torri LED, pulviscolo, coriandoli.
+  Le luci seguono l'atmosfera (`Mood`): giro, giusto, sbagliato, Jolly, classifica, vittoria.
+- **Ruota**: la stessa `WheelRig` di `Wheel3D` (giro deterministico dall'ora del server, scatti con `onTick`), montata sul
+  podio con `WheelAssembly`.
+- **Don Patrizio** a figura intera accanto alla ruota (segni sul palco in `studio-layout.ts`), azioni dalla regia
+  (`studio-director.ts`, pura e testata): si avvicina e indica prima del giro, `spinta` sincronizzata con la partenza,
+  indica lo spicchio, applaude/si dispera, sorpresa sulla Jolly, vittoria. Cammina tra i segni con la clip `Walking`.
+- **Zafira** esce dal portale sul palco (`PortalRig` di `JollyPortal3D`) quando esce la Jolly e rientra dopo.
+- **Schermo LED** (`led-texture.ts`): logo, nome della manche, esito, Tabellone Segreto, classifica, vincitore. Solo dati
+  pubblici: mai il codice della partita, mai soluzioni prima della rivelazione.
+- **Regia di camera** (`studio-camera.ts`): inquadrature per fase, smorzate (stacchi netti sulle reazioni), carrellata
+  sulla ruota per tutta la durata del giro, orbita sul vincitore. L'HUD segna con `StudioWindow` la parte di schermo
+  libera: la camera calcola distanza e *lens shift* perché ruota e presentatore stiano lì dentro (varianti compatte per
+  le finestre strette del telefono). Movimento ridotto: camera ferma.
+- **Prestazioni**: disegno a richiesta (60 fps in `high`, 45/30 in `low`, niente a scheda nascosta), dpr che scende da solo se i fotogrammi sono lenti, `low` senza ombre né riflessi veri, modelli `-low`.
+- Anteprima con stati finti: `/preview/giramente/studio?phase=…&device=pc|tel|tv&q=high|low`;
+  foto: `node scripts/giramente/studio-shots.mjs http://localhost:PORTA cartella`.
 
 ## Limiti onesti
 

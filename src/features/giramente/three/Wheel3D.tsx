@@ -52,9 +52,9 @@ export const STAND_URL = "/models/giramente/supporto.glb";
 export const LOGO_URL = "/models/giramente/logo-g.webp";
 
 /** Misure della ruota in scena (come ruota.html): raggio del disco, altezza del perno, pavimento. */
-const R = 1.1;
-const WHEEL_Y = 1.25;
-const FLOOR_Y = -1.0;
+export const R = 1.1;
+export const WHEEL_Y = 1.25;
+export const FLOOR_Y = -1.0;
 /** Supporto (misurato in Blender sul modello Meshy): perno a 1.768 dal fondo, faccia del perno a +0.317. */
 const STAND = { hubFromBottom: 1.768, hubFront: 0.317 };
 const BULBS = 24;
@@ -109,24 +109,25 @@ function Pace({ fps }: { fps: number }) {
 }
 
 /** Riflessi del metallo senza file esterni: ambiente "stanza" generato in codice (solo qualità alta). */
-function RoomEnv() {
+export function RoomEnv({ intensity = 1 }: { intensity?: number }) {
   const get = useThree((s) => s.get);
   useEffect(() => {
     const { gl, scene } = get();
     const pmrem = new PMREMGenerator(gl);
     const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
     scene.environment = env;
+    scene.environmentIntensity = intensity;
     return () => {
       scene.environment = null;
       env.dispose();
       pmrem.dispose();
     };
-  }, [get]);
+  }, [get, intensity]);
   return null;
 }
 
 // ------------------------------------------------------------------ supporto (GLB Meshy)
-function Stand({ low, shadows, onPlaced }: { low: boolean; shadows: boolean; onPlaced: (z: number) => void }) {
+export function Stand({ low, shadows, onPlaced }: { low: boolean; shadows: boolean; onPlaced: (z: number) => void }) {
   const gltf = useGLTF(low ? STAND_URL.replace(/\.glb$/, "-low.glb") : STAND_URL);
   const placed = useMemo(() => {
     const s = gltf.scene.clone(true);
@@ -151,7 +152,7 @@ function Stand({ low, shadows, onPlaced }: { low: boolean; shadows: boolean; onP
 }
 
 /** Supporto di riserva (file mancante): cavalletto e base in codice, come ruota.html. */
-function PlaceholderStand() {
+export function PlaceholderStand() {
   const shape = useMemo(() => {
     const s = new Shape();
     s.moveTo(-0.95, -0.6);
@@ -179,7 +180,7 @@ function PlaceholderStand() {
   );
 }
 
-class Boundary extends Component<{ fallback: ReactNode; onError?: (r: string) => void; children: ReactNode }, { failed: boolean }> {
+export class Boundary extends Component<{ fallback: ReactNode; onError?: (r: string) => void; children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };
@@ -243,7 +244,7 @@ function neonRingGeometry(radius: number, tube: number): TorusGeometry {
 }
 
 // ------------------------------------------------------------------ la ruota
-interface RigProps extends Pick<GiramenteWheelProps, "segments" | "spin" | "restIndex" | "now" | "highlight" | "onSpinEnd" | "onTick"> {
+export interface RigProps extends Pick<GiramenteWheelProps, "segments" | "spin" | "restIndex" | "now" | "highlight" | "onSpinEnd" | "onTick"> {
   low: boolean;
   center: WheelCenter;
   fontFamily: string;
@@ -251,7 +252,7 @@ interface RigProps extends Pick<GiramenteWheelProps, "segments" | "spin" | "rest
   onState: (s: { spinning: boolean; lit: boolean }) => void;
 }
 
-function WheelRig({ segments, spin, restIndex, now, highlight, onSpinEnd, onTick, low, center, fontFamily, reduced, onState }: RigProps) {
+export function WheelRig({ segments, spin, restIndex, now, highlight, onSpinEnd, onTick, low, center, fontFamily, reduced, onState }: RigProps) {
   const n = Math.max(2, segments.length);
   const s = segmentStep(n);
   const driver = useMemo(() => new WheelDriver(), []);
@@ -542,6 +543,34 @@ function WheelRig({ segments, spin, restIndex, now, highlight, onSpinEnd, onTick
   );
 }
 
+// ------------------------------------------------------------------ ruota + supporto (riusata dallo studio)
+export interface WheelAssemblyProps extends RigProps {
+  shadows: boolean;
+  showStand?: boolean;
+}
+
+/**
+ * Ruota montata sul supporto, nelle coordinate di Wheel3D (pavimento a FLOOR_Y, perno a WHEEL_Y): la usano sia il
+ * canvas della ruota da sola sia lo STUDIO 3D (che la sposta e la scala sul suo palco).
+ */
+export function WheelAssembly({ shadows, showStand = true, ...rig }: WheelAssemblyProps) {
+  const [wheelZ, setWheelZ] = useState(0.55);
+  return (
+    <>
+      <group position={[0, WHEEL_Y, showStand ? wheelZ : 0]}>
+        <WheelRig {...rig} />
+      </group>
+      {showStand && (
+        <Boundary fallback={<PlaceholderStand />} onError={(r) => console.warn(`[giramente] supporto 3D non caricato: ${r}`)}>
+          <Suspense fallback={null}>
+            <Stand low={rig.low} shadows={shadows} onPlaced={setWheelZ} />
+          </Suspense>
+        </Boundary>
+      )}
+    </>
+  );
+}
+
 // ------------------------------------------------------------------ canvas
 export interface Wheel3DProps extends GiramenteWheelProps {
   center?: WheelCenter;
@@ -551,7 +580,6 @@ export interface Wheel3DProps extends GiramenteWheelProps {
 export default function Wheel3D({ quality, showStand = true, className, center = WHEEL_CENTER_DEFAULT, onFail, ...rig }: Wheel3DProps) {
   const low = quality !== "high";
   const shadows = quality === "high";
-  const [wheelZ, setWheelZ] = useState(0.55);
   const [mode, setMode] = useState({ spinning: false, lit: false });
   const [fontFamily, setFontFamily] = useState(DEFAULT_WHEEL_FONT);
   const [reduced] = useState(prefersReducedMotion);
@@ -597,16 +625,7 @@ export default function Wheel3D({ quality, showStand = true, className, center =
         <pointLight position={[3.6, 2.6, 1.6]} intensity={14} distance={12} color="#3dff3a" />
         <pointLight position={[0, WHEEL_Y + 0.4, 2.4]} intensity={4} distance={5} color="#ffffff" />
         {!low && <RoomEnv />}
-        <group position={[0, WHEEL_Y, showStand ? wheelZ : 0]}>
-          <WheelRig {...rig} low={low} center={center} fontFamily={fontFamily} reduced={reduced} onState={setMode} />
-        </group>
-        {showStand && (
-          <Boundary fallback={<PlaceholderStand />} onError={(r) => console.warn(`[giramente] supporto 3D non caricato: ${r}`)}>
-            <Suspense fallback={null}>
-              <Stand low={low} shadows={shadows} onPlaced={setWheelZ} />
-            </Suspense>
-          </Boundary>
-        )}
+        <WheelAssembly {...rig} low={low} shadows={shadows} showStand={showStand} center={center} fontFamily={fontFamily} reduced={reduced} onState={setMode} />
         {showStand && shadows && (
           <mesh rotation-x={-Math.PI / 2} position-y={FLOOR_Y + 0.002} receiveShadow>
             <planeGeometry args={[12, 12]} />

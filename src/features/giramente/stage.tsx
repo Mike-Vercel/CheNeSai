@@ -25,10 +25,12 @@ export interface StageProps {
   keyHints: boolean;
   /** schermo TV: niente pulsanti, testi grandi */
   tv?: boolean;
+  /** studio 3D attivo: Zafira e la ruota sono nella scena, i pannelli non le ripetono */
+  studio?: boolean;
 }
 
 /** Spicchi nell'ordine del server (0 INTRUSO … 7 COLPO DI SCENA), identico alla ruota 3D. */
-const segmentsFor = (state: PublicState): WheelSegment[] => {
+export const segmentsFor = (state: PublicState): WheelSegment[] => {
   const kinds = state.wheel.finale ? FINALE_WHEEL : STANDARD_WHEEL;
   const base = state.wheel.finale ? WHEEL_SEGMENTS_FINALE : WHEEL_SEGMENTS_STANDARD;
   // controllo di sicurezza: se l'ordine grafico non coincidesse col server, vince il server
@@ -175,7 +177,7 @@ export function RiskChip({ state }: { state: PublicState }) {
 // ---------------------------------------------------------------------------
 // Esito della ruota (Jolly, Colpo di scena, Bonus…)
 // ---------------------------------------------------------------------------
-export function SectorPanel({ state, view, act, busy, keyHints, tv }: StageProps) {
+export function SectorPanel({ state, view, act, busy, keyHints, tv, studio }: StageProps) {
   const t = state.turn;
   const quality = useQuality();
   const speech = useSpeech();
@@ -191,7 +193,7 @@ export function SectorPanel({ state, view, act, busy, keyHints, tv }: StageProps
   const jolly = t.sector === "jolly";
   return (
     <section className="gm-pop flex w-full flex-col items-center gap-4 text-center">
-      {jolly && <JollyPortal play quality={quality} speaking={speech.who === "zafira"} className={clsx("mx-auto", tv ? "h-64" : "h-52")} />}
+      {jolly && !studio && <JollyPortal play quality={quality} speaking={speech.who === "zafira"} className={clsx("mx-auto", tv ? "h-64" : "h-52")} />}
       <div className={clsx("gm-panel relative w-full max-w-xl overflow-hidden rounded-[2rem] px-5 py-5", jolly || t.sector === "colpo" ? "gm-panel-red" : "gm-panel-green")}>
         <p className="gm-display absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl bg-[#080b0d] px-4 py-0.5 text-sm text-white/80">ESITO DELLA RUOTA</p>
         <h2 className={clsx("gm-display mt-4 leading-none", tv ? "text-7xl" : "text-5xl")}>{WHEEL_LABEL[t.sector]}</h2>
@@ -698,3 +700,36 @@ export function PausedBanner({ state }: { state: PublicState }) {
 }
 
 export { BrainIcon };
+
+/** Pannello della fase in corso (telefono e PC; lo schermo TV ha la sua impaginazione). */
+export function PhaseContent(props: StageProps & { onNew?: () => void }) {
+  const { state, view } = props;
+  switch (state.phase) {
+    case "INTRO":
+      return <IntroScreen state={state} />;
+    case "ROUND_INTRO":
+      return <RoundIntroScreen state={state} />;
+    case "CHOICE":
+      return <ChoicePanel {...props} />;
+    case "SPIN":
+    case "SPINNING":
+      return <SpinButton {...props} />;
+    case "WHEEL_RESULT":
+      return <SectorPanel {...props} />;
+    case "QUESTION":
+    case "TURN_RESULT":
+      return <QuestionPanel {...props} />;
+    case "TURN_READY":
+      return <TurnReady {...props} />;
+    case "PLAY":
+      return <PlayPanel {...props} />;
+    case "REVEAL":
+      return <RevealPanel state={state} />;
+    case "ROUND_RESULTS":
+      return <RoundResultsPanel state={state} view={view} />;
+    case "FINAL":
+      return <FinalPanel state={state} view={view} onNew={props.onNew} />;
+    default:
+      return null;
+  }
+}

@@ -54,6 +54,7 @@ const ACTION_LABEL: Record<CharacterAction, string> = {
   delusione: "Delusione",
   pensiero: "Pensiero",
   vittoria: "Vittoria",
+  spinta: "Spinge la ruota",
   ingresso: "Ingresso",
   uscita: "Uscita",
 };

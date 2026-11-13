@@ -234,6 +234,75 @@ test("un solo telefono con 3 nomi: «TOCCA A …», prove a turno, partita compl
   await ctx.close();
 });
 
+/** Pulsanti dell'HUD coperti da qualcosa (la scena 3D, un pannello…): nessuno, se l'interfaccia è giusta. */
+async function coveredButtons(page: Page): Promise<string[]> {
+  return page.evaluate(() => {
+    const bad: string[] = [];
+    for (const b of Array.from(document.querySelectorAll<HTMLButtonElement>("main button:not([disabled])"))) {
+      const r = b.getBoundingClientRect();
+      if (r.width < 4 || r.height < 4 || r.bottom <= 0 || r.top >= window.innerHeight || r.right <= 0 || r.left >= window.innerWidth) continue;
+      if (b.closest("[aria-hidden='true']")) continue;
+      const x = r.left + r.width / 2;
+      const y = Math.min(window.innerHeight - 2, Math.max(1, r.top + r.height / 2));
+      const el = document.elementFromPoint(x, y);
+      if (!el || !(el === b || b.contains(el))) bad.push(`${(b.textContent ?? "").trim().slice(0, 30)} → ${el?.tagName ?? "nulla"}.${String((el as HTMLElement | null)?.className ?? "").slice(0, 40)}`);
+    }
+    return bad;
+  });
+}
+
+for (const [label, device] of [
+  ["telefono", PHONE],
+  ["PC", PC],
+] as const) {
+  test(`studio 3D forzato (?q=low) su ${label}: l'HUD resta cliccabile sopra la scena, un solo canvas per tutta la partita`, async ({ browser }) => {
+    test.setTimeout(900_000);
+    const u = await makeUser(`gmstudio${label === "PC" ? "pc" : "tel"}`);
+    const { ctx, page } = await newPage(browser, device);
+    await login(page, u, "/giramente/nuova");
+    await page.waitForURL(/\/giramente\/nuova/);
+    await page.getByRole("button", { name: /Un solo telefono/ }).click();
+    await page.getByLabel("Giocatore 1").fill("Anna");
+    await page.getByLabel("Giocatore 2").fill("Bruno");
+    await page.getByText("⚙ Impostazioni").click();
+    await page.getByLabel("Introduzioni brevi (partita più veloce)").check();
+    await page.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+    await page.waitForURL(/\/giramente\/un-dispositivo\//);
+    const roomId = roomIdOf(page);
+    await page.goto(`${new URL(page.url()).pathname}?q=low`);
+    const canvas = page.locator(".gm-studio-canvas canvas");
+    await expect(canvas).toHaveCount(1, { timeout: 30_000 });
+    await expect(page.locator("[data-gm-studio-window]")).toHaveCount(1);
+    await page.evaluate(() => {
+      (window as unknown as { __gmCanvas?: Element | null }).__gmCanvas = document.querySelector(".gm-studio-canvas canvas");
+    });
+    expect(await coveredButtons(page)).toEqual([]);
+    await gmShot(page, `studio-${label}-01-sala`);
+    await page.getByRole("button", { name: /AVVIA PARTITA/ }).click();
+    const comps = await competitorIds(roomId);
+    const checked = new Set<string>();
+    await driveUi({
+      roomId,
+      host: page,
+      pageFor: () => page,
+      correct: (cid) => cid === comps[0].id,
+      onPhase: async (r) => {
+        if (checked.has(r.phase) || r.phase === "SPINNING") return;
+        checked.add(r.phase);
+        await page.waitForTimeout(900);
+        expect(await coveredButtons(page), `pulsanti coperti in ${r.phase}`).toEqual([]);
+        await gmShot(page, `studio-${label}-${r.phase.toLowerCase()}`);
+      },
+    });
+    await expect(page.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
+    // lo studio non si è mai ricaricato: è ancora lo stesso canvas della sala d'attesa
+    expect(await page.evaluate(() => document.querySelector(".gm-studio-canvas canvas") === (window as unknown as { __gmCanvas?: Element | null }).__gmCanvas)).toBe(true);
+    expect(checked.has("QUESTION") && checked.has("CHOICE") && checked.has("PLAY")).toBe(true);
+    await gmShot(page, `studio-${label}-90-vincitore`);
+    await ctx.close();
+  });
+}
+
 test("partita a squadre (un solo telefono, 2 squadre da 2): il capitano conferma, fino al vincitore", async ({ browser }) => {
   test.setTimeout(900_000);
   const u = await makeUser("gmteam");
