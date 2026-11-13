@@ -48,7 +48,7 @@ export function characterUrl(who: CharacterWho, quality: VisualQuality, variant:
  */
 export const ACTION_PLAN: Record<CharacterAction, { base: "Idle_3" | "Talk_with_Hands_Open" | "Walking"; procedural: string | null }> = {
   idle: { base: "Idle_3", procedural: null },
-  saluto: { base: "Idle_3", procedural: "saluto con la mano destra (braccio alzato, avambraccio che oscilla)" },
+  saluto: { base: "Idle_3", procedural: "saluto con la mano destra (braccio a metà, avambraccio in su che oscilla: la spalla non supera i ~60°)" },
   presentazione: { base: "Talk_with_Hands_Open", procedural: null },
   indica: { base: "Idle_3", procedural: "braccio teso verso la ruota, busto e testa girati" },
   applauso: { base: "Idle_3", procedural: "braccia avanti, mani che battono (3 Hz) con un piccolo rimbalzo" },
@@ -56,7 +56,8 @@ export const ACTION_PLAN: Record<CharacterAction, { base: "Idle_3" | "Talk_with_
   sorpresa: { base: "Idle_3", procedural: "busto all'indietro, braccia aperte, sopracciglia su e bocca aperta" },
   delusione: { base: "Idle_3", procedural: "spalle e testa giù, piccolo «no» con la testa" },
   pensiero: { base: "Idle_3", procedural: "mano al mento, testa inclinata, altra mano sulla pancia" },
-  vittoria: { base: "Idle_3", procedural: "braccia in alto che pompano, piccolo saltello" },
+  vittoria: { base: "Idle_3", procedural: "braccia avanti e avambracci in su (pugni sopra la testa) che pompano dal gomito, piccolo saltello" },
+  spinta: { base: "Idle_3", procedural: "carica il braccio verso il bordo della ruota e la spinge con uno strappo verso il basso (inizio del giro)" },
   ingresso: { base: "Walking", procedural: "spostamento della radice: entra camminando di lato e si gira verso il pubblico" },
   uscita: { base: "Walking", procedural: "spostamento della radice: si gira ed esce camminando di lato" },
 };

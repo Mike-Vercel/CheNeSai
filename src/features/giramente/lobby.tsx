@@ -82,7 +82,7 @@ export async function openScreen(roomId: string, live = false) {
   }
 }
 
-export function Lobby({ state, view, act, busy, roomId }: { state: PublicState; view: PrivateView; act: (a: GiramenteAction) => Promise<boolean>; busy: boolean; roomId: string }) {
+export function Lobby({ state, view, act, busy, roomId, stacked = false }: { state: PublicState; view: PrivateView; act: (a: GiramenteAction) => Promise<boolean>; busy: boolean; roomId: string; /** una colonna sola (pannello laterale dello studio 3D) */ stacked?: boolean }) {
   const teams = state.mode === "teams";
   const personal = state.devices === "personal";
   const comps = state.competitors;
@@ -94,8 +94,8 @@ export function Lobby({ state, view, act, busy, roomId }: { state: PublicState; 
   return (
     <div className="flex w-full flex-col gap-4">
       <h1 className="gm-display text-center text-4xl sm:text-5xl">SALA PARTITA</h1>
-      <div className={clsx("grid gap-4", personal && "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]")}>
-        {personal && <InvitePanel code={state.code} />}
+      <div className={clsx("grid gap-4", personal && !stacked && "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]")}>
+        {personal && <InvitePanel code={state.code} compact={stacked} />}
         <section className="gm-panel rounded-3xl p-4" aria-label={teams ? "Squadre" : "Giocatori"}>
           <h2 className="gm-display mb-2 text-2xl">
             {teams ? "Squadre" : "Giocatori"} ({comps.length}/{teams ? 4 : MAX_PLAYERS})

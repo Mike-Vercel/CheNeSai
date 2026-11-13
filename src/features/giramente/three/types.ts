@@ -63,6 +63,8 @@ export type CharacterAction =
   | "delusione"
   | "pensiero"
   | "vittoria"
+  /** spinge la ruota (braccio verso il bordo, poi strappo verso il basso): sincronizzata con l'inizio del giro */
+  | "spinta"
   | "ingresso"
   | "uscita";
 

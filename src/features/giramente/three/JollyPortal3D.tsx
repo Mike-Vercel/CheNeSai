@@ -154,7 +154,7 @@ function Frame() {
   return null;
 }
 
-interface SceneProps {
+export interface PortalRigProps {
   play: boolean;
   quality: VisualQuality;
   speaking: boolean;
@@ -165,7 +165,11 @@ interface SceneProps {
   onExited: () => void;
 }
 
-function PortalScene({ play, quality, speaking, mouthRef, src, busyRef, onEntered, onExited }: SceneProps) {
+/**
+ * Portale + Zafira + luci del portale, SENZA luci di scena né camera: lo usa questo canvas e lo STUDIO 3D
+ * (che lo mette sul palco accanto alla ruota). Origine ai piedi del portale, Zafira esce verso +Z.
+ */
+export function PortalRig({ play, quality, speaking, mouthRef, src, busyRef, onEntered, onExited }: PortalRigProps) {
   const low = quality !== "high";
   const params = useMemo(() => ({ vortex: vortexMaterial(), ring: ringMaterial(), sparks: sparkMaterial() }), []);
   const vortex = useRef<ShaderMaterial>(null);
@@ -246,7 +250,8 @@ function PortalScene({ play, quality, speaking, mouthRef, src, busyRef, onEntere
       m.uniforms.uTime.value = time;
       m.uniforms.uOpen.value = o1;
     }
-    if (sparks.current) sparks.current.uniforms.uPx.value = (state.size.height * state.viewport.dpr) / (2 * Math.tan((30 * Math.PI) / 360));
+    const fov = (state.camera as PerspectiveCamera).fov ?? 30;
+    if (sparks.current) sparks.current.uniforms.uPx.value = (state.size.height * state.viewport.dpr) / (2 * Math.tan((fov * Math.PI) / 360));
     const flick = 0.85 + 0.15 * Math.sin(time * 9);
     if (green.current) green.current.intensity = 6 * Math.min(1, open) * flick;
     if (red.current) red.current.intensity = 6 * Math.min(1, open) * flick;
@@ -255,7 +260,6 @@ function PortalScene({ play, quality, speaking, mouthRef, src, busyRef, onEntere
 
   return (
     <>
-      <StudioLights />
       <pointLight ref={green} position={[-0.8, PORTAL_Y + 0.4, -0.4]} distance={4} decay={2} color="#39ff14" />
       <pointLight ref={red} position={[0.8, PORTAL_Y + 0.4, -0.4]} distance={4} decay={2} color="#ff253a" />
       <group ref={portal} position={[0, PORTAL_Y, 0]} scale={0.001} visible={false}>
@@ -295,7 +299,16 @@ function PortalScene({ play, quality, speaking, mouthRef, src, busyRef, onEntere
   );
 }
 
-export default function JollyPortal3D(p: Omit<SceneProps, "busyRef"> & { onFail: (r: string) => void }) {
+function PortalScene(p: PortalRigProps) {
+  return (
+    <>
+      <StudioLights />
+      <PortalRig {...p} />
+    </>
+  );
+}
+
+export default function JollyPortal3D(p: Omit<PortalRigProps, "busyRef"> & { onFail: (r: string) => void }) {
   const busy = useRef(true);
   const low = p.quality !== "high";
   return (

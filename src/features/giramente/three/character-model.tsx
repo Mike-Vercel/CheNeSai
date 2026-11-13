@@ -34,18 +34,21 @@ import type { CharacterAction, CharacterWho } from "./types";
  * Origine ai piedi, unità in metri, guarda verso +Z.
  */
 
-const FADE_TAU = 0.1;
+/** costante di tempo delle dissolvenze tra clip (riposo, parlata, camminata): morbide, senza scatti */
+const FADE_TAU = 0.2;
 
-type BoneKey = "hips" | "spine" | "chest" | "neck" | "head" | "lArm" | "lFore" | "lHand" | "rArm" | "rFore" | "rHand";
+type BoneKey = "hips" | "spine" | "chest" | "neck" | "head" | "lSh" | "lArm" | "lFore" | "lHand" | "rSh" | "rArm" | "rFore" | "rHand";
 const BONE_NAMES: Record<BoneKey, string> = {
   hips: "mixamorigHips",
   spine: "mixamorigSpine",
   chest: "mixamorigSpine2",
   neck: "mixamorigNeck",
   head: "mixamorigHead",
+  lSh: "mixamorigLeftShoulder",
   lArm: "mixamorigLeftArm",
   lFore: "mixamorigLeftForeArm",
   lHand: "mixamorigLeftHand",
+  rSh: "mixamorigRightShoulder",
   rArm: "mixamorigRightArm",
   rFore: "mixamorigRightForeArm",
   rHand: "mixamorigRightHand",
@@ -61,19 +64,47 @@ type PoseKind = "saluto" | "indicaL" | "indicaR" | "applauso" | "risata" | "sorp
  * Y su, Z verso chi guarda), angoli [x, y, z] in radianti. Braccio destro in fuori/su = z negativa,
  * sinistro = z positiva; in avanti = x negativa. Busto: x negativa = indietro, positiva = in avanti.
  */
+/*
+ * LIMITI DELLA PELLE: i pesi della giacca (modelli Meshy con rig Mixamo) reggono la spalla solo fino a ~60–65° di
+ * alzata del braccio; oltre, collo e busto della giacca si tirano dietro il braccio (stiramenti, strappi all'ascella).
+ * Quindi: braccio (Arm) mai oltre ~1,05 rad dal riposo, un filo di clavicola (Shoulder ≤ 0,18) a distribuire, e tutto
+ * il resto dell'altezza lo dà il GOMITO (ForeArm). Controllo: /preview/giramente/pose e scripts/giramente/pose-shots.mjs.
+ */
 const POSES: Record<PoseKind, Pose> = {
-  saluto: { rArm: [0, 0, -1.75], rFore: [0, 0, -1.39], head: [0, -0.08, 0.05] },
+  // braccio a metà, avambraccio verticale: la mano saluta all'altezza della testa
+  saluto: { rSh: [0, 0, -0.1], rArm: [-0.32, 0, -0.85], rFore: [-0.1, 0, -1.75], head: [0, -0.08, 0.05] },
   // braccio destro verso la sinistra dello schermo (la ruota), busto e sguardo che seguono
-  indicaL: { chest: [0, -0.16, 0], head: [0, -0.3, 0], rArm: [-0.35, 0, -1.3], rFore: [-0.05, 0, -0.08] },
-  indicaR: { chest: [0, 0.16, 0], head: [0, 0.3, 0], lArm: [-0.35, 0, 1.3], lFore: [-0.05, 0, 0.08] },
+  indicaL: { chest: [0, -0.18, 0], head: [0, -0.32, 0], rSh: [0, 0, -0.08], rArm: [-0.12, 0, -0.95], rFore: [0, 0, -0.45] },
+  indicaR: { chest: [0, 0.18, 0], head: [0, 0.32, 0], lSh: [0, 0, 0.08], lArm: [-0.12, 0, 0.95], lFore: [0, 0, 0.45] },
   applauso: { chest: [0.04, 0, 0], rArm: [-0.62, 0, 0.42], lArm: [-0.62, 0, -0.42], rFore: [-0.62, 0, 0.42], lFore: [-0.62, 0, -0.42] },
   risata: { chest: [-0.12, 0, 0], head: [-0.22, 0, 0], rArm: [-0.45, 0, 0.42], lArm: [-0.45, 0, -0.42], rFore: [-0.75, 0, 0.35], lFore: [-0.75, 0, -0.35] },
   sorpresa: { chest: [-0.16, 0, 0], head: [-0.1, 0, 0], rArm: [-0.3, 0, -0.42], lArm: [-0.3, 0, 0.42], rFore: [-1.25, 0, -0.15], lFore: [-1.25, 0, 0.15] },
   delusione: { spine: [0.08, 0, 0], chest: [0.2, 0, 0], neck: [0.12, 0, 0], head: [0.3, 0, 0], rArm: [0, 0, 0.1], lArm: [0, 0, -0.1] },
   pensiero: { head: [0.1, 0.1, 0.17], rArm: [-0.6, 0, 0.4], rFore: [-1.7, 0, 0.3], rHand: [0.3, 0, 0], lArm: [-0.45, 0, -0.42], lFore: [-1.0, 0, -0.55] },
-  vittoria: { chest: [-0.12, 0, 0], head: [-0.15, 0, 0], lArm: [0, 0, 2.5], rArm: [0, 0, -2.5], lFore: [0, 0, 0.3], rFore: [0, 0, -0.3] },
+  // braccia a metà e avambracci in su (pugni sopra la testa): esultanza senza tirare la giacca
+  vittoria: { chest: [-0.1, 0, 0], head: [-0.15, 0, 0], lSh: [0, 0, 0.08], rSh: [0, 0, -0.08], lArm: [-0.95, 0, 0.5], rArm: [-0.95, 0, -0.5], lFore: [-0.6, 0, 1.25], rFore: [-0.6, 0, -1.25] },
 };
 const POSE_KINDS = Object.keys(POSES) as PoseKind[];
+
+/**
+ * «spinta» (studio 3D): la ruota è dal lato `pointSide` dello schermo. Carica = braccio alzato verso il bordo,
+ * strappo = braccio tirato giù in avanti. Scritta per la ruota a DESTRA (braccio sinistro del personaggio),
+ * specchiata per la sinistra. Tempi in secondi dall'inizio dell'azione.
+ */
+const SPINTA_CARICA: Pose = { spine: [0, 0.1, 0], chest: [0, 0.3, 0], head: [-0.05, 0.32, 0], lSh: [0, 0, 0.12], lArm: [-0.75, 0, 0.9], lFore: [-0.3, 0, 0.95], rArm: [-0.2, 0, -0.25] };
+const SPINTA_STRAPPO: Pose = { spine: [0.06, 0.08, 0], chest: [0.16, 0.22, 0], head: [0.08, 0.26, 0], lArm: [-1.0, 0, 0.42], lFore: [-0.35, 0, 0.12], rArm: [-0.1, 0, -0.35] };
+export const SPINTA_T = { carica: 0.32, strappo: 0.3, tenuta: 0.45 };
+const MIRROR: Partial<Record<BoneKey, BoneKey>> = { lSh: "rSh", rSh: "lSh", lArm: "rArm", rArm: "lArm", lFore: "rFore", rFore: "lFore", lHand: "rHand", rHand: "lHand" };
+function spintaPose(key: BoneKey, u: number, side: "left" | "right"): Vec3 | null {
+  const src = side === "right" ? key : (MIRROR[key] ?? key);
+  const a = SPINTA_CARICA[src];
+  const b = SPINTA_STRAPPO[src];
+  if (!a && !b) return null;
+  const va = a ?? [0, 0, 0];
+  const vb = b ?? [0, 0, 0];
+  const v: Vec3 = [va[0] + (vb[0] - va[0]) * u, va[1] + (vb[1] - va[1]) * u, va[2] + (vb[2] - va[2]) * u];
+  return side === "right" ? v : [v[0], -v[1], -v[2]];
+}
 
 function poseFor(action: CharacterAction, pointSide: "left" | "right"): PoseKind | null {
   switch (action) {
@@ -205,9 +236,11 @@ export interface CharacterModelProps {
    * (portale della Jolly). Se presente, ingresso/uscita non muovono la radice.
    */
   externalWalk?: RefObject<number>;
+  /** solo anteprime: ferma il tempo dell'azione a questo istante (s), per controllare la posa al suo culmine */
+  holdAt?: number;
 }
 
-export function GiramenteCharacterModel({ who, url, action, speaking, mouthRef, pointSide = "left", walkFrom = "left", onReady, onWalkDone, busyRef, externalWalk }: CharacterModelProps) {
+export function GiramenteCharacterModel({ who, url, action, speaking, mouthRef, pointSide = "left", walkFrom = "left", onReady, onWalkDone, busyRef, externalWalk, holdAt }: CharacterModelProps) {
   const info = CHARACTER_INFO[who];
   const gltf = useGLTF(url);
   const prep = useMemo(() => prepare(gltf.scene, gltf.animations), [gltf]);
@@ -294,11 +327,12 @@ export function GiramenteCharacterModel({ who, url, action, speaking, mouthRef, 
     vowel: 0 as 0 | 1 | 2,
     blinkIn: 2.2,
     blinkPh: -1,
+    spinW: 0,
   });
 
   useFrame((_, rawDt) => {
-    const dt = Math.min(0.1, rawDt);
     const s = st.current;
+    const dt = holdAt !== undefined && s.actionT >= holdAt && s.action === action ? 0 : Math.min(0.1, rawDt);
     s.t += dt;
     if (action !== s.action) {
       s.action = action;
@@ -393,6 +427,12 @@ export function GiramenteCharacterModel({ who, url, action, speaking, mouthRef, 
       s.poseW[p] = prev + (target - prev) * (1 - Math.exp(-dt * (target ? fast : 6)));
     }
     const still = 1 - s.walk;
+    // spinta: peso (sale in fretta, scende dopo la tenuta) e avanzamento carica → strappo
+    const spintaEnd = SPINTA_T.carica + SPINTA_T.strappo + SPINTA_T.tenuta;
+    const spintaOn = action === "spinta" && at < spintaEnd ? 1 : 0;
+    s.spinW += (spintaOn - s.spinW) * (1 - Math.exp(-dt * (spintaOn ? 16 : 5)));
+    const spU = Math.min(1, Math.max(0, (at - SPINTA_T.carica) / SPINTA_T.strappo));
+    const spintaU = action === "spinta" ? spU * spU * (3 - 2 * spU) : 1;
     const t = s.t;
     const w = (p: PoseKind) => (s.poseW[p] ?? 0) * still;
     const clap = 0.5 + 0.5 * Math.sin(at * 2 * Math.PI * 3);
@@ -416,6 +456,15 @@ export function GiramenteCharacterModel({ who, url, action, speaking, mouthRef, 
         z += v[2] * pw;
       }
       // parti dinamiche
+      if (s.spinW > 0.001) {
+        const v = spintaPose(key, spintaU, pointSide);
+        if (v) {
+          busy = true;
+          x += v[0] * s.spinW * still;
+          y += v[1] * s.spinW * still;
+          z += v[2] * s.spinW * still;
+        }
+      }
       const ws = w("saluto");
       if (ws > 0.01) {
         if (key === "rFore") z += ws * Math.sin(t * 8) * 0.32;
@@ -437,7 +486,9 @@ export function GiramenteCharacterModel({ who, url, action, speaking, mouthRef, 
       const wd = w("delusione");
       if (wd > 0.01 && key === "head") y += wd * 0.14 * Math.sin(at * 2 * Math.PI * 0.9);
       const wv = w("vittoria");
-      if (wv > 0.01 && (key === "lArm" || key === "rArm")) x += wv * 0.2 * pump;
+      // pugni che pompano: dal gomito, non dalla spalla
+      if (wv > 0.01 && key === "lFore") z += wv * 0.18 * pump;
+      if (wv > 0.01 && key === "rFore") z -= wv * 0.18 * pump;
       const wp = w("pensiero");
       if (wp > 0.01 && key === "head") z += wp * 0.04 * Math.sin(at * 1.3);
       if (key === "neck") x += speech * 0.6;

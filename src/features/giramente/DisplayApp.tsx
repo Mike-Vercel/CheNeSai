@@ -23,6 +23,8 @@ import {
   WheelStage,
   type StageProps,
 } from "./stage";
+import { StudioBackdrop, useStudio } from "./studio";
+import { StudioTvHud } from "./StudioHud";
 import { Leaderboard, Logo, PresenterDock, RoundBadge, nameOf } from "./ui";
 import { useGiramente } from "./use-giramente";
 
@@ -31,12 +33,14 @@ import { useGiramente } from "./use-giramente";
  * classifica, presentatore, entrate della Jolly. Nessun account, nessuna azione di gioco, nessuna
  * soluzione prima del momento giusto (lo stato pubblico non le contiene).
  * `live`: vista per lo streaming (OBS/TikTok LIVE) senza codice, QR né link.
+ * Con il 3D disponibile: lo STUDIO a tutto schermo (ruota, Don Patrizio, Zafira, regia di camera) con l'HUD sopra.
  */
 export function DisplayApp({ displayKey, live = false }: { displayKey: string; live?: boolean }) {
   const { state, error, now } = useGiramente({ source: { kind: "display", displayKey } });
   useGiramenteAudio(state, { voiced: true, source: { key: displayKey } });
   const [unlocked, setUnlocked] = useState(false);
   const [host, setHost] = useState(false);
+  const studio = useStudio();
   useEffect(() => getSoundEngine().subscribe((s) => setUnlocked(s.unlocked)), []);
   useEffect(() => {
     if (live) return;
@@ -63,25 +67,40 @@ export function DisplayApp({ displayKey, live = false }: { displayKey: string; l
     await api(`/api/giramente/schermo/${encodeURIComponent(displayKey)}/comandi`, { method: "POST", json: { action } }).catch(() => undefined);
   };
 
+  const header = (
+    <>
+      <Logo size="sm" />
+      {state.roundNo > 0 && state.phase !== "FINAL" && <RoundBadge roundNo={state.roundNo} />}
+      {state.roundName && state.phase !== "LOBBY" && state.phase !== "FINAL" && <p className="gm-display text-3xl">{state.roundName}</p>}
+      <div className="ml-auto flex items-center gap-3">
+        {state.turn && !["ROUND_RESULTS", "FINAL", "REVEAL", "ROUND_INTRO"].includes(state.phase) && (
+          <p className="gm-panel gm-panel-green gm-display rounded-2xl px-4 py-1 text-3xl">TOCCA A {nameOf(state, state.turn.competitorId).toUpperCase()}</p>
+        )}
+        {state.stagePlay?.competitorId && state.phase === "PLAY" && <p className="gm-panel gm-display rounded-2xl px-4 py-1 text-3xl">Gioca {nameOf(state, state.stagePlay.competitorId)}</p>}
+        {!unlocked && (
+          <button type="button" className="gm-btn min-h-12 text-xl" onClick={() => void getSoundEngine().unlock()}>
+            🔊 ATTIVA AUDIO
+          </button>
+        )}
+        {host && !live && <HostRemote state={state} command={command} />}
+      </div>
+    </>
+  );
+
+  if (studio.on) {
+    return (
+      <div className="relative flex h-dvh flex-col overflow-hidden">
+        <StudioBackdrop state={state} now={now} quality={studio.quality} onFail={studio.fail} />
+        <header className="relative z-10 flex items-center gap-4 bg-gradient-to-b from-[#080b0d]/90 to-transparent px-6 pb-3 pt-4 [@media(min-width:1600px)]:px-10">{header}</header>
+        <PausedBanner state={state} />
+        <StudioTvHud state={state} now={now} live={live} />
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-dvh flex-col overflow-hidden px-6 pb-4 pt-4 [@media(min-width:1600px)]:px-10">
-      <header className="flex items-center gap-4">
-        <Logo size="sm" />
-        {state.roundNo > 0 && state.phase !== "FINAL" && <RoundBadge roundNo={state.roundNo} />}
-        {state.roundName && state.phase !== "LOBBY" && state.phase !== "FINAL" && <p className="gm-display text-3xl">{state.roundName}</p>}
-        <div className="ml-auto flex items-center gap-3">
-          {state.turn && !["ROUND_RESULTS", "FINAL", "REVEAL", "ROUND_INTRO"].includes(state.phase) && (
-            <p className="gm-panel gm-panel-green gm-display rounded-2xl px-4 py-1 text-3xl">TOCCA A {nameOf(state, state.turn.competitorId).toUpperCase()}</p>
-          )}
-          {state.stagePlay?.competitorId && state.phase === "PLAY" && <p className="gm-panel gm-display rounded-2xl px-4 py-1 text-3xl">Gioca {nameOf(state, state.stagePlay.competitorId)}</p>}
-          {!unlocked && (
-            <button type="button" className="gm-btn min-h-12 text-xl" onClick={() => void getSoundEngine().unlock()}>
-              🔊 ATTIVA AUDIO
-            </button>
-          )}
-          {host && !live && <HostRemote state={state} command={command} />}
-        </div>
-      </header>
+      <header className="flex items-center gap-4">{header}</header>
       <PausedBanner state={state} />
       <div className="mt-4 grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_minmax(20rem,26rem)] gap-6">
         <main className="flex min-h-0 flex-col items-center justify-center overflow-hidden">
