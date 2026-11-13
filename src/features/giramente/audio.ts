@@ -8,6 +8,36 @@ import { roundInfo, type PublicState } from "@/lib/giramente/types";
 import { direct, type Cue, type Sfx } from "./director";
 
 /**
+ * Guadagno per portare una voce sintetizzata al volume delle frasi registrate (normalizzate a circa -17 LUFS: RMS parlato ≈ 0,146):
+ * RMS dei tratti parlati (sopra una soglia, così le pause non contano) → livello obiettivo. Limitato fra 0,5 e 4.
+ */
+const VOICE_TARGET_RMS = 0.146;
+function loudnessGain(buf: AudioBuffer): number {
+  const d = buf.getChannelData(0);
+  const win = Math.max(1, Math.round(buf.sampleRate * 0.05));
+  let sum = 0;
+  let n = 0;
+  let peak = 0;
+  for (let i = 0; i < d.length; i += win) {
+    let s = 0;
+    const end = Math.min(d.length, i + win);
+    for (let j = i; j < end; j++) {
+      s += d[j] * d[j];
+      peak = Math.max(peak, Math.abs(d[j]));
+    }
+    const rms = Math.sqrt(s / (end - i));
+    if (rms > 0.01) {
+      sum += rms * rms;
+      n++;
+    }
+  }
+  if (!n) return 1;
+  const rms = Math.sqrt(sum / n);
+  // mai oltre il fondo scala: il picco resta sotto 0,95
+  return Math.min(4, Math.max(0.5, VOICE_TARGET_RMS / rms), peak > 0 ? 0.95 / peak : 4);
+}
+
+/**
  * Audio di GIRAMENTE!: sigla (GIRAMENTE.mp3 dell'utente), effetti sintetizzati dal motore audio del sito
  * (nessun brano di terzi) e voci di Don Patrizio e Zafira in UNA coda: mai due battute insieme.
  *
@@ -166,7 +196,8 @@ class GiramenteVoice {
       if (buf) {
         const engine = getSoundEngine();
         engine.duck(true);
-        spoken = engine.playVoiceClip(buf, 1, this.getAnalyser());
+        // le frasi registrate sono già allo stesso volume; quelle sintetizzate al momento (col nome) si pareggiano qui
+        spoken = engine.playVoiceClip(buf, line && isDynamic(line) ? loudnessGain(buf) : 1, this.getAnalyser());
       }
     } catch {
       spoken = null;
