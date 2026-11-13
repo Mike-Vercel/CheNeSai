@@ -367,12 +367,64 @@
   display: block;
 }
 
+/* intro di «Nuova partita», versione 2D: fasci di luce dello studio che oscillano (verde a sinistra, rosso a destra) */
+.gm-intro-beam {
+  position: absolute;
+  top: -4%;
+  width: 150vmax;
+  height: 150vmax;
+  margin-left: -75vmax;
+  transform-origin: 50% 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: gm-intro-sway 7s ease-in-out infinite alternate;
+}
+.gm-intro-beam-l {
+  left: 14%;
+  --gm-a: -24deg;
+  background: conic-gradient(from 171deg at 50% 0, transparent 0deg, rgba(57, 255, 20, 0.32) 9deg, transparent 18deg, transparent 360deg);
+}
+.gm-intro-beam-r {
+  left: 86%;
+  --gm-a: 24deg;
+  background: conic-gradient(from 171deg at 50% 0, transparent 0deg, rgba(255, 37, 58, 0.32) 9deg, transparent 18deg, transparent 360deg);
+  animation-delay: -3.5s;
+}
+@keyframes gm-intro-sway {
+  from {
+    transform: rotate(calc(var(--gm-a) - 9deg));
+  }
+  to {
+    transform: rotate(calc(var(--gm-a) + 9deg));
+  }
+}
+.gm-intro-still .gm-intro-beam {
+  animation: none;
+  transform: rotate(var(--gm-a));
+}
+/* le impostazioni compaiono mentre l'intro si dissolve */
+.gm-intro-reveal {
+  animation: gm-intro-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes gm-intro-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gm-pop,
   .gm-pulse,
   .gm-glow-red,
   .gm-cell-new,
-  .gm-portal {
+  .gm-portal,
+  .gm-intro-beam,
+  .gm-intro-reveal {
     animation: none !important;
   }
 }

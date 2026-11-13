@@ -55,6 +55,13 @@ export const SHOTS: Record<ShotId, ShotDef> = {
   standings: { center: [0, 2.3, -1.0], half: [3.5, 2.2], yaw: 0, pitch: 9, fov: 36, orbit: { amp: 9, period: 30 }, compact: { center: [0, 2.6, -1.3], half: [3.3, 2.05], pitch: 11 } },
   /** vincitore: orbita di festa attorno alla pedana */
   winner: { center: [(MARKS.center.x + PAIR_R) / 2 - 0.3, 1.4, 0.95], half: [1.95, 1.55], yaw: 0, pitch: 9, fov: 34, orbit: { amp: 22, period: 18 }, compact: { center: [(MARKS.center.x + PAIR_R) / 2 - 0.3, 1.45, 0.95], half: [1.8, 1.6] } },
+  /** intro: campo lunghissimo dall'alto (gru), tutto lo studio con l'ingresso del presentatore da sinistra */
+  establish: { center: [-0.9, 2.3, -0.3], half: [5.6, 3.1], yaw: -14, pitch: 15, fov: 38, orbit: { amp: 4, period: 34 }, compact: { center: [-0.4, 2.5, -0.4], half: [3.3, 3.4], pitch: 14 } },
+  /** intro: il titolo sullo schermo LED con presentatore e ruota sotto, quasi frontale */
+  /** intro: mezza figura di Don Patrizio al centro del palco (la ruota resta di lato) */
+  host: { center: [MARKS.center.x + 0.1, 1.42, MARKS.center.z], half: [0.95, 0.78], yaw: -20, pitch: 3, fov: 30, orbit: { amp: 1.5, period: 14 }, compact: { center: [MARKS.center.x, 1.3, MARKS.center.z], half: [0.72, 1.0], yaw: -16 } },
+  /** intro: il titolo sullo schermo LED con presentatore e ruota sotto, frontale e un po' dall'alto (la ruota non copre lo slogan) */
+  title: { center: [0, 2.95, -0.9], half: [LED_WALL.width * 0.47, 2.9], yaw: 0, pitch: 13, fov: 36, orbit: { amp: 1.5, period: 20 }, compact: { center: [0, 3.05, -1.6], half: [LED_WALL.width * 0.36, 2.9], pitch: 12 } },
 };
 
 /** Finestra "stretta" (in pixel larghezza/altezza): si usa la variante compatta dell'inquadratura. */

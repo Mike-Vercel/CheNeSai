@@ -9,7 +9,7 @@ import type { MarkId } from "./studio-layout";
  * perché il tempo trascorso arriva dall'orologio del server).
  */
 
-export type ShotId = "wide" | "duo" | "spin" | "wheel" | "sector" | "presenter" | "presenterFull" | "jolly" | "board" | "standings" | "winner";
+export type ShotId = "wide" | "duo" | "spin" | "wheel" | "sector" | "presenter" | "presenterFull" | "jolly" | "board" | "standings" | "winner" | "establish" | "host" | "title";
 
 /** Atmosfera delle luci (coni, colori, lampadine). */
 export type Mood = "idle" | "tension" | "spin" | "correct" | "wrong" | "jolly" | "colpo" | "reveal" | "standings" | "victory";

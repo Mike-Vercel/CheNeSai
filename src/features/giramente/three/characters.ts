@@ -32,7 +32,8 @@ export const CHARACTER_FILES: Record<CharacterWho, Record<MouthVariant, string>>
 };
 
 export const CHARACTER_INFO: Record<CharacterWho, { name: string; role: string; blinkMax: number; talkRate: number; idleRate: number }> = {
-  dontralla: { name: "DonTrallà", role: "il presentatore", blinkMax: 1, talkRate: 1, idleRate: 1 },
+  // nome mostrato (ritratto 2D, anteprime): il presentatore è Don Patrizio, la chiave interna resta «dontralla»
+  dontralla: { name: "Don Patrizio", role: "il presentatore", blinkMax: 1, talkRate: 1, idleRate: 1 },
   zafira: { name: "Zafira", role: "la Jolly", blinkMax: 0.95, talkRate: 1.08, idleRate: 1.05 },
 };
 

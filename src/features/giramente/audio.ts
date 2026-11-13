@@ -6,6 +6,7 @@ import { api } from "@/lib/realtime/api-client";
 import { captionOf, fillLine, isDynamic, LINE_BY_ID, LINES, lineAudioUrl, pickVariant, type Speaker } from "@/lib/giramente/lines";
 import { roundInfo, type PublicState } from "@/lib/giramente/types";
 import { direct, type Cue, type Sfx } from "./director";
+import { isRoomWelcomed } from "./intro/flags";
 
 /**
  * Guadagno per portare una voce sintetizzata al volume delle frasi registrate (normalizzate a circa -17 LUFS: RMS parlato ≈ 0,146):
@@ -48,7 +49,7 @@ function loudnessGain(buf: AudioBuffer): number {
  *   chi gestisce la partita se nessuno schermo TV è collegato. Gli altri: solo effetti brevi.
  * - La voce non blocca mai il gioco: coda corta, battute vecchie scartate a ogni nuova fase.
  */
-const THEME = "/audio/giramente/sigla.mp3";
+export const THEME = "/audio/giramente/sigla.mp3";
 const MUSIC_LOUD = 0.42;
 const MUSIC_QUIET = 0.08;
 
@@ -392,7 +393,8 @@ export function useGiramenteAudio(state: PublicState | null, opts: { voiced: boo
     const p = prev.current;
     prev.current = state;
     if (p && p.version === state.version) return;
-    const d = direct(p, state);
+    // chi ha appena visto l'intro in «Nuova partita» (stessa scheda) non sente un secondo benvenuto; lo schermo TV sì
+    const d = direct(p, state, { welcomed: !p && !!srcRef.current.roomId && isRoomWelcomed(state.roomId) });
     if (prefs.sfx && p) for (const s of d.sfx) playSfx(s);
     // i sottotitoli compaiono ovunque parli la voce; sugli altri telefoni solo le battute principali
     if (voiced) {
