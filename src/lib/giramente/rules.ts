@@ -459,3 +459,23 @@ export function remaining(timer: { deadlineAt: string | null }, nowMs: number): 
   if (!timer.deadlineAt) return null;
   return Math.max(0, Date.parse(timer.deadlineAt) - nowMs);
 }
+
+// ---------------------------------------------------------------------------
+// Partite abbandonate da chi le gestisce
+// ---------------------------------------------------------------------------
+/**
+ * Minuti senza segni di vita di chi gestisce la partita (il suo telefono/PC rilegge lo stato ogni ~10 s, anche a
+ * scheda nascosta almeno una volta al minuto) dopo i quali la partita si chiude da sola: chi chiude la scheda o perde
+ * il telefono non lascia gli altri in una stanza morta. Un semplice ricaricamento della pagina non chiude nulla.
+ */
+export const HOST_GONE_MINUTES = { lobby: 10, game: 15 } as const;
+
+export function hostGoneAfterMs(phase: string): number {
+  return (phase === "LOBBY" ? HOST_GONE_MINUTES.lobby : HOST_GONE_MINUTES.game) * 60_000;
+}
+
+/** La partita aperta va chiusa perché chi la gestisce è sparito? (finita: niente da chiudere, resta il podio) */
+export function isHostGone(room: { status: string; phase: string; hostSeenAtMs: number }, nowMs: number): boolean {
+  if (room.status !== "open" || room.phase === "FINAL") return false;
+  return nowMs - room.hostSeenAtMs > hostGoneAfterMs(room.phase);
+}

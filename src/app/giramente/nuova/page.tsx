@@ -1,30 +1,29 @@
 import { redirect } from "next/navigation";
-import { SiteHeader } from "@/features/home/SiteHeader";
-import { CreateFlow } from "@/features/giramente/CreateFlow";
-import { NuovaIntroGate } from "@/features/giramente/intro/GiramenteIntro";
-import { Logo } from "@/features/giramente/ui";
+import { GameShell } from "@/features/giramente/shell/GameShell";
+import { toShellRoom } from "@/features/giramente/shell/shell-rooms";
 import { getHostUser } from "@/lib/server/gioco-libero";
+import { listMyRooms } from "@/lib/server/giramente/rooms";
 
 export const metadata = { title: "Nuova partita" };
 
 /**
- * Creazione della partita: SOLO con un account (chi crea gestisce la partita).
- * Prima l'INTRO (studio, sigla, Don Patrizio che dà il benvenuto: una volta per scheda, `?intro=1|0`), poi le impostazioni.
+ * Creazione della partita: SOLO con un account (chi crea gestisce la partita). È la shell del gioco aperta
+ * direttamente sul pannello NUOVA PARTITA (senza intro, salvo `?intro=1`); «‹ INDIETRO» porta al menu.
  */
 export default async function NuovaPartita({ searchParams }: { searchParams: Promise<{ modo?: string; avanzate?: string }> }) {
   const sp = await searchParams;
   const host = await getHostUser();
   const q = new URLSearchParams(Object.entries(sp).filter(([, v]) => typeof v === "string") as [string, string][]).toString();
   if (!host) redirect(`/accedi?next=${encodeURIComponent(`/giramente/nuova${q ? `?${q}` : ""}`)}`);
+  const rooms = await listMyRooms(host.userId).catch(() => []);
+  const teams = sp.modo === "squadre";
   return (
-    <div className="min-h-dvh">
-      <SiteHeader user={{ username: host.profile?.username ?? null }} />
-      <NuovaIntroGate>
-        <main className="mx-auto flex w-full max-w-2xl flex-col items-center gap-5 px-4 pb-20 pt-4">
-          <Logo size="md" />
-          <CreateFlow username={host.profile?.username ?? null} initialMode={sp.modo === "squadre" ? "teams" : "individual"} initialAdvanced={sp.avanzate === "1"} />
-        </main>
-      </NuovaIntroGate>
-    </div>
+    <GameShell
+      username={host.profile?.username ?? null}
+      loggedIn
+      rooms={rooms.map(toShellRoom)}
+      start="setup"
+      setup={{ mode: teams ? "teams" : "individual", skipMode: teams, advanced: sp.avanzate === "1" }}
+    />
   );
 }

@@ -23,20 +23,27 @@ export function silenceGame() {
  * Tasto "Esci" delle schermate di gioco. Primo tocco: chiede conferma ("Esci davvero?") per 3
  * secondi, così un tocco per sbaglio non fa uscire nessuno. Secondo tocco: spegne tutto l'audio e
  * carica la pagina di destinazione da zero (nessuna musica o scena 3D resta accesa dietro).
- * La partita resta aperta: si può rientrare dal profilo o con lo stesso codice.
+ * La partita resta aperta: si può rientrare dal profilo o con lo stesso codice — salvo `onExit`, che il gioco usa
+ * per chiudere davvero (es. GIRAMENTE!: chi gestisce chiude la partita per tutti, chi gioca la lascia).
  */
 export function ExitButton({
   to = "/",
   className,
   size = "md",
   confirm = true,
+  onExit,
+  armedLabel = "Esci davvero?",
 }: {
   to?: string;
   className?: string;
   size?: "sm" | "md" | "lg";
   confirm?: boolean;
+  /** prima di uscire (attesa al massimo 4 s; se non riesce si esce lo stesso) */
+  onExit?: () => Promise<unknown> | unknown;
+  armedLabel?: string;
 }) {
   const [armed, setArmed] = useState(false);
+  const [leaving, setLeaving] = useState(false);
   useEffect(() => {
     if (!armed) return;
     const t = setTimeout(() => setArmed(false), 3000);
@@ -46,16 +53,19 @@ export function ExitButton({
   return (
     <button
       type="button"
-      aria-label={armed ? "Conferma: esci dalla partita" : "Esci dalla partita"}
+      aria-label={armed ? `Conferma: ${armedLabel}` : "Esci dalla partita"}
       onClick={(e) => {
         e.stopPropagation();
         if (confirm && !armed) {
           setArmed(true);
           return;
         }
+        if (leaving) return;
+        setLeaving(true);
         silenceGame();
         if (document.fullscreenElement) void document.exitFullscreen?.().catch(() => undefined);
-        window.location.assign(to);
+        const before = onExit ? Promise.race([Promise.resolve().then(onExit), new Promise((r) => setTimeout(r, 4000))]).catch(() => undefined) : Promise.resolve();
+        void before.then(() => window.location.assign(to));
       }}
       onDoubleClick={(e) => e.stopPropagation()}
       className={clsx(
@@ -72,7 +82,7 @@ export function ExitButton({
         <path d="M10 17l-5-5 5-5" />
         <path d="M5 12h11" />
       </svg>
-      {armed ? "Esci davvero?" : "Esci"}
+      {leaving ? "Esco…" : armed ? armedLabel : "Esci"}
     </button>
   );
 }

@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { cleanup, db, login, makeUser, newPage, PC, PHONE, TV } from "./psyco-helpers";
-import { competitorIds, driveUi, expectNoSolutionOnScreen, gmShot, plays, roomInfo } from "./giramente-helpers";
+import { competitorIds, createGame, driveUi, expectNoSolutionOnScreen, gmShot, plays, roomInfo } from "./giramente-helpers";
 
 /**
  * GIRAMENTE! end-to-end, con account veri e partite giocate DALL'INTERFACCIA:
@@ -35,20 +35,15 @@ test("due account (PC con tastiera + telefono): 5 manche fino al vincitore, sche
   const { ctx: cb, page: pb } = await newPage(browser, PHONE);
   const { ctx: ct, page: tv } = await newPage(browser, TV);
 
-  // home e creazione dal PC
+  // il menu del gioco e la creazione dal PC (pannelli di NUOVA PARTITA)
   await login(pa, a, "/giramente");
   await pa.waitForURL(/\/giramente$/);
-  await expect(pa.getByRole("link", { name: /NUOVA PARTITA/ })).toBeVisible();
+  await expect(pa.getByRole("menuitem", { name: /NUOVA PARTITA/ })).toBeVisible();
   await gmShot(pa, "pc-01-home");
   await pb.goto("/giramente");
   await gmShot(pb, "tel-01-home");
-  await pa.getByRole("link", { name: /NUOVA PARTITA/ }).click();
-  await pa.waitForURL(/\/giramente\/nuova/);
-  await expect(pa.getByText("Durata stimata")).toBeVisible();
-  await pa.getByText("⚙ Impostazioni").click();
-  await pa.getByLabel("Introduzioni brevi (partita più veloce)").check();
-  await gmShot(pa, "pc-02-nuova-partita");
-  await pa.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+  await pa.getByRole("menuitem", { name: /NUOVA PARTITA/ }).click();
+  await createGame(pa, { devices: "personal", quick: true, shot: "pc-02-nuova-partita" });
   await pa.waitForURL(/\/giramente\/stanza\//);
   const roomId = roomIdOf(pa);
   let info = await roomInfo(roomId);
@@ -167,9 +162,9 @@ test("due account (PC con tastiera + telefono): 5 manche fino al vincitore, sche
   info = await roomInfo(roomId);
   expect(info.phase).toBe("FINAL");
   expect(tvChecked).toBeGreaterThanOrEqual(2);
-  await expect(pa.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
-  await expect(tv.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
-  await expect(pb.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
+  await expect(pa.getByText("VINCITORE!", { exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(tv.getByText("VINCITORE!", { exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(pb.getByText("VINCITORE!", { exact: true })).toBeVisible({ timeout: 20_000 });
   const winnerName = comps.find((c) => c.id === cA)!.name;
   await expect(pa.getByText(winnerName).first()).toBeVisible();
   await pa.waitForTimeout(1200);
@@ -196,14 +191,7 @@ test("un solo telefono con 3 nomi: «TOCCA A …», prove a turno, partita compl
   const { ctx, page } = await newPage(browser, PHONE);
   await login(page, u, "/giramente/nuova");
   await page.waitForURL(/\/giramente\/nuova/);
-  await page.getByRole("button", { name: /Un solo telefono/ }).click();
-  await page.getByLabel("Giocatore 1").fill("Anna");
-  await page.getByLabel("Giocatore 2").fill("Bruno");
-  await page.getByLabel("Giocatore 3").fill("Carla");
-  await page.getByText("⚙ Impostazioni").click();
-  await page.getByLabel("Introduzioni brevi (partita più veloce)").check();
-  await gmShot(page, "tel-condiviso-01-nuova");
-  await page.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+  await createGame(page, { devices: "shared", players: ["Anna", "Bruno", "Carla"], quick: true, shot: "tel-condiviso-01-nuova" });
   await page.waitForURL(/\/giramente\/un-dispositivo\//);
   const roomId = roomIdOf(page);
   await expect(page.getByText("Bruno")).toBeVisible();
@@ -228,7 +216,7 @@ test("un solo telefono con 3 nomi: «TOCCA A …», prove a turno, partita compl
       }
     },
   });
-  await expect(page.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText("VINCITORE!", { exact: true })).toBeVisible({ timeout: 20_000 });
   await expect(page.getByText("Carla").first()).toBeVisible();
   await gmShot(page, "tel-condiviso-90-vincitore");
   await ctx.close();
@@ -261,12 +249,7 @@ for (const [label, device] of [
     const { ctx, page } = await newPage(browser, device);
     await login(page, u, "/giramente/nuova");
     await page.waitForURL(/\/giramente\/nuova/);
-    await page.getByRole("button", { name: /Un solo telefono/ }).click();
-    await page.getByLabel("Giocatore 1").fill("Anna");
-    await page.getByLabel("Giocatore 2").fill("Bruno");
-    await page.getByText("⚙ Impostazioni").click();
-    await page.getByLabel("Introduzioni brevi (partita più veloce)").check();
-    await page.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+    await createGame(page, { devices: "shared", players: ["Anna", "Bruno"], quick: true });
     await page.waitForURL(/\/giramente\/un-dispositivo\//);
     const roomId = roomIdOf(page);
     await page.goto(`${new URL(page.url()).pathname}?q=low`);
@@ -294,7 +277,7 @@ for (const [label, device] of [
         await gmShot(page, `studio-${label}-${r.phase.toLowerCase()}`);
       },
     });
-    await expect(page.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByText("VINCITORE!", { exact: true })).toBeVisible({ timeout: 20_000 });
     // lo studio non si è mai ricaricato: è ancora lo stesso canvas della sala d'attesa
     expect(await page.evaluate(() => document.querySelector(".gm-studio-canvas canvas") === (window as unknown as { __gmCanvas?: Element | null }).__gmCanvas)).toBe(true);
     expect(checked.has("QUESTION") && checked.has("CHOICE") && checked.has("PLAY")).toBe(true);
@@ -309,16 +292,9 @@ test("partita a squadre (un solo telefono, 2 squadre da 2): il capitano conferma
   const { ctx, page } = await newPage(browser, PC);
   await login(page, u, "/giramente/nuova?modo=squadre");
   await page.waitForURL(/\/giramente\/nuova/);
-  await expect(page.getByRole("button", { name: /A SQUADRE/ })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("button", { name: /Un solo telefono/ }).click();
-  await page.getByLabel("Squadra 1, componente 1").fill("Aldo");
-  await page.getByLabel("Squadra 1, componente 2").fill("Bea");
-  await page.getByLabel("Squadra 2, componente 1").fill("Ciro");
-  await page.getByLabel("Squadra 2, componente 2").fill("Dora");
-  await page.getByText("⚙ Impostazioni").click();
-  await page.getByLabel("Introduzioni brevi (partita più veloce)").check();
-  await gmShot(page, "pc-squadre-01-nuova");
-  await page.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+  // ?modo=squadre: la modalità è già scelta, si parte dai dispositivi
+  await expect(page.getByRole("menuitem", { name: /Un solo telefono/ })).toBeVisible();
+  await createGame(page, { mode: "teams", devices: "shared", teams: [["Aldo", "Bea"], ["Ciro", "Dora"]], quick: true, shot: "pc-squadre-01-nuova" });
   await page.waitForURL(/\/giramente\/un-dispositivo\//);
   const roomId = roomIdOf(page);
   await expect(page.getByText("CAPITANO").first()).toBeVisible();
@@ -338,7 +314,7 @@ test("partita a squadre (un solo telefono, 2 squadre da 2): il capitano conferma
       }
     },
   });
-  await expect(page.getByText("VINCITORE!")).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText("VINCITORE!", { exact: true })).toBeVisible({ timeout: 20_000 });
   await expect(page.getByText("Squadra Verde").first()).toBeVisible();
   await gmShot(page, "pc-squadre-90-vincitore");
   await ctx.close();

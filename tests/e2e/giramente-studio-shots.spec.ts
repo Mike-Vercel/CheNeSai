@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { cleanup, db, login, makeUser, newPage, PC, PHONE, TV } from "./psyco-helpers";
-import { competitorIds, driveUi, gmShot, roomInfo } from "./giramente-helpers";
+import { competitorIds, createGame, driveUi, gmShot, roomInfo } from "./giramente-helpers";
 
 /**
  * FOTO DELLO STUDIO 3D in una partita vera (PC 1440×900 + telefono 390×844 + schermo TV 1920×1080), con la scheda
@@ -42,9 +42,7 @@ test("studio 3D: foto di una partita vera su PC, telefono e TV", async ({ browse
 
   await login(pa, a, "/giramente/nuova");
   await pa.waitForURL(/\/giramente\/nuova/);
-  await pa.getByText("⚙ Impostazioni").click();
-  await pa.getByLabel("Introduzioni brevi (partita più veloce)").check();
-  await pa.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+  await createGame(pa, { devices: "personal", quick: true });
   await pa.waitForURL(/\/giramente\/stanza\//);
   const roomId = /\/stanza\/([0-9a-f-]{36})/.exec(pa.url())![1];
   const info = await roomInfo(roomId);

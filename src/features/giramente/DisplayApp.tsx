@@ -60,6 +60,18 @@ export function DisplayApp({ displayKey, live = false }: { displayKey: string; l
     );
   }
   if (!state) return <LoadingSplash game="giramente" label="Accendo le luci dello studio…" />;
+  // chiusa da chi la gestiva (o abbandonata): lo schermo lo dice; dopo il podio il podio resta
+  if (state.status === "closed" && state.phase !== "FINAL") {
+    return (
+      <main className="grid min-h-dvh place-items-center p-8 text-center">
+        <div role="alert" className="flex flex-col items-center gap-5">
+          <Logo size="xl" tagline />
+          <p className="gm-display text-6xl">Partita chiusa</p>
+          <p className="text-2xl font-bold text-white/75">Per giocare ancora: GIRAMENTE! → NUOVA PARTITA</p>
+        </div>
+      </main>
+    );
+  }
 
   const props: StageProps = { state, view: null, now, act: async () => false, busy: false, keyHints: false, tv: true };
   const wheelPhases = ["CHOICE", "SPIN", "SPINNING", "WHEEL_RESULT"].includes(state.phase);

@@ -417,6 +417,148 @@
   }
 }
 
+/* bande da cinema dell'intro: solo su schermi "da film" (né telefoni in verticale né finestre già larghe e basse) */
+.gm-intro-bar {
+  height: 0;
+}
+@media (min-aspect-ratio: 4/3) and (max-aspect-ratio: 19/10) {
+  .gm-intro-bar {
+    height: 5vh;
+  }
+}
+
+/* logo del caricamento che "respira"; barra in attesa */
+.gm-breathe {
+  animation: gm-breathe 2.4s ease-in-out infinite;
+}
+@keyframes gm-breathe {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(0.985);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.gm-progress-wait {
+  animation: gm-progress-wait 1.3s ease-in-out infinite;
+}
+@keyframes gm-progress-wait {
+  from {
+    left: -35%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------------
+   SHELL DEL GIOCO: menu da videogioco sopra lo studio. In verticale la scena sta in alto e il menu sotto;
+   in orizzontale (PC, TV, finestre larghe e basse) il menu a sinistra e la scena a destra.
+   --------------------------------------------------------------------------------------------------------- */
+.gm-shell {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-areas: "window" "panel";
+  grid-template-rows: minmax(0, var(--gm-win, 36svh)) minmax(0, 1fr);
+}
+.gm-shell[data-panel="setup"],
+.gm-shell[data-panel="settings"],
+.gm-shell[data-panel="modes"],
+.gm-shell[data-panel="resume"] {
+  --gm-win: 27svh;
+}
+.gm-shell-window {
+  grid-area: window;
+  min-height: 0;
+  margin-top: calc(3.25rem + env(safe-area-inset-top));
+}
+.gm-shell-panel {
+  grid-area: panel;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.25rem max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  background: linear-gradient(180deg, transparent 0, rgba(4, 6, 7, 0.82) 2.5rem, rgba(4, 6, 7, 0.94) 100%);
+}
+.gm-shell[data-panel="main"] .gm-shell-panel {
+  justify-content: center;
+}
+.gm-shell-top {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) 0 max(0.75rem, env(safe-area-inset-left));
+}
+@media (min-aspect-ratio: 1/1) and (min-width: 700px) {
+  .gm-shell {
+    grid-template-areas: "panel window";
+    grid-template-columns: clamp(21rem, 37vw, 36rem) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .gm-shell-window {
+    margin-top: 0;
+  }
+  .gm-shell-panel {
+    justify-content: center;
+    padding: calc(3.5rem + env(safe-area-inset-top)) 0 clamp(0.75rem, 3vh, 2rem) clamp(0.75rem, 3.2vw, 3.5rem);
+    background: linear-gradient(90deg, rgba(4, 6, 7, 0.93) 0%, rgba(4, 6, 7, 0.82) 70%, rgba(4, 6, 7, 0) 100%);
+  }
+}
+/* schermi grandi (PC Full HD, TV): il menu cresce con lo schermo, come in un videogioco */
+@media (min-aspect-ratio: 1/1) and (min-width: 1700px) and (min-height: 940px) {
+  .gm-shell {
+    grid-template-columns: clamp(21rem, 36vw, 44rem) minmax(0, 1fr);
+  }
+  .gm-shell-panel > * {
+    zoom: 1.22;
+  }
+}
+@media (min-aspect-ratio: 1/1) and (min-width: 2400px) and (min-height: 1300px) {
+  .gm-shell {
+    grid-template-columns: clamp(21rem, 34vw, 60rem) minmax(0, 1fr);
+  }
+  .gm-shell-panel > * {
+    zoom: 1.6;
+  }
+}
+
+/* voci del menu: barra al neon inclinata sulla voce scelta */
+.gm-menu-bar {
+  background: linear-gradient(90deg, rgba(31, 143, 42, 0.95) 0%, rgba(20, 100, 30, 0.75) 55%, rgba(15, 122, 42, 0) 100%);
+  border-left: 4px solid #39ff14;
+  box-shadow: -6px 0 26px rgba(57, 255, 20, 0.45);
+}
+.gm-menu-bar-red {
+  background: linear-gradient(90deg, rgba(195, 22, 42, 0.95) 0%, rgba(140, 13, 28, 0.75) 55%, rgba(143, 13, 28, 0) 100%);
+  border-left-color: #ff253a;
+  box-shadow: -6px 0 26px rgba(255, 37, 58, 0.45);
+}
+.gm-menu-item[data-active] .gm-display {
+  transform: translateX(2px);
+}
+.gm-menu-item .gm-display {
+  transition: transform 0.18s ease;
+}
+
+/* pannelli del menu: vetro scuro con bordo al neon */
+.gm-menu-panel {
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, rgba(24, 30, 34, 0.9), rgba(8, 11, 13, 0.94));
+  border: 1px solid rgba(57, 255, 20, 0.35);
+  box-shadow: 0 0 0 1px rgba(57, 255, 20, 0.08), 0 30px 80px -30px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 40px -12px rgba(57, 255, 20, 0.35);
+  backdrop-filter: blur(10px);
+}
+.gm-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(57, 255, 20, 0.45) transparent;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gm-pop,
   .gm-pulse,
@@ -424,8 +566,16 @@
   .gm-cell-new,
   .gm-portal,
   .gm-intro-beam,
-  .gm-intro-reveal {
+  .gm-intro-reveal,
+  .gm-breathe,
+  .gm-progress-wait {
     animation: none !important;
   }
 }
+}
+
+/* fuori dal livello «components»: deve vincere sul contorno azzurro globale (:focus-visible in globals.css).
+   La voce attiva del menu È quella con il fuoco: basta la barra al neon, niente secondo contorno. */
+.gm-menu-item:focus-visible {
+  outline: none;
 }

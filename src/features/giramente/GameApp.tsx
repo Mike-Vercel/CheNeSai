@@ -2,8 +2,8 @@
 
 import { clsx } from "clsx";
 import Link from "next/link";
-import { useCallback, useState } from "react";
-import { ExitButton } from "@/features/game/components/ExitButton";
+import { useCallback, useEffect, useState } from "react";
+import { ExitButton, silenceGame } from "@/features/game/components/ExitButton";
 import { LoadingSplash } from "@/features/game/components/LoadingSplash";
 import { useKeyHints, useShowLayout } from "@/features/shared/device";
 import type { GiramenteAction, GiramenteView, PrivateView, PublicState } from "@/lib/giramente/types";
@@ -79,27 +79,18 @@ export function GameApp({ roomId }: { roomId: string }) {
     );
   }
   if (!state || !view) return <LoadingSplash game="giramente" label="Entro nella sala partita…" />;
-  if (state.status === "closed") {
-    return (
-      <Shell>
-        <section className="flex flex-col items-center gap-6 py-10 text-center">
-          <Logo size="lg" />
-          <p className="gm-display text-4xl">Partita chiusa</p>
-          <Link href="/giramente" className="gm-btn">
-            NUOVA PARTITA
-          </Link>
-        </section>
-      </Shell>
-    );
-  }
+  if (state.status === "closed") return <ClosedScreen reason={state.closeReason ?? null} byMe={!!view.isHost} />;
 
   const props: StageProps = { state, view, now, act: run, busy, keyHints };
   const wide = layout === "landscape";
   const leave = () => void run({ action: "leave" }).then((ok) => ok && window.location.assign("/giramente"));
+  // «Esci»: chi gestisce chiude la partita per tutti (si torna al menu), chi gioca la lascia
+  const exit = view.isHost ? () => gmAct(roomId, { action: "close_room" }) : view.me ? () => gmAct(roomId, { action: "leave" }) : undefined;
+  const exitLabel = view.isHost ? "Chiudi per tutti?" : "Esci davvero?";
 
   if (studio.on) {
     return (
-      <Shell state={state} view={view} roomId={roomId} onLeave={leave} act={run} studio={wide ? "fixed" : "scroll"}>
+      <Shell state={state} view={view} roomId={roomId} onLeave={leave} act={run} studio={wide ? "fixed" : "scroll"} onExit={exit} exitLabel={exitLabel}>
         <StudioBackdrop state={state} now={now} quality={studio.quality} onFail={studio.fail} />
         <LinkBadge status={status} />
         <PausedBanner state={state} />
@@ -112,7 +103,7 @@ export function GameApp({ roomId }: { roomId: string }) {
   const showWheel = WHEEL_PHASES.has(state.phase) || (wide && ["CHOICE", "QUESTION", "TURN_RESULT"].includes(state.phase) && !!state.turn);
 
   return (
-    <Shell state={state} view={view} roomId={roomId} onLeave={leave} act={run}>
+    <Shell state={state} view={view} roomId={roomId} onLeave={leave} act={run} onExit={exit} exitLabel={exitLabel}>
       <LinkBadge status={status} />
       <PausedBanner state={state} />
       <div className="flex w-full flex-col items-center gap-4">
@@ -168,8 +159,13 @@ export function Shell({
   onLeave,
   act,
   studio,
+  onExit,
+  exitLabel,
 }: {
   children: React.ReactNode;
+  /** prima di uscire col tasto «Esci» (chiudere o lasciare la partita) */
+  onExit?: () => Promise<unknown>;
+  exitLabel?: string;
   state?: PublicState;
   view?: PrivateView;
   roomId?: string;
@@ -222,7 +218,7 @@ export function Shell({
                     </>
                   )}
                   {view.isHost && act && (
-                    <button type="button" className="w-full rounded-xl px-3 py-2.5 text-left font-bold text-[#ff8a95] hover:bg-white/8" onClick={() => void act({ action: "close_room" }).then((ok) => ok && window.location.assign("/giramente"))}>
+                    <button type="button" className="w-full rounded-xl px-3 py-2.5 text-left font-bold text-[#ff8a95] hover:bg-white/8" onClick={() => void act({ action: "close_room" }).then((ok) => ok && (silenceGame(), window.location.assign("/giramente")))}>
                       Chiudi la partita
                     </button>
                   )}
@@ -235,7 +231,7 @@ export function Shell({
               )}
             </div>
           )}
-          <ExitButton to="/giramente" size="sm" />
+          <ExitButton to="/giramente" size="sm" onExit={onExit} armedLabel={exitLabel} />
         </div>
       </header>
       {studio === "fixed" ? (
@@ -246,5 +242,40 @@ export function Shell({
         <main className="mx-auto flex w-full max-w-6xl flex-col items-center px-3 pb-28 pt-4 sm:px-6">{children}</main>
       )}
     </div>
+  );
+}
+
+const CLOSED_TEXT: Record<string, string> = {
+  host: "Chi gestiva la partita l'ha chiusa.",
+  host_gone: "Chi gestiva la partita non è più collegato da un po': la partita è stata chiusa.",
+  inactive: "Nessuno giocava da tanto: la partita è stata chiusa.",
+};
+const BACK_TO_MENU_S = 6;
+
+/** Partita chiusa: lo si dice a tutti e si torna al menu del gioco da soli (o subito col tasto). */
+function ClosedScreen({ reason, byMe }: { reason: string | null; byMe: boolean }) {
+  const [left, setLeft] = useState(BACK_TO_MENU_S);
+  useEffect(() => {
+    silenceGame();
+    const id = setInterval(() => setLeft((s) => Math.max(0, s - 1)), 1000);
+    return () => clearInterval(id);
+  }, []);
+  useEffect(() => {
+    if (left === 0) window.location.assign("/giramente");
+  }, [left]);
+  return (
+    <Shell>
+      <section role="alert" className="flex flex-col items-center gap-5 py-12 text-center">
+        <Logo size="lg" />
+        <p className="gm-display text-5xl">Partita chiusa</p>
+        <p className="max-w-md text-lg font-bold text-white/80">{byMe && reason === "host" ? "Hai chiuso la partita." : (CLOSED_TEXT[reason ?? ""] ?? "La partita è terminata.")}</p>
+        <a href="/giramente" className="gm-btn h-16 px-8 text-2xl">
+          TORNA AL MENU
+        </a>
+        <p className="text-sm font-bold text-white/55" aria-live="polite">
+          Torno al menu tra {left} s…
+        </p>
+      </section>
+    </Shell>
   );
 }

@@ -88,6 +88,7 @@ export interface RoomRow {
   started_at: Date | null;
   finished_at: Date | null;
   last_activity_at: Date;
+  close_reason: string | null;
   db_now: Date;
 }
 
@@ -197,6 +198,11 @@ export interface SpinRow {
 export function parseSettings(raw: unknown): Settings {
   const r = settingsSchema.safeParse(raw ?? {});
   return r.success ? r.data : DEFAULT_SETTINGS;
+}
+
+/** Motivo della chiusura per lo stato pubblico (testo libero nel database). */
+export function closeReasonOf(r: string | null): PublicState["closeReason"] {
+  return r === "host" || r === "host_gone" || r === "inactive" ? r : null;
 }
 
 export async function loadRoom(db: Db, roomId: string, forUpdate = false): Promise<RoomRow | null> {
@@ -420,6 +426,7 @@ export async function buildPublicStateFrom(db: Db, room: RoomRow): Promise<Publi
     devices: room.devices,
     mode: room.mode,
     status: room.status,
+    closeReason: room.status === "closed" ? closeReasonOf(room.close_reason) : null,
     phase: room.phase,
     version: Number(room.version),
     secretRev: room.secret_rev,

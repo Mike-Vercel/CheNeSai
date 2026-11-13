@@ -202,3 +202,29 @@ export async function expectNoSolutionOnScreen(page: Page, solutions: string[]) 
   const text = (await page.locator("body").innerText()).toUpperCase();
   for (const s of solutions) if (s && s.length > 3) expect(text.includes(s.toUpperCase()), `soluzione visibile: ${s}`).toBe(false);
 }
+
+/**
+ * NUOVA PARTITA dai pannelli del menu (shell del gioco): modalità → dispositivi → nomi → regole → «▶ INIZIA PARTITA».
+ * Si parte col pannello già aperto (/giramente/nuova, oppure NUOVA PARTITA nel menu); con ?modo=squadre il primo
+ * passo è già fatto.
+ */
+export async function createGame(
+  page: Page,
+  o: { mode?: "individual" | "teams"; devices: "personal" | "shared"; players?: string[]; teams?: string[][]; quick?: boolean; shot?: string },
+) {
+  const modeItem = page.getByRole("menuitem", { name: o.mode === "teams" ? /A SQUADRE/ : /INDIVIDUALE/ });
+  const devItem = page.getByRole("menuitem", { name: o.devices === "shared" ? /Un solo telefono/ : /Un telefono a testa/ });
+  await expect(modeItem.or(devItem)).toBeVisible({ timeout: 20_000 });
+  if (await modeItem.isVisible()) await modeItem.click();
+  await devItem.click();
+  for (const [i, n] of (o.players ?? []).entries()) await page.getByLabel(`Giocatore ${i + 1}`).fill(n);
+  for (const [i, members] of (o.teams ?? []).entries()) for (const [k, m] of members.entries()) await page.getByLabel(`Squadra ${i + 1}, componente ${k + 1}`).fill(m);
+  await page.getByRole("button", { name: "AVANTI ›" }).click();
+  await expect(page.getByText("Durata stimata")).toBeVisible();
+  if (o.quick) {
+    await page.getByText("⚙ Impostazioni").click();
+    await page.getByLabel("Introduzioni brevi (partita più veloce)").check();
+  }
+  if (o.shot) await gmShot(page, o.shot);
+  await page.getByRole("button", { name: /INIZIA PARTITA/ }).click();
+}

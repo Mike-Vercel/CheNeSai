@@ -497,13 +497,27 @@ class SoundEngine {
     // `tap`: es. un AnalyserNode per il lip sync del personaggio (solo lettura, non va all'uscita)
     if (tap && tap.context === ctx) src.connect(tap);
     this.duck(true);
+    this.voices.add(src);
     return new Promise((resolve) => {
       src.onended = () => {
+        this.voices.delete(src);
         this.duck(false);
         resolve();
       };
       src.start(ctx.currentTime + 0.02);
     });
+  }
+  private voices = new Set<AudioBufferSourceNode>();
+
+  /** Ferma subito le voci in corso (es. intro saltata), lasciando suonare musica ed effetti. */
+  stopVoices() {
+    for (const src of this.voices) {
+      try {
+        src.stop();
+      } catch {
+        /* già ferma */
+      }
+    }
   }
 
   /**

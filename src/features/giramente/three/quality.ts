@@ -35,10 +35,32 @@ export function probeWebgl(): "hw" | "sw" | "none" {
   }
 }
 
+/** Qualità scelta dal giocatore nel menu IMPOSTAZIONI (questo browser); "auto" = decide il dispositivo. */
+export type QualityPref = VisualQuality | "auto";
+const PREF_KEY = "giramente-qualita";
+export function loadQualityPref(): QualityPref {
+  try {
+    const v = localStorage.getItem(PREF_KEY);
+    return v === "high" || v === "low" || v === "2d" ? v : "auto";
+  } catch {
+    return "auto";
+  }
+}
+export function saveQualityPref(p: QualityPref) {
+  try {
+    if (p === "auto") localStorage.removeItem(PREF_KEY);
+    else localStorage.setItem(PREF_KEY, p);
+  } catch {
+    /* archivio del browser non disponibile */
+  }
+}
+
 export function detectVisualQuality(): VisualQuality {
   if (typeof window === "undefined") return "2d";
   const forced = param("q");
   if (forced === "high" || forced === "low" || forced === "2d") return forced;
+  const pref = loadQualityPref();
+  if (pref !== "auto") return pref;
   if (cached) return cached;
   const gl = probeWebgl();
   const nav = navigator as Navigator & { deviceMemory?: number };

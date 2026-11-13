@@ -360,6 +360,8 @@ export interface PublicState {
   devices: DeviceMode;
   mode: GameMode;
   status: "open" | "closed";
+  /** perché è chiusa: chi la gestiva l'ha chiusa, chi la gestiva è sparito, inattività */
+  closeReason?: "host" | "host_gone" | "inactive" | null;
   phase: Phase;
   version: number;
   secretRev: number;

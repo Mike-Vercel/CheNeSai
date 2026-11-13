@@ -2,7 +2,7 @@ import "server-only";
 import { randomBytes, randomInt } from "node:crypto";
 import { z } from "zod";
 import { getSql, iso, type Db } from "@/lib/database/db";
-import { checkNickname, checkTeamName, isRoomCode, normalizeRoomCode } from "@/lib/giramente/rules";
+import { checkNickname, checkTeamName, HOST_GONE_MINUTES, isHostGone, isRoomCode, normalizeRoomCode } from "@/lib/giramente/rules";
 import {
   createRoomSchema,
   MAX_PLAYERS,
@@ -312,6 +312,11 @@ export async function getRoomView(user: GiramenteUser, roomId: string): Promise<
     }
   }
   const isHost = room.devices === "shared" ? isOwner : room.host_user_id === user.userId;
+  // chi gestisce è sparito da troppo (scheda chiusa, telefono perso): la partita si chiude per tutti
+  if (!isHost && isHostGone({ status: room.status, phase: room.phase, hostSeenAtMs: room.host_seen_at.getTime() }, room.db_now.getTime())) {
+    await closeAbandonedRooms({ roomId }).catch(() => undefined);
+    room = (await loadRoom(sql, roomId))!;
+  }
   if (await settleDeadline(room)) room = (await loadRoom(sql, roomId))!;
   const now = room.db_now.getTime();
   if (room.status === "open") {
@@ -337,6 +342,10 @@ export async function getDisplayState(displayKey: string): Promise<PublicState> 
   const [found] = await sql<{ id: string }[]>`select id from giramente_rooms where display_key = ${displayKey}`;
   if (!found) throw new GiramenteError("NOT_FOUND", "Schermo non valido");
   let room = (await loadRoom(sql, found.id))!;
+  if (isHostGone({ status: room.status, phase: room.phase, hostSeenAtMs: room.host_seen_at.getTime() }, room.db_now.getTime())) {
+    await closeAbandonedRooms({ roomId: room.id }).catch(() => undefined);
+    room = (await loadRoom(sql, found.id))!;
+  }
   if (await settleDeadline(room)) room = (await loadRoom(sql, found.id))!;
   if (room.status === "open" && (!room.display_seen_at || room.db_now.getTime() - room.display_seen_at.getTime() > HEARTBEAT_MS)) {
     await sql`update giramente_rooms set display_seen_at = now() where id = ${room.id}`;
@@ -394,6 +403,8 @@ export interface MyRoom {
 }
 
 export async function listMyRooms(userId: string, limitN = 5): Promise<MyRoom[]> {
+  // prima si chiudono quelle abbandonate da chi le gestiva: in «Riprendi» restano solo le partite vive
+  await closeAbandonedRooms({ userId }).catch(() => undefined);
   const rows = await getSql()<{ id: string; code: string; devices: DeviceMode; mode: GameMode; phase: Phase; round_no: number; host_user_id: string | null; last_activity_at: Date; players: number }[]>`
     select r.id, r.code, r.devices, r.mode, r.phase, r.round_no, r.host_user_id, r.last_activity_at,
       (select count(*)::int from giramente_competitors c where c.room_id = r.id and c.active) as players
@@ -425,5 +436,35 @@ export async function closeStaleRooms(f: { userId?: string; olderThanHours?: num
       order by last_activity_at limit ${f.limit ?? 200}
     )
     returning id`;
+  return rows.length;
+}
+
+/**
+ * Chiude le partite aperte il cui gestore non dà segni di vita da HOST_GONE_MINUTES (10 minuti in sala d'attesa,
+ * 15 a partita iniziata; mai quelle già al podio) e lo dice a tutti in tempo reale («Partita chiusa»).
+ * Si chiama in modo pigro (lettura di una stanza, elenco «Riprendi») e dal cron giornaliero. Idempotente.
+ */
+export async function closeAbandonedRooms(f: { roomId?: string; userId?: string; limit?: number } = {}): Promise<number> {
+  const sql = getSql();
+  if (f.roomId && !UUID.test(f.roomId)) return 0;
+  const rows = await sql<{ id: string }[]>`
+    update giramente_rooms set status = 'closed', closed_at = now(), close_reason = 'host_gone', version = version + 1, broadcast_at = now()
+    where id in (
+      select r.id from giramente_rooms r
+      where r.status = 'open' and r.phase <> 'FINAL'
+        and r.host_seen_at < now() - make_interval(mins => case when r.phase = 'LOBBY' then ${HOST_GONE_MINUTES.lobby}::int else ${HOST_GONE_MINUTES.game}::int end)
+        ${f.roomId ? sql`and r.id = ${f.roomId}` : sql``}
+        ${f.userId ? sql`and (r.owner_user_id = ${f.userId} or r.host_user_id = ${f.userId} or exists (select 1 from giramente_participants p where p.room_id = r.id and p.user_id = ${f.userId} and p.status = 'active'))` : sql``}
+      order by r.host_seen_at limit ${f.limit ?? 200}
+    )
+    returning id`;
+  for (const r of rows) {
+    try {
+      const room = await loadRoom(sql, r.id);
+      if (room) await broadcastGiramente(sql, await buildPublicStateFrom(sql, room));
+    } catch (e) {
+      console.warn("[giramente] avviso di chiusura non inviato", r.id, e instanceof Error ? e.message : e);
+    }
+  }
   return rows.length;
 }
