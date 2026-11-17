@@ -123,10 +123,11 @@ class TigVoice {
     return null;
   }
 
-  async say(cues: VoiceCue[]) {
+  async say(cues: VoiceCue[], replace = false) {
     if (!cues.length) return;
     await this.load();
     if (cues.some((c) => c.interrupt)) this.interrupt();
+    else if (replace) this.queue = [];
     for (const c of cues) {
       const item = this.resolve(c);
       if (!item) continue;
@@ -306,6 +307,6 @@ export function useTigShowAudio(state: TigPublicState | null, opts: { voiced: bo
     if (!opts.voiced) return;
     const d = directVoice(p, state);
     for (const s of d.sfx) playTigSfx(s);
-    void getTigVoice().say(d.cues);
+    void getTigVoice().say(d.cues, !!p && p.state !== state.state);
   }, [state, opts.voiced]);
 }

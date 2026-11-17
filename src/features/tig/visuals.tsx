@@ -68,20 +68,20 @@ const ACTION_CLASS: Record<MascotProps["action"], string> = {
 export function TigMascot({ slot, level, color, action, className }: MascotProps) {
   const ring = level === 3 ? "conic-gradient(from 0deg, #ffd15c, #ff2d3d, #9b5cff, #39e0ff, #ffd15c)" : level === 2 ? "conic-gradient(from 0deg, #9b5cff, #39e0ff, #9b5cff)" : `conic-gradient(from 0deg, ${color}, ${color}88, ${color})`;
   return (
-    <div className={clsx("relative flex aspect-square flex-col items-center justify-center", className)} role="img" aria-label={slot ? `Mascotte ${slot}, livello ${level}: in arrivo` : "Mascotte da scegliere"}>
+    <div className={clsx("relative flex aspect-square flex-col items-center justify-center [container-type:inline-size]", className)} role="img" aria-label={slot ? `Mascotte ${slot}, livello ${level}: in arrivo` : "Mascotte da scegliere"}>
       <div className={clsx("relative grid aspect-square w-[78%] place-items-center rounded-full p-[6%]", ACTION_CLASS[action])} style={{ background: ring, boxShadow: `0 0 ${level * 14}px ${color}66` }}>
         <div className="grid h-full w-full place-items-center rounded-full" style={{ background: `radial-gradient(circle at 35% 30%, ${color}55, #0b0d16 70%)` }}>
-          <span className="tig-display text-[clamp(1rem,32cqw,4.5rem)] leading-none text-white/90 [container-type:inline-size]" style={{ textShadow: `0 0 18px ${color}` }}>
+          <span className="tig-display text-[30cqw] leading-none text-white/90" style={{ textShadow: `0 0 18px ${color}` }}>
             {slot ?? "?"}
           </span>
         </div>
         {level > 1 && (
-          <span aria-hidden className="absolute -top-[6%] left-1/2 -translate-x-1/2 text-[clamp(.7rem,9cqw,1.4rem)] leading-none">
+          <span aria-hidden className="absolute -top-[8%] left-1/2 -translate-x-1/2 whitespace-nowrap text-[11cqw] leading-none text-[#ffd15c] drop-shadow-[0_0_6px_rgba(255,209,92,.8)]">
             {level === 3 ? "★★★" : "★★"}
           </span>
         )}
       </div>
-      <span className="mt-[4%] whitespace-nowrap rounded-full bg-black/60 px-2 py-0.5 text-[clamp(.5rem,2.2vmin,.75rem)] font-black uppercase tracking-[0.12em] text-white/75">Mascotte in arrivo</span>
+      <span className="mt-[4%] whitespace-nowrap rounded-full bg-black/60 px-[4cqw] py-[1cqw] text-[max(8px,6.5cqw)] font-black uppercase tracking-[0.1em] text-white/75">Mascotte in arrivo</span>
     </div>
   );
 }
@@ -160,14 +160,14 @@ export function TigArena({ phase, teams, mancheNo, title, subtitle, spotlight, h
       <div className="tig-arena-beam right-[6%]" style={{ animationDelay: "-7s", background: "linear-gradient(180deg, rgba(155,92,255,.16), transparent 75%)" }} />
       <div className="tig-arena-floor" />
       {/* ledwall in alto */}
-      <div className="absolute inset-x-0 flex flex-col items-center px-4 text-center" style={{ top: `calc(${sa.top * 100}% + 1.2vmin)` }}>
+      <div className="absolute flex flex-col items-center px-4 text-center" style={{ top: `calc(${sa.top * 100}% + 1.2vmin)`, left: `${sa.left * 100}%`, right: `${sa.right * 100}%` }}>
         {mancheNo ? <span className="tig-chip mb-1 !border-[#ffb020]/50 !text-[#ffd15c]">MANCHE {mancheNo}</span> : null}
         {title && <p className={clsx("tig-led max-w-[92vw] text-[clamp(1.6rem,6vmin,4.6rem)] leading-none", phase === "chaos" && "tig-strobe !text-[#ff8a95]")}>{title}</p>}
         {subtitle && <p className="mt-1 max-w-[80vw] text-[clamp(.8rem,2.2vmin,1.3rem)] font-bold text-white/70">{subtitle}</p>}
       </div>
       {/* presentatori */}
       {hosts.length > 0 && (
-        <div className="absolute flex gap-3" style={{ left: `calc(${sa.left * 100}% + 1.5vmin)`, bottom: `calc(${sa.bottom * 100}% + ${showPods ? "13vmin" : "2vmin"})` }}>
+        <div className="absolute flex -translate-y-1/2 gap-3" style={{ left: `calc(${sa.left * 100}% + 2vmin)`, top: showPods ? "46%" : "auto", bottom: showPods ? "auto" : `calc(${sa.bottom * 100}% + 2vmin)` }}>
           {hosts.map((h) => (
             <HostSilhouette key={h.who} host={h} />
           ))}
@@ -176,12 +176,12 @@ export function TigArena({ phase, teams, mancheNo, title, subtitle, spotlight, h
       {/* le postazioni dei tavoli */}
       {showPods && (
         <div
-          className="absolute grid gap-[1vmin]"
+          className="absolute grid justify-center gap-[1.2vmin]"
           style={{
             left: `calc(${sa.left * 100}% + 1.5vmin)`,
             right: `calc(${sa.right * 100}% + 1.5vmin)`,
             bottom: `calc(${sa.bottom * 100}% + 1.5vmin)`,
-            gridTemplateColumns: `repeat(${Math.min(sorted.length, compact ? 12 : 8)}, minmax(0, 1fr))`,
+            gridTemplateColumns: `repeat(${Math.min(sorted.length, compact ? 12 : 8)}, minmax(0, ${compact ? "10vmin" : "15vmin"}))`,
           }}
         >
           {sorted.map((t) => (

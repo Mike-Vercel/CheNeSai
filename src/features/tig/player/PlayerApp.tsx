@@ -21,8 +21,15 @@ import { TigArena, TigMascot } from "../visuals";
  * Tutto è autorevole sul server: qui solo scelte e visualizzazione. Riconnessione automatica (snapshot completo).
  */
 export function PlayerApp({ eventId }: { eventId: string }) {
-  const { state, view, status, error, applyView, now, refresh } = useTig({ kind: "event", eventId, as: "player" });
-  const [toast, setToast] = useState<{ msg: string; tone: "info" | "error" | "ok" } | null>(null);
+  const { state, view, status, error, applyView, now, refresh } = useTig({
+    kind: "event",
+    eventId,
+    as: "player",
+  });
+  const [toast, setToast] = useState<{
+    msg: string;
+    tone: "info" | "error" | "ok";
+  } | null>(null);
   const keys = useRef(new Map<string, string>());
   const keyFor = (k: string) => {
     if (!keys.current.has(k)) keys.current.set(k, newKey());
@@ -68,7 +75,25 @@ export function PlayerApp({ eventId }: { eventId: string }) {
   return <PlayerScreen state={state} view={view} now={now} act={act} keyFor={keyFor} status={status} toast={toast} clearToast={clearToast} />;
 }
 
-function PlayerScreen({ state, view, now, act, keyFor, status, toast, clearToast }: { state: TigPublicState; view: PlayerView; now: () => number; act: (a: TigAction, ok?: string) => Promise<{ ok: boolean; reason?: string }>; keyFor: (k: string) => string; status: "connecting" | "live" | "reconnecting" | "offline"; toast: { msg: string; tone: "info" | "error" | "ok" } | null; clearToast: () => void }) {
+function PlayerScreen({
+  state,
+  view,
+  now,
+  act,
+  keyFor,
+  status,
+  toast,
+  clearToast,
+}: {
+  state: TigPublicState;
+  view: PlayerView;
+  now: () => number;
+  act: (a: TigAction, ok?: string) => Promise<{ ok: boolean; reason?: string }>;
+  keyFor: (k: string) => string;
+  status: "connecting" | "live" | "reconnecting" | "offline";
+  toast: { msg: string; tone: "info" | "error" | "ok" } | null;
+  clearToast: () => void;
+}) {
   const st = state.state;
   const paused = st === "PAUSED";
   const effective = paused ? state.pausedFrom : st;
@@ -81,7 +106,7 @@ function PlayerScreen({ state, view, now, act, keyFor, status, toast, clearToast
       <TigArena phase={phase} teams={[]} mancheNo={null} title={null} spotlight={null} hosts={[]} now={now} quality="2d" className="opacity-70" />
       <StatusPill status={status} />
       <div className="tig-scroll absolute inset-0 overflow-y-auto overscroll-contain">
-        <div className="mx-auto flex min-h-full w-full max-w-xl flex-col gap-3 px-3 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-[calc(.6rem+env(safe-area-inset-top))] lg:max-w-2xl">
+        <div className="mx-auto flex min-h-full w-full max-w-xl flex-col gap-3 px-3 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-[calc(.6rem+env(safe-area-inset-top))] lg:max-w-6xl lg:px-6 lg:pt-4">
           <header className="flex items-center gap-2">
             <span className="tig-chip shrink-0 !text-[#ffd15c]" style={{ borderColor: t.color }}>
               T{t.tableNo}
@@ -90,17 +115,39 @@ function PlayerScreen({ state, view, now, act, keyFor, status, toast, clearToast
             {state.manche && <span className="tig-chip shrink-0">M{state.manche.no}</span>}
             <ExitButton to="/tavoli-in-guerra" size="sm" armedLabel="Esci? (resti in squadra)" />
           </header>
-          <TeamCard view={view} compact={inGame && !paused} hideRank={state.hideScores} />
-          {paused && <PausedBanner />}
-          {closed && <ClosedCard state={state} />}
-          {!closed && !paused && effective && ["DRAFT", "LOBBY_OPEN", "LOBBY_LOCKED"].includes(effective) && <LobbyCard state={state} view={view} act={act} />}
-          {!closed && (effective === "INTRO" || effective === "ROUND_INTRO") && <MancheCard state={state} now={now} paused={paused} />}
-          {!closed && inGame && <GameCard state={state} view={view} now={now} act={act} keyFor={keyFor} paused={paused} />}
-          {!closed && effective === "GAME_RESULTS" && state.game && view.game && <ResultCard state={state} view={view} now={now} />}
-          {!closed && effective === "LEADERBOARD" && <StandingsCard state={state} view={view} />}
-          {!closed && effective === "BREAK" && <BreakCard state={state} now={now} paused={paused} />}
-          {!closed && (effective === "FINAL" || effective === "AWARDS" || st === "COMPLETED") && <FinalCard state={state} view={view} />}
-          {!closed && !paused && <PowersBar state={state} view={view} act={act} keyFor={keyFor} />}
+          {/* telefono: una colonna; PC: scheda squadra, poteri e classifica a sinistra, la prova a destra */}
+          <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[minmax(20rem,25rem)_1fr] lg:items-start lg:gap-5">
+            <aside className="flex flex-col gap-3 lg:sticky lg:top-4">
+              <TeamCard view={view} compact={inGame && !paused} hideRank={state.hideScores || !effective || ["DRAFT", "LOBBY_OPEN", "LOBBY_LOCKED"].includes(effective)} />
+              {!closed && !paused && (
+                <div className="hidden lg:block">
+                  <PowersBar state={state} view={view} act={act} keyFor={keyFor} />
+                </div>
+              )}
+              {!closed && !state.hideScores && state.teams.length > 0 && effective !== "LEADERBOARD" && effective && !["DRAFT", "LOBBY_OPEN", "LOBBY_LOCKED"].includes(effective) && (
+                <section className="tig-panel hidden rounded-3xl p-3 lg:block">
+                  <p className="tig-label mb-2">Classifica</p>
+                  <Leaderboard teams={state.teams} highlight={view.team.teamId} max={8} />
+                </section>
+              )}
+            </aside>
+            <div className="flex min-w-0 flex-col gap-3">
+              {paused && <PausedBanner />}
+              {closed && <ClosedCard state={state} />}
+              {!closed && !paused && effective && ["DRAFT", "LOBBY_OPEN", "LOBBY_LOCKED"].includes(effective) && <LobbyCard state={state} view={view} act={act} />}
+              {!closed && (effective === "INTRO" || effective === "ROUND_INTRO") && <MancheCard state={state} now={now} paused={paused} />}
+              {!closed && inGame && <GameCard state={state} view={view} now={now} act={act} keyFor={keyFor} paused={paused} />}
+              {!closed && effective === "GAME_RESULTS" && state.game && view.game && <ResultCard state={state} view={view} now={now} />}
+              {!closed && effective === "LEADERBOARD" && <StandingsCard state={state} view={view} />}
+              {!closed && effective === "BREAK" && <BreakCard state={state} now={now} paused={paused} />}
+              {!closed && (effective === "FINAL" || effective === "AWARDS" || st === "COMPLETED") && <FinalCard state={state} view={view} />}
+              {!closed && !paused && (
+                <div className="lg:hidden">
+                  <PowersBar state={state} view={view} act={act} keyFor={keyFor} />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
       <Toast message={toast?.msg ?? null} tone={toast?.tone} onDone={clearToast} />
@@ -126,7 +173,8 @@ function TeamCard({ view, compact, hideRank }: { view: PlayerView; compact: bool
         </div>
         {!compact && (
           <p className="mt-0.5 text-xs font-black uppercase tracking-[0.16em] text-white/60">
-            Mascotte {LEVEL_NAME[t.level]} · {t.wins} sfide vinte{t.shieldActive ? " · 🛡️ scudo" : ""}
+            Mascotte {LEVEL_NAME[t.level]} · {t.wins} sfide vinte
+            {t.shieldActive ? " · 🛡️ scudo" : ""}
           </p>
         )}
         <EnergyBar progress={t.chaosProgress} level={t.level} energy={t.energy} next={t.nextThreshold} compact={compact} className="mt-1.5" />
@@ -144,7 +192,9 @@ function LobbyCard({ state, view, act }: { state: TigPublicState; view: PlayerVi
       <section className="tig-panel rounded-3xl p-4">
         <p className="tig-label">{state.venue}</p>
         <h2 className="tig-display text-3xl">{state.state === "DRAFT" ? "La lobby apre a breve" : "In attesa del via"}</h2>
-        <p className={clsx("mt-2 rounded-xl px-3 py-2 text-sm font-extrabold", t.approved ? "bg-[#7cff4f]/12 text-[#c9ffb8]" : "bg-[#ffb020]/12 text-[#ffd98a]")}>{t.approved ? "Squadra convalidata dallo staff ✓ Il nome è sulla TV." : "In attesa della convalida dello staff: per ora la TV mostra «TAVOLO " + t.tableNo + "»."}</p>
+        <p className={clsx("mt-2 rounded-xl px-3 py-2 text-sm font-extrabold", t.approved ? "bg-[#7cff4f]/12 text-[#c9ffb8]" : "bg-[#ffb020]/12 text-[#ffd98a]")}>
+          {t.approved ? "Squadra convalidata dallo staff ✓ Il nome è sulla TV." : "In attesa della convalida dello staff: per ora la TV mostra «TAVOLO " + t.tableNo + "»."}
+        </p>
         <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Telefoni al tavolo">
           {t.members.map((m) => (
             <li key={m.memberId} className={clsx("tig-chip", m.isMe && "!border-[#ffb020]/70")}>
@@ -255,12 +305,43 @@ function MancheCard({ state, now, paused }: { state: TigPublicState; now: () => 
   );
 }
 
-function GameCard({ state, view, now, act, keyFor, paused }: { state: TigPublicState; view: PlayerView; now: () => number; act: (a: TigAction, ok?: string) => Promise<{ ok: boolean; reason?: string }>; keyFor: (k: string) => string; paused: boolean }) {
+function GameCard({
+  state,
+  view,
+  now,
+  act,
+  keyFor,
+  paused,
+}: {
+  state: TigPublicState;
+  view: PlayerView;
+  now: () => number;
+  act: (a: TigAction, ok?: string) => Promise<{ ok: boolean; reason?: string }>;
+  keyFor: (k: string) => string;
+  paused: boolean;
+}) {
   const g = state.game!;
   const pv = view.game!;
   const ui = MECHANIC_UIS[g.code];
-  const myRef = useMemo(() => ({ teamId: view.team.teamId, tableNo: view.team.tableNo, members: view.team.members.map((m) => m.memberId), captainId: view.team.members.find((m) => m.isCaptain)?.memberId ?? null }), [view.team]);
-  const submit = useCallback(async (payload: unknown) => act({ action: "submit", gameId: g.id, payload, idempotencyKey: keyFor(`submit:${g.id}`) }), [act, g.id, keyFor]);
+  const myRef = useMemo(
+    () => ({
+      teamId: view.team.teamId,
+      tableNo: view.team.tableNo,
+      members: view.team.members.map((m) => m.memberId),
+      captainId: view.team.members.find((m) => m.isCaptain)?.memberId ?? null,
+    }),
+    [view.team],
+  );
+  const submit = useCallback(
+    async (payload: unknown) =>
+      act({
+        action: "submit",
+        gameId: g.id,
+        payload,
+        idempotencyKey: keyFor(`submit:${g.id}`),
+      }),
+    [act, g.id, keyFor],
+  );
   const caos = g.kind === "caos";
   if (!pv.participant) {
     const names = g.participants.map((id) => state.teams.find((t) => t.teamId === id)).filter(Boolean);
@@ -298,7 +379,19 @@ function GameCard({ state, view, now, act, keyFor, paused }: { state: TigPublicS
       {pv.bet.allowed && <BetPanel view={view} gameId={g.id} act={act} keyFor={keyFor} />}
       {pv.bet.amount !== null && <p className="rounded-xl bg-[#ffb020]/12 px-3 py-2 text-center text-sm font-extrabold text-[#ffd98a]">Puntata del tavolo: {pv.bet.amount} punti</p>}
       {ui ? (
-        <ui.Player view={g.view} memberView={pv.memberView} stage={stage} deadlineAt={Date.parse(g.deadlineAt)} now={now} canSubmit={pv.canSubmit} submitted={pv.submitted} submit={submit} myTeam={myRef} reveal={null} myOutcome={null} />
+        <ui.Player
+          view={g.view}
+          memberView={pv.memberView}
+          stage={stage}
+          deadlineAt={Date.parse(g.deadlineAt)}
+          now={now}
+          canSubmit={pv.canSubmit}
+          submitted={pv.submitted}
+          submit={submit}
+          myTeam={myRef}
+          reveal={null}
+          myOutcome={null}
+        />
       ) : (
         <p className="text-center font-bold text-white/70">Questo minigioco si gioca guardando la TV.</p>
       )}
@@ -312,12 +405,28 @@ function BetPanel({ view, gameId, act, keyFor }: { view: PlayerView; gameId: str
   return (
     <div className="w-full rounded-2xl border border-[#ffb020]/50 bg-[#ffb020]/10 p-3 text-left">
       <p className="tig-label">Puntata finale (irrevocabile)</p>
-      <p className="text-sm font-bold text-white/75">Massimo {cap} punti: il 25% del saldo, mai oltre {POINTS.betMaxAbs}. Risposta giusta = li vinci, sbagliata = li perdi.</p>
+      <p className="text-sm font-bold text-white/75">
+        Massimo {cap} punti: il 25% del saldo, mai oltre {POINTS.betMaxAbs}. Risposta giusta = li vinci, sbagliata = li perdi.
+      </p>
       <div className="mt-2 flex items-center gap-3">
         <input type="range" min={0} max={cap} step={5} value={Math.min(amount, cap)} onChange={(e) => setAmount(Number(e.target.value))} className="flex-1 accent-[#ffb020]" aria-label="Punti da puntare" />
         <output className="tig-display w-16 text-right text-3xl tabular-nums">{Math.min(amount, cap)}</output>
       </div>
-      <button type="button" className="tig-btn mt-2 w-full" onClick={() => void act({ action: "bet", gameId, amount: Math.min(amount, cap), idempotencyKey: keyFor(`bet:${gameId}`) }, "Puntata registrata")}>
+      <button
+        type="button"
+        className="tig-btn mt-2 w-full"
+        onClick={() =>
+          void act(
+            {
+              action: "bet",
+              gameId,
+              amount: Math.min(amount, cap),
+              idempotencyKey: keyFor(`bet:${gameId}`),
+            },
+            "Puntata registrata",
+          )
+        }
+      >
         PUNTA {Math.min(amount, cap)}
       </button>
     </div>
@@ -330,7 +439,12 @@ function ResultCard({ state, view, now }: { state: TigPublicState; view: PlayerV
   const ui = MECHANIC_UIS[g.code];
   const out = pv.outcome;
   const won = g.kind !== "regular" && g.winnerTeamId === view.team.teamId;
-  const myRef = { teamId: view.team.teamId, tableNo: view.team.tableNo, members: view.team.members.map((m) => m.memberId), captainId: null };
+  const myRef = {
+    teamId: view.team.teamId,
+    tableNo: view.team.tableNo,
+    members: view.team.members.map((m) => m.memberId),
+    captainId: null,
+  };
   return (
     <section className="tig-panel flex flex-col gap-3 rounded-3xl p-4">
       {pv.participant ? (
@@ -347,8 +461,24 @@ function ResultCard({ state, view, now }: { state: TigPublicState; view: PlayerV
       ) : (
         <p className="text-center font-bold text-white/70">Risultato del duello sulla TV.</p>
       )}
-      {ui && pv.participant && <ui.Player view={g.view} memberView={pv.memberView} stage="reveal" deadlineAt={Date.parse(g.deadlineAt)} now={now} canSubmit={false} submitted={pv.submitted} submit={async () => ({ ok: false })} myTeam={myRef} reveal={g.reveal} myOutcome={out} />}
-      {state.spotlight?.kind === "evolve" && state.spotlight.teamIds.includes(view.team.teamId) && <p className="tig-pop rounded-2xl bg-[#9b5cff]/20 px-4 py-3 text-center text-xl font-extrabold text-[#e3d4ff]">La vostra mascotte è evoluta: {LEVEL_NAME[view.team.level]}!</p>}
+      {ui && pv.participant && (
+        <ui.Player
+          view={g.view}
+          memberView={pv.memberView}
+          stage="reveal"
+          deadlineAt={Date.parse(g.deadlineAt)}
+          now={now}
+          canSubmit={false}
+          submitted={pv.submitted}
+          submit={async () => ({ ok: false })}
+          myTeam={myRef}
+          reveal={g.reveal}
+          myOutcome={out}
+        />
+      )}
+      {state.spotlight?.kind === "evolve" && state.spotlight.teamIds.includes(view.team.teamId) && (
+        <p className="tig-pop rounded-2xl bg-[#9b5cff]/20 px-4 py-3 text-center text-xl font-extrabold text-[#e3d4ff]">La vostra mascotte è evoluta: {LEVEL_NAME[view.team.level]}!</p>
+      )}
     </section>
   );
 }
@@ -357,7 +487,11 @@ function StandingsCard({ state, view }: { state: TigPublicState; view: PlayerVie
   return (
     <section className="tig-panel rounded-3xl p-4">
       <p className="tig-label">Classifica</p>
-      {state.hideScores ? <p className="mt-2 font-bold text-white/75">Classifica buia: il saldo lo vedete solo voi. Si scopre tutto alla fine.</p> : <Leaderboard teams={state.teams} highlight={view.team.teamId} max={8} className="mt-2" />}
+      {state.hideScores ? (
+        <p className="mt-2 font-bold text-white/75">Classifica buia: il saldo lo vedete solo voi. Si scopre tutto alla fine.</p>
+      ) : (
+        <Leaderboard teams={state.teams} highlight={view.team.teamId} max={8} className="mt-2" />
+      )}
     </section>
   );
 }
@@ -383,7 +517,11 @@ function FinalCard({ state, view }: { state: TigPublicState; view: PlayerView })
   return (
     <section className="tig-panel tig-panel-hot flex flex-col items-center gap-3 rounded-3xl p-5 text-center">
       <p className="tig-display text-4xl text-[#ffd15c]">{done ? (winner === view.team.teamId ? "AVETE VINTO!" : "PREMIAZIONE") : "TUTTO O NIENTE!"}</p>
-      {view.team.rank && <p className="text-xl font-extrabold">Siete al {view.team.rank}° posto con {view.team.score.toLocaleString("it-IT")} punti</p>}
+      {view.team.rank && (
+        <p className="text-xl font-extrabold">
+          Siete al {view.team.rank}° posto con {view.team.score.toLocaleString("it-IT")} punti
+        </p>
+      )}
       {done && <Leaderboard teams={state.teams} highlight={view.team.teamId} max={12} />}
       {state.state === "COMPLETED" && (
         <a href="/tavoli-in-guerra" className="tig-btn tig-btn-ghost w-full">
@@ -424,7 +562,13 @@ function PowersBar({ state, view, act, keyFor }: { state: TigPublicState; view: 
         >
           🛡️ {view.shield.active ? "SCUDO ATTIVO" : "SCUDO"}
         </button>
-        <button type="button" className={clsx("tig-btn tig-btn-caos !min-h-[3.75rem] !px-2 !text-lg", caos.available && "tig-pulse")} disabled={!caos.available} onClick={() => setPicking((p) => !p)} title={caos.reason ?? undefined}>
+        <button
+          type="button"
+          className={clsx("tig-btn tig-btn-caos !min-h-[3.75rem] !px-2 !text-lg", caos.available && "tig-pulse")}
+          disabled={!caos.available}
+          onClick={() => setPicking((p) => !p)}
+          title={caos.reason ?? undefined}
+        >
           {view.team.caosUsed ? "CAOS USATO" : "BOTTONE DEL CAOS"}
         </button>
       </div>
@@ -441,7 +585,11 @@ function PowersBar({ state, view, act, keyFor }: { state: TigPublicState; view: 
                 title={t.why ?? undefined}
                 onClick={() => {
                   setPicking(false);
-                  void act({ action: "caos", targetTeamId: t.teamId, idempotencyKey: keyFor(`caos:${t.teamId}`) });
+                  void act({
+                    action: "caos",
+                    targetTeamId: t.teamId,
+                    idempotencyKey: keyFor(`caos:${t.teamId}`),
+                  });
                 }}
                 className="flex flex-col items-start rounded-2xl border-2 border-[#ff2d3d]/50 bg-[#2a0509]/70 px-3 py-2 text-left disabled:opacity-35"
               >

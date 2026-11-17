@@ -7,7 +7,7 @@ import type { TigAction } from "@/lib/tig/types";
 import type { TigUser } from "@/lib/server/tig/auth";
 import { _testing, runAction, SYSTEM_ACTOR } from "@/lib/server/tig/engine";
 import { TigError } from "@/lib/server/tig/errors";
-import { createEvent, getDisplayState, getEventView, joinEvent, previewJoin } from "@/lib/server/tig/events";
+import { closeAbandonedEvents, createEvent, exportCsv, getDisplayState, getEventView, joinEvent, listMyEvents, previewJoin } from "@/lib/server/tig/events";
 
 /**
  * TAVOLI IN GUERRA! contro il database locale: account veri (Supabase Auth locale), serate vere, tutte le
@@ -499,5 +499,20 @@ describe("TAVOLI IN GUERRA! · isolamento tra serate", () => {
     expect(states.length).toBeGreaterThan(0);
     const [{ breaks }] = await sql<{ breaks: number }[]>`select count(*)::int as breaks from tig_log where event_id = ${s.eventId} and kind = 'game_started' and (data->>'mancheNo')::int = 4`;
     expect(breaks).toBeGreaterThan(0);
+  });
+
+  it("serate abbandonate (né regia né TV da troppo) chiuse e annunciate; «Riprendi» e CSV", async () => {
+    const s = await setupEvent(2, { start: true });
+    expect((await listMyEvents(s.owner.userId)).map((e) => e.eventId)).toContain(s.eventId);
+    expect((await listMyEvents(s.captains[0].userId))[0]).toMatchObject({ eventId: s.eventId, role: "player" });
+    const csv = await exportCsv(s.owner, s.eventId, "classifica");
+    expect(csv.body).toContain("Squadra 1");
+    await expectCode(exportCsv(s.captains[0], s.eventId, "classifica"), "FORBIDDEN");
+    await sql`update tig_events set host_seen_at = now() - interval '2 hours', display_seen_at = now() - interval '2 hours' where id = ${s.eventId}`;
+    expect(await closeAbandonedEvents({ eventId: s.eventId })).toBe(1);
+    const [row] = await sql<{ status: string; state: string; close_reason: string }[]>`select status, state, close_reason from tig_events where id = ${s.eventId}`;
+    expect(row).toEqual({ status: "closed", state: "CANCELLED", close_reason: "abandoned" });
+    expect((await listMyEvents(s.owner.userId)).map((e) => e.eventId)).not.toContain(s.eventId);
+    await expectCode(act(s.eventId, s.owner, { action: "resume" }), "CLOSED");
   });
 });

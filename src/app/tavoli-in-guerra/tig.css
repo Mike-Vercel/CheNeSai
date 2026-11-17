@@ -59,6 +59,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* niente ombra ereditata: con il testo trasparente si vedrebbe attraverso le lettere */
+    text-shadow: none;
     filter: drop-shadow(0 3px 0 #2a0508) drop-shadow(0 0 24px rgba(255, 106, 26, 0.55));
   }
   .tig-logo .tig-logo-bang {
@@ -221,6 +223,14 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 176, 32, 0.4) transparent;
   }
+}
+
+/* fuoco da tastiera nei colori del gioco; il menu mostra già la voce attiva con la barra luminosa */
+.tig-root :focus-visible {
+  outline-color: var(--tig-amber);
+}
+.tig-root .tig-menu-item:focus-visible {
+  outline: none;
 }
 
 /* ---------------------------------------------------------------- arena 2D (riserva del 3D) */

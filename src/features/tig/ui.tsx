@@ -12,18 +12,18 @@ import { useTick } from "./use-tig";
  * Pezzi d'interfaccia di TAVOLI IN GUERRA! condivisi da shell, regia, telefono e TV.
  */
 
-export function Logo({ size = "md", className, tagline = false }: { size?: "sm" | "md" | "lg" | "xl"; className?: string; tagline?: boolean }) {
+export function Logo({ size = "md", className, tagline = false, align = "center" }: { size?: "sm" | "md" | "lg" | "xl"; className?: string; tagline?: boolean; align?: "center" | "left" }) {
   const cls = { sm: "text-2xl", md: "text-4xl", lg: "text-[clamp(2.6rem,7vw,4.6rem)]", xl: "text-[clamp(3.4rem,9vmin,7.5rem)]" }[size];
   return (
-    <div className={clsx("flex flex-col items-center", className)}>
-      <p className={clsx("tig-logo relative -rotate-2 text-center", cls)} aria-label="TAVOLI IN GUERRA!">
+    <div className={clsx("flex flex-col", align === "left" ? "items-start" : "items-center", className)}>
+      <p className={clsx("tig-logo relative -rotate-2", align === "left" ? "text-left" : "text-center", cls)} aria-label="TAVOLI IN GUERRA!">
         <span className="block text-[0.62em] tracking-[0.06em]">Tavoli in</span>
         <span className="tig-logo-war block">Guerra</span>
         <span className="tig-logo-bang absolute -right-[0.18em] bottom-[0.02em] text-[1.1em]" aria-hidden>
           !
         </span>
       </p>
-      {tagline && <p className="mt-2 text-center text-[clamp(.8rem,1.6vw,1.05rem)] font-extrabold uppercase tracking-[0.22em] text-white/70">Il game show che trasforma ogni tavolo in una squadra</p>}
+      {tagline && <p className={clsx("mt-2 text-[clamp(.8rem,1.6vw,1.05rem)] font-extrabold uppercase tracking-[0.2em] text-white/70", align === "left" ? "text-left" : "text-center")}>Il game show che trasforma ogni tavolo in una squadra</p>}
     </div>
   );
 }

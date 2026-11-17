@@ -41,20 +41,50 @@ export function TvApp({ displayKey, live }: { displayKey: string; live: boolean 
   return <TvShow state={state} lobby={lobby} live={live} now={now} quality={quality} speech={speech} unlocked={unlocked} />;
 }
 
-function TvShow({ state, lobby, live, now, quality, speech, unlocked }: { state: TigPublicState; lobby: LobbyTable[] | null; live: boolean; now: () => number; quality: ReturnType<typeof detectVisualQuality>; speech: ReturnType<typeof useSpeech>; unlocked: boolean }) {
+function TvShow({
+  state,
+  lobby,
+  live,
+  now,
+  quality,
+  speech,
+  unlocked,
+}: {
+  state: TigPublicState;
+  lobby: LobbyTable[] | null;
+  live: boolean;
+  now: () => number;
+  quality: ReturnType<typeof detectVisualQuality>;
+  speech: ReturnType<typeof useSpeech>;
+  unlocked: boolean;
+}) {
   const phase = arenaPhase(state);
   const { title, subtitle } = arenaTitle(state);
   const paused = state.state === "PAUSED";
   const st = paused ? state.pausedFrom : state.state;
   const teams = useMemo(() => arenaTeams(state), [state]);
   const mouth = getTigVoice().mouth as RefObject<number>;
-  const hosts = arenaHostsFor(state, speech.who, speech.audible ? mouth : undefined);
+  const lobbyPhase = phase === "lobby";
+  // in lobby la TV mostra i QR: niente presentatori sopra le schede dei tavoli
+  const hosts = lobbyPhase && !live ? [] : arenaHostsFor(state, speech.who, speech.audible ? mouth : undefined);
   // l'HUD della prova si prende il centro: il ledwall resta vuoto e le postazioni scendono in basso
-  const hudOwnsTitle = st === "GAME_ACTIVE" || st === "GAME_RESULTS" || st === "LEADERBOARD" || st === "AWARDS" || st === "COMPLETED" || st === "FINAL" || (st && ["LOBBY_OPEN", "LOBBY_LOCKED", "DRAFT"].includes(st) && !live);
+  const hudOwnsTitle =
+    st === "GAME_ACTIVE" || st === "GAME_RESULTS" || st === "LEADERBOARD" || st === "AWARDS" || st === "COMPLETED" || st === "FINAL" || (st && ["LOBBY_OPEN", "LOBBY_LOCKED", "DRAFT"].includes(st) && !live);
   const closed = state.status === "closed" && state.state !== "COMPLETED";
   return (
     <div className="fixed inset-0 overflow-hidden bg-[#06070c]">
-      <TigArena phase={phase} teams={teams} mancheNo={state.manche?.no ?? null} title={hudOwnsTitle ? null : title} subtitle={hudOwnsTitle ? null : subtitle} spotlight={state.spotlight} hosts={hosts} now={now} quality={quality} safeArea={{ left: 0, top: 0, right: 0, bottom: 0.0 }} />
+      <TigArena
+        phase={phase}
+        teams={(lobbyPhase && !live) || state.hideScores ? [] : teams}
+        mancheNo={hudOwnsTitle ? null : (state.manche?.no ?? null)}
+        title={hudOwnsTitle ? null : title}
+        subtitle={hudOwnsTitle ? null : subtitle}
+        spotlight={state.spotlight}
+        hosts={hosts}
+        now={now}
+        quality={quality}
+        safeArea={{ left: 0, top: 0, right: 0, bottom: 0.0 }}
+      />
       <div className="absolute inset-0 flex flex-col">
         <TopStrip state={state} live={live} />
         <div className="relative flex min-h-0 flex-1 items-center justify-center px-[3vmin] pb-[17vmin]">
@@ -101,7 +131,7 @@ function TopStrip({ state, live }: { state: TigPublicState; live: boolean }) {
     <div className="relative z-20 flex items-center gap-[1.5vmin] px-[2vmin] pt-[1.6vmin]">
       <Logo size="sm" className="[&_.tig-logo]:!text-[3.2vmin]" />
       <span className="tig-chip !text-[1.6vmin]">{state.venue}</span>
-      {state.manche && (
+      {state.manche && !["FINAL", "AWARDS", "COMPLETED"].includes(state.state) && (
         <span className="tig-chip !border-[#ffb020]/50 !text-[1.6vmin] !text-[#ffd15c]">
           MANCHE {state.manche.no} · {state.manche.title}
           {state.manche.gameIndex > 0 ? ` · PROVA ${Math.min(state.manche.gameIndex, state.manche.gamesTotal)}/${state.manche.gamesTotal}` : ""}
@@ -116,7 +146,7 @@ function TopStrip({ state, live }: { state: TigPublicState; live: boolean }) {
 function Captions({ speech }: { speech: ReturnType<typeof useSpeech> }) {
   if (!speech.caption) return null;
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-[2vmin] z-30 flex justify-center px-[4vmin]" aria-live="polite">
+    <div className="pointer-events-none absolute inset-x-0 bottom-[17.5vmin] z-30 flex justify-center px-[4vmin]" aria-live="polite">
       <p className="tig-rise max-w-[86vw] rounded-2xl bg-black/80 px-[2.4vmin] py-[1.2vmin] text-center text-[clamp(1rem,2.9vmin,2.4rem)] font-bold leading-snug shadow-2xl ring-1 ring-white/10">
         <span className="mr-2 font-black uppercase tracking-wider text-[#ffb020]">{speech.name}:</span>
         {speech.caption}
@@ -137,7 +167,9 @@ function LobbyHud({ state, lobby, live }: { state: TigPublicState; lobby: LobbyT
       <div className="flex items-end gap-[3vmin]">
         <Logo size="xl" />
       </div>
-      <p className="tig-display text-center text-[4.2vmin] text-[#ffd15c]">{state.state === "DRAFT" ? "La lobby apre tra poco" : qr ? "Scansiona il QR del tuo tavolo" : "Chiedi allo staff il codice della tua squadra"}</p>
+      <p className="tig-display text-center text-[4.2vmin] text-[#ffd15c]">
+        {state.state === "DRAFT" ? "La lobby apre tra poco" : qr ? "Scansiona il QR del tuo tavolo" : "Chiedi allo staff il codice della tua squadra"}
+      </p>
       {qr && (
         <div className="grid w-[min(94vw,170vmin)] gap-[1.4vmin]" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
           {lobby!.map((t) => (
@@ -271,7 +303,15 @@ function GameHud({ state, now }: { state: TigPublicState; now: () => number }) {
     );
   }
   const stage: UiStage = g.stage === "reveal" ? "reveal" : g.stage === "locked" ? "locked" : "play";
-  const tvTeams = state.teams.filter((t) => g.participants.includes(t.teamId)).map((t) => ({ teamId: t.teamId, tableNo: t.tableNo, name: t.name, color: t.color, submitted: g.submittedTeamIds.includes(t.teamId) }));
+  const tvTeams = state.teams
+    .filter((t) => g.participants.includes(t.teamId))
+    .map((t) => ({
+      teamId: t.teamId,
+      tableNo: t.tableNo,
+      name: t.name,
+      color: t.color,
+      submitted: g.submittedTeamIds.includes(t.teamId),
+    }));
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-[2vmin]">
       <div className="flex w-full items-center justify-center gap-[3vmin]">
@@ -284,7 +324,16 @@ function GameHud({ state, now }: { state: TigPublicState; now: () => number }) {
   );
 }
 
-function SubmittedRow({ teams }: { teams: { teamId: string; tableNo: number; color: string; submitted: boolean }[] }) {
+function SubmittedRow({
+  teams,
+}: {
+  teams: {
+    teamId: string;
+    tableNo: number;
+    color: string;
+    submitted: boolean;
+  }[];
+}) {
   return (
     <div className="flex flex-wrap justify-center gap-[1vmin]">
       {teams.map((t) => (
@@ -300,7 +349,15 @@ function ResultsHud({ state, now }: { state: TigPublicState; now: () => number }
   const g = state.game;
   if (!g) return null;
   const ui = MECHANIC_UIS[g.code];
-  const tvTeams = state.teams.filter((t) => g.participants.includes(t.teamId)).map((t) => ({ teamId: t.teamId, tableNo: t.tableNo, name: t.name, color: t.color, submitted: g.submittedTeamIds.includes(t.teamId) }));
+  const tvTeams = state.teams
+    .filter((t) => g.participants.includes(t.teamId))
+    .map((t) => ({
+      teamId: t.teamId,
+      tableNo: t.tableNo,
+      name: t.name,
+      color: t.color,
+      submitted: g.submittedTeamIds.includes(t.teamId),
+    }));
   const evolve = state.spotlight?.kind === "evolve" ? state.spotlight : null;
   if (evolve) {
     const t = state.teams.find((x) => x.teamId === evolve.teamIds[0]);
@@ -327,7 +384,11 @@ function ResultsHud({ state, now }: { state: TigPublicState; now: () => number }
       {ui && <ui.Tv view={g.view} stage="reveal" deadlineAt={Date.parse(g.deadlineAt)} now={now} teams={tvTeams} reveal={g.reveal} outcome={g.outcome} />}
       <div className="flex flex-wrap justify-center gap-[1vmin]">
         {outs.map(({ o, t }) => (
-          <div key={o.teamId} className={clsx("tig-panel tig-rise flex items-center gap-[1vmin] rounded-xl px-[1.4vmin] py-[0.8vmin]", o.points > 0 && "tig-panel-hot")} style={{ boxShadow: `inset 0 -3px 0 ${t!.color}` }}>
+          <div
+            key={o.teamId}
+            className={clsx("tig-panel tig-rise flex items-center gap-[1vmin] rounded-xl px-[1.4vmin] py-[0.8vmin]", o.points > 0 && "tig-panel-hot")}
+            style={{ boxShadow: `inset 0 -3px 0 ${t!.color}` }}
+          >
             <span className="tig-display text-[2.4vmin] text-white/70">T{t!.tableNo}</span>
             <span className={clsx("tig-display text-[3vmin] tabular-nums", o.points > 0 ? "text-[#7cff4f]" : "text-white/60")}>{o.points > 0 ? `+${o.points}` : o.points}</span>
             <span className="text-[1.7vmin] font-bold text-white/70">{o.label}</span>
@@ -399,20 +460,30 @@ function AwardsHud({ state, now }: { state: TigPublicState; now: () => number })
   const started = Date.parse(state.timer?.startedAt ?? state.serverNow);
   const shown = state.state === "COMPLETED" ? order.length : Math.min(order.length, Math.floor((now() - started) / 3500) + 1);
   const byId = new Map(state.teams.map((t) => [t.teamId, t]));
-  const revealed = order.slice(0, shown).map((id) => byId.get(id)).filter(Boolean) as PublicTeam[];
+  const revealed = order
+    .slice(0, shown)
+    .map((id) => byId.get(id))
+    .filter(Boolean) as PublicTeam[];
   const winnerShown = shown >= order.length && order.length > 0;
   const winner = winnerShown ? byId.get(order[order.length - 1]) : null;
   return (
     <div className="flex w-full items-center justify-center gap-[4vmin]">
-      <div className="flex w-[min(52vw,90vmin)] flex-col-reverse gap-[1vmin]">
-        {revealed.map((t) => (
-          <div key={t.teamId} className={clsx("tig-panel tig-rise flex items-center gap-[1.4vmin] rounded-2xl px-[1.6vmin] py-[1vmin]", t.rank === 1 && "tig-panel-hot")} style={{ boxShadow: `inset 6px 0 0 ${t.color}` }}>
-            <span className={clsx("tig-display w-[3ch] text-center text-[4.4vmin]", t.rank === 1 ? "text-[#ffd15c]" : "text-white/70")}>{t.rank}°</span>
-            <span className="tig-display text-[2.6vmin] text-white/70">T{t.tableNo}</span>
-            <span className="min-w-0 flex-1 truncate text-[3vmin] font-extrabold">{t.name}</span>
-            <span className="tig-display text-[4vmin] tabular-nums">{(t.score ?? 0).toLocaleString("it-IT")}</span>
-          </div>
-        ))}
+      <div className="flex w-[min(52vw,90vmin)] flex-col gap-[1vmin]">
+        <p className="tig-led text-[6vmin] leading-none">CLASSIFICA FINALE</p>
+        <div className="flex flex-col-reverse gap-[1vmin]">
+          {revealed.map((t) => (
+            <div
+              key={t.teamId}
+              className={clsx("tig-panel tig-rise flex items-center gap-[1.4vmin] rounded-2xl px-[1.6vmin] py-[1vmin]", t.rank === 1 && "tig-panel-hot")}
+              style={{ boxShadow: `inset 6px 0 0 ${t.color}` }}
+            >
+              <span className={clsx("tig-display w-[3ch] text-center text-[4.4vmin]", t.rank === 1 ? "text-[#ffd15c]" : "text-white/70")}>{t.rank}°</span>
+              <span className="tig-display text-[2.6vmin] text-white/70">T{t.tableNo}</span>
+              <span className="min-w-0 flex-1 truncate text-[3vmin] font-extrabold">{t.name}</span>
+              <span className="tig-display text-[4vmin] tabular-nums">{(t.score ?? 0).toLocaleString("it-IT")}</span>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="flex w-[34vmin] flex-col items-center gap-[1.4vmin] text-center">
         {winner ? (

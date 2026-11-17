@@ -50,6 +50,8 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
   const [panel, setPanel] = useState<Panel>(start === "create" ? "create" : "main");
   const [quality] = useState(detectVisualQuality);
   const [focus, setFocus] = useState<string | null>(null);
+  // schermo largo: a destra del menu l'arena con le postazioni dei tavoli (vetrina); sul telefono solo atmosfera
+  const [wide] = useState(() => window.matchMedia?.("(min-width: 1024px)").matches ?? false);
   const goLogin = (next: string) => window.location.assign(`/accedi?next=${encodeURIComponent(next)}`);
   const select = (id: string) => {
     uiClick();
@@ -74,9 +76,20 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
   const ledTitle = panel === "create" ? "CREA SERATA" : focus === "entra" ? "ENTRA AL TAVOLO" : focus === "regolamento" ? "LE REGOLE" : focus === "riprendi" ? "RIPRENDI" : "TAVOLI IN GUERRA!";
   return (
     <>
-      <TigArena phase={panel === "create" ? "intro" : "lobby"} teams={[]} mancheNo={null} title={ledTitle} subtitle={panel === "main" ? "5 manche · 115 minuti · ogni tavolo è una squadra" : null} spotlight={null} hosts={[]} now={() => Date.now()} quality={quality} safeArea={{ left: 0.5, top: 0, right: 0, bottom: 0 }} />
+      <TigArena
+        phase={panel === "create" ? "intro" : "lobby"}
+        teams={wide ? SHOWCASE : []}
+        mancheNo={null}
+        title={wide ? ledTitle : null}
+        subtitle={wide && panel === "main" ? "5 manche · 115 minuti · ogni tavolo è una squadra" : null}
+        spotlight={wide && focus ? { kind: "duel", teamIds: [SHOWCASE[focus.length % SHOWCASE.length].teamId], eventId: focus } : null}
+        hosts={wide ? [{ who: "don-patrizio", speaking: false }, { who: "zafira", speaking: false }] : []}
+        now={() => Date.now()}
+        quality={quality}
+        safeArea={{ left: wide ? 0.52 : 0, top: 0.06, right: 0, bottom: 0.04 }}
+      />
       <div className="absolute inset-0 flex flex-col lg:flex-row">
-        <div className="tig-scroll relative z-10 flex min-h-0 w-full flex-1 flex-col overflow-y-auto px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-[calc(4rem+env(safe-area-inset-top))] lg:max-w-[min(46rem,52vw)] lg:justify-center lg:px-10 lg:pt-16">
+        <div className="tig-scroll relative z-10 flex min-h-0 w-full flex-1 flex-col justify-center overflow-y-auto px-4 pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-[calc(4rem+env(safe-area-inset-top))] lg:max-w-[min(46rem,52vw)] lg:px-10 lg:pt-16">
           {panel === "main" && <MainMenu events={events} loggedIn={loggedIn} onSelect={select} onActive={setFocus} />}
           {panel === "create" && <CreateWizard onExit={toMain} username={username} />}
           {panel === "resume" && <ResumePanel events={events} onBack={toMain} />}
@@ -100,6 +113,9 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
     </>
   );
 }
+
+/** Vetrina dell'arena nel menu: sei postazioni d'esempio (nessuna squadra vera). */
+const SHOWCASE = [1, 2, 3, 4, 5, 6].map((n) => ({ teamId: `vetrina-${n}`, tableNo: n, name: `Tavolo ${n}`, color: ["#ff3b4e", "#ffb020", "#38d9ff", "#7cff4f", "#b46cff", "#ff6bd6"][n - 1], mascotSlot: n * 2 - 1, mascotLevel: (n % 3 === 0 ? 3 : n % 2 === 0 ? 2 : 1) as 1 | 2 | 3, score: [420, 380, 510, 290, 455, 340][n - 1], rank: 0, chaosProgress: [0.3, 0.7, 1, 0.15, 0.55, 0.9][n - 1], online: true }));
 
 export const eventHref = (e: MyEvent) => (e.role === "organizer" ? `/tavoli-in-guerra/regia/${e.eventId}` : `/tavoli-in-guerra/gioca/${e.eventId}`);
 
@@ -141,7 +157,7 @@ function MainMenu({ events, loggedIn, onSelect, onActive }: { events: MyEvent[];
   };
   return (
     <section aria-label="Menu di TAVOLI IN GUERRA!" className="tig-rise flex w-full flex-col gap-[clamp(1rem,3vh,2rem)]">
-      <Logo size="lg" tagline className="!items-start [&>p:first-child]:text-left" />
+      <Logo size="lg" tagline align="left" className="px-2" />
       <div
         role="menu"
         aria-label="Menu principale"
@@ -173,9 +189,9 @@ function MainMenu({ events, loggedIn, onSelect, onActive }: { events: MyEvent[];
               }}
               onFocus={() => setActive(i)}
               onClick={() => onSelect(it.id)}
-              className={clsx("tig-menu-item group relative flex w-full flex-col items-start rounded-2xl px-5 py-2.5 text-left outline-none transition", on ? "text-white" : "text-white/60 hover:text-white")}
+              className={clsx("tig-menu-item group relative flex w-full flex-col items-start rounded-2xl px-5 py-2.5 text-left transition [outline:none]", on ? "text-white" : "text-white/60 hover:text-white")}
             >
-              <span aria-hidden className={clsx("tig-menu-bar absolute inset-0 -skew-x-6 rounded-2xl border opacity-0 transition", it.tone === "red" ? "border-[#ff2d3d]/70 bg-gradient-to-r from-[#ff2d3d]/35 to-transparent" : "border-[#ffb020]/60 bg-gradient-to-r from-[#ffb020]/30 to-transparent")} />
+              <span aria-hidden className={clsx("tig-menu-bar absolute inset-0 -skew-x-6 rounded-2xl border transition", on ? "opacity-100" : "opacity-0", it.tone === "red" ? "border-[#ff2d3d]/70 bg-gradient-to-r from-[#ff2d3d]/35 to-transparent" : "border-[#ffb020]/60 bg-gradient-to-r from-[#ffb020]/30 to-transparent")} />
               <span className="relative flex w-full items-center gap-3">
                 <span aria-hidden className={clsx("text-xl transition", it.tone === "red" ? "text-[#ff6b78]" : "text-[#ffb020]", on ? "opacity-100" : "-translate-x-2 opacity-0")}>
                   ▶
@@ -263,6 +279,10 @@ function CreateWizard({ onExit }: { onExit: () => void; username: string | null 
   const [duration, setDuration] = useState(115);
   const [accessMode, setAccessMode] = useState<"qr" | "code">("qr");
   const [staffPin, setStaffPin] = useState(false);
+  const [advanced, setAdvanced] = useState(false);
+  const [chaos2, setChaos2] = useState(60);
+  const [chaos3, setChaos3] = useState(150);
+  const [hideScores, setHideScores] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const back = () => (step === 0 ? onExit() : setStep(step - 1));
@@ -274,7 +294,7 @@ function CreateWizard({ onExit }: { onExit: () => void; username: string | null 
     setBusy(true);
     setErr(null);
     try {
-      const r = await api<{ eventId: string }>("/api/tig/events", { method: "POST", json: { venue: venue.trim(), tables, durationMin: duration, accessMode, mascotUnique, staffPin } });
+      const r = await api<{ eventId: string }>("/api/tig/events", { method: "POST", json: { venue: venue.trim(), tables, durationMin: duration, accessMode, mascotUnique, staffPin, chaosLevel2: chaos2, chaosLevel3: Math.max(chaos3, chaos2 + 10), hideScoresInFinal: hideScores } });
       window.location.assign(`/tavoli-in-guerra/regia/${r.eventId}`);
     } catch (e) {
       setErr(e instanceof ApiError ? e.message : "Non riesco a creare la serata");
@@ -349,6 +369,25 @@ function CreateWizard({ onExit }: { onExit: () => void; username: string | null 
               ))}
             </ul>
             <p className="text-xs font-bold text-white/50">Totale {totalMinutes(segs)} minuti. In regia puoi cambiare la durata di ogni segmento anche durante la serata.</p>
+            <button type="button" className="self-start text-sm font-bold text-white/60 underline" aria-expanded={advanced} onClick={() => setAdvanced((v) => !v)}>
+              {advanced ? "Nascondi le opzioni avanzate" : "Opzioni avanzate (Energia Caos, classifica buia)"}
+            </button>
+            {advanced && (
+              <div className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-black/35 p-3">
+                <div className="grid grid-cols-2 gap-2">
+                  <label className="flex flex-col gap-1">
+                    <span className="tig-label">Energia per il livello 2</span>
+                    <input type="number" min={10} max={1000} className="tig-input !min-h-11" value={chaos2} onChange={(e) => setChaos2(Math.max(10, Math.min(1000, Number(e.target.value) || 10)))} />
+                  </label>
+                  <label className="flex flex-col gap-1">
+                    <span className="tig-label">Energia per il livello 3</span>
+                    <input type="number" min={20} max={2000} className="tig-input !min-h-11" value={chaos3} onChange={(e) => setChaos3(Math.max(20, Math.min(2000, Number(e.target.value) || 20)))} />
+                  </label>
+                </div>
+                <p className="text-xs font-bold text-white/50">L’Energia Caos si guadagna partecipando in tempo, con gli esiti e accettando le sfide: fa evolvere le mascotte, non dà punti.</p>
+                <Toggle checked={hideScores} onChange={setHideScores} label="Classifica buia nell'ultima manche" hint="In TUTTO O NIENTE! la TV nasconde la classifica; ogni tavolo vede sempre il proprio saldo." />
+              </div>
+            )}
           </div>
         )}
         {step === 3 && (
