@@ -1,0 +1,183 @@
+/* ARENA 2D di TAVOLI IN GUERRA! (qualità "2d" e anteprima durante il caricamento del 3D). */
+.tig2d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 45% at 50% 70%, rgba(255, 138, 31, 0.1), transparent 70%),
+    radial-gradient(50% 40% at 85% 20%, rgba(45, 226, 255, 0.08), transparent 70%),
+    #020306;
+  font-family: var(--font-tig-display), "Big Shoulders", "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+}
+.tig2d-frame {
+  position: absolute;
+}
+.tig2d-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.tig2d-led-title {
+  font-size: 104px;
+  font-weight: 900;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(0, 0, 0, 0.7);
+  stroke-width: 5px;
+}
+.tig2d-led-head {
+  font-size: 40px;
+  font-weight: 800;
+  text-anchor: middle;
+  letter-spacing: 6px;
+}
+.tig2d-led-sub {
+  font-size: 44px;
+  font-weight: 800;
+  text-anchor: middle;
+  letter-spacing: 2px;
+}
+.tig2d-small {
+  font-size: 21px;
+  font-weight: 800;
+}
+.tig2d-num {
+  font-size: 24px;
+  font-weight: 900;
+}
+.tig2d-score {
+  font-size: 26px;
+  font-weight: 900;
+  paint-order: stroke;
+  stroke: #000;
+  stroke-width: 4px;
+}
+.tig2d-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.tig2d-pod {
+  transition: opacity 0.4s ease;
+}
+.tig2d-tower,
+.tig2d-bar {
+  transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), y 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.tig2d-dim {
+  opacity: 0.35;
+}
+.tig2d-off {
+  opacity: 0.6;
+}
+.tig2d-lit .tig2d-tower {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.55));
+}
+.tig2d[data-mood="chaos"] {
+  box-shadow: inset 0 0 0 4px rgba(255, 35, 64, 0.55);
+}
+.tig2d[data-mood="final"],
+.tig2d[data-mood="awards"] {
+  background:
+    radial-gradient(60% 45% at 50% 70%, rgba(255, 201, 74, 0.14), transparent 70%),
+    #020306;
+}
+.tig2d[data-mood="break"] {
+  background:
+    radial-gradient(60% 45% at 50% 70%, rgba(74, 107, 255, 0.14), transparent 70%),
+    #020306;
+}
+.tig2d-speaking rect {
+  stroke-width: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tig2d-alarm {
+    animation: tig2d-blink 0.8s steps(2, jump-none) infinite;
+  }
+  .tig2d-speaking circle {
+    animation: tig2d-talk 0.36s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .tig2d[data-mood="chaos"] {
+    animation: tig2d-alarm 0.8s ease-in-out infinite;
+  }
+}
+@keyframes tig2d-blink {
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes tig2d-talk {
+  to {
+    transform: scale(0.55);
+  }
+}
+@keyframes tig2d-alarm {
+  50% {
+    box-shadow: inset 0 0 0 10px rgba(255, 35, 64, 0.35);
+  }
+}
+
+/* mascotte 2D (segnaposto) */
+.tig-m2d {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tig-m2d-float {
+    animation: tig-m2d-float 3.2s ease-in-out infinite;
+  }
+  .tig-m2d-spin {
+    animation: tig-m2d-spin 14s linear infinite;
+    transform-box: view-box;
+    transform-origin: 50% 50%;
+  }
+  .tig-m2d[data-action="cheer"] .tig-m2d-float,
+  .tig-m2d[data-action="win"] .tig-m2d-float {
+    animation: tig-m2d-hop 0.62s ease-in-out infinite;
+  }
+  .tig-m2d[data-action="hit"] .tig-m2d-float,
+  .tig-m2d[data-action="attack"] .tig-m2d-float {
+    animation: tig-m2d-shake 0.35s linear infinite;
+  }
+  .tig-m2d[data-action="evolve"] .tig-m2d-float {
+    animation: tig-m2d-evolve 1.6s ease-in-out infinite;
+  }
+}
+.tig-m2d[data-action="sad"] .tig-m2d-float {
+  transform: translateY(4px) rotate(8deg);
+  opacity: 0.7;
+}
+@keyframes tig-m2d-float {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes tig-m2d-hop {
+  50% {
+    transform: translateY(-14px) scaleY(1.04);
+  }
+}
+@keyframes tig-m2d-shake {
+  25% {
+    transform: translateX(-4px) rotate(-4deg);
+  }
+  75% {
+    transform: translateX(4px) rotate(4deg);
+  }
+}
+@keyframes tig-m2d-evolve {
+  50% {
+    transform: translateY(-10px) scale(1.12);
+    filter: brightness(1.8);
+  }
+}
+@keyframes tig-m2d-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
