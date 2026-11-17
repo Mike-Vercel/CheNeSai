@@ -18,7 +18,7 @@ const KBPS = Number((args.find((a) => a.startsWith("--kbps=")) ?? "--kbps=160").
 const OUT = join(ROOT, "public", "audio", "tig", "musica");
 const MAX_SEC = 240;
 
-const SHOW = ["sigla", "lobby", "apertura", "manche-1", "manche-2", "manche-3", "manche-4", "manche-5", "prova", "ultimi-secondi", "reveal", "classifica", "allarme-caos", "duello-caos", "evoluzione", "pausa", "finale", "premiazione", "saluti"];
+const SHOW = ["sigla", "sigla-strumentale", "lobby", "apertura", "manche-1", "manche-2", "manche-3", "manche-4", "manche-5", "prova", "ultimi-secondi", "reveal", "classifica", "allarme-caos", "duello-caos", "evoluzione", "pausa", "finale", "premiazione", "saluti"];
 const OK_NAME = (n) => SHOW.includes(n) || /^gioco-\d{2}-[a-z0-9-]+$/.test(n);
 
 function ffmpeg(argv) {

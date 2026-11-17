@@ -40,9 +40,11 @@ export function musicFor(s: TigPublicState): MusicCue | null {
     case "DRAFT":
     case "LOBBY_OPEN":
     case "LOBBY_LOCKED":
-      return { names: ["lobby", "sigla"], loop: true, volume: BED };
+      // in sala d'attesa mai il coro in loop: semmai la sigla strumentale
+      return { names: ["lobby", "sigla-strumentale"], loop: true, volume: BED };
     case "INTRO":
-      return { names: ["apertura", "sigla"], loop: false, volume: STING };
+      // l'apertura della serata è il momento della sigla col coro «TAVOLI IN GUERRA!»
+      return { names: ["sigla", "apertura"], loop: false, volume: STING };
     case "ROUND_INTRO":
       return { names: [`manche-${s.manche?.no ?? 1}`], loop: false, volume: STING };
     case "GAME_ACTIVE": {
@@ -65,7 +67,7 @@ export function musicFor(s: TigPublicState): MusicCue | null {
     case "AWARDS":
       return { names: ["premiazione", "sigla"], loop: true, volume: 0.75 };
     case "COMPLETED":
-      return { names: ["saluti", "sigla"], loop: false, volume: 0.7 };
+      return { names: ["saluti", "sigla-strumentale", "sigla"], loop: false, volume: 0.7 };
     default:
       return null;
   }

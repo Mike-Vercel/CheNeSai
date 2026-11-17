@@ -4,7 +4,7 @@ TAVOLI IN GUERRA! — PROMPT "STYLES" PER SUNO (SOLO STRUMENTALI)
 COME USARLI
 - In Suno: modalità Custom, interruttore "Instrumental" ACCESO, lascia vuoto il campo del testo.
 - Copia il blocco STYLES nel campo "Style of Music". I prompt sono in inglese perché Suno capisce meglio gli stili così.
-- Nel campo "Exclude styles" (se c'è) metti SEMPRE:
+- Nel campo "Exclude styles" (se c'è) metti SEMPRE (tranne che per la sigla, vedi sotto):
   vocals, singing, lyrics, choir, spoken word, rap, humming, whistling, crowd chanting
 - Titolo: usa il nome indicato (serve a me per riconoscere i file).
 - Durata consigliata: sigla 1:30-2:00; brani di sottofondo 2:00-3:00 (li faccio girare io in loop con dissolvenza);
@@ -16,11 +16,45 @@ COME USARLI
   game show TV moderno. Tonalità di casa: Mi minore. Il tema principale torna in tutti i brani "dello show".
 
 --------------------------------------------------------------
-A) IL TEMA DEL GIOCO (la sigla)
+A) IL TEMA DEL GIOCO (la sigla) — UNICO BRANO CHE «PARLA»: DICE «TAVOLI IN GUERRA!»
 --------------------------------------------------------------
 TITOLO: TAVOLI IN GUERRA - Sigla        NOME FILE: sigla.mp3
+ATTENZIONE: per la sigla l'interruttore "Instrumental" va SPENTO, e nel campo del testo (Lyrics) si mette SOLO il
+coro qui sotto. Le altre parole non devono esserci.
+
 STYLES:
-Modern TV game show main theme, instrumental only. Hybrid cinematic electronic: punchy trap-house drums with 808 and stadium claps, big brass stabs, gritty synth bass, bright catchy lead synth hook, sparkling arpeggios, orchestral hits, risers and a huge drop. 128 BPM, E minor, confident, competitive, playful, pub party energy for young adults. Structure: 4-bar impact intro, memorable hook, build-up, big drop, short punchy outro sting. Clean loud mix with space in the mid-range for a host voice.
+Modern TV game show main theme with a huge shouted gang vocal chant of the title only, in Italian: "Tavoli in guerra!". Stadium crowd chant, energetic mixed male and female voices shouting together, no sung verses, no other lyrics. Hybrid cinematic electronic: punchy trap-house drums with 808 and stadium claps, big brass stabs, gritty synth bass, bright catchy lead synth hook, orchestral hits, risers and a huge drop. 128 BPM, E minor, confident, competitive, playful, pub party energy for young adults.
+
+LYRICS (campo del testo, copialo così com'è):
+[Intro]
+[Big brass hit]
+
+[Chant]
+TAVOLI IN GUERRA!
+
+[Build]
+[Rising synths, drums building]
+
+[Drop]
+TAVOLI IN GUERRA!
+TAVOLI IN GUERRA!
+
+[Instrumental Hook]
+
+[Final Chant]
+TA-VO-LI... IN... GUER-RA!
+
+[Outro]
+[Big final hit]
+
+EXCLUDE STYLES (solo per la sigla):
+rap verses, sung melody, ballad, english lyrics, spoken word, long lyrics, autotune
+
+CONSIGLI PER LA SIGLA
+- Se Suno pronuncia male (es. «tavòli» o «ghèrra»), riprova scrivendo il coro così: TÀ-VO-LI IN GUÈR-RA!
+- Generane 4-6 versioni e scegli quella con il coro più potente e chiaro: si sente all'apertura e alla premiazione.
+- Se vuoi anche una versione SOLO strumentale della sigla (utile sotto la voce dei presentatori), rigenera lo stesso
+  STYLES con "Instrumental" acceso e salvala come  sigla-strumentale.mp3
 
 --------------------------------------------------------------
 B) I MOMENTI DELLO SHOW

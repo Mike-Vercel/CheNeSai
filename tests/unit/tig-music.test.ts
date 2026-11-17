@@ -7,7 +7,8 @@ const game = (code: string, extra: Record<string, unknown> = {}) => ({ id: "g1",
 
 describe("TAVOLI IN GUERRA! · musica di sottofondo", () => {
   it("un brano per fase, con la catena di riserva", () => {
-    expect(musicFor(st({ state: "LOBBY_OPEN" }))?.names).toEqual(["lobby", "sigla"]);
+    expect(musicFor(st({ state: "LOBBY_OPEN" }))?.names).toEqual(["lobby", "sigla-strumentale"]);
+    expect(musicFor(st({ state: "INTRO" }))?.names).toEqual(["sigla", "apertura"]);
     expect(musicFor(st({ state: "ROUND_INTRO", manche: { no: 3 } as TigPublicState["manche"] }))?.names).toEqual(["manche-3"]);
     expect(musicFor(st({ state: "LEADERBOARD" }))?.loop).toBe(true);
     expect(musicFor(st({ state: "GAME_RESULTS" }))?.loop).toBe(false);
