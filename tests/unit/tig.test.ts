@@ -224,11 +224,12 @@ describe("TAVOLI IN GUERRA! · scaletta e configurazione", () => {
     expect(ms).toBeGreaterThanOrEqual(12_000);
     expect(ms).toBeLessThanOrEqual(40_000);
   });
-  it("configurazione: tavoli, soglie, mascotte uniche ≤ 12 tavoli", () => {
+  it("configurazione: tavoli (massimo 12, come le mascotte), soglie", () => {
     expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 8 }).success).toBe(true);
     expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 1 }).success).toBe(false);
-    expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 14, mascotUnique: true }).success).toBe(false);
-    expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 14, mascotUnique: false }).success).toBe(true);
+    expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 12, mascotUnique: true }).success).toBe(true);
+    expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 12, mascotUnique: false }).success).toBe(true);
+    expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 13, mascotUnique: false }).success).toBe(false);
     expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 4, chaosLevel2: 100, chaosLevel3: 50 }).success).toBe(false);
     expect(eventConfigSchema.safeParse({ venue: "Pub", tables: 4, durationMin: 80 }).success).toBe(false);
   });

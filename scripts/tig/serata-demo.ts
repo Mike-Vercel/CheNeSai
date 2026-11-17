@@ -2,7 +2,7 @@
  * TAVOLI IN GUERRA! — SERATA DIMOSTRATIVA IN LOCALE (mai in produzione: si rifiuta se il database non è locale).
  *
  *   npm run tig:demo                 → 8 tavoli finti in lobby: dalla regia premi VIA
- *   npm run tig:demo -- 24           → 24 tavoli (oltre 12 le mascotte si ripetono)
+ *   npm run tig:demo -- 12           → 12 tavoli (il massimo)
  *   npm run tig:demo -- 12 --via     → parte subito
  *
  * - L'account della regia è TIG_DEMO_EMAIL / TIG_DEMO_PASSWORD in .env.local (creati e scritti lì la prima volta).
@@ -54,7 +54,7 @@ async function main() {
     process.exit(1);
   }
   const args = process.argv.slice(2);
-  const tables = Math.min(24, Math.max(2, Number(args.find((a) => /^\d+$/.test(a)) ?? 8)));
+  const tables = Math.min(12, Math.max(2, Number(args.find((a) => /^\d+$/.test(a)) ?? 8)));
   const via = args.includes("--via");
 
   // moduli del server dopo aver letto .env.local

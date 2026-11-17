@@ -55,8 +55,11 @@ export const MANCHE_TAGLINES: Record<number, string> = {
 // Configurazione della serata (wizard della regia)
 // ---------------------------------------------------------------------------
 export const MIN_TABLES = 2;
-/** Massimo 24 squadre (deciso dal proprietario): l'arena 3D, il LED e i QR in TV sono pensati per 24. */
-export const MAX_TABLES = 24;
+/**
+ * Massimo 12 squadre (deciso dal proprietario: per ora 12, come le mascotte, così ognuna ha la sua).
+ * Arena 3D, LED e QR in TV reggono anche di più: se in futuro servono altre squadre basta alzare questo numero.
+ */
+export const MAX_TABLES = 12;
 export const MASCOT_SLOTS = 12;
 export const MIN_DURATION = 90;
 export const MAX_DURATION = 120;

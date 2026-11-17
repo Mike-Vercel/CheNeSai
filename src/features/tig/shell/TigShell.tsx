@@ -348,7 +348,11 @@ function CreateWizard({ onExit }: { onExit: () => void; username: string | null 
                 if (v) setTables((n) => Math.min(n, MASCOT_SLOTS));
               }}
               label="Mascotte uniche"
-              hint={`Ogni mascotte va a un solo tavolo (fino a ${MASCOT_SLOTS} tavoli). Spento: fino a ${MAX_TABLES} tavoli, mascotte ripetibili.`}
+              hint={
+                MAX_TABLES > MASCOT_SLOTS
+                  ? `Ogni mascotte va a un solo tavolo (fino a ${MASCOT_SLOTS} tavoli). Spento: fino a ${MAX_TABLES} tavoli, mascotte ripetibili.`
+                  : "Ogni mascotte va a un solo tavolo. Spento: due tavoli possono scegliere la stessa mascotte."
+              }
             />
           </div>
         )}
