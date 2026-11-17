@@ -4,6 +4,9 @@ import quantoSietePrevedibili from "./quanto-siete-prevedibili";
 import pubControTavolo from "./pub-contro-tavolo";
 import parolaCheGira from "./parola-che-gira";
 import indovinaIlPreferito from "./indovina-il-preferito";
+import questioneDiIstinto from "./questione-di-istinto";
+import allineamentoPerfetto from "./allineamento-perfetto";
+import ilPubHaTorto from "./il-pub-ha-torto";
 
 /**
  * Contenuti (CON LE SOLUZIONI, solo server) delle meccaniche nuove della MANCHE 3: `codice -> varianti`.
@@ -17,4 +20,7 @@ export const CONTENUTI_MANCHE_3: Record<string, readonly unknown[]> = {
   "pub-contro-tavolo": pubControTavolo,
   "parola-che-gira": parolaCheGira,
   "indovina-il-preferito": indovinaIlPreferito,
+  "questione-di-istinto": questioneDiIstinto,
+  "allineamento-perfetto": allineamentoPerfetto,
+  "il-pub-ha-torto": ilPubHaTorto,
 };

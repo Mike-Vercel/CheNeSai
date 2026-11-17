@@ -129,7 +129,8 @@ function Tv(p: T) {
   const s = done ? reveal.summary : null;
   const teams = teamMap(p.teams);
   const champ = view.champion ? teams.get(view.champion.teamId) : undefined;
-  const qs = done ? reveal.questions : view.questions.map((q) => ({ ...q, solutionId: "", note: "" }));
+  // stesso ordine delle risposte della prova (mescolato col seme), soluzione aggiunta solo al reveal
+  const qs = view.questions.map((q) => ({ ...q, solutionId: (done ? reveal.questions.find((r) => r.id === q.id)?.solutionId : null) ?? "" }));
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Com'è finita la sfida" : "Tutti rispondono alle stesse 5 domande. Lo sfidante prende +40 se batte la media del pub."}>
       <div className="grid h-full grid-cols-[0.85fr_1.4fr] gap-[1.6cqw]">

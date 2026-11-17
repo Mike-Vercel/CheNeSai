@@ -1,3 +1,5 @@
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { MECHANIC_EXTRAS, MECHANICS, mechanicByCode } from "@/lib/tig/games";
 import { loadVariants } from "@/lib/tig/games/content-core";
@@ -52,6 +54,9 @@ const CODES = [
   ["pub-contro-tavolo", 38],
   ["parola-che-gira", 40],
   ["indovina-il-preferito", 41],
+  ["questione-di-istinto", 43],
+  ["allineamento-perfetto", 44],
+  ["il-pub-ha-torto", 45],
 ] as const;
 
 describe("TIG manche 3 · registro e contenuti", () => {
@@ -399,4 +404,181 @@ describe("41 Indovina il preferito", () => {
     expect(def.submissionSchema.safeParse({ vote: a, favorite: b, last: b }).success).toBe(false);
     expect(def.submissionSchema.safeParse({ vote: a, favorite: b, last: a }).success).toBe(true);
   });
+});
+
+// ---------------------------------------------------------------------------
+// 43 · Questione di istinto
+// ---------------------------------------------------------------------------
+
+describe("43 Questione di istinto", () => {
+  type C = { styles: { id: string }[]; situations: { id: string; options: { id: string; style: string }[] }[] };
+  const def = m<C, { picks: Record<string, string> }>("questione-di-istinto");
+  const c = first<C>("questione-di-istinto");
+  const byStyle = (style: string, k: number) => c.situations[k].options.find((o) => o.style === style)!.id;
+  const [s1, s2, s3] = c.styles.map((s) => s.id);
+  const picks = (styles: string[]) => Object.fromEntries(c.situations.map((x, k) => [x.id, byStyle(styles[k], k)]));
+
+  it("regola annunciata: 3 su 3 dello stesso stile 100, 2 su 3 50, tutti diversi 0", () => {
+    const ctx = makeCtx(def, [team(1, 2), team(2, 8), team(3, 3)]);
+    const out = def.score({ content: c, ctx, submissions: [sub("t1", { picks: picks([s1, s1, s1]) }), sub("t2", { picks: picks([s2, s2, s3]) }), sub("t3", { picks: picks([s1, s2, s3]) })] });
+    expect(byTeam(out)).toEqual({ t1: 100, t2: 50, t3: 0 });
+    expect(summaryOf<{ coherent: number; tables: number }>(out)).toMatchObject({ coherent: 1, tables: 3 });
+  });
+
+  it("la vista pubblica non dice lo stile delle reazioni; ogni situazione ha una reazione per stile", () => {
+    const v = def.publicView(c, makeCtx(def)) as { situations: { options: Record<string, unknown>[] }[] };
+    for (const s of v.situations) for (const o of s.options) expect(Object.keys(o).sort()).toEqual(["id", "text"]);
+    for (const x of variants<C>("questione-di-istinto")) {
+      const ids = x.styles.map((s) => s.id).sort();
+      for (const s of x.situations) expect(s.options.map((o) => o.style).sort()).toEqual(ids);
+    }
+  });
+
+  it("risposte mancanti: conta solo quello che c'è (una sola situazione = 0)", () => {
+    const ctx = makeCtx(def, [team(1, 2)]);
+    const out = def.score({ content: c, ctx, submissions: [sub("t1", { picks: { [c.situations[0].id]: byStyle(s1, 0) } })] });
+    expect(byTeam(out).t1).toBe(0);
+    expect(out.outcomes[0].chaos).toBe(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 44 · Allineamento perfetto
+// ---------------------------------------------------------------------------
+
+describe("44 Allineamento perfetto", () => {
+  type C = { options: { id: string }[] };
+  const def = m<C, { optionId: string }>("allineamento-perfetto");
+  const c = first<C>("allineamento-perfetto");
+  const [a, b, d] = c.options.map((o) => o.id);
+
+  it("punti = quota degli ALTRI tavoli con la stessa scelta; un voto per tavolo", () => {
+    const ctx = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2), team(4, 2), team(5, 2)]);
+    const out = def.score({ content: c, ctx, submissions: [sub("t1", { optionId: a }), sub("t2", { optionId: a }), sub("t3", { optionId: a }), sub("t4", { optionId: b }), sub("t5", { optionId: d })] });
+    // a: 3 tavoli → 2 su 4 altri = 50; b e d: nessuno con loro
+    expect(byTeam(out)).toEqual({ t1: 50, t2: 50, t3: 50, t4: 0, t5: 0 });
+    const all = def.score({ content: c, ctx: makeCtx(def, [team(1, 2), team(2, 2)]), submissions: [sub("t1", { optionId: b }), sub("t2", { optionId: b })] });
+    expect(byTeam(all)).toEqual({ t1: 100, t2: 100 });
+    expect(labelOf(all, "t1")).toBe("Allineati con tutto il locale");
+  });
+
+  it("un solo tavolo in gara: 50 fissi", () => {
+    const out = def.score({ content: c, ctx: makeCtx(def, [team(1, 2), team(2, 3)]), submissions: [sub("t1", { optionId: a })] });
+    expect(byTeam(out)).toEqual({ t1: 50, t2: 0 });
+  });
+
+  it("regge 12 tavoli: punti interi tra 0 e 100", () => {
+    const teams = Array.from({ length: 12 }, (_, i) => team(i + 1, 1 + (i % 4)));
+    const ctx = makeCtx(def, teams);
+    const out = def.score({ content: c, ctx, submissions: teams.map((t, i) => sub(t.teamId, { optionId: c.options[i % 3].id })) });
+    for (const o of out.outcomes) expect(Number.isInteger(o.points) && o.points >= 0 && o.points <= 100).toBe(true);
+    expect(byTeam(out).t1).toBe(Math.round((100 * 3) / 11));
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 45 · Il pub ha torto?
+// ---------------------------------------------------------------------------
+
+describe("45 Il pub ha torto?", () => {
+  type C = { options: { id: string }[]; solution: { optionId: string } };
+  const def = m<C, { optionId: string; pubWrong: boolean }>("il-pub-ha-torto");
+  const c = first<C>("il-pub-ha-torto");
+  const ok = c.solution.optionId;
+  const ko = c.options.find((o) => o.id !== ok)!.id;
+
+  it("risposta giusta +60, previsione giusta sulla maggioranza +40 (punti distinti)", () => {
+    // 2 tavoli su 4 sbagliano: non è maggioranza, il pub non ha torto
+    const ctx = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2), team(4, 2)]);
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [sub("t1", { optionId: ok, pubWrong: true }), sub("t2", { optionId: ok, pubWrong: false }), sub("t3", { optionId: ko, pubWrong: true }), sub("t4", { optionId: ko, pubWrong: false })],
+    });
+    expect(byTeam(out)).toEqual({ t1: 60, t2: 100, t3: 0, t4: 40 });
+    expect(summaryOf<{ majorityWrong: boolean; wrong: number }>(out)).toMatchObject({ majorityWrong: false, wrong: 2 });
+  });
+
+  it("metà esatta non è maggioranza: il pub non ha torto", () => {
+    const ctx = makeCtx(def, [team(1, 2), team(2, 2)]);
+    const out = def.score({ content: c, ctx, submissions: [sub("t1", { optionId: ok, pubWrong: false }), sub("t2", { optionId: ko, pubWrong: true })] });
+    expect(byTeam(out)).toEqual({ t1: 100, t2: 0 });
+    const three = def.score({ content: c, ctx: makeCtx(def, [team(1, 2), team(2, 2), team(3, 2)]), submissions: [sub("t1", { optionId: ko, pubWrong: true }), sub("t2", { optionId: ko, pubWrong: true }), sub("t3", { optionId: ok, pubWrong: true })] });
+    expect(byTeam(three)).toEqual({ t1: 40, t2: 40, t3: 100 });
+  });
+
+  it("i grafici a barre hanno sempre la lunghezza delle barre; la vista non porta la soluzione", () => {
+    for (const v of variants<C & { data: { kind: string; rows: { bar?: number }[] } }>("il-pub-ha-torto")) {
+      if (v.data.kind === "barre") for (const r of v.data.rows) expect(typeof r.bar).toBe("number");
+      expect(JSON.stringify(def.publicView(v, makeCtx(def)))).not.toContain("solution");
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Schermate: Player e Tv disegnate davvero (senza browser) in gioco, bloccate e al reveal
+// ---------------------------------------------------------------------------
+
+const COLORS = ["#6fe7ff", "#ffc24a", "#b49cff", "#c6ff3d", "#ff8c97", "#eef2f6"];
+
+/** Testo visibile dell'HTML (entità decodificate, tag tolti). */
+function visibleText(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&#x27;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ");
+}
+
+describe.each(NUOVE_MANCHE_3.map((x) => [x.def.code, x] as const))("TIG manche 3 · schermate di %s", (code, mod) => {
+  const ui = UI_MANCHE_3[code];
+  const def = mod.def;
+  const vs = CONTENT[code];
+
+  for (const n of [2, 4, 12]) {
+    it(`telefono e TV si disegnano in gioco, bloccati e al reveal con ${n} tavoli (tutte le varianti)`, () => {
+      const teams = Array.from({ length: n }, (_, i) => team(i + 1, 1 + ((i + 1) % 4)));
+      const ctx = makeCtx(def, teams, `render-${n}`);
+      const me = teams[0];
+      const tvTeams = teams.map((t, i) => ({ teamId: t.teamId, tableNo: t.tableNo, name: `Tavolo di prova ${t.tableNo}`, color: COLORS[i % COLORS.length], submitted: i % 2 === 0 }));
+      for (const c of n === 4 ? vs : vs.slice(0, 2)) {
+        const at = mod.extras.publicViewAt;
+        const mid = ctx.startsAt + Math.round(def.timerSec * 500);
+        const view = at ? at(c, ctx, mid - ctx.startsAt) : def.publicView(c, ctx);
+        const full = def.publicView(c, ctx);
+        const memberView = def.memberView ? def.memberView(c, { ...ctx, teamId: me.teamId, memberId: me.members[0], memberIndex: 0 }) : null;
+        const out = def.score({ content: c, ctx, submissions: mod.extras.demoSubmissions(c, ctx, "render") });
+        const rev = def.reveal(c, out);
+        const explain = String(c.explain);
+        const myOutcome = out.outcomes.find((o) => o.teamId === me.teamId) ?? null;
+        const base = { deadlineAt: ctx.deadlineAt, canSubmit: true, submit: async () => ({ ok: true }), myTeam: me };
+        for (const stage of ["play", "locked"] as const) {
+          const now = () => (stage === "play" ? mid : ctx.deadlineAt + 500);
+          const player = renderToStaticMarkup(createElement(ui.Player, { ...base, view, memberView, stage, now, submitted: stage === "locked", reveal: null, myOutcome: null }));
+          const tv = renderToStaticMarkup(createElement(ui.Tv, { view, stage, deadlineAt: ctx.deadlineAt, now, teams: tvTeams, reveal: null, outcome: null }));
+          for (const html of [player, tv]) {
+            const text = visibleText(html);
+            expect(text, `${c.id} ${stage}`).toContain(def.title);
+            // prima del reveal mai la spiegazione (né la soluzione che contiene)
+            expect(text, `${c.id} ${stage}`).not.toContain(explain.slice(0, 40));
+            expect(text).not.toMatch(/\bNaN\b|\bundefined\b|\[object Object\]/);
+          }
+        }
+        const end = () => ctx.deadlineAt + 5000;
+        const player = renderToStaticMarkup(createElement(ui.Player, { ...base, view: full, memberView, stage: "reveal", now: end, submitted: true, reveal: rev, myOutcome }));
+        const tv = renderToStaticMarkup(createElement(ui.Tv, { view: full, stage: "reveal", deadlineAt: ctx.deadlineAt, now: end, teams: tvTeams, reveal: rev, outcome: out }));
+        for (const html of [player, tv]) {
+          const text = visibleText(html);
+          // al reveal c'è la spiegazione (il «perché»)
+          expect(text, `${c.id} reveal`).toContain(explain.slice(0, 40));
+          expect(text).not.toMatch(/\bNaN\b|\bundefined\b|\[object Object\]/);
+        }
+        // in TV i tavoli sono indicati solo con il numero (mai con nomi scritti nei contenuti)
+        expect(visibleText(tv)).toContain(String(teams[n - 1].tableNo));
+      }
+    });
+  }
 });
