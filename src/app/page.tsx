@@ -21,7 +21,7 @@ const HERO_SLIDES: HeroSlide[] = [
   { id: "psyco", title: "PSYCO", tagline: "Tutti conoscono la regola. Tranne te.", href: "/psyco", cover: { src: "/games/psyco-copertina.webp", width: 1055, height: 1318 }, coverWide: "/games/psyco-copertina-desktop.webp", accent: "red" },
   { id: "giramente", title: "GIRAMENTE!", tagline: "La ruota gira. La mente decide.", href: "/giramente", cover: { src: "/games/giramente-copertina.webp", width: 1024, height: 1536 }, coverWide: "/games/giramente-copertina-desktop.webp", accent: "green" },
   // TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!, la rotta resta): copertina ufficiale non ancora fornita, schermata disegnata in codice
-  { id: "tavoli-in-guerra", title: "TAVERNA DEI PIRATI", tagline: "Il game show per pub: ogni tavolo è una ciurma.", href: "/tavoli-in-guerra", cover: { src: "", width: 1024, height: 1536 }, coverWide: "", accent: "amber", brand: "tig" },
+  { id: "taverna-dei-pirati", title: "TAVERNA DEI PIRATI", tagline: "Il game show per pub: ogni tavolo è una ciurma.", href: "/taverna-dei-pirati", cover: { src: "", width: 1024, height: 1536 }, coverWide: "", accent: "amber", brand: "tig" },
 ];
 
 export default async function Home() {

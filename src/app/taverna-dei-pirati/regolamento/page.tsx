@@ -59,10 +59,10 @@ export default function Regolamento() {
     <main className="tig-arena !relative min-h-dvh overflow-y-auto">
       <div className="relative mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 pb-20 pt-6">
         <div className="flex items-center justify-between gap-2">
-          <Link href="/tavoli-in-guerra" className="tig-chip hover:border-[#ffd56b]">
+          <Link href="/taverna-dei-pirati" className="tig-chip hover:border-[#ffd56b]">
             ‹ Menu
           </Link>
-          <Link href="/tavoli-in-guerra/entra" className="tig-chip !border-[#e0483f]/80 !text-[#ffb3a7]">
+          <Link href="/taverna-dei-pirati/entra" className="tig-chip !border-[#e0483f]/80 !text-[#ffb3a7]">
             Entra con un codice
           </Link>
         </div>

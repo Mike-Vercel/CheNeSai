@@ -61,7 +61,7 @@ export function PlayerApp({ eventId }: { eventId: string }) {
           <Logo size="md" />
           <p className="text-xl font-extrabold">{error.message}</p>
           {lost ? (
-            <a href="/tavoli-in-guerra/entra" className="tig-btn w-full">
+            <a href="/taverna-dei-pirati/entra" className="tig-btn w-full">
               Entra con il codice del tavolo
             </a>
           ) : (
@@ -113,7 +113,7 @@ export function PlayerScreen({
             <span className="sr-only">Tavolo {t.tableNo}</span>
             <span className="min-w-0 flex-1 truncate text-lg font-extrabold drop-shadow-[0_1px_2px_rgba(0,0,0,.8)]">{t.name}</span>
             {state.manche && <span className="tig-chip shrink-0 !text-[#ffd56b]">M{state.manche.no}</span>}
-            <ExitButton to="/tavoli-in-guerra" size="sm" armedLabel="Esci? (resti in squadra)" className="border border-[#c9a24a]/50" />
+            <ExitButton to="/taverna-dei-pirati" size="sm" armedLabel="Esci? (resti in squadra)" className="border border-[#c9a24a]/50" />
           </header>
           {/* telefono: una colonna; PC: scheda squadra, poteri e classifica a sinistra, la prova a destra */}
           <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[minmax(20rem,25rem)_1fr] lg:items-start lg:gap-5">
@@ -540,7 +540,7 @@ function FinalCard({ state, view }: { state: TigPublicState; view: PlayerView })
       )}
       {done && <Leaderboard teams={state.teams} highlight={view.team.teamId} max={12} />}
       {state.state === "COMPLETED" && (
-        <a href="/tavoli-in-guerra" className="tig-btn tig-btn-ghost w-full">
+        <a href="/taverna-dei-pirati" className="tig-btn tig-btn-ghost w-full">
           Torna al menu
         </a>
       )}
@@ -553,7 +553,7 @@ function ClosedCard({ state }: { state: TigPublicState }) {
     <section className="tg-parch flex flex-col items-center gap-3 p-5 text-center" role="alert">
       <p className="tig-title text-[2.6rem] text-[#1b1410]">Serata chiusa</p>
       <p className="font-bold text-[#2b1d12]">{state.closeReason === "abandoned" ? "La regia e la TV non si sono più collegate." : "Lo staff ha chiuso la serata."}</p>
-      <a href="/tavoli-in-guerra" className="tig-btn w-full">
+      <a href="/taverna-dei-pirati" className="tig-btn w-full">
         Torna al menu
       </a>
     </section>

@@ -52,7 +52,7 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   const [u1, u2, u3, u4] = await Promise.all([makeUser("tig1"), makeUser("tig2"), makeUser("tig3"), makeUser("tig4")]);
 
   // ------------------------------------------------------------------ l'organizzatore crea la serata (PC)
-  const regia = await open(browser, PC, org, "/tavoli-in-guerra");
+  const regia = await open(browser, PC, org, "/taverna-dei-pirati");
   await expect(regia.getByRole("menuitem", { name: /CREA SERATA/ })).toBeVisible();
   await shot(regia, "pc-01-shell-menu");
   await regia.getByRole("menuitem", { name: /CREA SERATA/ }).click();
@@ -64,7 +64,7 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await shot(regia, "pc-02-wizard-durata");
   await regia.getByRole("button", { name: "AVANTI ›" }).click();
   await regia.getByRole("button", { name: "CREA LA SERATA" }).click();
-  await regia.waitForURL(/\/tavoli-in-guerra\/regia\//, { timeout: 60_000 });
+  await regia.waitForURL(/\/taverna-dei-pirati\/regia\//, { timeout: 60_000 });
   const eventId = regia.url().split("/regia/")[1].split(/[?#/]/)[0];
   await expect(regia.getByRole("button", { name: "APRI LA LOBBY" })).toBeVisible({ timeout: 30_000 });
   await shot(regia, "pc-03-regia-bozza");
@@ -73,7 +73,7 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
 
   // foglio dei QR
   const qrPage = await regia.context().newPage();
-  await qrPage.goto(`/tavoli-in-guerra/regia/${eventId}/qr`);
+  await qrPage.goto(`/taverna-dei-pirati/regia/${eventId}/qr`);
   await expect(qrPage.getByText("TAVOLO 3")).toBeVisible({ timeout: 30_000 });
   await expect(qrPage.getByRole("img", { name: "QR del tavolo 1" })).toBeVisible();
   await shot(qrPage, "pc-04-foglio-qr");
@@ -86,14 +86,14 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   // ------------------------------------------------------------------ TV
   const tvCtx = await browser.newContext(TV);
   const tv = await tvCtx.newPage();
-  await tv.goto(`/tavoli-in-guerra/tv/${display_key}`);
+  await tv.goto(`/taverna-dei-pirati/tv/${display_key}`);
   await expect(tv.getByText("Scansiona il QR del tuo tavolo").first()).toBeVisible({ timeout: 30_000 });
   await expect(tv.getByRole("img", { name: "QR del tavolo 2" })).toBeVisible();
 
   // vista per la diretta: niente QR né codici
   const liveCtx = await browser.newContext(TV);
   const live = await liveCtx.newPage();
-  await live.goto(`/tavoli-in-guerra/tv/${display_key}?live=1`);
+  await live.goto(`/taverna-dei-pirati/tv/${display_key}?live=1`);
   await expect(live.getByText("TAVERNA DEI PIRATI").first()).toBeVisible({ timeout: 30_000 });
   await live.waitForTimeout(1500);
   const liveText = await live.locator("body").innerText();
@@ -103,35 +103,35 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await liveCtx.close();
 
   // ------------------------------------------------------------------ i tavoli entrano dal QR
-  const p1 = await open(browser, PHONE, u1, `/tavoli-in-guerra/t/${tables[0].qr_token}`);
+  const p1 = await open(browser, PHONE, u1, `/taverna-dei-pirati/t/${tables[0].qr_token}`);
   await expect(p1.getByText("Sei il primo del tavolo 1!")).toBeVisible({ timeout: 30_000 });
   await p1.getByLabel("Nome della squadra").fill("Le Volpi");
   await p1.getByLabel("Il tuo nome al tavolo").fill("Anna");
   await shot(p1, "phone-01-join-primo");
   await p1.getByRole("button", { name: "CREA LA SQUADRA" }).click();
-  await p1.waitForURL(/\/tavoli-in-guerra\/gioca\//);
+  await p1.waitForURL(/\/taverna-dei-pirati\/gioca\//);
 
-  const p4 = await open(browser, PHONE, u4, `/tavoli-in-guerra/t/${tables[0].qr_token}`);
+  const p4 = await open(browser, PHONE, u4, `/taverna-dei-pirati/t/${tables[0].qr_token}`);
   await expect(p4.getByText("«Le Volpi»")).toBeVisible({ timeout: 30_000 });
   await p4.getByLabel("Il tuo nome al tavolo").fill("Dario");
   await shot(p4, "phone-02-join-entra-nella-squadra");
   await p4.getByRole("button", { name: "ENTRA", exact: true }).click();
-  await p4.waitForURL(/\/tavoli-in-guerra\/gioca\//);
+  await p4.waitForURL(/\/taverna-dei-pirati\/gioca\//);
 
-  const p2 = await open(browser, PHONE, u2, `/tavoli-in-guerra/t/${tables[1].qr_token}`);
+  const p2 = await open(browser, PHONE, u2, `/taverna-dei-pirati/t/${tables[1].qr_token}`);
   await p2.getByLabel("Nome della squadra").fill("I Lupi");
   await p2.getByLabel("Il tuo nome al tavolo").fill("Bruno");
   await p2.getByRole("button", { name: "CREA LA SQUADRA" }).click();
-  await p2.waitForURL(/\/tavoli-in-guerra\/gioca\//);
+  await p2.waitForURL(/\/taverna-dei-pirati\/gioca\//);
 
   // il terzo entra dal PC con il codice del tavolo
-  const p3 = await open(browser, PC, u3, "/tavoli-in-guerra/entra");
+  const p3 = await open(browser, PC, u3, "/taverna-dei-pirati/entra");
   await p3.getByLabel("Codice del tavolo (6 caratteri)").fill(tables[2].join_code);
   await p3.keyboard.press("Enter");
   await p3.getByLabel("Nome della squadra").fill("Gli Orsi");
   await p3.getByLabel("Il tuo nome al tavolo").fill("Carla");
   await p3.getByRole("button", { name: "CREA LA SQUADRA" }).click();
-  await p3.waitForURL(/\/tavoli-in-guerra\/gioca\//);
+  await p3.waitForURL(/\/taverna-dei-pirati\/gioca\//);
 
   // ------------------------------------------------------------------ convalida dello staff
   await expect(regia.getByRole("button", { name: "✓ CONVALIDA" })).toHaveCount(3, { timeout: 30_000 });

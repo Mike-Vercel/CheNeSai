@@ -212,7 +212,7 @@ function LobbyHud({ state, lobby, live }: { state: TigPublicState; lobby: LobbyT
                 <CrewFlag color={teamColor(t.tableNo)} n={t.tableNo} className={clsx("shrink-0", n <= 6 ? "h-[3.6vmin] w-[4.8vmin]" : "h-[3vmin] w-[4vmin]")} />
                 <span className={clsx("tig-display truncate font-black text-[#1b1410]", n <= 6 ? "text-[2.8vmin]" : "text-[2.3vmin]")}>TAVOLO {t.tableNo}</span>
               </div>
-              <QrCode text={`${origin}/tavoli-in-guerra/t/${t.token}`} className={clsx("w-full", qrSize)} label={`QR del tavolo ${t.tableNo}`} />
+              <QrCode text={`${origin}/taverna-dei-pirati/t/${t.token}`} className={clsx("w-full", qrSize)} label={`QR del tavolo ${t.tableNo}`} />
               <span className="font-mono text-[1.8vmin] font-bold tracking-[0.2em] text-[#4a3420]">{t.code}</span>
               <span className="w-full truncate text-center text-[1.8vmin] font-extrabold text-[#2b1d12]">{t.teamName ?? (t.members ? "In attesa di convalida" : "Libero")}</span>
               {t.approved && <WaxSeal mark="check" className="absolute -right-[1vmin] -top-[1.2vmin] h-[4.4vmin] w-[4.4vmin] drop-shadow-[0_0.3vmin_0.4vmin_rgba(0,0,0,.45)]" />}
@@ -223,7 +223,7 @@ function LobbyHud({ state, lobby, live }: { state: TigPublicState; lobby: LobbyT
       {!qr && <TeamsWall teams={state.teams} pending={state.pendingTeams} />}
       {!live && (
         <p className="rounded-full bg-[#07131a]/75 px-[2vmin] py-[0.5vmin] text-[2vmin] font-bold text-[#f6ead2]/80">
-          Oppure: <span className="font-black text-[#ffd56b]">{origin.replace(/^https?:\/\//, "")}/tavoli-in-guerra/entra</span> · {state.teams.length} tavoli convalidati
+          Oppure: <span className="font-black text-[#ffd56b]">{origin.replace(/^https?:\/\//, "")}/taverna-dei-pirati/entra</span> · {state.teams.length} tavoli convalidati
           {state.pendingTeams ? ` · ${state.pendingTeams} in attesa` : ""}
         </p>
       )}

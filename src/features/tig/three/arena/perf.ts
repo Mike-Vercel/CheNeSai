@@ -79,6 +79,8 @@ export function initialLevel(quality: "high" | "low", gpu: GpuClass): RenderProf
   if (quality === "low") return gpu === "dedicated" ? 3 : 2;
   if (gpu === "dedicated") return 4;
   if (gpu === "mobile") return 2;
+  // integrate (es. Intel UHD): si parte dal 2 così i primi secondi sono già fluidi; il regolatore sale se c'è margine
+  if (gpu === "integrated") return 2;
   return 3;
 }
 

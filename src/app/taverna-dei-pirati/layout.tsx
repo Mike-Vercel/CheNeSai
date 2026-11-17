@@ -17,5 +17,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#07131a" };
 
 export default function TigLayout({ children }: { children: React.ReactNode }) {
-  return <div className={`${TIG_FONT_VARS} tig-root min-h-dvh`}>{children}</div>;
+  // data-tig-font: l'arena 3D legge da qui le variabili dei caratteri per disegnare vela, targhe e punteggi
+  return (
+    <div className={`${TIG_FONT_VARS} tig-root min-h-dvh`} data-tig-font="">
+      {children}
+    </div>
+  );
 }

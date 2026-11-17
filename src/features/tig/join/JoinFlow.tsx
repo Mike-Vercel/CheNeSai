@@ -45,7 +45,7 @@ export function JoinFlow({ token, username }: { token?: string; username: string
     <div className="fixed inset-0 overflow-y-auto">
       <TigArena phase="lobby" teams={[]} mancheNo={null} title={null} spotlight={null} hosts={[]} now={() => Date.now()} quality="2d" className="!fixed" />
       <main className="relative mx-auto flex min-h-full w-full max-w-md flex-col items-center gap-6 px-4 pb-[calc(2rem+env(safe-area-inset-bottom))] pt-[calc(3.5rem+env(safe-area-inset-top))]">
-        <Link href="/tavoli-in-guerra" className="tig-chip absolute left-3 top-[calc(.6rem+env(safe-area-inset-top))]">
+        <Link href="/taverna-dei-pirati" className="tig-chip absolute left-3 top-[calc(.6rem+env(safe-area-inset-top))]">
           ‹ Menu
         </Link>
         <Logo size="md" />
@@ -102,7 +102,7 @@ export function JoinCard({ preview, username, token, code, onBack }: { preview: 
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
-  const go = () => window.location.assign(`/tavoli-in-guerra/gioca/${preview.eventId}`);
+  const go = () => window.location.assign(`/taverna-dei-pirati/gioca/${preview.eventId}`);
   const creating = !preview.team;
 
   if (preview.mine?.sameTable) {
@@ -123,7 +123,7 @@ export function JoinCard({ preview, username, token, code, onBack }: { preview: 
         <p className="tig-label">{preview.venue} · tavolo {preview.tableNo}</p>
         <p className="text-xl font-extrabold text-[#1b1410]">{preview.blockedReason}</p>
         {preview.mine && (
-          <a className="tig-btn w-full" href={`/tavoli-in-guerra/gioca/${preview.eventId}`}>
+          <a className="tig-btn w-full" href={`/taverna-dei-pirati/gioca/${preview.eventId}`}>
             Vai alla tua squadra (tavolo {preview.mine.tableNo})
           </a>
         )}

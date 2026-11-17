@@ -394,7 +394,7 @@ describe("profilo di resa (perf.ts): gradini, scheda video, regolatore", () => {
   });
 
   it("gradino di partenza: integrata 3, dedicata 4, telefono e low 2", () => {
-    expect(initialLevel("high", "integrated")).toBe(3);
+    expect(initialLevel("high", "integrated")).toBe(2);
     expect(initialLevel("high", "unknown")).toBe(3);
     expect(initialLevel("high", "dedicated")).toBe(4);
     expect(initialLevel("high", "mobile")).toBe(2);

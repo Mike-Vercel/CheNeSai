@@ -8,7 +8,7 @@ import { CrewFlag, Logo, QrCode } from "../ui";
 
 /**
  * FOGLIO DEI QR da stampare (solo organizzatore): una scheda per tavolo con QR, numero e codice squadra.
- * Il QR porta a /tavoli-in-guerra/t/<token firmato>: nessun dato personale. Il PIN (se attivo) NON si stampa:
+ * Il QR porta a /taverna-dei-pirati/t/<token firmato>: nessun dato personale. Il PIN (se attivo) NON si stampa:
  * lo dice lo staff al tavolo.
  */
 export function QrSheet({ eventId }: { eventId: string }) {
@@ -26,7 +26,7 @@ export function QrSheet({ eventId }: { eventId: string }) {
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-6">
       <div className="tig-no-print mb-5 flex flex-wrap items-center gap-3">
-        <a href={`/tavoli-in-guerra/regia/${eventId}`} className="tig-chip">
+        <a href={`/taverna-dei-pirati/regia/${eventId}`} className="tig-chip">
           ‹ Regia
         </a>
         <p className="min-w-0 flex-1 font-bold text-[#f6ead2]/80">{qrMode ? "Stampa e metti ogni scheda sul suo tavolo." : "Modalità codice: consegna a ogni gruppo il suo codice."}</p>
@@ -43,10 +43,10 @@ export function QrSheet({ eventId }: { eventId: string }) {
               <CrewFlag color={teamColor(t.tableNo)} n={t.tableNo} className="h-10 w-12 shrink-0 print:hidden" />
               <p className="tig-display text-[2.6rem] font-black text-[#1b1410]">TAVOLO {t.tableNo}</p>
             </div>
-            {qrMode && <QrCode text={`${origin}/tavoli-in-guerra/t/${t.token}`} className="w-full max-w-[13rem]" label={`QR del tavolo ${t.tableNo}`} />}
+            {qrMode && <QrCode text={`${origin}/taverna-dei-pirati/t/${t.token}`} className="w-full max-w-[13rem]" label={`QR del tavolo ${t.tableNo}`} />}
             <p className="text-sm font-bold text-[#2b1d12]">{qrMode ? "Inquadra il QR: il primo crea la squadra, gli altri entrano." : "Vai su"}</p>
             <p className="text-xs font-bold text-[#4a3420]">
-              {origin.replace(/^https?:\/\//, "")}/tavoli-in-guerra/entra · codice <span className="font-mono text-base font-black tracking-[0.25em] text-[#1b1410]">{t.code}</span>
+              {origin.replace(/^https?:\/\//, "")}/taverna-dei-pirati/entra · codice <span className="font-mono text-base font-black tracking-[0.25em] text-[#1b1410]">{t.code}</span>
             </p>
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#6e4116]">{data.venue} · gioco per maggiorenni</p>
           </article>

@@ -61,16 +61,16 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
         else setPanel("resume");
         return;
       case "crea":
-        if (!loggedIn) return goLogin("/tavoli-in-guerra/nuova");
+        if (!loggedIn) return goLogin("/taverna-dei-pirati/nuova");
         return setPanel("create");
       case "entra":
-        return window.location.assign("/tavoli-in-guerra/entra");
+        return window.location.assign("/taverna-dei-pirati/entra");
       case "regolamento":
-        return window.location.assign("/tavoli-in-guerra/regolamento");
+        return window.location.assign("/taverna-dei-pirati/regolamento");
     }
   };
   const toMain = () => {
-    if (window.location.pathname !== "/tavoli-in-guerra") window.history.replaceState(window.history.state, "", "/tavoli-in-guerra");
+    if (window.location.pathname !== "/taverna-dei-pirati") window.history.replaceState(window.history.state, "", "/taverna-dei-pirati");
     setPanel("main");
   };
   const ledTitle = panel === "create" ? "CREA SERATA" : focus === "entra" ? "ENTRA AL TAVOLO" : focus === "regolamento" ? "LE REGOLE" : focus === "riprendi" ? "RIPRENDI" : GAME_NAME;
@@ -107,7 +107,7 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
             {username ? `@${username}` : "Il mio profilo"}
           </a>
         ) : (
-          <a href={`/accedi?next=${encodeURIComponent("/tavoli-in-guerra")}`} className="tig-chip pointer-events-auto !border-[#f2b134] !text-[#ffd56b]">
+          <a href={`/accedi?next=${encodeURIComponent("/taverna-dei-pirati")}`} className="tig-chip pointer-events-auto !border-[#f2b134] !text-[#ffd56b]">
             ACCEDI
           </a>
         )}
@@ -119,7 +119,7 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
 /** Vetrina dell'arena nel menu: sei postazioni d'esempio (nessuna squadra vera). */
 const SHOWCASE = [1, 2, 3, 4, 5, 6].map((n) => ({ teamId: `vetrina-${n}`, tableNo: n, name: `Tavolo ${n}`, color: teamColor(n), mascotSlot: n * 2 - 1, mascotLevel: (n % 3 === 0 ? 3 : n % 2 === 0 ? 2 : 1) as 1 | 2 | 3, score: [420, 380, 510, 290, 455, 340][n - 1], rank: 0, chaosProgress: [0.3, 0.7, 1, 0.15, 0.55, 0.9][n - 1], online: true }));
 
-export const eventHref = (e: MyEvent) => (e.role === "organizer" ? `/tavoli-in-guerra/regia/${e.eventId}` : `/tavoli-in-guerra/gioca/${e.eventId}`);
+export const eventHref = (e: MyEvent) => (e.role === "organizer" ? `/taverna-dei-pirati/regia/${e.eventId}` : `/taverna-dei-pirati/gioca/${e.eventId}`);
 
 function uiClick() {
   try {
@@ -308,7 +308,7 @@ function CreateWizard({ onExit }: { onExit: () => void; username: string | null 
     setErr(null);
     try {
       const r = await api<{ eventId: string }>("/api/tig/events", { method: "POST", json: { venue: venue.trim(), tables, durationMin: duration, accessMode, mascotUnique, staffPin, chaosLevel2: chaos2, chaosLevel3: Math.max(chaos3, chaos2 + 10), hideScoresInFinal: hideScores } });
-      window.location.assign(`/tavoli-in-guerra/regia/${r.eventId}`);
+      window.location.assign(`/taverna-dei-pirati/regia/${r.eventId}`);
     } catch (e) {
       setErr(e instanceof ApiError ? e.message : "Non riesco a creare la serata");
       setBusy(false);

@@ -8,6 +8,6 @@ export const metadata = { title: "Regia" };
 export default async function Regia({ params }: { params: Promise<{ eventId: string }> }) {
   const { eventId } = await params;
   const host = await getHostUser();
-  if (!host) redirect(`/accedi?next=${encodeURIComponent(`/tavoli-in-guerra/regia/${eventId}`)}`);
+  if (!host) redirect(`/accedi?next=${encodeURIComponent(`/taverna-dei-pirati/regia/${eventId}`)}`);
   return <RegiaApp eventId={eventId} />;
 }

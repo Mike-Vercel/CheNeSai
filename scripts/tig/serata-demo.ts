@@ -106,8 +106,8 @@ async function main() {
 
   const site = process.env.TIG_DEMO_SITE ?? "http://localhost:3410";
   console.log(`\nSerata dimostrativa pronta: ${tables} tavoli${via ? ", già partita" : ", in lobby"}.`);
-  console.log(`  Regia: ${site}/tavoli-in-guerra/regia/${eventId}   (entra con l'account della regia demo)`);
-  console.log(`  TV:    ${site}/tavoli-in-guerra/tv/${ev.display_key}`);
+  console.log(`  Regia: ${site}/taverna-dei-pirati/regia/${eventId}   (entra con l'account della regia demo)`);
+  console.log(`  TV:    ${site}/taverna-dei-pirati/tv/${ev.display_key}`);
   console.log("I tavoli finti rispondono da soli durante le prove. Ctrl+C per fermare.\n");
 
   // ------------------------------------------------------------------ i tavoli finti giocano

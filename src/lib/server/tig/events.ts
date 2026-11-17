@@ -330,7 +330,7 @@ export async function exportCsv(user: TigUser, eventId: string, kind: "classific
       from tig_score_ledger l join tig_teams t on t.id = l.team_id where l.event_id = ${eventId} order by l.id`;
     const lines = [["ora", "tavolo", "squadra", "manche", "fonte", "motivo", "richiesti", "applicati", "saldo", "chiave"].join(";")];
     for (const r of rows) lines.push([r.created_at.toISOString(), r.table_no, r.name, r.manche_no, r.source, r.reason, r.requested, r.applied, r.balance_after, r.idempotency_key].map(csvCell).join(";"));
-    return { filename: `tavoli-in-guerra-registro-${date}.csv`, body: "﻿" + lines.join("\n") };
+    return { filename: `taverna-dei-pirati-registro-${date}.csv`, body: "﻿" + lines.join("\n") };
   }
   const teams = await sql<TeamRow[]>`select * from tig_teams where event_id = ${eventId} and status = 'active' and approved order by table_no`;
   const ranked = computeRanks(teams.map((t) => ({ teamId: t.id, score: t.score, wins: t.wins, accuracy: accuracyOf(t), tableNo: t.table_no, tiebreakRank: t.tiebreak_rank })));
@@ -340,5 +340,5 @@ export async function exportCsv(user: TigUser, eventId: string, kind: "classific
     const t = byId.get(r.teamId)!;
     lines.push([r.rank, t.table_no, t.name, t.score, t.wins, r.accuracy === null ? "" : Math.round(r.accuracy * 100), t.energy, levelFor(t.energy, thresholds(config)), t.mascot_slot ?? ""].map(csvCell).join(";"));
   }
-  return { filename: `tavoli-in-guerra-classifica-${date}.csv`, body: "﻿" + lines.join("\n") };
+  return { filename: `taverna-dei-pirati-classifica-${date}.csv`, body: "﻿" + lines.join("\n") };
 }

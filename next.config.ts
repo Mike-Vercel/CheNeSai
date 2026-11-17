@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   // niente badge "N" di Next in sviluppo: copriva i tasti in basso a sinistra (Esci, GIRA). Gli errori restano visibili.
   devIndicators: false,
   // libreria iniziale e libreria ufficiale delle battute dei presentatori (importate dalla regia se mancano)
-  // + catalogo vocale di TAVOLI IN GUERRA! (letto da /api/tig/voce)
+  // + catalogo vocale di TAVERNA DEI PIRATI (letto da /api/tig/voce)
   outputFileTracingIncludes: { "/api/**": ["./content/show/battute.json", "./content/show/libreria-ufficiale.json", "./content/tig/voci/**/*.json"] },
   turbopack: {
     rules: {
@@ -23,6 +23,13 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  // TAVERNA DEI PIRATI si chiamava TAVOLI IN GUERRA!: i vecchi indirizzi (link, QR già stampati) portano a quelli nuovi
+  async redirects() {
+    return [
+      { source: "/tavoli-in-guerra", destination: "/taverna-dei-pirati", permanent: true },
+      { source: "/tavoli-in-guerra/:path*", destination: "/taverna-dei-pirati/:path*", permanent: true },
+    ];
   },
   async headers() {
     return [

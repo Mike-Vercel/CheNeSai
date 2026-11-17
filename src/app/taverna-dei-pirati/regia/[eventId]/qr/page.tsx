@@ -8,6 +8,6 @@ export const metadata = { title: "QR dei tavoli" };
 export default async function QrTavoli({ params }: { params: Promise<{ eventId: string }> }) {
   const { eventId } = await params;
   const host = await getHostUser();
-  if (!host) redirect(`/accedi?next=${encodeURIComponent(`/tavoli-in-guerra/regia/${eventId}/qr`)}`);
+  if (!host) redirect(`/accedi?next=${encodeURIComponent(`/taverna-dei-pirati/regia/${eventId}/qr`)}`);
   return <QrSheet eventId={eventId} />;
 }

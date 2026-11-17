@@ -45,7 +45,7 @@ export function RegiaApp({ eventId }: { eventId: string }) {
         <div className="relative flex flex-col items-center gap-4">
           <Logo size="md" />
           <p className="text-xl font-extrabold">{error.message}</p>
-          <a href="/tavoli-in-guerra" className="tig-btn">
+          <a href="/taverna-dei-pirati" className="tig-btn">
             Torna al menu
           </a>
         </div>
@@ -95,7 +95,7 @@ export function RegiaScreen({
 }
 
 function RegiaHeader({ state, view }: { state: TigPublicState; view: RegiaView }) {
-  const tv = `/tavoli-in-guerra/tv/${encodeURIComponent(view.displayKey)}`;
+  const tv = `/taverna-dei-pirati/tv/${encodeURIComponent(view.displayKey)}`;
   return (
     <header className="sticky top-0 z-30 border-b-2 border-[#c9a24a]/45 bg-[repeating-linear-gradient(90deg,rgba(0,0,0,.1)_0_2px,transparent_2px_16px),linear-gradient(180deg,rgba(43,28,16,.96),rgba(26,16,9,.94))] shadow-[0_8px_24px_-12px_rgba(0,0,0,.9)] backdrop-blur">
       <div className="mx-auto flex w-full max-w-[96rem] flex-wrap items-center gap-3 px-3 py-2 lg:px-6">
@@ -117,7 +117,7 @@ function RegiaHeader({ state, view }: { state: TigPublicState; view: RegiaView }
         <a href={`${tv}?live=1`} target="_blank" rel="noopener" className="tig-btn tig-btn-ghost !min-h-11 !px-3 !text-base" title="Vista per la diretta: senza QR né codici">
           TV live
         </a>
-        <ExitButton to="/tavoli-in-guerra" size="sm" armedLabel="Esci? (la serata resta aperta)" />
+        <ExitButton to="/taverna-dei-pirati" size="sm" armedLabel="Esci? (la serata resta aperta)" />
       </div>
     </header>
   );
@@ -156,7 +156,7 @@ function Controls({ state, view, now, act, busy, eventId }: { state: TigPublicSt
             <button type="button" className="tig-btn tig-btn-red w-full" disabled={busy} onClick={() => void act({ action: "open_lobby" }, "Lobby aperta: i tavoli possono entrare")}>
               APRI LA LOBBY
             </button>
-            <a href={`/tavoli-in-guerra/regia/${eventId}/qr`} target="_blank" rel="noopener" className="tig-btn tig-btn-ghost w-full">
+            <a href={`/taverna-dei-pirati/regia/${eventId}/qr`} target="_blank" rel="noopener" className="tig-btn tig-btn-ghost w-full">
               🖨️ Foglio dei QR da stampare
             </a>
           </>
@@ -176,7 +176,7 @@ function Controls({ state, view, now, act, busy, eventId }: { state: TigPublicSt
                 🔓 Riapri la lobby
               </button>
             )}
-            <a href={`/tavoli-in-guerra/regia/${eventId}/qr`} target="_blank" rel="noopener" className="tig-btn tig-btn-ghost w-full">
+            <a href={`/taverna-dei-pirati/regia/${eventId}/qr`} target="_blank" rel="noopener" className="tig-btn tig-btn-ghost w-full">
               🖨️ Foglio dei QR
             </a>
           </>

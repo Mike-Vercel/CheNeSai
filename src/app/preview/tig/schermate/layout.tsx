@@ -1,6 +1,6 @@
 import { TIG_FONT_VARS } from "@/features/tig/games/kit/fonts";
 import "@/features/tig/games/kit/tig-games.css";
-import "../../../tavoli-in-guerra/tig.css";
+import "../../../taverna-dei-pirati/tig.css";
 
 /** Banco di prova delle schermate di TAVERNA DEI PIRATI: stessi caratteri e stesso stile delle pagine vere. */
 export default function TigSchermatePreviewLayout({ children }: { children: React.ReactNode }) {

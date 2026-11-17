@@ -3,7 +3,7 @@ import { createHmac, randomBytes, randomInt, timingSafeEqual } from "node:crypto
 
 /**
  * QR dei tavoli: token FIRMATO (parte casuale + firma HMAC con un segreto del server), salvato nel database.
- * Il QR porta solo a /tavoli-in-guerra/t/<token>: nessun dato personale. Un token alterato si scarta
+ * Il QR porta solo a /taverna-dei-pirati/t/<token>: nessun dato personale. Un token alterato si scarta
  * prima ancora di cercarlo nel database.
  */
 function secret(): string {

@@ -8,6 +8,6 @@ export const metadata = { title: "Al tavolo" };
 export default async function GiocaTig({ params }: { params: Promise<{ eventId: string }> }) {
   const { eventId } = await params;
   const host = await getHostUser();
-  if (!host) redirect(`/accedi?next=${encodeURIComponent(`/tavoli-in-guerra/gioca/${eventId}`)}`);
+  if (!host) redirect(`/accedi?next=${encodeURIComponent(`/taverna-dei-pirati/gioca/${eventId}`)}`);
   return <PlayerApp eventId={eventId} />;
 }
