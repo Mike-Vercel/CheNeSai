@@ -133,12 +133,12 @@ function Tv(p: T) {
                 <p className="tg-display text-[2.6cqw]">
                   {SPOT_LABEL[r.spot]} <span className="tg-num text-[1.6cqw] text-white/60">+{view.rightPoints} / {view.wrongPoints}</span>
                 </p>
-                {open && (rr ?? r).prompt ? (
+                {open && r.prompt ? (
                   <>
-                    <p className="text-[1.8cqw] font-extrabold leading-tight">{(rr ?? r).prompt}</p>
+                    <p className="text-[1.8cqw] font-extrabold leading-tight">{r.prompt}</p>
                     <div className="mt-auto flex flex-col gap-[0.45cqw]">
-                      {((rr ?? r).options ?? []).map((o, k) => (
-                        <TvOption key={o.id} index={k} text={o.text} size="sm" state={rr ? (o.id === rr.solutionId ? "right" : "dim") : "idle"} />
+                      {(r.options ?? []).map((o, k) => (
+                        <TvOption key={o.id} index={k} text={o.text} size="sm" state="idle" />
                       ))}
                     </div>
                   </>

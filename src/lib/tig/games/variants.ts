@@ -4,10 +4,12 @@ import type { Difficulty } from "../types";
 /**
  * TAVOLI IN GUERRA! — VARIANTI DI CONTENUTO (estensione facoltativa del contratto, file del ramo core).
  *
- * Il contratto (`contract.ts`) dice che il runtime «sceglie una variante di contenuto e la congela nella partita»
- * ma non dice da dove arrivano le varianti. Il core le legge da una proprietà FACOLTATIVA della meccanica:
+ * ATTENZIONE: i contenuti VERI dei minigiochi NON stanno nella definizione (finirebbero nel bundle del browser):
+ * stanno in `content/tig/minigiochi/<codice>.ts`, registrati negli indici per manche e letti SOLO dal server tramite
+ * `content-core.ts` → `registry.variantsOf`. La proprietà facoltativa `variants` qui sotto la usano solo i test
+ * (meccaniche di prova) e la selezione come ripiego:
  *
- *   const memoriaLampo: MechanicDef<C, S> & { variants: ContentVariant<C>[] } = { ...def, variants: [...] };
+ *   const provaRapida: MechanicDef<C, S> & { variants: ContentVariant<C>[] } = { ...def, variants: [...] };
  *
  * Ogni variante ha una chiave stabile (per non ripeterla nella stessa serata e nei locali che l'hanno già vista),
  * una difficoltà (per distribuire facile/media/difficile) e il contenuto (validato con `contentSchema` prima

@@ -152,6 +152,8 @@ export interface PublicGame {
   outcome: ScoreOutput | null;
   winnerTeamId: string | null;
   betEnabled: boolean;
+  /** la vista cambia col passare del tempo (indizi che si aprono, scena che sparisce): i client rileggono più spesso */
+  timed?: boolean;
 }
 
 export interface TigEventNote {

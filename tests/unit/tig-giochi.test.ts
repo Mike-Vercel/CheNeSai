@@ -170,6 +170,18 @@ describe.each(MECHANICS.map((d) => [d.code, d] as const))("TIG meccanica %s", (c
     }
   });
 
+  it("la vista pubblica mostra sempre il NOME del minigioco (mai il titolo della variante al suo posto)", () => {
+    for (const c of vs) {
+      const ctx = makeCtx(def);
+      const views = [def.publicView(c, ctx)];
+      if (extras.publicViewAt) views.push(extras.publicViewAt(c, ctx, 0), extras.publicViewAt(c, ctx, def.timerSec * 1000));
+      for (const view of views) {
+        const title = (view as { title?: unknown }).title;
+        if (title !== undefined) expect(title, `${c.id}`).toBe(def.title);
+      }
+    }
+  });
+
   it("score è deterministico e non dipende dall'ordine degli invii", () => {
     for (const c of vs) {
       const ctx = makeCtx(def);

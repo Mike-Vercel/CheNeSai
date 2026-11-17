@@ -320,6 +320,7 @@ export async function buildPublicState(db: Db, ev: EventRow): Promise<TigPublicS
       outcome: game.status === "scored" && game.outcome ? publicOutcome(game.outcome) : null,
       winnerTeamId: game.winner_team_id,
       betEnabled: game.bet_enabled,
+      timed: !!tigRegistry().extras(game.mechanic_code)?.publicViewAt,
     };
   }
 

@@ -10,6 +10,8 @@ export type LinkStatus = "connecting" | "live" | "reconnecting" | "offline";
 
 const POLL_LIVE_MS = 10_000;
 const POLL_FALLBACK_MS = 2_000;
+/** prove «a tempo» (indizi che si aprono senza un nuovo stato dal server): rilettura più fitta, solo mentre si gioca */
+const POLL_TIMED_MS = 2_500;
 
 export type TigSource = { kind: "event"; eventId: string; as: "player" | "regia" } | { kind: "tv"; displayKey: string; live: boolean };
 
@@ -89,13 +91,15 @@ export function useTig(source: TigSource) {
 
   // snapshot iniziale + polling di sicurezza (anche «battito» di presenza)
   const live = status === "live";
+  const timedPlay = state?.state === "GAME_ACTIVE" && state.game?.stage === "play" && !!state.game.timed;
   useEffect(() => {
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | null = null;
+    const every = timedPlay ? POLL_TIMED_MS : live ? POLL_LIVE_MS : POLL_FALLBACK_MS;
     const loop = async () => {
       if (cancelled) return;
       await refresh();
-      if (!cancelled) timer = setTimeout(loop, (live ? POLL_LIVE_MS : POLL_FALLBACK_MS) + Math.random() * 600);
+      if (!cancelled) timer = setTimeout(loop, every + Math.random() * 600);
     };
     void loop();
     const onVisible = () => document.visibilityState === "visible" && void refresh();
@@ -111,7 +115,7 @@ export function useTig(source: TigSource) {
       window.removeEventListener("online", onOnline);
       window.removeEventListener("offline", onOffline);
     };
-  }, [key, refresh, live]);
+  }, [key, refresh, live, timedPlay]);
 
   // partenza della prova e scadenza della fase: si rilegge (il server fa avanzare la serata)
   const paused = state?.state === "PAUSED";
