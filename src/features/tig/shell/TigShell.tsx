@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { getSoundEngine } from "@/features/media/audio-engine";
 import { api, ApiError } from "@/lib/realtime/api-client";
-import { runOfShow, STATE_LABEL, totalMinutes } from "@/lib/tig/rules";
+import { runOfShow, STATE_LABEL, teamColor, totalMinutes } from "@/lib/tig/rules";
 import { MASCOT_SLOTS, MAX_DURATION, MAX_TABLES, MIN_DURATION, MIN_TABLES, type MyEvent } from "@/lib/tig/types";
 import { GAME_NAME, Logo, WaxSeal } from "../ui";
 import { detectVisualQuality, TigArena } from "../visuals";
@@ -117,7 +117,7 @@ function ShellClient({ loggedIn, username, events, start }: TigShellProps) {
 }
 
 /** Vetrina dell'arena nel menu: sei postazioni d'esempio (nessuna squadra vera). */
-const SHOWCASE = [1, 2, 3, 4, 5, 6].map((n) => ({ teamId: `vetrina-${n}`, tableNo: n, name: `Tavolo ${n}`, color: ["#ff3b4e", "#ffb020", "#38d9ff", "#7cff4f", "#b46cff", "#ff6bd6"][n - 1], mascotSlot: n * 2 - 1, mascotLevel: (n % 3 === 0 ? 3 : n % 2 === 0 ? 2 : 1) as 1 | 2 | 3, score: [420, 380, 510, 290, 455, 340][n - 1], rank: 0, chaosProgress: [0.3, 0.7, 1, 0.15, 0.55, 0.9][n - 1], online: true }));
+const SHOWCASE = [1, 2, 3, 4, 5, 6].map((n) => ({ teamId: `vetrina-${n}`, tableNo: n, name: `Tavolo ${n}`, color: teamColor(n), mascotSlot: n * 2 - 1, mascotLevel: (n % 3 === 0 ? 3 : n % 2 === 0 ? 2 : 1) as 1 | 2 | 3, score: [420, 380, 510, 290, 455, 340][n - 1], rank: 0, chaosProgress: [0.3, 0.7, 1, 0.15, 0.55, 0.9][n - 1], online: true }));
 
 export const eventHref = (e: MyEvent) => (e.role === "organizer" ? `/tavoli-in-guerra/regia/${e.eventId}` : `/tavoli-in-guerra/gioca/${e.eventId}`);
 
