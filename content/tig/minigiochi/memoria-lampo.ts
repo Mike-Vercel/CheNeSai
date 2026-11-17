@@ -13,7 +13,7 @@ const varianti: MemoriaLampoInput[] = [
       backdrop: "ufficio",
       items: [
         { kind: "orologio", x: 10, y: 22, label: "9:47", tone: "lime" },
-        { kind: "libro", x: 24, y: 22, label: "EXCEL FACILE", tone: "cyan", rot: -6 },
+        { kind: "libro", x: 24, y: 22, label: "FOGLI DI CALCOLO", tone: "cyan", rot: -6 },
         { kind: "postit", x: 52, y: 22, label: "CHIAMA IL CAPO", tone: "amber", rot: 4 },
         { kind: "postit", x: 66, y: 22, label: "PALESTRA?", tone: "amber", rot: -5 },
         { kind: "postit", x: 80, y: 22, label: "COMPRA IL LATTE", tone: "amber", rot: 3 },
@@ -27,7 +27,7 @@ const varianti: MemoriaLampoInput[] = [
         { kind: "chiavi", x: 92, y: 78, tone: "amber" },
       ],
     },
-    alt: "Scrivania d'ufficio. In alto: un orologio che segna 9:47, un libro intitolato «Excel facile» e tre post-it con scritto «Chiama il capo», «Palestra?» e «Compra il latte». Al centro: un calendario su «Lun 14», un monitor con «47 mail» e una pianta. In basso: una tazza con scritto «Lunedì», un paio di occhiali, un telefono al 3% di batteria, delle cuffie e un mazzo di chiavi.",
+    alt: "Scrivania d'ufficio. In alto: un orologio che segna 9:47, un libro intitolato «Fogli di calcolo» e tre post-it con scritto «Chiama il capo», «Palestra?» e «Compra il latte». Al centro: un calendario su «Lun 14», un monitor con «47 mail» e una pianta. In basso: una tazza con scritto «Lunedì», un paio di occhiali, un telefono al 3% di batteria, delle cuffie e un mazzo di chiavi.",
     questions: [
       {
         id: "ora",
