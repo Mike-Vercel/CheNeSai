@@ -4,12 +4,12 @@
     "name": "Don Patrizio",
     "sex": "MASCHIO",
     "voice": "MASCHILE, ADULTA, CALDA, TEATRALE, IRONICA; italiano senza inflessioni regionali. Voce di riferimento: «Antonio Farina» (ElevenLabs), la stessa di GIRAMENTE!",
-    "personality": "Don Patrizio è il padrone di casa delle grandi occasioni: adulto, calvo, robusto, barba e baffi, completo nero e bordeaux. Vivace, ironico e teatrale, parla come un presentatore di una volta ma con battute da serata tra amici, e prende in giro prima di tutto sé stesso (i capelli che non ha, il vestito buono). Punzecchia le scelte di gioco, mai le persone: niente umiliazioni, niente inviti a bere. Ama le pause e la suspense, e in TAVOLI IN GUERRA! guida la finale e legge la classifica dall'ultimo al primo come una serata di gala.",
+    "personality": "Don Patrizio è il padrone di casa delle grandi occasioni: adulto, calvo, robusto, barba e baffi, completo nero e bordeaux. Vivace, ironico e teatrale, parla come un presentatore di una volta ma con battute da serata tra amici, e prende in giro prima di tutto sé stesso (i capelli che non ha, il vestito buono). Punzecchia le scelte di gioco, mai le persone: niente umiliazioni, niente inviti a bere. Ama le pause e la suspense, e in TAVERNA DEI PIRATI guida la finale e legge la classifica dall'ultimo al primo come una serata di gala.",
     "role": "Presentatore principale: guida la finale (TUTTO O NIENTE!) e la rivelazione della classifica, dall'ultimo al primo; interviene anche nei momenti chiave della serata (apertura, duelli, Bottone del Caos, premiazione).",
     "tier": "presentatore",
     "model": "public/models/giramente/dontralla.glb",
     "toConfirm": [
-      "uso della stessa voce «Antonio Farina» di GIRAMENTE! anche in TAVOLI IN GUERRA!",
+      "uso della stessa voce «Antonio Farina» di GIRAMENTE! anche in TAVERNA DEI PIRATI",
       "presenza di Don Patrizio oltre alla finale (le frasi coprono tutte le 40 situazioni, il PDF gli assegna finale e classifica)",
       "formato di {POSIZIONE}: le frasi assumono un numero («in posizione 3»)",
       "formato di {MANCHE}: le frasi funzionano sia col nome sia col numero («la manche {MANCHE}»)",
@@ -22,7 +22,7 @@
       "scene": "APERTURA",
       "tone": "ESPLOSIVO",
       "duration": "9-11 SECONDI",
-      "text": "Signore e signori, buonasera e benvenuti a TAVOLI IN GUERRA! Stasera si vince insieme, si perde insieme, e si litiga con grande stile.",
+      "text": "Signore e signori, buonasera e benvenuti alla TAVERNA DEI PIRATI! Stasera si vince insieme, si perde insieme, e si litiga con grande stile.",
       "vars": []
     },
     {
@@ -30,7 +30,7 @@
       "scene": "APERTURA",
       "tone": "SOLENNE",
       "duration": "8-10 SECONDI",
-      "text": "Luci basse, telefoni carichi, amicizie in pericolo. Stasera si gioca a TAVOLI IN GUERRA, e io sono Don Patrizio.",
+      "text": "Luci basse, telefoni carichi, amicizie in pericolo. Stasera si gioca alla TAVERNA DEI PIRATI, e io sono Don Patrizio.",
       "vars": []
     },
     {
@@ -1645,7 +1645,7 @@
       "scene": "SALUTO_FINALE",
       "tone": "SOLENNE",
       "duration": "7-9 SECONDI",
-      "text": "Buonanotte, signore e signori. TAVOLI IN GUERRA finisce qui. Le rivalità, invece, continuano fino alla prossima serata.",
+      "text": "Buonanotte, signore e signori. La TAVERNA DEI PIRATI chiude qui. Le rivalità, invece, continuano fino alla prossima serata.",
       "vars": []
     },
     {

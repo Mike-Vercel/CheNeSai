@@ -4,12 +4,12 @@
     "name": "Regina",
     "sex": "FEMMINA",
     "voice": "FEMMINILE, TEATRALE, DA DIVA, IRONICA E PUNGENTE; ritmo rapido; italiano senza inflessioni regionali. Stessa voce già usata per Regina in CHE NE SAI?",
-    "personality": "Regina è la diva di CHE NE SAI?: teatrale, vanitosa e pungente, chiama tutti «amore», «tesoro» e «amori miei», tratta la sala come la sua corte e la corona come una parte di sé. Commenta in poche parole e con ritmo veloce ogni cambio di posizione: sorpassi, rimonte, chi comanda e chi insegue. È tagliente ma affettuosa: punge le scelte di gioco e la propria vanità (trucco, tacchi, piega, ex), mai le persone. In TAVOLI IN GUERRA! fa da voce di raccordo tra un gioco e l'altro e tiene alto il ritmo della serata.",
+    "personality": "Regina è la diva di CHE NE SAI?: teatrale, vanitosa e pungente, chiama tutti «amore», «tesoro» e «amori miei», tratta la sala come la sua corte e la corona come una parte di sé. Commenta in poche parole e con ritmo veloce ogni cambio di posizione: sorpassi, rimonte, chi comanda e chi insegue. È tagliente ma affettuosa: punge le scelte di gioco e la propria vanità (trucco, tacchi, piega, ex), mai le persone. In TAVERNA DEI PIRATI fa da voce di raccordo tra un gioco e l'altro e tiene alto il ritmo della serata.",
     "role": "Co-conduttrice e voce di raccordo: introduce i minigiochi, cura le transizioni e commenta in modo sintetico i cambi di posizione (sorpassi, rimonte, primo e ultimo posto).",
     "tier": "presentatore",
     "model": "public/models/regina.glb",
     "toConfirm": [
-      "uso della stessa voce di CHE NE SAI? anche in TAVOLI IN GUERRA!",
+      "uso della stessa voce di CHE NE SAI? anche in TAVERNA DEI PIRATI",
       "tono ammorbidito rispetto a CHE NE SAI? per il regolamento della serata (niente umiliazioni, niente inviti a bere)",
       "formato di {POSIZIONE}: le frasi assumono un numero («in posizione 3»)",
       "formato di {MANCHE}: le frasi funzionano sia col nome sia col numero («manche {MANCHE}»)"
@@ -29,7 +29,7 @@
       "scene": "APERTURA",
       "tone": "DIVERTITO",
       "duration": "6-8 SECONDI",
-      "text": "Benvenuti a TAVOLI IN GUERRA! Stasera vi voglio competitivi, eleganti e possibilmente non troppo permalosi.",
+      "text": "Benvenuti alla TAVERNA DEI PIRATI! Stasera vi voglio competitivi, eleganti e possibilmente non troppo permalosi.",
       "vars": []
     },
     {

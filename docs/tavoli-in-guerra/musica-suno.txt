@@ -1,4 +1,4 @@
-TAVOLI IN GUERRA! — PROMPT "STYLES" PER SUNO (SOLO STRUMENTALI)
+TAVERNA DEI PIRATI — PROMPT "STYLES" PER SUNO (SOLO STRUMENTALI)
 ==============================================================
 
 COME USARLI
@@ -10,39 +10,39 @@ COME USARLI
 - Durata consigliata: sigla 1:30-2:00; brani di sottofondo 2:00-3:00 (li faccio girare io in loop con dissolvenza);
   stacchi brevi ("sting") 5-15 secondi: genera un brano corto e io taglio il pezzo migliore.
 - Se un risultato ha comunque una voce: rigeneralo, non si può usare.
-- Dove metterli: REFERENCE/GIOCHI/TAVOLI_IN_GUERRA/MUSICA/ con il NOME FILE indicato (mp3). Poi io li ottimizzo,
+- Dove metterli: REFERENCE/GIOCHI/TAVERNA_DEI_PIRATI/MUSICA/ con il NOME FILE indicato (mp3). Poi io li ottimizzo,
   allineo il volume (come per le voci) e li collego: la musica si abbassa da sola quando parlano i presentatori.
 - Identità sonora del gioco: "war room notturna da pub": ambra e ciano, neon, competizione allegra, 25 anni,
   game show TV moderno. Tonalità di casa: Mi minore. Il tema principale torna in tutti i brani "dello show".
 
 --------------------------------------------------------------
-A) IL TEMA DEL GIOCO (la sigla) — UNICO BRANO CHE «PARLA»: DICE «TAVOLI IN GUERRA!»
+A) IL TEMA DEL GIOCO (la sigla) — UNICO BRANO CHE «PARLA»: DICE «TAVERNA DEI PIRATI!»
 --------------------------------------------------------------
-TITOLO: TAVOLI IN GUERRA - Sigla        NOME FILE: sigla.mp3
+TITOLO: TAVERNA DEI PIRATI - Sigla        NOME FILE: sigla.mp3
 ATTENZIONE: per la sigla l'interruttore "Instrumental" va SPENTO, e nel campo del testo (Lyrics) si mette SOLO il
 coro qui sotto. Le altre parole non devono esserci.
 
 STYLES:
-Modern TV game show main theme with a huge shouted gang vocal chant of the title only, in Italian: "Tavoli in guerra!". Stadium crowd chant, energetic mixed male and female voices shouting together, no sung verses, no other lyrics. Hybrid cinematic electronic: punchy trap-house drums with 808 and stadium claps, big brass stabs, gritty synth bass, bright catchy lead synth hook, orchestral hits, risers and a huge drop. 128 BPM, E minor, confident, competitive, playful, pub party energy for young adults.
+Modern TV game show main theme with a huge shouted gang vocal chant of the title only, in Italian: "Taverna dei Pirati!". Stadium crowd chant, energetic mixed male and female voices shouting together, no sung verses, no other lyrics. Hybrid cinematic electronic: punchy trap-house drums with 808 and stadium claps, big brass stabs, gritty synth bass, bright catchy lead synth hook, orchestral hits, risers and a huge drop. 128 BPM, E minor, confident, competitive, playful, pub party energy for young adults.
 
 LYRICS (campo del testo, copialo così com'è):
 [Intro]
 [Big brass hit]
 
 [Chant]
-TAVOLI IN GUERRA!
+TAVERNA DEI PIRATI!
 
 [Build]
 [Rising synths, drums building]
 
 [Drop]
-TAVOLI IN GUERRA!
-TAVOLI IN GUERRA!
+TAVERNA DEI PIRATI!
+TAVERNA DEI PIRATI!
 
 [Instrumental Hook]
 
 [Final Chant]
-TA-VO-LI... IN... GUER-RA!
+TA-VER-NA... DEI... PI-RA-TI!
 
 [Outro]
 [Big final hit]
@@ -51,7 +51,7 @@ EXCLUDE STYLES (solo per la sigla):
 rap verses, sung melody, ballad, english lyrics, spoken word, long lyrics, autotune
 
 CONSIGLI PER LA SIGLA
-- Se Suno pronuncia male (es. «tavòli» o «ghèrra»), riprova scrivendo il coro così: TÀ-VO-LI IN GUÈR-RA!
+- Se Suno pronuncia male (es. «tavòli» o «ghèrra»), riprova scrivendo il coro così: TA-VÈR-NA DEI PI-RÀ-TI!
 - Generane 4-6 versioni e scegli quella con il coro più potente e chiaro: si sente all'apertura e alla premiazione.
 - Se vuoi anche una versione SOLO strumentale della sigla (utile sotto la voce dei presentatori), rigenera lo stesso
   STYLES con "Instrumental" acceso e salvala come  sigla-strumentale.mp3

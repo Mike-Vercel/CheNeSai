@@ -9,8 +9,8 @@
     "tier": "presentatore",
     "model": "public/models/giramente/zafira.glb",
     "toConfirm": [
-      "uso del modello public/models/giramente/zafira.glb (la Jolly di GIRAMENTE!) anche in TAVOLI IN GUERRA!",
-      "voce ElevenLabs di Zafira in TAVOLI IN GUERRA! (la stessa voce italiana «Chiara» di GIRAMENTE!?)",
+      "uso del modello public/models/giramente/zafira.glb (la Jolly di GIRAMENTE!) anche in TAVERNA DEI PIRATI",
+      "voce ElevenLabs di Zafira in TAVERNA DEI PIRATI (la stessa voce italiana «Chiara» di GIRAMENTE!?)",
       "livello di sensualità e di battute su appuntamenti ed ex accettabile per i locali"
     ]
   },
@@ -20,7 +20,7 @@
       "scene": "APERTURA",
       "tone": "COMPLICE",
       "duration": "9-11 SECONDI",
-      "text": "Luci basse, cuori alti. Benvenuti a TAVOLI IN GUERRA. Io sono Zafira, e stasera porto i regali. Non tutti piacevoli.",
+      "text": "Luci basse, cuori alti. Benvenuti alla TAVERNA DEI PIRATI. Io sono Zafira, e stasera porto i regali. Non tutti piacevoli.",
       "vars": []
     },
     {

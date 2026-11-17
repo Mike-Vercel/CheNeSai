@@ -1,6 +1,6 @@
 // TAVOLI IN GUERRA! — prepara la musica di sottofondo (brani creati con Suno, prompt in docs/tavoli-in-guerra/musica-suno.txt).
 //
-//   node scripts/tig/musica.mjs                         → legge REFERENCE/GIOCHI/TAVOLI_IN_GUERRA/MUSICA
+//   node scripts/tig/musica.mjs                         → legge REFERENCE/GIOCHI/TAVERNA_DEI_PIRATI/MUSICA (o la vecchia TAVOLI_IN_GUERRA/MUSICA)
 //   node scripts/tig/musica.mjs <cartella> [--kbps=160]
 //
 // - accetta solo i nomi previsti (sigla, lobby, prova, manche-1..5, ... , gioco-NN-codice) in mp3/wav/m4a/flac;
@@ -13,7 +13,9 @@ import { basename, extname, join } from "node:path";
 
 const ROOT = process.cwd();
 const args = process.argv.slice(2);
-const SRC = args.find((a) => !a.startsWith("--")) ?? join(ROOT, "REFERENCE", "GIOCHI", "TAVOLI_IN_GUERRA", "MUSICA");
+const NEW_DIR = join(ROOT, "REFERENCE", "GIOCHI", "TAVERNA_DEI_PIRATI", "MUSICA");
+const OLD_DIR = join(ROOT, "REFERENCE", "GIOCHI", "TAVOLI_IN_GUERRA", "MUSICA");
+const SRC = args.find((a) => !a.startsWith("--")) ?? (existsSync(NEW_DIR) ? NEW_DIR : OLD_DIR);
 const KBPS = Number((args.find((a) => a.startsWith("--kbps=")) ?? "--kbps=160").split("=")[1]);
 const OUT = join(ROOT, "public", "audio", "tig", "musica");
 const MAX_SEC = 240;

@@ -11,7 +11,7 @@
     "toConfirm": [
       "corrispondenza Professor Smoke = il Professore di CHE NE SAI? (nome e modello public/models/professore.glb)",
       "voce ElevenLabs da usare (la stessa del Professore del quiz o una nuova)",
-      "personalità adattata al tono di TAVOLI IN GUERRA! (sarcasmo più morbido delle battute del quiz, mai sull'intelligenza delle persone)"
+      "personalità adattata al tono di TAVERNA DEI PIRATI (sarcasmo più morbido delle battute del quiz, mai sull'intelligenza delle persone)"
     ]
   },
   "lines": [
@@ -20,7 +20,7 @@
       "scene": "APERTURA",
       "tone": "ENERGICO",
       "duration": "10-12 SECONDI",
-      "text": "Buonasera, signori, e benvenuti a TAVOLI IN GUERRA! Accomodatevi: stasera la lezione si fa in squadra, e il banco è il vostro tavolo.",
+      "text": "Buonasera, signori, e benvenuti alla TAVERNA DEI PIRATI! Accomodatevi: stasera la lezione si fa in squadra, e il banco è il vostro tavolo.",
       "vars": []
     },
     {

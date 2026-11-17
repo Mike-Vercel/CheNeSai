@@ -1,6 +1,6 @@
-// TAVOLI IN GUERRA! — genera dal catalogo vocale (content/tig/voci/*.json, formato src/lib/tig/voices/schema.ts):
-//   - TAVOLI_IN_GUERRA_FRASI_COMPLETE.txt  (tutte le frasi, consultabile senza software, per ElevenLabs & co.)
-//   - TAVOLI_IN_GUERRA_PERSONAGGI.md       (nomi, sesso, personalità, voce, ruolo, cosa resta da confermare)
+// TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!) — genera dal catalogo vocale (content/tig/voci/*.json, formato src/lib/tig/voices/schema.ts):
+//   - TAVERNA_DEI_PIRATI_FRASI_COMPLETE.txt  (tutte le frasi, consultabile senza software, per ElevenLabs & co.)
+//   - TAVERNA_DEI_PIRATI_PERSONAGGI.md       (nomi, sesso, personalità, voce, ruolo, cosa resta da confermare)
 // e controlla il catalogo: ID unici, minimi per livello, variabili ammesse, niente doppioni.
 // Uso: node scripts/tig/genera-frasi.mjs   (dalla cartella del progetto)
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -45,7 +45,7 @@ for (const { character: c, lines } of all) {
 const today = new Date().toISOString().slice(0, 10);
 const total = all.reduce((s, f) => s + f.lines.length, 0);
 const sep = "=".repeat(60);
-let txt = `TAVOLI IN GUERRA! — FRASI COMPLETE DEI PERSONAGGI\nGenerato il ${today} da content/tig/voci (${all.length} personaggi, ${total} frasi).\n\n`;
+let txt = `TAVERNA DEI PIRATI — FRASI COMPLETE DEI PERSONAGGI\nGenerato il ${today} da content/tig/voci (${all.length} personaggi, ${total} frasi).\n\n`;
 txt += `COME LEGGERLO\n- Ogni frase ha ID univoco, scena (situazione di gioco), tono, durata indicativa e testo completo.\n`;
 txt += `- Le variabili tra graffe vengono sostituite dal gioco: {TAVOLO_A}/{TAVOLO_B} = "il tavolo 3", {MASCOTTE_A}/{MASCOTTE_B} = nome della mascotte,\n  {PUNTI}, {MANCHE}, {MINIGIOCO}, {SECONDI}, {POSIZIONE}. La voce NON pronuncia mai i nomi delle squadre scritti dai giocatori.\n`;
 txt += `- Le frasi con variabili si generano al momento (voce sintetica); quelle senza variabili si possono registrare\n  e salvare come public/audio/tig/voci/<ID>.mp3.\n- "DA CONFERMARE" = dato non ancora definito dal proprietario.\n\n`;
@@ -60,9 +60,9 @@ for (const { character: c, lines } of all) {
     txt += `FRASE:\n"${l.text}"\n\n`;
   }
 }
-writeFileSync(join(ROOT, "TAVOLI_IN_GUERRA_FRASI_COMPLETE.txt"), txt, "utf8");
+writeFileSync(join(ROOT, "TAVERNA_DEI_PIRATI_FRASI_COMPLETE.txt"), txt, "utf8");
 
-let md = `# TAVOLI IN GUERRA! — Personaggi\n\nGenerato il ${today} da \`content/tig/voci\` (${all.length} personaggi, ${total} frasi).\n`;
+let md = `# TAVERNA DEI PIRATI — Personaggi\n\nGenerato il ${today} da \`content/tig/voci\` (${all.length} personaggi, ${total} frasi).\n`;
 md += `Corrispondenze e dati segnati "DA CONFERMARE" vanno verificati dal proprietario.\n\n`;
 md += `| Personaggio | Sesso | Livello | Frasi | Modello 3D | Da confermare |\n|---|---|---|---|---|---|\n`;
 for (const { character: c, lines } of all) md += `| ${c.name} | ${c.sex} | ${c.tier} | ${lines.length} | ${c.model ?? "—"} | ${(c.toConfirm ?? []).join("; ") || "—"} |\n`;
@@ -72,9 +72,9 @@ for (const { character: c } of all) {
   if (c.toConfirm?.length) md += `- **Da confermare:** ${c.toConfirm.join("; ")}\n`;
   md += `\n${c.personality}\n\n`;
 }
-writeFileSync(join(ROOT, "TAVOLI_IN_GUERRA_PERSONAGGI.md"), md, "utf8");
+writeFileSync(join(ROOT, "TAVERNA_DEI_PIRATI_PERSONAGGI.md"), md, "utf8");
 
-console.log(`${all.length} personaggi, ${total} frasi → TAVOLI_IN_GUERRA_FRASI_COMPLETE.txt, TAVOLI_IN_GUERRA_PERSONAGGI.md`);
+console.log(`${all.length} personaggi, ${total} frasi → TAVERNA_DEI_PIRATI_FRASI_COMPLETE.txt, TAVERNA_DEI_PIRATI_PERSONAGGI.md`);
 if (problems.length) {
   console.log(`PROBLEMI (${problems.length}):\n- ${problems.slice(0, 60).join("\n- ")}`);
   process.exitCode = 1;
