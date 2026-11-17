@@ -19,12 +19,12 @@ export async function requireTigUser(opts: { withProfile?: boolean } = {}): Prom
   const ip = await clientIp();
   if (opts.withProfile) {
     const h = await getHostUser(ip);
-    if (!h) throw new TigError("UNAUTHENTICATED", "Accedi per giocare a TAVOLI IN GUERRA!");
+    if (!h) throw new TigError("UNAUTHENTICATED", "Accedi per giocare alla TAVERNA DEI PIRATI");
     return { userId: h.userId, ip, username: h.profile?.username ?? null };
   }
   const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase.auth.getUser();
-  if (error || !data.user) throw new TigError("UNAUTHENTICATED", "Accedi per giocare a TAVOLI IN GUERRA!");
+  if (error || !data.user) throw new TigError("UNAUTHENTICATED", "Accedi per giocare alla TAVERNA DEI PIRATI");
   return { userId: data.user.id, ip, username: null };
 }
 
