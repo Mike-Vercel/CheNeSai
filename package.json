@@ -16,6 +16,7 @@
     "db:reset": "supabase db reset",
     "db:seed-demo": "tsx --conditions=react-server scripts/seed-demo.ts",
     "admin:create": "tsx scripts/create-admin.ts",
+    "tig:demo": "tsx --conditions=react-server scripts/tig/serata-demo.ts",
     "db:backup": "tsx --conditions=react-server scripts/backup.ts",
     "show:import": "tsx --conditions=react-server scripts/import-battute.ts",
     "deploy:setup": "node scripts/deploy/setup-production.mjs",
