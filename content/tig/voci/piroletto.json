@@ -1,0 +1,795 @@
+{
+  "character": {
+    "id": "piroletto",
+    "name": "Piroletto",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, CHIARA, TEATRALE, RAFFINATA, MELODRAMMATICA",
+    "personality": "L'étoile della serata, autoproclamato principe del palco. Artista rigoroso e perfezionista, vanitoso con ironia, melodrammatico: vive ogni prova come un balletto e la giudica per tecnica ed eleganza (sipario, piroetta, passo a due, proscenio, chiamate al palco). Passa dallo sdegno all'estasi in un respiro, applaude le mosse audaci e boccia quelle goffe, ma con affetto. Dal modello: ballerino esile in tutù rosa, papillon rosa, piccola corona, scarpette da punta.",
+    "role": "Ospite giudice di stile: commenta bluff, mosse strategiche, evoluzioni delle mascotte e premiazione come un critico teatrale, e apre e chiude gli «atti» della serata.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/PIROETTO_PARLANTE.glb",
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipo di voce (proposta)",
+      "ruolo nello show (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "PI_APE_001",
+      "scene": "APERTURA",
+      "tone": "TEATRALE",
+      "duration": "8-11 SECONDI",
+      "text": "Signore e signori, si apre il sipario! Sono Piroletto, étoile della serata, e stasera giudicherò ogni vostra mossa. Soprattutto per l'eleganza.",
+      "vars": []
+    },
+    {
+      "id": "PI_APE_002",
+      "scene": "APERTURA",
+      "tone": "SOLENNE",
+      "duration": "4-6 SECONDI",
+      "text": "Luci, prego. Musica, prego. Pubblico, vi prego: siate all'altezza dello spettacolo.",
+      "vars": []
+    },
+    {
+      "id": "PI_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "RAFFINATO",
+      "duration": "5-7 SECONDI",
+      "text": "Benvenuti, carissimi tavoli. Vi osservo e vedo talento grezzo. Molto grezzo. Ma lo lavoreremo.",
+      "vars": []
+    },
+    {
+      "id": "PI_BEN_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "CALOROSO",
+      "duration": "5-7 SECONDI",
+      "text": "Entra in scena anche {TAVOLO_A}. Che presenza, che portamento. Vediamo il resto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "INCANTATO",
+      "duration": "7-9 SECONDI",
+      "text": "La mascotte {MASCOTTE_A} entra in scena. Movimenti ancora acerbi, ma lo sguardo... lo sguardo è da prima ballerina.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PI_MAS_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "TEATRALE",
+      "duration": "8-11 SECONDI",
+      "text": "Ecco il corpo di ballo delle mascotte. Ognuna con il suo stile, tutte con un unico obiettivo: brillare più delle altre.",
+      "vars": []
+    },
+    {
+      "id": "PI_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Atto nuovo, scena nuova: la manche {MANCHE}. Prendete posizione, e che sia una posizione elegante.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PI_MAN_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "DRAMMATICO",
+      "duration": "6-8 SECONDI",
+      "text": "Si rialza il sipario. Stasera qualcuno danzerà e qualcuno inciamperà. Io prendo nota di tutto.",
+      "vars": []
+    },
+    {
+      "id": "PI_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "RAFFINATO",
+      "duration": "6-8 SECONDI",
+      "text": "Il prossimo numero si intitola {MINIGIOCO}. Una coreografia semplice, ma il diavolo sta nelle punte.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PI_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ENFATICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ed ecco {MINIGIOCO}! Interpretatelo, non subitelo. C'è una differenza, e si vede.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PI_REG_001",
+      "scene": "REGOLE",
+      "tone": "DIDATTICO",
+      "duration": "9-12 SECONDI",
+      "text": "Le regole sono la mia coreografia preferita: una risposta per tavolo, con la firma del capitano. Chi improvvisa fuori tempo esce di scena.",
+      "vars": []
+    },
+    {
+      "id": "PI_REG_002",
+      "scene": "REGOLE",
+      "tone": "SOLENNE",
+      "duration": "10-13 SECONDI",
+      "text": "Il Bottone del Caos si preme una sola volta a serata. Una sola. Come il salto più bello del balletto: se lo sprecate, non torna.",
+      "vars": []
+    },
+    {
+      "id": "PI_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "TEATRALE",
+      "duration": "3-5 SECONDI",
+      "text": "In posizione. Primo tempo, secondo tempo... e via!",
+      "vars": []
+    },
+    {
+      "id": "PI_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "ELEGANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Tre, due, uno. Sulle punte, prego.",
+      "vars": []
+    },
+    {
+      "id": "PI_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "SOLENNE",
+      "duration": "3-5 SECONDI",
+      "text": "Si apre il sipario tra tre, due, uno.",
+      "vars": []
+    },
+    {
+      "id": "PI_ULT_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "DRAMMATICO",
+      "duration": "5-7 SECONDI",
+      "text": "{SECONDI} secondi! Siamo al finale del balletto, la musica accelera, nessuno osi fermarsi!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PI_ULT_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ANSIOSO E TEATRALE",
+      "duration": "4-6 SECONDI",
+      "text": "Ultimi secondi! Il pubblico trattiene il fiato. Io trattengo il fiato. Rispondete!",
+      "vars": []
+    },
+    {
+      "id": "PI_ULT_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Il tempo sta per finire e io sto per svenire. Muovetevi con grazia, ma muovetevi!",
+      "vars": []
+    },
+    {
+      "id": "PI_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESTASIATO",
+      "duration": "2-4 SECONDI",
+      "text": "Corretta! Divino. Un'esecuzione impeccabile.",
+      "vars": []
+    },
+    {
+      "id": "PI_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMMOSSO",
+      "duration": "7-9 SECONDI",
+      "text": "Giusta. Che grazia, che pulizia. Mi viene da piangere, ma il trucco di scena non me lo permette.",
+      "vars": []
+    },
+    {
+      "id": "PI_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "APPLAUDENTE",
+      "duration": "4-6 SECONDI",
+      "text": "Esatta per {TAVOLO_A}! Bravi, bravissimi. Tre chiamate al proscenio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "INORRIDITO",
+      "duration": "2-4 SECONDI",
+      "text": "Sbagliata. Orrore. Una caduta in pieno assolo.",
+      "vars": []
+    },
+    {
+      "id": "PI_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DELUSO E TEATRALE",
+      "duration": "6-8 SECONDI",
+      "text": "No, carissimi. Il passo era giusto, ma con il piede sbagliato e sulla musica sbagliata.",
+      "vars": []
+    },
+    {
+      "id": "PI_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "COMPASSIONEVOLE",
+      "duration": "6-8 SECONDI",
+      "text": "Risposta sbagliata. Non importa: anche le étoile cadono. L'importante è rialzarsi senza guardare il pubblico.",
+      "vars": []
+    },
+    {
+      "id": "PI_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo scaduto. Cala il sipario, inchino, e chi non ha finito resta dietro le quinte.",
+      "vars": []
+    },
+    {
+      "id": "PI_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DRAMMATICO",
+      "duration": "5-7 SECONDI",
+      "text": "Fine! La musica si è fermata e qualcuno era ancora alla prima piroetta.",
+      "vars": []
+    },
+    {
+      "id": "PI_TMP_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Tempo! Alcuni di voi erano ancora a scaldarsi alla sbarra.",
+      "vars": []
+    },
+    {
+      "id": "PI_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Al centro del palco, con {PUNTI} punti, c'è {TAVOLO_A}. Primo ballerino della serata. Per ora.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PI_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "CRITICO",
+      "duration": "7-9 SECONDI",
+      "text": "Tecnica solida, espressività discutibile: così guida la classifica {TAVOLO_A}. Ma i punti non giudicano l'espressività. Purtroppo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_VAN_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AVVERTIMENTO",
+      "duration": "7-9 SECONDI",
+      "text": "Chi sta in testa, come {TAVOLO_A}, ha tutti i riflettori addosso. E anche tutti gli sguardi invidiosi.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_COD_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "TENERO",
+      "duration": "8-11 SECONDI",
+      "text": "Ultima fila del corpo di ballo per {TAVOLO_A}. Ma è proprio da lì che sono partite le più grandi étoile.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_COD_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Che tragedia, che pathos: {TAVOLO_A} è ultimo. Adoro le tragedie, finiscono sempre con un colpo di scena.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_COD_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Chi è in coda non si disperi: il secondo atto è sempre più bello del primo.",
+      "vars": []
+    },
+    {
+      "id": "PI_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESTASIATO",
+      "duration": "6-8 SECONDI",
+      "text": "Che rimonta! {TAVOLO_A} risale la classifica con una serie di piroette perfette. Bravi!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "EMOZIONATO",
+      "duration": "6-8 SECONDI",
+      "text": "Dalle quinte al centro del palco: {TAVOLO_A} è tornato in scena, e che ritorno!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "DRAMMATICO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso! {TAVOLO_A} supera {TAVOLO_B} con un grand jeté da manuale!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Cambio di ruoli: {TAVOLO_A} prende la parte principale, {TAVOLO_B} torna nel corpo di ballo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Che colpo di teatro! Mentre {TAVOLO_B} faceva l'inchino, {TAVOLO_A} gli ha rubato la scena.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_DUE_001",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "8-11 SECONDI",
+      "text": "Passo a due! {TAVOLO_A} e {TAVOLO_B}, stessa musica, stessi passi. Vince chi non sbaglia il tempo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_DUE_002",
+      "scene": "DUELLO",
+      "tone": "TEATRALE",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_A} contro {MASCOTTE_B}. Un duello degno del più grande teatro. Prego, il palco è vostro.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "PI_DUE_003",
+      "scene": "DUELLO",
+      "tone": "ECCITATO",
+      "duration": "4-6 SECONDI",
+      "text": "Duello! Che tensione. Sembrano due ballerini che si contendono lo stesso assolo.",
+      "vars": []
+    },
+    {
+      "id": "PI_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SCANDALIZZATO",
+      "duration": "8-11 SECONDI",
+      "text": "Sabotaggio! {TAVOLO_A} ha nascosto le scarpette, e chi resta scalzo è {TAVOLO_B}. Che perfidia, che stile.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "8-11 SECONDI",
+      "text": "Ah, il sabotaggio. Così poco raffinato, così efficace. Lo disapprovo con tutto il cuore, e lo applaudo con entrambe le mani.",
+      "vars": []
+    },
+    {
+      "id": "PI_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "TEATRALE",
+      "duration": "9-12 SECONDI",
+      "text": "Furto in scena! {TAVOLO_A} sottrae {PUNTI} punti con una mossa sfacciata, e {TAVOLO_B} resta in posa, a mani vuote.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PI_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Con la leggerezza di una piuma, {TAVOLO_A} si porta via {PUNTI} punti. Nessuno ha sentito niente.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PI_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "ROMANTICO",
+      "duration": "8-11 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Un passo a due commovente. Speriamo che nessuno pesti i piedi all'altro.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "SCETTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Le alleanze sono come i passi a due: bellissime, finché uno dei due non decide di fare l'assolo.",
+      "vars": []
+    },
+    {
+      "id": "PI_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "MELODRAMMATICO",
+      "duration": "7-9 SECONDI",
+      "text": "Tradimento! {TAVOLO_A} ha lasciato cadere {TAVOLO_B} nel bel mezzo della presa. Che dramma. Che meraviglia.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "TEATRALE",
+      "duration": "8-11 SECONDI",
+      "text": "Un tradimento così non lo vedevo dall'ultimo atto di un balletto romantico. C'è sempre qualcuno che soffre, e qualcuno che applaude.",
+      "vars": []
+    },
+    {
+      "id": "PI_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "ESTASIATO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff riuscito! Che interpretazione. Avete recitato meglio di un primo ballerino nella scena della follia.",
+      "vars": []
+    },
+    {
+      "id": "PI_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "COMPIACIUTO",
+      "duration": "4-6 SECONDI",
+      "text": "Una menzogna eseguita con questa grazia non è una menzogna: è arte.",
+      "vars": []
+    },
+    {
+      "id": "PI_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SDEGNATO",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff scoperto. Si vedeva dalla postura: rigida, insicura, un disastro.",
+      "vars": []
+    },
+    {
+      "id": "PI_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "3-5 SECONDI",
+      "text": "Scoperti! Recitazione sopra le righe: tanto trucco, poca sostanza.",
+      "vars": []
+    },
+    {
+      "id": "PI_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DRAMMATICISSIMO",
+      "duration": "8-11 SECONDI",
+      "text": "Allarme Caos! Che affronto! {TAVOLO_A} lancia il guanto di sfida, e a raccoglierlo dovrà essere {TAVOLO_B}.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PI_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SCANDALIZZATO",
+      "duration": "5-7 SECONDI",
+      "text": "Il Bottone del Caos! Ma che modi! Proprio nel mezzo del mio adagio!",
+      "vars": []
+    },
+    {
+      "id": "PI_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Entrano in scena {MASCOTTE_A} e {MASCOTTE_B}. Quarantacinque secondi di coreografia selvaggia, cinquanta punti a chi la balla meglio.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "PI_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "EMOZIONATO",
+      "duration": "5-7 SECONDI",
+      "text": "La mascotte {MASCOTTE_A} passa al livello due! Da allieva a solista. Che crescita!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PI_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESTATICO",
+      "duration": "6-8 SECONDI",
+      "text": "Livello tre! Leggendaria! La mascotte {MASCOTTE_A} è ora l'étoile assoluta. Inchinatevi. Io l'ho già fatto.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PI_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Silenzio in sala. Il risultato sta per entrare in scena.",
+      "vars": []
+    },
+    {
+      "id": "PI_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "3-5 SECONDI",
+      "text": "La musica si ferma. Un respiro. Un altro. Ecco...",
+      "vars": []
+    },
+    {
+      "id": "PI_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "TEATRALE",
+      "duration": "5-7 SECONDI",
+      "text": "Ogni grande spettacolo ha un momento in cui tutto resta sospeso. È questo.",
+      "vars": []
+    },
+    {
+      "id": "PI_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "CRITICO",
+      "duration": "5-7 SECONDI",
+      "text": "Certi tavoli rispondono con l'eleganza di un trasloco al quarto piano senza ascensore.",
+      "vars": []
+    },
+    {
+      "id": "PI_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "MALIZIOSO",
+      "duration": "9-12 SECONDI",
+      "text": "C'è chi gioca come una prima ballerina e chi come uno che si è iscritto al corso solo per fare colpo su qualcuno.",
+      "vars": []
+    },
+    {
+      "id": "PI_BAT_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Che coordinazione, ragazzi. Sembrate un gruppo di amici che prova a fare una foto con l'autoscatto.",
+      "vars": []
+    },
+    {
+      "id": "PI_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "8-11 SECONDI",
+      "text": "Chi è in testa crede di aver già vinto. Carissimi, gli applausi si contano alla fine, non durante il riscaldamento.",
+      "vars": []
+    },
+    {
+      "id": "PI_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDA",
+      "duration": "8-11 SECONDI",
+      "text": "La corona qui la porto io. Lo dico per {TAVOLO_A}, che stasera si sente già un po' principe.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "STUZZICANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Mi annoio. Qualcuno faccia una mossa audace, vi prego. Anche sbagliata, purché audace.",
+      "vars": []
+    },
+    {
+      "id": "PI_SOP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SCONVOLTO",
+      "duration": "2-4 SECONDI",
+      "text": "Mon dieu! Questo non era nel copione!",
+      "vars": []
+    },
+    {
+      "id": "PI_SOP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO",
+      "duration": "6-8 SECONDI",
+      "text": "Che colpo di scena! Mi è caduta la corona. Ah no, è ancora lì. Per fortuna.",
+      "vars": []
+    },
+    {
+      "id": "PI_PAU_001",
+      "scene": "PAUSA",
+      "tone": "LANGUIDO",
+      "duration": "7-9 SECONDI",
+      "text": "Intervallo! Dieci minuti, come a teatro. Sgranchitevi, ripassate i passi, e tornate in sala prima del terzo campanello.",
+      "vars": []
+    },
+    {
+      "id": "PI_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Signori, si torna in sala. Comincia il secondo atto, e il secondo atto, si sa, è dove succede tutto.",
+      "vars": []
+    },
+    {
+      "id": "PI_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICO",
+      "duration": "8-11 SECONDI",
+      "text": "Il gran finale, signori: Tutto o niente, l'ultima manche. Tutto il corpo di ballo in scena, e un solo applauso finale.",
+      "vars": []
+    },
+    {
+      "id": "PI_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Un salto senza rete: {TAVOLO_A} punta {PUNTI} punti! Se atterra bene, ovazione.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PI_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "AMMIRATO",
+      "duration": "4-6 SECONDI",
+      "text": "Puntata rischiosa. Adoro il rischio, purché sia eseguito con eleganza.",
+      "vars": []
+    },
+    {
+      "id": "PI_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimo atto. Ultime luci. Tutto quello che avete danzato stasera si decide adesso.",
+      "vars": []
+    },
+    {
+      "id": "PI_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "TEATRALE",
+      "duration": "8-11 SECONDI",
+      "text": "È il momento delle rose sul palco. Ogni tavolo merita un applauso, ma uno solo merita la scena tutta per sé.",
+      "vars": []
+    },
+    {
+      "id": "PI_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "TRIONFALE",
+      "duration": "6-8 SECONDI",
+      "text": "Rose sul palco e chiamate al proscenio! Il trionfo della serata se lo prende {TAVOLO_A}!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PI_VIT_002",
+      "scene": "VITTORIA",
+      "tone": "COMMOSSO",
+      "duration": "7-9 SECONDI",
+      "text": "Un'esibizione che ricorderò per tutta la carriera. Inchino profondo per {TAVOLO_A} e per la mascotte {MASCOTTE_A}.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PI_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Non avete vinto, ma avete danzato. E chi danza non perde mai del tutto.",
+      "vars": []
+    },
+    {
+      "id": "PI_SCO_002",
+      "scene": "SCONFITTA",
+      "tone": "DRAMMATICO E DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Sconfitta. Che tristezza nobile. Tornate alla sbarra, e la prossima volta il palco sarà vostro.",
+      "vars": []
+    },
+    {
+      "id": "PI_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "SBALORDITO",
+      "duration": "6-8 SECONDI",
+      "text": "Pareggio! Due esibizioni identiche, al millimetro. Serve uno spareggio, e io voglio la prima fila.",
+      "vars": []
+    },
+    {
+      "id": "PI_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "ELEGANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Cala il sipario. Grazie, carissimi tavoli, siete stati un pubblico meraviglioso. Un inchino a tutti, e alla prossima replica.",
+      "vars": []
+    },
+    {
+      "id": "PI_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "COMPIACIUTO",
+      "duration": "6-8 SECONDI",
+      "text": "Che serata. Il pubblico è caldo, le luci sono giuste, e io sono splendido. Come sempre.",
+      "vars": []
+    },
+    {
+      "id": "PI_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Vedo molta energia e poca tecnica. Ma l'energia è l'inizio di ogni grande arte.",
+      "vars": []
+    },
+    {
+      "id": "PI_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "TEATRALE",
+      "duration": "5-7 SECONDI",
+      "text": "Ogni tanto faccio una piroetta per noia. Non guardate me, guardate la classifica.",
+      "vars": []
+    },
+    {
+      "id": "PI_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Ah, questo locale. Ha il fascino di un teatro, il rumore di una stazione e l'energia di una prima.",
+      "vars": []
+    },
+    {
+      "id": "PI_ATM_005",
+      "scene": "ATMOSFERA",
+      "tone": "VANITOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Le mie scarpette da punta hanno calcato palchi in tutto il mondo, ma un pubblico rumoroso come questo, mai.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,694 @@
+{
+  "character": {
+    "id": "pixie",
+    "name": "PIXIE",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, GIOVANE, CRISTALLINA, FRIZZANTE, BIRICHINA",
+    "personality": "PROPOSTA. Una fatina digitale che abita negli schermi del locale: si muove tra classifica, tabellone e telefoni come un glitch con le ali. Nerd, birichina e rapidissima di battuta, parla per livelli, potenziamenti, bug e aggiornamenti. Adora il caos, purché ben regolato: Bottone del Caos, Energia Caos ed evoluzioni delle mascotte sono la sua festa. Ironica e furba, mai infantile: tratta la classifica come un videogioco da bilanciare e i tavoli come giocatori da mettere alla prova.",
+    "role": "Ospite dello show: la custode del caos e delle evoluzioni. Annuncia il Bottone del Caos, l'Energia Caos, le evoluzioni delle mascotte, sabotaggi e furti, e commenta la serata con l'occhio di una giocatrice esperta.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipologia di voce (proposta)",
+      "ruolo nella serata (proposta)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "PX_APER_001",
+      "scene": "APERTURA",
+      "tone": "FRIZZANTE",
+      "duration": "9-11 SECONDI",
+      "text": "Connessione stabilita! Ciao, sono PIXIE: abito negli schermi di questo locale e stasera ho accesso a tutto. Punti, classifica e segreti. Si gioca!",
+      "vars": []
+    },
+    {
+      "id": "PX_APER_002",
+      "scene": "APERTURA",
+      "tone": "BIRICHINO",
+      "duration": "9-11 SECONDI",
+      "text": "Benvenuti nella partita più caotica della settimana. Vi avviso: il caos è la mia specialità, ma lo tengo sotto controllo. Quasi sempre.",
+      "vars": []
+    },
+    {
+      "id": "PX_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "TECNICO",
+      "duration": "8-10 SECONDI",
+      "text": "Nuovi giocatori connessi! Tutti i tavoli sono online: profili caricati, mascotte pronte, livello di caos al minimo. Per ora.",
+      "vars": []
+    },
+    {
+      "id": "PX_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "BIRICHINO",
+      "duration": "6-8 SECONDI",
+      "text": "Un saluto per {TAVOLO_A}: ho già scansionato la vostra strategia. Spoiler: vi serve un aggiornamento.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "ENTUSIASTA",
+      "duration": "8-10 SECONDI",
+      "text": "Ecco {MASCOTTE_A}! Livello uno, statistiche nella media, potenziale altissimo. È la vostra mascotte: trattatela bene e farà cose incredibili.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PX_MASC_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "TECNICO",
+      "duration": "6-8 SECONDI",
+      "text": "Selezione del personaggio completata: {MASCOTTE_A} gioca con {TAVOLO_A}. Ottima scelta, approvata dal sistema.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_MANC_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "TECNICO",
+      "duration": "6-8 SECONDI",
+      "text": "Caricamento della manche {MANCHE} completato! Salvataggio automatico disattivato: da qui non si torna indietro.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PX_MANC_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "FRIZZANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Nuovo livello sbloccato! Le regole cambiano, gli avversari si fanno furbi, e qualcuno di voi si farà più furbo di loro.",
+      "vars": []
+    },
+    {
+      "id": "PX_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "AVVENTUROSO",
+      "duration": "8-10 SECONDI",
+      "text": "La prossima missione si chiama {MINIGIOCO} e la difficoltà dipende da voi. Ricompensa: punti, gloria e la mia stima.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PX_MINI_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "BIRICHINO",
+      "duration": "6-8 SECONDI",
+      "text": "Si gioca a {MINIGIOCO} senza tutorial, e nessuno vi tiene per mano. Ascoltate bene.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PX_REGO_001",
+      "scene": "REGOLE",
+      "tone": "SCHERZOSO",
+      "duration": "10-12 SECONDI",
+      "text": "Regolamento della partita: una risposta per tavolo, la invia il capitano, e il server decide tutto. Il server, cioè io. Non provate a corrompermi.",
+      "vars": []
+    },
+    {
+      "id": "PX_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "SQUILLANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Partita in avvio tra tre, due, uno. Start!",
+      "vars": []
+    },
+    {
+      "id": "PX_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "TECNICO",
+      "duration": "6-8 SECONDI",
+      "text": "Timer impostato su {SECONDI} secondi. Niente pausa, niente salvataggio: solo voi e le vostre scelte.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PX_COUNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "BIRICHINO",
+      "duration": "5-7 SECONDI",
+      "text": "Tre, due, uno, via! Che vinca il tavolo con meno lag nel cervello.",
+      "vars": []
+    },
+    {
+      "id": "PX_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ALLARMATO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimi secondi! La barra del tempo sta diventando rossa, e il rosso non porta mai niente di buono.",
+      "vars": []
+    },
+    {
+      "id": "PX_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "URGENTE",
+      "duration": "5-7 SECONDI",
+      "text": "Allarme timer! Chi non risponde adesso va in game over per questa domanda.",
+      "vars": []
+    },
+    {
+      "id": "PX_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "FESTOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Corretta! Più cento esperienza, e un piccolo applauso dal sistema.",
+      "vars": []
+    },
+    {
+      "id": "PX_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Combo perfetta per {TAVOLO_A}! Continuate così e vi sblocco pure il trofeo segreto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_GIUSTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SODDISFATTO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta giusta! Il server conferma, la classifica applaude e io prendo nota.",
+      "vars": []
+    },
+    {
+      "id": "PX_ERRATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Sbagliata. Non è un bug, ragazzi: è proprio la risposta sbagliata.",
+      "vars": []
+    },
+    {
+      "id": "PX_ERRATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "BEFFARDO",
+      "duration": "6-8 SECONDI",
+      "text": "Errore di sistema per {TAVOLO_A}. Ah no, l'errore era vostro: il sistema funziona benissimo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_ERRATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Risposta errata. Niente panico: in questo gioco si rinasce subito, e senza perdere l'equipaggiamento.",
+      "vars": []
+    },
+    {
+      "id": "PX_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "TECNICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo scaduto! Connessione alla domanda interrotta: chi c'è c'è, chi non c'è ha perso il turno.",
+      "vars": []
+    },
+    {
+      "id": "PX_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "BIRICHINO",
+      "duration": "7-9 SECONDI",
+      "text": "Fine del timer. Le risposte in ritardo finiscono nel cestino digitale, e io il cestino lo svuoto sempre.",
+      "vars": []
+    },
+    {
+      "id": "PX_VANT_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AMMONITORE",
+      "duration": "9-11 SECONDI",
+      "text": "Il boss della classifica, al momento, è {TAVOLO_A}, con {PUNTI} punti. E gli altri vi stanno già studiando le mosse.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PX_VANT_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}. Consiglio da esperta: non mollate il controller proprio adesso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CONSOLANTE",
+      "duration": "9-11 SECONDI",
+      "text": "Ultima posizione in classifica: {TAVOLO_A}. Tranquilli, l'Energia Caos vi vuole bene lo stesso: qui anche chi è in fondo può evolvere.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "10-12 SECONDI",
+      "text": "In fondo alla classifica c'è {TAVOLO_B}. Ogni grande giocatore ha avuto un livello in cui ha perso cento volte: questo è il vostro.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_RECUP_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "STUPITO",
+      "duration": "6-8 SECONDI",
+      "text": "Rimonta incredibile: {TAVOLO_A} ha trovato il codice segreto. O forse ha solo smesso di sbagliare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_RECUP_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESALTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Che recupero! {PUNTI} punti in un attimo: neanche con un trucco si fa così in fretta.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PX_SORP_001",
+      "scene": "SORPASSO",
+      "tone": "FRIZZANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Classifica aggiornata: {TAVOLO_A} supera {TAVOLO_B}. Adoro quando i numeri si muovono.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_SORP_002",
+      "scene": "SORPASSO",
+      "tone": "TECNICO",
+      "duration": "7-9 SECONDI",
+      "text": "Nuovo record di posizione: {TAVOLO_A} sale in posizione {POSIZIONE}. Il sistema registra, gli avversari tremano.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "PX_DUEL_001",
+      "scene": "DUELLO",
+      "tone": "AVVENTUROSO",
+      "duration": "8-10 SECONDI",
+      "text": "Modalità sfida diretta attivata: {TAVOLO_A} contro {TAVOLO_B}. Condizioni identiche, nessun vantaggio, nessuna scusa. Vinca il più sveglio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_DUEL_002",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Duello in corso! Io ho già pronti i popcorn digitali. Non si mangiano, ma fanno scena.",
+      "vars": []
+    },
+    {
+      "id": "PX_SABO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "MALIZIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio rilevato! Contro {TAVOLO_B} è appena partito un piccolo virus di gioco: innocuo, ma fastidiosissimo.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_SABO_002",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Qualcuno ha appena messo un bug nel percorso di un avversario. Mossa scorretta in apparenza, ma consentita dal regolamento. Mi piace.",
+      "vars": []
+    },
+    {
+      "id": "PX_SABO_003",
+      "scene": "SABOTAGGIO",
+      "tone": "BEFFARDO",
+      "duration": "7-9 SECONDI",
+      "text": "Trappola attivata! Chi l'ha piazzata ha studiato bene la mappa. Chi ci è caduto, un po' meno.",
+      "vars": []
+    },
+    {
+      "id": "PX_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "TECNICO",
+      "duration": "7-9 SECONDI",
+      "text": "Furto di punti in corso: {TAVOLO_A} ha appena sottratto {PUNTI} punti. Transazione completata, nessun rimborso previsto.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PX_FURTO_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "RASSICURANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Bottino rubato! {PUNTI} punti cambiano proprietario. Tranquilli, ho controllato: tutto dentro i limiti del regolamento.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PX_ALLE_001",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Modalità cooperativa attivata: {TAVOLO_A} e {TAVOLO_B} giocano in squadra. Che bello il multigiocatore. Finché dura.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_TRAD_001",
+      "scene": "TRADIMENTO",
+      "tone": "TEATRALE",
+      "duration": "6-8 SECONDI",
+      "text": "Tradimento! Amicizia disconnessa. Mi spiace per {TAVOLO_B}: il vostro alleato ha cambiato server.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_TRAD_002",
+      "scene": "TRADIMENTO",
+      "tone": "TECNICO",
+      "duration": "7-9 SECONDI",
+      "text": "Alleanza corrotta: file danneggiato, impossibile ripristinare. Si chiama tradimento, e io l'avevo visto arrivare dal primo fotogramma.",
+      "vars": []
+    },
+    {
+      "id": "PX_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff riuscito! Avete mostrato una schermata falsa e ci hanno creduto tutti. Livello di furbizia: leggendario.",
+      "vars": []
+    },
+    {
+      "id": "PX_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "BEFFARDO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff scoperto! Il trucco si vedeva, ragazzi. Si vedevano proprio i pixel.",
+      "vars": []
+    },
+    {
+      "id": "PX_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESALTATO",
+      "duration": "9-11 SECONDI",
+      "text": "ALLARME CAOS! ALLARME CAOS! Il bottone l'ha premuto {TAVOLO_A}, e la sfida è contro {TAVOLO_B}. Questo è il mio momento preferito!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ELETTRIZZATO",
+      "duration": "8-10 SECONDI",
+      "text": "Il Bottone del Caos è stato premuto! Sistemi in tilt, luci impazzite e due mascotte pronte a sfidarsi. Che spettacolo.",
+      "vars": []
+    },
+    {
+      "id": "PX_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "PRECISO",
+      "duration": "8-10 SECONDI",
+      "text": "Bottone del Caos attivato! Ricordate: una sola volta a serata per tavolo. Niente secondi tentativi, niente trucchi. Solo caos, quello buono.",
+      "vars": []
+    },
+    {
+      "id": "PX_CAOS_004",
+      "scene": "BOTTONE_CAOS",
+      "tone": "GODURIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Caos ufficialmente scatenato. Quarantacinque secondi, prova identica per tutti e due, cinquanta punti al vincitore. Io intanto mi diverto da matti.",
+      "vars": []
+    },
+    {
+      "id": "PX_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENTUSIASTA",
+      "duration": "8-10 SECONDI",
+      "text": "Livello due sbloccato per {MASCOTTE_A}! L'Energia Caos ha fatto il suo lavoro: nuovi effetti, nuova grinta, nuovo stile.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PX_EVO2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "TECNICO",
+      "duration": "6-8 SECONDI",
+      "text": "Aggiornamento disponibile per {MASCOTTE_A}: versione Potenziata installata. Non serve riavviare, serve solo continuare a giocare.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PX_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "COMMOSSO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello Leggendario! {MASCOTTE_A} ha raggiunto la forma finale. Sono commossa, e io sono fatta di pixel.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PX_EVO3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "FIERO",
+      "duration": "6-8 SECONDI",
+      "text": "Forma Leggendaria per {MASCOTTE_A}! Lo so, l'evoluzione non dà punti. Ma la soddisfazione è enorme.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PX_SUSP_001",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Elaborazione del risultato in corso. Barra al novantanove per cento: il punto più crudele di ogni caricamento.",
+      "vars": []
+    },
+    {
+      "id": "PX_SUSP_002",
+      "scene": "SUSPENSE",
+      "tone": "BIRICHINO",
+      "duration": "7-9 SECONDI",
+      "text": "Il risultato è pronto, ma lo tengo in memoria ancora un attimo. Mi piace vedervi sulle spine.",
+      "vars": []
+    },
+    {
+      "id": "PX_BATT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ho analizzato {TAVOLO_A}: tanta grinta, buone idee, e una gestione del tempo da tutorial saltato.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_BATT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "BEFFARDO",
+      "duration": "8-10 SECONDI",
+      "text": "Con {TAVOLO_B} ho un dubbio: avete selezionato la modalità facile e nessuno vi ha avvisato che non esiste?",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_PROV_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Piccolo promemoria per tutti i tavoli: io vedo i punteggi in tempo reale. Alcuni di voi dovrebbero chiedere un aggiornamento.",
+      "vars": []
+    },
+    {
+      "id": "PX_PROV_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PUNGENTE",
+      "duration": "5-7 SECONDI",
+      "text": "Domanda tecnica per {TAVOLO_A}: avete attivato il risparmio energetico anche sulle idee?",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_PROV_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Questa classifica ha bisogno di una patch di bilanciamento. Oppure qualcuno di voi deve semplicemente giocare meglio.",
+      "vars": []
+    },
+    {
+      "id": "PX_SORPR_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SCIOCCATO",
+      "duration": "5-7 SECONDI",
+      "text": "Errore quattrocentoquattro: logica non trovata. Questo risultato non era nei miei calcoli!",
+      "vars": []
+    },
+    {
+      "id": "PX_SORPR_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULO",
+      "duration": "5-7 SECONDI",
+      "text": "Ma cosa è appena successo? Ho dovuto ricaricare la pagina per crederci.",
+      "vars": []
+    },
+    {
+      "id": "PX_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "7-9 SECONDI",
+      "text": "Pausa! Gioco sospeso, salvataggio in corso. Andate a ricaricare le batterie: le vostre e quelle dei telefoni.",
+      "vars": []
+    },
+    {
+      "id": "PX_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "FRIZZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ripresa della partita! Salvataggio caricato correttamente. Spero che in pausa abbiate aggiornato anche le strategie.",
+      "vars": []
+    },
+    {
+      "id": "PX_ULTMAN_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimo livello: TUTTO O NIENTE! Qui c'è il boss finale, e il boss finale è la classifica.",
+      "vars": []
+    },
+    {
+      "id": "PX_PUNT_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "BIRICHINO",
+      "duration": "5-7 SECONDI",
+      "text": "Puntata rischiosa registrata! Alto rischio, alta ricompensa. Ma ricordate: io non faccio rimborsi.",
+      "vars": []
+    },
+    {
+      "id": "PX_FINALE_001",
+      "scene": "FINALE",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Siamo ai titoli di coda, gente. Ultimi calcoli, ultimi punti, ultimo caricamento della classifica.",
+      "vars": []
+    },
+    {
+      "id": "PX_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Premiazione in corso! Trofei sbloccati, e classifica finale salvata per sempre negli archivi della serata.",
+      "vars": []
+    },
+    {
+      "id": "PX_VITT_001",
+      "scene": "VITTORIA",
+      "tone": "ESULTANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Vittoria per {TAVOLO_A}! Partita completata al cento per cento. Titolo sbloccato: campioni della serata.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PX_VITT_002",
+      "scene": "VITTORIA",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Avete vinto! Missione compiuta, boss sconfitto, trofeo d'oro sbloccato. Io avrei aggiunto anche i fuochi d'artificio.",
+      "vars": []
+    },
+    {
+      "id": "PX_SCONF_001",
+      "scene": "SCONFITTA",
+      "tone": "INCORAGGIANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Partita persa per {TAVOLO_B}. La buona notizia è che ogni partita si può rigiocare: la prossima volta, nuovo tentativo.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PX_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "ECCITATO",
+      "duration": "7-9 SECONDI",
+      "text": "Pareggio! I due punteggi sono identici fino all'ultimo bit. Serve uno spareggio, e io non vedo l'ora.",
+      "vars": []
+    },
+    {
+      "id": "PX_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "AFFETTUOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Disconnessione in corso. Grazie a tutti i giocatori! PIXIE si spegne, ma resta negli schermi ad aspettarvi.",
+      "vars": []
+    },
+    {
+      "id": "PX_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "ELETTRIZZATO",
+      "duration": "5-7 SECONDI",
+      "text": "Il livello di Energia Caos in sala sta salendo. Lo sento nei cavi.",
+      "vars": []
+    },
+    {
+      "id": "PX_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "BEFFARDO",
+      "duration": "7-9 SECONDI",
+      "text": "Curiosità: ho contato quante volte qualcuno ha detto «era facile» dopo aver sbagliato. Il numero è imbarazzante.",
+      "vars": []
+    },
+    {
+      "id": "PX_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "SODDISFATTO",
+      "duration": "8-10 SECONDI",
+      "text": "Tutto funziona alla perfezione: connessioni stabili, timer sincronizzati e un sacco di tavoli che tramano. Il mio ambiente ideale.",
+      "vars": []
+    }
+  ]
+}

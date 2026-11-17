@@ -25,7 +25,7 @@ export function GameCard({ game, priority }: { game: GameEntry; priority?: boole
           )}
         />
       ) : game.cover.kind === "brand" ? (
-        <GiramenteCover />
+        game.cover.brand === "tig" ? <TigCover /> : <GiramenteCover />
       ) : (
         <div className="absolute inset-0 grid place-items-center overflow-hidden" style={{ backgroundColor: game.cover.color }}>
           <div className="qz-rays absolute -inset-1/2 opacity-70" />
@@ -79,6 +79,32 @@ function GiramenteCover() {
           GIRAMENTE<span className="text-[#39ff14]">!</span>
         </p>
         <p className="mx-auto mt-2 w-fit -rotate-2 rounded bg-white px-2 py-0.5 text-xs font-black italic text-black">La ruota gira. La mente decide.</p>
+      </div>
+    </div>
+  );
+}
+
+/** TAVOLI IN GUERRA!: copertina provvisoria in CSS (notte da pub, luci rosse e ambra, tavoli in prospettiva, titolo stencil). */
+export function TigCover({ large = false }: { large?: boolean }) {
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-[#06070c]">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,rgba(255,45,61,.55),transparent_55%),radial-gradient(ellipse_at_85%_0%,rgba(255,176,32,.5),transparent_55%),radial-gradient(ellipse_at_50%_110%,rgba(155,92,255,.45),transparent_60%)]" />
+      <div className="absolute inset-x-[-30%] bottom-[-8%] h-[55%] origin-bottom [transform:perspective(500px)_rotateX(60deg)] bg-[linear-gradient(rgba(255,176,32,.35)_1px,transparent_1px),linear-gradient(90deg,rgba(255,176,32,.35)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:linear-gradient(180deg,transparent,#000_40%)]" />
+      <div className="absolute inset-x-0 top-[44%] flex justify-center gap-[6%] transition duration-700 group-hover:-translate-y-1">
+        {["#ff3b4e", "#ffb020", "#38d9ff", "#b46cff"].map((c, i) => (
+          <span key={c} className="grid aspect-square w-[14%] place-items-center rounded-full border-[3px] bg-black/60 font-display text-[clamp(1rem,4vw,3.5rem)] leading-none" style={{ borderColor: c, boxShadow: `0 0 18px ${c}`, color: c }}>
+            {i + 1}
+          </span>
+        ))}
+      </div>
+      <div className={large ? "absolute inset-x-0 top-[10%] text-center" : "absolute inset-x-0 top-[12%] text-center"}>
+        <p className="-rotate-3 font-display uppercase leading-[0.85] text-[#fff4dc] [text-shadow:0_3px_0_#3a0a10,0_0_24px_rgba(255,176,32,.55)]">
+          <span className={large ? "block text-[2.2rem] md:text-5xl" : "block text-[1.7rem] md:text-3xl"}>Tavoli in</span>
+          <span className={large ? "block text-[3.6rem] text-[#ffb020] md:text-[5.5rem]" : "block text-[2.9rem] text-[#ffb020] md:text-[3.4rem]"}>
+            Guerra<span className="text-[#ff2d3d]">!</span>
+          </span>
+        </p>
+        <p className="mx-auto mt-3 w-fit rotate-1 rounded bg-[#ff2d3d] px-2 py-0.5 text-xs font-black uppercase tracking-wider text-white">Ogni tavolo è una squadra</p>
       </div>
     </div>
   );

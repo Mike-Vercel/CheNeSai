@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { TigCover } from "./cards";
 
 /**
  * HERO DELLA HOME a carosello: un gioco per schermata (CHE NE SAI?!, PSYCO, GIRAMENTE!…).
@@ -21,13 +22,16 @@ export interface HeroSlide {
   cover: { src: string; width: number; height: number };
   coverWide: string;
   /** colore del pulsante GIOCA e del bagliore */
-  accent: "gold" | "red" | "green";
+  accent: "gold" | "red" | "green" | "amber";
+  /** copertina disegnata in CSS al posto delle immagini (gioco senza copertina ufficiale) */
+  brand?: "tig";
 }
 
 const ACCENT = {
   gold: { vars: {}, btn: "bg-gold text-ink hover:bg-[#ffe066]", glow: "shadow-[0_30px_80px_-30px_rgba(131,43,255,0.55)]", dot: "bg-gold" },
   red: { vars: { "--cta-edge": "#7a0a10", "--cta-glow": "rgba(224,22,31,0.5)", "--cta-halo": "rgba(255,60,70,0.9)" }, btn: "bg-[#e0161f] text-white hover:bg-[#ff2a33]", glow: "shadow-[0_30px_80px_-30px_rgba(224,22,31,0.6)]", dot: "bg-[#e0161f]" },
   green: { vars: { "--cta-edge": "#178a06", "--cta-glow": "rgba(57,255,20,0.45)", "--cta-halo": "rgba(120,255,90,0.9)" }, btn: "bg-[#39ff14] text-[#06210a] hover:bg-[#7dff63]", glow: "shadow-[0_30px_80px_-30px_rgba(57,255,20,0.5)]", dot: "bg-[#39ff14]" },
+  amber: { vars: { "--cta-edge": "#8a4b00", "--cta-glow": "rgba(255,176,32,0.5)", "--cta-halo": "rgba(255,209,92,0.9)" }, btn: "bg-[#ffb020] text-[#1d0a00] hover:bg-[#ffc54d]", glow: "shadow-[0_30px_80px_-30px_rgba(255,45,61,0.6)]", dot: "bg-[#ffb020]" },
 } as const;
 
 function PlayIcon({ className }: { className?: string }) {
@@ -105,7 +109,7 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
             >
               {/* PC: copertina larga a tutto schermo, sfumata nel nero */}
               <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
-                <Image src={s.coverWide} alt="" fill preload={i === 0} loading={i === 0 ? undefined : "lazy"} sizes="100vw" className="qz-hero-cover object-cover object-top" />
+                {s.brand === "tig" ? <TigCover large /> : <Image src={s.coverWide} alt="" fill preload={i === 0} loading={i === 0 ? undefined : "lazy"} sizes="100vw" className="qz-hero-cover object-cover object-top" />}
                 <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-black via-black/75 to-transparent" />
                 <div className="absolute inset-y-0 left-0 w-[12%] bg-gradient-to-r from-black/70 to-transparent" />
@@ -117,7 +121,7 @@ export function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
                   <span className="sr-only">{s.title}</span>
                   {/* telefono e tablet: copertina verticale al centro */}
                   <span className={clsx("qz-hero-logo relative mx-auto block w-[min(100%,24rem,calc(62svh*0.6667))] overflow-hidden rounded-3xl lg:hidden", a.glow)} style={{ aspectRatio: `${s.cover.width} / ${s.cover.height}` }}>
-                    <Image src={s.cover.src} alt="" fill preload={i === 0} loading={i === 0 ? undefined : "lazy"} sizes="(min-width: 1024px) 1px, (min-width: 768px) 24rem, 92vw" className="object-cover" />
+                    {s.brand === "tig" ? <TigCover large /> : <Image src={s.cover.src} alt="" fill preload={i === 0} loading={i === 0 ? undefined : "lazy"} sizes="(min-width: 1024px) 1px, (min-width: 768px) 24rem, 92vw" className="object-cover" />}
                     <span aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/60 to-transparent" />
                   </span>
                 </h2>

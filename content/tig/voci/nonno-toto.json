@@ -1,0 +1,763 @@
+{
+  "character": {
+    "id": "nonno-toto",
+    "name": "Nonno Totò",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, ANZIANA, ROCA, SORNIONA, CALDA, CADENZATA",
+    "personality": "PROPOSTA. La vecchia volpe dei tavoli da gioco: una vita di partite a carte nei bar di quartiere, legge le facce meglio di chiunque. Sornione, lento quando parla e velocissimo quando capisce. Ama il bluff, i patti tra tavoli e i proverbi, che però aggiusta a modo suo. Ironico e affettuoso, mai acido: punzecchia i tavoli come si fa con i nipoti al pranzo della domenica, poi fa l'occhiolino. Parla della propria esperienza, mai contro le generazioni.",
+    "role": "Ospite dello show: il saggio del bluff e della strategia. Commenta inganni, alleanze, tradimenti, puntate e momenti di suspense con il ritmo di chi ha già visto tutto; ideale in IL GRANDE INGANNO e TUTTO O NIENTE!.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipologia di voce (proposta)",
+      "ruolo nella serata (proposta)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "NT_APER_001",
+      "scene": "APERTURA",
+      "tone": "SORNIONE",
+      "duration": "10-12 SECONDI",
+      "text": "Buonasera, ragazzi. Sono Nonno Totò: una vita di partite a carte al bar, e non mi è mai sfuggita una faccia tosta. Stasera vi leggo tutti.",
+      "vars": []
+    },
+    {
+      "id": "NT_APER_002",
+      "scene": "APERTURA",
+      "tone": "SOLENNE",
+      "duration": "10-12 SECONDI",
+      "text": "Mettetevi comodi e tenete stretti i telefoni: stasera ogni tavolo è una squadra, e ogni squadra prima o poi tradisce qualcuno. È la vita, ragazzi.",
+      "vars": []
+    },
+    {
+      "id": "NT_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Benvenuti a tutti i tavoli. Vi guardo uno per uno e già so chi bluffa: quelli che sorridono troppo.",
+      "vars": []
+    },
+    {
+      "id": "NT_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "E un benvenuto speciale per {TAVOLO_A}: siete arrivati con l'aria tranquilla. È sempre l'aria tranquilla quella che frega gli altri.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "10-12 SECONDI",
+      "text": "Ecco {MASCOTTE_A}, la mascotte che accompagna {TAVOLO_A}. Noi al tavolo portavamo il mazzo di carte e un portafortuna: voi avete fatto un bell'aggiornamento.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_MANC_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CADENZATO",
+      "duration": "10-12 SECONDI",
+      "text": "Con la manche {MANCHE} si mischiano di nuovo le carte. Chi parte di fretta, ragazzi, di solito arriva prima, ma al posto sbagliato.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "NT_MANC_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "FILOSOFICO",
+      "duration": "7-9 SECONDI",
+      "text": "Nuova manche, nuovo giro di carte. La classifica di prima è un ricordo: bello, ma sempre un ricordo.",
+      "vars": []
+    },
+    {
+      "id": "NT_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "MALIZIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Adesso si gioca a {MINIGIOCO} e sembra facile: è proprio lì che vi aspetta.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "NT_MINI_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ESPERTO",
+      "duration": "8-10 SECONDI",
+      "text": "Arriva {MINIGIOCO} e io lo conosco bene: premia chi ragiona e punisce chi si fida della prima idea.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "NT_REGO_001",
+      "scene": "REGOLE",
+      "tone": "PACATO",
+      "duration": "11-13 SECONDI",
+      "text": "Le regole sono poche e chiare: una risposta per tavolo, la manda il capitano, e chi discute troppo finisce il tempo. Come quando si deve dividere il conto.",
+      "vars": []
+    },
+    {
+      "id": "NT_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "FERMO",
+      "duration": "4-6 SECONDI",
+      "text": "Tre, due, uno. Si gioca, e niente occhiate al tavolo accanto.",
+      "vars": []
+    },
+    {
+      "id": "NT_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Avete {SECONDI} secondi. Io in {SECONDI} secondi ho chiuso partite intere: voi almeno rispondete.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "NT_COUNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "CALMO",
+      "duration": "3-5 SECONDI",
+      "text": "Pronti? Respiro lungo, mano ferma, e via.",
+      "vars": []
+    },
+    {
+      "id": "NT_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi secondi. Chi ha un'idea la dica adesso, che il rimpianto dura molto di più.",
+      "vars": []
+    },
+    {
+      "id": "NT_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Tic tac, ragazzi. Il tempo è come la saracinesca del bar: scende anche se non avete finito.",
+      "vars": []
+    },
+    {
+      "id": "NT_ULTSEC_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "DECISO",
+      "duration": "4-6 SECONDI",
+      "text": "Capitano, decidi. Un'idea sbagliata vale poco, ma nessuna idea vale zero.",
+      "vars": []
+    },
+    {
+      "id": "NT_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPIACIUTO",
+      "duration": "4-6 SECONDI",
+      "text": "Giusta. Lo sapevo dalla faccia del capitano: troppo serio per sbagliare.",
+      "vars": []
+    },
+    {
+      "id": "NT_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "AFFETTUOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Risposta esatta per {TAVOLO_A}. Piano piano, come piace a me, ma ci siete arrivati.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_GIUSTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "AMMIRATO",
+      "duration": "4-6 SECONDI",
+      "text": "Risposta corretta, e senza nemmeno sudare. Questa si chiama classe, ragazzi.",
+      "vars": []
+    },
+    {
+      "id": "NT_ERRATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "BONARIO",
+      "duration": "7-9 SECONDI",
+      "text": "Sbagliata. Non vi preoccupate, anche io una volta ho calato l'asso al momento sbagliato. Una volta sola, però.",
+      "vars": []
+    },
+    {
+      "id": "NT_ERRATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Niente da fare per {TAVOLO_A}. Eravate convinti, e la convinzione è un'ottima cosa, quando arriva insieme alla risposta giusta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_ERRATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta sbagliata. Succede, ma vi prego: almeno fate finta che fosse un bluff.",
+      "vars": []
+    },
+    {
+      "id": "NT_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Tempo scaduto. Chi non ha risposto ha comunque mantenuto un certo mistero.",
+      "vars": []
+    },
+    {
+      "id": "NT_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "PERENTORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Fine del tempo, giù le carte. Quello che avete in mano adesso, quello resta.",
+      "vars": []
+    },
+    {
+      "id": "NT_VANT_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AMMONITORE",
+      "duration": "9-11 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}, con {PUNTI} punti. Bravi, ma guardatevi le spalle: chi sta davanti è il bersaglio più comodo.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NT_VANT_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SORNIONE",
+      "duration": "9-11 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}. Godetevelo, ma con calma: il primo posto è come una sedia libera in un locale pieno, dura pochissimo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_VANT_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Chi comanda adesso è {TAVOLO_A}. Io al vostro posto non sorriderei troppo: gli altri stanno prendendo appunti.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Non vi abbattete: le partite migliori le ho vinte con le carte peggiori in mano.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "STRATEGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Stare in fondo come {TAVOLO_A} ha un vantaggio: nessuno vi guarda. E chi non è guardato colpisce meglio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_ULTIMI_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "FILOSOFICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi per ora. E «per ora», ragazzi, è la parte più importante della frase.",
+      "vars": []
+    },
+    {
+      "id": "NT_RECUP_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENTUSIASTA",
+      "duration": "8-10 SECONDI",
+      "text": "Ma guarda chi si rivede: {TAVOLO_A}! Vi davano tutti per spacciati, e io zitto zitto avevo puntato su di voi.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_RECUP_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SODDISFATTO",
+      "duration": "7-9 SECONDI",
+      "text": "Guardate chi risale. {PUNTI} punti recuperati: questo è il giro di carte che cambia la serata.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NT_SORP_001",
+      "scene": "SORPASSO",
+      "tone": "SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Piano piano, {TAVOLO_A} supera {TAVOLO_B}. Senza mettere la freccia, come si faceva una volta.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_SORP_002",
+      "scene": "SORPASSO",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Brutte notizie per {TAVOLO_B}: vi hanno passato. E l'hanno fatto con un sorriso che io conosco benissimo.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_SORP_003",
+      "scene": "SORPASSO",
+      "tone": "COMPIACIUTO",
+      "duration": "8-10 SECONDI",
+      "text": "Occhio alla classifica: {TAVOLO_A} sale in posizione {POSIZIONE}. Chi li aveva sottovalutati adesso li guarda dal basso.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "NT_DUEL_001",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "10-12 SECONDI",
+      "text": "Si sfidano {TAVOLO_A} e {TAVOLO_B}, ragazzi. Come a briscola in coppia: conta chi tiene i nervi saldi, non chi sbatte le carte sul tavolo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_DUEL_002",
+      "scene": "DUELLO",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Faccia a faccia, ragazzi. Nei duelli io guardavo sempre le mani dell'avversario, e stasera ne vedo parecchie che tremano.",
+      "vars": []
+    },
+    {
+      "id": "NT_DUEL_003",
+      "scene": "DUELLO",
+      "tone": "GUSTOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Ecco il duello: {TAVOLO_A} contro {TAVOLO_B}. Due tavoli, una sola gloria, e io in prima fila a godermela.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_SABO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio contro {TAVOLO_B}. Niente di personale, è solo strategia: così dicono sempre quelli che sabotano.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_SABO_002",
+      "scene": "SABOTAGGIO",
+      "tone": "ESPERTO",
+      "duration": "6-8 SECONDI",
+      "text": "Qualcuno ha piazzato una trappola, e guarda caso è {TAVOLO_A}. Mossa vecchia, ma funziona sempre.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "AMMIRATO",
+      "duration": "8-10 SECONDI",
+      "text": "Che furto: {TAVOLO_A} si porta via {PUNTI} punti. Con destrezza, devo dire: io stesso non avrei fatto meglio.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NT_FURTO_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "PREMUROSO",
+      "duration": "9-11 SECONDI",
+      "text": "Che sgarbo per {TAVOLO_B}: vi hanno alleggerito di {PUNTI} punti. Da adesso, una mano sulle carte e l'altra sulla classifica.",
+      "vars": [
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NT_ALLE_001",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Bello vedere due tavoli che si stringono la mano: adesso vediamo chi la ritira per primo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_ALLE_002",
+      "scene": "ALLEANZA",
+      "tone": "NOSTALGICO",
+      "duration": "11-13 SECONDI",
+      "text": "Un patto, ragazzi. Al bar i patti si facevano con una stretta di mano e duravano fino alla partita dopo. Voi cercate di arrivare almeno alla prossima domanda.",
+      "vars": []
+    },
+    {
+      "id": "NT_TRAD_001",
+      "scene": "TRADIMENTO",
+      "tone": "TEATRALE",
+      "duration": "10-12 SECONDI",
+      "text": "Tradimento: {TAVOLO_A} pianta in asso {TAVOLO_B}. In una vita di partite a carte ne ho visti tanti, ma questo me lo segno sul taccuino.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_TRAD_002",
+      "scene": "TRADIMENTO",
+      "tone": "SAGGIO",
+      "duration": "10-12 SECONDI",
+      "text": "Mi dispiace per {TAVOLO_B}, ma ve l'avevo detto: chi ti promette troppo al primo giro, al secondo ti frega. Proverbio mio, ma vale.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "COMMOSSO",
+      "duration": "10-12 SECONDI",
+      "text": "Bluff riuscito per {TAVOLO_A}! Avete una faccia di bronzo che mi commuove. Uno di questi giorni venite a giocare a carte con me.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_BLUFFOK_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "ESPERTO",
+      "duration": "8-10 SECONDI",
+      "text": "Ci sono cascati tutti. Questo, ragazzi, è il bluff come si deve: senza fretta, senza esagerare, guardando dritto negli occhi.",
+      "vars": []
+    },
+    {
+      "id": "NT_BLUFFOK_003",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "NOSTALGICO",
+      "duration": "10-12 SECONDI",
+      "text": "Ai miei tempi il bluff si faceva guardando l'avversario negli occhi. Voi lo fate con un telefono, ma la faccia tosta è la stessa. Bravi.",
+      "vars": []
+    },
+    {
+      "id": "NT_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "BONARIO",
+      "duration": "10-12 SECONDI",
+      "text": "Bluff scoperto, e si vedeva da lontano: vi si leggeva in faccia. Il segreto è non pensarci troppo, perché chi ci pensa si tradisce.",
+      "vars": []
+    },
+    {
+      "id": "NT_BLUFFKO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Beccati: {TAVOLO_B} vi ha letti come il giornale del mattino. Succede ai migliori, ma ai migliori succede meno spesso.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "AGITATO",
+      "duration": "11-13 SECONDI",
+      "text": "ALLARME CAOS! Qualcuno ha perso la pazienza: è {TAVOLO_A}, e ce l'ha con {TAVOLO_B}. In vita mia ho visto litigare per molto meno di cinquanta punti.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SENTENZIOSO",
+      "duration": "9-11 SECONDI",
+      "text": "Il Bottone del Caos, ragazzi. Si usa una volta sola a serata, come le scuse buone. Speriamo l'abbiate usato al momento giusto.",
+      "vars": []
+    },
+    {
+      "id": "NT_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "COMPIACIUTO",
+      "duration": "7-9 SECONDI",
+      "text": "Guardate {MASCOTTE_A}: livello due. L'Energia Caos fa bene a tutti, pure a chi ancora non sta vincendo.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NT_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Livello Leggendario per {MASCOTTE_A}! Io per diventare una leggenda del bar ci ho messo una vita, voi una serata. Che ingiustizia.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NT_SUSP_001",
+      "scene": "SUSPENSE",
+      "tone": "LENTO",
+      "duration": "6-8 SECONDI",
+      "text": "Aspettate. Prima di girare la carta, lasciatemi godere il silenzio. È la parte più bella.",
+      "vars": []
+    },
+    {
+      "id": "NT_SUSP_002",
+      "scene": "SUSPENSE",
+      "tone": "SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Il risultato c'è già, e lo conosco solo io. E non ho nessuna fretta di dirvelo.",
+      "vars": []
+    },
+    {
+      "id": "NT_SUSP_003",
+      "scene": "SUSPENSE",
+      "tone": "MALIZIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Silenzio, ragazzi. In questo momento qualcuno sta per essere molto felice, e qualcun altro sta per dare la colpa al Wi-Fi.",
+      "vars": []
+    },
+    {
+      "id": "NT_BATT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Ho guardato {TAVOLO_A} per tutta la manche: discutete tanto e decidete poco, come una chat di gruppo che deve scegliere la pizzeria.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_BATT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Con {TAVOLO_B} giocherei volentieri a carte: si capisce sempre quello che hanno in mano.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_PROV_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "10-12 SECONDI",
+      "text": "Dico solo una cosa a chi sta in testa: il tavolo che vi sta dietro sta prendendo appunti. E io gli presto la penna.",
+      "vars": []
+    },
+    {
+      "id": "NT_PROV_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PUNGENTE",
+      "duration": "9-11 SECONDI",
+      "text": "C'è chi gioca per vincere e chi gioca per raccontarlo. Io guardo {TAVOLO_B} e mi chiedo a che capitolo siete arrivati.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_PROV_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SENTENZIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Chi va piano va sano e va lontano, si diceva. Stasera chi va piano arriva ultimo. Aggiornate i proverbi, ragazzi.",
+      "vars": []
+    },
+    {
+      "id": "NT_SORPR_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "STUPITO",
+      "duration": "9-11 SECONDI",
+      "text": "Ragazzi, mi avete spiazzato. E a me ne sono capitate di ogni, compreso uno che vinceva a briscola senza conoscere le regole.",
+      "vars": []
+    },
+    {
+      "id": "NT_SORPR_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULO",
+      "duration": "7-9 SECONDI",
+      "text": "Mamma mia. Una cosa così l'ho vista due volte in vita mia, e una delle due ero io.",
+      "vars": []
+    },
+    {
+      "id": "NT_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "COMPLICE",
+      "duration": "10-12 SECONDI",
+      "text": "Pausa, ragazzi. Alzatevi, sgranchitevi le gambe, ordinate qualcosa e parlate di strategia. Ma a bassa voce: i muri hanno le orecchie, e i tavoli pure.",
+      "vars": []
+    },
+    {
+      "id": "NT_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "MALIZIOSO",
+      "duration": "10-12 SECONDI",
+      "text": "Bentornati. Spero abbiate parlato di strategia e non solo del vostro ex. Adesso si torna a giocare, e si vede chi sa mentire bene.",
+      "vars": []
+    },
+    {
+      "id": "NT_ULTMAN_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Eccoci a TUTTO O NIENTE! L'ultima manche è come l'ultima mano della notte: si gioca tutto, anche la faccia.",
+      "vars": []
+    },
+    {
+      "id": "NT_PUNT_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Puntata grossa per {TAVOLO_A}. O siete dei geni o siete dei sognatori: fra poco scopriamo quale dei due.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_PUNT_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ESPERTO",
+      "duration": "9-11 SECONDI",
+      "text": "Rischiare è bello, ma rischiare bene è un'arte. Lo dice uno che ha giocato una partita intera su un tre di bastoni.",
+      "vars": []
+    },
+    {
+      "id": "NT_FINALE_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Siamo alla fine, ragazzi. Giù le carte: scopriamo chi aveva il gioco buono e chi solo il sorriso giusto.",
+      "vars": []
+    },
+    {
+      "id": "NT_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "CALOROSO",
+      "duration": "7-9 SECONDI",
+      "text": "Si premia, finalmente. E io, che sono vecchio del mestiere, applaudo tutti: anche chi ha perso con stile.",
+      "vars": []
+    },
+    {
+      "id": "NT_VITT_001",
+      "scene": "VITTORIA",
+      "tone": "FIERO",
+      "duration": "7-9 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Bravi, ragazzi: testa, pazienza e quel pizzico di sfacciataggine che non guasta mai.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NT_VITT_002",
+      "scene": "VITTORIA",
+      "tone": "AFFETTUOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Vittoria meritata. Io una partita così la racconterei al bar per vent'anni. Voi raccontatela almeno per una settimana.",
+      "vars": []
+    },
+    {
+      "id": "NT_SCONF_001",
+      "scene": "SCONFITTA",
+      "tone": "PATERNO",
+      "duration": "11-13 SECONDI",
+      "text": "Stasera non è andata per {TAVOLO_B}. Ma vi dico una cosa che ho imparato in tanti anni di carte: chi perde oggi, la prossima volta gioca meglio.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NT_SCONF_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Perdere fa parte del gioco. L'importante è uscire dal locale a testa alta e con una scusa già pronta.",
+      "vars": []
+    },
+    {
+      "id": "NT_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "DIVERTITO",
+      "duration": "10-12 SECONDI",
+      "text": "Pareggio! Due tavoli, stessi punti. Al bar avremmo fatto un'altra mano: qui c'è lo spareggio, che è la stessa cosa ma con il cronometro.",
+      "vars": []
+    },
+    {
+      "id": "NT_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALDO",
+      "duration": "9-11 SECONDI",
+      "text": "Buonanotte, ragazzi. Tornate a casa con prudenza, e la prossima volta riportate quelle facce da poker. Il vostro Nonno Totò vi aspetta.",
+      "vars": []
+    },
+    {
+      "id": "NT_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "SODDISFATTO",
+      "duration": "8-10 SECONDI",
+      "text": "Mi piace questo locale. C'è la tensione giusta, il rumore giusto, e almeno tre tavoli che stanno tramando qualcosa.",
+      "vars": []
+    },
+    {
+      "id": "NT_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "SORNIONE",
+      "duration": "7-9 SECONDI",
+      "text": "Sapete qual è il segreto per vincere? Non ve lo dico. Il segreto vero è proprio questo.",
+      "vars": []
+    },
+    {
+      "id": "NT_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Guardatevi intorno: ogni tavolo che sorride sta nascondendo qualcosa. Ogni tavolo serio sta nascondendo qualcosa di peggio.",
+      "vars": []
+    },
+    {
+      "id": "NT_ATMO_004",
+      "scene": "ATMOSFERA",
+      "tone": "RILASSATO",
+      "duration": "10-12 SECONDI",
+      "text": "Da quando ho smesso di giocare, il divertimento migliore è guardare gli altri che si complicano la vita. Grazie, ragazzi, stasera mi state viziando.",
+      "vars": []
+    }
+  ]
+}

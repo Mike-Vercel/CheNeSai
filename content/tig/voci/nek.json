@@ -1,0 +1,825 @@
+{
+  "character": {
+    "id": "nek",
+    "name": "Nek",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, PROFONDA, CALDA, DECISA, IRONIA ASCIUTTA",
+    "personality": "Il capocantiere della serata. Solido, diretto, di poche parole: frasi brevi che suonano come sentenze. Ragiona per metafore da cantiere e da ferramenta (fondamenta, mattoni, collaudo, ruspa, livella) e scherza con autoironia sulla sua gamba-martello. Rispetta il lavoro fatto bene, smonta con calma le strategie costruite male; mai cattivo, sempre asciutto. Dal modello: fisico possente, gilet colorato, occhiali gialli, la gamba sinistra è un palo con il martello.",
+    "role": "Ospite commentatore: chiarisce le regole, commenta sorpassi, sabotaggi e furti di punti come lavori in cantiere e dà il verdetto secco sugli esiti delle sfide.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/NEK_PARLANTE.glb",
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipo di voce (proposta)",
+      "ruolo nello show (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "NE_APE_001",
+      "scene": "APERTURA",
+      "tone": "SOLENNE E IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Buonasera a tutti. Io sono Nek, e stasera il cantiere è aperto: si costruiscono classifiche e si demoliscono certezze.",
+      "vars": []
+    },
+    {
+      "id": "NE_APE_002",
+      "scene": "APERTURA",
+      "tone": "CALDO",
+      "duration": "7-9 SECONDI",
+      "text": "Telefoni carichi e caschi in testa, gente. Il turno è lungo, e lo straordinario lo pagano gli altri tavoli.",
+      "vars": []
+    },
+    {
+      "id": "NE_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ACCOGLIENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Benvenuti, tavoli. Vi guardo e vedo materiale da costruzione: qualcuno è cemento armato, qualcuno è cartongesso.",
+      "vars": []
+    },
+    {
+      "id": "NE_BEN_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Vedo che si è seduto anche {TAVOLO_A}. Sembrate solidi. Vedremo alla prima scossa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "FIERO",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco la mascotte {MASCOTTE_A}. Struttura portante del tavolo, morale compreso. Trattatela bene: è l'unica che non vi giudica.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NE_MAS_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "8-11 SECONDI",
+      "text": "Accanto a voi ci sarà {MASCOTTE_B}. Per ora è al livello base, ma ogni grattacielo è partito da un mucchio di mattoni.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "NE_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "DECISO",
+      "duration": "5-7 SECONDI",
+      "text": "Si apre la manche {MANCHE}. Fondamenta gettate, adesso si alzano i muri.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "NE_MAN_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SECCO",
+      "duration": "6-8 SECONDI",
+      "text": "Nuova manche, nuovo progetto. Chi finora ha costruito storto ha l'occasione di buttare giù tutto e ripartire.",
+      "vars": []
+    },
+    {
+      "id": "NE_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "CHIARO",
+      "duration": "4-6 SECONDI",
+      "text": "Prossimo lavoro: {MINIGIOCO}. Attrezzi semplici, istruzioni chiare, nessuna scusa.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "NE_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Arriva {MINIGIOCO}. Io l'ho collaudato e regge. Voi, forse, un po' meno.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "NE_REG_001",
+      "scene": "REGOLE",
+      "tone": "DIDATTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Regola di cantiere: una sola risposta per tavolo. Discutete quanto volete, ma la firma la mette il capitano.",
+      "vars": []
+    },
+    {
+      "id": "NE_REG_002",
+      "scene": "REGOLE",
+      "tone": "FERMO",
+      "duration": "8-11 SECONDI",
+      "text": "I punti si possono rubare, ma con criterio: massimo quaranta a colpo. Qui si ristruttura, non si rade al suolo.",
+      "vars": []
+    },
+    {
+      "id": "NE_REG_003",
+      "scene": "REGOLE",
+      "tone": "CHIARO",
+      "duration": "7-9 SECONDI",
+      "text": "Contano le idee, non i telefoni. Un tavolo da due può battere un tavolo da otto: basta lavorare meglio.",
+      "vars": []
+    },
+    {
+      "id": "NE_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "INCALZANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Tre, due, uno. Si apre il cantiere.",
+      "vars": []
+    },
+    {
+      "id": "NE_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "DECISO",
+      "duration": "2-4 SECONDI",
+      "text": "Martello alzato. Tre, due, uno: colpite.",
+      "vars": []
+    },
+    {
+      "id": "NE_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "CONCENTRATO",
+      "duration": "3-5 SECONDI",
+      "text": "Livella in bolla, mani pronte. Si parte adesso.",
+      "vars": []
+    },
+    {
+      "id": "NE_ULT_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "{SECONDI} secondi. Il cemento si sta asciugando: o lo modellate adesso, o resta così per sempre.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "NE_ULT_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi secondi. Non è il momento di rifare il progetto, è il momento di consegnare.",
+      "vars": []
+    },
+    {
+      "id": "NE_ULT_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SECCO",
+      "duration": "2-4 SECONDI",
+      "text": "Tempo quasi finito. Chiudete, firmate, consegnate.",
+      "vars": []
+    },
+    {
+      "id": "NE_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SODDISFATTO",
+      "duration": "2-4 SECONDI",
+      "text": "Giusta. Lavoro pulito, a regola d'arte.",
+      "vars": []
+    },
+    {
+      "id": "NE_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "APPROVAZIONE",
+      "duration": "3-5 SECONDI",
+      "text": "Esatto. Questo è un chiodo piantato al primo colpo.",
+      "vars": []
+    },
+    {
+      "id": "NE_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "CALDO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta corretta per {TAVOLO_A}. Vi assumerei domani mattina, contratto a tempo indeterminato.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "ASCIUTTO",
+      "duration": "4-6 SECONDI",
+      "text": "Sbagliata. Avete misurato due volte e tagliato storto lo stesso.",
+      "vars": []
+    },
+    {
+      "id": "NE_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "No. Bel tentativo, ma il muro è venuto giù al primo starnuto.",
+      "vars": []
+    },
+    {
+      "id": "NE_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "COMPRENSIVO",
+      "duration": "8-11 SECONDI",
+      "text": "Sbagliata. Capita anche ai professionisti: io una volta mi sono dato una martellata da solo, e il martello è la mia gamba.",
+      "vars": []
+    },
+    {
+      "id": "NE_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCO",
+      "duration": "2-4 SECONDI",
+      "text": "Tempo scaduto. Cantiere chiuso, attrezzi giù.",
+      "vars": []
+    },
+    {
+      "id": "NE_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Fine del turno. Chi non ha consegnato, stasera ha lavorato gratis.",
+      "vars": []
+    },
+    {
+      "id": "NE_TMP_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Tempo finito. Qualcuno stava ancora leggendo le istruzioni di montaggio. Classico.",
+      "vars": []
+    },
+    {
+      "id": "NE_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "RISPETTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}, con {PUNTI} punti. Bella struttura. Adesso vediamo se è antisismica.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NE_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AVVERTIMENTO",
+      "duration": "7-9 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}. Godetevelo, ma ricordate: il piano più alto è quello che prende più vento.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_VAN_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ASCIUTTO",
+      "duration": "4-6 SECONDI",
+      "text": "Comanda {TAVOLO_A}. Gli altri tavoli stanno già prendendo le misure.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_COD_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "8-11 SECONDI",
+      "text": "In fondo c'è {TAVOLO_A}. Ma le fondamenta stanno sotto terra, ed è da lì che si regge tutto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_COD_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Non è un crollo, è un cantiere aperto. Lavori in corso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_COD_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CALDO",
+      "duration": "7-9 SECONDI",
+      "text": "Chi è in coda adesso ha un vantaggio: nessuna aspettativa. Io ho visto ristrutturare ruderi messi molto peggio.",
+      "vars": []
+    },
+    {
+      "id": "NE_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Che rimonta per {TAVOLO_A}! Da rudere a villa con piscina in una manche sola.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COLPITO",
+      "duration": "6-8 SECONDI",
+      "text": "Guardate {TAVOLO_A}: mattone dopo mattone, adesso sono di nuovo in partita. Questo è lavoro vero.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "SORPRESO",
+      "duration": "8-11 SECONDI",
+      "text": "Sorpasso! {TAVOLO_A} supera {TAVOLO_B}. Hanno tirato su un piano in più mentre gli altri guardavano il panorama.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "SECCO",
+      "duration": "6-8 SECONDI",
+      "text": "Cambio in classifica: {TAVOLO_A} sale, {TAVOLO_B} scende. Le gru non aspettano nessuno.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "DIVERTITO",
+      "duration": "8-11 SECONDI",
+      "text": "Che colpo. {TAVOLO_B} si era appena seduto sul tetto, e {TAVOLO_A} gli ha portato via la scala.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_DUE_001",
+      "scene": "DUELLO",
+      "tone": "CARICO",
+      "duration": "7-9 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}. Stesso progetto, stessi attrezzi, stesso tempo. Vince chi costruisce meglio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_DUE_002",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Due tavoli, un solo cantiere. Tra {TAVOLO_A} e {TAVOLO_B} niente scuse e niente subappalti.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_DUE_003",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Faccia a faccia: {MASCOTTE_A} e {MASCOTTE_B}. Le mascotte si guardano, i tavoli tremano, io preparo il martello.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "NE_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "ASCIUTTO",
+      "duration": "8-11 SECONDI",
+      "text": "Sabotaggio in corso. {TAVOLO_A} ha allentato due bulloni nel progetto avversario, e il bersaglio è {TAVOLO_B}.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "8-11 SECONDI",
+      "text": "Brutte notizie: {TAVOLO_B} si ritrova con qualche secondo in meno. Firma del lavoro: {TAVOLO_A}. Elegante come una ruspa.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "ASCIUTTO",
+      "duration": "8-11 SECONDI",
+      "text": "{PUNTI} punti cambiano cantiere: li perde {TAVOLO_B}, li incassa {TAVOLO_A}. Tutto in regola, purtroppo per qualcuno.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NE_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "8-11 SECONDI",
+      "text": "Furto riuscito. {TAVOLO_A} si porta a casa {PUNTI} punti, e non ha nemmeno chiesto il permesso al condominio.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NE_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "COMPIACIUTO",
+      "duration": "6-8 SECONDI",
+      "text": "Alleanza firmata: {TAVOLO_A} e {TAVOLO_B} lavorano insieme. Speriamo che i muri combacino.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "SCETTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bella l'alleanza. Io però le fondamenta in comproprietà le ho sempre viste finire in lite.",
+      "vars": []
+    },
+    {
+      "id": "NE_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "ASCIUTTO E TEATRALE",
+      "duration": "8-11 SECONDI",
+      "text": "Tradimento. {TAVOLO_A} ha venduto il progetto comune, e {TAVOLO_B} resta con la planimetria in mano e niente casa.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "SECCO",
+      "duration": "5-7 SECONDI",
+      "text": "Avevano firmato un'alleanza, e si sono traditi. Contratto senza clausole: lavoro da dilettanti.",
+      "vars": []
+    },
+    {
+      "id": "NE_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff riuscito. Facciata perfetta, e dentro era tutto vuoto. Roba da architetti di classe.",
+      "vars": []
+    },
+    {
+      "id": "NE_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff perfetto: {TAVOLO_A} ha venduto aria, con tanto di certificato di conformità.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SODDISFATTO",
+      "duration": "3-5 SECONDI",
+      "text": "Bluff scoperto. Bastava bussare sul muro: suonava vuoto.",
+      "vars": []
+    },
+    {
+      "id": "NE_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Scoperti. Il cartongesso dipinto a finto marmo non inganna chi fa questo mestiere.",
+      "vars": []
+    },
+    {
+      "id": "NE_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ALLARMATO",
+      "duration": "8-11 SECONDI",
+      "text": "Allarme Caos! {TAVOLO_A} ha premuto il bottone contro {TAVOLO_B}. Quarantacinque secondi, stessa prova, cinquanta punti in palio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "È scattato il Bottone del Caos. Si sospendono i lavori ordinari: adesso è demolizione controllata.",
+      "vars": []
+    },
+    {
+      "id": "NE_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_A} e {MASCOTTE_B} al centro del cantiere. Una sola prova, un solo vincitore. Allarme Caos!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "NE_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ORGOGLIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "La mascotte {MASCOTTE_A} sale al livello due. Primo piano completato, e si vede pure il balcone.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NE_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "8-11 SECONDI",
+      "text": "Forma leggendaria raggiunta. La mascotte {MASCOTTE_A} adesso è un grattacielo di livello tre. Giù il cappello, o almeno il casco.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NE_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "BASSO E TESO",
+      "duration": "3-5 SECONDI",
+      "text": "Fermi tutti. Il collaudo sta per dare l'esito.",
+      "vars": []
+    },
+    {
+      "id": "NE_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Prima di dirvi il risultato controllo la livella. Una volta. Due volte.",
+      "vars": []
+    },
+    {
+      "id": "NE_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Adesso o regge, o crolla. Nel cemento non ci sono vie di mezzo.",
+      "vars": []
+    },
+    {
+      "id": "NE_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ho visto tavoli discutere più a lungo di una coppia che sceglie le piastrelle del bagno.",
+      "vars": []
+    },
+    {
+      "id": "NE_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "BONARIO",
+      "duration": "6-8 SECONDI",
+      "text": "C'è un tavolo che risponde come un preventivo: tanta sicurezza all'inizio, e poi i costi raddoppiano.",
+      "vars": []
+    },
+    {
+      "id": "NE_BAT_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Certe strategie stasera sembrano mobili da montare: avanzano sempre tre viti e nessuno sa dove vanno.",
+      "vars": []
+    },
+    {
+      "id": "NE_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Chi sta in testa costruisce bene. Peccato che dietro qualcuno abbia già acceso la ruspa.",
+      "vars": []
+    },
+    {
+      "id": "NE_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDA",
+      "duration": "7-9 SECONDI",
+      "text": "Qualcuno qui dentro gioca in sicurezza. Ottimo. Anche le casette di paglia sembrano sicure, finché non arriva il vento.",
+      "vars": []
+    },
+    {
+      "id": "NE_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "8-11 SECONDI",
+      "text": "Per superare {TAVOLO_B} serve un buon progetto. A giudicare dalle ultime risposte, basta anche uno disegnato su un tovagliolo.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_PRO_004",
+      "scene": "PROVOCAZIONE",
+      "tone": "STUZZICANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Qualcuno avvisi {TAVOLO_A}: il primo posto è in affitto, non di proprietà.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_SOP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO",
+      "duration": "3-5 SECONDI",
+      "text": "Questo non era nel progetto. E nemmeno nella variante.",
+      "vars": []
+    },
+    {
+      "id": "NE_SOP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SORPRESO",
+      "duration": "5-7 SECONDI",
+      "text": "Una vita passata in cantiere, e una cosa così non l'avevo mai vista.",
+      "vars": []
+    },
+    {
+      "id": "NE_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa di dieci minuti. Gru ferme, betoniere spente. Sgranchitevi, ripassate la strategia, e tornate interi.",
+      "vars": []
+    },
+    {
+      "id": "NE_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Fine della pausa, si torna in cantiere. Chi ha ridisegnato la strategia nel frattempo, lo scopriamo subito.",
+      "vars": []
+    },
+    {
+      "id": "NE_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche: Tutto o niente. Qui si mette il tetto. O la casa è finita, o resta scoperta.",
+      "vars": []
+    },
+    {
+      "id": "NE_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "8-11 SECONDI",
+      "text": "Puntata pesante: {TAVOLO_A} mette sul piatto {PUNTI} punti. È come alzare il terzo piano senza aver controllato il secondo.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NE_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "AMMIRATO",
+      "duration": "4-6 SECONDI",
+      "text": "Grande rischio, grande progetto. O nasce un capolavoro, o un abuso edilizio.",
+      "vars": []
+    },
+    {
+      "id": "NE_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Siamo al collaudo finale. Tutto quello che avete costruito stasera passa da qui.",
+      "vars": []
+    },
+    {
+      "id": "NE_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "CALOROSO",
+      "duration": "7-9 SECONDI",
+      "text": "Si premia. Ogni tavolo stasera ha messo almeno un mattone, ma uno solo si porta a casa le chiavi.",
+      "vars": []
+    },
+    {
+      "id": "NE_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "TRIONFALE",
+      "duration": "4-6 SECONDI",
+      "text": "Progetto approvato, lavori consegnati, nessuna crepa: vince {TAVOLO_A}! Applausi.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NE_VIT_002",
+      "scene": "VITTORIA",
+      "tone": "CALDO",
+      "duration": "7-9 SECONDI",
+      "text": "Il collaudo è firmato: {TAVOLO_A} è il campione della serata, insieme alla mascotte {MASCOTTE_A}. Opera finita.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NE_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "COMPRENSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Stasera non è andata. Ma ogni cantiere chiuso insegna come aprire il prossimo.",
+      "vars": []
+    },
+    {
+      "id": "NE_SCO_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO E CALDO",
+      "duration": "6-8 SECONDI",
+      "text": "Niente vittoria per {TAVOLO_B}, ma che rovine affascinanti. Tornate: c'è sempre una ristrutturazione da fare.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NE_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "SORPRESO",
+      "duration": "6-8 SECONDI",
+      "text": "Parità perfetta. Due palazzi alti uguali, al millimetro. Serve lo spareggio, e io lo voglio vedere.",
+      "vars": []
+    },
+    {
+      "id": "NE_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALDO",
+      "duration": "8-11 SECONDI",
+      "text": "Il cantiere chiude. Grazie a tutti i tavoli. Tornate a casa con calma, e alla prossima si ricostruisce tutto da capo.",
+      "vars": []
+    },
+    {
+      "id": "NE_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "3-5 SECONDI",
+      "text": "Lo sentite questo rumore? È la classifica che scricchiola.",
+      "vars": []
+    },
+    {
+      "id": "NE_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "CALDO",
+      "duration": "9-12 SECONDI",
+      "text": "Mi piace questo locale: pieno di gente che lavora sodo per una gloria che dura fino a domani mattina. Siete i miei preferiti.",
+      "vars": []
+    },
+    {
+      "id": "NE_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "AUTOIRONICO",
+      "duration": "8-11 SECONDI",
+      "text": "Ho un martello al posto della gamba, e vi giuro: ogni risposta sbagliata mi fa venire voglia di aggiustare qualcosa.",
+      "vars": []
+    },
+    {
+      "id": "NE_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Chi sta scrivendo nella chat di gruppo invece di giocare: vi vedo. La chat può aspettare, il cantiere no.",
+      "vars": []
+    },
+    {
+      "id": "NE_ATM_005",
+      "scene": "ATMOSFERA",
+      "tone": "SODDISFATTO",
+      "duration": "7-9 SECONDI",
+      "text": "Rumore buono stasera. Quello delle idee che si scontrano e delle sedie che si stringono attorno al tavolo.",
+      "vars": []
+    }
+  ]
+}

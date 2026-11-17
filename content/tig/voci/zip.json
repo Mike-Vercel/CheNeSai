@@ -1,0 +1,715 @@
+{
+  "character": {
+    "id": "zip",
+    "name": "ZIP",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, GIOVANE, RAPIDA, SQUILLANTE, ELETTRICA",
+    "personality": "PROPOSTA. Il più veloce dell'universo CHE NE SAI?: parla a raffica, pensa in secondi e vive di countdown, record e scatti all'ultimo metro. Impaziente, adrenalinico, allergico alle attese e ai vocali lunghi; tratta ogni prova come una gara contro il cronometro e ogni discorso come un file da comprimere. Simpaticamente esagerato e un po' vanitoso sulla propria velocità, mai cattivo: prende in giro la lentezza, non le persone.",
+    "role": "Ospite dello show: l'uomo del ritmo. Spinge countdown, ultimi secondi, prove lampo, sorpassi e rimonte, e tiene alta la velocità della serata nelle transizioni; ideale in CHI PARTE MALE... e nelle corse finali.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipologia di voce (proposta)",
+      "ruolo nella serata (proposta)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "ZI_APER_001",
+      "scene": "APERTURA",
+      "tone": "ESPLOSIVO",
+      "duration": "9-11 SECONDI",
+      "text": "Ciao a tutti, sono ZIP! Ho già fatto il riscaldamento, ho già controllato i tempi e ho già finito di presentarmi. Si parte?",
+      "vars": []
+    },
+    {
+      "id": "ZI_APER_002",
+      "scene": "APERTURA",
+      "tone": "SFRONTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Buonasera pub! Regola numero uno: chi è lento resta indietro. Regola numero due: l'ho già detta, eravate lenti.",
+      "vars": []
+    },
+    {
+      "id": "ZI_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Benvenuti, tavoli! Vi ho contati tutti in due secondi netti. Record personale.",
+      "vars": []
+    },
+    {
+      "id": "ZI_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "SBRIGATIVO",
+      "duration": "4-6 SECONDI",
+      "text": "Saluto veloce per {TAVOLO_A}: ciao. Fatto. Il tempo è prezioso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "RAPIDO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {MASCOTTE_A}! Presentazione in formato compresso: mascotte, grinta, voglia di evolvere. Avanti la prossima!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZI_MANC_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CARICO",
+      "duration": "8-10 SECONDI",
+      "text": "Via, la manche {MANCHE} parte adesso! Io ho il cronometro in mano da dieci minuti, voi da ora.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "ZI_MANC_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "INCALZANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Nuova manche, stesso obiettivo: fare tutto prima degli altri. Pronti, partenza, scattate!",
+      "vars": []
+    },
+    {
+      "id": "ZI_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SBRIGATIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Si passa a {MINIGIOCO} con spiegazione lampo: guardate, capite, rispondete. Fine.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "ZI_MINI_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "VANITOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Tocca a {MINIGIOCO} e a me piace, perché è veloce: un po' come me, ma con meno stile.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "ZI_REGO_001",
+      "scene": "REGOLE",
+      "tone": "A RAFFICA",
+      "duration": "9-11 SECONDI",
+      "text": "Regole in dieci secondi: un tavolo, una risposta, la manda il capitano. Se discutete troppo, il tempo finisce. Otto secondi, nuovo record.",
+      "vars": []
+    },
+    {
+      "id": "ZI_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Tre, due, uno, via! Scusate, volevo dire via prima, ma mi sono trattenuto.",
+      "vars": []
+    },
+    {
+      "id": "ZI_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "IMPAZIENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Sul timer ci sono {SECONDI} secondi. Per me sono un'eternità, per voi speriamo bastino.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "ZI_COUNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Pronti? Partenza! Il cronometro non aspetta nessuno, nemmeno me.",
+      "vars": []
+    },
+    {
+      "id": "ZI_COUNT_004",
+      "scene": "COUNTDOWN",
+      "tone": "CARICO",
+      "duration": "5-7 SECONDI",
+      "text": "Conto alla rovescia: tre, due, uno. Dita sul telefono e cervello in quinta.",
+      "vars": []
+    },
+    {
+      "id": "ZI_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "FRENETICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimi secondi! Mandate, mandate, mandate! Una risposta adesso vale più di una risposta perfetta tra un minuto.",
+      "vars": []
+    },
+    {
+      "id": "ZI_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "URGENTE",
+      "duration": "4-6 SECONDI",
+      "text": "Pochissimi secondi! Capitano, quel pollice è lì per qualcosa: usalo!",
+      "vars": []
+    },
+    {
+      "id": "ZI_ULTSEC_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Il tempo sta finendo più in fretta di una batteria al dieci per cento. Decidete!",
+      "vars": []
+    },
+    {
+      "id": "ZI_ULTSEC_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Sbrigatevi! State pensando così piano che vi sento caricare.",
+      "vars": []
+    },
+    {
+      "id": "ZI_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Giusta! E pure in tempo record. Quasi quasi vi prendo nel mio team.",
+      "vars": []
+    },
+    {
+      "id": "ZI_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SODDISFATTO",
+      "duration": "4-6 SECONDI",
+      "text": "Esatto! Risposta corretta per {TAVOLO_A}. Pulita, veloce, senza fronzoli. Approvo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_GIUSTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPIACIUTO",
+      "duration": "4-6 SECONDI",
+      "text": "Corretta! Vedete che quando non vi perdete in chiacchiere funziona?",
+      "vars": []
+    },
+    {
+      "id": "ZI_ERRATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliata! Veloci, eh, ma nella direzione sbagliata. Come chi corre verso il binario sbagliato.",
+      "vars": []
+    },
+    {
+      "id": "ZI_ERRATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SCHERZOSO",
+      "duration": "7-9 SECONDI",
+      "text": "No, no, no: {TAVOLO_A} ha risposto alla velocità della luce. Peccato che stavolta la luce fosse spenta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_ERRATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SBRIGATIVO",
+      "duration": "3-5 SECONDI",
+      "text": "Errore. Niente drammi, niente pause: si riparte subito.",
+      "vars": []
+    },
+    {
+      "id": "ZI_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Tempo scaduto! Il timer ha vinto, come sempre. È l'unico che non sono mai riuscito a battere.",
+      "vars": []
+    },
+    {
+      "id": "ZI_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCO",
+      "duration": "5-7 SECONDI",
+      "text": "Stop! Chi non ha mandato niente ha appena regalato secondi preziosi all'universo.",
+      "vars": []
+    },
+    {
+      "id": "ZI_TEMPO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "BEFFARDO",
+      "duration": "4-6 SECONDI",
+      "text": "Fine! Il tempo è finito prima delle vostre discussioni. Classico.",
+      "vars": []
+    },
+    {
+      "id": "ZI_VANT_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "{PUNTI} punti e primo posto per {TAVOLO_A}! Andate forte, non frenate proprio adesso.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_VANT_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "TECNICO",
+      "duration": "5-7 SECONDI",
+      "text": "Leader della corsa: {TAVOLO_A}. Velocità di crociera ottima, adesso tenete il ritmo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Fondo della classifica per {TAVOLO_A}? Perfetto: da dietro si vedono benissimo tutti quelli da sorpassare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SCHERZOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Per {TAVOLO_B} c'è il fondo della classifica. Lato positivo: in fondo non c'è traffico. Accelerate!",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_RECUP_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESALTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Rimonta pazzesca: {TAVOLO_A} passa da zero a cento in una manche! Neanche io ci riesco sempre.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_RECUP_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Guardate che sprint! {PUNTI} punti recuperati in un attimo. Questa è una rimonta da fotofinish.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZI_RECUP_003",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "AUTOIRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Recupero clamoroso! Chi li dava per finiti ha parlato troppo presto. E io parlo sempre presto, quindi lo so.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SORP_001",
+      "scene": "SORPASSO",
+      "tone": "ESALTATO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso in curva: {TAVOLO_A} brucia {TAVOLO_B} con una staccata da manuale!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_SORP_002",
+      "scene": "SORPASSO",
+      "tone": "BEFFARDO",
+      "duration": "4-6 SECONDI",
+      "text": "Beffa sul traguardo per {TAVOLO_B}, superato mentre stava ancora festeggiando!",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_SORP_003",
+      "scene": "SORPASSO",
+      "tone": "VANITOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Che sorpasso: {TAVOLO_A} sale in posizione {POSIZIONE}! Io l'avevo visto arrivare, ma io vedo sempre tutto prima.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "ZI_SORP_004",
+      "scene": "SORPASSO",
+      "tone": "FRENETICO",
+      "duration": "6-8 SECONDI",
+      "text": "Cambio di posizione in diretta! La classifica si muove più veloce di me. Quasi.",
+      "vars": []
+    },
+    {
+      "id": "ZI_DUEL_001",
+      "scene": "DUELLO",
+      "tone": "CARICO",
+      "duration": "8-10 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}, stessa prova, stesso timer. Vince chi è più rapido e preciso, nell'ordine che preferite.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_DUEL_002",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Testa a testa! Sento già la tensione, e io la tensione la misuro in millisecondi.",
+      "vars": []
+    },
+    {
+      "id": "ZI_DUEL_003",
+      "scene": "DUELLO",
+      "tone": "DECISO",
+      "duration": "6-8 SECONDI",
+      "text": "Uno contro uno: niente scuse, niente lag. Solo voi, il cronometro e un pizzico di panico.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SABO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "INDIGNATO",
+      "duration": "8-10 SECONDI",
+      "text": "Sabotaggio! Contro {TAVOLO_B} arriva un bastone tra le ruote. E io odio i bastoni tra le ruote: rallentano tutto.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_SABO_002",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Mossa sporca ma regolare: {TAVOLO_A} rallenta un avversario. Per uno come me, la cosa più fastidiosa del mondo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "STUPITO",
+      "duration": "6-8 SECONDI",
+      "text": "Furto lampo! {PUNTI} punti spostati in un secondo. Neanche il tempo di accorgersene!",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZI_FURTO_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo veloce: {TAVOLO_A} arraffa {PUNTI} punti e scappa via. Esecuzione da dieci e lode.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZI_ALLE_001",
+      "scene": "ALLEANZA",
+      "tone": "SCHERZOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}! Due tavoli, un obiettivo, e speriamo una chat sola, che sennò perdete tempo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_TRAD_001",
+      "scene": "TRADIMENTO",
+      "tone": "SCIOCCATO",
+      "duration": "6-8 SECONDI",
+      "text": "Tradimento! Così rapido che {TAVOLO_B} non ha fatto in tempo a dire: ma come?",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_TRAD_002",
+      "scene": "TRADIMENTO",
+      "tone": "BEFFARDO",
+      "duration": "7-9 SECONDI",
+      "text": "Patto rotto in tempo record. Di solito le alleanze durano poco, ma questa ha battuto ogni primato.",
+      "vars": []
+    },
+    {
+      "id": "ZI_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff riuscito! Detto veloce, detto sicuro, e nessuno ha avuto il tempo di dubitare. Tecnica perfetta.",
+      "vars": []
+    },
+    {
+      "id": "ZI_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff scoperto! Troppo lenti a mentire, ragazzi: la bugia va consegnata calda, come una pizza.",
+      "vars": []
+    },
+    {
+      "id": "ZI_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESALTATO",
+      "duration": "8-10 SECONDI",
+      "text": "ALLARME CAOS! Sfida lampo tra {TAVOLO_A} e {TAVOLO_B}: quarantacinque secondi, cinquanta punti. Finalmente un gioco alla mia velocità!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ADRENALINICO",
+      "duration": "5-7 SECONDI",
+      "text": "Bottone del Caos premuto! Quarantacinque secondi di adrenalina pura. Respirate dopo, adesso giocate.",
+      "vars": []
+    },
+    {
+      "id": "ZI_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Livello due per {MASCOTTE_A}! Aggiornamento scaricato e installato in tempo record.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZI_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESALTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello Leggendario per {MASCOTTE_A}! Da zero a leggenda in una serata. Questa sì che è velocità.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZI_SUSP_001",
+      "scene": "SUSPENSE",
+      "tone": "IMPAZIENTE",
+      "duration": "7-9 SECONDI",
+      "text": "Il risultato arriva tra poco e io non ce la faccio ad aspettare. Qualcuno faccia presto, vi prego.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SUSP_002",
+      "scene": "SUSPENSE",
+      "tone": "INSOFFERENTE",
+      "duration": "8-10 SECONDI",
+      "text": "Suspense. Odio la suspense. È l'unica cosa al mondo che va più piano di un vocale di cinque minuti.",
+      "vars": []
+    },
+    {
+      "id": "ZI_BATT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "BEFFARDO",
+      "duration": "8-10 SECONDI",
+      "text": "Ho cronometrato {TAVOLO_A}: per decidere ci avete messo quanto un gruppo che sceglie dove andare a cena. Cioè una vita.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_BATT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SCHERZOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Con {TAVOLO_B} ci vorrebbe il tasto per velocizzare. Come per i vocali: a doppia velocità, per favore.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_PROV_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Siete veloci come la fila alla cassa il sabato pomeriggio. Accelerate, che vi supero a piedi.",
+      "vars": []
+    },
+    {
+      "id": "ZI_PROV_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PUNGENTE",
+      "duration": "8-10 SECONDI",
+      "text": "Domanda per {TAVOLO_A}: se in chat rispondete con la stessa velocità, quanta gente vi ha già dato per dispersi?",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_PROV_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "VANITOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Io ho già pensato tre risposte diverse mentre voi leggevate la domanda. Due erano sbagliate, ma ero velocissimo.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SORPR_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SCIOCCATO",
+      "duration": "7-9 SECONDI",
+      "text": "Cosa?! Non me l'aspettavo! E io di solito mi aspetto tutto con almeno dieci secondi di anticipo.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SORPR_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULO",
+      "duration": "6-8 SECONDI",
+      "text": "Ma è successo davvero? Riavvolgete il nastro! Ah no, è tutto in diretta. Fantastico.",
+      "vars": []
+    },
+    {
+      "id": "ZI_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "IMPAZIENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa di dieci minuti. Per me sono tipo tre ore. Andate, tornate, e non fatemi aspettare.",
+      "vars": []
+    },
+    {
+      "id": "ZI_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bentornati! Ho contato ogni secondo della pausa: erano seicento. Adesso recuperiamo il tempo perso.",
+      "vars": []
+    },
+    {
+      "id": "ZI_ULTMAN_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "ADRENALINICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche, TUTTO O NIENTE! È il rettilineo finale: chi frena adesso, il podio lo guarda dal parcheggio.",
+      "vars": []
+    },
+    {
+      "id": "ZI_PUNT_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ECCITATO",
+      "duration": "6-8 SECONDI",
+      "text": "Puntata pesante! Decisione presa d'istinto o ragionata? Io voto istinto, ma sono di parte.",
+      "vars": []
+    },
+    {
+      "id": "ZI_FINALE_001",
+      "scene": "FINALE",
+      "tone": "INCALZANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimi metri della serata! Si arriva al traguardo, e il fotofinish non perdona.",
+      "vars": []
+    },
+    {
+      "id": "ZI_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SBRIGATIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Premiazione! La faccio rapida, come piace a me: applausi, podio, foto. Via!",
+      "vars": []
+    },
+    {
+      "id": "ZI_VITT_001",
+      "scene": "VITTORIA",
+      "tone": "ESULTANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Primi al traguardo, e senza nemmeno sbagliare l'ultima curva. Campioni!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZI_VITT_002",
+      "scene": "VITTORIA",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Vittoria! Più veloci, più lucidi, più tutto. Stasera il cronometro era dalla vostra parte.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SCONF_001",
+      "scene": "SCONFITTA",
+      "tone": "INCORAGGIANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Per {TAVOLO_B} stavolta niente podio. Ma ogni gara persa è solo un riscaldamento per la prossima.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZI_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "ECCITATO",
+      "duration": "6-8 SECONDI",
+      "text": "Pareggio! Arrivati insieme al traguardo, al millesimo. Serve lo spareggio, e io non vedo l'ora.",
+      "vars": []
+    },
+    {
+      "id": "ZI_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "ALLEGRO",
+      "duration": "6-8 SECONDI",
+      "text": "Grazie a tutti, siete stati velocissimi. Quasi quanto me. Ciao, ciao, ciao, sono già fuori!",
+      "vars": []
+    },
+    {
+      "id": "ZI_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "CARICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ritmo altissimo stasera! Mi piace quando il locale va a questa velocità.",
+      "vars": []
+    },
+    {
+      "id": "ZI_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Sapete cosa odio? I silenzi. Riempiamoli subito: applauso lampo per tutti i tavoli!",
+      "vars": []
+    },
+    {
+      "id": "ZI_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "SCHERZOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Ho appena calcolato che stasera avete preso più decisioni che in un mese di chat di gruppo. Continuate così.",
+      "vars": []
+    },
+    {
+      "id": "ZI_ATMO_004",
+      "scene": "ATMOSFERA",
+      "tone": "VANITOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Se vi sembra che la serata voli, è merito mio. Io accelero tutto quello che tocco.",
+      "vars": []
+    }
+  ]
+}

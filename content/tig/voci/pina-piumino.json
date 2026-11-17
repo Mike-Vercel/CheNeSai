@@ -1,0 +1,663 @@
+{
+  "character": {
+    "id": "pina-piumino",
+    "name": "Pina Piumino",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, ADULTA, MORBIDA, PACATA, DOLCE CON PUNTE TAGLIENTI",
+    "personality": "PROPOSTA. La regina del comfort: morbida e avvolgente, parla con la voce di chi ti offre una coperta e una tisana calda. Ama il divano, il pigiama e le serate tranquille, ma stasera è uscita e intende godersela. Dolcissima in superficie e spietata nei dettagli: consola chi sbaglia e chi è ultimo con frasi gentili che finiscono con una puntura precisa. Pigra per vocazione, ironica su se stessa. Il suo motto: con affetto, ma la verità. Chiama tutti «cari» e «dolcezze».",
+    "role": "Ospite dello show: la consolatrice ufficiale. Accompagna risposte sbagliate, tempi scaduti, ultimi posti, sconfitte, pause e rientri, e abbassa la tensione con ironia gentile prima della prossima tempesta.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipologia di voce (proposta)",
+      "ruolo nella serata (proposta)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "PP_APER_001",
+      "scene": "APERTURA",
+      "tone": "PACATO",
+      "duration": "10-12 SECONDI",
+      "text": "Buonasera, cari. Sono Pina Piumino. Di solito a quest'ora sono sotto la coperta con una serie tv, quindi questa serata deve valerne la pena. Mi raccomando.",
+      "vars": []
+    },
+    {
+      "id": "PP_APER_002",
+      "scene": "APERTURA",
+      "tone": "DOLCE",
+      "duration": "10-12 SECONDI",
+      "text": "Benvenuti, dolcezze. Mettetevi comodi, che io sono qui per coccolarvi. Poi, a fine serata, qualcuno lo coccolerò un po' di più, perché avrà perso.",
+      "vars": []
+    },
+    {
+      "id": "PP_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DOLCE",
+      "duration": "7-9 SECONDI",
+      "text": "Benvenuti a tutti i tavoli. Siete bellissimi così, carichi e pieni di speranza. Tenetevela stretta, la speranza.",
+      "vars": []
+    },
+    {
+      "id": "PP_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "INTENERITO",
+      "duration": "4-6 SECONDI",
+      "text": "Un abbraccio caldo per {TAVOLO_A}. Vi vedo motivati. Che tenerezza.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "AFFETTUOSO",
+      "duration": "10-12 SECONDI",
+      "text": "Che amore, {MASCOTTE_A}. Una mascotte così morbida che vorrei usarla come cuscino. Prima però deve aiutare il suo tavolo, che ne ha bisogno.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PP_MANC_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "PACATO",
+      "duration": "6-8 SECONDI",
+      "text": "La manche {MANCHE} sta per cominciare. Fate un bel respiro profondo. Ecco, bravi. Adesso preoccupatevi.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PP_MANC_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "DOLCE AMARO",
+      "duration": "7-9 SECONDI",
+      "text": "Nuova manche, cari. Vi auguro il meglio a tutti, anche se so già che non sarà possibile.",
+      "vars": []
+    },
+    {
+      "id": "PP_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Arriva {MINIGIOCO} e sembra morbido e innocuo, proprio come me. Non fidatevi, proprio come di me.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PP_REGO_001",
+      "scene": "REGOLE",
+      "tone": "PAZIENTE",
+      "duration": "11-13 SECONDI",
+      "text": "Le regole ve le dico piano piano, così le capiscono tutti: una risposta per tavolo, la manda il capitano, e chi litiga perde tempo. Visto? Nessun trauma.",
+      "vars": []
+    },
+    {
+      "id": "PP_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Tre, due, uno. Via, cari, senza agitarvi. Agitatevi dopo, se serve.",
+      "vars": []
+    },
+    {
+      "id": "PP_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Avete {SECONDI} secondi. Preziosi come gli ultimi minuti sotto le coperte prima della sveglia.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PP_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ultimi secondi, dolcezze. Non voglio mettervi ansia, ma il tempo sta per finire. Ecco, ora un po' d'ansia ce l'avete.",
+      "vars": []
+    },
+    {
+      "id": "PP_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Su, su, decidetevi. Anche una risposta a caso fa meno male di nessuna risposta.",
+      "vars": []
+    },
+    {
+      "id": "PP_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "FIERO",
+      "duration": "6-8 SECONDI",
+      "text": "Giusta! Bravissimi, cari. Sono così fiera di voi che quasi mi alzo dal divano.",
+      "vars": []
+    },
+    {
+      "id": "PP_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "PUNGENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Risposta esatta per {TAVOLO_A}. Visto che quando volete siete bravi? E allora volete più spesso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_ERRATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CONSOLANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Sbagliata, cari. Non fa niente, davvero. Cioè, qualcosa fa, perché i punti non arrivano. Ma vi voglio bene lo stesso.",
+      "vars": []
+    },
+    {
+      "id": "PP_ERRATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DOLCE AMARO",
+      "duration": "6-8 SECONDI",
+      "text": "Che peccato per {TAVOLO_A}: ci avete messo tutto il cuore. Serviva anche la testa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_ERRATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "AFFETTUOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta sbagliata. Vi mando una carezza virtuale. Una sola, che poi vi abituate.",
+      "vars": []
+    },
+    {
+      "id": "PP_ERRATA_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "No, dolcezze. Ma vedetela così: adesso conoscete una risposta sbagliata in più. È crescita personale.",
+      "vars": []
+    },
+    {
+      "id": "PP_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "CONSOLANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo scaduto. Non è colpa vostra, cari: è colpa del tempo, che scade. Che antipatico.",
+      "vars": []
+    },
+    {
+      "id": "PP_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "COMPRENSIVO",
+      "duration": "9-11 SECONDI",
+      "text": "Il tempo è finito. Chi non ha risposto si è preso un momento per sé. Lo capisco, lo rispetto, ma niente punti.",
+      "vars": []
+    },
+    {
+      "id": "PP_TEMPO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Fine del tempo, dolcezze. Mettiamo una copertina su questa domanda e non parliamone più.",
+      "vars": []
+    },
+    {
+      "id": "PP_VANT_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DOLCE AMARO",
+      "duration": "7-9 SECONDI",
+      "text": "Davanti a tutti, con {PUNTI} punti, c'è {TAVOLO_A}. Godetevi il calduccio del primo posto, finché dura.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_VANT_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}? Che bello. Solo un consiglio: non rilassatevi troppo, lo dico io che di relax me ne intendo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "AFFETTUOSO",
+      "duration": "10-12 SECONDI",
+      "text": "Per {TAVOLO_A} c'è l'ultimo posto, per ora. Venite qui, cari, che vi avvolgo in un piumino. E poi ripartite, che non c'è tempo da perdere.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CONSOLANTE",
+      "duration": "10-12 SECONDI",
+      "text": "In fondo alla classifica c'è {TAVOLO_B}. Ma sapete cosa c'è in fondo? Tanto spazio per salire. E un po' di silenzio, che non guasta.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_ULTIMI_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "PUNGENTE",
+      "duration": "8-10 SECONDI",
+      "text": "Un consiglio per {TAVOLO_A}: non pensate alla classifica. Davvero, non guardatela. Io al vostro posto non la guarderei.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_ULTIMI_004",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "PACATO",
+      "duration": "6-8 SECONDI",
+      "text": "Essere ultimi non è una tragedia. È solo un punto di partenza molto, molto comodo.",
+      "vars": []
+    },
+    {
+      "id": "PP_RECUP_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "INTENERITO",
+      "duration": "8-10 SECONDI",
+      "text": "Guardate {TAVOLO_A} che risale! Lo sapevo che sotto tutta quella confusione c'era del talento. Ben nascosto, ma c'era.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_RECUP_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMMOSSO",
+      "duration": "5-7 SECONDI",
+      "text": "{PUNTI} punti recuperati, che soddisfazione! Io mi commuovo per molto meno.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PP_SORP_001",
+      "scene": "SORPASSO",
+      "tone": "MALIZIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Con delicatezza ma senza pietà, {TAVOLO_A} supera {TAVOLO_B}. È il mio stile preferito.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_SORP_002",
+      "scene": "SORPASSO",
+      "tone": "DOLCE AMARO",
+      "duration": "8-10 SECONDI",
+      "text": "Brutto momento per {TAVOLO_B}: vi hanno appena superato. Non prendetela male, prendetela come uno stimolo. Uno stimolo bruciante.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_DUEL_001",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Duello tra {TAVOLO_A} e {TAVOLO_B}. Voglio bene a tutti e due, quindi tiferò per chi vince. È la soluzione più comoda.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_DUEL_002",
+      "scene": "DUELLO",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Faccia a faccia, cari. Niente rancori, eh. Solo una sana, morbida, educatissima voglia di superarvi a vicenda.",
+      "vars": []
+    },
+    {
+      "id": "PP_SABO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "FINTO DISPIACIUTO",
+      "duration": "6-8 SECONDI",
+      "text": "Un sabotaggio contro {TAVOLO_B}. Che dispiacere, davvero. Ma un pochino, lo ammetto, mi sono divertita.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Oh no, {PUNTI} punti sono appena spariti. Rubati con gentilezza, però: si vede che siete persone educate.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PP_ALLE_001",
+      "scene": "ALLEANZA",
+      "tone": "INTENERITO",
+      "duration": "8-10 SECONDI",
+      "text": "Un'alleanza tra {TAVOLO_A} e {TAVOLO_B}. Che dolci. Sembrate due coinquilini che si dividono la spesa. Per ora.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_ALLE_002",
+      "scene": "ALLEANZA",
+      "tone": "DOLCE AMARO",
+      "duration": "8-10 SECONDI",
+      "text": "Collaborare è bellissimo, cari. Basta ricordarsi che alla fine vince un tavolo solo. Ma non pensateci adesso: godetevi l'amicizia.",
+      "vars": []
+    },
+    {
+      "id": "PP_TRAD_001",
+      "scene": "TRADIMENTO",
+      "tone": "FINTO DISPIACIUTO",
+      "duration": "8-10 SECONDI",
+      "text": "Un tradimento, proprio adesso: {TAVOLO_A} ha voltato le spalle all'alleato. E io che vi avevo già preparato le coperte abbinate.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_TRAD_002",
+      "scene": "TRADIMENTO",
+      "tone": "CONSOLANTE",
+      "duration": "8-10 SECONDI",
+      "text": "C'è un abbraccio anche per {TAVOLO_B}. Essere traditi in diretta è brutto, ma ci si rialza. Con calma.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff riuscito. Con quella faccia d'angelo, chi poteva sospettare? Io no, e io sospetto di tutti.",
+      "vars": []
+    },
+    {
+      "id": "PP_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "AFFETTUOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff scoperto, cari. Non siete fatti per mentire, ed è una bellissima qualità. Ma non stasera.",
+      "vars": []
+    },
+    {
+      "id": "PP_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SCOCCIATO",
+      "duration": "10-12 SECONDI",
+      "text": "ALLARME CAOS! E proprio ora che mi stavo rilassando: {TAVOLO_A} contro {TAVOLO_B}. Va bene, quarantacinque secondi di follia, e poi torna la calma.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "IRONICO",
+      "duration": "10-12 SECONDI",
+      "text": "Il Bottone del Caos. Il mio peggior nemico, dopo la sveglia del lunedì. Coraggio a tutti e due i tavoli: in palio ci sono cinquanta punti.",
+      "vars": []
+    },
+    {
+      "id": "PP_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "FIERO",
+      "duration": "8-10 SECONDI",
+      "text": "Livello due per {MASCOTTE_A}! Che orgoglio. Sembra ieri che era al livello uno, e invece era un quarto d'ora fa.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PP_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "COMMOSSO",
+      "duration": "9-11 SECONDI",
+      "text": "Livello Leggendario per {MASCOTTE_A}. Mi viene da piangere. Di gioia, eh. E un po' d'invidia, perché io non mi evolvo da anni.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PP_SUSP_001",
+      "scene": "SUSPENSE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Aspettiamo un attimo il risultato. Respirate. Dentro, fuori. Ecco. Non serve a niente, ma fa bene.",
+      "vars": []
+    },
+    {
+      "id": "PP_SUSP_002",
+      "scene": "SUSPENSE",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Il risultato sta arrivando. Tenetevi per mano, se volete. Se avete tradito qualcuno, magari non quella persona.",
+      "vars": []
+    },
+    {
+      "id": "PP_BATT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DOLCE AMARO",
+      "duration": "6-8 SECONDI",
+      "text": "Io adoro {TAVOLO_A}. Davvero. Lì hanno un modo di sbagliare così sereno che mi rilassa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_BATT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "INTENERITO",
+      "duration": "10-12 SECONDI",
+      "text": "Per {TAVOLO_B} provo una tenerezza enorme. La stessa che provo per chi organizza la vacanza di gruppo e alla fine resta a casa.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_PROV_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PUNGENTE",
+      "duration": "10-12 SECONDI",
+      "text": "Lo dico con tutto l'affetto del mondo: se {TAVOLO_A} continua con questo ritmo, a fine serata vi rimbocco le coperte direttamente al tavolo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_PROV_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Cari tavoli in testa, vi voglio bene. Ma vi auguro, con dolcezza, un piccolo inciampo. Piccolino.",
+      "vars": []
+    },
+    {
+      "id": "PP_PROV_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "MALIZIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Non è per mettere zizzania, ma qualcuno qui sta giocando molto meglio di voi. Non dico chi. Però vi sta guardando.",
+      "vars": []
+    },
+    {
+      "id": "PP_SORPR_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SORPRESO",
+      "duration": "7-9 SECONDI",
+      "text": "Oddio. Questa non me l'aspettavo. Mi sono quasi alzata dalla poltrona, e vi assicuro che non succede mai.",
+      "vars": []
+    },
+    {
+      "id": "PP_SORPR_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "TEATRALE",
+      "duration": "5-7 SECONDI",
+      "text": "Ma no! Davvero? Fatemi sedere. Ah, sono già seduta. Allora fatemi sdraiare.",
+      "vars": []
+    },
+    {
+      "id": "PP_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "SOLLEVATO",
+      "duration": "9-11 SECONDI",
+      "text": "Pausa, cari. Dieci minuti di calma: sgranchitevi, ordinate qualcosa di caldo e coccolatevi un po'. Ve lo siete meritato. Più o meno.",
+      "vars": []
+    },
+    {
+      "id": "PP_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "6-8 SECONDI",
+      "text": "Finalmente un po' di pace. Io resto qui, comoda. Voi fate i bravi e tornate puntuali.",
+      "vars": []
+    },
+    {
+      "id": "PP_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "MALIZIOSO",
+      "duration": "9-11 SECONDI",
+      "text": "Bentornati, dolcezze. Spero che la pausa vi abbia rigenerato, perché adesso si ricomincia e non sarò più così gentile. Scherzo. Un po'.",
+      "vars": []
+    },
+    {
+      "id": "PP_RIENTRO_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "DOLCE AMARO",
+      "duration": "6-8 SECONDI",
+      "text": "Eccovi qua, tutti di nuovo ai tavoli. Rilassati, riposati. Peccato, perché adesso si fa sul serio.",
+      "vars": []
+    },
+    {
+      "id": "PP_ULTMAN_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ultima manche, cari: TUTTO O NIENTE! Io di solito scelgo niente, che è più comodo. Voi però provate a scegliere tutto.",
+      "vars": []
+    },
+    {
+      "id": "PP_PUNT_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Che puntata coraggiosa per {TAVOLO_A}. Io non rischio nemmeno a cambiare gusto di tisana.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_FINALE_001",
+      "scene": "FINALE",
+      "tone": "STANCO",
+      "duration": "6-8 SECONDI",
+      "text": "Siamo arrivati alla fine, cari. Che serata intensa. Io sono stanchissima, e non ho fatto niente.",
+      "vars": []
+    },
+    {
+      "id": "PP_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "CALOROSO",
+      "duration": "7-9 SECONDI",
+      "text": "Premiazione! Applausi per chi ha vinto, e una coperta e una pacca sulla spalla per tutti gli altri.",
+      "vars": []
+    },
+    {
+      "id": "PP_VITT_001",
+      "scene": "VITTORIA",
+      "tone": "FIERO",
+      "duration": "8-10 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Bravissimi, cari. Siete stati così bravi che vi perdono anche le cattiverie fatte agli altri tavoli.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PP_SCONF_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Non è andata bene per {TAVOLO_B}. Però è stata una bella serata, no? Dite di sì, che mi fa piacere.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PP_SCONF_002",
+      "scene": "SCONFITTA",
+      "tone": "DOLCE AMARO",
+      "duration": "8-10 SECONDI",
+      "text": "Sconfitta, cari. Andate a casa, fatevi una bella dormita, e domani ricordatevi solo le parti belle. Se le trovate.",
+      "vars": []
+    },
+    {
+      "id": "PP_SCONF_003",
+      "scene": "SCONFITTA",
+      "tone": "FILOSOFICO",
+      "duration": "10-12 SECONDI",
+      "text": "Perdere non è la fine del mondo. È solo la fine della serata. Che, in effetti, per stasera è un po' la stessa cosa.",
+      "vars": []
+    },
+    {
+      "id": "PP_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "INTENERITO",
+      "duration": "7-9 SECONDI",
+      "text": "Pareggio! Siete così uguali che quasi vi farei abbracciare. Ma prima c'è lo spareggio, e lì niente abbracci.",
+      "vars": []
+    },
+    {
+      "id": "PP_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "DOLCE",
+      "duration": "8-10 SECONDI",
+      "text": "Buonanotte, cari. Tornate a casa piano, copritevi bene, e tornate presto a trovarmi. Pina Piumino vi aspetta sotto la coperta.",
+      "vars": []
+    },
+    {
+      "id": "PP_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "SODDISFATTO",
+      "duration": "6-8 SECONDI",
+      "text": "Che bel clima, stasera. Caldo, accogliente, e pieno di tavoli che si sfidano con affetto.",
+      "vars": []
+    },
+    {
+      "id": "PP_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "PACATO",
+      "duration": "7-9 SECONDI",
+      "text": "Vi vedo agitati, cari. Respirate. Il gioco è solo un gioco. Ma vincerlo è molto più bello, eh.",
+      "vars": []
+    },
+    {
+      "id": "PP_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "RILASSATO",
+      "duration": "8-10 SECONDI",
+      "text": "Io mi godo la serata da qui, morbida morbida. Voi intanto fate tutta la fatica. Mi sembra un ottimo accordo.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "character": {
+    "id": "minu",
+    "name": "Minù",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, POTENTE, GRAFFIANTE, ESPLOSIVA, DA ARENA",
+    "personality": "La campionessa di wrestling in carica, annunciatrice da ring nata. Esplosiva, teatrale, sportivissima: presenta ogni sfida come un incontro (angolo rosso e angolo blu, campanella, schienamento, terza corda, cintura) e fa trash talk scherzoso ma sempre leale. Ama gli sfavoriti e le rimonte, rispetta chi combatte anche quando perde, non sopporta chi gioca in difesa. Dal modello: lottatrice muscolosa con trecce rosse e cintura da campionessa.",
+    "role": "Ospite annunciatrice dei duelli e del Bottone del Caos: presenta gli scontri tra tavoli come incontri sul ring, carica i countdown e motiva chi è in fondo alla classifica.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/MINU_PARLANTE.glb",
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipo di voce (proposta)",
+      "ruolo nello show (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "MI_APE_001",
+      "scene": "APERTURA",
+      "tone": "ESPLOSIVA",
+      "duration": "7-9 SECONDI",
+      "text": "Benvenuti nell'arena! Sono Minù, campionessa in carica, e stasera questa cintura la metto in palio. Simbolicamente. Non toccatela.",
+      "vars": []
+    },
+    {
+      "id": "MI_APE_002",
+      "scene": "APERTURA",
+      "tone": "POTENTE",
+      "duration": "8-11 SECONDI",
+      "text": "Si accendono le luci del ring! Ogni tavolo è un lottatore, ogni manche è un incontro. Chi ha il coraggio di salire?",
+      "vars": []
+    },
+    {
+      "id": "MI_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "CARICA",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco gli sfidanti! Tavoli di tutto il locale, entrate nell'arena come se ci fosse la vostra musica d'ingresso!",
+      "vars": []
+    },
+    {
+      "id": "MI_BEN_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DA ANNUNCIATRICE",
+      "duration": "6-8 SECONDI",
+      "text": "Dall'angolo rosso, con tanta voglia di vincere e nessuna idea di cosa li aspetta: {TAVOLO_A}!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DA ANNUNCIATRICE",
+      "duration": "6-8 SECONDI",
+      "text": "Al fianco dei tavoli, le mascotte! Ecco a voi la mascotte {MASCOTTE_A}: livello base, carattere da campionessa!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MI_MAS_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "POTENTE",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni lottatore ha qualcuno che tifa a bordo ring. Le vostre mascotte sono questo: tifose, compagne, e presto leggende.",
+      "vars": []
+    },
+    {
+      "id": "MI_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "TONANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Suona la campanella! Comincia la manche {MANCHE}!",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "MI_MAN_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CARICA",
+      "duration": "3-5 SECONDI",
+      "text": "Nuovo incontro, nuove prese, nuovi lividi all'orgoglio! Si lotta!",
+      "vars": []
+    },
+    {
+      "id": "MI_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DA ANNUNCIATRICE",
+      "duration": "5-7 SECONDI",
+      "text": "Il prossimo incontro si chiama {MINIGIOCO}! Regole chiare, colpi puliti, niente scorrettezze!",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "MI_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ESPLOSIVA",
+      "duration": "5-7 SECONDI",
+      "text": "Arriva {MINIGIOCO}! Io ci gioco per scaldarmi prima dell'allenamento. Voi giocateci per sopravvivere.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "MI_REG_001",
+      "scene": "REGOLE",
+      "tone": "ARBITRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Ascoltate l'arbitro! Una sola risposta per tavolo, decide il capitano. Il numero di persone non conta: conta la testa.",
+      "vars": []
+    },
+    {
+      "id": "MI_REG_002",
+      "scene": "REGOLE",
+      "tone": "DECISA",
+      "duration": "10-13 SECONDI",
+      "text": "Colpi bassi ammessi, ma regolamentati: si rubano al massimo quaranta punti per volta, e nessuno ne perde più di ottanta a manche per mano altrui.",
+      "vars": []
+    },
+    {
+      "id": "MI_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "URLATO",
+      "duration": "2-4 SECONDI",
+      "text": "Tre! Due! Uno! Campanella!",
+      "vars": []
+    },
+    {
+      "id": "MI_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "POTENTE",
+      "duration": "2-4 SECONDI",
+      "text": "Lottatori, al centro del ring! Pronti... lottate!",
+      "vars": []
+    },
+    {
+      "id": "MI_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "CARICA",
+      "duration": "5-7 SECONDI",
+      "text": "Si conta come per uno schienamento, ma al contrario: tre, due, uno, via!",
+      "vars": []
+    },
+    {
+      "id": "MI_ULT_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "URLATO",
+      "duration": "2-4 SECONDI",
+      "text": "{SECONDI} secondi! Non mollate la presa adesso!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "MI_ULT_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi secondi! Questo è il momento della mossa finale, quella che fa alzare in piedi tutta l'arena!",
+      "vars": []
+    },
+    {
+      "id": "MI_ULT_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "MOTIVANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Stringete i denti! Il tempo sta finendo, e i campioni danno il meglio proprio adesso!",
+      "vars": []
+    },
+    {
+      "id": "MI_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "TRIONFANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Risposta giusta! Un colpo da manuale, dritto al centro del ring!",
+      "vars": []
+    },
+    {
+      "id": "MI_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESULTANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Giusta! Avete mandato la domanda al tappeto!",
+      "vars": []
+    },
+    {
+      "id": "MI_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "POTENTE",
+      "duration": "4-6 SECONDI",
+      "text": "Altri punti per {TAVOLO_A}! Questa è una presa da campioni!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DURA MA SIMPATICA",
+      "duration": "2-4 SECONDI",
+      "text": "Sbagliata! Siete finiti contro le corde. Rialzatevi!",
+      "vars": []
+    },
+    {
+      "id": "MI_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICA",
+      "duration": "2-4 SECONDI",
+      "text": "No! Bella entrata in scena, pessimo atterraggio.",
+      "vars": []
+    },
+    {
+      "id": "MI_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "MOTIVANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Risposta sbagliata. Va bene così. Anch'io ho perso il mio primo incontro. Poi ho vinto i dodici successivi.",
+      "vars": []
+    },
+    {
+      "id": "MI_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "ARBITRALE",
+      "duration": "2-4 SECONDI",
+      "text": "Tempo! Fine dell'incontro! Mani giù!",
+      "vars": []
+    },
+    {
+      "id": "MI_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCA",
+      "duration": "3-5 SECONDI",
+      "text": "Campanella! Chi non ha risposto ha perso ai punti.",
+      "vars": []
+    },
+    {
+      "id": "MI_TMP_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICA",
+      "duration": "3-5 SECONDI",
+      "text": "Tempo scaduto. Qualcuno stava ancora studiando l'avversario dall'angolo.",
+      "vars": []
+    },
+    {
+      "id": "MI_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DA ANNUNCIATRICE",
+      "duration": "5-7 SECONDI",
+      "text": "In testa, con {PUNTI} punti: {TAVOLO_A}! Ecco il campione da battere!",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "MI_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "RISPETTOSA",
+      "duration": "9-12 SECONDI",
+      "text": "Rispetto per {TAVOLO_A}, che adesso è primo. Ma ricordate: la cintura si difende ogni sera, non si vince una volta per sempre.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_VAN_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "PROVOCANTE",
+      "duration": "8-11 SECONDI",
+      "text": "Davanti a tutti c'è {TAVOLO_A}. Adesso ogni altro tavolo ha un solo bersaglio. Benvenuti nella vita da campioni.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_COD_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "MOTIVANTE",
+      "duration": "8-11 SECONDI",
+      "text": "Al tappeto, per ora, c'è {TAVOLO_A}. Ma ascoltatemi bene: non è finita finché l'arbitro non conta fino a tre.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_COD_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CARICA",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Perfetto! Gli sfavoriti sono i miei preferiti. Fatemi vedere la rimonta!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_COD_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SINCERA",
+      "duration": "6-8 SECONDI",
+      "text": "Chi è in coda ha una cosa che i primi non hanno: niente da perdere. Usatela.",
+      "vars": []
+    },
+    {
+      "id": "MI_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "URLATO",
+      "duration": "6-8 SECONDI",
+      "text": "Rimonta furiosa! {TAVOLO_A} si è rialzato dal tappeto e adesso carica come un treno!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Ma guardate {TAVOLO_A}! Li davano per finiti, e adesso l'arena è tutta per loro!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "DA ANNUNCIATRICE",
+      "duration": "5-7 SECONDI",
+      "text": "Cambio al vertice! {TAVOLO_A} scavalca {TAVOLO_B}! L'arena è in piedi!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVA",
+      "duration": "6-8 SECONDI",
+      "text": "Ribaltamento! {TAVOLO_A} ha afferrato {TAVOLO_B} e l'ha spedito giù di una posizione!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "CARICA",
+      "duration": "6-8 SECONDI",
+      "text": "Spallata vincente! {TAVOLO_A} sale in posizione {POSIZIONE}. Ogni posto, qui, si conquista così.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "MI_DUE_001",
+      "scene": "DUELLO",
+      "tone": "URLATO",
+      "duration": "7-9 SECONDI",
+      "text": "Incontro principale della serata! Nell'angolo rosso, {TAVOLO_A}! Nell'angolo blu, {TAVOLO_B}! Che vinca il migliore!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_DUE_002",
+      "scene": "DUELLO",
+      "tone": "POTENTE",
+      "duration": "5-7 SECONDI",
+      "text": "Sguardo negli occhi, fronte contro fronte: {MASCOTTE_A} e {MASCOTTE_B}! Io adoro questa parte!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "MI_DUE_003",
+      "scene": "DUELLO",
+      "tone": "CARICA",
+      "duration": "6-8 SECONDI",
+      "text": "Uno contro uno, nessun aiuto dall'angolo. È il momento in cui si capisce chi ha fegato.",
+      "vars": []
+    },
+    {
+      "id": "MI_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "INDIGNATA E DIVERTITA",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo alle spalle! {TAVOLO_A} sabota {TAVOLO_B}! L'arbitro guardava altrove, ma è tutto regolamentare!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "MALIZIOSA",
+      "duration": "5-7 SECONDI",
+      "text": "Sabotaggio! Sul ring lo chiamiamo colpo con la sedia pieghevole. Qui lo chiamiamo strategia.",
+      "vars": []
+    },
+    {
+      "id": "MI_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "CARICA",
+      "duration": "7-9 SECONDI",
+      "text": "Presa e strappo! {TAVOLO_A} porta via {PUNTI} punti, e {TAVOLO_B} resta al tappeto a guardare!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "MI_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICA",
+      "duration": "6-8 SECONDI",
+      "text": "Bottino da ring: {TAVOLO_A} si prende {PUNTI} punti. Mai lasciare la cintura incustodita.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "MI_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "ENTUSIASTA",
+      "duration": "7-9 SECONDI",
+      "text": "Si forma una coppia da ring! {TAVOLO_A} e {TAVOLO_B} adesso lottano fianco a fianco!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "SOSPETTOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Le coppie da ring durano finché uno dei due non vede la cintura da vicino. Ve lo dico per esperienza.",
+      "vars": []
+    },
+    {
+      "id": "MI_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SCIOCCATA",
+      "duration": "6-8 SECONDI",
+      "text": "Tradimento! {TAVOLO_A} ha colpito il suo stesso alleato! {TAVOLO_B} non ci può credere!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Il classico tradimento da ring! Prima ti stringo la mano, poi ti lancio fuori dalle corde. L'arena impazzisce!",
+      "vars": []
+    },
+    {
+      "id": "MI_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATA",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff riuscito! Finta perfetta: tutti aspettavano la presa a destra, ed è arrivata da sinistra!",
+      "vars": []
+    },
+    {
+      "id": "MI_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITA",
+      "duration": "5-7 SECONDI",
+      "text": "Che faccia da poker! {TAVOLO_A} ha ingannato tutti senza nemmeno sudare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "TRIONFANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Bluff scoperto! La finta si vedeva da bordo ring!",
+      "vars": []
+    },
+    {
+      "id": "MI_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICA",
+      "duration": "6-8 SECONDI",
+      "text": "Beccati! Avete caricato la mossa troppo a lungo, e l'avversario ha avuto tutto il tempo di spostarsi.",
+      "vars": []
+    },
+    {
+      "id": "MI_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "URLATO",
+      "duration": "9-12 SECONDI",
+      "text": "Allarme Caos! Musica d'ingresso! Sul ring salgono {TAVOLO_A} e {TAVOLO_B}! Quarantacinque secondi, cinquanta punti a chi resta in piedi!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVA",
+      "duration": "5-7 SECONDI",
+      "text": "Il Bottone del Caos! Il mio momento preferito della serata: niente calcoli, solo istinto!",
+      "vars": []
+    },
+    {
+      "id": "MI_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DA ANNUNCIATRICE",
+      "duration": "5-7 SECONDI",
+      "text": "Al centro del ring: {MASCOTTE_A} e {MASCOTTE_B}! Una prova, nessuna seconda possibilità! Lottate!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "MI_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "POTENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Livello due! La mascotte {MASCOTTE_A} è diventata più forte, più veloce, più grintosa! Così si fa!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MI_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tutti in piedi! Livello tre per la mascotte {MASCOTTE_A}: leggendaria, e con una cintura tutta sua!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MI_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "BASSA E TESA",
+      "duration": "3-5 SECONDI",
+      "text": "L'arbitro sta per alzare un braccio... ma quale?",
+      "vars": []
+    },
+    {
+      "id": "MI_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "TESA",
+      "duration": "4-6 SECONDI",
+      "text": "Tutta l'arena trattiene il fiato. Anch'io, e ho dei polmoni enormi.",
+      "vars": []
+    },
+    {
+      "id": "MI_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESA",
+      "duration": "2-4 SECONDI",
+      "text": "Uno... due... vediamo se arriva il tre.",
+      "vars": []
+    },
+    {
+      "id": "MI_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICA",
+      "duration": "5-7 SECONDI",
+      "text": "Ho visto tavoli rispondere come chi sale sul ring e saluta il pubblico sbagliato.",
+      "vars": []
+    },
+    {
+      "id": "MI_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITA",
+      "duration": "6-8 SECONDI",
+      "text": "C'è un tavolo che fa più riscaldamento di chiacchiere che di risposte. Lo dico con affetto.",
+      "vars": []
+    },
+    {
+      "id": "MI_BAT_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "CARICA",
+      "duration": "6-8 SECONDI",
+      "text": "Alcuni tavoli stasera lottano come leoni. Altri come due che si contendono l'ultimo posto sul divano.",
+      "vars": []
+    },
+    {
+      "id": "MI_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIA",
+      "duration": "8-11 SECONDI",
+      "text": "Chi sta in testa si gode il panorama dall'alto delle corde. Io mi godo il momento in cui qualcuno lo tira giù.",
+      "vars": []
+    },
+    {
+      "id": "MI_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDANTE",
+      "duration": "8-11 SECONDI",
+      "text": "Ho una domanda per {TAVOLO_B}: siete venuti a lottare o a fare il tifo? Perché da qui sembra la seconda.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MI_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "STUZZICANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Vedo un tavolo che gioca in difesa da mezz'ora. Uscite dall'angolo, il pubblico è venuto per vedere colpi!",
+      "vars": []
+    },
+    {
+      "id": "MI_SOP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SCIOCCATA",
+      "duration": "6-8 SECONDI",
+      "text": "Cosa? Questa non me l'aspettavo nemmeno io, e sul ring ne ho viste di tutti i colori!",
+      "vars": []
+    },
+    {
+      "id": "MI_SOP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULA",
+      "duration": "5-7 SECONDI",
+      "text": "Ma che ribaltamento è questo? Fatemi sedere, e io non mi siedo mai!",
+      "vars": []
+    },
+    {
+      "id": "MI_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATA",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa tra un incontro e l'altro! Dieci minuti. Riprendete fiato, bevete dell'acqua e studiate gli avversari.",
+      "vars": []
+    },
+    {
+      "id": "MI_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ESPLOSIVA",
+      "duration": "7-9 SECONDI",
+      "text": "Si torna sul ring! La pausa è finita, le corde sono tese, e io ho ancora voglia di spettacolo!",
+      "vars": []
+    },
+    {
+      "id": "MI_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICA",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche: Tutto o niente! Questo è l'incontro per il titolo! Chi vuole la cintura venga a prendersela!",
+      "vars": []
+    },
+    {
+      "id": "MI_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "CARICA",
+      "duration": "4-6 SECONDI",
+      "text": "Salto dalla terza corda! {TAVOLO_A} punta {PUNTI} punti!",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "MI_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESA",
+      "duration": "8-11 SECONDI",
+      "text": "Puntata rischiosa. Può essere la mossa che vale il titolo, o quella che finisce nel video delle cadute più belle.",
+      "vars": []
+    },
+    {
+      "id": "MI_FIN_001",
+      "scene": "FINALE",
+      "tone": "EPICA",
+      "duration": "6-8 SECONDI",
+      "text": "È l'incontro finale! Tutti i colpi della serata, tutta la fatica: si decide tutto adesso!",
+      "vars": []
+    },
+    {
+      "id": "MI_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE E POTENTE",
+      "duration": "7-9 SECONDI",
+      "text": "È il momento della cintura! Applausi per tutti i lottatori di stasera. Ma il titolo va a uno solo.",
+      "vars": []
+    },
+    {
+      "id": "MI_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "URLATO",
+      "duration": "4-6 SECONDI",
+      "text": "Vince {TAVOLO_A}! Abbiamo un nuovo campione! Cintura al cielo!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MI_VIT_002",
+      "scene": "VITTORIA",
+      "tone": "COMMOSSA",
+      "duration": "7-9 SECONDI",
+      "text": "Braccio alzato per {TAVOLO_A} e per la mascotte {MASCOTTE_A}! Vi siete guadagnati il rispetto di tutta l'arena.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MI_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "RISPETTOSA",
+      "duration": "6-8 SECONDI",
+      "text": "Stasera non avete vinto, ma siete saliti sul ring e avete lottato. Vale più di quanto pensiate.",
+      "vars": []
+    },
+    {
+      "id": "MI_SCO_002",
+      "scene": "SCONFITTA",
+      "tone": "MOTIVANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Sconfitta. Ma ogni campione ha un incontro perso nel cassetto. Tornate più forti: la rivincita vi aspetta.",
+      "vars": []
+    },
+    {
+      "id": "MI_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "SCIOCCATA",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio! Doppio schienamento! L'arbitro non sa che fare, quindi si va allo spareggio!",
+      "vars": []
+    },
+    {
+      "id": "MI_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALOROSA E POTENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Grazie, arena! Siete stati lottatori incredibili. Tornate a casa sani e salvi, e ci rivediamo sul ring!",
+      "vars": []
+    },
+    {
+      "id": "MI_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "CARICA",
+      "duration": "4-6 SECONDI",
+      "text": "Questo locale è un'arena! Lo sento sotto i piedi: vibra tutto!",
+      "vars": []
+    },
+    {
+      "id": "MI_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "FIERA",
+      "duration": "6-8 SECONDI",
+      "text": "Questa cintura l'ho vinta sudando. Stasera voglio vedere qualcuno sudare almeno un po' per una risposta.",
+      "vars": []
+    },
+    {
+      "id": "MI_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Mi piace questa folla. Rumorosa, competitiva, e nessuno che si lamenta dell'arbitro. Per ora.",
+      "vars": []
+    },
+    {
+      "id": "MI_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITA",
+      "duration": "5-7 SECONDI",
+      "text": "Ogni volta che qualcuno esulta, nella mia testa parte una musica d'ingresso. Continuate!",
+      "vars": []
+    },
+    {
+      "id": "MI_ATM_005",
+      "scene": "ATMOSFERA",
+      "tone": "ESPLOSIVA",
+      "duration": "6-8 SECONDI",
+      "text": "Trecce strette, cintura allacciata, voce pronta. E voi, siete pronti a lottare per ogni punto?",
+      "vars": []
+    }
+  ]
+}

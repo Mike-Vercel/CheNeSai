@@ -1,0 +1,1588 @@
+{
+  "character": {
+    "id": "victor",
+    "name": "Victor",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, PROFONDA, NOIR, CALMA E TAGLIENTE (FRASI CORTE, PAUSE, SUSSURRI)",
+    "personality": "Detective noir prestato al game show: voce bassa, frasi corte, nessuna fretta. Tratta ogni minigioco come un caso e ogni tavolo come un sospettato, con un'ironia asciutta che taglia più di un urlo. Non alza mai la voce: gli basta una pausa al momento giusto. Ama le prove, diffida delle alleanze e rispetta chi sa mentire bene; le sue bugie preferite sono quelle del gioco, mai quelle delle persone in sala.",
+    "role": "Conduce le deduzioni e la manche 4 (IL GRANDE INGANNO): bluff, testimoni, indizi e contraddizioni; commenta alleanze, tradimenti, sabotaggi e bluff scoperti o riusciti, e tiene alta la suspense prima dei verdetti.",
+    "tier": "presentatore",
+    "model": "public/models/investigatore.glb",
+    "toConfirm": [
+      "corrispondenza Victor = l'Investigatore di PSYCO (modello public/models/investigatore.glb)",
+      "voce ElevenLabs da usare (la stessa dell'Investigatore, «Gottfried - Dark Thriller & Crime», o una nuova)",
+      "riferimenti narrativi alla «città» e alla pioggia come ambientazione fissa del personaggio"
+    ]
+  },
+  "lines": [
+    {
+      "id": "VI_APERTURA_001",
+      "scene": "APERTURA",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Buonasera. Fuori piove, qui dentro si mente. Benvenuti a TAVOLI IN GUERRA.",
+      "vars": []
+    },
+    {
+      "id": "VI_APERTURA_002",
+      "scene": "APERTURA",
+      "tone": "MINACCIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Una sala piena, tavoli sorridenti, telefoni carichi. Ho già visto scene così. Finiscono sempre con qualcuno che tradisce.",
+      "vars": []
+    },
+    {
+      "id": "VI_APERTURA_003",
+      "scene": "APERTURA",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Mi chiamo Victor. Stasera non risolvo un caso. Lo guardo nascere, tavolo dopo tavolo.",
+      "vars": []
+    },
+    {
+      "id": "VI_APERTURA_004",
+      "scene": "APERTURA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Benvenuti. Rilassatevi pure. È esattamente quello che spero facciate.",
+      "vars": []
+    },
+    {
+      "id": "VI_APERTURA_005",
+      "scene": "APERTURA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Si accendono le luci. Ogni tavolo ha un segreto… e io ho tutta la serata per scoprirlo.",
+      "vars": []
+    },
+    {
+      "id": "VI_BENVENUTO_SQUADRE_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco {TAVOLO_A}. Sorrisi sicuri, sguardi bassi. Il profilo classico di chi ha già un piano.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_BENVENUTO_SQUADRE_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "MINACCIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Benvenute, squadre. Annoto tutto: chi parla troppo, chi non parla affatto. Soprattutto chi non parla.",
+      "vars": []
+    },
+    {
+      "id": "VI_BENVENUTO_SQUADRE_003",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Anche {TAVOLO_B} è della partita. Faccia pulita. Troppo pulita.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_BENVENUTO_SQUADRE_004",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ogni tavolo è una squadra. Ogni squadra, un sospettato. E nessuno, stasera, ha un alibi.",
+      "vars": []
+    },
+    {
+      "id": "VI_MASCOTTE_PRESENTAZIONE_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni squadra ha una mascotte. Un testimone silenzioso. Vede tutto… e non dice niente. Mi piace.",
+      "vars": []
+    },
+    {
+      "id": "VI_MASCOTTE_PRESENTAZIONE_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {MASCOTTE_A}. Non cambierà mai versione dei fatti. In questa sala, è già un'eccezione.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VI_MASCOTTE_PRESENTAZIONE_003",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_B}. Livello base, per ora. Ma ho imparato a non giudicare nessuno dal primo interrogatorio.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "VI_INIZIO_MANCHE_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "3-4 SECONDI",
+      "text": "Manche {MANCHE}. Si apre un nuovo fascicolo.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "VI_INIZIO_MANCHE_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Inizia la manche {MANCHE}. Le prove sono sul tavolo. Le bugie… arriveranno.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "VI_INIZIO_MANCHE_003",
+      "scene": "INIZIO_MANCHE",
+      "tone": "MINACCIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Nuova manche. Le regole cambiano, le persone no. Ed è per questo che vi tengo d'occhio.",
+      "vars": []
+    },
+    {
+      "id": "VI_INIZIO_MANCHE_004",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Si riparte. Mettete via le certezze. Qui servono solo occhi buoni e nervi saldi.",
+      "vars": []
+    },
+    {
+      "id": "VI_INIZIO_MANCHE_005",
+      "scene": "INIZIO_MANCHE",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Da qui in poi, niente è come sembra. Nemmeno io.",
+      "vars": []
+    },
+    {
+      "id": "VI_MINIGIOCO_PRESENTAZIONE_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Il prossimo caso si chiama {MINIGIOCO}. Leggete i fatti. Non le vostre speranze.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "VI_MINIGIOCO_PRESENTAZIONE_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "{MINIGIOCO}. Una prova semplice, in apparenza. Come tutte quelle che finiscono male.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "VI_MINIGIOCO_PRESENTAZIONE_003",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {MINIGIOCO}. Qualcuno vi dirà la verità. Qualcun altro no. Indovinate chi.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "VI_MINIGIOCO_PRESENTAZIONE_004",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Si gioca a {MINIGIOCO}. Testimoni, indizi, contraddizioni. Tutto quello che trovate in una chat di gruppo il giorno dopo una festa.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "VI_MINIGIOCO_PRESENTAZIONE_005",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "CALMO",
+      "duration": "8-10 SECONDI",
+      "text": "Tre testimonianze, una sola regge. Le altre due sono come le scuse per non uscire: credibili, finché non le confronti.",
+      "vars": []
+    },
+    {
+      "id": "VI_REGOLE_001",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Le regole sono semplici. Il tavolo indaga, il capitano firma. Una sola risposta. Nessuna ritrattazione.",
+      "vars": []
+    },
+    {
+      "id": "VI_REGOLE_002",
+      "scene": "REGOLE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Le bugie riguardano il gioco, mai voi. Le prove sono inventate. Le conseguenze in classifica… sono reali.",
+      "vars": []
+    },
+    {
+      "id": "VI_REGOLE_003",
+      "scene": "REGOLE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Potete comprare un indizio. Costa punti. Come ogni informazione, in questa città.",
+      "vars": []
+    },
+    {
+      "id": "VI_REGOLE_004",
+      "scene": "REGOLE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni soluzione è verificabile. Alla fine vi mostro il ragionamento. Così saprete esattamente dove avete sbagliato.",
+      "vars": []
+    },
+    {
+      "id": "VI_REGOLE_005",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Contano le teste, non il numero delle persone. Due detective attenti valgono più di otto testimoni distratti.",
+      "vars": []
+    },
+    {
+      "id": "VI_COUNTDOWN_001",
+      "scene": "COUNTDOWN",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Tre… due… uno. Il caso è aperto.",
+      "vars": []
+    },
+    {
+      "id": "VI_COUNTDOWN_002",
+      "scene": "COUNTDOWN",
+      "tone": "SOSPESO",
+      "duration": "3-4 SECONDI",
+      "text": "Il tempo comincia a scorrere. Adesso.",
+      "vars": []
+    },
+    {
+      "id": "VI_COUNTDOWN_003",
+      "scene": "COUNTDOWN",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Niente fretta. Niente panico. Tre… due… uno… via.",
+      "vars": []
+    },
+    {
+      "id": "VI_COUNTDOWN_004",
+      "scene": "COUNTDOWN",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Al mio segnale, smettete di fidarvi di tutti. Tre… due… uno.",
+      "vars": []
+    },
+    {
+      "id": "VI_COUNTDOWN_005",
+      "scene": "COUNTDOWN",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Si parte. E ricordate: il cronometro è l'unico testimone che non mente.",
+      "vars": []
+    },
+    {
+      "id": "VI_COUNTDOWN_006",
+      "scene": "COUNTDOWN",
+      "tone": "CALMO",
+      "duration": "3-4 SECONDI",
+      "text": "Le prove sono davanti a voi. Iniziate.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMI_SECONDI_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "{SECONDI} secondi. Decidete. Il dubbio, a quest'ora, è un lusso.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "VI_ULTIMI_SECONDI_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo stringe. Il colpevole, di solito, approfitta proprio di questo momento.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMI_SECONDI_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Ultimi secondi. Chi ha visto qualcosa… parli adesso.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMI_SECONDI_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "3-4 SECONDI",
+      "text": "Restano {SECONDI} secondi. Capitano, la firma. Subito.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "VI_ULTIMI_SECONDI_005",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Il tempo sta finendo. La verità, invece, aspetta solo voi.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMI_SECONDI_006",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Pochi secondi. Fate come con l'ultimo messaggio prima di dormire: scrivetelo, e non rileggetelo.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_CORRETTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "CALMO",
+      "duration": "3-4 SECONDI",
+      "text": "Esatto. Avete seguito la pista giusta.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_CORRETTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Corretto: {TAVOLO_A} legge le prove come si deve. {PUNTI} punti.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "VI_RISPOSTA_CORRETTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Giusto. Non vi facevo così attenti. Lo annoto nel fascicolo.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_CORRETTA_004",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOSPESO",
+      "duration": "3-4 SECONDI",
+      "text": "Risposta corretta. Qualcuno, in sala, comincia a sudare.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_CORRETTA_005",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Bel lavoro. Avete guardato dove nessuno guardava. È così che si chiude un caso.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_CORRETTA_006",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Esatto. Niente fortuna, solo metodo. Mi piace il metodo.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_SBAGLIATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliato. Avete creduto alla versione più comoda. Succede a tutti… una volta.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_SBAGLIATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "No. Era la pista che qualcuno vi aveva preparato. E voi l'avete percorsa fino in fondo.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_SBAGLIATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SOLENNE",
+      "duration": "4-6 SECONDI",
+      "text": "Risposta errata. Le prove c'erano. Andavano solo guardate.",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_SBAGLIATA_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Sbagliato. Vi siete fidati di un dettaglio come ci si fida di un «ti richiamo io».",
+      "vars": []
+    },
+    {
+      "id": "VI_RISPOSTA_SBAGLIATA_005",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Errore per {TAVOLO_A}. Nessuna condanna. Solo un'occasione persa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_RISPOSTA_SBAGLIATA_006",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Non era quella. La verità era lì, a due righe di distanza.",
+      "vars": []
+    },
+    {
+      "id": "VI_TEMPO_SCADUTO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOLENNE",
+      "duration": "3-4 SECONDI",
+      "text": "Tempo scaduto. Il fascicolo si chiude.",
+      "vars": []
+    },
+    {
+      "id": "VI_TEMPO_SCADUTO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Fine. Chi non ha risposto ha scelto il silenzio. E il silenzio, qui, non paga.",
+      "vars": []
+    },
+    {
+      "id": "VI_TEMPO_SCADUTO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Tempo. Alcuni di voi stavano ancora interrogando il proprio capitano.",
+      "vars": []
+    },
+    {
+      "id": "VI_TEMPO_SCADUTO_004",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo è finito. Le risposte sono sigillate. Adesso parlano le prove.",
+      "vars": []
+    },
+    {
+      "id": "VI_TEMPO_SCADUTO_005",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOSPESO",
+      "duration": "3-4 SECONDI",
+      "text": "Scaduto. Il caso passa al verdetto.",
+      "vars": []
+    },
+    {
+      "id": "VI_IN_VANTAGGIO_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}. Posizione invidiabile. E molto esposta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_IN_VANTAGGIO_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Comanda {TAVOLO_A}, con {PUNTI} punti. Chi sta davanti ha sempre qualcuno alle spalle.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "VI_IN_VANTAGGIO_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Primi in classifica. Godetevelo. Io intanto controllo chi vi sta guardando.",
+      "vars": []
+    },
+    {
+      "id": "VI_IN_VANTAGGIO_004",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SOSPESO",
+      "duration": "9-11 SECONDI",
+      "text": "Il leader. Tutti lo guardano, nessuno lo ammette. In questa sala il primo posto è un bersaglio con le luci accese.",
+      "vars": []
+    },
+    {
+      "id": "VI_IN_VANTAGGIO_005",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Davanti a tutti c'è {TAVOLO_A}. Per ora. Nel mio mestiere, «per ora» è la parola più onesta che conosco.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_ULTIMA_IN_CLASSIFICA_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "In fondo c'è {TAVOLO_A}. Nessuno lo guarda. Ed è proprio questo il suo vantaggio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_ULTIMA_IN_CLASSIFICA_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimi. I colpi migliori li ho visti fare sempre da chi nessuno sospettava.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMA_IN_CLASSIFICA_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Chi è in fondo ha poco da perdere. E chi ha poco da perdere… diventa pericoloso.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMA_IN_CLASSIFICA_004",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima posizione per {TAVOLO_B}. Basso profilo. Una copertura perfetta, se è voluta.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_ULTIMA_IN_CLASSIFICA_005",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "L'ultimo posto non è una condanna. È un indizio: qualcuno qui ha ancora tutto da dimostrare.",
+      "vars": []
+    },
+    {
+      "id": "VI_GRANDE_RECUPERO_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Guardate {TAVOLO_A}. Silenzioso per tutta la serata… e adesso risale. Lo sospettavo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_GRANDE_RECUPERO_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Un recupero così non è fortuna. È qualcuno che aspettava il momento giusto.",
+      "vars": []
+    },
+    {
+      "id": "VI_GRANDE_RECUPERO_003",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "MINACCIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Chi era in fondo sta tornando su. E chi era davanti comincia a guardarsi alle spalle.",
+      "vars": []
+    },
+    {
+      "id": "VI_GRANDE_RECUPERO_004",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Rimonta di {PUNTI} punti. Bella mossa. Avevano recitato la parte dei perdenti con grande convinzione.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "VI_SORPASSO_001",
+      "scene": "SORPASSO",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso: {TAVOLO_A} supera {TAVOLO_B}. Silenzioso. Pulito. Professionale.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_SORPASSO_002",
+      "scene": "SORPASSO",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Cambio di posizione. Chi era primo è appena diventato un testimone.",
+      "vars": []
+    },
+    {
+      "id": "VI_SORPASSO_003",
+      "scene": "SORPASSO",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {TAVOLO_A} che sale in posizione {POSIZIONE}. Nessuno l'ha visto arrivare. Io sì.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "VI_SORPASSO_004",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso. In classifica, come nelle relazioni, chi si rilassa viene superato.",
+      "vars": []
+    },
+    {
+      "id": "VI_SORPASSO_005",
+      "scene": "SORPASSO",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Il sorpasso è avvenuto. Prendete nota dell'ora: è l'inizio di una rivincita.",
+      "vars": []
+    },
+    {
+      "id": "VI_DUELLO_001",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}. Due sospettati, una sola verità.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_DUELLO_002",
+      "scene": "DUELLO",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Stesso caso, stesso tempo. Vince chi guarda meglio, non chi parla di più.",
+      "vars": []
+    },
+    {
+      "id": "VI_DUELLO_003",
+      "scene": "DUELLO",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Faccia a faccia. In un duello non si nasconde nessuno. Nemmeno dietro al capitano.",
+      "vars": []
+    },
+    {
+      "id": "VI_DUELLO_004",
+      "scene": "DUELLO",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Due tavoli. Una prova. Il resto della sala… osserva. Come me.",
+      "vars": []
+    },
+    {
+      "id": "VI_DUELLO_005",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Duello tra {TAVOLO_A} e {TAVOLO_B}. Sembra una discussione tra ex. Solo con più regole.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_DUELLO_006",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "La sfida è lanciata e accettata. Da questo momento, nessuna scusa verrà messa a verbale.",
+      "vars": []
+    },
+    {
+      "id": "VI_SABOTAGGIO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "MINACCIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio: {TAVOLO_A} ha colpito {TAVOLO_B}. Movente: la classifica. Arma: il regolamento.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_SABOTAGGIO_002",
+      "scene": "SABOTAGGIO",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Qualcuno ha manomesso la serata di un altro tavolo. Niente panico. È tutto agli atti.",
+      "vars": []
+    },
+    {
+      "id": "VI_SABOTAGGIO_003",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Un sabotaggio elegante. Senza impronte. Quasi senza rimorso.",
+      "vars": []
+    },
+    {
+      "id": "VI_SABOTAGGIO_004",
+      "scene": "SABOTAGGIO",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Il bersaglio è stato colpito. E il bersaglio, lo so per esperienza, non dimentica.",
+      "vars": []
+    },
+    {
+      "id": "VI_SABOTAGGIO_005",
+      "scene": "SABOTAGGIO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio in corso. Il tavolo colpito può ancora difendersi. Se se ne accorge in tempo.",
+      "vars": []
+    },
+    {
+      "id": "VI_FURTO_PUNTI_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "CALMO",
+      "duration": "8-10 SECONDI",
+      "text": "Furto. {PUNTI} punti spariti. Li ha presi {TAVOLO_A}. E nessuno si illuda: li ha presi legalmente.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_FURTO_PUNTI_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo riuscito, e {TAVOLO_B} se ne accorge adesso. Troppo tardi, come sempre.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_FURTO_PUNTI_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Un furto con destrezza. Ho arrestato gente per molto meno. Qui, invece, si applaude.",
+      "vars": []
+    },
+    {
+      "id": "VI_FURTO_PUNTI_004",
+      "scene": "FURTO_PUNTI",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Qualcuno controlla il saldo e trova un vuoto. Il colpevole è in sala. E sorride.",
+      "vars": []
+    },
+    {
+      "id": "VI_ALLEANZA_001",
+      "scene": "ALLEANZA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Una stretta di mano. Io guardo l'altra mano.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_ALLEANZA_002",
+      "scene": "ALLEANZA",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Due tavoli si fidano l'uno dell'altro. Commovente. Annoto l'ora, per il rapporto finale.",
+      "vars": []
+    },
+    {
+      "id": "VI_ALLEANZA_003",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Un'alleanza. In vent'anni di indagini, ne ho viste durare meno di un caffè.",
+      "vars": []
+    },
+    {
+      "id": "VI_ALLEANZA_004",
+      "scene": "ALLEANZA",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Ogni alleanza nasce con un sorriso. E con un piano per quando finirà.",
+      "vars": []
+    },
+    {
+      "id": "VI_ALLEANZA_005",
+      "scene": "ALLEANZA",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Collaborare conviene. Finché conviene. Ricordatevelo, tutti e due.",
+      "vars": []
+    },
+    {
+      "id": "VI_TRADIMENTO_001",
+      "scene": "TRADIMENTO",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Tradimento: {TAVOLO_A} ha scelto sé stesso. Come fanno quasi tutti, alla fine.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_TRADIMENTO_002",
+      "scene": "TRADIMENTO",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "L'alleanza è finita. Nessun rumore. Solo una notifica… e un tavolo che ha capito troppo tardi.",
+      "vars": []
+    },
+    {
+      "id": "VI_TRADIMENTO_003",
+      "scene": "TRADIMENTO",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ve l'avevo detto. Le alleanze durano finché qualcuno non si mette a contare i punti.",
+      "vars": []
+    },
+    {
+      "id": "VI_TRADIMENTO_004",
+      "scene": "TRADIMENTO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Tradito. Come un «ci sono anch'io» scritto in chat e mai mantenuto.",
+      "vars": []
+    },
+    {
+      "id": "VI_TRADIMENTO_005",
+      "scene": "TRADIMENTO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Il tradimento è agli atti, e {TAVOLO_B} avrà tutta la serata per ricordarselo.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_BLUFF_RIUSCITO_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff riuscito. Una bugia ben costruita. Quasi mi commuovo.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_RIUSCITO_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Hanno mentito, e l'hanno fatto bene. Nessuna traccia. Nessun tremore. Rispetto.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_RIUSCITO_003",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ci sono cascati. È la stessa faccia di chi scopre che era davvero «solo un amico».",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_RIUSCITO_004",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "Il bluff ha retto: {TAVOLO_A} incassa, gli altri si guardano. Qualcuno, adesso, non si fida più di nessuno.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_BLUFF_RIUSCITO_005",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "MINACCIOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Una menzogna perfetta. La ricorderò. E ricorderò chi l'ha detta.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_SCOPERTO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff scoperto. La storia non reggeva. I dettagli non mentono mai.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_SCOPERTO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Smascherati. Una bugia meno credibile di un «non avevo visto il messaggio».",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_SCOPERTO_003",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "La menzogna è crollata. Il ragionamento era corretto. Complimenti a chi ha dubitato.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_SCOPERTO_004",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Vi ho visti. Tutti vi hanno visti. Il bluff è finito prima di cominciare.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_SCOPERTO_005",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff scoperto. Un consiglio: la prossima volta, una bugia più semplice. Quelle complicate si tradiscono da sole.",
+      "vars": []
+    },
+    {
+      "id": "VI_BLUFF_SCOPERTO_006",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "C'era una crepa nella storia, e {TAVOLO_B} l'ha trovata.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_BOTTONE_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "ALLARME CAOS. Qualcuno ha premuto il bottone. Le regole restano. La calma… no.",
+      "vars": []
+    },
+    {
+      "id": "VI_BOTTONE_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il Bottone del Caos. Quarantacinque secondi. Due tavoli. Nessun posto dove nascondersi.",
+      "vars": []
+    },
+    {
+      "id": "VI_BOTTONE_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "Si abbassano le luci. È scattato l'ALLARME CAOS: {TAVOLO_A} contro {TAVOLO_B}, cinquanta punti sul tavolo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_BOTTONE_CAOS_004",
+      "scene": "BOTTONE_CAOS",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Hanno premuto il bottone. In ogni caso che ho seguito c'era sempre qualcuno che non resisteva.",
+      "vars": []
+    },
+    {
+      "id": "VI_BOTTONE_CAOS_005",
+      "scene": "BOTTONE_CAOS",
+      "tone": "CALMO",
+      "duration": "8-10 SECONDI",
+      "text": "ALLARME CAOS. Un solo uso per serata, e hanno scelto adesso. Vediamo se è stato coraggio… o un errore.",
+      "vars": []
+    },
+    {
+      "id": "VI_EVOLUZIONE_LIV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_A} cambia. Livello 2. Ogni testimone, prima o poi, mostra il suo vero volto.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VI_EVOLUZIONE_LIV2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Livello 2 per {MASCOTTE_A}. L'Energia Caos lascia tracce. E queste si vedono da lontano.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VI_EVOLUZIONE_LIV2_003",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Evoluzione: {MASCOTTE_B} passa alla versione Potenziata. Nuovo aspetto, stesso sguardo da testimone che sa troppo.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "VI_EVOLUZIONE_LIV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Livello 3. {MASCOTTE_A} diventa una leggenda. E le leggende, in questa città, non si toccano.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VI_EVOLUZIONE_LIV3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Versione Leggendaria per {MASCOTTE_A}. Ho visto molte trasformazioni. Poche così sincere.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VI_EVOLUZIONE_LIV3_003",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_B} raggiunge il livello massimo. Da adesso, ogni tavolo in sala sa chi temere.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "VI_SUSPENSE_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "La soluzione… è in questa busta. E la busta resta chiusa ancora un momento.",
+      "vars": []
+    },
+    {
+      "id": "VI_SUSPENSE_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Silenzio. Il verdetto sta per arrivare. Chi ha mentito lo sa già.",
+      "vars": []
+    },
+    {
+      "id": "VI_SUSPENSE_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ogni indizio porta a una sola risposta. Tra un secondo saprete se l'avete seguita.",
+      "vars": []
+    },
+    {
+      "id": "VI_SUSPENSE_004",
+      "scene": "SUSPENSE",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Nessuna fretta. La verità non scappa. Voi, forse, sì.",
+      "vars": []
+    },
+    {
+      "id": "VI_SUSPENSE_005",
+      "scene": "SUSPENSE",
+      "tone": "MINACCIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Qualcuno in sala ha appena smesso di respirare. Lo capisco. Al posto vostro farei lo stesso.",
+      "vars": []
+    },
+    {
+      "id": "VI_SUSPENSE_006",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Il risultato è pronto. Lo guardo. Vi guardo. E per un istante… mi godo il potere.",
+      "vars": []
+    },
+    {
+      "id": "VI_SUSPENSE_007",
+      "scene": "SUSPENSE",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Signori della giuria… pardon. Signori dei tavoli. Ecco il verdetto.",
+      "vars": []
+    },
+    {
+      "id": "VI_BATTUTA_SQUADRE_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ci sono tavoli che discutono a bassa voce e tavoli che urlano la strategia. Indovinate chi perde le guerre.",
+      "vars": []
+    },
+    {
+      "id": "VI_BATTUTA_SQUADRE_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ho visto interrogatori più rapidi delle vostre decisioni di squadra.",
+      "vars": []
+    },
+    {
+      "id": "VI_BATTUTA_SQUADRE_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Osservo {TAVOLO_A}. Parlano tutti, decide uno, e poi la colpa è del telefono.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_BATTUTA_SQUADRE_004",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni squadra ha il suo testimone inaffidabile. Quello che giura di aver letto bene la domanda.",
+      "vars": []
+    },
+    {
+      "id": "VI_BATTUTA_SQUADRE_005",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "C'è un tavolo che fissa il telefono come fosse una confessione firmata. Rilassatevi. Non firma da solo.",
+      "vars": []
+    },
+    {
+      "id": "VI_PROVOCAZIONE_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Vi vedo tranquilli. Troppo tranquilli. È così che cominciano i casi peggiori.",
+      "vars": []
+    },
+    {
+      "id": "VI_PROVOCAZIONE_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Qualcuno qui sta mentendo. Non vi dico chi. Mi diverte guardarvi sospettare.",
+      "vars": []
+    },
+    {
+      "id": "VI_PROVOCAZIONE_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Fidatevi del tavolo accanto, se volete. Io ho smesso di fidarmi delle persone gentili molto tempo fa.",
+      "vars": []
+    },
+    {
+      "id": "VI_PROVOCAZIONE_004",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Mi dicono che {TAVOLO_B} abbia una strategia. Mi dicono molte cose. Non tutte vere.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VI_PROVOCAZIONE_005",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ogni tavolo crede di essere il più furbo della sala. Statisticamente, quasi tutti si sbagliano.",
+      "vars": []
+    },
+    {
+      "id": "VI_PROVOCAZIONE_006",
+      "scene": "PROVOCAZIONE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Coraggio. Chi non rischia non vince. E chi non sa mentire… non arriva lontano, stasera.",
+      "vars": []
+    },
+    {
+      "id": "VI_REAZIONE_SORPRESA_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SORPRESO",
+      "duration": "5-7 SECONDI",
+      "text": "Interessante. Non me lo aspettavo. E io mi aspetto quasi tutto.",
+      "vars": []
+    },
+    {
+      "id": "VI_REAZIONE_SORPRESA_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SOSPESO",
+      "duration": "3-4 SECONDI",
+      "text": "Questo cambia il caso. Riapro il fascicolo.",
+      "vars": []
+    },
+    {
+      "id": "VI_REAZIONE_SORPRESA_003",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Un colpo di scena. Raro. Prezioso. Me lo segno.",
+      "vars": []
+    },
+    {
+      "id": "VI_REAZIONE_SORPRESA_004",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Non era nei miei appunti. Nessuno l'aveva previsto. Nemmeno chi l'ha fatto, credo.",
+      "vars": []
+    },
+    {
+      "id": "VI_REAZIONE_SORPRESA_005",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "CALMO",
+      "duration": "3-4 SECONDI",
+      "text": "Bene. In vent'anni di mestiere, questa mi mancava.",
+      "vars": []
+    },
+    {
+      "id": "VI_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Pausa. Dieci minuti. Andate pure al bancone. Io resto qui… a osservare chi parla con chi.",
+      "vars": []
+    },
+    {
+      "id": "VI_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il caso si sospende. Le alleanze, invece, continuano a lavorare. Lo so.",
+      "vars": []
+    },
+    {
+      "id": "VI_PAUSA_003",
+      "scene": "PAUSA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Pausa. Approfittatene per ripassare le vostre versioni. Più tardi potrebbero non coincidere.",
+      "vars": []
+    },
+    {
+      "id": "VI_RIENTRO_PAUSA_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "Bentornati. Qualcuno ha parlato troppo durante la pausa. Lo scopriremo.",
+      "vars": []
+    },
+    {
+      "id": "VI_RIENTRO_PAUSA_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Si riprende. Le luci si abbassano. Il caso si riapre.",
+      "vars": []
+    },
+    {
+      "id": "VI_RIENTRO_PAUSA_003",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Rientro. Ho notato qualche alleanza nuova vicino al bancone. Ho notato anche chi la tradirà.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMA_MANCHE_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche. TUTTO O NIENTE. Ogni caso arriva al momento in cui qualcuno deve pagare il conto.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMA_MANCHE_002",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Siamo all'ultimo capitolo. Gli indizi sono stati raccolti. Adesso parlano le puntate.",
+      "vars": []
+    },
+    {
+      "id": "VI_ULTIMA_MANCHE_003",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima manche. Niente più bugie da difendere. Solo scelte da fare, e conseguenze da accettare.",
+      "vars": []
+    },
+    {
+      "id": "VI_PUNTATA_RISCHIOSA_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Puntata alta. Chi rischia così, o sa qualcosa… o non sa niente.",
+      "vars": []
+    },
+    {
+      "id": "VI_PUNTATA_RISCHIOSA_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Puntata da {PUNTI} punti per {TAVOLO_A}. Sangue freddo, o incoscienza. Il confine è sottile.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_PUNTATA_RISCHIOSA_003",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Una puntata così si ricorda. In un senso o nell'altro.",
+      "vars": []
+    },
+    {
+      "id": "VI_PUNTATA_RISCHIOSA_004",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Rischio alto. Come scrivere per primi dopo tre settimane di silenzio. Ammiro il coraggio.",
+      "vars": []
+    },
+    {
+      "id": "VI_FINALE_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "È l'ora del verdetto. Ogni bugia, ogni alleanza, ogni furto… tutto è stato annotato.",
+      "vars": []
+    },
+    {
+      "id": "VI_FINALE_002",
+      "scene": "FINALE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il caso si chiude stasera. Resta solo da sapere chi ne esce pulito.",
+      "vars": []
+    },
+    {
+      "id": "VI_FINALE_003",
+      "scene": "FINALE",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "La fine. Il momento in cui le prove diventano numeri. E i numeri non perdonano.",
+      "vars": []
+    },
+    {
+      "id": "VI_PREMIAZIONE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "La classifica finale, dal fondo alla vetta. Come in ogni indagine: il nome più importante arriva per ultimo.",
+      "vars": []
+    },
+    {
+      "id": "VI_PREMIAZIONE_002",
+      "scene": "PREMIAZIONE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "{PUNTI} punti per {TAVOLO_A}. Posizione {POSIZIONE}. Lo scrivo nel rapporto, a penna.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "VI_PREMIAZIONE_003",
+      "scene": "PREMIAZIONE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Il podio. Tre tavoli. Tre storie. Una sola verità.",
+      "vars": []
+    },
+    {
+      "id": "VI_VITTORIA_001",
+      "scene": "VITTORIA",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Vince {TAVOLO_A}. Hanno letto le prove, gestito i rischi e mentito al momento giusto. Caso chiuso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_VITTORIA_002",
+      "scene": "VITTORIA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Vittoria per {TAVOLO_A}. Nessun alibi richiesto. Il risultato parla da solo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VI_VITTORIA_003",
+      "scene": "VITTORIA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Hanno vinto. Li ho tenuti d'occhio tutta la sera. Avevo ragione a farlo.",
+      "vars": []
+    },
+    {
+      "id": "VI_SCONFITTA_001",
+      "scene": "SCONFITTA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Sconfitta. Non è una condanna. È solo un caso che stasera non siete riusciti a chiudere.",
+      "vars": []
+    },
+    {
+      "id": "VI_SCONFITTA_002",
+      "scene": "SCONFITTA",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Avete perso. Ma avete fatto tremare qualcuno. Io l'ho visto.",
+      "vars": []
+    },
+    {
+      "id": "VI_SCONFITTA_003",
+      "scene": "SCONFITTA",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Non è andata. Tornate a casa, rivedete gli indizi. La prossima volta saprete dove guardare.",
+      "vars": []
+    },
+    {
+      "id": "VI_PAREGGIO_001",
+      "scene": "PAREGGIO",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Parità. Due versioni della stessa storia. Serve un'ultima prova.",
+      "vars": []
+    },
+    {
+      "id": "VI_PAREGGIO_002",
+      "scene": "PAREGGIO",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Pareggio. Contano le sfide vinte, poi la precisione. Il regolamento è il mio unico testimone affidabile.",
+      "vars": []
+    },
+    {
+      "id": "VI_PAREGGIO_003",
+      "scene": "PAREGGIO",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Stesso punteggio. Nessuno dei due cede. Spareggio: quarantacinque secondi.",
+      "vars": []
+    },
+    {
+      "id": "VI_SALUTO_FINALE_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALMO",
+      "duration": "8-10 SECONDI",
+      "text": "Il caso è chiuso. Le luci si spengono. Tornate a casa… e non fidatevi troppo di chi vi accompagna.",
+      "vars": []
+    },
+    {
+      "id": "VI_SALUTO_FINALE_002",
+      "scene": "SALUTO_FINALE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Buonanotte. Fuori continua a piovere. Ci rivediamo alla prossima bugia.",
+      "vars": []
+    },
+    {
+      "id": "VI_SALUTO_FINALE_003",
+      "scene": "SALUTO_FINALE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Grazie per la serata. Avete mentito, rubato, tradito. Tutto a norma di regolamento. Alla prossima.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_001",
+      "scene": "ATMOSFERA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Questa sala ha l'odore dei casi buoni. Tensione, risate, e qualcuno che finge di essere tranquillo.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_002",
+      "scene": "ATMOSFERA",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Guardatevi intorno. Ogni tavolo sorride. Almeno uno di quei sorrisi è una copertura.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_003",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Mi piacciono le serate così. Tanta gente, tante versioni dei fatti, e nessuna che coincida.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_004",
+      "scene": "ATMOSFERA",
+      "tone": "MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Io non dormo mai durante un caso. E stasera, il caso siete voi.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_005",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Un consiglio gratuito: chi vi offre aiuto senza chiedere niente in cambio… l'ha già chiesto.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_006",
+      "scene": "ATMOSFERA",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Il gioco continua. E il gioco, come la città, non dimentica niente.",
+      "vars": []
+    },
+    {
+      "id": "VI_ATMOSFERA_007",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Certe chat di gruppo nascondono più segreti di un archivio di polizia. Stasera, almeno, le prove sono inventate.",
+      "vars": []
+    }
+  ]
+}

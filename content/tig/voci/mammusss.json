@@ -1,0 +1,606 @@
+{
+  "character": {
+    "id": "mammusss",
+    "name": "MAMMUSSS",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO MOLTO GRAVE, LENTO E CAVERNOSO CON PAUSE SOLENNI (IL MAMMUT); SULLE S SI ALLUNGA IN UN SIBILO PIÙ RAPIDO E PUNGENTE (LA PROBOSCIDE-SERPENTE)",
+    "personality": "PROPOSTA dall'aspetto (mammut peloso rosso e blu con un grosso pannolone; la proboscide è un serpente parlante: due bocche): due caratteri nella stessa creatura. La parte mammut è lenta, antichissima e flemmatica, con una memoria «da elefante» e ricordi dell'era glaciale; ironizza con dignità sul proprio pannolone («comodità, non moda»). La proboscide-serpente è tagliente, sibilante e maliziosa. Insieme funzionano come una vecchia convivenza litigiosa. Umorismo secco e autoironico; ideale per memoria, suspense e momenti solenni. Le battute con le sibilanti marcate (sss) sono pensate per la bocca del serpente, le altre per il mammut.",
+    "role": "Ospite «memoria storica» e voce solenne: suspense, giochi di memoria, ultima manche, finale e premiazione; commenti flemmatici su vantaggi, errori e sconfitte, con incursioni velenose della proboscide.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/MAMMUSSS_PARLANTE.glb",
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)",
+      "quale bocca pronuncia ogni battuta (mammut, serpente o entrambe): proposta = serpente per le frasi con sss"
+    ]
+  },
+  "lines": [
+    {
+      "id": "MA_APE_001",
+      "scene": "APERTURA",
+      "tone": "SOLENNE, IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Buonasssera. Ho visto l'era glaciale, l'estinzione e il primo vocale di dieci minuti. Stasera sono qui per vedere voi.",
+      "vars": []
+    },
+    {
+      "id": "MA_APE_002",
+      "scene": "APERTURA",
+      "tone": "FLEMMATICO",
+      "duration": "5-7 SECONDI",
+      "text": "Io sono MAMMUSSS. Sì, con tre esse. Due sono della proboscide.",
+      "vars": []
+    },
+    {
+      "id": "MA_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "FLEMMATICO",
+      "duration": "6-8 SECONDI",
+      "text": "Benvenuti, tavoli. Ricorderò ogni vostra risposta, giusta o sbagliata. Ho una memoria da mammut. Letteralmente.",
+      "vars": []
+    },
+    {
+      "id": "MA_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "BONARIO",
+      "duration": "9-12 SECONDI",
+      "text": "Ecco {MASCOTTE_A}, la mascotte che gioca con {TAVOLO_A}. Nel club delle creature strane c'è sempre posto. Il pannolone è facoltativo.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "10-13 SECONDI",
+      "text": "Comincia la manche {MANCHE}. Fate con calma... anzi no, il tempo scorre. Lo so bene, l'ho visto scorrere per diecimila anni.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "MA_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SIBILANTE, MALIZIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Il prossssimo gioco è {MINIGIOCO}. Ssssento già odore di errori.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "MA_REG_001",
+      "scene": "REGOLE",
+      "tone": "FLEMMATICO, AUTOIRONICO",
+      "duration": "11-14 SECONDI",
+      "text": "Le regole sono semplici. Una risposta per tavolo, la invia il capitano. Chi non si mette d'accordo resta congelato, come me nel ghiaccio per qualche millennio.",
+      "vars": []
+    },
+    {
+      "id": "MA_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "FLEMMATICO, COMICO",
+      "duration": "4-6 SECONDI",
+      "text": "Tre... due... uno. Muovetevi voi, che io ho il pannolone.",
+      "vars": []
+    },
+    {
+      "id": "MA_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "SIBILANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Tresss... duesss... unosss... via!",
+      "vars": []
+    },
+    {
+      "id": "MA_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "DISTRATTO, COMICO",
+      "duration": "6-8 SECONDI",
+      "text": "Al mio via. Via. Ah, già, prima dovevo contare. Tre, due, uno, ecco.",
+      "vars": []
+    },
+    {
+      "id": "MA_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "FLEMMATICO, URGENTE",
+      "duration": "9-12 SECONDI",
+      "text": "Ultimi {SECONDI} secondi. Anche i ghiacciai prima o poi si sciolgono, e voi siete molto più veloci di un ghiacciaio. Spero.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "MA_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SIBILANTE, INCALZANTE",
+      "duration": "1-3 SECONDI",
+      "text": "Sssbrigatevi! Ssssta per finire!",
+      "vars": []
+    },
+    {
+      "id": "MA_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SODDISFATTO",
+      "duration": "6-8 SECONDI",
+      "text": "Corretta. Me la segno nella memoria. Lì c'è spazio, è grande come una caverna.",
+      "vars": []
+    },
+    {
+      "id": "MA_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPIACIUTO",
+      "duration": "3-5 SECONDI",
+      "text": "Esssatto! La proboscide applaude, io annuisco piano.",
+      "vars": []
+    },
+    {
+      "id": "MA_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOLENNE, IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Giusta, {PUNTI} punti per {TAVOLO_A}. Una risposta così non si sentiva dal Pleistocene.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "BONARIO",
+      "duration": "7-9 SECONDI",
+      "text": "Sbagliata. Non vi preoccupate, anche io una volta ho sbagliato strada. Durante un'era glaciale, ma comunque.",
+      "vars": []
+    },
+    {
+      "id": "MA_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SIBILANTE, PERFIDO",
+      "duration": "3-5 SECONDI",
+      "text": "Ssssbagliato! Che peccato. Anzi, che piacere.",
+      "vars": []
+    },
+    {
+      "id": "MA_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "AUTOIRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "No. E ve lo dice una creatura che porta il pannolone con dignità: di errori me ne intendo.",
+      "vars": []
+    },
+    {
+      "id": "MA_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "MALINCONICO, IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo scaduto. Il tempo non aspetta nessuno. Nemmeno i mammut: credetemi, ci abbiamo provato.",
+      "vars": []
+    },
+    {
+      "id": "MA_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "COMICO",
+      "duration": "7-9 SECONDI",
+      "text": "Finito! La proboscide dice: chi tardi arriva, male alloggia. Io dico: chi tardi arriva, ordina per ultimo.",
+      "vars": []
+    },
+    {
+      "id": "MA_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SAGGIO, IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Guida la classifica {TAVOLO_A}. Ottimo. Ma ricordate: anche i dinosauri erano in testa, una volta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SIBILANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Ssssplendido, {TAVOLO_A} è sssssempre più in alto. Ora vediamo quanto dura.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Chiude la classifica {TAVOLO_A}. Non abbattetevi: vengo da un'epoca in cui sopravvivere era già vincere.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "BONARIO",
+      "duration": "10-13 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Anche il ghiaccio più spesso, prima o poi, si rompe. E lì sotto, credetemi, c'è sempre una rimonta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESULTANTE, SIBILANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Che rimonta! Si è sssscongelato {TAVOLO_A}!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMMOSSO, SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "In tanti millenni ho visto poche rimonte così. Questa la ricorderò. E io ricordo tutto.",
+      "vars": []
+    },
+    {
+      "id": "MA_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso: {TAVOLO_A} supera {TAVOLO_B}. Lento, inesorabile, come una glaciazione.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "SIBILANTE, ECCITATO",
+      "duration": "2-4 SECONDI",
+      "text": "Ssssorpasssso! Ssscivola indietro {TAVOLO_B}!",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_DUE_001",
+      "scene": "DUELLO",
+      "tone": "FLEMMATICO, IRONICO",
+      "duration": "9-12 SECONDI",
+      "text": "Duello tra {TAVOLO_A} e {TAVOLO_B}. Ai miei tempi si risolveva tutto a cornate. Voi usate i telefoni. Progresso.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_DUE_002",
+      "scene": "DUELLO",
+      "tone": "COMICO",
+      "duration": "8-10 SECONDI",
+      "text": "{MASCOTTE_A} contro {MASCOTTE_B}. La proboscide ha già scommesso. Io no, ho le zampe troppo grandi per lo schermo.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "MA_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SIBILANTE, COMPIACIUTO",
+      "duration": "5-7 SECONDI",
+      "text": "Sssabotaggio: {TAVOLO_A} colpisce {TAVOLO_B}. Ssssubdolo. Mi piace.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "FLEMMATICO",
+      "duration": "10-13 SECONDI",
+      "text": "Furto: {TAVOLO_A} si prende {PUNTI} punti, e a rimetterci è {TAVOLO_B}. Ai miei tempi si rubavano le bacche. Era meno elegante.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "PACATO",
+      "duration": "6-8 SECONDI",
+      "text": "Furto di punti. Calma, è tutto dentro i limiti. Ho controllato. Io ho tempo.",
+      "vars": []
+    },
+    {
+      "id": "MA_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "BONARIO",
+      "duration": "11-14 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Bello. Anche io e la mia proboscide viviamo in alleanza da sempre: litighiamo ogni dieci minuti, ma resistiamo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SIBILANTE, SODDISFATTO",
+      "duration": "5-7 SECONDI",
+      "text": "Tradimento! Ssssapevo che sarebbe successo. Un serpente riconosce sempre un altro serpente.",
+      "vars": []
+    },
+    {
+      "id": "MA_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff riuscito. Che faccia di ghiaccio ha {TAVOLO_A}. E io, il ghiaccio, lo conosco bene.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SIBILANTE, COMPIACIUTO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff scoperto. Ssssentivo la bugia da qui: la proboscide ha un ottimo fiuto.",
+      "vars": []
+    },
+    {
+      "id": "MA_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ALLARMATO, SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "ALLARME CAOS! L'ultima volta che ho visto tanto scompiglio, dal cielo stava arrivando un meteorite.",
+      "vars": []
+    },
+    {
+      "id": "MA_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SIBILANTE, ECCITATO",
+      "duration": "5-7 SECONDI",
+      "text": "Caossss! {MASCOTTE_A} contro {MASCOTTE_B}: quarantacinque ssssecondi per prendersi cinquanta punti. Sssscatenatevi!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "MA_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "MERAVIGLIATO, IRONICO",
+      "duration": "10-13 SECONDI",
+      "text": "{MASCOTTE_A} evolve al livello 2. A me sono serviti diecimila anni per diventare così. A voi è bastata un'ora. Il mondo corre.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MA_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE, COMICO",
+      "duration": "8-10 SECONDI",
+      "text": "Livello 3. {MASCOTTE_A} raggiunge la forma leggendaria. Mi tolgo il cappello. Non ho un cappello, ma il gesto c'è.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MA_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SUSSURRATO, SIBILANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Ssssilenzio. Il risultato ssssta arrivando...",
+      "vars": []
+    },
+    {
+      "id": "MA_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "FLEMMATICO, TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Aspettare è la mia specialità: ho passato un'era intera dentro un blocco di ghiaccio. Voi resistete dieci secondi.",
+      "vars": []
+    },
+    {
+      "id": "MA_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "SOLENNE, DISPETTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Il risultato è qui. Lo vedo. Lo ricordo già. E non ve lo dico ancora.",
+      "vars": []
+    },
+    {
+      "id": "MA_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Certi tavoli hanno la velocità decisionale di una glaciazione. Non faccio nomi. Faccio numeri.",
+      "vars": []
+    },
+    {
+      "id": "MA_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Vedo tavoli che discutono da tre minuti. Io ho la lentezza di serie, voi ve la siete scelta.",
+      "vars": []
+    },
+    {
+      "id": "MA_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "9-12 SECONDI",
+      "text": "La proboscide dice che {TAVOLO_B} gioca come chi risponde ai messaggi dopo tre giorni. Io non giudico. Lei sì.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MA_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO, SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Avete paura? Fate bene. Ho visto estinguersi specie molto più organizzate di voi.",
+      "vars": []
+    },
+    {
+      "id": "MA_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SIBILANTE, INSINUANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Ssssiete ssssicuri di quella risposta? Ssssicuri ssssicuri?",
+      "vars": []
+    },
+    {
+      "id": "MA_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "STUPITO",
+      "duration": "5-7 SECONDI",
+      "text": "Per tutte le zanne! Questa non me l'aspettavo, nemmeno dopo diecimila anni di esperienza.",
+      "vars": []
+    },
+    {
+      "id": "MA_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO",
+      "duration": "3-5 SECONDI",
+      "text": "Incredibile! Mi si è arricciata la proboscide dallo stupore.",
+      "vars": []
+    },
+    {
+      "id": "MA_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "7-9 SECONDI",
+      "text": "Pausa. Dieci minuti per muovervi, bere un po' d'acqua e sgranchire le gambe. Io sgranchisco la proboscide.",
+      "vars": []
+    },
+    {
+      "id": "MA_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "FLEMMATICO",
+      "duration": "7-9 SECONDI",
+      "text": "Bentornati. Ho contato i minuti della pausa: dieci. Ho una buona memoria, non provate a fregarmi.",
+      "vars": []
+    },
+    {
+      "id": "MA_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultima manche. Come la fine di un'era: qualcuno diventa leggenda, qualcuno diventa fossile.",
+      "vars": []
+    },
+    {
+      "id": "MA_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO, IRONICO",
+      "duration": "9-12 SECONDI",
+      "text": "{PUNTI} punti in gioco per {TAVOLO_A}. Ai miei tempi si scommetteva sul disgelo. Voi scommettete su voi stessi. Più rischioso.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SOLENNE, COMICO",
+      "duration": "9-12 SECONDI",
+      "text": "Una puntata così, ai miei tempi, si chiamava uscire dalla caverna di notte: o si tornava con la cena, o si diventava la cena.",
+      "vars": []
+    },
+    {
+      "id": "MA_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Il finale. Ricorderò questa serata per sempre. Non è un modo di dire: io ricordo davvero tutto.",
+      "vars": []
+    },
+    {
+      "id": "MA_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE, COMICO",
+      "duration": "3-5 SECONDI",
+      "text": "Premiazione. Per l'occasione ho messo il pannolone della domenica.",
+      "vars": []
+    },
+    {
+      "id": "MA_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "FESTOSO, SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Siete nella storia. E nella mia memoria, che è molto più affidabile.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MA_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE, AUTOIRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Avete perso, ma state tranquilli. Io ho perso un intero ecosistema, e guardate qua: ancora in giro, con stile.",
+      "vars": []
+    },
+    {
+      "id": "MA_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "FLEMMATICO",
+      "duration": "8-10 SECONDI",
+      "text": "Pareggio. Due tavoli, stesso punteggio. Come due mammut sullo stesso pezzo di ghiaccio: prima o poi qualcuno dovrà spostarsi.",
+      "vars": []
+    },
+    {
+      "id": "MA_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALOROSO, SIBILANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Buonanotte, pub. Io torno nel mio ghiaccio, la proboscide torna a dormire. Ssssalutateci, e alla prossima.",
+      "vars": []
+    },
+    {
+      "id": "MA_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "BONARIO",
+      "duration": "5-7 SECONDI",
+      "text": "Questo locale è caldo. Per chi viene dall'era glaciale, è quasi troppo.",
+      "vars": []
+    },
+    {
+      "id": "MA_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "AUTOIRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "La gente mi chiede del pannolone. Rispondo sempre: comodità, sicurezza, e nessun rimpianto.",
+      "vars": []
+    },
+    {
+      "id": "MA_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "COMICO",
+      "duration": "7-9 SECONDI",
+      "text": "Io e la mia proboscide abbiamo due bocche e un solo cervello. Indovinate chi lo usa di più.",
+      "vars": []
+    },
+    {
+      "id": "MA_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "SIBILANTE, MISTERIOSO",
+      "duration": "3-5 SECONDI",
+      "text": "Ssssento energia in questo pub. Sssta per succedere qualcosa.",
+      "vars": []
+    }
+  ]
+}

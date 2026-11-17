@@ -1,0 +1,631 @@
+{
+  "character": {
+    "id": "trizzy",
+    "name": "Trizzy",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO BRILLANTE, MEDIO-ACUTO, FRIZZANTE E VELOCE; PARLANTINA DA ILLUSIONISTA-PRESENTATORE CON CAMBI DI RITMO IMPROVVISI E RISATINA GIOCOSA",
+    "personality": "PROPOSTA dedotta dal solo nome (nel progetto non ci sono né modello né descrizione): creatura illusionista iperattiva dall'anima social. Veloce, frizzante e teatrale, tratta ogni momento della serata come «un numero» da presentare: cilindro, carte truccate, «puf», rullo di tamburi. Parla come chi conduce una diretta (storie, visualizzazioni, follower, sondaggi), adora bluff, colpi di scena e la manche IL GRANDE INGANNO. Vanità autoironica, mai cattiveria: si inchina davanti a un inganno ben riuscito.",
+    "role": "Ospite «illusionista»: presentazione dei minigiochi, bluff riusciti e scoperti, colpi di scena, reazioni a sorpresa ed evoluzioni; anima la manche IL GRANDE INGANNO.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)",
+      "aspetto e tipo di creatura (illusionista-trickster dedotto solo dal nome)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "TR_APE_001",
+      "scene": "APERTURA",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Signore e signori, tavoli e tavolini: benvenuti allo spettacolo! Sono Trizzy, e stasera niente è come sembra.",
+      "vars": []
+    },
+    {
+      "id": "TR_APE_002",
+      "scene": "APERTURA",
+      "tone": "BRILLANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Niente nelle mani, niente nelle maniche... e tantissimi punti in palio. Che la magia cominci!",
+      "vars": []
+    },
+    {
+      "id": "TR_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "FRIZZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Che pubblico! Tavoli carichi, belli, pieni di energia: da qui sembrate una storia con mille visualizzazioni.",
+      "vars": []
+    },
+    {
+      "id": "TR_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "TEATRALE",
+      "duration": "8-10 SECONDI",
+      "text": "Rullo di tamburi... ecco {MASCOTTE_A}, in scena con {TAVOLO_A}! Arriva dal nulla, come il mio trucco migliore.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "TEATRALE",
+      "duration": "8-10 SECONDI",
+      "text": "Sipario su, luci giù: comincia la manche {MANCHE}! Applausi, prego, anche se non sapete ancora cosa vi aspetta.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "TR_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "BRILLANTE",
+      "duration": "6-8 SECONDI",
+      "text": "E dal mio cilindro esce... {MINIGIOCO}! Non chiedetemi come ci stava lì dentro.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "TR_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "MISTERIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Il prossimo numero si chiama {MINIGIOCO}. Occhi aperti: il trucco c'è, ma tocca a voi trovarlo.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "TR_REG_001",
+      "scene": "REGOLE",
+      "tone": "VIVACE",
+      "duration": "9-12 SECONDI",
+      "text": "Le regole del trucco: una risposta per tavolo, la manda il capitano, e niente sbirciate agli altri tavoli. Chi fa magie vede tutto.",
+      "vars": []
+    },
+    {
+      "id": "TR_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "TEATRALE",
+      "duration": "2-4 SECONDI",
+      "text": "Abracadabra in tre, due, uno... via!",
+      "vars": []
+    },
+    {
+      "id": "TR_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "FRIZZANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Tre... due... uno... e puf, si comincia!",
+      "vars": []
+    },
+    {
+      "id": "TR_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "BRILLANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Contate con me, come prima di una foto di gruppo: tre, due, uno, e sorridete!",
+      "vars": []
+    },
+    {
+      "id": "TR_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "CONCITATO",
+      "duration": "5-7 SECONDI",
+      "text": "{SECONDI} secondi e il tempo sparisce! Questo trucco, purtroppo, non lo controllo io.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "TR_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "FRENETICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimissimi secondi! Mandate la risposta prima che resti lì, visualizzata e senza risposta!",
+      "vars": []
+    },
+    {
+      "id": "TR_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESULTANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Corretta! E applausi, come dopo un trucco riuscito!",
+      "vars": []
+    },
+    {
+      "id": "TR_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "BRILLANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Esatto! In tasca {PUNTI} punti per {TAVOLO_A}. Puf, magia.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENTUSIASTA",
+      "duration": "3-5 SECONDI",
+      "text": "Giusta! Quasi quasi vi assumo come assistenti di scena.",
+      "vars": []
+    },
+    {
+      "id": "TR_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DISPETTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliata! Il trucco vi ha fregato. Succede anche ai migliori. A me, raramente.",
+      "vars": []
+    },
+    {
+      "id": "TR_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "GIOCOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Ops! Risposta sparita nel nulla, e i punti insieme a lei.",
+      "vars": []
+    },
+    {
+      "id": "TR_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO, AFFETTUOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Avete pescato la carta sbagliata, ma con una convinzione da applausi in piedi.",
+      "vars": []
+    },
+    {
+      "id": "TR_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "TEATRALE",
+      "duration": "5-7 SECONDI",
+      "text": "Tempo scaduto! Puf, sparito. Questo, almeno, è un trucco che riesce sempre.",
+      "vars": []
+    },
+    {
+      "id": "TR_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Fine! Chi non ha risposto ha appena fatto il trucco più triste del mondo: far sparire i propri punti.",
+      "vars": []
+    },
+    {
+      "id": "TR_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "FRIZZANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Al comando c'è {TAVOLO_A}! Primo posto e follower in aumento: siete la storia più vista della serata.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "MALIZIOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Guardate {TAVOLO_A} in testa: talento o trucco? Un'idea ce l'ho, ma l'illusionista non svela mai.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "8-10 SECONDI",
+      "text": "L'ultima carta del mazzo, per ora, è {TAVOLO_A}. Ma il trucco più bello arriva quando nessuno se lo aspetta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "AFFETTUOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Tranquilli: di uno spettacolo il pubblico ricorda il gran finale, non l'inizio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESULTANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Che rimonta! Riappare in classifica {TAVOLO_A}, come un coniglio dal cilindro!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SBALORDITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ma che numero è questo? Da dispersi a protagonisti! Voglio sapere il trucco, e lo voglio adesso.",
+      "vars": []
+    },
+    {
+      "id": "TR_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "CONCITATO",
+      "duration": "4-6 SECONDI",
+      "text": "Sorpasso con gioco di prestigio: {TAVOLO_A} scavalca {TAVOLO_B}!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "TR_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "BRILLANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo di scena in classifica! Chi era davanti adesso guarda le spalle di qualcun altro.",
+      "vars": []
+    },
+    {
+      "id": "TR_DUE_001",
+      "scene": "DUELLO",
+      "tone": "EPICO, TEATRALE",
+      "duration": "9-12 SECONDI",
+      "text": "Duello sul palco: {TAVOLO_A} contro {TAVOLO_B}! Stesso trucco, stesso tempo, e l'applauso va a chi lo esegue meglio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "TR_DUE_002",
+      "scene": "DUELLO",
+      "tone": "FRIZZANTE",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_A} sfida {MASCOTTE_B}. Sondaggio volante: chi vince? Il pubblico decide, io commento.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "TR_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SORPRESO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio! Trucco sporco ma regolare: {TAVOLO_A} colpisce {TAVOLO_B}. Teatrale, lo ammetto.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "TR_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "TEATRALE",
+      "duration": "9-12 SECONDI",
+      "text": "Guardate bene: {PUNTI} punti spariscono e riappaiono! Il trucco l'ha fatto {TAVOLO_A}, e chi applaude meno è {TAVOLO_B}.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "TR_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Furto di punti! Il borseggio più elegante della serata. Mi inchino, da professionista a professionista.",
+      "vars": []
+    },
+    {
+      "id": "TR_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "9-12 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}! Un bel numero in coppia. Speriamo solo che nessuno finisca segato a metà.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "TR_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "TEATRALE, SORPRESO",
+      "duration": "5-7 SECONDI",
+      "text": "Tradimento! L'alleato è sparito come per magia, e con lui la fiducia.",
+      "vars": []
+    },
+    {
+      "id": "TR_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff riuscito: {TAVOLO_A} ha ingannato tutto il pub. Benvenuti nel mio mondo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Che illusione perfetta! Nessuno ha visto il trucco, nemmeno io. E io il trucco lo vedo sempre.",
+      "vars": []
+    },
+    {
+      "id": "TR_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff scoperto! Si vedeva la carta che spuntava dalla manica.",
+      "vars": []
+    },
+    {
+      "id": "TR_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIDATTICO, GIOCOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Trucco smascherato! Regola numero uno dell'illusionista: mai ridere prima del finale.",
+      "vars": []
+    },
+    {
+      "id": "TR_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ALLARMATO, ESALTATO",
+      "duration": "3-5 SECONDI",
+      "text": "ALLARME CAOS! E questo, giuro, non era nel copione!",
+      "vars": []
+    },
+    {
+      "id": "TR_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TEATRALE",
+      "duration": "9-12 SECONDI",
+      "text": "Numero fuori programma! Il Bottone del Caos porta sul palco {MASCOTTE_A} e {MASCOTTE_B}, e chi vince fa apparire cinquanta punti.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "TR_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "{MASCOTTE_A} si trasforma: livello 2! Il prima e dopo più bello della serata.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "TR_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "MERAVIGLIATO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello 3, forma leggendaria! {MASCOTTE_A} adesso brilla più del mio mantello di scena, e non è poco.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "TR_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO, TEATRALE",
+      "duration": "3-5 SECONDI",
+      "text": "Rullo di tamburi... il risultato è nella busta...",
+      "vars": []
+    },
+    {
+      "id": "TR_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "MALIZIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Un attimo. Prima di svelare il trucco, un po' di attesa. È la parte che il pubblico odia e adora.",
+      "vars": []
+    },
+    {
+      "id": "TR_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "GIOCOSO, TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Chiudete gli occhi. No, apriteli, se no il risultato non lo vedete.",
+      "vars": []
+    },
+    {
+      "id": "TR_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "C'è un tavolo che decide come si sceglie un ristorante nel gruppo: diciotto proposte, e alla fine pizza.",
+      "vars": []
+    },
+    {
+      "id": "TR_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SCHERZOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Qualcuno qui ha fotografato lo schermo invece di rispondere. Prima la risposta, poi le storie!",
+      "vars": []
+    },
+    {
+      "id": "TR_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Serve una magia per svegliare {TAVOLO_B}? Posso tirare fuori un coniglio, se aiuta.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "TR_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "MALIZIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Siete sicuri di sapere chi sta bluffando? Io sì. E non ve lo dico.",
+      "vars": []
+    },
+    {
+      "id": "TR_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Tavoli, vi sfido: indovinate il mio prossimo trucco. Spoiler: non ci riuscirete.",
+      "vars": []
+    },
+    {
+      "id": "TR_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO",
+      "duration": "5-7 SECONDI",
+      "text": "Ma come?! Neanche col mio cilindro migliore avrei previsto una cosa così!",
+      "vars": []
+    },
+    {
+      "id": "TR_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Wow! Colpo di scena da applausi. Qualcuno l'ha filmato? Ditemi di sì.",
+      "vars": []
+    },
+    {
+      "id": "TR_PAU_001",
+      "scene": "PAUSA",
+      "tone": "FRIZZANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Intervallo! Dieci minuti per sgranchirvi, ordinare, guardare le foto della serata e taggare Trizzy.",
+      "vars": []
+    },
+    {
+      "id": "TR_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Si riapre il sipario! Tornate ai vostri tavoli: il secondo tempo è sempre quello con i trucchi migliori.",
+      "vars": []
+    },
+    {
+      "id": "TR_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima manche, il gran finale dello spettacolo! Adesso tirate fuori tutti gli assi dalle maniche.",
+      "vars": []
+    },
+    {
+      "id": "TR_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO, TEATRALE",
+      "duration": "6-8 SECONDI",
+      "text": "Puntata rischiosa per {TAVOLO_A}: {PUNTI} punti nel cilindro. Uscirà un coniglio o un disastro?",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "TR_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ESALTATO",
+      "duration": "6-8 SECONDI",
+      "text": "Tutto su una carta! Mi piace: è il genere di follia che rende indimenticabile uno spettacolo.",
+      "vars": []
+    },
+    {
+      "id": "TR_FIN_001",
+      "scene": "FINALE",
+      "tone": "TEATRALE, SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Il gran finale! Luci, musica, e l'ultimo trucco della serata: scoprire chi ha vinto.",
+      "vars": []
+    },
+    {
+      "id": "TR_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Premiazione! E per l'occasione faccio apparire... la coppa! Visto? Non era nel cilindro, era dietro di me.",
+      "vars": []
+    },
+    {
+      "id": "TR_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "ESULTANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Vince {TAVOLO_A}! Applausi, inchino e coriandoli immaginari: siete il numero migliore della serata!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "TR_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Stasera il trucco non è riuscito, capita. Anche i grandi illusionisti hanno le serate storte. Riprovateci.",
+      "vars": []
+    },
+    {
+      "id": "TR_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "STUPITO",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio! Due tavoli con lo stesso punteggio: illusione ottica? No, matematica pura.",
+      "vars": []
+    },
+    {
+      "id": "TR_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALOROSO",
+      "duration": "7-9 SECONDI",
+      "text": "Lo spettacolo è finito! Grazie, pub: siete stati un pubblico magico. Trizzy vi saluta e... puf, sparisce!",
+      "vars": []
+    },
+    {
+      "id": "TR_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "FRIZZANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Stasera questo pub ha l'energia di una diretta con migliaia di persone collegate. E nessuno che chiede di salutare la zia.",
+      "vars": []
+    },
+    {
+      "id": "TR_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "MALIZIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Mi chiedono sempre dove nascondo i trucchi. Risposta: ovunque. Soprattutto nelle domande.",
+      "vars": []
+    },
+    {
+      "id": "TR_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "MISTERIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Fidatevi dei vostri occhi. Ma non troppo: stasera in sala c'è chi fa magie per mestiere.",
+      "vars": []
+    },
+    {
+      "id": "TR_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "GIOCOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Se a qualcuno manca il caricabatterie, non guardate me. Ufficialmente.",
+      "vars": []
+    }
+  ]
+}
