@@ -1,0 +1,276 @@
+/* =====================================================================
+   TAVOLI IN GUERRA! — minigiochi. Notte profonda, lime elettrico, rosso segnale, bianco freddo.
+   Pannelli di vetro scuro sopra l'arena 3D; strisce «zona di guerra» per i blocchi.
+   Solo classi con prefisso tg-: nessun effetto sul resto del sito.
+   ===================================================================== */
+
+.tg-root {
+  --tg-night: #0b0d12;
+  --tg-night-2: #12161f;
+  --tg-steel: #1b212c;
+  --tg-line: rgba(238, 242, 246, 0.1);
+  --tg-lime: #c6ff3d;
+  --tg-lime-deep: #6f9a00;
+  --tg-red: #ff3b4e;
+  --tg-ice: #eef2f6;
+  --tg-mute: #9aa4b2;
+  --tg-amber: #ffc24a;
+  --tg-cyan: #6fe7ff;
+  --tg-violet: #b49cff;
+  --tg-display: var(--font-tig-display), "Big Shoulders", "Arial Narrow", Impact, sans-serif;
+  --tg-body: var(--font-tig-body), "Manrope", system-ui, sans-serif;
+  font-family: var(--tg-body);
+  color: var(--tg-ice);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tg-display {
+  font-family: var(--tg-display);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+.tg-num {
+  font-family: var(--tg-display);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+/* --- pannelli di vetro --------------------------------------------------- */
+.tg-glass {
+  background: linear-gradient(180deg, rgba(22, 27, 37, 0.82), rgba(11, 13, 18, 0.78));
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+  border: 1px solid var(--tg-line);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 24px 60px -24px rgba(0, 0, 0, 0.85);
+}
+
+.tg-glass-lime {
+  border-color: rgba(198, 255, 61, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(198, 255, 61, 0.25) inset,
+    0 0 40px -12px rgba(198, 255, 61, 0.45),
+    0 24px 60px -24px rgba(0, 0, 0, 0.85);
+}
+
+.tg-glass-red {
+  border-color: rgba(255, 59, 78, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(255, 59, 78, 0.25) inset,
+    0 0 40px -12px rgba(255, 59, 78, 0.5),
+    0 24px 60px -24px rgba(0, 0, 0, 0.85);
+}
+
+/* strisce diagonali (blocchi, invii chiusi) */
+.tg-stripes {
+  background-image: repeating-linear-gradient(-45deg, rgba(198, 255, 61, 0.16) 0 10px, transparent 10px 20px);
+}
+.tg-stripes-red {
+  background-image: repeating-linear-gradient(-45deg, rgba(255, 59, 78, 0.18) 0 10px, transparent 10px 20px);
+}
+
+/* selezione: motivo a righe oltre al colore (il colore non è mai l'unico segnale) */
+.tg-picked {
+  background-image: repeating-linear-gradient(-45deg, rgba(198, 255, 61, 0.14) 0 6px, rgba(198, 255, 61, 0.05) 6px 12px);
+}
+
+/* PC: il giocatore si ingrandisce sugli schermi grandi (stessa composizione, più leggibile) */
+@media (min-width: 1200px) {
+  .tg-player {
+    zoom: 1.18;
+  }
+}
+
+/* corpo della TV: righe della griglia vincolate all'altezza disponibile (niente invasioni sui tavoli) */
+.tg-tv-body > * {
+  height: 100%;
+  min-height: 0;
+}
+.tg-tv-body > .grid {
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+/* --- movimento --------------------------------------------------------- */
+@keyframes tg-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes tg-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes tg-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes tg-sweep {
+  from {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+@keyframes tg-beat {
+  0% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  12% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+}
+@keyframes tg-shake {
+  0%,
+  100% {
+    transform: none;
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+@keyframes tg-bar {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.tg-rise {
+  animation: tg-rise 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.tg-pop {
+  animation: tg-pop 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.tg-pulse {
+  animation: tg-pulse 1s ease-in-out infinite;
+}
+.tg-shake {
+  animation: tg-shake 240ms ease-in-out 2;
+}
+.tg-shine {
+  position: relative;
+  overflow: hidden;
+}
+.tg-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  animation: tg-sweep 1.4s ease-out 0.2s both;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tg-root *,
+  .tg-root *::before,
+  .tg-root *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* --- arena finta per l'anteprima ------------------------------------- */
+.tg-arena-fake {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 115%, rgba(198, 255, 61, 0.22), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 0% 0%, rgba(255, 59, 78, 0.18), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 100% 0%, rgba(111, 231, 255, 0.12), transparent 70%),
+    linear-gradient(180deg, #0b0d12 0%, #10141c 60%, #0b0d12 100%);
+}
+.tg-arena-fake::before {
+  content: "";
+  position: absolute;
+  inset: 45% -20% -10% -20%;
+  background-image:
+    linear-gradient(rgba(198, 255, 61, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 255, 61, 0.14) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(600px) rotateX(62deg);
+  transform-origin: 50% 0;
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  pointer-events: none;
+}
+
+/* range della puntata */
+.tg-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+}
+.tg-range::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--tg-lime) var(--tg-fill, 0%), rgba(238, 242, 246, 0.14) var(--tg-fill, 0%));
+}
+.tg-range::-moz-range-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(238, 242, 246, 0.14);
+}
+.tg-range::-moz-range-progress {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--tg-lime);
+}
+.tg-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 34px;
+  height: 34px;
+  margin-top: -12px;
+  border-radius: 999px;
+  background: var(--tg-ice);
+  border: 4px solid var(--tg-night);
+  box-shadow: 0 0 0 2px var(--tg-lime);
+}
+.tg-range::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--tg-ice);
+  border: 4px solid var(--tg-night);
+  box-shadow: 0 0 0 2px var(--tg-lime);
+}
+.tg-range:focus-visible {
+  outline: 2px solid var(--tg-lime);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
