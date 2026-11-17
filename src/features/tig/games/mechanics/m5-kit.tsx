@@ -5,11 +5,13 @@ import { useEffect, useState, type ReactNode } from "react";
 import type { ScoreOutput } from "@/lib/tig/games/contract";
 import type { TvGameProps } from "../ui-contract";
 import { Icon } from "../kit/icons";
+import { CrewFlag, Doubloon } from "../kit/ornaments";
 import { Eyebrow } from "../kit/ui";
 
 /**
- * Pezzi comuni alle schermate della MANCHE 5 «TUTTO O NIENTE!» (solo per le meccaniche 66–80).
- * Stesso linguaggio del kit: vetro scuro, lime/rosso/ambra, numeri in Big Shoulders, unità cqw sulla TV.
+ * Pezzi comuni alle schermate della MANCHE 5 «TUTTO O NIENTE!» (solo per le meccaniche 66–80), nello stile della
+ * TAVERNA DEI PIRATI: tavole di notte con il filo d'ottone, oro dei dobloni per punti e scelte, turchese per gli
+ * accenti, pergamena con l'inchiostro per spiegazioni e racconti, bandiere delle ciurme per i tavoli. Unità cqw in TV.
  */
 
 export type TvTeam = TvGameProps["teams"][number];
@@ -40,23 +42,12 @@ export function signed(n: number): string {
   return n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : "0";
 }
 
-/** Riga di avviso a tempo (finestra di scelta, colpo in arrivo…), sul telefono. */
-export function TimedBanner({ icon, children, tone = "lime" }: { icon: Parameters<typeof Icon>[0]["name"]; children: ReactNode; tone?: "lime" | "red" | "amber" }) {
-  const c = tone === "red" ? "border-(--tg-red-hi)/60 bg-(--tg-red)/10 text-(--tg-red-hi)" : tone === "amber" ? "border-(--tg-teal)/60 bg-(--tg-teal)/10 text-(--tg-teal-pale)" : "border-(--tg-gold)/60 bg-(--tg-gold)/10 text-(--tg-gold)";
-  return (
-    <div role="status" aria-live="polite" className={clsx("flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide", c)}>
-      <Icon name={icon} className="h-5 w-5 shrink-0" />
-      <span className="min-w-0">{children}</span>
-    </div>
-  );
-}
-
 /** Saldo del proprio tavolo (vista privata), con una nota sotto. */
 export function BalanceCard({ balance, note }: { balance: number | null; note: ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5 rounded-2xl border border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] px-4 py-3">
       <div className="flex items-center gap-3">
-        <Icon name="coins" className="h-7 w-7 shrink-0 text-(--tg-teal-hi)" />
+        <Icon name="coins" className="h-7 w-7 shrink-0 text-(--tg-gold)" />
         <Eyebrow className="flex-1">Il vostro saldo</Eyebrow>
         <p className="tg-num text-3xl leading-none">{balance === null ? "—" : balance.toLocaleString("it-IT")}</p>
       </div>
@@ -65,26 +56,24 @@ export function BalanceCard({ balance, note }: { balance: number | null; note: R
   );
 }
 
-/** Targhetta di un tavolo sulla TV (numero nel colore del tavolo + nome): il nome si accorcia, mai sopra ad altro. */
+/** Targhetta di un tavolo sulla TV: bandiera della ciurma col numero e nome (che si accorcia, mai sopra ad altro). */
 export function TvTeamTag({ team, className, children, numberOnly = false }: { team: TvTeam | undefined; className?: string; children?: ReactNode; numberOnly?: boolean }) {
   if (!team) return null;
   return (
-    <span className={clsx("flex min-w-0 max-w-full items-center gap-[0.5cqw]", className)} title={team.name}>
-      <span className="tg-num grid h-[2.4cqw] w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] text-[1.35cqw] text-(--tg-ink)" style={{ background: team.color }}>
-        {team.tableNo}
-      </span>
+    <span className={clsx("flex min-w-0 max-w-full items-center gap-[0.45cqw]", className)} title={team.name}>
+      <CrewFlag color={team.color} n={team.tableNo} className="h-[2.5cqw] w-[3.3cqw] shrink-0" />
       {!numberOnly && <span className="min-w-0 flex-1 truncate text-[1.15cqw] font-extrabold">{team.name}</span>}
       {children}
     </span>
   );
 }
 
-/** Solo il numero del tavolo nel suo colore (liste fitte sulla TV). */
+/** Solo la bandiera col numero del tavolo (liste fitte sulla TV). */
 export function TvTableBadge({ team, className }: { team: TvTeam | undefined; className?: string }) {
   if (!team) return null;
   return (
-    <span className={clsx("tg-num grid h-[2.4cqw] min-w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] px-[0.3cqw] text-[1.35cqw] text-(--tg-ink)", className)} style={{ background: team.color }} aria-label={`Tavolo ${team.tableNo}`}>
-      {team.tableNo}
+    <span className={clsx("inline-flex shrink-0", className)} role="img" aria-label={`Tavolo ${team.tableNo}`}>
+      <CrewFlag color={team.color} n={team.tableNo} className="h-[2.5cqw] w-[3.3cqw]" />
     </span>
   );
 }
@@ -116,7 +105,7 @@ export function TvOutcomeGrid({
   const by = new Map((outcome?.outcomes ?? []).map((o) => [o.teamId, o]));
   const map = teamMap(teams);
   const ids = order ?? teams.map((t) => t.teamId);
-  const n = cols ?? (ids.length > 12 ? 4 : ids.length > 6 ? 3 : 2);
+  const n = cols ?? (ids.length > 8 ? 4 : ids.length > 4 ? 3 : 2);
   const colCls = n === 1 ? "grid-cols-1" : n === 2 ? "grid-cols-2" : n === 3 ? "grid-cols-3" : "grid-cols-4";
   return (
     <div className={clsx("grid content-start gap-[0.6cqw]", colCls)}>
@@ -198,6 +187,81 @@ export function TvSolved({ kicker, prompt, answer, className }: { kicker: ReactN
         <Icon name="check" className="h-[1.8cqw] w-[1.8cqw] shrink-0" />
         <span className="min-w-0">{answer}</span>
       </p>
+    </div>
+  );
+}
+
+/** «Perché» della TV su pergamena, compatto per le righe di riepilogo (stesso materiale di TvExplain del kit). */
+export function TvWhy({ text, className, size = "md" }: { text: string; className?: string; size?: "sm" | "md" }) {
+  return (
+    <div className={clsx("tg-parch tg-rise shrink-0", size === "sm" ? "px-[1.3cqw] py-[0.8cqw]" : "p-[1.4cqw]", className)}>
+      <p className={clsx("font-semibold leading-snug", size === "sm" ? "text-[1.25cqw]" : "text-[1.45cqw]")}>
+        <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-burnt-ink)">Perché</span>
+        {text}
+      </p>
+    </div>
+  );
+}
+
+/** Racconto o regola della prova su pergamena (telefono). */
+export function ParchNote({ kicker, children, className }: { kicker?: ReactNode; children: ReactNode; className?: string }) {
+  return (
+    <section className={clsx("tg-parch px-4 py-3", className)}>
+      {kicker && <p className="mb-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-(--tg-burnt-ink)">{kicker}</p>}
+      <div className="text-[15px] font-semibold leading-snug">{children}</div>
+    </section>
+  );
+}
+
+/** Prezzo o posta in punti come doblone d'oro (telefono e TV). */
+export function CoinTag({ children, className }: { children: ReactNode; className?: string }) {
+  return <Doubloon className={clsx("font-black", className)}>{children}</Doubloon>;
+}
+
+export interface ToggleOption<T extends string> {
+  id: T;
+  title: string;
+  sub?: ReactNode;
+  tone?: "gold" | "red" | "teal";
+  icon?: Parameters<typeof Icon>[0]["name"];
+}
+
+/**
+ * Scelta grande a due o tre caselle per il telefono (prudenza/rischio, sicuro/rischio, ora/dopo, posta): titolo in
+ * Grenze ma più contenuto della BigToggle del kit, così le parole lunghe (PRUDENZA) restano dentro la casella.
+ */
+export function M5Toggle<T extends string>({ options, value, onChange, disabled = false, label }: { options: ToggleOption<T>[]; value: T | null; onChange: (v: T) => void; disabled?: boolean; label: string }) {
+  return (
+    <div role="radiogroup" aria-label={label} className={clsx("grid gap-2", options.length === 3 ? "grid-cols-3" : "grid-cols-2")}>
+      {options.map((o) => {
+        const on = value === o.id;
+        const accent = o.tone === "red" ? "var(--tg-red-hi)" : o.tone === "teal" ? "var(--tg-teal-hi)" : "var(--tg-gold)";
+        return (
+          <button
+            key={o.id}
+            type="button"
+            role="radio"
+            aria-checked={on}
+            disabled={disabled}
+            onClick={() => onChange(o.id)}
+            className={clsx(
+              "relative flex min-h-24 flex-col items-start gap-1 rounded-2xl border-2 p-3 text-left transition-transform active:scale-[0.98] disabled:cursor-default",
+              on ? "tg-picked bg-(--tg-night-2)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
+            )}
+            style={on ? { borderColor: accent } : undefined}
+          >
+            <span className="flex w-full items-center gap-2">
+              {o.icon && <Icon name={o.icon} className="h-6 w-6 shrink-0" />}
+              <span className={clsx("tg-display min-w-0 leading-none", o.title.length > 7 ? "text-[1.35rem]" : "text-2xl")} style={on ? { color: accent } : undefined}>
+                {o.title}
+              </span>
+            </span>
+            {o.sub && <span className="text-sm font-bold leading-snug text-(--tg-cream)/85">{o.sub}</span>}
+            {on && <Icon name="check" className="absolute bottom-2 right-2 h-5 w-5" />}
+            <span className="sr-only">{on ? " · selezionato" : ""}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }

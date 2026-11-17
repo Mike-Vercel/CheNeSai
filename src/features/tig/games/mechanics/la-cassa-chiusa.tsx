@@ -8,6 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { DigitPad } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
+import { ParchNote } from "./m5-kit";
 
 type P = PlayerGameProps<CassaView, null, CassaSubmission, CassaReveal>;
 type T = TvGameProps<CassaView, CassaReveal>;
@@ -74,10 +75,7 @@ function Player(p: P) {
         />
       }
     >
-      <Panel className="py-3">
-        <Eyebrow>{view.heading}</Eyebrow>
-        <p className="mt-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/85">{view.intro}</p>
-      </Panel>
+      <ParchNote kicker={view.heading}>{view.intro}</ParchNote>
       <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Serrature">
         {view.locks.map((l, i) => {
           const v = codes[l.id] ?? "";
@@ -128,9 +126,9 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? `${view.heading} · ecco le tre combinazioni` : `${view.heading} · indizi a catena: ogni codice serve per il successivo`}>
       <div className={clsx("grid h-full gap-[1.2cqw]", done ? "grid-rows-[minmax(0,1fr)_auto]" : "grid-rows-[auto_minmax(0,1fr)]")}>
         {!done && (
-          <TvPanel className="tg-rise px-[1.6cqw] py-[1cqw]">
-            <p className="text-[1.5cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.intro}</p>
-          </TvPanel>
+          <div className="tg-parch tg-rise px-[1.6cqw] py-[1cqw]">
+            <p className="text-[1.5cqw] font-semibold leading-snug">{view.intro}</p>
+          </div>
         )}
         <div className="grid min-h-0 grid-cols-3 gap-[1.2cqw]">
           {view.locks.map((l, i) => {

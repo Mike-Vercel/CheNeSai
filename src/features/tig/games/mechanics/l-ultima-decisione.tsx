@@ -5,9 +5,9 @@ import type { DecisioneMemberView, DecisioneReveal, DecisioneSubmission, Decisio
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { BalanceCard, secsTo, TvLadder } from "./m5-kit";
+import { BalanceCard, M5Toggle, secsTo, TvLadder, TvWhy } from "./m5-kit";
 
 type P = PlayerGameProps<DecisioneView, DecisioneMemberView, DecisioneSubmission, DecisioneReveal>;
 type T = TvGameProps<DecisioneView, DecisioneReveal>;
@@ -67,13 +67,13 @@ function Player(p: P) {
       />
       <Panel className="flex flex-col gap-2">
         <Eyebrow className="text-(--tg-teal-hi)">{choosing ? "L'ultima decisione della serata" : "Decisione bloccata"}</Eyebrow>
-        <BigToggle<Choice>
+        <M5Toggle<Choice>
           label="Premio sicuro o grande rischio"
           value={effective}
           onChange={setChoice}
           disabled={!editable || !choosing}
           options={[
-            { id: "sicuro", title: "Sicuro", sub: `Risolto +${view.safePoints}, sbagliato 0`, tone: "lime", icon: "shield" },
+            { id: "sicuro", title: "Sicuro", sub: `Risolto +${view.safePoints}, sbagliato 0`, tone: "gold", icon: "shield" },
             { id: "rischio", title: "Rischio", sub: `Risolto +${view.riskPoints}, sbagliato −${stake ?? `${Math.round(view.stakeShare * 100)}%`}`, tone: "red", icon: "flame" },
           ]}
         />
@@ -115,7 +115,7 @@ function Tv(p: T) {
       note: choiceOf.get(x.teamId) === "rischio" ? "Rischio" : choiceOf.get(x.teamId) === "sicuro" ? "Sicuro" : "—",
     }));
     return (
-      <TvFrame view={view} p={p} subtitle="Dal fondo alla vetta: gli esiti dell'ultima decisione">
+      <TvFrame view={view} p={{ ...p, teams: [] }} subtitle="Dal fondo alla vetta: gli esiti dell'ultima decisione">
         <div className="grid h-full grid-cols-[1fr_1.15fr] gap-[1.4cqw]">
           <div className="flex min-h-0 flex-col gap-[1cqw]">
             <TvPanel className="tg-rise flex flex-col gap-[0.7cqw]">
@@ -127,12 +127,7 @@ function Tv(p: T) {
                 ))}
               </div>
             </TvPanel>
-            <TvPanel className="tg-rise p-[1.1cqw]">
-              <p className="text-[1.3cqw] font-semibold leading-snug text-(--tg-cream)/90">
-                <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
-                {reveal.explain}
-              </p>
-            </TvPanel>
+            <TvWhy text={reveal.explain} />
           </div>
           <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
             <p className="flex items-center gap-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">

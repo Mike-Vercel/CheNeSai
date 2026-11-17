@@ -6,27 +6,39 @@ import type { CarteReveal, CarteSubmission, CarteView, Slot } from "@/lib/tig/ga
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
+import { CompassRose } from "../kit/ornaments";
 import { ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { secsTo, teamMap, TvTableBadge } from "./m5-kit";
+import { secsTo, teamMap, TvTableBadge, TvWhy } from "./m5-kit";
 
 type P = PlayerGameProps<CarteView, null, CarteSubmission, CarteReveal>;
 type T = TvGameProps<CarteView, CarteReveal>;
 
 const SLOTS: Slot[] = ["A", "B", "C"];
 
-/** Dorso di una carta (lettera grande e trama a righe). */
+/**
+ * Dorso di una carta da gioco della taverna: mare di notte, cornice d'ottone, rosa dei venti in filigrana, lettera
+ * d'oro al centro e negli angoli (come le carte vere). Scelta: bordo e bagliore d'oro con la spunta.
+ */
 function CardBack({ slot, picked, tv = false, onClick, disabled }: { slot: Slot; picked?: boolean; tv?: boolean; onClick?: () => void; disabled?: boolean }) {
   const cls = clsx(
-    "relative grid place-items-center overflow-hidden border-2 transition-transform duration-200",
+    "relative grid place-items-center overflow-hidden border-2 bg-[radial-gradient(circle_at_50%_38%,#16404f,#0b1f2a_58%,#07131a)] shadow-[inset_0_0_0_1px_rgba(0,0,0,.4),0_18px_40px_-18px_rgba(0,0,0,.9)] transition-transform duration-200",
     tv ? "aspect-[3/4] h-full max-h-full rounded-[1.4cqw]" : "aspect-[3/4] w-full rounded-2xl active:scale-[0.97]",
-    picked ? "tg-picked border-(--tg-gold) shadow-[0_0_40px_-8px_color-mix(in_srgb,var(--tg-gold)_70%,transparent)]" : "border-(--tg-cream)/20 bg-(--tg-night-2)",
+    picked ? "border-(--tg-gold) shadow-[0_0_40px_-8px_color-mix(in_srgb,var(--tg-gold)_75%,transparent)]" : "border-(--tg-brass)/70",
   );
+  const corner = clsx("tg-display absolute leading-none text-(--tg-gold)/85", tv ? "text-[1.8cqw]" : "text-sm");
   const inner = (
     <>
-      <span className="absolute inset-[6%] rounded-[inherit] border border-(--tg-cream)/10 bg-[repeating-linear-gradient(45deg,color-mix(in_srgb,var(--tg-red)_12%,transparent)_0_8px,transparent_8px_16px)]" aria-hidden />
-      <span className={clsx("tg-display relative", tv ? "text-[9cqw]" : "text-7xl", picked ? "text-(--tg-gold)" : "text-(--tg-cream)")}>{slot}</span>
-      {picked && <Icon name="check" className={clsx("absolute", tv ? "bottom-[1cqw] right-[1cqw] h-[3cqw] w-[3cqw]" : "bottom-2 right-2 h-7 w-7")} />}
+      <span className={clsx("absolute inset-[6%] rounded-[inherit] border bg-[repeating-linear-gradient(45deg,rgba(201,162,74,.09)_0_6px,transparent_6px_13px)]", picked ? "border-(--tg-gold)/80" : "border-(--tg-brass)/45")} aria-hidden />
+      <CompassRose className="absolute inset-[16%] text-(--tg-brass) opacity-25" />
+      <span className={clsx(corner, tv ? "left-[9%] top-[6%]" : "left-[11%] top-[6%]")} aria-hidden>
+        {slot}
+      </span>
+      <span className={clsx(corner, "rotate-180", tv ? "bottom-[6%] right-[9%]" : "bottom-[6%] right-[11%]")} aria-hidden>
+        {slot}
+      </span>
+      <span className={clsx("tg-display relative drop-shadow-[0_3px_6px_rgba(0,0,0,.7)]", tv ? "text-[8.5cqw]" : "text-6xl", picked ? "text-(--tg-gold-hi)" : "text-(--tg-gold)")}>{slot}</span>
+      {picked && <Icon name="check" className={clsx("absolute text-(--tg-gold-hi)", tv ? "bottom-[1cqw] left-[1cqw] h-[3cqw] w-[3cqw]" : "bottom-2 left-2 h-6 w-6")} />}
     </>
   );
   if (!onClick) return <div className={cls}>{inner}</div>;
@@ -192,12 +204,7 @@ function Tv(p: T) {
           })}
         </div>
         {done && (
-          <TvPanel className="tg-rise p-[1cqw]">
-            <p className="text-[1.3cqw] font-semibold leading-snug text-(--tg-cream)/90">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
-              {reveal.explain}
-            </p>
-          </TvPanel>
+          <TvWhy text={reveal.explain} size="sm" />
         )}
       </div>
     </TvFrame>

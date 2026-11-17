@@ -6,9 +6,9 @@ import type { ImboscataReveal, ImboscataSubmission, ImboscataView } from "@/lib/
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, OptionButton, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { teamMap, TvOutcomeGrid, TvSolved, TvTableBadge } from "./m5-kit";
+import { M5Toggle, teamMap, TvOutcomeGrid, TvSolved, TvTableBadge, TvWhy } from "./m5-kit";
 
 type P = PlayerGameProps<ImboscataView, null, ImboscataSubmission, ImboscataReveal>;
 type T = TvGameProps<ImboscataView, ImboscataReveal>;
@@ -96,7 +96,7 @@ function Player(p: P) {
         <div className="flex items-center gap-2">
           <Icon name="target" className="h-7 w-7 shrink-0 text-(--tg-teal-hi)" />
           <div>
-            <Eyebrow>Il vostro bersaglio</Eyebrow>
+            <Eyebrow>Bersaglio</Eyebrow>
             <p className="tg-display text-2xl">{hasTarget ? `Tavolo ${tableOf(me?.targetId)}` : "Nessuno"}</p>
           </div>
         </div>
@@ -120,12 +120,12 @@ function Player(p: P) {
 
       <Panel className="flex flex-col gap-2">
         <Eyebrow className="text-(--tg-teal-hi)">{hasTarget ? "2" : "1"} · Quanto rischiate in difesa?</Eyebrow>
-        <BigToggle<string>
+        <M5Toggle<string>
           label="Rischio in difesa"
           value={stake === null ? null : String(stake)}
           onChange={(v) => editable && setStake(Number(v) as Stake)}
           disabled={!editable}
-          options={view.stakes.map((s) => ({ id: String(s), title: s === 0 ? "Zero" : `${s}`, sub: s === 0 ? `Retta +${view.defensePoints}` : `+${view.defensePoints + s} o −${s}`, tone: s === 40 ? "red" : s === 20 ? "ice" : "lime" }))}
+          options={view.stakes.map((s) => ({ id: String(s), title: s === 0 ? "Zero" : `${s}`, sub: s === 0 ? `Retta +${view.defensePoints}` : `+${view.defensePoints + s} o −${s}`, tone: s === 40 ? "red" : s === 20 ? "teal" : "gold" }))}
         />
         <p className="text-xs font-semibold text-(--tg-cream)/60">Se la difesa cade, il rischio va a chi vi ha teso la trappola (scudi e tetti valgono sempre).</p>
       </Panel>
@@ -160,18 +160,15 @@ function Tv(p: T) {
   const trapName = (id: string) => view.traps.find((t) => t.id === id)?.name ?? "";
   if (done) {
     return (
-      <TvFrame view={view} p={p} subtitle={`${view.heading} · chi ha retto e chi ci è cascato`}>
-        <div className="grid h-full grid-rows-[auto_minmax(0,1fr)] gap-[1cqw]">
+      <TvFrame view={view} p={{ ...p, teams: [] }} subtitle={`${view.heading} · chi ha retto e chi ci è cascato`}>
+        <div className="grid h-full grid-rows-[auto_auto_minmax(0,1fr)] gap-[1cqw]">
           <div className="grid grid-cols-3 gap-[1cqw]">
             {reveal.traps.map((t, i) => (
               <TvSolved key={t.id} kicker={`Trappola ${i + 1} · ${t.name}`} prompt={t.prompt} answer={t.options.find((o) => o.id === t.solutionId)?.text ?? ""} />
             ))}
           </div>
+          <TvWhy text={reveal.explain} size="sm" />
           <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
-            <p className="line-clamp-2 text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
-              {reveal.explain}
-            </p>
             <TvOutcomeGrid
               teams={p.teams}
               outcome={p.outcome}

@@ -7,7 +7,8 @@ import type { RotturaLeaf, RotturaReveal, RotturaSubmission, RotturaTop, Rottura
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { canEdit, Explain, Eyebrow, MyOutcome, OptionButton, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
+import { canEdit, Explain, Eyebrow, MyOutcome, OptionButton, Panel, PlayerFrame, SubmitBar, TvFrame, useSubmit } from "../kit/ui";
+import { ParchNote, TvWhy } from "./m5-kit";
 
 type P = PlayerGameProps<RotturaView, null, RotturaSubmission, RotturaReveal>;
 type T = TvGameProps<RotturaView, RotturaReveal>;
@@ -150,10 +151,7 @@ function Player(p: P) {
         />
       }
     >
-      <Panel className="py-3">
-        <Eyebrow>{view.heading}</Eyebrow>
-        <p className="mt-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/85">{view.intro}</p>
-      </Panel>
+      <ParchNote kicker={view.heading}>{view.intro}</ParchNote>
       <Meters resources={view.resources} use={tot.use} goal={view.goal} gain={tot.gain} />
       <div className="flex flex-wrap items-center gap-2" aria-label="Percorso scelto">
         {[0, 1, 2].map((i) => (
@@ -259,12 +257,7 @@ function Tv(p: T) {
             ))}
             <TvMeter label={reveal.goal.label} used={reveal.best.gain} unit={reveal.goal.unit} goal />
           </div>
-          <TvPanel className="tg-rise p-[1.1cqw]">
-            <p className="text-[1.35cqw] font-semibold leading-snug text-(--tg-cream)/90">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
-              {reveal.explain}
-            </p>
-          </TvPanel>
+          <TvWhy text={reveal.explain} />
         </div>
       </TvFrame>
     );
@@ -279,7 +272,9 @@ function Tv(p: T) {
           ))}
           <TvMeter label="Obiettivo" text={`Più ${view.goal.label.toLowerCase()} possibile`} goal />
         </div>
-        <p className="text-[1.45cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.intro}</p>
+        <div className="tg-parch px-[1.4cqw] py-[0.8cqw]">
+          <p className="text-[1.4cqw] font-semibold leading-snug">{view.intro}</p>
+        </div>
         <div className="flex min-h-0 flex-col gap-[0.6cqw]">
           <p className="text-[1.15cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">1 · {view.steps[0]}</p>
           <div className="flex min-h-0 flex-1 gap-[1cqw]">

@@ -6,9 +6,9 @@ import type { PenultimaReveal, PenultimaSubmission, PenultimaView, ShieldSpot } 
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { secsTo, TvOutcomeGrid, TvSolved } from "./m5-kit";
+import { M5Toggle, secsTo, TvOutcomeGrid, TvSolved, TvWhy } from "./m5-kit";
 
 type P = PlayerGameProps<PenultimaView, null, PenultimaSubmission, PenultimaReveal>;
 type T = TvGameProps<PenultimaView, PenultimaReveal>;
@@ -76,13 +76,13 @@ function Player(p: P) {
         <Eyebrow className="flex items-center gap-1.5 text-(--tg-teal-hi)">
           <Icon name="shield" className="h-4 w-4" /> La vostra unica difesa {secondOpen ? "· bloccata" : ""}
         </Eyebrow>
-        <BigToggle<ShieldSpot>
+        <M5Toggle<ShieldSpot>
           label="Dove giocate la difesa"
           value={shield}
           onChange={setShield}
           disabled={!editable || secondOpen}
           options={[
-            { id: "penultima", title: "Ora", sub: "Sulla penultima: se sbagliate, 0 invece di −30", tone: "lime", icon: "shield" },
+            { id: "penultima", title: "Ora", sub: "Sulla penultima: se sbagliate, 0 invece di −30", tone: "gold", icon: "shield" },
             { id: "ultima", title: "Dopo", sub: "La tenete per l'ultima, che ancora non conoscete", tone: "red", icon: "lock" },
           ]}
         />
@@ -121,8 +121,8 @@ function Tv(p: T) {
   const secondOpen = p.stage !== "play" || elapsed >= view.round2AtMs;
   const shieldOf = new Map((done ? (reveal.summary?.shields ?? []) : []).map((s) => [s.teamId, s]));
   return (
-    <TvFrame view={view} p={p} subtitle={done ? `${view.heading} · dove avete giocato la difesa` : secondOpen ? `${view.heading} · difese bloccate: si vedranno al reveal` : `${view.heading} · la difesa si decide prima che arrivi l'ultima`}>
-      <div className={clsx("grid h-full gap-[1.1cqw]", done ? "grid-rows-[minmax(0,1fr)_auto]" : "")}>
+    <TvFrame view={view} p={done ? { ...p, teams: [] } : p} subtitle={done ? `${view.heading} · dove avete giocato la difesa` : secondOpen ? `${view.heading} · difese bloccate: si vedranno al reveal` : `${view.heading} · la difesa si decide prima che arrivi l'ultima`}>
+      <div className={clsx("grid h-full gap-[1.1cqw]", done ? "grid-rows-[auto_auto_minmax(0,1fr)]" : "")}>
         <div className="grid min-h-0 grid-cols-2 gap-[1.2cqw]">
           {view.rounds.map((r, i) => {
             const rr = done ? reveal.rounds[i] : null;
@@ -154,12 +154,9 @@ function Tv(p: T) {
             );
           })}
         </div>
+        {done && <TvWhy text={reveal.explain} size="sm" />}
         {done && (
-          <TvPanel className="flex flex-col gap-[0.6cqw] p-[1cqw]">
-            <p className="text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
-              {reveal.explain}
-            </p>
+          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
             <TvOutcomeGrid
               teams={p.teams}
               outcome={p.outcome}

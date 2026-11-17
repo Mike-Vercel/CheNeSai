@@ -5,9 +5,9 @@ import type { BuiaMemberView, BuiaReveal, BuiaSubmission, BuiaView } from "@/lib
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { BalanceCard, secsTo, TvBigWait, TvOutcomeGrid, TvTeamTag } from "./m5-kit";
+import { BalanceCard, M5Toggle, secsTo, TvBigWait, TvOutcomeGrid, TvTeamTag } from "./m5-kit";
 
 type P = PlayerGameProps<BuiaView, BuiaMemberView, BuiaSubmission, BuiaReveal>;
 type T = TvGameProps<BuiaView, BuiaReveal>;
@@ -74,14 +74,14 @@ function Player(p: P) {
             <p className="tg-display text-3xl leading-none">{view.category}</p>
           </div>
         </div>
-        <BigToggle<Choice>
+        <M5Toggle<Choice>
           label="Prudenza o rischio"
           value={effective}
           onChange={setChoice}
           disabled={!editable || !choosing}
           options={[
-            { id: "prudenza", title: "Prudenza", sub: `+${view.safePoints} sicuri, niente domanda`, tone: "lime" },
-            { id: "rischio", title: "Rischio", sub: `Giusta +${view.riskWin}, sbagliata −${loss}`, tone: "red" },
+            { id: "prudenza", title: "Prudenza", sub: `+${view.safePoints} sicuri, niente domanda`, tone: "gold", icon: "shield" },
+            { id: "rischio", title: "Rischio", sub: `Giusta +${view.riskWin}, sbagliata −${loss}`, tone: "red", icon: "flame" },
           ]}
         />
         {!choosing && !choice && p.stage === "play" && <p className="text-sm font-bold text-(--tg-teal-pale)">Tempo di scelta finito: per voi vale la prudenza.</p>}
@@ -105,7 +105,7 @@ function Tv(p: T) {
   if (p.stage === "reveal" && reveal) {
     const choiceOf = new Map((reveal.summary?.choices ?? []).map((c) => [c.teamId, c.choice]));
     return (
-      <TvFrame view={view} p={p} subtitle={`${reveal.category} · chi ha rischiato e chi no`}>
+      <TvFrame view={view} p={{ ...p, teams: [] }} subtitle={`${reveal.category} · chi ha rischiato e chi no`}>
         <div className="grid h-full grid-cols-[1.2fr_1fr] gap-[1.4cqw]">
           <div className="flex min-h-0 flex-col gap-[1cqw]">
             <TvPanel className="tg-rise flex flex-col gap-[0.8cqw]">
