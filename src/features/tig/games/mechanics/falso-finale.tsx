@@ -144,8 +144,8 @@ function Tv(p: T) {
           ))}
         </div>
         <div className="mx-auto flex h-full w-[62%] flex-col items-center justify-center gap-[1.2cqw]">
-          <p className="tg-display tg-pop flex items-center gap-[1cqw] text-[5.4cqw] leading-none text-[#ffc24a]">
-            <Icon name="crown" className="h-[5cqw] w-[5cqw]" /> {view.board.title}
+          <p className="tg-display tg-pop flex items-center gap-[1cqw] text-center text-[4cqw] leading-none text-[#ffc24a]">
+            <Icon name="crown" className="h-[4cqw] w-[4cqw] shrink-0" /> {view.board.title}
           </p>
           <TvPanel className="w-full p-[1.2cqw]">
             <BoardTable board={view.board} tv />
