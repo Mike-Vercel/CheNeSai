@@ -29,7 +29,8 @@ import {
   totalMinutes,
   TRANSITIONS,
 } from "@/lib/tig/rules";
-import { difficultyFor, seededRandom, selectGame, type SelectionInput } from "@/lib/tig/selection";
+import { CATALOG_ROWS } from "@/lib/tig/games/catalog";
+import { CAOS_MECHANIC, difficultyFor, NOT_FOR_CAOS, seededRandom, selectGame, type SelectionInput } from "@/lib/tig/selection";
 import { EVENT_STATES, eventConfigSchema } from "@/lib/tig/types";
 import { fillVoiceText, pickLine } from "@/lib/tig/voices/fill";
 import type { VoiceFile } from "@/lib/tig/voices/schema";
@@ -311,6 +312,17 @@ describe("TAVOLI IN GUERRA! · motore di selezione", () => {
     const ms = [mech("squadra"), mech("duello", { input: "duel", manche: 2 })];
     expect(selectGame(base(ms, { kind: "caos", remainingMs: null }))!.def.code).toBe("duello");
     expect(selectGame(base([mech("squadra")], { kind: "caos", remainingMs: null }))!.def.code).toBe("squadra");
+  });
+  it("duello del Caos: prima «bottone-del-caos» (anche ripetuto), mai duelli cooperativi o con ruoli diversi", () => {
+    const ms = [mech("bottone-del-caos", { input: "duel", manche: 2 }), mech("duello-silenzioso", { input: "duel", manche: 5 }), mech("il-patto-di-60-secondi", { input: "duel", manche: 2 })];
+    const s = selectGame(base(ms, { kind: "caos", remainingMs: null, usedCodes: ["bottone-del-caos"] }))!;
+    expect(s.def.code).toBe("bottone-del-caos");
+    expect(s.repeated).toBe(false);
+    const senza = [mech("il-patto-di-60-secondi", { input: "duel" }), mech("duello-silenzioso", { input: "duel", manche: 5 })];
+    for (const seed of ["a", "b", "c", "d"]) expect(selectGame(base(senza, { kind: "caos", remainingMs: null, seed }))!.def.code).toBe("duello-silenzioso");
+    for (const seed of ["a", "b", "c", "d"]) expect(selectGame(base(senza, { kind: "tiebreak", remainingMs: null, seed }))!.def.code).toBe("duello-silenzioso");
+    const codes = new Set(CATALOG_ROWS.map((r) => r[1]));
+    for (const c of [CAOS_MECHANIC, ...NOT_FOR_CAOS]) expect(codes.has(c), c).toBe(true);
   });
   it("deterministico a parità di seme", () => {
     const ms = ["a", "b", "c", "d", "e"].map((c) => mech(c));
