@@ -7,6 +7,7 @@ import {
   BufferAttribute,
   BufferGeometry,
   CanvasTexture,
+  ClampToEdgeWrapping,
   Color,
   ConeGeometry,
   CylinderGeometry,
@@ -87,23 +88,29 @@ const rnd = (n: number) => {
 };
 
 // ------------------------------------------------------------------ pavimento
-function Floor({ reflect, every, radius }: { reflect: number; every: number; radius: number }) {
-  const decal = useMemo(() => floorDecal(), []);
-  useEffect(() => () => decal.dispose(), [decal]);
+const FLOOR_SIZE = 90;
+
+function Floor({ reflect, every, radius, pbr }: { reflect: number; every: number; radius: number; pbr: boolean }) {
   const size = Math.max(26, radius * 3.6);
+  // mappa tattica al centro del pavimento (lato `size`), fuori nero: alfa premoltiplicata perché diventa un emissivo
+  const decal = useMemo(() => {
+    const t = floorDecal();
+    const k = FLOOR_SIZE / size;
+    t.wrapS = t.wrapT = ClampToEdgeWrapping;
+    t.anisotropy = 8;
+    t.premultiplyAlpha = true;
+    t.repeat.set(k, k);
+    t.offset.set(0.5 - 0.5 * k, 0.5 - 0.5 * k);
+    return t;
+  }, [size]);
+  useEffect(() => () => decal.dispose(), [decal]);
   // resina nera lucida: riflesso vero (solo il set luminoso, a bassa risoluzione, sfocato) o, nei profili leggeri,
-  // solo i riflessi dell'ambiente di studio
-  const { material: floorMat, meshRef: floorRef } = useFloorMaterial({ scale: reflect, every, strength: 0.62, color: "#06080c" });
+  // solo i riflessi dell'ambiente di studio; la mappa tattica è l'emissivo del pavimento stesso
+  const { material: floorMat, meshRef: floorRef } = useFloorMaterial({ scale: reflect, every, strength: 0.62, color: "#06080c", decal, pbr });
   return (
-    <group>
-      <mesh ref={floorRef} rotation-x={-Math.PI / 2} material={floorMat}>
-        <planeGeometry args={[90, 90]} />
-      </mesh>
-      <mesh rotation-x={-Math.PI / 2} position-y={0.004} renderOrder={1}>
-        <planeGeometry args={[size, size]} />
-        <meshBasicMaterial map={decal} transparent opacity={0.9} depthWrite={false} blending={AdditiveBlending} toneMapped={false} />
-      </mesh>
-    </group>
+    <mesh ref={floorRef} rotation-x={-Math.PI / 2} material={floorMat}>
+      <planeGeometry args={[FLOOR_SIZE, FLOOR_SIZE]} />
+    </mesh>
   );
 }
 
@@ -969,7 +976,7 @@ export function ArenaSet({ liveRef, ledStatic, family, quality, reduced, radius,
   const ledW = high ? 2560 : 1600;
   return (
     <group>
-      <Floor reflect={debug.noReflect ? 0 : profile.reflect} every={profile.reflectEvery} radius={radius} />
+      <Floor reflect={debug.noReflect ? 0 : profile.reflect} every={profile.reflectEvery} radius={radius} pbr={debug.flags.includes("stdfloor")} />
       <Reflected>
         <Stage family={family} shadows={false} />
         <Podium liveRef={liveRef} family={family} />
@@ -977,7 +984,7 @@ export function ArenaSet({ liveRef, ledStatic, family, quality, reduced, radius,
         <Ribbon liveRef={liveRef} radius={radius} />
       </Reflected>
       <Rig liveRef={liveRef} radius={radius} low={!high} reduced={reduced} fixtures={profile.fixtures} cones={!debug.noCones} />
-      <Dust count={360} shown={profile.dust} size={radius * 2.6} />
+      {profile.dust > 0 && <Dust count={360} shown={profile.dust} size={radius * 2.6} />}
       <Confetti liveRef={liveRef} count={280} shown={profile.confetti} />
     </group>
   );

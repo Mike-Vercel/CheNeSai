@@ -20,7 +20,7 @@ import { SpotFx } from "./SpotFx";
 import { readArenaDebug, type ArenaDebug } from "./debug";
 import { shadowTexture } from "./textures";
 import { classifyGpu, initialLevel, PerfGovernor, profileAt, renderDpr, type GpuClass, type RenderProfile } from "./perf";
-import { PostFx } from "./PostFx";
+import { DirectRender, PostFx, type PostOverrides } from "./PostFx";
 import { StudioEnvironment } from "./studio-env";
 
 /**
@@ -55,6 +55,7 @@ class Boundary extends Component<{ onError: (r: string) => void; children: React
 }
 
 const hostKey = (hosts: ArenaHost[]) => hosts.map((h) => h.who).join(",");
+const NO_HOSTS: ArenaHost[] = [];
 
 // ------------------------------------------------------------------ regia (ogni fotogramma, prima di tutto)
 function Director({ liveRef, propsRef, reduced, onDir }: { liveRef: RefObject<ArenaLive>; propsRef: RefObject<Arena3DProps>; reduced: boolean; onDir: (d: ArenaDirection) => void }) {
@@ -306,7 +307,7 @@ function Hosts({ hosts, quality, dir, liveRef, onLoaded, reduced }: { hosts: Are
 }
 
 // ------------------------------------------------------------------ ritmo dei fotogrammi e regolatore
-function Pace({ liveRef, reduced, propsRef, profile, governor, onLevel }: { liveRef: RefObject<ArenaLive>; reduced: boolean; propsRef: RefObject<Arena3DProps>; profile: RenderProfile; governor: PerfGovernor | null; onLevel: (l: RenderProfile["level"]) => void }) {
+function Pace({ liveRef, reduced, propsRef, profile, governor, onLevel, dprOverride }: { liveRef: RefObject<ArenaLive>; reduced: boolean; propsRef: RefObject<Arena3DProps>; profile: RenderProfile; governor: PerfGovernor | null; onLevel: (l: RenderProfile["level"]) => void; dprOverride: number | null }) {
   const onLevelRef = useRef(onLevel);
   useEffect(() => {
     onLevelRef.current = onLevel;
@@ -317,8 +318,8 @@ function Pace({ liveRef, reduced, propsRef, profile, governor, onLevel }: { live
   const size = useThree((s) => s.size);
   // densità di pixel del profilo (tetto del gradino e del numero di pixel: una TV 4K non affoga la scheda integrata)
   useEffect(() => {
-    setDpr(renderDpr(profile, window.devicePixelRatio || 1, size.width, size.height));
-  }, [profile, size.width, size.height, setDpr]);
+    setDpr(dprOverride ?? renderDpr(profile, window.devicePixelRatio || 1, size.width, size.height));
+  }, [profile, size.width, size.height, setDpr, dprOverride]);
   // durata media dei fotogrammi davvero disegnati (media mobile)
   const render = useRef({ last: 0, avg: 16.7 });
   useFrame(() => {
@@ -483,7 +484,22 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: 
   const [start] = useState<RenderProfile["level"]>(() => (debug.level != null ? debug.level : initialLevel(quality, gpu)));
   const [level, setLevel] = useState<RenderProfile["level"]>(start);
   const [governor] = useState(() => (debug.level != null ? null : new PerfGovernor(start, high ? 1 : 0)));
-  const profile = profileAt(level);
+  // interruttori di misura (`?dbg=`): buffer, antialiasing, bagliore, pulviscolo, presentatori
+  const flags = debug.flags;
+  const profile = useMemo(() => {
+    const p = profileAt(level);
+    return flags.includes("nodust") ? { ...p, dust: 0 } : p;
+  }, [level, flags]);
+  const overrides = useMemo<PostOverrides>(
+    () => ({
+      buffer: flags.includes("ldr") ? "ldr" : flags.includes("hdr") ? "hdr" : undefined,
+      aa: flags.includes("fxaa") ? "fxaa" : flags.includes("smaa") ? "smaa" : flags.includes("noaa") ? "none" : undefined,
+      bloom: flags.includes("nobloom") ? false : undefined,
+      msaa: flags.includes("msaa4") ? 4 : flags.includes("msaa2") ? 2 : flags.includes("nomsaa") ? 0 : undefined,
+    }),
+    [flags],
+  );
+  const noHosts = flags.includes("nohosts");
   useEffect(() => {
     // diagnostica leggera (nessun dato personale): gradino corrente e classe della scheda
     (window as unknown as { __tigArena?: object }).__tigArena = { level, gpu, start };
@@ -572,7 +588,7 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: 
       <SpotFx liveRef={liveRef} low={!high} />
       <Hosts
         key={hostKey(props.hosts)}
-        hosts={props.hosts}
+        hosts={noHosts ? NO_HOSTS : props.hosts}
         quality={quality}
         dir={dir}
         liveRef={liveRef}
@@ -583,8 +599,8 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: 
         }}
       />
       {props.onReady && <ReadySignal loaded={hostsLoaded} onReady={props.onReady} />}
-      <Pace liveRef={liveRef} reduced={reduced} propsRef={propsRef} profile={profile} governor={governor} onLevel={setLevel} />
-      <PostFx profile={profile} exposure={1.05} />
+      <Pace liveRef={liveRef} reduced={reduced} propsRef={propsRef} profile={profile} governor={governor} onLevel={setLevel} dprOverride={debug.dpr} />
+      {flags.includes("nopost") ? <DirectRender /> : <PostFx profile={profile} exposure={1.05} overrides={overrides} />}
       <ContextGuard onFail={props.onFail} />
       {process.env.NODE_ENV !== "production" && <FrameCounter />}
     </>

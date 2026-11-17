@@ -190,7 +190,7 @@ function faceMeshesOf(root: Object3D): Mesh[] {
 export const HOST_RIM = {
   a: { value: new Color("#ff9a3c") },
   b: { value: new Color("#3ee6ff") },
-  k: { value: 0.85 },
+  k: { value: 1.2 },
 };
 const RIM_DONE = new WeakSet<Material>();
 

@@ -13,12 +13,14 @@ import {
   InstancedBufferAttribute,
   InstancedMesh,
   Matrix4,
+  MeshStandardMaterial,
   Object3D,
   OctahedronGeometry,
   PlaneGeometry,
   SphereGeometry,
   TorusGeometry,
   Vector3,
+  type Material,
   type ShaderMaterial,
 } from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
@@ -35,7 +37,9 @@ import { MascotGlb } from "./MascotGlb";
  *
  * SEGNAPOSTO DICHIARATO (finché non arrivano i 12 GLB): totem olografico astratto — proiettore a terra con fascio
  * di luce, gemma sfaccettata che galleggia, numero dello slot dentro, fascia «MASCOTTE IN ARRIVO» che gira — tinto
- * col colore della squadra. Non è un personaggio finto: è chiaramente un ologramma provvisorio.
+ * col colore della squadra. Non è un personaggio finto: è chiaramente un ologramma provvisorio. Dentro l'involucro
+ * olografico c'è un cristallo vero (metallo lucido nel colore della squadra, luce propria): prende i riflessi delle
+ * softbox dello studio e dà al segnaposto un aspetto "da oggetto premium", senza inventare un personaggio.
  *
  * EVOLUZIONE (generica: vale anche per i GLB futuri):
  *  - livello 2 «Potenziata»: luce propria più forte, aura, scintille che orbitano, anello esterno;
@@ -153,7 +157,23 @@ function crownGeometry(): BufferGeometry {
   return merged ?? new TorusGeometry(0.17, 0.02, 6, 32);
 }
 
-function makeMesh(geo: BufferGeometry, mat: ShaderMaterial, count: number, colors = true): InstancedMesh {
+/** Cristallo del segnaposto: metallo lucido col colore della squadra (instanceColor) e luce propria dallo stesso colore. */
+function gemMaterial(): MeshStandardMaterial {
+  const m = new MeshStandardMaterial({ color: "#ffffff", metalness: 0.8, roughness: 0.14, envMapIntensity: 1.8, flatShading: true });
+  m.onBeforeCompile = (shader) => {
+    shader.fragmentShader = shader.fragmentShader.replace(
+      "#include <emissivemap_fragment>",
+      `#include <emissivemap_fragment>
+      #if defined( USE_COLOR ) || defined( USE_INSTANCING_COLOR )
+        totalEmissiveRadiance += vColor.rgb * 0.42;
+      #endif`,
+    );
+  };
+  m.customProgramCacheKey = () => "tig-mascot-gem";
+  return m;
+}
+
+function makeMesh(geo: BufferGeometry, mat: Material, count: number, colors = true): InstancedMesh {
   const m = new InstancedMesh(geo, mat, Math.max(1, count));
   m.frustumCulled = false;
   m.count = count;
@@ -194,12 +214,13 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
     const holo = hologramMaterial();
     const coreGeo = new OctahedronGeometry(0.3, 0);
     coreGeo.scale(1, 1.55, 1);
-    const innerGeo = new OctahedronGeometry(0.13, 0);
-    innerGeo.scale(1, 1.4, 1);
+    // cristallo interno (opaco, lucido): più grande del vecchio nucleo, dentro l'involucro olografico (0,3)
+    const innerGeo = new OctahedronGeometry(0.19, 0);
+    innerGeo.scale(1, 1.45, 1);
     const fxAttr = (count: number) => new InstancedBufferAttribute(new Float32Array(Math.max(1, count) * 4).fill(1), 4);
     const core = makeMesh(coreGeo, holo, n);
     coreGeo.setAttribute("aFx", fxAttr(n));
-    const inner = makeMesh(innerGeo, holo, n);
+    const inner = makeMesh(innerGeo, gemMaterial(), n);
     innerGeo.setAttribute("aFx", fxAttr(n));
     // proiettore: disco con anelli + fascio verso l'alto
     const padMat = additiveMapMaterial(textures.ring);
@@ -267,10 +288,10 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
   }, [n, textures]);
   useEffect(
     () => () => {
-      const mats = new Set<ShaderMaterial>();
+      const mats = new Set<Material>();
       for (const m of parts.all) {
         m.geometry.dispose();
-        mats.add(m.material as ShaderMaterial);
+        mats.add(m.material as Material);
         m.dispose();
       }
       for (const m of mats) m.dispose();
@@ -403,7 +424,8 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
         tmpObj.updateMatrix();
         mB.multiplyMatrices(mP, tmpObj.matrix);
         P.inner.setMatrixAt(i, mB);
-        P.inner.setColorAt(i, cTmp.set(e.color).lerp(WHITE, 0.45));
+        // cristallo: colore della squadra (spento se offline), più luce col livello e nei lampi
+        P.inner.setColorAt(i, cTmp.set(e.online ? e.color : "#4a525c").lerp(WHITE, 0.12 + pose.flash * 0.6).multiplyScalar(0.55 + 0.45 * glow));
         innerFx.setXYZW(i, glow * 1.3, pose.flash, pose.hurt, e.online ? 1 : 0);
         tmpObj.position.set(0, 0.18, 0);
         tmpObj.rotation.set(0, 0, 0);

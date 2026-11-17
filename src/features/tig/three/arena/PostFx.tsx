@@ -2,41 +2,65 @@
 
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
-import { BloomEffect, EffectComposer, EffectPass, FXAAEffect, RenderPass, SMAAEffect, SMAAPreset, ToneMappingEffect, ToneMappingMode, VignetteEffect, type Effect } from "postprocessing";
-import { HalfFloatType, NoToneMapping } from "three";
+import { BloomEffect, EdgeDetectionMode, EffectComposer, EffectPass, FXAAEffect, RenderPass, SMAAEffect, SMAAPreset, ToneMappingEffect, ToneMappingMode, VignetteEffect, type Effect } from "postprocessing";
+import { HalfFloatType, NoToneMapping, UnsignedByteType } from "three";
 import type { RenderProfile } from "./perf";
 
 /**
- * RESA "BROADCAST" dell'arena (postprocessing di pmndrs): la scena si disegna in un buffer HDR a mezza precisione,
- * poi in UN solo passaggio di effetti: bagliore selettivo (bloom a mipmap: solo ciò che supera la soglia, cioè neon,
- * LED, ologrammi, fasci), tone mapping neutro (i colori delle squadre e del LED restano fedeli), vignettatura leggera
- * e antialiasing (MSAA nel buffer sui PC con scheda dedicata, SMAA/FXAA in post sugli altri).
+ * RESA "BROADCAST" dell'arena (postprocessing di pmndrs): la scena si disegna in un buffer HDR, poi in UN solo
+ * passaggio a schermo intero: bagliore selettivo (bloom a mipmap: solo ciò che supera la soglia, cioè neon, spigoli,
+ * ologrammi), tone mapping neutro (i colori delle squadre e del LED restano fedeli), vignettatura leggera e
+ * antialiasing (MSAA nel buffer sulle schede dedicate, SMAA/FXAA nello stesso passaggio sulle altre).
  * Prende il posto del disegno automatico di R3F (useFrame con priorità 1).
  */
-export function PostFx({ profile, exposure = 1 }: { profile: RenderProfile; exposure?: number }) {
+
+/** Interruttori di misura (debug.ts): buffer, antialiasing, bagliore. */
+export interface PostOverrides {
+  buffer?: "hdr" | "ldr";
+  aa?: "smaa" | "fxaa" | "none";
+  bloom?: boolean;
+  msaa?: 0 | 2 | 4;
+}
+
+export function PostFx({ profile, exposure = 1, overrides }: { profile: RenderProfile; exposure?: number; overrides?: PostOverrides }) {
   const gl = useThree((s) => s.gl);
   const scene = useThree((s) => s.scene);
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
   const dpr = useThree((s) => s.viewport.dpr);
+  const buffer = overrides?.buffer ?? profile.buffer;
+  const aaMode = overrides?.aa ?? (profile.msaa > 0 ? "none" : profile.postAA);
+  const bloomOn = overrides?.bloom ?? profile.bloom > 0;
+  const msaa = overrides?.msaa ?? profile.msaa;
 
   const built = useMemo(() => {
-    const composer = new EffectComposer(gl, { frameBufferType: HalfFloatType, multisampling: profile.msaa });
+    // HDR (mezza precisione) dove la banda passante lo permette; altrimenti 8 bit sRGB: i neon si fermano a 1 ma la
+    // soglia del bagliore è più bassa e i testi nitidi restano sotto (CRISP)
+    const composer = new EffectComposer(gl, { frameBufferType: buffer === "hdr" ? HalfFloatType : UnsignedByteType, multisampling: msaa });
     composer.addPass(new RenderPass(scene, camera));
     const effects: Effect[] = [];
-    let bloom: BloomEffect | null = null;
-    if (profile.bloom > 0) {
-      bloom = new BloomEffect({ mipmapBlur: true, luminanceThreshold: 0.92, luminanceSmoothing: 0.25, intensity: 1.0, radius: 0.7, levels: profile.level >= 3 ? 7 : 5, resolutionScale: profile.bloom });
-      effects.push(bloom);
+    if (bloomOn) {
+      const ldr = buffer === "ldr";
+      effects.push(
+        new BloomEffect({
+          mipmapBlur: true,
+          luminanceThreshold: ldr ? 0.9 : 0.92,
+          luminanceSmoothing: ldr ? 0.08 : 0.25,
+          intensity: ldr ? 1.25 : 1.0,
+          radius: 0.7,
+          levels: profile.level >= 4 ? 6 : 5,
+          resolutionScale: Math.max(0.25, profile.bloom),
+        }),
+      );
     }
     if (profile.vignette) effects.push(new VignetteEffect({ offset: 0.32, darkness: 0.52 }));
     effects.push(new ToneMappingEffect({ mode: ToneMappingMode.NEUTRAL }));
-    const aa = profile.msaa > 0 ? null : profile.postAA === "smaa" ? new SMAAEffect({ preset: SMAAPreset.HIGH }) : profile.postAA === "fxaa" ? new FXAAEffect() : null;
+    // antialiasing nello STESSO passaggio (un solo giro a schermo intero: conta la banda passante delle integrate)
+    if (aaMode === "smaa") effects.push(new SMAAEffect({ preset: SMAAPreset.LOW, edgeDetectionMode: EdgeDetectionMode.LUMA }));
+    else if (aaMode === "fxaa") effects.push(new FXAAEffect());
     composer.addPass(new EffectPass(camera, ...effects));
-    // l'antialiasing va DOPO il tone mapping (lavora sui bordi già in LDR)
-    if (aa) composer.addPass(new EffectPass(camera, aa));
-    return { composer, bloom };
-  }, [gl, scene, camera, profile]);
+    return { composer };
+  }, [gl, scene, camera, profile, buffer, aaMode, bloomOn, msaa]);
 
   useEffect(() => {
     built.composer.setSize(size.width, size.height);
@@ -57,10 +81,18 @@ export function PostFx({ profile, exposure = 1 }: { profile: RenderProfile; expo
   }, [exposure]);
 
   useFrame((state, delta) => {
-    // il tone mapping lo fa l'ultimo passaggio (sull'immagine HDR intera): i materiali scrivono valori lineari
+    // il tone mapping lo fa il passaggio finale (sull'immagine HDR intera): i materiali scrivono valori lineari
     state.gl.toneMapping = NoToneMapping;
     state.gl.toneMappingExposure = expRef.current;
     builtRef.current.composer.render(delta);
+  }, 1);
+  return null;
+}
+
+/** Disegno diretto senza postprocessing (solo per misurare quanto costa la scena da sola: `?dbg=nopost`). */
+export function DirectRender() {
+  useFrame((state) => {
+    state.gl.render(state.scene, state.camera);
   }, 1);
   return null;
 }

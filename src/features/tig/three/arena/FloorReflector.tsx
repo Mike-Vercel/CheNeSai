@@ -6,7 +6,9 @@ import {
   HalfFloatType,
   LinearFilter,
   LinearMipmapLinearFilter,
+  Color,
   Matrix4,
+  MeshLambertMaterial,
   MeshStandardMaterial,
   PerspectiveCamera,
   Plane,
@@ -15,14 +17,17 @@ import {
   Vector4,
   WebGLRenderTarget,
   type Mesh,
+  type Texture,
 } from "three";
 
 /**
  * PAVIMENTO LUCIDO con riflesso vero ma economico (al posto di MeshReflectorMaterial, che ridisegnava tutta la scena
  * a ogni fotogramma): la camera riflessa disegna SOLO gli oggetti del livello REFLECT_LAYER (neon, LED, torri,
  * ologrammi: ciò che si vede nel riflesso di uno studio buio), a bassa risoluzione e ogni N fotogrammi. Il pavimento
- * è un MeshStandardMaterial (luci e pozze di luce restano) a cui si aggiunge il riflesso: sfocato con le mipmap,
- * più forte di taglio (Fresnel), increspato da un rumore leggero come una resina lucida.
+ * è un MeshLambertMaterial (pozze di luce delle luci vere, ambiente di studio diffuso: molto più leggero di un PBR
+ * che riempie mezzo schermo) con il disegno del pavimento come emissivo (niente secondo strato trasparente grande
+ * quanto lo schermo) e il riflesso aggiunto: sfocato con le mipmap, più forte di taglio (Fresnel), increspato da un
+ * rumore leggero come una resina lucida. `?dbg=stdfloor` torna al PBR (per confronto).
  */
 
 /** Livello three degli oggetti che si riflettono nel pavimento (la camera principale vede anche il livello 0). */
@@ -39,7 +44,8 @@ const view = new Vector3();
 const target = new Vector3();
 const q = new Vector4();
 
-export function useFloorMaterial({ scale, every, strength = 0.55, color = "#06080c" }: { scale: number; every: number; strength?: number; color?: string }) {
+/** `decal`: disegno del pavimento come emissivo (già preparato: alfa premoltiplicata, ripetizione e scarto per il centro). */
+export function useFloorMaterial({ scale, every, strength = 0.55, color = "#06080c", decal = null, pbr = false }: { scale: number; every: number; strength?: number; color?: string; decal?: Texture | null; pbr?: boolean }) {
   const gl = useThree((s) => s.gl);
   const size = useThree((s) => s.size);
   const enabled = scale > 0;
@@ -64,7 +70,9 @@ export function useFloorMaterial({ scale, every, strength = 0.55, color = "#0608
   }, []);
 
   const material = useMemo(() => {
-    const m = new MeshStandardMaterial({ color, metalness: 0.55, roughness: 0.32, envMapIntensity: 0.5 });
+    const m = pbr
+      ? new MeshStandardMaterial({ color, metalness: 0.55, roughness: 0.32, envMapIntensity: 0.5, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal })
+      : new MeshLambertMaterial({ color, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal });
     if (!rt) return m;
     m.onBeforeCompile = (shader) => {
       shader.uniforms.tReflect = { value: rt.texture };
@@ -93,9 +101,9 @@ export function useFloorMaterial({ scale, every, strength = 0.55, color = "#0608
           }`,
         );
     };
-    m.customProgramCacheKey = () => "tig-floor-reflect";
+    m.customProgramCacheKey = () => (pbr ? "tig-floor-reflect-pbr" : "tig-floor-reflect");
     return m;
-  }, [rt, textureMatrix, strength, color]);
+  }, [rt, textureMatrix, strength, color, decal, pbr]);
   useEffect(() => () => material.dispose(), [material]);
 
   const meshRef = useRef<Mesh>(null);
