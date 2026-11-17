@@ -24,7 +24,7 @@ export interface GameEntry {
   href: string | null;
   /** copertina verticale (locandina 4:5 circa): immagine reale del gioco oppure campo di colore con una sigla */
   /** «brand»: copertina disegnata in CSS (in attesa dell'immagine ufficiale, slot /games/<id>-copertina.webp) */
-  cover: { kind: "image"; src: string; alt: string; width: number; height: number; /** punto da tenere nel riquadro 4:5 (es. "top") */ position?: "top" | "center" } | { kind: "placeholder"; color: string; mark: CoverMark } | { kind: "brand"; brand: "giramente" };
+  cover: { kind: "image"; src: string; alt: string; width: number; height: number; /** punto da tenere nel riquadro 4:5 (es. "top") */ position?: "top" | "center" } | { kind: "placeholder"; color: string; mark: CoverMark } | { kind: "brand"; brand: "giramente" | "tig" };
 }
 
 export const GAMES: GameEntry[] = [
@@ -73,6 +73,16 @@ export const GAMES: GameEntry[] = [
       width: 1024,
       height: 1536,
     },
+  },
+  {
+    id: "tavoli-in-guerra",
+    title: "TAVOLI IN GUERRA!",
+    tagline: "Il game show per pub che trasforma ogni tavolo in una squadra: sfide, bluff, Bottone del Caos e mascotte che evolvono.",
+    meta: ["Game show per pub", "Da 2 tavoli in su · 18+", "90–120 minuti", "Gratis"],
+    status: "disponibile",
+    href: "/tavoli-in-guerra",
+    // copertina ufficiale non ancora fornita: copertina disegnata in CSS (slot /games/tavoli-in-guerra-copertina.webp)
+    cover: { kind: "brand", brand: "tig" },
   },
 ];
 
