@@ -20,8 +20,8 @@ const HERO_SLIDES: HeroSlide[] = [
   { id: "che-ne-sai", title: "CHE NE SAI?!", tagline: "Il quiz show da giocare in compagnia.", href: "/gioca", cover: { src: "/games/che-ne-sai-copertina.webp", width: 1024, height: 1536 }, coverWide: "/games/che-ne-sai-copertina-desktop.webp", accent: "gold" },
   { id: "psyco", title: "PSYCO", tagline: "Tutti conoscono la regola. Tranne te.", href: "/psyco", cover: { src: "/games/psyco-copertina.webp", width: 1055, height: 1318 }, coverWide: "/games/psyco-copertina-desktop.webp", accent: "red" },
   { id: "giramente", title: "GIRAMENTE!", tagline: "La ruota gira. La mente decide.", href: "/giramente", cover: { src: "/games/giramente-copertina.webp", width: 1024, height: 1536 }, coverWide: "/games/giramente-copertina-desktop.webp", accent: "green" },
-  // copertina ufficiale non ancora fornita: schermata disegnata in CSS
-  { id: "tavoli-in-guerra", title: "TAVOLI IN GUERRA!", tagline: "Il game show per pub: ogni tavolo è una squadra.", href: "/tavoli-in-guerra", cover: { src: "", width: 1024, height: 1536 }, coverWide: "", accent: "amber", brand: "tig" },
+  // TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!, la rotta resta): copertina ufficiale non ancora fornita, schermata disegnata in codice
+  { id: "tavoli-in-guerra", title: "TAVERNA DEI PIRATI", tagline: "Il game show per pub: ogni tavolo è una ciurma.", href: "/tavoli-in-guerra", cover: { src: "", width: 1024, height: 1536 }, coverWide: "", accent: "amber", brand: "tig" },
 ];
 
 export default async function Home() {
@@ -35,7 +35,7 @@ export default async function Home() {
       {/* ------------------------------------------------ i giochi in primo piano: si scorre verso destra */}
       <section aria-labelledby="featured-title" className="relative isolate overflow-hidden pb-10 lg:pb-12">
         <h1 id="featured-title" className="sr-only">
-          {PLATFORM_NAME}: CHE NE SAI?!, PSYCO, GIRAMENTE!, TAVOLI IN GUERRA!
+          {PLATFORM_NAME}: CHE NE SAI?!, PSYCO, GIRAMENTE!, TAVERNA DEI PIRATI
         </h1>
         <div aria-hidden className="qz-spotlight qz-breathe absolute inset-0 -z-20 motion-reduce:animate-none" />
         <div aria-hidden className="qz-vignette pointer-events-none absolute inset-0 -z-10" />

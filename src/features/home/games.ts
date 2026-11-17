@@ -75,13 +75,14 @@ export const GAMES: GameEntry[] = [
     },
   },
   {
+    // id e rotta restano quelli di prima (rinomina interna più avanti): cambia il nome visibile
     id: "tavoli-in-guerra",
-    title: "TAVOLI IN GUERRA!",
-    tagline: "Il game show per pub che trasforma ogni tavolo in una squadra: sfide, bluff, Bottone del Caos e mascotte che evolvono.",
+    title: "TAVERNA DEI PIRATI",
+    tagline: "Il game show per pub dove ogni tavolo è una ciurma: sfide, bluff, Bottone del Caos e mascotte che evolvono.",
     meta: ["Game show per pub", "Da 2 tavoli in su · 18+", "90–120 minuti", "Gratis"],
     status: "disponibile",
     href: "/tavoli-in-guerra",
-    // copertina ufficiale non ancora fornita: copertina disegnata in CSS (slot /games/tavoli-in-guerra-copertina.webp)
+    // copertina ufficiale non ancora fornita: copertina disegnata in codice (slot /games/tavoli-in-guerra-copertina.webp)
     cover: { kind: "brand", brand: "tig" },
   },
 ];
