@@ -24,8 +24,10 @@ import {
 } from "three";
 import type { ArenaTeam } from "../../arena-contract";
 import { TIG, inkOn } from "../palette";
-import { additiveMapMaterial, chaosRingMaterial, columnMaterial, CRISP, glyphMaterial } from "./fx-materials";
+import { additiveMapMaterial, chaosRingMaterial, CRISP, glyphMaterial } from "./fx-materials";
 import { REFLECT_LAYER } from "./FloorReflector";
+import { bannerMaterial, goldStackMaterial } from "./pirate-materials";
+import { BANNER_COLS, bannerAtlasSize, coinFaceTexture, drawBanners, plankTexture } from "./pirate-textures";
 import { BASE_H, CAP_H, type ArenaLive } from "./live";
 import { POD, type ArenaLayout } from "./layout";
 import { deltaFlash, scoreDigits } from "./rank-anim";
@@ -34,11 +36,12 @@ import { spotlightLive } from "./director";
 import { useLatestRef } from "./use-latest";
 
 /**
- * LE TORRI DELLE SQUADRE (istanziate: ogni parte è UNA draw call per tutte le torri).
- * Base esagonale col neon della squadra e la pozza di luce a terra · colonna che sale e scende col punteggio
- * (spigoli al neon, tacche ogni 25 cm) · tappo con l'anello dell'Energia Caos · targhetta sempre rivolta alla camera
- * (numero del tavolo nel colore della squadra + nome) · punteggio a cifre grandi che conta su/giù · lampo «+40».
- * Tavolo offline: colori spenti, neon al minimo, «OFFLINE» sulla targhetta.
+ * LE POSTAZIONI DELLE CIURME (edizione pirati; istanziate: ogni parte è UNA draw call per tutte le postazioni).
+ * Tamburo di legno cerchiato d'ottone con la corda nel colore della ciurma e la pozza di luce a terra · PILA DI
+ * DOBLONI d'oro che sale e scende col punteggio · doblone grande in cima con l'anello dell'Energia Caos · STENDARDO
+ * della ciurma su un'asta accanto (colore del tavolo, numero, ossa incrociate simpatiche) · targa di legno sempre
+ * rivolta alla camera (numero del tavolo nel sigillo del colore della squadra + nome) · punteggio a cifre grandi
+ * color oro che conta su/giù · lampo «+40». Tavolo offline: oro spento, stendardo grigio, «OFFLINE» sulla targa.
  * Con più di 12 squadre la fila dietro sta su una pedana (zoccolo esagonale sotto la base, `PodPlacement.y`).
  * Neon e spigoli escono sopra la soglia del bagliore; targhette e cifre sotto (nitide, con mipmap e anisotropia).
  */
@@ -47,7 +50,12 @@ const ZERO = new Matrix4().makeScale(0, 0, 0);
 const tmp = new Object3D();
 const cT = new Color();
 const WHITE = new Color("#ffffff");
-const GOLD = new Color(TIG.gold);
+const GOLD = new Color(TIG.goldLight);
+const CREAM = new Color(TIG.white);
+/** Stendardo: larghezza, altezza e quota dell'asta sopra il tamburo (m). */
+const BANNER_W = 0.6;
+const BANNER_H = 0.9;
+const BANNER_TOP = 1.95;
 const UP = new Color("#7dff9a");
 const DOWN = new Color("#ff6b6b");
 const SCORE_GLYPHS = 5;
@@ -96,26 +104,51 @@ function drawLabels(canvas: HTMLCanvasElement, teams: ArenaTeam[], family: strin
     const y = Math.floor(i / ATLAS_COLS) * CELL.h;
     const color = t.online ? t.color : "#4a525c";
     const pad = 10;
-    // piastra scura (vetro fumé con un velo di luce dall'alto) e filo del colore della squadra
+    // targa di legno scuro con le venature, bordo d'ottone e chiodi agli angoli
     const plate = ctx.createLinearGradient(0, y + pad, 0, y + CELL.h - pad);
-    plate.addColorStop(0, "rgba(22,28,38,0.92)");
-    plate.addColorStop(0.5, "rgba(7,10,16,0.9)");
-    plate.addColorStop(1, "rgba(3,5,9,0.9)");
+    plate.addColorStop(0, "rgba(92,60,34,0.97)");
+    plate.addColorStop(0.5, "rgba(62,38,20,0.97)");
+    plate.addColorStop(1, "rgba(40,24,12,0.97)");
     ctx.fillStyle = plate;
     ctx.beginPath();
-    ctx.roundRect(x + pad, y + pad, CELL.w - pad * 2, CELL.h - pad * 2, 30);
+    ctx.roundRect(x + pad, y + pad, CELL.w - pad * 2, CELL.h - pad * 2, 26);
     ctx.fill();
-    ctx.strokeStyle = color;
-    ctx.globalAlpha = 0.95;
-    ctx.lineWidth = 6;
+    ctx.save();
+    ctx.clip();
+    ctx.strokeStyle = "rgba(20,10,4,0.28)";
+    ctx.lineWidth = 2;
+    for (let k = 0; k < 7; k++) {
+      const vy = y + 30 + k * 32;
+      ctx.beginPath();
+      for (let vx = x; vx <= x + CELL.w; vx += 16) ctx.lineTo(vx, vy + Math.sin(vx * 0.03 + k) * 3);
+      ctx.stroke();
+    }
+    ctx.restore();
+    ctx.strokeStyle = "#c9a24a";
+    ctx.lineWidth = 7;
+    ctx.beginPath();
+    ctx.roundRect(x + pad, y + pad, CELL.w - pad * 2, CELL.h - pad * 2, 26);
     ctx.stroke();
-    ctx.globalAlpha = 1;
-    // numero del tavolo: quadrato pieno nel colore della squadra
+    ctx.fillStyle = "#e0c070";
+    for (const [cx, cy] of [
+      [x + 30, y + 30],
+      [x + CELL.w - 30, y + 30],
+      [x + 30, y + CELL.h - 30],
+      [x + CELL.w - 30, y + CELL.h - 30],
+    ]) {
+      ctx.beginPath();
+      ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    // numero del tavolo: bandierina quadrata nel colore della squadra, bordata di pergamena
     const bs = CELL.h - pad * 2 - 22;
     ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.roundRect(x + pad + 11, y + pad + 11, bs, bs, 22);
+    ctx.roundRect(x + pad + 11, y + pad + 11, bs, bs, 18);
     ctx.fill();
+    ctx.strokeStyle = "rgba(241,226,191,0.9)";
+    ctx.lineWidth = 6;
+    ctx.stroke();
     ctx.fillStyle = inkOn(color);
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -142,9 +175,9 @@ function drawLabels(canvas: HTMLCanvasElement, teams: ArenaTeam[], family: strin
       ctx.fillText("OFFLINE", tx + 14, y + 62);
       ctx.textBaseline = "alphabetic";
     }
-    let size = t.online ? 74 : 58;
+    let size = t.online ? 66 : 54;
     let lines: string[] = [];
-    for (; size >= 40; size -= 4) {
+    for (; size >= 36; size -= 4) {
       ctx.font = `800 ${size}px ${family}`;
       lines = t.online ? twoLines(ctx, t.name.toUpperCase(), maxW) : [t.name.toUpperCase()];
       if (lines.every((l) => ctx.measureText(l).width <= maxW && !l.endsWith("…"))) break;
@@ -154,7 +187,7 @@ function drawLabels(canvas: HTMLCanvasElement, teams: ArenaTeam[], family: strin
       while (ctx.measureText(one).width > maxW && one.length > 2) one = `${one.slice(0, -2)}…`;
       lines = [one];
     }
-    ctx.fillStyle = t.online ? "#f6f8fb" : "#9aa3ad";
+    ctx.fillStyle = t.online ? "#f6ead2" : "#a49c8e";
     const lh = size * 0.98;
     const total = lines.length * lh;
     const baseY = t.online ? y + CELL.h / 2 - total / 2 + size * 0.8 : y + 100 + size * 0.85;
@@ -222,10 +255,14 @@ export interface PodsProps {
   shadows: boolean;
   /** finestra stretta (telefono): targhette ridotte al solo numero del tavolo, più grandi */
   compact?: boolean;
+  /** carattere di numeri ed etichette (targhe, cifre, stendardi) */
+  numFamily?: string;
 }
 
-export function Pods({ liveRef, teams, layout, family, low, shadows, compact = false }: PodsProps) {
+export function Pods({ liveRef, teams, layout, family, low, shadows, compact = false, numFamily }: PodsProps) {
   const n = teams.length;
+  // targhe, cifre e stendardi col carattere dei numeri (leggibile da lontano); i titoli restano a `family`
+  const labelFamily = numFamily ?? family;
   const atlas = useMemo(() => {
     const c = document.createElement("canvas");
     const s = labelAtlasSize(Math.max(1, n));
@@ -241,31 +278,53 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     return t;
   }, [n]);
   const digits = useMemo(() => {
-    const d = digitAtlas(family);
+    const d = digitAtlas(labelFamily);
     d.anisotropy = 8;
     return d;
-  }, [family]);
+  }, [labelFamily]);
   const ring = useMemo(() => ringTexture(), []);
+  // stendardi delle ciurme (atlante, una cella per tavolo) e materiali del legno e dell'oro
+  const banners = useMemo(() => {
+    const c = document.createElement("canvas");
+    const s0 = bannerAtlasSize(Math.max(1, n));
+    c.width = s0.w;
+    c.height = s0.h;
+    const t = new CanvasTexture(c);
+    t.colorSpace = SRGBColorSpace;
+    t.minFilter = LinearMipmapLinearFilter;
+    t.magFilter = LinearFilter;
+    t.generateMipmaps = true;
+    t.anisotropy = 4;
+    return t;
+  }, [n]);
+  const tex = useMemo(() => ({ planks: plankTexture(512), coin: coinFaceTexture() }), []);
   useEffect(
     () => () => {
       atlas.dispose();
       digits.dispose();
       ring.dispose();
+      banners.dispose();
+      tex.planks.dispose();
+      tex.coin.dispose();
     },
-    [atlas, digits, ring],
+    [atlas, digits, ring, banners, tex],
   );
 
   // targhette: ridisegnate solo quando cambiano tavolo, nome, colore o stato online
   const labelKey = teams.map((t) => `${t.tableNo}|${t.name}|${t.color}|${t.online ? 1 : 0}`).join("§");
   const atlasRef = useLatestRef(atlas);
+  const bannersRef = useLatestRef(banners);
   const teamsRef = useLatestRef(teams);
   useEffect(() => {
     let alive = true;
     const draw = () => {
       if (!alive) return;
       const tex = atlasRef.current;
-      drawLabels(tex.image as HTMLCanvasElement, teamsRef.current, family);
+      drawLabels(tex.image as HTMLCanvasElement, teamsRef.current, labelFamily);
       tex.needsUpdate = true;
+      const b = bannersRef.current;
+      drawBanners(b.image as HTMLCanvasElement, teamsRef.current, labelFamily);
+      b.needsUpdate = true;
     };
     draw();
     document.fonts?.ready.then(draw).catch(() => undefined);
@@ -274,22 +333,26 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       alive = false;
       clearTimeout(late);
     };
-  }, [labelKey, atlas, family, atlasRef, teamsRef]);
+  }, [labelKey, atlas, banners, labelFamily, atlasRef, bannersRef, teamsRef]);
 
   const parts = useMemo(() => {
-    const baseGeo = new CylinderGeometry(0.74, 0.8, BASE_H, 6, 1);
+    // tamburo di legno (doghe) cerchiato d'ottone
+    const baseGeo = new CylinderGeometry(0.72, 0.78, BASE_H, 14, 1);
     baseGeo.translate(0, BASE_H / 2, 0);
-    const baseMat = new MeshStandardMaterial({ color: "#0c1118", metalness: 0.85, roughness: 0.32 });
+    const baseMat = new MeshStandardMaterial({ color: "#b8906a", map: tex.planks, roughness: 0.8, metalness: 0.02 });
     const base = instanced(baseGeo, baseMat, n);
     base.castShadow = false;
     base.receiveShadow = shadows;
-    // zoccolo esagonale della fila dietro (altezza = pedana, scala Y)
-    const plinthGeo = new CylinderGeometry(0.86, 0.94, 1, 6, 1);
+    const hoopGeo = new TorusGeometry(0.76, 0.022, 6, 28);
+    hoopGeo.rotateX(Math.PI / 2);
+    const hoops = instanced(hoopGeo, new MeshStandardMaterial({ color: "#c9a24a", metalness: 0.9, roughness: 0.35 }), n * 2);
+    // zoccolo della fila dietro (altezza = pedana, scala Y)
+    const plinthGeo = new CylinderGeometry(0.86, 0.94, 1, 14, 1);
     plinthGeo.translate(0, 0.5, 0);
-    const plinth = instanced(plinthGeo, new MeshStandardMaterial({ color: "#0a0e14", metalness: 0.8, roughness: 0.36 }), n);
-    const rimGeo = new TorusGeometry(0.75, 0.022, 6, 6);
+    const plinth = instanced(plinthGeo, new MeshStandardMaterial({ color: "#6b4a30", map: tex.planks, roughness: 0.85 }), n);
+    // corda nel colore della ciurma attorno al bordo del tamburo e del doblone (un filo di luce: si legge da lontano)
+    const rimGeo = new TorusGeometry(0.75, 0.03, 6, 28);
     rimGeo.rotateX(Math.PI / 2);
-    rimGeo.rotateY(Math.PI / 6);
     const rimMat = new MeshBasicMaterial({ toneMapped: false });
     const rim = instanced(rimGeo, rimMat, n * 2, true);
     const poolGeo = new PlaneGeometry(1, 1);
@@ -297,17 +360,29 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     poolGeo.setAttribute("aPhase", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)), 1));
     const pool = instanced(poolGeo, additiveMapMaterial(ring), n, true);
     pool.renderOrder = 1;
-    const colGeo = new CylinderGeometry(POD.radius, POD.radius, 1, 6, 1, true);
-    colGeo.rotateY(Math.PI / 6);
+    // pila di dobloni (altezza = punteggio): tanti segmenti in altezza per la pila un po' storta
+    const colGeo = new CylinderGeometry(POD.radius * 0.74, POD.radius * 0.74, 1, 28, 40, true);
     colGeo.translate(0, 0.5, 0);
     colGeo.setAttribute("aState", new InstancedBufferAttribute(new Float32Array(Math.max(1, n) * 3), 3));
-    const colMat = columnMaterial();
+    const colMat = goldStackMaterial();
     const column = instanced(colGeo, colMat, n, true);
-    const capGeo = new CylinderGeometry(0.58, 0.55, CAP_H, 6, 1);
-    capGeo.rotateY(Math.PI / 6);
+    // doblone grande in cima (la mascotte ci sta sopra)
+    const capGeo = new CylinderGeometry(0.5, 0.5, CAP_H, 36, 1);
     capGeo.translate(0, CAP_H / 2, 0);
-    const capMat = new MeshStandardMaterial({ color: "#10161e", metalness: 0.9, roughness: 0.25 });
+    const capMat = new MeshStandardMaterial({ color: "#ffd27a", map: tex.coin, metalness: 1, roughness: 0.3, envMapIntensity: 1.6 });
     const cap = instanced(capGeo, capMat, n);
+    // stendardo della ciurma su un'asta accanto alla pila
+    const poleGeo = new CylinderGeometry(0.03, 0.035, 1, 6);
+    poleGeo.translate(0, 0.5, 0);
+    const poles = instanced(poleGeo, new MeshStandardMaterial({ color: "#4a3020", roughness: 0.85 }), n);
+    const banGeo = new PlaneGeometry(BANNER_W, BANNER_H, 6, 8);
+    banGeo.translate(0, -BANNER_H / 2, 0);
+    banGeo.setAttribute("aCell", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)).map((_, i) => i), 1));
+    banGeo.setAttribute("aPhase", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)).map((_, i) => i * 1.37), 1));
+    banGeo.setAttribute("aState", new InstancedBufferAttribute(new Float32Array(Math.max(1, n) * 2).fill(1), 2));
+    const banMat = bannerMaterial(banners, BANNER_COLS, bannerAtlasSize(Math.max(1, n)).rows);
+    // l'atlante degli stendardi ha uv con l'origine in basso: la tela va dall'alto (v=1) al basso
+    const bannerMesh = instanced(banGeo, banMat, n);
     const chaosGeo = new RingGeometry(0.62, 0.72, 64, 1);
     chaosGeo.setAttribute("aProgress", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)), 1));
     chaosGeo.setAttribute("aLevel", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)).fill(1), 1));
@@ -333,11 +408,11 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     gGeo.setAttribute("aSize", new InstancedBufferAttribute(new Float32Array(gN), 1));
     const glyphs = instanced(gGeo, glyphMaterial(digits, true), n * (SCORE_GLYPHS + DELTA_GLYPHS), true);
     glyphs.renderOrder = 9;
-    const all = [plinth, base, rim, pool, column, cap, chaos, labels, glyphs];
-    // nel pavimento lucido si riflettono le torri (non targhette, cifre e pozze)
-    for (const m of [plinth, base, rim, column, cap, chaos]) m.layers.enable(REFLECT_LAYER);
-    return { plinth, base, rim, pool, column, colMat, cap, chaos, chaosMat, labels, glyphs, all };
-  }, [n, atlas, digits, ring, shadows]);
+    const all = [plinth, base, hoops, rim, pool, column, cap, poles, bannerMesh, chaos, labels, glyphs];
+    // nel mare si riflettono le parti luminose (non targhette, cifre e pozze)
+    for (const m of [rim, column, cap]) m.layers.enable(REFLECT_LAYER);
+    return { plinth, base, hoops, rim, pool, column, colMat, cap, poles, bannerMesh, banMat, chaos, chaosMat, labels, glyphs, all };
+  }, [n, atlas, digits, ring, shadows, banners, tex]);
   useEffect(
     () => () => {
       for (const m of parts.all) {
@@ -359,6 +434,35 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       tmp.scale.setScalar(layout.scale);
       tmp.updateMatrix();
       parts.base.setMatrixAt(i, tmp.matrix);
+      // cerchi d'ottone del tamburo
+      for (let k = 0; k < 2; k++) {
+        tmp.position.set(p.x, p.y + (k ? BASE_H - 0.05 : 0.06), p.z);
+        tmp.scale.setScalar(layout.scale);
+        tmp.updateMatrix();
+        parts.hoops.setMatrixAt(i * 2 + k, tmp.matrix);
+      }
+      // asta dello stendardo a sinistra della pila (vista dal pubblico) e traversa
+      const sc0 = layout.scale;
+      const c0 = Math.cos(p.yaw);
+      const s0 = Math.sin(p.yaw);
+      const lx = -0.62 * sc0;
+      const lz = -0.3 * sc0;
+      const px = p.x + lx * c0 + lz * s0;
+      const pz = p.z - lx * s0 + lz * c0;
+      tmp.position.set(px, p.y + BASE_H, pz);
+      tmp.rotation.set(0, p.yaw, 0);
+      tmp.scale.set(sc0, (BANNER_TOP + 0.12) * sc0, sc0);
+      tmp.updateMatrix();
+      parts.poles.setMatrixAt(i, tmp.matrix);
+      // lo stendardo pende dalla cima dell'asta, appena davanti
+      const fx = lx * c0 + (lz + 0.05 * sc0) * s0;
+      const fz = -lx * s0 + (lz + 0.05 * sc0) * c0;
+      tmp.position.set(p.x + fx, p.y + BASE_H + BANNER_TOP * sc0, p.z + fz);
+      tmp.rotation.set(0, p.yaw, 0);
+      tmp.scale.setScalar(sc0);
+      tmp.updateMatrix();
+      parts.bannerMesh.setMatrixAt(i, tmp.matrix);
+      tmp.rotation.set(0, p.yaw, 0);
       if (p.y > 0.01) {
         tmp.position.set(p.x, 0, p.z);
         tmp.scale.set(layout.scale, p.y, layout.scale);
@@ -371,6 +475,9 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       parts.pool.setMatrixAt(i, tmp.matrix);
     });
     parts.base.instanceMatrix.needsUpdate = true;
+    parts.hoops.instanceMatrix.needsUpdate = true;
+    parts.poles.instanceMatrix.needsUpdate = true;
+    parts.bannerMesh.instanceMatrix.needsUpdate = true;
     parts.plinth.instanceMatrix.needsUpdate = true;
     parts.pool.instanceMatrix.needsUpdate = true;
   }, [layout, parts, partsRef]);
@@ -381,6 +488,11 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     const t = L.t;
     parts.colMat.uniforms.uTime.value = t;
     parts.chaosMat.uniforms.uTime.value = t;
+    parts.banMat.uniforms.uTime.value = t;
+    // vento: forte nell'allarme, quasi fermo in pausa
+    const wind = L.dir.mood === "chaos" ? 2.2 : L.dir.mood === "break" ? 0.4 : 1;
+    parts.banMat.uniforms.uWind.value += (wind - parts.banMat.uniforms.uWind.value) * 0.03;
+    const banState = parts.bannerMesh.geometry.getAttribute("aState") as InstancedBufferAttribute;
     const colState = parts.column.geometry.getAttribute("aState") as InstancedBufferAttribute;
     const prog = parts.chaos.geometry.getAttribute("aProgress") as InstancedBufferAttribute;
     const lvl = parts.chaos.geometry.getAttribute("aLevel") as InstancedBufferAttribute;
@@ -428,6 +540,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       parts.column.setColorAt(i, cT);
       const flash = a && a.deltaAge < 0.5 && a.delta > 0 ? (1 - a.deltaAge / 0.5) * 0.5 : 0;
       colState.setXYZ(i, team.online ? 1 : 0, focus ? 1 : 0, flash);
+      banState.setXY(i, team.online ? fade : 0.5 * fade, focus ? 1 : 0);
       const top = y0 + BASE_H + h;
       // tappo
       tmp.position.set(p.x, top, p.z);
@@ -443,8 +556,8 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       tmp.scale.set(0.78 * sc, 1, 0.78 * sc);
       tmp.updateMatrix();
       parts.rim.setMatrixAt(i * 2 + 1, tmp.matrix);
-      // neon sopra la soglia del bagliore (brilla), spento se il tavolo è offline
-      cT.set(team.online ? team.color : "#39414b").multiplyScalar((team.online ? 3.2 : 0.6) * fade);
+      // corda colorata della ciurma: un filo di luce (appena sopra la soglia del bagliore), spenta se offline
+      cT.set(team.online ? team.color : "#39414b").multiplyScalar((team.online ? 1.9 : 0.5) * fade);
       parts.rim.setColorAt(i * 2, cT);
       parts.rim.setColorAt(i * 2 + 1, cT);
       parts.pool.setColorAt(i, cT.set(team.online ? team.color : "#1b2027").multiplyScalar((focus ? 1.4 : 0.6) * fade));
@@ -485,7 +598,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
           gCenter.setXYZ(gi, p.x, ly, p.z);
           gOffset.setXY(gi, (d - (ds.length - 1) / 2) * 0.64, -1.45);
           gSize.setX(gi, gsz);
-          parts.glyphs.setColorAt(gi, team.rank === 1 && team.score > 0 ? GOLD : WHITE);
+          parts.glyphs.setColorAt(gi, team.rank === 1 && team.score > 0 ? GOLD : CREAM);
         } else gAlpha.setX(gi, 0);
       }
       // lampo «+40» / «−20» che sale sopra la targhetta
@@ -508,7 +621,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       m.instanceMatrix.needsUpdate = true;
       if (m.instanceColor) m.instanceColor.needsUpdate = true;
     }
-    colState.needsUpdate = prog.needsUpdate = lvl.needsUpdate = onl.needsUpdate = true;
+    colState.needsUpdate = prog.needsUpdate = lvl.needsUpdate = onl.needsUpdate = banState.needsUpdate = true;
     lc.needsUpdate = ls.needsUpdate = la.needsUpdate = lcr.needsUpdate = true;
     gGlyph.needsUpdate = gAlpha.needsUpdate = gCenter.needsUpdate = gOffset.needsUpdate = gSize.needsUpdate = true;
   }, -1);

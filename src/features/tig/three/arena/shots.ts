@@ -1,6 +1,6 @@
 import type { Vec3 } from "./camera-math";
 import type { ShotSpec } from "./director";
-import { LED, POD, STAGE, hostMarks, type ArenaLayout } from "./layout";
+import { POD, SAIL, STAGE, hostMarks, type ArenaLayout } from "./layout";
 
 /**
  * SOGGETTI DELLE INQUADRATURE (puri, testati): per ogni tipo di inquadratura il centro e i punti 3D che devono stare
@@ -32,9 +32,9 @@ export interface ShotSubject {
 export const ABOVE_TOP = POD.mascotHeight + 1.25;
 
 const DEG = 180 / Math.PI;
-/** Ampiezza (gradi) dell'arco del LED occupata dai titoli più larghi (78% del canvas su 130°). */
-export const LED_TEXT_DEG = 104;
-const LED_TOP = LED.bottom + LED.height;
+/** Frazione della larghezza della vela occupata dai titoli più larghi (78% del canvas). */
+export const LED_TEXT_FRAC = 0.82;
+const SAIL_TOP = SAIL.bottom + SAIL.height;
 
 function podPoints(ctx: ShotContext, idx: number[], out: Vec3[], pad: number = POD.baseRadius) {
   for (const i of idx) {
@@ -45,16 +45,16 @@ function podPoints(ctx: ShotContext, idx: number[], out: Vec3[], pad: number = P
   }
 }
 
-function ledFront(out: Vec3[], spanDeg: number, withTop = true) {
-  const a = (spanDeg / 2) * (Math.PI / 180);
+/** La parte "scritta" della grande vela: angoli (sul piano del pennone) e centro della pancia. */
+function ledFront(out: Vec3[], frac: number, withTop = true) {
   for (const s of [-1, 1]) {
-    const x = s * LED.radius * Math.sin(a);
-    const z = LED.radius * Math.cos(a);
-    out.push([x, LED.bottom, z]);
-    if (withTop) out.push([x, LED_TOP, z]);
+    const xb = (s * SAIL.bottomWidth * frac) / 2;
+    const xt = (s * SAIL.width * frac) / 2;
+    out.push([xb, SAIL.bottom, SAIL.z + SAIL.belly * 0.35]);
+    if (withTop) out.push([xt, SAIL_TOP, SAIL.z]);
   }
-  out.push([0, LED.bottom, LED.radius]);
-  if (withTop) out.push([0, LED_TOP, LED.radius]);
+  out.push([0, SAIL.bottom, SAIL.z + SAIL.belly * 0.75]);
+  if (withTop) out.push([0, SAIL_TOP, SAIL.z]);
 }
 
 function stagePoints(ctx: ShotContext, out: Vec3[]) {
@@ -105,7 +105,7 @@ export function shotSubject(spec: ShotSpec, ctx: ShotContext): ShotSubject {
     case "establish":
     case "wide": {
       podPoints(ctx, all, pts);
-      ledFront(pts, LED_TEXT_DEG);
+      ledFront(pts, LED_TEXT_FRAC);
       pts.push([0, 0, STAGE.radius + 0.6]);
       if (spec.kind === "establish") pitchBias += 4;
       break;
@@ -114,7 +114,7 @@ export function shotSubject(spec: ShotSpec, ctx: ShotContext): ShotSubject {
       podPoints(ctx, all, pts);
       stagePoints(ctx, pts);
       // lo schermo intero (titolo della prova): con la U larga il quadro ha comunque spazio in altezza
-      ledFront(pts, LED_TEXT_DEG);
+      ledFront(pts, LED_TEXT_FRAC);
       break;
     }
     case "stage": {
@@ -122,7 +122,7 @@ export function shotSubject(spec: ShotSpec, ctx: ShotContext): ShotSubject {
       break;
     }
     case "led": {
-      ledFront(pts, LED_TEXT_DEG);
+      ledFront(pts, LED_TEXT_FRAC);
       stagePoints(ctx, pts);
       break;
     }
@@ -148,7 +148,7 @@ export function shotSubject(spec: ShotSpec, ctx: ShotContext): ShotSubject {
         podPoints(ctx, idx, pts, POD.baseRadius * 1.1);
         // i presentatori davanti alle torri restano interi (mai teste tagliate dal bordo del quadro)
         if (ctx.hostCount > 0) stagePoints(ctx, pts);
-        if (spec.withLed) ledFront(pts, LED_TEXT_DEG);
+        if (spec.withLed) ledFront(pts, LED_TEXT_FRAC);
       }
       // la camera guarda le torri di fronte (come le vede il pubblico), mai da dietro il palco
       const yaws = idx.map((i) => ctx.layout.pods[i].yaw);
@@ -159,7 +159,7 @@ export function shotSubject(spec: ShotSpec, ctx: ShotContext): ShotSubject {
       // podio (con le mascotte sopra), presentatori ai lati e lo schermo con i posti
       pts.push([-2.3, STAGE.height, 0.6], [2.3, STAGE.height, 0.6], [-1.6, STAGE.height + 3.3, -0.45], [1.6, STAGE.height + 3.6, -0.45]);
       for (const m of hostMarks(ctx.hostCount, true)) pts.push([m.x - 0.45, STAGE.height, m.z + 0.3], [m.x + 0.45, STAGE.height + 2.05, m.z]);
-      if (spec.withLed) ledFront(pts, LED_TEXT_DEG);
+      if (spec.withLed) ledFront(pts, LED_TEXT_FRAC);
       break;
     }
   }

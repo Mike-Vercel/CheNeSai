@@ -3,10 +3,10 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import {
+  Color,
   HalfFloatType,
   LinearFilter,
   LinearMipmapLinearFilter,
-  Color,
   Matrix4,
   MeshPhongMaterial,
   MeshStandardMaterial,
@@ -21,16 +21,17 @@ import {
 } from "three";
 
 /**
- * PAVIMENTO LUCIDO con riflesso vero ma economico (al posto di MeshReflectorMaterial, che ridisegnava tutta la scena
- * a ogni fotogramma): la camera riflessa disegna SOLO gli oggetti del livello REFLECT_LAYER (neon, LED, torri,
- * ologrammi: ciò che si vede nel riflesso di uno studio buio), a bassa risoluzione e ogni N fotogrammi. Il pavimento
- * è un MeshPhongMaterial (pozze di luce e riflessi lucidi delle luci vere, ambiente di studio diffuso: molto più
- * leggero di un PBR che riempie mezzo schermo) con il disegno del pavimento come emissivo (niente secondo strato
- * trasparente grande quanto lo schermo) e il riflesso aggiunto: sfocato con le mipmap, più forte di taglio (Fresnel),
- * increspato da un rumore leggero come una resina lucida. `?dbg=stdfloor` torna al PBR (per confronto).
+ * RIFLESSO PLANARE ECONOMICO (al posto di MeshReflectorMaterial, che ridisegnava tutta la scena a ogni fotogramma):
+ * la camera riflessa disegna SOLO gli oggetti del livello REFLECT_LAYER (luci, lanterne, torce, vela, finestre del
+ * galeone, luna: ciò che si vede riflesso nel mare di notte), a bassa risoluzione e ogni N fotogrammi. Edizione
+ * pirati: il piano riflettente è il MARE della baia (vedi harbor.tsx); il molo di legno non riflette.
+ *
+ * `useFloorMaterial`: il molo (Phong: pozze e riflessi lucidi delle luci vere, molto più leggero di un PBR che riempie
+ * mezzo schermo) con le tavole come colore e il disegno dipinto (rosa dei venti) come emissivo tenue.
+ * `?dbg=stdfloor` usa il PBR (per confronto).
  */
 
-/** Livello three degli oggetti che si riflettono nel pavimento (la camera principale vede anche il livello 0). */
+/** Livello three degli oggetti che si riflettono nel mare (la camera principale vede anche il livello 0). */
 export const REFLECT_LAYER = 2;
 
 const tmpPlane = new Plane();
@@ -44,8 +45,12 @@ const view = new Vector3();
 const target = new Vector3();
 const q = new Vector4();
 
-/** `decal`: disegno del pavimento come emissivo (già preparato: alfa premoltiplicata, ripetizione e scarto per il centro). */
-export function useFloorMaterial({ scale, every, strength = 0.55, color = "#06080c", decal = null, pbr = false }: { scale: number; every: number; strength?: number; color?: string; decal?: Texture | null; pbr?: boolean }) {
+/**
+ * Riflesso planare del piano della mesh `meshRef` (normale = +Z locale, come un PlaneGeometry ruotato a terra).
+ * `scale` = risoluzione relativa al canvas (0 = spento), `every` = ogni quanti fotogrammi si aggiorna.
+ * Restituisce la texture (o null) e la matrice da usare nello shader (uv proiettive: `uTexMatrix * posizione mondo`).
+ */
+export function usePlanarReflection({ scale, every }: { scale: number; every: number }) {
   const gl = useThree((s) => s.gl);
   const size = useThree((s) => s.size);
   const enabled = scale > 0;
@@ -69,59 +74,22 @@ export function useFloorMaterial({ scale, every, strength = 0.55, color = "#0608
     return c;
   }, []);
 
-  const material = useMemo(() => {
-    const m = pbr
-      ? new MeshStandardMaterial({ color, metalness: 0.55, roughness: 0.32, envMapIntensity: 0.5, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal })
-      : new MeshPhongMaterial({ color, specular: "#2a3240", shininess: 42, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal });
-    if (!rt) return m;
-    m.onBeforeCompile = (shader) => {
-      shader.uniforms.tReflect = { value: rt.texture };
-      shader.uniforms.uTexMatrix = { value: textureMatrix };
-      shader.uniforms.uReflect = { value: strength };
-      shader.vertexShader = shader.vertexShader
-        .replace("#include <common>", "#include <common>\nuniform mat4 uTexMatrix;\nvarying vec4 vReflUv;\nvarying vec3 vWPos;")
-        .replace("#include <project_vertex>", "#include <project_vertex>\nvec4 wp4 = modelMatrix * vec4(transformed, 1.0);\nvReflUv = uTexMatrix * wp4;\nvWPos = wp4.xyz;");
-      shader.fragmentShader = shader.fragmentShader
-        .replace("#include <common>", "#include <common>\nuniform sampler2D tReflect;\nuniform float uReflect;\nvarying vec4 vReflUv;\nvarying vec3 vWPos;\nfloat tigHash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }")
-        .replace(
-          "#include <opaque_fragment>",
-          /* glsl */ `#include <opaque_fragment>
-          {
-            vec2 ruv = vReflUv.xy / vReflUv.w;
-            // resina lucida: increspature lente e micro-rumore (il riflesso non è uno specchio)
-            vec2 wob = vec2(sin(vWPos.x * 1.7 + vWPos.z * 0.6), cos(vWPos.z * 1.9 - vWPos.x * 0.4)) * 0.0035;
-            float n = tigHash(floor(vWPos.xz * 40.0)) - 0.5;
-            ruv += wob + n * 0.0018;
-            vec3 vdir = normalize(cameraPosition - vWPos);
-            float fres = 0.18 + 0.82 * pow(1.0 - clamp(vdir.y, 0.0, 1.0), 3.0);
-            // sfocatura: più lontano dal pavimento = più sfocato (approssimata con la distanza dalla camera)
-            float lod = clamp(1.2 + length(cameraPosition - vWPos) * 0.04, 1.2, 3.2);
-            vec3 refl = textureLod(tReflect, ruv, lod).rgb * 0.55 + textureLod(tReflect, ruv, lod + 1.0).rgb * 0.45;
-            gl_FragColor.rgb += refl * uReflect * fres;
-          }`,
-        );
-    };
-    m.customProgramCacheKey = () => (pbr ? "tig-floor-reflect-pbr" : "tig-floor-reflect");
-    return m;
-  }, [rt, textureMatrix, strength, color, decal, pbr]);
-  useEffect(() => () => material.dispose(), [material]);
-
   const meshRef = useRef<Mesh>(null);
   const frame = useRef(0);
-  const objRef = useRef({ rt, virtualCamera, textureMatrix });
+  const objRef = useRef({ rt, virtualCamera, textureMatrix, every });
   useEffect(() => {
-    objRef.current = { rt, virtualCamera, textureMatrix };
-  }, [rt, virtualCamera, textureMatrix]);
+    objRef.current = { rt, virtualCamera, textureMatrix, every };
+  }, [rt, virtualCamera, textureMatrix, every]);
 
   // prima del disegno della scena (priorità 0.5: dopo regia e camera, prima di PostFx che disegna a priorità 1)
   useFrame((state) => {
-    const { rt: target2, virtualCamera: vc, textureMatrix: tm } = objRef.current;
+    const { rt: target2, virtualCamera: vc, textureMatrix: tm, every: ev } = objRef.current;
     const mesh = meshRef.current;
     if (!target2 || !mesh) return;
     frame.current += 1;
-    if (frame.current % Math.max(1, every) !== 0) return;
+    if (frame.current % Math.max(1, ev) !== 0) return;
     const camera = state.camera as PerspectiveCamera;
-    // riflessione della camera rispetto al piano del pavimento (come three/examples Reflector)
+    // riflessione della camera rispetto al piano (come three/examples Reflector)
     mesh.updateMatrixWorld();
     reflectorWorldPosition.setFromMatrixPosition(mesh.matrixWorld);
     cameraWorldPosition.setFromMatrixPosition(camera.matrixWorld);
@@ -152,8 +120,7 @@ export function useFloorMaterial({ scale, every, strength = 0.55, color = "#0608
     tm.set(0.5, 0, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0, 0.5, 0.5, 0, 0, 0, 1);
     tm.multiply(vc.projectionMatrix);
     tm.multiply(vc.matrixWorldInverse);
-    tm.multiply(mesh.matrixWorld);
-    // piano obliquo: niente di quello che sta sotto il pavimento
+    // piano obliquo: niente di quello che sta sotto il piano
     tmpPlane.setFromNormalAndCoplanarPoint(normal, reflectorWorldPosition);
     tmpPlane.applyMatrix4(vc.matrixWorldInverse);
     clipPlane.set(tmpPlane.normal.x, tmpPlane.normal.y, tmpPlane.normal.z, tmpPlane.constant);
@@ -183,5 +150,20 @@ export function useFloorMaterial({ scale, every, strength = 0.55, color = "#0608
     gl2.shadowMap.autoUpdate = prevShadow;
   }, 0.5);
 
-  return { material, meshRef, reflective: !!rt };
+  return { texture: rt ? rt.texture : null, textureMatrix, meshRef };
+}
+
+/**
+ * Materiale del molo: tavole (`map`, ripetute) + disegno dipinto al centro (`decal`, emissivo tenue, già preparato
+ * con alfa premoltiplicata e ripetizione per stare al centro).
+ */
+export function useFloorMaterial({ map, decal = null, decalStrength = 0.5, pbr = false }: { map: Texture; decal?: Texture | null; decalStrength?: number; pbr?: boolean }) {
+  const material = useMemo(() => {
+    const emissive = decal ? new Color(decalStrength, decalStrength, decalStrength) : new Color(0, 0, 0);
+    return pbr
+      ? new MeshStandardMaterial({ color: "#ffffff", map, metalness: 0.0, roughness: 0.72, envMapIntensity: 0.6, emissive, emissiveMap: decal })
+      : new MeshPhongMaterial({ color: "#ffffff", map, specular: "#2a2218", shininess: 26, emissive, emissiveMap: decal });
+  }, [map, decal, decalStrength, pbr]);
+  useEffect(() => () => material.dispose(), [material]);
+  return material;
 }

@@ -6,7 +6,7 @@ import { AdditiveBlending, Color, type Group, type PerspectiveCamera, type WebGL
 import type { ArenaHost, ArenaProps, ArenaTeam, MascotProps } from "../../arena-contract";
 import { HOST_RIM, HostCharacter } from "../characters/HostCharacter";
 import { MascotSwarm, type MascotEntry } from "../mascot/MascotSwarm";
-import { readTigFont, TIG } from "../palette";
+import { readTigFont, readTigNumFont, TIG } from "../palette";
 import { prefersReducedMotion } from "../quality";
 import { ArenaLighting, ArenaSet, PODIUM_SPOTS, PODIUM_Z, type LedStatic } from "./ArenaSet";
 import { cameraPosition, fitDistance, FULL_WINDOW, lensShift, normalizeSafeArea, smoothDamp, type FrameWindow, type Vec3 } from "./camera-math";
@@ -21,7 +21,6 @@ import { readArenaDebug, type ArenaDebug } from "./debug";
 import { glowTexture, shadowTexture } from "./textures";
 import { classifyGpu, initialLevel, PerfGovernor, profileAt, renderDpr, type GpuClass, type RenderProfile } from "./perf";
 import { DirectRender, PostFx, type PostOverrides } from "./PostFx";
-import { StudioEnvironment } from "./studio-env";
 
 /**
  * L'ARENA 3D di TAVOLI IN GUERRA!: UNA scena persistente per pagina (TV, telefono/PC sotto l'HUD, menu), mai
@@ -454,8 +453,9 @@ const RIM_TMP = new Color();
 function HostRim({ liveRef }: { liveRef: RefObject<ArenaLive> }) {
   useFrame(() => {
     const m = liveRef.current.mood.mood;
-    const a = m === "chaos" ? TIG.alarm : m === "break" ? TIG.chill : m === "final" || m === "awards" ? TIG.gold : TIG.amber;
-    const b = m === "chaos" ? TIG.alarm : m === "evolve" ? TIG.chaos : m === "final" || m === "awards" ? TIG.amber : TIG.cyan;
+    // lanterne calde da un lato, chiaro di luna dall'altro; rosso nell'allarme, oro sul podio
+    const a = m === "chaos" ? TIG.alarm : m === "final" || m === "awards" ? TIG.gold : TIG.amber;
+    const b = m === "chaos" ? TIG.alarm : m === "evolve" ? TIG.gold : m === "final" || m === "awards" ? TIG.amber : TIG.chill;
     HOST_RIM.a.value.lerp(RIM_TMP.set(a), 0.08);
     HOST_RIM.b.value.lerp(RIM_TMP.set(b), 0.08);
   });
@@ -491,8 +491,8 @@ function rendererName(gl: WebGLRenderer): string {
   }
 }
 
-function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: ArenaDebug }) {
-  const { quality, reduced, family, debug } = props;
+function Scene(props: Arena3DProps & { reduced: boolean; family: string; numFamily: string; debug: ArenaDebug }) {
+  const { quality, reduced, family, numFamily, debug } = props;
   const high = quality === "high";
   // profilo di resa: qualità del contratto + scheda video; `?lvl=0..4` lo fissa (diagnostica, niente regolatore)
   const gl = useThree((s) => s.gl);
@@ -589,18 +589,18 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: 
 
   return (
     <>
-      <color attach="background" args={["#020306"]} />
-      <fog attach="fog" args={["#020306", 22, 70]} />
+      {/* notte di mare: la nebbia del porto sfuma il galeone e l'isola verso l'orizzonte */}
+      <color attach="background" args={[TIG.ink]} />
+      <fog attach="fog" args={["#0a2029", 34, 150]} />
       <Director liveRef={liveRef} propsRef={propsRef} reduced={reduced} onDir={setDir} />
       <CameraRig liveRef={liveRef} propsRef={propsRef} reduced={reduced} />
-      <StudioEnvironment intensity={1} />
       <ArenaLighting liveRef={liveRef} high={high} />
       <HostRim liveRef={liveRef} />
-      <ArenaSet liveRef={liveRef} ledStatic={ledStatic} family={family} quality={quality} reduced={reduced} radius={layout.radius} debug={debug} profile={profile} />
+      <ArenaSet liveRef={liveRef} ledStatic={ledStatic} family={family} numFamily={numFamily} quality={quality} reduced={reduced} layout={layout} debug={debug} profile={profile} />
       <StageGlow liveRef={liveRef} />
-      <Pods liveRef={liveRef} teams={teams} layout={layout} family={family} low={!high} shadows={high} compact={compact} />
+      <Pods liveRef={liveRef} teams={teams} layout={layout} family={family} numFamily={numFamily} low={!high} shadows={high} compact={compact} />
       <PodiumMascots liveRef={liveRef} teams={teams} order={order} />
-      <MascotSwarm entries={entries} anchorsRef={anchorsRef} actionsRef={actionsRef} dimRef={dimRef} shieldRef={shieldRef} low={!high} reduced={reduced} family={family} busyRef={mascotBusy} />
+      <MascotSwarm entries={entries} anchorsRef={anchorsRef} actionsRef={actionsRef} dimRef={dimRef} shieldRef={shieldRef} low={!high} reduced={reduced} family={numFamily} busyRef={mascotBusy} />
       <SpotFx liveRef={liveRef} low={!high} />
       <Hosts
         key={hostKey(props.hosts)}
@@ -667,8 +667,12 @@ export default function Arena3D(props: Arena3DProps) {
   const [reduced] = useState(prefersReducedMotion);
   const [debug] = useState(readArenaDebug);
   const [family, setFamily] = useState(readTigFont);
+  const [numFamily, setNumFamily] = useState(readTigNumFont);
   useEffect(() => {
-    const f = () => setFamily(readTigFont());
+    const f = () => {
+      setFamily(readTigFont());
+      setNumFamily(readTigNumFont());
+    };
     document.fonts?.ready.then(f).catch(() => undefined);
   }, []);
   return (
@@ -686,7 +690,7 @@ export default function Arena3D(props: Arena3DProps) {
         }}
         style={{ pointerEvents: "none" }}
       >
-        <Scene {...props} reduced={reduced} family={family} debug={debug} />
+        <Scene {...props} reduced={reduced} family={family} numFamily={numFamily} debug={debug} />
       </Canvas>
     </Boundary>
   );

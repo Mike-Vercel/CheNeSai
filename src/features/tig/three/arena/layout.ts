@@ -68,7 +68,27 @@ export const LED = {
   arcDeg: 130,
 } as const;
 
-/** Americana circolare con i fari, sopra lo schermo. */
+/**
+ * LA GRANDE VELA (edizione pirati): al posto dello schermo LED, una vela quadra appesa al pennone dell'albero maestro
+ * piantato in fondo al ponte di comando. La tela fa pancia verso la camera (vento da dietro); i testi sono "dipinti"
+ * sulla tela (canvas) e restano nitidi. Il bordo basso sta sopra le linee di vista verso le postazioni del fondo.
+ */
+export const SAIL = {
+  /** larghezza in alto (lungo il pennone) e in basso */
+  width: 11.6,
+  bottomWidth: 12.2,
+  height: 4.3,
+  /** quota del bordo basso */
+  bottom: 6.0,
+  /** piano del pennone (z) e pancia massima della tela verso la camera */
+  z: -1.25,
+  belly: 0.95,
+} as const;
+
+/** Albero maestro (in fondo al ponte di comando, dietro il podio) e coffa. */
+export const MAST = { x: 0, z: -1.9, height: 15.2, radius: 0.2 } as const;
+
+/** Anello dei fari (lanterne di bordo appese al sartiame), sopra la vela. */
 export const TRUSS_Y = 10.6;
 
 export interface PodPlacement {

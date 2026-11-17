@@ -1,10 +1,13 @@
 import { TIG, inkOn } from "../palette";
 import type { LedMode } from "./director";
+import { seeded } from "./pirate-textures";
 
 /**
- * CONTENUTI DELLO SCHERMO LED (halo sospeso sopra il palco), disegnati su canvas. Solo dati pubblici: titoli,
- * classifica, sfide. La griglia dei pixel, la scansione e il lampeggio dell'allarme li fa lo shader (ledMaterial):
- * il canvas si ridisegna solo quando cambia il contenuto (o ~20 volte al secondo mentre la classifica scorre).
+ * CONTENUTI DELLA GRANDE VELA (edizione pirati: la tela tesa sul pennone fa da "schermo"), DIPINTI su canvas. Solo
+ * dati pubblici: titoli, classifica, sfide. Tela di lino con i ferzi cuciti e le macchie del mare, testi in inchiostro
+ * scuro (titoli col carattere del gioco, numeri ed etichette con quello dei numeri: leggibili da lontano), rosso
+ * ocra e oro come accenti; nell'ALLARME la vela diventa rossa. Il canvas si ridisegna solo quando cambia il contenuto
+ * (o ~20 volte al secondo mentre la classifica scorre); vento e luce delle lanterne li fa lo shader (sailMaterial).
  */
 
 export interface LedTeam {
@@ -37,24 +40,19 @@ export interface LedContent {
   scale: number;
 }
 
-/** Misure del canvas: proporzioni della parte dello schermo con i contenuti (arco 130°, raggio 5,4 m, alto 3,4 m). */
-export const LED_CANVAS = { w: 2048, h: 600 } as const;
+/** Misure del canvas: proporzioni della vela (≈ 11,9 × 4,3 m). */
+export const LED_CANVAS = { w: 2048, h: 740 } as const;
 
-/** Colonne della classifica sul LED: 1 fino a 6 squadre, 2 fino a 16, poi 3 (24 tavoli = 3 × 8 righe). */
+/** Colonne della classifica sulla vela: 1 fino a 6 squadre, 2 fino a 16, poi 3 (24 tavoli = 3 × 8 righe). */
 export function ledLeaderboardCols(n: number): 1 | 2 | 3 {
   return n <= 6 ? 1 : n <= 16 ? 2 : 3;
 }
 
-type Tone = "amber" | "cyan" | "alarm" | "gold" | "white" | "chaos" | "chill";
-const TONES: Record<Tone, { fill: string; glow: string }> = {
-  amber: { fill: "#ffe2bf", glow: TIG.amber },
-  cyan: { fill: "#d6fbff", glow: TIG.cyan },
-  alarm: { fill: "#ffd0d6", glow: TIG.alarm },
-  gold: { fill: "#fff0c2", glow: TIG.gold },
-  white: { fill: "#f6f8fb", glow: "#9fdcff" },
-  chaos: { fill: "#f0dcff", glow: TIG.chaos },
-  chill: { fill: "#dfe6ff", glow: TIG.chill },
-};
+// ------------------------------------------------------------------ colori della pittura
+const INK = "#21160e";
+const INK_SOFT = "rgba(33,22,14,0.55)";
+const OCHRE = "#9a2e1c";
+const CREAM = "#f6ead2";
 
 function fit(ctx: CanvasRenderingContext2D, text: string, family: string, weight: string, max: number, maxW: number, min = 22): number {
   let size = max;
@@ -65,63 +63,10 @@ function fit(ctx: CanvasRenderingContext2D, text: string, family: string, weight
   return size;
 }
 
-function glow(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, tone: Tone, size: number, family: string, weight = "900", align: CanvasTextAlign = "center", track = 0) {
-  const t = TONES[tone];
-  ctx.font = `${weight} ${size}px ${family}`;
-  ctx.textAlign = align;
-  ctx.textBaseline = "middle";
-  if (track) (ctx as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = `${track}px`;
-  ctx.save();
-  ctx.shadowColor = t.glow;
-  ctx.shadowBlur = size * 0.32;
-  ctx.fillStyle = t.glow;
-  ctx.globalAlpha = 0.6;
-  ctx.fillText(text, x, y);
-  ctx.restore();
-  ctx.lineWidth = Math.max(3, size * 0.05);
-  ctx.strokeStyle = "rgba(0,0,0,0.8)";
-  ctx.strokeText(text, x, y);
-  ctx.fillStyle = t.fill;
-  ctx.fillText(text, x, y);
-  if (track) (ctx as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = "0px";
-}
-
 function clip(ctx: CanvasRenderingContext2D, text: string, maxW: number): string {
   let s = text;
   while (ctx.measureText(s).width > maxW && s.length > 2) s = `${s.slice(0, -2)}…`;
   return s;
-}
-
-function background(ctx: CanvasRenderingContext2D, w: number, h: number, a: string, b: string, intensity = 1) {
-  ctx.fillStyle = "#020306";
-  ctx.fillRect(0, 0, w, h);
-  const g1 = ctx.createRadialGradient(w * 0.08, h * 0.5, 0, w * 0.08, h * 0.5, w * 0.5);
-  g1.addColorStop(0, hexA(a, 0.34 * intensity));
-  g1.addColorStop(1, hexA(a, 0));
-  ctx.fillStyle = g1;
-  ctx.fillRect(0, 0, w, h);
-  const g2 = ctx.createRadialGradient(w * 0.92, h * 0.5, 0, w * 0.92, h * 0.5, w * 0.5);
-  g2.addColorStop(0, hexA(b, 0.3 * intensity));
-  g2.addColorStop(1, hexA(b, 0));
-  ctx.fillStyle = g2;
-  ctx.fillRect(0, 0, w, h);
-  // griglia tattica tenue
-  ctx.save();
-  ctx.strokeStyle = "rgba(255,255,255,0.045)";
-  ctx.lineWidth = 1;
-  for (let x = 0; x < w; x += 64) {
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, h);
-    ctx.stroke();
-  }
-  for (let y = 0; y < h; y += 64) {
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(w, y);
-    ctx.stroke();
-  }
-  ctx.restore();
 }
 
 function hexA(hex: string, a: number): string {
@@ -131,158 +76,329 @@ function hexA(hex: string, a: number): string {
   return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
 }
 
-/** Cornice a "staffe" agli angoli (mirino tattico). */
-function brackets(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, color: string, len = 46, lw = 6) {
+/**
+ * Scritta "dipinta": un'ombra appena spostata (la vernice ha spessore), poi il colore. Con `outline` un filo scuro
+ * attorno (per i testi chiari sulla tela rossa o per l'oro).
+ */
+function paint(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, size: number, family: string, color: string, opts: { weight?: string; align?: CanvasTextAlign; outline?: string; track?: number } = {}) {
+  const { weight = "400", align = "center", outline, track = 0 } = opts;
+  ctx.font = `${weight} ${size}px ${family}`;
+  ctx.textAlign = align;
+  ctx.textBaseline = "middle";
+  const ls = ctx as CanvasRenderingContext2D & { letterSpacing?: string };
+  if (track) ls.letterSpacing = `${track}px`;
   ctx.save();
-  ctx.strokeStyle = color;
-  ctx.lineWidth = lw;
-  ctx.beginPath();
-  for (const [cx, cy, sx, sy] of [
-    [x, y, 1, 1],
-    [x + w, y, -1, 1],
-    [x, y + h, 1, -1],
-    [x + w, y + h, -1, -1],
-  ] as const) {
-    ctx.moveTo(cx + sx * len, cy);
-    ctx.lineTo(cx, cy);
-    ctx.lineTo(cx, cy + sy * len);
+  ctx.fillStyle = "rgba(20,12,6,0.22)";
+  ctx.fillText(text, x + size * 0.025, y + size * 0.035);
+  ctx.restore();
+  if (outline) {
+    ctx.lineJoin = "round";
+    ctx.lineWidth = Math.max(4, size * 0.08);
+    ctx.strokeStyle = outline;
+    ctx.strokeText(text, x, y);
   }
+  ctx.fillStyle = color;
+  ctx.fillText(text, x, y);
+  if (track) ls.letterSpacing = "0px";
+}
+
+// ------------------------------------------------------------------ la tela
+type ClothTone = "linen" | "red" | "night" | "gold";
+
+/**
+ * Tela della vela: lino caldo più chiaro al centro, ferzi verticali cuciti (cuciture e punti), macchie di salsedine,
+ * orlo più scuro (la "guaina"), una fila di matafioni in alto. Toni: lino, rossa (allarme), notte (pausa), dorata.
+ */
+function cloth(ctx: CanvasRenderingContext2D, w: number, h: number, tone: ClothTone = "linen") {
+  const pal: Record<ClothTone, [string, string, string]> = {
+    linen: ["#f4e8cc", "#e6d4ab", "#c4ab7c"],
+    red: ["#b43424", "#8f2219", "#5a120c"],
+    night: ["#cfc7b4", "#b3ab98", "#857d6c"],
+    gold: ["#f7e4b0", "#e9cc86", "#c49a4c"],
+  };
+  const [hi, mid, lo] = pal[tone];
+  const g = ctx.createRadialGradient(w * 0.5, h * 0.62, h * 0.1, w * 0.5, h * 0.55, w * 0.62);
+  g.addColorStop(0, hi);
+  g.addColorStop(0.55, mid);
+  g.addColorStop(1, lo);
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, w, h);
+  // ferzi: cuciture verticali con i punti
+  const panels = 10;
+  for (let i = 1; i < panels; i++) {
+    const x = (i / panels) * w;
+    ctx.fillStyle = "rgba(60,40,20,0.12)";
+    ctx.fillRect(x - 3, 0, 6, h);
+    ctx.fillStyle = "rgba(255,250,235,0.18)";
+    ctx.fillRect(x + 3, 0, 2, h);
+    ctx.fillStyle = "rgba(60,40,20,0.25)";
+    for (let y = 8; y < h; y += 18) ctx.fillRect(x - 1, y, 2, 7);
+  }
+  // macchie di salsedine e d'uso
+  const rnd = seeded(tone === "red" ? 41 : 17);
+  for (let i = 0; i < 9; i++) {
+    const x = rnd() * w;
+    const y = rnd() * h;
+    const r = 60 + rnd() * 160;
+    const sg = ctx.createRadialGradient(x, y, 0, x, y, r);
+    sg.addColorStop(0, tone === "red" ? "rgba(40,6,4,0.12)" : "rgba(120,90,50,0.1)");
+    sg.addColorStop(1, "rgba(120,90,50,0)");
+    ctx.fillStyle = sg;
+    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+  }
+  // orlo (guaina) e matafioni
+  ctx.strokeStyle = tone === "red" ? "rgba(30,4,2,0.45)" : "rgba(80,55,28,0.35)";
+  ctx.lineWidth = 22;
+  ctx.strokeRect(11, 11, w - 22, h - 22);
+  ctx.fillStyle = tone === "red" ? "rgba(30,4,2,0.5)" : "rgba(80,55,28,0.45)";
+  for (let x = 60; x < w - 40; x += 92) {
+    ctx.beginPath();
+    ctx.arc(x, 46, 6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// ------------------------------------------------------------------ disegnini (generici, originali)
+/** Rosa dei venti: punte a due toni (lato in luce e lato in ombra), anello. `hex` + `alpha` = colore della pittura. */
+function compassRose(ctx: CanvasRenderingContext2D, x: number, y: number, r: number, hex: string, alpha: number) {
+  ctx.save();
+  ctx.translate(x, y);
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2 - Math.PI / 2;
+    const rr = i % 2 ? r * 0.55 : r;
+    for (const side of [-1, 1]) {
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.cos(a + side * 0.24) * r * 0.2, Math.sin(a + side * 0.24) * r * 0.2);
+      ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr);
+      ctx.closePath();
+      ctx.fillStyle = hexA(hex, side < 0 ? alpha : alpha * 0.5);
+      ctx.fill();
+    }
+  }
+  ctx.lineWidth = Math.max(2, r * 0.03);
+  ctx.strokeStyle = hexA(hex, alpha);
+  ctx.beginPath();
+  ctx.arc(0, 0, r * 0.72, 0, Math.PI * 2);
   ctx.stroke();
   ctx.restore();
 }
 
-function hazard(ctx: CanvasRenderingContext2D, w: number, h: number, band: number) {
+function swords(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, color: string) {
   ctx.save();
-  for (const y0 of [0, h - band]) {
+  ctx.translate(x, y);
+  ctx.fillStyle = color;
+  for (const r of [-0.62, 0.62]) {
     ctx.save();
+    ctx.rotate(r);
+    // lama ricurva + elsa
     ctx.beginPath();
-    ctx.rect(0, y0, w, band);
-    ctx.clip();
-    ctx.fillStyle = "#120206";
-    ctx.fillRect(0, y0, w, band);
-    ctx.fillStyle = TIG.alarm;
-    for (let x = -band * 2; x < w + band * 2; x += band * 1.4) {
-      ctx.beginPath();
-      ctx.moveTo(x, y0 + band);
-      ctx.lineTo(x + band * 0.7, y0 + band);
-      ctx.lineTo(x + band * 1.4, y0);
-      ctx.lineTo(x + band * 0.7, y0);
-      ctx.fill();
-    }
+    ctx.moveTo(-4 * s, -46 * s);
+    ctx.quadraticCurveTo(10 * s, -10 * s, 3 * s, 40 * s);
+    ctx.lineTo(-4 * s, 40 * s);
+    ctx.quadraticCurveTo(2 * s, -10 * s, -10 * s, -44 * s);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillRect(-14 * s, 38 * s, 22 * s, 6 * s);
+    ctx.fillRect(-4 * s, 44 * s, 6 * s, 14 * s);
     ctx.restore();
   }
   ctx.restore();
 }
 
-// ------------------------------------------------------------------ schermate
-function drawLogo(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, sub: string | null, title: string | null) {
-  background(ctx, w, h, TIG.amber, TIG.cyan);
-  const line = "TAVOLI IN GUERRA";
-  const size = fit(ctx, `${line}!`, fam, "900", 250, w * 0.72);
+function skull(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, color: string, hole: string) {
   ctx.save();
-  ctx.translate(w / 2, h * 0.43);
-  ctx.font = `900 ${size}px ${fam}`;
+  ctx.translate(x, y);
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(0, -6 * s, 30 * s, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillRect(-18 * s, 10 * s, 36 * s, 20 * s);
+  ctx.fillStyle = hole;
+  ctx.beginPath();
+  ctx.arc(-11 * s, -6 * s, 8 * s, 0, Math.PI * 2);
+  ctx.arc(11 * s, -6 * s, 8 * s, 0, Math.PI * 2);
+  ctx.fill();
+  // sorriso simpatico
+  ctx.lineWidth = 3 * s;
+  ctx.strokeStyle = hole;
+  ctx.beginPath();
+  ctx.arc(0, 12 * s, 10 * s, 0.15 * Math.PI, 0.85 * Math.PI);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function coin(ctx: CanvasRenderingContext2D, x: number, y: number, r: number) {
+  const g = ctx.createRadialGradient(x - r * 0.3, y - r * 0.3, r * 0.1, x, y, r);
+  g.addColorStop(0, "#ffeaa8");
+  g.addColorStop(0.6, "#e5aa36");
+  g.addColorStop(1, "#9b6716");
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = "#7a4f10";
+  ctx.lineWidth = Math.max(2, r * 0.14);
+  ctx.stroke();
+}
+
+/** Sigillo di ceralacca con un numero (posizione in classifica). */
+function seal(ctx: CanvasRenderingContext2D, x: number, y: number, r: number, num: string, fam: string, gold = false) {
+  ctx.save();
+  if (gold) coin(ctx, x, y, r);
+  else {
+    ctx.fillStyle = "#8e1f18";
+    ctx.beginPath();
+    for (let i = 0; i < 14; i++) {
+      const a = (i / 14) * Math.PI * 2;
+      const rr = r * (i % 2 ? 0.92 : 1.02);
+      ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = "rgba(60,8,4,0.6)";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(x, y, r * 0.74, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+  ctx.font = `900 ${Math.floor(r * 1.05)}px ${fam}`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  const full = ctx.measureText(`${line}!`).width;
-  const bang = ctx.measureText("!").width;
-  // alone ambra
-  ctx.shadowColor = TIG.amber;
-  ctx.shadowBlur = 70;
-  ctx.fillStyle = "rgba(255,138,31,0.45)";
-  ctx.fillText(`${line}!`, 0, 0);
-  ctx.shadowBlur = 0;
-  ctx.lineWidth = 12;
-  ctx.strokeStyle = "#000";
-  ctx.strokeText(`${line}!`, 0, 0);
-  const grad = ctx.createLinearGradient(0, -size / 2, 0, size / 2);
-  grad.addColorStop(0, "#ffffff");
-  grad.addColorStop(0.48, "#e9eef4");
-  grad.addColorStop(0.56, "#8b97a6");
-  grad.addColorStop(1, "#f2f5f8");
-  ctx.fillStyle = grad;
-  ctx.textAlign = "left";
-  ctx.fillText(line, -full / 2, 0);
-  ctx.fillStyle = TIG.amber;
-  ctx.fillText("!", full / 2 - bang, 0);
+  ctx.fillStyle = gold ? "#4a2c06" : CREAM;
+  ctx.fillText(num, x, y + r * 0.06);
   ctx.restore();
-  // filo tattico sotto il titolo
-  ctx.fillStyle = hexA(TIG.amber, 0.85);
-  ctx.fillRect(w * 0.22, h * 0.66, w * 0.56, 4);
-  ctx.fillStyle = hexA(TIG.cyan, 0.7);
-  ctx.fillRect(w * 0.47, h * 0.66 - 3, w * 0.06, 10);
-  // il nome del gioco è già la riga grande: un titolo uguale non si ripete sotto
+}
+
+/** Bandierina della ciurma (coda di rondine) col numero del tavolo. */
+function pennant(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, color: string, num: string, fam: string) {
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + w, y);
+  ctx.lineTo(x + w * 0.82, y + h / 2);
+  ctx.lineTo(x + w, y + h);
+  ctx.lineTo(x, y + h);
+  ctx.closePath();
+  ctx.fill();
+  ctx.strokeStyle = "rgba(33,22,14,0.55)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.fillStyle = "rgba(33,22,14,0.8)";
+  ctx.fillRect(x - 5, y - 6, 5, h + 12);
+  ctx.font = `900 ${Math.floor(h * 0.62)}px ${fam}`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = inkOn(color);
+  ctx.fillText(num, x + w * 0.42, y + h / 2 + 2);
+  ctx.restore();
+}
+
+/** Nave stilizzata di profilo (scafo, albero, vela nel colore della squadra). `flip` = guarda a sinistra. */
+function ship(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, sail: string, flip: boolean) {
+  ctx.save();
+  ctx.translate(x, y);
+  if (flip) ctx.scale(-1, 1);
+  ctx.fillStyle = "#3a2414";
+  ctx.beginPath();
+  ctx.moveTo(-120 * s, 0);
+  ctx.lineTo(130 * s, 0);
+  ctx.lineTo(100 * s, 42 * s);
+  ctx.lineTo(-96 * s, 42 * s);
+  ctx.closePath();
+  ctx.fill();
+  ctx.fillRect(-120 * s, -26 * s, 44 * s, 28 * s);
+  ctx.fillStyle = "#2a190d";
+  ctx.fillRect(-6 * s, -170 * s, 8 * s, 172 * s);
+  ctx.fillStyle = sail;
+  ctx.beginPath();
+  ctx.moveTo(-70 * s, -150 * s);
+  ctx.quadraticCurveTo(0, -120 * s, 70 * s, -150 * s);
+  ctx.lineTo(80 * s, -40 * s);
+  ctx.quadraticCurveTo(0, -10 * s, -80 * s, -40 * s);
+  ctx.closePath();
+  ctx.fill();
+  ctx.strokeStyle = "rgba(33,22,14,0.6)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  // onde sotto
+  ctx.strokeStyle = "rgba(15,59,74,0.6)";
+  ctx.lineWidth = 5 * s;
+  ctx.beginPath();
+  for (let k = -150; k <= 150; k += 30) ctx.arc(k * s, 52 * s, 15 * s, Math.PI * 1.1, Math.PI * 1.9);
+  ctx.stroke();
+  ctx.restore();
+}
+
+// ------------------------------------------------------------------ schermate
+function drawLogo(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, sub: string | null, title: string | null) {
+  cloth(ctx, w, h);
+  compassRose(ctx, w * 0.5, h * 0.47, h * 0.62, INK, 0.1);
+  swords(ctx, w * 0.5, h * 0.16, 0.95, OCHRE);
+  const line = "TAVOLI IN GUERRA!";
+  const size = fit(ctx, line, fam, "400", 250, w * 0.8);
+  paint(ctx, line, w / 2, h * 0.47, size, fam, INK);
+  ctx.fillStyle = OCHRE;
+  ctx.fillRect(w * 0.26, h * 0.67, w * 0.48, 5);
   if (title && title.replace(/[^A-Z]/gi, "").toUpperCase() === "TAVOLIINGUERRA") title = null;
   const tag = (title ?? sub ?? "OGNI TAVOLO CONTA").toUpperCase();
-  glow(ctx, tag, w / 2, h * 0.78, "white", fit(ctx, tag, fam, "800", 70, w * 0.62), fam, "800", "center", 6);
-  if (title && sub) glow(ctx, sub.toUpperCase(), w / 2, h * 0.91, "cyan", fit(ctx, sub.toUpperCase(), fam, "700", 40, w * 0.6), fam, "700");
-  brackets(ctx, w * 0.12, h * 0.1, w * 0.76, h * 0.8, hexA(TIG.cyan, 0.5));
+  paint(ctx, tag, w / 2, h * 0.79, fit(ctx, tag, num, "700", 66, w * 0.66), num, INK, { weight: "700", track: 4 });
+  if (title && sub) paint(ctx, sub.toUpperCase(), w / 2, h * 0.91, fit(ctx, sub.toUpperCase(), num, "700", 38, w * 0.6), num, OCHRE, { weight: "700" });
+}
+
+/** Vela "d'ambiente": quando l'HUD della pagina occupa il centro (prova, risultati, QR) la vela non porta testo. */
+function drawAmbient(ctx: CanvasRenderingContext2D, w: number, h: number) {
+  cloth(ctx, w, h);
+  compassRose(ctx, w * 0.5, h * 0.54, h * 0.4, INK, 0.2);
+  skull(ctx, w * 0.5, h * 0.54, 1.3, "rgba(33,22,14,0.22)", "rgba(244,232,204,0.6)");
+}
+
+function drawManche(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
+  cloth(ctx, w, h);
+  const over = c.mancheNo ? `MANCHE ${c.mancheNo}` : "MANCHE";
+  ctx.font = `700 60px ${num}`;
+  const ow = ctx.measureText(over).width + 40;
+  ctx.fillStyle = OCHRE;
+  ctx.fillRect(w / 2 - ow / 2 - 230, h * 0.2 - 2, 200, 5);
+  ctx.fillRect(w / 2 + ow / 2 + 30, h * 0.2 - 2, 200, 5);
+  paint(ctx, over, w / 2, h * 0.2, 60, num, OCHRE, { weight: "700", track: 10 });
+  const title = (c.title ?? "SI COMINCIA").toUpperCase();
+  paint(ctx, title, w / 2, h * 0.5, fit(ctx, title, fam, "400", 230, w * 0.8), fam, INK);
+  if (c.subtitle) paint(ctx, c.subtitle.toUpperCase(), w / 2, h * 0.8, fit(ctx, c.subtitle.toUpperCase(), num, "700", 58, w * 0.72), num, INK_SOFT, { weight: "700" });
+}
+
+function drawTitle(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent, tone: ClothTone, color: string, fallback: string) {
+  cloth(ctx, w, h, tone);
+  const title = (c.title ?? fallback).toUpperCase();
+  const sub = c.subtitle?.toUpperCase();
+  if (c.mancheNo && c.mode === "title") paint(ctx, `MANCHE ${c.mancheNo}`, w / 2, h * 0.17, 46, num, OCHRE, { weight: "700", track: 8 });
+  paint(ctx, title, w / 2, sub ? h * 0.47 : h * 0.53, fit(ctx, title, fam, "400", 220, w * 0.8), fam, color);
+  if (sub) paint(ctx, sub, w / 2, h * 0.78, fit(ctx, sub, num, "700", 60, w * 0.72), num, tone === "night" ? "#2b2a34" : INK_SOFT, { weight: "700" });
 }
 
 /**
- * Schermo "d'ambiente": quando l'HUD della pagina occupa il centro (prova in corso, risultati, QR) il LED non mostra
- * testo, così niente si sovrappone ai pannelli. Restano luce, griglia e un equalizzatore tenue nei colori del gioco.
+ * Classifica come una MAPPA DEL TESORO: ogni riga è una rotta tratteggiata che parte dalla bandierina della ciurma
+ * e si allunga coi punti fino a una pila di dobloni; posizioni nei sigilli di ceralacca (il primo è un doblone).
  */
-function drawAmbient(ctx: CanvasRenderingContext2D, w: number, h: number) {
-  background(ctx, w, h, TIG.amber, TIG.cyan, 0.8);
-  const n = 48;
-  const gap = w / n;
-  for (let i = 0; i < n; i++) {
-    const k = Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.37) * 0.4);
-    const bh = h * (0.08 + 0.3 * k);
-    ctx.fillStyle = hexA(i < n / 2 ? TIG.amber : TIG.cyan, 0.16 + 0.14 * k);
-    ctx.fillRect(i * gap + gap * 0.18, h / 2 - bh / 2, gap * 0.64, bh);
-  }
-  ctx.fillStyle = hexA(TIG.amber, 0.35);
-  ctx.fillRect(w * 0.3, h * 0.88, w * 0.4, 3);
-  brackets(ctx, w * 0.12, h * 0.1, w * 0.76, h * 0.8, hexA(TIG.cyan, 0.3));
-}
-
-function drawManche(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
-  background(ctx, w, h, TIG.amber, TIG.amber, 1.2);
-  const over = c.mancheNo ? `MANCHE ${c.mancheNo}` : "MANCHE";
-  // etichetta con le linee ai lati
-  ctx.font = `800 64px ${fam}`;
-  const ow = ctx.measureText(over).width;
-  ctx.fillStyle = hexA(TIG.amber, 0.9);
-  ctx.fillRect(w / 2 - ow / 2 - 260, h * 0.2 - 2, 220, 4);
-  ctx.fillRect(w / 2 + ow / 2 + 40, h * 0.2 - 2, 220, 4);
-  glow(ctx, over, w / 2, h * 0.2, "amber", 64, fam, "800", "center", 10);
-  const title = (c.title ?? "SI COMINCIA").toUpperCase();
-  glow(ctx, title, w / 2, h * 0.5, "white", fit(ctx, title, fam, "900", 230, w * 0.74), fam);
-  if (c.subtitle) glow(ctx, c.subtitle.toUpperCase(), w / 2, h * 0.8, "amber", fit(ctx, c.subtitle.toUpperCase(), fam, "700", 60, w * 0.66), fam, "700");
-  brackets(ctx, w * 0.1, h * 0.08, w * 0.8, h * 0.84, hexA(TIG.amber, 0.55));
-}
-
-function drawTitle(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent, tone: Tone, accentA: string, accentB: string, fallback: string) {
-  background(ctx, w, h, accentA, accentB);
-  const title = (c.title ?? fallback).toUpperCase();
-  const sub = c.subtitle?.toUpperCase();
-  if (c.mancheNo && c.mode === "title") glow(ctx, `MANCHE ${c.mancheNo}`, w / 2, h * 0.17, "cyan", 46, fam, "800", "center", 8);
-  glow(ctx, title, w / 2, sub ? h * 0.46 : h * 0.52, tone, fit(ctx, title, fam, "900", 210, w * 0.72), fam);
-  if (sub) glow(ctx, sub, w / 2, h * 0.76, "white", fit(ctx, sub, fam, "700", 64, w * 0.66), fam, "700");
-  brackets(ctx, w * 0.12, h * 0.08, w * 0.76, h * 0.84, hexA(TONES[tone].glow, 0.5));
-}
-
-function drawLeaderboard(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
-  background(ctx, w, h, TIG.gold, TIG.amber, 0.8);
+function drawLeaderboard(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
+  cloth(ctx, w, h);
+  compassRose(ctx, w * 0.93, h * 0.17, 70, INK, 0.35);
   const teams = c.teams;
   const n = teams.length;
-  // 1 colonna fino a 6 squadre, 2 fino a 16, poi 3 colonne da 8 righe (24 tavoli tutti in classifica)
   const cols = ledLeaderboardCols(n);
   const perCol = Math.max(1, Math.ceil(Math.min(n, 24) / cols));
   const header = (c.title ?? "CLASSIFICA").toUpperCase();
-  glow(ctx, header, w / 2, 56, "gold", fit(ctx, header, fam, "900", 74, w * 0.5), fam, "900", "center", 6);
-  const top = 108;
-  const bottom = h - 26;
-  const rowH = Math.min(cols === 1 ? 82 : 78, (bottom - top) / perCol);
-  // tutto dentro il 75% centrale: ai bordi lo schermo curvo scorcia troppo
-  const gap = cols === 3 ? w * 0.016 : w * 0.03;
-  const colW = cols === 1 ? w * 0.56 : cols === 2 ? w * 0.33 : (w * 0.72 - gap * 2) / 3;
+  paint(ctx, header, w / 2, 74, fit(ctx, header, fam, "400", 96, w * 0.5), fam, INK);
+  const top = 140;
+  const bottom = h - 34;
+  const rowH = Math.min(cols === 1 ? 96 : 92, (bottom - top) / perCol);
+  const gap = cols === 3 ? w * 0.016 : w * 0.035;
+  const colW = cols === 1 ? w * 0.6 : cols === 2 ? w * 0.4 : (w * 0.8 - gap * 2) / 3;
   const x0s = cols === 1 ? [(w - colW) / 2] : cols === 2 ? [w / 2 - gap / 2 - colW, w / 2 + gap / 2] : [w / 2 - colW * 1.5 - gap, w / 2 - colW / 2, w / 2 + colW / 2 + gap];
   ctx.save();
   ctx.beginPath();
-  ctx.rect(0, top - 4, w, bottom - top + 8);
+  ctx.rect(0, top - 6, w, bottom - top + 12);
   ctx.clip();
   for (const t of teams) {
     const r = t.row;
@@ -291,228 +407,205 @@ function drawLeaderboard(ctx: CanvasRenderingContext2D, w: number, h: number, fa
     const ri = r - col * perCol;
     const x = x0s[col];
     const y = top + ri * rowH;
-    const hgt = rowH * 0.8;
+    const hgt = rowH * 0.82;
+    const cy = y + hgt / 2;
     const first = t.rank === 1;
-    // fondo della riga
-    ctx.fillStyle = first ? "rgba(255,201,74,0.16)" : "rgba(255,255,255,0.05)";
+    // riga: fascia di pergamena più chiara
+    ctx.fillStyle = first ? "rgba(242,177,52,0.22)" : "rgba(255,248,230,0.32)";
     ctx.beginPath();
-    ctx.roundRect(x, y, colW, hgt, 10);
+    ctx.roundRect(x, y, colW, hgt, 12);
     ctx.fill();
-    // barra del punteggio (colore della squadra)
-    const bw = Math.max(0, Math.min(1, t.score / Math.max(1, c.scale))) * (colW - hgt * 3.1);
-    const bx = x + hgt * 2.05;
-    const grad = ctx.createLinearGradient(bx, 0, bx + Math.max(1, bw), 0);
-    grad.addColorStop(0, hexA(t.color, 0.25));
-    grad.addColorStop(1, hexA(t.color, 0.85));
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.roundRect(bx, y + hgt * 0.14, Math.max(4, bw), hgt * 0.72, 6);
-    ctx.fill();
-    // posizione
-    ctx.fillStyle = first ? TIG.gold : "rgba(255,255,255,0.12)";
-    ctx.beginPath();
-    ctx.roundRect(x, y, hgt * 0.95, hgt, 10);
-    ctx.fill();
-    ctx.font = `900 ${Math.floor(hgt * 0.6)}px ${fam}`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = first ? "#1a1204" : "#f3f6fa";
-    ctx.fillText(String(t.rank), x + hgt * 0.475, y + hgt / 2 + 2);
-    // numero del tavolo nel colore della squadra
-    ctx.fillStyle = t.color;
-    ctx.beginPath();
-    ctx.roundRect(x + hgt * 1.02, y + hgt * 0.12, hgt * 0.92, hgt * 0.76, 8);
-    ctx.fill();
-    ctx.fillStyle = inkOn(t.color);
-    ctx.font = `900 ${Math.floor(hgt * 0.5)}px ${fam}`;
-    ctx.fillText(String(t.tableNo), x + hgt * 1.48, y + hgt / 2 + 2);
+    // posizione nel sigillo (il primo: un doblone)
+    seal(ctx, x + hgt * 0.5, cy, hgt * 0.42, String(t.rank), num, first);
+    // bandierina col numero del tavolo
+    pennant(ctx, x + hgt * 1.08, y + hgt * 0.16, hgt * 1.0, hgt * 0.68, t.color, String(t.tableNo), num);
     // nome
-    ctx.textAlign = "left";
-    ctx.font = `800 ${Math.floor(hgt * 0.5)}px ${fam}`;
-    ctx.fillStyle = "#f6f8fb";
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = "rgba(0,0,0,0.6)";
-    const name = clip(ctx, t.name.toUpperCase(), colW - hgt * 4.4);
-    ctx.strokeText(name, x + hgt * 2.2, y + hgt / 2 + 2);
-    ctx.fillText(name, x + hgt * 2.2, y + hgt / 2 + 2);
-    // punteggio
-    ctx.textAlign = "right";
-    ctx.font = `900 ${Math.floor(hgt * 0.56)}px ${fam}`;
-    ctx.fillStyle = first ? "#ffe9a8" : "#ffffff";
-    ctx.fillText(Math.round(t.score).toLocaleString("it-IT"), x + colW - hgt * 0.25, y + hgt / 2 + 2);
+    const nx = x + hgt * 2.3;
+    ctx.font = `700 ${Math.floor(hgt * 0.44)}px ${num}`;
+    const nameW = colW - hgt * 2.3 - hgt * 2.6;
+    const name = clip(ctx, t.name.toUpperCase(), nameW);
+    paint(ctx, name, nx, cy - hgt * 0.13, Math.floor(hgt * 0.44), num, INK, { weight: "700", align: "left" });
+    // rotta tratteggiata proporzionale ai punti, con la X del tesoro per chi guida
+    const routeW = Math.max(0, Math.min(1, t.score / Math.max(1, c.scale))) * nameW;
+    ctx.save();
+    ctx.setLineDash([12, 9]);
+    ctx.strokeStyle = first ? OCHRE : "rgba(33,22,14,0.55)";
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(nx, cy + hgt * 0.27);
+    ctx.lineTo(nx + Math.max(8, routeW), cy + hgt * 0.27);
+    ctx.stroke();
+    ctx.restore();
+    if (first && routeW > 20) {
+      ctx.strokeStyle = OCHRE;
+      ctx.lineWidth = 6;
+      const ex = nx + routeW + 14;
+      const ey = cy + hgt * 0.27;
+      ctx.beginPath();
+      ctx.moveTo(ex - 10, ey - 10);
+      ctx.lineTo(ex + 10, ey + 10);
+      ctx.moveTo(ex + 10, ey - 10);
+      ctx.lineTo(ex - 10, ey + 10);
+      ctx.stroke();
+    }
+    // punteggio con il doblone
+    const sx = x + colW - hgt * 0.32;
+    coin(ctx, sx - hgt * 0.22, cy, hgt * 0.2);
+    paint(ctx, Math.round(t.score).toLocaleString("it-IT"), sx - hgt * 0.55, cy + 2, Math.floor(hgt * 0.52), num, first ? OCHRE : INK, { weight: "900", align: "right" });
   }
   ctx.restore();
 }
 
-function drawAlarm(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
-  background(ctx, w, h, TIG.alarm, TIG.alarm, 1.4);
-  hazard(ctx, w, h, 54);
+function drawAlarm(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
+  cloth(ctx, w, h, "red");
+  skull(ctx, w * 0.12, h * 0.5, 1.6, "rgba(246,234,210,0.85)", "#8f2219");
+  skull(ctx, w * 0.88, h * 0.5, 1.6, "rgba(246,234,210,0.85)", "#8f2219");
   const title = (c.title ?? "ALLARME CAOS!").toUpperCase();
-  const size = fit(ctx, title, fam, "900", 230, w * 0.78);
-  // sdoppiamento ciano/rosso (glitch fermo, il lampeggio lo fa lo shader)
-  ctx.save();
-  ctx.font = `900 ${size}px ${fam}`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.globalAlpha = 0.55;
-  ctx.fillStyle = TIG.cyan;
-  ctx.fillText(title, w / 2 - 9, h * 0.47 - 3);
-  ctx.fillStyle = TIG.alarm;
-  ctx.fillText(title, w / 2 + 9, h * 0.47 + 3);
-  ctx.restore();
-  glow(ctx, title, w / 2, h * 0.47, "alarm", size, fam);
-  const who = c.focus.length >= 2 ? `TAVOLO ${c.focus[0].tableNo}  ⚡  TAVOLO ${c.focus[1].tableNo}` : c.focus.length === 1 ? `TAVOLO ${c.focus[0].tableNo}` : null;
+  paint(ctx, title, w / 2, h * 0.45, fit(ctx, title, fam, "400", 240, w * 0.68), fam, CREAM, { outline: "rgba(40,6,3,0.9)" });
+  const who = c.focus.length >= 2 ? `TAVOLO ${c.focus[0].tableNo}  ⚔  TAVOLO ${c.focus[1].tableNo}` : c.focus.length === 1 ? `TAVOLO ${c.focus[0].tableNo}` : null;
   const sub = (c.subtitle ?? who ?? "SFIDA SPECIALE · 45 SECONDI").toUpperCase();
-  glow(ctx, sub, w / 2, h * 0.76, "white", fit(ctx, sub, fam, "800", 64, w * 0.7), fam, "800", "center", 4);
+  paint(ctx, sub, w / 2, h * 0.78, fit(ctx, sub, num, "900", 64, w * 0.66), num, CREAM, { weight: "900", outline: "rgba(40,6,3,0.85)", track: 3 });
 }
 
-function teamBlock(ctx: CanvasRenderingContext2D, x: number, y: number, bw: number, bh: number, t: LedTeam, fam: string, side: "left" | "right") {
-  const g = ctx.createLinearGradient(side === "left" ? x : x + bw, 0, side === "left" ? x + bw : x, 0);
-  g.addColorStop(0, hexA(t.color, 0.75));
-  g.addColorStop(1, hexA(t.color, 0.05));
-  ctx.fillStyle = g;
-  ctx.beginPath();
-  ctx.moveTo(side === "left" ? x : x + bw, y);
-  ctx.lineTo(side === "left" ? x + bw : x + bw * 0.08, y);
-  ctx.lineTo(side === "left" ? x + bw * 0.92 : x, y + bh);
-  ctx.lineTo(side === "left" ? x : x + bw, y + bh);
-  ctx.closePath();
-  ctx.fill();
-  const cx = side === "left" ? x + bw * 0.42 : x + bw * 0.58;
-  glow(ctx, `TAVOLO ${t.tableNo}`, cx, y + bh * 0.3, "white", 92, fam, "900");
-  ctx.font = `800 64px ${fam}`;
-  const name = clip(ctx, t.name.toUpperCase(), bw * 0.8);
-  glow(ctx, name, cx, y + bh * 0.62, "white", fit(ctx, name, fam, "800", 64, bw * 0.8), fam, "800");
-  ctx.font = `900 54px ${fam}`;
-  glow(ctx, `${Math.round(t.score).toLocaleString("it-IT")} PT`, cx, y + bh * 0.86, "gold", 54, fam, "900");
-}
-
-function drawVs(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
+function drawVs(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
   const a = c.focus[0];
   const b = c.focus[1];
-  background(ctx, w, h, a?.color ?? TIG.amber, b?.color ?? TIG.cyan, 1.1);
+  cloth(ctx, w, h);
   const head = (c.title ?? "SFIDA").toUpperCase();
-  glow(ctx, head, w / 2, 58, "amber", fit(ctx, head, fam, "900", 70, w * 0.5), fam, "900", "center", 8);
-  const bw = w * 0.36;
-  const by = 110;
-  const bh = h - by - 34;
-  if (a) teamBlock(ctx, w * 0.1, by, bw, bh, a, fam, "left");
-  if (b) teamBlock(ctx, w * 0.9 - bw, by, bw, bh, b, fam, "right");
-  // VS con il fulmine
-  ctx.save();
-  ctx.translate(w / 2, h * 0.56);
-  ctx.fillStyle = TIG.amber;
-  ctx.beginPath();
-  ctx.moveTo(-30, -150);
-  ctx.lineTo(42, -150);
-  ctx.lineTo(4, -20);
-  ctx.lineTo(54, -20);
-  ctx.lineTo(-40, 160);
-  ctx.lineTo(-6, 18);
-  ctx.lineTo(-58, 18);
-  ctx.closePath();
-  ctx.globalAlpha = 0.28;
-  ctx.fill();
-  ctx.restore();
-  glow(ctx, "VS", w / 2, h * 0.56, "amber", 200, fam, "900");
-  if (c.subtitle) glow(ctx, c.subtitle.toUpperCase(), w / 2, h - 40, "white", fit(ctx, c.subtitle.toUpperCase(), fam, "700", 40, w * 0.3), fam, "700");
+  paint(ctx, head, w / 2, 76, fit(ctx, head, fam, "400", 92, w * 0.5), fam, INK);
+  const side = (t: LedTeam | undefined, cx: number, flip: boolean) => {
+    if (!t) return;
+    ship(ctx, cx, h * 0.5, 1.15, t.color, flip);
+    paint(ctx, `TAVOLO ${t.tableNo}`, cx, h * 0.72, 64, num, INK, { weight: "900" });
+    ctx.font = `700 50px ${num}`;
+    const name = clip(ctx, t.name.toUpperCase(), w * 0.34);
+    paint(ctx, name, cx, h * 0.82, fit(ctx, name, num, "700", 50, w * 0.34), num, INK_SOFT, { weight: "700" });
+    paint(ctx, `${Math.round(t.score).toLocaleString("it-IT")} PT`, cx, h * 0.92, 44, num, OCHRE, { weight: "900" });
+  };
+  side(a, w * 0.25, false);
+  side(b, w * 0.75, true);
+  swords(ctx, w / 2, h * 0.42, 1.5, "rgba(33,22,14,0.75)");
+  paint(ctx, "VS", w / 2, h * 0.66, 180, fam, OCHRE);
+  if (c.subtitle) paint(ctx, c.subtitle.toUpperCase(), w / 2, h - 40, fit(ctx, c.subtitle.toUpperCase(), num, "700", 36, w * 0.3), num, INK_SOFT, { weight: "700" });
 }
 
-function drawEvolve(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
+function drawEvolve(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
   const t = c.focus[0];
-  background(ctx, w, h, TIG.chaos, t?.color ?? TIG.chaos, 1.3);
+  cloth(ctx, w, h, "gold");
+  // raggi d'oro dal centro (il bagliore del forziere)
+  ctx.save();
+  ctx.translate(w / 2, h * 0.5);
+  for (let i = 0; i < 24; i++) {
+    ctx.rotate((Math.PI * 2) / 24);
+    ctx.fillStyle = i % 2 ? "rgba(255,240,190,0.28)" : "rgba(185,130,31,0.12)";
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(w, -60);
+    ctx.lineTo(w, 60);
+    ctx.closePath();
+    ctx.fill();
+  }
+  ctx.restore();
   const title = (c.title ?? "EVOLUZIONE!").toUpperCase();
-  glow(ctx, title, w / 2, h * 0.4, "chaos", fit(ctx, title, fam, "900", 220, w * 0.7), fam);
+  paint(ctx, title, w / 2, h * 0.42, fit(ctx, title, fam, "400", 230, w * 0.74), fam, "#5a3a08", { outline: "rgba(255,240,200,0.7)" });
   const lvl = t ? (t.level >= 3 ? "LIVELLO 3 · LEGGENDARIA" : t.level === 2 ? "LIVELLO 2 · POTENZIATA" : "LIVELLO 1") : "";
   const sub = (c.subtitle ?? (t ? `TAVOLO ${t.tableNo} · ${lvl}` : "ENERGIA CAOS AL MASSIMO")).toUpperCase();
-  glow(ctx, sub, w / 2, h * 0.74, "white", fit(ctx, sub, fam, "800", 68, w * 0.7), fam, "800", "center", 4);
-  brackets(ctx, w * 0.12, h * 0.08, w * 0.76, h * 0.84, hexA(TIG.chaos, 0.6));
+  paint(ctx, sub, w / 2, h * 0.76, fit(ctx, sub, num, "900", 64, w * 0.72), num, INK, { weight: "900", track: 3 });
 }
 
-function drawAwards(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
-  background(ctx, w, h, TIG.gold, TIG.gold, 1.1);
+function drawAwards(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
+  cloth(ctx, w, h, "gold");
   const head = (c.title ?? "PREMIAZIONE").toUpperCase();
-  glow(ctx, head, w / 2, 58, "gold", fit(ctx, head, fam, "900", 76, w * 0.5), fam, "900", "center", 8);
+  paint(ctx, head, w / 2, 80, fit(ctx, head, fam, "400", 100, w * 0.5), fam, INK);
   const podium = [2, 1, 3]; // da sinistra: 2°, 1°, 3°
   const frac: Record<number, number> = { 1: 1, 2: 0.82, 3: 0.68 };
-  const colW = w * 0.21;
-  const baseY = h - 22;
-  const maxH = h - 132;
+  const colW = w * 0.22;
+  const baseY = h - 28;
+  const maxH = h - 170;
   podium.forEach((place, i) => {
-    const x = w / 2 + (i - 1) * colW * 1.1 - colW / 2;
+    const x = w / 2 + (i - 1) * colW * 1.12 - colW / 2;
     const shown = c.awardsShown >= 4 - place;
     const team = c.teams.find((t) => t.place === place) ?? null;
     const ph = maxH * frac[place];
     const y = baseY - ph;
+    // cassa di legno con le cerchiature
     const g = ctx.createLinearGradient(0, y, 0, baseY);
-    g.addColorStop(0, shown && team ? hexA(team.color, 0.7) : "rgba(255,255,255,0.1)");
-    g.addColorStop(1, shown && team ? hexA(team.color, 0.18) : "rgba(255,255,255,0.03)");
+    g.addColorStop(0, "#8a5a32");
+    g.addColorStop(1, "#5a3a1e");
     ctx.fillStyle = g;
-    ctx.beginPath();
-    ctx.roundRect(x, y, colW, ph, 14);
-    ctx.fill();
-    ctx.strokeStyle = place === 1 ? TIG.gold : "rgba(255,255,255,0.4)";
-    ctx.lineWidth = place === 1 ? 6 : 4;
-    ctx.stroke();
-    glow(ctx, `${place}°`, x + colW / 2, y + 62, place === 1 ? "gold" : "white", place === 1 ? 96 : 80, fam, "900");
+    ctx.fillRect(x, y, colW, ph);
+    ctx.fillStyle = "rgba(30,18,8,0.35)";
+    for (let k = 1; k < 4; k++) ctx.fillRect(x, y + (ph * k) / 4, colW, 4);
+    ctx.fillStyle = "#2a2420";
+    ctx.fillRect(x, y, colW, 10);
+    ctx.fillRect(x, baseY - 10, colW, 10);
+    if (shown && team) {
+      ctx.fillStyle = team.color;
+      ctx.fillRect(x + 12, y + 16, colW - 24, 18);
+    }
+    paint(ctx, `${place}°`, x + colW / 2, y + 74, place === 1 ? 96 : 80, num, place === 1 ? TIG.goldLight : CREAM, { weight: "900", outline: "rgba(20,12,6,0.85)" });
     if (shown && team) {
       const name = team.name.toUpperCase();
-      ctx.font = `900 54px ${fam}`;
-      const size = fit(ctx, name, fam, "900", 58, colW * 0.9, 30);
-      glow(ctx, clip(ctx, name, colW * 0.92), x + colW / 2, y + 138, place === 1 ? "gold" : "white", size, fam, "900");
-      glow(ctx, `TAVOLO ${team.tableNo}`, x + colW / 2, y + 190, "white", 38, fam, "700");
-      if (ph > 300) glow(ctx, `${Math.round(team.score).toLocaleString("it-IT")} PT`, x + colW / 2, baseY - 46, "white", 50, fam, "900");
+      ctx.font = `900 54px ${num}`;
+      const size = fit(ctx, name, num, "900", 56, colW * 0.92, 28);
+      paint(ctx, clip(ctx, name, colW * 0.94), x + colW / 2, y - 64, size, num, INK, { weight: "900" });
+      paint(ctx, `TAVOLO ${team.tableNo}`, x + colW / 2, y - 22, 36, num, OCHRE, { weight: "700" });
+      if (ph > 300) paint(ctx, `${Math.round(team.score).toLocaleString("it-IT")} PT`, x + colW / 2, baseY - 52, 48, num, CREAM, { weight: "900", outline: "rgba(20,12,6,0.85)" });
     } else {
-      glow(ctx, "?", x + colW / 2, y + ph * 0.58, "white", 110, fam, "900");
+      paint(ctx, "?", x + colW / 2, y + ph * 0.58, 120, fam, CREAM, { outline: "rgba(20,12,6,0.8)" });
     }
   });
+  // dobloni sparsi
+  const rnd = seeded(5);
+  for (let i = 0; i < 14; i++) coin(ctx, 120 + rnd() * (w - 240), h * 0.25 + rnd() * h * 0.55, 14 + rnd() * 10);
 }
 
-/** Ridisegna lo schermo. `family` = carattere del gioco (già caricato dalla pagina). */
-export function drawLed(canvas: HTMLCanvasElement, c: LedContent, family: string) {
+/** Ridipinge la vela. `family` = carattere dei titoli, `numFamily` = carattere di numeri ed etichette. */
+export function drawLed(canvas: HTMLCanvasElement, c: LedContent, family: string, numFamily: string = family) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const w = canvas.width;
   const h = canvas.height;
   ctx.save();
-  // il disegno è pensato su 2048×616: in qualità low il canvas è più piccolo e si scala
+  // il disegno è pensato su 2048×740: con un canvas diverso si scala
   ctx.scale(w / LED_CANVAS.w, h / LED_CANVAS.h);
   const W = LED_CANVAS.w;
   const H = LED_CANVAS.h;
   switch (c.mode) {
     case "logo":
-      drawLogo(ctx, W, H, family, c.subtitle, c.title);
+      drawLogo(ctx, W, H, family, numFamily, c.subtitle, c.title);
       break;
     case "ambient":
       drawAmbient(ctx, W, H);
       break;
     case "manche":
-      drawManche(ctx, W, H, family, c);
+      drawManche(ctx, W, H, family, numFamily, c);
       break;
     case "title":
-      drawTitle(ctx, W, H, family, c, "white", TIG.cyan, TIG.amber, "IN GIOCO");
+      drawTitle(ctx, W, H, family, numFamily, c, "linen", INK, "IN GIOCO");
       break;
     case "leaderboard":
-      drawLeaderboard(ctx, W, H, family, c);
+      drawLeaderboard(ctx, W, H, family, numFamily, c);
       break;
     case "alarm":
-      drawAlarm(ctx, W, H, family, c);
+      drawAlarm(ctx, W, H, family, numFamily, c);
       break;
     case "vs":
-      drawVs(ctx, W, H, family, c);
+      drawVs(ctx, W, H, family, numFamily, c);
       break;
     case "evolve":
-      drawEvolve(ctx, W, H, family, c);
+      drawEvolve(ctx, W, H, family, numFamily, c);
       break;
     case "break":
-      drawTitle(ctx, W, H, family, { ...c, title: c.title ?? "PAUSA", subtitle: c.subtitle ?? "SI RIPARTE TRA POCO" }, "chill", TIG.chill, TIG.cyan, "PAUSA");
+      drawTitle(ctx, W, H, family, numFamily, { ...c, title: c.title ?? "PAUSA", subtitle: c.subtitle ?? "SI RIPARTE TRA POCO" }, "night", "#1d2a3a", "PAUSA");
       break;
     case "final":
-      drawTitle(ctx, W, H, family, { ...c, title: c.title ?? "TUTTO O NIENTE!" }, "gold", TIG.gold, TIG.amber, "TUTTO O NIENTE!");
+      drawTitle(ctx, W, H, family, numFamily, { ...c, title: c.title ?? "TUTTO O NIENTE!" }, "linen", OCHRE, "TUTTO O NIENTE!");
       break;
     case "awards":
-      drawAwards(ctx, W, H, family, c);
+      drawAwards(ctx, W, H, family, numFamily, c);
       break;
   }
   ctx.restore();
 }
+

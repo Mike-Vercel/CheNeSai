@@ -12,9 +12,10 @@ import { glowTexture } from "./textures";
 import { useLatestRef } from "./use-latest";
 
 /**
- * EFFETTI DEGLI EVENTI IN PRIMO PIANO (spotlight): occhi di bue dall'americana sulle torri coinvolte (duello, caos,
- * evoluzione, vincitore, scudo, bersaglio), cometa luminosa dall'attaccante al bersaglio (attacco: colore della
- * squadra; sabotaggio: viola) con scia e lampo all'impatto. Istanziati, nessuna allocazione per fotogramma.
+ * EFFETTI DEGLI EVENTI IN PRIMO PIANO (spotlight), edizione pirati: fasci delle lanterne di bordo sulle postazioni
+ * coinvolte (duello, caos, evoluzione: oro da forziere, vincitore, scudo: turchese, bersaglio), PALLA DI CANNONE
+ * infuocata dall'attaccante al bersaglio (attacco: fuoco col colore della ciurma; sabotaggio: fuoco fatuo
+ * verde-acqua) con scia e lampo all'impatto. Istanziati, nessuna allocazione per fotogramma.
  */
 
 const BEAMS = 4;
@@ -29,6 +30,7 @@ const CHAOS = new Color(TIG.chaos);
 const GOLD = new Color(TIG.gold);
 const CYAN = new Color(TIG.cyan);
 const ALARM = new Color(TIG.alarm);
+const FIRE = new Color("#ff7a2a");
 
 /** Volo della cometa (ms dall'evento). */
 const FLY = { start: 300, end: 1250 } as const;
@@ -103,7 +105,7 @@ export function SpotFx({ liveRef, low }: { liveRef: RefObject<ArenaLive>; low: b
       o.scale.set(rad, len, rad);
       o.updateMatrix();
       parts.beams.setMatrixAt(k, o.matrix);
-      const base = spot.kind === "evolve" ? CHAOS : spot.kind === "winner" ? GOLD : spot.kind === "shield" ? CYAN : spot.kind === "chaos" ? ALARM : WHITE;
+      const base = spot.kind === "evolve" ? GOLD : spot.kind === "winner" ? GOLD : spot.kind === "shield" ? CYAN : spot.kind === "chaos" ? ALARM : WHITE;
       const pulse = spot.kind === "chaos" ? 0.75 + 0.25 * Math.sin(L.t * 10) : 1;
       parts.beams.setColorAt(k, c.copy(base).lerp(c2.set(L.teams[i].color), spot.kind === "duel" ? 0.35 : 0.1).multiplyScalar(0.75 * pulse));
     }
@@ -121,9 +123,9 @@ export function SpotFx({ liveRef, low }: { liveRef: RefObject<ArenaLive>; low: b
         const bx = L.anchors[ib * 5];
         const by = L.anchors[ib * 5 + 1] + 0.6;
         const bz = L.anchors[ib * 5 + 2];
-        // arco basso: resta sotto lo schermo LED sospeso (visibile da ogni inquadratura)
+        // arco basso: resta sotto la vela (visibile da ogni inquadratura)
         const arc = 0.9 + Math.hypot(bx - ax, bz - az) * 0.09;
-        const col = spot.kind === "sabotage" ? CHAOS : cTeam.set(L.teams[ia].color);
+        const col = spot.kind === "sabotage" ? CHAOS : cTeam.set(L.teams[ia].color).lerp(FIRE, 0.6);
         const u = Math.min(1, Math.max(0, (age - FLY.start) / (FLY.end - FLY.start)));
         for (let k = 0; k < TRAIL; k++) {
           const uk = u - k * 0.022;
