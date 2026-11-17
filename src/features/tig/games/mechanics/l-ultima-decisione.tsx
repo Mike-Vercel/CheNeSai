@@ -7,7 +7,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { BigToggle, ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { BalanceCard, secsTo, TvOutcomeGrid } from "./m5-kit";
+import { BalanceCard, secsTo, TvLadder } from "./m5-kit";
 
 type P = PlayerGameProps<DecisioneView, DecisioneMemberView, DecisioneSubmission, DecisioneReveal>;
 type T = TvGameProps<DecisioneView, DecisioneReveal>;
@@ -33,7 +33,7 @@ function Player(p: P) {
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
         <Panel className="flex flex-col gap-2">
-          <Eyebrow>{reveal.title}</Eyebrow>
+          <Eyebrow>{reveal.heading}</Eyebrow>
           <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
           <ChoiceList options={reveal.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
         </Panel>
@@ -81,7 +81,7 @@ function Player(p: P) {
       </Panel>
       {!choosing && view.prompt && view.options ? (
         <Panel tone={effective === "rischio" ? "red" : "lime"} className="tg-rise flex flex-col gap-3">
-          <Eyebrow>{view.title}</Eyebrow>
+          <Eyebrow>{view.heading}</Eyebrow>
           <p className="text-xl font-extrabold leading-snug">{view.prompt}</p>
           <ChoiceList options={view.options} picked={picked ? [picked] : []} onToggle={(id) => editable && setPicked(id)} disabled={!editable} onConfirm={submit} />
         </Panel>
@@ -107,18 +107,19 @@ function Tv(p: T) {
   if (p.stage === "reveal" && reveal) {
     const ladder = reveal.summary?.ladder ?? [];
     const choiceOf = new Map(ladder.map((l) => [l.teamId, l.choice]));
-    // dal fondo alla vetta: punti della prova crescenti (chi non ha risposto sta a zero)
+    // dal fondo alla vetta: il migliore in alto, le righe compaiono dal basso (chi non ha risposto sta a zero)
     const pts = new Map((p.outcome?.outcomes ?? []).map((o) => [o.teamId, o.points]));
-    const order = p.teams
-      .slice()
-      .sort((a, b) => (pts.get(a.teamId) ?? 0) - (pts.get(b.teamId) ?? 0) || a.tableNo - b.tableNo)
-      .map((x) => x.teamId);
+    const rows = p.teams.map((x) => ({
+      teamId: x.teamId,
+      points: pts.get(x.teamId) ?? 0,
+      note: choiceOf.get(x.teamId) === "rischio" ? "Rischio" : choiceOf.get(x.teamId) === "sicuro" ? "Sicuro" : "—",
+    }));
     return (
       <TvFrame view={view} p={p} subtitle="Dal fondo alla vetta: gli esiti dell'ultima decisione">
         <div className="grid h-full grid-cols-[1fr_1.15fr] gap-[1.4cqw]">
           <div className="flex min-h-0 flex-col gap-[1cqw]">
             <TvPanel className="tg-rise flex flex-col gap-[0.7cqw]">
-              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{reveal.title}</p>
+              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{reveal.heading}</p>
               <p className="text-[1.55cqw] font-extrabold leading-tight">{reveal.prompt}</p>
               <div className="grid grid-cols-2 gap-[0.5cqw]">
                 {reveal.options.map((o, i) => (
@@ -137,7 +138,7 @@ function Tv(p: T) {
             <p className="flex items-center gap-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">
               <Icon name="up" className="h-[1.4cqw] w-[1.4cqw]" /> Dal fondo alla vetta
             </p>
-            <TvOutcomeGrid teams={p.teams} outcome={p.outcome} order={order} stagger={260} note={(id) => (choiceOf.get(id) === "rischio" ? "Grande rischio" : choiceOf.get(id) === "sicuro" ? "Premio sicuro" : "Nessuna risposta")} />
+            <TvLadder teams={p.teams} rows={rows} />
           </TvPanel>
         </div>
       </TvFrame>
@@ -146,7 +147,7 @@ function Tv(p: T) {
 
   if (choosing || !view.prompt || !view.options) {
     return (
-      <TvFrame view={view} p={p} subtitle={`${view.title} · prima la scelta, poi l'enigma uguale per tutti`}>
+      <TvFrame view={view} p={p} subtitle={`${view.heading} · prima la scelta, poi l'enigma uguale per tutti`}>
         <div className="flex h-full flex-col justify-center gap-[1.6cqw]">
           <div className="grid grid-cols-2 gap-[1.6cqw]">
             <TvPanel tone="lime" className="tg-rise flex flex-col items-center gap-[0.6cqw] p-[2cqw] text-center">
@@ -173,7 +174,7 @@ function Tv(p: T) {
   }
 
   return (
-    <TvFrame view={view} p={p} subtitle={`${view.title} · un solo enigma per tutti: decide la scelta di prima`}>
+    <TvFrame view={view} p={p} subtitle={`${view.heading} · un solo enigma per tutti: decide la scelta di prima`}>
       <div className="flex h-full flex-col justify-center gap-[1.4cqw]">
         <TvPanel className="tg-rise flex flex-col gap-[1cqw] p-[2.2cqw]">
           <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.25em] text-[#ffc24a]">L&apos;ultimo enigma</p>

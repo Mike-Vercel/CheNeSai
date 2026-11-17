@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { secsTo, teamMap, TvTeamTag } from "./m5-kit";
+import { secsTo, teamMap, TvTableBadge } from "./m5-kit";
 
 type P = PlayerGameProps<CarteView, null, CarteSubmission, CarteReveal>;
 type T = TvGameProps<CarteView, CarteReveal>;
@@ -106,7 +106,7 @@ function Player(p: P) {
     >
       <Panel className="flex flex-col gap-3">
         <div className="flex items-end justify-between gap-2">
-          <Eyebrow className="text-[#ffc24a]">{flipped ? (slot ? `La vostra carta: ${slot}` : "Scegliete la carta") : `${view.title} · scegliete a scatola chiusa`}</Eyebrow>
+          <Eyebrow className="text-[#ffc24a]">{flipped ? (slot ? `La vostra carta: ${slot}` : "Scegliete la carta") : `${view.heading} · scegliete a scatola chiusa`}</Eyebrow>
           <span className="tg-num shrink-0 text-xs text-white/55">Mazzo {view.deckPrint}</span>
         </div>
         <div className="grid grid-cols-3 gap-3">
@@ -141,7 +141,7 @@ function Tv(p: T) {
 
   if (!flipped || !view.faces) {
     return (
-      <TvFrame view={view} p={p} subtitle={`${view.title} · impronta del mazzo ${view.deckPrint}: il seme si svela alla fine`}>
+      <TvFrame view={view} p={p} subtitle={`${view.heading} · impronta del mazzo ${view.deckPrint}: il seme si svela alla fine`}>
         <div className="flex h-full flex-col items-center justify-center gap-[1.4cqw]">
           <div className="flex h-[70%] items-center justify-center gap-[2.4cqw]">
             {SLOTS.map((s) => (
@@ -158,7 +158,7 @@ function Tv(p: T) {
 
   const deal = done ? reveal.summary?.deal : null;
   return (
-    <TvFrame view={view} p={p} subtitle={done && reveal.summary ? `Sorteggio verificabile: impronta ${reveal.summary.deckPrint}, seme «${reveal.summary.draw}»` : `${view.title} · ognuno gioca la sfida della sua carta`}>
+    <TvFrame view={view} p={p} subtitle={done && reveal.summary ? `Sorteggio verificabile: impronta ${reveal.summary.deckPrint}, seme «${reveal.summary.draw}»` : `${view.heading} · ognuno gioca la sfida della sua carta`}>
       <div className={clsx("grid h-full gap-[1.1cqw]", done ? "grid-rows-[minmax(0,1fr)_auto]" : "")}>
         <div className="grid min-h-0 grid-cols-3 gap-[1.1cqw]">
           {view.faces.map((f, i) => {
@@ -171,15 +171,20 @@ function Tv(p: T) {
                   <p className="tg-display min-w-0 flex-1 truncate text-[2cqw]">{f.kind}</p>
                   <span className="tg-num text-[3cqw] leading-none text-[#c6ff3d]">{f.reward}</span>
                 </div>
-                <p className="text-[1.45cqw] font-extrabold leading-tight">{f.prompt}</p>
+                <p className={clsx("text-[1.45cqw] font-extrabold leading-tight", card && "line-clamp-4")}>{f.prompt}</p>
                 <div className="mt-auto flex flex-col gap-[0.4cqw]">
-                  {f.options.map((o, k) => (
-                    <TvOption key={o.id} index={k} text={o.text} size="sm" state={card ? (o.id === card.solutionId ? "right" : "dim") : "idle"} />
-                  ))}
+                  {card
+                    ? f.options
+                        .filter((o) => o.id === card.solutionId)
+                        .map((o) => <TvOption key={o.id} index={f.options.indexOf(o)} text={o.text} state="right" />)
+                    : f.options.map((o, k) => <TvOption key={o.id} index={k} text={o.text} size="sm" />)}
                 </div>
                 {done && (
-                  <div className="flex flex-wrap gap-[0.4cqw]">
-                    {pickers.length ? pickers.map((x) => <TvTeamTag key={x.teamId} team={map.get(x.teamId)} className="max-w-[9cqw]" />) : <span className="text-[1cqw] font-bold text-white/50">Nessun tavolo</span>}
+                  <div className="flex flex-wrap items-center gap-[0.4cqw]">
+                    <span className="mr-[0.3cqw] text-[1cqw] font-extrabold uppercase tracking-[0.14em] text-white/60">{pickers.length ? "Scelta da" : "Nessun tavolo"}</span>
+                    {pickers.map((x) => (
+                      <TvTableBadge key={x.teamId} team={map.get(x.teamId)} />
+                    ))}
                   </div>
                 )}
               </TvPanel>

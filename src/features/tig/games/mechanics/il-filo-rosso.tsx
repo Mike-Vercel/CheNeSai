@@ -78,8 +78,8 @@ function Player(p: P) {
       }
     >
       <Panel className="py-3">
-        <Eyebrow className="text-[#ffc24a]">{view.title}</Eyebrow>
-        <p className="mt-1 text-base font-semibold leading-snug text-white/90">{view.intro}</p>
+        <Eyebrow className="text-[#ffc24a]">{view.heading}</Eyebrow>
+        <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.intro}</p>
       </Panel>
       <Clues clues={view.clues} />
       <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Tessere">
@@ -109,7 +109,7 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   return (
-    <TvFrame view={view} p={p} subtitle={done ? `${view.title} · il filo completo` : `${view.title} · tre indizi raccolti nella serata, una soluzione da comporre`}>
+    <TvFrame view={view} p={p} subtitle={done ? `${view.heading} · il filo completo` : `${view.heading} · tre indizi raccolti nella serata, una soluzione da comporre`}>
       <div className="grid h-full grid-rows-[auto_auto_minmax(0,1fr)] gap-[1cqw]">
         <TvPanel className="tg-rise px-[1.6cqw] py-[0.9cqw]">
           {done ? (
@@ -138,9 +138,11 @@ function Tv(p: T) {
             return (
               <TvPanel key={s.id} tone={r ? "lime" : undefined} className="flex min-h-0 flex-col gap-[0.45cqw] p-[1cqw]">
                 <p className="tg-display text-[2.1cqw]">{s.label}</p>
-                {(r ? r.options : s.options).map((o, k) => (
-                  <TvOption key={o.id} index={k} text={o.text} size="sm" state={r ? (o.id === r.solutionId ? "right" : "dim") : "idle"} />
-                ))}
+                <div className="grid grid-cols-2 gap-[0.45cqw]">
+                  {(r ? r.options : s.options).map((o, k) => (
+                    <TvOption key={o.id} index={k} text={o.text} size="sm" state={r ? (o.id === r.solutionId ? "right" : "dim") : "idle"} />
+                  ))}
+                </div>
               </TvPanel>
             );
           })}

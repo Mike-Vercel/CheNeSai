@@ -54,27 +54,37 @@ export function TimedBanner({ icon, children, tone = "lime" }: { icon: Parameter
 /** Saldo del proprio tavolo (vista privata), con una nota sotto. */
 export function BalanceCard({ balance, note }: { balance: number | null; note: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-white/12 bg-white/[0.04] px-4 py-3">
-      <Icon name="coins" className="h-8 w-8 shrink-0 text-[#ffc24a]" />
-      <div className="min-w-0 flex-1">
-        <Eyebrow>Il vostro saldo</Eyebrow>
+    <div className="flex flex-col gap-1.5 rounded-2xl border border-white/12 bg-white/[0.04] px-4 py-3">
+      <div className="flex items-center gap-3">
+        <Icon name="coins" className="h-7 w-7 shrink-0 text-[#ffc24a]" />
+        <Eyebrow className="flex-1">Il vostro saldo</Eyebrow>
         <p className="tg-num text-3xl leading-none">{balance === null ? "—" : balance.toLocaleString("it-IT")}</p>
       </div>
-      <p className="max-w-[55%] text-right text-xs font-bold leading-snug text-white/70">{note}</p>
+      <p className="text-sm font-bold leading-snug text-white/75">{note}</p>
     </div>
   );
 }
 
-/** Targhetta di un tavolo sulla TV (numero nel colore del tavolo + nome). */
-export function TvTeamTag({ team, className, children }: { team: TvTeam | undefined; className?: string; children?: ReactNode }) {
+/** Targhetta di un tavolo sulla TV (numero nel colore del tavolo + nome): il nome si accorcia, mai sopra ad altro. */
+export function TvTeamTag({ team, className, children, numberOnly = false }: { team: TvTeam | undefined; className?: string; children?: ReactNode; numberOnly?: boolean }) {
   if (!team) return null;
   return (
-    <span className={clsx("inline-flex min-w-0 items-center gap-[0.5cqw]", className)}>
+    <span className={clsx("flex min-w-0 max-w-full items-center gap-[0.5cqw]", className)} title={team.name}>
       <span className="tg-num grid h-[2.4cqw] w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] text-[1.35cqw] text-[#0b0d12]" style={{ background: team.color }}>
         {team.tableNo}
       </span>
-      <span className="min-w-0 truncate text-[1.15cqw] font-extrabold">{team.name}</span>
+      {!numberOnly && <span className="min-w-0 flex-1 truncate text-[1.15cqw] font-extrabold">{team.name}</span>}
       {children}
+    </span>
+  );
+}
+
+/** Solo il numero del tavolo nel suo colore (liste fitte sulla TV). */
+export function TvTableBadge({ team, className }: { team: TvTeam | undefined; className?: string }) {
+  if (!team) return null;
+  return (
+    <span className={clsx("tg-num grid h-[2.4cqw] min-w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] px-[0.3cqw] text-[1.35cqw] text-[#0b0d12]", className)} style={{ background: team.color }} aria-label={`Tavolo ${team.tableNo}`}>
+      {team.tableNo}
     </span>
   );
 }
@@ -91,6 +101,7 @@ export function TvOutcomeGrid({
   order,
   note,
   stagger = 60,
+  cols,
 }: {
   teams: readonly TvTeam[];
   outcome: ScoreOutput | null;
@@ -99,13 +110,16 @@ export function TvOutcomeGrid({
   /** riga piccola sotto il nome (scelta, carta, difesa…) */
   note?: (teamId: string) => ReactNode;
   stagger?: number;
+  /** colonne (predefinito: 2 fino a 6 tavoli, poi 3); nei pannelli stretti meglio 2 */
+  cols?: 1 | 2 | 3 | 4;
 }) {
   const by = new Map((outcome?.outcomes ?? []).map((o) => [o.teamId, o]));
   const map = teamMap(teams);
   const ids = order ?? teams.map((t) => t.teamId);
-  const cols = ids.length > 12 ? "grid-cols-4" : ids.length > 6 ? "grid-cols-3" : "grid-cols-2";
+  const n = cols ?? (ids.length > 12 ? 4 : ids.length > 6 ? 3 : 2);
+  const colCls = n === 1 ? "grid-cols-1" : n === 2 ? "grid-cols-2" : n === 3 ? "grid-cols-3" : "grid-cols-4";
   return (
-    <div className={clsx("grid content-start gap-[0.6cqw]", cols)}>
+    <div className={clsx("grid content-start gap-[0.6cqw]", colCls)}>
       {ids.map((id, i) => {
         const t = map.get(id);
         const o = by.get(id);
@@ -139,6 +153,51 @@ export function TvBigWait({ icon, kicker, title, sub, tone = "lime" }: { icon: P
       <p className="text-[1.3cqw] font-extrabold uppercase tracking-[0.3em] text-white/65">{kicker}</p>
       <div className="tg-display tg-pop text-[6cqw] leading-none">{title}</div>
       {sub && <div className={clsx("tg-num text-[2.6cqw]", c)}>{sub}</div>}
+    </div>
+  );
+}
+
+/**
+ * Scala «dal fondo alla vetta» per la TV: una riga per tavolo, il migliore in alto; le righe compaiono dal basso
+ * verso l'alto (l'ultimo in classifica per primo, il migliore per ultimo).
+ */
+export function TvLadder({ teams, rows, stepMs = 320 }: { teams: readonly TvTeam[]; rows: { teamId: string; points: number; note?: ReactNode }[]; stepMs?: number }) {
+  const map = teamMap(teams);
+  const sorted = rows.slice().sort((a, b) => b.points - a.points || (map.get(a.teamId)?.tableNo ?? 0) - (map.get(b.teamId)?.tableNo ?? 0));
+  const n = sorted.length;
+  const dense = n > 8;
+  return (
+    <ol className={clsx("flex flex-col", dense ? "gap-[0.3cqw]" : "gap-[0.5cqw]")}>
+      {sorted.map((r, i) => {
+        const t = map.get(r.teamId);
+        if (!t) return null;
+        return (
+          <li
+            key={r.teamId}
+            className={clsx("tg-rise flex min-w-0 items-center gap-[0.8cqw] rounded-[0.8cqw] border border-white/10 bg-white/[0.05] px-[0.8cqw]", dense ? "py-[0.25cqw]" : "py-[0.5cqw]", i === 0 && "border-[#c6ff3d]/60 bg-[#c6ff3d]/10")}
+            style={{ animationDelay: `${(n - 1 - i) * stepMs}ms` }}
+          >
+            <span className="tg-num w-[2cqw] shrink-0 text-center text-[1.4cqw] text-white/55">{i + 1}</span>
+            <TvTeamTag team={t} className="min-w-0 flex-1" />
+            {r.note && <span className="shrink-0 text-[1.05cqw] font-bold text-white/70">{r.note}</span>}
+            <span className={clsx("tg-num w-[5cqw] shrink-0 text-right text-[1.8cqw] leading-none", r.points > 0 ? "text-[#c6ff3d]" : r.points < 0 ? "text-[#ff3b4e]" : "text-white/50")}>{signed(r.points)}</span>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+/** Domanda chiusa in forma compatta per i reveal affollati: testo e solo la risposta giusta. */
+export function TvSolved({ kicker, prompt, answer, className }: { kicker: ReactNode; prompt: string; answer: string; className?: string }) {
+  return (
+    <div className={clsx("tg-glass tg-rise flex min-h-0 flex-col gap-[0.5cqw] rounded-[1.4cqw] p-[1.1cqw]", className)}>
+      <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{kicker}</p>
+      <p className="line-clamp-3 text-[1.6cqw] font-extrabold leading-tight">{prompt}</p>
+      <p className="tg-shine mt-auto flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-[#c6ff3d] px-[0.9cqw] py-[0.5cqw] text-[1.6cqw] font-extrabold leading-tight text-[#0b0d12]">
+        <Icon name="check" className="h-[1.8cqw] w-[1.8cqw] shrink-0" />
+        <span className="min-w-0">{answer}</span>
+      </p>
     </div>
   );
 }

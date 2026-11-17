@@ -82,6 +82,14 @@ sola pesata): qualche tavolo potrebbe conoscerli.
 
 - `npx tsc --noEmit -p .`, eslint sui file della manche: puliti.
 - `npx vitest run tests/unit/tig-giochi.test.ts tests/unit/tig-giochi-m5.test.ts --maxWorkers=1`: verdi.
-- Schermate: per limiti di memoria della macchina condivisa le ho verificate con il disegno statico di ogni schermata in
-  ogni fase (test), non nel browser. Gli screenshot dell'anteprima `/preview/tig/giochi` si fanno con lo script
-  `shots-m5.mjs` (copia di `scripts/tig/shots-minigiochi.mjs` con i tempi giusti per queste 13 prove).
+- Schermate: disegno statico di ogni schermata in ogni fase (test) e un primo controllo visivo nel browser di tutte e 13:
+  telefono 390×844 e PC 1440×900 a pagina intera, TV 1920×1080 con 3 tavoli (anteprima `/preview/tig/giochi`) e con
+  12 tavoli (pagina locale di prova con N tavoli, non committata), fasi in gioco / tempo scaduto / reveal. Il controllo
+  è stato interrotto (nuovo stile grafico in arrivo): dopo le correzioni ho rifotografato e riguardato solo la TV di
+  ultima chiamata, la cassa chiusa, solo un dettaglio e punto di rottura; le altre correzioni sono verificate dai test,
+  non ancora a occhio. Correzioni fatte dopo il controllo: titolo della prova sempre quello della meccanica (prima alcune viste lo
+  sostituivano col titolo della variante), reveal compatti sulla TV (domanda e sola risposta giusta) per non tagliare
+  nulla con 12 tavoli, nomi dei tavoli che si accorciano invece di sovrapporsi ai punti, albero di «Punto di rottura» in
+  TV ridisegnato (scritte grandi: prima scelta e percorso migliore; l'albero completo resta sul telefono), clip di
+  «Solo un dettaglio» con oggetti più grandi, senza striscia dei tavoli durante la proiezione e fermo immagine
+  ingrandito sul telefono, scala «dal fondo alla vetta» a una colonna nell'ultima decisione.

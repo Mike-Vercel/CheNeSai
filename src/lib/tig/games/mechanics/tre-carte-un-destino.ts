@@ -75,7 +75,8 @@ export interface CarteFace {
 }
 
 export interface CarteView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   flipAtMs: number;
   /** impronta del mazzo (FNV-1a del testo del sorteggio), mostrata prima della scelta */
   deckPrint: string;
@@ -92,7 +93,8 @@ export interface CarteSummary {
 }
 
 export interface CarteReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   cards: { id: string; kind: string; reward: number; prompt: string; options: Option[]; solutionId: string }[];
   explain: string;
   summary: CarteSummary | null;
@@ -105,7 +107,7 @@ function view(c: CarteContent, ctx: PhaseCtx, flipped: boolean): CarteView {
   );
   return {
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     flipAtMs: FLIP_MS,
     deckPrint: fingerprint(drawSeed(ctx)),
     faces: flipped
@@ -155,7 +157,7 @@ const def: MechanicDef<CarteContent, CarteSubmission> = {
     return out;
   },
   reveal: (c, out): CarteReveal => ({
-    title: c.title,
+    heading: c.title,
     cards: c.cards.map((k) => ({ id: k.id, kind: k.kind, reward: k.reward, prompt: k.prompt, options: k.options, solutionId: c.solution.answers[k.id] })),
     explain: c.explain,
     summary: (out as ScoreWithSummary<CarteSummary>).summary ?? null,

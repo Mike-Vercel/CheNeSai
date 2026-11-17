@@ -25,7 +25,7 @@ function storedBuy(key: string): string | null {
 function Player(p: P) {
   const { view, reveal, memberView: mv } = p;
   // stessa prova e stesso tavolo (non la scadenza: con la pausa della regia cambia)
-  const key = `tig-mercato:${view.number}:${p.myTeam.teamId}:${view.title}:${view.prompt.length}`;
+  const key = `tig-mercato:${view.number}:${p.myTeam.teamId}:${view.heading}:${view.prompt.length}`;
   const [buy, setBuy] = useState<string | null>(() => storedBuy(key));
   const [arming, setArming] = useState<string | null>(null);
   const [picked, setPicked] = useState<string | null>(null);
@@ -84,11 +84,15 @@ function Player(p: P) {
           pending={pending}
           error={error}
           onSubmit={submit}
-          label={bought ? `Rispondi (spesa ${bought.price})` : "Rispondi senza indizio"}
+          label={bought ? `Rispondi · −${bought.price}` : "Rispondi"}
           hint={`Giusta +${view.prize}${bought ? ` − ${bought.price} = +${view.prize - bought.price}` : ""}; sbagliata ${bought ? `−${bought.price}` : "0"}`}
         />
       }
     >
+      <Panel className="flex flex-col gap-1">
+        <Eyebrow className="text-[#ffc24a]">{view.heading}</Eyebrow>
+        <p className="text-lg font-extrabold leading-snug">{view.prompt}</p>
+      </Panel>
       <BalanceCard balance={mv?.balance ?? null} note={`Spesa massima: ${maxSpend} (un solo acquisto, mai oltre il 25% del saldo)`} />
       <Panel className="flex flex-col gap-2">
         <Eyebrow className="text-[#ffc24a]">Il banco · un indizio solo</Eyebrow>
@@ -126,8 +130,7 @@ function Player(p: P) {
         </Panel>
       )}
       <Panel className="flex flex-col gap-3">
-        <Eyebrow className="text-[#ffc24a]">{view.title}</Eyebrow>
-        <p className="text-lg font-extrabold leading-snug">{view.prompt}</p>
+        <Eyebrow>La vostra risposta</Eyebrow>
         <ChoiceList options={view.options} picked={picked ? [picked] : []} onToggle={(id) => editable && setPicked(id)} disabled={!editable} onConfirm={submit} />
       </Panel>
     </PlayerFrame>
@@ -139,7 +142,7 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const buys = done ? (reveal.summary?.buys ?? []) : [];
   return (
-    <TvFrame view={view} p={p} subtitle={done ? `${view.title} · la risposta e gli indizi` : `${view.title} · un indizio al massimo, costa da subito`}>
+    <TvFrame view={view} p={p} subtitle={done ? `${view.heading} · la risposta e gli indizi` : `${view.heading} · un indizio al massimo, costa da subito`}>
       <div className="grid h-full grid-cols-[1.5fr_1fr] gap-[1.4cqw]">
         <div className="flex min-h-0 flex-col gap-[1.1cqw]">
           <TvPanel className="tg-rise flex flex-col gap-[1cqw]">

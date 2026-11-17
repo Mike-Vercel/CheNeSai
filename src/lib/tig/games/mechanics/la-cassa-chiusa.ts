@@ -57,7 +57,8 @@ export const cassaSubmission = z.object({ codes: z.record(z.string(), z.string()
 export type CassaSubmission = z.infer<typeof cassaSubmission>;
 
 export interface CassaView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   intro: string;
   locks: { id: string; n: number; name: string; clue: string; digits: number }[];
   perLock: number;
@@ -65,7 +66,8 @@ export interface CassaView extends BaseView {
 }
 
 export interface CassaReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   locks: { id: string; n: number; name: string; clue: string; digits: number; combination: string; step: string }[];
   explain: string;
 }
@@ -88,7 +90,7 @@ const def: MechanicDef<CassaContent, CassaSubmission> = {
   submissionSchema: cassaSubmission,
   publicView: (c, ctx): CassaView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     intro: c.intro,
     locks: c.locks.map((l, i) => ({ id: l.id, n: i + 1, name: l.name, clue: l.clue, digits: l.digits })),
     perLock: PER_LOCK,
@@ -113,7 +115,7 @@ const def: MechanicDef<CassaContent, CassaSubmission> = {
     };
   },
   reveal: (c): CassaReveal => ({
-    title: c.title,
+    heading: c.title,
     locks: c.locks.map((l, i) => ({ id: l.id, n: i + 1, name: l.name, clue: l.clue, digits: l.digits, combination: c.solution.codes[l.id], step: c.solution.steps[l.id] })),
     explain: c.explain,
   }),

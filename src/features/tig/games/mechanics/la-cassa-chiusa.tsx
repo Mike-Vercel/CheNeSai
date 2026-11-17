@@ -75,8 +75,8 @@ function Player(p: P) {
       }
     >
       <Panel className="py-3">
-        <Eyebrow>{view.title}</Eyebrow>
-        <p className="mt-1 text-base font-semibold leading-snug text-white/90">{view.intro}</p>
+        <Eyebrow>{view.heading}</Eyebrow>
+        <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.intro}</p>
       </Panel>
       <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Serrature">
         {view.locks.map((l, i) => {
@@ -125,7 +125,7 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   return (
-    <TvFrame view={view} p={p} subtitle={done ? `${view.title} · ecco le tre combinazioni` : `${view.title} · indizi a catena: ogni codice serve per il successivo`}>
+    <TvFrame view={view} p={p} subtitle={done ? `${view.heading} · ecco le tre combinazioni` : `${view.heading} · indizi a catena: ogni codice serve per il successivo`}>
       <div className={clsx("grid h-full gap-[1.2cqw]", done ? "grid-rows-[minmax(0,1fr)_auto]" : "grid-rows-[auto_minmax(0,1fr)]")}>
         {!done && (
           <TvPanel className="tg-rise px-[1.6cqw] py-[1cqw]">
@@ -149,7 +149,7 @@ function Tv(p: T) {
                 {r ? (
                   <>
                     <p className="tg-num tg-pop text-[5.4cqw] leading-none tracking-[0.25em] text-[#c6ff3d]">{r.combination}</p>
-                    <p className="text-[1.3cqw] font-semibold leading-snug text-white/85">{r.step}</p>
+                    <p className="text-[1.6cqw] font-semibold leading-snug text-white/90">{r.step}</p>
                   </>
                 ) : (
                   <>
