@@ -96,9 +96,9 @@ export function TigCover({ large = false }: { large?: boolean }) {
       {/* cielo, stelle, luna */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#081a24_0%,#0d2a37_50%,#123a47_58%,#0a2029_62%,#06121a_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_14%,rgba(255,244,214,.9)_0_1px,transparent_1.6px),radial-gradient(circle_at_33%_8%,rgba(255,244,214,.7)_0_1px,transparent_1.6px),radial-gradient(circle_at_58%_19%,rgba(255,244,214,.8)_0_1px,transparent_1.6px),radial-gradient(circle_at_88%_34%,rgba(255,244,214,.6)_0_1px,transparent_1.6px),radial-gradient(circle_at_6%_40%,rgba(255,244,214,.6)_0_1px,transparent_1.6px),radial-gradient(circle_at_46%_33%,rgba(255,244,214,.5)_0_1px,transparent_1.6px)]" />
-      <div className="absolute right-[13%] top-[38%] aspect-square w-[11%] rounded-full bg-[radial-gradient(circle_at_40%_38%,#fffaf0,#f6e3b4_60%,#e2c48a)] shadow-[0_0_30px_8px_rgba(255,236,190,.35),0_0_90px_30px_rgba(255,236,190,.12)]" />
-      {/* il galeone sull'orizzonte (silhouette originale, finestre accese) */}
-      <svg viewBox="0 0 200 120" aria-hidden className="absolute bottom-[34%] left-[8%] w-[62%] transition duration-700 group-hover:-translate-y-1">
+      <div className={clsx("absolute aspect-square rounded-full bg-[radial-gradient(circle_at_40%_38%,#fffaf0,#f6e3b4_60%,#e2c48a)] shadow-[0_0_30px_8px_rgba(255,236,190,.35),0_0_90px_30px_rgba(255,236,190,.12)]", large ? "right-[13%] top-[38%] w-[11%] md:right-[17%] md:top-[30%] md:w-[6%]" : "right-[13%] top-[38%] w-[11%]")} />
+      {/* il galeone sull'orizzonte (silhouette originale, finestre accese); nella hero larga del PC è più piccolo e lontano */}
+      <svg viewBox="0 0 200 120" aria-hidden className={clsx("absolute transition duration-700 group-hover:-translate-y-1", large ? "bottom-[34%] left-[8%] w-[62%] md:bottom-[37.5%] md:left-[8%] md:w-[34%]" : "bottom-[34%] left-[8%] w-[62%]")}>
         <g fill="#0a1820">
           <path d="M62 86V10M102 86V4M140 86V16" stroke="#0a1820" strokeWidth="2.4" />
           <path d="M176 79L199 62" stroke="#0a1820" strokeWidth="2" />
