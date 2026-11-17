@@ -24,10 +24,10 @@ function StakePicker({ stakes, value, onChange, disabled }: { stakes: readonly n
           aria-checked={value === s}
           disabled={disabled}
           onClick={() => onChange(s)}
-          className={clsx("tg-num flex h-16 flex-col items-center justify-center rounded-xl border-2 text-3xl leading-none transition-transform active:scale-95", value === s ? "tg-picked border-[#ffc24a] text-[#ffc24a]" : "border-white/12 bg-white/[0.04] text-white/85")}
+          className={clsx("tg-num flex h-16 flex-col items-center justify-center rounded-xl border-2 text-3xl leading-none transition-transform active:scale-95", value === s ? "tg-picked border-(--tg-teal) text-(--tg-teal-hi)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] text-(--tg-cream)/85")}
         >
           {s}
-          <span className="text-[10px] font-extrabold uppercase tracking-wide text-white/60">{s === 0 ? "niente" : "punti"}</span>
+          <span className="text-[10px] font-extrabold uppercase tracking-wide text-(--tg-cream)/60">{s === 0 ? "niente" : "punti"}</span>
         </button>
       ))}
     </div>
@@ -55,15 +55,15 @@ function Player(p: P) {
           <Panel className="flex flex-col gap-2">
             <Eyebrow>La posta</Eyebrow>
             {d.b === null ? (
-              <p className="text-lg font-extrabold leading-snug">Contro il banco, posta {d.stake}: {d.winner ? <span className="text-[#c6ff3d]">il banco paga</span> : <span className="text-white/70">il banco non paga</span>}.</p>
+              <p className="text-lg font-extrabold leading-snug">Contro il banco, posta {d.stake}: {d.winner ? <span className="text-(--tg-gold)">il banco paga</span> : <span className="text-(--tg-cream)/70">il banco non paga</span>}.</p>
             ) : (
               <>
-                <p className="flex flex-wrap items-center gap-2 text-base font-bold text-white/80">
+                <p className="flex flex-wrap items-center gap-2 text-base font-bold text-(--tg-cream)/80">
                   Voi {String((mineFirst ? d.stakeA : d.stakeB) ?? "–")} · tavolo {rival && <PhoneChip tableNo={rival.tableNo} />} {String((mineFirst ? d.stakeB : d.stakeA) ?? "–")}
                 </p>
                 <p className="text-lg font-extrabold leading-snug">
-                  Posta giocata: <span className="tg-num text-2xl text-[#ffc24a]">{d.stake}</span> ·{" "}
-                  {d.stake === 0 ? <span className="text-white/70">nessuno scambio</span> : d.winner === p.myTeam.teamId ? <span className="text-[#c6ff3d]">la prendete voi</span> : d.winner ? <span className="text-[#ff8c97]">va a loro</span> : <span className="text-white/70">pareggio</span>}
+                  Posta giocata: <span className="tg-num text-2xl text-(--tg-teal-hi)">{d.stake}</span> ·{" "}
+                  {d.stake === 0 ? <span className="text-(--tg-cream)/70">nessuno scambio</span> : d.winner === p.myTeam.teamId ? <span className="text-(--tg-gold)">la prendete voi</span> : d.winner ? <span className="text-(--tg-red-hi)">va a loro</span> : <span className="text-(--tg-cream)/70">pareggio</span>}
                 </p>
               </>
             )}
@@ -85,7 +85,7 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label={stake === null ? "Invia" : `Posta ${stake} · invia`} hint={stake === null ? "Prima la posta: vale la più bassa delle due" : !picked ? "Poi la risposta: nel duello conta la velocità" : undefined} />}
     >
       <Panel tone="lime" className="flex items-center gap-3">
-        <Icon name="handshake" className="h-9 w-9 shrink-0 text-[#c6ff3d]" />
+        <Icon name="handshake" className="h-9 w-9 shrink-0 text-(--tg-gold)" />
         {rival ? (
           <p className="flex flex-wrap items-center gap-2 text-lg font-extrabold leading-snug">
             Abbinati al tavolo <PhoneChip tableNo={rival.tableNo} tone="lime" />: accordatevi a voce!
@@ -96,7 +96,7 @@ function Player(p: P) {
       </Panel>
       <Step n={1} title="La posta" icon="coins" done={stake !== null}>
         <StakePicker stakes={view.stakes} value={stake} onChange={setStake} disabled={!editable} />
-        <p className="text-sm font-semibold text-white/70">Si gioca la posta più bassa tra le due proposte. Zero: nessuno scambio. Risposta giusta: +{view.base} comunque.</p>
+        <p className="text-sm font-semibold text-(--tg-cream)/70">Si gioca la posta più bassa tra le due proposte. Zero: nessuno scambio. Risposta giusta: +{view.base} comunque.</p>
       </Step>
       <Step n={2} title="La domanda (uguale per tutti)" done={!!picked}>
         <p className="text-lg font-extrabold leading-snug">{view.prompt}</p>
@@ -125,7 +125,7 @@ function Tv(p: T) {
           {done && <TvExplain text={reveal.explain} className="mt-auto" />}
         </TvPanel>
         <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">
+          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">
             <Icon name="handshake" className="h-[1.6cqw] w-[1.6cqw]" /> Coppie e poste
           </p>
           <div className={clsx("grid min-h-0 gap-[0.45cqw]", many ? "grid-cols-2" : "grid-cols-1")}>
@@ -133,29 +133,29 @@ function Tv(p: T) {
               const d = duels.find((x) => x.a === g[0].teamId || x.b === g[0].teamId);
               const tr = d?.winner ? applied.find((a) => a.from === d.winner) : undefined;
               return (
-                <div key={g[0].teamId} className="tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-white/[0.05] px-[0.7cqw] py-[0.4cqw]" style={{ animationDelay: `${i * 70}ms` }}>
+                <div key={g[0].teamId} className="tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.7cqw] py-[0.4cqw]" style={{ animationDelay: `${i * 70}ms` }}>
                   <TvChip teams={p.teams} id={g[0].teamId} size={many ? 2.2 : 2.6} />
                   {g[1] ? (
                     <>
-                      <Icon name="swap" className="h-[1.5cqw] w-[1.5cqw] rotate-90 text-[#ffc24a]" />
+                      <Icon name="swap" className="h-[1.5cqw] w-[1.5cqw] rotate-90 text-(--tg-teal-hi)" />
                       <TvChip teams={p.teams} id={g[1].teamId} size={many ? 2.2 : 2.6} />
                     </>
                   ) : (
-                    <span className="text-[1.15cqw] font-extrabold uppercase text-white/70">contro il banco</span>
+                    <span className="text-[1.15cqw] font-extrabold uppercase text-(--tg-cream)/70">contro il banco</span>
                   )}
                   <span className={clsx("ml-auto text-right font-extrabold", many ? "text-[1.05cqw]" : "text-[1.3cqw]")}>
                     {d ? (
                       d.stake === 0 ? (
-                        <span className="text-white/55">posta 0</span>
+                        <span className="text-(--tg-cream)/55">posta 0</span>
                       ) : d.winner ? (
-                        <span className="text-[#c6ff3d]">
+                        <span className="text-(--tg-gold)">
                           {d.b === null ? "il banco paga" : `vince il ${p.teams.find((t) => t.teamId === d.winner)?.tableNo}`} · {tr && tr.points !== d.stake ? tr.reason : d.stake}
                         </span>
                       ) : (
-                        <span className="text-white/60">posta {d.stake} · pareggio</span>
+                        <span className="text-(--tg-cream)/60">posta {d.stake} · pareggio</span>
                       )
                     ) : (
-                      <span className="text-white/45">posta segreta</span>
+                      <span className="text-(--tg-cream)/45">posta segreta</span>
                     )}
                   </span>
                 </div>

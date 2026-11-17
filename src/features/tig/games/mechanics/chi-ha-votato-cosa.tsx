@@ -23,7 +23,7 @@ const textOf = (q: ChiHaVotatoQuestion, id: string) => q.options.find((o) => o.i
 function ComboGrid({ questions, summary, picked, mine, onPick, tv = false }: { questions: Qs; summary?: ChiHaVotatoSummary | null; picked?: string | null; mine?: string | null; onPick?: (key: string) => void; tv?: boolean }) {
   const [q1, q2] = questions;
   const byKey = new Map((summary?.combos ?? []).map((c) => [c.key, c]));
-  const head = clsx("font-extrabold uppercase leading-tight tracking-wide text-white/70", tv ? "p-[0.5cqw] text-[1.15cqw]" : "p-1.5 text-[11px]");
+  const head = clsx("font-extrabold uppercase leading-tight tracking-wide text-(--tg-cream)/70", tv ? "p-[0.5cqw] text-[1.15cqw]" : "p-1.5 text-[11px]");
   return (
     <div role={onPick ? "radiogroup" : "table"} aria-label="Le quattro coppie possibili" className={clsx("grid grid-cols-[auto_1fr_1fr]", tv ? "gap-[0.6cqw]" : "gap-1.5")}>
       <span />
@@ -45,15 +45,15 @@ function ComboGrid({ questions, summary, picked, mine, onPick, tv = false }: { q
               <>
                 {summary && c ? (
                   <>
-                    <span className={clsx("tg-num leading-none", tv ? "text-[3.4cqw]" : "text-3xl", win && "text-[#c6ff3d]")}>{c.pct}%</span>
-                    <span className={clsx("font-bold text-white/60", tv ? "text-[1cqw]" : "text-[11px]")}>
+                    <span className={clsx("tg-num leading-none", tv ? "text-[3.4cqw]" : "text-3xl", win && "text-(--tg-gold)")}>{c.pct}%</span>
+                    <span className={clsx("font-bold text-(--tg-cream)/60", tv ? "text-[1cqw]" : "text-[11px]")}>
                       {c.n} {c.n === 1 ? "tavolo" : "tavoli"}
                     </span>
-                    {win && <Icon name="crown" className={clsx("absolute text-[#c6ff3d]", tv ? "right-[0.5cqw] top-[0.5cqw] h-[1.8cqw] w-[1.8cqw]" : "right-1.5 top-1.5 h-4 w-4")} />}
-                    {isMine && <span className={clsx("absolute font-extrabold uppercase text-white/80", tv ? "bottom-[0.4cqw] text-[0.8cqw]" : "bottom-1 text-[10px]")}>la vostra</span>}
+                    {win && <Icon name="crown" className={clsx("absolute text-(--tg-gold)", tv ? "right-[0.5cqw] top-[0.5cqw] h-[1.8cqw] w-[1.8cqw]" : "right-1.5 top-1.5 h-4 w-4")} />}
+                    {isMine && <span className={clsx("absolute font-extrabold uppercase text-(--tg-cream)/80", tv ? "bottom-[0.4cqw] text-[0.8cqw]" : "bottom-1 text-[10px]")}>la vostra</span>}
                   </>
                 ) : (
-                  <span className={clsx("tg-num text-white/30", tv ? "text-[3cqw]" : "text-2xl")}>{on ? <Icon name="check" className="h-7 w-7 text-[#c6ff3d]" /> : "?"}</span>
+                  <span className={clsx("tg-num text-(--tg-cream)/30", tv ? "text-[3cqw]" : "text-2xl")}>{on ? <Icon name="check" className="h-7 w-7 text-(--tg-gold)" /> : "?"}</span>
                 )}
                 <span className="sr-only">
                   {a.text} e {b.text}
@@ -65,7 +65,7 @@ function ComboGrid({ questions, summary, picked, mine, onPick, tv = false }: { q
             const cls = clsx(
               "relative flex flex-col items-center justify-center border-2 text-center transition-[transform,background-color,border-color] duration-200",
               tv ? "min-h-[7cqw] rounded-[0.9cqw]" : "min-h-[4.5rem] rounded-xl",
-              win ? "tg-shine border-[#c6ff3d] bg-[#c6ff3d]/12" : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]",
+              win ? "tg-shine border-(--tg-gold) bg-(--tg-gold)/12" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
             );
             return onPick ? (
               <button key={key} type="button" role="radio" aria-checked={on} onClick={() => onPick(key)} className={clsx(cls, "active:scale-[0.97]")}>
@@ -167,20 +167,20 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1fr_1.15fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel className="tg-rise">
-            <p className="tg-display text-[3.6cqw] text-[#c6ff3d]">{view.intro}</p>
+            <p className="tg-display text-[3.6cqw] text-(--tg-gold)">{view.intro}</p>
           </TvPanel>
           {[q1, q2].map((q, i) => (
             <TvPanel key={q.id} className="tg-rise flex flex-col gap-[0.6cqw]" tone={undefined}>
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-white/60">Domanda {i + 1}</p>
+              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">Domanda {i + 1}</p>
               <p className="text-[2.1cqw] font-extrabold leading-tight">{q.prompt}</p>
               <div className="grid grid-cols-2 gap-[0.8cqw]">
                 {q.options.map((o) => {
                   const pq = s?.perQuestion[i];
                   const win = !!pq?.winners.includes(o.id);
                   return (
-                    <div key={o.id} className={clsx("flex items-center justify-between gap-[0.6cqw] rounded-[0.8cqw] border-[0.15cqw] px-[1cqw] py-[0.7cqw]", win ? "border-[#c6ff3d] bg-[#c6ff3d]/10" : "border-white/14 bg-white/[0.05]")}>
+                    <div key={o.id} className={clsx("flex items-center justify-between gap-[0.6cqw] rounded-[0.8cqw] border-[0.15cqw] px-[1cqw] py-[0.7cqw]", win ? "border-(--tg-gold) bg-(--tg-gold)/10" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]")}>
                       <span className="text-[1.7cqw] font-extrabold leading-tight">{o.text}</span>
-                      {pq && <span className={clsx("tg-num text-[2cqw]", win && "text-[#c6ff3d]")}>{pq.percent[o.id] ?? 0}%</span>}
+                      {pq && <span className={clsx("tg-num text-[2cqw]", win && "text-(--tg-gold)")}>{pq.percent[o.id] ?? 0}%</span>}
                     </div>
                   );
                 })}
@@ -190,7 +190,7 @@ function Tv(p: T) {
         </div>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel className="flex flex-col gap-[0.8cqw]">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">{s ? "Le coppie del locale" : "Quale coppia vincerà?"}</p>
+            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">{s ? "Le coppie del locale" : "Quale coppia vincerà?"}</p>
             <ComboGrid questions={view.questions} summary={s} tv />
             {winText && <p className="tg-pop text-center text-[1.7cqw] font-extrabold">Vince: {winText}</p>}
           </TvPanel>

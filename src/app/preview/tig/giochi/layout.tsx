@@ -1,6 +1,6 @@
 import { TIG_FONT_VARS } from "@/features/tig/games/kit/fonts";
 
-/** Anteprima dei minigiochi di TAVOLI IN GUERRA! (caratteri e fondo notte del gioco). */
+/** Anteprima dei minigiochi di TAVERNA DEI PIRATI (caratteri e fondo «notte di mare» del gioco). */
 export default function TigGiochiPreviewLayout({ children }: { children: React.ReactNode }) {
-  return <div className={`${TIG_FONT_VARS} tg-root min-h-dvh bg-[#0b0d12] text-[#eef2f6]`}>{children}</div>;
+  return <div className={`${TIG_FONT_VARS} tg-root min-h-dvh bg-[#07131a] text-[#f6ead2]`}>{children}</div>;
 }

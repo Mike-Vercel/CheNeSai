@@ -16,12 +16,12 @@ export function SurfaceChatView({ chat, targetId, size = "phone", className }: {
     .slice(0, 2)
     .toUpperCase();
   return (
-    <figure className={clsx("flex min-h-0 flex-col overflow-hidden border border-white/10 bg-[#0f131b]", tv ? "rounded-[1.4cqw]" : "rounded-3xl", className)} aria-label={`Chat «${chat.title}»`}>
-      <div className={clsx("flex items-center border-b border-white/10 bg-[#161b25]", tv ? "gap-[0.8cqw] px-[1cqw] py-[0.7cqw]" : "gap-3 px-3 py-2.5")}>
-        <span className={clsx("tg-num grid shrink-0 place-items-center rounded-full bg-[#2a3242] text-[#c6ff3d]", tv ? "h-[2.8cqw] w-[2.8cqw] text-[1.3cqw]" : "h-10 w-10 text-lg")}>{initials}</span>
+    <figure className={clsx("flex min-h-0 flex-col overflow-hidden border border-(--tg-cream)/10 bg-(--tg-night-2)", tv ? "rounded-[1.4cqw]" : "rounded-3xl", className)} aria-label={`Chat «${chat.title}»`}>
+      <div className={clsx("flex items-center border-b border-(--tg-cream)/10 bg-(--tg-raised)", tv ? "gap-[0.8cqw] px-[1cqw] py-[0.7cqw]" : "gap-3 px-3 py-2.5")}>
+        <span className={clsx("tg-num grid shrink-0 place-items-center rounded-full bg-(--tg-raised-2) text-(--tg-gold)", tv ? "h-[2.8cqw] w-[2.8cqw] text-[1.3cqw]" : "h-10 w-10 text-lg")}>{initials}</span>
         <span className="min-w-0">
           <span className={clsx("block truncate font-extrabold", tv ? "text-[1.45cqw]" : "text-base")}>{chat.title}</span>
-          <span className={clsx("block truncate font-semibold text-white/55", tv ? "text-[1.05cqw]" : "text-xs")}>{chat.subtitle}</span>
+          <span className={clsx("block truncate font-semibold text-(--tg-cream)/55", tv ? "text-[1.05cqw]" : "text-xs")}>{chat.subtitle}</span>
         </span>
       </div>
       {/* in TV, se lo spazio non basta (molti tavoli sotto), si tagliano i messaggi più vecchi in alto: mai quello da interpretare */}
@@ -33,18 +33,18 @@ export function SurfaceChatView({ chat, targetId, size = "phone", className }: {
               key={m.id}
               className={clsx(
                 "relative max-w-[88%] shrink-0",
-                m.mine ? "self-end bg-[#2b3a12] text-[#f3ffd6]" : "self-start bg-[#1d2330]",
+                m.mine ? "self-end bg-(--tg-gold-dark) text-(--tg-gold-pale)" : "self-start bg-(--tg-raised)",
                 tv ? "rounded-[0.9cqw] px-[1cqw] py-[0.55cqw]" : "rounded-2xl px-3 py-2",
-                hit && (tv ? "outline outline-[0.25cqw] outline-offset-[0.25cqw] outline-[#c6ff3d]" : "outline outline-[3px] outline-offset-2 outline-[#c6ff3d]"),
+                hit && (tv ? "outline outline-[0.25cqw] outline-offset-[0.25cqw] outline-(--tg-gold)" : "outline outline-[3px] outline-offset-2 outline-(--tg-gold)"),
               )}
             >
               {hit && (
-                <span className={clsx("tg-display absolute -top-[0.9em] right-[0.6em] rounded-md bg-[#c6ff3d] px-[0.45em] py-[0.1em] text-[#0b0d12]", tv ? "text-[1cqw]" : "text-xs")}>Doppio senso?</span>
+                <span className={clsx("tg-display absolute -top-[0.9em] right-[0.6em] rounded-md bg-(--tg-gold) px-[0.45em] py-[0.1em] text-(--tg-ink)", tv ? "text-[1cqw]" : "text-xs")}>Doppio senso?</span>
               )}
-              {!m.mine && <span className={clsx("block font-extrabold text-[#6fe7ff]", tv ? "text-[1cqw]" : "text-xs")}>{m.from}</span>}
+              {!m.mine && <span className={clsx("block font-extrabold text-(--tg-sky)", tv ? "text-[1cqw]" : "text-xs")}>{m.from}</span>}
               <span className={clsx("block font-semibold leading-snug", tv ? "text-[1.4cqw]" : "text-[15px]", hit && "font-extrabold")}>
                 {m.text}
-                <span className={clsx("float-right pl-[0.8em] pt-[0.45em] font-semibold leading-none text-white/50", tv ? "text-[0.85cqw]" : "text-[11px]")}>{m.time}</span>
+                <span className={clsx("float-right pl-[0.8em] pt-[0.45em] font-semibold leading-none text-(--tg-cream)/50", tv ? "text-[0.85cqw]" : "text-[11px]")}>{m.time}</span>
               </span>
               {hit && <span className="sr-only"> · messaggio da interpretare</span>}
             </li>

@@ -45,15 +45,15 @@ function Ruler({ actual, markers, tv = false }: { actual: number | null; markers
           <TableChip tableNo={m.tableNo} color={m.color} tv={tv} className={tv ? "" : "!h-7 !min-w-7 !text-base"} />
         </div>
       ))}
-      <div className={clsx("relative rounded-full bg-white/10", tv ? "h-[1.6cqw]" : "h-4")}>
-        {actual !== null && <div className="absolute inset-y-0 left-0 rounded-full bg-[#c6ff3d]/35 transition-[width] duration-1000" style={{ width: `${actual}%` }} />}
+      <div className={clsx("relative rounded-full bg-(--tg-cream)/10", tv ? "h-[1.6cqw]" : "h-4")}>
+        {actual !== null && <div className="absolute inset-y-0 left-0 rounded-full bg-(--tg-gold)/35 transition-[width] duration-1000" style={{ width: `${actual}%` }} />}
         {actual !== null && (
           <div className="absolute -translate-x-1/2" style={{ left: `${actual}%`, top: tv ? "-0.8cqw" : "-0.5rem" }}>
-            <div className={clsx("rounded-full bg-[#c6ff3d] shadow-[0_0_24px_rgba(198,255,61,0.8)]", tv ? "h-[3.2cqw] w-[0.5cqw]" : "h-8 w-1.5")} />
+            <div className={clsx("rounded-full bg-(--tg-gold) shadow-[0_0_24px_color-mix(in_srgb,var(--tg-gold)_80%,transparent)]", tv ? "h-[3.2cqw] w-[0.5cqw]" : "h-8 w-1.5")} />
           </div>
         )}
       </div>
-      <div className={clsx("mt-1 flex justify-between font-bold text-white/55", tv ? "text-[1.1cqw]" : "text-xs")}>
+      <div className={clsx("mt-1 flex justify-between font-bold text-(--tg-cream)/55", tv ? "text-[1.1cqw]" : "text-xs")}>
         {[0, 25, 50, 75, 100].map((n) => (
           <span key={n}>{n}%</span>
         ))}
@@ -82,11 +82,11 @@ function Player(p: P) {
           <Panel className="flex flex-col gap-3">
             <Eyebrow>Il locale · {s.tables} tavoli</Eyebrow>
             <p className="text-lg font-extrabold leading-snug">
-              Ha detto «{reveal.yesLabel}» il <span className="tg-num text-5xl text-[#c6ff3d]">{s.actual}%</span>
+              Ha detto «{reveal.yesLabel}» il <span className="tg-num text-5xl text-(--tg-gold)">{s.actual}%</span>
             </p>
-            <Ruler actual={s.actual} markers={mine !== null ? [{ key: "me", percent: mine, tableNo: p.myTeam.tableNo, color: "#eef2f6" }] : []} />
+            <Ruler actual={s.actual} markers={mine !== null ? [{ key: "me", percent: mine, tableNo: p.myTeam.tableNo, color: "var(--tg-cream)" }] : []} />
             {mine !== null && (
-              <p className="text-sm font-bold text-white/75">
+              <p className="text-sm font-bold text-(--tg-cream)/75">
                 La vostra previsione (tavolo {p.myTeam.tableNo}): {mine}% · scarto {Math.abs(mine - s.actual)} punti
               </p>
             )}
@@ -134,7 +134,7 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Ecco quanto è prevedibile questo locale" : "Un voto per tavolo, poi la previsione: che percentuale di tavoli dirà sì?"}>
       <div className="mx-auto flex h-full max-w-[86cqw] flex-col gap-[1.4cqw]">
         <TvPanel className="tg-rise">
-          <p className="mb-[0.4cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">La proposta</p>
+          <p className="mb-[0.4cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">La proposta</p>
           <p className="text-[2.7cqw] font-extrabold leading-tight">{view.proposal}</p>
         </TvPanel>
         {s ? (
@@ -155,7 +155,7 @@ function Tv(p: T) {
             {[view.yesLabel, view.noLabel].map((l, i) => (
               <TvPanel key={l} tone={i === 0 ? "lime" : "red"} className="flex flex-col items-center justify-center gap-[0.6cqw]">
                 <p className="tg-display text-[4.6cqw]">{l}</p>
-                <p className="tg-num text-[6cqw] text-white/25">?%</p>
+                <p className="tg-num text-[6cqw] text-(--tg-cream)/25">?%</p>
               </TvPanel>
             ))}
           </div>

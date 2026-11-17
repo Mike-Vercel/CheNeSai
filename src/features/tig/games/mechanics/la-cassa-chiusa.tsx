@@ -31,16 +31,16 @@ function Player(p: P) {
           return (
             <Panel key={l.id} tone={sent ? (ok ? "lime" : "red") : undefined} className="flex flex-col gap-2">
               <div className="flex items-center gap-3">
-                <Icon name={sent && !ok ? "lock" : "check"} className={clsx("h-7 w-7 shrink-0", sent && !ok ? "text-[#ff3b4e]" : "text-[#c6ff3d]")} />
+                <Icon name={sent && !ok ? "lock" : "check"} className={clsx("h-7 w-7 shrink-0", sent && !ok ? "text-(--tg-red-hi)" : "text-(--tg-gold)")} />
                 <div className="min-w-0 flex-1">
                   <Eyebrow>
                     Serratura {l.n} · {l.name}
                   </Eyebrow>
-                  <p className="tg-num text-4xl leading-none tracking-[0.2em] text-[#c6ff3d]">{l.combination}</p>
+                  <p className="tg-num text-4xl leading-none tracking-[0.2em] text-(--tg-gold)">{l.combination}</p>
                 </div>
-                {sent && !ok && <p className="tg-num text-xl text-white/60 line-through decoration-2">{mine || "—"}</p>}
+                {sent && !ok && <p className="tg-num text-xl text-(--tg-cream)/60 line-through decoration-2">{mine || "—"}</p>}
               </div>
-              <p className="text-sm font-semibold leading-snug text-white/85">{l.step}</p>
+              <p className="text-sm font-semibold leading-snug text-(--tg-cream)/85">{l.step}</p>
             </Panel>
           );
         })}
@@ -76,7 +76,7 @@ function Player(p: P) {
     >
       <Panel className="py-3">
         <Eyebrow>{view.heading}</Eyebrow>
-        <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.intro}</p>
+        <p className="mt-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/85">{view.intro}</p>
       </Panel>
       <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Serrature">
         {view.locks.map((l, i) => {
@@ -89,7 +89,7 @@ function Player(p: P) {
               role="tab"
               aria-selected={i === tab}
               onClick={() => setTab(i)}
-              className={clsx("flex h-16 flex-col items-center justify-center gap-1 rounded-xl border-2", i === tab ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/12 text-white/75", full && "bg-[#c6ff3d]/10")}
+              className={clsx("flex h-16 flex-col items-center justify-center gap-1 rounded-xl border-2", i === tab ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/12 text-(--tg-cream)/75", full && "bg-(--tg-gold)/10")}
             >
               <span className="flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wide">
                 <Icon name={full ? "check" : "lock"} className="h-4 w-4" /> Serratura {l.n}
@@ -101,15 +101,15 @@ function Player(p: P) {
       </div>
       <Panel className="flex flex-col gap-3" key={lock.id}>
         <div>
-          <Eyebrow className="text-[#ffc24a]">
+          <Eyebrow className="text-(--tg-teal-hi)">
             Serratura {lock.n} · {lock.name}
           </Eyebrow>
           <p className="mt-1 text-lg font-extrabold leading-snug">{lock.clue}</p>
           {tab > 0 && (
-            <p className="mt-2 flex flex-wrap gap-2 text-sm font-bold text-white/70">
+            <p className="mt-2 flex flex-wrap gap-2 text-sm font-bold text-(--tg-cream)/70">
               {view.locks.slice(0, tab).map((l) => (
-                <span key={l.id} className="rounded-lg bg-white/10 px-2 py-0.5">
-                  Serratura {l.n}: <span className="tg-num text-base text-white">{codes[l.id] || "?"}</span>
+                <span key={l.id} className="rounded-lg bg-(--tg-cream)/10 px-2 py-0.5">
+                  Serratura {l.n}: <span className="tg-num text-base text-(--tg-cream)">{codes[l.id] || "?"}</span>
                 </span>
               ))}
             </p>
@@ -129,7 +129,7 @@ function Tv(p: T) {
       <div className={clsx("grid h-full gap-[1.2cqw]", done ? "grid-rows-[minmax(0,1fr)_auto]" : "grid-rows-[auto_minmax(0,1fr)]")}>
         {!done && (
           <TvPanel className="tg-rise px-[1.6cqw] py-[1cqw]">
-            <p className="text-[1.5cqw] font-semibold leading-snug text-white/90">{view.intro}</p>
+            <p className="text-[1.5cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.intro}</p>
           </TvPanel>
         )}
         <div className="grid min-h-0 grid-cols-3 gap-[1.2cqw]">
@@ -138,25 +138,25 @@ function Tv(p: T) {
             return (
               <TvPanel key={l.id} tone={r ? "lime" : undefined} className="tg-rise flex min-h-0 flex-col gap-[0.8cqw]">
                 <div className="flex items-center gap-[0.8cqw]" style={{ animationDelay: `${i * 120}ms` }}>
-                  <span className={clsx("grid h-[4.2cqw] w-[4.2cqw] shrink-0 place-items-center rounded-full border-[0.25cqw]", r ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/30 text-white/80")}>
+                  <span className={clsx("grid h-[4.2cqw] w-[4.2cqw] shrink-0 place-items-center rounded-full border-[0.25cqw]", r ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/30 text-(--tg-cream)/80")}>
                     <Icon name={r ? "check" : "lock"} className="h-[2.2cqw] w-[2.2cqw]" />
                   </span>
                   <div className="min-w-0">
-                    <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">Serratura {l.n}</p>
+                    <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Serratura {l.n}</p>
                     <p className="tg-display truncate text-[2.2cqw]">{l.name}</p>
                   </div>
                 </div>
                 {r ? (
                   <>
-                    <p className="tg-num tg-pop text-[5.4cqw] leading-none tracking-[0.25em] text-[#c6ff3d]">{r.combination}</p>
-                    <p className="text-[1.6cqw] font-semibold leading-snug text-white/90">{r.step}</p>
+                    <p className="tg-num tg-pop text-[5.4cqw] leading-none tracking-[0.25em] text-(--tg-gold)">{r.combination}</p>
+                    <p className="text-[1.6cqw] font-semibold leading-snug text-(--tg-cream)/90">{r.step}</p>
                   </>
                 ) : (
                   <>
                     <p className="text-[1.6cqw] font-extrabold leading-snug">{l.clue}</p>
                     <div className="mt-auto flex gap-[0.5cqw]">
                       {Array.from({ length: l.digits }, (_, k) => (
-                        <span key={k} className="tg-num grid h-[4cqw] w-[3cqw] place-items-center rounded-[0.6cqw] border-[0.18cqw] border-white/20 text-[2.4cqw] text-white/30">
+                        <span key={k} className="tg-num grid h-[4cqw] w-[3cqw] place-items-center rounded-[0.6cqw] border-[0.18cqw] border-(--tg-cream)/20 text-[2.4cqw] text-(--tg-cream)/30">
                           ?
                         </span>
                       ))}

@@ -32,20 +32,20 @@ function Player(p: P) {
           <Panel className="flex flex-col gap-3">
             <div>
               <Eyebrow className="flex items-center gap-1.5">
-                <Icon name="crown" className="h-4 w-4 text-[#ffc24a]" /> Il capitano aveva detto
+                <Icon name="crown" className="h-4 w-4 text-(--tg-teal-hi)" /> Il capitano aveva detto
               </Eyebrow>
               <p className="text-xl font-extrabold">{mine.guess ? textOf(mine.guess) : "Nessuna previsione"}</p>
             </div>
             <div>
               <Eyebrow className="flex items-center gap-1.5">
-                <Icon name="users" className="h-4 w-4 text-[#c6ff3d]" /> Il tavolo ha scelto
+                <Icon name="users" className="h-4 w-4 text-(--tg-gold)" /> Il tavolo ha scelto
               </Eyebrow>
               <p className="text-xl font-extrabold">{mine.top.length ? mine.top.map(textOf).join(" / ") : "Nessun voto"}</p>
-              {mine.top.length > 1 && <p className="text-sm font-bold text-[#ffc24a]">Parità: vale la regola dei 60 punti</p>}
+              {mine.top.length > 1 && <p className="text-sm font-bold text-(--tg-teal-hi)">Parità: vale la regola dei 60 punti</p>}
             </div>
             {mine.guess && mine.voters > 0 && (
-              <p className="text-base font-bold text-white/80">
-                <span className="tg-num text-3xl text-[#c6ff3d]">{Math.round(mine.share * 100)}%</span> dei compagni ha scelto come il capitano ({mine.voters} {mine.voters === 1 ? "voto" : "voti"})
+              <p className="text-base font-bold text-(--tg-cream)/80">
+                <span className="tg-num text-3xl text-(--tg-gold)">{Math.round(mine.share * 100)}%</span> dei compagni ha scelto come il capitano ({mine.voters} {mine.voters === 1 ? "voto" : "voti"})
               </p>
             )}
           </Panel>
@@ -76,12 +76,12 @@ function Player(p: P) {
     >
       {captain ? (
         <Panel tone="lime" className="flex items-center gap-3">
-          <Icon name="crown" className="h-9 w-9 shrink-0 text-[#ffc24a]" />
+          <Icon name="crown" className="h-9 w-9 shrink-0 text-(--tg-teal-hi)" />
           <p className="text-base font-extrabold leading-snug">Sei il capitano: indovina cosa sceglierà la maggioranza dei tuoi compagni{memberView && memberView.voters > 0 ? ` (${memberView.voters} ${memberView.voters === 1 ? "voto" : "voti"})` : ""}.</p>
         </Panel>
       ) : (
         <Panel className="flex items-center gap-3">
-          <Icon name="eye" className="h-8 w-8 shrink-0 text-[#c6ff3d]" />
+          <Icon name="eye" className="h-8 w-8 shrink-0 text-(--tg-gold)" />
           <p className="text-base font-extrabold leading-snug">Voto segreto: rispondi per te. Il capitano deve indovinare la scelta più votata.</p>
         </Panel>
       )}
@@ -119,12 +119,12 @@ function Tv(p: T) {
                     <TableChip tableNo={t?.tableNo ?? "?"} color={t?.color} tv />
                     <div className="min-w-0 flex-1">
                       <p className={clsx("truncate font-extrabold leading-tight", many ? "text-[1.05cqw]" : "text-[1.35cqw]")}>
-                        <Icon name="crown" className="mr-[0.3cqw] inline h-[1.1cqw] w-[1.1cqw] text-[#ffc24a]" />
+                        <Icon name="crown" className="mr-[0.3cqw] inline h-[1.1cqw] w-[1.1cqw] text-(--tg-teal-hi)" />
                         {r.guess ? textOf(r.guess) : "nessuna previsione"}
                       </p>
-                      <p className={clsx("truncate font-bold text-white/65", many ? "text-[0.9cqw]" : "text-[1.1cqw]")}>Tavolo: {r.top.length ? r.top.map(textOf).join(" / ") : "nessun voto"}</p>
+                      <p className={clsx("truncate font-bold text-(--tg-cream)/65", many ? "text-[0.9cqw]" : "text-[1.1cqw]")}>Tavolo: {r.top.length ? r.top.map(textOf).join(" / ") : "nessun voto"}</p>
                     </div>
-                    <span className={clsx("tg-display shrink-0 rounded-[0.4cqw] px-[0.6cqw] py-[0.2cqw]", many ? "text-[1.1cqw]" : "text-[1.4cqw]", ok ? "bg-[#c6ff3d] text-[#0b0d12]" : tie ? "bg-[#ffc24a] text-[#0b0d12]" : "bg-white/10 text-white/70")}>
+                    <span className={clsx("tg-display shrink-0 rounded-[0.4cqw] px-[0.6cqw] py-[0.2cqw]", many ? "text-[1.1cqw]" : "text-[1.4cqw]", ok ? "bg-(--tg-gold) text-(--tg-ink)" : tie ? "bg-(--tg-teal) text-(--tg-ink)" : "bg-(--tg-cream)/10 text-(--tg-cream)/70")}>
                       {ok ? "Vi conosce" : tie ? "Parità" : r.members < 2 ? "Da solo" : "Mancato"}
                     </span>
                   </div>

@@ -72,7 +72,7 @@ function Player(p: P) {
               role="tab"
               aria-selected={i === tab}
               onClick={() => setTab(i)}
-              className={clsx("tg-display flex h-12 items-center justify-center gap-2 rounded-xl border-2 text-xl", i === tab ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/12 text-white/70", answered && "bg-[#c6ff3d]/10")}
+              className={clsx("tg-display flex h-12 items-center justify-center gap-2 rounded-xl border-2 text-xl", i === tab ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/12 text-(--tg-cream)/70", answered && "bg-(--tg-gold)/10")}
             >
               Dettaglio {i + 1}
               {answered && <span aria-label="risposto">•</span>}
@@ -82,7 +82,7 @@ function Player(p: P) {
       </div>
       <Panel className="flex flex-col gap-3">
         <p className="text-xl font-extrabold leading-snug">{q.prompt}</p>
-        {q.multi && <p className="text-sm font-bold text-[#ffc24a]">Selezione multipla: toccate tutte quelle giuste.</p>}
+        {q.multi && <p className="text-sm font-bold text-(--tg-teal-hi)">Selezione multipla: toccate tutte quelle giuste.</p>}
         <ChoiceList
           key={q.id}
           options={q.options}
@@ -123,7 +123,7 @@ function Tv(p: T) {
                   {q.options
                     .filter((o) => q.solution.includes(o.id))
                     .map((o) => (
-                      <span key={o.id} className="tg-shine rounded-[0.6cqw] bg-[#c6ff3d] px-[0.8cqw] py-[0.3cqw] text-[1.4cqw] font-extrabold text-[#0b0d12]">
+                      <span key={o.id} className="tg-shine rounded-[0.6cqw] bg-(--tg-gold) px-[0.8cqw] py-[0.3cqw] text-[1.4cqw] font-extrabold text-(--tg-ink)">
                         {o.text}
                       </span>
                     ))}
@@ -142,9 +142,9 @@ function Tv(p: T) {
       <TvFrame view={view} p={p} hideTimer subtitle={`«${view.sceneTitle}»: guardate bene, tra poco sparisce.`}>
         <div className="flex h-full items-center justify-center">
           <div className="tg-pop relative h-full max-h-full aspect-video">
-            <SceneArt scene={view.scene!} alt={view.alt ?? view.sceneTitle} className="h-full w-full rounded-[1.4cqw] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
+            <SceneArt scene={view.scene!} alt={view.alt ?? view.sceneTitle} className="h-full w-full rounded-[1.4cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
             <div className="tg-glass tg-glass-lime absolute right-[1.2cqw] top-[1.2cqw] grid h-[6cqw] w-[6cqw] place-items-center rounded-full">
-              <span className="tg-num text-[3.6cqw] text-[#c6ff3d]">{left}</span>
+              <span className="tg-num text-[3.6cqw] text-(--tg-gold)">{left}</span>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-3 gap-[1.2cqw]">
         {view.questions.map((q, qi) => (
           <TvPanel key={q.id} className="tg-rise flex flex-col gap-[0.7cqw]">
-            <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">
+            <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">
               Dettaglio {qi + 1}
               {q.multi ? " · più risposte" : ""}
             </p>

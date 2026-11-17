@@ -46,7 +46,7 @@ function Player(p: P) {
       footer={<SubmitBar canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label={declared !== null ? `Soglia ${declared}: invia` : "Invia"} hint={declared === null ? "Dichiarate la soglia" : !done ? "Rispondete alle tre domande" : undefined} />}
     >
       <Panel tone="lime" className="flex flex-col gap-3">
-        <Eyebrow className="text-[#c6ff3d]">Quante ne azzeccate? · {view.theme}</Eyebrow>
+        <Eyebrow className="text-(--tg-gold)">Quante ne azzeccate? · {view.theme}</Eyebrow>
         <div className="grid grid-cols-4 gap-2" role="radiogroup" aria-label="Soglia dichiarata">
           {[0, 1, 2, 3].map((n) => (
             <button
@@ -56,14 +56,14 @@ function Player(p: P) {
               aria-checked={declared === n}
               disabled={!editable}
               onClick={() => setDeclared(n)}
-              className={clsx("flex h-20 flex-col items-center justify-center rounded-xl border-2", declared === n ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]")}
+              className={clsx("flex h-20 flex-col items-center justify-center rounded-xl border-2", declared === n ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]")}
             >
               <span className="tg-num text-4xl leading-none">{n}</span>
-              <span className="text-[11px] font-extrabold text-white/70">{n === 0 ? "nessun bonus" : `bonus +${view.bonus[n]}`}</span>
+              <span className="text-[11px] font-extrabold text-(--tg-cream)/70">{n === 0 ? "nessun bonus" : `bonus +${view.bonus[n]}`}</span>
             </button>
           ))}
         </div>
-        <p className="text-xs font-semibold text-white/65">Ogni risposta giusta +{view.perCorrect}. Il bonus arriva solo se raggiungete la soglia; mancarla non toglie punti.</p>
+        <p className="text-xs font-semibold text-(--tg-cream)/65">Ogni risposta giusta +{view.perCorrect}. Il bonus arriva solo se raggiungete la soglia; mancarla non toglie punti.</p>
       </Panel>
       {view.questions.map((q, i) => (
         <Panel key={q.id} className="flex flex-col gap-2">
@@ -87,14 +87,14 @@ function Tv(p: T) {
           {[0, 1, 2, 3].map((n) => (
             <TvPanel key={n} className="flex items-center justify-center gap-[1cqw] py-[0.8cqw]">
               <span className="tg-num text-[3.4cqw]">{n}</span>
-              <span className="text-[1.3cqw] font-extrabold text-white/75">{n === 0 ? "nessun bonus" : <span className="text-[#c6ff3d]">bonus +{view.bonus[n]}</span>}</span>
+              <span className="text-[1.3cqw] font-extrabold text-(--tg-cream)/75">{n === 0 ? "nessun bonus" : <span className="text-(--tg-gold)">bonus +{view.bonus[n]}</span>}</span>
             </TvPanel>
           ))}
         </div>
         <div className="grid min-h-0 flex-1 grid-cols-3 gap-[1.2cqw]">
           {(done ? reveal.questions : view.questions).map((q, i) => (
             <TvPanel key={q.id} className="tg-rise flex min-h-0 flex-col gap-[0.7cqw]">
-              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Domanda {i + 1}</p>
+              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Domanda {i + 1}</p>
               <p className="text-[1.65cqw] font-extrabold leading-tight">{q.prompt}</p>
               {q.options.map((o, j) => (
                 <TvOption key={o.id} index={j} text={<span className="text-[1.4cqw]">{o.text}</span>} state={done ? (o.id === (q as SogliaReveal["questions"][number]).solutionId ? "right" : "dim") : "idle"} />

@@ -22,7 +22,7 @@ function GridTable({ grid }: { grid: AlleanzaGrid }) {
           <tr>
             <th />
             {grid.cols.map((c) => (
-              <th key={c} scope="col" className="px-1 pb-1 text-[11px] font-extrabold uppercase leading-tight text-[#9aa4b2]">
+              <th key={c} scope="col" className="px-1 pb-1 text-[11px] font-extrabold uppercase leading-tight text-(--tg-mute)">
                 {c}
               </th>
             ))}
@@ -31,12 +31,12 @@ function GridTable({ grid }: { grid: AlleanzaGrid }) {
         <tbody>
           {grid.rows.map((r, i) => (
             <tr key={r}>
-              <th scope="row" className="pr-2 text-left text-xs font-extrabold uppercase leading-tight text-[#9aa4b2]">
+              <th scope="row" className="pr-2 text-left text-xs font-extrabold uppercase leading-tight text-(--tg-mute)">
                 {r}
               </th>
               {grid.cells[i].map((d, j) => (
                 <td key={j} className="p-0.5">
-                  <span className="tg-num grid h-11 place-items-center rounded-lg border border-white/12 bg-white/[0.05] text-3xl">{d}</span>
+                  <span className="tg-num grid h-11 place-items-center rounded-lg border border-(--tg-cream)/12 bg-(--tg-cream)/[0.05] text-3xl">{d}</span>
                 </td>
               ))}
             </tr>
@@ -69,15 +69,15 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-2">
           <Eyebrow>La vostra metà · la griglia</Eyebrow>
           <GridTable grid={mv.grid} />
-          {mv.transform && <p className="rounded-lg bg-[#ffc24a]/15 px-3 py-2 text-sm font-extrabold text-[#ffc24a]">{mv.transform}</p>}
+          {mv.transform && <p className="rounded-lg bg-(--tg-teal)/15 px-3 py-2 text-sm font-extrabold text-(--tg-teal-hi)">{mv.transform}</p>}
         </Panel>
       )}
       {mv?.clues && (
         <Panel className="flex flex-col gap-2">
           <Eyebrow>La vostra metà · le coordinate, in ordine</Eyebrow>
           {mv.clues.map((c, i) => (
-            <div key={i} className="flex items-start gap-3 rounded-xl bg-white/[0.05] px-3 py-2">
-              <span className="tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#c6ff3d] text-xl text-[#0b0d12]" aria-label={`Cifra ${i + 1}`}>
+            <div key={i} className="flex items-start gap-3 rounded-xl bg-(--tg-cream)/[0.05] px-3 py-2">
+              <span className="tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-(--tg-gold) text-xl text-(--tg-ink)" aria-label={`Cifra ${i + 1}`}>
                 {i + 1}
               </span>
               <p className="text-base font-bold leading-snug">{c}</p>
@@ -113,7 +113,7 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Prova il codice" hint="Il codice è lo stesso per tutta l'alleanza: lo inviano tutti i tavoli" />}
     >
       <Panel tone="lime" className="flex items-start gap-3">
-        <Icon name="handshake" className="mt-0.5 h-8 w-8 shrink-0 text-[#c6ff3d]" />
+        <Icon name="handshake" className="mt-0.5 h-8 w-8 shrink-0 text-(--tg-gold)" />
         <div>
           <p className="tg-display text-2xl leading-none">{view.lockName}</p>
           <p className="mt-1 text-base font-bold leading-snug">{roleText(mv)}</p>
@@ -138,9 +138,9 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Le alleanze e i loro codici" : "Un tavolo ha la griglia, l'alleato le coordinate. Alzatevi e parlatevi: o vincete insieme, o niente."}>
       <div className="flex h-full flex-col gap-[1.2cqw]">
         <TvPanel className="tg-rise flex items-center gap-[1.2cqw]">
-          <Icon name="handshake" className="h-[4cqw] w-[4cqw] shrink-0 text-[#c6ff3d]" />
+          <Icon name="handshake" className="h-[4cqw] w-[4cqw] shrink-0 text-(--tg-gold)" />
           <p className="tg-display text-[3.2cqw] leading-none">{view.lockName}</p>
-          <p className="ml-auto text-[1.4cqw] font-bold text-white/70">Codice di {view.length} cifre</p>
+          <p className="ml-auto text-[1.4cqw] font-bold text-(--tg-cream)/70">Codice di {view.length} cifre</p>
         </TvPanel>
         <div className={clsx("grid min-h-0 flex-1 content-start gap-[1cqw]", cols)}>
           {view.groups.map((g, i) => {
@@ -152,10 +152,10 @@ function Tv(p: T) {
                     const t = teams.get(id);
                     return (
                       <span key={id} className="flex items-center gap-[0.6cqw]">
-                        {k > 0 && <Icon name="swap" className="h-[1.8cqw] w-[1.8cqw] rotate-90 text-white/60" />}
+                        {k > 0 && <Icon name="swap" className="h-[1.8cqw] w-[1.8cqw] rotate-90 text-(--tg-cream)/60" />}
                         <span className="flex flex-col items-center gap-[0.2cqw]">
                           <TableChip tableNo={g.tableNos[k]} color={t?.color} tv className="!h-[3.4cqw] !min-w-[3.4cqw] !text-[2.2cqw]" />
-                          <span className={clsx("text-[0.85cqw] font-extrabold uppercase", t?.submitted ? "text-[#c6ff3d]" : "text-white/45")}>{t?.submitted ? "inviato" : k === 1 ? "coordinate" : g.teamIds.length === 1 ? "da solo" : "griglia"}</span>
+                          <span className={clsx("text-[0.85cqw] font-extrabold uppercase", t?.submitted ? "text-(--tg-gold)" : "text-(--tg-cream)/45")}>{t?.submitted ? "inviato" : k === 1 ? "coordinate" : g.teamIds.length === 1 ? "da solo" : "griglia"}</span>
                         </span>
                       </span>
                     );
@@ -164,10 +164,10 @@ function Tv(p: T) {
                 {r ? (
                   <>
                     <p className="tg-num text-[3cqw] leading-none tracking-[0.2em]">{r.digits}</p>
-                    <p className={clsx("tg-display text-[1.6cqw]", r.ok ? "text-[#c6ff3d]" : "text-[#ff8c97]")}>{r.ok ? "Alleanza riuscita" : "Alleanza saltata"}</p>
+                    <p className={clsx("tg-display text-[1.6cqw]", r.ok ? "text-(--tg-gold)" : "text-(--tg-red-hi)")}>{r.ok ? "Alleanza riuscita" : "Alleanza saltata"}</p>
                   </>
                 ) : (
-                  <p className="text-[1.2cqw] font-bold text-white/60" style={{ animationDelay: `${i * 60}ms` }}>
+                  <p className="text-[1.2cqw] font-bold text-(--tg-cream)/60" style={{ animationDelay: `${i * 60}ms` }}>
                     Alleanza {i + 1}
                   </p>
                 )}

@@ -22,13 +22,13 @@ const MIX_MS = 6000;
 function Speaker({ on, tv = false }: { on: boolean; tv?: boolean }) {
   return (
     <div className={clsx("relative grid place-items-center", tv ? "h-[16cqw] w-[16cqw]" : "h-28 w-28")} aria-hidden>
-      {on && [0, 0.6, 1.2].map((d) => <span key={d} className="tg1-ring absolute inset-0 rounded-full border-2 border-[#c6ff3d]" style={{ animationDelay: `${d}s` }} />)}
-      <div className={clsx("relative grid h-[70%] w-[70%] place-items-center rounded-full border-2", on ? "border-[#c6ff3d] bg-[#c6ff3d]/10" : "border-white/20 bg-white/[0.04]")}>
+      {on && [0, 0.6, 1.2].map((d) => <span key={d} className="tg1-ring absolute inset-0 rounded-full border-2 border-(--tg-gold)" style={{ animationDelay: `${d}s` }} />)}
+      <div className={clsx("relative grid h-[70%] w-[70%] place-items-center rounded-full border-2", on ? "border-(--tg-gold) bg-(--tg-gold)/10" : "border-(--tg-cream)/20 bg-(--tg-cream)/[0.04]")}>
         <div className={clsx("flex h-[45%] items-end", tv ? "gap-[0.35cqw]" : "gap-1", on && "tg1-eq")}>
           {[0.5, 0.9, 0.65, 1, 0.75, 0.55, 0.85].map((h, i) => (
             <span
               key={i}
-              className={clsx("block rounded-full", tv ? "w-[0.55cqw]" : "w-1.5", on ? "bg-[#c6ff3d]" : "bg-white/30")}
+              className={clsx("block rounded-full", tv ? "w-[0.55cqw]" : "w-1.5", on ? "bg-(--tg-gold)" : "bg-(--tg-cream)/30")}
               style={{ height: `${h * 100}%`, animationDelay: `${i * 0.11}s`, animationDuration: `${0.5 + (i % 3) * 0.17}s` }}
             />
           ))}
@@ -59,7 +59,7 @@ function ListenButton({ events, label, small = false }: { events: readonly Synth
       className={clsx(
         "flex items-center justify-center gap-2 rounded-2xl border-2 font-extrabold transition-transform active:scale-[0.98]",
         small ? "h-10 px-3 text-sm" : "tg-display h-14 w-full text-2xl",
-        state === "on" ? "border-[#c6ff3d] bg-[#c6ff3d]/15 text-[#c6ff3d]" : "border-white/15 bg-white/[0.05] text-white",
+        state === "on" ? "border-(--tg-gold) bg-(--tg-gold)/15 text-(--tg-gold)" : "border-(--tg-cream)/15 bg-(--tg-cream)/[0.05] text-(--tg-cream)",
       )}
     >
       <svg viewBox="0 0 24 24" className={small ? "h-5 w-5" : "h-7 w-7"} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -89,14 +89,14 @@ function Player(p: P) {
             {reveal.options.map((o) => {
               const right = o.id === reveal.solutionId;
               return (
-                <li key={o.id} className={clsx("flex items-center gap-3 rounded-2xl border-2 px-3 py-2", right ? "border-[#c6ff3d] bg-[#c6ff3d]/10" : "border-white/12")}>
+                <li key={o.id} className={clsx("flex items-center gap-3 rounded-2xl border-2 px-3 py-2", right ? "border-(--tg-gold) bg-(--tg-gold)/10" : "border-(--tg-cream)/12")}>
                   <div className="min-w-0 flex-1">
-                    <p className={clsx("font-extrabold leading-tight", right && "text-[#c6ff3d]")}>
+                    <p className={clsx("font-extrabold leading-tight", right && "text-(--tg-gold)")}>
                       {o.text}
                       {right && <Icon name="check" className="ml-1 inline h-5 w-5" />}
-                      {sent && picked === o.id && !right && <span className="ml-2 text-sm text-[#ff8c97]">(la vostra)</span>}
+                      {sent && picked === o.id && !right && <span className="ml-2 text-sm text-(--tg-red-hi)">(la vostra)</span>}
                     </p>
-                    <p className="text-xs font-bold uppercase tracking-wide text-white/55">{o.present ? (o.loud ? "c'era · il più forte" : "c'era") : "non c'era"}</p>
+                    <p className="text-xs font-bold uppercase tracking-wide text-(--tg-cream)/55">{o.present ? (o.loud ? "c'era · il più forte" : "c'era") : "non c'era"}</p>
                   </div>
                   <ListenButton events={o.solo} label="Senti" small />
                 </li>
@@ -120,19 +120,19 @@ function Player(p: P) {
         <div className="flex items-center gap-3">
           <Speaker on={false} />
           <div className="min-w-0">
-            <Eyebrow className="text-[#c6ff3d]">{view.mode === "dominante" ? "Il più forte" : "L'estraneo"}</Eyebrow>
-            <p className="text-sm font-bold leading-snug text-white/80">La TV lo fa sentire due volte. Potete riascoltarlo qui quante volte volete.</p>
+            <Eyebrow className="text-(--tg-gold)">{view.mode === "dominante" ? "Il più forte" : "L'estraneo"}</Eyebrow>
+            <p className="text-sm font-bold leading-snug text-(--tg-cream)/80">La TV lo fa sentire due volte. Potete riascoltarlo qui quante volte volete.</p>
           </div>
         </div>
         <ListenButton events={view.mix.ev} label="Ascolta dal telefono" />
-        <button type="button" onClick={() => setTextual((v) => !v)} aria-expanded={textual} className="self-start text-sm font-extrabold text-[#6fe7ff] underline underline-offset-4">
+        <button type="button" onClick={() => setTextual((v) => !v)} aria-expanded={textual} className="self-start text-sm font-extrabold text-(--tg-sky) underline underline-offset-4">
           {textual ? "Nascondi la versione testuale" : "Versione testuale (senza audio)"}
         </button>
         {textual && (
-          <ul className="flex flex-col gap-1.5 rounded-xl bg-white/[0.04] p-3" aria-label="Descrizione dei tre suoni">
+          <ul className="flex flex-col gap-1.5 rounded-xl bg-(--tg-cream)/[0.04] p-3" aria-label="Descrizione dei tre suoni">
             {view.descriptions.map((d, i) => (
               <li key={i} className="flex gap-2 text-sm font-semibold leading-snug">
-                <span className="tg-num text-[#c6ff3d]">{i + 1}</span> {d}
+                <span className="tg-num text-(--tg-gold)">{i + 1}</span> {d}
               </li>
             ))}
           </ul>
@@ -195,14 +195,14 @@ function Tv(p: T) {
             {done ? "Ecco i suoni" : listening ? `Ascolto ${which + 1} di ${plays.length}` : elapsed < plays[0] ? "Silenzio in sala…" : "Riascoltate dal telefono"}
           </p>
           {!ready && play && (
-            <button type="button" onClick={() => void playMix(mix.ev).then((s) => s && (stops.current.push(s), setReady(true)))} className="tg-pulse rounded-[1cqw] border-2 border-[#ffc24a] px-[1.4cqw] py-[0.6cqw] text-[1.4cqw] font-extrabold text-[#ffc24a]">
+            <button type="button" onClick={() => void playMix(mix.ev).then((s) => s && (stops.current.push(s), setReady(true)))} className="tg-pulse rounded-[1cqw] border-2 border-(--tg-teal) px-[1.4cqw] py-[0.6cqw] text-[1.4cqw] font-extrabold text-(--tg-teal-hi)">
               Audio bloccato: tocca per far partire i suoni
             </button>
           )}
           {done && <TvExplain text={reveal.explain} />}
         </div>
         <TvPanel className="flex flex-col justify-center gap-[0.9cqw]">
-          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">{view.mode === "dominante" ? "Il suono più forte" : "Il suono che non c'entra"}</p>
+          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">{view.mode === "dominante" ? "Il suono più forte" : "Il suono che non c'entra"}</p>
           {view.options.map((o, i) => {
             const r = byId?.get(o.id);
             return (

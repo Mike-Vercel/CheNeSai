@@ -42,7 +42,7 @@ export function signed(n: number): string {
 
 /** Riga di avviso a tempo (finestra di scelta, colpo in arrivo…), sul telefono. */
 export function TimedBanner({ icon, children, tone = "lime" }: { icon: Parameters<typeof Icon>[0]["name"]; children: ReactNode; tone?: "lime" | "red" | "amber" }) {
-  const c = tone === "red" ? "border-[#ff3b4e]/60 bg-[#ff3b4e]/10 text-[#ff8c97]" : tone === "amber" ? "border-[#ffc24a]/60 bg-[#ffc24a]/10 text-[#ffd68a]" : "border-[#c6ff3d]/60 bg-[#c6ff3d]/10 text-[#c6ff3d]";
+  const c = tone === "red" ? "border-(--tg-red-hi)/60 bg-(--tg-red)/10 text-(--tg-red-hi)" : tone === "amber" ? "border-(--tg-teal)/60 bg-(--tg-teal)/10 text-(--tg-teal-pale)" : "border-(--tg-gold)/60 bg-(--tg-gold)/10 text-(--tg-gold)";
   return (
     <div role="status" aria-live="polite" className={clsx("flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide", c)}>
       <Icon name={icon} className="h-5 w-5 shrink-0" />
@@ -54,13 +54,13 @@ export function TimedBanner({ icon, children, tone = "lime" }: { icon: Parameter
 /** Saldo del proprio tavolo (vista privata), con una nota sotto. */
 export function BalanceCard({ balance, note }: { balance: number | null; note: ReactNode }) {
   return (
-    <div className="flex flex-col gap-1.5 rounded-2xl border border-white/12 bg-white/[0.04] px-4 py-3">
+    <div className="flex flex-col gap-1.5 rounded-2xl border border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] px-4 py-3">
       <div className="flex items-center gap-3">
-        <Icon name="coins" className="h-7 w-7 shrink-0 text-[#ffc24a]" />
+        <Icon name="coins" className="h-7 w-7 shrink-0 text-(--tg-teal-hi)" />
         <Eyebrow className="flex-1">Il vostro saldo</Eyebrow>
         <p className="tg-num text-3xl leading-none">{balance === null ? "—" : balance.toLocaleString("it-IT")}</p>
       </div>
-      <p className="text-sm font-bold leading-snug text-white/75">{note}</p>
+      <p className="text-sm font-bold leading-snug text-(--tg-cream)/75">{note}</p>
     </div>
   );
 }
@@ -70,7 +70,7 @@ export function TvTeamTag({ team, className, children, numberOnly = false }: { t
   if (!team) return null;
   return (
     <span className={clsx("flex min-w-0 max-w-full items-center gap-[0.5cqw]", className)} title={team.name}>
-      <span className="tg-num grid h-[2.4cqw] w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] text-[1.35cqw] text-[#0b0d12]" style={{ background: team.color }}>
+      <span className="tg-num grid h-[2.4cqw] w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] text-[1.35cqw] text-(--tg-ink)" style={{ background: team.color }}>
         {team.tableNo}
       </span>
       {!numberOnly && <span className="min-w-0 flex-1 truncate text-[1.15cqw] font-extrabold">{team.name}</span>}
@@ -83,7 +83,7 @@ export function TvTeamTag({ team, className, children, numberOnly = false }: { t
 export function TvTableBadge({ team, className }: { team: TvTeam | undefined; className?: string }) {
   if (!team) return null;
   return (
-    <span className={clsx("tg-num grid h-[2.4cqw] min-w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] px-[0.3cqw] text-[1.35cqw] text-[#0b0d12]", className)} style={{ background: team.color }} aria-label={`Tavolo ${team.tableNo}`}>
+    <span className={clsx("tg-num grid h-[2.4cqw] min-w-[2.4cqw] shrink-0 place-items-center rounded-[0.5cqw] px-[0.3cqw] text-[1.35cqw] text-(--tg-ink)", className)} style={{ background: team.color }} aria-label={`Tavolo ${team.tableNo}`}>
       {team.tableNo}
     </span>
   );
@@ -126,12 +126,12 @@ export function TvOutcomeGrid({
         if (!t) return null;
         const pts = o?.points ?? 0;
         return (
-          <div key={id} className="tg-rise flex min-w-0 items-center gap-[0.7cqw] rounded-[0.8cqw] border border-white/10 bg-white/[0.05] px-[0.7cqw] py-[0.45cqw]" style={{ animationDelay: `${i * stagger}ms` }}>
+          <div key={id} className="tg-rise flex min-w-0 items-center gap-[0.7cqw] rounded-[0.8cqw] border border-(--tg-cream)/10 bg-(--tg-cream)/[0.05] px-[0.7cqw] py-[0.45cqw]" style={{ animationDelay: `${i * stagger}ms` }}>
             <div className="min-w-0 flex-1">
               <TvTeamTag team={t} />
-              {note && <div className="mt-[0.15cqw] truncate text-[0.95cqw] font-bold text-white/65">{note(id)}</div>}
+              {note && <div className="mt-[0.15cqw] truncate text-[0.95cqw] font-bold text-(--tg-cream)/65">{note(id)}</div>}
             </div>
-            <span className={clsx("tg-num shrink-0 text-[1.9cqw] leading-none", pts > 0 ? "text-[#c6ff3d]" : pts < 0 ? "text-[#ff3b4e]" : "text-white/50")}>{signed(pts)}</span>
+            <span className={clsx("tg-num shrink-0 text-[1.9cqw] leading-none", pts > 0 ? "text-(--tg-gold)" : pts < 0 ? "text-(--tg-red-hi)" : "text-(--tg-cream)/50")}>{signed(pts)}</span>
           </div>
         );
       })}
@@ -146,11 +146,11 @@ export function silentTeams(teams: readonly TvTeam[]): TvTeam[] {
 
 /** Grande cifra/etichetta di attesa al centro della TV (finestre di scelta, conti alla rovescia). */
 export function TvBigWait({ icon, kicker, title, sub, tone = "lime" }: { icon: Parameters<typeof Icon>[0]["name"]; kicker: string; title: ReactNode; sub?: ReactNode; tone?: "lime" | "red" | "amber" }) {
-  const c = tone === "red" ? "text-[#ff3b4e]" : tone === "amber" ? "text-[#ffc24a]" : "text-[#c6ff3d]";
+  const c = tone === "red" ? "text-(--tg-red-hi)" : tone === "amber" ? "text-(--tg-teal-hi)" : "text-(--tg-gold)";
   return (
     <div className="flex h-full flex-col items-center justify-center gap-[1.2cqw] text-center">
       <Icon name={icon} className={clsx("h-[7cqw] w-[7cqw]", c)} />
-      <p className="text-[1.3cqw] font-extrabold uppercase tracking-[0.3em] text-white/65">{kicker}</p>
+      <p className="text-[1.3cqw] font-extrabold uppercase tracking-[0.3em] text-(--tg-cream)/65">{kicker}</p>
       <div className="tg-display tg-pop text-[6cqw] leading-none">{title}</div>
       {sub && <div className={clsx("tg-num text-[2.6cqw]", c)}>{sub}</div>}
     </div>
@@ -174,13 +174,13 @@ export function TvLadder({ teams, rows, stepMs = 320 }: { teams: readonly TvTeam
         return (
           <li
             key={r.teamId}
-            className={clsx("tg-rise flex min-w-0 items-center gap-[0.8cqw] rounded-[0.8cqw] border border-white/10 bg-white/[0.05] px-[0.8cqw]", dense ? "py-[0.25cqw]" : "py-[0.5cqw]", i === 0 && "border-[#c6ff3d]/60 bg-[#c6ff3d]/10")}
+            className={clsx("tg-rise flex min-w-0 items-center gap-[0.8cqw] rounded-[0.8cqw] border border-(--tg-cream)/10 bg-(--tg-cream)/[0.05] px-[0.8cqw]", dense ? "py-[0.25cqw]" : "py-[0.5cqw]", i === 0 && "border-(--tg-gold)/60 bg-(--tg-gold)/10")}
             style={{ animationDelay: `${(n - 1 - i) * stepMs}ms` }}
           >
-            <span className="tg-num w-[2cqw] shrink-0 text-center text-[1.4cqw] text-white/55">{i + 1}</span>
+            <span className="tg-num w-[2cqw] shrink-0 text-center text-[1.4cqw] text-(--tg-cream)/55">{i + 1}</span>
             <TvTeamTag team={t} className="min-w-0 flex-1" />
-            {r.note && <span className="shrink-0 text-[1.05cqw] font-bold text-white/70">{r.note}</span>}
-            <span className={clsx("tg-num w-[5cqw] shrink-0 text-right text-[1.8cqw] leading-none", r.points > 0 ? "text-[#c6ff3d]" : r.points < 0 ? "text-[#ff3b4e]" : "text-white/50")}>{signed(r.points)}</span>
+            {r.note && <span className="shrink-0 text-[1.05cqw] font-bold text-(--tg-cream)/70">{r.note}</span>}
+            <span className={clsx("tg-num w-[5cqw] shrink-0 text-right text-[1.8cqw] leading-none", r.points > 0 ? "text-(--tg-gold)" : r.points < 0 ? "text-(--tg-red-hi)" : "text-(--tg-cream)/50")}>{signed(r.points)}</span>
           </li>
         );
       })}
@@ -192,9 +192,9 @@ export function TvLadder({ teams, rows, stepMs = 320 }: { teams: readonly TvTeam
 export function TvSolved({ kicker, prompt, answer, className }: { kicker: ReactNode; prompt: string; answer: string; className?: string }) {
   return (
     <div className={clsx("tg-glass tg-rise flex min-h-0 flex-col gap-[0.5cqw] rounded-[1.4cqw] p-[1.1cqw]", className)}>
-      <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{kicker}</p>
+      <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">{kicker}</p>
       <p className="line-clamp-3 text-[1.6cqw] font-extrabold leading-tight">{prompt}</p>
-      <p className="tg-shine mt-auto flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-[#c6ff3d] px-[0.9cqw] py-[0.5cqw] text-[1.6cqw] font-extrabold leading-tight text-[#0b0d12]">
+      <p className="tg-shine mt-auto flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-(--tg-gold) px-[0.9cqw] py-[0.5cqw] text-[1.6cqw] font-extrabold leading-tight text-(--tg-ink)">
         <Icon name="check" className="h-[1.8cqw] w-[1.8cqw] shrink-0" />
         <span className="min-w-0">{answer}</span>
       </p>

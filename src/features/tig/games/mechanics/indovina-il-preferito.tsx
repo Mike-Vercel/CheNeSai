@@ -21,26 +21,26 @@ function ScenarioCard({ s, index, on, onPick, disabled, summary, tv = false }: {
   const pct = summary?.percent[s.id];
   const body = (
     <>
-      <span className={clsx("tg-num absolute rounded bg-white/10 text-white/70", tv ? "left-[0.7cqw] top-[0.7cqw] px-[0.5cqw] text-[1.3cqw]" : "left-2 top-2 px-1.5 text-sm")}>{index + 1}</span>
-      {win && <Icon name="crown" className={clsx("absolute text-[#c6ff3d]", tv ? "right-[0.7cqw] top-[0.7cqw] h-[2.4cqw] w-[2.4cqw]" : "right-2 top-2 h-5 w-5")} />}
+      <span className={clsx("tg-num absolute rounded bg-(--tg-cream)/10 text-(--tg-cream)/70", tv ? "left-[0.7cqw] top-[0.7cqw] px-[0.5cqw] text-[1.3cqw]" : "left-2 top-2 px-1.5 text-sm")}>{index + 1}</span>
+      {win && <Icon name="crown" className={clsx("absolute text-(--tg-gold)", tv ? "right-[0.7cqw] top-[0.7cqw] h-[2.4cqw] w-[2.4cqw]" : "right-2 top-2 h-5 w-5")} />}
       <IconBadge kind={s.icon} tone={s.tone} className={clsx("shrink-0", tv ? (summary ? "h-[5.5cqw] w-[5.5cqw]" : "h-[8cqw] w-[8cqw]") : "h-14 w-14")} />
       <span className={clsx("font-extrabold leading-tight", tv ? "text-[1.7cqw]" : "text-sm")}>{s.text}</span>
       {pct !== undefined && (
-        <span className={clsx("tg-num leading-none", tv ? "text-[3.4cqw]" : "text-3xl", win ? "text-[#c6ff3d]" : last ? "text-[#ff8c97]" : "text-white")}>
-          {pct}%<span className={clsx("ml-1 font-sans font-bold text-white/55", tv ? "text-[1.1cqw]" : "text-xs")}>{summary?.counts[s.id] ?? 0} tav.</span>
+        <span className={clsx("tg-num leading-none", tv ? "text-[3.4cqw]" : "text-3xl", win ? "text-(--tg-gold)" : last ? "text-(--tg-red-hi)" : "text-(--tg-cream)")}>
+          {pct}%<span className={clsx("ml-1 font-sans font-bold text-(--tg-cream)/55", tv ? "text-[1.1cqw]" : "text-xs")}>{summary?.counts[s.id] ?? 0} tav.</span>
         </span>
       )}
       {(win || last) && (
-        <span className={clsx("tg-display rounded px-2", tv ? "text-[1.6cqw]" : "text-base", win ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#ff3b4e]/80 text-white")}>{win ? "Il preferito" : "Lo snobbato"}</span>
+        <span className={clsx("tg-display rounded px-2", tv ? "text-[1.6cqw]" : "text-base", win ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-red)/80 text-(--tg-cream)")}>{win ? "Il preferito" : "Lo snobbato"}</span>
       )}
-      {on && <Icon name="check" className="absolute bottom-2 right-2 h-6 w-6 text-[#c6ff3d]" />}
+      {on && <Icon name="check" className="absolute bottom-2 right-2 h-6 w-6 text-(--tg-gold)" />}
       <span className="sr-only">{on ? " · scelto" : ""}</span>
     </>
   );
   const cls = clsx(
     "relative flex flex-col items-center justify-start border-2 text-center transition-[transform,border-color] duration-200",
     tv ? "gap-[0.6cqw] rounded-[1.2cqw] px-[1cqw] pb-[1cqw] pt-[2.4cqw]" : "min-h-[9.5rem] gap-2 rounded-2xl px-2 pb-3 pt-6",
-    win ? "tg-shine border-[#c6ff3d] bg-[#c6ff3d]/10" : last ? "border-[#ff3b4e]/70" : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]",
+    win ? "tg-shine border-(--tg-gold) bg-(--tg-gold)/10" : last ? "border-(--tg-red-hi)/70" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
   );
   return onPick ? (
     <button type="button" role="radio" aria-checked={!!on} disabled={disabled} onClick={onPick} className={clsx(cls, "active:scale-[0.97]")}>
@@ -54,16 +54,16 @@ function ScenarioCard({ s, index, on, onPick, disabled, summary, tv = false }: {
 /** Previsione compatta: per ogni scenario «preferito» o «snobbato» (mai lo stesso). */
 function PredictTable({ scenarios, favorite, last, onFavorite, onLast, disabled }: { scenarios: PreferitoScenario[]; favorite: string | null; last: string | null; onFavorite: (id: string) => void; onLast: (id: string) => void; disabled: boolean }) {
   const btn = (on: boolean, tone: "lime" | "red") =>
-    clsx("tg-display flex h-11 w-[3.6rem] items-center justify-center rounded-xl border-2 text-lg leading-none transition-transform active:scale-95", on ? (tone === "lime" ? "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : "border-[#ff3b4e] bg-[#ff3b4e] text-white") : "border-white/12 bg-white/[0.04] text-white/75");
+    clsx("tg-display flex h-11 w-[3.6rem] items-center justify-center rounded-xl border-2 text-lg leading-none transition-transform active:scale-95", on ? (tone === "lime" ? "border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : "border-(--tg-red-hi) bg-(--tg-red) text-white") : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] text-(--tg-cream)/75");
   return (
     <div className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-x-2 gap-y-2">
       <span />
       <span />
-      <span className="flex w-[3.6rem] flex-col items-center text-[10px] font-extrabold uppercase leading-tight text-[#c6ff3d]">
+      <span className="flex w-[3.6rem] flex-col items-center text-[10px] font-extrabold uppercase leading-tight text-(--tg-gold)">
         <Icon name="crown" className="h-4 w-4" />
         Preferito
       </span>
-      <span className="flex w-[3.6rem] flex-col items-center text-[10px] font-extrabold uppercase leading-tight text-[#ff8c97]">
+      <span className="flex w-[3.6rem] flex-col items-center text-[10px] font-extrabold uppercase leading-tight text-(--tg-red-hi)">
         <Icon name="down" className="h-4 w-4" />
         Ultimo
       </span>
@@ -71,7 +71,7 @@ function PredictTable({ scenarios, favorite, last, onFavorite, onLast, disabled 
         <div key={s.id} className="contents">
           <IconBadge kind={s.icon} tone={s.tone} className="h-10 w-10 shrink-0" />
           <span className="min-w-0 text-sm font-bold leading-tight">
-            <span className="tg-num mr-1 text-white/50">{i + 1}</span>
+            <span className="tg-num mr-1 text-(--tg-cream)/50">{i + 1}</span>
             {s.text}
           </span>
           <button type="button" aria-pressed={favorite === s.id} disabled={disabled} onClick={() => onFavorite(s.id)} className={btn(favorite === s.id, "lime")} aria-label={`Preferito del pubblico: ${s.text}`}>
@@ -132,7 +132,7 @@ function Player(p: P) {
               ))}
             </div>
             {g && (
-              <p className="text-sm font-bold text-white/80">
+              <p className="text-sm font-bold text-(--tg-cream)/80">
                 Avevate previsto: preferito «{textOf(g.favorite)}», snobbato «{textOf(g.last)}».
               </p>
             )}

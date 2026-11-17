@@ -9,17 +9,17 @@ import { ART_H, ART_W, type IconKind, type Scene, type SceneItem, type Tone } fr
  */
 
 export const TONE_HEX: Record<Tone, string> = {
-  lime: "#c6ff3d",
-  red: "#ff3b4e",
-  white: "#eef2f6",
-  amber: "#ffc24a",
-  cyan: "#6fe7ff",
-  violet: "#b49cff",
+  lime: "var(--tg-gold)",
+  red: "var(--tg-red-hi)",
+  white: "var(--tg-cream)",
+  amber: "var(--tg-teal-hi)",
+  cyan: "var(--tg-sky)",
+  violet: "var(--tg-violet)",
 };
 
-const INK = "#eef2f6";
-const NIGHT = "#0b0d12";
-const STEEL = "#232a36";
+const INK = "var(--tg-cream)";
+const NIGHT = "var(--tg-ink)";
+const STEEL = "var(--tg-raised-2)";
 const S = { stroke: INK, strokeWidth: 3.5, strokeLinejoin: "round" as const, strokeLinecap: "round" as const };
 
 /** Testo adattato alla larghezza disponibile (una o due righe). */
@@ -167,7 +167,7 @@ const ICONS: Record<IconKind, IconFn> = {
   ),
   candela: (t) => (
     <>
-      <path d="M50 10c8 10 8 18 0 22-8-4-8-12 0-22z" fill="#ffc24a" stroke={INK} strokeWidth={2.5} />
+      <path d="M50 10c8 10 8 18 0 22-8-4-8-12 0-22z" fill="var(--tg-teal-hi)" stroke={INK} strokeWidth={2.5} />
       <rect x={38} y={36} width={24} height={52} rx={3} {...S} fill={t} />
     </>
   ),
@@ -215,7 +215,7 @@ const ICONS: Record<IconKind, IconFn> = {
   torta: (t, l) => (
     <>
       <path d="M36 30V20M50 30V16M64 30V20" {...S} />
-      <path d="M36 16c3 3 3 5 0 6-3-1-3-3 0-6zM50 12c3 3 3 5 0 6-3-1-3-3 0-6zM64 16c3 3 3 5 0 6-3-1-3-3 0-6z" fill="#ffc24a" />
+      <path d="M36 16c3 3 3 5 0 6-3-1-3-3 0-6zM50 12c3 3 3 5 0 6-3-1-3-3 0-6zM64 16c3 3 3 5 0 6-3-1-3-3 0-6z" fill="var(--tg-teal-hi)" />
       <rect x={20} y={30} width={60} height={24} rx={5} {...S} fill={t} />
       <rect x={12} y={54} width={76} height={32} rx={5} {...S} fill={STEEL} />
       <Label text={l} x={50} y={70} w={64} max={20} fill={INK} />
@@ -274,9 +274,9 @@ function Item({ item }: { item: SceneItem }) {
 }
 
 function Backdrop({ kind }: { kind: Scene["backdrop"] }) {
-  const wall = "#141924";
-  const floor = "#0f131b";
-  const line = "rgba(238,242,246,0.09)";
+  const wall = "var(--tg-night-2)";
+  const floor = "var(--tg-night-2)";
+  const line = "color-mix(in srgb, var(--tg-cream) 9%, transparent)";
   const common = (
     <>
       <rect width={ART_W} height={ART_H} fill={wall} />
@@ -291,7 +291,7 @@ function Backdrop({ kind }: { kind: Scene["backdrop"] }) {
           {common}
           <rect x={90} y={70} width={420} height={240} rx={10} fill="none" stroke={line} strokeWidth={6} />
           <line x1={300} y1={70} x2={300} y2={310} stroke={line} strokeWidth={4} />
-          <rect x={120} y={560} width={1360} height={26} rx={8} fill="#1d2430" />
+          <rect x={120} y={560} width={1360} height={26} rx={8} fill="var(--tg-raised)" />
         </>
       );
     case "cucina":
@@ -301,25 +301,25 @@ function Backdrop({ kind }: { kind: Scene["backdrop"] }) {
           {Array.from({ length: 12 }, (_, i) => (
             <line key={i} x1={i * 140} y1={0} x2={i * 140} y2={ART_H * 0.66} stroke={line} strokeWidth={2} />
           ))}
-          <rect x={60} y={560} width={1480} height={30} rx={6} fill="#1d2430" />
+          <rect x={60} y={560} width={1480} height={30} rx={6} fill="var(--tg-raised)" />
         </>
       );
     case "camera":
       return (
         <>
           {common}
-          <rect x={1150} y={80} width={330} height={260} rx={12} fill="#0d1018" stroke={line} strokeWidth={6} />
+          <rect x={1150} y={80} width={330} height={260} rx={12} fill="var(--tg-night)" stroke={line} strokeWidth={6} />
           <line x1={1315} y1={80} x2={1315} y2={340} stroke={line} strokeWidth={4} />
-          <rect x={80} y={600} width={600} height={120} rx={30} fill="#1a202b" />
+          <rect x={80} y={600} width={600} height={120} rx={30} fill="var(--tg-raised)" />
         </>
       );
     case "stazione":
       return (
         <>
           {common}
-          <rect x={0} y={ART_H * 0.66} width={ART_W} height={18} fill="#c6ff3d" opacity={0.25} />
+          <rect x={0} y={ART_H * 0.66} width={ART_W} height={18} fill="var(--tg-gold)" opacity={0.25} />
           {Array.from({ length: 9 }, (_, i) => (
-            <rect key={i} x={40 + i * 180} y={60} width={24} height={ART_H * 0.6} fill="#10141c" />
+            <rect key={i} x={40 + i * 180} y={60} width={24} height={ART_H * 0.6} fill="var(--tg-night-2)" />
           ))}
         </>
       );
@@ -329,18 +329,18 @@ function Backdrop({ kind }: { kind: Scene["backdrop"] }) {
           {common}
           <path d={`M0 90 ${Array.from({ length: 17 }, (_, i) => `Q${i * 100 + 50} 150 ${(i + 1) * 100} 90`).join(" ")}`} fill="none" stroke={line} strokeWidth={4} />
           {Array.from({ length: 16 }, (_, i) => (
-            <path key={i} d={`M${i * 100 + 30} 108l20 34 20-34z`} fill={i % 2 ? "#ff3b4e" : "#c6ff3d"} opacity={0.35} />
+            <path key={i} d={`M${i * 100 + 30} 108l20 34 20-34z`} fill={i % 2 ? "var(--tg-red-hi)" : "var(--tg-gold)"} opacity={0.35} />
           ))}
-          <rect x={160} y={580} width={1280} height={28} rx={8} fill="#1d2430" />
+          <rect x={160} y={580} width={1280} height={28} rx={8} fill="var(--tg-raised)" />
         </>
       );
     default:
       return (
         <>
           {common}
-          <rect x={100} y={90} width={360} height={230} rx={10} fill="#0d1018" stroke={line} strokeWidth={6} />
-          <rect x={1080} y={250} width={420} height={18} rx={6} fill="#1d2430" />
-          <rect x={260} y={600} width={1080} height={110} rx={36} fill="#1a202b" />
+          <rect x={100} y={90} width={360} height={230} rx={10} fill="var(--tg-night)" stroke={line} strokeWidth={6} />
+          <rect x={1080} y={250} width={420} height={18} rx={6} fill="var(--tg-raised)" />
+          <rect x={260} y={600} width={1080} height={110} rx={36} fill="var(--tg-raised)" />
         </>
       );
   }

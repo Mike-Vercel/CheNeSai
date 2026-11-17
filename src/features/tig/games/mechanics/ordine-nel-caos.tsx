@@ -29,11 +29,11 @@ function Player(p: P) {
           </Panel>
         )}
         <Panel tone="lime" className="flex flex-col gap-2">
-          <p className="tg-display text-2xl text-[#c6ff3d]">Ordine giusto</p>
+          <p className="tg-display text-2xl text-(--tg-gold)">Ordine giusto</p>
           <ol className="flex flex-col gap-1.5">
             {reveal.items.map((it, i) => (
               <li key={it.id} className="flex gap-2 text-base font-bold">
-                <span className="tg-num text-xl text-[#c6ff3d]">{i + 1}</span> {it.text}
+                <span className="tg-num text-xl text-(--tg-gold)">{i + 1}</span> {it.text}
               </li>
             ))}
           </ol>
@@ -87,11 +87,11 @@ function Tv(p: T) {
         <div className="grid flex-1 grid-cols-4 items-center gap-[1.2cqw]">
           {list.map((it, i) => (
             <TvPanel key={`${done ? "r" : "v"}-${it.id}`} tone={done ? "lime" : undefined} className="tg-rise relative flex flex-col gap-[1cqw] overflow-visible!">
-              <span className={`tg-num grid h-[4cqw] w-[4cqw] place-items-center rounded-[0.8cqw] text-[2.4cqw] ${done ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-white/10 text-white/60"}`} style={{ animationDelay: `${i * 140}ms` }}>
+              <span className={`tg-num grid h-[4cqw] w-[4cqw] place-items-center rounded-[0.8cqw] text-[2.4cqw] ${done ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-cream)/10 text-(--tg-cream)/60"}`} style={{ animationDelay: `${i * 140}ms` }}>
                 {done ? i + 1 : String.fromCharCode(65 + i)}
               </span>
               <p className="text-[1.9cqw] font-extrabold leading-snug">{it.text}</p>
-              {done && i < list.length - 1 && <Icon name="arrow" className="absolute -right-[1.3cqw] top-1/2 z-10 h-[2.4cqw] w-[2.4cqw] -translate-y-1/2 text-[#c6ff3d]" />}
+              {done && i < list.length - 1 && <Icon name="arrow" className="absolute -right-[1.3cqw] top-1/2 z-10 h-[2.4cqw] w-[2.4cqw] -translate-y-1/2 text-(--tg-gold)" />}
             </TvPanel>
           ))}
         </div>

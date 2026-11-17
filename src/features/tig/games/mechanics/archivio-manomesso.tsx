@@ -18,11 +18,11 @@ function FieldRow({ f, state, dark, tv = false, onPick, disabled }: { f: Archivi
   const cls = clsx(
     "flex w-full items-baseline justify-between text-left transition-[background-color,border-color] duration-150",
     tv ? "gap-[0.8cqw] rounded-[0.5cqw] border-[0.14cqw] px-[0.7cqw] py-[0.55cqw]" : "min-h-11 gap-3 rounded-lg border-2 px-2.5 py-1.5",
-    state === "idle" && (dark ? "border-white/10" : "border-black/10"),
-    state === "picked" && "border-[#0b0d12] bg-[#c6ff3d] text-[#0b0d12] shadow-[0_0_0_3px_#c6ff3d]",
-    state === "tampered" && "border-[#ff3b4e] bg-[#ff3b4e] text-white",
-    state === "missed" && "border-[#ff3b4e] border-dashed bg-[#ff3b4e]/80 text-white",
-    state === "witness" && "border-[#5f8f00] bg-[#c6ff3d]/40",
+    state === "idle" && (dark ? "border-(--tg-cream)/10" : "border-black/10"),
+    state === "picked" && "border-(--tg-night) bg-(--tg-gold) text-(--tg-ink) shadow-[0_0_0_3px_var(--tg-gold)]",
+    state === "tampered" && "border-(--tg-red-hi) bg-(--tg-red) text-white",
+    state === "missed" && "border-(--tg-red-hi) border-dashed bg-(--tg-red)/80 text-(--tg-cream)",
+    state === "witness" && "border-(--tg-gold-deep) bg-(--tg-gold)/40",
   );
   const body = (
     <>
@@ -73,7 +73,7 @@ function Player(p: P) {
       {done && <MyOutcome outcome={p.myOutcome} />}
       <Panel className="flex flex-col gap-1">
         <Eyebrow>{view.caseTitle}</Eyebrow>
-        <p className="text-base font-semibold leading-snug text-white/90">{view.story}</p>
+        <p className="text-base font-semibold leading-snug text-(--tg-cream)/90">{view.story}</p>
       </Panel>
       <div className="flex flex-col gap-4">
         {view.docs.map((d, i) => (

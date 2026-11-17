@@ -66,7 +66,7 @@ function Player(p: P) {
         note={stake === null ? `Rischio: sbagliando perdete il ${Math.round(view.stakeShare * 100)}% del saldo (max ${view.stakeCap})` : stake > 0 ? `Rischio: sbagliando perdete ${stake} punti` : "Saldo a zero: col rischio non perdete nulla"}
       />
       <Panel className="flex flex-col gap-2">
-        <Eyebrow className="text-[#ffc24a]">{choosing ? "L'ultima decisione della serata" : "Decisione bloccata"}</Eyebrow>
+        <Eyebrow className="text-(--tg-teal-hi)">{choosing ? "L'ultima decisione della serata" : "Decisione bloccata"}</Eyebrow>
         <BigToggle<Choice>
           label="Premio sicuro o grande rischio"
           value={effective}
@@ -77,7 +77,7 @@ function Player(p: P) {
             { id: "rischio", title: "Rischio", sub: `Risolto +${view.riskPoints}, sbagliato −${stake ?? `${Math.round(view.stakeShare * 100)}%`}`, tone: "red", icon: "flame" },
           ]}
         />
-        {!choosing && !choice && p.stage === "play" && <p className="text-sm font-bold text-[#ffd68a]">Tempo di scelta finito: per voi vale il premio sicuro.</p>}
+        {!choosing && !choice && p.stage === "play" && <p className="text-sm font-bold text-(--tg-teal-pale)">Tempo di scelta finito: per voi vale il premio sicuro.</p>}
       </Panel>
       {!choosing && view.prompt && view.options ? (
         <Panel tone={effective === "rischio" ? "red" : "lime"} className="tg-rise flex flex-col gap-3">
@@ -87,9 +87,9 @@ function Player(p: P) {
         </Panel>
       ) : (
         <Panel className="flex flex-col items-center gap-2 py-8 text-center">
-          <Icon name="lock" className="h-10 w-10 text-white/60" />
+          <Icon name="lock" className="h-10 w-10 text-(--tg-cream)/60" />
           <p className="tg-display text-3xl">L&apos;enigma tra</p>
-          <p className="tg-num text-6xl text-[#c6ff3d]" aria-live="polite">
+          <p className="tg-num text-6xl text-(--tg-gold)" aria-live="polite">
             {secsTo(view.choiceWindowMs, elapsed)}
           </p>
         </Panel>
@@ -119,7 +119,7 @@ function Tv(p: T) {
         <div className="grid h-full grid-cols-[1fr_1.15fr] gap-[1.4cqw]">
           <div className="flex min-h-0 flex-col gap-[1cqw]">
             <TvPanel className="tg-rise flex flex-col gap-[0.7cqw]">
-              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{reveal.heading}</p>
+              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">{reveal.heading}</p>
               <p className="text-[1.55cqw] font-extrabold leading-tight">{reveal.prompt}</p>
               <div className="grid grid-cols-2 gap-[0.5cqw]">
                 {reveal.options.map((o, i) => (
@@ -128,14 +128,14 @@ function Tv(p: T) {
               </div>
             </TvPanel>
             <TvPanel className="tg-rise p-[1.1cqw]">
-              <p className="text-[1.3cqw] font-semibold leading-snug text-white/90">
-                <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
+              <p className="text-[1.3cqw] font-semibold leading-snug text-(--tg-cream)/90">
+                <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
                 {reveal.explain}
               </p>
             </TvPanel>
           </div>
           <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
-            <p className="flex items-center gap-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">
+            <p className="flex items-center gap-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">
               <Icon name="up" className="h-[1.4cqw] w-[1.4cqw]" /> Dal fondo alla vetta
             </p>
             <TvLadder teams={p.teams} rows={rows} />
@@ -151,22 +151,22 @@ function Tv(p: T) {
         <div className="flex h-full flex-col justify-center gap-[1.6cqw]">
           <div className="grid grid-cols-2 gap-[1.6cqw]">
             <TvPanel tone="lime" className="tg-rise flex flex-col items-center gap-[0.6cqw] p-[2cqw] text-center">
-              <Icon name="shield" className="h-[5cqw] w-[5cqw] text-[#c6ff3d]" />
+              <Icon name="shield" className="h-[5cqw] w-[5cqw] text-(--tg-gold)" />
               <p className="tg-display text-[3.6cqw]">Premio sicuro</p>
-              <p className="tg-num text-[6cqw] leading-none text-[#c6ff3d]">{view.safePoints}</p>
-              <p className="text-[1.4cqw] font-bold text-white/75">Enigma sbagliato: 0</p>
+              <p className="tg-num text-[6cqw] leading-none text-(--tg-gold)">{view.safePoints}</p>
+              <p className="text-[1.4cqw] font-bold text-(--tg-cream)/75">Enigma sbagliato: 0</p>
             </TvPanel>
             <TvPanel tone="red" className="tg-rise flex flex-col items-center gap-[0.6cqw] p-[2cqw] text-center">
-              <Icon name="flame" className="h-[5cqw] w-[5cqw] text-[#ff3b4e]" />
+              <Icon name="flame" className="h-[5cqw] w-[5cqw] text-(--tg-red-hi)" />
               <p className="tg-display text-[3.6cqw]">Grande rischio</p>
-              <p className="tg-num text-[6cqw] leading-none text-[#ff3b4e]">{view.riskPoints}</p>
-              <p className="text-[1.4cqw] font-bold text-white/75">
+              <p className="tg-num text-[6cqw] leading-none text-(--tg-red-hi)">{view.riskPoints}</p>
+              <p className="text-[1.4cqw] font-bold text-(--tg-cream)/75">
                 Enigma sbagliato: −{Math.round(view.stakeShare * 100)}% del saldo (max {view.stakeCap})
               </p>
             </TvPanel>
           </div>
           <p className="tg-display text-center text-[3cqw]">
-            L&apos;enigma tra <span className="tg-num text-[#c6ff3d]">{secsTo(view.choiceWindowMs, elapsed)}</span>
+            L&apos;enigma tra <span className="tg-num text-(--tg-gold)">{secsTo(view.choiceWindowMs, elapsed)}</span>
           </p>
         </div>
       </TvFrame>
@@ -177,7 +177,7 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={`${view.heading} · un solo enigma per tutti: decide la scelta di prima`}>
       <div className="flex h-full flex-col justify-center gap-[1.4cqw]">
         <TvPanel className="tg-rise flex flex-col gap-[1cqw] p-[2.2cqw]">
-          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.25em] text-[#ffc24a]">L&apos;ultimo enigma</p>
+          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.25em] text-(--tg-teal-hi)">L&apos;ultimo enigma</p>
           <p className="text-[2.5cqw] font-extrabold leading-tight">{view.prompt}</p>
         </TvPanel>
         <div className="grid grid-cols-2 gap-[1cqw]">

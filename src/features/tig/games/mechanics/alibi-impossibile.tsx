@@ -20,15 +20,15 @@ function Facts({ view, tv = false }: { view: AlibiView; tv?: boolean }) {
     <div className={clsx("flex flex-col", tv ? "gap-[0.5cqw]" : "gap-1.5")}>
       {view.legs.map((l, i) => (
         <p key={i} className={clsx("flex items-center gap-2 font-bold leading-snug", txt)}>
-          <Icon name="clock" className={clsx("shrink-0 text-[#6fe7ff]", tv ? "h-[1.4cqw] w-[1.4cqw]" : "h-4 w-4")} />
+          <Icon name="clock" className={clsx("shrink-0 text-(--tg-sky)", tv ? "h-[1.4cqw] w-[1.4cqw]" : "h-4 w-4")} />
           <span className="min-w-0">
-            {name.get(l.from)} ↔ {name.get(l.to)}: <span className="tg-num text-[#6fe7ff]">{l.minutes}′</span> {l.how}
+            {name.get(l.from)} ↔ {name.get(l.to)}: <span className="tg-num text-(--tg-sky)">{l.minutes}′</span> {l.how}
           </span>
         </p>
       ))}
       {hours.map((p) => (
         <p key={p.id} className={clsx("flex items-center gap-2 font-bold leading-snug", txt)}>
-          <Icon name="lock" className={clsx("shrink-0 text-[#ffc24a]", tv ? "h-[1.4cqw] w-[1.4cqw]" : "h-4 w-4")} />
+          <Icon name="lock" className={clsx("shrink-0 text-(--tg-teal-hi)", tv ? "h-[1.4cqw] w-[1.4cqw]" : "h-4 w-4")} />
           <span className="min-w-0">
             {p.name}: {[p.opens ? `apre alle ${p.opens}` : "", p.closes ? `chiude alle ${p.closes}` : ""].filter(Boolean).join(", ")}
           </span>
@@ -61,7 +61,7 @@ function Player(p: P) {
         <Facts view={view} />
       </Panel>
       <Eyebrow className="px-1">Il racconto di {view.suspect}</Eyebrow>
-      <ol className="relative flex flex-col gap-2 before:absolute before:bottom-3 before:left-[2.1rem] before:top-3 before:w-0.5 before:bg-white/12">
+      <ol className="relative flex flex-col gap-2 before:absolute before:bottom-3 before:left-[2.1rem] before:top-3 before:w-0.5 before:bg-(--tg-cream)/12">
         {view.steps.map((s, i) => {
           const on = (sol ? sent : true) && picked === s.id;
           const bad = sol === s.id;
@@ -74,18 +74,18 @@ function Player(p: P) {
                 onClick={() => setPicked(s.id)}
                 className={clsx(
                   "relative flex w-full items-start gap-3 rounded-2xl border-2 p-3 text-left",
-                  sol ? (bad ? "tg-stripes-red border-[#ff3b4e]" : "border-white/10 opacity-70") : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-[#141924]",
+                  sol ? (bad ? "tg-stripes-red border-(--tg-red-hi)" : "border-(--tg-cream)/10 opacity-70") : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-night-2)",
                 )}
               >
-                <span className="tg-num z-10 w-[3.2rem] shrink-0 rounded-lg bg-[#0b0d12] py-1 text-center text-xl">{s.time}</span>
+                <span className="tg-num z-10 w-[3.2rem] shrink-0 rounded-lg bg-(--tg-night) py-1 text-center text-xl">{s.time}</span>
                 <span className="min-w-0 flex-1">
-                  <span className="block text-xs font-extrabold uppercase tracking-wide text-[#6fe7ff]">
+                  <span className="block text-xs font-extrabold uppercase tracking-wide text-(--tg-sky)">
                     {i + 1} · {name.get(s.place)}
                     {s.stayMin ? ` · ${s.stayMin}′` : ""}
                   </span>
                   <span className="block text-base font-semibold leading-snug">{s.text}</span>
                 </span>
-                {(on || bad) && <Icon name={bad ? "x" : "check"} className={clsx("h-6 w-6 shrink-0", bad ? "text-[#ff3b4e]" : "text-[#c6ff3d]")} />}
+                {(on || bad) && <Icon name={bad ? "x" : "check"} className={clsx("h-6 w-6 shrink-0", bad ? "text-(--tg-red-hi)" : "text-(--tg-gold)")} />}
               </button>
             </li>
           );
@@ -107,23 +107,23 @@ function Tv(p: T) {
           {view.steps.map((s, i) => {
             const bad = sol === s.id;
             return (
-              <div key={s.id} className={clsx("tg-rise flex items-start gap-[1cqw] rounded-[0.9cqw] border-[0.15cqw] px-[1cqw] py-[0.6cqw]", bad ? "tg-stripes-red border-[#ff3b4e]" : "border-white/10", sol && !bad && "opacity-50")} style={{ animationDelay: `${i * 90}ms` }}>
-                <span className="tg-num w-[6cqw] shrink-0 text-[2.2cqw] text-[#c6ff3d]">{s.time}</span>
+              <div key={s.id} className={clsx("tg-rise flex items-start gap-[1cqw] rounded-[0.9cqw] border-[0.15cqw] px-[1cqw] py-[0.6cqw]", bad ? "tg-stripes-red border-(--tg-red-hi)" : "border-(--tg-cream)/10", sol && !bad && "opacity-50")} style={{ animationDelay: `${i * 90}ms` }}>
+                <span className="tg-num w-[6cqw] shrink-0 text-[2.2cqw] text-(--tg-gold)">{s.time}</span>
                 <div className="min-w-0">
-                  <p className="text-[1.05cqw] font-extrabold uppercase tracking-wide text-[#6fe7ff]">
+                  <p className="text-[1.05cqw] font-extrabold uppercase tracking-wide text-(--tg-sky)">
                     {name.get(s.place)}
                     {s.stayMin ? ` · resta ${s.stayMin}′` : ""}
                   </p>
                   <p className="text-[1.5cqw] font-semibold leading-snug">{s.text}</p>
                 </div>
-                {bad && <Icon name="x" className="ml-auto h-[2.4cqw] w-[2.4cqw] shrink-0 text-[#ff3b4e]" />}
+                {bad && <Icon name="x" className="ml-auto h-[2.4cqw] w-[2.4cqw] shrink-0 text-(--tg-red-hi)" />}
               </div>
             );
           })}
         </TvPanel>
         <div className="flex min-h-0 flex-col gap-[1.2cqw]">
           <TvPanel>
-            <p className="mb-[0.6cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Fatti certi</p>
+            <p className="mb-[0.6cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Fatti certi</p>
             <Facts view={view} tv />
           </TvPanel>
           {sol && reveal && <TvExplain text={reveal.explain} />}

@@ -35,17 +35,17 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-2">
           <Eyebrow>Le tre prove</Eyebrow>
           {reveal.proofs.map((x) => (
-            <div key={x.id} className={clsx("rounded-xl border-2 px-3 py-2", reveal.cheapest.ids.includes(x.id) ? "border-[#ffc24a]" : "border-white/12")}>
-              <p className="flex justify-between gap-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#ffc24a]">
+            <div key={x.id} className={clsx("rounded-xl border-2 px-3 py-2", reveal.cheapest.ids.includes(x.id) ? "border-(--tg-teal)" : "border-(--tg-cream)/12")}>
+              <p className="flex justify-between gap-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-teal-hi)">
                 <span>{x.name}</span>
                 <span className="tg-num text-base">{x.price}</span>
               </p>
               <p className="font-bold leading-snug">{x.text}</p>
-              <p className="text-xs font-extrabold uppercase text-white/50">Scagiona: {x.clears.map((id) => name.get(id)).join(", ")}</p>
+              <p className="text-xs font-extrabold uppercase text-(--tg-cream)/50">Scagiona: {x.clears.map((id) => name.get(id)).join(", ")}</p>
             </div>
           ))}
-          <p className="text-sm font-bold text-white/80">
-            Spesa minima per essere sicuri: <b className="text-[#ffc24a]">{reveal.cheapest.cost} punti</b> ({cheap}).
+          <p className="text-sm font-bold text-(--tg-cream)/80">
+            Spesa minima per essere sicuri: <b className="text-(--tg-teal-hi)">{reveal.cheapest.cost} punti</b> ({cheap}).
           </p>
         </Panel>
         <div className="flex flex-col gap-2">
@@ -67,10 +67,10 @@ function Player(p: P) {
       <Panel className="flex flex-col gap-1.5">
         <Eyebrow>{view.caseTitle}</Eyebrow>
         <p className="text-lg font-extrabold leading-snug">{view.question}</p>
-        <p className="text-sm font-semibold leading-snug text-white/80">{view.intro}</p>
+        <p className="text-sm font-semibold leading-snug text-(--tg-cream)/80">{view.intro}</p>
       </Panel>
       <section className="flex flex-col gap-2" aria-label="Il negozio delle prove">
-        <p className="flex items-center justify-between px-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#ffc24a]">
+        <p className="flex items-center justify-between px-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-(--tg-teal-hi)">
           <span className="flex items-center gap-1.5">
             <Icon name="coins" className="h-4 w-4" /> Il negozio
           </span>
@@ -114,7 +114,7 @@ function Tv(p: T) {
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel className={clsx("shrink-0", done ? "py-[0.7cqw]" : "py-[1cqw]")}>
             <p className={clsx("tg-display", done ? "text-[1.8cqw]" : "text-[2.1cqw]")}>{view.caseTitle}</p>
-            {!done && <p className="mt-[0.3cqw] text-[1.35cqw] font-semibold leading-snug text-white/85">{view.intro}</p>}
+            {!done && <p className="mt-[0.3cqw] text-[1.35cqw] font-semibold leading-snug text-(--tg-cream)/85">{view.intro}</p>}
           </TvPanel>
           <div className="flex min-h-0 flex-col gap-[0.7cqw]">
             {view.shop.map((s, i) => {
@@ -126,16 +126,16 @@ function Tv(p: T) {
                   className={clsx(
                     "tg-rise flex shrink-0 items-center gap-[1cqw] rounded-[1cqw] border-[0.18cqw] px-[1.2cqw]",
                     r ? "py-[0.5cqw]" : "py-[0.7cqw]",
-                    r ? (best ? "border-[#ffc24a] bg-[#ffc24a]/12" : "border-white/14 bg-white/[0.04]") : "border-dashed border-[#ffc24a]/60 bg-[repeating-linear-gradient(135deg,rgba(255,194,74,0.07)_0_1cqw,transparent_1cqw_2cqw)]",
+                    r ? (best ? "border-(--tg-teal) bg-(--tg-teal)/12" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.04]") : "border-dashed border-(--tg-teal)/60 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-teal)_7%,transparent)_0_1cqw,transparent_1cqw_2cqw)]",
                   )}
                   style={{ animationDelay: `${i * 90}ms` }}
                 >
-                  <span className={clsx("grid shrink-0 place-items-center rounded-[0.8cqw] bg-[#ffc24a] text-[#0b0d12]", r ? "h-[3.6cqw] w-[3.6cqw]" : "h-[4.6cqw] w-[4.6cqw]")}>
+                  <span className={clsx("grid shrink-0 place-items-center rounded-[0.8cqw] bg-(--tg-teal) text-(--tg-ink)", r ? "h-[3.6cqw] w-[3.6cqw]" : "h-[4.6cqw] w-[4.6cqw]")}>
                     <span className="tg-num text-[2.2cqw] leading-none">{s.price}</span>
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className={clsx("tg-display text-[#ffc24a]", r ? "text-[1.5cqw]" : "text-[1.7cqw]")}>{s.name}</p>
-                    {r ? <p className="text-[1.2cqw] font-bold leading-snug">{r.text}</p> : <p className="flex items-center gap-[0.4cqw] text-[1.15cqw] font-bold text-white/60"><Icon name="lock" className="h-[1.2cqw] w-[1.2cqw]" /> sigillata · costa {s.price} punti potenziali</p>}
+                    <p className={clsx("tg-display text-(--tg-teal-hi)", r ? "text-[1.5cqw]" : "text-[1.7cqw]")}>{s.name}</p>
+                    {r ? <p className="text-[1.2cqw] font-bold leading-snug">{r.text}</p> : <p className="flex items-center gap-[0.4cqw] text-[1.15cqw] font-bold text-(--tg-cream)/60"><Icon name="lock" className="h-[1.2cqw] w-[1.2cqw]" /> sigillata · costa {s.price} punti potenziali</p>}
                   </div>
                 </div>
               );
@@ -143,10 +143,10 @@ function Tv(p: T) {
           </div>
           {done ? (
             <TvPanel className="flex shrink-0 flex-wrap items-center gap-[0.6cqw] py-[0.8cqw] text-[1.3cqw] font-bold">
-              <span className="text-[#ffc24a]">Spesa minima per essere sicuri: {reveal.cheapest.cost}</span>
+              <span className="text-(--tg-teal-hi)">Spesa minima per essere sicuri: {reveal.cheapest.cost}</span>
               {spent.length > 0 && spent.length <= 6 ? (
                 <>
-                  <span className="text-white/50">· spesa dei tavoli:</span>
+                  <span className="text-(--tg-cream)/50">· spesa dei tavoli:</span>
                   {spent.map((x) => (
                     <span key={x.teamId} className="flex items-center gap-[0.3cqw]">
                       <TableTag tv no={team.get(x.teamId)?.tableNo ?? "?"} color={team.get(x.teamId)?.color} /> {x.cost}
@@ -154,11 +154,11 @@ function Tv(p: T) {
                   ))}
                 </>
               ) : spent.length > 6 ? (
-                <span className="text-white/75">· spesa media dei tavoli: {Math.round(spent.reduce((t, x) => t + x.cost, 0) / spent.length)}</span>
+                <span className="text-(--tg-cream)/75">· spesa media dei tavoli: {Math.round(spent.reduce((t, x) => t + x.cost, 0) / spent.length)}</span>
               ) : null}
             </TvPanel>
           ) : (
-            <p className="text-center text-[1.2cqw] font-bold text-white/70">Giusta: 100 meno la spesa · sbagliata: 0 · mai in negativo</p>
+            <p className="text-center text-[1.2cqw] font-bold text-(--tg-cream)/70">Giusta: 100 meno la spesa · sbagliata: 0 · mai in negativo</p>
           )}
         </div>
         <div className="flex min-h-0 flex-col gap-[1cqw]">

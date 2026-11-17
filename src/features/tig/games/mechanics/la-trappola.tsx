@@ -41,17 +41,17 @@ function Player(p: P) {
           {mine ? (
             <p className="flex flex-wrap items-center gap-2 text-base font-extrabold">
               «{reveal.traps[mine.trap].name}» sul tavolo <PhoneChip tableNo={table.get(mine.to) ?? 0} tone="red" />
-              {!mine.armed ? <span className="text-white/60">a vuoto (c&apos;era già una trappola)</span> : mine.sprung ? <span className="text-[#c6ff3d]">scattata: −{view.penalty} a loro</span> : <span className="text-white/70">disinnescata</span>}
+              {!mine.armed ? <span className="text-(--tg-cream)/60">a vuoto (c&apos;era già una trappola)</span> : mine.sprung ? <span className="text-(--tg-gold)">scattata: −{view.penalty} a loro</span> : <span className="text-(--tg-cream)/70">disinnescata</span>}
             </p>
           ) : (
-            <p className="text-base font-extrabold text-white/70">Nessuna trappola armata.</p>
+            <p className="text-base font-extrabold text-(--tg-cream)/70">Nessuna trappola armata.</p>
           )}
           {onMe ? (
-            <p className="flex flex-wrap items-center gap-2 text-sm font-bold text-white/80">
-              Contro di voi «{reveal.traps[onMe.trap].name}» dal tavolo <PhoneChip tableNo={table.get(onMe.from) ?? 0} />: {onMe.sprung ? <span className="text-[#ff8c97]">scattata</span> : <span className="text-[#c6ff3d]">disinnescata</span>}
+            <p className="flex flex-wrap items-center gap-2 text-sm font-bold text-(--tg-cream)/80">
+              Contro di voi «{reveal.traps[onMe.trap].name}» dal tavolo <PhoneChip tableNo={table.get(onMe.from) ?? 0} />: {onMe.sprung ? <span className="text-(--tg-red-hi)">scattata</span> : <span className="text-(--tg-gold)">disinnescata</span>}
             </p>
           ) : (
-            <p className="text-sm font-bold text-white/70">Nessuno vi ha teso una trappola.</p>
+            <p className="text-sm font-bold text-(--tg-cream)/70">Nessuno vi ha teso una trappola.</p>
           )}
         </Panel>
         {reveal.traps.map((tr, i) => (
@@ -87,20 +87,20 @@ function Player(p: P) {
               aria-checked={trap === i}
               disabled={!editable}
               onClick={() => setTrap(i)}
-              className={clsx("flex min-h-20 flex-col items-center justify-center gap-1 rounded-xl border-2 px-1 py-2 text-center transition-transform active:scale-95", trap === i ? "tg-picked border-[#ff3b4e] text-white" : "border-white/12 bg-white/[0.04] text-white/85")}
+              className={clsx("flex min-h-20 flex-col items-center justify-center gap-1 rounded-xl border-2 px-1 py-2 text-center transition-transform active:scale-95", trap === i ? "tg-picked border-(--tg-red-hi) text-(--tg-cream)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] text-(--tg-cream)/85")}
             >
-              <TrapGlyph className={clsx("h-6 w-6", trap === i ? "text-[#ff3b4e]" : "text-white/60")} />
+              <TrapGlyph className={clsx("h-6 w-6", trap === i ? "text-(--tg-red-hi)" : "text-(--tg-cream)/60")} />
               <span className="text-sm font-extrabold leading-tight">{tr.name}</span>
             </button>
           ))}
         </div>
-        <p className="text-sm font-semibold text-white/65">Scegliete quella che, secondo voi, il bersaglio sbaglierà. Su ogni tavolo vale una sola trappola: la prima armata.</p>
+        <p className="text-sm font-semibold text-(--tg-cream)/65">Scegliete quella che, secondo voi, il bersaglio sbaglierà. Su ogni tavolo vale una sola trappola: la prima armata.</p>
       </Step>
       <Step n={3} title={`Disinnescate tutte e tre (+${view.defusePoints} l'una)`} icon="shield" done={done === view.traps.length}>
-        <p className="text-sm font-semibold text-white/65">Non sapete quale vi hanno armato contro: rispondete a tutte.</p>
+        <p className="text-sm font-semibold text-(--tg-cream)/65">Non sapete quale vi hanno armato contro: rispondete a tutte.</p>
         {view.traps.map((tr, i) => (
-          <div key={i} className={clsx("flex flex-col gap-2 rounded-2xl border border-white/10 p-3", defuse[i] && "border-[#c6ff3d]/40")}>
-            <p className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#9aa4b2]">
+          <div key={i} className={clsx("flex flex-col gap-2 rounded-2xl border border-(--tg-cream)/10 p-3", defuse[i] && "border-(--tg-gold)/40")}>
+            <p className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.14em] text-(--tg-mute)">
               <TrapGlyph className="h-4 w-4" /> {tr.name}
             </p>
             <p className="text-base font-extrabold leading-snug">{tr.prompt}</p>
@@ -133,7 +133,7 @@ function Tv(p: T) {
             const sol = done ? reveal.traps[i].solutionId : null;
             return (
               <TvPanel key={i} className="tg-rise flex flex-col gap-[0.6cqw]">
-                <p className="flex items-center gap-[0.6cqw] text-[1.2cqw] font-extrabold uppercase tracking-[0.16em] text-[#ff3b4e]">
+                <p className="flex items-center gap-[0.6cqw] text-[1.2cqw] font-extrabold uppercase tracking-[0.16em] text-(--tg-red-hi)">
                   <TrapGlyph className="h-[1.8cqw] w-[1.8cqw]" /> {tr.name}
                 </p>
                 <p className="text-[1.55cqw] font-extrabold leading-tight">{tr.prompt}</p>
@@ -148,32 +148,32 @@ function Tv(p: T) {
         </div>
         <div className="grid min-h-0 flex-1 grid-cols-[1.4fr_1fr] gap-[1.2cqw]">
           <TvPanel tone="red" className="flex min-h-0 flex-col gap-[0.5cqw] overflow-hidden">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">Trappole armate</p>
+            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Trappole armate</p>
             {done ? (
               <div className={clsx("grid min-h-0 gap-[0.35cqw] overflow-hidden", many ? "grid-cols-3" : "grid-cols-2")}>
-                {pl.length === 0 && <p className="text-[1.5cqw] font-bold text-white/60">Nessuna trappola.</p>}
+                {pl.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/60">Nessuna trappola.</p>}
                 {pl.map((x, i) => (
-                  <div key={x.from} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-white/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 70}ms` }}>
+                  <div key={x.from} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 70}ms` }}>
                     <TvChip teams={p.teams} id={x.from} size={many ? 1.8 : 2.3} />
-                    <TrapGlyph className={clsx("h-[1.4cqw] w-[1.4cqw]", x.sprung ? "text-[#ff3b4e]" : "text-white/40")} />
+                    <TrapGlyph className={clsx("h-[1.4cqw] w-[1.4cqw]", x.sprung ? "text-(--tg-red-hi)" : "text-(--tg-cream)/40")} />
                     <TvChip teams={p.teams} id={x.to} size={many ? 1.8 : 2.3} />
                     <span className={clsx("ml-auto truncate text-right font-extrabold", many ? "text-[0.95cqw]" : "text-[1.15cqw]")}>
-                      {!x.armed ? <span className="text-white/45">a vuoto</span> : x.sprung ? <span className="text-[#ff8c97]">scattata −{view.penalty}</span> : <span className="text-[#c6ff3d]">disinnescata</span>}
+                      {!x.armed ? <span className="text-(--tg-cream)/45">a vuoto</span> : x.sprung ? <span className="text-(--tg-red-hi)">scattata −{view.penalty}</span> : <span className="text-(--tg-gold)">disinnescata</span>}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-[1.5cqw] font-bold leading-snug text-white/80">Chi intrappola chi resta segreto. Se il bersaglio sbaglia proprio la trappola armata contro di lui: −{view.penalty}. Su ogni tavolo vale una sola trappola, la prima.</p>
+              <p className="text-[1.5cqw] font-bold leading-snug text-(--tg-cream)/80">Chi intrappola chi resta segreto. Se il bersaglio sbaglia proprio la trappola armata contro di lui: −{view.penalty}. Su ogni tavolo vale una sola trappola, la prima.</p>
             )}
           </TvPanel>
           {done ? (
             <TvExplain text={reveal.explain} />
           ) : (
             <TvPanel className="flex flex-col items-center justify-center gap-[0.6cqw] text-center">
-              <Icon name="shield" className="h-[4cqw] w-[4cqw] text-[#c6ff3d]" />
+              <Icon name="shield" className="h-[4cqw] w-[4cqw] text-(--tg-gold)" />
               <p className="tg-display text-[2.4cqw]">+{view.defusePoints} a trappola disinnescata</p>
-              <p className="text-[1.2cqw] font-bold text-white/70">fino a +{view.defusePoints * view.traps.length}</p>
+              <p className="text-[1.2cqw] font-bold text-(--tg-cream)/70">fino a +{view.defusePoints * view.traps.length}</p>
             </TvPanel>
           )}
         </div>

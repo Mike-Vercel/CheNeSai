@@ -60,8 +60,8 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-2">
           <Eyebrow>Il banco, svelato</Eyebrow>
           {reveal.hints.map((h) => (
-            <p key={h.id} className={clsx("rounded-xl border px-3 py-2 text-sm font-semibold leading-snug", h.id === buy ? "border-[#c6ff3d]/60 bg-[#c6ff3d]/10" : "border-white/10")}>
-              <b className="tg-num mr-1 text-[#ffc24a]">{h.price}</b> {h.label}: <span className="text-white/80">{h.text}</span>
+            <p key={h.id} className={clsx("rounded-xl border px-3 py-2 text-sm font-semibold leading-snug", h.id === buy ? "border-(--tg-gold)/60 bg-(--tg-gold)/10" : "border-(--tg-cream)/10")}>
+              <b className="tg-num mr-1 text-(--tg-teal-hi)">{h.price}</b> {h.label}: <span className="text-(--tg-cream)/80">{h.text}</span>
             </p>
           ))}
         </Panel>
@@ -90,12 +90,12 @@ function Player(p: P) {
       }
     >
       <Panel className="flex flex-col gap-1">
-        <Eyebrow className="text-[#ffc24a]">{view.heading}</Eyebrow>
+        <Eyebrow className="text-(--tg-teal-hi)">{view.heading}</Eyebrow>
         <p className="text-lg font-extrabold leading-snug">{view.prompt}</p>
       </Panel>
       <BalanceCard balance={mv?.balance ?? null} note={`Spesa massima: ${maxSpend} (un solo acquisto, mai oltre il 25% del saldo)`} />
       <Panel className="flex flex-col gap-2">
-        <Eyebrow className="text-[#ffc24a]">Il banco · un indizio solo</Eyebrow>
+        <Eyebrow className="text-(--tg-teal-hi)">Il banco · un indizio solo</Eyebrow>
         {view.hints.map((h) => {
           const mine = buy === h.id;
           const tooDear = h.price > maxSpend;
@@ -109,22 +109,22 @@ function Player(p: P) {
               aria-pressed={mine}
               className={clsx(
                 "flex min-h-14 w-full items-center gap-3 rounded-2xl border-2 px-3 py-2 text-left transition-transform active:scale-[0.985]",
-                mine ? "tg-picked border-[#c6ff3d]" : arming === h.id ? "border-[#ffc24a] bg-[#ffc24a]/10" : "border-white/12 bg-white/[0.04]",
+                mine ? "tg-picked border-(--tg-gold)" : arming === h.id ? "border-(--tg-teal) bg-(--tg-teal)/10" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
                 off && !mine && "opacity-45",
               )}
             >
-              <span className="tg-num grid h-11 w-14 shrink-0 place-items-center rounded-lg bg-[#ffc24a] text-2xl text-[#0b0d12]">{h.price}</span>
+              <span className="tg-num grid h-11 w-14 shrink-0 place-items-center rounded-lg bg-(--tg-teal) text-2xl text-(--tg-ink)">{h.price}</span>
               <span className="min-w-0 flex-1 text-base font-bold leading-snug">{h.label}</span>
-              <span className="shrink-0 text-xs font-extrabold uppercase tracking-wide text-white/70">{mine ? "Comprato" : tooDear ? "Troppo caro" : arming === h.id ? "Tocca ancora: definitivo" : buy ? "" : "Compra"}</span>
+              <span className="shrink-0 text-xs font-extrabold uppercase tracking-wide text-(--tg-cream)/70">{mine ? "Comprato" : tooDear ? "Troppo caro" : arming === h.id ? "Tocca ancora: definitivo" : buy ? "" : "Compra"}</span>
             </button>
           );
         })}
       </Panel>
       {bought && (
         <Panel tone="lime" className="tg-pop flex items-start gap-3">
-          <Icon name="eye" className="mt-0.5 h-7 w-7 shrink-0 text-[#c6ff3d]" />
+          <Icon name="eye" className="mt-0.5 h-7 w-7 shrink-0 text-(--tg-gold)" />
           <div>
-            <Eyebrow className="text-[#c6ff3d]">Il vostro indizio</Eyebrow>
+            <Eyebrow className="text-(--tg-gold)">Il vostro indizio</Eyebrow>
             <p className="text-base font-bold leading-snug">{bought.text}</p>
           </div>
         </Panel>
@@ -156,23 +156,23 @@ function Tv(p: T) {
           {done && <TvExplain text={reveal.explain} />}
         </div>
         <TvPanel className="flex min-h-0 flex-col gap-[0.8cqw]">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">
+          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">
             <Icon name="coins" className="h-[1.8cqw] w-[1.8cqw]" /> Il banco
           </p>
           {(done ? reveal.hints : view.hints).map((h) => {
             const n = buys.filter((b) => b.hintId === h.id).length;
             return (
-              <div key={h.id} className="tg-rise flex flex-col gap-[0.4cqw] rounded-[1cqw] border border-white/12 bg-white/[0.05] p-[0.9cqw]">
+              <div key={h.id} className="tg-rise flex flex-col gap-[0.4cqw] rounded-[1cqw] border border-(--tg-cream)/12 bg-(--tg-cream)/[0.05] p-[0.9cqw]">
                 <div className="flex items-center gap-[0.8cqw]">
-                  <span className="tg-num grid h-[3.4cqw] w-[4.4cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-[#ffc24a] text-[2.2cqw] text-[#0b0d12]">{h.price}</span>
+                  <span className="tg-num grid h-[3.4cqw] w-[4.4cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-(--tg-teal) text-[2.2cqw] text-(--tg-ink)">{h.price}</span>
                   <p className="min-w-0 flex-1 text-[1.45cqw] font-extrabold leading-tight">{h.label}</p>
-                  {done && <span className="tg-num shrink-0 text-[1.3cqw] text-white/70">{n} tavol{n === 1 ? "o" : "i"}</span>}
+                  {done && <span className="tg-num shrink-0 text-[1.3cqw] text-(--tg-cream)/70">{n} tavol{n === 1 ? "o" : "i"}</span>}
                 </div>
-                {done && <p className="text-[1.2cqw] font-semibold leading-snug text-white/85">{h.text}</p>}
+                {done && <p className="text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{h.text}</p>}
               </div>
             );
           })}
-          {!done && <p className="mt-auto text-[1.2cqw] font-bold leading-snug text-white/65">Il testo dell&apos;indizio lo vede solo chi lo compra. Giusta +{view.prize} meno la spesa; sbagliata, la spesa è persa.</p>}
+          {!done && <p className="mt-auto text-[1.2cqw] font-bold leading-snug text-(--tg-cream)/65">Il testo dell&apos;indizio lo vede solo chi lo compra. Giusta +{view.prize} meno la spesa; sbagliata, la spesa è persa.</p>}
         </TvPanel>
       </div>
     </TvFrame>

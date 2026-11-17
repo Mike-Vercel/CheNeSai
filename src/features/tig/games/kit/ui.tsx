@@ -7,6 +7,7 @@ import type { TeamOutcome } from "@/lib/tig/games/contract";
 import type { BaseView } from "@/lib/tig/games/extras";
 import type { GameStage, PlayerGameProps, TvGameProps } from "../ui-contract";
 import { Icon } from "./icons";
+import { CompassRose, CrewFlag, Doubloon, WaxSeal } from "./ornaments";
 
 // ---------------------------------------------------------------------------
 // Tempo
@@ -96,28 +97,35 @@ export function PlayerFrame({
   const personal = view.input === "vote";
   return (
     <div className="tg-root tg-player mx-auto flex min-h-full w-full max-w-[760px] flex-col gap-3 px-3 pb-3 pt-3 sm:gap-4 sm:px-6 sm:pt-6">
-      <header className="tg-glass flex items-center gap-3 rounded-2xl px-4 py-3">
-        <span className="tg-num grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#c6ff3d] text-xl text-[#0b0d12]">{String(view.number).padStart(2, "0")}</span>
+      {/* intestazione: cartiglio di pergamena con il doblone del numero e il titolo della prova */}
+      <header className="tg-parch flex items-center gap-3 px-3.5 py-3 sm:px-4">
+        <Doubloon className="h-12 w-12 text-xl sm:h-14 sm:w-14 sm:text-2xl">{String(view.number).padStart(2, "0")}</Doubloon>
         <div className="min-w-0 flex-1">
-          <h1 className="tg-display line-clamp-2 text-[1.6rem] leading-[0.95] sm:text-4xl">{view.title}</h1>
-          <p className="mt-1 truncate text-[11px] font-bold uppercase tracking-[0.14em] text-[#9aa4b2] sm:text-xs">
+          <h1 className="tg-title line-clamp-2 pt-0.5 text-[1.8rem] leading-[1.02] sm:text-[2.6rem]">{view.title}</h1>
+          <p className="mt-0.5 truncate text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-burnt-ink) sm:text-xs">
             Tavolo {p.myTeam.tableNo} · {INPUT_LABEL[view.input]}
           </p>
         </div>
         {!hideTimer && p.stage === "play" && (
-          <div className={clsx("tg-num flex h-12 min-w-14 items-center justify-center rounded-xl border px-2 text-3xl", left <= 5 ? "tg-pulse border-[#ff3b4e] text-[#ff3b4e]" : "border-white/15 text-[#eef2f6]")} aria-label={`${left} secondi`}>
+          <div
+            className={clsx(
+              "tg-num grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 bg-(--tg-night-2) text-[1.7rem] shadow-[inset_0_2px_6px_rgba(0,0,0,.6),0_0_0_3px_rgba(201,162,74,.35)]",
+              left <= 5 ? "tg-pulse border-(--tg-red) text-(--tg-red-hi)" : "border-(--tg-brass) text-(--tg-gold-hi)",
+            )}
+            aria-label={`${left} secondi`}
+          >
             {left}
           </div>
         )}
       </header>
 
-      <p className="px-1 text-[15px] font-semibold leading-snug text-[#eef2f6]/85 sm:text-base">{view.rule}</p>
+      <p className="px-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/90 sm:text-base">{view.rule}</p>
 
       <StatusStrip stage={p.stage} submitted={p.submitted} canSubmit={p.canSubmit} personal={personal} />
 
       <main className="flex flex-1 flex-col gap-3">{children}</main>
 
-      {footer && <footer className="sticky bottom-0 -mx-3 mt-1 bg-gradient-to-t from-[#0b0d12] via-[#0b0d12]/95 to-transparent px-3 pb-[max(env(safe-area-inset-bottom),12px)] pt-4 sm:-mx-6 sm:px-6">{footer}</footer>}
+      {footer && <footer className="sticky bottom-0 -mx-3 mt-1 bg-gradient-to-t from-(--tg-night) via-(--tg-night)/95 to-transparent px-3 pb-[max(env(safe-area-inset-bottom),12px)] pt-4 sm:-mx-6 sm:px-6">{footer}</footer>}
     </div>
   );
 }
@@ -126,20 +134,20 @@ function StatusStrip({ stage, submitted, canSubmit, personal }: { stage: GameSta
   if (stage === "reveal") return null;
   if (submitted)
     return (
-      <div role="status" className="tg-pop tg-stripes flex items-center gap-2 rounded-xl border border-[#c6ff3d]/60 bg-[#c6ff3d]/10 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide text-[#c6ff3d]">
-        <Icon name="check" className="h-5 w-5" /> {personal ? "Voto inviato" : "Scelta inviata"} · in attesa degli altri tavoli
+      <div role="status" className="tg-pop tg-stripes flex items-center gap-2.5 rounded-xl border border-(--tg-gold)/70 bg-(--tg-gold)/10 px-3 py-2 text-sm font-extrabold uppercase tracking-wide text-(--tg-gold-hi)">
+        <WaxSeal mark="check" tone="gold" className="h-8 w-8 shrink-0" /> {personal ? "Voto inviato" : "Scelta inviata"} · in attesa degli altri tavoli
       </div>
     );
   if (stage === "locked")
     return (
-      <div role="status" className="tg-stripes-red flex items-center gap-2 rounded-xl border border-[#ff3b4e]/60 bg-[#ff3b4e]/10 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide text-[#ff8c97]">
+      <div role="status" className="tg-stripes-red flex items-center gap-2 rounded-xl border border-(--tg-red)/80 bg-(--tg-red)/12 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide text-(--tg-red-hi)">
         <Icon name="lock" className="h-5 w-5" /> Tempo scaduto · risposte chiuse
       </div>
     );
   if (!canSubmit && !personal)
     return (
-      <div role="note" className="flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.04] px-4 py-2.5 text-sm font-bold text-[#eef2f6]/90">
-        <Icon name="crown" className="h-5 w-5 shrink-0 text-[#ffc24a]" /> Invia il capitano. Tu prepara la tua proposta e mostrala al tavolo.
+      <div role="note" className="flex items-center gap-2 rounded-xl border border-(--tg-teal)/45 bg-(--tg-teal)/10 px-4 py-2.5 text-sm font-bold text-(--tg-cream)/95">
+        <Icon name="crown" className="h-5 w-5 shrink-0 text-(--tg-teal-hi)" /> Invia il capitano. Tu prepara la tua proposta e mostrala al tavolo.
       </div>
     );
   return null;
@@ -174,7 +182,7 @@ export function SubmitBar({
   return (
     <div className="flex flex-col gap-2">
       {error && (
-        <p role="alert" className="tg-shake rounded-lg bg-[#ff3b4e]/15 px-3 py-2 text-sm font-bold text-[#ff8c97]">
+        <p role="alert" className="tg-shake rounded-lg border border-(--tg-red)/60 bg-(--tg-red)/15 px-3 py-2 text-sm font-bold text-(--tg-red-hi)">
           {error}
         </p>
       )}
@@ -184,8 +192,10 @@ export function SubmitBar({
           onClick={onSubmit}
           disabled={!ready || pending}
           className={clsx(
-            "tg-display flex h-16 w-full items-center justify-center gap-3 rounded-2xl text-3xl transition-transform duration-150 active:scale-[0.98] sm:h-[4.5rem]",
-            ready && !pending ? "bg-[#c6ff3d] text-[#0b0d12] shadow-[0_0_40px_-8px_rgba(198,255,61,0.7)]" : "cursor-not-allowed border border-white/10 bg-[#1b212c] text-white/40",
+            "tg-display flex h-16 w-full items-center justify-center gap-3 rounded-2xl px-3 transition-transform duration-150 sm:h-[4.5rem]",
+            // Grenze è più largo del vecchio carattere condensato: le etichette lunghe scendono di corpo sul telefono
+            label.length > 18 ? "text-[1.3rem] sm:text-[1.7rem]" : label.length > 12 ? "text-[1.55rem] sm:text-[1.8rem]" : "text-[1.8rem]",
+            ready && !pending ? "tg-btn-gold" : "tg-btn-wood cursor-not-allowed",
           )}
         >
           {pending ? "Invio…" : label}
@@ -194,11 +204,11 @@ export function SubmitBar({
           <span className="sr-only">{ready ? "" : " (completa la scelta)"}</span>
         </button>
       ) : (
-        <div className="tg-display flex h-16 w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-white/20 bg-[#12161f] text-xl text-white/55">
-          <Icon name="crown" className="h-6 w-6 text-[#ffc24a]" /> Solo il capitano invia
+        <div className="tg-display flex h-16 w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-(--tg-brass)/50 bg-(--tg-night-2)/90 text-xl text-(--tg-cream)/70">
+          <Icon name="crown" className="h-6 w-6 text-(--tg-teal-hi)" /> Solo il capitano invia
         </div>
       )}
-      {hint && <p className="text-center text-xs font-semibold text-[#9aa4b2]">{hint}</p>}
+      {hint && <p className="text-center text-xs font-semibold text-(--tg-mute)">{hint}</p>}
     </div>
   );
 }
@@ -238,19 +248,19 @@ export function OptionButton({
       className={clsx(
         "group relative flex w-full items-center gap-3 rounded-2xl border-2 px-3 text-left transition-[transform,background-color,border-color] duration-150 active:scale-[0.985]",
         big ? "min-h-[4.25rem] py-3" : "min-h-14 py-2.5",
-        state === "idle" && "border-white/12 bg-white/[0.04] hover:border-white/35",
-        picked && "tg-picked border-[#c6ff3d] text-white",
-        state === "right" && "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]",
-        state === "wrong" && "tg-stripes-red border-[#ff3b4e] text-white",
-        state === "missed" && "border-[#c6ff3d] border-dashed bg-[#c6ff3d]/10 text-white",
+        state === "idle" && "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05] hover:border-(--tg-brass)/70",
+        picked && "tg-picked border-(--tg-gold) text-(--tg-cream) shadow-[0_0_24px_-10px_rgba(242,177,52,.8)]",
+        state === "right" && "border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)",
+        state === "wrong" && "tg-stripes-red border-(--tg-red-hi) text-(--tg-cream)",
+        state === "missed" && "border-(--tg-gold) border-dashed bg-(--tg-gold)/10 text-(--tg-cream)",
         disabled && state === "idle" && "opacity-60",
       )}
     >
       {index !== undefined && (
         <span
           className={clsx(
-            "tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg text-lg",
-            state === "right" ? "bg-[#0b0d12] text-[#c6ff3d]" : picked ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-white/10 text-white/80",
+            "tg-num grid h-9 w-9 shrink-0 place-items-center rounded-full text-lg",
+            state === "right" ? "bg-(--tg-ink) text-(--tg-gold-hi)" : picked ? "tg-coin" : "border border-(--tg-brass)/45 bg-(--tg-night-2) text-(--tg-cream)/85",
           )}
           aria-hidden
         >
@@ -260,11 +270,11 @@ export function OptionButton({
       <span className={clsx("min-w-0 flex-1 font-bold leading-snug", big ? "text-lg sm:text-xl" : "text-base sm:text-lg", state === "wrong" && "line-through decoration-2")}>{text}</span>
       {children}
       <span className="shrink-0" aria-hidden>
-        {picked && <Icon name={multi ? "checkbox" : "check"} className="h-6 w-6 text-[#c6ff3d]" />}
+        {picked && <Icon name={multi ? "checkbox" : "check"} className="h-6 w-6 text-(--tg-gold-hi)" />}
         {state === "right" && <Icon name="check" className="h-6 w-6" />}
-        {state === "wrong" && <Icon name="x" className="h-6 w-6 text-[#ff3b4e]" />}
-        {state === "missed" && <Icon name="check" className="h-6 w-6 text-[#c6ff3d]" />}
-        {state === "idle" && multi && <Icon name="box" className="h-6 w-6 text-white/40" />}
+        {state === "wrong" && <Icon name="x" className="h-6 w-6 text-(--tg-red-hi)" />}
+        {state === "missed" && <Icon name="check" className="h-6 w-6 text-(--tg-gold-hi)" />}
+        {state === "idle" && multi && <Icon name="box" className="h-6 w-6 text-(--tg-cream)/40" />}
       </span>
       <span className="sr-only">
         {picked ? " · selezionata" : state === "right" ? " · risposta giusta" : state === "wrong" ? " · scelta sbagliata" : state === "missed" ? " · era giusta" : ""}
@@ -292,7 +302,7 @@ export function Panel({ children, className, tone }: { children: ReactNode; clas
 }
 
 export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
-  return <p className={clsx("text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#9aa4b2]", className)}>{children}</p>;
+  return <p className={clsx("text-[11px] font-extrabold uppercase tracking-[0.18em] text-(--tg-mute)", className)}>{children}</p>;
 }
 
 /** Il telefono rimanda alla TV (contenuto mostrato solo sul grande schermo per qualche secondo). */
@@ -300,10 +310,10 @@ export function WatchTv({ untilMs, elapsed, what }: { untilMs: number; elapsed: 
   const left = Math.max(0, Math.ceil((untilMs - elapsed) / 1000));
   return (
     <Panel tone="lime" className="tg-pop flex flex-col items-center gap-3 py-10 text-center">
-      <Icon name="tv" className="h-16 w-16 text-[#c6ff3d]" />
-      <p className="tg-display text-5xl">Guardate la TV</p>
-      <p className="max-w-xs text-base font-semibold text-white/80">{what}</p>
-      <p className="tg-num text-6xl text-[#c6ff3d]" aria-live="polite">
+      <Icon name="tv" className="h-16 w-16 text-(--tg-gold)" />
+      <p className="tg-title text-5xl">Guardate la TV</p>
+      <p className="max-w-xs text-base font-semibold text-(--tg-cream)/85">{what}</p>
+      <p className="tg-num text-6xl text-(--tg-gold-hi)" aria-live="polite">
         {left}
       </p>
     </Panel>
@@ -317,15 +327,19 @@ export function MyOutcome({ outcome }: { outcome: TeamOutcome | null }) {
   const neg = outcome.points < 0;
   return (
     <Panel tone={neg ? "red" : pos ? "lime" : undefined} className="tg-pop flex items-center gap-4">
-      <div className={clsx("tg-num text-6xl leading-none", pos ? "text-[#c6ff3d]" : neg ? "text-[#ff3b4e]" : "text-white/70")}>
-        {pos ? "+" : neg ? "−" : ""}
-        {Math.abs(outcome.points)}
-      </div>
+      {pos ? (
+        <Doubloon className="h-[4.6rem] min-w-[4.6rem] px-1 text-[2rem]">+{outcome.points}</Doubloon>
+      ) : (
+        <div className={clsx("tg-num text-6xl leading-none", neg ? "text-(--tg-red-hi)" : "text-(--tg-cream)/70")}>
+          {neg ? "−" : ""}
+          {Math.abs(outcome.points)}
+        </div>
+      )}
       <div className="min-w-0">
         <Eyebrow>Il vostro esito</Eyebrow>
         <p className="text-lg font-extrabold leading-tight">{outcome.label || (pos ? "Punti presi" : "Nessun punto")}</p>
         {outcome.chaos > 0 && (
-          <p className="mt-1 flex items-center gap-1 text-sm font-bold text-[#b49cff]">
+          <p className="mt-1 flex items-center gap-1 text-sm font-bold text-(--tg-teal-hi)">
             <Icon name="bolt" className="h-4 w-4" /> +{outcome.chaos} Energia Caos
           </p>
         )}
@@ -334,12 +348,13 @@ export function MyOutcome({ outcome }: { outcome: TeamOutcome | null }) {
   );
 }
 
+/** Spiegazione al reveal: un foglio di pergamena con l'inchiostro scuro. */
 export function Explain({ text, title = "Perché" }: { text: string; title?: string }) {
   return (
-    <Panel className="tg-rise">
-      <Eyebrow className="mb-1 text-[#c6ff3d]">{title}</Eyebrow>
-      <p className="text-base font-semibold leading-relaxed text-white/90">{text}</p>
-    </Panel>
+    <section className="tg-parch tg-rise p-4">
+      <p className="mb-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-(--tg-burnt-ink)">{title}</p>
+      <p className="text-base font-semibold leading-relaxed">{text}</p>
+    </section>
   );
 }
 
@@ -368,18 +383,19 @@ export function TvFrame({
     <div className="tg-root @container absolute inset-0 overflow-hidden">
       <div className="absolute inset-0 flex flex-col gap-[1.2cqw] p-[2.2cqw]">
         <div className="flex items-start gap-[1.4cqw]">
-          <div className="tg-glass tg-rise flex items-center gap-[1.2cqw] rounded-[1.4cqw] py-[0.9cqw] pl-[0.9cqw] pr-[1.8cqw]">
-            <span className="tg-num grid h-[4.6cqw] w-[4.6cqw] place-items-center rounded-[0.9cqw] bg-[#c6ff3d] text-[2.6cqw] text-[#0b0d12]">{String(view.number).padStart(2, "0")}</span>
+          {/* cartiglio di pergamena: doblone col numero, titolo, regola */}
+          <div className="tg-parch tg-rise flex items-center gap-[1.2cqw] py-[0.8cqw] pl-[0.9cqw] pr-[2cqw]">
+            <Doubloon className="h-[4.8cqw] w-[4.8cqw] text-[2.3cqw]">{String(view.number).padStart(2, "0")}</Doubloon>
             <div>
-              <p className="tg-display text-[3.4cqw]">{view.title}</p>
-              <p className="mt-[0.3cqw] max-w-[52cqw] text-[1.15cqw] font-bold leading-snug text-white/80">{subtitle ?? view.rule}</p>
+              <p className="tg-title text-[3.6cqw] leading-[1.02]">{view.title}</p>
+              <p className="tg-ink-2 mt-[0.2cqw] max-w-[52cqw] text-[1.15cqw] font-bold leading-snug">{subtitle ?? view.rule}</p>
             </div>
           </div>
           <div className="flex-1" />
           {!hideTimer && <TvTimer p={p} durationMs={view.durationMs} />}
           {p.stage === "locked" && (
             <div className="tg-glass tg-glass-red tg-pop flex items-center gap-[0.6cqw] rounded-[1.2cqw] px-[1.4cqw] py-[1cqw]">
-              <Icon name="lock" className="h-[2.2cqw] w-[2.2cqw] text-[#ff3b4e]" />
+              <Icon name="lock" className="h-[2.2cqw] w-[2.2cqw] text-(--tg-red-hi)" />
               <span className="tg-display text-[2.2cqw]">Risposte chiuse</span>
             </div>
           )}
@@ -391,26 +407,28 @@ export function TvFrame({
   );
 }
 
+/** Cronometro della TV: una bussola d'ottone, l'arco d'oro che si consuma (rosso negli ultimi 5 secondi). */
 function TvTimer({ p, durationMs }: { p: Pick<TvGameProps, "stage" | "deadlineAt" | "now">; durationMs: number }) {
   const t = useClock(p.now, p.stage === "play");
   if (p.stage !== "play") return null;
   const left = secondsLeft(p.deadlineAt, t);
   const frac = Math.max(0, Math.min(1, (p.deadlineAt - t) / Math.max(1, durationMs)));
-  const r = 42;
+  const r = 40;
   const c = 2 * Math.PI * r;
   const low = left <= 5;
   return (
-    <div className="tg-glass relative grid h-[8.5cqw] w-[8.5cqw] place-items-center rounded-full" aria-label={`${left} secondi`}>
+    <div className="relative grid h-[9cqw] w-[9cqw] place-items-center rounded-full bg-[radial-gradient(circle_at_50%_40%,#123241,#07131a_70%)] shadow-[0_0_0_0.35cqw_#5a3a22,0_0_0_0.5cqw_#c9a24a,0_1cqw_2.4cqw_-0.6cqw_rgba(0,0,0,.9)]" aria-label={`${left} secondi`}>
+      <CompassRose className="absolute inset-[4%] text-(--tg-brass) opacity-35" />
       <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
-        <circle cx={50} cy={50} r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={7} />
-        <circle cx={50} cy={50} r={r} fill="none" stroke={low ? "#ff3b4e" : "#c6ff3d"} strokeWidth={7} strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - frac)} style={{ transition: "stroke-dashoffset 200ms linear" }} />
+        <circle cx={50} cy={50} r={r} fill="none" stroke="rgba(246,234,210,0.12)" strokeWidth={7} />
+        <circle cx={50} cy={50} r={r} fill="none" stroke={low ? "var(--tg-red)" : "var(--tg-gold)"} strokeWidth={7} strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - frac)} style={{ transition: "stroke-dashoffset 200ms linear" }} />
       </svg>
-      <span className={clsx("tg-num text-[3.6cqw]", low && "tg-pulse text-[#ff3b4e]")}>{left}</span>
+      <span className={clsx("tg-num relative text-[3.6cqw] drop-shadow-[0_0.2cqw_0.3cqw_rgba(0,0,0,.9)]", low ? "tg-pulse text-(--tg-red-hi)" : "text-(--tg-gold-hi)")}>{left}</span>
     </div>
   );
 }
 
-/** Tavoli in basso: chi ha inviato (spunta + scritta), e al reveal i punti. */
+/** Tavoli in basso: bandiera della ciurma, chi ha inviato (spunta + scritta), e al reveal i punti. */
 export function TeamStrip({ teams, outcome }: { teams: TvGameProps["teams"]; outcome: TvGameProps["outcome"] }) {
   const byId = new Map((outcome?.outcomes ?? []).map((o) => [o.teamId, o]));
   return (
@@ -420,21 +438,19 @@ export function TeamStrip({ teams, outcome }: { teams: TvGameProps["teams"]; out
         return (
           <div
             key={t.teamId}
-            className={clsx("tg-glass tg-rise flex min-w-[9cqw] items-center gap-[0.7cqw] rounded-[0.9cqw] py-[0.5cqw] pl-[0.5cqw] pr-[1cqw]", t.submitted && !o && "tg-glass-lime")}
+            className={clsx("tg-glass tg-rise flex min-w-[9cqw] items-center gap-[0.5cqw] rounded-[0.9cqw] py-[0.4cqw] pl-[0.4cqw] pr-[1cqw]", t.submitted && !o && "tg-glass-lime")}
             style={{ animationDelay: `${i * 40}ms` }}
           >
-            <span className="tg-num grid h-[2.8cqw] w-[2.8cqw] place-items-center rounded-[0.6cqw] text-[1.6cqw] text-[#0b0d12]" style={{ background: t.color }}>
-              {t.tableNo}
-            </span>
+            <CrewFlag color={t.color} n={t.tableNo} className="h-[3cqw] w-[4cqw] shrink-0" />
             <div className="min-w-0">
               <p className="max-w-[11cqw] truncate text-[1.05cqw] font-extrabold leading-tight">{t.name}</p>
               {o ? (
-                <p className={clsx("tg-num text-[1.5cqw] leading-none", o.points > 0 ? "text-[#c6ff3d]" : o.points < 0 ? "text-[#ff3b4e]" : "text-white/55")}>
+                <p className={clsx("tg-num text-[1.5cqw] leading-none", o.points > 0 ? "text-(--tg-gold-hi)" : o.points < 0 ? "text-(--tg-red-hi)" : "text-(--tg-cream)/55")}>
                   {o.points > 0 ? "+" : o.points < 0 ? "−" : ""}
                   {Math.abs(o.points)}
                 </p>
               ) : (
-                <p className={clsx("flex items-center gap-[0.3cqw] text-[0.85cqw] font-extrabold uppercase tracking-wide", t.submitted ? "text-[#c6ff3d]" : "text-white/45")}>
+                <p className={clsx("flex items-center gap-[0.3cqw] text-[0.85cqw] font-extrabold uppercase tracking-wide", t.submitted ? "text-(--tg-gold-hi)" : "text-(--tg-cream)/55")}>
                   <Icon name={t.submitted ? "check" : "dots"} className="h-[1cqw] w-[1cqw]" />
                   {t.submitted ? "Inviato" : "Sta decidendo"}
                 </p>
@@ -452,13 +468,13 @@ export function TvPanel({ children, className, tone }: { children: ReactNode; cl
   return <div className={clsx("tg-glass min-h-0 overflow-hidden rounded-[1.6cqw] p-[1.8cqw]", tone === "lime" && "tg-glass-lime", tone === "red" && "tg-glass-red", className)}>{children}</div>;
 }
 
-/** Spiegazione al reveal sulla TV. */
+/** Spiegazione al reveal sulla TV: foglio di pergamena. */
 export function TvExplain({ text, className }: { text: string; className?: string }) {
   return (
-    <TvPanel className={clsx("tg-rise", className)}>
-      <p className="mb-[0.4cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</p>
-      <p className="text-[1.55cqw] font-semibold leading-snug text-white/90">{text}</p>
-    </TvPanel>
+    <div className={clsx("tg-parch tg-rise min-h-0 overflow-hidden p-[1.6cqw]", className)}>
+      <p className="mb-[0.4cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-burnt-ink)">Perché</p>
+      <p className="text-[1.55cqw] font-semibold leading-snug">{text}</p>
+    </div>
   );
 }
 
@@ -470,10 +486,10 @@ export function TvOption({ index, text, state = "idle", note, size = "md" }: { i
       className={clsx(
         "relative flex items-center rounded-[1.1cqw] border-[0.18cqw] transition-all duration-500",
         sm ? "gap-[0.7cqw] px-[0.8cqw] py-[0.45cqw]" : "gap-[1cqw] px-[1.1cqw] py-[0.9cqw]",
-        state === "right" ? "tg-shine border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : state === "dim" ? "border-white/8 bg-white/[0.03] opacity-45" : "border-white/14 bg-white/[0.05]",
+        state === "right" ? "tg-shine border-(--tg-gold-hi) bg-(--tg-gold) text-(--tg-ink) shadow-[0_0_2.4cqw_-0.6cqw_rgba(242,177,52,.85)]" : state === "dim" ? "border-(--tg-cream)/8 bg-(--tg-cream)/[0.03] opacity-45" : "border-(--tg-cream)/14 bg-(--tg-night-2)/70",
       )}
     >
-      <span className={clsx("tg-num grid shrink-0 place-items-center rounded-[0.6cqw]", sm ? "h-[2.2cqw] w-[2.2cqw] text-[1.3cqw]" : "h-[3cqw] w-[3cqw] text-[1.7cqw]", state === "right" ? "bg-[#0b0d12] text-[#c6ff3d]" : "bg-white/10")}>{index + 1}</span>
+      <span className={clsx("tg-num grid shrink-0 place-items-center rounded-full", sm ? "h-[2.2cqw] w-[2.2cqw] text-[1.3cqw]" : "h-[3cqw] w-[3cqw] text-[1.7cqw]", state === "right" ? "bg-(--tg-ink) text-(--tg-gold-hi)" : "border-[0.12cqw] border-(--tg-brass)/55 bg-(--tg-night)")}>{index + 1}</span>
       <span className={clsx("min-w-0 flex-1 font-extrabold leading-tight", sm ? "text-[1.35cqw]" : "text-[1.75cqw]")}>{text}</span>
       {state === "right" && <Icon name="check" className={clsx("shrink-0", sm ? "h-[1.8cqw] w-[1.8cqw]" : "h-[2.4cqw] w-[2.4cqw]")} />}
       {note}

@@ -37,7 +37,7 @@ function Player(p: P) {
               return (
                 <p key={`${d.a}${d.b}`} className="flex items-center gap-2 text-lg font-extrabold">
                   <Icon name="sword" className="h-5 w-5" /> contro il tavolo {table.get(other)}:{" "}
-                  <span className={won ? "text-[#c6ff3d]" : d.winner ? "text-[#ff8c97]" : "text-white/60"}>{won ? "vinto +40" : d.winner ? "perso" : "pari"}</span>
+                  <span className={won ? "text-(--tg-gold)" : d.winner ? "text-(--tg-red-hi)" : "text-(--tg-cream)/60"}>{won ? "vinto +40" : d.winner ? "perso" : "pari"}</span>
                 </p>
               );
             })}
@@ -71,10 +71,10 @@ function Player(p: P) {
               aria-checked={target === r.teamId}
               disabled={!editable}
               onClick={() => setTarget(r.teamId)}
-              className={clsx("tg-num flex h-16 flex-col items-center justify-center rounded-xl border-2 text-3xl leading-none", target === r.teamId ? "tg-picked border-[#ff3b4e] text-white" : "border-white/12 bg-white/[0.04] text-white/80")}
+              className={clsx("tg-num flex h-16 flex-col items-center justify-center rounded-xl border-2 text-3xl leading-none", target === r.teamId ? "tg-picked border-(--tg-red-hi) text-(--tg-cream)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] text-(--tg-cream)/80")}
             >
               {r.tableNo}
-              <span className="text-[10px] font-extrabold uppercase tracking-wide text-white/60">tavolo</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-wide text-(--tg-cream)/60">tavolo</span>
             </button>
           ))}
         </div>
@@ -93,7 +93,7 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const team = new Map(p.teams.map((x) => [x.teamId, x]));
   const chip = (id: string) => (
-    <span className="tg-num grid h-[3.2cqw] w-[3.2cqw] place-items-center rounded-[0.6cqw] text-[1.9cqw] text-[#0b0d12]" style={{ background: team.get(id)?.color ?? "#eef2f6" }}>
+    <span className="tg-num grid h-[3.2cqw] w-[3.2cqw] place-items-center rounded-[0.6cqw] text-[1.9cqw] text-(--tg-ink)" style={{ background: team.get(id)?.color ?? "var(--tg-cream)" }}>
       {team.get(id)?.tableNo ?? "?"}
     </span>
   );
@@ -110,18 +110,18 @@ function Tv(p: T) {
           {done && <TvExplain text={reveal.explain} className="mt-auto" />}
         </TvPanel>
         <TvPanel className="flex min-h-0 flex-col gap-[0.7cqw] overflow-hidden">
-          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">Duelli</p>
+          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Duelli</p>
           {done && reveal.summary ? (
             reveal.summary.duels.map((d, i) => (
-              <div key={`${d.a}${d.b}`} className="tg-rise flex items-center gap-[0.8cqw] rounded-[0.8cqw] bg-white/[0.05] px-[0.8cqw] py-[0.5cqw]" style={{ animationDelay: `${i * 120}ms` }}>
+              <div key={`${d.a}${d.b}`} className="tg-rise flex items-center gap-[0.8cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.8cqw] py-[0.5cqw]" style={{ animationDelay: `${i * 120}ms` }}>
                 {chip(d.a)}
-                <Icon name="sword" className="h-[2cqw] w-[2cqw] text-[#ff3b4e]" />
+                <Icon name="sword" className="h-[2cqw] w-[2cqw] text-(--tg-red-hi)" />
                 {chip(d.b)}
-                <span className="ml-auto text-[1.5cqw] font-extrabold">{d.winner ? <span className="text-[#c6ff3d]">vince il {team.get(d.winner)?.tableNo} · +40</span> : <span className="text-white/60">nessun vincitore</span>}</span>
+                <span className="ml-auto text-[1.5cqw] font-extrabold">{d.winner ? <span className="text-(--tg-gold)">vince il {team.get(d.winner)?.tableNo} · +40</span> : <span className="text-(--tg-cream)/60">nessun vincitore</span>}</span>
               </div>
             ))
           ) : (
-            <p className="text-[1.6cqw] font-bold text-white/60">Le sfide restano segrete fino al reveal.</p>
+            <p className="text-[1.6cqw] font-bold text-(--tg-cream)/60">Le sfide restano segrete fino al reveal.</p>
           )}
         </TvPanel>
       </div>

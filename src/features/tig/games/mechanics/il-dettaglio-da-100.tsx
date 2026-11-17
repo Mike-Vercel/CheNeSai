@@ -14,7 +14,7 @@ import { canEdit, elapsedOf, Explain, MyOutcome, Panel, PlayerFrame, SubmitBar, 
 type P = PlayerGameProps<DettaglioView, null, OptionSubmission, DettaglioReveal>;
 type T = TvGameProps<DettaglioView, DettaglioReveal>;
 
-const CONFETTI = ["#c6ff3d", "#ff3b4e", "#ffc24a", "#6fe7ff", "#b49cff", "#eef2f6"];
+const CONFETTI = ["var(--tg-gold)", "var(--tg-red-hi)", "var(--tg-teal-hi)", "var(--tg-sky)", "var(--tg-violet)", "var(--tg-cream)"];
 
 /** Scena + stimoli: coriandoli che cadono e la striscia di testo che scorre (solo durante i 6 secondi). */
 function BusyScene({ scene, alt, ticker, showMs, live, className }: { scene: Scene; alt: string; ticker: string | null; showMs: number; live: boolean; className?: string }) {
@@ -44,8 +44,8 @@ function BusyScene({ scene, alt, ticker, showMs, live, className }: { scene: Sce
           </svg>
         )}
         {ticker && (
-          <div className="absolute inset-x-0 bottom-0 overflow-hidden bg-[#ff3b4e] py-[1.2%]">
-            <p className={live ? "tg1-ticker tg-display inline-block whitespace-nowrap pl-[100%] text-[3.4cqw] text-white" : "tg-display truncate px-[2%] text-center text-[3.4cqw] text-white"} style={live ? { animationDuration: `${showMs}ms` } : undefined}>
+          <div className="absolute inset-x-0 bottom-0 overflow-hidden bg-(--tg-red) py-[1.2%]">
+            <p className={live ? "tg1-ticker tg-display inline-block whitespace-nowrap pl-[100%] text-[3.4cqw] text-(--tg-cream)" : "tg-display truncate px-[2%] text-center text-[3.4cqw] text-(--tg-cream)"} style={live ? { animationDuration: `${showMs}ms` } : undefined}>
               {ticker}
             </p>
           </div>
@@ -97,7 +97,7 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={!!picked} pending={pending} error={error} onSubmit={submit} label="Vale 100: invia" />}
     >
       <Panel className="flex flex-col gap-3">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#c6ff3d]">«{view.sceneTitle}» · la scena è sparita</p>
+        <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-(--tg-gold)">«{view.sceneTitle}» · la scena è sparita</p>
         <p className="text-2xl font-extrabold leading-snug">{view.prompt}</p>
         <ChoiceList label="Risposte" options={view.options} picked={picked ? [picked] : []} onToggle={(id) => editable && setPicked(id)} disabled={!editable} onConfirm={submit} big />
       </Panel>
@@ -138,9 +138,9 @@ function Tv(p: T) {
       <TvFrame view={view} p={p} hideTimer subtitle={`«${view.sceneTitle}»: 6 secondi. Guardate TUTTO.`}>
         <div className="flex h-full items-center justify-center">
           <div className="tg-pop relative aspect-video h-full max-h-full">
-            <BusyScene scene={view.scene!} alt={view.alt ?? view.sceneTitle} ticker={view.ticker} showMs={view.showMs} live className="h-full w-full rounded-[1.4cqw] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
+            <BusyScene scene={view.scene!} alt={view.alt ?? view.sceneTitle} ticker={view.ticker} showMs={view.showMs} live className="h-full w-full rounded-[1.4cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
             <div className="tg-glass tg-glass-lime absolute right-[1.2cqw] top-[1.2cqw] grid h-[6cqw] w-[6cqw] place-items-center rounded-full">
-              <span className="tg-num text-[3.6cqw] text-[#c6ff3d]">{left}</span>
+              <span className="tg-num text-[3.6cqw] text-(--tg-gold)">{left}</span>
             </div>
           </div>
         </div>

@@ -24,10 +24,10 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <Panel tone={shield ? "lime" : "red"} className="tg-pop flex items-center gap-4">
-          <Icon name="shield" className={`h-16 w-16 shrink-0 ${shield ? "text-[#c6ff3d]" : "text-[#ff3b4e]"}`} />
+          <Icon name="shield" className={`h-16 w-16 shrink-0 ${shield ? "text-(--tg-gold)" : "text-(--tg-red-hi)"}`} />
           <div>
             <p className="tg-display text-4xl">{shield ? "Scudo attivo" : "Niente scudo"}</p>
-            <p className="text-sm font-bold text-white/75">{shield ? "Il prossimo attacco valido contro di voi rimbalza. Dura fino a fine manche." : "Questa volta siete scoperti."}</p>
+            <p className="text-sm font-bold text-(--tg-cream)/75">{shield ? "Il prossimo attacco valido contro di voi rimbalza. Dura fino a fine manche." : "Questa volta siete scoperti."}</p>
           </div>
         </Panel>
         <DigitPad value={sent ? digits : reveal.digits} length={view.length} onChange={() => {}} disabled reveal={reveal.digits} />
@@ -62,10 +62,10 @@ function Tv(p: T) {
           {done && <TvExplain text={reveal.explain} />}
         </TvPanel>
         <div className="flex flex-col items-center justify-center gap-[1.6cqw]">
-          <Icon name={done ? "shield" : "lock"} className={`h-[9cqw] w-[9cqw] ${done ? "tg-pop text-[#c6ff3d]" : "text-white/70"}`} />
+          <Icon name={done ? "shield" : "lock"} className={`h-[9cqw] w-[9cqw] ${done ? "tg-pop text-(--tg-gold)" : "text-(--tg-cream)/70"}`} />
           <div className="flex gap-[0.8cqw]">
             {Array.from({ length: view.length }, (_, i) => (
-              <span key={i} className={`tg-num grid h-[7.5cqw] w-[5.5cqw] place-items-center rounded-[1cqw] border-[0.25cqw] text-[5cqw] ${done ? "tg-pop border-[#c6ff3d] text-[#c6ff3d]" : "border-white/20 text-white/25"}`} style={{ animationDelay: `${i * 150}ms` }}>
+              <span key={i} className={`tg-num grid h-[7.5cqw] w-[5.5cqw] place-items-center rounded-[1cqw] border-[0.25cqw] text-[5cqw] ${done ? "tg-pop border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/20 text-(--tg-cream)/25"}`} style={{ animationDelay: `${i * 150}ms` }}>
                 {done ? reveal.digits[i] : "•"}
               </span>
             ))}

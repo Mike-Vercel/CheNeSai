@@ -15,8 +15,8 @@ export function GlyphIcon({ kind, className }: { kind: GlyphKind; className?: st
 export function ScatterArt({ art, label, className }: { art: CifraArt; label: string; className?: string }) {
   return (
     <svg viewBox={`0 0 ${art.width} ${art.height}`} className={className} role="img" aria-label={label}>
-      <rect width={art.width} height={art.height} fill="#10141c" />
-      <path d={art.d} fill="#eef2f6" stroke="#0b0d12" strokeWidth={2} />
+      <rect width={art.width} height={art.height} fill="var(--tg-night-2)" />
+      <path d={art.d} fill="var(--tg-cream)" stroke="var(--tg-ink)" strokeWidth={2} />
     </svg>
   );
 }

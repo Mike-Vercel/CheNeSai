@@ -50,7 +50,7 @@ function Player(p: P) {
           </button>
         )}
         {r && (
-          <p className={clsx("rounded-xl px-3 py-2 text-sm font-bold leading-snug", r.fake ? "bg-[#ff3b4e]/15 text-[#ff9aa4]" : "bg-[#c6ff3d]/10 text-[#dfff9a]")}>
+          <p className={clsx("rounded-xl px-3 py-2 text-sm font-bold leading-snug", r.fake ? "bg-(--tg-red)/15 text-(--tg-red-hi)" : "bg-(--tg-gold)/10 text-(--tg-gold-hi)")}>
             <span className="tg-display mr-1 text-base">{r.fake ? "Falsa:" : "Vera:"}</span>
             {r.note}
             {r.fake && sent && picked === it.id ? " · l'avete smascherata" : ""}
@@ -70,7 +70,7 @@ function Player(p: P) {
       <Panel className="flex flex-col gap-3">
         <div>
           <Eyebrow>{view.caseTitle}</Eyebrow>
-          <p className="mt-1 text-base font-semibold leading-snug text-white/90">{view.story}</p>
+          <p className="mt-1 text-base font-semibold leading-snug text-(--tg-cream)/90">{view.story}</p>
         </div>
         <FactList facts={view.facts} />
       </Panel>
@@ -104,7 +104,7 @@ function Tv(p: T) {
                   {!r && <Suggests text={it.suggests} tv />}
                 </DocCard>
                 {r && (
-                  <p className={clsx("tg-pop rounded-[0.8cqw] px-[0.9cqw] py-[0.6cqw] text-[1.2cqw] font-bold leading-snug", r.fake ? "bg-[#ff3b4e] text-white" : "bg-[#c6ff3d]/15 text-[#dfff9a]")}>
+                  <p className={clsx("tg-pop rounded-[0.8cqw] px-[0.9cqw] py-[0.6cqw] text-[1.2cqw] font-bold leading-snug", r.fake ? "bg-(--tg-red) text-white" : "bg-(--tg-gold)/15 text-(--tg-gold-hi)")}>
                     <span className="tg-display mr-[0.4cqw] text-[1.5cqw]">{r.fake ? "FALSA" : "Regge"}</span>
                     {r.note}
                   </p>

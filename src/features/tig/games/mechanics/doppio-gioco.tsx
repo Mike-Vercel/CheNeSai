@@ -44,7 +44,7 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-1.5 text-base font-bold">
           {inc && (
             <p>
-              Il tavolo {table.get(inc.from)} vi ha dato la <b className={inc.give === "rischiosa" ? "text-[#ff8c97]" : "text-[#c6ff3d]"}>{LABEL[inc.give].toLowerCase()}</b>.
+              Il tavolo {table.get(inc.from)} vi ha dato la <b className={inc.give === "rischiosa" ? "text-(--tg-red-hi)" : "text-(--tg-gold)"}>{LABEL[inc.give].toLowerCase()}</b>.
             </p>
           )}
           {out && (
@@ -61,7 +61,7 @@ function Player(p: P) {
             </Eyebrow>
             <p className="text-base font-bold leading-snug">{reveal[k].prompt}</p>
             <ChoiceList options={view[k].options} picked={sent && ans[k] ? [ans[k]!] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal[k].solutionId] }} />
-            <p className="text-sm font-semibold text-white/80">{reveal[k].why}</p>
+            <p className="text-sm font-semibold text-(--tg-cream)/80">{reveal[k].why}</p>
           </Panel>
         ))}
         <Explain text={reveal.explain} />
@@ -71,7 +71,7 @@ function Player(p: P) {
 
   const block = (k: ProvaKind, n: number, opts: Option[]) => (
     <Panel key={k} className="flex flex-col gap-2">
-      <Eyebrow className={k === "rischiosa" ? "text-[#ff8c97]" : "text-[#c6ff3d]"}>
+      <Eyebrow className={k === "rischiosa" ? "text-(--tg-red-hi)" : "text-(--tg-gold)"}>
         {n} · {LABEL[k]} · {score(view, k)}
       </Eyebrow>
       <p className="text-base font-bold leading-snug">{view[k].prompt}</p>
@@ -86,7 +86,7 @@ function Player(p: P) {
       footer={<SubmitBar canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Sigilla le mosse" hint={!give ? "Scegliete la prova per l'altro tavolo" : !ans.sicura || !ans.rischiosa ? "Rispondete a tutte e due le prove" : undefined} />}
     >
       <Panel tone="red" className="flex flex-col gap-3">
-        <Eyebrow className="flex items-center gap-2 text-[#ff8c97]">
+        <Eyebrow className="flex items-center gap-2 text-(--tg-red-hi)">
           <Icon name="sword" className="h-4 w-4" /> 1 · {tells ? `Quale prova vale per il tavolo ${tells}?` : "Quale prova vale per voi?"}
         </Eyebrow>
         <BigToggle
@@ -100,7 +100,7 @@ function Player(p: P) {
           ]}
         />
       </Panel>
-      <p className="px-1 text-sm font-semibold text-white/75">{hears ? `Il tavolo ${hears} ha scelto in segreto quale prova vale per voi: rispondete a tutte e due.` : "Rispondete a tutte e due le prove."}</p>
+      <p className="px-1 text-sm font-semibold text-(--tg-cream)/75">{hears ? `Il tavolo ${hears} ha scelto in segreto quale prova vale per voi: rispondete a tutte e due.` : "Rispondete a tutte e due le prove."}</p>
       {block("sicura", 2, view.sicura.options)}
       {block("rischiosa", 3, view.rischiosa.options)}
     </PlayerFrame>
@@ -116,8 +116,8 @@ function Tv(p: T) {
   const card = (k: ProvaKind) => (
     <TvPanel key={k} tone={k === "rischiosa" ? "red" : "lime"} className="flex min-h-0 flex-col gap-[0.6cqw]">
       <div className="flex flex-col gap-[0.3cqw]">
-        <span className={clsx("tg-display whitespace-nowrap text-[2.1cqw] leading-none", k === "rischiosa" ? "text-[#ff8c97]" : "text-[#c6ff3d]")}>{LABEL[k]}</span>
-        <span className="self-start rounded-[0.4cqw] bg-white/10 px-[0.6cqw] py-[0.15cqw] text-[1.05cqw] font-extrabold uppercase tracking-wide text-white/85">{score(view, k)}</span>
+        <span className={clsx("tg-display whitespace-nowrap text-[2.1cqw] leading-none", k === "rischiosa" ? "text-(--tg-red-hi)" : "text-(--tg-gold)")}>{LABEL[k]}</span>
+        <span className="self-start rounded-[0.4cqw] bg-(--tg-cream)/10 px-[0.6cqw] py-[0.15cqw] text-[1.05cqw] font-extrabold uppercase tracking-wide text-(--tg-cream)/85">{score(view, k)}</span>
       </div>
       <p className="text-[1.35cqw] font-bold leading-snug">{view[k].prompt}</p>
       <div className="mt-auto grid grid-cols-1 gap-[0.4cqw]">
@@ -126,7 +126,7 @@ function Tv(p: T) {
           done && o.id !== reveal[k].solutionId ? null : <TvOption key={o.id} index={i} text={o.text} size="sm" state={done ? "right" : "idle"} />,
         )}
       </div>
-      {done && <p className="text-[1.1cqw] font-semibold leading-snug text-white/85">{reveal[k].why}</p>}
+      {done && <p className="text-[1.1cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal[k].why}</p>}
     </TvPanel>
   );
   return (
@@ -143,14 +143,14 @@ function Tv(p: T) {
                 arrow={(from) => {
                   const l = links.get(from);
                   if (!l) return null;
-                  const col = l.ok === null ? "rgba(238,242,246,0.45)" : l.ok ? "#c6ff3d" : "#ff3b4e";
+                  const col = l.ok === null ? "color-mix(in srgb, var(--tg-cream) 45%, transparent)" : l.ok ? "var(--tg-gold)" : "var(--tg-red-hi)";
                   // etichette corte: con 12 tavoli l'elenco ha poco spazio per riga
                   return { color: col, text: l.give === "rischiosa" ? "RISCHIO" : "SICURA", dashed: l.give === "sicura" };
                 }}
                 label="Chi sceglie la prova per chi"
               />
             </div>
-            <p className="text-center text-[1.05cqw] font-bold leading-snug text-white/75">
+            <p className="text-center text-[1.05cqw] font-bold leading-snug text-(--tg-cream)/75">
               Chi sceglie: sicura +{view.payoff.scelta.pulito} · rischiosa +{view.payoff.scelta.trappola} se l&apos;altro sbaglia
             </p>
           </TvPanel>

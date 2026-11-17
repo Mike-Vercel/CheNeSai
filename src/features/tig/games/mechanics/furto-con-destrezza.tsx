@@ -39,12 +39,12 @@ function Player(p: P) {
           {mine ? (
             <p className="flex flex-wrap items-center gap-2 text-lg font-extrabold">
               Contro il tavolo <PhoneChip tableNo={table.get(mine.to) ?? 0} tone="red" />
-              <span className={mine.second ? "text-[#c6ff3d]" : "text-[#ff8c97]"}>{mine.second ? lootText : mine.first ? "fallito al secondo indizio" : "fallito al primo indizio"}</span>
+              <span className={mine.second ? "text-(--tg-gold)" : "text-(--tg-red-hi)"}>{mine.second ? lootText : mine.first ? "fallito al secondo indizio" : "fallito al primo indizio"}</span>
             </p>
           ) : (
             <p className="text-lg font-extrabold">Nessun colpo tentato.</p>
           )}
-          <p className="flex flex-wrap items-center gap-1.5 text-sm font-bold text-white/75">
+          <p className="flex flex-wrap items-center gap-1.5 text-sm font-bold text-(--tg-cream)/75">
             {against.length ? (
               <>
                 Vi hanno derubato: {against.map((h) => <PhoneChip key={h.from} tableNo={table.get(h.from) ?? 0} />)}
@@ -75,8 +75,8 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Colpo!" hint={!target ? "Scegliete la vittima" : !first ? "Primo indizio" : !second ? "Secondo indizio: usate il risultato del primo" : undefined} />}
     >
       <Panel className="flex flex-col gap-1">
-        <p className="tg-display text-3xl leading-none text-[#c6ff3d]">{view.caper}</p>
-        <p className="text-base font-semibold leading-snug text-white/85">{view.scene}</p>
+        <p className="tg-display text-3xl leading-none text-(--tg-gold)">{view.caper}</p>
+        <p className="text-base font-semibold leading-snug text-(--tg-cream)/85">{view.scene}</p>
       </Panel>
       <Step n={1} title="La vittima" icon="target" done={!!target}>
         <TablePicker tables={rivals} value={target} onChange={setTarget} disabled={!editable} label="Tavolo da derubare" />
@@ -92,7 +92,7 @@ function Player(p: P) {
             <ChoiceList options={view.steps[1].options} picked={second ? [second] : []} onToggle={(id) => editable && setSecond(id)} disabled={!editable} keys={active === 1} onConfirm={submit} label="Secondo indizio" />
           </>
         ) : (
-          <p className="flex items-center gap-2 text-base font-bold text-white/60">
+          <p className="flex items-center gap-2 text-base font-bold text-(--tg-cream)/60">
             <Icon name="lock" className="h-5 w-5" /> Si apre quando scegliete il primo: serve il suo risultato.
           </p>
         )}
@@ -110,13 +110,13 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1.45fr_1fr] gap-[1.6cqw]">
         <TvPanel className="flex min-h-0 flex-col gap-[0.9cqw]">
           <div>
-            <p className="tg-display text-[2.6cqw] leading-none text-[#c6ff3d]">{view.caper}</p>
-            <p className="mt-[0.4cqw] text-[1.5cqw] font-semibold leading-snug text-white/85">{view.scene}</p>
+            <p className="tg-display text-[2.6cqw] leading-none text-(--tg-gold)">{view.caper}</p>
+            <p className="mt-[0.4cqw] text-[1.5cqw] font-semibold leading-snug text-(--tg-cream)/85">{view.scene}</p>
           </div>
           {(done ? reveal.steps : view.steps).map((s, i) => (
             <div key={i} className="flex flex-col gap-[0.5cqw]">
               <p className="text-[1.7cqw] font-extrabold leading-tight">
-                <span className="tg-num mr-[0.6cqw] text-[#c6ff3d]">{i + 1}</span>
+                <span className="tg-num mr-[0.6cqw] text-(--tg-gold)">{i + 1}</span>
                 {s.clue}
               </p>
               <div className="grid grid-cols-2 gap-[0.5cqw]">
@@ -128,7 +128,7 @@ function Tv(p: T) {
           ))}
         </TvPanel>
         <TvPanel tone="red" className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">
+          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
             <Icon name="coins" className="h-[1.6cqw] w-[1.6cqw]" /> Colpi
           </p>
           {done && reveal.summary ? (
@@ -138,27 +138,27 @@ function Tv(p: T) {
                   const tr = applied.find((a) => a.from === h.from && a.to === h.to);
                   const right = h.second ? (
                     tr ? (
-                      tr.points > 0 ? <span className="text-[#c6ff3d]">ruba {tr.points}</span> : <span className="text-white/70">{tr.reason}</span>
+                      tr.points > 0 ? <span className="text-(--tg-gold)">ruba {tr.points}</span> : <span className="text-(--tg-cream)/70">{tr.reason}</span>
                     ) : (
-                      <span className="text-[#c6ff3d]">colpo riuscito</span>
+                      <span className="text-(--tg-gold)">colpo riuscito</span>
                     )
                   ) : (
-                    <span className="text-white/55">{h.first ? "fallito al 2°" : "fallito"}</span>
+                    <span className="text-(--tg-cream)/55">{h.first ? "fallito al 2°" : "fallito"}</span>
                   );
                   return <TvVsRow key={h.from} teams={p.teams} a={h.from} b={h.to} icon="arrow" right={right} delay={i * 90} joiner="deruba" />;
                 })}
               </div>
             ) : (
-              <p className="text-[1.6cqw] font-bold text-white/60">Nessun colpo tentato.</p>
+              <p className="text-[1.6cqw] font-bold text-(--tg-cream)/60">Nessun colpo tentato.</p>
             )
           ) : null}
           {done ? (
             <TvExplain text={reveal.explain} className="mt-auto" />
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-[0.8cqw] text-center">
-              <p className="tg-num text-[9cqw] leading-none text-[#ff3b4e]">{view.steal}</p>
+              <p className="tg-num text-[9cqw] leading-none text-(--tg-red-hi)">{view.steal}</p>
               <p className="tg-display text-[2.2cqw]">punti a colpo</p>
-              <p className="max-w-[28cqw] text-[1.3cqw] font-bold leading-snug text-white/70">Un colpo per tavolo. Le vittime restano segrete fino al reveal. Lo scudo para il furto.</p>
+              <p className="max-w-[28cqw] text-[1.3cqw] font-bold leading-snug text-(--tg-cream)/70">Un colpo per tavolo. Le vittime restano segrete fino al reveal. Lo scudo para il furto.</p>
             </div>
           )}
         </TvPanel>

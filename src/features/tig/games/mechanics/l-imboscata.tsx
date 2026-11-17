@@ -42,12 +42,12 @@ function Player(p: P) {
             <Eyebrow>{hit.house ? "Trappola sorteggiata dalla casa" : `Il tavolo ${tableOf(hit.from) ?? "?"} vi ha teso: ${hitTrap.name}`}</Eyebrow>
             <p className="text-lg font-extrabold leading-snug">{hitTrap.prompt}</p>
             <ChoiceList options={hitTrap.options} picked={sent && answers[hitTrap.id] ? [answers[hitTrap.id]] : []} onToggle={() => {}} keys={false} reveal={{ solution: [hitTrap.solutionId] }} />
-            <p className="text-sm font-bold text-white/75">{hit.held ? `Difesa riuscita: +60${hit.stake ? ` e +${hit.stake} di rischio` : ""}.` : hit.stake ? `Difesa caduta: ${hit.stake} punti di rischio persi.` : "Difesa caduta, ma non avevate rischiato nulla."}</p>
+            <p className="text-sm font-bold text-(--tg-cream)/75">{hit.held ? `Difesa riuscita: +60${hit.stake ? ` e +${hit.stake} di rischio` : ""}.` : hit.stake ? `Difesa caduta: ${hit.stake} punti di rischio persi.` : "Difesa caduta, ma non avevate rischiato nulla."}</p>
           </Panel>
         )}
         {mine && myTrap && (
           <Panel className="flex items-center gap-3">
-            <Icon name="target" className="h-8 w-8 shrink-0 text-[#ffc24a]" />
+            <Icon name="target" className="h-8 w-8 shrink-0 text-(--tg-teal-hi)" />
             <p className="text-base font-bold leading-snug">
               La vostra trappola al tavolo {tableOf(mine.to) ?? "?"}: {myTrap.name} · {mine.held ? "l'ha retta" : "ci è cascato (+20)"}
             </p>
@@ -56,8 +56,8 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-1">
           <Eyebrow>Le tre risposte giuste</Eyebrow>
           {reveal.traps.map((t) => (
-            <p key={t.id} className="text-sm font-semibold leading-snug text-white/85">
-              <b className="text-[#ffc24a]">{t.name}:</b> {t.options.find((o) => o.id === t.solutionId)?.text}
+            <p key={t.id} className="text-sm font-semibold leading-snug text-(--tg-cream)/85">
+              <b className="text-(--tg-teal-hi)">{t.name}:</b> {t.options.find((o) => o.id === t.solutionId)?.text}
             </p>
           ))}
         </Panel>
@@ -94,14 +94,14 @@ function Player(p: P) {
     >
       <Panel className="grid grid-cols-2 gap-3 py-3">
         <div className="flex items-center gap-2">
-          <Icon name="target" className="h-7 w-7 shrink-0 text-[#ffc24a]" />
+          <Icon name="target" className="h-7 w-7 shrink-0 text-(--tg-teal-hi)" />
           <div>
             <Eyebrow>Il vostro bersaglio</Eyebrow>
             <p className="tg-display text-2xl">{hasTarget ? `Tavolo ${tableOf(me?.targetId)}` : "Nessuno"}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Icon name="shield" className="h-7 w-7 shrink-0 text-[#ff3b4e]" />
+          <Icon name="shield" className="h-7 w-7 shrink-0 text-(--tg-red-hi)" />
           <div>
             <Eyebrow>Vi colpisce</Eyebrow>
             <p className="tg-display text-2xl">{me?.attackerId ? `Tavolo ${tableOf(me.attackerId)}` : "La casa"}</p>
@@ -111,15 +111,15 @@ function Player(p: P) {
 
       {hasTarget && (
         <Panel className="flex flex-col gap-2">
-          <Eyebrow className="text-[#ffc24a]">1 · La trappola per il tavolo {tableOf(me?.targetId)}</Eyebrow>
+          <Eyebrow className="text-(--tg-teal-hi)">1 · La trappola per il tavolo {tableOf(me?.targetId)}</Eyebrow>
           {view.traps.map((t) => (
-            <OptionButton key={t.id} text={<span className="flex flex-col"><span>{t.name}</span><span className="text-sm font-semibold text-white/70">{t.blurb}</span></span>} state={trap === t.id ? "picked" : "idle"} onClick={() => editable && setTrap(t.id)} disabled={!editable} />
+            <OptionButton key={t.id} text={<span className="flex flex-col"><span>{t.name}</span><span className="text-sm font-semibold text-(--tg-cream)/70">{t.blurb}</span></span>} state={trap === t.id ? "picked" : "idle"} onClick={() => editable && setTrap(t.id)} disabled={!editable} />
           ))}
         </Panel>
       )}
 
       <Panel className="flex flex-col gap-2">
-        <Eyebrow className="text-[#ffc24a]">{hasTarget ? "2" : "1"} · Quanto rischiate in difesa?</Eyebrow>
+        <Eyebrow className="text-(--tg-teal-hi)">{hasTarget ? "2" : "1"} · Quanto rischiate in difesa?</Eyebrow>
         <BigToggle<string>
           label="Rischio in difesa"
           value={stake === null ? null : String(stake)}
@@ -127,11 +127,11 @@ function Player(p: P) {
           disabled={!editable}
           options={view.stakes.map((s) => ({ id: String(s), title: s === 0 ? "Zero" : `${s}`, sub: s === 0 ? `Retta +${view.defensePoints}` : `+${view.defensePoints + s} o −${s}`, tone: s === 40 ? "red" : s === 20 ? "ice" : "lime" }))}
         />
-        <p className="text-xs font-semibold text-white/60">Se la difesa cade, il rischio va a chi vi ha teso la trappola (scudi e tetti valgono sempre).</p>
+        <p className="text-xs font-semibold text-(--tg-cream)/60">Se la difesa cade, il rischio va a chi vi ha teso la trappola (scudi e tetti valgono sempre).</p>
       </Panel>
 
       <Panel className="flex flex-col gap-3">
-        <Eyebrow className="text-[#ffc24a]">{hasTarget ? "3" : "2"} · Rispondete a tutte e tre: una sarà la vostra</Eyebrow>
+        <Eyebrow className="text-(--tg-teal-hi)">{hasTarget ? "3" : "2"} · Rispondete a tutte e tre: una sarà la vostra</Eyebrow>
         <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Trappole">
           {view.traps.map((t, i) => (
             <button
@@ -140,7 +140,7 @@ function Player(p: P) {
               role="tab"
               aria-selected={i === tab}
               onClick={() => setTab(i)}
-              className={clsx("flex h-12 items-center justify-center rounded-xl border-2 px-1 text-center text-xs font-extrabold uppercase leading-tight tracking-wide", i === tab ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/12 text-white/75", answers[t.id] && "bg-[#c6ff3d]/10")}
+              className={clsx("flex h-12 items-center justify-center rounded-xl border-2 px-1 text-center text-xs font-extrabold uppercase leading-tight tracking-wide", i === tab ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/12 text-(--tg-cream)/75", answers[t.id] && "bg-(--tg-gold)/10")}
             >
               {t.name}
             </button>
@@ -168,8 +168,8 @@ function Tv(p: T) {
             ))}
           </div>
           <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
-            <p className="line-clamp-2 text-[1.2cqw] font-semibold leading-snug text-white/85">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
+            <p className="line-clamp-2 text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">
+              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
               {reveal.explain}
             </p>
             <TvOutcomeGrid
@@ -192,7 +192,7 @@ function Tv(p: T) {
         <div className="grid min-h-0 grid-cols-3 gap-[1.1cqw]">
           {view.traps.map((t, i) => (
             <TvPanel key={t.id} className="tg-rise flex min-h-0 flex-col gap-[0.6cqw]">
-              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]" style={{ animationDelay: `${i * 100}ms` }}>
+              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)" style={{ animationDelay: `${i * 100}ms` }}>
                 Trappola {i + 1} · {t.name}
               </p>
               <p className="text-[1.5cqw] font-extrabold leading-tight">{t.prompt}</p>
@@ -205,13 +205,13 @@ function Tv(p: T) {
           ))}
         </div>
         <TvPanel className="flex flex-wrap items-center gap-x-[1.2cqw] gap-y-[0.5cqw] p-[1cqw]">
-          <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Chi tende la trappola a chi</span>
+          <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Chi tende la trappola a chi</span>
           {view.links
             .filter((l) => l.targetId)
             .map((l) => (
               <span key={l.teamId} className="flex items-center gap-[0.3cqw]">
                 <TvTableBadge team={map.get(l.teamId)} />
-                <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-[#ff3b4e]" />
+                <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-(--tg-red-hi)" />
                 <TvTableBadge team={map.get(l.targetId!)} />
               </span>
             ))}

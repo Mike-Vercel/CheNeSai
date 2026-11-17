@@ -16,16 +16,16 @@ type Mode = CacciaSubmission["mode"];
 function LeaderBanner({ view, me }: { view: CacciaView; me: boolean }) {
   return (
     <Panel tone={me ? "lime" : undefined} className="flex items-center gap-3">
-      <Icon name="crown" className="h-10 w-10 shrink-0 text-[#ffc24a]" />
+      <Icon name="crown" className="h-10 w-10 shrink-0 text-(--tg-teal-hi)" />
       <div className="min-w-0 flex-1">
         <Eyebrow>{view.leaders.length > 1 ? "Capoliste a pari merito" : "La capolista"}</Eyebrow>
         <p className="mt-1 flex flex-wrap items-center gap-2 text-lg font-extrabold">
           {view.leaders.map((l) => (
             <PhoneChip key={l.teamId} tableNo={l.tableNo} tone="amber" />
           ))}
-          {me && <span className="text-[#c6ff3d]">siete voi</span>}
+          {me && <span className="text-(--tg-gold)">siete voi</span>}
         </p>
-        {view.drawn && <p className="mt-1 text-xs font-semibold text-white/60">Classifica in parità: capolista estratta a sorte.</p>}
+        {view.drawn && <p className="mt-1 text-xs font-semibold text-(--tg-cream)/60">Classifica in parità: capolista estratta a sorte.</p>}
       </div>
     </Panel>
   );
@@ -57,12 +57,12 @@ function Player(p: P) {
               </p>
             ) : mine ? (
               <p className="flex items-center gap-2 text-lg font-extrabold">
-                <Icon name="target" className="h-5 w-5 text-[#ff3b4e]" /> {mine.won ? <span className="text-[#c6ff3d]">Capolista battuta</span> : <span className="text-[#ff8c97]">La capolista ha retto</span>}
+                <Icon name="target" className="h-5 w-5 text-(--tg-red-hi)" /> {mine.won ? <span className="text-(--tg-gold)">Capolista battuta</span> : <span className="text-(--tg-red-hi)">La capolista ha retto</span>}
               </p>
             ) : (
               <p className="text-lg font-extrabold">Avete passato la mano.</p>
             )}
-            <p className="flex flex-wrap items-center gap-1.5 text-sm font-bold text-white/70">
+            <p className="flex flex-wrap items-center gap-1.5 text-sm font-bold text-(--tg-cream)/70">
               Cacciatori: {s.hunts.length ? s.hunts.map((h) => <PhoneChip key={h.teamId} tableNo={table.get(h.teamId) ?? 0} tone={h.won ? "lime" : "ice"} />) : "nessuno"}
             </p>
           </Panel>
@@ -85,7 +85,7 @@ function Player(p: P) {
     >
       <LeaderBanner view={view} me={amLeader} />
       {amLeader ? (
-        <Panel className="text-base font-bold leading-snug text-white/85">
+        <Panel className="text-base font-bold leading-snug text-(--tg-cream)/85">
           Difendete il trono: risposta giusta +{view.points.leaderBase}, più +{view.points.leaderPerHunter} per ogni cacciatore che battete in velocità (massimo +{view.points.leaderCap}). Nessuno può togliervi punti.
         </Panel>
       ) : (
@@ -127,28 +127,28 @@ function Tv(p: T) {
           {done && <TvExplain text={reveal.explain} className="mt-auto" />}
         </TvPanel>
         <TvPanel tone="lime" className="flex min-h-0 flex-col items-center gap-[1cqw] overflow-hidden">
-          <Icon name="crown" className="tg-pulse h-[6cqw] w-[6cqw] text-[#ffc24a]" />
+          <Icon name="crown" className="tg-pulse h-[6cqw] w-[6cqw] text-(--tg-teal-hi)" />
           <p className="tg-display text-[2.6cqw]">{view.leaders.length > 1 ? "Capoliste" : "Capolista"}</p>
           <div className="flex flex-wrap justify-center gap-[0.6cqw]">
             {view.leaders.map((l) => (
               <TvChip key={l.teamId} teams={p.teams} id={l.teamId} size={5} />
             ))}
           </div>
-          {view.drawn && <p className="text-[1.1cqw] font-bold text-white/60">Classifica in parità: estratta a sorte</p>}
+          {view.drawn && <p className="text-[1.1cqw] font-bold text-(--tg-cream)/60">Classifica in parità: estratta a sorte</p>}
           {s ? (
             <div className="flex w-full min-h-0 flex-col gap-[0.5cqw] overflow-hidden">
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">Cacciatori</p>
-              {s.hunts.length === 0 && <p className="text-[1.5cqw] font-bold text-white/70">Nessuno ha osato.</p>}
+              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Cacciatori</p>
+              {s.hunts.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/70">Nessuno ha osato.</p>}
               <div className="flex flex-wrap gap-[0.5cqw]">
                 {s.hunts.map((h, i) => (
-                  <div key={h.teamId} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.8cqw] bg-white/[0.06] px-[0.6cqw] py-[0.35cqw]" style={{ animationDelay: `${i * 90}ms` }}>
+                  <div key={h.teamId} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.06] px-[0.6cqw] py-[0.35cqw]" style={{ animationDelay: `${i * 90}ms` }}>
                     <TvChip teams={p.teams} id={h.teamId} size={2.4} />
-                    <span className={h.won ? "text-[1.3cqw] font-extrabold text-[#c6ff3d]" : "text-[1.3cqw] font-extrabold text-white/60"}>{h.won ? "presa +40" : "respinto"}</span>
+                    <span className={h.won ? "text-[1.3cqw] font-extrabold text-(--tg-gold)" : "text-[1.3cqw] font-extrabold text-(--tg-cream)/60"}>{h.won ? "presa +40" : "respinto"}</span>
                   </div>
                 ))}
               </div>
               {s.passed.length > 0 && (
-                <p className="mt-[0.4cqw] flex flex-wrap items-center gap-[0.4cqw] text-[1.2cqw] font-bold text-white/70">
+                <p className="mt-[0.4cqw] flex flex-wrap items-center gap-[0.4cqw] text-[1.2cqw] font-bold text-(--tg-cream)/70">
                   Hanno passato: {s.passed.map((id) => <TvChip key={id} teams={p.teams} id={id} size={2} />)}
                 </p>
               )}
@@ -161,9 +161,9 @@ function Tv(p: T) {
                 ["Passo, giusto", `+${view.points.pass}`],
                 ["Capolista", `fino a +${view.points.leaderCap}`],
               ].map(([k, v]) => (
-                <div key={k} className="rounded-[0.8cqw] bg-white/[0.05] px-[0.6cqw] py-[0.5cqw]">
-                  <p className="tg-num text-[2.4cqw] text-[#c6ff3d]">{v}</p>
-                  <p className="text-[1cqw] font-extrabold uppercase tracking-wide text-white/70">{k}</p>
+                <div key={k} className="rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.5cqw]">
+                  <p className="tg-num text-[2.4cqw] text-(--tg-gold)">{v}</p>
+                  <p className="text-[1cqw] font-extrabold uppercase tracking-wide text-(--tg-cream)/70">{k}</p>
                 </div>
               ))}
             </div>

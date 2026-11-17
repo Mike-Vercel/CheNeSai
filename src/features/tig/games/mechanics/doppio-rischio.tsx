@@ -80,13 +80,13 @@ function Tv(p: T) {
         <div className="flex flex-col gap-[1.2cqw]">
           <TvPanel className="flex flex-col gap-[0.4cqw]">
             <p className="tg-display text-[2.6cqw]">Normale</p>
-            <p className="tg-num text-[3.6cqw] text-[#c6ff3d]">{sign(view.rates.normale.win)}</p>
-            <p className="text-[1.4cqw] font-bold text-white/70">se sbagliata: {sign(view.rates.normale.lose)}</p>
+            <p className="tg-num text-[3.6cqw] text-(--tg-gold)">{sign(view.rates.normale.win)}</p>
+            <p className="text-[1.4cqw] font-bold text-(--tg-cream)/70">se sbagliata: {sign(view.rates.normale.lose)}</p>
           </TvPanel>
           <TvPanel tone="red" className="flex flex-col gap-[0.4cqw]">
-            <p className="tg-display text-[2.6cqw] text-[#ff3b4e]">Alta</p>
-            <p className="tg-num text-[3.6cqw] text-[#c6ff3d]">{sign(view.rates.alta.win)}</p>
-            <p className="text-[1.4cqw] font-bold text-white/70">se sbagliata: {sign(view.rates.alta.lose)}</p>
+            <p className="tg-display text-[2.6cqw] text-(--tg-red-hi)">Alta</p>
+            <p className="tg-num text-[3.6cqw] text-(--tg-gold)">{sign(view.rates.alta.win)}</p>
+            <p className="text-[1.4cqw] font-bold text-(--tg-cream)/70">se sbagliata: {sign(view.rates.alta.lose)}</p>
           </TvPanel>
         </div>
       </div>

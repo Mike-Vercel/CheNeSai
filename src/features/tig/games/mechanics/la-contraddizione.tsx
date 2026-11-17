@@ -32,7 +32,7 @@ function Player(p: P) {
       {sol && <MyOutcome outcome={p.myOutcome} />}
       <Panel className="py-3">
         <p className="tg-display text-3xl">{view.character}</p>
-        <p className="text-sm font-bold text-white/70">{view.context}</p>
+        <p className="text-sm font-bold text-(--tg-cream)/70">{view.context}</p>
       </Panel>
       <div className="flex flex-col gap-2">
         {view.messages.map((m, i) => {
@@ -47,15 +47,15 @@ function Player(p: P) {
               onClick={() => toggle(m.id)}
               className={clsx(
                 "flex items-start gap-3 rounded-2xl border-2 p-3 text-left transition-transform active:scale-[0.99]",
-                sol ? (bad ? "tg-stripes-red border-[#ff3b4e]" : "border-white/10 opacity-70") : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-[#1d2330]",
+                sol ? (bad ? "tg-stripes-red border-(--tg-red-hi)" : "border-(--tg-cream)/10 opacity-70") : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-raised)",
               )}
             >
-              <span className="tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white/10 text-lg">{i + 1}</span>
+              <span className="tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-(--tg-cream)/10 text-lg">{i + 1}</span>
               <span className="min-w-0 flex-1">
                 <span className="block text-base font-semibold leading-snug">{m.text}</span>
-                <span className="mt-1 block text-xs font-bold text-white/50">{m.time}</span>
+                <span className="mt-1 block text-xs font-bold text-(--tg-cream)/50">{m.time}</span>
               </span>
-              {(on || bad) && <Icon name={bad ? "x" : "check"} className={clsx("h-6 w-6 shrink-0", bad ? "text-[#ff3b4e]" : "text-[#c6ff3d]")} />}
+              {(on || bad) && <Icon name={bad ? "x" : "check"} className={clsx("h-6 w-6 shrink-0", bad ? "text-(--tg-red-hi)" : "text-(--tg-gold)")} />}
               <span className="sr-only">{bad ? " · fa parte della contraddizione" : on ? " · selezionato" : ""}</span>
             </button>
           );
@@ -77,10 +77,10 @@ function Tv(p: T) {
             const bad = sol?.includes(m.id);
             return (
               <TvPanel key={m.id} tone={bad ? "red" : undefined} className={clsx("tg-rise flex items-start gap-[1cqw] py-[1.1cqw]", sol && !bad && "opacity-45")}>
-                <span className="tg-num grid h-[3cqw] w-[3cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-white/10 text-[1.8cqw]">{i + 1}</span>
+                <span className="tg-num grid h-[3cqw] w-[3cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-(--tg-cream)/10 text-[1.8cqw]">{i + 1}</span>
                 <div>
                   <p className={clsx("font-semibold leading-snug", sol ? "text-[1.6cqw]" : "text-[2cqw]")}>{m.text}</p>
-                  <p className="mt-[0.3cqw] text-[1.1cqw] font-bold text-white/50">{m.time}</p>
+                  <p className="mt-[0.3cqw] text-[1.1cqw] font-bold text-(--tg-cream)/50">{m.time}</p>
                 </div>
               </TvPanel>
             );
