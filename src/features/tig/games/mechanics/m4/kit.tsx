@@ -212,37 +212,65 @@ export function RingTv({
 }) {
   const n = seats.length;
   const r = 150;
-  const small = n > 10;
+  const small = n > 8;
+  const cr = small ? 18 : 25;
   const at = (i: number) => {
     const a = (i / Math.max(1, n)) * Math.PI * 2 - Math.PI / 2;
     return [200 + r * Math.cos(a), 200 + r * Math.sin(a)] as const;
   };
+  /** punta di freccia in (x, y) con direzione (dx, dy) */
+  const head = (x: number, y: number, dx: number, dy: number) => {
+    const l = Math.hypot(dx, dy) || 1;
+    const ux = dx / l;
+    const uy = dy / l;
+    const L = small ? 10 : 13;
+    const W = small ? 6 : 8;
+    return `${x},${y} ${x - ux * L - uy * W},${y - uy * L + ux * W} ${x - ux * L + uy * W},${y - uy * L - ux * W}`;
+  };
   return (
     <svg viewBox="0 0 400 400" className="h-full max-h-full w-full" role="img" aria-label={label}>
-      <defs>
-        <marker id="tg-m4-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M0 0L10 5L0 10z" fill="context-stroke" />
-        </marker>
-      </defs>
       {n > 1 &&
         seats.map((s, i) => {
           const [x1, y1] = at(i);
           const [x2, y2] = at((i + 1) % n);
           const a = arrow?.(s.teamId) ?? null;
-          const col = a?.color ?? "rgba(238,242,246,0.4)";
+          const col = a?.color ?? "rgba(238,242,246,0.45)";
+          const sw = small ? 4 : 5;
+          if (n === 2) {
+            // due archi: a sinistra dall'alto in basso, a destra dal basso in alto
+            const side = i === 0 ? 1 : -1;
+            const cx = 200 + side * 120;
+            const sy = y1 + (y2 > y1 ? cr + 6 : -(cr + 6));
+            const ey = y2 + (y2 > y1 ? -(cr + 8) : cr + 8);
+            return (
+              <g key={s.teamId}>
+                <path d={`M${x1} ${sy} Q ${cx} 200 ${x2} ${ey}`} fill="none" stroke={col} strokeWidth={sw} strokeDasharray={a?.dashed ? "10 7" : undefined} />
+                <polygon points={head(x2, ey, x2 - cx, ey - 200)} fill={col} />
+                {a?.text && (
+                  <text x={200 + side * 75} y={200} fill={col} fontSize={15} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
+                    {a.text}
+                  </text>
+                )}
+              </g>
+            );
+          }
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          const d = Math.hypot(dx, dy) || 1;
+          const sx = x1 + (dx / d) * (cr + 5);
+          const sy = y1 + (dy / d) * (cr + 5);
+          const ex = x2 - (dx / d) * (cr + 6);
+          const ey = y2 - (dy / d) * (cr + 6);
           const mx = (x1 + x2) / 2;
           const my = (y1 + y2) / 2;
           const len = Math.hypot(mx - 200, my - 200) || 1;
-          const push = n === 2 ? (i === 0 ? -30 : 30) : small ? 26 : 40;
-          const lx = n === 2 ? 200 : mx + ((mx - 200) / len) * push;
-          const ly = n === 2 ? 200 + push : my + ((my - 200) / len) * push;
-          const curve = n === 2 ? (i === 0 ? -60 : 60) : 0;
-          const d = n === 2 ? `M${x1} ${y1 + 30} Q ${200 + curve} 200 ${x2} ${y2 - 30}` : `M${x1 + (x2 - x1) * 0.2} ${y1 + (y2 - y1) * 0.2} L${x1 + (x2 - x1) * 0.8} ${y1 + (y2 - y1) * 0.8}`;
+          const push = small ? 24 : 34;
           return (
             <g key={s.teamId}>
-              <path d={n === 2 ? (i === 0 ? `M${x1 + 30} ${y1 + 20} Q ${200 - 70} 200 ${x2 + 30} ${y2 - 20}` : `M${x1 - 30} ${y1 - 20} Q ${200 + 70} 200 ${x2 - 30} ${y2 + 20}`) : d} fill="none" stroke={col} strokeWidth={small ? 4 : 5} strokeDasharray={a?.dashed ? "10 7" : undefined} markerEnd="url(#tg-m4-arrow)" />
+              <line x1={sx} y1={sy} x2={ex} y2={ey} stroke={col} strokeWidth={sw} strokeDasharray={a?.dashed ? "9 6" : undefined} />
+              <polygon points={head(ex, ey, dx, dy)} fill={col} />
               {a?.text && (
-                <text x={n === 2 ? (i === 0 ? 112 : 288) : lx} y={n === 2 ? 204 : ly} fill={col} fontSize={small ? 10 : 14} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
+                <text x={mx + ((mx - 200) / len) * push} y={my + ((my - 200) / len) * push} fill={col} fontSize={small ? 11 : 14} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
                   {a.text}
                 </text>
               )}
@@ -253,8 +281,8 @@ export function RingTv({
         const [x, y] = at(i);
         return (
           <g key={`c-${s.teamId}`}>
-            <circle cx={x} cy={y} r={small ? 17 : 25} fill={colorOf(s.teamId) ?? "#eef2f6"} stroke="#0b0d12" strokeWidth={4} />
-            <text x={x} y={y + 1} textAnchor="middle" dominantBaseline="central" fontSize={small ? 17 : 24} fontWeight={900} fill="#0b0d12" style={{ fontFamily: "var(--tg-display)" }}>
+            <circle cx={x} cy={y} r={cr} fill={colorOf(s.teamId) ?? "#eef2f6"} stroke="#0b0d12" strokeWidth={4} />
+            <text x={x} y={y + 1} textAnchor="middle" dominantBaseline="central" fontSize={small ? 18 : 24} fontWeight={900} fill="#0b0d12" style={{ fontFamily: "var(--tg-display)" }}>
               {s.tableNo}
             </text>
           </g>

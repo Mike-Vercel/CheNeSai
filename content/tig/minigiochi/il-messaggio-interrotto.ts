@@ -185,7 +185,7 @@ const varianti: MessaggioInput[] = [
       { id: "m1", from: "Elisa", time: "08:50", text: "La riunione di oggi è spostata" },
       { id: "m2", from: "Mattia", time: "08:52", text: "A che ora?" },
       { id: "m3", from: "Elisa", time: "08:53", gap: true },
-      { id: "m4", from: "Mattia", time: "08:55", text: "Allora prendo la sala grande: quella piccola alle 11 è già occupata" },
+      { id: "m4", from: "Mattia", time: "08:55", text: "Allora per le 11 prendo la sala grande: quella piccola a quell'ora è già occupata" },
       { id: "m5", from: "Chiara", time: "08:56", text: "E io stampo le slide per tutti, nella sala grande il proiettore non va" },
     ],
     options: [
@@ -195,7 +195,7 @@ const varianti: MessaggioInput[] = [
       { id: "11-due", text: "Alle 11, solo io e te, dieci minuti" },
     ],
     solution: { optionId: "11-tutti" },
-    explain: "Mattia prende la sala grande perché la piccola alle 11 è occupata, e Chiara stampa le slide per tutti: riunione alle 11, in presenza, con tutto il team. Alle 15 la sala piccola delle 11 non c'entrerebbe; online o in due non servirebbe la sala grande né le slide per tutti.",
+    explain: "Mattia prenota la sala grande «per le 11» e Chiara stampa le slide per tutti: riunione alle 11, in presenza, con tutto il team. Alle 15 l'orario non torna; online o in due non servirebbe la sala grande né le slide per tutti.",
   },
   {
     id: "candeline-32",

@@ -87,8 +87,10 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={rev ? "Il dettaglio che tradisce la prova falsa" : view.story}>
       <div className="flex h-full flex-col gap-[1.1cqw]">
         <TvPanel className="tg-rise shrink-0 py-[1cqw]">
-          <p className="tg-display mb-[0.5cqw] text-[2cqw]">{view.caseTitle}</p>
-          <FactList facts={view.facts} tv />
+          <p className={clsx("tg-display mb-[0.5cqw]", rev ? "text-[1.6cqw]" : "text-[2cqw]")}>{view.caseTitle}</p>
+          <div className={clsx(rev && "[&_li]:text-[1.15cqw]")}>
+            <FactList facts={view.facts} tv />
+          </div>
         </TvPanel>
         <div className="grid min-h-0 flex-1 grid-cols-3 items-start gap-[1.4cqw]">
           {view.items.map((it, i) => {
