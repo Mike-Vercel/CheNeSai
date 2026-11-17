@@ -65,7 +65,7 @@ function OptionFrame({ clip, o, index, state, tv = false }: { clip: Clip; o: Fra
       <span
         className={clsx(
           "relative shrink-0 overflow-hidden border-2",
-          tv ? "w-[15cqw] rounded-[0.8cqw] border-[0.2cqw]" : "w-[44%] rounded-xl",
+          tv ? "w-[13cqw] rounded-[0.8cqw] border-[0.2cqw]" : "w-[44%] rounded-xl",
           state === "picked" && "border-[#c6ff3d]",
           state === "right" && "border-[#c6ff3d] shadow-[0_0_30px_-6px_rgba(198,255,61,0.8)]",
           state === "wrong" && "border-[#ff3b4e]",

@@ -16,7 +16,7 @@ import { LEAD_MS, poseAt, posesAt, posesOf, type Clip, type FrameOption } from "
 import { holds, type Condition } from "@/lib/tig/games/mechanics/non-e-quello-che-sembra";
 import { SHOW_MS } from "@/lib/tig/games/mechanics/il-dettaglio-da-100";
 import { FEED_END_MS, likesText } from "@/lib/tig/games/mechanics/feed-in-5-secondi";
-import { compileMix, SOUND_KINDS } from "@/lib/tig/games/mechanics/m1/synth";
+import { compileLayer, compileMix, compileOne, SOUND_KINDS, type SoundKind, type SynthEvent } from "@/lib/tig/games/mechanics/m1/synth";
 import { rasterize, type Art } from "@/lib/tig/games/mechanics/m1/draw";
 
 /**
@@ -339,6 +339,110 @@ describe("TIG manche 1 · schermate", () => {
       // il «perché» si vede al reveal (React codifica gli apostrofi: si confronta un pezzo senza)
       const piece = c.explain.split(/['«»"]/)[0].slice(0, 30);
       expect(p, `${code}: manca il perché sul telefono`).toContain(piece);
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Rumore di fondo: volumi stimati senza ascoltare (mini sintetizzatore offline con gli stessi inviluppi e
+// filtri del riproduttore Web Audio; volume «percepito» = passa-alto a 150 Hz + 90° percentile dell'RMS
+// su finestre di 200 ms). Serve a garantire che «il più forte» sia davvero il più forte.
+// ---------------------------------------------------------------------------
+
+const SR = 16000;
+
+function biquadCoeffs(type: number, f: number, q: number) {
+  // RBJ: 0 passa-basso, 1 passa-banda (picco 0 dB), 2 passa-alto. In Web Audio il Q di LP/HP è in dB.
+  const w = (2 * Math.PI * Math.min(f, SR * 0.45)) / SR;
+  const cos = Math.cos(w);
+  const qq = type === 1 ? Math.max(0.05, q) : Math.pow(10, q / 20);
+  const alpha = Math.sin(w) / (2 * qq);
+  const b = type === 0 ? [(1 - cos) / 2, 1 - cos, (1 - cos) / 2] : type === 2 ? [(1 + cos) / 2, -(1 + cos), (1 + cos) / 2] : [alpha, 0, -alpha];
+  const a0 = 1 + alpha;
+  return { b0: b[0] / a0, b1: b[1] / a0, b2: b[2] / a0, a1: (-2 * cos) / a0, a2: (1 - alpha) / a0 };
+}
+
+function renderOffline(ev: readonly SynthEvent[], d: number): Float32Array {
+  const out = new Float32Array(Math.ceil(d * SR) + SR);
+  let seed = 12345;
+  const noise = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff) * 2 - 1;
+  for (const e of ev) {
+    const [kind, at, dur] = e;
+    const n0 = Math.floor(at * SR);
+    const n = Math.floor(dur * SR);
+    const env = (i: number, peak: number, a: number, r: number) => {
+      const t = i / SR;
+      const att = Math.min(a, dur * 0.5);
+      const rel = Math.min(r, dur - att);
+      if (t < att) return (peak * t) / Math.max(1e-6, att);
+      if (t > dur - rel) return (peak * (dur - t)) / Math.max(1e-6, rel);
+      return peak;
+    };
+    if (kind === "t") {
+      const [, , , wave, f0, f1, g, a, r, th, td] = e;
+      let ph = 0;
+      for (let i = 0; i < n; i++) {
+        ph = (ph + (f0 + ((f1 - f0) * i) / n) / SR) % 1;
+        const s = wave === 0 ? Math.sin(2 * Math.PI * ph) : wave === 1 ? (ph < 0.5 ? 1 : -1) : wave === 2 ? 2 * ph - 1 : 1 - 4 * Math.abs(ph - 0.5);
+        const trem = th > 0 && td > 0 ? 1 - td / 2 + (td / 2) * Math.sin((2 * Math.PI * th * i) / SR) : 1;
+        out[n0 + i] += s * env(i, g, a, r) * trem;
+      }
+    } else {
+      const [, , , ft, f0, f1, q, g, a, r] = e;
+      let [x1, x2, y1, y2] = [0, 0, 0, 0];
+      let c = biquadCoeffs(ft, f0, q);
+      for (let i = 0; i < n; i++) {
+        if (i % 64 === 0) c = biquadCoeffs(ft, f0 + ((f1 - f0) * i) / n, q);
+        const x = noise();
+        const y = c.b0 * x + c.b1 * x1 + c.b2 * x2 - c.a1 * y1 - c.a2 * y2;
+        [x2, x1, y2, y1] = [x1, x, y1, y];
+        out[n0 + i] += y * env(i, g, a, r);
+      }
+    }
+  }
+  return out;
+}
+
+/** Volume percepito stimato, in dB. */
+function loudnessDb(x: Float32Array): number {
+  const c = biquadCoeffs(2, 150, 0);
+  let [x1, x2, y1, y2] = [0, 0, 0, 0];
+  const W = Math.round(SR * 0.2);
+  const wins: number[] = [];
+  let s = 0;
+  let k = 0;
+  for (const v of x) {
+    const y = c.b0 * v + c.b1 * x1 + c.b2 * x2 - c.a1 * y1 - c.a2 * y2;
+    [x2, x1, y2, y1] = [x1, v, y1, y];
+    s += y * y;
+    if (++k === W) {
+      wins.push(Math.sqrt(s / W));
+      s = 0;
+      k = 0;
+    }
+  }
+  wins.sort((a, b) => a - b);
+  return 20 * Math.log10(Math.max(1e-9, wins[Math.floor(wins.length * 0.9)] ?? 0));
+}
+
+describe("TIG manche 1 · Rumore di fondo, volumi stimati", () => {
+  it("ogni suono, a pieno volume, sta intorno allo stesso livello percepito (correzione LOUDNESS)", () => {
+    for (const k of SOUND_KINDS) {
+      const db = loudnessDb(renderOffline(compileOne(k, 6, "verifica", 1), 6));
+      expect(Math.abs(db + 14), `${k}: ${db.toFixed(1)} dB`).toBeLessThan(3);
+    }
+  });
+
+  it("«dominante»: lo strato giusto si sente almeno 6 dB sopra gli altri; «estraneo»: i tre strati entro 4 dB", () => {
+    for (const c of variants<{ id: string; mode: string; layers: { sound: SoundKind; gain: number }[]; options: { id: string; sound: SoundKind }[]; solution: { optionId: string } }>("rumore-di-fondo")) {
+      const db = c.layers.map((_, i) => loudnessDb(renderOffline(compileLayer(c.layers, i, 6, c.id), 6)));
+      if (c.mode === "dominante") {
+        const right = c.options.find((o) => o.id === c.solution.optionId)!.sound;
+        const k = c.layers.findIndex((l) => l.sound === right);
+        for (let i = 0; i < db.length; i++) if (i !== k) expect(db[k] - db[i], `${c.id}: ${db.map((x) => x.toFixed(1)).join(" / ")}`).toBeGreaterThan(6);
+      } else {
+        expect(Math.max(...db) - Math.min(...db), `${c.id}: ${db.map((x) => x.toFixed(1)).join(" / ")}`).toBeLessThan(4);
+      }
     }
   });
 });

@@ -89,9 +89,9 @@ function estraneo(id: string, difficulty: "facile" | "media" | "difficile", copp
 
 function dominante(id: string, difficulty: "facile" | "media" | "difficile", forte: SoundKind, piano: [SoundKind, SoundKind], assente: SoundKind, explain: string): RumoreInput {
   const layers = [
-    { sound: piano[0], gain: 0.35 },
+    { sound: piano[0], gain: 0.3 },
     { sound: forte, gain: 1 },
-    { sound: piano[1], gain: 0.4 },
+    { sound: piano[1], gain: 0.32 },
   ];
   return {
     id,

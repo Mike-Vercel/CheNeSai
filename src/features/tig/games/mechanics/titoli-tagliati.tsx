@@ -109,7 +109,7 @@ function Tv(p: T) {
           <Clipping outlet={view.outlet} section={view.section} headline={view.headline} lead={view.lead} fill={fill} final tv />
           {done && <TvExplain text={reveal.explain} />}
         </div>
-        <TvPanel className="flex flex-col justify-center gap-[0.9cqw]">
+        <TvPanel className="flex flex-col justify-center gap-[0.7cqw] px-[1.2cqw] py-[1.2cqw]">
           {view.options.map((o, i) => (
             <TvOption key={o.id} index={i} text={o.text} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
           ))}

@@ -52,6 +52,13 @@ Dove si può, la soluzione è scritta anche in forma strutturata e `contentSchem
   singoli strati. Il telefono e la TV li suonano con Web Audio (`m1/synth-player.ts`) sul bus degli effetti del motore
   audio della piattaforma (rispetta volume e muto della TV). Versione testuale per l'accessibilità: descrizioni a
   parole dei suoni, senza nominarli.
+  - **Volumi equalizzati**: a parità di guadagno un rumore filtrato suona 20–30 dB più piano di un tono, quindi ogni
+    ricetta ha una correzione (`LOUDNESS` in `m1/synth.ts`) calcolata con un piccolo sintetizzatore offline (stessi
+    inviluppi e filtri del riproduttore; volume percepito stimato = passa-alto a 150 Hz + 90° percentile dell'RMS su
+    finestre di 200 ms). Risultato verificato dai test: ogni suono a pieno volume sta a −14 dB ±3; nelle varianti
+    «dominante» lo strato giusto è circa 10 dB sopra gli altri (minimo garantito 6 dB), nelle «estraneo» i tre strati
+    stanno entro 4 dB. Non ho potuto ascoltarli (niente audio in questo ambiente): la riconoscibilità dei timbri va
+    provata a orecchio in sala, il volume relativo invece è misurato.
 - Alternative testuali ovunque: `alt` di scene e foto, indizi a parole per ogni livello di Pixel killer, descrizione
   del video, lettura dei post per i lettori di schermo.
 
@@ -91,7 +98,9 @@ Dove si può, la soluzione è scritta anche in forma strutturata e `contentSchem
   registro `src/features/tig/games/manche-1.ts`.
 - Contenuti: `content/tig/minigiochi/<codice>.ts`, indice `content/tig/minigiochi/manche-1.ts`.
 - Test: `tests/unit/tig-giochi-m1.test.ts` (regole, controlli editoriali, render lato server di telefono e TV per ogni
-  variante in gioco/bloccata/reveal con 12 tavoli).
+  variante in gioco/bloccata/reveal con 12 tavoli, volumi stimati di Rumore di fondo).
+- Screenshot dell'anteprima: script `shots-m1.mjs` nella cartella di lavoro del coordinatore (tempi giusti per
+  queste prove: scena/feed/video in corso sulla TV, domanda sul telefono).
 
 ## File condivisi che non ho toccato ma andrebbero rivisti
 

@@ -212,7 +212,7 @@ const varianti: FeedInput[] = [
     id: "palloncino-al-parco",
     difficulty: "media",
     posts: [
-      post("@marta.e.figli", "Parco della Musica", "30 min", 312, "Domenica, palloncino perso dopo 4 minuti", foto("prato", [{ kind: "palloncino", tone: "red", x: 64, y: 30, s: 44 }]), "Un palloncino rosso che vola sopra il prato."),
+      post("@marta.e.figli", "Parco comunale", "30 min", 312, "Domenica, palloncino perso dopo 4 minuti", foto("prato", [{ kind: "palloncino", tone: "red", x: 64, y: 30, s: 44 }]), "Un palloncino rosso che vola sopra il prato."),
       post("@caffe.bar.sport", "Piazza Garibaldi", "1 h", 58, "Il cornetto è finito alle 8:05", foto("tavola", [{ kind: "tazza", label: "BAR", tone: "white", s: 44 }]), "Una tazza con scritto «Bar» su un bancone."),
       post("@alpinista.pigro", "Rifugio", "2 h", 744, "Salito in funivia, conta lo stesso", foto("neve", [{ kind: "zaino", tone: "amber", x: 50, y: 76, s: 40 }]), "Uno zaino arancione sulla neve."),
       post("@notte.fonda", "Lungofiume", "4 h", 199, "Luna piena e nessuno in giro", foto("notte", [{ kind: "chiavi", tone: "amber", x: 50, y: 82, s: 30 }]), "Delle chiavi su un muretto di notte."),
@@ -220,14 +220,14 @@ const varianti: FeedInput[] = [
     ],
     prompt: "Dove era stata scattata la foto del palloncino?",
     options: [
-      { id: "parco", text: "Parco della Musica" },
+      { id: "parco", text: "Parco comunale" },
       { id: "piazza", text: "Piazza Garibaldi" },
       { id: "fiume", text: "Lungofiume" },
       { id: "giardini", text: "Giardini pubblici" },
     ],
     check: { k: "di", kind: "palloncino", field: "place" },
     solution: { optionId: "parco" },
-    explain: "Il palloncino perso era al «Parco della Musica», primo post. Piazza Garibaldi era il bar, il lungofiume la foto notturna.",
+    explain: "Il palloncino perso era al «Parco comunale», primo post. Piazza Garibaldi era il bar, il lungofiume la foto notturna.",
   },
   {
     id: "quarto-post",
