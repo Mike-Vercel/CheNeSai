@@ -1,4 +1,7 @@
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
+import { UI_MANCHE_5 } from "@/features/tig/games/manche-5";
 import { MECHANIC_EXTRAS, mechanicByCode } from "@/lib/tig/games";
 import { loadVariants } from "@/lib/tig/games/content-core";
 import type { AcceptedSubmission, MechanicDef, PhaseCtx, TeamRef } from "@/lib/tig/games/contract";
@@ -386,5 +389,54 @@ describe("TIG manche 5 · regole", () => {
     const at = MECHANIC_EXTRAS["l-ultima-decisione"].publicViewAt!;
     expect((at(c, ctx, 14000) as { prompt: string | null }).prompt).toBeNull();
     expect((at(c, ctx, 15000) as { prompt: string | null }).prompt).not.toBeNull();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Schermate: ogni Player e ogni Tv si disegnano senza errori in tutte le fasi (rendering statico, niente browser)
+// ---------------------------------------------------------------------------
+
+describe.each(CODES.map((c) => [c] as const))("TIG manche 5 · schermate di %s", (code) => {
+  const def = mechanicByCode(code)!;
+  const extras = MECHANIC_EXTRAS[code];
+  const ui = UI_MANCHE_5[code];
+
+  it("telefono e TV si disegnano in gioco (inizio, metà, fine), a tempo scaduto e al reveal, anche per chi non è capitano", () => {
+    expect(ui, "schermate registrate").toBeTruthy();
+    for (const c of variants(code).slice(0, 3)) {
+      const ctx = makeCtx(def);
+      const me = ctx.teams[0];
+      const subs = extras.demoSubmissions(c, ctx, "ui");
+      const out = def.score({ content: c, ctx, submissions: subs });
+      const rev = def.reveal(c, out);
+      const mv = def.memberView ? def.memberView(c, { ...ctx, teamId: me.teamId, memberId: me.members[0], memberIndex: 0 }) : null;
+      const teams = ctx.teams.map((t, i) => ({ teamId: t.teamId, tableNo: t.tableNo, name: `Squadra ${i + 1}`, color: "#c6ff3d", submitted: i > 0 }));
+      const dur = def.timerSec * 1000;
+      for (const at of [0, 8000, 16000, 31000, dur - 1000]) {
+        const view = extras.publicViewAt ? extras.publicViewAt(c, ctx, at) : def.publicView(c, ctx);
+        const now = () => ctx.startsAt + at;
+        for (const [stage, captain] of [
+          ["play", true],
+          ["play", false],
+          ["locked", true],
+        ] as const) {
+          const html = renderToStaticMarkup(
+            createElement(ui.Player, { view, memberView: mv, stage, deadlineAt: ctx.deadlineAt, now, canSubmit: captain, submitted: false, submit: async () => ({ ok: true }), myTeam: me, reveal: null, myOutcome: null }),
+          );
+          expect(html.length).toBeGreaterThan(100);
+        }
+        const tv = renderToStaticMarkup(createElement(ui.Tv, { view, stage: "play", deadlineAt: ctx.deadlineAt, now, teams, reveal: null, outcome: null }));
+        expect(tv.length).toBeGreaterThan(100);
+        // la TV non mostra mai la spiegazione prima del reveal
+        expect(tv).not.toContain((c as { explain: string }).explain.slice(0, 40));
+      }
+      const full = def.publicView(c, ctx);
+      const end = () => ctx.deadlineAt;
+      const myOutcome = out.outcomes.find((o) => o.teamId === me.teamId) ?? null;
+      const p = renderToStaticMarkup(createElement(ui.Player, { view: full, memberView: mv, stage: "reveal", deadlineAt: ctx.deadlineAt, now: end, canSubmit: true, submitted: true, submit: async () => ({ ok: true }), myTeam: me, reveal: rev, myOutcome }));
+      const tv = renderToStaticMarkup(createElement(ui.Tv, { view: full, stage: "reveal", deadlineAt: ctx.deadlineAt, now: end, teams, reveal: rev, outcome: out }));
+      expect(p.length).toBeGreaterThan(100);
+      expect(tv.length).toBeGreaterThan(100);
+    }
   });
 });
