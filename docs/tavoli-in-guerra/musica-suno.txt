@@ -1,0 +1,290 @@
+TAVOLI IN GUERRA! — PROMPT "STYLES" PER SUNO (SOLO STRUMENTALI)
+==============================================================
+
+COME USARLI
+- In Suno: modalità Custom, interruttore "Instrumental" ACCESO, lascia vuoto il campo del testo.
+- Copia il blocco STYLES nel campo "Style of Music". I prompt sono in inglese perché Suno capisce meglio gli stili così.
+- Nel campo "Exclude styles" (se c'è) metti SEMPRE (tranne che per la sigla, vedi sotto):
+  vocals, singing, lyrics, choir, spoken word, rap, humming, whistling, crowd chanting
+- Titolo: usa il nome indicato (serve a me per riconoscere i file).
+- Durata consigliata: sigla 1:30-2:00; brani di sottofondo 2:00-3:00 (li faccio girare io in loop con dissolvenza);
+  stacchi brevi ("sting") 5-15 secondi: genera un brano corto e io taglio il pezzo migliore.
+- Se un risultato ha comunque una voce: rigeneralo, non si può usare.
+- Dove metterli: REFERENCE/GIOCHI/TAVOLI_IN_GUERRA/MUSICA/ con il NOME FILE indicato (mp3). Poi io li ottimizzo,
+  allineo il volume (come per le voci) e li collego: la musica si abbassa da sola quando parlano i presentatori.
+- Identità sonora del gioco: "war room notturna da pub": ambra e ciano, neon, competizione allegra, 25 anni,
+  game show TV moderno. Tonalità di casa: Mi minore. Il tema principale torna in tutti i brani "dello show".
+
+--------------------------------------------------------------
+A) IL TEMA DEL GIOCO (la sigla) — UNICO BRANO CHE «PARLA»: DICE «TAVOLI IN GUERRA!»
+--------------------------------------------------------------
+TITOLO: TAVOLI IN GUERRA - Sigla        NOME FILE: sigla.mp3
+ATTENZIONE: per la sigla l'interruttore "Instrumental" va SPENTO, e nel campo del testo (Lyrics) si mette SOLO il
+coro qui sotto. Le altre parole non devono esserci.
+
+STYLES:
+Modern TV game show main theme with a huge shouted gang vocal chant of the title only, in Italian: "Tavoli in guerra!". Stadium crowd chant, energetic mixed male and female voices shouting together, no sung verses, no other lyrics. Hybrid cinematic electronic: punchy trap-house drums with 808 and stadium claps, big brass stabs, gritty synth bass, bright catchy lead synth hook, orchestral hits, risers and a huge drop. 128 BPM, E minor, confident, competitive, playful, pub party energy for young adults.
+
+LYRICS (campo del testo, copialo così com'è):
+[Intro]
+[Big brass hit]
+
+[Chant]
+TAVOLI IN GUERRA!
+
+[Build]
+[Rising synths, drums building]
+
+[Drop]
+TAVOLI IN GUERRA!
+TAVOLI IN GUERRA!
+
+[Instrumental Hook]
+
+[Final Chant]
+TA-VO-LI... IN... GUER-RA!
+
+[Outro]
+[Big final hit]
+
+EXCLUDE STYLES (solo per la sigla):
+rap verses, sung melody, ballad, english lyrics, spoken word, long lyrics, autotune
+
+CONSIGLI PER LA SIGLA
+- Se Suno pronuncia male (es. «tavòli» o «ghèrra»), riprova scrivendo il coro così: TÀ-VO-LI IN GUÈR-RA!
+- Generane 4-6 versioni e scegli quella con il coro più potente e chiaro: si sente all'apertura e alla premiazione.
+- Se vuoi anche una versione SOLO strumentale della sigla (utile sotto la voce dei presentatori), rigenera lo stesso
+  STYLES con "Instrumental" acceso e salvala come  sigla-strumentale.mp3
+
+--------------------------------------------------------------
+B) I MOMENTI DELLO SHOW
+--------------------------------------------------------------
+1) LOBBY (si scansionano i QR)                  NOME FILE: lobby.mp3
+STYLES: Instrumental lounge electronic groove for a pub game show waiting room, warm Rhodes chords, deep house bass, soft claps, light percussion, the main theme hook hinted on a mellow synth, 112 BPM, E minor, relaxed but expectant, loop-friendly, no big drops.
+
+2) APERTURA DELLA SERATA                         NOME FILE: apertura.mp3
+STYLES: Instrumental epic game show opening, starts with a deep impact and ticking clock, rising strings and synth risers, brass fanfare on the main hook, explodes into an energetic trap-house drop, 128 BPM, E minor, "the show begins" feeling, cinematic and festive.
+
+3) STACCO DI MANCHE (5 versioni, 8-15 s)        NOME FILE: manche-1.mp3 ... manche-5.mp3
+   M1 CHI PARTE MALE...: Instrumental short game show stinger, playful electro-funk hit with plucky synths and a quick brass flourish, curious and light, 114 BPM, ends on a clean button.
+   M2 FREGALI TUTTI!: Instrumental short stinger, aggressive trap hit with brass stabs, siren swell and wobble bass, mischievous, 140 BPM half-time, ends on a hard stop.
+   M3 IL PUB DECIDE!: Instrumental short stinger, stomp-clap house hit with piano chords and crowd-style claps, communal party feeling, 122 BPM, ends on a big clap.
+   M4 IL GRANDE INGANNO: Instrumental short stinger, noir spy hit with muted trumpet, upright bass slide and vibraphone, sly and mysterious, 96 BPM, ends on an unresolved chord.
+   M5 TUTTO O NIENTE!: Instrumental short stinger, epic cinematic trailer hit with taiko drums, massive brass and strings, high stakes, 128 BPM, ends on a huge boom.
+
+4) PROVA IN CORSO (sottofondo generico)         NOME FILE: prova.mp3
+STYLES: Instrumental game show thinking music, low intensity, steady but discreet pulse, soft synth plucks, light ticking percussion, subtle bass, no melody that distracts, 110 BPM, E minor, focused and slightly tense, loop-friendly, leaves room for voice and sound effects.
+
+5) ULTIMI 10 SECONDI                             NOME FILE: ultimi-secondi.mp3
+STYLES: Instrumental 15-second tension riser for a quiz countdown, accelerating ticking clock, rising synth and strings, heartbeat kick, ends abruptly on an impact, urgent.
+
+6) RISPOSTA RIVELATA (5 s)                       NOME FILE: reveal.mp3
+STYLES: Instrumental short reveal sting, bright whoosh into a shiny synth chord and brass hit, satisfying "ta-da" game show moment.
+
+7) CLASSIFICA                                    NOME FILE: classifica.mp3
+STYLES: Instrumental leaderboard groove for a TV game show, confident funky electro-house with slap-style synth bass, brass hits on the main hook, rising tension in the second half, 124 BPM, E minor, competitive and fun.
+
+8) ALLARME CAOS! (8-12 s)                        NOME FILE: allarme-caos.mp3
+STYLES: Instrumental red alert alarm sting, industrial EDM with sirens, glitch hits, distorted bass drop, chaotic and adrenaline-filled, 150 BPM, ends on a massive impact.
+
+9) DUELLO DEL CAOS (45 s di sfida)               NOME FILE: duello-caos.mp3
+STYLES: Instrumental head-to-head duel music, aggressive drum and bass at 174 BPM with industrial textures, sirens in the background, call-and-response synths left and right, relentless energy, loop-friendly.
+
+10) EVOLUZIONE DELLA MASCOTTE (5-8 s)            NOME FILE: evoluzione.mp3
+STYLES: Instrumental magical power-up sting, rising sparkling arpeggios, shimmering synth swell, bass drop and a triumphant chord, video game level-up feeling.
+
+11) PAUSA                                         NOME FILE: pausa.mp3
+STYLES: Instrumental chill pub break music, laid-back nu-disco with warm guitar licks, soft synth pads and a groovy bass, 105 BPM, relaxed and social, loop-friendly, no tension.
+
+12) TUTTO O NIENTE! (inizio del finale)          NOME FILE: finale.mp3
+STYLES: Instrumental epic finale music for a game show, hybrid orchestral electronic, taiko drums, pulsing synth bass, soaring strings, the main theme hook in a darker heroic version, 128 BPM, E minor, all-or-nothing tension building to a climax.
+
+13) PREMIAZIONE / CAMPIONI                        NOME FILE: premiazione.mp3
+STYLES: Instrumental victory anthem for game show winners, triumphant brass fanfare on the main hook, stadium drums, confetti-like sparkling synths, euphoric chord progression, big celebratory drop, 128 BPM, E major, joyful and proud.
+
+14) SALUTO FINALE / TITOLI DI CODA               NOME FILE: saluti.mp3
+STYLES: Instrumental end credits for a pub game show, warm feel-good electro-funk version of the main theme, relaxed groove, nostalgic synth lead, 110 BPM, "see you next time" mood, gentle ending.
+
+--------------------------------------------------------------
+C) UN SOTTOFONDO PER OGNI MINIGIOCO (80)
+--------------------------------------------------------------
+Tutti strumentali, "loop-friendly", con spazio per voce ed effetti. Nome file: gioco-NN-codice.mp3
+Se vuoi risparmiare crediti, partono bene anche solo i 5 stacchi di manche + "prova.mp3": i minigiochi senza brano
+proprio usano quello generico.
+
+MANCHE 1 · CHI PARTE MALE...  (osservazione, memoria, logica: giocoso e curioso)
+01 Memoria lampo · gioco-01-memoria-lampo.mp3
+   Instrumental playful electro-funk, camera-shutter and flash percussion, bright arpeggiated synths, short bursts and sudden silences, curious and a little nervous, 116 BPM, loop-friendly.
+02 Pixel killer · gioco-02-pixel-killer.mp3
+   Instrumental chiptune meets modern electro-funk, bitcrushed synths that slowly become clearer, detective curiosity, playful, 112 BPM, loop-friendly.
+03 Screenshot traditore · gioco-03-screenshot-traditore.mp3
+   Instrumental minimal electro-pop, two almost identical synth motifs alternating with one note changed, glassy plucks, sly and playful, 110 BPM, loop-friendly.
+04 Tempo fantasma · gioco-04-tempo-fantasma.mp3
+   Instrumental floating ambient with NO steady beat and no tempo grid, ghostly reversed piano, airy pads, irregular soft pulses, eerie but playful.
+   (Importante: senza ritmo regolare, altrimenti la musica aiuta a contare i secondi.)
+05 Ordine nel caos · gioco-05-ordine-nel-caos.mp3
+   Instrumental chaotic jazzy breakbeat that gradually locks into a tight groove, scattered piano stabs falling into place, puzzle mood, 104 BPM, loop-friendly.
+06 Un secondo prima · gioco-06-un-secondo-prima.mp3
+   Instrumental suspended cinematic electro, tension builds then freezes on a cliffhanger, freeze-frame stabs, anticipation, 120 BPM.
+07 Titoli tagliati · gioco-07-titoli-tagliati.mp3
+   Instrumental parody of a retro TV newsroom theme, funky synth brass, ticker-tape percussion, ironic and bright, 118 BPM, loop-friendly.
+08 Non è quello che sembra · gioco-08-non-e-quello-che-sembra.mp3
+   Instrumental sweet lounge-pop with a slightly detuned twist, music box melody over funky bass, playful suspicion, 108 BPM, loop-friendly.
+09 La sequenza sporca · gioco-09-la-sequenza-sporca.mp3
+   Instrumental minimal techno, repeating mathematical pattern with one odd offbeat note, clean sine plucks, focused and nerdy, 120 BPM, loop-friendly.
+10 Il dettaglio da 100 · gioco-10-il-dettaglio-da-100.mp3
+   Instrumental glossy synth-pop, camera flash percussion, short intense build then a calm thinking groove, alert and focused, 114 BPM.
+11 La cifra improbabile · gioco-11-cifra-improbabile.mp3
+   Instrumental witty funk groove with marimba and abacus-like clicks, guessing game feeling, light, 110 BPM, loop-friendly.
+12 Rumore di fondo · gioco-12-rumore-di-fondo.mp3
+   Instrumental very sparse ambient bed, soft low drone and gentle clock ticks only, lots of empty space, calm focus, nothing that competes with sound effects.
+   (Durante l'ascolto dei suoni la musica la abbasso quasi a zero.)
+13 Feed in 5 secondi · gioco-13-feed-in-5-secondi.mp3
+   Instrumental bubbly hyperpop-lite, swipe whooshes, quick notification blips, energetic and light, 124 BPM, loop-friendly.
+14 Effetto domino · gioco-14-effetto-domino.mp3
+   Instrumental quirky electro-funk, domino clicks as percussion, cascading marimba runs, chain reaction feeling, 112 BPM, loop-friendly.
+15 Indizio dopo indizio · gioco-15-indizio-dopo-indizio.mp3
+   Instrumental detective funk in three growing sections, mysterious plucks evolving into a bright synth lead, curious, 106 BPM.
+16 Sotto la superficie · gioco-16-sotto-la-superficie.mp3
+   Instrumental lo-fi hip hop with underwater filtered keys and vinyl crackle, sly double-meaning mood, 88 BPM, loop-friendly.
+
+MANCHE 2 · FREGALI TUTTI!  (attacchi e furti: dispettoso, aggressivo, da colpo grosso)
+17 Scegli il bersaglio · gioco-17-scegli-il-bersaglio.mp3
+   Instrumental aggressive trap with sci-fi radar pings and target lock beeps, brass stabs, mischievous competition, 140 BPM half-time, loop-friendly.
+18 Taglia il tempo · gioco-18-taglia-il-tempo.mp3
+   Instrumental drum and bass 174 BPM, accelerating clock-tick percussion, scissor-snip effects, urgent speed duel, loop-friendly.
+19 Scudo rapido · gioco-19-scudo-rapido.mp3
+   Instrumental heroic synthwave, shield-hum pads, punchy drums, quick and bright, 128 BPM, loop-friendly.
+20 Contrattacco · gioco-20-contrattacco.mp3
+   Instrumental rock-trap hybrid, distorted guitar riff with 808 bass, comeback and payback energy, 140 BPM half-time, loop-friendly.
+21 Caccia alla capolista · gioco-21-caccia-alla-capolista.mp3
+   Instrumental chase music, galloping cinematic electro, pursuit strings and brass hits, thrilling, 150 BPM, loop-friendly.
+22 Furto con destrezza · gioco-22-furto-con-destrezza.mp3
+   Instrumental heist caper, sneaky pizzicato strings and muted trumpet over a slick funk groove, cheeky thief vibe, 100 BPM, loop-friendly.
+23 Asta al buio · gioco-23-asta-al-buio.mp3
+   Instrumental noir minimal piano, gavel knocks, low synth bass, secretive silent auction tension, 90 BPM, loop-friendly.
+24 Doppio rischio · gioco-24-doppio-rischio.mp3
+   Instrumental casino electro-swing, roulette clicks, rising brass, double-or-nothing thrill, 124 BPM, loop-friendly.
+25 Scegli il terreno · gioco-25-scegli-il-terreno.mp3
+   Instrumental tactical battle music, war-drum percussion and tactical synths, two contrasting motifs, strategic, 120 BPM, loop-friendly.
+26 La trappola · gioco-26-la-trappola.mp3
+   Instrumental creepy-fun spy groove, mousetrap snaps as percussion, stalking bassline, sly menace, 96 BPM, loop-friendly.
+27 Il patto di 60 secondi · gioco-27-il-patto-di-60-secondi.mp3
+   Instrumental uplifting buddy-cop funk, two melodies that interlock, cooperative energy, 112 BPM, loop-friendly.
+28 La sfida incrociata · gioco-28-la-sfida-incrociata.mp3
+   Instrumental electro battle, call-and-response synths panned left and right, mirror duel, 128 BPM, loop-friendly.
+29 Bottone del Caos · gioco-29-bottone-del-caos.mp3
+   Instrumental red alert industrial EDM, sirens, glitch hits, massive distorted drop, adrenaline, 150 BPM, loop-friendly.
+30 Scambio di posta · gioco-30-scambio-di-posta.mp3
+   Instrumental poker-night jazz-hop, chip clinks, cool high-stakes tension, 92 BPM, loop-friendly.
+31 Falso vantaggio · gioco-31-falso-vantaggio.mp3
+   Instrumental electro-swing mystery box, a music-box melody that turns slightly sinister, playful suspense, 116 BPM, loop-friendly.
+32 Ultima parola · gioco-32-ultima-parola.mp3
+   Instrumental game show tension bed that keeps rising, ticking build, commit-now feeling, 120 BPM.
+
+MANCHE 3 · IL PUB DECIDE!  (voti del locale: festa, battimani, tutti insieme)
+33 Prevedi la maggioranza · gioco-33-prevedi-la-maggioranza.mp3
+   Instrumental stomp-clap house, warm piano chords, communal party fun, 122 BPM, loop-friendly.
+34 Chi ha votato cosa? · gioco-34-chi-ha-votato-cosa.mp3
+   Instrumental playful disco-house, ballot-box thumps, curious crowd energy, 120 BPM, loop-friendly.
+35 Sincronizzati · gioco-35-sincronizzati.mp3
+   Instrumental minimal funk with a tight unison synth riff and perfectly synchronized hand claps, togetherness, 118 BPM, loop-friendly.
+36 Il capitano ci conosce? · gioco-36-il-capitano-ci-conosce.mp3
+   Instrumental confident feel-good funk, sly bassline, friendly teasing mood, 110 BPM, loop-friendly.
+37 Quanto siete prevedibili · gioco-37-quanto-siete-prevedibili.mp3
+   Instrumental quirky electro-swing with a kazoo-like synth lead, absurd fun, 124 BPM, loop-friendly.
+38 Pub contro tavolo · gioco-38-pub-contro-tavolo.mp3
+   Instrumental stadium stomp anthem, big drums and claps, one-against-all underdog energy, 126 BPM, loop-friendly.
+39 Il dilemma pubblico · gioco-39-dilemma-pubblico.mp3
+   Instrumental track alternating warm piano sections and tense synth sections, cooperate or compete dilemma, thoughtful, 108 BPM, loop-friendly.
+40 Parola che gira · gioco-40-parola-che-gira.mp3
+   Instrumental bouncy pop groove, typewriter percussion and spinning wheel ticks, playful word game, 120 BPM, loop-friendly.
+41 Indovina il preferito · gioco-41-indovina-il-preferito.mp3
+   Instrumental tropical house, light guitar plucks, sunny holiday and friends vibe, 118 BPM, loop-friendly.
+42 Catena di codici · gioco-42-catena-di-codici.mp3
+   Instrumental techy minimal house, keypad beeps forming a melody, focused teamwork, 122 BPM, loop-friendly.
+43 Questione di istinto · gioco-43-questione-di-istinto.mp3
+   Instrumental impulsive electro-rock, quiet sections cut by fast punchy drum fills, gut reaction, 132 BPM, loop-friendly.
+44 Allineamento perfetto · gioco-44-allineamento-perfetto.mp3
+   Instrumental dreamy chill electronic, synth arpeggios converging into one chord, planets aligning, 100 BPM, loop-friendly.
+45 Il pub ha torto? · gioco-45-il-pub-ha-torto.mp3
+   Instrumental swaggering bluesy rock groove with a sly twist, doubt and debate, 104 BPM, loop-friendly.
+46 Alleanza espressa · gioco-46-alleanza-espressa.mp3
+   Instrumental upbeat buddy funk, two complementary riffs that merge into one, quick alliance, 116 BPM, loop-friendly.
+47 Effetto gregge · gioco-47-effetto-gregge.mp3
+   Instrumental humorous marching stomp, tuba-like bass synth, follow-the-crowd feeling, 112 BPM, loop-friendly.
+48 Gira la scelta · gioco-48-gira-la-scelta.mp3
+   Instrumental carnival electro, clicking wheel percussion, suspense and fun, 124 BPM, loop-friendly.
+
+MANCHE 4 · IL GRANDE INGANNO  (bluff e indagini: noir, spie, sospetto)
+49 Credici o no · gioco-49-credici-o-no.mp3
+   Instrumental noir jazz, brushed drums, muted trumpet, upright bass, poker-face bluff tension, 92 BPM, loop-friendly.
+50 Il testimone · gioco-50-il-testimone.mp3
+   Instrumental dark cinematic noir, ticking clock, low strings, interrogation suspense, 84 BPM, loop-friendly.
+51 Tre versioni · gioco-51-tre-versioni.mp3
+   Instrumental detective noir jazz with three alternating lead instruments: saxophone, vibraphone and piano, 96 BPM, loop-friendly.
+52 Archivio manomesso · gioco-52-archivio-manomesso.mp3
+   Instrumental analog synth mystery, typewriter and paper rustle percussion, investigative mood, 90 BPM, loop-friendly.
+53 Compra un indizio · gioco-53-compra-un-indizio.mp3
+   Instrumental smoky lounge jazz-hop, cash register clinks, cool information deal, 94 BPM, loop-friendly.
+54 La contraddizione · gioco-54-la-contraddizione.mp3
+   Instrumental glitchy electro-noir, polygraph scratches, tense pulses, lie detector mood, 100 BPM, loop-friendly.
+55 Fiducia cieca · gioco-55-fiducia-cieca.mp3
+   Instrumental delicate piano over uneasy pads, slow build, trust-or-not doubt, 80 BPM, loop-friendly.
+56 La bugia più credibile · gioco-56-la-bugia-piu-credibile.mp3
+   Instrumental slick spy-funk, wah guitar, cheeky brass, smooth liar attitude, 104 BPM, loop-friendly.
+57 Doppio gioco · gioco-57-doppio-gioco.mp3
+   Instrumental spy thriller theme with a two-faced motif switching between major and minor, surf guitar and strings, 112 BPM, loop-friendly.
+58 Il messaggio interrotto · gioco-58-il-messaggio-interrotto.mp3
+   Instrumental cinematic suspense, radio static and stuttering synths, broken transmission, 96 BPM, loop-friendly.
+59 L'alibi impossibile · gioco-59-alibi-impossibile.mp3
+   Instrumental methodical noir, piano ostinato, ticking clock, chess-like investigation, 88 BPM, loop-friendly.
+60 Chi cambia versione · gioco-60-chi-cambia-versione.mp3
+   Instrumental cat-and-mouse orchestral pizzicato with sudden key changes, shifting stories, 100 BPM, loop-friendly.
+61 Negozio di sospetti · gioco-61-negozio-di-sospetti.mp3
+   Instrumental bluesy noir with a harmonica-like synth, shady evidence shop, 86 BPM, loop-friendly.
+62 La finta prova · gioco-62-la-finta-prova.mp3
+   Instrumental eerie music box over a dark trip-hop beat, fake evidence, 90 BPM, loop-friendly.
+63 La frase a metà · gioco-63-la-frase-a-meta.mp3
+   Instrumental minimal duet of two synths that never finish their phrase, suspenseful, 98 BPM, loop-friendly.
+64 Ultimo indizio · gioco-64-ultimo-indizio.mp3
+   Instrumental detective climax that adds a new layer every 15 seconds, building tension, 108 BPM.
+
+MANCHE 5 · TUTTO O NIENTE!  (finale: epico, alta tensione, puntate)
+65 Puntata nascosta · gioco-65-puntata-nascosta.mp3
+   Instrumental dark cinematic trap with orchestral hits and poker chip shuffles, all-in stakes, 140 BPM half-time, loop-friendly.
+66 Ultima chiamata · gioco-66-ultima-chiamata.mp3
+   Instrumental energetic big beat in three quick sections, horn stabs, last call rush, 132 BPM.
+67 La cassa chiusa · gioco-67-la-cassa-chiusa.mp3
+   Instrumental cinematic heist build, clicking lock tumbler percussion, three rising stages, 110 BPM.
+68 Solo un dettaglio · gioco-68-solo-un-dettaglio.mp3
+   Instrumental short intense cinematic pulse that settles into calm focus, one-shot memory, 116 BPM, loop-friendly.
+69 Soglia di rischio · gioco-69-soglia-di-rischio.mp3
+   Instrumental rising endless-tension riser, trailer drums, risk threshold, 120 BPM, loop-friendly.
+70 Punto di rottura · gioco-70-punto-di-rottura.mp3
+   Instrumental hybrid orchestral electronic in three escalating stages, breaking point, 126 BPM.
+71 Sicuro o rischio · gioco-71-sicuro-o-rischio.mp3
+   Instrumental split track alternating calm piano and explosive drums, safe or risky choice, 124 BPM, loop-friendly.
+72 Duello silenzioso · gioco-72-duello-silenzioso.mp3
+   Instrumental minimal western standoff, glassy synth lead, tense pauses, slow heartbeat drum, 90 BPM, loop-friendly.
+73 L'imboscata · gioco-73-l-imboscata.mp3
+   Instrumental stealth beat that suddenly explodes into a heavy drop, ambush, 140 BPM half-time, loop-friendly.
+74 Tre carte, un destino · gioco-74-tre-carte-un-destino.mp3
+   Instrumental mysterious tarot waltz in 3/4 meets cinematic electronics, fate and choice, 108 BPM, loop-friendly.
+75 Il mercato finale · gioco-75-il-mercato-finale.mp3
+   Instrumental glossy luxury trap, cash and chime percussion, last purchase before the end, 130 BPM half-time, loop-friendly.
+76 Il filo rosso · gioco-76-il-filo-rosso.mp3
+   Instrumental building cinematic synths with a recurring motif that ties everything together, recap and revelation, 112 BPM.
+77 Classifica buia · gioco-77-classifica-buia.mp3
+   Instrumental dark ambient pulse, heartbeat kick, lights-out blind tension, 80 BPM, loop-friendly.
+78 La penultima mossa · gioco-78-la-penultima-mossa.mp3
+   Instrumental chess endgame, tense strings and piano ostinato, strategic patience, 104 BPM, loop-friendly.
+79 Falso finale · gioco-79-falso-finale.mp3
+   Instrumental triumphant fanfare that stops abruptly and twists into a new bonus round groove, surprise, 128 BPM.
+80 L'ultima decisione · gioco-80-l-ultima-decisione.mp3
+   Instrumental epic hybrid trailer, taiko drums, soaring strings, massive brass, final decision climax, 128 BPM, E minor.
+
+--------------------------------------------------------------
+PRIORITÀ CONSIGLIATA (se vuoi partire dall'essenziale)
+1. sigla.mp3  2. lobby.mp3  3. prova.mp3  4. manche-1..5.mp3  5. classifica.mp3  6. allarme-caos.mp3
+7. premiazione.mp3  8. pausa.mp3  9. il resto dei momenti dello show  10. i brani dei singoli minigiochi.

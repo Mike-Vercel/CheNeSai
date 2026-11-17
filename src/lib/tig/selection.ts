@@ -74,10 +74,34 @@ function pick<T>(list: T[], rnd: () => number): T {
   return list[Math.floor(rnd() * list.length) % list.length];
 }
 
+/** Duello del Caos: prima la sua meccanica (stessa sfida per i due tavoli, +50 a chi vince). */
+export const CAOS_MECHANIC = "bottone-del-caos";
+
+/**
+ * Duelli che NON vanno bene per il Caos né per lo spareggio, dove serve una sfida IDENTICA e alla pari:
+ * cooperativi (si vince o si perde insieme), con ruoli diversi (attaccante/bersaglio) o di bluff tra i due tavoli.
+ * Restano normali prove della manche.
+ */
+export const NOT_FOR_CAOS = new Set([
+  "il-patto-di-60-secondi",
+  "caccia-alla-capolista",
+  "contrattacco",
+  "furto-con-destrezza",
+  "la-trappola",
+  "scambio-di-posta",
+  "alleanza-espressa",
+  "credici-o-no",
+  "fiducia-cieca",
+  "la-bugia-piu-credibile",
+  "doppio-gioco",
+  "la-frase-a-meta",
+  "l-imboscata",
+]);
+
 /** La meccanica è adatta al tipo di prova? */
 export function fitsKind(def: MechanicDef, kind: GameKind): boolean {
-  if (kind === "caos") return def.input === "duel";
-  if (kind === "tiebreak") return (def.input === "team" || def.input === "duel") && def.oneDeviceOk;
+  if (kind === "caos") return def.input === "duel" && !NOT_FOR_CAOS.has(def.code);
+  if (kind === "tiebreak") return (def.input === "team" || def.input === "duel") && def.oneDeviceOk && !NOT_FOR_CAOS.has(def.code);
   return true;
 }
 
@@ -97,6 +121,11 @@ export function selectGame(i: SelectionInput): Selection | null {
   const fresh = pool.filter((m) => usedCount(m.def.code) === 0);
   let candidates: typeof pool;
   let repeated = false;
+  const caosOwn = i.kind === "caos" ? pool.find((m) => m.def.code === CAOS_MECHANIC) : undefined;
+  if (caosOwn) {
+    // il Bottone del Caos ha la sua prova: si ripete volentieri (variante sempre nuova), senza dichiararla «ripetuta»
+    return { def: caosOwn.def, variant: pickVariant(caosOwn.def.code, caosOwn.variants, i, target, rnd), repeated: false, difficulty: target };
+  }
   if (i.kind === "regular") {
     const sameManche = fresh.filter((m) => m.def.manche === i.mancheNo);
     candidates = sameManche.length ? sameManche : fresh;

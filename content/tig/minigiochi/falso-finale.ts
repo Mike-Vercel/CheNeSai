@@ -1,0 +1,320 @@
+import type { FalsoInput } from "@/lib/tig/games/mechanics/falso-finale";
+
+/**
+ * 79 · FALSO FINALE — la TV mostra per 7 secondi una «classifica finale» di squadre inventate, poi la svolta e un
+ * mini-enigma che si risolve guardando quella classifica (resta visibile). Le righe vanno mostrate nell'ordine
+ * scritto qui, dall'alto in basso: alcuni enigmi si basano proprio su quell'ordine. Tipi di enigma tutti diversi;
+ * soluzioni verificate con calcolo.
+ */
+const varianti: FalsoInput[] = [
+  // --- facili ---
+  {
+    id: "solo-decine",
+    difficulty: "facile",
+    board: {
+      title: "Classifica finale · Quiz del martedì",
+      rows: [
+        { name: "Le Polpette Volanti", pts: 340 },
+        { name: "I Calzini Spaiati", pts: 310 },
+        { name: "Le Ciabatte Ruggenti", pts: 290 },
+        { name: "I Tramezzini Ribelli", pts: 265 },
+        { name: "Le Lumache Turbo", pts: 240 },
+        { name: "Gli Sbadigli Cronici", pts: 180 },
+      ],
+    },
+    twist: "Fermi tutti: questa classifica è truccata. Un punteggio non può esistere.",
+    prompt: "In questo quiz ogni risposta giusta valeva 10 punti, senza bonus né penalità. Quale squadra ha un punteggio impossibile?",
+    options: [
+      { id: "a", text: "Le Ciabatte Ruggenti" },
+      { id: "b", text: "I Tramezzini Ribelli" },
+      { id: "c", text: "Le Lumache Turbo" },
+      { id: "d", text: "Gli Sbadigli Cronici" },
+    ],
+    solution: { optionId: "b" },
+    explain: "Con 10 punti a risposta e niente bonus o penalità, ogni punteggio è un multiplo di 10 e finisce con lo zero. I Tramezzini Ribelli hanno 265: impossibile.",
+  },
+  {
+    id: "per-un-soffio",
+    difficulty: "facile",
+    board: {
+      title: "Finale · Torneo dell'aperitivo",
+      rows: [
+        { name: "Le Mozzarelle in Fuga", pts: 914 },
+        { name: "Le Lumache Turbo", pts: 846 },
+        { name: "I Cuscini Arrabbiati", pts: 790 },
+        { name: "Gli Ombrelli Rotti", pts: 731 },
+        { name: "I Panini Filosofi", pts: 688 },
+      ],
+    },
+    twist: "Non è finita: le Lumache Turbo chiedono la rivincita, ma prima vogliono sapere una cosa.",
+    prompt: "Le Lumache Turbo giurano di aver perso «per un soffio». Quanti punti in più sarebbero serviti per vincere da sole, senza pareggiare?",
+    options: [
+      { id: "a", text: "68 punti" },
+      { id: "b", text: "67 punti" },
+      { id: "c", text: "69 punti" },
+      { id: "d", text: "78 punti" },
+    ],
+    solution: { optionId: "c" },
+    explain: "914 − 846 = 68: con 68 punti in più le Lumache Turbo avrebbero solo pareggiato con le Mozzarelle in Fuga. Per vincere da sole ne servivano 69.",
+  },
+  {
+    id: "spareggio-errori",
+    difficulty: "facile",
+    board: {
+      title: "Classifica finale · Coppa del giovedì",
+      noteLabel: "Errori",
+      rows: [
+        { name: "I Biscotti Inzuppati", pts: 520, note: "4" },
+        { name: "Le Zucchine Ballerine", pts: 480, note: "7" },
+        { name: "I Telecomandi Smarriti", pts: 480, note: "3" },
+        { name: "Le Caffettiere Ansiose", pts: 480, note: "5" },
+        { name: "Gli Zaini Pesanti", pts: 410, note: "6" },
+        { name: "Le Sedie Traballanti", pts: 365, note: "9" },
+      ],
+    },
+    twist: "Il notaio della serata ferma tutto: tre squadre sono a pari punti e il secondo posto è sbagliato.",
+    prompt: "Regolamento: a pari punti passa avanti la squadra che ha commesso meno errori. Quale squadra è davvero seconda?",
+    options: [
+      { id: "a", text: "Le Zucchine Ballerine" },
+      { id: "b", text: "Le Caffettiere Ansiose" },
+      { id: "c", text: "I Biscotti Inzuppati" },
+      { id: "d", text: "I Telecomandi Smarriti" },
+    ],
+    solution: { optionId: "d" },
+    explain: "Zucchine Ballerine, Telecomandi Smarriti e Caffettiere Ansiose hanno tutte 480 punti. Passa avanti chi ha fatto meno errori: i Telecomandi Smarriti (3) sono secondi, poi le Caffettiere (5) e le Zucchine (7).",
+  },
+  {
+    id: "parola-nascosta",
+    difficulty: "facile",
+    board: {
+      title: "Classifica finale · Gran galà del quiz",
+      rows: [
+        { name: "Brioche Furiose", pts: 455 },
+        { name: "Ombrelli Rotti", pts: 430 },
+        { name: "Nuvole Pigre", pts: 402 },
+        { name: "Uova Strapazzate", pts: 377 },
+        { name: "Spugne Ottimiste", pts: 350 },
+      ],
+    },
+    twist: "Non è la fine: dentro questa classifica è nascosto un codice.",
+    prompt: "Leggete dall'alto in basso la prima lettera del nome di ogni squadra: formano una parola. Quale?",
+    options: [
+      { id: "a", text: "BONUS" },
+      { id: "b", text: "BUONO" },
+      { id: "c", text: "SUONO" },
+      { id: "d", text: "NUBI" },
+    ],
+    solution: { optionId: "a" },
+    explain: "Dall'alto: Brioche, Ombrelli, Nuvole, Uova, Spugne. Le iniziali fanno B-O-N-U-S: BONUS, proprio la prova che sta per partire.",
+  },
+  // --- medie ---
+  {
+    id: "ordine-alfabetico",
+    difficulty: "media",
+    board: {
+      title: "Classifica finale · Torneo di primavera",
+      rows: [
+        { name: "Ananas Nervosi", pts: 287 },
+        { name: "Biscotti Inzuppati", pts: 342 },
+        { name: "Calzini Spaiati", pts: 298 },
+        { name: "Divani Volanti", pts: 351 },
+        { name: "Elastici Tesi", pts: 279 },
+        { name: "Forchette Ribelli", pts: 305 },
+      ],
+    },
+    twist: "Sorpresa: questa non è una classifica. Qualcuno ha messo le squadre in ordine alfabetico.",
+    prompt: "Rimettete le squadre in ordine di punti, dal più alto al più basso. Quale squadra è davvero terza?",
+    options: [
+      { id: "a", text: "Calzini Spaiati" },
+      { id: "b", text: "Forchette Ribelli" },
+      { id: "c", text: "Biscotti Inzuppati" },
+      { id: "d", text: "Ananas Nervosi" },
+    ],
+    solution: { optionId: "b" },
+    explain: "In ordine di punti: Divani Volanti 351, Biscotti Inzuppati 342, Forchette Ribelli 305, Calzini Spaiati 298, Ananas Nervosi 287, Elastici Tesi 279. Terze le Forchette Ribelli.",
+  },
+  {
+    id: "iniziali-pari",
+    difficulty: "media",
+    board: {
+      title: "Classifica finale · Notte dei campioni",
+      rows: [
+        { name: "Forchette Ribelli", pts: 482 },
+        { name: "Ombrelli Rotti", pts: 455 },
+        { name: "Elastici Tesi", pts: 430 },
+        { name: "Spugne Ottimiste", pts: 418 },
+        { name: "Cuscini Arrabbiati", pts: 397 },
+        { name: "Tazze Sbeccate", pts: 376 },
+        { name: "Ananas Nervosi", pts: 351 },
+        { name: "Asciugamani Bagnati", pts: 330 },
+      ],
+    },
+    twist: "Fermi: il tabellone nasconde la parola d'ordine del bonus, ma non tutte le squadre contano.",
+    prompt: "Leggete dall'alto in basso le iniziali delle sole squadre con un punteggio pari. Che parola formano?",
+    options: [
+      { id: "a", text: "OCA" },
+      { id: "b", text: "FOCA" },
+      { id: "c", text: "SFIDA" },
+      { id: "d", text: "FESTA" },
+    ],
+    solution: { optionId: "d" },
+    explain: "Punteggi pari: Forchette 482, Elastici 430, Spugne 418, Tazze 376, Asciugamani 330, cioè F-E-S-T-A. Le squadre con punteggio dispari (455, 397, 351) darebbero OCA.",
+  },
+  {
+    id: "prove-vinte-truccate",
+    difficulty: "media",
+    board: {
+      title: "Classifica finale · Lega del venerdì",
+      noteLabel: "Prove vinte",
+      rows: [
+        { name: "Le Forchette Ribelli", pts: 780, note: "6" },
+        { name: "Le Lumache Turbo", pts: 690, note: "5" },
+        { name: "Le Ciabatte Ruggenti", pts: 690, note: "4" },
+        { name: "Gli Ombrelli Rotti", pts: 510, note: "3" },
+        { name: "Le Brioche Furiose", pts: 420, note: "2" },
+        { name: "I Divani Volanti", pts: 330, note: "1" },
+      ],
+    },
+    twist: "Il giudice di gara alza la mano: in questa classifica c'è una riga truccata.",
+    prompt: "Ogni squadra ha giocato 8 prove: ogni prova vinta valeva 120 punti, ogni prova persa 30. Quale squadra ha punti che non tornano con le sue prove vinte?",
+    options: [
+      { id: "a", text: "Le Lumache Turbo" },
+      { id: "b", text: "Le Ciabatte Ruggenti" },
+      { id: "c", text: "Gli Ombrelli Rotti" },
+      { id: "d", text: "Le Forchette Ribelli" },
+    ],
+    solution: { optionId: "b" },
+    explain: "Ogni vittoria in più vale 90 punti (120 invece di 30), partendo da 240 con zero vittorie. Con 4 vittorie si fanno 4 × 120 + 4 × 30 = 600 punti, non 690: le Ciabatte Ruggenti hanno i punti di chi ne ha vinte cinque.",
+  },
+  {
+    id: "penalita-dimenticate",
+    difficulty: "media",
+    board: {
+      title: "Finale · Coppa del condominio",
+      noteLabel: "Penalità",
+      rows: [
+        { name: "Le Polpette Volanti", pts: 612, note: "−80" },
+        { name: "I Calzini Spaiati", pts: 598, note: "−50" },
+        { name: "Le Spugne Ottimiste", pts: 571 },
+        { name: "Gli Ombrelli Rotti", pts: 566, note: "−10" },
+        { name: "Le Lumache Turbo", pts: 545 },
+        { name: "Le Brioche Furiose", pts: 503, note: "−30" },
+      ],
+    },
+    twist: "Brutte notizie per chi festeggia: le penalità non sono ancora state tolte.",
+    prompt: "I punti mostrati non tengono conto delle penalità della colonna «Penalità». Toglietele: quale squadra vince davvero?",
+    options: [
+      { id: "a", text: "Gli Ombrelli Rotti" },
+      { id: "b", text: "I Calzini Spaiati" },
+      { id: "c", text: "Le Spugne Ottimiste" },
+      { id: "d", text: "Le Polpette Volanti" },
+    ],
+    solution: { optionId: "c" },
+    explain: "Tolte le penalità: Polpette 532, Calzini 548, Spugne 571, Ombrelli 556, Lumache 545, Brioche 473. Vincono le Spugne Ottimiste, che non avevano penalità.",
+  },
+  // --- difficili ---
+  {
+    id: "sopra-la-media",
+    difficulty: "difficile",
+    board: {
+      title: "Classifica finale · Trofeo del lunedì",
+      rows: [
+        { name: "I Cornetti Pensanti", pts: 420 },
+        { name: "Le Melanzane Timide", pts: 390 },
+        { name: "I Peperoni Agitati", pts: 300 },
+        { name: "Le Chiavi Perse", pts: 280 },
+        { name: "I Ventilatori Pigri", pts: 210 },
+        { name: "Le Bollette Scadute", pts: 200 },
+      ],
+    },
+    twist: "Non è finita: resta da consegnare un premio speciale, e nessuno sa ancora a chi.",
+    prompt: "Il premio «Sopra la media» va a ogni squadra che ha più punti della media di questa classifica. Quante squadre lo vincono?",
+    options: [
+      { id: "a", text: "Una sola squadra" },
+      { id: "b", text: "Tre squadre" },
+      { id: "c", text: "Due squadre" },
+      { id: "d", text: "Quattro squadre" },
+    ],
+    solution: { optionId: "c" },
+    explain: "Il totale è 420 + 390 + 300 + 280 + 210 + 200 = 1.800 punti; diviso 6 squadre fa una media di 300. Più di 300 ne hanno solo Cornetti (420) e Melanzane (390): i Peperoni, con 300 esatti, sono pari alla media, non sopra.",
+  },
+  {
+    id: "squadra-doppia",
+    difficulty: "difficile",
+    board: {
+      title: "Classifica finale · Torneo d'autunno",
+      noteLabel: "Capitano",
+      rows: [
+        { name: "Le Polpette Volanti", pts: 470, note: "Giulia" },
+        { name: "I Panini Filosofi", pts: 455, note: "Marco" },
+        { name: "Le Zucchine Ballerine", pts: 420, note: "Sara" },
+        { name: "I Termosifoni Spenti", pts: 260, note: "Bea" },
+        { name: "Le Tazze Sbeccate", pts: 245, note: "Paolo" },
+        { name: "Gli Spaghetti Scotti", pts: 190, note: "Bea" },
+        { name: "I Lunedì Mattina", pts: 150, note: "Luca" },
+      ],
+    },
+    twist: "Colpo di scena: due di queste squadre sono la stessa squadra sotto falso nome.",
+    prompt: "Una squadra si è iscritta due volte con due nomi diversi: la riconoscete dal capitano. Contatela una volta sola, sommando i punti delle due righe. In che posizione arriva?",
+    options: [
+      { id: "a", text: "Prima" },
+      { id: "b", text: "Seconda" },
+      { id: "c", text: "Quarta" },
+      { id: "d", text: "Terza" },
+    ],
+    solution: { optionId: "d" },
+    explain: "Bea è capitana sia dei Termosifoni Spenti (260) sia degli Spaghetti Scotti (190): insieme fanno 450. Davanti restano Polpette Volanti (470) e Panini Filosofi (455): la squadra di Bea è terza, davanti alle Zucchine Ballerine (420).",
+  },
+  {
+    id: "squadra-intrusa",
+    difficulty: "difficile",
+    board: {
+      title: "Finale · Torneo dei sei quiz",
+      rows: [
+        { name: "I Cuscini Arrabbiati", pts: 172 },
+        { name: "Le Ciambelle Quadrate", pts: 151 },
+        { name: "Gli Scontrini Lunghi", pts: 128 },
+        { name: "I Ravioli Pensanti", pts: 85 },
+        { name: "Le Nuvole Pigre", pts: 75 },
+        { name: "I Tostapane Ribelli", pts: 64 },
+      ],
+    },
+    twist: "Il conteggio non torna: in classifica c'è una squadra che non ha mai giocato.",
+    prompt: "Si sono giocati 6 quiz e ogni quiz distribuiva esattamente 100 punti in tutto tra le squadre vere. Un burlone ha aggiunto una squadra finta. Quale?",
+    options: [
+      { id: "a", text: "I Tostapane Ribelli" },
+      { id: "b", text: "Le Nuvole Pigre" },
+      { id: "c", text: "I Ravioli Pensanti" },
+      { id: "d", text: "Gli Scontrini Lunghi" },
+    ],
+    solution: { optionId: "b" },
+    explain: "Le squadre vere devono sommare 6 × 100 = 600 punti. Il tabellone ne somma 172 + 151 + 128 + 85 + 75 + 64 = 675: ce ne sono 75 di troppo, proprio i punti delle Nuvole Pigre.",
+  },
+  {
+    id: "quaranta-e-settanta",
+    difficulty: "difficile",
+    board: {
+      title: "Classifica finale · Torneo del bonus",
+      rows: [
+        { name: "Gli Zaini Pesanti", pts: 220 },
+        { name: "I Biscotti Inzuppati", pts: 190 },
+        { name: "Le Melanzane Timide", pts: 180 },
+        { name: "I Telecomandi Smarriti", pts: 170 },
+        { name: "Le Caffettiere Ansiose", pts: 150 },
+        { name: "Le Sedie Traballanti", pts: 120 },
+      ],
+    },
+    twist: "Un momento: uno di questi punteggi non si può fare. Qualcuno ha barato.",
+    prompt: "In questo torneo si prendevano solo 40 punti per ogni risposta giusta e 70 per ogni prova bonus, nient'altro. Quale squadra ha un punteggio impossibile da ottenere?",
+    options: [
+      { id: "a", text: "I Biscotti Inzuppati" },
+      { id: "b", text: "Le Melanzane Timide" },
+      { id: "c", text: "I Telecomandi Smarriti" },
+      { id: "d", text: "Le Caffettiere Ansiose" },
+    ],
+    solution: { optionId: "c" },
+    explain: "Basta togliere 70 una o due volte e vedere se resta un multiplo di 40: 190 = 120 + 70, 180 = 40 + 140, 150 = 80 + 70. Con 170 non funziona: 170, 100 e 30 non sono multipli di 40. I Telecomandi Smarriti hanno barato.",
+  },
+];
+
+export default varianti;
