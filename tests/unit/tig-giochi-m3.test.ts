@@ -49,6 +49,9 @@ const CODES = [
   ["chi-ha-votato-cosa", 34],
   ["il-capitano-ci-conosce", 36],
   ["quanto-siete-prevedibili", 37],
+  ["pub-contro-tavolo", 38],
+  ["parola-che-gira", 40],
+  ["indovina-il-preferito", 41],
 ] as const;
 
 describe("TIG manche 3 · registro e contenuti", () => {
@@ -223,5 +226,177 @@ describe("37 Quanto siete prevedibili", () => {
     expect(at(98)).toBe(100);
     expect(at(90)).toBe(80);
     expect(at(0)).toBe(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 38 · Pub contro tavolo
+// ---------------------------------------------------------------------------
+
+describe("38 Pub contro tavolo", () => {
+  type C = { questions: { id: string; options: { id: string }[] }[]; solution: { answers: Record<string, string> } };
+  const def = m<C, { picks: Record<string, string> }>("pub-contro-tavolo");
+  const c = first<C>("pub-contro-tavolo");
+  /** risposte con le prime `n` giuste e le altre sbagliate */
+  const picks = (n: number) => Object.fromEntries(c.questions.map((q, i) => [q.id, i < n ? c.solution.answers[q.id] : q.options.find((o) => o.id !== c.solution.answers[q.id])!.id]));
+  const champOf = (ctx: PhaseCtx) => (def.publicView(c, ctx) as { champion: { teamId: string } }).champion.teamId;
+
+  it("20 a risposta per tutti; +40 allo sfidante solo se supera la media dei rivali", () => {
+    const ctx = makeCtx(def, [team(1, 2), team(2, 6), team(3, 3)]);
+    const champ = champOf(ctx);
+    const rivals = ctx.teams.map((t) => t.teamId).filter((id) => id !== champ);
+    const win = def.score({ content: c, ctx, submissions: [sub(champ, { picks: picks(4) }), sub(rivals[0], { picks: picks(2) }), sub(rivals[1], { picks: picks(3) })] });
+    expect(byTeam(win)).toEqual({ [champ]: 120, [rivals[0]]: 40, [rivals[1]]: 60 });
+    expect(summaryOf<{ beaten: boolean; rivalsAvg: number }>(win)).toMatchObject({ beaten: true, rivalsAvg: 2.5 });
+    // pari alla media non basta: serve superarla
+    const tie = def.score({ content: c, ctx, submissions: [sub(champ, { picks: picks(3) }), sub(rivals[0], { picks: picks(2) }), sub(rivals[1], { picks: picks(4) })] });
+    expect(byTeam(tie)[champ]).toBe(60);
+    expect(summaryOf<{ beaten: boolean }>(tie)!.beaten).toBe(false);
+    // il pub che resiste prende solo Energia Caos, mai punti tolti allo sfidante
+    for (const o of tie.outcomes) expect(o.points).toBeGreaterThanOrEqual(0);
+    expect(tie.outcomes.find((o) => o.teamId === rivals[0])!.chaos).toBe(2);
+  });
+
+  it("sfidante estratto col seme: stabile, uguale in vista e nel punteggio; senza rivali basta 3 su 5", () => {
+    const ctx = makeCtx(def, [team(1, 2), team(2, 2), team(3, 2), team(4, 2)], "seme-x");
+    expect(champOf(ctx)).toBe(champOf({ ...ctx }));
+    const seen = new Set(["a", "b", "c", "d", "e", "f", "g", "h"].map((s) => champOf({ ...ctx, seed: s })));
+    expect(seen.size).toBeGreaterThan(1);
+    const solo = makeCtx(def, [team(9, 3)]);
+    expect(byTeam(def.score({ content: c, ctx: solo, submissions: [sub("t9", { picks: picks(3) })] })).t9).toBe(100);
+    expect(byTeam(def.score({ content: c, ctx: solo, submissions: [sub("t9", { picks: picks(2) })] })).t9).toBe(40);
+  });
+
+  it("ogni variante ha 5 domande con risposta e nota", () => {
+    for (const v of variants<C & { solution: { notes: Record<string, string> } }>("pub-contro-tavolo")) {
+      expect(v.questions).toHaveLength(5);
+      for (const q of v.questions) {
+        expect(q.options.map((o) => o.id)).toContain(v.solution.answers[q.id]);
+        expect(v.solution.notes[q.id]?.length).toBeGreaterThan(5);
+      }
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 40 · Parola che gira
+// ---------------------------------------------------------------------------
+
+/** Le regole scritte nei contenuti, tradotte in controlli sulle lettere (per verificare ogni eliminazione). */
+function rulePredicate(text: string): (w: string) => boolean {
+  const t = text.toLowerCase();
+  const vowel = (ch: string | undefined) => !!ch && "aeiou".includes(ch);
+  const double = (w: string) => /(.)\1/.test(w);
+  let r: RegExpMatchArray | null;
+  if ((r = t.match(/una doppia oppure che finiscono con la lettera ([a-z])/))) {
+    const l = r[1];
+    return (w) => double(w) || w.endsWith(l);
+  }
+  if ((r = t.match(/contengono la lettera ([a-z]) oppure la lettera ([a-z])/))) {
+    const [a, b] = [r[1], r[2]];
+    return (w) => w.includes(a) || w.includes(b);
+  }
+  if (t.includes("iniziano e finiscono con la stessa lettera")) return (w) => w[0] === w[w.length - 1];
+  if (t.includes("iniziano e finiscono con una vocale")) return (w) => vowel(w[0]) && vowel(w[w.length - 1]);
+  if (t.includes("solo due vocali")) return (w) => [...w].filter((ch) => vowel(ch)).length === 2;
+  if ((r = t.match(/finiscono con la lettera ([a-z])/))) {
+    const l = r[1];
+    return (w) => w.endsWith(l);
+  }
+  if ((r = t.match(/iniziano con la lettera ([a-z])/))) {
+    const l = r[1];
+    return (w) => w.startsWith(l);
+  }
+  if (t.includes("iniziano con una vocale")) return (w) => vowel(w[0]);
+  if ((r = t.match(/contengono la lettera ([a-z])/))) {
+    const l = r[1];
+    return (w) => w.includes(l);
+  }
+  if (t.includes("una doppia")) return double;
+  if ((r = t.match(/meno di (\d+) lettere/))) {
+    const n = Number(r[1]);
+    return (w) => w.length < n;
+  }
+  if ((r = t.match(/più di (\d+) lettere/))) {
+    const n = Number(r[1]);
+    return (w) => w.length > n;
+  }
+  if ((r = t.match(/di (\d+) lettere o più/))) {
+    const n = Number(r[1]);
+    return (w) => w.length >= n;
+  }
+  if ((r = t.match(/esattamente (\d+) lettere/))) {
+    const n = Number(r[1]);
+    return (w) => w.length === n;
+  }
+  throw new Error(`regola non riconosciuta: ${text}`);
+}
+
+describe("40 Parola che gira", () => {
+  type C = { id: string; words: { id: string; text: string }[]; rules: { text: string; removes: string[] }[]; solution: { wordId: string } };
+  const def = m<C, { word: string; survivor: string }>("parola-che-gira");
+  const c = first<C>("parola-che-gira");
+
+  it("ogni regola toglie esattamente le parole dichiarate e sopravvive solo la soluzione (controllo sulle lettere)", () => {
+    for (const v of variants<C>("parola-che-gira")) {
+      let left = v.words.slice();
+      for (const rule of v.rules) {
+        const p = rulePredicate(rule.text);
+        const gone = left.filter((w) => p(w.text.toLowerCase())).map((w) => w.id);
+        expect(gone.sort(), `${v.id}: ${rule.text}`).toEqual(rule.removes.slice().sort());
+        left = left.filter((w) => !gone.includes(w.id));
+      }
+      expect(left.map((w) => w.id), v.id).toEqual([v.solution.wordId]);
+    }
+  });
+
+  it("+30 per la parola unica, +70 per la sopravvissuta; un voto per tavolo", () => {
+    const [w1, w2] = c.words.map((w) => w.id);
+    const ok = c.solution.wordId;
+    const ko = c.words.find((w) => w.id !== ok)!.id;
+    const ctx = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2)]);
+    const out = def.score({ content: c, ctx, submissions: [sub("t1", { word: w1, survivor: ok }), sub("t2", { word: w2, survivor: ok }), sub("t3", { word: w2, survivor: ko })] });
+    expect(byTeam(out)).toEqual({ t1: 100, t2: 70, t3: 0 });
+    const s = summaryOf<{ proposals: Record<string, number>; unique: string[] }>(out)!;
+    expect(s.proposals[w2]).toBe(2);
+    expect(s.unique).toEqual([w1]);
+  });
+
+  it("nessun testo libero: la vista pubblica contiene solo parole della lista e regole", () => {
+    const v = def.publicView(c, makeCtx(def)) as { words: { id: string; text: string }[]; rules: unknown[] };
+    expect(v.words.map((w) => w.text)).toEqual(c.words.map((w) => w.text));
+    expect(v.rules.every((r) => typeof r === "string")).toBe(true);
+    expect(def.submissionSchema.safeParse({ word: "Parola libera con spazi", survivor: c.solution.wordId }).success).toBe(false);
+    // parole fuori lista: invio ignorato
+    const out = def.score({ content: c, ctx: makeCtx(def), submissions: [sub("t1", { word: "inventata", survivor: c.solution.wordId })] });
+    expect(byTeam(out).t1).toBe(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 41 · Indovina il preferito
+// ---------------------------------------------------------------------------
+
+describe("41 Indovina il preferito", () => {
+  type C = { scenarios: { id: string }[] };
+  const def = m<C, { vote: string; favorite: string; last: string }>("indovina-il-preferito");
+  const c = first<C>("indovina-il-preferito");
+  const [a, b, cc, d] = c.scenarios.map((s) => s.id);
+
+  it("preferito del pubblico +70, meno votato +30 (un voto per tavolo, parità a pari merito)", () => {
+    const ctx = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2), team(4, 2)]);
+    // voti: a, a, b, d → preferito a; meno votato c (zero voti)
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [sub("t1", { vote: a, favorite: a, last: cc }), sub("t2", { vote: a, favorite: a, last: b }), sub("t3", { vote: b, favorite: b, last: cc }), sub("t4", { vote: d, favorite: d, last: a })],
+    });
+    expect(byTeam(out)).toEqual({ t1: 100, t2: 70, t3: 30, t4: 0 });
+    expect(summaryOf<{ winners: string[]; losers: string[] }>(out)).toMatchObject({ winners: [a], losers: [cc] });
+  });
+
+  it("preferito e meno votato devono essere diversi", () => {
+    expect(def.submissionSchema.safeParse({ vote: a, favorite: b, last: b }).success).toBe(false);
+    expect(def.submissionSchema.safeParse({ vote: a, favorite: b, last: a }).success).toBe(true);
   });
 });

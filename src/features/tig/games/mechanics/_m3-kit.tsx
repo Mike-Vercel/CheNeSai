@@ -126,14 +126,24 @@ export function PercentPicker({ value, onChange, disabled = false, label, onEnte
 }
 
 /** Timbro grande del reveal in TV (es. «IL PUB HA TORTO!»). */
-export function TvStamp({ children, tone = "lime", sub }: { children: ReactNode; tone?: "lime" | "red" | "ice"; sub?: ReactNode }) {
+export function TvStamp({ children, tone = "lime", sub, size = "lg" }: { children: ReactNode; tone?: "lime" | "red" | "ice"; sub?: ReactNode; size?: "sm" | "lg" }) {
   const color = tone === "red" ? "#ff3b4e" : tone === "ice" ? "#eef2f6" : "#c6ff3d";
   return (
     <div className="tg-pop flex flex-col items-center gap-[0.4cqw] text-center">
-      <p className="tg-display -rotate-2 rounded-[0.8cqw] border-[0.35cqw] px-[1.6cqw] py-[0.6cqw] text-[4.4cqw] leading-none" style={{ borderColor: color, color }}>
+      <p className={clsx("tg-display -rotate-2 rounded-[0.8cqw] border-[0.35cqw] leading-none", size === "sm" ? "px-[1.1cqw] py-[0.4cqw] text-[2.7cqw]" : "px-[1.6cqw] py-[0.6cqw] text-[4.4cqw]")} style={{ borderColor: color, color }}>
         {children}
       </p>
       {sub && <p className="text-[1.5cqw] font-bold text-white/80">{sub}</p>}
+    </div>
+  );
+}
+
+/** Spiegazione del reveal in TV in formato compatto (per colonne strette). */
+export function TvExplainCompact({ text, className, title = "Perché" }: { text: string; className?: string; title?: string }) {
+  return (
+    <div className={clsx("tg-glass tg-rise min-h-0 overflow-hidden rounded-[1.6cqw] p-[1.4cqw]", className)}>
+      <p className="mb-[0.3cqw] text-[0.95cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">{title}</p>
+      <p className="text-[1.3cqw] font-semibold leading-snug text-white/90">{text}</p>
     </div>
   );
 }
