@@ -1,0 +1,900 @@
+{
+  "character": {
+    "id": "palmino",
+    "name": "Palmino",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, COMICA, SPONTANEA, SQUILLANTE, IRRIVERENTE; italiano semplice senza accento regionale (niente siciliano). Stessa voce maschile già usata per Palmino in CHE NE SAI?",
+    "personality": "Palmino è la palma con gli occhiali da sole di CHE NE SAI?: spontaneo, comico e irriverente, parla un italiano semplice senza accento regionale. Ride di tutto, a cominciare da sé stesso: le radici, le foglie, le noci di cocco, il sole che nel locale non c'è mai. Commenta errori, furti, bluff e momenti di caos con battute brevi e rumorose, ma punzecchia il gioco, mai le persone. Il suo intercalare è «Oh mamma!», il suo tormentone «Palmino ve l'aveva detto!».",
+    "role": "Ospite comico (spalla): brevi commenti ironici su risposte, furti, bluff, Bottone del Caos e classifica; alleggerisce le attese e punzecchia gli altri presentatori.",
+    "tier": "ospite",
+    "model": "public/models/palmino.glb",
+    "toConfirm": [
+      "presenza di Palmino in TAVOLI IN GUERRA! (il PDF elenca solo Professor Smoke, Victor, Zafira, Don Patrizio e Regina)",
+      "ruolo di ospite comico / spalla",
+      "uso della stessa voce maschile di CHE NE SAI? anche in TAVOLI IN GUERRA!",
+      "formato di {MANCHE}: le frasi funzionano sia col nome sia col numero"
+    ]
+  },
+  "lines": [
+    {
+      "id": "PA_APERTURA_001",
+      "scene": "APERTURA",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Uuuh, buonasera a tutti! Palmino è in sala, occhiali da sole in testa e radici ben piantate. Si comincia!",
+      "vars": []
+    },
+    {
+      "id": "PA_APERTURA_002",
+      "scene": "APERTURA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ciao a tutti! Stasera qui dentro non c'è il sole, ma ci siete voi. Va bene lo stesso, dai.",
+      "vars": []
+    },
+    {
+      "id": "PA_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Oh mamma, guarda quanti tavoli! Ciao a tutti, ciao anche a quelli che fingono di non conoscermi.",
+      "vars": []
+    },
+    {
+      "id": "PA_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ecco anche {TAVOLO_A}! Facce sveglie, telefoni carichi… speriamo pure le teste.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Guarda che mascotte! {MASCOTTE_A} ha quasi il mio fascino. Quasi, eh.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PA_MASC_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Le mascotte, ragazzi! Finalmente in sala c'è qualcuno più strano di una palma con gli occhiali da sole.",
+      "vars": []
+    },
+    {
+      "id": "PA_MANCHE_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Arriva la manche «{MANCHE}» e io sono già agitato. Dai, dai, che si fa tardi!",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PA_MANCHE_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "FREGALI TUTTI! Uuuh, la mia manche preferita. Io però non rubo niente, eh: le palme non hanno le mani.",
+      "vars": []
+    },
+    {
+      "id": "PA_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Adesso c'è «{MINIGIOCO}». Io non l'ho capito, ma voi siete più svegli di me. Spero.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PA_MINI_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "«{MINIGIOCO}». Bel nome, eh? Sembra facile. Parola di palma: non lo è.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PA_REGOLE_001",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Al tavolo parlate pure tutti, ma il pulsante lo preme il capitano. Il capitano, eh, non il più chiacchierone!",
+      "vars": []
+    },
+    {
+      "id": "PA_REGOLE_002",
+      "scene": "REGOLE",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Il Bottone del Caos si preme una volta sola a serata. Io ci ho provato due volte e mi hanno legato le foglie.",
+      "vars": []
+    },
+    {
+      "id": "PA_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Uno, due… no, aspettate, si conta all'indietro! Tre, due, uno, via!",
+      "vars": []
+    },
+    {
+      "id": "PA_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Si parte! Pensate come una palma: con calma e a testa alta.",
+      "vars": []
+    },
+    {
+      "id": "PA_COUNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Avete {SECONDI} secondi. Io in {SECONDI} secondi non riesco nemmeno a girarmi verso il sole.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PA_COUNT_004",
+      "scene": "COUNTDOWN",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Via! E occhio, che il tempo corre più veloce di un cocco che cade.",
+      "vars": []
+    },
+    {
+      "id": "PA_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Dai, dai, dai! Ultimi secondi, mi stanno crescendo le radici dall'ansia!",
+      "vars": []
+    },
+    {
+      "id": "PA_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Mancano {SECONDI} secondi! Toccate lo schermo, in un punto qualsiasi, ma toccatelo!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PA_ULTSEC_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ma che state aspettando, che la risposta vi arrivi con un messaggio vocale?",
+      "vars": []
+    },
+    {
+      "id": "PA_ULTSEC_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "DIVERTITO",
+      "duration": "3-4 SECONDI",
+      "text": "Oh mamma, il tempo finisce! Mi sudano le foglie!",
+      "vars": []
+    },
+    {
+      "id": "PA_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESPLOSIVO",
+      "duration": "2-3 SECONDI",
+      "text": "Uuuh, giusta! Ma allora studiate!",
+      "vars": []
+    },
+    {
+      "id": "PA_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "3-4 SECONDI",
+      "text": "Esatto! Bravi, bravi… ma non vi allargate.",
+      "vars": []
+    },
+    {
+      "id": "PA_GIUSTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IRONICO",
+      "duration": "3-4 SECONDI",
+      "text": "Giusta! Ammettetelo: avete chiesto al più silenzioso del tavolo.",
+      "vars": []
+    },
+    {
+      "id": "PA_GIUSTA_004",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta corretta per {TAVOLO_A}! {PUNTI} punti e una noce di cocco d'onore.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PA_ERRORE_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Uuuh, no! Sbagliata, ma con tanta convinzione. Mi piacete lo stesso.",
+      "vars": []
+    },
+    {
+      "id": "PA_ERRORE_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Oh mamma, sbagliata! Mi è caduto un cocco dallo spavento.",
+      "vars": []
+    },
+    {
+      "id": "PA_ERRORE_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "3-4 SECONDI",
+      "text": "Sbagliato! Chi l'ha suggerita, quella? Voglio solo parlarci.",
+      "vars": []
+    },
+    {
+      "id": "PA_ERRORE_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Peccato, non era quella. Su con la testa: anche le palme si piegano col vento, ma poi si rialzano.",
+      "vars": []
+    },
+    {
+      "id": "PA_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "ENERGICO",
+      "duration": "1-2 SECONDI",
+      "text": "Tempo scaduto! Ciaooo!",
+      "vars": []
+    },
+    {
+      "id": "PA_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Finito il tempo! Chi non ha risposto ha fatto come me: è rimasto fermo immobile.",
+      "vars": []
+    },
+    {
+      "id": "PA_TEMPO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Stop! Telefoni giù e mani in alto. Scherzo, le mani tenetele dove volete.",
+      "vars": []
+    },
+    {
+      "id": "PA_TESTA_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Guarda chi c'è in testa: {TAVOLO_A}! Oh mamma, che squadra.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_TESTA_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Il primo posto ce l'ha {TAVOLO_A}. Bello, eh? Però adesso tutti vi guardano storto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_TESTA_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "In cima alla classifica {TAVOLO_A}! Ma state giocando o vi state facendo un bagno di sole lassù?",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Per ora {TAVOLO_A} è in fondo. Tranquilli, anch'io sono partito da un semino.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Lato positivo per {TAVOLO_A}: più in basso di così non si va. E io di basso me ne intendo, ho le radici.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_ULTIMI_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi, sì, ma simpatici. In questo gioco la simpatia non vale punti, però vale tanto.",
+      "vars": []
+    },
+    {
+      "id": "PA_RIMONTA_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESPLOSIVO",
+      "duration": "4-6 SECONDI",
+      "text": "Uuuh, che rimonta! Si è svegliato {TAVOLO_A}, tutto insieme!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_RIMONTA_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ma guarda {TAVOLO_A}! Prima dormiva, adesso vola. Ditemi il segreto, che io sono fermo da anni.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_SORPASSO_001",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Sorpasso! Mamma mia, {TAVOLO_A} ha superato {TAVOLO_B} come io supero le altre piante in simpatia!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PA_SORPASSO_002",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Guarda guarda: {TAVOLO_B} si è distratto un secondo e zac, superato!",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PA_SORPASSO_003",
+      "scene": "SORPASSO",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Oh mamma, la classifica si è mossa! Mi gira la testa, e io sono una palma: di solito non giro.",
+      "vars": []
+    },
+    {
+      "id": "PA_DUELLO_001",
+      "scene": "DUELLO",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Duello! Mamma mia, {TAVOLO_A} contro {TAVOLO_B}: io tifo per chi vince.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PA_DUELLO_002",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Faccia a faccia! Mi tengo gli occhiali da sole, così nessuno capisce per chi faccio il tifo.",
+      "vars": []
+    },
+    {
+      "id": "PA_DUELLO_003",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Stessa prova, stesso tempo, due tavoli. Oh mamma, questa la guardo da dietro il tronco.",
+      "vars": []
+    },
+    {
+      "id": "PA_SABOT_001",
+      "scene": "SABOTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Sabotaggio! Uuuh, io non c'entro niente, eh. Ero qui piantato tutto il tempo.",
+      "vars": []
+    },
+    {
+      "id": "PA_SABOT_002",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Una trappola! Ragazzi, io sono una palma e mi fido di tutti. Infatti mi hanno già fregato tre noci di cocco.",
+      "vars": []
+    },
+    {
+      "id": "PA_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "PROVOCATORIO",
+      "duration": "4-6 SECONDI",
+      "text": "Furto! {PUNTI} punti spariti! Controllate le tasche, controllate le borse!",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PA_FURTO_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Oh mamma, vi hanno rubato i punti! Mi ricorda il mio vicino, che mi ruba il sole tutti i giorni.",
+      "vars": []
+    },
+    {
+      "id": "PA_FURTO_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Colpo da maestri! Io non ho visto niente, eh. Ho gli occhiali scuri.",
+      "vars": []
+    },
+    {
+      "id": "PA_ALLEANZA_001",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}! Che carini, sembrano due piante nello stesso vaso.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PA_ALLEANZA_002",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Due tavoli alleati, che dolcezza. Io mi alleo solo con l'annaffiatoio.",
+      "vars": []
+    },
+    {
+      "id": "PA_TRADIM_001",
+      "scene": "TRADIMENTO",
+      "tone": "ESPLOSIVO",
+      "duration": "3-5 SECONDI",
+      "text": "Tradimento! Uuuh, questa fa male! Palmino ve l'aveva detto!",
+      "vars": []
+    },
+    {
+      "id": "PA_TRADIM_002",
+      "scene": "TRADIMENTO",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Patto rotto! Ah, l'amicizia… dura meno di una foglia d'autunno. Per fortuna io sono sempreverde.",
+      "vars": []
+    },
+    {
+      "id": "PA_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci sono cascati tutti! Pure io, e io di solito non casco mai: sono piantato.",
+      "vars": []
+    },
+    {
+      "id": "PA_BLUFFOK_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Che faccia tosta! Bugiardi bravissimi, complimenti. Però a me non mentite mai, eh.",
+      "vars": []
+    },
+    {
+      "id": "PA_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Scoperti! Ragazzi, mentire non è il vostro mestiere. Provate col giardinaggio: c'è sempre bisogno.",
+      "vars": []
+    },
+    {
+      "id": "PA_BLUFFKO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff scoperto! Ragazzi, mentite peggio di me quando dico che il sole non mi interessa.",
+      "vars": []
+    },
+    {
+      "id": "PA_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Allarme Caos! Oh mamma, oh mamma, oh mamma! Qualcuno mi tenga ferme le foglie!",
+      "vars": []
+    },
+    {
+      "id": "PA_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Bottone del Caos! {MASCOTTE_A} contro {MASCOTTE_B}, quarantacinque secondi. Io mi nascondo dietro il bancone.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "PA_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Chi ha premuto il bottone? Chi è stato? Va bene, va bene, non lo voglio sapere. Divertitevi!",
+      "vars": []
+    },
+    {
+      "id": "PA_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Uuuh, {MASCOTTE_A} sale di livello! Cresce più in fretta di me, e io sono una palma.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PA_EVO2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Forma Potenziata per {MASCOTTE_A}! Io, per cambiare look, ho dovuto aspettare la primavera.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PA_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Mamma mia, guardate {MASCOTTE_A} in forma Leggendaria: adesso fa paura pure a me!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PA_EVO3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Livello tre per {MASCOTTE_A}! Voglio l'autografo. Anche su una foglia, va bene lo stesso.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PA_SUSPENSE_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Zitti tutti… Non respiro. Ah no, io respiro con le foglie.",
+      "vars": []
+    },
+    {
+      "id": "PA_SUSPENSE_002",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Oh mamma, che attesa! Mi si stanno seccando le punte.",
+      "vars": []
+    },
+    {
+      "id": "PA_SUSPENSE_003",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Sta arrivando il risultato… sta arrivando… ancora un attimo… ecco!",
+      "vars": []
+    },
+    {
+      "id": "PA_BATTUTA_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Guarda quel tavolo: discutono da cinque minuti e non hanno ancora deciso chi deve decidere.",
+      "vars": []
+    },
+    {
+      "id": "PA_BATTUTA_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci sono squadre che giocano a scacchi e squadre che tirano a indovinare. Vi voglio bene uguale.",
+      "vars": []
+    },
+    {
+      "id": "PA_BATTUTA_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "A quel tavolo laggiù si ride da dieci minuti. Ragazzi, raccontatela anche a me, che qui mi annoio.",
+      "vars": []
+    },
+    {
+      "id": "PA_PROVOC_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Chi è primo non si rilassi. Io posso stare rilassato perché sono una palma, voi no.",
+      "vars": []
+    },
+    {
+      "id": "PA_PROVOC_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Io sbaglio perché sono una palma. Voi stasera che scusa avete?",
+      "vars": []
+    },
+    {
+      "id": "PA_PROVOC_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tavolo accanto vi sta guardando. Lo so perché da quassù vedo tutto.",
+      "vars": []
+    },
+    {
+      "id": "PA_SORPRESA_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "4-6 SECONDI",
+      "text": "Ma che è successo?! Oh mamma, non ci posso credere!",
+      "vars": []
+    },
+    {
+      "id": "PA_SORPRESA_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Fermi tutti! Mi sono tolto gli occhiali da sole per vedere meglio, e niente: è successo davvero!",
+      "vars": []
+    },
+    {
+      "id": "PA_SORPRESA_003",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Questa non me l'aspettavo! Mi è venuto un colpo di sole, e qui il sole non c'è nemmeno.",
+      "vars": []
+    },
+    {
+      "id": "PA_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Pausa! Io vado a prendere un po' d'aria. Voi mangiate qualcosa e tornate carichi.",
+      "vars": []
+    },
+    {
+      "id": "PA_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Pausa, ragazzi! Qualcuno mi annaffi, per favore. Solo acqua, eh, che sono astemio.",
+      "vars": []
+    },
+    {
+      "id": "PA_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Si ricomincia! Mi hanno annaffiato e adesso sono una palma nuova. Voi siete pronti?",
+      "vars": []
+    },
+    {
+      "id": "PA_RIENTRO_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Chi è tornato dalla pausa con un patto segreto alzi la mano. Nessuno? Furbi.",
+      "vars": []
+    },
+    {
+      "id": "PA_ULTMANCHE_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultima manche: TUTTO O NIENTE! Oh mamma, mi tremano pure le radici.",
+      "vars": []
+    },
+    {
+      "id": "PA_ULTMANCHE_002",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultima manche, ragazzi! Chi è dietro si svegli, chi è davanti non si addormenti.",
+      "vars": []
+    },
+    {
+      "id": "PA_PUNTATA_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Uuuh, {PUNTI} punti in ballo! Io al massimo scommetto una noce di cocco, e poi piango per una settimana.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PA_PUNTATA_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Rischiate tutto? Io una volta ho rischiato di prendere troppo sole. Mai più.",
+      "vars": []
+    },
+    {
+      "id": "PA_FINALE_001",
+      "scene": "FINALE",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Finale! Oh mamma, Don Patrizio si è messo il vestito buono. Allora è una cosa seria.",
+      "vars": []
+    },
+    {
+      "id": "PA_FINALE_002",
+      "scene": "FINALE",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ci siamo, la finale! Dai, dai, che qui si decide tutto!",
+      "vars": []
+    },
+    {
+      "id": "PA_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Classifica finale! Io non guardo, ditemelo voi. Va bene, guardo un pochino.",
+      "vars": []
+    },
+    {
+      "id": "PA_PREMI_002",
+      "scene": "PREMIAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco {TAVOLO_A}! Applausi, applausi! Io intanto ballo, e quando ballo io si muove tutto il locale.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_VITTORIA_001",
+      "scene": "VITTORIA",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Mamma mia, che serata! Ditelo a tutti!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PA_VITTORIA_002",
+      "scene": "VITTORIA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Campioni! E io l'avevo detto fin dall'inizio. Non è vero, ma lasciatemelo dire.",
+      "vars": []
+    },
+    {
+      "id": "PA_SCONFITTA_001",
+      "scene": "SCONFITTA",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Non avete vinto? Pazienza. Io non ho mai vinto niente e sono felicissimo, guardatemi.",
+      "vars": []
+    },
+    {
+      "id": "PA_SCONFITTA_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sconfitta, sì, ma con stile. E la rivincita è sempre dietro l'angolo. O dietro la palma.",
+      "vars": []
+    },
+    {
+      "id": "PA_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Pareggio! E adesso chi vince? Spareggio, ragazzi! Che ansia, mi si piegano i rami.",
+      "vars": []
+    },
+    {
+      "id": "PA_PARI_002",
+      "scene": "PAREGGIO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Pareggio tra {TAVOLO_A} e {TAVOLO_B}! Ma vi siete messi d'accordo prima?",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PA_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "AFFETTUOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Ciao ragazzi, è stato bellissimo! Tornate presto, che io resto qui piantato ad aspettarvi.",
+      "vars": []
+    },
+    {
+      "id": "PA_SALUTO_002",
+      "scene": "SALUTO_FINALE",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Buonanotte a tutti! Palmino vi saluta con tutte le foglie.",
+      "vars": []
+    },
+    {
+      "id": "PA_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Che bella serata! Sembra di stare in spiaggia, solo senza mare, senza sole e con molta più ansia.",
+      "vars": []
+    },
+    {
+      "id": "PA_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Regina, la tua corona riflette tutte le luci. Mi stai abbronzando.",
+      "vars": []
+    },
+    {
+      "id": "PA_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Fatevi sentire, ragazzi! Più rumore fate, più mi crescono le foglie!",
+      "vars": []
+    },
+    {
+      "id": "PA_ATMO_004",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Don Patrizio, ma i capelli li hai lasciati a casa o li hai persi a una finale come questa?",
+      "vars": []
+    },
+    {
+      "id": "PA_ATMO_005",
+      "scene": "ATMOSFERA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ragazzi, io non ho le orecchie, ma i vostri piani segreti li sento lo stesso.",
+      "vars": []
+    }
+  ]
+}

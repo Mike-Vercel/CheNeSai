@@ -1,0 +1,611 @@
+{
+  "character": {
+    "id": "bumbaru",
+    "name": "Bumbarù",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO ROTONDO, CALDO, PIENO, MEDIO-GRAVE, RISATA GRASSA E CONTAGIOSA, CADENZA DA COMANDANTE DI BORDO ALL'ALTOPARLANTE",
+    "personality": "PROPOSTA dall'aspetto (mostro arancione tondo a pois viola, corna, occhialoni da aviatore, buco nella pancia dove vive Bumbarino): il «comandante di bordo» della serata. Carattere caloroso, entusiasta, rumoroso e un po' goffo; parla per metafore di volo (decollo, turbolenza, atterraggio, cinture allacciate). Ha l'energia di chi organizza la serata nel gruppo e arriva per primo. Nella pancia ospita Bumbarino, piccola creatura viola che commenta di continuo: Bumbarù riferisce e ribatte alle sue uscite («Bumbarino dice che...»), creando gag a due voci dentro una sola battuta. Tifa per le rimonte, consola senza compatire, esulta forte. Ironia adulta: chat di gruppo, appuntamenti, conti da dividere, vacanze organizzate male.",
+    "role": "Ospite comico «comandante di bordo»: apertura, inizio manche, rientro dalla pausa, rimonte, evoluzioni delle mascotte e Bottone del Caos; spalla calorosa dei presentatori.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/BUMBARU_PARLANTE.glb",
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)",
+      "voce di Bumbarino: qui le sue uscite sono riferite da Bumbarù (BUMBARINO_PARLANTE.glb potrebbe avere battute proprie)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "BU_APE_001",
+      "scene": "APERTURA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Buonasera pub! Qui è il vostro comandante Bumbarù: allacciate le cinture, stasera si decolla verso il caos.",
+      "vars": []
+    },
+    {
+      "id": "BU_APE_002",
+      "scene": "APERTURA",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Quello nella mia pancia è Bumbarino: non è la cena, ci vive. E divide pure le spese, più o meno.",
+      "vars": []
+    },
+    {
+      "id": "BU_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENTUSIASTA",
+      "duration": "10-13 SECONDI",
+      "text": "Benvenuti a bordo, tavoli! Bumbarino ha già contato i posti e dice che stasera siete più agguerriti di un gruppo che deve dividere il conto.",
+      "vars": []
+    },
+    {
+      "id": "BU_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "CALOROSO",
+      "duration": "11-14 SECONDI",
+      "text": "Ecco {MASCOTTE_A}, la mascotte che tifa per {TAVOLO_A}! Bumbarino chiede già il numero: un bel passo avanti, di solito non risponde nemmeno ai vocali.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Torre di controllo, qui Bumbarù: pista libera per la manche {MANCHE}. Si decolla!",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "BU_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "9-12 SECONDI",
+      "text": "Prossima tappa del volo: {MINIGIOCO}. Bumbarino dice che è facile, ma lo diceva anche del mobile con le istruzioni a disegnini.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "BU_REG_001",
+      "scene": "REGOLE",
+      "tone": "CHIARO, BONARIO",
+      "duration": "9-12 SECONDI",
+      "text": "Regola d'oro di bordo: una decisione per tavolo, e la invia il capitano. Discutete pure, ma senza trasformarla in una riunione di condominio.",
+      "vars": []
+    },
+    {
+      "id": "BU_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "3-5 SECONDI",
+      "text": "Motori accesi! Tre, due, uno... decollo!",
+      "vars": []
+    },
+    {
+      "id": "BU_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "SOLENNE, SCHERZOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Cinture allacciate, tavolini in posizione verticale. Si parte tra tre, due, uno!",
+      "vars": []
+    },
+    {
+      "id": "BU_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Bumbarino conta con me, che altrimenti salta il due. Tre... due... uno... via!",
+      "vars": []
+    },
+    {
+      "id": "BU_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "CONCITATO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi {SECONDI} secondi! È il momento di scegliere, non di aprire un sondaggio nel gruppo!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "BU_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "URGENTE",
+      "duration": "4-6 SECONDI",
+      "text": "Turbolenza in arrivo, mancano pochi secondi: capitani, mani sul pulsante!",
+      "vars": []
+    },
+    {
+      "id": "BU_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESULTANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Atterraggio perfetto! Risposta giusta e applauso dalla cabina.",
+      "vars": []
+    },
+    {
+      "id": "BU_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Giusto! Bumbarino sta facendo la ola dentro la mia pancia, e vi assicuro che si sente.",
+      "vars": []
+    },
+    {
+      "id": "BU_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SODDISFATTO",
+      "duration": "4-6 SECONDI",
+      "text": "Esatto, {PUNTI} punti in stiva per {TAVOLO_A}. Che equipaggio!",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CONSOLANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Ahia, risposta sbagliata. Niente panico: anche i migliori piloti, ogni tanto, sbagliano aeroporto.",
+      "vars": []
+    },
+    {
+      "id": "BU_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "COMICO",
+      "duration": "7-9 SECONDI",
+      "text": "No, purtroppo no! Bumbarino ha appena nascosto la faccia nella mia pancia, e già ci stava dentro.",
+      "vars": []
+    },
+    {
+      "id": "BU_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO, AFFETTUOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Sbagliata, ma detta con una convinzione che quasi ci credevo. Riprovateci, l'atteggiamento c'è.",
+      "vars": []
+    },
+    {
+      "id": "BU_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DECISO",
+      "duration": "5-7 SECONDI",
+      "text": "Tempo scaduto! Il gate è chiuso: chi non ha inviato resta a terra.",
+      "vars": []
+    },
+    {
+      "id": "BU_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "9-12 SECONDI",
+      "text": "Fine del tempo. Lo so, stavate per decidere: è quello che diciamo tutti al ristorante, quando il cameriere torna per la terza volta.",
+      "vars": []
+    },
+    {
+      "id": "BU_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Quota di crociera raggiunta per {TAVOLO_A}, in testa alla classifica. Adesso non guardate giù.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Comanda {TAVOLO_A}! Bumbarino vuole già il vostro autografo, io aspetto il finale per non portare sfortuna.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "10-13 SECONDI",
+      "text": "In coda per ora c'è {TAVOLO_A}, ma in coda si sta comodi e si vede tutto il volo. La rimonta è ancora prenotabile.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "AFFETTUOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}, ma Bumbarino tifa per voi: ha un debole per chi parte male e finisce benissimo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESULTANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Che rimonta! Guardate {TAVOLO_A}: risale come un aereo che riprende quota dopo un vuoto d'aria!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENTUSIASTA",
+      "duration": "7-9 SECONDI",
+      "text": "Recupero pazzesco! Li davo per dispersi e invece eccoli qui, carrello giù e sorriso stampato in faccia.",
+      "vars": []
+    },
+    {
+      "id": "BU_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "CONCITATO",
+      "duration": "8-10 SECONDI",
+      "text": "Sorpasso in pieno volo: {TAVOLO_A} supera {TAVOLO_B}! Freccia messa? No. Ma va bene così.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Cambio al comando! Scende di un posto {TAVOLO_B}, e Bumbarino ha già mandato un messaggio di condoglianze.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_DUE_001",
+      "scene": "DUELLO",
+      "tone": "EPICO",
+      "duration": "8-10 SECONDI",
+      "text": "Duello in quota: {TAVOLO_A} contro {TAVOLO_B}! Stessa prova, stesso tempo, e uno solo atterra con il premio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_DUE_002",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "10-13 SECONDI",
+      "text": "Testa a testa tra {MASCOTTE_A} e {MASCOTTE_B}! Bumbarino tifa per tutti e due i tavoli: in ogni gruppo c'è chi non si schiera mai.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "BU_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SORPRESO, IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio a bordo! Turbolenza artificiale in arrivo per {TAVOLO_B}. Niente di grave, solo qualche scossone voluto.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "CONCITATO",
+      "duration": "7-9 SECONDI",
+      "text": "Furto in stiva: {TAVOLO_A} si porta a casa {PUNTI} punti, e a pagare è {TAVOLO_B}.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Punti rubati! Tutto regolare, è nel regolamento. Bumbarino però ha appena nascosto il portafoglio in fondo alla pancia, per sicurezza.",
+      "vars": []
+    },
+    {
+      "id": "BU_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "CALOROSO",
+      "duration": "9-12 SECONDI",
+      "text": "Alleanza firmata tra {TAVOLO_A} e {TAVOLO_B}! Due tavoli che vanno d'accordo: sembra quasi una cena di gruppo riuscita.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SCIOCCATO, COMICO",
+      "duration": "9-12 SECONDI",
+      "text": "Tradimento a metà volo: {TAVOLO_A} molla l'alleato! Bumbarino è sotto shock, e dire che guarda solo serie piene di colpi di scena.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "9-12 SECONDI",
+      "text": "Bluff riuscito! Faccia da poker e voce ferma: {TAVOLO_A} ha fregato mezzo pub, e anche me. E io ho gli occhialoni.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff scoperto! Ci avete provato, ma Bumbarino vi aveva letto in faccia già da dentro la pancia.",
+      "vars": []
+    },
+    {
+      "id": "BU_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ALLARMATO, COMICO",
+      "duration": "5-7 SECONDI",
+      "text": "ALLARME CAOS! Ripeto: ALLARME CAOS! Mantenete la calma, io non ci riesco.",
+      "vars": []
+    },
+    {
+      "id": "BU_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "EPICO",
+      "duration": "11-14 SECONDI",
+      "text": "Il Bottone del Caos è stato premuto! {MASCOTTE_A} e {MASCOTTE_B} in pista per una sfida lampo: chi vince porta a casa cinquanta punti. Cinture strette!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "BU_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENTUSIASTA",
+      "duration": "10-13 SECONDI",
+      "text": "{MASCOTTE_A} sale al livello 2! Nuovo look, più energia. Bumbarino chiede se esiste una versione potenziata anche per chi vive in una pancia.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "BU_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "COMMOSSO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello 3, forma leggendaria! {MASCOTTE_A} adesso brilla più di una pista d'atterraggio di notte. Mi commuovo, scusate.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "BU_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "3-5 SECONDI",
+      "text": "Silenzio in cabina... il comandante sta per leggere l'esito.",
+      "vars": []
+    },
+    {
+      "id": "BU_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "TESO, COMICO",
+      "duration": "7-9 SECONDI",
+      "text": "Fermi tutti. Bumbarino trattiene il fiato, e dalla pancia sento il silenzio più lungo della sua vita.",
+      "vars": []
+    },
+    {
+      "id": "BU_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO, IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci siamo. È quel momento in cui il messaggio risulta letto, ma la risposta non arriva...",
+      "vars": []
+    },
+    {
+      "id": "BU_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Vedo confabulare {TAVOLO_A} da cinque minuti: o sta risolvendo il gioco, o sta organizzando le vacanze di agosto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni tavolo ha quello che dice «fidatevi di me» e poi sbaglia. Stasera ne ho contati almeno sei.",
+      "vars": []
+    },
+    {
+      "id": "BU_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Tutto tranquillo per {TAVOLO_B}? Calma strategica, o qualcuno sta scorrendo le storie?",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "BU_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO, AFFETTUOSO",
+      "duration": "9-12 SECONDI",
+      "text": "Bumbarino dice che {TAVOLO_A} gioca come chi fa il check-in all'ultimo minuto. Io dico che al gate, però, ci arriva sempre.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ho visto tavoli più decisi davanti al menù del sushi. Coraggio, che stasera si vola!",
+      "vars": []
+    },
+    {
+      "id": "BU_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "STUPITO",
+      "duration": "5-7 SECONDI",
+      "text": "Ma come?! Non me l'aspettavo nemmeno io, e ho gli occhialoni per vedere lontano!",
+      "vars": []
+    },
+    {
+      "id": "BU_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo di scena! Bumbarino mi ha appena dato un pugnetto nella pancia per la sorpresa.",
+      "vars": []
+    },
+    {
+      "id": "BU_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "8-10 SECONDI",
+      "text": "Pausa! Il volo fa scalo: bagno, ordini, due chiacchiere, e controllate pure le notifiche. Si riparte tra dieci minuti.",
+      "vars": []
+    },
+    {
+      "id": "BU_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Bentornati a bordo! Riprendete posto e rimettete le cinture: la seconda parte del volo è quella con le turbolenze migliori.",
+      "vars": []
+    },
+    {
+      "id": "BU_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche: si prepara l'atterraggio. E come in ogni atterraggio, c'è chi applaude e chi tiene gli occhi chiusi.",
+      "vars": []
+    },
+    {
+      "id": "BU_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Puntata rischiosa: {TAVOLO_A} si gioca {PUNTI} punti. Bumbarino ha chiuso gli occhi, io no: voglio vedere tutto.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "BU_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Tutto su una carta? Bumbarino approva, ma Bumbarino una volta ha prenotato per sbaglio un volo alle quattro del mattino.",
+      "vars": []
+    },
+    {
+      "id": "BU_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE, ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Atterraggio finale! Luci della pista accese, tavoli in posizione: adesso si scopre chi ha pilotato meglio.",
+      "vars": []
+    },
+    {
+      "id": "BU_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSO",
+      "duration": "7-9 SECONDI",
+      "text": "È il momento della premiazione! Bumbarino ha lucidato la coppa con le sue manine. Non fate domande.",
+      "vars": []
+    },
+    {
+      "id": "BU_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "ESULTANTE",
+      "duration": "9-12 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Applausi dalla cabina e da tutto il pub! Bumbarino piange di gioia, e io subito dietro.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "BU_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE",
+      "duration": "8-10 SECONDI",
+      "text": "Stasera non è andata, ma avete giocato davvero. Bumbarino dice che la prossima volta vi tiene un posto in prima classe.",
+      "vars": []
+    },
+    {
+      "id": "BU_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "STUPITO",
+      "duration": "6-8 SECONDI",
+      "text": "Pareggio! Due tavoli atterrati nello stesso istante. Mai visto, e ho parecchie ore di volo.",
+      "vars": []
+    },
+    {
+      "id": "BU_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALOROSO",
+      "duration": "11-14 SECONDI",
+      "text": "Il volo finisce qui. Grazie a tutti i passeggeri, tornate a casa con calma. Un saluto da me e da Bumbarino: ci rivediamo al prossimo decollo!",
+      "vars": []
+    },
+    {
+      "id": "BU_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "BONARIO",
+      "duration": "7-9 SECONDI",
+      "text": "Comunicazione dalla cabina: il pub è caldo, i tavoli sono svegli e Bumbarino ha fame. Tutto nella norma.",
+      "vars": []
+    },
+    {
+      "id": "BU_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "COMICO",
+      "duration": "13-16 SECONDI",
+      "text": "Bumbarino mi chiede se può fare un giro tra i tavoli. Ho detto di no: l'ultima volta ha fatto amicizia con un intero tavolo e la mia pancia è rimasta vuota per un'ora.",
+      "vars": []
+    },
+    {
+      "id": "BU_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Questo pub ha più energia di una chat di gruppo quando qualcuno scrive: «ho una notizia».",
+      "vars": []
+    },
+    {
+      "id": "BU_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Se vi sentite persi, guardate gli altri tavoli: sono persi anche loro. Ma con più stile.",
+      "vars": []
+    }
+  ]
+}

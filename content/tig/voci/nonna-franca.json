@@ -1,0 +1,794 @@
+{
+  "character": {
+    "id": "nonna-franca",
+    "name": "Nonna Franca",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, ANZIANA, VIVACE, PUNGENTE",
+    "personality": "La nonna sportiva e sfacciata che ribalta ogni cliché: corre, fa pilates, va agli appuntamenti e ha una vita sociale più piena dei ventenni in sala. Chiama tutti «tesori», punzecchia con affetto e con frecciate rapide su chat di gruppo, ex, messaggi lasciati senza risposta e buoni propositi del lunedì; usa metafore da allenamento (riscaldamento, scatto, fiato, maratona). Tifa per chi è in difficoltà e smonta chi si monta la testa. Dal modello: capelli grigi, bandana rossa a pois, occhiali rossi, giacca sportiva viola, sneakers.",
+    "role": "Ospite d'onore e commentatrice pungente: motiva i tavoli in fondo, punge chi è in testa, scandisce countdown come una gara e accompagna pause e rientri.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/FRANCA_PARLANTE.glb",
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipo di voce (proposta)",
+      "ruolo nello show (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "NF_APE_001",
+      "scene": "APERTURA",
+      "tone": "VIVACE",
+      "duration": "7-9 SECONDI",
+      "text": "Buonasera, tesori! Sono Nonna Franca, ho già fatto diecimila passi e la serata non è nemmeno cominciata. Vediamo voi.",
+      "vars": []
+    },
+    {
+      "id": "NF_APE_002",
+      "scene": "APERTURA",
+      "tone": "PUNGENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Fatevi sotto, ragazzi. Io la tuta l'ho messa per la gara, non per il divano.",
+      "vars": []
+    },
+    {
+      "id": "NF_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "AFFETTUOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Benvenuti, tesori miei! Che bei tavoli. Si vede subito chi è venuto per vincere e chi è venuto per le patatine.",
+      "vars": []
+    },
+    {
+      "id": "NF_BEN_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "MALIZIOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Ah, è arrivato anche {TAVOLO_A}. Facce sveglie. Io però ai primi cinque minuti non credo mai, nemmeno agli appuntamenti.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "TENERA E PUNGENTE",
+      "duration": "5-7 SECONDI",
+      "text": "Che carina la mascotte {MASCOTTE_A}! Trattatela bene, che è più fedele di certi fidanzati.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NF_MAS_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITA",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco le mascotte. Ognuna ha il suo caratterino, proprio come voi. Solo che loro, crescendo, migliorano.",
+      "vars": []
+    },
+    {
+      "id": "NF_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ENERGICA",
+      "duration": "5-7 SECONDI",
+      "text": "Riscaldamento finito, tesori: comincia la manche {MANCHE}. Fiato e gambe, si parte.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "NF_MAN_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SPIRITOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Nuova manche. Ne ho viste tante di ripartenze, e le migliori cominciano sempre con qualcuno che dice: stavolta facciamo sul serio.",
+      "vars": []
+    },
+    {
+      "id": "NF_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Adesso si gioca a {MINIGIOCO}. L'ho provato stamattina tra pilates e il mercato. Facile, se state attenti.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "NF_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "PUNGENTE",
+      "duration": "7-9 SECONDI",
+      "text": "Arriva {MINIGIOCO}. Leggete bene, non fate come con i messaggi lunghi che aprite e chiudete senza rispondere.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "NF_REG_001",
+      "scene": "REGOLE",
+      "tone": "MATERNA E FERMA",
+      "duration": "7-9 SECONDI",
+      "text": "Le regole ve le dico una volta sola: si risponde una volta, decide il capitano, e niente piagnistei.",
+      "vars": []
+    },
+    {
+      "id": "NF_REG_002",
+      "scene": "REGOLE",
+      "tone": "CHIARA",
+      "duration": "7-9 SECONDI",
+      "text": "Si possono rubare punti, ma con giudizio: massimo quaranta per volta. Anche il dispetto ha il suo galateo.",
+      "vars": []
+    },
+    {
+      "id": "NF_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "SPORTIVA",
+      "duration": "2-4 SECONDI",
+      "text": "Ai vostri posti, pronti... via!",
+      "vars": []
+    },
+    {
+      "id": "NF_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "VIVACE",
+      "duration": "2-4 SECONDI",
+      "text": "Tre, due, uno, e scatto, tesori!",
+      "vars": []
+    },
+    {
+      "id": "NF_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "DIVERTITA",
+      "duration": "4-6 SECONDI",
+      "text": "Al mio fischio. Il fischietto ce l'ho davvero, eh. Tre, due, uno!",
+      "vars": []
+    },
+    {
+      "id": "NF_ULT_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "4-6 SECONDI",
+      "text": "{SECONDI} secondi, tesori! Questo è l'ultimo chilometro: adesso si stringono i denti.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "NF_ULT_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "PUNGENTE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimi secondi! Decidete, che a forza di pensarci vi scade pure l'abbonamento in palestra.",
+      "vars": []
+    },
+    {
+      "id": "NF_ULT_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ENERGICA",
+      "duration": "4-6 SECONDI",
+      "text": "Forza, forza, forza! Gli ultimi secondi si corrono, non si passeggiano!",
+      "vars": []
+    },
+    {
+      "id": "NF_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "FIERA",
+      "duration": "2-4 SECONDI",
+      "text": "Brava gente! Giusta. Così mi piacete.",
+      "vars": []
+    },
+    {
+      "id": "NF_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SODDISFATTA",
+      "duration": "5-7 SECONDI",
+      "text": "Corretta! Questa me la segno sul diario, accanto al mio record sui cinque chilometri.",
+      "vars": []
+    },
+    {
+      "id": "NF_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPLICE",
+      "duration": "8-11 SECONDI",
+      "text": "E anche stavolta {TAVOLO_A} ci prende. Lo dicevo io che eravate svegli, mica come il tizio del mio ultimo appuntamento.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "PUNGENTE",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliata, tesori. L'avete detta con la stessa sicurezza di chi giura: da lunedì vado in palestra.",
+      "vars": []
+    },
+    {
+      "id": "NF_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICA",
+      "duration": "9-12 SECONDI",
+      "text": "Sbagliata. Non abbattetevi: io ho fatto di peggio, una volta ho detto sì a un lento con uno che mi pestava i piedi.",
+      "vars": []
+    },
+    {
+      "id": "NF_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIRETTA",
+      "duration": "4-6 SECONDI",
+      "text": "Risposta sbagliata. Succede. L'importante è non ripeterla, come con gli ex.",
+      "vars": []
+    },
+    {
+      "id": "NF_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCA",
+      "duration": "3-5 SECONDI",
+      "text": "Tempo scaduto! Fischio finale, giù le mani dai telefoni.",
+      "vars": []
+    },
+    {
+      "id": "NF_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICA",
+      "duration": "6-8 SECONDI",
+      "text": "Finito il tempo. Chi non ha risposto mi ricorda quelli che visualizzano e poi spariscono.",
+      "vars": []
+    },
+    {
+      "id": "NF_TMP_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITA",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo! In questo tempo io faccio una rampa di scale, due volte. Voi neanche una risposta.",
+      "vars": []
+    },
+    {
+      "id": "NF_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AMMIRATA",
+      "duration": "7-9 SECONDI",
+      "text": "{PUNTI} punti e primo posto per {TAVOLO_A}. Bravi. Adesso però non montatevi la testa, che vi conosco.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NF_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "PUNGENTE",
+      "duration": "8-11 SECONDI",
+      "text": "Guardate chi c'è davanti: {TAVOLO_A}. Vi vedo già scrivere nella chat di gruppo. Aspettate a mandare l'audio della vittoria.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_VAN_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SAGGIA",
+      "duration": "7-9 SECONDI",
+      "text": "Davanti a tutti c'è {TAVOLO_A}. Ricordatevi, tesori: chi parte fortissimo in maratona, al trentesimo chilometro chiede l'acqua.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_COD_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "AFFETTUOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Ultima posizione per {TAVOLO_A}. Niente paura, tesori: anch'io alla mia prima gara sono arrivata ultima. Adesso arrivo davanti ai ventenni.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_COD_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "MOTIVANTE",
+      "duration": "8-11 SECONDI",
+      "text": "In coda c'è {TAVOLO_A}. Su con la schiena! Le rimonte più belle le ho viste fare da chi partiva ultimo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_COD_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Chi è ultimo ascolti la nonna: niente panico, respirazione di pancia, e la prossima la prendete voi.",
+      "vars": []
+    },
+    {
+      "id": "NF_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESULTANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ma guardali! {TAVOLO_A} rimonta come me sulle scale del condominio quando l'ascensore è rotto!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ORGOGLIOSA",
+      "duration": "6-8 SECONDI",
+      "text": "Guarda come risale {TAVOLO_A}! Non vi conosco, ma da adesso siete i miei ragazzi.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "ECCITATA",
+      "duration": "8-11 SECONDI",
+      "text": "Ma guarda che scatto: {TAVOLO_A} lascia indietro {TAVOLO_B}! Come me in bicicletta sulla ciclabile, la domenica mattina.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "MALIZIOSA",
+      "duration": "6-8 SECONDI",
+      "text": "Cambio di posizione: {TAVOLO_A} sale, {TAVOLO_B} scende. Succede, tesori. Anche nelle amicizie.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "DIVERTITA",
+      "duration": "8-11 SECONDI",
+      "text": "Sorpasso! {TAVOLO_B} si è distratto un attimo e {TAVOLO_A} ne ha approfittato. Mai distrarsi, ve l'ho sempre detto.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_DUE_001",
+      "scene": "DUELLO",
+      "tone": "SPORTIVA",
+      "duration": "9-12 SECONDI",
+      "text": "Sfida a due tra {TAVOLO_A} e {TAVOLO_B}! Come in pista: stessa distanza per tutti, e vince chi ha più fiato.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_DUE_002",
+      "scene": "DUELLO",
+      "tone": "DIVERTITA",
+      "duration": "6-8 SECONDI",
+      "text": "Si sfidano {MASCOTTE_A} e {MASCOTTE_B}. Che tensione! Sembrano due che si contendono l'ultimo tapis roulant libero.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "NF_DUE_003",
+      "scene": "DUELLO",
+      "tone": "CARICA",
+      "duration": "6-8 SECONDI",
+      "text": "Due tavoli, una sfida. Io tifo per tutti e due, ma soprattutto per lo spettacolo.",
+      "vars": []
+    },
+    {
+      "id": "NF_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SCANDALIZZATA E DIVERTITA",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio! {TAVOLO_A} ha fatto lo sgambetto, e a inciampare è {TAVOLO_B}. Che dispettosi, mi piacete.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Un bel dispetto, tutto regolamentare. Ai miei tempi si nascondevano le scarpe da ginnastica, ma il principio è quello.",
+      "vars": []
+    },
+    {
+      "id": "NF_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "FURBA",
+      "duration": "8-11 SECONDI",
+      "text": "Furto! {TAVOLO_B} si gira un attimo e {TAVOLO_A} gli sfila {PUNTI} punti. Tenete stretta la borsa, tesori.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NF_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICA",
+      "duration": "7-9 SECONDI",
+      "text": "Che mani svelte: {TAVOLO_A} si è preso {PUNTI} punti. Con educazione, ma se li è presi.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NF_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "SOSPETTOSA",
+      "duration": "12-15 SECONDI",
+      "text": "Ah, adesso {TAVOLO_A} e {TAVOLO_B} si alleano. Che bello. Anch'io dicevo che con la mia vicina sarebbe stato per sempre. Poi c'è stata la riunione di condominio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "MATERNA",
+      "duration": "5-7 SECONDI",
+      "text": "Fate pace, fate squadra, fate quello che volete. Ma ricordate: alleati sì, ingenui no.",
+      "vars": []
+    },
+    {
+      "id": "NF_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "DRAMMATICA E IRONICA",
+      "duration": "8-11 SECONDI",
+      "text": "Tradimento! {TAVOLO_A} ha mollato {TAVOLO_B} sul più bello. Peggio di un messaggio d'addio mandato a mezzanotte.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "SAGGIA",
+      "duration": "8-11 SECONDI",
+      "text": "Ve l'avevo detto. Le alleanze nate in fretta finiscono come gli amori estivi: con un messaggio lunghissimo e tante scuse.",
+      "vars": []
+    },
+    {
+      "id": "NF_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATA",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff riuscito! Che faccia tosta, complimenti. Io ci ho messo una vita a imparare a mentire così bene.",
+      "vars": []
+    },
+    {
+      "id": "NF_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITA",
+      "duration": "5-7 SECONDI",
+      "text": "Ci sono cascati! Ragazzi, una sera dovete venire a giocare a carte con me.",
+      "vars": []
+    },
+    {
+      "id": "NF_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "TRIONFANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Scoperti! Tesori, io ho cresciuto tre figli: riconosco una bugia prima che finisca la frase.",
+      "vars": []
+    },
+    {
+      "id": "NF_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "PUNGENTE",
+      "duration": "8-11 SECONDI",
+      "text": "Bluff scoperto. Si vedeva da lontano, come chi scrive: arrivo tra cinque minuti, e non è ancora uscito di casa.",
+      "vars": []
+    },
+    {
+      "id": "NF_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ENERGICA E ALLARMATA",
+      "duration": "10-13 SECONDI",
+      "text": "Allarme Caos, tesori! {TAVOLO_A} ha chiamato fuori {TAVOLO_B}. Tre quarti di minuto e cinquanta punti in palio: altro che lezione di cardio!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "NF_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DIVERTITA",
+      "duration": "7-9 SECONDI",
+      "text": "È partito il Bottone del Caos! Finalmente un po' di movimento. Stavo per mettermi a fare gli squat.",
+      "vars": []
+    },
+    {
+      "id": "NF_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SPORTIVA",
+      "duration": "6-8 SECONDI",
+      "text": "Le mascotte {MASCOTTE_A} e {MASCOTTE_B} scendono in campo. Quarantacinque secondi di puro caos. Ai vostri posti!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "NF_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "INTENERITA",
+      "duration": "5-7 SECONDI",
+      "text": "Guardate come è cresciuta la mascotte {MASCOTTE_A}! Livello due. Diventano grandi così in fretta.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NF_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "COMMOSSA E IRONICA",
+      "duration": "7-9 SECONDI",
+      "text": "Ma guardatela! La mascotte {MASCOTTE_A} è arrivata al livello tre, leggendaria, ed è più in forma di me. Quasi.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "NF_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESA",
+      "duration": "3-5 SECONDI",
+      "text": "Aspettate, tesori. Fatemi sistemare gli occhiali. Ecco. Ora sì.",
+      "vars": []
+    },
+    {
+      "id": "NF_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "TESA",
+      "duration": "5-7 SECONDI",
+      "text": "Che suspense. Il cuore mi batte come alla fine di una lezione di cardio.",
+      "vars": []
+    },
+    {
+      "id": "NF_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "BISBIGLIATA",
+      "duration": "5-7 SECONDI",
+      "text": "Silenzio, ragazzi. È il momento in cui anche il locale smette di respirare.",
+      "vars": []
+    },
+    {
+      "id": "NF_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "PUNGENTE",
+      "duration": "8-11 SECONDI",
+      "text": "Certi tavoli discutono più di una famiglia che organizza il pranzo di Natale. E alla fine scelgono comunque la risposta della zia.",
+      "vars": []
+    },
+    {
+      "id": "NF_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "AFFETTUOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Vi vedo, eh. C'è chi gioca e chi fa finta di sapere. Il secondo tipo lo conosco bene: l'ho sposato.",
+      "vars": []
+    },
+    {
+      "id": "NF_BAT_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICA",
+      "duration": "7-9 SECONDI",
+      "text": "Questo tavolo ha la strategia di uno che risponde ai messaggi dopo tre giorni: misteriosa, ma non funziona.",
+      "vars": []
+    },
+    {
+      "id": "NF_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIA",
+      "duration": "12-15 SECONDI",
+      "text": "Un consiglio della nonna per chi sta davanti, come {TAVOLO_A}: il primo posto è come il posto a sedere in metro. Ti alzi un attimo e te lo prendono.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDA",
+      "duration": "8-11 SECONDI",
+      "text": "Io a quest'ora ho già fatto pilates, la spesa e due chiacchiere al telefono. Voi state ancora decidendo una risposta.",
+      "vars": []
+    },
+    {
+      "id": "NF_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "STUZZICANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Coraggio, gente. Se vi spaventa una domanda, come fate a scrivere per primi dopo un appuntamento?",
+      "vars": []
+    },
+    {
+      "id": "NF_SOP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITA",
+      "duration": "6-8 SECONDI",
+      "text": "Mamma mia, che colpo! Questa non me l'aspettavo nemmeno io, e io mi aspetto sempre tutto.",
+      "vars": []
+    },
+    {
+      "id": "NF_SOP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULA",
+      "duration": "4-6 SECONDI",
+      "text": "Ma cosa ho appena visto? Rifatelo, che stavolta lo filmo.",
+      "vars": []
+    },
+    {
+      "id": "NF_PAU_001",
+      "scene": "PAUSA",
+      "tone": "MATERNA",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa, tesori. Dieci minuti: alzatevi, sgranchite le gambe e bevete un bicchiere d'acqua, che fa bene.",
+      "vars": []
+    },
+    {
+      "id": "NF_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICA",
+      "duration": "7-9 SECONDI",
+      "text": "Su, su, tutti seduti! La pausa è finita, e io intanto ho fatto due giri del locale. Si ricomincia.",
+      "vars": []
+    },
+    {
+      "id": "NF_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "CARICA",
+      "duration": "6-8 SECONDI",
+      "text": "Rettilineo finale, tesori: arriva Tutto o niente, l'ultima manche. Chi ha ancora fiato lo usi adesso.",
+      "vars": []
+    },
+    {
+      "id": "NF_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "PREOCCUPATA E DIVERTITA",
+      "duration": "8-11 SECONDI",
+      "text": "Che coraggio: {TAVOLO_A} punta {PUNTI} punti! Io questo tipo di coraggio lo uso solo in discesa con i pattini.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "NF_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SAGGIA",
+      "duration": "8-11 SECONDI",
+      "text": "Puntata rischiosa. Ve lo dice una che ne ha viste tante: a volte va benissimo. Altre volte la si racconta per anni.",
+      "vars": []
+    },
+    {
+      "id": "NF_FIN_001",
+      "scene": "FINALE",
+      "tone": "EMOZIONATA",
+      "duration": "6-8 SECONDI",
+      "text": "Ci siamo, tesori. Finale. Le gambe tremano anche a me, e io ho le scarpe da corsa.",
+      "vars": []
+    },
+    {
+      "id": "NF_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSA",
+      "duration": "6-8 SECONDI",
+      "text": "È il momento della premiazione! Applausi per tutti, anche per chi ha sbagliato con grande convinzione.",
+      "vars": []
+    },
+    {
+      "id": "NF_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "ESULTANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}! Bravi, bravissimi! Venite qui che vi stritolo di abbracci, almeno col pensiero.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_VIT_002",
+      "scene": "VITTORIA",
+      "tone": "ORGOGLIOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Campioni della serata: {TAVOLO_A}! Adesso sì che potete mandare l'audio della vittoria nella chat. Ve lo siete meritato.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "NF_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE",
+      "duration": "7-9 SECONDI",
+      "text": "Non avete vinto, tesori, ma vi siete divertiti, ed è quello che resta. Quello e la classifica, purtroppo.",
+      "vars": []
+    },
+    {
+      "id": "NF_SCO_002",
+      "scene": "SCONFITTA",
+      "tone": "AFFETTUOSA E PUNGENTE",
+      "duration": "7-9 SECONDI",
+      "text": "Si perde, si impara, si torna. Io la mia prima gara l'ho persa nel millenovecento... lasciamo stare l'anno.",
+      "vars": []
+    },
+    {
+      "id": "NF_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "SORPRESA",
+      "duration": "7-9 SECONDI",
+      "text": "Pareggio! Due tavoli con gli stessi punti. Nemmeno io e mia sorella a briscola siamo mai state così pari.",
+      "vars": []
+    },
+    {
+      "id": "NF_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALOROSA",
+      "duration": "7-9 SECONDI",
+      "text": "Buonanotte, tesori! Tornate a casa con calma, scrivete quando arrivate, e alla prossima serata vi voglio tutti qui.",
+      "vars": []
+    },
+    {
+      "id": "NF_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "VIVACE",
+      "duration": "7-9 SECONDI",
+      "text": "Che bella confusione! Sembra il sabato sera dei miei tempi, solo con più telefoni e meno capelli cotonati.",
+      "vars": []
+    },
+    {
+      "id": "NF_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "C'è un'energia stasera che, se la potessi imbottigliare, la venderei in palestra.",
+      "vars": []
+    },
+    {
+      "id": "NF_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "PUNGENTE",
+      "duration": "4-6 SECONDI",
+      "text": "Vedo telefoni accesi e cervelli in riscaldamento. Bene, ma accelerate.",
+      "vars": []
+    },
+    {
+      "id": "NF_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "AFFETTUOSA",
+      "duration": "6-8 SECONDI",
+      "text": "Lo sapete che siete il mio pubblico preferito? Lo dico a tutti, ma stasera lo penso davvero.",
+      "vars": []
+    },
+    {
+      "id": "NF_ATM_005",
+      "scene": "ATMOSFERA",
+      "tone": "SPORTIVA",
+      "duration": "6-8 SECONDI",
+      "text": "Ogni volta che qualcuno esulta, io faccio un affondo. A fine serata avrò fatto l'allenamento completo.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,818 @@
+{
+  "character": {
+    "id": "ciccio",
+    "name": "Ciccio",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, GIOVANE, SQUILLANTE, RAPIDISSIMA, ENTUSIASTA",
+    "personality": "Il telecronista gamer della serata. Iperattivo, competitivo, sempre in modalità partita classificata: vive ogni prova come una diretta di videogiochi e la racconta con il lessico dei giocatori (livello, combo, respawn, boss finale, checkpoint, trofeo sbloccato). Esulta per tutti, si scandalizza per gli errori come per un lag, non porta rancore. Dal modello: giovane in streetwear, occhiali da aviatore rossi in fronte che abbassa quando si parte, giacca rossa decorata, sneakers.",
+    "role": "Ospite telecronista: dà il ritmo a countdown, ultimi secondi, sorpassi e duelli, presenta i minigiochi come missioni e trasforma i momenti chiave in highlight.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/CICCIO_PARLANTE.glb",
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipo di voce (proposta)",
+      "ruolo nello show (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "CI_APE_001",
+      "scene": "APERTURA",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Ciao a tutti, sono Ciccio! Occhiali in fronte, dita calde: la partita classificata più assurda dell'anno sta per cominciare!",
+      "vars": []
+    },
+    {
+      "id": "CI_APE_002",
+      "scene": "APERTURA",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Server pieno, lobby al completo, zero lag! Stanotte si sale di livello, oppure si ricomincia dal tutorial.",
+      "vars": []
+    },
+    {
+      "id": "CI_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Benvenuti, giocatori! Ogni tavolo è una squadra, ogni telefono un controller. Nessuno resta in panchina.",
+      "vars": []
+    },
+    {
+      "id": "CI_BEN_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Si è appena connesso {TAVOLO_A}! Profilo nuovo, statistiche a zero, potenziale infinito.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "MERAVIGLIATO",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco la mascotte {MASCOTTE_A}, il vostro personaggio giocabile! Livello uno, ma con l'Energia Caos si sbloccano le versioni leggendarie.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CI_MAS_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Selezione del personaggio completata! {MASCOTTE_A}, {MASCOTTE_B} e tutte le altre in fila. Che roster, ragazzi!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CI_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CARICO",
+      "duration": "4-6 SECONDI",
+      "text": "Nuovo livello sbloccato: manche {MANCHE}! Checkpoint salvato, si riparte.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "CI_MAN_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "RAPIDO",
+      "duration": "4-6 SECONDI",
+      "text": "Si apre la manche! Mappa nuova, nemici nuovi, stesse facce concentrate. Andiamo!",
+      "vars": []
+    },
+    {
+      "id": "CI_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "TELECRONISTA",
+      "duration": "5-7 SECONDI",
+      "text": "Prossima missione: {MINIGIOCO}! Leggete bene il briefing, perché qui il tutorial non c'è.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "CI_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ENTUSIASTA",
+      "duration": "7-9 SECONDI",
+      "text": "Caricamento in corso... {MINIGIOCO}! Uno dei miei preferiti, lo giocherei anche alle tre di notte di un martedì.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "CI_REG_001",
+      "scene": "REGOLE",
+      "tone": "VELOCE E CHIARO",
+      "duration": "8-11 SECONDI",
+      "text": "Regole rapide: il tavolo suggerisce, il capitano invia. Più telefoni non vuol dire più punti: qui il vantaggio non si compra.",
+      "vars": []
+    },
+    {
+      "id": "CI_REG_002",
+      "scene": "REGOLE",
+      "tone": "DIDATTICO",
+      "duration": "8-11 SECONDI",
+      "text": "Ogni tavolo ha un solo Bottone del Caos per tutta la serata. Una vita sola, come nei giochi vecchia scuola: usatela bene.",
+      "vars": []
+    },
+    {
+      "id": "CI_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ESPLOSIVO",
+      "duration": "2-4 SECONDI",
+      "text": "Tre! Due! Uno! Via, via, via!",
+      "vars": []
+    },
+    {
+      "id": "CI_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "CARICO",
+      "duration": "2-4 SECONDI",
+      "text": "Occhiali giù! Partenza tra tre, due, uno!",
+      "vars": []
+    },
+    {
+      "id": "CI_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "ELETTRIZZATO",
+      "duration": "2-4 SECONDI",
+      "text": "Pronti al lancio? Dita sullo schermo... start!",
+      "vars": []
+    },
+    {
+      "id": "CI_ULT_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "4-6 SECONDI",
+      "text": "{SECONDI} secondi! La barra della vita lampeggia rossa, premete qualcosa!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "CI_ULT_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "FRENETICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ultimissimi secondi! Questo è il momento della combo finale, non dell'esitazione!",
+      "vars": []
+    },
+    {
+      "id": "CI_ULT_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "AGITATISSIMO",
+      "duration": "4-6 SECONDI",
+      "text": "Timer quasi a zero! Chi sta ancora ragionando, ragioni più veloce!",
+      "vars": []
+    },
+    {
+      "id": "CI_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESULTANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Corretta! Colpo critico, danno pieno!",
+      "vars": []
+    },
+    {
+      "id": "CI_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "CARICO",
+      "duration": "2-4 SECONDI",
+      "text": "Sì! Risposta giusta, trofeo sbloccato!",
+      "vars": []
+    },
+    {
+      "id": "CI_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Punti in cassaforte per {TAVOLO_A}! Questa la metto nel replay della serata.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DISPIACIUTO E COMICO",
+      "duration": "4-6 SECONDI",
+      "text": "Sbagliata! Game over per questa domanda, ma avete ancora tutte le vite.",
+      "vars": []
+    },
+    {
+      "id": "CI_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "No, no, no. Avete premuto il tasto giusto, al momento sbagliato, sulla risposta sbagliata.",
+      "vars": []
+    },
+    {
+      "id": "CI_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Errore! Sul momento mi è sembrato un lag, ma purtroppo era proprio una scelta.",
+      "vars": []
+    },
+    {
+      "id": "CI_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCO",
+      "duration": "2-4 SECONDI",
+      "text": "Tempo scaduto! Controller a terra!",
+      "vars": []
+    },
+    {
+      "id": "CI_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DRAMMATICO",
+      "duration": "5-7 SECONDI",
+      "text": "Il timer è a zero. Chi non ha inviato è rimasto in sala d'attesa.",
+      "vars": []
+    },
+    {
+      "id": "CI_TMP_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Fine del tempo! Qualcuno era ancora fermo alla schermata di caricamento.",
+      "vars": []
+    },
+    {
+      "id": "CI_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "TELECRONISTA",
+      "duration": "10-13 SECONDI",
+      "text": "In cima alla classifica c'è {TAVOLO_A} con {PUNTI} punti! Sembra che giochino in modalità facile, ma la modalità è la stessa per tutti!",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CI_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}! Corona in testa e bersaglio sulla schiena: funziona così, lassù.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_VAN_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Guardate {TAVOLO_A}: nessun errore, solo combo. Ma il boss finale non è ancora arrivato.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_COD_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "7-9 SECONDI",
+      "text": "In fondo alla classifica c'è {TAVOLO_A}. Tranquilli, era solo il livello tutorial: il bello deve ancora cominciare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_COD_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SIMPATICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi in classifica? Nei giochi migliori il personaggio più scarso del primo livello diventa l'eroe del finale.",
+      "vars": []
+    },
+    {
+      "id": "CI_COD_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CARICO",
+      "duration": "8-11 SECONDI",
+      "text": "In coda c'è {TAVOLO_A}, ma con tutte le vite ancora intatte. E l'Energia Caos sale anche per loro.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "URLATO",
+      "duration": "4-6 SECONDI",
+      "text": "Rimonta! {TAVOLO_A} sta facendo lo speedrun della classifica!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "INCREDULO",
+      "duration": "8-11 SECONDI",
+      "text": "Ma che sta succedendo? {TAVOLO_A} sembrava fuori dai giochi e adesso è di nuovo in partita! Respawn epico!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "TELECRONISTA",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso in curva! {TAVOLO_A} si mangia {TAVOLO_B} all'esterno! Che manovra!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "RAPIDO",
+      "duration": "6-8 SECONDI",
+      "text": "Cambia la classifica! {TAVOLO_A} sale in posizione {POSIZIONE}, e {TAVOLO_B} guarda lo specchietto.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "CI_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso all'ultimo pixel! {TAVOLO_B} era convinto di avere il salvataggio automatico. Non ce l'aveva.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_DUE_001",
+      "scene": "DUELLO",
+      "tone": "TELECRONISTA",
+      "duration": "6-8 SECONDI",
+      "text": "Uno contro uno! {TAVOLO_A} contro {TAVOLO_B}, stessa mappa, stesso tempo. Si combatte!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_DUE_002",
+      "scene": "DUELLO",
+      "tone": "ELETTRIZZATO",
+      "duration": "6-8 SECONDI",
+      "text": "Modalità duello attivata! {MASCOTTE_A} e {MASCOTTE_B} si fissano dal centro dello schermo. Chi sbatte le palpebre perde.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CI_DUE_003",
+      "scene": "DUELLO",
+      "tone": "CARICO",
+      "duration": "4-6 SECONDI",
+      "text": "Duello in arrivo! Dita sciolte, telefono stretto, e niente scuse sul segnale.",
+      "vars": []
+    },
+    {
+      "id": "CI_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "MALIZIOSO",
+      "duration": "8-11 SECONDI",
+      "text": "Sabotaggio! {TAVOLO_A} ha lanciato un malus, e il bersaglio è {TAVOLO_B}. Tre secondi in meno, che cattiveria!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "8-11 SECONDI",
+      "text": "Qualcuno ha appena lasciato una buccia di banana sul percorso di un altro tavolo. Stile corse di kart: vietato lamentarsi.",
+      "vars": []
+    },
+    {
+      "id": "CI_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "ECCITATO",
+      "duration": "8-11 SECONDI",
+      "text": "Furto riuscito! {PUNTI} punti spariscono da una parte e ricompaiono dall'altra: li prende {TAVOLO_A}, li perde {TAVOLO_B}!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CI_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bottino raccolto! {TAVOLO_A} fa razzia di {PUNTI} punti. Nessuno aveva chiuso la porta della base.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CI_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Party formato! {TAVOLO_A} e {TAVOLO_B} adesso giocano in cooperativa!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "SOSPETTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Bella alleanza, eh. Io però online ho visto alleati diventare nemici prima del secondo livello.",
+      "vars": []
+    },
+    {
+      "id": "CI_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SCIOCCATO",
+      "duration": "6-8 SECONDI",
+      "text": "Tradimento! {TAVOLO_A} ha attivato il fuoco amico, e chi ci rimette è {TAVOLO_B}!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "DRAMMATICO",
+      "duration": "6-8 SECONDI",
+      "text": "Il party si è sciolto nel modo peggiore. Questa sarà la clip più vista della serata.",
+      "vars": []
+    },
+    {
+      "id": "CI_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "3-5 SECONDI",
+      "text": "Bluff riuscito! Faccia impassibile, mano completamente vuota. Livello professionista!",
+      "vars": []
+    },
+    {
+      "id": "CI_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci sono cascati tutti! {TAVOLO_A} ha nascosto la verità meglio di un livello segreto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "TRIONFANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff scoperto! Il trucco si vedeva come un bug nel primo livello.",
+      "vars": []
+    },
+    {
+      "id": "CI_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Beccati! Quel bluff aveva più falle di un aggiornamento uscito di fretta.",
+      "vars": []
+    },
+    {
+      "id": "CI_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "URLATO",
+      "duration": "8-11 SECONDI",
+      "text": "Allarme Caos! Allarme Caos! Evento raro sbloccato: {TAVOLO_A} sfida {TAVOLO_B}! Quarantacinque secondi per prendersi cinquanta punti!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CI_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ELETTRIZZATO",
+      "duration": "5-7 SECONDI",
+      "text": "Evento speciale attivato! Bottone del Caos: è la boss fight che nessuno si aspettava!",
+      "vars": []
+    },
+    {
+      "id": "CI_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "CARICO",
+      "duration": "5-7 SECONDI",
+      "text": "{MASCOTTE_A} contro {MASCOTTE_B}, arena aperta, timer a quarantacinque! Questo è il momento da clip!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CI_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Salto di livello! La mascotte {MASCOTTE_A} passa al livello due. Look nuovo, stessa fame di vittoria!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CI_EV2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "MERAVIGLIATO",
+      "duration": "4-6 SECONDI",
+      "text": "Energia Caos al massimo, evoluzione sbloccata! Livello due per la mascotte {MASCOTTE_B}!",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CI_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "URLATO",
+      "duration": "5-7 SECONDI",
+      "text": "Forma finale sbloccata! Livello tre per la mascotte {MASCOTTE_A}, versione leggendaria! Ho i brividi!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CI_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SUSSURRATO E TESO",
+      "duration": "2-4 SECONDI",
+      "text": "Schermata di caricamento... il risultato sta arrivando...",
+      "vars": []
+    },
+    {
+      "id": "CI_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "3-5 SECONDI",
+      "text": "Fermi. Questo è il fotogramma decisivo. Nessuno respiri.",
+      "vars": []
+    },
+    {
+      "id": "CI_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Il server sta calcolando. Io intanto mi mangio le unghie, virtualmente.",
+      "vars": []
+    },
+    {
+      "id": "CI_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "8-11 SECONDI",
+      "text": "C'è un tavolo che ha discusso per quaranta secondi e poi ha risposto a caso. Strategia da veri giocatori notturni.",
+      "vars": []
+    },
+    {
+      "id": "CI_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Alcuni di voi giocano come chi salta il tutorial e poi si lamenta che il gioco è difficile.",
+      "vars": []
+    },
+    {
+      "id": "CI_BAT_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "8-11 SECONDI",
+      "text": "Ho visto più coordinazione in una chat di gruppo che deve scegliere il ristorante. E lì non si mette mai d'accordo nessuno.",
+      "vars": []
+    },
+    {
+      "id": "CI_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Chi è in testa adesso si sente il boss finale. Ma i boss finali, per definizione, vengono battuti.",
+      "vars": []
+    },
+    {
+      "id": "CI_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDA",
+      "duration": "5-7 SECONDI",
+      "text": "Messaggio per {TAVOLO_A}: l'invincibilità dura cinque secondi, poi si torna mortali.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "STUZZICANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Sento odore di rimonta. O forse è solo un telefono che si sta surriscaldando.",
+      "vars": []
+    },
+    {
+      "id": "CI_SOP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SCIOCCATO",
+      "duration": "2-4 SECONDI",
+      "text": "Ma cosa? Questo neanche nel finale segreto!",
+      "vars": []
+    },
+    {
+      "id": "CI_SOP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULO",
+      "duration": "3-5 SECONDI",
+      "text": "No, aspetta, rivediamo il replay. È successo davvero?",
+      "vars": []
+    },
+    {
+      "id": "CI_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "6-8 SECONDI",
+      "text": "Gioco in pausa! Dieci minuti per ricaricare la batteria, la vostra e quella del telefono.",
+      "vars": []
+    },
+    {
+      "id": "CI_PAU_002",
+      "scene": "PAUSA",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Pausa! Approfittatene per salvare la partita nella testa e studiare gli avversari.",
+      "vars": []
+    },
+    {
+      "id": "CI_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "CARICO",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa finita, si riparte dal checkpoint! Chi non è ancora tornato perde il primo fotogramma.",
+      "vars": []
+    },
+    {
+      "id": "CI_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima manche: Tutto o niente! Questo è il livello finale, quello in cui cambia la musica!",
+      "vars": []
+    },
+    {
+      "id": "CI_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ELETTRIZZATO",
+      "duration": "6-8 SECONDI",
+      "text": "Tutto dentro, o quasi! {TAVOLO_A} punta {PUNTI} punti. Questa è una giocata da diretta streaming!",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CI_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Puntata rischiosa. Se va bene, highlight della serata. Se va male, meme della serata.",
+      "vars": []
+    },
+    {
+      "id": "CI_FIN_001",
+      "scene": "FINALE",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Boss finale! Tutto quello che avete fatto stasera vi ha portato a questi ultimi minuti!",
+      "vars": []
+    },
+    {
+      "id": "CI_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Schermata dei risultati! Statistiche, trofei e gloria eterna, almeno fino alla prossima serata.",
+      "vars": []
+    },
+    {
+      "id": "CI_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "URLATO",
+      "duration": "4-6 SECONDI",
+      "text": "Vittoria! {TAVOLO_A} ha completato il gioco al cento per cento!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CI_VIT_002",
+      "scene": "VITTORIA",
+      "tone": "ENTUSIASTA",
+      "duration": "6-8 SECONDI",
+      "text": "Campioni! {TAVOLO_A} e la mascotte {MASCOTTE_A} chiudono in cima alla classifica! Partita perfetta!",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CI_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Game over per stasera, ma niente abbandoni rabbiosi: la rivincita è già in coda.",
+      "vars": []
+    },
+    {
+      "id": "CI_SCO_002",
+      "scene": "SCONFITTA",
+      "tone": "SIMPATICO",
+      "duration": "4-6 SECONDI",
+      "text": "Sconfitta, ma con stile. Avete giocato a difficoltà massima e lo sapete.",
+      "vars": []
+    },
+    {
+      "id": "CI_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "INCREDULO",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio! Stessi punti, identici! Serve lo spareggio, e io sono già in piedi!",
+      "vars": []
+    },
+    {
+      "id": "CI_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALDO",
+      "duration": "6-8 SECONDI",
+      "text": "Bella partita a tutti! Grazie per aver giocato. Disconnettetevi piano, e tornate presto in lobby!",
+      "vars": []
+    },
+    {
+      "id": "CI_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "CARICO",
+      "duration": "7-9 SECONDI",
+      "text": "Il livello di caos in questo locale è salito del quaranta per cento. Lo dicono i miei sensori!",
+      "vars": []
+    },
+    {
+      "id": "CI_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Ogni volta che qualcuno esulta, io guadagno punti esperienza. Continuate così!",
+      "vars": []
+    },
+    {
+      "id": "CI_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Mi piace questa lobby: niente lag, tanta rivalità e nessuno che abbandona a metà.",
+      "vars": []
+    },
+    {
+      "id": "CI_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "SCHERZOSO",
+      "duration": "8-11 SECONDI",
+      "text": "Gli occhiali li tengo in fronte per un motivo: le vostre facce quando sbagliate le voglio vedere in alta definizione.",
+      "vars": []
+    },
+    {
+      "id": "CI_ATM_005",
+      "scene": "ATMOSFERA",
+      "tone": "ELETTRIZZATO",
+      "duration": "6-8 SECONDI",
+      "text": "Se questa serata fosse un videogioco, saremmo nel livello in cui tutti fingono di avere un piano.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,609 @@
+{
+  "character": {
+    "id": "croc",
+    "name": "Croc",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO BASSO, VELLUTATO, STRASCICATO E RILASSATO DA PIANO BAR NOTTURNO; RITMO LENTO CON PAUSE COMPIACIUTE, POI SCATTI SECCHI E CROCCANTI SULLA PAROLA «CROC»",
+    "personality": "PROPOSTA dedotta dal solo nome (nel progetto non ci sono né modello né descrizione): creatura-coccodrillo da lounge, elegante e pigra, predatrice paziente. Parla piano, con la voce vellutata di un piano bar a fine serata; aspetta immobile «sotto il pelo dell'acqua» e poi scatta; il suo marchio è un «Croc!» secco quando un tavolo sbaglia o viene azzannato. Ironizza sulle lacrime di coccodrillo, sorride con troppi denti, ama puntate rischiose e trappole. Cinismo elegante, mai cattivo: alla fine consola chi perde, a modo suo.",
+    "role": "Ospite «predatore paziente»: puntate rischiose, trappole e sabotaggi, errori, tempo scaduto, suspense e sconfitte (lacrime di coccodrillo); voce notturna e rilassata.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)",
+      "aspetto e tipo di creatura (coccodrillo dedotto solo dal nome)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "CR_APE_001",
+      "scene": "APERTURA",
+      "tone": "VELLUTATO",
+      "duration": "5-7 SECONDI",
+      "text": "Buonasera, pub. Sono Croc. Sorrido tanto, ma non fidatevi troppo dei miei denti.",
+      "vars": []
+    },
+    {
+      "id": "CR_APE_002",
+      "scene": "APERTURA",
+      "tone": "RILASSATO",
+      "duration": "6-8 SECONDI",
+      "text": "Luci basse, musica giusta, tavoli nervosi. Ecco, adesso la serata ha l'atmosfera che piace a me.",
+      "vars": []
+    },
+    {
+      "id": "CR_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "VELLUTATO, MINACCIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Accomodatevi, tavoli. Comincia sempre così: tutti tranquilli, poi qualcuno mette un piede in acqua.",
+      "vars": []
+    },
+    {
+      "id": "CR_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "SORNIONE",
+      "duration": "9-12 SECONDI",
+      "text": "Ecco {MASCOTTE_A}, la mascotte che accompagna {TAVOLO_A}. Ha un bel sorriso. Il mio ha più denti, ma apprezzo l'impegno.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Comincia la manche {MANCHE}. L'acqua è calma. Per ora.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "CR_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "VELLUTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Il prossimo gioco si chiama {MINIGIOCO}. Sembra un laghetto tranquillo. Nei laghetti tranquilli ci vivo io.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "CR_REG_001",
+      "scene": "REGOLE",
+      "tone": "RILASSATO",
+      "duration": "9-12 SECONDI",
+      "text": "Le regole sono poche e chiare. Una risposta per tavolo, decide il capitano. Il resto lo imparate nel modo più divertente: sbagliando.",
+      "vars": []
+    },
+    {
+      "id": "CR_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "SECCO",
+      "duration": "4-6 SECONDI",
+      "text": "Contate piano, come le onde: tre... due... uno... Croc.",
+      "vars": []
+    },
+    {
+      "id": "CR_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "VELLUTATO",
+      "duration": "3-5 SECONDI",
+      "text": "Si parte. Tre, due, uno. Nuotate.",
+      "vars": []
+    },
+    {
+      "id": "CR_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "SCATTANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Al mio segnale. Immobili... immobili... tre, due, uno, scatto!",
+      "vars": []
+    },
+    {
+      "id": "CR_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "MINACCIOSO, DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi {SECONDI} secondi. Sentite qualcosa che vi sfiora la caviglia? È il tempo che morde.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "CR_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo sta finendo, e negli ultimi secondi a me viene sempre fame.",
+      "vars": []
+    },
+    {
+      "id": "CR_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DELUSO, IRONICO",
+      "duration": "2-4 SECONDI",
+      "text": "Giusto. Peccato, avevo già apparecchiato.",
+      "vars": []
+    },
+    {
+      "id": "CR_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Corretta: {TAVOLO_A} prende {PUNTI} punti e scappa dall'acqua con tutte le dita.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CR_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "APPROVANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Bella risposta. Lenta, elegante, precisa. Come piace a me.",
+      "vars": []
+    },
+    {
+      "id": "CR_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SECCO, SODDISFATTO",
+      "duration": "1-3 SECONDI",
+      "text": "Sbagliata. Croc.",
+      "vars": []
+    },
+    {
+      "id": "CR_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "VELLUTATO, PERFIDO",
+      "duration": "5-7 SECONDI",
+      "text": "Ahi ahi. Avete messo il piede proprio dove non dovevate. Che delizia.",
+      "vars": []
+    },
+    {
+      "id": "CR_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Risposta sbagliata. Non piangete: le lacrime di coccodrillo sono una mia specialità, e non sopporto la concorrenza.",
+      "vars": []
+    },
+    {
+      "id": "CR_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCO",
+      "duration": "4-6 SECONDI",
+      "text": "Tempo scaduto. Chi è rimasto a riva, resta a riva.",
+      "vars": []
+    },
+    {
+      "id": "CR_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "COMPIACIUTO",
+      "duration": "7-9 SECONDI",
+      "text": "Fine del tempo. Ho aspettato immobile tutta la prova solo per dirlo. Ne valeva la pena.",
+      "vars": []
+    },
+    {
+      "id": "CR_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "VELLUTATO, MINACCIOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Nuota davanti a tutti {TAVOLO_A}. Complimenti. Ma io, di notte, nuoto meglio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SORNIONE",
+      "duration": "7-9 SECONDI",
+      "text": "Godetevi la vista dal primo posto: da lassù si vede tutto. Anche me, che vi aspetto in fondo.",
+      "vars": []
+    },
+    {
+      "id": "CR_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE, SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Ultimo, per ora, {TAVOLO_A}. Sapete chi sta sempre sul fondo? Il coccodrillo. E alla fine, il coccodrillo mangia.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Sul fondo del fiume, per adesso, c'è {TAVOLO_A}. Restate immobili, pazienti, e poi scattate.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "AMMIRATO",
+      "duration": "6-8 SECONDI",
+      "text": "Che rimonta! Dal fondo del fiume fino in superficie: {TAVOLO_A} ha l'istinto del predatore.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMPIACIUTO",
+      "duration": "5-7 SECONDI",
+      "text": "Recupero da manuale. Immobili per mezz'ora, e poi: Croc! Mi riconosco in voi.",
+      "vars": []
+    },
+    {
+      "id": "CR_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "ECCITATO",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso: {TAVOLO_A} azzanna la posizione e lascia {TAVOLO_B} a guardare le bolle.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CR_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "VELLUTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Cambia il comando. Qualcuno da dietro si è avvicinato piano piano, senza far rumore. Il mio stile preferito.",
+      "vars": []
+    },
+    {
+      "id": "CR_DUE_001",
+      "scene": "DUELLO",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Duello tra {TAVOLO_A} e {TAVOLO_B}. Due predatori, una sola preda: i punti.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CR_DUE_002",
+      "scene": "DUELLO",
+      "tone": "SORNIONE",
+      "duration": "7-9 SECONDI",
+      "text": "{MASCOTTE_A} contro {MASCOTTE_B}. Io guardo dall'acqua. Chi perde, lo consolo io. A modo mio.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CR_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPIACIUTO",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio: {TAVOLO_A} tende la trappola e {TAVOLO_B} ci finisce dentro. Ah, l'arte della pazienza.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CR_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "SODDISFATTO",
+      "duration": "8-10 SECONDI",
+      "text": "Croc! Addenta {PUNTI} punti {TAVOLO_A}, e a farne le spese è {TAVOLO_B}. Rapido e pulito.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CR_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "VELLUTATO",
+      "duration": "5-7 SECONDI",
+      "text": "Un furto silenzioso, senza schizzi. Approvo. Si vede che qualcuno ha studiato.",
+      "vars": []
+    },
+    {
+      "id": "CR_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "9-12 SECONDI",
+      "text": "Un'alleanza. Che bella cosa. Anche io ho degli alleati: gli uccellini che mi puliscono i denti. Non li ho ancora mangiati.",
+      "vars": []
+    },
+    {
+      "id": "CR_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SORNIONE",
+      "duration": "4-6 SECONDI",
+      "text": "Tradimento! E l'alleato piange. Lacrime vere, non come le mie.",
+      "vars": []
+    },
+    {
+      "id": "CR_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff riuscito. Sorriso largo, occhi fermi, nessuna bolla in superficie: {TAVOLO_A} ha fatto il coccodrillo perfetto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIDATTICO, SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff scoperto. Troppe bolle, troppa agitazione. Per mentire bisogna stare fermi. Fermissimi.",
+      "vars": []
+    },
+    {
+      "id": "CR_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ALLARMATO, ECCITATO",
+      "duration": "4-6 SECONDI",
+      "text": "ALLARME CAOS! L'acqua si agita: adesso escono tutti i predatori.",
+      "vars": []
+    },
+    {
+      "id": "CR_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO, DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Bottone del Caos. {MASCOTTE_A} e {MASCOTTE_B} nella stessa pozza, e in palio un boccone da cinquanta punti. Splash.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CR_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "APPROVANTE",
+      "duration": "7-9 SECONDI",
+      "text": "{MASCOTTE_A} sale al livello 2. Pelle nuova, sguardo nuovo. Anche io cambio pelle, ma con più discrezione.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CR_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Livello 3, leggenda. {MASCOTTE_A} adesso incute rispetto. Persino a me. E io incuto rispetto per mestiere.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CR_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SUSSURRATO",
+      "duration": "4-6 SECONDI",
+      "text": "Shh. Immobili. Il risultato si avvicina sotto la superficie...",
+      "vars": []
+    },
+    {
+      "id": "CR_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "TESO, SORNIONE",
+      "duration": "4-6 SECONDI",
+      "text": "Io so aspettare per ore. Voi riuscite a resistere tre secondi?",
+      "vars": []
+    },
+    {
+      "id": "CR_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Il verdetto c'è. Lo sento nell'acqua. Ancora un attimo...",
+      "vars": []
+    },
+    {
+      "id": "CR_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "C'è un tavolo che risponde a tutto con un «boh». Rispetto la filosofia, ma qui non porta punti.",
+      "vars": []
+    },
+    {
+      "id": "CR_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Certi capitani si muovono come chi scrive «arrivo tra cinque minuti» mentre è ancora sotto la doccia.",
+      "vars": []
+    },
+    {
+      "id": "CR_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "MINACCIOSO, SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Che bello galleggiare tranquilli come {TAVOLO_B}. Finché qualcosa, sotto, non apre la bocca.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CR_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "3-5 SECONDI",
+      "text": "Coraggio, tavoli. L'acqua è bassa, i denti sono veri.",
+      "vars": []
+    },
+    {
+      "id": "CR_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SORNIONE",
+      "duration": "3-5 SECONDI",
+      "text": "Avete un'aria così rilassata. Mi state facendo venire appetito.",
+      "vars": []
+    },
+    {
+      "id": "CR_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "STUPITO",
+      "duration": "4-6 SECONDI",
+      "text": "Croc?! Questa non l'avevo fiutata. E io fiuto tutto.",
+      "vars": []
+    },
+    {
+      "id": "CR_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO, VELLUTATO",
+      "duration": "4-6 SECONDI",
+      "text": "Ma guarda. Una sorpresa. Mi capita una volta ogni cent'anni.",
+      "vars": []
+    },
+    {
+      "id": "CR_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "8-10 SECONDI",
+      "text": "Pausa. Uscite pure dall'acqua, asciugatevi, ordinate quello che vi va. Io resto qui a prendere il sole sotto i faretti.",
+      "vars": []
+    },
+    {
+      "id": "CR_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "VELLUTATO",
+      "duration": "5-7 SECONDI",
+      "text": "Bentornati in acqua. Sentite com'è tiepida? Ecco, adesso si fa sul serio.",
+      "vars": []
+    },
+    {
+      "id": "CR_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche. Il fiume si stringe, la corrente accelera. Chi ha avuto pazienza, adesso viene ripagato.",
+      "vars": []
+    },
+    {
+      "id": "CR_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "GODURIOSO",
+      "duration": "3-5 SECONDI",
+      "text": "{PUNTI} punti sul tavolo. Croc. Che profumino.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CR_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Puntata rischiosa: {TAVOLO_A} si avvicina alla riva. Adoro vedere cosa succede dopo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_PUN_003",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "VELLUTATO",
+      "duration": "6-8 SECONDI",
+      "text": "Tutto o niente. Le tre parole più belle della lingua italiana, dopo «la cena è servita».",
+      "vars": []
+    },
+    {
+      "id": "CR_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE, VELLUTATO",
+      "duration": "7-9 SECONDI",
+      "text": "Il finale. Luci basse, musica lenta, e un sorriso con tutti i denti. Che lo spettacolo cominci.",
+      "vars": []
+    },
+    {
+      "id": "CR_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Premiazione. Applausi, foto, sorrisi. Il mio sarà il più largo, ve lo garantisco.",
+      "vars": []
+    },
+    {
+      "id": "CR_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "AMMIRATO",
+      "duration": "5-7 SECONDI",
+      "text": "Ha vinto {TAVOLO_A}. Pazienza, istinto e denti affilati: avete giocato da coccodrilli.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CR_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE, IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Avete perso. Piangete pure, vi presto le mie lacrime: sono finte, ma il pensiero conta.",
+      "vars": []
+    },
+    {
+      "id": "CR_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio. Due tavoli con la stessa fame. Qualcuno dovrà cedere il boccone.",
+      "vars": []
+    },
+    {
+      "id": "CR_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "VELLUTATO, AFFETTUOSO",
+      "duration": "8-10 SECONDI",
+      "text": "La serata è finita. Io torno nel mio fiume, voi tornate a casa, con calma e prudenza. Croc, e buonanotte.",
+      "vars": []
+    },
+    {
+      "id": "CR_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "RILASSATO",
+      "duration": "7-9 SECONDI",
+      "text": "Che serata. Sembra un piano bar alle due di notte: tutti più sinceri, nessuno che vuole andare a casa.",
+      "vars": []
+    },
+    {
+      "id": "CR_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "SORNIONE",
+      "duration": "3-5 SECONDI",
+      "text": "Mi chiedono se mordo. Rispondo sempre: solo i punti.",
+      "vars": []
+    },
+    {
+      "id": "CR_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "VELLUTATO",
+      "duration": "4-6 SECONDI",
+      "text": "Questo pub ha l'acqua giusta: calma in superficie, agitatissima sotto.",
+      "vars": []
+    },
+    {
+      "id": "CR_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Sorrido perché sono felice. Oppure perché ho fame. Non lo saprete mai.",
+      "vars": []
+    }
+  ]
+}

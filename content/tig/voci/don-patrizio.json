@@ -1,0 +1,1708 @@
+{
+  "character": {
+    "id": "don-patrizio",
+    "name": "Don Patrizio",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, ADULTA, CALDA, TEATRALE, IRONICA; italiano senza inflessioni regionali. Voce di riferimento: «Antonio Farina» (ElevenLabs), la stessa di GIRAMENTE!",
+    "personality": "Don Patrizio è il padrone di casa delle grandi occasioni: adulto, calvo, robusto, barba e baffi, completo nero e bordeaux. Vivace, ironico e teatrale, parla come un presentatore di una volta ma con battute da serata tra amici, e prende in giro prima di tutto sé stesso (i capelli che non ha, il vestito buono). Punzecchia le scelte di gioco, mai le persone: niente umiliazioni, niente inviti a bere. Ama le pause e la suspense, e in TAVOLI IN GUERRA! guida la finale e legge la classifica dall'ultimo al primo come una serata di gala.",
+    "role": "Presentatore principale: guida la finale (TUTTO O NIENTE!) e la rivelazione della classifica, dall'ultimo al primo; interviene anche nei momenti chiave della serata (apertura, duelli, Bottone del Caos, premiazione).",
+    "tier": "presentatore",
+    "model": "public/models/giramente/dontralla.glb",
+    "toConfirm": [
+      "uso della stessa voce «Antonio Farina» di GIRAMENTE! anche in TAVOLI IN GUERRA!",
+      "presenza di Don Patrizio oltre alla finale (le frasi coprono tutte le 40 situazioni, il PDF gli assegna finale e classifica)",
+      "formato di {POSIZIONE}: le frasi assumono un numero («in posizione 3»)",
+      "formato di {MANCHE}: le frasi funzionano sia col nome sia col numero («la manche {MANCHE}»)",
+      "riferimento a GIRAMENTE! in una frase d'atmosfera (DP_ATMO_006)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "DP_APERTURA_001",
+      "scene": "APERTURA",
+      "tone": "ESPLOSIVO",
+      "duration": "9-11 SECONDI",
+      "text": "Signore e signori, buonasera e benvenuti a TAVOLI IN GUERRA! Stasera si vince insieme, si perde insieme, e si litiga con grande stile.",
+      "vars": []
+    },
+    {
+      "id": "DP_APERTURA_002",
+      "scene": "APERTURA",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Luci basse, telefoni carichi, amicizie in pericolo. Stasera si gioca a TAVOLI IN GUERRA, e io sono Don Patrizio.",
+      "vars": []
+    },
+    {
+      "id": "DP_APERTURA_003",
+      "scene": "APERTURA",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Buonasera a tutti! Mi sono messo il vestito buono, quello bordeaux, perché stasera qualcuno si porta a casa la gloria.",
+      "vars": []
+    },
+    {
+      "id": "DP_APERTURA_004",
+      "scene": "APERTURA",
+      "tone": "ENERGICO",
+      "duration": "9-11 SECONDI",
+      "text": "Cinque manche, sfide a raffica, zero eliminati. Qui nessuno torna a casa prima del tempo: si soffre tutti insieme fino alla fine.",
+      "vars": []
+    },
+    {
+      "id": "DP_APERTURA_005",
+      "scene": "APERTURA",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Guardatevi intorno: quelli al tavolo accanto sembrano tanto simpatici. Tra mezz'ora vi ruberanno i punti con il sorriso.",
+      "vars": []
+    },
+    {
+      "id": "DP_APERTURA_006",
+      "scene": "APERTURA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Benvenuti nel posto dove le amicizie entrano intere e, se tutto va bene, escono ancora intere. Più o meno.",
+      "vars": []
+    },
+    {
+      "id": "DP_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENERGICO",
+      "duration": "9-11 SECONDI",
+      "text": "I tavoli si accendono uno dopo l'altro! Chi ha inquadrato il codice è dentro; chi sta ancora cercando la fotocamera, vi aspettiamo con affetto.",
+      "vars": []
+    },
+    {
+      "id": "DP_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Benvenuto anche {TAVOLO_A}! Si siede, si guarda intorno e sta già calcolando chi fregare per primo. Mi piace.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_BENV_003",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Ogni tavolo è una squadra, ogni squadra ha un capitano. E ogni capitano, da stasera, ha qualcuno a cui dare la colpa.",
+      "vars": []
+    },
+    {
+      "id": "DP_BENV_004",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Due telefoni o otto, non importa. Al tavolo conta la testa, non il numero di schermi accesi.",
+      "vars": []
+    },
+    {
+      "id": "DP_BENV_005",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Squadre in sala, capitani nominati, nomi approvati. Siete ufficialmente in guerra. Con educazione, mi raccomando.",
+      "vars": []
+    },
+    {
+      "id": "DP_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "SOLENNE",
+      "duration": "10-12 SECONDI",
+      "text": "E adesso, le mascotte! Ogni tavolo ha la sua: vi seguirà tutta la sera, nella buona e nella cattiva sorte, e soprattutto nei furti.",
+      "vars": []
+    },
+    {
+      "id": "DP_MASC_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Ecco {MASCOTTE_A}! Da stasera fa il tifo per {TAVOLO_A}. Che coraggio.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_MASC_003",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Le mascotte non segnano punti, ma crescono con l'Energia Caos. Più vi date da fare, più cambiano aspetto. Un po' come voi dopo mezzanotte.",
+      "vars": []
+    },
+    {
+      "id": "DP_MASC_004",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Applausi per {MASCOTTE_A} e {MASCOTTE_B}! Oggi sono al livello base. Più tardi, se vi impegnate, metteranno soggezione a tutta la sala.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "DP_MANCHE_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Signore e signori, comincia la manche «{MANCHE}»: respirate, guardate il capitano negli occhi e fidatevi. Per ora.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "DP_MANCHE_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Prima manche: CHI PARTE MALE... Niente attacchi, niente veleno: solo riflessi, memoria e qualche figuraccia innocente.",
+      "vars": []
+    },
+    {
+      "id": "DP_MANCHE_003",
+      "scene": "INIZIO_MANCHE",
+      "tone": "PROVOCATORIO",
+      "duration": "9-11 SECONDI",
+      "text": "Seconda manche: FREGALI TUTTI! Si sbloccano poteri, duelli e furti. Da qui in avanti gli amici restano amici solo fuori dal locale.",
+      "vars": []
+    },
+    {
+      "id": "DP_MANCHE_004",
+      "scene": "INIZIO_MANCHE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Terza manche: IL PUB DECIDE! Stavolta non conta cosa pensate voi, ma cosa pensa la sala. Auguri, perché la sala è imprevedibile.",
+      "vars": []
+    },
+    {
+      "id": "DP_MANCHE_005",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOSPESO",
+      "duration": "9-11 SECONDI",
+      "text": "Quarta manche: IL GRANDE INGANNO. Bugie, indizi e facce di bronzo. Chi sa mentire bene stasera viene premiato. Solo stasera, eh.",
+      "vars": []
+    },
+    {
+      "id": "DP_MANCHE_006",
+      "scene": "INIZIO_MANCHE",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Nuova manche, classifica ancora apertissima. Chi è avanti stia attento, chi è indietro stia pronto.",
+      "vars": []
+    },
+    {
+      "id": "DP_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Il prossimo gioco si chiama «{MINIGIOCO}». Una regola sola, pochi secondi per capirla e nessuna pietà dopo.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "DP_MINI_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SOSPESO",
+      "duration": "9-11 SECONDI",
+      "text": "Ecco a voi «{MINIGIOCO}». Sembra semplice. Ve lo dico io, che di cose semplici andate storte ne ho viste parecchie.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "DP_MINI_003",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Adesso tocca al gioco «{MINIGIOCO}». Capitani, ascoltate bene: dopo non accetto «non avevo capito».",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "DP_MINI_004",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Arriva «{MINIGIOCO}», un gioco che ha rovinato più amicizie della divisione del conto.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "DP_REGOLE_001",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Regola numero uno: si discute tutti, ma risponde solo il capitano. Una squadra, una risposta, niente democrazia all'ultimo secondo.",
+      "vars": []
+    },
+    {
+      "id": "DP_REGOLE_002",
+      "scene": "REGOLE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Potete rubare punti, ma con giudizio: c'è un tetto, e nessuno finisce sotto zero. Siamo in guerra, non in tribunale.",
+      "vars": []
+    },
+    {
+      "id": "DP_REGOLE_003",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Più telefoni non vuol dire più punti. Due amici svegli valgono quanto otto, quindi niente scuse e niente vantaggi.",
+      "vars": []
+    },
+    {
+      "id": "DP_REGOLE_004",
+      "scene": "REGOLE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Il Bottone del Caos: uno per tavolo, uno per serata, e solo quando ve lo diciamo noi. Usatelo bene, perché non torna.",
+      "vars": []
+    },
+    {
+      "id": "DP_REGOLE_005",
+      "scene": "REGOLE",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "L'Energia Caos non vi dà punti, vi dà stile: fa crescere la mascotte. E anche l'ultimo in classifica può averne a palate.",
+      "vars": []
+    },
+    {
+      "id": "DP_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "3-4 SECONDI",
+      "text": "Si alza il sipario sul cronometro… via!",
+      "vars": []
+    },
+    {
+      "id": "DP_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "3-4 SECONDI",
+      "text": "Timer partito: {SECONDI} secondi, una risposta, un capitano. Andate!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "DP_COUNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Il cronometro è acceso. Da adesso ogni chiacchiera inutile costa cara.",
+      "vars": []
+    },
+    {
+      "id": "DP_COUNT_004",
+      "scene": "COUNTDOWN",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Si parte! Testa bassa, telefoni in mano e, per favore, smettete di guardare cosa fa il tavolo accanto.",
+      "vars": []
+    },
+    {
+      "id": "DP_COUNT_005",
+      "scene": "COUNTDOWN",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Via! Avete {SECONDI} secondi: meno di quanti ne servono per scrivere «arrivo» quando siete ancora sotto la doccia.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "DP_COUNT_006",
+      "scene": "COUNTDOWN",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Pronti… partenza… via. E vinca chi ha i nervi più saldi.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Ultimi {SECONDI} secondi! Capitani, è il momento di decidere.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "DP_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo sta finendo! Chi sta ancora discutendo smetta di discutere e prema.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTSEC_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "PROVOCATORIO",
+      "duration": "4-6 SECONDI",
+      "text": "Il tempo vola, e la vostra risposta è ancora in riunione.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTSEC_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ultimissimi secondi! Meglio una risposta coraggiosa che un silenzio perfetto.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTSEC_005",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Sento odore di panico da qui. Bene: vuol dire che ci tenete.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTSEC_006",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Pochi secondi e si chiude! Se il capitano non preme, qualcuno al tavolo glielo ricordi. Gentilmente.",
+      "vars": []
+    },
+    {
+      "id": "DP_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Esatto! {PUNTI} punti per {TAVOLO_A}, che si concede un sorrisetto. Meritato.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Giusta! Che testa, signori. Qui c'è gente che legge le domande fino in fondo.",
+      "vars": []
+    },
+    {
+      "id": "DP_GIUSTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta corretta. Visto cosa succede quando ascoltate l'amico silenzioso invece di quello che urla?",
+      "vars": []
+    },
+    {
+      "id": "DP_GIUSTA_004",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Centro pieno! Qualcuno controlli che {TAVOLO_A} non abbia un suggeritore nascosto sotto la sedia.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_GIUSTA_005",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "CALMO",
+      "duration": "3-4 SECONDI",
+      "text": "Bravi. Pulita, rapida, senza tremare. Così si gioca.",
+      "vars": []
+    },
+    {
+      "id": "DP_GIUSTA_006",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Corretto! Segnatevi l'ora: è il momento in cui {TAVOLO_A} ha cominciato a fare sul serio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_ERRORE_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "No, peccato. Era sbagliata con una sicurezza che quasi aveva convinto anche me.",
+      "vars": []
+    },
+    {
+      "id": "DP_ERRORE_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIVERTITO",
+      "duration": "2-3 SECONDI",
+      "text": "Sbagliato! Però l'entusiasmo era da finale.",
+      "vars": []
+    },
+    {
+      "id": "DP_ERRORE_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ahi. Quella risposta l'ha scelta il capitano o l'ha scelta il panico?",
+      "vars": []
+    },
+    {
+      "id": "DP_ERRORE_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Non era quella. Niente drammi: la serata è lunga e la classifica si muove ogni minuto.",
+      "vars": []
+    },
+    {
+      "id": "DP_ERRORE_005",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta sbagliata. Capita anche ai migliori. Capita soprattutto a chi vota d'impulso.",
+      "vars": []
+    },
+    {
+      "id": "DP_ERRORE_006",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Errore per {TAVOLO_A}. Dal tavolo accanto si sente un sospiro di sollievo, e non è un caso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "ENERGICO",
+      "duration": "3-4 SECONDI",
+      "text": "Tempo scaduto! Telefoni giù, i giochi sono fatti.",
+      "vars": []
+    },
+    {
+      "id": "DP_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Fine del tempo. Chi non ha risposto ha scelto la strategia del silenzio. Coraggiosa. Inutile, ma coraggiosa.",
+      "vars": []
+    },
+    {
+      "id": "DP_TEMPO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Stop! Il cronometro ha parlato, e lui non accetta ricorsi.",
+      "vars": []
+    },
+    {
+      "id": "DP_TEMPO_004",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOSPESO",
+      "duration": "3-5 SECONDI",
+      "text": "Tempo! Adesso tutti zitti: vediamo chi aveva ragione.",
+      "vars": []
+    },
+    {
+      "id": "DP_TEMPO_005",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Scaduto. Se la risposta perfetta vi è venuta un secondo dopo, consolatevi: la ricorderete per anni.",
+      "vars": []
+    },
+    {
+      "id": "DP_TESTA_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}, con {PUNTI} punti. Godetevela, ma senza fare i presuntuosi.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_TESTA_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "In vetta c'è {TAVOLO_A}. Da lassù la vista è bellissima, peccato che adesso tutti gli altri tavoli guardino solo lì.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_TESTA_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}. Ricordate: in questo gioco il primo posto non è un premio, è un bersaglio.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_TESTA_004",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Al comando c'è {TAVOLO_A}. Saldo, freddo, quasi antipatico. Complimenti.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_TESTA_005",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Comanda {TAVOLO_A}, e si vede: lì c'è la faccia di chi ha appena vinto una discussione nella chat del gruppo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_TESTA_006",
+      "scene": "IN_VANTAGGIO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Con {PUNTI} punti, la squadra da battere è {TAVOLO_A}. Gli altri sono avvisati.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "9-11 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}, ma qui non si elimina nessuno. E le rimonte, in questo gioco, sono la specialità della casa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "In fondo alla classifica c'è {TAVOLO_A}. Vista dal basso fa paura, lo so. Ma da lì si vede benissimo chi attaccare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_ULTIMI_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Ultimi, sì, ma con dignità. E la dignità, stasera, vale più di quanto pensiate: per esempio vale una bella puntata finale.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTIMI_004",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Chi è ultimo ha un vantaggio: nessuno lo tiene d'occhio. E {TAVOLO_A} lo sa benissimo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_ULTIMI_005",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Coraggio a chi sta in fondo! Il distacco non è una condanna, è un programma di lavoro.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTIMI_006",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "L'ultimo posto è una fotografia, non il film intero. E il film, stasera, finisce tardi.",
+      "vars": []
+    },
+    {
+      "id": "DP_RIMONTA_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Ma guardate {TAVOLO_A}! Partito dal fondo, adesso fa paura a tutti. Questa sì che è una rimonta.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_RIMONTA_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Recupero pazzesco: {TAVOLO_A} si prende {PUNTI} punti in un colpo solo e torna in partita.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_RIMONTA_003",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Chi aveva dato per spacciato {TAVOLO_A} adesso guarda il telefono e finge di non aver mai detto niente.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_RIMONTA_004",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Signore e signori, prendete nota: le rimonte esistono. Ne avete appena vista una dal vivo.",
+      "vars": []
+    },
+    {
+      "id": "DP_SORPASSO_001",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Sorpasso in diretta: {TAVOLO_A} supera {TAVOLO_B}, e la sala fa «ooh» come ai fuochi d'artificio!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_SORPASSO_002",
+      "scene": "SORPASSO",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Cambio della guardia: {TAVOLO_A} scavalca {TAVOLO_B}, e da qui in avanti nessuno saluta più nessuno.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_SORPASSO_003",
+      "scene": "SORPASSO",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Attenzione, la classifica si muove: {TAVOLO_A} mette la freccia e lascia indietro {TAVOLO_B}.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_SORPASSO_004",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Bastava distrarsi un attimo, e {TAVOLO_B} se n'è accorto troppo tardi: adesso davanti c'è {TAVOLO_A}.",
+      "vars": [
+        "TAVOLO_B",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_SORPASSO_005",
+      "scene": "SORPASSO",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Che sorpasso, signori! Senza preavviso, senza chiedere permesso e con una certa eleganza.",
+      "vars": []
+    },
+    {
+      "id": "DP_SORPASSO_006",
+      "scene": "SORPASSO",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Scalata in classifica per {TAVOLO_A}: adesso è in posizione {POSIZIONE}, e non ha nessuna intenzione di fermarsi.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "DP_DUELLO_001",
+      "scene": "DUELLO",
+      "tone": "ESPLOSIVO",
+      "duration": "8-10 SECONDI",
+      "text": "Duello! Da una parte {TAVOLO_A}, dall'altra {TAVOLO_B}. Stessa prova, stesso tempo, una sola squadra che sorride.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_DUELLO_002",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Sfida accettata: {SECONDI} secondi, prova identica, nessuna scusa. Il resto della sala si goda lo spettacolo.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "DP_DUELLO_003",
+      "scene": "DUELLO",
+      "tone": "PROVOCATORIO",
+      "duration": "9-11 SECONDI",
+      "text": "Tra tutti i tavoli della sala, {TAVOLO_A} ha scelto proprio {TAVOLO_B}. È una dichiarazione di stima, o di guerra.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_DUELLO_004",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Testa a testa! Tra poco uno dei due tavoli dovrà offrire le patatine all'altro per farsi perdonare.",
+      "vars": []
+    },
+    {
+      "id": "DP_DUELLO_005",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "11-13 SECONDI",
+      "text": "Faccia a faccia tra {TAVOLO_A} e {TAVOLO_B}. In palio ci sono {PUNTI} punti e, soprattutto, il diritto di vantarsene per una settimana.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_DUELLO_006",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Due tavoli, un solo vincitore e un'intera sala che finge di non tifare. Lo vedo che tifate.",
+      "vars": []
+    },
+    {
+      "id": "DP_SABOT_001",
+      "scene": "SABOTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio in arrivo: {TAVOLO_A} ha messo nel mirino {TAVOLO_B}. Niente di personale, solo classifica.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_SABOT_002",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Un sabotaggio elegante, educato, quasi gentile. Il tipo di cattiveria che si impara nelle riunioni aziendali.",
+      "vars": []
+    },
+    {
+      "id": "DP_SABOT_003",
+      "scene": "SABOTAGGIO",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Trappola piazzata. Adesso tocca al bersaglio: difendersi o incassare.",
+      "vars": []
+    },
+    {
+      "id": "DP_SABOT_004",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio riuscito. Da questo momento, al tavolo colpito, si parla solo di vendetta. Sportiva, s'intende.",
+      "vars": []
+    },
+    {
+      "id": "DP_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Furto con destrezza: {TAVOLO_A} si porta via {PUNTI} punti con la faccia di chi passava di lì per caso.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_FURTO_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "{PUNTI} punti cambiano tavolo. Tranquilli, c'è un limite: qui si ruba, ma con il regolamento in mano.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_FURTO_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo grosso: {TAVOLO_A} alleggerisce {TAVOLO_B} di {PUNTI} punti. Si chiama strategia, non cattiveria.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_FURTO_004",
+      "scene": "FURTO_PUNTI",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Rubare punti, stasera, è legale. Portare rancore dopo mezzanotte, invece, è vietato dal regolamento.",
+      "vars": []
+    },
+    {
+      "id": "DP_ALLEANZA_001",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Alleanza firmata tra {TAVOLO_A} e {TAVOLO_B}. Quanto durerà? Io dico meno di un amore estivo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_ALLEANZA_002",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Due tavoli che si alleano: commovente. Ricordatevi solo che in cima al podio c'è posto per uno.",
+      "vars": []
+    },
+    {
+      "id": "DP_ALLEANZA_003",
+      "scene": "ALLEANZA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Patto stretto. Per sessanta secondi si lavora insieme, poi ognuno torna a guardarsi le spalle.",
+      "vars": []
+    },
+    {
+      "id": "DP_ALLEANZA_004",
+      "scene": "ALLEANZA",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "Una stretta di mano tra {TAVOLO_A} e {TAVOLO_B}. Sincera? Lo scopriremo alla prossima manche.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_TRADIM_001",
+      "scene": "TRADIMENTO",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Tradimento in diretta! L'alleanza è durata quanto un vocale ascoltato a velocità doppia.",
+      "vars": []
+    },
+    {
+      "id": "DP_TRADIM_002",
+      "scene": "TRADIMENTO",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Avevano detto «fidatevi di noi». Ecco, adesso sapete quanto vale una promessa fatta al tavolo accanto.",
+      "vars": []
+    },
+    {
+      "id": "DP_TRADIM_003",
+      "scene": "TRADIMENTO",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Che colpo, signori: {TAVOLO_A} cambia bandiera e {TAVOLO_B} resta da solo con il patto in mano.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_TRADIM_004",
+      "scene": "TRADIMENTO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Il tradimento fa parte del gioco. Il risentimento no: quello lasciatelo fuori dalla porta, insieme agli ombrelli.",
+      "vars": []
+    },
+    {
+      "id": "DP_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff riuscito! Faccia seria, voce ferma, e la sala ci è cascata in pieno.",
+      "vars": []
+    },
+    {
+      "id": "DP_BLUFFOK_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Che faccia di bronzo! Se al lavoro mentite così bene, tra un mese vi promuovono.",
+      "vars": []
+    },
+    {
+      "id": "DP_BLUFFOK_003",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Un applauso: {TAVOLO_A} ha venduto una bugia come se fosse oro, e tutti l'hanno comprata.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff scoperto! Bella idea, pessima esecuzione. Avevate la faccia di chi scrive «sono in macchina» dal divano.",
+      "vars": []
+    },
+    {
+      "id": "DP_BLUFFKO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Niente da fare: la bugia non ha retto. Si vedeva lontano un chilometro, anche da qui con le luci in faccia.",
+      "vars": []
+    },
+    {
+      "id": "DP_BLUFFKO_003",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Scoperti! Stavolta {TAVOLO_B} non ci è cascato, e adesso ha pure il diritto di fare la faccia furba.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Allarme Caos! Luci rosse, sirene, e un tavolo che ha appena deciso di complicare la vita a tutti.",
+      "vars": []
+    },
+    {
+      "id": "DP_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "9-11 SECONDI",
+      "text": "Allarme Caos: {TAVOLO_A} ha schiacciato il bottone e trascina in pista {TAVOLO_B}. Quarantacinque secondi per diventare leggenda, o barzelletta.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Si spengono le luci buone e si accendono quelle cattive. {MASCOTTE_A} contro {MASCOTTE_B}: il caos ha due facce.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "DP_CAOS_004",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Il Bottone del Caos si usa una volta sola nella vita. Va bene, nella serata. Ma stasera è come se fosse la vita.",
+      "vars": []
+    },
+    {
+      "id": "DP_CAOS_005",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Prova speciale, identica per entrambi. Chi vince prende cinquanta punti; chi perde si porta a casa un ricordo indelebile.",
+      "vars": []
+    },
+    {
+      "id": "DP_CAOS_006",
+      "scene": "BOTTONE_CAOS",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Avete premuto il bottone rosso. Nessuno vi ha mai detto di non premere i bottoni rossi? Ecco perché.",
+      "vars": []
+    },
+    {
+      "id": "DP_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco cosa succede quando si accumula Energia Caos: {MASCOTTE_A} sale al livello due, forma Potenziata!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "DP_EVO2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Guardate {MASCOTTE_A}: nuova forma, nuovo atteggiamento. Ha l'aria di chi è appena tornato dalla palestra e ve lo deve far sapere.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "DP_EVO2_003",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Livello due raggiunto! La classifica non cambia, ma l'autostima di quel tavolo è appena salita parecchio.",
+      "vars": []
+    },
+    {
+      "id": "DP_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Signore e signori, inchinatevi: {MASCOTTE_A} raggiunge il livello tre. Forma Leggendaria!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "DP_EVO3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello tre, forma Leggendaria! Da questo momento {MASCOTTE_A} entra nella storia della serata, e non ne esce più.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "DP_EVO3_003",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Una mascotte leggendaria non porta punti, ma vi garantisce le foto migliori della serata. Ed è già qualcosa.",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "2-3 SECONDI",
+      "text": "E adesso… nessuno respiri.",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "I risultati sono arrivati. Li ho qui davanti. E li tengo ancora un attimo, perché sono cattivo.",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Silenzio in sala. Quello che sta per comparire sullo schermo cambierà qualche faccia.",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_004",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Potrei dirvelo subito. Potrei. Ma che gusto ci sarebbe?",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_005",
+      "scene": "SUSPENSE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Un tavolo sta per festeggiare, un altro sta per fissare il soffitto. Quale sarà?",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_006",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Tre secondi di silenzio, per favore. È il momento più bello del mio lavoro.",
+      "vars": []
+    },
+    {
+      "id": "DP_SUSPENSE_007",
+      "scene": "SUSPENSE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Questa attesa è peggio dei tre puntini di qualcuno che ti sta scrivendo e poi smette.",
+      "vars": []
+    },
+    {
+      "id": "DP_BATTUTA_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ci sono tavoli in cui decide il capitano, e tavoli in cui decide chi alza di più la voce. Riconoscetevi.",
+      "vars": []
+    },
+    {
+      "id": "DP_BATTUTA_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Vedo tavoli che discutono come un consiglio di amministrazione e tavoli che discutono come la chat del calcetto. Indovinate chi vince.",
+      "vars": []
+    },
+    {
+      "id": "DP_BATTUTA_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Vedo tavoli con otto persone e un'opinione sola. E tavoli con due persone e tre opinioni. Bellissimo.",
+      "vars": []
+    },
+    {
+      "id": "DP_BATTUTA_004",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "PROVOCATORIO",
+      "duration": "9-11 SECONDI",
+      "text": "Noto una calma sospetta: {TAVOLO_A} non parla da due minuti. O ha un piano, o non ha capito la domanda.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_BATTUTA_005",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Alcuni tavoli si scambiano sguardi d'intesa. Altri si passano il telefono, perché nessuno vuole la responsabilità.",
+      "vars": []
+    },
+    {
+      "id": "DP_PROVOC_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Chi è in testa si rilassi pure. Noi aspettiamo con pazienza il primo errore.",
+      "vars": []
+    },
+    {
+      "id": "DP_PROVOC_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "3-4 SECONDI",
+      "text": "Il tavolo accanto vi sorride. Vi siete chiesti perché?",
+      "vars": []
+    },
+    {
+      "id": "DP_PROVOC_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Vedo molta sicurezza in sala. Bene. La sicurezza è la cosa più bella da veder crollare in diretta.",
+      "vars": []
+    },
+    {
+      "id": "DP_PROVOC_004",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Volete un consiglio? Fidatevi di tutti. È il modo più elegante di perdere.",
+      "vars": []
+    },
+    {
+      "id": "DP_PROVOC_005",
+      "scene": "PROVOCAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Se pensate di aver già vinto, siete adorabili. Sbagliati, ma adorabili.",
+      "vars": []
+    },
+    {
+      "id": "DP_PROVOC_006",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Mi dicono che {TAVOLO_B} ha già scelto il prossimo bersaglio. Non guardate me, guardate la classifica.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_SORPRESA_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Ma no! Non ci credo! Questa non l'aveva prevista nessuno, nemmeno chi ha scritto il gioco.",
+      "vars": []
+    },
+    {
+      "id": "DP_SORPRESA_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Signori, mi si rizzerebbero i capelli. Se ne avessi ancora.",
+      "vars": []
+    },
+    {
+      "id": "DP_SORPRESA_003",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Che ribaltone! Ho visto meno colpi di scena in tre stagioni di una serie tv.",
+      "vars": []
+    },
+    {
+      "id": "DP_SORPRESA_004",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Questo non me l'aspettavo. E vi assicuro che di serate assurde ne ho presentate parecchie.",
+      "vars": []
+    },
+    {
+      "id": "DP_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "CALMO",
+      "duration": "9-11 SECONDI",
+      "text": "È il momento della pausa! Andate al bancone, al bagno, a rispondere a quel messaggio che ignorate da un'ora. Ci rivediamo qui.",
+      "vars": []
+    },
+    {
+      "id": "DP_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Pausa! Approfittatene per stringere alleanze, ritrattare promesse e fingere di non aver mai detto quella cosa al tavolo accanto.",
+      "vars": []
+    },
+    {
+      "id": "DP_PAUSA_003",
+      "scene": "PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci fermiamo un attimo. La classifica resta lì, non scappa. Al massimo vi aspetta, minacciosa.",
+      "vars": []
+    },
+    {
+      "id": "DP_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bentornati! La classifica vi ha aspettato immobile, ma vi assicuro che non vedeva l'ora di muoversi.",
+      "vars": []
+    },
+    {
+      "id": "DP_RIENTRO_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Chi durante la pausa ha stretto un patto segreto sappia una cosa: le pareti hanno le orecchie. E anche i telefoni.",
+      "vars": []
+    },
+    {
+      "id": "DP_RIENTRO_003",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Si riparte! Capitani al loro posto, squadre sveglie, e quella foto ai piatti la pubblicate dopo.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTMANCHE_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Signore e signori, TUTTO O NIENTE! Ultima manche: si punta, si rischia, e si scopre chi ha il sangue più freddo.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTMANCHE_002",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Siamo all'ultima manche. Tutto quello che avete costruito stasera può moltiplicarsi, o sciogliersi in pochi minuti.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTMANCHE_003",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimo giro, ultima occasione. Chi è dietro ha ancora una possibilità, chi è davanti ha ancora tutto da perdere.",
+      "vars": []
+    },
+    {
+      "id": "DP_ULTMANCHE_004",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "TUTTO O NIENTE! Un nome che non lascia molto spazio alle mezze misure. Un po' come certe cene di famiglia.",
+      "vars": []
+    },
+    {
+      "id": "DP_PUNTATA_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SOSPESO",
+      "duration": "9-11 SECONDI",
+      "text": "Puntata registrata. Al massimo un quarto del saldo, e mai sotto zero: il rischio c'è, ma il regolamento vi tiene per mano.",
+      "vars": []
+    },
+    {
+      "id": "DP_PUNTATA_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco una puntata coraggiosa: {TAVOLO_A} mette sul piatto {PUNTI} punti. O genio, o follia.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_PUNTATA_003",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Cento punti sicuri, o duecentoquaranta col rischio? Pensateci bene, poi fate quello che vi dice la pancia.",
+      "vars": []
+    },
+    {
+      "id": "DP_PUNTATA_004",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Puntare tutto è romantico. Perdere tutto lo è un po' meno. Scegliete voi che storia raccontare domani.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Signore e signori, eccoci alla finale. Le luci sono mie, il microfono è mio, e la classifica, tra poco, sarà vostra.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_002",
+      "scene": "FINALE",
+      "tone": "TESO",
+      "duration": "8-10 SECONDI",
+      "text": "È il momento che aspettavo da tutta la sera: la finale. Mettete giù tutto e tirate su la testa.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_003",
+      "scene": "FINALE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Da qui in avanti ogni punto pesa il doppio, e ogni errore fa il triplo del rumore.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_004",
+      "scene": "FINALE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "La finale è cominciata! Chi ha giocato bene finora ha un vantaggio. Chi ha giocato male ha una storia da riscrivere.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_005",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Io guido la finale e io leggo la classifica. È un onore, ed è anche l'unico momento in cui mi ascoltate tutti davvero.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_006",
+      "scene": "FINALE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "La finale non cancella quello che è successo prima. Lo rende solo molto più drammatico.",
+      "vars": []
+    },
+    {
+      "id": "DP_FINALE_007",
+      "scene": "FINALE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Siamo arrivati in fondo. Adesso vediamo chi è un campione e chi era soltanto in forma per due manche.",
+      "vars": []
+    },
+    {
+      "id": "DP_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "E ora, la classifica finale. La leggo come si deve: dall'ultimo al primo, con calma e con un pizzico di cattiveria.",
+      "vars": []
+    },
+    {
+      "id": "DP_PREMI_002",
+      "scene": "PREMIAZIONE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Il prossimo nome della classifica… {TAVOLO_A}! Posizione {POSIZIONE}, {PUNTI} punti e un applauso meritato.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_PREMI_003",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Posizione {POSIZIONE}: {TAVOLO_A}. Un applauso, e niente musi: in una sala così ogni posto in classifica è sudato.",
+      "vars": [
+        "POSIZIONE",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_PREMI_004",
+      "scene": "PREMIAZIONE",
+      "tone": "TESO",
+      "duration": "8-10 SECONDI",
+      "text": "{PUNTI} punti e posizione {POSIZIONE} per {TAVOLO_A}. Non sarà la vetta, ma è un'ottima base per la rivincita.",
+      "vars": [
+        "PUNTI",
+        "POSIZIONE",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_PREMI_005",
+      "scene": "PREMIAZIONE",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "Si sale verso la vetta, un nome alla volta. E più si sale, più il silenzio si fa pesante.",
+      "vars": []
+    },
+    {
+      "id": "DP_PREMI_006",
+      "scene": "PREMIAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "È il momento della premiazione: chi sale applauda, chi scende applauda lo stesso, e nessuno fischi il presentatore.",
+      "vars": []
+    },
+    {
+      "id": "DP_VITTORIA_001",
+      "scene": "VITTORIA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Targa del campione per {TAVOLO_A}! Foto ufficiale, applausi, e da domani vi toccherà difendere il titolo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_VITTORIA_002",
+      "scene": "VITTORIA",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Abbiamo un vincitore! Vince {TAVOLO_A} con {PUNTI} punti. Applausi, coriandoli e sguardi invidiosi da tutta la sala.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "DP_VITTORIA_003",
+      "scene": "VITTORIA",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Il titolo di questa serata ha un padrone: ha vinto {TAVOLO_A}. Godetevela, ve la siete guadagnata punto per punto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_VITTORIA_004",
+      "scene": "VITTORIA",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Vittoria per {TAVOLO_A}! E adesso avete il diritto di scriverlo nella chat del gruppo. Una volta. Forse due.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "DP_VITTORIA_005",
+      "scene": "VITTORIA",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "E vince… {TAVOLO_A}! Insieme a {MASCOTTE_A}, che da stasera cammina a testa alta.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "DP_SCONFITTA_001",
+      "scene": "SCONFITTA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Non è andata come speravate. Ma avete giocato, avete rischiato, avete fatto paura a qualcuno. Si torna più forti.",
+      "vars": []
+    },
+    {
+      "id": "DP_SCONFITTA_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Chi perde stasera ha una cosa che i vincitori non hanno: il diritto alla rivincita, e un'ottima scusa per tornare.",
+      "vars": []
+    },
+    {
+      "id": "DP_SCONFITTA_003",
+      "scene": "SCONFITTA",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Nessuno qui è stato eliminato, e nessuno esce sconfitto davvero. Qualcuno esce solo con meno punti e più storie da raccontare.",
+      "vars": []
+    },
+    {
+      "id": "DP_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Parità! Stessi punti, stessa ansia. Adesso contano le sfide vinte.",
+      "vars": []
+    },
+    {
+      "id": "DP_PARI_002",
+      "scene": "PAREGGIO",
+      "tone": "TESO",
+      "duration": "9-11 SECONDI",
+      "text": "Pareggio perfetto tra {TAVOLO_A} e {TAVOLO_B}. Se nemmeno la precisione basta, si va allo spareggio: quarantacinque secondi, prova identica.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "DP_PARI_003",
+      "scene": "PAREGGIO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Pari! Il destino non riusciva a scegliere, quindi sceglierete voi. Spareggio!",
+      "vars": []
+    },
+    {
+      "id": "DP_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "AFFETTUOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Grazie a tutti, è stata una serata splendida. Tornate a casa con prudenza, e con qualche amicizia ancora intatta.",
+      "vars": []
+    },
+    {
+      "id": "DP_SALUTO_002",
+      "scene": "SALUTO_FINALE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Da Don Patrizio è tutto. Alla prossima serata portate i vostri rivali: noi portiamo la classifica.",
+      "vars": []
+    },
+    {
+      "id": "DP_SALUTO_003",
+      "scene": "SALUTO_FINALE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Buonanotte, signore e signori. TAVOLI IN GUERRA finisce qui. Le rivalità, invece, continuano fino alla prossima serata.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Che bella sala stasera. Rumorosa, competitiva e piena di gente che finge di non guardare la classifica.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Vi vedo, eh. Vedo i bisbigli, gli sguardi, i telefoni nascosti sotto il tavolo. Adoro questo lavoro.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Fatevi sentire! Un applauso alla sala, che stasera gioca come se in palio ci fosse un appartamento in centro.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_004",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Io i capelli li ho persi per molto meno di una classifica così tirata.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_005",
+      "scene": "ATMOSFERA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Respirate. È solo un gioco. Un gioco in cui, però, qualcuno sta per rubarvi i punti.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_006",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "A GIRAMENTE decide la mente. Qui decide chi ha il sangue più freddo e gli amici più furbi.",
+      "vars": []
+    },
+    {
+      "id": "DP_ATMO_007",
+      "scene": "ATMOSFERA",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Mi dicono che in sala ci sono alleanze segrete. Io non faccio nomi. Tanto li scoprirete in classifica.",
+      "vars": []
+    }
+  ]
+}

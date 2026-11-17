@@ -1,0 +1,638 @@
+{
+  "character": {
+    "id": "voltix",
+    "name": "VOLTIX",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO BRILLANTE E METALLICO CON UN LEGGERO CREPITIO ELETTRONICO; RITMO RAPIDISSIMO E STACCATO, PICCHI DI VOLUME SULLE PAROLE CHIAVE, EFFETTO «SCARICA» SUGLI ANNUNCI",
+    "personality": "PROPOSTA dedotta dal solo nome (nel progetto non ci sono né modello né descrizione): creatura di pura energia elettrica, sempre a mille, impaziente e scattante; parla a raffica come una telecronaca da pista. Vive di Energia Caos (il suo carburante), del Bottone del Caos e dei countdown. Metafore elettriche continue: batteria, voltaggio, scossa, cortocircuito, blackout, ricarica, lampadina. Odia attese e indecisione; quando la sala cala di tono la «ricarica». Energia da pista unita a una precisione quasi tecnica, mai aggressiva.",
+    "role": "Ospite «carica elettrica»: countdown, ultimi secondi, Bottone del Caos, Energia Caos ed evoluzioni delle mascotte, sorpassi; rianima l'atmosfera nei momenti di calo.",
+    "tier": "ospite",
+    "model": null,
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)",
+      "aspetto e tipo di creatura (energia elettrica dedotta solo dal nome)",
+      "modello 3D (assente)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "VO_APE_001",
+      "scene": "APERTURA",
+      "tone": "ELETTRICO",
+      "duration": "7-9 SECONDI",
+      "text": "Buonasera pub! Qui VOLTIX, batteria al cento per cento e voglia di scintille. Accendiamo questa serata!",
+      "vars": []
+    },
+    {
+      "id": "VO_APE_002",
+      "scene": "APERTURA",
+      "tone": "CARICO",
+      "duration": "5-7 SECONDI",
+      "text": "Attenzione, corrente attiva: da questo momento ogni tavolo è collegato alla rete del caos!",
+      "vars": []
+    },
+    {
+      "id": "VO_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Tavoli collegati! Sento già la vostra energia nei cavi: qualcuno a pieno voltaggio, qualcuno ancora in fase di avvio.",
+      "vars": []
+    },
+    {
+      "id": "VO_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "ENTUSIASTA",
+      "duration": "9-12 SECONDI",
+      "text": "Ecco {MASCOTTE_A}, la mascotte che corre per {TAVOLO_A}! Più il tavolo partecipa, più si carica di Energia Caos. Collegamento riuscito!",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Interruttore su ON: parte la manche {MANCHE}! Voltaggio al massimo!",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "VO_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ELETTRICO",
+      "duration": "6-8 SECONDI",
+      "text": "In arrivo {MINIGIOCO}! Riflessi pronti, cervelli accesi, e nessun tavolo in modalità aereo.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "VO_REG_001",
+      "scene": "REGOLE",
+      "tone": "CHIARO, VELOCE",
+      "duration": "9-12 SECONDI",
+      "text": "Regole rapide, ad alta tensione: un tavolo, una risposta, la manda il capitano. E più partecipate, più si carica l'Energia Caos della vostra mascotte.",
+      "vars": []
+    },
+    {
+      "id": "VO_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ESPLOSIVO",
+      "duration": "4-6 SECONDI",
+      "text": "Tre! Due! Uno! Scarica da mille volt, si parte!",
+      "vars": []
+    },
+    {
+      "id": "VO_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "ELETTRICO",
+      "duration": "3-5 SECONDI",
+      "text": "Carica al tre, due, uno... ZAP! Si parte!",
+      "vars": []
+    },
+    {
+      "id": "VO_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "TECNICO, CARICO",
+      "duration": "3-5 SECONDI",
+      "text": "Conto alla rovescia in corso: tre, due, uno, contatto!",
+      "vars": []
+    },
+    {
+      "id": "VO_CNT_004",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Dita sullo schermo, batterie al massimo: tre, due, uno, via!",
+      "vars": []
+    },
+    {
+      "id": "VO_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "FRENETICO",
+      "duration": "3-5 SECONDI",
+      "text": "{SECONDI} secondi! Batteria in esaurimento, mandate tutto adesso!",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "VO_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ALLARMATO",
+      "duration": "3-5 SECONDI",
+      "text": "Ultimi secondi! Bip, bip, bip, livello critico!",
+      "vars": []
+    },
+    {
+      "id": "VO_ULS_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "URGENTE",
+      "duration": "3-5 SECONDI",
+      "text": "Il tempo sta per andare in blackout! Capitani, premete!",
+      "vars": []
+    },
+    {
+      "id": "VO_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESULTANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Corretta! Scarica di punti in arrivo: {PUNTI} per {TAVOLO_A}!",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENERGICO",
+      "duration": "3-5 SECONDI",
+      "text": "Esatto! Contatto perfetto, la lampadina si è accesa!",
+      "vars": []
+    },
+    {
+      "id": "VO_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENTUSIASTA",
+      "duration": "4-6 SECONDI",
+      "text": "Giusta! Sento una scossa di soddisfazione fino in fondo ai circuiti.",
+      "vars": []
+    },
+    {
+      "id": "VO_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SCHERZOSO",
+      "duration": "3-5 SECONDI",
+      "text": "Sbagliata! Cortocircuito! Sento odore di plastica bruciata.",
+      "vars": []
+    },
+    {
+      "id": "VO_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "TECNICO, BONARIO",
+      "duration": "4-6 SECONDI",
+      "text": "Niente da fare, il segnale non è arrivato. Riavviate e riprovate.",
+      "vars": []
+    },
+    {
+      "id": "VO_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO, AFFETTUOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Errore! Avete infilato la spina al contrario. Capita anche alle menti più brillanti, giuro.",
+      "vars": []
+    },
+    {
+      "id": "VO_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCO, ELETTRICO",
+      "duration": "5-7 SECONDI",
+      "text": "Tempo scaduto! Blackout totale: chi non ha inviato è rimasto al buio.",
+      "vars": []
+    },
+    {
+      "id": "VO_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Stop! Corrente staccata. Se il vostro telefono è all'uno per cento, almeno avete una scusa.",
+      "vars": []
+    },
+    {
+      "id": "VO_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ESALTATO",
+      "duration": "5-7 SECONDI",
+      "text": "Luci accese e pieno regime per {TAVOLO_A}, al comando della classifica!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Davanti a tutti {TAVOLO_A}. Ricordate però: chi sta in cima prende più fulmini.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima lampadina della fila: {TAVOLO_A}. Niente panico, basta una scintilla per riaccendere tutto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Batteria scarica? Collegatevi al caos: una ricarica rapida c'è sempre.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESULTANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Rimonta elettrica: {TAVOLO_A} passa da zero a cento in pochi secondi!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENTUSIASTA",
+      "duration": "5-7 SECONDI",
+      "text": "Ricarica rapida riuscita! Erano al due per cento, adesso brillano come un'insegna al neon.",
+      "vars": []
+    },
+    {
+      "id": "VO_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso con una scossa da mille volt: {TAVOLO_A} supera {TAVOLO_B}!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VO_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "CONCITATO",
+      "duration": "7-9 SECONDI",
+      "text": "Scambio di corrente in classifica! Scende {TAVOLO_B}, e la lampadina sopra la sua testa si spegne.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VO_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "ESALTATO",
+      "duration": "3-5 SECONDI",
+      "text": "Fulmine in classifica! Ribaltone a tutta velocità!",
+      "vars": []
+    },
+    {
+      "id": "VO_DUE_001",
+      "scene": "DUELLO",
+      "tone": "EPICO",
+      "duration": "7-9 SECONDI",
+      "text": "Duello ad alta tensione: {TAVOLO_A} contro {TAVOLO_B}! Due poli opposti, una sola scintilla!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VO_DUE_002",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_A} contro {MASCOTTE_B}! Si sente il ronzio nell'aria, come un trasformatore prima del temporale.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "VO_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SORPRESO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio: {TAVOLO_A} stacca la spina, e il colpo lo prende {TAVOLO_B}.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VO_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Furto di corrente: {TAVOLO_A} si allaccia abusivamente e si porta via {PUNTI} punti.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "VO_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Punti rubati! E il contatore di qualcuno, adesso, gira all'indietro.",
+      "vars": []
+    },
+    {
+      "id": "VO_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Alleanza: {TAVOLO_A} e {TAVOLO_B} collegati in serie. Se salta uno, salta anche l'altro. Auguri!",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VO_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SCIOCCATO",
+      "duration": "3-5 SECONDI",
+      "text": "Tradimento! Cavo tranciato, collegamento interrotto! Che scossa, pub!",
+      "vars": []
+    },
+    {
+      "id": "VO_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff riuscito! Segnale falso, e ci sono cascati tutti: {TAVOLO_A} ha mandato in tilt mezzo pub.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "TRIONFANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff scoperto! Il rilevatore di bugie ha fatto scintille: segnale troppo debole per ingannare qualcuno.",
+      "vars": []
+    },
+    {
+      "id": "VO_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "3-5 SECONDI",
+      "text": "ALLARME CAOS! Rete in sovraccarico, scintille ovunque!",
+      "vars": []
+    },
+    {
+      "id": "VO_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "EPICO",
+      "duration": "7-9 SECONDI",
+      "text": "Bottone del Caos attivato! Sulla stessa presa ci sono {MASCOTTE_A} e {MASCOTTE_B}: quarantacinque secondi a massima potenza!",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "VO_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESTASIATO",
+      "duration": "5-7 SECONDI",
+      "text": "Questo è il momento per cui esisto: il caos. Sento i circuiti che ballano!",
+      "vars": []
+    },
+    {
+      "id": "VO_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ESULTANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Energia Caos al livello giusto: {MASCOTTE_A} evolve al livello 2! Potenza aumentata!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VO_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESTASIATO",
+      "duration": "5-7 SECONDI",
+      "text": "Livello 3! {MASCOTTE_A} raggiunge la forma leggendaria, e io vado in sovratensione!",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "VO_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Caricamento del risultato... dieci per cento... cinquanta... novantanove...",
+      "vars": []
+    },
+    {
+      "id": "VO_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Silenzio! Neanche un ronzio. Il verdetto sta passando nei cavi.",
+      "vars": []
+    },
+    {
+      "id": "VO_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "IRONICO, TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Rotellina che gira, schermata che non carica: conoscete la sensazione. Ecco, è adesso.",
+      "vars": []
+    },
+    {
+      "id": "VO_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "C'è un tavolo che ragiona come il segnale del treno in galleria: si blocca ogni dieci secondi.",
+      "vars": []
+    },
+    {
+      "id": "VO_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "ESUBERANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Certi tavoli hanno l'energia di un lunedì mattina alle sette. Sveglia!",
+      "vars": []
+    },
+    {
+      "id": "VO_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Rilevo {TAVOLO_B} in modalità risparmio energetico. Spegnete la luce prima di addormentarvi!",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "VO_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SFIDANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Chi ha il coraggio di sfidarmi sui riflessi? Nessuno? Logico: viaggio alla velocità della luce.",
+      "vars": []
+    },
+    {
+      "id": "VO_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "INCITANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Più energia, tavoli! Questo pub può fare molto di più di una lampadina da quaranta watt.",
+      "vars": []
+    },
+    {
+      "id": "VO_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SCIOCCATO",
+      "duration": "2-4 SECONDI",
+      "text": "Cosa?! Mi è saltato un fusibile!",
+      "vars": []
+    },
+    {
+      "id": "VO_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SBALORDITO",
+      "duration": "5-7 SECONDI",
+      "text": "Non ci credo! Ho i capelli dritti. Sì, anche quelli che non ho.",
+      "vars": []
+    },
+    {
+      "id": "VO_PAU_001",
+      "scene": "PAUSA",
+      "tone": "RILASSATO",
+      "duration": "7-9 SECONDI",
+      "text": "Pausa! Dieci minuti di ricarica: telefoni in carica, gambe sgranchite, un salto al bancone. Io resto in standby.",
+      "vars": []
+    },
+    {
+      "id": "VO_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Ricarica completata! Tornate ai vostri posti, si riaccende tutto: tre, due, uno, luce!",
+      "vars": []
+    },
+    {
+      "id": "VO_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima manche! Tutta l'energia che vi resta, buttatela qui dentro. Non si risparmia niente!",
+      "vars": []
+    },
+    {
+      "id": "VO_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Puntata ad alta tensione: {TAVOLO_A} gioca {PUNTI} punti. Può accendere la classifica o far saltare tutto.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "VO_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ECCITATO",
+      "duration": "7-9 SECONDI",
+      "text": "Tutto su un colpo! È come attaccare troppe prese alla stessa ciabatta: o fa luce, o salta tutto.",
+      "vars": []
+    },
+    {
+      "id": "VO_FIN_001",
+      "scene": "FINALE",
+      "tone": "EPICO",
+      "duration": "6-8 SECONDI",
+      "text": "Il finale! Tutta la corrente della serata converge qui. Luci al massimo, cuori al massimo!",
+      "vars": []
+    },
+    {
+      "id": "VO_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "FESTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Premiazione! Accendete le luci sul podio, che chi vince stasera brilla più di un fulmine.",
+      "vars": []
+    },
+    {
+      "id": "VO_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "ESULTANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Vince {TAVOLO_A}! Scarica di gloria, fuochi d'artificio, potenza pura!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "VO_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "CONSOLANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Sconfitta, ma che energia avete messo! La batteria si ricarica, e la voglia di rivincita pure.",
+      "vars": []
+    },
+    {
+      "id": "VO_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "STUPITO, ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio! Stessa carica, stessa tensione, nessuna differenza di potenziale. Questa è fisica, gente!",
+      "vars": []
+    },
+    {
+      "id": "VO_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "CALOROSO",
+      "duration": "7-9 SECONDI",
+      "text": "Serata conclusa! Spegnete gli schermi, accendete il buonumore e tornate a trovarci. VOLTIX passa e chiude!",
+      "vars": []
+    },
+    {
+      "id": "VO_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "ESALTATO",
+      "duration": "5-7 SECONDI",
+      "text": "Questo pub produce più energia di una centrale. Qualcuno avvisi i vicini!",
+      "vars": []
+    },
+    {
+      "id": "VO_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "INCITANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Lo sapete che quando applaudite io mi ricarico? Allora fatemi sentire!",
+      "vars": []
+    },
+    {
+      "id": "VO_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "SCHERZOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Ogni tanto mi chiedono se do la scossa. Solo a chi si distrae.",
+      "vars": []
+    },
+    {
+      "id": "VO_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Calo di tensione rilevato al tavolo laggiù. Su con la vita, che la serata è ancora lunga!",
+      "vars": []
+    }
+  ]
+}

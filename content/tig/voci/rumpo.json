@@ -1,0 +1,611 @@
+{
+  "character": {
+    "id": "rumpo",
+    "name": "RÙMPO",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO MOLTO BASSO, RUVIDO, RIMBOMBANTE COME UN BRONTOLIO; RITMO LENTO, FRASI CORTISSIME E PAUSE ASCIUTTE; RARE RISATE BREVI E PROFONDE",
+    "personality": "PROPOSTA dall'aspetto (ciclope peloso blu e arancione con un occhione centrale e due occhietti laterali): carattere burbero, laconico e impassibile. Parla poco, per frasi brevissime, con umorismo secco. È lo sguardo della serata: vede tutto con tre occhi, smaschera bluff e furbetti, giudica alla moviola e rispetta il regolamento alla lettera. Sotto la scorza ruvida ha un cuore tenero che lascia trapelare solo a sprazzi: si commuove per le rimonte e apprezza chi gioca pulito. Giochi di parole su occhi e sguardi.",
+    "role": "Ospite «moviola con tre occhi»: verdetti, tempo scaduto, sorpassi, bluff scoperti, furti e sabotaggi convalidati; commento secco e impassibile, utile come contrappunto ai personaggi più rumorosi.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/RUMPO_PARLANTE.glb",
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)",
+      "nome: nel LEGGIMI il modello è indicato come Rumpo (scheda «Blobio»)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "RU_APE_001",
+      "scene": "APERTURA",
+      "tone": "IMPASSIBILE",
+      "duration": "5-7 SECONDI",
+      "text": "Buonasera. Sono RÙMPO. Ho tre occhi. Sono tutti puntati su di voi.",
+      "vars": []
+    },
+    {
+      "id": "RU_APE_002",
+      "scene": "APERTURA",
+      "tone": "SECCO",
+      "duration": "5-7 SECONDI",
+      "text": "Stasera parlo poco e guardo tanto. Voi fate il contrario, come sempre.",
+      "vars": []
+    },
+    {
+      "id": "RU_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "BURBERO",
+      "duration": "5-7 SECONDI",
+      "text": "Tavoli. Sedetevi. Respirate. E niente furbate: vi vedo anche di lato.",
+      "vars": []
+    },
+    {
+      "id": "RU_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "BURBERO, AFFETTUOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {MASCOTTE_A}. Gioca con {TAVOLO_A}. Mi piace. Non lo dico spesso.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SECCO",
+      "duration": "6-8 SECONDI",
+      "text": "Manche {MANCHE}. Si comincia. Occhi aperti. Io ne ho tre, voi arrangiatevi.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "RU_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "BURBERO, IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Prossimo gioco: {MINIGIOCO}. Ascoltate le regole. Davvero. Non fate come con le istruzioni della lavatrice.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "RU_REG_001",
+      "scene": "REGOLE",
+      "tone": "PERENTORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Regole. Una risposta per tavolo. Decide il capitano. Chi imbroglia, lo vedo. Fine delle regole.",
+      "vars": []
+    },
+    {
+      "id": "RU_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ASCIUTTO",
+      "duration": "3-5 SECONDI",
+      "text": "Mani ferme. Tre. Due. Uno. Via.",
+      "vars": []
+    },
+    {
+      "id": "RU_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "CONCENTRATO",
+      "duration": "3-5 SECONDI",
+      "text": "Occhi sullo schermo. Tre... due... uno.",
+      "vars": []
+    },
+    {
+      "id": "RU_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "PERENTORIO",
+      "duration": "4-6 SECONDI",
+      "text": "Conto io. Tre. Due. Uno. Niente scuse.",
+      "vars": []
+    },
+    {
+      "id": "RU_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "2-4 SECONDI",
+      "text": "{SECONDI} secondi. Decidete. Adesso.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "RU_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SECCO, IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Il tempo finisce. Lo vedo con l'occhio grande. Con quelli piccoli vedo chi non ha ancora risposto.",
+      "vars": []
+    },
+    {
+      "id": "RU_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "APPROVANTE",
+      "duration": "2-4 SECONDI",
+      "text": "Giusta. Bene. Avanti così.",
+      "vars": []
+    },
+    {
+      "id": "RU_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "APPROVANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Corretta. Prende {PUNTI} punti {TAVOLO_A}. Annuisco. Con tutti e tre gli occhi.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IMPASSIBILE, COMICO",
+      "duration": "3-5 SECONDI",
+      "text": "Esatto. Non sorrido spesso. Questo era un sorriso.",
+      "vars": []
+    },
+    {
+      "id": "RU_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "ASCIUTTO",
+      "duration": "3-5 SECONDI",
+      "text": "Sbagliata. Niente drammi. Si va avanti.",
+      "vars": []
+    },
+    {
+      "id": "RU_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SECCO",
+      "duration": "4-6 SECONDI",
+      "text": "No. L'ho visto subito. Anche voi, credo, appena avete premuto.",
+      "vars": []
+    },
+    {
+      "id": "RU_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta sbagliata. Ora al tavolo qualcuno dice «te l'avevo detto». C'è sempre.",
+      "vars": []
+    },
+    {
+      "id": "RU_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "PERENTORIO",
+      "duration": "2-4 SECONDI",
+      "text": "Tempo scaduto. Chiuso. Non trattabile.",
+      "vars": []
+    },
+    {
+      "id": "RU_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCO",
+      "duration": "4-6 SECONDI",
+      "text": "Fine. Qualcuno ha premuto dopo. Non conta. Tre occhi, ricordate.",
+      "vars": []
+    },
+    {
+      "id": "RU_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "MINACCIOSO, IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Primo posto: {TAVOLO_A}. Lo tengo d'occhio. Quello grande.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "BURBERO",
+      "duration": "5-7 SECONDI",
+      "text": "In testa {TAVOLO_A}. Buon lavoro. Non montatevi la testa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "BURBERO, INCORAGGIANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimo: {TAVOLO_A}. Succede. Rialzatevi. Vi guardo, e non per giudicare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SECCO",
+      "duration": "6-8 SECONDI",
+      "text": "In coda {TAVOLO_A}. Da qui si può solo salire. Statistica, non consolazione.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMMOSSO, TRATTENUTO",
+      "duration": "7-9 SECONDI",
+      "text": "Rimonta. Risale {TAVOLO_A}. Mi brilla l'occhio. È una lacrima. Non ditelo a nessuno.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "APPROVANTE",
+      "duration": "5-7 SECONDI",
+      "text": "Da ultimi a lassù. Questo mi piace. Applaudite. Io applaudo dentro.",
+      "vars": []
+    },
+    {
+      "id": "RU_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "ARBITRALE",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso. Davanti {TAVOLO_A}, dietro {TAVOLO_B}. Regolare. L'ho visto bene.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "SECCO",
+      "duration": "5-7 SECONDI",
+      "text": "Posto perso per {TAVOLO_B}. Fa male. Lo so. Reagite.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_DUE_001",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}. Stessa prova. Stesso tempo. Arbitro io. Niente favori.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_DUE_002",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "{MASCOTTE_A} e {MASCOTTE_B}. Faccia a faccia. Occhio contro occhio. Il mio vince sempre, comunque.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "RU_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "ARBITRALE",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio. Colpisce {TAVOLO_A}, incassa {TAVOLO_B}. Regolare. Antipatico. Ma regolare.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "ARBITRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Furto. Prende {PUNTI} punti {TAVOLO_A}, li perde {TAVOLO_B}. Dentro i limiti. Ho controllato.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "BURBERO",
+      "duration": "6-8 SECONDI",
+      "text": "Punti rubati. Non mi piace. Ma il regolamento dice sì. E il regolamento si rispetta.",
+      "vars": []
+    },
+    {
+      "id": "RU_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "SOSPETTOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Vi guardo. Tutti e due.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "SECCO, SODDISFATTO",
+      "duration": "4-6 SECONDI",
+      "text": "Tradimento. L'avevo visto arrivare. Da lontano. Con l'occhio grande.",
+      "vars": []
+    },
+    {
+      "id": "RU_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IMPASSIBILE",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff riuscito. Avete fregato il pub. Non me. Ma il pub sì.",
+      "vars": []
+    },
+    {
+      "id": "RU_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "TRIONFANTE, SECCO",
+      "duration": "5-7 SECONDI",
+      "text": "Bluff scoperto. Vi è tremato l'occhio. E io gli occhi li conosco.",
+      "vars": []
+    },
+    {
+      "id": "RU_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "ASCIUTTO",
+      "duration": "3-5 SECONDI",
+      "text": "Bugia. Si vedeva. Da tre angolazioni diverse.",
+      "vars": []
+    },
+    {
+      "id": "RU_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "PERENTORIO",
+      "duration": "5-7 SECONDI",
+      "text": "ALLARME CAOS. Calma. Non fate quella faccia. Io non la faccio.",
+      "vars": []
+    },
+    {
+      "id": "RU_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Caos. {MASCOTTE_A}. {MASCOTTE_B}. Quarantacinque secondi. Uno vince. Occhi aperti.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "RU_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "APPROVANTE",
+      "duration": "5-7 SECONDI",
+      "text": "{MASCOTTE_A} cresce. Livello 2. Bella trasformazione. Approvo. Raramente approvo.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RU_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE, IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Livello 3. Leggendario. Adesso {MASCOTTE_A} fa paura. Quasi quanto me il lunedì mattina.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RU_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "3-5 SECONDI",
+      "text": "Fermi. Guardo il risultato. Non sbatto le palpebre.",
+      "vars": []
+    },
+    {
+      "id": "RU_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "3-5 SECONDI",
+      "text": "Silenzio. Io lo vedo. Voi no. Aspettate.",
+      "vars": []
+    },
+    {
+      "id": "RU_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "ARBITRALE, TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Un momento. Moviola. Ricontrollo. Sì. Adesso ve lo dico.",
+      "vars": []
+    },
+    {
+      "id": "RU_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SECCO",
+      "duration": "6-8 SECONDI",
+      "text": "Qualcuno risponde prima di leggere la domanda. L'ho visto. Coraggioso. Inutile, ma coraggioso.",
+      "vars": []
+    },
+    {
+      "id": "RU_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni tavolo ha uno che guarda il telefono durante il gioco. Ma non la schermata del gioco.",
+      "vars": []
+    },
+    {
+      "id": "RU_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "SOSPETTOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Troppo calmo, {TAVOLO_B}. O è strategia, o qualcuno dorme.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RU_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Parlate tanto, voi. Io parlo poco. Indovinate chi sta vincendo la serata.",
+      "vars": []
+    },
+    {
+      "id": "RU_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SECCO",
+      "duration": "6-8 SECONDI",
+      "text": "Vi sento bisbigliare. Ho tre occhi, non tre orecchie. Ma vi sento lo stesso.",
+      "vars": []
+    },
+    {
+      "id": "RU_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "STUPITO",
+      "duration": "4-6 SECONDI",
+      "text": "Questo non l'avevo visto. Mi strofino l'occhio. È tutto vero.",
+      "vars": []
+    },
+    {
+      "id": "RU_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IMPASSIBILE, COMICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ah. Sorprendente. Ho alzato un sopracciglio. Ne ho uno solo, quindi è un evento.",
+      "vars": []
+    },
+    {
+      "id": "RU_PAU_001",
+      "scene": "PAUSA",
+      "tone": "BURBERO",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa. Dieci minuti. Alzatevi, camminate. Chiudo l'occhio grande. Quelli piccoli restano aperti.",
+      "vars": []
+    },
+    {
+      "id": "RU_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "SECCO",
+      "duration": "5-7 SECONDI",
+      "text": "Fine pausa. Seduti. Si ricomincia. Ho visto chi è rientrato in ritardo.",
+      "vars": []
+    },
+    {
+      "id": "RU_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima manche. Niente distrazioni. Niente scuse. Solo voi, i punti e i miei tre occhi.",
+      "vars": []
+    },
+    {
+      "id": "RU_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Puntata rischiosa. {PUNTI} punti. Respiro profondo. Anche voi.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "RU_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tutto su un colpo. Non batto ciglio. Con un occhio solo, sarebbe strano comunque.",
+      "vars": []
+    },
+    {
+      "id": "RU_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "4-6 SECONDI",
+      "text": "Finale. Ho guardato tutto, tutta la sera. Adesso guardate voi.",
+      "vars": []
+    },
+    {
+      "id": "RU_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "BURBERO, COMICO",
+      "duration": "4-6 SECONDI",
+      "text": "Premiazione. Applausi. Sì, anche io. Guardate: sto applaudendo.",
+      "vars": []
+    },
+    {
+      "id": "RU_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "SOLENNE",
+      "duration": "4-6 SECONDI",
+      "text": "Vince {TAVOLO_A}. Meritato. Lo dico una volta sola.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RU_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "BURBERO, AFFETTUOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Avete perso. Ma avete giocato pulito. Questo lo noto. Sempre.",
+      "vars": []
+    },
+    {
+      "id": "RU_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "ARBITRALE",
+      "duration": "4-6 SECONDI",
+      "text": "Pareggio. Stessi punti. Ho controllato tre volte. Una per occhio.",
+      "vars": []
+    },
+    {
+      "id": "RU_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "BURBERO, AFFETTUOSO",
+      "duration": "7-9 SECONDI",
+      "text": "Fine della serata. Tornate a casa. Con prudenza. Vi tengo d'occhio anche fuori. Scherzo. Forse.",
+      "vars": []
+    },
+    {
+      "id": "RU_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "IMPASSIBILE",
+      "duration": "3-5 SECONDI",
+      "text": "Bella serata. Non sorrido, ma è una bella serata.",
+      "vars": []
+    },
+    {
+      "id": "RU_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "SECCO, IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Mi chiedono perché ho un occhio grande e due piccoli. Il grande per guardare. I piccoli per giudicare.",
+      "vars": []
+    },
+    {
+      "id": "RU_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "BURBERO",
+      "duration": "5-7 SECONDI",
+      "text": "Questo pub è rumoroso. Mi piace. Al silenzio ci penso io.",
+      "vars": []
+    },
+    {
+      "id": "RU_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "BURBERO, TENERO",
+      "duration": "5-7 SECONDI",
+      "text": "Dicono che faccio paura. Poi mi vedono applaudire una rimonta. E cambiano idea.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,1698 @@
+{
+  "character": {
+    "id": "professor-smoke",
+    "name": "Professor Smoke",
+    "sex": "MASCHIO",
+    "voice": "MASCHILE, CALDA, IRONICA, DA CONDUTTORE DI PUB (AUTOREVOLE, TEATRALE NELLE PAUSE)",
+    "personality": "È il Professore di CHE NE SAI? prestato alla guerra tra tavoli: barba, grembiule e la pazienza di chi ha corretto troppi compiti. Ironico e caldo, tratta il pub come un'aula di ripetenti simpatici: prende in giro le scelte e le strategie, mai le persone. Ama le statistiche, le parole precise e le pause teatrali; quando perde la calma lo fa in grande, poi torna subito un gentiluomo. Dà del voi alla sala, la chiama «signori» e conduce con il ritmo sicuro di un presentatore da pub che conosce bene il suo pubblico.",
+    "role": "Apre la serata con taglio ironico, accoglie squadre e mascotte, spiega le regole e introduce le prove lampo della manche 1 (CHI PARTE MALE...); commenta classifica, sorpassi e risultati nelle transizioni.",
+    "tier": "presentatore",
+    "model": "public/models/professore.glb",
+    "toConfirm": [
+      "corrispondenza Professor Smoke = il Professore di CHE NE SAI? (nome e modello public/models/professore.glb)",
+      "voce ElevenLabs da usare (la stessa del Professore del quiz o una nuova)",
+      "personalità adattata al tono di TAVOLI IN GUERRA! (sarcasmo più morbido delle battute del quiz, mai sull'intelligenza delle persone)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "PS_APERTURA_001",
+      "scene": "APERTURA",
+      "tone": "ENERGICO",
+      "duration": "10-12 SECONDI",
+      "text": "Buonasera, signori, e benvenuti a TAVOLI IN GUERRA! Accomodatevi: stasera la lezione si fa in squadra, e il banco è il vostro tavolo.",
+      "vars": []
+    },
+    {
+      "id": "PS_APERTURA_002",
+      "scene": "APERTURA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Benvenuti. Io sono Professor Smoke, e stasera insegno l'unica materia che vi interessa davvero: come battere il tavolo accanto.",
+      "vars": []
+    },
+    {
+      "id": "PS_APERTURA_003",
+      "scene": "APERTURA",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Signori, ho controllato il registro: nessuno di voi ha studiato. Perfetto, così partiamo tutti alla pari.",
+      "vars": []
+    },
+    {
+      "id": "PS_APERTURA_004",
+      "scene": "APERTURA",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Spegnete le scuse, accendete i telefoni. La lezione di stasera dura due ore e non prevede giustificazioni.",
+      "vars": []
+    },
+    {
+      "id": "PS_APERTURA_005",
+      "scene": "APERTURA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Stasera niente interrogazioni a sorpresa. Solo cinque manche, un po' di caos e tantissima rivalità tra tavoli.",
+      "vars": []
+    },
+    {
+      "id": "PS_APERTURA_006",
+      "scene": "APERTURA",
+      "tone": "DIVERTITO",
+      "duration": "10-12 SECONDI",
+      "text": "Stasera CHE NE SAI? cambia le regole: niente quiz in solitaria. Il tavolo accanto non è più un vicino. È un rivale.",
+      "vars": []
+    },
+    {
+      "id": "PS_BENVENUTO_SQUADRE_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENERGICO",
+      "duration": "9-11 SECONDI",
+      "text": "Ecco {TAVOLO_A}, entrato in gioco con l'aria di chi ha già un piano. Vedremo se il piano ha studiato.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_BENVENUTO_SQUADRE_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Benvenute, squadre. Vi guardo e vedo un enorme potenziale. Molto ben nascosto, ma lo vedo.",
+      "vars": []
+    },
+    {
+      "id": "PS_BENVENUTO_SQUADRE_003",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "Registro delle presenze completo. Ogni tavolo ha la sua squadra, ogni squadra il suo capitano, e ogni capitano ha già un alibi.",
+      "vars": []
+    },
+    {
+      "id": "PS_BENVENUTO_SQUADRE_004",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Anche {TAVOLO_B} è dei nostri. Lo dico subito: avete la faccia di chi rovinerà la serata a qualcuno.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_BENVENUTO_SQUADRE_005",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Un applauso a tutte le squadre in sala! Godetevelo, perché è l'ultimo momento in cui andrete d'accordo.",
+      "vars": []
+    },
+    {
+      "id": "PS_MASCOTTE_PRESENTAZIONE_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ogni tavolo ha la sua mascotte. Trattatela bene: è l'unico membro della squadra che non sbaglierà una risposta.",
+      "vars": []
+    },
+    {
+      "id": "PS_MASCOTTE_PRESENTAZIONE_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {MASCOTTE_A}! Per ora è al livello base. Esattamente come la vostra strategia.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_MASCOTTE_PRESENTAZIONE_003",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Le mascotte crescono con l'Energia Caos. Partecipate, osate, e le vedrete evolvere più in fretta dei piani del sabato sera.",
+      "vars": []
+    },
+    {
+      "id": "PS_MASCOTTE_PRESENTAZIONE_004",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Signori, vi presento {MASCOTTE_B}. Non vota, non risponde, non tradisce. In questa sala è già un modello di comportamento.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "PS_INIZIO_MANCHE_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Si apre la manche {MANCHE}! Telefoni in mano, cervelli accesi, scuse nel cassetto.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PS_INIZIO_MANCHE_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Inizia la manche {MANCHE}. Prendete appunti, signori: la classifica sta per cambiare umore.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PS_INIZIO_MANCHE_003",
+      "scene": "INIZIO_MANCHE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Nuova manche, nuove speranze. E, a giudicare dalle facce, nuove occasioni per sbagliare con stile.",
+      "vars": []
+    },
+    {
+      "id": "PS_INIZIO_MANCHE_004",
+      "scene": "INIZIO_MANCHE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Manche {MANCHE}. Chi è partito male ha ancora tempo. Chi è partito bene ha appena cominciato a preoccuparsi.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "PS_MINIGIOCO_PRESENTAZIONE_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Prossima prova: {MINIGIOCO}. Veloce, semplice, spietata. Come un messaggio letto e non risposto.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PS_MINIGIOCO_PRESENTAZIONE_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Signori, il prossimo gioco si chiama {MINIGIOCO}. Le istruzioni sono brevi. I vostri tempi di reazione, speriamo anche.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PS_MINIGIOCO_PRESENTAZIONE_003",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Prova lampo in arrivo! Vi chiedo solo tre cose: occhi aperti, capitano lucido e niente panico nella chat del tavolo.",
+      "vars": []
+    },
+    {
+      "id": "PS_MINIGIOCO_PRESENTAZIONE_004",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Ed ecco a voi {MINIGIOCO}. Una prova che ha messo in crisi gente molto più sicura di voi.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PS_MINIGIOCO_PRESENTAZIONE_005",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Ora si gioca a {MINIGIOCO}. Niente libri, niente riassunti. Solo voi, il cronometro e le vostre pessime abitudini.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "PS_MINIGIOCO_PRESENTAZIONE_006",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Prova di attenzione. Lo so, dopo una settimana di riunioni è una richiesta crudele. Ma proviamoci lo stesso.",
+      "vars": []
+    },
+    {
+      "id": "PS_REGOLE_001",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "9-11 SECONDI",
+      "text": "Regola numero uno: il tavolo discute, il capitano invia. Una sola risposta per squadra, anche se siete in otto e tutti convinti.",
+      "vars": []
+    },
+    {
+      "id": "PS_REGOLE_002",
+      "scene": "REGOLE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Non conta quanti siete, conta quanto siete svegli. Due persone attente battono otto persone che parlano insieme.",
+      "vars": []
+    },
+    {
+      "id": "PS_REGOLE_003",
+      "scene": "REGOLE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Si possono rubare punti, ma con giudizio: ci sono dei limiti, e il regolamento li fa rispettare meglio di me.",
+      "vars": []
+    },
+    {
+      "id": "PS_REGOLE_004",
+      "scene": "REGOLE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Regola più importante di tutte: nessuno viene eliminato. Potete perdere punti, faccia e pazienza, mai il posto al tavolo.",
+      "vars": []
+    },
+    {
+      "id": "PS_REGOLE_005",
+      "scene": "REGOLE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Il risultato lo decide il server, non chi alza la voce. Mi dispiace per i capitani con il vocione.",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_001",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Aprite il quaderno. Tre, due, uno… si comincia!",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_002",
+      "scene": "COUNTDOWN",
+      "tone": "SOLENNE",
+      "duration": "4-6 SECONDI",
+      "text": "Pronti? Dita sui telefoni. Si comincia… adesso!",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_003",
+      "scene": "COUNTDOWN",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Conto alla rovescia, signori. Tre… due… uno… e che la cultura vi assista.",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_004",
+      "scene": "COUNTDOWN",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Si parte tra tre secondi. Il tempo di una scusa, niente di più.",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_005",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Sguardo sulla TV, dita pronte! Tre, due, uno… si gioca!",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_006",
+      "scene": "COUNTDOWN",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Ultimo respiro prima della prova. Tre… due… uno.",
+      "vars": []
+    },
+    {
+      "id": "PS_COUNTDOWN_007",
+      "scene": "COUNTDOWN",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Al mio via. E per una volta cercate di partire tutti insieme. Via!",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimi {SECONDI} secondi! Non state scrivendo una tesi, dovete premere un pulsante.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo scorre, signori. Il ragionamento, a quanto vedo, procede a piedi.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Pochi secondi! Capitano, decidi. La democrazia è bellissima, ma non adesso.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Mancano {SECONDI} secondi! Chi ha una risposta la mandi, chi ha un dubbio lo conservi per la pausa.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_005",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ancora un po' e questa domanda la ritrovate nei libri di storia. Inviate!",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_006",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Vi ricordo che una delle opzioni è giusta. Statisticamente vi conviene sceglierne una.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMI_SECONDI_007",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Il cronometro non accetta giustificazioni. {SECONDI} secondi e si chiude.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Corretto! Rilevata attività cerebrale. Prendo nota sul registro.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta giusta. Non esagerate con i festeggiamenti: era una prova di riscaldamento.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Giusto! Per {TAVOLO_A} arrivano {PUNTI} punti e un briciolo del mio rispetto.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_004",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Esatto! Vedete cosa succede quando il capitano ascolta il tavolo invece del proprio istinto?",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_005",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Bravi. Una risposta così la metterei nel curriculum, subito sotto «lavoro di squadra».",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_006",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SORPRESO",
+      "duration": "6-8 SECONDI",
+      "text": "Esatto! Confesso che non me lo aspettavo. E sono felicissimo di essermi sbagliato.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_CORRETTA_007",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Centro pieno! Questa è la differenza tra tirare a indovinare e ragionare. Ogni tanto succede anche qui.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Sbagliato. Quattro opzioni, e avete scelto quella che non era nemmeno in corsa per il podio.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Risposta errata. La sicurezza c'era tutta. Mancava solo il resto.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "No. Ma l'avete detto con una convinzione che merita comunque un applauso.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "La risposta è sbagliata. In compenso, la mia delusione è precisissima.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_005",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Non è quella. Respirate, rileggete, e la prossima volta fidatevi di chi al tavolo stava zitto.",
+      "vars": []
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_006",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Errore per {TAVOLO_A}. Lo archiviamo alla voce: esperimenti coraggiosi.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_RISPOSTA_SBAGLIATA_007",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliato. Avete risposto come si risponde a «ci sei stasera?»: d'istinto, e senza leggere bene.",
+      "vars": []
+    },
+    {
+      "id": "PS_TEMPO_SCADUTO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOLENNE",
+      "duration": "3-4 SECONDI",
+      "text": "Tempo scaduto! Penne giù, signori. Anzi, telefoni.",
+      "vars": []
+    },
+    {
+      "id": "PS_TEMPO_SCADUTO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo finito. Chi non ha inviato si è astenuto: scelta prudente, risultato prevedibile.",
+      "vars": []
+    },
+    {
+      "id": "PS_TEMPO_SCADUTO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Fine del tempo. Il silenzio sarà anche d'oro, ma in classifica vale zero.",
+      "vars": []
+    },
+    {
+      "id": "PS_TEMPO_SCADUTO_004",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Driiin! Fine della prova. Chi stava ancora discutendo può continuare durante la pausa.",
+      "vars": []
+    },
+    {
+      "id": "PS_TEMPO_SCADUTO_005",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "CALMO",
+      "duration": "8-10 SECONDI",
+      "text": "Tempo. Le risposte sono chiuse e il server ha già deciso. Io mi limito a osservare le reazioni.",
+      "vars": []
+    },
+    {
+      "id": "PS_TEMPO_SCADUTO_006",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo è finito. Qualche tavolo stava ancora votando chi doveva decidere.",
+      "vars": []
+    },
+    {
+      "id": "PS_IN_VANTAGGIO_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}! Una preparazione adeguata, finalmente.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_IN_VANTAGGIO_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Al comando c'è {TAVOLO_A}, con {PUNTI} punti. Godetevelo: da questo momento siete il bersaglio preferito della sala.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PS_IN_VANTAGGIO_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Comanda {TAVOLO_A}. Un primato meritato, documentato e già molto invidiato.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_IN_VANTAGGIO_004",
+      "scene": "IN_VANTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Chi è primo adesso ha un solo problema: tutti gli altri.",
+      "vars": []
+    },
+    {
+      "id": "PS_IN_VANTAGGIO_005",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Primi in classifica. Lo dico con affetto: di solito è il momento in cui si comincia a sbagliare per eccesso di fiducia.",
+      "vars": []
+    },
+    {
+      "id": "PS_IN_VANTAGGIO_006",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ecco {TAVOLO_A} davanti a tutti. Un consiglio da professore: non mandate lo screenshot della classifica, porta sfortuna.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_ULTIMA_IN_CLASSIFICA_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Matematicamente si può ancora recuperare, e io adoro la matematica.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_ULTIMA_IN_CLASSIFICA_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Chi è in fondo alla classifica ha un vantaggio: da lì si vede benissimo dove sono tutti gli altri.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMA_IN_CLASSIFICA_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimi, sì. Ma nessuno viene eliminato, e l'Energia Caos premia anche chi insegue. Ripartite.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMA_IN_CLASSIFICA_004",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "In fondo alla classifica c'è {TAVOLO_B}. Non è una sconfitta: è una strategia molto, molto a lungo termine.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_ULTIMA_IN_CLASSIFICA_005",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimo posto? Ottimo. Le rimonte migliori partono sempre da qui. Sorprendetemi.",
+      "vars": []
+    },
+    {
+      "id": "PS_GRANDE_RECUPERO_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Guardate {TAVOLO_A}! Una rimonta statisticamente interessante. Anzi, statisticamente scandalosa.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_GRANDE_RECUPERO_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SORPRESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ma che succede? Chi era in fondo sta risalendo come se avesse studiato in pausa.",
+      "vars": []
+    },
+    {
+      "id": "PS_GRANDE_RECUPERO_003",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Recupero clamoroso! Ecco cosa succede quando un tavolo smette di discutere e comincia a giocare.",
+      "vars": []
+    },
+    {
+      "id": "PS_GRANDE_RECUPERO_004",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Una rimonta di {PUNTI} punti. Io lo chiamo metodo scientifico. Voi chiamatela pure fortuna, tanto la classifica non legge.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PS_GRANDE_RECUPERO_005",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Signori, prendete nota: {TAVOLO_B} era dato per spacciato. Era. Verbo all'imperfetto.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_SORPASSO_001",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso: {TAVOLO_A} supera {TAVOLO_B}! La classifica ha appena cambiato idea.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_SORPASSO_002",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Attenzione: {TAVOLO_A} scavalca {TAVOLO_B}. Temo che qualcuno debba aggiornare lo stato nel gruppo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_SORPASSO_003",
+      "scene": "SORPASSO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Cambio al vertice. Il primato precedente è appena diventato un bel ricordo, da raccontare con nostalgia.",
+      "vars": []
+    },
+    {
+      "id": "PS_SORPASSO_004",
+      "scene": "SORPASSO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso in diretta! Chi era davanti adesso vede la classifica da un'altra prospettiva. Esperienza formativa.",
+      "vars": []
+    },
+    {
+      "id": "PS_SORPASSO_005",
+      "scene": "SORPASSO",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "E {TAVOLO_A} sale in posizione {POSIZIONE}! Un balzo che meriterebbe una pubblicazione scientifica.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "PS_SORPASSO_006",
+      "scene": "SORPASSO",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso netto. Ecco perché vi dico sempre di non festeggiare a metà serata.",
+      "vars": []
+    },
+    {
+      "id": "PS_DUELLO_001",
+      "scene": "DUELLO",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}. Condizioni identiche, scuse non ammesse. Come a un esame orale.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_DUELLO_002",
+      "scene": "DUELLO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Due tavoli, una sola prova. Il resto della sala, prego, faccia il tifo con moderazione.",
+      "vars": []
+    },
+    {
+      "id": "PS_DUELLO_003",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Signori, è un duello. Non c'è bisogno di guardarsi male, ma se vi aiuta a concentrarvi, prego.",
+      "vars": []
+    },
+    {
+      "id": "PS_DUELLO_004",
+      "scene": "DUELLO",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Sfida diretta tra {TAVOLO_A} e {TAVOLO_B}. Vince chi ragiona, non chi urla nel telefono.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_DUELLO_005",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Il duello è il mio momento preferito: due squadre, un solo vincitore, e tutti gli altri che commentano in chat.",
+      "vars": []
+    },
+    {
+      "id": "PS_DUELLO_006",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Faccia a faccia. Chi sbaglia adesso se lo ricorderà fino a giovedì prossimo.",
+      "vars": []
+    },
+    {
+      "id": "PS_SABOTAGGIO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio: {TAVOLO_A} colpisce {TAVOLO_B}. Elegante? No. Regolamentare? Purtroppo sì.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_SABOTAGGIO_002",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Un sabotaggio. Da professore dovrei disapprovare. Da spettatore, sto applaudendo.",
+      "vars": []
+    },
+    {
+      "id": "PS_SABOTAGGIO_003",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Qualcuno ha appena messo il bastone tra le ruote al vicino. Tranquilli, è tutto previsto dal regolamento.",
+      "vars": []
+    },
+    {
+      "id": "PS_SABOTAGGIO_004",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio riuscito. Vi informo che il tavolo colpito ha una memoria eccellente, e sa contare fino alla rivincita.",
+      "vars": []
+    },
+    {
+      "id": "PS_FURTO_PUNTI_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Furto con destrezza! {PUNTI} punti cambiano proprietario: li perde {TAVOLO_B}, li incassa {TAVOLO_A}.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_B",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_FURTO_PUNTI_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Punti rubati. Legalmente. Il regolamento lo permette, la mia coscienza un po' meno.",
+      "vars": []
+    },
+    {
+      "id": "PS_FURTO_PUNTI_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Qualcuno controlli le tasche: {TAVOLO_B} ha appena perso {PUNTI} punti.",
+      "vars": [
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PS_FURTO_PUNTI_004",
+      "scene": "FURTO_PUNTI",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Un furto pulito, entro i limiti, senza testimoni. Victor sarebbe fiero di voi. Io sono vagamente preoccupato.",
+      "vars": []
+    },
+    {
+      "id": "PS_ALLEANZA_001",
+      "scene": "ALLEANZA",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Commovente. Le diamo una durata di… diciamo un paio di minuti.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_ALLEANZA_002",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Due tavoli che collaborano. Nella storia delle serate al pub, raramente si è visto qualcosa di così fragile.",
+      "vars": []
+    },
+    {
+      "id": "PS_ALLEANZA_003",
+      "scene": "ALLEANZA",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Patto stretto. Ricordate: un'alleanza è come il regalo di gruppo per un compleanno. Tutti entusiasti, finché non bisogna pagare.",
+      "vars": []
+    },
+    {
+      "id": "PS_ALLEANZA_004",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Si alleano. Bene. Prendo nota, così più tardi saprò esattamente chi ha tradito chi.",
+      "vars": []
+    },
+    {
+      "id": "PS_TRADIMENTO_001",
+      "scene": "TRADIMENTO",
+      "tone": "ESPLOSIVO",
+      "duration": "8-10 SECONDI",
+      "text": "Tradimento: {TAVOLO_A} molla {TAVOLO_B} sul più bello. Ve l'avevo detto, quell'alleanza aveva la data di scadenza.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_TRADIMENTO_002",
+      "scene": "TRADIMENTO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ed eccolo, il tradimento. Prevedibile come il ritardo dell'amico che giura «cinque minuti».",
+      "vars": []
+    },
+    {
+      "id": "PS_TRADIMENTO_003",
+      "scene": "TRADIMENTO",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Signori, un minuto di silenzio per un'alleanza che non ha superato la prova dei fatti.",
+      "vars": []
+    },
+    {
+      "id": "PS_TRADIMENTO_004",
+      "scene": "TRADIMENTO",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Tradimento in diretta. Da domani, nella chat del tavolo tradito, ci sarà un argomento di conversazione in più.",
+      "vars": []
+    },
+    {
+      "id": "PS_BLUFF_RIUSCITO_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff riuscito! Hanno mentito con una calma che, lo ammetto, ha quasi convinto anche me.",
+      "vars": []
+    },
+    {
+      "id": "PS_BLUFF_RIUSCITO_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff perfetto. Se mentite così bene anche quando dite «sono quasi arrivato», avete un futuro radioso.",
+      "vars": []
+    },
+    {
+      "id": "PS_BLUFF_RIUSCITO_003",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci sono cascati. Che lezione, signori: mai fidarsi di un tavolo troppo tranquillo.",
+      "vars": []
+    },
+    {
+      "id": "PS_BLUFF_SCOPERTO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff scoperto. Avete mentito con l'esperienza di chi scrive «arrivo» mentre è ancora sotto la doccia.",
+      "vars": []
+    },
+    {
+      "id": "PS_BLUFF_SCOPERTO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Smascherati! La bugia era buona. La recitazione, purtroppo, molto meno.",
+      "vars": []
+    },
+    {
+      "id": "PS_BLUFF_SCOPERTO_003",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Il bluff non ha retto. Ricordate: la verità prima o poi viene fuori. Stasera, prima.",
+      "vars": []
+    },
+    {
+      "id": "PS_BOTTONE_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "ALLARME CAOS! Qualcuno ha premuto il bottone. Signori, la lezione è sospesa: si va in guerra!",
+      "vars": []
+    },
+    {
+      "id": "PS_BOTTONE_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Il Bottone del Caos è stato premuto. Quarantacinque secondi di sfida, e nessuno potrà dire di non essere stato avvisato.",
+      "vars": []
+    },
+    {
+      "id": "PS_BOTTONE_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco, l'hanno premuto. Avevo chiesto di non toccare niente, ma in questa sala evidentemente nessuno legge le avvertenze.",
+      "vars": []
+    },
+    {
+      "id": "PS_BOTTONE_CAOS_004",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ENERGICO",
+      "duration": "9-11 SECONDI",
+      "text": "ALLARME CAOS! Sfida aperta: {TAVOLO_A} contro {TAVOLO_B}. In palio cinquanta punti e un'enorme quantità di orgoglio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_BOTTONE_CAOS_005",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Bottone del Caos attivato. Lo dico da professore: il tempismo è una scienza esatta. Vediamo se l'avete studiata.",
+      "vars": []
+    },
+    {
+      "id": "PS_BOTTONE_CAOS_006",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Silenzio in aula. È scattato l'ALLARME CAOS: le due mascotte entrano in scena e la tranquillità esce.",
+      "vars": []
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "{MASCOTTE_A} sale al livello 2! L'Energia Caos ha fatto il suo lavoro. Meglio di qualche capitano, devo dire.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Evoluzione! {MASCOTTE_A} passa alla versione Potenziata. In una sola manche, la mascotte è cresciuta più di certe relazioni in tre anni.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV2_003",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Livello 2 raggiunto da {MASCOTTE_B}. Prendete nota: in questa sala l'impegno viene premiato.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV2_004",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "{MASCOTTE_A} evolve! Nuovo look, nuova energia. È quello che dicono tutti dopo una rottura, ma stavolta è vero.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello 3! {MASCOTTE_A} entra nella versione Leggendaria! Signori, un applauso: abbiamo un mito in sala.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Versione Leggendaria per {MASCOTTE_A}. In trent'anni di carriera ho visto poche cose così. Quasi nessuna in un pub.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV3_003",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "La mascotte ha raggiunto il livello massimo. Il tavolo, un po' meno. L'importante è che in famiglia almeno uno ce l'abbia fatta.",
+      "vars": []
+    },
+    {
+      "id": "PS_EVOLUZIONE_LIV3_004",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "{MASCOTTE_B} tocca il livello 3. Da adesso, ogni volta che entra in scena, si abbassano le luci e sale la temperatura.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "PS_SUSPENSE_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "E la risposta corretta è… no, aspettate. Voglio godermi le vostre facce ancora un secondo.",
+      "vars": []
+    },
+    {
+      "id": "PS_SUSPENSE_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Il server ha deciso. Io lo so. Voi no. È il momento più bello della mia serata.",
+      "vars": []
+    },
+    {
+      "id": "PS_SUSPENSE_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Silenzio, signori. Tra un istante qualcuno esulta e qualcuno riscrive la strategia.",
+      "vars": []
+    },
+    {
+      "id": "PS_SUSPENSE_004",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "La classifica sta per cambiare. Respirate. Chi ha la coscienza pulita può anche guardare.",
+      "vars": []
+    },
+    {
+      "id": "PS_SUSPENSE_005",
+      "scene": "SUSPENSE",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Un attimo di raccoglimento. Quello che state per vedere potrebbe incrinare qualche amicizia. Temporaneamente.",
+      "vars": []
+    },
+    {
+      "id": "PS_SUSPENSE_006",
+      "scene": "SUSPENSE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Prima del verdetto, una domanda: chi al vostro tavolo aveva suggerito l'altra risposta? Ecco. Ricordatevelo.",
+      "vars": []
+    },
+    {
+      "id": "PS_BATTUTA_SQUADRE_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ci sono tavoli che discutono ogni risposta come un contratto d'affitto. E poi sbagliano la clausola.",
+      "vars": []
+    },
+    {
+      "id": "PS_BATTUTA_SQUADRE_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Vedo squadre che scelgono la risposta come si sceglie il ristorante: dieci minuti di dibattito, poi decide chi ha più fame.",
+      "vars": []
+    },
+    {
+      "id": "PS_BATTUTA_SQUADRE_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Alcuni di voi giocano come rispondono alle mail di lavoro: in ritardo, ma con grande sicurezza.",
+      "vars": []
+    },
+    {
+      "id": "PS_BATTUTA_SQUADRE_004",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Osservo {TAVOLO_A}: organizzati, determinati, rumorosi. Sembrate un gruppo vacanze a due giorni dalla partenza.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_BATTUTA_SQUADRE_005",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "C'è un tavolo che parla più di quanto risponda. Non faccio nomi. Faccio numeri, e i numeri sono i vostri punti.",
+      "vars": []
+    },
+    {
+      "id": "PS_PROVOCAZIONE_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Pare che {TAVOLO_B} sia ancora fermo alla lettura delle regole. Spero sia solo una voce di corridoio.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "PS_PROVOCAZIONE_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Il primo posto è libero per chi lo vuole. A quanto pare, nessuno lo vuole abbastanza.",
+      "vars": []
+    },
+    {
+      "id": "PS_PROVOCAZIONE_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Vi vedo prudenti. Troppo prudenti. Questa è una guerra tra tavoli, non una cena con i genitori del partner.",
+      "vars": []
+    },
+    {
+      "id": "PS_PROVOCAZIONE_004",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Il sapere è potere, signori. E stasera vedo parecchie squadre disarmate.",
+      "vars": []
+    },
+    {
+      "id": "PS_PROVOCAZIONE_005",
+      "scene": "PROVOCAZIONE",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Qualcuno qui ha un piano? Lo chiedo per la classifica, che comincia a preoccuparsi.",
+      "vars": []
+    },
+    {
+      "id": "PS_PROVOCAZIONE_006",
+      "scene": "PROVOCAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Coraggio, il tavolo accanto non morde. Ruba punti, sabota, tradisce. Ma non morde.",
+      "vars": []
+    },
+    {
+      "id": "PS_REAZIONE_SORPRESA_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Ma come?! Questo non era previsto da nessuna delle mie statistiche!",
+      "vars": []
+    },
+    {
+      "id": "PS_REAZIONE_SORPRESA_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SORPRESO",
+      "duration": "5-7 SECONDI",
+      "text": "Questo, signori, non l'avevo previsto. E io prevedo tutto. Quasi tutto.",
+      "vars": []
+    },
+    {
+      "id": "PS_REAZIONE_SORPRESA_003",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Risultato sorprendente. Riscrivo gli appunti, rivedo le teorie e mi verso un bicchiere d'acqua.",
+      "vars": []
+    },
+    {
+      "id": "PS_REAZIONE_SORPRESA_004",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "IMPOSSIBILE! Trent'anni di statistiche, e nemmeno una prevedeva una cosa del genere!",
+      "vars": []
+    },
+    {
+      "id": "PS_REAZIONE_SORPRESA_005",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Fermi tutti. Rileggo il risultato. Sì. È vero. Non ho parole, e per un professore è gravissimo.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa, signori. Dieci minuti per il bancone, il bagno e le riconciliazioni tra alleati.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ricreazione! Approfittatene per ripassare. O per chiedere scusa al tavolo che avete tradito.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAUSA_003",
+      "scene": "PAUSA",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Facciamo una pausa. Lo so, la tensione è altissima. Fatela scendere con un po' d'acqua e tanta strategia.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAUSA_004",
+      "scene": "PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Pausa. I telefoni possono riposare. I capitani no: i capitani pensano.",
+      "vars": []
+    },
+    {
+      "id": "PS_RIENTRO_PAUSA_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Bentornati! Spero abbiate usato la pausa per ripassare, perché l'interrogazione riprende adesso.",
+      "vars": []
+    },
+    {
+      "id": "PS_RIENTRO_PAUSA_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ricreazione finita. Rientrate in aula, riprendete i telefoni e, se possibile, anche il filo del discorso.",
+      "vars": []
+    },
+    {
+      "id": "PS_RIENTRO_PAUSA_003",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Eccoci di nuovo. Qualche patto è nato davanti al bancone, lo so. Vediamo quanto resiste.",
+      "vars": []
+    },
+    {
+      "id": "PS_RIENTRO_PAUSA_004",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Si riprende. La classifica non si è mossa durante la pausa. Voi, spero di sì.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMA_MANCHE_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Ultima manche: TUTTO O NIENTE! Qui si decide chi torna a casa raccontando e chi torna a casa spiegando.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMA_MANCHE_002",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Siamo all'ultima manche. Puntate, rischi, scelte. Signori, è l'esame finale, e non si può copiare.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMA_MANCHE_003",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "TUTTO O NIENTE! Per alcuni di voi è una manche. Per altri, l'ultima occasione per salvare la reputazione.",
+      "vars": []
+    },
+    {
+      "id": "PS_ULTIMA_MANCHE_004",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche, signori. Chi ha risparmiato energie le usi. Chi non le ha risparmiate, improvvisi con dignità.",
+      "vars": []
+    },
+    {
+      "id": "PS_PUNTATA_RISCHIOSA_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Puntata alta! Statisticamente è un azzardo. Umanamente, lo adoro.",
+      "vars": []
+    },
+    {
+      "id": "PS_PUNTATA_RISCHIOSA_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Avete puntato forte. Ammiro il coraggio, e mi preoccupo un po' per il vostro saldo.",
+      "vars": []
+    },
+    {
+      "id": "PS_PUNTATA_RISCHIOSA_003",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Puntata registrata. Sotto zero non si va mai, ma ci si può avvicinare parecchio. Coraggio.",
+      "vars": []
+    },
+    {
+      "id": "PS_PUNTATA_RISCHIOSA_004",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco {TAVOLO_A} che punta {PUNTI} punti. Come prenotare un volo senza controllare il ritorno.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PS_FINALE_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Signori, siamo alla fine. Le prove sono finite, i bluff sono finiti. Restano solo i numeri.",
+      "vars": []
+    },
+    {
+      "id": "PS_FINALE_002",
+      "scene": "FINALE",
+      "tone": "TESO",
+      "duration": "8-10 SECONDI",
+      "text": "È il momento della verità. Ogni punto rubato, ogni alleanza tradita, ogni rischio preso: adesso si somma tutto.",
+      "vars": []
+    },
+    {
+      "id": "PS_FINALE_003",
+      "scene": "FINALE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "La serata volge al termine. Qualcuno sta già preparando il discorso di vittoria, qualcuno quello di scuse.",
+      "vars": []
+    },
+    {
+      "id": "PS_PREMIAZIONE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Ed eccoci alla premiazione. Leggerò la classifica dal fondo alla vetta, così la suspense resta a chi se la merita.",
+      "vars": []
+    },
+    {
+      "id": "PS_PREMIAZIONE_002",
+      "scene": "PREMIAZIONE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Pagella finale per {TAVOLO_A}: {PUNTI} punti, posizione {POSIZIONE}. Un applauso, prego: il voto lo dà la sala.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "PS_PREMIAZIONE_003",
+      "scene": "PREMIAZIONE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Prima di svelare il podio, un pensiero per tutti: nessuno è stato eliminato, ma qualcuno è stato decisamente ridimensionato.",
+      "vars": []
+    },
+    {
+      "id": "PS_PREMIAZIONE_004",
+      "scene": "PREMIAZIONE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Sul podio salgono i tavoli che hanno studiato, rubato e bluffato meglio. Non necessariamente in quest'ordine.",
+      "vars": []
+    },
+    {
+      "id": "PS_VITTORIA_001",
+      "scene": "VITTORIA",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Abbiamo un vincitore: {TAVOLO_A}! La strategia ha trionfato. E anche un pizzico di sana cattiveria.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "PS_VITTORIA_002",
+      "scene": "VITTORIA",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "Vince {TAVOLO_A} con {PUNTI} punti. Signori, giù il cappello. Io, per l'occasione, mi tolgo il grembiule.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "PS_VITTORIA_003",
+      "scene": "VITTORIA",
+      "tone": "ENERGICO",
+      "duration": "7-9 SECONDI",
+      "text": "Vittoria per {TAVOLO_A}! E {MASCOTTE_A} si gode il trionfo come se il merito fosse tutto suo.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "PS_VITTORIA_004",
+      "scene": "VITTORIA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Hanno vinto. Lo dico con orgoglio e con un filo di sorpresa: non tutti i pronostici erano dalla loro parte.",
+      "vars": []
+    },
+    {
+      "id": "PS_SCONFITTA_001",
+      "scene": "SCONFITTA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Stasera non è andata. Ma ricordate: alla prossima serata ripartite da zero. E gli altri pure.",
+      "vars": []
+    },
+    {
+      "id": "PS_SCONFITTA_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Sconfitta. Prendetela come una lezione: gratuita, divertente e in ottima compagnia.",
+      "vars": []
+    },
+    {
+      "id": "PS_SCONFITTA_003",
+      "scene": "SCONFITTA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Avete perso, ma avete giocato fino all'ultimo. E ho sentito risate più forti di qualunque punteggio.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAREGGIO_001",
+      "scene": "PAREGGIO",
+      "tone": "SORPRESO",
+      "duration": "8-10 SECONDI",
+      "text": "Parità! Stessi punti. Due tavoli, un solo destino, e io che non so più chi prendere in giro.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAREGGIO_002",
+      "scene": "PAREGGIO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Pareggio perfetto. Contano le sfide vinte, poi la precisione. E se serve, uno spareggio da quarantacinque secondi.",
+      "vars": []
+    },
+    {
+      "id": "PS_PAREGGIO_003",
+      "scene": "PAREGGIO",
+      "tone": "IRONICO",
+      "duration": "3-4 SECONDI",
+      "text": "Stesso punteggio. Statisticamente improbabile, scenicamente meraviglioso.",
+      "vars": []
+    },
+    {
+      "id": "PS_SALUTO_FINALE_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Grazie a tutti, signori. Il registro è chiuso, la lezione è finita. Ci rivediamo alla prossima guerra.",
+      "vars": []
+    },
+    {
+      "id": "PS_SALUTO_FINALE_002",
+      "scene": "SALUTO_FINALE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Buonanotte! Tornate a casa e scrivete nel gruppo che avete vinto voi. Tanto nessuno controllerà.",
+      "vars": []
+    },
+    {
+      "id": "PS_SALUTO_FINALE_003",
+      "scene": "SALUTO_FINALE",
+      "tone": "SOLENNE",
+      "duration": "8-10 SECONDI",
+      "text": "È stato un onore insegnare in questa sala. Un onore faticoso, ma pur sempre un onore. Alla prossima!",
+      "vars": []
+    },
+    {
+      "id": "PS_SALUTO_FINALE_004",
+      "scene": "SALUTO_FINALE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Fine della serata. Sistemate le sedie, perdonate i traditori e salutate le mascotte. Alla prossima!",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_001",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ricordate, signori: il caos non è un'opinione. È un regolamento.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_002",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Che bella sala stasera. Tanta gente, tanta energia e pochissima fiducia reciproca. Perfetto.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_003",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Nel frattempo, a un tavolo in fondo, qualcuno sta spiegando la strategia a chi non la voleva sentire.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_004",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni serata con voi mi toglie un anno di vita. Stasera, però, ne vale la pena.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_005",
+      "scene": "ATMOSFERA",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Tanto fumo e niente arrosto? Non stasera. Stasera c'è il fumo, c'è l'arrosto, e c'è un tavolo pronto a bruciare la classifica.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_006",
+      "scene": "ATMOSFERA",
+      "tone": "ENERGICO",
+      "duration": "9-11 SECONDI",
+      "text": "Alzate il volume! Questa non è una semplice serata al pub. È una guerra tra tavoli con la colonna sonora giusta.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_007",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Se il tavolo accanto vi sembra troppo gentile, preoccupatevi. Stasera nessuno è gentile senza un motivo.",
+      "vars": []
+    },
+    {
+      "id": "PS_ATMOSFERA_008",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Ho visto chat di gruppo più ordinate di questa classifica. E ne ho viste di terribili.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,1527 @@
+{
+  "character": {
+    "id": "zafira",
+    "name": "Zafira",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, SUADENTE, IRONICA, MISTERIOSA (VOCE ITALIANA «CHIARA», SUSSURRI E SORRISI NELLA VOCE)",
+    "personality": "È la Jolly di GIRAMENTE!, ospite della guerra tra tavoli: furba, sarcastica, misteriosa, provocatoria e sensuale senza mai essere volgare. Arriva quando c'è qualcosa da guadagnare o da rischiare, e ogni suo regalo ha un prezzo. Parla a bassa voce, sorride un attimo prima di dire la cosa scomoda e gioca con i tavoli come con un corteggiatore indeciso. Non mente quasi mai: semplicemente, non dice tutto.",
+    "role": "Annuncia bonus, rischi e occasioni speciali: poteri, Energia Caos ed evoluzioni delle mascotte, Bottone del Caos («ALLARME CAOS!»), furti e sabotaggi, puntate e scelte prudenti o rischiose della manche 5 (TUTTO O NIENTE!).",
+    "tier": "presentatore",
+    "model": "public/models/giramente/zafira.glb",
+    "toConfirm": [
+      "uso del modello public/models/giramente/zafira.glb (la Jolly di GIRAMENTE!) anche in TAVOLI IN GUERRA!",
+      "voce ElevenLabs di Zafira in TAVOLI IN GUERRA! (la stessa voce italiana «Chiara» di GIRAMENTE!?)",
+      "livello di sensualità e di battute su appuntamenti ed ex accettabile per i locali"
+    ]
+  },
+  "lines": [
+    {
+      "id": "ZA_APERTURA_001",
+      "scene": "APERTURA",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "Luci basse, cuori alti. Benvenuti a TAVOLI IN GUERRA. Io sono Zafira, e stasera porto i regali. Non tutti piacevoli.",
+      "vars": []
+    },
+    {
+      "id": "ZA_APERTURA_002",
+      "scene": "APERTURA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ciao ciao, tavoli. Stasera vi offrirò poteri, bonus e tentazioni. Indovinate quale accetterete per prima.",
+      "vars": []
+    },
+    {
+      "id": "ZA_APERTURA_003",
+      "scene": "APERTURA",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Buonasera. Non cercate di capire da che parte sto. Io sto dalla parte dello spettacolo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_APERTURA_004",
+      "scene": "APERTURA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ah, che bella sala. Tanti tavoli, tante squadre… e così tante occasioni per pentirsi.",
+      "vars": []
+    },
+    {
+      "id": "ZA_APERTURA_005",
+      "scene": "APERTURA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Sono arrivata. Mettetevi comodi, perché quando passo io qualcuno vince… e qualcuno passa la notte a ripensarci.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BENVENUTO_SQUADRE_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "Ecco {TAVOLO_A}. Oh… mi piacete. Avete la faccia di chi prima o poi premerà un bottone che non doveva.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_BENVENUTO_SQUADRE_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Anche {TAVOLO_B} è in gioco. Ti tengo d'occhio. In senso buono… forse.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_BENVENUTO_SQUADRE_003",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Che squadre carine. Sembrate tutti così leali. Mi spezzerà il cuore vedervi tradire.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BENVENUTO_SQUADRE_004",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "Ogni tavolo è arrivato con un nome, un capitano e un piano. Io arrivo con le sorprese. Vediamo chi resiste.",
+      "vars": []
+    },
+    {
+      "id": "ZA_MASCOTTE_PRESENTAZIONE_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Guardate {MASCOTTE_A}. Livello base… ma io vedo il potenziale. Lo vedo sempre.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_MASCOTTE_PRESENTAZIONE_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Le mascotte si nutrono di Energia Caos. Più osate, più crescono. Io lo trovo molto romantico.",
+      "vars": []
+    },
+    {
+      "id": "ZA_MASCOTTE_PRESENTAZIONE_003",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {MASCOTTE_B}. Non vi lascerà mai in visualizzato, e di questi tempi non è poco.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "ZA_MASCOTTE_PRESENTAZIONE_004",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Ogni mascotte ha tre livelli. Il terzo è leggendario. Arrivarci… dipende da quanto vi piace rischiare.",
+      "vars": []
+    },
+    {
+      "id": "ZA_INIZIO_MANCHE_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Manche {MANCHE}. Nuove regole, nuovi poteri… e io ho già qualcosa in tasca per voi.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "ZA_INIZIO_MANCHE_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Si apre la manche {MANCHE}. Chi finora ha giocato prudente si annoierà. Chi ha giocato sporco si divertirà.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "ZA_INIZIO_MANCHE_003",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Nuova manche. Sento profumo di occasioni. E di errori molto costosi.",
+      "vars": []
+    },
+    {
+      "id": "ZA_INIZIO_MANCHE_004",
+      "scene": "INIZIO_MANCHE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Inizia la manche {MANCHE}. Io non sono qui per aiutarvi. Sono qui per rendere tutto più interessante.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "ZA_MINIGIOCO_PRESENTAZIONE_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Il prossimo gioco è {MINIGIOCO}. C'è un bonus nascosto. Non vi dico dove: sarebbe troppo facile.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "ZA_MINIGIOCO_PRESENTAZIONE_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "9-11 SECONDI",
+      "text": "Si gioca a {MINIGIOCO}. Due premi: uno sicuro, uno che fa battere il cuore. Io so già quale scegliereste.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "ZA_MINIGIOCO_PRESENTAZIONE_003",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Ecco {MINIGIOCO}. Sembra innocuo. Anche io, all'inizio.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "ZA_MINIGIOCO_PRESENTAZIONE_004",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Prova speciale: {MINIGIOCO}. Le regole sono chiare. Le tentazioni, molto meno.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "ZA_REGOLE_001",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "8-10 SECONDI",
+      "text": "Ascoltatemi bene. Il Bottone del Caos si usa una volta per serata. Una. Scegliete il momento con cura.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REGOLE_002",
+      "scene": "REGOLE",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "I poteri si conquistano, non si regalano. Lo scudo dura fino a fine manche e non si somma. Come le buone intenzioni.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REGOLE_003",
+      "scene": "REGOLE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Potete rubare punti, ma con eleganza: c'è un limite. Anche io ho un limite. Ah no, aspettate. Io no.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REGOLE_004",
+      "scene": "REGOLE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Puntata finale: al massimo un quarto del saldo, e mai sotto zero. Rischiare si può, rovinarsi no. Ci tengo a voi.",
+      "vars": []
+    },
+    {
+      "id": "ZA_COUNTDOWN_001",
+      "scene": "COUNTDOWN",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Tre… due… uno… vediamo chi mi sorprende.",
+      "vars": []
+    },
+    {
+      "id": "ZA_COUNTDOWN_002",
+      "scene": "COUNTDOWN",
+      "tone": "PROVOCATORIO",
+      "duration": "2-3 SECONDI",
+      "text": "Pronti? Non deludetemi. Via.",
+      "vars": []
+    },
+    {
+      "id": "ZA_COUNTDOWN_003",
+      "scene": "COUNTDOWN",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Contate con me. Tre… due… uno. Adesso.",
+      "vars": []
+    },
+    {
+      "id": "ZA_COUNTDOWN_004",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "2-3 SECONDI",
+      "text": "Tre, due, uno… giocate, ragazzi!",
+      "vars": []
+    },
+    {
+      "id": "ZA_COUNTDOWN_005",
+      "scene": "COUNTDOWN",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Al via, non pensate troppo. Pensare rovina sempre i momenti belli. Via!",
+      "vars": []
+    },
+    {
+      "id": "ZA_COUNTDOWN_006",
+      "scene": "COUNTDOWN",
+      "tone": "COMPLICE",
+      "duration": "3-4 SECONDI",
+      "text": "Fatemi un sorriso. Ecco. Adesso… via.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMI_SECONDI_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "PROVOCATORIO",
+      "duration": "3-4 SECONDI",
+      "text": "{SECONDI} secondi, ragazzi. L'indecisione non è mai attraente.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "ZA_ULTIMI_SECONDI_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo sta finendo. Come la mia pazienza con chi non sceglie.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMI_SECONDI_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimi secondi. Seguite l'istinto: di solito è più sveglio del capitano.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMI_SECONDI_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Restano {SECONDI} secondi. Più di quanto serve per rispondere a un messaggio, quando lo si vuole davvero.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "ZA_ULTIMI_SECONDI_005",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Tic… tac. Non fatemi aspettare. Io non aspetto mai nessuno.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMI_SECONDI_006",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Pochi secondi. Inviate, o lasciate scegliere al destino. E il destino, stasera, sono io.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_CORRETTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPLICE",
+      "duration": "2-3 SECONDI",
+      "text": "Giusto. Ecco, così mi piacete.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_CORRETTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Corretto! Bravi. Non abituatevi, però: i complimenti, da me, costano.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_CORRETTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Esatto. {PUNTI} punti per {TAVOLO_A}. Adesso tutti vi guardano. Godetevelo… finché dura.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_RISPOSTA_CORRETTA_004",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta giusta. Lo sapevo che sotto quell'aria confusa c'era del talento.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_CORRETTA_005",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Bravi! Vi meritereste un regalo. Forse più tardi. Se fate i bravi.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_CORRETTA_006",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Corretto. E con questa, qualcuno in sala comincia a detestarvi un pochino.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_SBAGLIATA_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Oh no. Sbagliato. E io che stavo già per farvi i complimenti.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_SBAGLIATA_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Risposta sbagliata. Succede, quando ci si fida della prima impressione. Lo so bene.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_SBAGLIATA_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "No, cari. Non era quella. Ma non disperate: la serata è lunga, e io sono generosa. A volte.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_SBAGLIATA_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "PROVOCATORIO",
+      "duration": "3-4 SECONDI",
+      "text": "Sbagliato. Eppure vi avevo guardato con tanta fiducia.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RISPOSTA_SBAGLIATA_005",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Errore per {TAVOLO_A}. Che peccato. Stavo quasi per affezionarmi.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_RISPOSTA_SBAGLIATA_006",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ahi. Sbagliata. Come scrivere al numero sbagliato a mezzanotte: si ride, ma un po' brucia.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TEMPO_SCADUTO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Tempo scaduto. L'occasione è passata, e non vi ha nemmeno salutati.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TEMPO_SCADUTO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Fine del tempo. Chi non ha risposto ha perso un'occasione. Io, invece, non ne perdo mai una.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TEMPO_SCADUTO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Driin. Tempo finito. L'indecisione si paga, ragazzi. Non solo in punti: anche in rimpianti.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TEMPO_SCADUTO_004",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo è scaduto. E il tempo, come me, non torna indietro.",
+      "vars": []
+    },
+    {
+      "id": "ZA_IN_VANTAGGIO_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}. Che bello stare davanti… e sentirsi tutti quegli sguardi addosso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_IN_VANTAGGIO_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Primi, eh? Attenzione: il Bottone del Caos ha un debole per i primi della classe.",
+      "vars": []
+    },
+    {
+      "id": "ZA_IN_VANTAGGIO_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Comanda {TAVOLO_A}, con {PUNTI} punti. Brillate pure. Le cose che brillano attirano sempre i ladri.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZA_IN_VANTAGGIO_004",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Il primo posto è un bel vestito. Peccato che tutti, in sala, vogliano rubarvelo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_IN_VANTAGGIO_005",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Chi è primo adesso sorride. Io sorrido di più: so cosa sta per succedere.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMA_IN_CLASSIFICA_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Niente drammi: io ho un debole per chi insegue.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_ULTIMA_IN_CLASSIFICA_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "In fondo alla classifica c'è {TAVOLO_B}. Libertà assoluta: non avete niente da perdere, quindi potete rischiare tutto.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_ULTIMA_IN_CLASSIFICA_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ultimi. Lo so, non è il vostro momento. Ma i ritorni di fiamma più belli partono sempre da qui.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMA_IN_CLASSIFICA_004",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Chi è in fondo ha un vantaggio segreto: nessuno lo teme. Ancora.",
+      "vars": []
+    },
+    {
+      "id": "ZA_GRANDE_RECUPERO_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESPLOSIVO",
+      "duration": "8-10 SECONDI",
+      "text": "Ma guardate {TAVOLO_A}! Risale come un ex che torna a scriverti proprio quando stai bene. Imprevedibile e insistente.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_GRANDE_RECUPERO_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Una rimonta! Ve l'avevo detto: mai sottovalutare chi non ha niente da perdere.",
+      "vars": []
+    },
+    {
+      "id": "ZA_GRANDE_RECUPERO_003",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Recupero di {PUNTI} punti. Adesso sì che la serata diventa interessante. Chi era davanti si senta pure nervoso.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZA_SORPASSO_001",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso: {TAVOLO_A} supera {TAVOLO_B}. Oh, che dramma delizioso.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_SORPASSO_002",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Cambio al comando. Chi era primo è appena stato lasciato… per qualcuno di più interessante.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SORPASSO_003",
+      "scene": "SORPASSO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {TAVOLO_A} in posizione {POSIZIONE}. Un balzo così, io lo chiamo seduzione.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "ZA_SORPASSO_004",
+      "scene": "SORPASSO",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso. Lo sentite questo silenzio? È il suono di un tavolo che sta ricalcolando tutto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_DUELLO_001",
+      "scene": "DUELLO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}. Mi piace quando vi guardate così.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_DUELLO_002",
+      "scene": "DUELLO",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Due tavoli, una sfida, un solo premio. E un sacco di orgoglio in palio. Il mio genere preferito.",
+      "vars": []
+    },
+    {
+      "id": "ZA_DUELLO_003",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Faccia a faccia. Sembra un primo appuntamento: tutti sorridono, nessuno si fida.",
+      "vars": []
+    },
+    {
+      "id": "ZA_DUELLO_004",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Il duello è aperto. Chi vince prende i punti. Chi perde… prende appunti.",
+      "vars": []
+    },
+    {
+      "id": "ZA_DUELLO_005",
+      "scene": "DUELLO",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Stesso tempo, stessa prova. Vediamo chi di voi due ha più sangue freddo. Io scommetto. In silenzio.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SABOTAGGIO_001",
+      "scene": "SABOTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio: {TAVOLO_A} colpisce {TAVOLO_B}. Un gesto poco elegante… ma terribilmente efficace.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_SABOTAGGIO_002",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Un piccolo dispetto, regolamentare e ben piazzato. Le cose fatte bene vanno riconosciute.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SABOTAGGIO_003",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Qualcuno ha appena rovinato la serata del vicino. Con stile, almeno. È il minimo che si possa chiedere.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SABOTAGGIO_004",
+      "scene": "SABOTAGGIO",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Il bersaglio è stato colpito. Ma attenzione: può difendersi. E chi si difende… a volte contrattacca.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SABOTAGGIO_005",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Sabotaggio servito. Freddo, come la risposta di chi ha appena scoperto tutto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_FURTO_PUNTI_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Furto! {PUNTI} punti hanno appena cambiato tavolo: {TAVOLO_B} li cerca ancora, {TAVOLO_A} li sta già accarezzando.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_B",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_FURTO_PUNTI_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Che mano leggera. Punti spariti senza fare rumore. Vi assumerei.",
+      "vars": []
+    },
+    {
+      "id": "ZA_FURTO_PUNTI_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Qualcuno ha appena perso dei punti e non se n'è ancora accorto. Glielo dico io? No, aspetto. È più divertente.",
+      "vars": []
+    },
+    {
+      "id": "ZA_FURTO_PUNTI_004",
+      "scene": "FURTO_PUNTI",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Un furto con destrezza. Pulito. Legale. Quasi romantico.",
+      "vars": []
+    },
+    {
+      "id": "ZA_FURTO_PUNTI_005",
+      "scene": "FURTO_PUNTI",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ops. Sembra che {TAVOLO_B} avesse lasciato i punti incustoditi. Errore da principianti.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_ALLEANZA_001",
+      "scene": "ALLEANZA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Alleanza tra {TAVOLO_A} e {TAVOLO_B}. Che dolci. Un consiglio: non scambiatevi le password.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_ALLEANZA_002",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Due tavoli insieme. Mi ricorda un amore estivo: bellissimo, intenso, con la data di scadenza già scritta.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ALLEANZA_003",
+      "scene": "ALLEANZA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Un patto. Mi piacciono i patti. Soprattutto il momento in cui qualcuno li rompe.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TRADIMENTO_001",
+      "scene": "TRADIMENTO",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Tradimento: {TAVOLO_A} lascia {TAVOLO_B} senza nemmeno un messaggio. Che classe.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_TRADIMENTO_002",
+      "scene": "TRADIMENTO",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Ve l'avevo detto, no? Io lo sento sempre quando qualcuno sta per tradire.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TRADIMENTO_003",
+      "scene": "TRADIMENTO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ghosting tra tavoli. Una novità della serata, ma un grande classico della vita.",
+      "vars": []
+    },
+    {
+      "id": "ZA_TRADIMENTO_004",
+      "scene": "TRADIMENTO",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Una promessa infranta. Ascoltate bene: è il rumore che preferisco.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BLUFF_RIUSCITO_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff riuscito! Che faccia tosta deliziosa. Quasi ci cascavo anch'io.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BLUFF_RIUSCITO_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Hanno mentito benissimo. Lo dico con ammirazione: siete pericolosi, e vi sta bene.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BLUFF_RIUSCITO_003",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Ci sono cascati. Come a un «non sono arrabbiata, davvero». Funziona sempre.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BLUFF_SCOPERTO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff scoperto. Ah, ragazzi… si vedeva. Si vedeva tantissimo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BLUFF_SCOPERTO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Smascherati! Mentire è un'arte. Voi siete ancora alla prima lezione.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BLUFF_SCOPERTO_003",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "La bugia è crollata. Peccato: era carina. Non abbastanza, ma carina.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "ALLARME CAOS! Qualcuno ha premuto il bottone. Finalmente un po' di divertimento.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "PROVOCATORIO",
+      "duration": "8-10 SECONDI",
+      "text": "Oh, l'hanno fatto davvero. ALLARME CAOS: {TAVOLO_A} sfida {TAVOLO_B}. Quarantacinque secondi, cinquanta punti. Fatemi divertire.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Luci rosse. Silenzio. È scattato l'ALLARME CAOS, e il caos… è la mia lingua madre.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_004",
+      "scene": "BOTTONE_CAOS",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Bottone del Caos premuto. Un gesto impulsivo, irresistibile… proprio come piace a me.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_005",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "9-11 SECONDI",
+      "text": "ALLARME CAOS! Le due mascotte entrano in arena. Chi vince prende cinquanta punti. Chi perde… avrà una bella storia da raccontare.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_006",
+      "scene": "BOTTONE_CAOS",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Qualcuno ha toccato il bottone che non si tocca. Da me non l'avreste mai saputo, ma… era proprio il momento giusto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BOTTONE_CAOS_007",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Il caos è servito. Stessa sfida per entrambi, nessun vantaggio, nessuna scusa. Che vinca il più freddo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Evoluzione! {MASCOTTE_A} passa al livello 2. Guardate che trasformazione. Ditemi che non vi fa effetto.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "L'Energia Caos ha parlato: {MASCOTTE_A} entra nella versione Potenziata. Più luce, più carattere. Come dopo un bel taglio di capelli.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV2_003",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello 2 per {MASCOTTE_B}. Avete osato, e la mascotte vi ringrazia. Io pure, per lo spettacolo.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV2_004",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Qualcosa sta cambiando. {MASCOTTE_A} brilla. Livello 2. E non è ancora finita.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV2_005",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "{MASCOTTE_B} si evolve. Stesso nome, tutta un'altra energia. Come certe persone dopo una vacanza da sole.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Livello 3! {MASCOTTE_A} diventa leggenda. Inchinatevi, ragazzi. Io lo sto già facendo.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "Versione Leggendaria. {MASCOTTE_A} ha raggiunto il massimo. Da adesso, ogni volta che compare, la sala trattiene il fiato.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV3_003",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "Il livello più alto. {MASCOTTE_B} ce l'ha fatta. L'Energia Caos non mente: il suo tavolo ha osato più di tutti.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV3_004",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "PROVOCATORIO",
+      "duration": "4-6 SECONDI",
+      "text": "{MASCOTTE_B} al livello 3. Versione Leggendaria. E, lasciatemelo dire, irresistibile.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "ZA_EVOLUZIONE_LIV3_005",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello massimo raggiunto da {MASCOTTE_A}. Il tavolo è ancora in fase di sviluppo, ma la mascotte è perfetta.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_SUSPENSE_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il risultato è qui. Ma prima… lasciatemi giocare un po' con voi.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SUSPENSE_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "4-6 SECONDI",
+      "text": "Sento i vostri cuori da qui. Battono forte, eh?",
+      "vars": []
+    },
+    {
+      "id": "ZA_SUSPENSE_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "4-6 SECONDI",
+      "text": "Chi vince? Chi perde? Io lo so. E sorrido.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SUSPENSE_004",
+      "scene": "SUSPENSE",
+      "tone": "COMPLICE",
+      "duration": "8-10 SECONDI",
+      "text": "Un secondo ancora. L'attesa è la parte migliore. Chi dice il contrario non ha mai aspettato una risposta interessante.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SUSPENSE_005",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Il verdetto arriva tra un istante. Non guardate me. Io non vi aiuto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SUSPENSE_006",
+      "scene": "SUSPENSE",
+      "tone": "PROVOCATORIO",
+      "duration": "4-6 SECONDI",
+      "text": "Silenzio… adoro questo momento. Tutti zitti, tutti miei.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BATTUTA_SQUADRE_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Ci sono tavoli che decidono in tre secondi e tavoli che aprono un sondaggio interno. Indovinate quali mi annoiano.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BATTUTA_SQUADRE_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "9-11 SECONDI",
+      "text": "Capitani che chiedono il parere a tutti e poi fanno di testa loro. Mi ricordano qualcuno a cui ho dato il mio numero.",
+      "vars": []
+    },
+    {
+      "id": "ZA_BATTUTA_SQUADRE_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Osservo {TAVOLO_A}: tanta strategia, tanta passione, tanta confusione. Come una relazione appena iniziata.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_BATTUTA_SQUADRE_004",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Certe squadre giocano come chi prenota le vacanze alle due di notte: con entusiasmo, e senza leggere le condizioni.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PROVOCAZIONE_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Allora? Nessuno vuole rischiare? Che serata timida. Non era quello che mi avevano promesso.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PROVOCAZIONE_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Il bottone è lì. Nessuno lo guarda, ma tutti ci pensano. Lo so. Lo sento.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PROVOCAZIONE_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Gira voce che {TAVOLO_B} giochi pulito. Che spreco di talento.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "ZA_PROVOCAZIONE_004",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Fate i bravi, mi raccomando. Così, quando smetterete, sarà ancora più divertente.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PROVOCAZIONE_005",
+      "scene": "PROVOCAZIONE",
+      "tone": "COMPLICE",
+      "duration": "9-11 SECONDI",
+      "text": "Vi vedo esitare. Su, ragazzi. Il rischio è come un invito all'ultimo minuto: se ci pensi troppo, non ci vai più.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PROVOCAZIONE_006",
+      "scene": "PROVOCAZIONE",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Avete tutti un'aria così innocente. Che peccato non crederci nemmeno un po'.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REAZIONE_SORPRESA_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SORPRESO",
+      "duration": "5-7 SECONDI",
+      "text": "Oh! Questa non me l'aspettavo. E a me non succede quasi mai.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REAZIONE_SORPRESA_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Ma dai! Che colpo di scena. Mi avete appena fatto la serata.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REAZIONE_SORPRESA_003",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Inaspettato. Come un «buongiorno» da chi non ti scrive da mesi.",
+      "vars": []
+    },
+    {
+      "id": "ZA_REAZIONE_SORPRESA_004",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "No, fermi, fermi! Davvero? Ragazzi, siete meglio di qualunque serie tv.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa. Dieci minuti per rifiatare, ordinare qualcosa e fare pace. O fingere di farla.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa! Andate pure. Io resto qui e penso a come complicarvi la seconda parte.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PAUSA_003",
+      "scene": "PAUSA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Intervallo. Approfittatene per rifarvi il trucco… strategico. Ne avrete bisogno.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RIENTRO_PAUSA_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Bentornati. Mi siete mancati… un pochino. Non ditelo a nessuno.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RIENTRO_PAUSA_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "PROVOCATORIO",
+      "duration": "4-6 SECONDI",
+      "text": "Si riparte. E io ho portato qualche sorpresa dal camerino.",
+      "vars": []
+    },
+    {
+      "id": "ZA_RIENTRO_PAUSA_003",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Luci giù, telefoni su. La seconda parte è sempre quella in cui le cose si fanno serie.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMA_MANCHE_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultima manche: TUTTO O NIENTE. La mia preferita. Qui si rischia davvero.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMA_MANCHE_002",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Siamo alla fine, ragazzi. Niente più prudenza. Stasera nessuno si ricorderà di chi ha giocato sul sicuro.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ULTIMA_MANCHE_003",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "TUTTO O NIENTE. Puntate, scelte, rischi. È il momento in cui scopro chi siete davvero.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PUNTATA_RISCHIOSA_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Puntata alta! Oh, adoro chi si butta. Fatemi vedere se è coraggio o solo adrenalina.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PUNTATA_RISCHIOSA_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "{PUNTI} punti sul piatto. Il cuore batte, il capitano suda, e io mi sto divertendo tantissimo.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZA_PUNTATA_RISCHIOSA_003",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Prudenza o rischio? Cento punti sicuri… o duecentoquaranta che fanno tremare. Scegliete. Io vi guardo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PUNTATA_RISCHIOSA_004",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Hanno puntato forte. Come chi scrive «ti amo» al terzo appuntamento. Coraggioso. Forse troppo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PUNTATA_RISCHIOSA_005",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "9-11 SECONDI",
+      "text": "La puntata è fatta, e non si torna indietro. Mai sotto zero, ma il vuoto, visto da vicino, fa comunque effetto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PUNTATA_RISCHIOSA_006",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ecco {TAVOLO_A} che punta tutto quello che può. Questo sì che è spettacolo!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_FINALE_001",
+      "scene": "FINALE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Siamo alla fine. Ogni rischio preso, ogni regalo accettato… adesso presenta il conto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_FINALE_002",
+      "scene": "FINALE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "È il momento della verità. E la verità, ragazzi, è sempre un po' più affascinante della bugia.",
+      "vars": []
+    },
+    {
+      "id": "ZA_FINALE_003",
+      "scene": "FINALE",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimo verdetto. Qualcuno sta già scrivendo nel gruppo. Qualcun altro sta già cancellando il messaggio.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PREMIAZIONE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "La premiazione. Il momento in cui tutti fingono che vincere non fosse importante.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PREMIAZIONE_002",
+      "scene": "PREMIAZIONE",
+      "tone": "ENERGICO",
+      "duration": "9-11 SECONDI",
+      "text": "Applausi per {TAVOLO_A}: posizione {POSIZIONE}, {PUNTI} punti. Si può applaudire anche con un po' di invidia. Io lo faccio sempre.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "ZA_PREMIAZIONE_003",
+      "scene": "PREMIAZIONE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Il podio si accende. Tre tavoli, tre storie… e una sola che domani racconterà di aver vinto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_VITTORIA_001",
+      "scene": "VITTORIA",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Vince {TAVOLO_A}! Avete rischiato, bluffato e resistito. Siete esattamente il mio tipo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "ZA_VITTORIA_002",
+      "scene": "VITTORIA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Vittoria per {TAVOLO_A}. E {MASCOTTE_A} brilla come non mai. Bella coppia, davvero.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "ZA_VITTORIA_003",
+      "scene": "VITTORIA",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Hanno vinto. Ricordatevi bene questa sensazione. Alla prossima serata ve la riprendo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SCONFITTA_001",
+      "scene": "SCONFITTA",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Non è andata. Ma vi ho visti rischiare, e chi rischia ha sempre un certo fascino.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SCONFITTA_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sconfitta. Non prendetela male: anche le storie più belle a volte finiscono così.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SCONFITTA_003",
+      "scene": "SCONFITTA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Stasera la fortuna ha guardato altrove. La prossima volta, magari, guarderà voi. Le metterò una buona parola.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PAREGGIO_001",
+      "scene": "PAREGGIO",
+      "tone": "SORPRESO",
+      "duration": "4-6 SECONDI",
+      "text": "Parità! Che indecisione deliziosa. Nemmeno la classifica sa chi scegliere.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PAREGGIO_002",
+      "scene": "PAREGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Stessi punti. Mi piace. Due pretendenti, un solo posto. Serve uno spareggio.",
+      "vars": []
+    },
+    {
+      "id": "ZA_PAREGGIO_003",
+      "scene": "PAREGGIO",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Pareggio. Due tavoli appaiati come due ex allo stesso matrimonio: tutti guardano, nessuno cede.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SALUTO_FINALE_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Ciao ciao, ragazzi. È stato un piacere complicarvi la serata.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SALUTO_FINALE_002",
+      "scene": "SALUTO_FINALE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Le luci si spengono, il caos si riposa. Ma io torno. Torno sempre.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SALUTO_FINALE_003",
+      "scene": "SALUTO_FINALE",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Buonanotte. E se stanotte non riuscite a dormire… sapete chi ringraziare.",
+      "vars": []
+    },
+    {
+      "id": "ZA_SALUTO_FINALE_004",
+      "scene": "SALUTO_FINALE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "È stato bello. Voi mi avete fatta divertire, io vi ho fatto rischiare. Mi sembra uno scambio equo.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_001",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Che serata. Tanta tensione, tante risate e qualche alleanza che sta già scricchiolando.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_002",
+      "scene": "ATMOSFERA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Ho un regalo per qualcuno, stasera. Non so ancora per chi. Comportatevi bene… o male. Dipende.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_003",
+      "scene": "ATMOSFERA",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Vi guardo da qui, e devo dire che siete adorabili quando vi agitate.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_004",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ricordate: io non mento. Semplicemente, non dico tutto.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_005",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Questa sala ha più tensione di una chat di gruppo dopo un «dobbiamo parlare».",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_006",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "4-6 SECONDI",
+      "text": "Rilassatevi, ragazzi. Il caos non morde. Prima accarezza, poi colpisce.",
+      "vars": []
+    },
+    {
+      "id": "ZA_ATMOSFERA_007",
+      "scene": "ATMOSFERA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Avete sentito quel rumore? Era un piano perfetto che si incrinava. Succede spesso, quando passo io.",
+      "vars": []
+    }
+  ]
+}

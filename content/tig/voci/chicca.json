@@ -1,0 +1,796 @@
+{
+  "character": {
+    "id": "chicca",
+    "name": "Chicca",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, GIOVANE, DOLCE, VELLUTATA, IRONICA, SOTTILMENTE PERFIDA",
+    "personality": "La stratega sorridente. Gentilissima, calma, elegante, con una dolcezza disarmante che precede sempre la frecciata precisa. Legge le persone come una partita a scacchi: alleanze, sguardi, bluff, dinamiche da chat di gruppo e messaggi lasciati in sospeso. Prevede i tradimenti, si gode i colpi di scena, non alza mai la voce. Frasi tipiche: «Che carini.», «Io sorrido, ma prendo appunti.». Dal modello: giovane donna con abito viola e rosa, fiore tra i capelli e gioielli; la personalità non ha alcun legame con l'origine.",
+    "role": "Ospite analista: commenta alleanze, tradimenti, bluff e sabotaggi, svela le strategie dei tavoli e tiene la suspense nei momenti di tensione.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/CHICCA_PARLANTE.glb",
+    "toConfirm": [
+      "personalità (proposta)",
+      "tipo di voce (proposta)",
+      "ruolo nello show (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "CH_APE_001",
+      "scene": "APERTURA",
+      "tone": "DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Buonasera a tutti, sono Chicca. Sorrido, saluto, sono gentilissima. Ma vi avviso: prendo appunti su tutto.",
+      "vars": []
+    },
+    {
+      "id": "CH_APE_002",
+      "scene": "APERTURA",
+      "tone": "VELLUTATA",
+      "duration": "7-9 SECONDI",
+      "text": "Che bello vedervi così sereni. Godetevelo: tra poco cominciano le alleanze, e con le alleanze arrivano i sospetti.",
+      "vars": []
+    },
+    {
+      "id": "CH_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "AFFABILE",
+      "duration": "6-8 SECONDI",
+      "text": "Benvenuti, tavoli. Vi guardo uno per uno, e so già chi farà il primo tradimento della serata.",
+      "vars": []
+    },
+    {
+      "id": "CH_BEN_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DOLCE E PERFIDA",
+      "duration": "4-6 SECONDI",
+      "text": "È arrivato {TAVOLO_A}. Che carini, sembrano così innocenti. Vedremo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "TENERA",
+      "duration": "6-8 SECONDI",
+      "text": "La mascotte {MASCOTTE_A} è adorabile. Ed è anche l'unica, a quel tavolo, che non vi tradirà mai.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CH_MAS_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "ANALITICA",
+      "duration": "8-11 SECONDI",
+      "text": "Guardate bene le mascotte. Ognuna rispecchia il suo tavolo: chi l'ha scelta di getto, e chi dopo un dibattito di dieci minuti.",
+      "vars": []
+    },
+    {
+      "id": "CH_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CALMA",
+      "duration": "5-7 SECONDI",
+      "text": "Comincia la manche {MANCHE}. Nuova scacchiera, stessi giocatori, intenzioni un po' meno pulite.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "CH_MAN_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Si riparte. Io ho già un'idea di come andrà. Non ve la dico: sarebbe scortese.",
+      "vars": []
+    },
+    {
+      "id": "CH_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Il prossimo gioco è {MINIGIOCO}. Sembra semplice, ed è proprio lì che vi frega.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "CH_MIN_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ANALITICA",
+      "duration": "6-8 SECONDI",
+      "text": "Arriva {MINIGIOCO}. Qui conta capire cosa pensano gli altri tavoli, non solo cosa pensate voi.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "CH_REG_001",
+      "scene": "REGOLE",
+      "tone": "CHIARA E GENTILE",
+      "duration": "7-9 SECONDI",
+      "text": "Regola fondamentale: una sola risposta per tavolo, e la invia il capitano. Quindi, gentilmente, mettetevi d'accordo prima. Non dopo.",
+      "vars": []
+    },
+    {
+      "id": "CH_REG_002",
+      "scene": "REGOLE",
+      "tone": "MALIZIOSA",
+      "duration": "7-9 SECONDI",
+      "text": "Le alleanze sono ammesse. Anche i tradimenti. Il regolamento è molto più tollerante di una chat di gruppo.",
+      "vars": []
+    },
+    {
+      "id": "CH_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "CALMA",
+      "duration": "2-4 SECONDI",
+      "text": "Tre, due, uno. Prima mossa.",
+      "vars": []
+    },
+    {
+      "id": "CH_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "DOLCE",
+      "duration": "2-4 SECONDI",
+      "text": "Pronti? Respirate. Sorridete. Via.",
+      "vars": []
+    },
+    {
+      "id": "CH_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "COMPLICE",
+      "duration": "3-5 SECONDI",
+      "text": "Al mio tre si gioca. Uno, due... tre.",
+      "vars": []
+    },
+    {
+      "id": "CH_ULT_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESA E MORBIDA",
+      "duration": "3-5 SECONDI",
+      "text": "{SECONDI} secondi. Lo so, sembrano tanti. Non lo sono.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "CH_ULT_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICA",
+      "duration": "7-9 SECONDI",
+      "text": "Ultimi secondi. È il momento in cui tutti cambiano idea. Non fatelo: di solito era giusta la prima.",
+      "vars": []
+    },
+    {
+      "id": "CH_ULT_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "CALMA E INCALZANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Il tempo sta finendo. Capitani, il dito sul pulsante. Adesso.",
+      "vars": []
+    },
+    {
+      "id": "CH_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "COMPIACIUTA",
+      "duration": "2-4 SECONDI",
+      "text": "Corretta. Che carini, lo sapevano davvero.",
+      "vars": []
+    },
+    {
+      "id": "CH_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DOLCE",
+      "duration": "3-5 SECONDI",
+      "text": "Giusta. Ragionamento elegante. Mi piace quando un piano funziona.",
+      "vars": []
+    },
+    {
+      "id": "CH_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "APPROVAZIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Ancora una volta {TAVOLO_A} risponde bene. Me lo segno: siete più pericolosi di quanto sembrate.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DISPIACIUTA E IRONICA",
+      "duration": "4-6 SECONDI",
+      "text": "Sbagliata. Ma l'avete detta con tanta convinzione che quasi ci credevo anch'io.",
+      "vars": []
+    },
+    {
+      "id": "CH_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DOLCE E PERFIDA",
+      "duration": "3-5 SECONDI",
+      "text": "No, cari. Però siete stati coerenti: sbagliati, ma uniti.",
+      "vars": []
+    },
+    {
+      "id": "CH_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "ANALITICA",
+      "duration": "4-6 SECONDI",
+      "text": "Risposta sbagliata. Avete seguito il primo che ha parlato, vero? Succede sempre.",
+      "vars": []
+    },
+    {
+      "id": "CH_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "CALMA",
+      "duration": "4-6 SECONDI",
+      "text": "Tempo scaduto. Le mosse sono chiuse. Le scuse, invece, restano sempre aperte.",
+      "vars": []
+    },
+    {
+      "id": "CH_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICA",
+      "duration": "5-7 SECONDI",
+      "text": "Finito. Qualcuno stava ancora scrivendo e cancellando, come prima di mandare un messaggio importante.",
+      "vars": []
+    },
+    {
+      "id": "CH_TMP_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SECCA E DOLCE",
+      "duration": "5-7 SECONDI",
+      "text": "Tempo. Chi non ha risposto ha comunque fatto una scelta: quella di non scegliere.",
+      "vars": []
+    },
+    {
+      "id": "CH_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ANALITICA",
+      "duration": "8-11 SECONDI",
+      "text": "{PUNTI} punti per {TAVOLO_A}, che adesso guida la classifica. Complimenti. Ora tutti vi guardano, e non con affetto.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CH_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DOLCE E MINACCIOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}. È bellissimo stare in alto. È anche il posto più comodo da cui cadere.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_VAN_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "MALIZIOSA",
+      "duration": "5-7 SECONDI",
+      "text": "Comanda {TAVOLO_A}. Io, se fossi negli altri tavoli, comincerei a parlarmi sottovoce.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_COD_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "GENTILE",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima piazza per {TAVOLO_A}. Ma attenzione: nessuno sospetta mai di chi è ultimo. È un vantaggio enorme.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_COD_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "STRATEGICA",
+      "duration": "8-11 SECONDI",
+      "text": "Chi è in fondo, come {TAVOLO_A}, ha il momento perfetto per stringere alleanze: nessuno lo considera una minaccia.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_COD_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "DOLCE",
+      "duration": "7-9 SECONDI",
+      "text": "Chi è in coda non si scoraggi. Le rimonte più belle cominciano quando gli altri smettono di guardarvi.",
+      "vars": []
+    },
+    {
+      "id": "CH_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "COMPIACIUTA",
+      "duration": "4-6 SECONDI",
+      "text": "Silenziosa, precisa, letale: così rimonta {TAVOLO_A}. Il mio genere preferito.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "AMMIRATA",
+      "duration": "8-11 SECONDI",
+      "text": "Nessuno se n'è accorto, ma {TAVOLO_A} è tornato in partita. Mentre gli altri litigavano, loro risalivano. Questa si chiama strategia.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "CALMA E SODDISFATTA",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso. {TAVOLO_A} supera {TAVOLO_B}, senza fare rumore. Come piace a me.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "IRONICA",
+      "duration": "7-9 SECONDI",
+      "text": "Ecco fatto: adesso {TAVOLO_A} sta sopra {TAVOLO_B}. Educatamente, con un sorriso, e senza chiedere permesso.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_SOR_003",
+      "scene": "SORPASSO",
+      "tone": "MALIZIOSA",
+      "duration": "6-8 SECONDI",
+      "text": "Mentre {TAVOLO_B} guardava altrove, {TAVOLO_A} è salito in posizione {POSIZIONE}. Che classe.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "CH_DUE_001",
+      "scene": "DUELLO",
+      "tone": "ANALITICA",
+      "duration": "8-11 SECONDI",
+      "text": "Duello tra {TAVOLO_A} e {TAVOLO_B}. Stessa prova, stesso tempo. Vince chi resta lucido, non chi urla di più.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_DUE_002",
+      "scene": "DUELLO",
+      "tone": "DOLCE",
+      "duration": "3-5 SECONDI",
+      "text": "{MASCOTTE_A} contro {MASCOTTE_B}. Che teneri. Si detestano già.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CH_DUE_003",
+      "scene": "DUELLO",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Uno contro uno. Io guardo le facce, non lo schermo: lì si capisce già chi vincerà.",
+      "vars": []
+    },
+    {
+      "id": "CH_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPIACIUTA",
+      "duration": "7-9 SECONDI",
+      "text": "Sabotaggio. {TAVOLO_A} ha colpito, e il bersaglio è {TAVOLO_B}. Mossa poco gentile, ma molto intelligente.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "DOLCE E PERFIDA",
+      "duration": "7-9 SECONDI",
+      "text": "Un sabotaggio fatto bene è come un complimento detto con il tono giusto: nessuno capisce subito che fa male.",
+      "vars": []
+    },
+    {
+      "id": "CH_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "CALMA",
+      "duration": "8-11 SECONDI",
+      "text": "Furto riuscito. {PUNTI} punti cambiano casa: li perde {TAVOLO_B}, li prende {TAVOLO_A}. Nessuno ha visto niente. Io sì.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CH_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICA",
+      "duration": "6-8 SECONDI",
+      "text": "Con un sorriso, {TAVOLO_A} si è preso {PUNTI} punti. Riconosco lo stile: è il mio.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CH_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "DOLCE E SCETTICA",
+      "duration": "10-13 SECONDI",
+      "text": "Guardate chi si è appena alleato: {TAVOLO_A} e {TAVOLO_B}. Che carini. Scommetto che hanno già pensato tutti e due a come uscirne.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "ANALITICA",
+      "duration": "6-8 SECONDI",
+      "text": "Le alleanze migliori sono quelle in cui ognuno pensa di usare l'altro. Così nessuno resta deluso.",
+      "vars": []
+    },
+    {
+      "id": "CH_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "VELLUTATA E COMPIACIUTA",
+      "duration": "7-9 SECONDI",
+      "text": "Tradimento. {TAVOLO_A} ha scaricato {TAVOLO_B} nel momento perfetto. Io l'avevo previsto tre minuti fa.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "IRONICA",
+      "duration": "7-9 SECONDI",
+      "text": "Che peccato, un tradimento. È come un visualizzato senza risposta: fa male, ma sotto sotto ve lo aspettavate.",
+      "vars": []
+    },
+    {
+      "id": "CH_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATA",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff riuscito. Che faccia innocente. Quasi quasi vi assumo come consulenti.",
+      "vars": []
+    },
+    {
+      "id": "CH_BLR_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "COMPIACIUTA",
+      "duration": "7-9 SECONDI",
+      "text": "Ci sono cascati tutti. Una bugia detta con calma vale il doppio di una verità detta di fretta.",
+      "vars": []
+    },
+    {
+      "id": "CH_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DOLCE E TRIONFANTE",
+      "duration": "4-6 SECONDI",
+      "text": "Bluff scoperto. Cari, si vedeva: quando mentite, rispondete troppo in fretta.",
+      "vars": []
+    },
+    {
+      "id": "CH_BLS_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "ANALITICA",
+      "duration": "6-8 SECONDI",
+      "text": "Scoperti. Il problema non era la bugia, era il tempismo. Troppo perfetta per essere vera.",
+      "vars": []
+    },
+    {
+      "id": "CH_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESA E COMPIACIUTA",
+      "duration": "10-13 SECONDI",
+      "text": "Allarme Caos. {TAVOLO_A} ha scelto di sfidare proprio {TAVOLO_B}: una scelta che dice molto. Quarantacinque secondi per scoprire se era quella giusta.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "CH_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DOLCE",
+      "duration": "6-8 SECONDI",
+      "text": "Il Bottone del Caos. L'unica mossa della serata che nessuno può fingere di non aver fatto.",
+      "vars": []
+    },
+    {
+      "id": "CH_CAO_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ANALITICA",
+      "duration": "8-11 SECONDI",
+      "text": "{MASCOTTE_A} e {MASCOTTE_B} si sfidano per cinquanta punti. Il caos, quando lo scegli tu, è solo strategia con più rumore.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "CH_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "INTENERITA",
+      "duration": "8-11 SECONDI",
+      "text": "La mascotte {MASCOTTE_A} è al livello due. Più sicura, più forte. Si cresce bene, quando si sta con le persone giuste.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CH_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "AMMIRATA",
+      "duration": "6-8 SECONDI",
+      "text": "La mascotte {MASCOTTE_A} adesso è leggendaria, livello tre. Fa quasi paura. Quasi come me quando sorrido.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CH_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SUSSURRATA",
+      "duration": "4-6 SECONDI",
+      "text": "Ancora un istante. Mi piace guardare le vostre facce mentre aspettate.",
+      "vars": []
+    },
+    {
+      "id": "CH_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "CALMA E TESA",
+      "duration": "4-6 SECONDI",
+      "text": "Il risultato c'è già. Lo sto solo tenendo un attimo per me.",
+      "vars": []
+    },
+    {
+      "id": "CH_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESA",
+      "duration": "4-6 SECONDI",
+      "text": "Silenzio. È il momento in cui qualcuno si pente della propria scelta.",
+      "vars": []
+    },
+    {
+      "id": "CH_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICA",
+      "duration": "8-11 SECONDI",
+      "text": "Certi tavoli decidono come si sceglie dove cenare in otto: alla fine vince chi parla più forte, non chi ha ragione.",
+      "vars": []
+    },
+    {
+      "id": "CH_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DOLCE E PERFIDA",
+      "duration": "6-8 SECONDI",
+      "text": "C'è un tavolo che sembra molto unito. Io però ho visto tre telefoni suggerire tre risposte diverse.",
+      "vars": []
+    },
+    {
+      "id": "CH_BAT_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "COMPLICE",
+      "duration": "7-9 SECONDI",
+      "text": "Alcuni di voi bluffano come chi scrive che è già per strada mentre è ancora sotto la doccia.",
+      "vars": []
+    },
+    {
+      "id": "CH_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "MALIZIOSA",
+      "duration": "8-11 SECONDI",
+      "text": "Vedo {TAVOLO_A} ridere molto. Chi ride per primo, di solito, non ha ancora capito il piano degli altri.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "VELLUTATA",
+      "duration": "6-8 SECONDI",
+      "text": "Avete notato che chi è in testa ha smesso di sorridere? Io sì. Lo noto sempre.",
+      "vars": []
+    },
+    {
+      "id": "CH_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "STUZZICANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Io, al posto vostro, mi fiderei poco del tavolo accanto. Non per cattiveria, eh. Per esperienza.",
+      "vars": []
+    },
+    {
+      "id": "CH_SOP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SORPRESA SINCERA",
+      "duration": "5-7 SECONDI",
+      "text": "Ah. Questa non l'avevo prevista. Mi capita una volta all'anno, e mi piace pure.",
+      "vars": []
+    },
+    {
+      "id": "CH_SOP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "INCREDULA",
+      "duration": "3-5 SECONDI",
+      "text": "Aspettate. Davvero? Devo rifare tutti i miei calcoli.",
+      "vars": []
+    },
+    {
+      "id": "CH_PAU_001",
+      "scene": "PAUSA",
+      "tone": "COMPLICE",
+      "duration": "8-11 SECONDI",
+      "text": "Dieci minuti di pausa. Sgranchitevi, prendete aria, e magari fate due chiacchiere con il tavolo accanto. Così, per sondare il terreno.",
+      "vars": []
+    },
+    {
+      "id": "CH_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "MALIZIOSA",
+      "duration": "6-8 SECONDI",
+      "text": "Bentornati. In pausa ho visto conversazioni molto interessanti tra tavoli. Molto. Vedremo cosa ne esce.",
+      "vars": []
+    },
+    {
+      "id": "CH_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "CALMA E SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Tutto o niente, l'ultima manche. Adesso le maschere cadono, e ognuno gioca per sé.",
+      "vars": []
+    },
+    {
+      "id": "CH_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESA",
+      "duration": "6-8 SECONDI",
+      "text": "Puntata da {PUNTI} punti per {TAVOLO_A}. Coraggio o calcolo? Lo scopriamo tra poco.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "CH_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ANALITICA",
+      "duration": "7-9 SECONDI",
+      "text": "Una puntata così si fa solo in due casi: quando si è sicuri, o quando si vuole sembrare sicuri.",
+      "vars": []
+    },
+    {
+      "id": "CH_FIN_001",
+      "scene": "FINALE",
+      "tone": "CALMA E INTENSA",
+      "duration": "6-8 SECONDI",
+      "text": "Siamo alla fine. Ogni alleanza, ogni bugia, ogni sorpasso di stasera si gioca in questi ultimi minuti.",
+      "vars": []
+    },
+    {
+      "id": "CH_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "ELEGANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Premiazione. Applausi a tutti i tavoli: a chi ha giocato pulito, e a chi ha giocato meglio.",
+      "vars": []
+    },
+    {
+      "id": "CH_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "COMPIACIUTA",
+      "duration": "7-9 SECONDI",
+      "text": "Vince {TAVOLO_A}. Complimenti, davvero. Una serata giocata con la testa, e con il giusto pizzico di cattiveria.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "CH_VIT_002",
+      "scene": "VITTORIA",
+      "tone": "DOLCE",
+      "duration": "7-9 SECONDI",
+      "text": "Io l'avevo detto. Anzi no, l'avevo solo pensato. Ma ha vinto {TAVOLO_A}, insieme alla mascotte {MASCOTTE_A}.",
+      "vars": [
+        "TAVOLO_A",
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "CH_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "GENTILE",
+      "duration": "7-9 SECONDI",
+      "text": "Non avete vinto, cari. Ma avete giocato, avete rischiato, e avete imparato di chi non fidarvi. Non è poco.",
+      "vars": []
+    },
+    {
+      "id": "CH_SCO_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICA E AFFETTUOSA",
+      "duration": "5-7 SECONDI",
+      "text": "Sconfitta. Prendetela con eleganza: sorridete, applaudite, e preparate la rivincita per la prossima volta.",
+      "vars": []
+    },
+    {
+      "id": "CH_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "SORPRESA",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio. Stessi punti. Che situazione deliziosa. Adesso vediamo chi regge la pressione dello spareggio.",
+      "vars": []
+    },
+    {
+      "id": "CH_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "DOLCE",
+      "duration": "9-12 SECONDI",
+      "text": "Grazie a tutti, è stata una serata bellissima. Tornate a casa con calma, e ricordate: io sorrido, ma mi ricordo tutto. A presto.",
+      "vars": []
+    },
+    {
+      "id": "CH_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "COMPLICE",
+      "duration": "6-8 SECONDI",
+      "text": "Mi piace questo rumore di fondo. È il suono di dieci strategie diverse che si scontrano.",
+      "vars": []
+    },
+    {
+      "id": "CH_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "DOLCE",
+      "duration": "7-9 SECONDI",
+      "text": "Il fiore tra i capelli è per fare scena. Gli appunti sui vostri bluff, invece, sono per lavoro.",
+      "vars": []
+    },
+    {
+      "id": "CH_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICA",
+      "duration": "6-8 SECONDI",
+      "text": "Vedo tavoli che si osservano di nascosto. Bene. Il sospetto è il condimento migliore della serata.",
+      "vars": []
+    },
+    {
+      "id": "CH_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "VELLUTATA",
+      "duration": "6-8 SECONDI",
+      "text": "Sapete qual è la mossa più sottovalutata? Stare zitti e lasciare che gli altri sbaglino.",
+      "vars": []
+    },
+    {
+      "id": "CH_ATM_005",
+      "scene": "ATMOSFERA",
+      "tone": "DOLCE E PERFIDA",
+      "duration": "6-8 SECONDI",
+      "text": "Siete tutti molto simpatici, lo dico davvero. Questo non mi impedirà di godermi le vostre sconfitte.",
+      "vars": []
+    }
+  ]
+}

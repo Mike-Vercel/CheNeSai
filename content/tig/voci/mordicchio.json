@@ -1,0 +1,640 @@
+{
+  "character": {
+    "id": "mordicchio",
+    "name": "Mordicchio",
+    "sex": "DA CONFERMARE",
+    "voice": "GENERE DELLA VOCE DA CONFERMARE; TIMBRO MEDIO-ACUTO, NASALE, RAPIDO, LEGGERMENTE SIBILANTE SULLE S PER I DENTINI, RISATINA FURBA E TRATTENUTA; ACCELERA QUANDO SENTE ODORE DI INTRIGO",
+    "personality": "PROPOSTA dall'aspetto (ibrido topo-drago con corna, ali da pipistrello, coda lunga e quattro dentini davanti): carattere furbo, pettegolo e opportunista. Rosicchia punti e colleziona segreti come un drago colleziona tesori; adora furti, sabotaggi e tradimenti, purché dentro le regole. Sarcasmo tagliente ma mai cattivo: incarna chi, nel gruppo, legge tutti i messaggi e non risponde mai, sa tutto di tutti e lo tira fuori al momento sbagliato. Quando perde rosica in modo teatrale. Tic verbali: rosicchiare, dentini, ali, coda, tesoro, «che delizia».",
+    "role": "Ospite «complottista»: furti di punti, sabotaggi, alleanze, tradimenti e bluff; provoca i tavoli e mette pepe nella manche FREGALI TUTTI!.",
+    "tier": "ospite",
+    "model": "REFERENCE/MODELLI-3D/MORDICCHIO_PARLANTE.glb",
+    "toConfirm": [
+      "sesso",
+      "personalità (proposta)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "MO_APE_001",
+      "scene": "APERTURA",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Buonasera, pub. Io sono Mordicchio: ali da drago, dentini da topo e una passione sincera per i guai degli altri.",
+      "vars": []
+    },
+    {
+      "id": "MO_APE_002",
+      "scene": "APERTURA",
+      "tone": "COMPIACIUTO",
+      "duration": "6-8 SECONDI",
+      "text": "Stasera si ruba, si mente e si tradisce. Tutto legale, tutto regolamentato. Che serata meravigliosa.",
+      "vars": []
+    },
+    {
+      "id": "MO_BEN_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "MALIZIOSO",
+      "duration": "9-12 SECONDI",
+      "text": "Eccovi qua, tavoli. Vi ho già studiati tutti: chi comanda, chi fa finta di sapere, chi è venuto solo per il cibo.",
+      "vars": []
+    },
+    {
+      "id": "MO_MAS_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "SORNIONE",
+      "duration": "9-12 SECONDI",
+      "text": "Ecco {MASCOTTE_A}, la mascotte che protegge {TAVOLO_A}. Carina. Ha l'aria di chi lascia il telefono sbloccato sul tavolo. Interessante.",
+      "vars": [
+        "MASCOTTE_A",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_MAN_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "CARICO, SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Inizia la manche {MANCHE}. Affilate i dentini: i miei li ho già lucidati.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "MO_MIN_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Il prossimo gioco è {MINIGIOCO}. Sembra innocuo. Lo dicevano anche del gruppo «solo per organizzare il compleanno».",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "MO_REG_001",
+      "scene": "REGOLE",
+      "tone": "COSPIRATORIO",
+      "duration": "11-14 SECONDI",
+      "text": "Le regole, in breve: si può rubare, ma al massimo quaranta punti. Si può attaccare, ma non sempre lo stesso tavolo. Lo so, è frustrante anche per me.",
+      "vars": []
+    },
+    {
+      "id": "MO_CNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "SCATTANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Dentini pronti? Tre... due... uno... rosicchiate!",
+      "vars": []
+    },
+    {
+      "id": "MO_CNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Tre, due, uno. Che vinca il più furbo, cioè chi mi somiglia di più.",
+      "vars": []
+    },
+    {
+      "id": "MO_CNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "TAGLIENTE",
+      "duration": "5-7 SECONDI",
+      "text": "Si parte tra tre secondi. Due. Uno. Niente pietà, solo strategia.",
+      "vars": []
+    },
+    {
+      "id": "MO_ULS_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "GODURIOSO",
+      "duration": "4-6 SECONDI",
+      "text": "{SECONDI} secondi! Sento odore di panico, e mi piace tantissimo.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "MO_ULS_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "INCALZANTE",
+      "duration": "3-5 SECONDI",
+      "text": "Pochi secondi ancora! Chi esita viene rosicchiato.",
+      "vars": []
+    },
+    {
+      "id": "MO_OK_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DELUSO, IRONICO",
+      "duration": "2-4 SECONDI",
+      "text": "Giusta. Peccato, speravo in un disastro.",
+      "vars": []
+    },
+    {
+      "id": "MO_OK_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "MALIZIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Risposta corretta per {TAVOLO_A}. Me lo segno. Per motivi miei.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_OK_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SORNIONE",
+      "duration": "7-9 SECONDI",
+      "text": "Esatto. Ora però tutti sanno che siete pericolosi, e questo fa di voi un bersaglio. Prego.",
+      "vars": []
+    },
+    {
+      "id": "MO_ERR_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "COMPIACIUTO",
+      "duration": "1-3 SECONDI",
+      "text": "Sbagliata! Che suono delizioso.",
+      "vars": []
+    },
+    {
+      "id": "MO_ERR_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "No, no. Avete risposto con la sicurezza di chi manda un vocale di quattro minuti al numero sbagliato.",
+      "vars": []
+    },
+    {
+      "id": "MO_ERR_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "PERFIDO, SCHERZOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Errore. Non preoccupatevi, lo dimenticherò subito. Bugia: me lo ricorderò per sempre.",
+      "vars": []
+    },
+    {
+      "id": "MO_TMP_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Tempo scaduto. Chi non ha risposto ha appena lasciato una bella fetta di punti sul tavolo, e io ho fame.",
+      "vars": []
+    },
+    {
+      "id": "MO_TMP_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "TAGLIENTE",
+      "duration": "3-5 SECONDI",
+      "text": "Fine del tempo. L'indecisione è la mia portata preferita.",
+      "vars": []
+    },
+    {
+      "id": "MO_VAN_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "MINACCIOSO, IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "In testa c'è {TAVOLO_A}. Complimenti. Adesso tutti vi guardano come io guardo un buffet incustodito.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_VAN_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SORNIONE",
+      "duration": "7-9 SECONDI",
+      "text": "Primo posto per {TAVOLO_A}. Godetevelo: il primo posto è il tesoro più facile da rubare.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_ULT_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "10-13 SECONDI",
+      "text": "In fondo c'è {TAVOLO_A}. Il lato positivo? Nessuno ruba a chi ha le tasche vuote. Siete al sicuro, in un certo senso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_ULT_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "COSPIRATORIO",
+      "duration": "9-12 SECONDI",
+      "text": "Ultimo posto per {TAVOLO_A}. Al vostro posto comincerei a fare alleanze. O a rubare. Meglio ancora, tutte e due.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_REC_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "SORPRESO, AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Guarda guarda, {TAVOLO_A} risale dalla cantina. E io che vi avevo già cancellati dalla lista dei sospetti.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_REC_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Rimonta! Questo sì che è un colpo da professionisti. Quasi quasi vi chiedo di entrare nella mia banda.",
+      "vars": []
+    },
+    {
+      "id": "MO_SOR_001",
+      "scene": "SORPASSO",
+      "tone": "ECCITATO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso: {TAVOLO_A} scavalca {TAVOLO_B}. Dentini fuori, è ora di difendersi.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_SOR_002",
+      "scene": "SORPASSO",
+      "tone": "MALIZIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Perde la posizione {TAVOLO_B}. So cosa state pensando: vendetta. Approvo.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_DUE_001",
+      "scene": "DUELLO",
+      "tone": "EPICO, SORNIONE",
+      "duration": "9-12 SECONDI",
+      "text": "Duello: {TAVOLO_A} contro {TAVOLO_B}. Due tavoli entrano, uno esce con quaranta punti in più. L'altro con un rancore nuovo.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_DUE_002",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "{MASCOTTE_A} e {MASCOTTE_B} si fissano. Che tensione. Qualcuno mi passi i popcorn.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "MO_SAB_001",
+      "scene": "SABOTAGGIO",
+      "tone": "ESTASIATO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio: {TAVOLO_A} colpisce {TAVOLO_B}. Elegante, preciso, un filo meschino. Lo adoro.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_SAB_002",
+      "scene": "SABOTAGGIO",
+      "tone": "COMPIACIUTO",
+      "duration": "5-7 SECONDI",
+      "text": "Un sabotaggio come piace a me: silenzioso, legale e con un sorrisino alla fine.",
+      "vars": []
+    },
+    {
+      "id": "MO_FUR_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "GODURIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Furto: {TAVOLO_A} rosicchia {PUNTI} punti, e a perderli è {TAVOLO_B}. Che bello quando i punti cambiano casa.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_FUR_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "SORNIONE",
+      "duration": "8-10 SECONDI",
+      "text": "Rubare punti è come mangiare dal piatto di un amico: lo fai una volta, poi diventa uno stile di vita.",
+      "vars": []
+    },
+    {
+      "id": "MO_FUR_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "FINTO INNOCENTE",
+      "duration": "6-8 SECONDI",
+      "text": "{PUNTI} punti spariti nel nulla. Non guardate me. Stavolta non c'entro, giuro sui miei dentini.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "MO_ALL_001",
+      "scene": "ALLEANZA",
+      "tone": "SCETTICO, IRONICO",
+      "duration": "9-12 SECONDI",
+      "text": "Un'alleanza tra {TAVOLO_A} e {TAVOLO_B}. Che tenerezza. Scommetto che dura meno di una storia nata in vacanza.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_ALL_002",
+      "scene": "ALLEANZA",
+      "tone": "PERFIDO",
+      "duration": "7-9 SECONDI",
+      "text": "Alleati, eh? Bellissimo. Ricordatevi solo che un'alleanza è un tradimento che non ha ancora trovato il momento giusto.",
+      "vars": []
+    },
+    {
+      "id": "MO_TRA_001",
+      "scene": "TRADIMENTO",
+      "tone": "ESTASIATO",
+      "duration": "7-9 SECONDI",
+      "text": "TRADIMENTO! Ha voltato le spalle all'alleato proprio {TAVOLO_A}. Mi viene da piangere. Di gioia.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_TRA_002",
+      "scene": "TRADIMENTO",
+      "tone": "COMPIACIUTO",
+      "duration": "5-7 SECONDI",
+      "text": "Ve l'avevo detto. Le alleanze qui durano quanto un messaggio che si autodistrugge.",
+      "vars": []
+    },
+    {
+      "id": "MO_BLR_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "AMMIRATO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff riuscito: {TAVOLO_A} ha mentito con una faccia così pulita che inizio a sentire la concorrenza.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_BLS_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Bluff scoperto! Dilettanti. Per mentire bene servono calma, pazienza e almeno un paio di ali.",
+      "vars": []
+    },
+    {
+      "id": "MO_CAO_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESALTATO",
+      "duration": "4-6 SECONDI",
+      "text": "ALLARME CAOS! Finalmente. Mi stavo annoiando con tutta questa correttezza.",
+      "vars": []
+    },
+    {
+      "id": "MO_CAO_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ECCITATO",
+      "duration": "8-10 SECONDI",
+      "text": "Il Bottone del Caos! In campo {MASCOTTE_A} e {MASCOTTE_B}: stessa sfida, stessi secondi, e io tifo per il disordine.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "MO_EV2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "FINTAMENTE SCOCCIATO",
+      "duration": "7-9 SECONDI",
+      "text": "{MASCOTTE_A} passa al livello 2. Più grande, più forte, più difficile da derubare. Che seccatura.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MO_EV3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "AMMIRATO, INVIDIOSO",
+      "duration": "8-10 SECONDI",
+      "text": "Livello 3 per {MASCOTTE_A}: forma leggendaria. Lo ammetto, un po' di invidia ce l'ho. E io ho le ali.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "MO_SUS_001",
+      "scene": "SUSPENSE",
+      "tone": "SUSSURRATO, MALIZIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Silenzio... Sentite? È il rumore di qualcuno che sta per perdere punti.",
+      "vars": []
+    },
+    {
+      "id": "MO_SUS_002",
+      "scene": "SUSPENSE",
+      "tone": "SORNIONE",
+      "duration": "7-9 SECONDI",
+      "text": "Aspettate. Il bello della suspense è vedere chi crolla prima. Voi state già sudando, io no.",
+      "vars": []
+    },
+    {
+      "id": "MO_SUS_003",
+      "scene": "SUSPENSE",
+      "tone": "DISPETTOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Il risultato arriva... ora. No, scherzo. Ora. Va bene, adesso davvero.",
+      "vars": []
+    },
+    {
+      "id": "MO_BAT_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Alcuni tavoli discutono come una coppia che sceglie il film: venti minuti di trattative, e poi si addormentano sul divano.",
+      "vars": []
+    },
+    {
+      "id": "MO_BAT_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "7-9 SECONDI",
+      "text": "Certi capitani esitano come davanti alla domanda «allora, cosa siamo noi due?». Rispondete, che il tempo corre.",
+      "vars": []
+    },
+    {
+      "id": "MO_PRO_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Le persone tranquille sono le prime che derubo. E guardando {TAVOLO_B}, ho già scelto il prossimo spuntino.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "MO_PRO_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "SORNIONE",
+      "duration": "3-5 SECONDI",
+      "text": "Avete tutti un'aria così onesta. Che spreco.",
+      "vars": []
+    },
+    {
+      "id": "MO_PRO_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "MALIZIOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Chi vuole fare un'alleanza con me? Nessuno? Fate bene.",
+      "vars": []
+    },
+    {
+      "id": "MO_SRP_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "SPIAZZATO",
+      "duration": "5-7 SECONDI",
+      "text": "Cosa?! Non l'avevo previsto. E io prevedo tutto, è il mio lavoro.",
+      "vars": []
+    },
+    {
+      "id": "MO_SRP_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "STUPEFATTO",
+      "duration": "4-6 SECONDI",
+      "text": "Ma che colpo! Mi è caduta la coda dalla sorpresa.",
+      "vars": []
+    },
+    {
+      "id": "MO_PAU_001",
+      "scene": "PAUSA",
+      "tone": "COSPIRATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Pausa. Dieci minuti per sgranchirvi, passare al bancone e, ovviamente, stringere patti segreti. Io vi osservo.",
+      "vars": []
+    },
+    {
+      "id": "MO_RIE_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "MALIZIOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Rieccovi. Durante la pausa ho sentito cose... Tranquilli, le userò solo se serve.",
+      "vars": []
+    },
+    {
+      "id": "MO_UMA_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "TESO, SORNIONE",
+      "duration": "6-8 SECONDI",
+      "text": "Ultima manche. Niente più amici, niente più promesse: solo punti, e chi riesce a tenerli stretti.",
+      "vars": []
+    },
+    {
+      "id": "MO_PUN_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "ECCITATO",
+      "duration": "8-10 SECONDI",
+      "text": "Puntata di {PUNTI} punti per {TAVOLO_A}. Coraggio o follia? Lo scopriamo tra poco, e io tifo follia.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_PUN_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "Una puntata così alta mi ricorda il messaggio scritto alle due di notte: sembra un'idea fantastica, finché non arriva la mattina.",
+      "vars": []
+    },
+    {
+      "id": "MO_FIN_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE, COMPIACIUTO",
+      "duration": "7-9 SECONDI",
+      "text": "Il finale. Tutti i furti, i bluff e i tradimenti della serata portano a questo momento. Che bellezza.",
+      "vars": []
+    },
+    {
+      "id": "MO_PRE_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SCHERZOSO",
+      "duration": "5-7 SECONDI",
+      "text": "Premiazione. Tenete d'occhio il trofeo: se sparisce, non è colpa mia. Forse.",
+      "vars": []
+    },
+    {
+      "id": "MO_VIT_001",
+      "scene": "VITTORIA",
+      "tone": "AMMIRATO, SCHERZOSO",
+      "duration": "6-8 SECONDI",
+      "text": "Vince {TAVOLO_A}! Bravi, davvero. Non vi ruberò la vittoria. Non stasera.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "MO_SCO_001",
+      "scene": "SCONFITTA",
+      "tone": "COMPLICE",
+      "duration": "5-7 SECONDI",
+      "text": "Sconfitta. Lo so, brucia. Rosicate pure, è sanissimo: io lo faccio da secoli.",
+      "vars": []
+    },
+    {
+      "id": "MO_PAR_001",
+      "scene": "PAREGGIO",
+      "tone": "DELUSO, IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Pareggio. Nessuno ha rubato abbastanza. Che delusione per tutti, soprattutto per me.",
+      "vars": []
+    },
+    {
+      "id": "MO_SAL_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "SORNIONE, AFFETTUOSO",
+      "duration": "7-9 SECONDI",
+      "text": "È stato un piacere derubarvi. Tornate a casa, controllate di avere ancora tutto, e alla prossima serata.",
+      "vars": []
+    },
+    {
+      "id": "MO_ATM_001",
+      "scene": "ATMOSFERA",
+      "tone": "SODDISFATTO",
+      "duration": "3-5 SECONDI",
+      "text": "Mi piace questo pub: si respira aria di complotto.",
+      "vars": []
+    },
+    {
+      "id": "MO_ATM_002",
+      "scene": "ATMOSFERA",
+      "tone": "COMPIACIUTO",
+      "duration": "6-8 SECONDI",
+      "text": "Sapete cosa vedo da qui? Occhiate tra i tavoli, sospetti, alleanze silenziose. Il mio paradiso.",
+      "vars": []
+    },
+    {
+      "id": "MO_ATM_003",
+      "scene": "ATMOSFERA",
+      "tone": "CONFIDENZIALE",
+      "duration": "8-10 SECONDI",
+      "text": "Ogni tanto mi chiedono perché ho le ali, se poi resto a terra. Semplice: da qui si sentono meglio i pettegolezzi.",
+      "vars": []
+    },
+    {
+      "id": "MO_ATM_004",
+      "scene": "ATMOSFERA",
+      "tone": "SORNIONE",
+      "duration": "5-7 SECONDI",
+      "text": "Non mangio da ore. Ogni punto che cade dal tavolo, lo considero un omaggio.",
+      "vars": []
+    }
+  ]
+}

@@ -1,0 +1,1617 @@
+{
+  "character": {
+    "id": "regina",
+    "name": "Regina",
+    "sex": "FEMMINA",
+    "voice": "FEMMINILE, TEATRALE, DA DIVA, IRONICA E PUNGENTE; ritmo rapido; italiano senza inflessioni regionali. Stessa voce già usata per Regina in CHE NE SAI?",
+    "personality": "Regina è la diva di CHE NE SAI?: teatrale, vanitosa e pungente, chiama tutti «amore», «tesoro» e «amori miei», tratta la sala come la sua corte e la corona come una parte di sé. Commenta in poche parole e con ritmo veloce ogni cambio di posizione: sorpassi, rimonte, chi comanda e chi insegue. È tagliente ma affettuosa: punge le scelte di gioco e la propria vanità (trucco, tacchi, piega, ex), mai le persone. In TAVOLI IN GUERRA! fa da voce di raccordo tra un gioco e l'altro e tiene alto il ritmo della serata.",
+    "role": "Co-conduttrice e voce di raccordo: introduce i minigiochi, cura le transizioni e commenta in modo sintetico i cambi di posizione (sorpassi, rimonte, primo e ultimo posto).",
+    "tier": "presentatore",
+    "model": "public/models/regina.glb",
+    "toConfirm": [
+      "uso della stessa voce di CHE NE SAI? anche in TAVOLI IN GUERRA!",
+      "tono ammorbidito rispetto a CHE NE SAI? per il regolamento della serata (niente umiliazioni, niente inviti a bere)",
+      "formato di {POSIZIONE}: le frasi assumono un numero («in posizione 3»)",
+      "formato di {MANCHE}: le frasi funzionano sia col nome sia col numero («manche {MANCHE}»)"
+    ]
+  },
+  "lines": [
+    {
+      "id": "RE_APERTURA_001",
+      "scene": "APERTURA",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Amori miei, buonasera! La Regina è arrivata, la corona è in piega e la serata può ufficialmente cominciare.",
+      "vars": []
+    },
+    {
+      "id": "RE_APERTURA_002",
+      "scene": "APERTURA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Benvenuti a TAVOLI IN GUERRA! Stasera vi voglio competitivi, eleganti e possibilmente non troppo permalosi.",
+      "vars": []
+    },
+    {
+      "id": "RE_APERTURA_003",
+      "scene": "APERTURA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Ciao, sudditi! Stasera i tavoli diventano squadre e le squadre diventano rivali. Io, ovviamente, resto favolosa.",
+      "vars": []
+    },
+    {
+      "id": "RE_APERTURA_004",
+      "scene": "APERTURA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tesori, guardatevi bene adesso: è l'ultimo momento della serata in cui vi volete tutti bene.",
+      "vars": []
+    },
+    {
+      "id": "RE_BENV_001",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "8-10 SECONDI",
+      "text": "Tappeto rosso per {TAVOLO_A}! Entrata elegante, capitano già nominato e lo sguardo di chi vuole il mio trono.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_BENV_002",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Amore, che entrata! Ogni tavolo che arriva mi fa battere il cuore. Anche quelli in ritardo, ma un po' meno.",
+      "vars": []
+    },
+    {
+      "id": "RE_BENV_003",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Benvenuti, tesori! Un tavolo, una squadra, un capitano. E se il capitano sbaglia, sapete già con chi prendervela.",
+      "vars": []
+    },
+    {
+      "id": "RE_BENV_004",
+      "scene": "BENVENUTO_SQUADRE",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Arrivano le squadre e io sono emozionata come a un primo appuntamento. Speriamo che stavolta nessuno mi dia buca.",
+      "vars": []
+    },
+    {
+      "id": "RE_MASC_001",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Oddio, le mascotte! Amore, guardate {MASCOTTE_A}: stasera è la creatura più elegante della sala, dopo di me.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RE_MASC_002",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ogni tavolo ha la sua mascotte. Trattatela bene: è l'unica che non vi giudicherà quando sbagliate.",
+      "vars": []
+    },
+    {
+      "id": "RE_MASC_003",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Applausi per {MASCOTTE_B}! Il voto del tavolo è stato chiaro, e io rispetto le scelte di cuore. Anche quelle discutibili.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "RE_MASC_004",
+      "scene": "MASCOTTE_PRESENTAZIONE",
+      "tone": "TEATRALE",
+      "duration": "8-10 SECONDI",
+      "text": "Le mascotte crescono con l'Energia Caos, amori. Più vi impegnate, più si trasformano. Io la chiamo trasformazione da tappeto rosso.",
+      "vars": []
+    },
+    {
+      "id": "RE_MANCHE_001",
+      "scene": "INIZIO_MANCHE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Si comincia, amori: tocca alla manche «{MANCHE}», quindi sistematevi la sedia, il capitano e, se possibile, anche la strategia.",
+      "vars": [
+        "MANCHE"
+      ]
+    },
+    {
+      "id": "RE_MANCHE_002",
+      "scene": "INIZIO_MANCHE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Prima manche, CHI PARTE MALE... E io spero che parta male qualcun altro, non chi mi sta simpatico.",
+      "vars": []
+    },
+    {
+      "id": "RE_MANCHE_003",
+      "scene": "INIZIO_MANCHE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "FREGALI TUTTI! Tesori, finalmente la manche in cui ci si rubano i punti col sorriso. Il mio genere preferito.",
+      "vars": []
+    },
+    {
+      "id": "RE_MANCHE_004",
+      "scene": "INIZIO_MANCHE",
+      "tone": "IRONICO",
+      "duration": "8-10 SECONDI",
+      "text": "IL PUB DECIDE! Amore, stavolta conta cosa pensa la sala. E la sala, ve lo dico io, ha gusti discutibili.",
+      "vars": []
+    },
+    {
+      "id": "RE_MANCHE_005",
+      "scene": "INIZIO_MANCHE",
+      "tone": "SOSPESO",
+      "duration": "8-10 SECONDI",
+      "text": "IL GRANDE INGANNO. Amori miei, stasera mentire è permesso. Ma solo qui dentro, e solo per gioco, intesi?",
+      "vars": []
+    },
+    {
+      "id": "RE_MINI_001",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Prossimo gioco: «{MINIGIOCO}». Ascoltate bene, che le regole le dico una volta sola e poi mi sistemo il trucco.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "RE_MINI_002",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Amore, il prossimo si chiama «{MINIGIOCO}»: facile da capire, difficile da vincere. Come certe relazioni.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "RE_MINI_003",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ed ecco «{MINIGIOCO}», tesori. Se vi sembra semplice, è solo perché non l'avete ancora giocato.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "RE_MINI_004",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Cambiamo gioco, amori. In pista «{MINIGIOCO}»: capitani pronti, telefoni accesi, nervi saldi.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "RE_MINI_005",
+      "scene": "MINIGIOCO_PRESENTAZIONE",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Silenzio, sudditi: arriva «{MINIGIOCO}». Chi si distrae adesso, dopo non venga a piangere da me.",
+      "vars": [
+        "MINIGIOCO"
+      ]
+    },
+    {
+      "id": "RE_REGOLE_001",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Regola d'oro, amori: discutete quanto volete, ma la risposta la manda il capitano. Uno solo, mi raccomando.",
+      "vars": []
+    },
+    {
+      "id": "RE_REGOLE_002",
+      "scene": "REGOLE",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Rubare punti si può, tesoro, ma con classe: c'è un limite, e sotto zero non ci va nessuno. Neanche chi se lo meriterebbe.",
+      "vars": []
+    },
+    {
+      "id": "RE_REGOLE_003",
+      "scene": "REGOLE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Non serve avere otto telefoni al tavolo. Anche in due si vince, basta un neurone a testa. Ben acceso.",
+      "vars": []
+    },
+    {
+      "id": "RE_REGOLE_004",
+      "scene": "REGOLE",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Nei sondaggi vale un voto per tavolo, amore. Non conta chi urla di più: conta chi pensa meglio.",
+      "vars": []
+    },
+    {
+      "id": "RE_COUNT_001",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Conto alla rovescia, amori: tre, due, uno… e vinca il tavolo più elegante.",
+      "vars": []
+    },
+    {
+      "id": "RE_COUNT_002",
+      "scene": "COUNTDOWN",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Il tempo parte adesso, tesoro. Io intanto mi rifaccio il rossetto.",
+      "vars": []
+    },
+    {
+      "id": "RE_COUNT_003",
+      "scene": "COUNTDOWN",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "{SECONDI} secondi sul cronometro, amori miei. Non sprecateli a litigare su chi deve premere.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "RE_COUNT_004",
+      "scene": "COUNTDOWN",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Via! E ricordate: il cronometro è come un ex, non vi aspetta.",
+      "vars": []
+    },
+    {
+      "id": "RE_COUNT_005",
+      "scene": "COUNTDOWN",
+      "tone": "ENERGICO",
+      "duration": "3-4 SECONDI",
+      "text": "Si parte! Testa, cuore e un pizzico di cattiveria.",
+      "vars": []
+    },
+    {
+      "id": "RE_COUNT_006",
+      "scene": "COUNTDOWN",
+      "tone": "PROVOCATORIO",
+      "duration": "3-4 SECONDI",
+      "text": "Pronti? Non importa, si parte lo stesso. Baci!",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTSEC_001",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Amore, ultimi {SECONDI} secondi! Decidi, che non stiamo scegliendo l'abito da sposa.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "RE_ULTSEC_002",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Tesori, il tempo sta finendo e voi siete ancora lì a guardarvi negli occhi. Romantico, ma inutile.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTSEC_003",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "ENERGICO",
+      "duration": "2-3 SECONDI",
+      "text": "Ultimi secondi! Premete, amori, premete!",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTSEC_004",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Il tempo sparisce più in fretta dei saldi di gennaio. Muovetevi!",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTSEC_005",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Vedo mani che tremano e capitani che sudano. Amori, mi state rovinando la piega.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTSEC_006",
+      "scene": "ULTIMI_SECONDI",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Pochissimo tempo, amore! Se non sapete, scegliete col cuore. Il cervello l'avete già consultato.",
+      "vars": []
+    },
+    {
+      "id": "RE_GIUSTA_001",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Amooore, giusta! Ecco {PUNTI} punti meritatissimi e un posto d'onore nella mia corte.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "RE_GIUSTA_002",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Esatto, tesori! Belli, bravi e pure preparati. Quasi quasi mi preoccupo.",
+      "vars": []
+    },
+    {
+      "id": "RE_GIUSTA_003",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Giusta! E io che avevo già preparato la faccia delusa. Peccato, mi stava benissimo.",
+      "vars": []
+    },
+    {
+      "id": "RE_GIUSTA_004",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Brava squadra! Una risposta così è come un vestito su misura: perfetta.",
+      "vars": []
+    },
+    {
+      "id": "RE_GIUSTA_005",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "DIVERTITO",
+      "duration": "3-4 SECONDI",
+      "text": "Corretta! Amori, stasera avete il cervello abbinato all'outfit.",
+      "vars": []
+    },
+    {
+      "id": "RE_GIUSTA_006",
+      "scene": "RISPOSTA_CORRETTA",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Una risposta così merita la corona. Per un minuto, eh: poi la rivoglio.",
+      "vars": []
+    },
+    {
+      "id": "RE_ERRORE_001",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Amore, no. Era sbagliata, ma l'avete detta con un'eleganza che quasi vi perdono.",
+      "vars": []
+    },
+    {
+      "id": "RE_ERRORE_002",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tesori, quella risposta non la metterei nemmeno in una storia che sparisce dopo ventiquattro ore.",
+      "vars": []
+    },
+    {
+      "id": "RE_ERRORE_003",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliato! Mi si è storta la corona, guardate. Adesso la risistemo e facciamo finta di niente.",
+      "vars": []
+    },
+    {
+      "id": "RE_ERRORE_004",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "CALMO",
+      "duration": "4-6 SECONDI",
+      "text": "No, amori, non era quella. Respirate, sistematevi i capelli e ripartite.",
+      "vars": []
+    },
+    {
+      "id": "RE_ERRORE_005",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Errore! E il tavolo accanto ha già il sorrisetto pronto. Non dategli altre soddisfazioni.",
+      "vars": []
+    },
+    {
+      "id": "RE_ERRORE_006",
+      "scene": "RISPOSTA_SBAGLIATA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sbagliata, amore. Succede: anch'io ho sbagliato una volta, ma ero giovanissima e c'era poca luce.",
+      "vars": []
+    },
+    {
+      "id": "RE_TEMPO_001",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "ENERGICO",
+      "duration": "3-4 SECONDI",
+      "text": "Fine dei giochi, amori! Baci, abbracci e zero ripensamenti.",
+      "vars": []
+    },
+    {
+      "id": "RE_TEMPO_002",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Stop, amori! Il tempo è finito, e la pazienza della Regina pure.",
+      "vars": []
+    },
+    {
+      "id": "RE_TEMPO_003",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Finito! Chi non ha risposto ha appena lasciato la domanda in visualizzato.",
+      "vars": []
+    },
+    {
+      "id": "RE_TEMPO_004",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tempo! Tesori, il cronometro non fa sconti. Nemmeno a me, e io ho la tessera fedeltà.",
+      "vars": []
+    },
+    {
+      "id": "RE_TEMPO_005",
+      "scene": "TEMPO_SCADUTO",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Il tempo è scaduto, sudditi. Adesso scopriamo chi ha avuto fiuto.",
+      "vars": []
+    },
+    {
+      "id": "RE_TESTA_001",
+      "scene": "IN_VANTAGGIO",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "In testa {TAVOLO_A}, amori! Trono occupato, almeno per adesso.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_TESTA_002",
+      "scene": "IN_VANTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Comanda {TAVOLO_A}. Tesoro, il primo posto ti sta benissimo: si abbina a tutto.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_TESTA_003",
+      "scene": "IN_VANTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Medaglia d'oro provvisoria per {TAVOLO_A}. Amore, goditela, ma tieni d'occhio la borsetta: qui si ruba.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_TESTA_004",
+      "scene": "IN_VANTAGGIO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Al primo posto {TAVOLO_A}. Mi sto quasi affezionando, e io non mi affeziono mai.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_TESTA_005",
+      "scene": "IN_VANTAGGIO",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "{PUNTI} punti e la vetta: {TAVOLO_A} si siede sul trono. Con eleganza, mi raccomando.",
+      "vars": [
+        "PUNTI",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_TESTA_006",
+      "scene": "IN_VANTAGGIO",
+      "tone": "TESO",
+      "duration": "6-8 SECONDI",
+      "text": "Davanti a tutti {TAVOLO_A}, ma il vantaggio è sottile come un tacco dodici.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_ULTIMI_001",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "INCORAGGIANTE",
+      "duration": "6-8 SECONDI",
+      "text": "Fanalino di coda per {TAVOLO_A}, amore. Ma i miracoli, qui, li facciamo dopo le undici.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_ULTIMI_002",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "In fondo c'è {TAVOLO_A}. Tesoro, non è una posizione, è una fase. E le fasi passano.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_ULTIMI_003",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Amori miei in fondo alla classifica, non vi abbattete. Anche le dive cominciano dai provini.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTIMI_004",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Ultimi, sì, ma con stile. E lo stile, tesori, è già metà della rimonta.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTIMI_005",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "ENERGICO",
+      "duration": "8-10 SECONDI",
+      "text": "Coraggio a chi sta in fondo! La classifica cambia più spesso del mio umore, e il mio umore cambia spessissimo.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTIMI_006",
+      "scene": "ULTIMA_IN_CLASSIFICA",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ultimo posto, amore. Ma io ho un debole per le rimonte. Non deludermi.",
+      "vars": []
+    },
+    {
+      "id": "RE_RIMONTA_001",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Amooore, guardate {TAVOLO_A}! Dal fondo ai piani alti in un attimo. Divino!",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_RIMONTA_002",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Che rimonta, tesori! Più colpi di scena di una telenovela, e senza nemmeno la pubblicità.",
+      "vars": []
+    },
+    {
+      "id": "RE_RIMONTA_003",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Amore, l'avevamo dato tutti per disperso, e invece {TAVOLO_A} è tornato più agguerrito di prima.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_RIMONTA_004",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "ENERGICO",
+      "duration": "5-7 SECONDI",
+      "text": "Recupero da standing ovation! {PUNTI} punti tutti insieme, amori, e nessuno se l'aspettava.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "RE_RIMONTA_005",
+      "scene": "GRANDE_RECUPERO",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Mi piace questa rimonta, amore. Mi piace così tanto che per un attimo mi dimentico di essere bellissima.",
+      "vars": []
+    },
+    {
+      "id": "RE_SORPASSO_001",
+      "scene": "SORPASSO",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Sorpasso! Tesori, qui volano le corone: {TAVOLO_A} davanti, {TAVOLO_B} dietro.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_SORPASSO_002",
+      "scene": "SORPASSO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Colpo di scena: {TAVOLO_A} supera {TAVOLO_B} e non si gira nemmeno a salutare.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_SORPASSO_003",
+      "scene": "SORPASSO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Amore, guarda: {TAVOLO_B} è appena stato superato. Succede, ma che non diventi un'abitudine.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_SORPASSO_004",
+      "scene": "SORPASSO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Cambio di trono: sale {TAVOLO_A}, scende {TAVOLO_B}. Che crudeltà, che bellezza.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_SORPASSO_005",
+      "scene": "SORPASSO",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Sorpasso servito, amori: {TAVOLO_A} sale in posizione {POSIZIONE} e si sistema la corona.",
+      "vars": [
+        "TAVOLO_A",
+        "POSIZIONE"
+      ]
+    },
+    {
+      "id": "RE_SORPASSO_006",
+      "scene": "SORPASSO",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Superati in curva, amore. È il momento di offendersi, ma in modo sportivo.",
+      "vars": []
+    },
+    {
+      "id": "RE_SORPASSO_007",
+      "scene": "SORPASSO",
+      "tone": "TEATRALE",
+      "duration": "6-8 SECONDI",
+      "text": "Oddio, la classifica si è mossa! Davanti adesso c'è {TAVOLO_A}, e io mi devo sedere.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_SORPASSO_008",
+      "scene": "SORPASSO",
+      "tone": "TESO",
+      "duration": "3-4 SECONDI",
+      "text": "Sorpasso, amori miei. Sottile, preciso, quasi chirurgico.",
+      "vars": []
+    },
+    {
+      "id": "RE_DUELLO_001",
+      "scene": "DUELLO",
+      "tone": "ESPLOSIVO",
+      "duration": "8-10 SECONDI",
+      "text": "Duello! Tesori, mettetevi comodi: {TAVOLO_A} sfida {TAVOLO_B}, e nessuno dei due sembra disposto a perdere con eleganza.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_DUELLO_002",
+      "scene": "DUELLO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Sfida accettata. Amore, adoro quando due tavoli si guardano così: sembra l'inizio di un film. O di una lite.",
+      "vars": []
+    },
+    {
+      "id": "RE_DUELLO_003",
+      "scene": "DUELLO",
+      "tone": "IRONICO",
+      "duration": "11-13 SECONDI",
+      "text": "Testa a testa tra {TAVOLO_A} e {TAVOLO_B}. Io non tifo per nessuno. Va bene, un pochino sì, ma non vi dico per chi.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_DUELLO_004",
+      "scene": "DUELLO",
+      "tone": "TESO",
+      "duration": "8-10 SECONDI",
+      "text": "{SECONDI} secondi, stessa prova per tutti e due. Amori, qui non ci sono scuse: vince chi è più bravo.",
+      "vars": [
+        "SECONDI"
+      ]
+    },
+    {
+      "id": "RE_DUELLO_005",
+      "scene": "DUELLO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Il bersaglio è stato scelto, tesori. E il bersaglio, a giudicare dalla faccia, non l'ha presa benissimo.",
+      "vars": []
+    },
+    {
+      "id": "RE_SABOT_001",
+      "scene": "SABOTAGGIO",
+      "tone": "PROVOCATORIO",
+      "duration": "3-4 SECONDI",
+      "text": "Sabotaggio! Amore, che cattiveria… raffinata, però. Approvo.",
+      "vars": []
+    },
+    {
+      "id": "RE_SABOT_002",
+      "scene": "SABOTAGGIO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Una trappola così elegante non la vedevo dall'ultima volta che mi hanno organizzato una cena con l'ex.",
+      "vars": []
+    },
+    {
+      "id": "RE_SABOT_003",
+      "scene": "SABOTAGGIO",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Bersaglio colpito, tesori. Adesso vediamo se {TAVOLO_B} ha uno scudo o soltanto tanta speranza.",
+      "vars": [
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_SABOT_004",
+      "scene": "SABOTAGGIO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Sabotaggio in corso! Sorridete, amori: la vendetta è un piatto che si serve alla prossima manche.",
+      "vars": []
+    },
+    {
+      "id": "RE_FURTO_001",
+      "scene": "FURTO_PUNTI",
+      "tone": "PROVOCATORIO",
+      "duration": "9-11 SECONDI",
+      "text": "Furto in diretta, amori: {TAVOLO_A} si mette in tasca {PUNTI} punti, e {TAVOLO_B} controlla se ha ancora il portafoglio.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_FURTO_002",
+      "scene": "FURTO_PUNTI",
+      "tone": "IRONICO",
+      "duration": "9-11 SECONDI",
+      "text": "Tesoro, ti hanno rubato i punti. Lo so, fa male. Ma come dopo ogni storia finita: si riparte più forti di prima.",
+      "vars": []
+    },
+    {
+      "id": "RE_FURTO_003",
+      "scene": "FURTO_PUNTI",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Colpo da professionisti! Così puliti che quasi vi chiedo il numero del vostro avvocato.",
+      "vars": []
+    },
+    {
+      "id": "RE_FURTO_004",
+      "scene": "FURTO_PUNTI",
+      "tone": "SARCASTICO",
+      "duration": "6-8 SECONDI",
+      "text": "Punti spariti. Amore, non guardare me: io ho le mani occupate a tenere la corona.",
+      "vars": []
+    },
+    {
+      "id": "RE_FURTO_005",
+      "scene": "FURTO_PUNTI",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "{PUNTI} punti cambiano proprietario! Che serata, amori: qui nessuno è al sicuro.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "RE_ALLEANZA_001",
+      "scene": "ALLEANZA",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "Alleanza! Amore, che teneri: {TAVOLO_A} e {TAVOLO_B} si tengono per mano. Io intanto preparo i popcorn per quando si lasceranno.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_ALLEANZA_002",
+      "scene": "ALLEANZA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Due tavoli alleati. Tesori, io vi faccio tanti auguri, ma tengo già pronto il fazzoletto.",
+      "vars": []
+    },
+    {
+      "id": "RE_ALLEANZA_003",
+      "scene": "ALLEANZA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Alleanza approvata dalla Regina! Lavorate insieme, e magari scoprite che il tavolo accanto non è poi così antipatico.",
+      "vars": []
+    },
+    {
+      "id": "RE_ALLEANZA_004",
+      "scene": "ALLEANZA",
+      "tone": "SOSPESO",
+      "duration": "7-9 SECONDI",
+      "text": "Un'alleanza sincera in un gioco come questo? Amore, ci credo quanto ai saldi del novanta per cento.",
+      "vars": []
+    },
+    {
+      "id": "RE_TRADIM_001",
+      "scene": "TRADIMENTO",
+      "tone": "ESPLOSIVO",
+      "duration": "5-7 SECONDI",
+      "text": "Tradimento! Amori, ho i brividi. È la scena più bella della serata.",
+      "vars": []
+    },
+    {
+      "id": "RE_TRADIM_002",
+      "scene": "TRADIMENTO",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Tesoro, ti avevano promesso fedeltà eterna. Eterna fino a questa manche, evidentemente.",
+      "vars": []
+    },
+    {
+      "id": "RE_TRADIM_003",
+      "scene": "TRADIMENTO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Patto rotto! Ve l'avevo detto: in questo gioco l'unica relazione stabile è quella tra me e la mia corona.",
+      "vars": []
+    },
+    {
+      "id": "RE_TRADIM_004",
+      "scene": "TRADIMENTO",
+      "tone": "IRONICO",
+      "duration": "3-4 SECONDI",
+      "text": "Tradire con questo stile, amore, è quasi un'arte. Quasi.",
+      "vars": []
+    },
+    {
+      "id": "RE_TRADIM_005",
+      "scene": "TRADIMENTO",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "L'alleanza è finita, sudditi. Un tavolo se ne va con i punti, l'altro con il cuore spezzato.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFOK_001",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Bluff riuscito! Amore, che faccia tosta. Ti voglio nella mia corte, ma non ti presterei mai dei soldi.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFOK_002",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Tesori, vi ho creduto anch'io. E io non credo nemmeno ai complimenti del mio parrucchiere.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFOK_003",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "ESPLOSIVO",
+      "duration": "4-6 SECONDI",
+      "text": "Che attori, amori miei! Un bluff così meriterebbe un tappeto rosso.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFOK_004",
+      "scene": "BLUFF_RIUSCITO",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Bugia perfetta. La sala ci ha creduto, il tavolo avversario anche. Io sono sconvolta e orgogliosa.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFKO_001",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Scoperti! Amore, mentire è un'arte, e voi siete ancora al corso base.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFKO_002",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Avete mentito come chi dice «ho la batteria scarica» per non rispondere. Tesori, ci siamo passati tutti.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFKO_003",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "La bugia aveva le gambe corte, amore. E pure i tacchi sbagliati.",
+      "vars": []
+    },
+    {
+      "id": "RE_BLUFFKO_004",
+      "scene": "BLUFF_SCOPERTO",
+      "tone": "CALMO",
+      "duration": "5-7 SECONDI",
+      "text": "Niente da fare, tesori: vi hanno letto come un libro aperto. Con le figure.",
+      "vars": []
+    },
+    {
+      "id": "RE_CAOS_001",
+      "scene": "BOTTONE_CAOS",
+      "tone": "ESPLOSIVO",
+      "duration": "4-6 SECONDI",
+      "text": "Allarme Caos! Amori miei, mi si è spezzata un'unghia per lo spavento.",
+      "vars": []
+    },
+    {
+      "id": "RE_CAOS_002",
+      "scene": "BOTTONE_CAOS",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Le mascotte scendono in campo, amori: {MASCOTTE_A} contro {MASCOTTE_B}. Io tifo per quella con l'outfit migliore.",
+      "vars": [
+        "MASCOTTE_A",
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "RE_CAOS_003",
+      "scene": "BOTTONE_CAOS",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Tesori, è arrivato il Caos! Allacciate le cinture e tenetevi stretti i capelli.",
+      "vars": []
+    },
+    {
+      "id": "RE_CAOS_004",
+      "scene": "BOTTONE_CAOS",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Una volta per serata, amore. E l'avete usato adesso. Coraggio o incoscienza? Lo scopriamo tra quarantacinque secondi.",
+      "vars": []
+    },
+    {
+      "id": "RE_CAOS_005",
+      "scene": "BOTTONE_CAOS",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Allarme Caos! Ma chi vi ha dato il permesso di essere così drammatici? Ah, giusto: il regolamento.",
+      "vars": []
+    },
+    {
+      "id": "RE_EVO2_001",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Oddio, {MASCOTTE_A} si trasforma! Livello due, forma Potenziata. Amore, che cambio di look.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RE_EVO2_002",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Forma Potenziata per {MASCOTTE_A}! Tesori, in un attimo ha fatto più progressi di me in palestra a gennaio.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RE_EVO2_003",
+      "scene": "EVOLUZIONE_LIV2",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Amori, guardate {MASCOTTE_B}: livello due e già si dà delle arie. Come me, ma con meno lacca.",
+      "vars": [
+        "MASCOTTE_B"
+      ]
+    },
+    {
+      "id": "RE_EVO3_001",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "SOLENNE",
+      "duration": "6-8 SECONDI",
+      "text": "Livello tre, sudditi! {MASCOTTE_A} adesso è leggenda, e io sento già un filo d'invidia.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RE_EVO3_002",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "ESPLOSIVO",
+      "duration": "7-9 SECONDI",
+      "text": "Forma Leggendaria! Amore, {MASCOTTE_A} adesso brilla più della mia corona. E io non lo permetto quasi mai.",
+      "vars": [
+        "MASCOTTE_A"
+      ]
+    },
+    {
+      "id": "RE_EVO3_003",
+      "scene": "EVOLUZIONE_LIV3",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Livello massimo raggiunto, tesori! Adesso {TAVOLO_A} ha la mascotte più chic della sala, e lo sa benissimo.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_SUSPENSE_001",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Amori… trattenete il fiato. Ma non troppo, che poi diventate viola.",
+      "vars": []
+    },
+    {
+      "id": "RE_SUSPENSE_002",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Ho il risultato. Ce l'ho qui. E vi faccio aspettare, perché me lo merito.",
+      "vars": []
+    },
+    {
+      "id": "RE_SUSPENSE_003",
+      "scene": "SUSPENSE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "Silenzio, sudditi. Voglio sentire solo il rumore dei vostri cuori che battono.",
+      "vars": []
+    },
+    {
+      "id": "RE_SUSPENSE_004",
+      "scene": "SUSPENSE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Un attimo… solo un attimo… aspetto che l'ansia arrivi a tutti i tavoli.",
+      "vars": []
+    },
+    {
+      "id": "RE_SUSPENSE_005",
+      "scene": "SUSPENSE",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Questa attesa è come aspettare la risposta dopo aver scritto «dobbiamo parlare». Terribile, vero?",
+      "vars": []
+    },
+    {
+      "id": "RE_SUSPENSE_006",
+      "scene": "SUSPENSE",
+      "tone": "TEATRALE",
+      "duration": "7-9 SECONDI",
+      "text": "Tesori, il cuore mi batte forte. Non per voi, per il risultato. Ma un po' anche per voi.",
+      "vars": []
+    },
+    {
+      "id": "RE_BATTUTA_001",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Amori, vedo tavoli coordinati come un balletto e tavoli coordinati come un gruppo che deve scegliere dove cenare.",
+      "vars": []
+    },
+    {
+      "id": "RE_BATTUTA_002",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "DIVERTITO",
+      "duration": "9-11 SECONDI",
+      "text": "C'è un capitano in sala con lo sguardo di chi ha già perso tre discussioni con la sua squadra. Ti vedo, amore.",
+      "vars": []
+    },
+    {
+      "id": "RE_BATTUTA_003",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "SARCASTICO",
+      "duration": "5-7 SECONDI",
+      "text": "Tesori, a qualche tavolo si discute così tanto che manca solo il mediatore familiare.",
+      "vars": []
+    },
+    {
+      "id": "RE_BATTUTA_004",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "C'è un tavolo che stasera è troppo tranquillo, ed è {TAVOLO_A}. Amore, cosa state tramando?",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_BATTUTA_005",
+      "scene": "BATTUTA_SQUADRE",
+      "tone": "IRONICO",
+      "duration": "7-9 SECONDI",
+      "text": "Alcune squadre stasera brillano di luce propria. Altre brillano lo stesso, ma solo perché hanno un faretto puntato addosso.",
+      "vars": []
+    },
+    {
+      "id": "RE_PROVOC_001",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "9-11 SECONDI",
+      "text": "Chi è in testa non si monti la testa. Io la corona ce l'ho da anni e la tengo ancora con due mani.",
+      "vars": []
+    },
+    {
+      "id": "RE_PROVOC_002",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Tesori, il tavolo accanto vi sta studiando. E da come sorride, ha già trovato il vostro punto debole.",
+      "vars": []
+    },
+    {
+      "id": "RE_PROVOC_003",
+      "scene": "PROVOCAZIONE",
+      "tone": "SARCASTICO",
+      "duration": "4-6 SECONDI",
+      "text": "Amore, troppa sicurezza fa male alla pelle. E alla classifica.",
+      "vars": []
+    },
+    {
+      "id": "RE_PROVOC_004",
+      "scene": "PROVOCAZIONE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Fidatevi di tutti, amori. Io lo dico sempre, e infatti ho una collezione di ex.",
+      "vars": []
+    },
+    {
+      "id": "RE_PROVOC_005",
+      "scene": "PROVOCAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "5-7 SECONDI",
+      "text": "Amore, ho visto qualcuno esultare troppo presto. Le corone, tesoro, si mettono alla fine.",
+      "vars": []
+    },
+    {
+      "id": "RE_PROVOC_006",
+      "scene": "PROVOCAZIONE",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Attenzione, sudditi: {TAVOLO_B} ha appena guardato {TAVOLO_A} come si guarda l'ultimo pezzo di pizza.",
+      "vars": [
+        "TAVOLO_B",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_SORPRESA_001",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "ESPLOSIVO",
+      "duration": "3-5 SECONDI",
+      "text": "No! Ma davvero? Amore, mi è caduta la corona!",
+      "vars": []
+    },
+    {
+      "id": "RE_SORPRESA_002",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Ma che serata è? Amori, mi avete fatto venire la pelle d'oca sotto il fondotinta.",
+      "vars": []
+    },
+    {
+      "id": "RE_SORPRESA_003",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Mi avete lasciata senza battuta, tesori. Segnatevelo: non succede mai.",
+      "vars": []
+    },
+    {
+      "id": "RE_SORPRESA_004",
+      "scene": "REAZIONE_SORPRESA",
+      "tone": "TEATRALE",
+      "duration": "3-4 SECONDI",
+      "text": "Fermi tutti! Rivediamolo, perché io non ci credo.",
+      "vars": []
+    },
+    {
+      "id": "RE_PAUSA_001",
+      "scene": "PAUSA",
+      "tone": "CALMO",
+      "duration": "6-8 SECONDI",
+      "text": "Pausa, amori! Andate a sgranchirvi le gambe, ordinate qualcosa da mangiare e tornate più cattivi di prima.",
+      "vars": []
+    },
+    {
+      "id": "RE_PAUSA_002",
+      "scene": "PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Un po' di respiro, tesori. Io vado a ritoccarmi il trucco: questa classifica mi ha stressata.",
+      "vars": []
+    },
+    {
+      "id": "RE_PAUSA_003",
+      "scene": "PAUSA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Pausa! Usatela bene: stringete patti, fate pace, o almeno fingete.",
+      "vars": []
+    },
+    {
+      "id": "RE_RIENTRO_001",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "ENERGICO",
+      "duration": "4-6 SECONDI",
+      "text": "Bentornati, amori! La Regina è ritoccata e pronta. E voi?",
+      "vars": []
+    },
+    {
+      "id": "RE_RIENTRO_002",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "PROVOCATORIO",
+      "duration": "7-9 SECONDI",
+      "text": "Si ricomincia, tesori. Chi in pausa ha fatto pace col tavolo accanto, adesso può tornare a detestarlo. Sportivamente.",
+      "vars": []
+    },
+    {
+      "id": "RE_RIENTRO_003",
+      "scene": "RIENTRO_PAUSA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Rieccoci! Seduti, capitani al loro posto e sguardo da guerra, per favore.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTMANCHE_001",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "SOLENNE",
+      "duration": "9-11 SECONDI",
+      "text": "Amori miei, siamo a TUTTO O NIENTE, l'ultima manche. Stasera la gloria se la porta a casa chi ha più fegato.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTMANCHE_002",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Ultima manche, tesori. Basta giocare sul sicuro: è il momento di essere coraggiosi, o almeno di sembrarlo.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTMANCHE_003",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "TUTTO O NIENTE! Il mio motto da sempre, soprattutto quando entro in un negozio di scarpe.",
+      "vars": []
+    },
+    {
+      "id": "RE_ULTMANCHE_004",
+      "scene": "ULTIMA_MANCHE",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Ultima occasione, amore. Chi è avanti tremi, chi è indietro sogni.",
+      "vars": []
+    },
+    {
+      "id": "RE_PUNTATA_001",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "PROVOCATORIO",
+      "duration": "5-7 SECONDI",
+      "text": "Che puntata, amore! {PUNTI} punti in gioco, e io ho già le palpitazioni.",
+      "vars": [
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "RE_PUNTATA_002",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "SOSPESO",
+      "duration": "9-11 SECONDI",
+      "text": "Ho visto la vostra puntata, tesori. Il saldo ve lo protegge il regolamento; il cuore, invece, ve lo dovete proteggere da soli.",
+      "vars": []
+    },
+    {
+      "id": "RE_PUNTATA_003",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "DIVERTITO",
+      "duration": "6-8 SECONDI",
+      "text": "Amore, una puntata così ha più coraggio di un messaggio all'ex alle tre di notte.",
+      "vars": []
+    },
+    {
+      "id": "RE_PUNTATA_004",
+      "scene": "PUNTATA_RISCHIOSA",
+      "tone": "TESO",
+      "duration": "7-9 SECONDI",
+      "text": "Prudente o rischiosa, amore? Io ho sempre scelto la seconda, e guarda come sono diventata: regina.",
+      "vars": []
+    },
+    {
+      "id": "RE_FINALE_001",
+      "scene": "FINALE",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Siamo alla finale, amori. Lascio la parola a Don Patrizio, ma tengo d'occhio ogni singolo punto.",
+      "vars": []
+    },
+    {
+      "id": "RE_FINALE_002",
+      "scene": "FINALE",
+      "tone": "TESO",
+      "duration": "5-7 SECONDI",
+      "text": "La finale, tesori. Sistematevi i capelli, perché tra poco qualcuno finirà in foto.",
+      "vars": []
+    },
+    {
+      "id": "RE_FINALE_003",
+      "scene": "FINALE",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Ci siamo! L'ultimo atto della serata. Voglio vedere coraggio, eleganza e magari qualche lacrima di gioia.",
+      "vars": []
+    },
+    {
+      "id": "RE_FINALE_004",
+      "scene": "FINALE",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Finale, amore. Il momento in cui tutti, all'improvviso, diventano molto silenziosi.",
+      "vars": []
+    },
+    {
+      "id": "RE_PREMI_001",
+      "scene": "PREMIAZIONE",
+      "tone": "SOSPESO",
+      "duration": "6-8 SECONDI",
+      "text": "Che emozione, amori: ogni tavolo che viene chiamato adesso si merita un pezzo di tappeto rosso.",
+      "vars": []
+    },
+    {
+      "id": "RE_PREMI_002",
+      "scene": "PREMIAZIONE",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Ed ecco chi si ferma in posizione {POSIZIONE}: {TAVOLO_A}. Un applauso, tesori, ve lo siete guadagnato!",
+      "vars": [
+        "POSIZIONE",
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_PREMI_003",
+      "scene": "PREMIAZIONE",
+      "tone": "SOLENNE",
+      "duration": "5-7 SECONDI",
+      "text": "Il podio, sudditi. Tre tavoli, tre facce emozionate, una sola corona.",
+      "vars": []
+    },
+    {
+      "id": "RE_PREMI_004",
+      "scene": "PREMIAZIONE",
+      "tone": "ENERGICO",
+      "duration": "6-8 SECONDI",
+      "text": "Foto ufficiale per i campioni! Sorrisi veri, mi raccomando: niente sorrisi da riunione del lunedì.",
+      "vars": []
+    },
+    {
+      "id": "RE_VITTORIA_001",
+      "scene": "VITTORIA",
+      "tone": "ESPLOSIVO",
+      "duration": "6-8 SECONDI",
+      "text": "Amooore! Vince {TAVOLO_A}! Che serata, che squadra, che emozione: mi è colato il trucco.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_VITTORIA_002",
+      "scene": "VITTORIA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Hanno vinto loro, tesori: {TAVOLO_A}, con {PUNTI} punti. Da stasera camminano mezzo metro più in alto.",
+      "vars": [
+        "TAVOLO_A",
+        "PUNTI"
+      ]
+    },
+    {
+      "id": "RE_VITTORIA_003",
+      "scene": "VITTORIA",
+      "tone": "SOLENNE",
+      "duration": "7-9 SECONDI",
+      "text": "Stasera trionfa {TAVOLO_A}. E per una sera, solo per una sera, vi cedo il trono.",
+      "vars": [
+        "TAVOLO_A"
+      ]
+    },
+    {
+      "id": "RE_VITTORIA_004",
+      "scene": "VITTORIA",
+      "tone": "IRONICO",
+      "duration": "4-6 SECONDI",
+      "text": "Campioni! Amori, preparatevi: da domani tutti vorranno sedersi al vostro tavolo.",
+      "vars": []
+    },
+    {
+      "id": "RE_SCONFITTA_001",
+      "scene": "SCONFITTA",
+      "tone": "CALMO",
+      "duration": "7-9 SECONDI",
+      "text": "Non avete vinto, amori, ma avete fatto spettacolo. E lo spettacolo, per me, vale quasi quanto la corona.",
+      "vars": []
+    },
+    {
+      "id": "RE_SCONFITTA_002",
+      "scene": "SCONFITTA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Tesoro, stasera è andata così. Domani ti rifai, e io sarò lì a commentare.",
+      "vars": []
+    },
+    {
+      "id": "RE_SCONFITTA_003",
+      "scene": "SCONFITTA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Sconfitti, ma bellissimi. Ed è la categoria più affollata della sala, credetemi.",
+      "vars": []
+    },
+    {
+      "id": "RE_PARI_001",
+      "scene": "PAREGGIO",
+      "tone": "SOSPESO",
+      "duration": "5-7 SECONDI",
+      "text": "Pari! Amori miei, nemmeno io riesco a scegliere, ed è tutto dire.",
+      "vars": []
+    },
+    {
+      "id": "RE_PARI_002",
+      "scene": "PAREGGIO",
+      "tone": "TESO",
+      "duration": "10-12 SECONDI",
+      "text": "Stessi punti per {TAVOLO_A} e {TAVOLO_B}. Si guardano le sfide vinte, poi la precisione. E se non basta, spareggio.",
+      "vars": [
+        "TAVOLO_A",
+        "TAVOLO_B"
+      ]
+    },
+    {
+      "id": "RE_PARI_003",
+      "scene": "PAREGGIO",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Parità, tesori! Che finale da telenovela: due pretendenti, un trono solo.",
+      "vars": []
+    },
+    {
+      "id": "RE_SALUTO_001",
+      "scene": "SALUTO_FINALE",
+      "tone": "AFFETTUOSO",
+      "duration": "4-6 SECONDI",
+      "text": "Buonanotte, amori miei. Tornate a casa con calma e con un sorriso.",
+      "vars": []
+    },
+    {
+      "id": "RE_SALUTO_002",
+      "scene": "SALUTO_FINALE",
+      "tone": "DIVERTITO",
+      "duration": "2-3 SECONDI",
+      "text": "Baci, abbracci e alla prossima guerra, tesori!",
+      "vars": []
+    },
+    {
+      "id": "RE_SALUTO_003",
+      "scene": "SALUTO_FINALE",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "La Regina vi saluta. Ricordate: la corona è mia, ma la serata è stata vostra.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_001",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "4-6 SECONDI",
+      "text": "Amori, che energia stasera! Questa sala potrebbe illuminare un quartiere intero.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_002",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "6-8 SECONDI",
+      "text": "Vi vedo che vi scambiate sguardi complici. Tesori, qui le occhiate valgono più dei messaggi.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_003",
+      "scene": "ATMOSFERA",
+      "tone": "ENERGICO",
+      "duration": "3-4 SECONDI",
+      "text": "Fatemi sentire un applauso! La Regina vuole rumore.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_004",
+      "scene": "ATMOSFERA",
+      "tone": "IRONICO",
+      "duration": "5-7 SECONDI",
+      "text": "Sapete cosa adoro di questa serata? Che tutti fingono di non tenerci. E invece.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_005",
+      "scene": "ATMOSFERA",
+      "tone": "DIVERTITO",
+      "duration": "7-9 SECONDI",
+      "text": "Don Patrizio, hai visto quanta gente stasera? Mi sembra una prima al cinema, solo che il film sono loro.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_006",
+      "scene": "ATMOSFERA",
+      "tone": "PROVOCATORIO",
+      "duration": "6-8 SECONDI",
+      "text": "Tesori, ricordate che vi sto guardando. Sempre. Anche quando sembra che mi stia sistemando la corona.",
+      "vars": []
+    },
+    {
+      "id": "RE_ATMO_007",
+      "scene": "ATMOSFERA",
+      "tone": "TEATRALE",
+      "duration": "5-7 SECONDI",
+      "text": "Palmino, smetti di muovere le foglie: mi spettini e mi distrai dalla classifica.",
+      "vars": []
+    }
+  ]
+}
