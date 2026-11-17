@@ -1406,7 +1406,7 @@ export function ArenaSet({ liveRef, ledStatic, family, numFamily, quality, reduc
       {!off("nopalms") && <Palms spots={palms} />}
       <Deck layout={layout} pbr={off("stdfloor")} torches={torches} />
       {!off("noflames") && <Flames liveRef={liveRef} spots={flameSpots} />}
-      {!off("nodeck") && <CommandDeck liveRef={liveRef} family={family} brass={mats.brass} wood={mats.wood} />}
+      {!off("nodeck") && <CommandDeck liveRef={liveRef} family={numFamily} brass={mats.brass} wood={mats.wood} />}
       <MastAndSail liveRef={liveRef} ledStatic={ledStatic} family={family} numFamily={numFamily} canvasW={ledW} wood={mats.wood} brass={mats.brass} />
       <Podium liveRef={liveRef} numFamily={numFamily} wood={mats.wood} iron={mats.iron} />
       <Chest liveRef={liveRef} wood={mats.wood} iron={mats.iron} gold={mats.gold} />

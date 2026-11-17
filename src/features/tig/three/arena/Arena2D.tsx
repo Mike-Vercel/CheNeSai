@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ArenaProps, ArenaTeam } from "../../arena-contract";
 import { HOST_MODELS } from "../characters/host-models";
-import { TIG, inkOn } from "../palette";
+import { TIG, displayCase, inkOn } from "../palette";
 import { Mascot2DGlyph } from "../mascot/Mascot2D";
 import { normalizeSafeArea } from "./camera-math";
 import { awardsRevealed, directArena } from "./director";
@@ -36,6 +36,12 @@ function planScale(radius: number) {
 function podScreen(x: number, z: number, radius: number, backRow: boolean) {
   const k = planScale(radius);
   return { sx: W / 2 + x * k, sy: 712 + z * k * 0.3 - (backRow ? 110 : 0), depth: z };
+}
+
+/** Nome sotto la postazione: al massimo `max` caratteri (le postazioni vicine non si sovrappongono), «…» se tagliato. */
+function shortName(name: string, max: number): string {
+  const n = name.toUpperCase();
+  return n.length <= max ? n : `${n.slice(0, Math.max(1, max - 1)).trimEnd()}…`;
 }
 
 /** Sigillo di ceralacca (posizione), il primo è un doblone. */
@@ -82,7 +88,7 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
       body = (
         <g>
           <text x={W / 2} y={y + 52} className="tig2d-led-head" fill={INK} style={{ fontFamily: FONT_TITLE }}>
-            {title ?? "CLASSIFICA"}
+            {displayCase(props.title ?? "Classifica")}
           </text>
           {rows.map((t, i) => {
             const ry = y + 74 + i * 31;
@@ -113,7 +119,7 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
       body = (
         <g>
           <text x={W / 2} y={y + 158} className="tig2d-led-title tig2d-alarm" fill="#f6ead2" style={{ fontFamily: FONT_TITLE }}>
-            {title ?? "ALLARME CAOS!"}
+            {displayCase(props.title ?? "Allarme Caos!")}
           </text>
           <text x={W / 2} y={y + 224} className="tig2d-led-sub" fill="#f6ead2">
             {sub ?? (focus.length >= 2 ? `TAVOLO ${focus[0].tableNo} ⚔ TAVOLO ${focus[1].tableNo}` : "SFIDA SPECIALE · 45 SECONDI")}
@@ -125,7 +131,7 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
       body = (
         <g>
           <text x={W / 2} y={y + 54} className="tig2d-led-head" fill={INK} style={{ fontFamily: FONT_TITLE }}>
-            {title ?? "SFIDA"}
+            {displayCase(props.title ?? "Sfida")}
           </text>
           {focus.slice(0, 2).map((t, i) => {
             const cx = i ? W / 2 + 270 : W / 2 - 270;
@@ -144,7 +150,7 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
               </g>
             );
           })}
-          <text x={W / 2} y={y + 170} className="tig2d-led-title" fill={OCHRE} style={{ fontFamily: FONT_TITLE }}>
+          <text x={W / 2} y={y + 170} className="tig2d-led-title" fill={OCHRE}>
             VS
           </text>
         </g>
@@ -155,7 +161,7 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
       body = (
         <g>
           <text x={W / 2} y={y + 52} className="tig2d-led-head" fill={INK} style={{ fontFamily: FONT_TITLE }}>
-            {title ?? "PREMIAZIONE"}
+            {displayCase(props.title ?? "Premiazione")}
           </text>
           {order.map((place, i) => {
             const t = ranked[place - 1];
@@ -181,10 +187,11 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
       break;
     }
     default: {
-      const big = mode === "logo" ? GAME_NAME : mode === "break" ? (title ?? "PAUSA") : mode === "final" ? (title ?? "TUTTO O NIENTE!") : mode === "evolve" ? (title ?? "EVOLUZIONE!") : (title ?? GAME_NAME);
+      const t0 = props.title ?? null;
+      const big = displayCase(mode === "logo" ? GAME_NAME : mode === "break" ? (t0 ?? "Pausa") : mode === "final" ? (t0 ?? "Tutto o Niente!") : mode === "evolve" ? (t0 ?? "Evoluzione!") : (t0 ?? GAME_NAME));
       const over = mode === "manche" || (mode === "title" && props.mancheNo) ? `MANCHE ${props.mancheNo ?? ""}` : null;
       const own = title && !isGameName(title) ? title : null;
-      const small = mode === "logo" ? (own ?? sub ?? GAME_MOTTO) : mode === "evolve" && focus[0] ? `TAVOLO ${focus[0].tableNo} · LIVELLO ${focus[0].mascotLevel}` : sub;
+      const small = mode === "logo" ? (own ?? sub ?? GAME_MOTTO).toUpperCase() : mode === "evolve" && focus[0] ? `TAVOLO ${focus[0].tableNo} · LIVELLO ${focus[0].mascotLevel}` : sub;
       const tone = mode === "final" ? OCHRE : mode === "evolve" ? "#5a3a08" : mode === "break" ? "#1d2a3a" : INK;
       body = (
         <g>
@@ -401,7 +408,7 @@ export default function Arena2D(props: ArenaProps) {
                   {t.score.toLocaleString("it-IT")}
                 </text>
                 <text x={s.sx} y={s.sy + 52} className="tig2d-name" textAnchor="middle" fill="#e6d8bb">
-                  {t.online ? t.name.toUpperCase().slice(0, Math.max(6, Math.floor(podW / 7))) : "OFFLINE"}
+                  {t.online ? shortName(t.name, Math.max(6, Math.floor(podW / 10))) : "OFFLINE"}
                 </text>
                 <text x={s.sx - podW * 0.43} y={s.sy - 80} className="tig2d-flagnum" textAnchor="middle" fill={inkOn(col)}>
                   {t.tableNo}

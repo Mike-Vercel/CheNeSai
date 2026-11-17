@@ -46,12 +46,43 @@ export const TIG = {
   white: "#f6ead2",
 } as const;
 
-/** Carattere dei TITOLI: variabile CSS impostata dalle pagine (next/font, es. «Pirata One»), con riserve di sistema. */
+/**
+ * CARATTERI (tre variabili CSS impostate dalla pagina con next/font, come il kit della grafica 2D):
+ *  - `--font-tig-display` («Pirata One»): SOLO titoli grandi e logo, MAI tutto maiuscolo (in maiuscolo il gotico si
+ *    legge male) → passare i titoli da `displayCase`;
+ *  - `--font-tig-num` («Grenze»): numeri, punteggi, timer, NOMI DELLE SQUADRE, etichette dei tavoli, sottotitoli e
+ *    motti (leggibilissimo da 5 metri);
+ *  - `--font-tig-body` («Manrope»): testi lunghi (qui non servono).
+ */
 export const TIG_FONT_VAR = "--font-tig-display";
-export const TIG_FONT_FALLBACK = `"Pirata One", "Big Shoulders", Georgia, "Times New Roman", serif`;
-/** Carattere di NUMERI, punteggi ed etichette (leggibilissimo da 5 metri): variabile facoltativa, se manca un serif robusto. */
+export const TIG_FONT_FALLBACK = `"Pirata One", Georgia, "Times New Roman", serif`;
 export const TIG_NUM_FONT_VAR = "--font-tig-num";
-export const TIG_NUM_FONT_FALLBACK = `"Roboto Slab", "Rockwell", Georgia, "Times New Roman", serif`;
+export const TIG_NUM_FONT_FALLBACK = `"Grenze", "Roboto Slab", Rockwell, Georgia, "Times New Roman", serif`;
+
+/** Parole brevi che nei titoli restano minuscole (articoli, preposizioni, congiunzioni). */
+const SMALL_WORDS = new Set(
+  "a ad al allo ai agli alla alle col con da dal dallo dai dagli dalla dalle di del dello dei degli della delle e ed è i il in la le lo gli nel nello nei negli nella nelle o od per su sul sullo sui sugli sulla sulle tra fra un uno una".split(" "),
+);
+
+/**
+ * Titolo per il carattere gotico (`--font-tig-display`): mai tutto maiuscolo. Se il testo arriva tutto in maiuscolo
+ * («ALLARME CAOS!», «TUTTO O NIENTE!») diventa «Allarme Caos!», «Tutto o Niente!»; se ha già delle minuscole resta
+ * com'è (chi l'ha scritto ha scelto le maiuscole giuste).
+ */
+export function displayCase(text: string): string {
+  if (/[a-zà-ÿ]/.test(text)) return text;
+  return text
+    .split(/(\s+)/)
+    .map((w, i) => {
+      if (/^\s+$/.test(w)) return w;
+      const lower = w.toLocaleLowerCase("it-IT");
+      const bare = lower.replace(/[^a-zà-ÿ']/g, "");
+      if (i > 0 && SMALL_WORDS.has(bare)) return lower;
+      const k = lower.search(/[a-zà-ÿ]/);
+      return k < 0 ? lower : lower.slice(0, k) + lower[k].toLocaleUpperCase("it-IT") + lower.slice(k + 1);
+    })
+    .join("");
+}
 
 function readVar(name: string): string {
   if (typeof document === "undefined") return "";

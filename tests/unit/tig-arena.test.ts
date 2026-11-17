@@ -7,6 +7,7 @@ import { AWARDS_REVEAL_MS, awardsRevealAt, awardsRevealed, directArena, mascotAc
 import { BACK_ROW, MAX_TEAMS, MIN_HALF_WIDTH, ONE_ROW_MAX, POD, STAGE, U_BACK, U_FRONT, columnHeight, hostMarks, minPodGap, podLayout, podScale, podSpacing, scoreScale, uDepth } from "@/features/tig/three/arena/layout";
 import { GAME_NAME, isGameName, ledLeaderboardCols } from "@/features/tig/three/arena/led-texture";
 import { PerfGovernor, classifyGpu, initialLevel, profileAt, renderDpr } from "@/features/tig/three/arena/perf";
+import { displayCase } from "@/features/tig/three/palette";
 import { RankAnimator, deltaFlash, formatScore, rankOrder, scoreDigits, tableOrder } from "@/features/tig/three/arena/rank-anim";
 import { shotSubject } from "@/features/tig/three/arena/shots";
 import { BUMBARINO, HOST_IDS, HOST_MODELS, hostModelFiles, hostModelUrl } from "@/features/tig/three/characters/host-models";
@@ -457,9 +458,23 @@ describe("profilo di resa (perf.ts): gradini, scheda video, regolatore", () => {
 
 describe("vela: nome del gioco", () => {
   it("il logo è TAVERNA DEI PIRATI e un titolo uguale (nuovo o vecchio nome) non si ripete sotto", () => {
-    expect(GAME_NAME).toBe("TAVERNA DEI PIRATI");
+    expect(GAME_NAME).toBe("Taverna dei Pirati");
     for (const t of ["TAVERNA DEI PIRATI", "Taverna dei Pirati", "la taverna dei pirati!", "TAVOLI IN GUERRA!", "Tavoli in guerra"]) expect(isGameName(t)).toBe(true);
     for (const t of ["MANCHE 1", "PAUSA", "TAVERNA", "", null, undefined]) expect(isGameName(t)).toBe(false);
+  });
+});
+
+describe("titoli in gotico: mai tutto maiuscolo", () => {
+  it("i titoli tutti in maiuscolo diventano maiuscole/minuscole, le parole brevi restano minuscole", () => {
+    expect(displayCase("TAVERNA DEI PIRATI")).toBe("Taverna dei Pirati");
+    expect(displayCase("ALLARME CAOS!")).toBe("Allarme Caos!");
+    expect(displayCase("TUTTO O NIENTE!")).toBe("Tutto o Niente!");
+    expect(displayCase("CHI PARTE MALE...")).toBe("Chi Parte Male...");
+    expect(displayCase("OGNI TAVOLO È UNA CIURMA")).toBe("Ogni Tavolo è una Ciurma");
+    expect(displayCase("«IL GRANDE INGANNO»")).toBe("«Il Grande Inganno»");
+    // chi ha già scelto le minuscole decide lui
+    expect(displayCase("Memoria lampo")).toBe("Memoria lampo");
+    expect(displayCase("")).toBe("");
   });
 });
 

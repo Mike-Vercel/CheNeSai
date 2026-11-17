@@ -51,13 +51,13 @@ export function Mascot2DGlyph({ slot, level, color, action = "idle", label = fal
           <circle key={i} cx={b.x} cy={b.y} r="2.6" fill="#ffe08a" />
         ))}
         <circle cx="100" cy="94" r="41" fill="none" stroke="#8a5a12" strokeWidth="3" opacity="0.8" />
-        <text x="100" y="109" textAnchor="middle" fontSize="40" fontWeight="900" fill="#3a2408" fontFamily="var(--font-tig-num), 'Roboto Slab', Rockwell, Georgia, serif">
+        <text x="100" y="109" textAnchor="middle" fontSize="40" fontWeight="900" fill="#3a2408" fontFamily="var(--font-tig-num), Grenze, 'Roboto Slab', Rockwell, Georgia, serif">
           {num}
         </text>
         {level >= 3 && <path d="M76 26 L84 12 L92 24 L100 8 L108 24 L116 12 L124 26 Z" fill={TIG.gold} stroke="#4a2c06" strokeOpacity="0.6" />}
       </g>
       <g className="tig-m2d-spin" opacity={label ? 0.95 : 0.75}>
-        <text fontSize="12.5" fontWeight="800" letterSpacing="2" fill={TIG.goldLight} fontFamily="var(--font-tig-num), 'Roboto Slab', Rockwell, Georgia, serif">
+        <text fontSize="12.5" fontWeight="800" letterSpacing="2" fill={TIG.goldLight} fontFamily="var(--font-tig-num), Grenze, 'Roboto Slab', Rockwell, Georgia, serif">
           <textPath href={`#c${uid}`}>MASCOTTE IN ARRIVO · MASCOTTE IN ARRIVO · MASCOTTE IN ARRIVO ·</textPath>
         </text>
       </g>

@@ -1,11 +1,12 @@
-import { TIG, inkOn } from "../palette";
+import { TIG, displayCase, inkOn } from "../palette";
 import type { LedMode } from "./director";
 import { seeded } from "./pirate-textures";
 
 /**
  * CONTENUTI DELLA GRANDE VELA (edizione pirati: la tela tesa sul pennone fa da "schermo"), DIPINTI su canvas. Solo
  * dati pubblici: titoli, classifica, sfide. Tela di lino con i ferzi cuciti e le macchie del mare, testi in inchiostro
- * scuro (titoli col carattere del gioco, numeri ed etichette con quello dei numeri: leggibili da lontano), rosso
+ * scuro (titoli in gotico ma mai tutto maiuscolo; nomi, numeri, sottotitoli e motti col carattere dei numeri:
+ * leggibili da lontano), rosso
  * ocra e oro come accenti; nell'ALLARME la vela diventa rossa. Il canvas si ridisegna solo quando cambia il contenuto
  * (o ~20 volte al secondo mentre la classifica scorre); vento e luce delle lanterne li fa lo shader (sailMaterial).
  */
@@ -43,8 +44,8 @@ export interface LedContent {
 /** Misure del canvas: proporzioni della vela (≈ 11,9 × 4,3 m). */
 export const LED_CANVAS = { w: 2048, h: 740 } as const;
 
-/** Nome del gioco sul logo della vela (senza punto esclamativo) e motto di riserva sotto il nome. */
-export const GAME_NAME = "TAVERNA DEI PIRATI";
+/** Nome del gioco sul logo della vela (senza punto esclamativo, mai tutto maiuscolo nel gotico) e motto sotto il nome. */
+export const GAME_NAME = "Taverna dei Pirati";
 export const GAME_MOTTO = "OGNI TAVOLO È UNA CIURMA";
 
 /**
@@ -350,7 +351,7 @@ function drawLogo(ctx: CanvasRenderingContext2D, w: number, h: number, fam: stri
   compassRose(ctx, w * 0.5, h * 0.47, h * 0.62, INK, 0.1);
   swords(ctx, w * 0.5, h * 0.16, 0.95, OCHRE);
   const line = GAME_NAME;
-  const size = fit(ctx, line, fam, "400", 250, w * 0.8);
+  const size = fit(ctx, line, fam, "400", 270, w * 0.8);
   paint(ctx, line, w / 2, h * 0.47, size, fam, INK);
   ctx.fillStyle = OCHRE;
   ctx.fillRect(w * 0.26, h * 0.67, w * 0.48, 5);
@@ -377,17 +378,17 @@ function drawManche(ctx: CanvasRenderingContext2D, w: number, h: number, fam: st
   ctx.fillRect(w / 2 - ow / 2 - 230, h * 0.2 - 2, 200, 5);
   ctx.fillRect(w / 2 + ow / 2 + 30, h * 0.2 - 2, 200, 5);
   paint(ctx, over, w / 2, h * 0.2, 60, num, OCHRE, { weight: "700", track: 10 });
-  const title = (c.title ?? "SI COMINCIA").toUpperCase();
-  paint(ctx, title, w / 2, h * 0.5, fit(ctx, title, fam, "400", 230, w * 0.8), fam, INK);
+  const title = displayCase(c.title ?? "Si comincia");
+  paint(ctx, title, w / 2, h * 0.5, fit(ctx, title, fam, "400", 240, w * 0.8), fam, INK);
   if (c.subtitle) paint(ctx, c.subtitle.toUpperCase(), w / 2, h * 0.8, fit(ctx, c.subtitle.toUpperCase(), num, "700", 58, w * 0.72), num, INK_SOFT, { weight: "700" });
 }
 
 function drawTitle(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent, tone: ClothTone, color: string, fallback: string) {
   cloth(ctx, w, h, tone);
-  const title = (c.title ?? fallback).toUpperCase();
+  const title = displayCase(c.title ?? fallback);
   const sub = c.subtitle?.toUpperCase();
   if (c.mancheNo && c.mode === "title") paint(ctx, `MANCHE ${c.mancheNo}`, w / 2, h * 0.17, 46, num, OCHRE, { weight: "700", track: 8 });
-  paint(ctx, title, w / 2, sub ? h * 0.47 : h * 0.53, fit(ctx, title, fam, "400", 220, w * 0.8), fam, color);
+  paint(ctx, title, w / 2, sub ? h * 0.47 : h * 0.53, fit(ctx, title, fam, "400", 230, w * 0.8), fam, color);
   if (sub) paint(ctx, sub, w / 2, h * 0.78, fit(ctx, sub, num, "700", 60, w * 0.72), num, tone === "night" ? "#2b2a34" : INK_SOFT, { weight: "700" });
 }
 
@@ -402,8 +403,8 @@ function drawLeaderboard(ctx: CanvasRenderingContext2D, w: number, h: number, fa
   const n = teams.length;
   const cols = ledLeaderboardCols(n);
   const perCol = Math.max(1, Math.ceil(Math.min(n, 24) / cols));
-  const header = (c.title ?? "CLASSIFICA").toUpperCase();
-  paint(ctx, header, w / 2, 74, fit(ctx, header, fam, "400", 96, w * 0.5), fam, INK);
+  const header = displayCase(c.title ?? "Classifica");
+  paint(ctx, header, w / 2, 74, fit(ctx, header, fam, "400", 100, w * 0.5), fam, INK);
   const top = 140;
   const bottom = h - 34;
   const rowH = Math.min(cols === 1 ? 96 : 92, (bottom - top) / perCol);
@@ -474,8 +475,8 @@ function drawAlarm(ctx: CanvasRenderingContext2D, w: number, h: number, fam: str
   cloth(ctx, w, h, "red");
   skull(ctx, w * 0.12, h * 0.5, 1.6, "rgba(246,234,210,0.85)", "#8f2219");
   skull(ctx, w * 0.88, h * 0.5, 1.6, "rgba(246,234,210,0.85)", "#8f2219");
-  const title = (c.title ?? "ALLARME CAOS!").toUpperCase();
-  paint(ctx, title, w / 2, h * 0.45, fit(ctx, title, fam, "400", 240, w * 0.68), fam, CREAM, { outline: "rgba(40,6,3,0.9)" });
+  const title = displayCase(c.title ?? "Allarme Caos!");
+  paint(ctx, title, w / 2, h * 0.45, fit(ctx, title, fam, "400", 250, w * 0.68), fam, CREAM, { outline: "rgba(40,6,3,0.9)" });
   const who = c.focus.length >= 2 ? `TAVOLO ${c.focus[0].tableNo}  ⚔  TAVOLO ${c.focus[1].tableNo}` : c.focus.length === 1 ? `TAVOLO ${c.focus[0].tableNo}` : null;
   const sub = (c.subtitle ?? who ?? "SFIDA SPECIALE · 45 SECONDI").toUpperCase();
   paint(ctx, sub, w / 2, h * 0.78, fit(ctx, sub, num, "900", 64, w * 0.66), num, CREAM, { weight: "900", outline: "rgba(40,6,3,0.85)", track: 3 });
@@ -485,8 +486,8 @@ function drawVs(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string
   const a = c.focus[0];
   const b = c.focus[1];
   cloth(ctx, w, h);
-  const head = (c.title ?? "SFIDA").toUpperCase();
-  paint(ctx, head, w / 2, 76, fit(ctx, head, fam, "400", 92, w * 0.5), fam, INK);
+  const head = displayCase(c.title ?? "Sfida");
+  paint(ctx, head, w / 2, 76, fit(ctx, head, fam, "400", 96, w * 0.5), fam, INK);
   const side = (t: LedTeam | undefined, cx: number, flip: boolean) => {
     if (!t) return;
     ship(ctx, cx, h * 0.5, 1.15, t.color, flip);
@@ -499,7 +500,7 @@ function drawVs(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string
   side(a, w * 0.25, false);
   side(b, w * 0.75, true);
   swords(ctx, w / 2, h * 0.42, 1.5, "rgba(33,22,14,0.75)");
-  paint(ctx, "VS", w / 2, h * 0.66, 180, fam, OCHRE);
+  paint(ctx, "VS", w / 2, h * 0.66, 160, num, OCHRE, { weight: "900" });
   if (c.subtitle) paint(ctx, c.subtitle.toUpperCase(), w / 2, h - 40, fit(ctx, c.subtitle.toUpperCase(), num, "700", 36, w * 0.3), num, INK_SOFT, { weight: "700" });
 }
 
@@ -520,8 +521,8 @@ function drawEvolve(ctx: CanvasRenderingContext2D, w: number, h: number, fam: st
     ctx.fill();
   }
   ctx.restore();
-  const title = (c.title ?? "EVOLUZIONE!").toUpperCase();
-  paint(ctx, title, w / 2, h * 0.42, fit(ctx, title, fam, "400", 230, w * 0.74), fam, "#5a3a08", { outline: "rgba(255,240,200,0.7)" });
+  const title = displayCase(c.title ?? "Evoluzione!");
+  paint(ctx, title, w / 2, h * 0.42, fit(ctx, title, fam, "400", 240, w * 0.74), fam, "#5a3a08", { outline: "rgba(255,240,200,0.7)" });
   const lvl = t ? (t.level >= 3 ? "LIVELLO 3 · LEGGENDARIA" : t.level === 2 ? "LIVELLO 2 · POTENZIATA" : "LIVELLO 1") : "";
   const sub = (c.subtitle ?? (t ? `TAVOLO ${t.tableNo} · ${lvl}` : "ENERGIA CAOS AL MASSIMO")).toUpperCase();
   paint(ctx, sub, w / 2, h * 0.76, fit(ctx, sub, num, "900", 64, w * 0.72), num, INK, { weight: "900", track: 3 });
@@ -529,8 +530,8 @@ function drawEvolve(ctx: CanvasRenderingContext2D, w: number, h: number, fam: st
 
 function drawAwards(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, num: string, c: LedContent) {
   cloth(ctx, w, h, "gold");
-  const head = (c.title ?? "PREMIAZIONE").toUpperCase();
-  paint(ctx, head, w / 2, 80, fit(ctx, head, fam, "400", 100, w * 0.5), fam, INK);
+  const head = displayCase(c.title ?? "Premiazione");
+  paint(ctx, head, w / 2, 80, fit(ctx, head, fam, "400", 104, w * 0.5), fam, INK);
   const podium = [2, 1, 3]; // da sinistra: 2°, 1°, 3°
   const frac: Record<number, number> = { 1: 1, 2: 0.82, 3: 0.68 };
   const colW = w * 0.22;
@@ -566,7 +567,7 @@ function drawAwards(ctx: CanvasRenderingContext2D, w: number, h: number, fam: st
       paint(ctx, `TAVOLO ${team.tableNo}`, x + colW / 2, y - 22, 36, num, OCHRE, { weight: "700" });
       if (ph > 300) paint(ctx, `${Math.round(team.score).toLocaleString("it-IT")} PT`, x + colW / 2, baseY - 52, 48, num, CREAM, { weight: "900", outline: "rgba(20,12,6,0.85)" });
     } else {
-      paint(ctx, "?", x + colW / 2, y + ph * 0.58, 120, fam, CREAM, { outline: "rgba(20,12,6,0.8)" });
+      paint(ctx, "?", x + colW / 2, y + ph * 0.58, 120, num, CREAM, { weight: "900", outline: "rgba(20,12,6,0.8)" });
     }
   });
   // dobloni sparsi
@@ -596,7 +597,7 @@ export function drawLed(canvas: HTMLCanvasElement, c: LedContent, family: string
       drawManche(ctx, W, H, family, numFamily, c);
       break;
     case "title":
-      drawTitle(ctx, W, H, family, numFamily, c, "linen", INK, "IN GIOCO");
+      drawTitle(ctx, W, H, family, numFamily, c, "linen", INK, "In gioco");
       break;
     case "leaderboard":
       drawLeaderboard(ctx, W, H, family, numFamily, c);
@@ -611,10 +612,10 @@ export function drawLed(canvas: HTMLCanvasElement, c: LedContent, family: string
       drawEvolve(ctx, W, H, family, numFamily, c);
       break;
     case "break":
-      drawTitle(ctx, W, H, family, numFamily, { ...c, title: c.title ?? "PAUSA", subtitle: c.subtitle ?? "SI RIPARTE TRA POCO" }, "night", "#1d2a3a", "PAUSA");
+      drawTitle(ctx, W, H, family, numFamily, { ...c, title: c.title ?? "Pausa", subtitle: c.subtitle ?? "SI RIPARTE TRA POCO" }, "night", "#1d2a3a", "Pausa");
       break;
     case "final":
-      drawTitle(ctx, W, H, family, numFamily, { ...c, title: c.title ?? "TUTTO O NIENTE!" }, "linen", OCHRE, "TUTTO O NIENTE!");
+      drawTitle(ctx, W, H, family, numFamily, { ...c, title: c.title ?? "Tutto o Niente!" }, "linen", OCHRE, "Tutto o Niente!");
       break;
     case "awards":
       drawAwards(ctx, W, H, family, numFamily, c);

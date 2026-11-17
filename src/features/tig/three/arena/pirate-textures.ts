@@ -242,7 +242,7 @@ export function commandDeckTexture(family: string): CanvasTexture {
     const text = "TAVERNA DEI PIRATI · OGNI TAVOLO È UNA CIURMA · ";
     ctx.save();
     ctx.translate(c, c);
-    ctx.font = `400 40px ${family}`;
+    ctx.font = `700 36px ${family}`;
     ctx.fillStyle = "rgba(246,234,210,0.6)";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

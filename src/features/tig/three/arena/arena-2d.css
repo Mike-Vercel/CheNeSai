@@ -9,7 +9,7 @@
     radial-gradient(40% 35% at 12% 14%, rgba(159, 180, 224, 0.16), transparent 70%),
     radial-gradient(60% 45% at 50% 72%, rgba(255, 154, 60, 0.12), transparent 70%),
     linear-gradient(#050d14, #0b1f2a 55%, #07131a);
-  font-family: var(--font-tig-num), "Roboto Slab", Rockwell, Georgia, serif;
+  font-family: var(--font-tig-num), Grenze, "Roboto Slab", Rockwell, Georgia, serif;
 }
 .tig2d-frame {
   position: absolute;

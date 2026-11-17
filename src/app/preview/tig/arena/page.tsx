@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Pirata_One, Roboto_Slab } from "next/font/google";
+import { Grenze, Manrope, Pirata_One } from "next/font/google";
 import { ClientOnly } from "../../tv-question/ClientOnly";
 import { ArenaPreview } from "./ArenaPreview";
 
@@ -8,10 +8,12 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// edizione pirati: titoli piratechi (OFL), numeri ed etichette con uno slab robusto e leggibilissimo (OFL).
-// Nel gioco i caratteri li sceglie la grafica 2D con le stesse variabili CSS: l'arena le legge e basta.
+// stessi caratteri e variabili del kit della grafica 2D (src/features/tig/games/kit/fonts.ts): Pirata One SOLO per i
+// titoli grandi (mai tutto maiuscolo), Grenze per numeri, punteggi, nomi delle squadre ed etichette, Manrope per i
+// testi lunghi. L'arena legge le variabili e basta (licenza OFL per tutti e tre).
 const display = Pirata_One({ weight: "400", subsets: ["latin"], variable: "--font-tig-display", display: "swap" });
-const numbers = Roboto_Slab({ weight: ["700", "800", "900"], subsets: ["latin"], variable: "--font-tig-num", display: "swap" });
+const numbers = Grenze({ weight: ["500", "600", "700", "800", "900"], subsets: ["latin"], variable: "--font-tig-num", display: "swap" });
+const body = Manrope({ subsets: ["latin"], variable: "--font-tig-body", display: "swap" });
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
@@ -31,7 +33,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Sea
     if (s !== undefined) params[k] = s;
   }
   return (
-    <div className={`${display.variable} ${numbers.variable} min-h-dvh bg-[#07131a] text-[#f6ead2]`} data-tig-font="" style={{ fontFamily: "var(--font-tig-num), Georgia, serif" }}>
+    <div className={`${display.variable} ${numbers.variable} ${body.variable} min-h-dvh bg-[#07131a] text-[#f6ead2]`} data-tig-font="" style={{ fontFamily: "var(--font-tig-body), system-ui, sans-serif" }}>
       <ClientOnly>
         <ArenaPreview params={params} />
       </ClientOnly>
