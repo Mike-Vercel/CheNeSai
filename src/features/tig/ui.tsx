@@ -117,7 +117,7 @@ export function Leaderboard({ teams, highlight, max = 12, size = "md", hideScore
   const sorted = [...teams].sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99) || a.tableNo - b.tableNo).slice(0, max);
   const big = size === "lg";
   return (
-    <ol className={clsx("tg-parch flex w-full flex-col", big ? "px-[1.4vmin] py-[0.8vmin]" : "px-2 py-1.5", className)} aria-label="Classifica">
+    <ol className={clsx("tg-parch flex w-full flex-col text-left", big ? "px-[1.4vmin] py-[0.8vmin]" : "px-2 py-1.5", className)} aria-label="Classifica">
       {sorted.map((t) => {
         const mine = highlight === t.teamId;
         return (

@@ -53,6 +53,31 @@ export function RegiaApp({ eventId }: { eventId: string }) {
     );
   }
   if (!state || !view || view.role !== "organizer") return <LoadingSplash game="tig" label="Accendo la regia…" />;
+  return <RegiaScreen state={state} view={view} now={now} act={act} busy={busy} eventId={eventId} status={status} toast={toast} clearToast={clearToast} />;
+}
+
+/** La plancia della regia a partire da stato e vista (esportata anche per il banco di prova /preview/tig/schermate). */
+export function RegiaScreen({
+  state,
+  view,
+  now,
+  act,
+  busy,
+  eventId,
+  status,
+  toast,
+  clearToast,
+}: {
+  state: TigPublicState;
+  view: RegiaView;
+  now: () => number;
+  act: (a: TigAction, ok?: string) => Promise<boolean>;
+  busy: boolean;
+  eventId: string;
+  status: "connecting" | "live" | "reconnecting" | "offline";
+  toast: { msg: string; tone: "info" | "error" | "ok" } | null;
+  clearToast: () => void;
+}) {
   return (
     <div className="min-h-dvh">
       <StatusPill status={status} />

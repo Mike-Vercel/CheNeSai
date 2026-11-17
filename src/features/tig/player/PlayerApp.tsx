@@ -75,7 +75,8 @@ export function PlayerApp({ eventId }: { eventId: string }) {
   return <PlayerScreen state={state} view={view} now={now} act={act} keyFor={keyFor} status={status} toast={toast} clearToast={clearToast} />;
 }
 
-function PlayerScreen({
+/** Schermata del giocatore a partire da stato e vista (esportata anche per il banco di prova /preview/tig/schermate). */
+export function PlayerScreen({
   state,
   view,
   now,

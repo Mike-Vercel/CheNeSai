@@ -94,7 +94,8 @@ export function JoinFlow({ token, username }: { token?: string; username: string
   );
 }
 
-function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPreview; username: string | null; token?: string; code?: string; onBack?: () => void }) {
+/** Scheda d'ingresso a un tavolo (esportata anche per il banco di prova /preview/tig/schermate). */
+export function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPreview; username: string | null; token?: string; code?: string; onBack?: () => void }) {
   const [nickname, setNickname] = useState(preview.suggestedNickname ?? username ?? "");
   const [teamName, setTeamName] = useState("");
   const [pin, setPin] = useState("");

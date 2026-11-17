@@ -48,7 +48,8 @@ export function TvApp({ displayKey, live }: { displayKey: string; live: boolean 
   return <TvShow state={state} lobby={lobby} live={live} now={now} quality={quality} speech={speech} unlocked={unlocked} />;
 }
 
-function TvShow({
+/** Lo show sulla TV a partire da uno stato (esportato anche per il banco di prova /preview/tig/schermate). */
+export function TvShow({
   state,
   lobby,
   live,
@@ -198,22 +199,21 @@ function LobbyHud({ state, lobby, live }: { state: TigPublicState; lobby: LobbyT
   // il titolo e l'istruzione sono sullo schermo LED: qui solo i QR, in basso, al massimo due righe
   const n = lobby?.length ?? 0;
   const cols = n <= 6 ? Math.max(3, n) : n <= 12 ? 6 : Math.ceil(n / 2); // fino a 24 tavoli: al massimo 2 righe
-  const qrSize = n <= 6 ? "max-w-[19vmin]" : n <= 12 ? "max-w-[13vmin]" : "max-w-[9vmin]";
+  // la riga del codice sotto il QR (Grenze è più largo del vecchio carattere): con 7–12 tavoli il QR cala di un soffio
+  const qrSize = n <= 6 ? "max-w-[19vmin]" : n <= 12 ? "max-w-[11.5vmin]" : "max-w-[9vmin]";
   return (
     <div className="flex h-full w-full flex-col items-center justify-end gap-[2vmin]">
       {qr && (
         <div className="grid w-[min(94vw,170vmin)] gap-[1.4vmin]" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
           {lobby!.map((t) => (
-            // una «taglia» di pergamena per tavolo: bandiera, codice, QR, nome della ciurma (sigillo quando è convalidata)
-            <div key={t.tableNo} className={clsx("tg-parch relative flex flex-col items-center gap-[0.6vmin] p-[1vmin]", t.approved && "shadow-[inset_0_0_0_0.3vmin_rgba(160,106,20,.85),inset_0_0_2vmin_rgba(110,62,20,.5),0_0_3vmin_-0.6vmin_rgba(242,177,52,.7)]")}>
-              <div className="flex w-full items-center justify-between gap-[0.6vmin]">
-                <span className="flex min-w-0 items-center gap-[0.5vmin]">
-                  <CrewFlag color={teamColor(t.tableNo)} n={t.tableNo} className="h-[3.4vmin] w-[4.4vmin] shrink-0" />
-                  <span className="tig-display truncate text-[2.9vmin] font-black text-[#1b1410]">TAVOLO {t.tableNo}</span>
-                </span>
-                <span className="font-mono text-[1.7vmin] font-bold tracking-[0.2em] text-[#4a3420]">{t.code}</span>
+            // una «taglia» di pergamena per tavolo: bandiera e numero, QR, codice, nome della ciurma (sigillo quando è convalidata)
+            <div key={t.tableNo} className={clsx("tg-parch relative flex flex-col items-center gap-[0.5vmin] p-[1vmin]", t.approved && "shadow-[inset_0_0_0_0.3vmin_rgba(160,106,20,.85),inset_0_0_2vmin_rgba(110,62,20,.5),0_0_3vmin_-0.6vmin_rgba(242,177,52,.7)]")}>
+              <div className="flex w-full min-w-0 items-center justify-center gap-[0.6vmin]">
+                <CrewFlag color={teamColor(t.tableNo)} n={t.tableNo} className={clsx("shrink-0", n <= 6 ? "h-[3.6vmin] w-[4.8vmin]" : "h-[3vmin] w-[4vmin]")} />
+                <span className={clsx("tig-display truncate font-black text-[#1b1410]", n <= 6 ? "text-[2.8vmin]" : "text-[2.3vmin]")}>TAVOLO {t.tableNo}</span>
               </div>
               <QrCode text={`${origin}/tavoli-in-guerra/t/${t.token}`} className={clsx("w-full", qrSize)} label={`QR del tavolo ${t.tableNo}`} />
+              <span className="font-mono text-[1.8vmin] font-bold tracking-[0.2em] text-[#4a3420]">{t.code}</span>
               <span className="w-full truncate text-center text-[1.8vmin] font-extrabold text-[#2b1d12]">{t.teamName ?? (t.members ? "In attesa di convalida" : "Libero")}</span>
               {t.approved && <WaxSeal mark="check" className="absolute -right-[1vmin] -top-[1.2vmin] h-[4.4vmin] w-[4.4vmin] drop-shadow-[0_0.3vmin_0.4vmin_rgba(0,0,0,.45)]" />}
             </div>
@@ -256,10 +256,10 @@ function IntroHud({ state, now }: { state: TigPublicState; now: () => number }) 
     <div className="flex h-full w-full items-end justify-center gap-[1.6vmin]">
       <ol className="flex gap-[1.2vmin]">
         {state.plan.map((p) => (
-          <li key={p.mancheNo} className="tig-panel tig-rise flex w-[20vmin] items-center gap-[1vmin] rounded-xl px-[1vmin] py-[0.9vmin] text-left" style={{ animationDelay: `${p.mancheNo * 0.15}s` }}>
+          <li key={p.mancheNo} className="tig-panel tig-rise flex w-[24vmin] items-center gap-[1vmin] rounded-xl px-[1vmin] py-[0.9vmin] text-left" style={{ animationDelay: `${p.mancheNo * 0.15}s` }}>
             <Doubloon className="h-[5vmin] w-[5vmin] text-[2.8vmin]">{p.mancheNo}</Doubloon>
             <span className="flex min-w-0 flex-col">
-              <span className="tig-display truncate text-[2vmin] leading-tight">{p.title}</span>
+              <span className="tig-display line-clamp-2 pt-[0.2vmin] text-[1.9vmin] leading-[1.05]">{p.title}</span>
               <span className="text-[1.5vmin] font-bold text-[#f6ead2]/75">
                 {p.games} prove · {p.minutes}′
               </span>
