@@ -100,7 +100,9 @@ function Tv(p: T) {
               <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">Il dettaglio in vendita · −{view.price}</p>
               <p className="mt-[0.3cqw] text-[1.6cqw] font-bold leading-snug">{reveal.extra.text}</p>
               <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.15cqw] font-bold text-white/80">
-                {reveal.summary?.bought.length ? (
+                {reveal.summary?.bought.length && reveal.summary.bought.length > 6 ? (
+                  `Comprato da ${reveal.summary.bought.length} tavoli su ${p.teams.length}`
+                ) : reveal.summary?.bought.length ? (
                   <>
                     Comprato da: {reveal.summary.bought.map((id) => <TableTag key={id} tv no={team.get(id)?.tableNo ?? "?"} color={team.get(id)?.color} />)}
                   </>

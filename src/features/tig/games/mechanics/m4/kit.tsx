@@ -195,9 +195,13 @@ export function TableTag({ no, color, tv = false, className }: { no: number | st
   );
 }
 
+/** Oltre questo numero di tavoli il giro diventa un elenco «tavolo → tavolo» (leggibile da 5 metri). */
+export const RING_MAX = 8;
+
 /**
  * Giro dei tavoli per la TV (duelli «a catena»): frecce dal tavolo che suggerisce a quello che riceve,
- * etichetta facoltativa per freccia (al reveal) e colore della freccia.
+ * etichetta facoltativa per freccia (al reveal) e colore della freccia. Con più di 8 tavoli le etichette
+ * sul cerchio diventerebbero illeggibili: si passa a un elenco a due colonne con le stesse informazioni.
  */
 export function RingTv({
   seats,
@@ -211,9 +215,33 @@ export function RingTv({
   label?: string;
 }) {
   const n = seats.length;
+  if (n > RING_MAX) {
+    return (
+      <ol className="grid w-full grid-cols-2 content-center gap-x-[1.2cqw] gap-y-[0.55cqw]" aria-label={label}>
+        {seats.map((s, i) => {
+          const to = seats[(i + 1) % n];
+          const a = arrow?.(s.teamId) ?? null;
+          return (
+            <li key={s.teamId} className="flex items-center gap-[0.5cqw]">
+              <TableTag tv no={s.tableNo} color={colorOf(s.teamId)} />
+              <span className="tg-display text-[1.6cqw] leading-none" style={{ color: a?.color ?? "rgba(238,242,246,0.55)" }} aria-label="dà a">
+                →
+              </span>
+              <TableTag tv no={to.tableNo} color={colorOf(to.teamId)} />
+              {a?.text && (
+                <span className="tg-display truncate text-[1.35cqw]" style={{ color: a.color }}>
+                  {a.text}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    );
+  }
   const r = 150;
-  const small = n > 8;
-  const cr = small ? 18 : 25;
+  const small = n > 6;
+  const cr = small ? 21 : 25;
   const at = (i: number) => {
     const a = (i / Math.max(1, n)) * Math.PI * 2 - Math.PI / 2;
     return [200 + r * Math.cos(a), 200 + r * Math.sin(a)] as const;
@@ -247,7 +275,7 @@ export function RingTv({
                 <path d={`M${x1} ${sy} Q ${cx} 200 ${x2} ${ey}`} fill="none" stroke={col} strokeWidth={sw} strokeDasharray={a?.dashed ? "10 7" : undefined} />
                 <polygon points={head(x2, ey, x2 - cx, ey - 200)} fill={col} />
                 {a?.text && (
-                  <text x={200 + side * 75} y={200} fill={col} fontSize={15} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
+                  <text x={200 + side * 75} y={200} fill={col} fontSize={18} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
                     {a.text}
                   </text>
                 )}
@@ -264,13 +292,13 @@ export function RingTv({
           const mx = (x1 + x2) / 2;
           const my = (y1 + y2) / 2;
           const len = Math.hypot(mx - 200, my - 200) || 1;
-          const push = small ? 24 : 34;
+          const push = small ? 30 : 36;
           return (
             <g key={s.teamId}>
               <line x1={sx} y1={sy} x2={ex} y2={ey} stroke={col} strokeWidth={sw} strokeDasharray={a?.dashed ? "9 6" : undefined} />
               <polygon points={head(ex, ey, dx, dy)} fill={col} />
               {a?.text && (
-                <text x={mx + ((mx - 200) / len) * push} y={my + ((my - 200) / len) * push} fill={col} fontSize={small ? 11 : 14} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
+                <text x={mx + ((mx - 200) / len) * push} y={my + ((my - 200) / len) * push} fill={col} fontSize={small ? 14 : 17} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
                   {a.text}
                 </text>
               )}

@@ -85,7 +85,7 @@ function Player(p: P) {
       <Panel className="flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <Eyebrow>{view.title}</Eyebrow>
+            <Eyebrow>{view.puzzleTitle}</Eyebrow>
             <p className="mt-1 text-base font-extrabold leading-snug">{view.act}</p>
           </div>
           <span className="tg-display shrink-0 rounded-lg bg-[#ff3b4e] px-2 py-1 text-lg">
@@ -136,19 +136,18 @@ function Tv(p: T) {
           <TvPanel className="flex flex-col gap-[0.8cqw]">
             <div className="flex items-start justify-between gap-[1cqw]">
               <div>
-                <p className="tg-display text-[2.3cqw]">{view.title}</p>
+                <p className="tg-display text-[2.3cqw]">{view.puzzleTitle}</p>
                 <p className="text-[1.45cqw] font-bold leading-snug text-white/85">{view.act}</p>
               </div>
               <span className="tg-display shrink-0 rounded-[0.6cqw] bg-[#ff3b4e] px-[0.8cqw] py-[0.3cqw] text-[1.6cqw]">{view.liars === 1 ? "1 mente" : `${view.liars} mentono`}</span>
             </div>
             <Statements items={done ? reveal.statements : view.statements} lies={done ? reveal.statements.map((s) => s.lie) : undefined} tv />
             {done && (
-              <p className="tg-display text-[2cqw] text-[#c6ff3d]">
+              <p className="tg-display text-[2.2cqw] text-[#c6ff3d]">
                 Colpevole: {reveal.people.find((o) => o.id === reveal.solutionId)?.text}
               </p>
             )}
           </TvPanel>
-          {done && <TvExplain text={reveal.explain} className="py-[0.9cqw]" />}
         </div>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel className="flex min-h-0 flex-1 items-center justify-center p-[1cqw]">
@@ -165,6 +164,9 @@ function Tv(p: T) {
               label="Giro dei suggerimenti: ogni tavolo passa la risposta al successivo"
             />
           </TvPanel>
+          {done ? (
+            <TvExplain text={reveal.explain} className="shrink-0 py-[0.9cqw]" />
+          ) : (
           <TvPanel className="grid shrink-0 grid-cols-3 gap-[0.6cqw] py-[0.9cqw] text-center">
             <div>
               <p className="tg-num text-[2.6cqw] leading-none text-[#eef2f6]">{view.payoff.soli}</p>
@@ -179,6 +181,7 @@ function Tv(p: T) {
               <p className="text-[1cqw] font-extrabold uppercase tracking-wide text-white/70">{"a chi l'ha suggerita"}</p>
             </div>
           </TvPanel>
+          )}
         </div>
       </div>
     </TvFrame>

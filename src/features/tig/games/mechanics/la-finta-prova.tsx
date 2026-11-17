@@ -86,22 +86,25 @@ function Tv(p: T) {
   return (
     <TvFrame view={view} p={p} subtitle={rev ? "Il dettaglio che tradisce la prova falsa" : view.story}>
       <div className="flex h-full flex-col gap-[1.1cqw]">
-        <TvPanel className="tg-rise shrink-0 py-[1cqw]">
-          <p className={clsx("tg-display mb-[0.5cqw]", rev ? "text-[1.6cqw]" : "text-[2cqw]")}>{view.caseTitle}</p>
-          <div className={clsx(rev && "[&_li]:text-[1.15cqw]")}>
+        {rev && reveal ? (
+          // al reveal i fatti stanno già nelle note di ogni prova: in alto va il «perché»
+          <TvExplain text={reveal.explain} className="tg-rise shrink-0 py-[0.9cqw]" />
+        ) : (
+          <TvPanel className="tg-rise shrink-0 py-[1cqw]">
+            <p className="tg-display mb-[0.5cqw] text-[2cqw]">{view.caseTitle}</p>
             <FactList facts={view.facts} tv />
-          </div>
-        </TvPanel>
+          </TvPanel>
+        )}
         <div className="grid min-h-0 flex-1 grid-cols-3 items-start gap-[1.4cqw]">
           {view.items.map((it, i) => {
             const r = rev?.get(it.id);
             return (
               <div key={it.id} className="tg-rise flex min-h-0 flex-col gap-[0.6cqw]" style={{ animationDelay: `${i * 90}ms` }}>
-                <DocCard kind={it.kind} title={it.title} lines={it.lines} icon={it.icon} iconLabel={it.iconLabel} state={r ? (r.fake ? "fake" : "genuine") : "idle"} index={i} tv>
+                <DocCard kind={it.kind} title={it.title} lines={it.lines} icon={it.icon} iconLabel={it.iconLabel} state={r ? (r.fake ? "fake" : "genuine") : "idle"} index={i} tv compact={!!r}>
                   {!r && <Suggests text={it.suggests} tv />}
                 </DocCard>
                 {r && (
-                  <p className={clsx("tg-pop rounded-[0.8cqw] px-[0.9cqw] py-[0.6cqw] text-[1.15cqw] font-bold leading-snug", r.fake ? "bg-[#ff3b4e] text-white" : "bg-[#c6ff3d]/15 text-[#dfff9a]")}>
+                  <p className={clsx("tg-pop rounded-[0.8cqw] px-[0.9cqw] py-[0.6cqw] text-[1.2cqw] font-bold leading-snug", r.fake ? "bg-[#ff3b4e] text-white" : "bg-[#c6ff3d]/15 text-[#dfff9a]")}>
                     <span className="tg-display mr-[0.4cqw] text-[1.5cqw]">{r.fake ? "FALSA" : "Regge"}</span>
                     {r.note}
                   </p>
@@ -110,7 +113,6 @@ function Tv(p: T) {
             );
           })}
         </div>
-        {rev && reveal && <TvExplain text={reveal.explain} className="shrink-0 py-[0.9cqw]" />}
       </div>
     </TvFrame>
   );

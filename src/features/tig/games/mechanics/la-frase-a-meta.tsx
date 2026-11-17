@@ -161,7 +161,7 @@ function Tv(p: T) {
                   {pr.b ? <TableTag tv no={pr.b.tableNo} color={team.get(pr.b.teamId)?.color} /> : <span className="tg-display text-[1.4cqw]">Il banco</span>}
                   {r && <MoveBadge tv move={r.moveB} />}
                 </div>
-                {s && <p className={clsx("font-bold leading-snug", many ? "text-[1.05cqw]" : "text-[1.4cqw]")}>{s.start} {s.end}</p>}
+                {s && <p className={clsx("font-bold leading-snug", many ? "text-[1.2cqw]" : "text-[1.5cqw]")}>{s.start} {s.end}</p>}
               </TvPanel>
             );
           })}
