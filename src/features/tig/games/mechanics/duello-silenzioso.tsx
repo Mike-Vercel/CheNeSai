@@ -27,7 +27,7 @@ function Row({ row, pin, tv = false }: { row: DuelloRow; pin?: string; tv?: bool
               key={i}
               className={clsx(
                 "tg-num grid place-items-center border-2",
-                tv ? "h-[3.1cqw] w-[2.5cqw] rounded-[0.5cqw] text-[2.1cqw]" : "h-12 w-10 rounded-lg text-3xl",
+                tv ? "h-[3.1cqw] w-[2.5cqw] rounded-[0.5cqw] text-[2.1cqw]" : "h-11 w-9 rounded-lg text-[1.7rem]",
                 spot ? "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : near ? "border-dashed border-[#ffc24a] text-[#ffc24a]" : pin ? "border-white/10 text-white/35" : "border-white/20 bg-white/[0.04]",
               )}
             >
@@ -127,8 +127,8 @@ function Player(p: P) {
       </Panel>
       <Panel className="flex flex-col gap-3">
         <div>
-          <Eyebrow className="text-[#ffc24a]">{view.title}</Eyebrow>
-          <p className="mt-1 text-base font-semibold leading-snug text-white/90">{view.story}</p>
+          <Eyebrow className="text-[#ffc24a]">{view.heading}</Eyebrow>
+          <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.story}</p>
           <p className="mt-1 text-sm font-bold text-white/65">{view.digits} cifre, tutte diverse.</p>
         </div>
         {view.rows.map((r) => (
@@ -149,7 +149,7 @@ function Tv(p: T) {
   const groups = done && reveal.summary ? reveal.summary.groups : null;
   const frameP = done ? p : { ...p, teams: silentTeams(p.teams) };
   return (
-    <TvFrame view={view} p={frameP} subtitle={done ? `${view.title} · la combinazione era ${reveal.pin}` : `${view.title} · ${view.digits} cifre tutte diverse · nessuno sa se il rivale ha finito`}>
+    <TvFrame view={view} p={frameP} subtitle={done ? `${view.heading} · la combinazione era ${reveal.pin}` : `${view.heading} · ${view.digits} cifre tutte diverse · nessuno sa se il rivale ha finito`}>
       <div className="grid h-full grid-cols-[1.25fr_1fr] gap-[1.4cqw]">
         <TvPanel className="tg-rise flex min-h-0 flex-col gap-[1cqw]">
           {done ? (
@@ -168,7 +168,7 @@ function Tv(p: T) {
         </TvPanel>
         <TvPanel className="flex min-h-0 flex-col gap-[0.7cqw]">
           <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{done ? "Esito dei duelli" : "Duelli in corso"}</p>
-          <div className={clsx("grid content-start gap-[0.6cqw]", view.groups.length > 6 ? "grid-cols-2" : "grid-cols-1")}>
+          <div className={clsx("grid content-start gap-[0.6cqw]", view.groups.length > 3 ? "grid-cols-2" : "grid-cols-1")}>
             {view.groups.map((g, i) => {
               const r = groups?.[i];
               return (

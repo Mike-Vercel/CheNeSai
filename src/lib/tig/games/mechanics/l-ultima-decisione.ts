@@ -39,7 +39,8 @@ export const decisioneSubmission = z.object({ choice: z.enum(["sicuro", "rischio
 export type DecisioneSubmission = z.infer<typeof decisioneSubmission>;
 
 export interface DecisioneView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   choiceWindowMs: number;
   /** l'enigma: solo dopo la scelta con `publicViewAt` */
   prompt: string | null;
@@ -62,7 +63,8 @@ export interface DecisioneSummary {
 }
 
 export interface DecisioneReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   prompt: string;
   options: Option[];
   solutionId: string;
@@ -77,7 +79,7 @@ export function stakeOf(balance: number | null): number {
 function view(c: DecisioneContent, ctx: PhaseCtx, withQuestion: boolean): DecisioneView {
   return {
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     choiceWindowMs: CHOICE_MS,
     prompt: withQuestion ? c.prompt : null,
     options: withQuestion ? publicOptions(c.options, `${ctx.seed}:opzioni`) : null,
@@ -129,7 +131,7 @@ const def: MechanicDef<DecisioneContent, DecisioneSubmission> = {
     return out;
   },
   reveal: (c, out): DecisioneReveal => ({
-    title: c.title,
+    heading: c.title,
     prompt: c.prompt,
     options: c.options,
     solutionId: c.solution.optionId,

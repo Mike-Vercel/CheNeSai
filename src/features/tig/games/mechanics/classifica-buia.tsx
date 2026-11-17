@@ -80,8 +80,8 @@ function Player(p: P) {
           onChange={setChoice}
           disabled={!editable || !choosing}
           options={[
-            { id: "prudenza", title: "Prudenza", sub: `+${view.safePoints} sicuri, niente domanda`, tone: "lime", icon: "shield" },
-            { id: "rischio", title: "Rischio", sub: `Giusta +${view.riskWin}, sbagliata −${loss}`, tone: "red", icon: "flame" },
+            { id: "prudenza", title: "Prudenza", sub: `+${view.safePoints} sicuri, niente domanda`, tone: "lime" },
+            { id: "rischio", title: "Rischio", sub: `Giusta +${view.riskWin}, sbagliata −${loss}`, tone: "red" },
           ]}
         />
         {!choosing && !choice && p.stage === "play" && <p className="text-sm font-bold text-[#ffd68a]">Tempo di scelta finito: per voi vale la prudenza.</p>}
@@ -119,7 +119,7 @@ function Tv(p: T) {
             <TvExplain text={reveal.explain} />
           </div>
           <TvPanel className="min-h-0 p-[1cqw]">
-            <TvOutcomeGrid teams={p.teams} outcome={p.outcome} note={(id) => (choiceOf.get(id) === "rischio" ? "Rischio" : choiceOf.get(id) === "prudenza" ? "Prudenza" : "Nessuna scelta")} />
+            <TvOutcomeGrid cols={2} teams={p.teams} outcome={p.outcome} note={(id) => (choiceOf.get(id) === "rischio" ? "Rischio" : choiceOf.get(id) === "prudenza" ? "Prudenza" : "Nessuna scelta")} />
           </TvPanel>
         </div>
       </TvFrame>

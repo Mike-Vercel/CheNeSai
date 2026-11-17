@@ -97,7 +97,8 @@ export const dettaglioSubmission = z.object({ optionId: idSchema });
 export type DettaglioSubmission = z.infer<typeof dettaglioSubmission>;
 
 export interface DettaglioView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   countdownMs: number;
   clipMs: number;
   /** la clip: solo durante la proiezione con `publicViewAt` */
@@ -109,7 +110,8 @@ export interface DettaglioView extends BaseView {
 }
 
 export interface DettaglioReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   clipMs: number;
   clip: Clip;
   alt: string;
@@ -165,7 +167,7 @@ function view(c: DettaglioContent, ctx: PhaseCtx, elapsedMs: number | null): Det
   const showQuestion = elapsedMs === null || elapsedMs >= clipEnd;
   return {
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     countdownMs: COUNTDOWN_MS,
     clipMs: c.clipMs,
     clip: showClip ? c.clip : null,
@@ -201,7 +203,7 @@ const def: MechanicDef<DettaglioContent, DettaglioSubmission> = {
     };
   },
   reveal: (c): DettaglioReveal => ({
-    title: c.title,
+    heading: c.title,
     clipMs: c.clipMs,
     clip: c.clip,
     alt: c.alt,

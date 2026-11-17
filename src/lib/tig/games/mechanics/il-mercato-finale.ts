@@ -55,7 +55,8 @@ export const mercatoSubmission = z.object({ buy: idSchema.nullable(), optionId: 
 export type MercatoSubmission = z.infer<typeof mercatoSubmission>;
 
 export interface MercatoView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   prompt: string;
   options: Option[];
   /** banco: dal più economico al più caro */
@@ -76,7 +77,8 @@ export interface MercatoSummary {
 }
 
 export interface MercatoReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   prompt: string;
   options: Option[];
   solutionId: string;
@@ -106,7 +108,7 @@ const def: MechanicDef<MercatoContent, MercatoSubmission> = {
   submissionSchema: mercatoSubmission,
   publicView: (c, ctx): MercatoView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     prompt: c.prompt,
     options: publicOptions(c.options, `${ctx.seed}:opzioni`),
     hints: sortedHints(c).map((h) => ({ id: h.id, price: h.price, label: h.label, text: h.text })),
@@ -139,7 +141,7 @@ const def: MechanicDef<MercatoContent, MercatoSubmission> = {
     return out;
   },
   reveal: (c, out): MercatoReveal => ({
-    title: c.title,
+    heading: c.title,
     prompt: c.prompt,
     options: c.options,
     solutionId: c.solution.optionId,

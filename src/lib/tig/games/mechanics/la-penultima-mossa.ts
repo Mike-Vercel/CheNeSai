@@ -50,7 +50,8 @@ export type PenultimaSubmission = z.infer<typeof penultimaSubmission>;
 export type ShieldSpot = PenultimaSubmission["shield"];
 
 export interface PenultimaView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   round2AtMs: number;
   rounds: { id: string; spot: ShieldSpot; prompt: string | null; options: Option[] | null }[];
   rightPoints: number;
@@ -62,7 +63,8 @@ export interface PenultimaSummary {
 }
 
 export interface PenultimaReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   rounds: { id: string; spot: ShieldSpot; prompt: string; options: Option[]; solutionId: string }[];
   explain: string;
   summary: PenultimaSummary | null;
@@ -73,7 +75,7 @@ const SPOTS: ShieldSpot[] = ["penultima", "ultima"];
 function view(c: PenultimaContent, ctx: PhaseCtx, elapsedMs: number | null): PenultimaView {
   return {
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     round2AtMs: ROUND2_AT_MS,
     rounds: c.rounds.map((r, i) => {
       const open = i === 0 || elapsedMs === null || elapsedMs >= ROUND2_AT_MS;
@@ -119,14 +121,14 @@ const def: MechanicDef<PenultimaContent, PenultimaSubmission> = {
         chaos: CHAOS.partecipa + (s.payload.shield === "ultima" ? CHAOS.rischio : 0) + (right === 2 ? CHAOS.centro : 0),
         correct: right === 2,
         accuracy: right / 2,
-        label: `${right}/2 · difesa sull'${s.payload.shield === "ultima" ? "ultima" : "penultima"} ${saved ? "(vi ha salvato)" : "(non serviva)"}`,
+        label: `${right}/2 · difesa ${s.payload.shield === "ultima" ? "sull'ultima" : "sulla penultima"} ${saved ? "(vi ha salvato)" : "(non serviva)"}`,
       });
     });
     const out: ScoreWithSummary<PenultimaSummary> = { outcomes, summary: { shields } };
     return out;
   },
   reveal: (c, out): PenultimaReveal => ({
-    title: c.title,
+    heading: c.title,
     rounds: c.rounds.map((r, i) => ({ id: r.id, spot: SPOTS[i], prompt: r.prompt, options: r.options, solutionId: c.solution.answers[r.id] })),
     explain: c.explain,
     summary: (out as ScoreWithSummary<PenultimaSummary>).summary ?? null,

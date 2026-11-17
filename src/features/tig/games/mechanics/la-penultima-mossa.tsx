@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { BigToggle, ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { secsTo, TvOutcomeGrid } from "./m5-kit";
+import { secsTo, TvOutcomeGrid, TvSolved } from "./m5-kit";
 
 type P = PlayerGameProps<PenultimaView, null, PenultimaSubmission, PenultimaReveal>;
 type T = TvGameProps<PenultimaView, PenultimaReveal>;
@@ -67,8 +67,8 @@ function Player(p: P) {
           pending={pending}
           error={error}
           onSubmit={submit}
-          label={`Invia (difesa sull'${shield === "ultima" ? "ultima" : "penultima"})`}
-          hint={!secondOpen ? `L'ultima arriva tra ${secsTo(view.round2AtMs, elapsed)} s: lì la difesa si blocca` : !done ? "Rispondete a tutte e due" : undefined}
+          label="Invia"
+          hint={!secondOpen ? `L'ultima arriva tra ${secsTo(view.round2AtMs, elapsed)} s: lì la difesa si blocca` : !done ? "Rispondete a tutte e due" : `Difesa ${shield === "ultima" ? "sull'ultima" : "sulla penultima"}`}
         />
       }
     >
@@ -121,12 +121,13 @@ function Tv(p: T) {
   const secondOpen = p.stage !== "play" || elapsed >= view.round2AtMs;
   const shieldOf = new Map((done ? (reveal.summary?.shields ?? []) : []).map((s) => [s.teamId, s]));
   return (
-    <TvFrame view={view} p={p} subtitle={done ? `${view.title} · dove avete giocato la difesa` : secondOpen ? `${view.title} · difese bloccate: si vedranno al reveal` : `${view.title} · la difesa si decide prima che arrivi l'ultima`}>
+    <TvFrame view={view} p={p} subtitle={done ? `${view.heading} · dove avete giocato la difesa` : secondOpen ? `${view.heading} · difese bloccate: si vedranno al reveal` : `${view.heading} · la difesa si decide prima che arrivi l'ultima`}>
       <div className={clsx("grid h-full gap-[1.1cqw]", done ? "grid-rows-[minmax(0,1fr)_auto]" : "")}>
         <div className="grid min-h-0 grid-cols-2 gap-[1.2cqw]">
           {view.rounds.map((r, i) => {
             const rr = done ? reveal.rounds[i] : null;
             const open = i === 0 || secondOpen;
+            if (rr) return <TvSolved key={r.id} kicker={`${SPOT_LABEL[r.spot]} · +${view.rightPoints} / ${view.wrongPoints}`} prompt={rr.prompt} answer={rr.options.find((o) => o.id === rr.solutionId)?.text ?? ""} />;
             return (
               <TvPanel key={r.id} tone={!done && open && (i === 1 || !secondOpen) ? "lime" : undefined} className={clsx("flex min-h-0 flex-col gap-[0.8cqw]", open && "tg-rise")}>
                 <p className="tg-display text-[2.6cqw]">
@@ -164,7 +165,7 @@ function Tv(p: T) {
               outcome={p.outcome}
               note={(id) => {
                 const s = shieldOf.get(id);
-                return s ? `Difesa sull'${s.shield === "ultima" ? "ultima" : "penultima"} · ${s.saved ? "vi ha salvato" : "non serviva"}` : "Nessuna risposta";
+                return s ? `Difesa ${s.shield === "ultima" ? "sull'ultima" : "sulla penultima"} · ${s.saved ? "vi ha salvato" : "non serviva"}` : "Nessuna risposta";
               }}
             />
           </TvPanel>

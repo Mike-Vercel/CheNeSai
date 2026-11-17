@@ -105,7 +105,7 @@ function Player(p: P) {
     <PlayerFrame
       view={view}
       p={p}
-      footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={!!picked} pending={pending} error={error} onSubmit={submit} label="Invia" hint="Prova bonus: si vince e basta, nessun punto in gioco" />}
+      footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={!!picked} pending={pending} error={error} onSubmit={submit} label="Invia" hint="Prova bonus: giusta +100 e rapidità, sbagliata non toglie nulla" />}
     >
       {view.twist && (
         <div className="tg-pop tg-stripes-red rounded-2xl border-2 border-[#ff3b4e] px-4 py-3">

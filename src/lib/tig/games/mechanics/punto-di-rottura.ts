@@ -105,7 +105,8 @@ export function evalPath(c: Pick<RotturaContent, "tree" | "resources">, path: re
 }
 
 export interface RotturaView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   intro: string;
   resources: { id: string; label: string; unit: string; limit: number }[];
   goal: { label: string; unit: string };
@@ -121,7 +122,8 @@ export interface RotturaSummary {
 }
 
 export interface RotturaReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   resources: RotturaView["resources"];
   goal: RotturaView["goal"];
   steps: string[];
@@ -147,7 +149,7 @@ const def: MechanicDef<RotturaContent, RotturaSubmission> = {
   submissionSchema: rotturaSubmission,
   publicView: (c, ctx): RotturaView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     intro: c.intro,
     resources: c.resources,
     goal: c.goal,
@@ -183,7 +185,7 @@ const def: MechanicDef<RotturaContent, RotturaSubmission> = {
   reveal: (c): RotturaReveal => {
     const all = allPaths(c);
     return {
-      title: c.title,
+      heading: c.title,
       resources: c.resources,
       goal: c.goal,
       steps: c.steps,

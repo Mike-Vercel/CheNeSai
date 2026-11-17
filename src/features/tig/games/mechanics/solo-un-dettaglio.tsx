@@ -2,7 +2,7 @@
 
 import { clsx } from "clsx";
 import { useState } from "react";
-import { ART_H, ART_W } from "@/lib/tig/games/components/art";
+import { ART_H, ART_W, type SceneItem } from "@/lib/tig/games/components/art";
 import { captionAt, poseAt, type Clip, type DettaglioReveal, type DettaglioSubmission, type DettaglioView } from "@/lib/tig/games/mechanics/solo-un-dettaglio";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
@@ -16,34 +16,50 @@ type P = PlayerGameProps<DettaglioView, null, DettaglioSubmission, DettaglioReve
 type T = TvGameProps<DettaglioView, DettaglioReveal>;
 
 const ITEM_PX = 150;
+/** gli oggetti della clip sono un po' più grandi di quelli di Memoria lampo: si leggono anche dal fondo del locale */
+const CLIP_SCALE = 1.3;
+
+function ItemAt({ kind, tone, label, x, y, s, r, o = 1 }: { kind: SceneItem["kind"]; tone: SceneItem["tone"]; label?: string; x: number; y: number; s: number; r: number; o?: number }) {
+  const k = (s * ITEM_PX * CLIP_SCALE * (label ? 1.12 : 1)) / 100;
+  return (
+    <g opacity={o} transform={`translate(${(x / 100) * ART_W} ${(y / 100) * ART_H}) rotate(${r}) scale(${k}) translate(-50 -50)`}>
+      <SceneIcon kind={kind} tone={tone ?? "white"} label={label} />
+    </g>
+  );
+}
 
 /**
- * La clip: sfondo e oggetti fermi del kit, sopra gli oggetti animati alla posa dell'istante `t` (ms dall'inizio
- * della clip). Stesso istante → stesso fotogramma su ogni schermo. `focus` disegna il cerchio del reveal.
+ * La clip: sfondo del kit, oggetti fermi e oggetti animati alla posa dell'istante `t` (ms dall'inizio della clip).
+ * Stesso istante → stesso fotogramma su ogni schermo. `focus` disegna il cerchio del reveal; `zoom` ingrandisce
+ * attorno al cerchio (telefono: il dettaglio si legge anche su uno schermo piccolo).
  */
-export function ClipStage({ clip, t, alt, focus, caption = true, className }: { clip: Clip; t: number; alt: string; focus?: { x: number; y: number; r: number } | null; caption?: boolean; className?: string }) {
+export function ClipStage({ clip, t, alt, focus, caption = true, zoom = 1, className }: { clip: Clip; t: number; alt: string; focus?: { x: number; y: number; r: number } | null; caption?: boolean; zoom?: number; className?: string }) {
   const text = caption ? captionAt(clip, t) : null;
+  // ingrandimento centrato sul dettaglio, senza mai mostrare il fuori-scena
+  const z = focus && zoom > 1 ? zoom : 1;
+  const tx = z > 1 && focus ? Math.min(0, Math.max(100 - 100 * z, 50 - z * focus.x)) : 0;
+  const ty = z > 1 && focus ? Math.min(0, Math.max(100 - 100 * z, 50 - z * focus.y)) : 0;
   return (
     <div role="img" aria-label={alt} className={clsx("relative aspect-video overflow-hidden", className)}>
-      <SceneArt scene={{ backdrop: clip.backdrop, items: clip.props }} alt="" className="absolute inset-0 h-full w-full" />
-      <svg viewBox={`0 0 ${ART_W} ${ART_H}`} className="absolute inset-0 h-full w-full" aria-hidden>
-        {clip.actors.map((a, i) => {
-          const pose = poseAt(a, t);
-          if (!pose || pose.o <= 0.01) return null;
-          const s = (pose.s * ITEM_PX * (a.label ? 1.12 : 1)) / 100;
-          return (
-            <g key={i} opacity={pose.o} transform={`translate(${(pose.x / 100) * ART_W} ${(pose.y / 100) * ART_H}) rotate(${pose.r}) scale(${s}) translate(-50 -50)`}>
-              <SceneIcon kind={a.kind} tone={a.tone} label={a.label} />
+      <div className="absolute inset-0" style={z > 1 ? { transform: `translate(${tx}%, ${ty}%) scale(${z})`, transformOrigin: "0 0" } : undefined}>
+        <SceneArt scene={{ backdrop: clip.backdrop, items: [] }} alt="" className="absolute inset-0 h-full w-full" />
+        <svg viewBox={`0 0 ${ART_W} ${ART_H}`} className="absolute inset-0 h-full w-full" aria-hidden>
+          {clip.props.map((it, i) => (
+            <ItemAt key={`p${i}`} kind={it.kind} tone={it.tone} label={it.label} x={it.x} y={it.y} s={it.scale ?? 1} r={it.rot ?? 0} />
+          ))}
+          {clip.actors.map((a, i) => {
+            const pose = poseAt(a, t);
+            if (!pose || pose.o <= 0.01) return null;
+            return <ItemAt key={`a${i}`} kind={a.kind} tone={a.tone} label={a.label} x={pose.x} y={pose.y} s={pose.s} r={pose.r} o={pose.o} />;
+          })}
+          {focus && (
+            <g>
+              <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(focus.r / 100) * ART_W * CLIP_SCALE} fill="none" stroke="#c6ff3d" strokeWidth={10} strokeDasharray="28 16" />
+              <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(focus.r / 100) * ART_W * CLIP_SCALE + 14} fill="none" stroke="#0b0d12" strokeOpacity={0.6} strokeWidth={6} />
             </g>
-          );
-        })}
-        {focus && (
-          <g>
-            <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(focus.r / 100) * ART_W} fill="none" stroke="#c6ff3d" strokeWidth={10} strokeDasharray="28 16" />
-            <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(focus.r / 100) * ART_W + 14} fill="none" stroke="#0b0d12" strokeOpacity={0.6} strokeWidth={6} />
-          </g>
-        )}
-      </svg>
+          )}
+        </svg>
+      </div>
       {text && (
         <p className="absolute inset-x-[6%] bottom-[4%] rounded-[0.6em] bg-[#0b0d12]/80 px-[0.8em] py-[0.35em] text-center text-[clamp(12px,2.2cqw,40px)] font-extrabold leading-tight text-white">{text}</p>
       )}
@@ -66,8 +82,8 @@ function Player(p: P) {
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
         <Panel className="flex flex-col gap-2 p-2">
-          <ClipStage clip={reveal.clip} t={reveal.focus.at} alt={reveal.alt} focus={reveal.focus} caption={false} className="@container w-full rounded-xl" />
-          <p className="px-2 text-xs font-bold text-white/60">Fermo immagine: il dettaglio era qui.</p>
+          <ClipStage clip={reveal.clip} t={reveal.focus.at} alt={reveal.alt} focus={reveal.focus} caption={false} zoom={2.2} className="w-full rounded-xl" />
+          <p className="px-2 text-xs font-bold text-white/60">Fermo immagine ingrandito: il dettaglio era qui.</p>
         </Panel>
         <Panel className="flex flex-col gap-2">
           <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
@@ -85,7 +101,7 @@ function Player(p: P) {
         <Panel tone="lime" className="tg-pop flex flex-col items-center gap-3 py-10 text-center">
           <Icon name="tv" className="h-16 w-16 text-[#c6ff3d]" />
           <p className="tg-display text-5xl">{rolling ? "Guardate la TV" : "Si gira!"}</p>
-          <p className="max-w-xs text-base font-semibold text-white/80">«{view.title}»: la clip passa una volta sola. Guardate tutto, anche quello che non sembra importante.</p>
+          <p className="max-w-xs text-base font-semibold text-white/80">«{view.heading}»: la clip passa una volta sola. Guardate tutto, anche quello che non sembra importante.</p>
           <p className="tg-num text-6xl text-[#c6ff3d]" aria-live="polite">
             {rolling ? secsTo(clipEnd, elapsed) : secsTo(view.countdownMs, elapsed)}
           </p>
@@ -105,7 +121,7 @@ function Player(p: P) {
         <Icon name="eye" className="h-8 w-8 shrink-0 text-[#ffc24a]" />
         <div>
           <Eyebrow>La clip è finita</Eyebrow>
-          <p className="tg-display text-2xl">«{view.title}»</p>
+          <p className="tg-display text-2xl">«{view.heading}»</p>
         </div>
       </Panel>
       {view.prompt && view.options ? (
@@ -132,10 +148,10 @@ function Tv(p: T) {
 
   if (p.stage === "reveal" && reveal) {
     return (
-      <TvFrame view={view} p={p} subtitle={`«${reveal.title}» · fermo immagine sul dettaglio`}>
+      <TvFrame view={view} p={p} subtitle={`«${reveal.heading}» · fermo immagine sul dettaglio`}>
         <div className="grid h-full grid-cols-[1.25fr_1fr] gap-[1.4cqw]">
           <TvPanel className="tg-pop flex min-h-0 items-center justify-center p-[0.6cqw]">
-            <ClipStage clip={reveal.clip} t={reveal.focus.at} alt={reveal.alt} focus={reveal.focus} caption={false} className="max-h-full w-full rounded-[1cqw]" />
+            <ClipStage clip={reveal.clip} t={reveal.focus.at} alt={reveal.alt} focus={reveal.focus} caption={false} zoom={1.6} className="max-h-full w-full rounded-[1cqw]" />
           </TvPanel>
           <div className="flex min-h-0 flex-col gap-[1cqw]">
             <TvPanel className="tg-rise flex flex-col gap-[0.6cqw]">
@@ -155,7 +171,7 @@ function Tv(p: T) {
 
   if (playing && elapsed < view.countdownMs) {
     return (
-      <TvFrame view={view} p={p} hideTimer subtitle={`«${view.title}»: la clip passa una volta sola, uguale per tutti.`}>
+      <TvFrame view={view} p={{ ...p, teams: [] }} hideTimer subtitle={`«${view.heading}»: la clip passa una volta sola, uguale per tutti.`}>
         <TvBigWait icon="eye" kicker="Occhi sulla TV" title="Si gira tra" sub={secsTo(view.countdownMs, elapsed)} />
       </TvFrame>
     );
@@ -163,10 +179,10 @@ function Tv(p: T) {
 
   if (playing && elapsed < clipEnd && view.clip) {
     return (
-      <TvFrame view={view} p={p} hideTimer subtitle={`«${view.title}» · una volta sola, poi sparisce`}>
+      <TvFrame view={view} p={{ ...p, teams: [] }} hideTimer subtitle={`«${view.heading}» · una volta sola, poi sparisce`}>
         <div className="flex h-full items-center justify-center">
           <div className="relative h-full max-h-full aspect-video">
-            <ClipStage clip={view.clip} t={elapsed - view.countdownMs} alt={view.alt ?? view.title} className="h-full w-full rounded-[1.4cqw] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
+            <ClipStage clip={view.clip} t={elapsed - view.countdownMs} alt={view.alt ?? view.heading} className="h-full w-full rounded-[1.4cqw] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
             <div className="tg-glass absolute left-[1.2cqw] top-[1.2cqw] flex items-center gap-[0.5cqw] rounded-full px-[1cqw] py-[0.4cqw]">
               <span className="tg-pulse h-[1cqw] w-[1cqw] rounded-full bg-[#ff3b4e]" />
               <span className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em]">In onda</span>
@@ -181,7 +197,7 @@ function Tv(p: T) {
   }
 
   return (
-    <TvFrame view={view} p={p} subtitle={`«${view.title}» è passata. Rispondete dal telefono: conta anche la rapidità.`}>
+    <TvFrame view={view} p={p} subtitle={`«${view.heading}» è passata. Rispondete dal telefono: conta anche la rapidità.`}>
       {view.prompt && view.options ? (
         <div className="flex h-full flex-col justify-center gap-[1.4cqw]">
           <TvPanel className="tg-rise flex flex-col gap-[1cqw] p-[2.2cqw]">

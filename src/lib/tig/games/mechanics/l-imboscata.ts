@@ -68,7 +68,8 @@ export const imboscataSubmission = z.object({
 export type ImboscataSubmission = z.infer<typeof imboscataSubmission>;
 
 export interface ImboscataView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   traps: { id: string; name: string; blurb: string; prompt: string; options: Option[] }[];
   /** giro: chi tende l'imboscata a chi */
   links: { teamId: string; tableNo: number; targetId: string | null; attackerId: string | null }[];
@@ -92,7 +93,8 @@ export interface ImboscataSummary {
 }
 
 export interface ImboscataReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   traps: { id: string; name: string; prompt: string; options: Option[]; solutionId: string }[];
   explain: string;
   summary: ImboscataSummary | null;
@@ -124,7 +126,7 @@ const def: MechanicDef<ImboscataContent, ImboscataSubmission> = {
   submissionSchema: imboscataSubmission,
   publicView: (c, ctx): ImboscataView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     traps: c.traps.map((t) => ({ id: t.id, name: t.name, blurb: t.blurb, prompt: t.prompt, options: publicOptions(t.options, `${ctx.seed}:${t.id}`) })),
     links: links(ctx),
     stakes: STAKES,
@@ -183,7 +185,7 @@ const def: MechanicDef<ImboscataContent, ImboscataSubmission> = {
     return out;
   },
   reveal: (c, out): ImboscataReveal => ({
-    title: c.title,
+    heading: c.title,
     traps: c.traps.map((t) => ({ id: t.id, name: t.name, prompt: t.prompt, options: t.options, solutionId: c.solution.answers[t.id] })),
     explain: c.explain,
     summary: (out as ScoreWithSummary<ImboscataSummary>).summary ?? null,

@@ -85,7 +85,8 @@ export const duelloSubmission = z.object({ pin: z.string().regex(/^\d{3,4}$/) })
 export type DuelloSubmission = z.infer<typeof duelloSubmission>;
 
 export interface DuelloView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   story: string;
   digits: number;
   rows: DuelloRow[];
@@ -101,7 +102,8 @@ export interface DuelloSummary {
 }
 
 export interface DuelloReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   digits: number;
   rows: DuelloRow[];
   pin: string;
@@ -127,7 +129,7 @@ const def: MechanicDef<DuelloContent, DuelloSubmission> = {
   submissionSchema: duelloSubmission,
   publicView: (c, ctx): DuelloView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     story: c.story,
     digits: c.digits,
     rows: c.rows,
@@ -191,7 +193,7 @@ const def: MechanicDef<DuelloContent, DuelloSubmission> = {
     return out;
   },
   reveal: (c, out): DuelloReveal => ({
-    title: c.title,
+    heading: c.title,
     digits: c.digits,
     rows: c.rows,
     pin: c.solution.pin,

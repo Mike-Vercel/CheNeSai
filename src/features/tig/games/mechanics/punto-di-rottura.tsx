@@ -151,8 +151,8 @@ function Player(p: P) {
       }
     >
       <Panel className="py-3">
-        <Eyebrow>{view.title}</Eyebrow>
-        <p className="mt-1 text-base font-semibold leading-snug text-white/90">{view.intro}</p>
+        <Eyebrow>{view.heading}</Eyebrow>
+        <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.intro}</p>
       </Panel>
       <Meters resources={view.resources} use={tot.use} goal={view.goal} gain={tot.gain} />
       <div className="flex flex-wrap items-center gap-2" aria-label="Percorso scelto">
@@ -187,29 +187,45 @@ function Player(p: P) {
   );
 }
 
-function TvNode({ node, resources, goal, state, small = false, total }: { node: RotturaLeaf; resources: Res[]; goal: RotturaView["goal"]; state: "idle" | "best" | "dim" | "broken"; small?: boolean; total?: { gain: number; ok: boolean } }) {
+/**
+ * Contatore grande della TV. Con `used` mostra «usato / limite» e la barra; senza, solo il limite (o un testo).
+ */
+function TvMeter({ label, used = null, limit, unit, text, goal = false }: { label: string; used?: number | null; limit?: number; unit?: string; text?: string; goal?: boolean }) {
+  const over = limit !== undefined && used !== null && used > limit;
+  const big = used ?? limit;
   return (
-    <div
-      className={clsx(
-        "flex min-w-0 items-center gap-[0.6cqw] rounded-[0.7cqw] border-[0.14cqw] px-[0.7cqw]",
-        small ? "py-[0.14cqw]" : "py-[0.45cqw]",
-        state === "best" && "tg-shine border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]",
-        state === "idle" && "border-white/14 bg-white/[0.05]",
-        state === "dim" && "border-white/8 bg-white/[0.03] opacity-60",
-        state === "broken" && "tg-stripes-red border-[#ff3b4e]/60 opacity-80",
+    <div className={clsx("tg-glass flex flex-col justify-center gap-[0.4cqw] rounded-[1.2cqw] px-[1.2cqw] py-[0.9cqw]", goal && "border-[#ffc24a]/50")}>
+      <p className={clsx("text-[1.05cqw] font-extrabold uppercase tracking-[0.2em]", goal ? "text-[#ffc24a]" : "text-white/65")}>{label}</p>
+      {text ? (
+        <p className={clsx("text-[1.9cqw] font-extrabold leading-tight", goal ? "text-[#ffc24a]" : "text-white")}>{text}</p>
+      ) : (
+        <p className={clsx("tg-num text-[3.2cqw] leading-none", goal ? "text-[#ffc24a]" : over ? "text-[#ff3b4e]" : "text-white")}>
+          {big?.toLocaleString("it-IT")}
+          {used !== null && limit !== undefined && <span className="text-[1.8cqw] text-white/55"> / {limit.toLocaleString("it-IT")}</span>}
+          {unit && <span className="ml-[0.4cqw] text-[1.5cqw] text-white/60">{unit}</span>}
+        </p>
       )}
-    >
-      <span className={clsx("min-w-0 flex-1 truncate font-extrabold", small ? "text-[1cqw]" : "text-[1.3cqw]")}>{node.text}</span>
-      <span className={clsx("tg-num shrink-0 text-right leading-none", small ? "text-[0.9cqw]" : "text-[1.05cqw]", state === "best" ? "text-[#0b0d12]" : "text-white/70")}>
-        {resources.map((r) => `${node.use[r.id] ?? 0}${r.unit === "€" ? "€" : ` ${r.unit}`}`).join(" · ")}
-        <span className={clsx("ml-[0.4cqw]", state === "best" ? "" : "text-[#ffc24a]")}>
-          +{node.gain}
-          {total ? "" : ` ${goal.unit}`}
-        </span>
-      </span>
-      {total && (
-        <span className={clsx("tg-num shrink-0 rounded-[0.4cqw] px-[0.4cqw] text-[1.05cqw]", total.ok ? (state === "best" ? "bg-[#0b0d12] text-[#c6ff3d]" : "bg-white/10") : "bg-[#ff3b4e] text-white")}>{total.ok ? `= ${total.gain}` : "rotto"}</span>
+      {limit !== undefined && used !== null && (
+        <div className="h-[0.5cqw] overflow-hidden rounded-full bg-white/10">
+          <div className={clsx("h-full rounded-full", over ? "bg-[#ff3b4e]" : "bg-[#c6ff3d]")} style={{ width: `${Math.min(100, (used / limit) * 100)}%` }} />
+        </div>
       )}
+    </div>
+  );
+}
+
+/** Un'opzione grande sulla TV: testo e costi leggibili da lontano. */
+function TvChoice({ node, resources, goal, best = false, n }: { node: RotturaLeaf; resources: Res[]; goal: RotturaView["goal"]; best?: boolean; n?: number }) {
+  return (
+    <div className={clsx("flex min-w-0 flex-1 flex-col gap-[0.5cqw] rounded-[1.2cqw] border-[0.18cqw] p-[1.1cqw]", best ? "tg-shine border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : "border-white/14 bg-white/[0.05]")}>
+      {n !== undefined && <span className={clsx("tg-num text-[1.2cqw]", best ? "text-[#0b0d12]/70" : "text-white/55")}>{n}</span>}
+      <p className="tg-display text-[2.3cqw] leading-[0.95]">{node.text}</p>
+      <p className={clsx("tg-num mt-auto text-[1.45cqw] leading-tight", best ? "text-[#0b0d12]" : "text-white/80")}>
+        {resources.map((r) => amount(node.use[r.id] ?? 0, r)).join(" · ")}
+      </p>
+      <p className={clsx("tg-num text-[1.6cqw] leading-none", best ? "text-[#0b0d12]" : "text-[#ffc24a]")}>
+        +{node.gain} {goal.unit}
+      </p>
     </div>
   );
 }
@@ -217,52 +233,65 @@ function TvNode({ node, resources, goal, state, small = false, total }: { node: 
 function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
-  const best = done ? reveal.best.path : null;
   const res = view.resources;
-  const limits = res.map((r) => `${r.label} ${amount(r.limit, r)}`).join(" · ");
-  const st = (ids: string[]): "idle" | "best" | "dim" => (best ? (ids.every((id, i) => best[i] === id) ? "best" : "dim") : "idle");
-  return (
-    <TvFrame view={view} p={p} subtitle={`${view.title} · limiti: ${limits} · massimo ${view.goal.label.toLowerCase()}`}>
-      <div className="grid h-full grid-rows-[minmax(0,1fr)_auto] gap-[1cqw]">
-        <TvPanel className="grid min-h-0 grid-cols-[0.9fr_1fr_1.35fr] grid-rows-[auto_repeat(3,minmax(0,1fr))] gap-x-[1cqw] gap-y-[0.4cqw] p-[1cqw]">
-          {[0, 1, 2].map((col) => (
-            <p key={col} className="text-[1cqw] font-extrabold uppercase tracking-[0.18em] text-[#ffc24a]">
-              {col + 1} · {view.steps[col]}
-            </p>
-          ))}
-          {view.tree.map((a) => (
-            <div key={a.id} className="col-span-3 grid min-h-0 grid-cols-[0.9fr_1fr_1.35fr] items-center gap-[1cqw] border-t border-white/8 pt-[0.4cqw]">
-              <TvNode node={a} resources={res} goal={view.goal} state={st([a.id])} />
-              <div className="flex flex-col gap-[0.4cqw]">
-                {a.next.map((b) => (
-                  <TvNode key={b.id} node={b} resources={res} goal={view.goal} state={st([a.id, b.id])} small />
-                ))}
+
+  if (done) {
+    const best = nodesOf(reveal.tree, reveal.best.path);
+    return (
+      <TvFrame view={view} p={p} subtitle={`${view.heading} · il percorso migliore possibile`}>
+        <div className="grid h-full grid-rows-[minmax(0,1fr)_auto_auto] gap-[1cqw]">
+          <div className="flex min-h-0 items-stretch gap-[0.6cqw]">
+            {best.map((n, i) => (
+              <div key={n.id} className="tg-rise flex min-w-0 flex-1 items-stretch gap-[0.6cqw]" style={{ animationDelay: `${i * 220}ms` }}>
+                <div className="flex min-w-0 flex-1 flex-col gap-[0.4cqw]">
+                  <p className="text-[1cqw] font-extrabold uppercase tracking-[0.18em] text-[#ffc24a]">
+                    {i + 1} · {reveal.steps[i]}
+                  </p>
+                  <TvChoice node={n} resources={reveal.resources} goal={reveal.goal} best />
+                </div>
+                {i < best.length - 1 && <Icon name="arrow" className="h-[2.4cqw] w-[2.4cqw] shrink-0 self-center text-[#c6ff3d]" />}
               </div>
-              <div className="flex flex-col gap-[0.22cqw]">
-                {a.next.flatMap((b) =>
-                  b.next.map((c) => {
-                    const t = totals([a, b, c], res);
-                    const ok = res.every((r) => t.use[r.id] <= r.limit);
-                    const s = st([a.id, b.id, c.id]);
-                    return <TvNode key={`${b.id}-${c.id}`} node={c} resources={res} goal={view.goal} state={done && !ok ? "broken" : s} small total={done ? { gain: t.gain, ok } : undefined} />;
-                  }),
-                )}
-              </div>
-            </div>
-          ))}
-        </TvPanel>
-        {done ? (
-          <TvPanel className="tg-rise p-[1cqw]">
-            <p className="text-[1.3cqw] font-semibold leading-snug text-white/90">
+            ))}
+          </div>
+          <div className="grid grid-cols-3 gap-[1cqw]">
+            {reveal.resources.map((r) => (
+              <TvMeter key={r.id} label={r.label} used={reveal.best.totals[r.id] ?? 0} limit={r.limit} unit={r.unit} />
+            ))}
+            <TvMeter label={reveal.goal.label} used={reveal.best.gain} unit={reveal.goal.unit} goal />
+          </div>
+          <TvPanel className="tg-rise p-[1.1cqw]">
+            <p className="text-[1.35cqw] font-semibold leading-snug text-white/90">
               <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
               {reveal.explain}
             </p>
           </TvPanel>
-        ) : (
-          <p className="flex items-center justify-center gap-[0.6cqw] text-[1.3cqw] font-bold text-white/75">
-            <Icon name="flame" className="h-[1.6cqw] w-[1.6cqw] text-[#ff3b4e]" /> Chi sfora un limite si rompe: 0 punti. Percorso valido +{view.validPoints}, il migliore +{view.optimalPoints}.
-          </p>
-        )}
+        </div>
+      </TvFrame>
+    );
+  }
+
+  return (
+    <TvFrame view={view} p={p} subtitle={`${view.heading} · tre scelte a catena: la prima decide le opzioni dopo`}>
+      <div className="grid h-full grid-rows-[auto_auto_minmax(0,1fr)_auto] gap-[1cqw]">
+        <div className="grid grid-cols-3 gap-[1cqw]">
+          {res.map((r) => (
+            <TvMeter key={r.id} label={`${r.label} massimo`} limit={r.limit} unit={r.unit} />
+          ))}
+          <TvMeter label="Obiettivo" text={`Più ${view.goal.label.toLowerCase()} possibile`} goal />
+        </div>
+        <p className="text-[1.45cqw] font-semibold leading-snug text-white/90">{view.intro}</p>
+        <div className="flex min-h-0 flex-col gap-[0.6cqw]">
+          <p className="text-[1.15cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">1 · {view.steps[0]}</p>
+          <div className="flex min-h-0 flex-1 gap-[1cqw]">
+            {view.tree.map((a, i) => (
+              <TvChoice key={a.id} node={a} resources={res} goal={view.goal} n={i + 1} />
+            ))}
+          </div>
+        </div>
+        <p className="flex items-center justify-center gap-[0.6cqw] text-[1.35cqw] font-bold text-white/80">
+          <Icon name="flame" className="h-[1.7cqw] w-[1.7cqw] shrink-0 text-[#ff3b4e]" />
+          Poi «{view.steps[1]}» e «{view.steps[2]}»: le opzioni cambiano con la prima scelta (sul telefono). Chi sfora si rompe: 0. Valido +{view.validPoints}, il migliore +{view.optimalPoints}.
+        </p>
       </div>
     </TvFrame>
   );

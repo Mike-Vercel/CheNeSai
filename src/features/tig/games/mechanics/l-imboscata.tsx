@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { BigToggle, ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, OptionButton, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { teamMap, TvOutcomeGrid, TvTeamTag } from "./m5-kit";
+import { teamMap, TvOutcomeGrid, TvSolved, TvTableBadge } from "./m5-kit";
 
 type P = PlayerGameProps<ImboscataView, null, ImboscataSubmission, ImboscataReveal>;
 type T = TvGameProps<ImboscataView, ImboscataReveal>;
@@ -158,9 +158,36 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const map = teamMap(p.teams);
   const trapName = (id: string) => view.traps.find((t) => t.id === id)?.name ?? "";
-  const sol = (id: string) => (done ? reveal.traps.find((t) => t.id === id)?.solutionId : undefined);
+  if (done) {
+    return (
+      <TvFrame view={view} p={p} subtitle={`${view.heading} · chi ha retto e chi ci è cascato`}>
+        <div className="grid h-full grid-rows-[auto_minmax(0,1fr)] gap-[1cqw]">
+          <div className="grid grid-cols-3 gap-[1cqw]">
+            {reveal.traps.map((t, i) => (
+              <TvSolved key={t.id} kicker={`Trappola ${i + 1} · ${t.name}`} prompt={t.prompt} answer={t.options.find((o) => o.id === t.solutionId)?.text ?? ""} />
+            ))}
+          </div>
+          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
+            <p className="line-clamp-2 text-[1.2cqw] font-semibold leading-snug text-white/85">
+              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
+              {reveal.explain}
+            </p>
+            <TvOutcomeGrid
+              teams={p.teams}
+              outcome={p.outcome}
+              note={(id) => {
+                const a = reveal.summary?.ambushes.find((x) => x.to === id);
+                if (!a) return null;
+                return `${a.house ? "Casa" : `Dal ${map.get(a.from ?? "")?.tableNo ?? "?"}`}: ${trapName(a.trapId)} · ${a.held ? "retta" : "caduta"}${a.stake ? ` (rischio ${a.stake})` : ""}`;
+              }}
+            />
+          </TvPanel>
+        </div>
+      </TvFrame>
+    );
+  }
   return (
-    <TvFrame view={view} p={p} subtitle={done ? `${view.title} · chi ha retto e chi ci è cascato` : `${view.title} · ognuno tende una trappola al tavolo dopo di lui`}>
+    <TvFrame view={view} p={p} subtitle={`${view.heading} · ognuno tende una trappola al tavolo dopo di lui`}>
       <div className="grid h-full grid-rows-[minmax(0,1fr)_auto] gap-[1.1cqw]">
         <div className="grid min-h-0 grid-cols-3 gap-[1.1cqw]">
           {view.traps.map((t, i) => (
@@ -171,44 +198,24 @@ function Tv(p: T) {
               <p className="text-[1.5cqw] font-extrabold leading-tight">{t.prompt}</p>
               <div className="mt-auto flex flex-col gap-[0.4cqw]">
                 {t.options.map((o, k) => (
-                  <TvOption key={o.id} index={k} text={o.text} size="sm" state={done ? (o.id === sol(t.id) ? "right" : "dim") : "idle"} />
+                  <TvOption key={o.id} index={k} text={o.text} size="sm" />
                 ))}
               </div>
             </TvPanel>
           ))}
         </div>
-        {done && reveal.summary ? (
-          <TvPanel className="flex flex-col gap-[0.6cqw] p-[1cqw]">
-            <p className="text-[1.2cqw] font-semibold leading-snug text-white/85">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
-              {reveal.explain}
-            </p>
-            <TvOutcomeGrid
-              teams={p.teams}
-              outcome={p.outcome}
-              note={(id) => {
-                const a = reveal.summary!.ambushes.find((x) => x.to === id);
-                if (!a) return null;
-                return `${a.house ? "Casa" : `Dal ${map.get(a.from ?? "")?.tableNo ?? "?"}`}: ${trapName(a.trapId)} · ${a.held ? "retta" : "caduta"}${a.stake ? ` (rischio ${a.stake})` : ""}`;
-              }}
-            />
-          </TvPanel>
-        ) : (
-          <TvPanel className="flex flex-wrap items-center gap-x-[1.4cqw] gap-y-[0.5cqw] p-[1cqw]">
-            <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Il giro delle imboscate</span>
-            {view.links
-              .filter((l) => l.targetId)
-              .map((l) => (
-                <span key={l.teamId} className="flex items-center gap-[0.4cqw]">
-                  <TvTeamTag team={map.get(l.teamId)} className="max-w-[12cqw]" />
-                  <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-[#ff3b4e]" />
-                  <span className="tg-num grid h-[2.4cqw] w-[2.4cqw] place-items-center rounded-[0.5cqw] text-[1.35cqw] text-[#0b0d12]" style={{ background: map.get(l.targetId!)?.color ?? "#eef2f6" }}>
-                    {l.targetId ? map.get(l.targetId)?.tableNo : ""}
-                  </span>
-                </span>
-              ))}
-          </TvPanel>
-        )}
+        <TvPanel className="flex flex-wrap items-center gap-x-[1.2cqw] gap-y-[0.5cqw] p-[1cqw]">
+          <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Chi tende la trappola a chi</span>
+          {view.links
+            .filter((l) => l.targetId)
+            .map((l) => (
+              <span key={l.teamId} className="flex items-center gap-[0.3cqw]">
+                <TvTableBadge team={map.get(l.teamId)} />
+                <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-[#ff3b4e]" />
+                <TvTableBadge team={map.get(l.targetId!)} />
+              </span>
+            ))}
+        </TvPanel>
       </div>
     </TvFrame>
   );

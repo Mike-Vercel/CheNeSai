@@ -53,7 +53,8 @@ export const filoSubmission = z.object({ answers: z.record(z.string(), idSchema)
 export type FiloSubmission = z.infer<typeof filoSubmission>;
 
 export interface FiloView extends BaseView {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   intro: string;
   clues: { n: number; from: string; text: string }[];
   slots: { id: string; label: string; options: Option[] }[];
@@ -62,7 +63,8 @@ export interface FiloView extends BaseView {
 }
 
 export interface FiloReveal {
-  title: string;
+  /** titolo della variante (il titolo della meccanica resta `title`) */
+  heading: string;
   clues: FiloView["clues"];
   slots: { id: string; label: string; options: Option[]; solutionId: string }[];
   explain: string;
@@ -86,7 +88,7 @@ const def: MechanicDef<FiloContent, FiloSubmission> = {
   submissionSchema: filoSubmission,
   publicView: (c, ctx): FiloView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    heading: c.title,
     intro: c.intro,
     clues: c.clues.map((k, i) => ({ n: i + 1, from: k.from, text: k.text })),
     slots: c.slots.map((s) => ({ id: s.id, label: s.label, options: publicOptions(s.options, `${ctx.seed}:${s.id}`) })),
@@ -112,7 +114,7 @@ const def: MechanicDef<FiloContent, FiloSubmission> = {
     };
   },
   reveal: (c): FiloReveal => ({
-    title: c.title,
+    heading: c.title,
     clues: c.clues.map((k, i) => ({ n: i + 1, from: k.from, text: k.text })),
     slots: c.slots.map((s) => ({ id: s.id, label: s.label, options: s.options, solutionId: c.solution.answers[s.id] })),
     explain: c.explain,

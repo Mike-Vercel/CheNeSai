@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
 import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { secsTo, teamMap, TvTeamTag } from "./m5-kit";
+import { secsTo, teamMap, TvSolved, TvTeamTag } from "./m5-kit";
 
 type P = PlayerGameProps<UltimaChiamataView, null, UltimaChiamataSubmission, UltimaChiamataReveal>;
 type T = TvGameProps<UltimaChiamataView, UltimaChiamataReveal>;
@@ -134,18 +134,8 @@ function Tv(p: T) {
       <TvFrame view={view} p={p} subtitle={`${view.theme} · ecco le risposte giuste`}>
         <div className="grid h-full grid-rows-[minmax(0,1fr)_auto] gap-[1.2cqw]">
           <div className="grid min-h-0 grid-cols-3 gap-[1.2cqw]">
-            {reveal.calls.map((c, i) => (
-              <TvPanel key={c.id} className="tg-rise flex min-h-0 flex-col gap-[0.6cqw]">
-                <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]" style={{ animationDelay: `${i * 120}ms` }}>
-                  Chiamata {c.n} · {c.kind}
-                </p>
-                <p className="text-[1.55cqw] font-extrabold leading-tight">{c.prompt}</p>
-                <div className="mt-auto flex flex-col gap-[0.45cqw]">
-                  {c.options.map((o, k) => (
-                    <TvOption key={o.id} index={k} text={o.text} size="sm" state={o.id === c.solutionId ? "right" : "dim"} />
-                  ))}
-                </div>
-              </TvPanel>
+            {reveal.calls.map((c) => (
+              <TvSolved key={c.id} kicker={`Chiamata ${c.n} · ${c.kind}`} prompt={c.prompt} answer={c.options.find((o) => o.id === c.solutionId)?.text ?? ""} />
             ))}
           </div>
           <div className="grid grid-cols-[1fr_1.2fr] gap-[1.2cqw]">
