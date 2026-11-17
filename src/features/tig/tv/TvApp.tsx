@@ -10,6 +10,7 @@ import { MECHANIC_UIS } from "../games/index";
 import type { GameStage as UiStage } from "../games/ui-contract";
 import { Countdown, Leaderboard, Logo, PausedBanner, QrCode, useSecondsLeft } from "../ui";
 import { useTick, useTig } from "../use-tig";
+import { useTigMusic } from "../music";
 import { getTigVoice, useSpeech, useTigShowAudio } from "../voice";
 import { awardsRevealAt, detectVisualQuality, TigArena } from "../visuals";
 
@@ -26,6 +27,7 @@ import { awardsRevealAt, detectVisualQuality, TigArena } from "../visuals";
 export function TvApp({ displayKey, live }: { displayKey: string; live: boolean }) {
   const { state, lobby, error, now } = useTig({ kind: "tv", displayKey, live });
   useTigShowAudio(state, { voiced: true, source: { key: displayKey } });
+  useTigMusic(state, true);
   const speech = useSpeech();
   const [quality] = useState(detectVisualQuality);
   const [unlocked, setUnlocked] = useState(false);
