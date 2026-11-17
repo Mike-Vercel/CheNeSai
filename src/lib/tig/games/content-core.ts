@@ -19,6 +19,11 @@ import sincronizzati from "../../../../content/tig/minigiochi/sincronizzati";
 import sogliaDiRischio from "../../../../content/tig/minigiochi/soglia-di-rischio";
 import tempoFantasma from "../../../../content/tig/minigiochi/tempo-fantasma";
 import treVersioni from "../../../../content/tig/minigiochi/tre-versioni";
+import { CONTENUTI_MANCHE_1 } from "../../../../content/tig/minigiochi/manche-1";
+import { CONTENUTI_MANCHE_2 } from "../../../../content/tig/minigiochi/manche-2";
+import { CONTENUTI_MANCHE_3 } from "../../../../content/tig/minigiochi/manche-3";
+import { CONTENUTI_MANCHE_4 } from "../../../../content/tig/minigiochi/manche-4";
+import { CONTENUTI_MANCHE_5 } from "../../../../content/tig/minigiochi/manche-5";
 import { MECHANIC_MODULES } from "./mechanics";
 
 /**
@@ -51,6 +56,12 @@ export const RAW_CONTENT: Record<string, readonly unknown[]> = {
   "puntata-nascosta": puntataNascosta,
   "soglia-di-rischio": sogliaDiRischio,
   "sicuro-o-rischio": sicuroORischio,
+  // meccaniche nuove, un indice per manche
+  ...CONTENUTI_MANCHE_1,
+  ...CONTENUTI_MANCHE_2,
+  ...CONTENUTI_MANCHE_3,
+  ...CONTENUTI_MANCHE_4,
+  ...CONTENUTI_MANCHE_5,
 };
 
 export function loadVariants(): Record<string, readonly ContentVariant[]> {
