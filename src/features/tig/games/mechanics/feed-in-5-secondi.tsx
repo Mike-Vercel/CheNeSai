@@ -120,9 +120,11 @@ function Tv(p: T) {
   if (p.stage === "reveal" && reveal) {
     return (
       <TvFrame view={view} p={p} subtitle={`La domanda era sul post ${reveal.post + 1} di 5`}>
-        <div className="grid h-full grid-cols-[auto_1fr] gap-[2cqw]">
-          <div className="flex h-full min-h-0 items-center">
-            <PostCard post={reveal.posts[reveal.post]} index={reveal.post} mark className="tg-pop aspect-[100/146] h-full max-h-full" />
+        <div className="grid h-full grid-cols-[0.8fr_1.2fr] gap-[2cqw]">
+          <div className="relative h-full min-h-0" style={{ containerType: "size" }}>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: "min(100cqw, 68.5cqh)", height: "min(146cqw, 100cqh)" }}>
+              <PostCard post={reveal.posts[reveal.post]} index={reveal.post} mark className="tg-pop h-full w-full" />
+            </div>
           </div>
           <div className="flex min-h-0 flex-col justify-center gap-[1.2cqw]">
             <TvPanel className="flex flex-col gap-[0.8cqw]">
@@ -145,31 +147,34 @@ function Tv(p: T) {
     const lead = Math.max(1, Math.ceil((view.startMs - elapsed) / 500));
     return (
       <TvFrame view={view} p={p} hideTimer subtitle="Cinque post, poco più di un secondo l'uno. Guardate i particolari.">
-        <div className="grid h-full grid-cols-[1fr_auto_1fr] items-center gap-[3cqw]">
+        <div className="grid h-full grid-cols-[1fr_1.3fr_1fr] items-center gap-[3cqw]">
           <div className="flex flex-col items-end gap-[1cqw]">
             <p className="tg-display text-[2.4cqw] text-white/70">Post</p>
             <p className="tg-num text-[11cqw] leading-none text-[#c6ff3d]" aria-live="polite">{started ? idx + 1 : 0}</p>
             <p className="tg-display text-[2.4cqw] text-white/70">di 5</p>
           </div>
-          <div className="relative aspect-[100/146] h-full max-h-full overflow-hidden rounded-[1.2cqw]">
-            {started ? (
-              <div className="absolute inset-x-0 top-0 transition-transform duration-300 ease-out" style={{ transform: `translateY(-${idx * 20}%)`, height: "500%" }}>
-                {view.posts!.map((post, i) => (
-                  <div key={post.author} className="h-[20%] w-full">
-                    <PostCard post={post} index={i} className="h-full" />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="tg-glass tg-glass-lime grid h-full place-items-center">
-                <div className="text-center">
-                  <p className="tg-display text-[3cqw] text-white/80">Il feed parte tra</p>
-                  <p className="tg-num tg-pop text-[12cqw] leading-none text-[#c6ff3d]" key={lead}>
-                    {lead}
-                  </p>
+          {/* colonna «a misura»: la finestra del feed (proporzioni di un post) si adatta a larghezza e altezza */}
+          <div className="relative h-full" style={{ containerType: "size" }}>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.2rem]" style={{ width: "min(100cqw, 68.5cqh)", height: "min(146cqw, 100cqh)" }}>
+              {started ? (
+                <div className="absolute inset-x-0 top-0 transition-transform duration-300 ease-out" style={{ transform: `translateY(-${idx * 20}%)`, height: "500%" }}>
+                  {view.posts!.map((post, i) => (
+                    <div key={post.author} className="h-[20%] w-full">
+                      <PostCard post={post} index={i} className="h-full" />
+                    </div>
+                  ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <div className="tg-glass tg-glass-lime grid h-full place-items-center">
+                  <div className="text-center">
+                    <p className="tg-display text-[8cqw] text-white/80">Il feed parte tra</p>
+                    <p className="tg-num tg-pop text-[30cqw] leading-none text-[#c6ff3d]" key={lead}>
+                      {lead}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           <div className="flex flex-col gap-[0.8cqw]" aria-hidden>
             {Array.from({ length: 5 }, (_, i) => (

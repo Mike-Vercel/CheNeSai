@@ -142,24 +142,65 @@ const RECIPES: Record<SoundKind, Recipe> = {
   gabbiano: (d, g) => every(d, 0.2, 1.9, (t) => [tone(t, 0.35, 2, 1700, 1150, g * 0.3, 0.02, 0.1, 9, 0.3), tone(t + 0.45, 0.3, 2, 1650, 1100, g * 0.3, 0.02, 0.1, 9, 0.3)]),
 };
 
+/**
+ * Correzione di volume per ricetta: a guadagno 1 ogni suono ha circa lo stesso volume PERCEPITO (stima
+ * offline: passa-alto a 150 Hz come la curva dell'orecchio, 90° percentile dell'RMS su finestre di 200 ms,
+ * bersaglio −14 dB). Senza, un rumore filtrato suona 20–30 dB più piano di un tono allo stesso guadagno e
+ * «il più forte» dipenderebbe dalla ricetta, non dal contenuto. Il test della manche 1 ricontrolla le varianti.
+ */
+export const LOUDNESS: Record<SoundKind, number> = {
+  campanello: 0.32,
+  telefono: 0.53,
+  sveglia: 0.7,
+  bollitore: 0.54,
+  sirena: 0.86,
+  clacson: 0.46,
+  pioggia: 0.91,
+  tictac: 6.65,
+  cuore: 2.34,
+  tastiera: 1.4,
+  notifica: 0.6,
+  uccellini: 1.24,
+  grilli: 1.94,
+  tuono: 2.32,
+  onde: 1.03,
+  vento: 1.93,
+  applausi: 2.35,
+  tamburo: 0.73,
+  monete: 0.93,
+  sfrigolio: 1.09,
+  gocce: 1.11,
+  aspirapolvere: 0.92,
+  fischietto: 0.95,
+  carillon: 0.73,
+  gabbiano: 1.38,
+};
+
 export interface Layer {
   sound: SoundKind;
-  /** volume relativo 0..1 */
+  /** volume relativo 0..1 (percepito, grazie a `LOUDNESS`) */
   gain: number;
 }
 
 /**
  * Compila gli strati in UNA lista di eventi mescolati, ordinati per inizio. `d` in secondi.
- * Il guadagno complessivo è normalizzato (somma dei volumi = 1) così il missaggio non satura.
+ * I volumi relativi sono normalizzati (somma = 1) così il missaggio non satura.
  */
 export function compileMix(layers: readonly Layer[], d: number, seed: string): SynthEvent[] {
   const total = layers.reduce((s, l) => s + l.gain, 0) || 1;
   const out: SynthEvent[] = [];
-  layers.forEach((l, i) => out.push(...RECIPES[l.sound](d, l.gain / total, rngFrom(`${seed}:${i}`))));
+  layers.forEach((l, i) => out.push(...RECIPES[l.sound](d, (l.gain / total) * LOUDNESS[l.sound], rngFrom(`${seed}:${i}`))));
   return out.sort((a, b) => a[1] - b[1] || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0) || a[4] - b[4]);
 }
 
-/** Un solo suono (per l'ascolto separato al reveal). */
-export function compileOne(sound: SoundKind, d: number, seed: string): SynthEvent[] {
-  return RECIPES[sound](d, 1, rngFrom(`${seed}:solo`));
+/** Un solo suono a volume pieno (per l'ascolto separato al reveal), già corretto con `LOUDNESS`. */
+export function compileOne(sound: SoundKind, d: number, seed: string, gain = 0.6): SynthEvent[] {
+  return RECIPES[sound](d, gain * LOUDNESS[sound], rngFrom(`${seed}:solo`));
+}
+
+/** Eventi di UN solo strato del missaggio, con lo stesso guadagno che ha nel missaggio (per i controlli). */
+export function compileLayer(layers: readonly Layer[], index: number, d: number, seed: string): SynthEvent[] {
+  const total = layers.reduce((s, l) => s + l.gain, 0) || 1;
+  const l = layers[index];
+  return RECIPES[l.sound](d, (l.gain / total) * LOUDNESS[l.sound], rngFrom(`${seed}:${index}`));
 }

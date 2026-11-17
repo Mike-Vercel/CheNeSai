@@ -43,9 +43,11 @@ export function tokenLabel(t: Token): string {
   }
 }
 
+/** Poligono regolare: con un numero pari di lati poggia su un lato (il quadrato non sembra un rombo). */
 function ngon(n: number, r: number): string {
+  const phase = -Math.PI / 2 + (n % 2 === 0 ? Math.PI / n : 0);
   return Array.from({ length: n }, (_, i) => {
-    const a = -Math.PI / 2 + (i / n) * Math.PI * 2;
+    const a = phase + (i / n) * Math.PI * 2;
     return `${(50 + r * Math.cos(a)).toFixed(2)},${(50 + r * Math.sin(a)).toFixed(2)}`;
   }).join(" ");
 }

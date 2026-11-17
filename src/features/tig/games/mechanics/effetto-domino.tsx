@@ -122,7 +122,7 @@ function Tv(p: T) {
         <div className={clsx("grid min-h-0 flex-1 gap-[1.4cqw]", done ? "grid-cols-[1.4fr_1fr]" : "grid-cols-1")}>
           <TvPanel className="grid grid-cols-2 content-center gap-[0.9cqw]">
             {view.options.map((o, i) => (
-              <TvOption key={o.id} index={i} text={o.text} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
+              <TvOption key={o.id} index={i} text={o.text} size={done ? "sm" : "md"} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
             ))}
           </TvPanel>
           {done && <TvExplain text={reveal.explain} className="self-center" />}
