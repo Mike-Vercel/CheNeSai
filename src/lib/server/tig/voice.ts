@@ -52,9 +52,30 @@ export async function loadVoiceCatalog(): Promise<VoiceFile[]> {
 }
 
 const envName = (characterId: string) => `TIG_VOICE_${characterId.toUpperCase().replace(/[^A-Z0-9]/g, "_")}`;
+/**
+ * Personaggi che hanno già una voce negli altri giochi: se manca TIG_VOICE_<ID> si usa la stessa voce
+ * (stesso personaggio, stessa voce; Professor Smoke = il Professore, Victor = l'Investigatore, come i modelli 3D).
+ */
+const SHARED_VOICE: Record<string, string[]> = {
+  "professor-smoke": ["ELEVENLABS_VOICE_PROFESSORE"],
+  regina: ["ELEVENLABS_VOICE_REGINA"],
+  palmino: ["ELEVENLABS_VOICE_PALMINO"],
+  victor: ["ELEVENLABS_VOICE_INVESTIGATORE"],
+  "don-patrizio": ["ELEVENLABS_VOICE_DONPATRIZIO", "ELEVENLABS_VOICE_DONTRALLA"],
+  zafira: ["ELEVENLABS_VOICE_ZAFIRA"],
+};
 export function tigVoiceId(characterId: string): string | null {
-  return process.env[envName(characterId)] || null;
+  const own = process.env[envName(characterId)];
+  if (own) return own;
+  for (const name of SHARED_VOICE[characterId] ?? []) if (process.env[name]) return process.env[name]!;
+  return null;
 }
+
+/** Stesse impostazioni di GIRAMENTE! per Don Patrizio e Zafira: la voce resta identica da una frase all'altra. */
+const VOICE_SETTINGS: Record<string, Record<string, number | boolean>> = {
+  "don-patrizio": { stability: 0.5, similarity_boost: 0.9, style: 0.3, use_speaker_boost: true, speed: 1.0 },
+  zafira: { stability: 0.45, similarity_boost: 0.9, style: 0.4, use_speaker_boost: true, speed: 0.95 },
+};
 
 export async function tigVoicesStatus(): Promise<Record<string, boolean>> {
   const key = !!process.env.ELEVENLABS_API_KEY;
@@ -85,7 +106,8 @@ export async function tigVoiceUrl(eventId: string, characterId: string, lineId: 
   if (!(await checkRateLimit(sql, `tig-voce:${eventId}`, 120, 60))) throw new TigError("RATE_LIMITED", "Troppe battute in poco tempo");
   const model = MODEL();
   const sent = text.replace(/manche/gi, "mansh");
-  const key = createHash("sha256").update(`${voiceId}|${model}|${sent}`).digest("hex");
+  const settings = VOICE_SETTINGS[characterId];
+  const key = createHash("sha256").update(`${voiceId}|${model}|${settings ? JSON.stringify(settings) : ""}|${sent}`).digest("hex");
   const [hit] = await sql<{ storage_path: string }[]>`update tig_tts_clips set last_used_at = now() where cache_key = ${key} returning storage_path`;
   if (hit) return { url: await signedClipUrl(hit.storage_path), caption: text };
   const usage = await appUsage(sql);
@@ -94,7 +116,7 @@ export async function tigVoiceUrl(eventId: string, characterId: string, lineId: 
     fetch(`${API}/v1/text-to-speech/${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`, {
       method: "POST",
       headers: { "xi-api-key": apiKey, "Content-Type": "application/json", Accept: "audio/mpeg" },
-      body: JSON.stringify({ text: sent, model_id: model, language_code: "it" }),
+      body: JSON.stringify({ text: sent, model_id: model, language_code: "it", ...(settings ? { voice_settings: settings } : {}) }),
       signal: AbortSignal.timeout(15_000),
     }),
     16_000,
