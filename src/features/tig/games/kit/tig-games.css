@@ -53,6 +53,7 @@
   --tg-body: var(--font-tig-body), "Manrope", system-ui, sans-serif;
   /* grana della carta e del legno (rumore SVG generato, niente immagini) */
   --tg-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .34 0 0 0 0 .2 0 0 0 0 .08 0 0 0 .55 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --tg-burn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.03' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .26 0 0 0 0 .13 0 0 0 0 .04 0 0 0 -4.2 2.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
   --tg-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .28 0 0 0 0 .1 0 0 0 .6 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
@@ -158,11 +159,29 @@
     auto;
   border-radius: 14px 10px 15px 9px / 10px 15px 9px 14px;
   box-shadow:
-    inset 0 0 0 1px rgba(122, 74, 26, 0.5),
-    inset 0 0 12px 1px rgba(110, 62, 20, 0.6),
+    inset 0 0 0 1px rgba(96, 54, 18, 0.62),
+    inset 0 0 5px 1px rgba(80, 40, 10, 0.55),
+    inset 0 0 14px 2px rgba(110, 62, 20, 0.55),
     inset 0 0 38px 4px rgba(138, 90, 43, 0.28),
     0 1px 0 rgba(255, 240, 200, 0.12),
     0 18px 40px -18px rgba(0, 0, 0, 0.85);
+  /* gruppo isolato: la bruciatura dei bordi (::before) sta sopra la carta ma sotto le scritte */
+  position: relative;
+  isolation: isolate;
+}
+/* bordi bruciati irregolari: macchie di rumore scuro, visibili solo verso i margini */
+.tg-parch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: var(--tg-burn);
+  background-size: 260px 260px;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(118% 112% at 50% 50%, transparent 50%, #000 74%);
+  mask-image: radial-gradient(118% 112% at 50% 50%, transparent 50%, #000 74%);
 }
 /* testi «secondari» sulla pergamena (sempre ≥ 4.5:1) */
 .tg-parch .tg-ink-2 {
