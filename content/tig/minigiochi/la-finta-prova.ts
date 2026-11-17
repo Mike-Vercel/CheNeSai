@@ -1,0 +1,410 @@
+import type { FintaInput } from "@/lib/tig/games/mechanics/la-finta-prova";
+
+/**
+ * 62 · LA FINTA PROVA — dossier inventati. Regola editoriale: la prova falsa contiene UN dettaglio che i fatti
+ * accertati rendono impossibile (giorno di chiusura, data inesistente, totale che non torna, orologio fermo…);
+ * le altre due sono compatibili con tutti i fatti. Gli id sono neutri (il tipo di documento, mai «falso»).
+ */
+const varianti: FintaInput[] = [
+  {
+    id: "bici-bar-chiuso",
+    difficulty: "facile",
+    caseTitle: "La bici sparita dal cortile",
+    story: "La bici di Dina è sparita dal cortile. Ivo, il vicino, dice che a quell'ora era al bar di fronte e porta le prove.",
+    facts: ["La bici è sparita martedì 12, tra le 18:30 e le 19.", "Il Bar Aurora, di fronte al cortile, il martedì è chiuso per riposo."],
+    items: [
+      {
+        id: "scontrino",
+        kind: "scontrino",
+        title: "Bar Aurora",
+        lines: ["Martedì 12 · ore 18:40", "2 spritz · 9,00 €", "Tavolo 4 · grazie e arrivederci"],
+        suggests: "Ivo era al bar: ha un alibi",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Dina a Ivo · martedì 12, 18:55",
+        lines: ["«Hai visto una bici rossa uscire dal cortile? La mia non c'è più»"],
+        suggests: "Alle 18:55 la bici era già sparita",
+      },
+      {
+        id: "foto",
+        kind: "foto",
+        title: "Dal balcone del secondo piano",
+        lines: ["Scattata martedì 12 alle 18:30", "In cortile due bici legate al palo"],
+        suggests: "Alle 18:30 la bici c'era ancora",
+        icon: "orologio",
+        iconLabel: "18:30",
+      },
+    ],
+    solution: {
+      itemId: "scontrino",
+      tell: "Il Bar Aurora il martedì è chiuso per riposo: uno scontrino di martedì alle 18:40 non può esistere. Serve solo a dare un alibi a Ivo.",
+      genuine: {
+        messaggio: "Alle 18:55 la bici era già sparita: torna con la finestra tra le 18:30 e le 19.",
+        foto: "Alle 18:30 la bici era ancora lì, come dicono i fatti.",
+      },
+    },
+    explain: "Il dettaglio che tradisce è il giorno: martedì il Bar Aurora è chiuso, quindi lo scontrino delle 18:40 è stato costruito. Foto e messaggio sono compatibili con la sparizione tra le 18:30 e le 19.",
+  },
+  {
+    id: "concerto-posto",
+    difficulty: "facile",
+    caseTitle: "Chi era davvero al concerto?",
+    story: "Teo giura di essere stato al concerto di venerdì e per questo non è venuto al compleanno di Sara. Sara non ci crede.",
+    facts: ["Il concerto era venerdì 3 maggio al Palazzetto, cancelli aperti alle 20.", "Al Palazzetto ci sono solo posti in piedi: nessuna fila, nessun posto numerato."],
+    items: [
+      {
+        id: "biglietto",
+        kind: "biglietto",
+        title: "Biglietto del concerto",
+        lines: ["Venerdì 3 maggio · Palazzetto", "Ingresso dalle 20:00", "Fila 12 · Posto 8"],
+        suggests: "Teo era al concerto",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Ale nel gruppo · venerdì 3, 20:15",
+        lines: ["«Sono dentro! In piedi vicino al mixer, raggiungetemi»"],
+        suggests: "Alle 20:15 Ale era già dentro",
+      },
+      {
+        id: "foto",
+        kind: "foto",
+        title: "La coda davanti ai cancelli",
+        lines: ["Scattata venerdì 3 alle 19:50", "Cancelli ancora chiusi, coda lunghissima"],
+        suggests: "Prima delle 20 non entrava nessuno",
+        icon: "biglietto",
+        iconLabel: "19:50",
+      },
+    ],
+    solution: {
+      itemId: "biglietto",
+      tell: "Al Palazzetto non ci sono posti numerati: un biglietto con «Fila 12, posto 8» non può essere di quel concerto.",
+      genuine: {
+        messaggio: "Alle 20:15, cancelli già aperti, si stava in piedi: tutto torna.",
+        foto: "Alle 19:50 i cancelli erano chiusi, come dicono i fatti (aprivano alle 20).",
+      },
+    },
+    explain: "Il biglietto si tradisce da solo: fila e posto numerato in un Palazzetto con soli posti in piedi. Il messaggio di Ale (in piedi vicino al mixer) e la foto della coda alle 19:50 sono compatibili con i fatti.",
+  },
+  {
+    id: "picnic-pioggia",
+    difficulty: "facile",
+    caseTitle: "La domenica di Lia",
+    story: "Lia dice di aver passato la domenica al cinema. Marco sostiene che era al parco con altri amici e porta una foto.",
+    facts: ["Domenica 9 ha piovuto senza sosta dalle 8 alle 20.", "Il picnic al parco di domenica 9 è stato annullato per maltempo."],
+    items: [
+      {
+        id: "foto",
+        kind: "foto",
+        title: "Foto al parco, domenica 9",
+        lines: ["Scattata alle 15:00", "Plaid sul prato, occhiali da sole, cielo azzurro"],
+        suggests: "Lia era al parco, non al cinema",
+        icon: "occhiali",
+      },
+      {
+        id: "agenda",
+        kind: "agenda",
+        title: "Agenda di Lia",
+        lines: ["Dom 9 · picnic ANNULLATO", "Cinema Odeon ore 16 con Bea"],
+        suggests: "Lia aveva cambiato programma",
+      },
+      {
+        id: "scontrino",
+        kind: "scontrino",
+        title: "Cinema Odeon",
+        lines: ["Domenica 9 · spettacolo delle 16:00", "2 interi · 17,00 €"],
+        suggests: "Due biglietti per le 16",
+      },
+    ],
+    solution: {
+      itemId: "foto",
+      tell: "Domenica 9 è piovuto dalle 8 alle 20: una foto delle 15 con cielo azzurro e occhiali da sole non può essere di quel giorno.",
+      genuine: {
+        agenda: "Il picnic annullato per maltempo è proprio quello che dicono i fatti.",
+        scontrino: "Il cinema alle 16 di domenica è compatibile con la pioggia.",
+      },
+    },
+    explain: "La foto è falsa: sole e cielo azzurro alle 15 di una domenica di pioggia continua. Agenda e scontrino del cinema raccontano lo stesso pomeriggio al riparo, compatibile con i fatti.",
+  },
+  {
+    id: "colazione-totale",
+    difficulty: "media",
+    caseTitle: "Chi ha offerto la colazione?",
+    story: "Sara e Gianni dicono entrambi di aver offerto la colazione ai colleghi. Gianni porta uno scontrino.",
+    facts: ["Al Bar Centrale un caffè costa 1,20 € e un cornetto 1,30 €.", "Quella mattina al bancone erano in quattro: quattro caffè e quattro cornetti."],
+    items: [
+      {
+        id: "scontrino",
+        kind: "scontrino",
+        title: "Bar Centrale",
+        lines: ["4 caffè", "4 cornetti", "TOTALE 6,80 €", "Pagato in contanti"],
+        suggests: "Ha pagato Gianni",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Sara ai colleghi · 8:10",
+        lines: ["«Colazione offerta da me! Ci vediamo al Centrale tra cinque minuti»"],
+        suggests: "L'invito era di Sara",
+      },
+      {
+        id: "nota",
+        kind: "nota",
+        title: "Post-it sulla scrivania di Sara",
+        lines: ["Ricordarsi: 10 € della colazione", "da farmi ridare dal fondo cassa!"],
+        suggests: "Sara ha speso 10 euro",
+      },
+    ],
+    solution: {
+      itemId: "scontrino",
+      tell: "Quattro caffè (4,80 €) e quattro cornetti (5,20 €) fanno 10,00 €, non 6,80 €: quello scontrino non è di quella colazione.",
+      genuine: {
+        messaggio: "L'invito di Sara arriva prima della colazione: nessun conflitto con i fatti.",
+        nota: "I 10 € del post-it sono esattamente il conto giusto di quattro caffè e quattro cornetti.",
+      },
+    },
+    explain: "Fate il conto: 4 × 1,20 più 4 × 1,30 fa 10 euro. Lo scontrino da 6,80 € non torna, mentre il post-it di Sara riporta proprio 10 euro. Ha offerto Sara.",
+  },
+  {
+    id: "treno-sciopero",
+    difficulty: "difficile",
+    caseTitle: "Come è arrivato Dario a Pavia?",
+    story: "Dario dice di aver preso la macchina della sorella per arrivare a Pavia. Qualcuno sostiene che fosse in treno con lui.",
+    facts: ["Il regionale delle 18:05 da Milano a Pavia quel giorno è stato cancellato per sciopero.", "In auto da Milano a Pavia servono 40 minuti."],
+    items: [
+      {
+        id: "biglietto",
+        kind: "biglietto",
+        title: "Biglietto regionale",
+        lines: ["Milano → Pavia · treno delle 18:05", "Controllato a bordo alle 18:32"],
+        suggests: "Dario era sul treno",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Dario alla sorella · 18:10",
+        lines: ["«Treno cancellato, mi presti la macchina? Te la riporto domani»"],
+        suggests: "Dario ha cambiato mezzo",
+      },
+      {
+        id: "tessera",
+        kind: "tessera",
+        title: "Ricevuta del parcheggio di Pavia",
+        lines: ["Ingresso ore 19:00", "Targa dell'auto della sorella"],
+        suggests: "L'auto era a Pavia alle 19",
+      },
+    ],
+    solution: {
+      itemId: "biglietto",
+      tell: "Il treno delle 18:05 è stato cancellato: nessuno poteva controllare un biglietto a bordo alle 18:32.",
+      genuine: {
+        messaggio: "Alle 18:10 il treno era appena saltato: chiedere l'auto è coerente.",
+        tessera: "Partendo poco dopo le 18:10, con 40 minuti di strada, alle 19 si è a Pavia.",
+      },
+    },
+    explain: "Il controllo a bordo alle 18:32 è impossibile: quel treno non è mai partito. Messaggio delle 18:10 e parcheggio alle 19 (dopo 40 minuti di strada) raccontano il viaggio in auto.",
+  },
+  {
+    id: "cena-gamberi",
+    difficulty: "media",
+    caseTitle: "Il mal di pancia di Gigi",
+    story: "Gigi dice che il mal di pancia è colpa dei gamberi serviti da Nora sabato sera. Nora dice che ha cucinato solo pasta al pesto.",
+    facts: ["La cena era a casa di Nora, sabato sera.", "Nora è allergica ai crostacei: in casa sua non entrano mai."],
+    items: [
+      {
+        id: "nota",
+        kind: "nota",
+        title: "Lista della spesa di Nora",
+        lines: ["Gamberi × 6", "Limoni, prezzemolo", "Vino bianco"],
+        suggests: "Nora ha cucinato i gamberi",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Nora nel gruppo · sabato, 17:00",
+        lines: ["«Stasera pasta al pesto per tutti, portate solo il dolce»"],
+        suggests: "Il menù era la pasta al pesto",
+      },
+      {
+        id: "scontrino",
+        kind: "scontrino",
+        title: "Supermercato di quartiere",
+        lines: ["Sabato · 17:40", "Basilico, pinoli, parmigiano", "Trofie 1 kg"],
+        suggests: "Spesa da pesto per tante persone",
+      },
+    ],
+    solution: {
+      itemId: "nota",
+      tell: "Nora è allergica ai crostacei e in casa sua non ne entrano mai: una sua lista con sei gamberi è stata costruita.",
+      genuine: {
+        messaggio: "Il menù al pesto non contraddice nessun fatto.",
+        scontrino: "Basilico, pinoli e trofie sono esattamente la spesa per il pesto annunciato.",
+      },
+    },
+    explain: "La lista con i gamberi non può essere di Nora, allergica ai crostacei che in casa sua non entrano. Messaggio e scontrino raccontano la stessa cena: trofie al pesto. Il mal di pancia di Gigi ha un'altra spiegazione.",
+  },
+  {
+    id: "festival-31-aprile",
+    difficulty: "difficile",
+    caseTitle: "Il portafoglio perso al festival",
+    story: "Teo dice di aver perso il portafoglio l'ultima sera del festival. L'assicurazione vuole le prove che fosse lì.",
+    facts: ["Il festival si è tenuto dal 28 al 30 aprile.", "Teo dice di aver perso il portafoglio l'ultima sera del festival."],
+    items: [
+      {
+        id: "tessera",
+        kind: "tessera",
+        title: "Braccialetto del festival",
+        lines: ["Abbonamento tre giorni", "Valido dal 28/4 al 31/4"],
+        suggests: "Teo aveva l'abbonamento",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Teo nel gruppo · 30 aprile, 23:50",
+        lines: ["«Il portafoglio non c'è più! Qualcuno l'ha visto vicino al palco?»"],
+        suggests: "L'ha perso l'ultima sera",
+      },
+      {
+        id: "verbale",
+        kind: "verbale",
+        title: "Denuncia di smarrimento",
+        lines: ["1 maggio, ore 10:00", "Smarrito la sera precedente all'area concerti"],
+        suggests: "Denuncia fatta il giorno dopo",
+      },
+    ],
+    solution: {
+      itemId: "tessera",
+      tell: "Aprile ha 30 giorni: il 31 aprile non esiste. Un braccialetto «valido fino al 31/4» non può essere stato stampato dal festival.",
+      genuine: {
+        messaggio: "Il 30 aprile è proprio l'ultima sera del festival.",
+        verbale: "La denuncia del 1° maggio parla della sera prima, il 30 aprile: torna.",
+      },
+    },
+    explain: "Il dettaglio è nel calendario: aprile finisce il 30, quindi «valido fino al 31/4» è un'invenzione. Il messaggio del 30 sera e la denuncia del 1° maggio sono coerenti con l'ultima sera del festival.",
+  },
+  {
+    id: "palestra-tornello",
+    difficulty: "media",
+    caseTitle: "A che ora è uscito Fabio?",
+    story: "Fabio giura di essere rimasto in palestra fino a tardi martedì sera. Un amico dice che alle 22 era già al pub.",
+    facts: ["La palestra chiude alle 22: a quell'ora si spengono le luci e si chiude il portone.", "Martedì il tornello ha registrato Fabio in entrata alle 21:00."],
+    items: [
+      {
+        id: "tessera",
+        kind: "tessera",
+        title: "Registro del badge",
+        lines: ["Fabio · martedì", "Uscita dal tornello alle 22:45"],
+        suggests: "Fabio è rimasto fino a tardi",
+      },
+      {
+        id: "foto",
+        kind: "foto",
+        title: "Spogliatoio, martedì",
+        lines: ["Scattata alle 21:50", "La borsa di Fabio sulla panca"],
+        suggests: "Alle 21:50 Fabio era ancora lì",
+        icon: "zaino",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Fabio all'amico · martedì, 22:05",
+        lines: ["«Sono fuori, ti raggiungo al pub tra dieci minuti»"],
+        suggests: "Alle 22:05 era fuori",
+      },
+    ],
+    solution: {
+      itemId: "tessera",
+      tell: "Alle 22 la palestra chiude e si spegne tutto: un'uscita dal tornello alle 22:45 è impossibile.",
+      genuine: {
+        foto: "Alle 21:50 la palestra era ancora aperta: la borsa poteva essere lì.",
+        messaggio: "Alle 22:05, a palestra chiusa, essere fuori è proprio quello che ci si aspetta.",
+      },
+    },
+    explain: "Il badge si tradisce con l'orario: alle 22:45 la palestra era chiusa da tre quarti d'ora. Foto delle 21:50 e messaggio delle 22:05 sono compatibili: Fabio è uscito alla chiusura ed è andato al pub.",
+  },
+  {
+    id: "volo-senza-wifi",
+    difficulty: "facile",
+    caseTitle: "Dov'era Ilaria alle 10?",
+    story: "Un collega dice di aver ricevuto alle 10:15 un messaggio di Ilaria dall'ufficio. Ilaria dice che a quell'ora era in volo per Londra.",
+    facts: ["Il volo di Ilaria è partito alle 9:00 ed è atterrato alle 11:30.", "Su quel volo non c'è wi-fi e i telefoni restano in modalità aereo."],
+    items: [
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Ilaria al collega · 10:15",
+        lines: ["«Sono in ufficio, passo da te dopo la riunione»"],
+        suggests: "Alle 10:15 Ilaria era in ufficio",
+      },
+      {
+        id: "biglietto",
+        kind: "biglietto",
+        title: "Carta d'imbarco",
+        lines: ["Volo delle 9:00 per Londra", "Posto 14C · imbarco chiuso alle 8:40"],
+        suggests: "Ilaria era sull'aereo",
+        icon: "valigia",
+      },
+      {
+        id: "scontrino",
+        kind: "scontrino",
+        title: "Bar dell'aeroporto di arrivo",
+        lines: ["Ore 11:50", "1 cappuccino · 3,40 £"],
+        suggests: "Dopo l'atterraggio era a Londra",
+      },
+    ],
+    solution: {
+      itemId: "messaggio",
+      tell: "Dalle 9 alle 11:30 Ilaria era in volo, senza wi-fi e in modalità aereo: un suo messaggio dall'ufficio alle 10:15 non può esistere.",
+      genuine: {
+        biglietto: "Il volo delle 9:00 è proprio quello dei fatti.",
+        scontrino: "Alle 11:50, venti minuti dopo l'atterraggio, un cappuccino in aeroporto è normale.",
+      },
+    },
+    explain: "Il messaggio delle 10:15 è il falso: a quell'ora Ilaria era in volo senza connessione. Carta d'imbarco e scontrino delle 11:50 all'arrivo raccontano lo stesso viaggio.",
+  },
+  {
+    id: "orologio-fermo",
+    difficulty: "difficile",
+    caseTitle: "La lite in cucina",
+    story: "Qualcuno dice che la lite tra coinquilini in cucina è avvenuta alle 23:15 e porta una foto. Gli altri non sono d'accordo su chi c'era.",
+    facts: ["La lite in cucina è avvenuta alle 23:15.", "L'orologio da muro della cucina è fermo da mesi: segna sempre le 4:20."],
+    items: [
+      {
+        id: "foto",
+        kind: "foto",
+        title: "Foto della cucina «alle 23:15»",
+        lines: ["Due tazze sul tavolo", "Sul muro l'orologio della cucina"],
+        suggests: "A quell'ora in cucina c'erano due persone",
+        icon: "orologio",
+        iconLabel: "23:15",
+      },
+      {
+        id: "messaggio",
+        kind: "messaggio",
+        title: "Gaia nella chat di casa · 23:20",
+        lines: ["«Avete sentito urlare in cucina? Chi c'era?»"],
+        suggests: "Gaia non era in cucina",
+      },
+      {
+        id: "nota",
+        kind: "nota",
+        title: "Biglietto sul frigo, il giorno dopo",
+        lines: ["«Chi ha finito il pesto lo ricompra.", "Firmato: tutti»"],
+        suggests: "Il motivo della lite: il pesto",
+      },
+    ],
+    solution: {
+      itemId: "foto",
+      tell: "L'orologio della cucina è fermo sulle 4:20 da mesi: in una foto vera segnerebbe le 4:20, non le 23:15. La foto è stata ritoccata.",
+      genuine: {
+        messaggio: "Alle 23:20, cinque minuti dopo la lite, chiedere chi c'era è coerente.",
+        nota: "Il biglietto del giorno dopo non contraddice nessun fatto.",
+      },
+    },
+    explain: "Guardate l'orologio della foto: segna le 23:15, ma quello della cucina è fermo sulle 4:20. Chi ha costruito la foto ha corretto anche l'orologio, tradendosi. Il messaggio di Gaia e il biglietto sul frigo reggono.",
+  },
+];
+
+export default varianti;
