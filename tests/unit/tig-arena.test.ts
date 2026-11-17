@@ -450,7 +450,7 @@ describe("profilo di resa (perf.ts): gradini, scheda video, regolatore", () => {
     for (let i = 0; i < 200; i++) g.update(12, 0.5, true);
     expect(g.level).toBe(3);
     // né lento né veloce: resta
-    for (let i = 0; i < 40; i++) g.update(18.5, 0.5, true);
+    for (let i = 0; i < 40; i++) g.update(17, 0.5, true);
     expect(g.level).toBe(3);
   });
 });

@@ -49,14 +49,15 @@ export interface RenderProfile {
 }
 
 // scendendo di gradino non sale MAI il numero di pixel (maxDpr e maxPixels non crescono): si tolgono prima gli
-// effetti (riflesso, fari, particelle), poi il buffer HDR, solo alla fine la risoluzione. Misure su grafica integrata
-// Intel UHD a 1080p (ms per fotogramma): scena ~14, buffer + passaggio finale ~2 (HDR +3), bagliore ~3, FXAA ~2,5,
-// SMAA ~9 (troppo caro per le integrate: non si usa), MSAA 4× ~6 (solo schede dedicate).
+// effetti (riflesso, fari, particelle), poi la risoluzione (−12% di lato al gradino 1), solo nell'emergenza il buffer
+// HDR. Misure su grafica integrata Intel UHD a 1080p (ms per fotogramma): scena ~11 (presentatori ~1,4), buffer +
+// passaggio finale ~2 (HDR +3), bagliore ~2, FXAA ~2,5, SMAA ~9 (troppo caro per le integrate: non si usa), MSAA 4×
+// ~6 (solo schede dedicate).
 const LEVELS: RenderProfile[] = [
   { level: 0, maxDpr: 0.75, maxPixels: 0.9e6, msaa: 0, postAA: "fxaa", buffer: "ldr", bloom: 0, reflect: 0, reflectEvery: 3, fixtures: 6, dust: 60, confetti: 80, vignette: false, idleFps: 45 },
-  { level: 1, maxDpr: 1, maxPixels: 1.6e6, msaa: 0, postAA: "fxaa", buffer: "ldr", bloom: 0.25, reflect: 0, reflectEvery: 3, fixtures: 6, dust: 100, confetti: 110, vignette: true, idleFps: 60 },
-  { level: 2, maxDpr: 1.5, maxPixels: 2.2e6, msaa: 0, postAA: "fxaa", buffer: "hdr", bloom: 0.3, reflect: 0, reflectEvery: 3, fixtures: 8, dust: 140, confetti: 140, vignette: true, idleFps: 60 },
-  { level: 3, maxDpr: 1.5, maxPixels: 2.4e6, msaa: 0, postAA: "fxaa", buffer: "hdr", bloom: 0.35, reflect: 0.25, reflectEvery: 3, fixtures: 10, dust: 220, confetti: 220, vignette: true, idleFps: 60 },
+  { level: 1, maxDpr: 1, maxPixels: 1.6e6, msaa: 0, postAA: "fxaa", buffer: "hdr", bloom: 0.25, reflect: 0, reflectEvery: 3, fixtures: 6, dust: 100, confetti: 110, vignette: true, idleFps: 60 },
+  { level: 2, maxDpr: 1.5, maxPixels: 2.2e6, msaa: 0, postAA: "fxaa", buffer: "hdr", bloom: 0.25, reflect: 0, reflectEvery: 3, fixtures: 8, dust: 140, confetti: 140, vignette: true, idleFps: 60 },
+  { level: 3, maxDpr: 1.5, maxPixels: 2.4e6, msaa: 0, postAA: "fxaa", buffer: "hdr", bloom: 0.3, reflect: 0.25, reflectEvery: 3, fixtures: 10, dust: 220, confetti: 220, vignette: true, idleFps: 60 },
   { level: 4, maxDpr: 1.75, maxPixels: 4.2e6, msaa: 4, postAA: "none", buffer: "hdr", bloom: 0.5, reflect: 0.5, reflectEvery: 1, fixtures: 12, dust: 360, confetti: 280, vignette: true, idleFps: 60 },
 ];
 
@@ -82,8 +83,9 @@ export function initialLevel(quality: "high" | "low", gpu: GpuClass): RenderProf
 
 /**
  * Regolatore a gradini: misura il tempo medio dei fotogrammi disegnati quando la scena si muove a piena velocità.
- * Sotto ~50 fps per `downAfter` secondi scende di un gradino (mai sotto `floor`), sopra ~58 fps con margine per
- * `upAfter` secondi risale (mai sopra il gradino di partenza). Puro: niente three, niente DOM.
+ * Sotto ~55 fps per `downAfter` secondi scende di un gradino (mai sotto `floor`), sopra ~63 fps per `upAfter` secondi
+ * risale (mai sopra il gradino di partenza): l'obiettivo è stare a 60 con lo schermo a 60 Hz. Puro: niente three,
+ * niente DOM.
  */
 export class PerfGovernor {
   level: RenderProfile["level"];
@@ -109,10 +111,10 @@ export class PerfGovernor {
       this.cooldown -= dt;
       return false;
     }
-    if (frameMs > 1000 / 50) {
+    if (frameMs > 1000 / 55) {
       this.slowFor += dt;
       this.fastFor = 0;
-    } else if (frameMs < 1000 / 58.5) {
+    } else if (frameMs < 1000 / 63) {
       this.fastFor += dt;
       this.slowFor = 0;
     } else {

@@ -18,7 +18,7 @@ import { RankAnimator, rankOrder, tableOrder } from "./rank-anim";
 import { shotSubject } from "./shots";
 import { SpotFx } from "./SpotFx";
 import { readArenaDebug, type ArenaDebug } from "./debug";
-import { shadowTexture } from "./textures";
+import { glowTexture, shadowTexture } from "./textures";
 import { classifyGpu, initialLevel, PerfGovernor, profileAt, renderDpr, type GpuClass, type RenderProfile } from "./perf";
 import { DirectRender, PostFx, type PostOverrides } from "./PostFx";
 import { StudioEnvironment } from "./studio-env";
@@ -215,6 +215,21 @@ function ContactShadow({ radius = 0.45 }: { radius?: number }) {
   );
 }
 
+/**
+ * Pozza di luce del "seguipersona" sotto ogni presentatore: il pubblico (e la camera) li trova subito anche nei campi
+ * larghi. Additiva, calda, un filo pulsante quando parlano.
+ */
+function HostPool({ speaking }: { speaking: boolean }) {
+  const tex = useMemo(() => glowTexture(), []);
+  useEffect(() => () => tex.dispose(), [tex]);
+  return (
+    <mesh rotation-x={-Math.PI / 2} position-y={0.008} renderOrder={1}>
+      <planeGeometry args={[2.1, 2.1]} />
+      <meshBasicMaterial map={tex} color={speaking ? "#ffd7a0" : "#c9a27a"} transparent opacity={speaking ? 0.5 : 0.36} blending={AdditiveBlending} depthWrite={false} toneMapped={false} />
+    </mesh>
+  );
+}
+
 const WALK_SPEED = 1.1;
 
 function angleTo(from: number, to: number): number {
@@ -262,6 +277,7 @@ function HostSlot({ host, index, total, quality, action, liveRef, busy, onLoaded
   });
   return (
     <group ref={root}>
+      <HostPool speaking={!!host.speaking} />
       <ContactShadow />
       <Boundary
         onError={(r) => {

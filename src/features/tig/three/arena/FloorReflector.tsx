@@ -8,7 +8,7 @@ import {
   LinearMipmapLinearFilter,
   Color,
   Matrix4,
-  MeshLambertMaterial,
+  MeshPhongMaterial,
   MeshStandardMaterial,
   PerspectiveCamera,
   Plane,
@@ -24,10 +24,10 @@ import {
  * PAVIMENTO LUCIDO con riflesso vero ma economico (al posto di MeshReflectorMaterial, che ridisegnava tutta la scena
  * a ogni fotogramma): la camera riflessa disegna SOLO gli oggetti del livello REFLECT_LAYER (neon, LED, torri,
  * ologrammi: ciò che si vede nel riflesso di uno studio buio), a bassa risoluzione e ogni N fotogrammi. Il pavimento
- * è un MeshLambertMaterial (pozze di luce delle luci vere, ambiente di studio diffuso: molto più leggero di un PBR
- * che riempie mezzo schermo) con il disegno del pavimento come emissivo (niente secondo strato trasparente grande
- * quanto lo schermo) e il riflesso aggiunto: sfocato con le mipmap, più forte di taglio (Fresnel), increspato da un
- * rumore leggero come una resina lucida. `?dbg=stdfloor` torna al PBR (per confronto).
+ * è un MeshPhongMaterial (pozze di luce e riflessi lucidi delle luci vere, ambiente di studio diffuso: molto più
+ * leggero di un PBR che riempie mezzo schermo) con il disegno del pavimento come emissivo (niente secondo strato
+ * trasparente grande quanto lo schermo) e il riflesso aggiunto: sfocato con le mipmap, più forte di taglio (Fresnel),
+ * increspato da un rumore leggero come una resina lucida. `?dbg=stdfloor` torna al PBR (per confronto).
  */
 
 /** Livello three degli oggetti che si riflettono nel pavimento (la camera principale vede anche il livello 0). */
@@ -72,7 +72,7 @@ export function useFloorMaterial({ scale, every, strength = 0.55, color = "#0608
   const material = useMemo(() => {
     const m = pbr
       ? new MeshStandardMaterial({ color, metalness: 0.55, roughness: 0.32, envMapIntensity: 0.5, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal })
-      : new MeshLambertMaterial({ color, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal });
+      : new MeshPhongMaterial({ color, specular: "#2a3240", shininess: 42, emissive: decal ? new Color(0.9, 0.9, 0.9) : new Color(0, 0, 0), emissiveMap: decal });
     if (!rt) return m;
     m.onBeforeCompile = (shader) => {
       shader.uniforms.tReflect = { value: rt.texture };
