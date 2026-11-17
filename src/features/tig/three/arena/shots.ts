@@ -134,13 +134,15 @@ export function shotSubject(spec: ShotSpec, ctx: ShotContext): ShotSubject {
         break;
       }
       if (spec.kind === "pod") {
-        pitchBias += 12;
-        // da vicino: la parte alta della torre, la mascotte e la targhetta (l'evoluzione si vede bene)
+        pitchBias += 16;
+        // da vicino: tappo, mascotte e corona (la targhetta resta fuori): la camera si avvicina abbastanza da lasciare
+        // i presentatori alle sue spalle, l'evoluzione riempie il quadro
         for (const i of idx) {
           const p = ctx.layout.pods[i];
           const top = ctx.podTop(i);
-          const r = POD.baseRadius * 1.3;
-          pts.push([p.x - r, Math.max(0, top - 0.9), p.z], [p.x + r, Math.max(0, top - 0.9), p.z], [p.x, top + ABOVE_TOP * ctx.layout.scale, p.z], [p.x, top, p.z + r], [p.x, top, p.z - r]);
+          const r = POD.baseRadius * 1.15;
+          const head = top + (POD.mascotHeight + 0.45) * ctx.layout.scale;
+          pts.push([p.x - r, top - 0.35, p.z], [p.x + r, top - 0.35, p.z], [p.x, head, p.z], [p.x, top, p.z + r], [p.x, top, p.z - r]);
         }
       } else {
         podPoints(ctx, idx, pts, POD.baseRadius * 1.1);

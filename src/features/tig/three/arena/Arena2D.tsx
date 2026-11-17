@@ -224,7 +224,7 @@ export default function Arena2D(props: ArenaProps) {
           <ellipse cx={W / 2} cy={640} rx={520} ry={150} fill="none" stroke={TIG.cyan} strokeOpacity={0.18} strokeDasharray="6 10" />
           <LedPanel props={props} mode={dir.led} teams={teams} awardsShown={awardsShown} />
           {/* palco (più in basso, davanti alle torri del fondo) */}
-          <g transform="translate(0, 80)">
+          <g transform="translate(0, 110)">
           <polygon points={`${W / 2 - 230},610 ${W / 2 - 120},560 ${W / 2 + 120},560 ${W / 2 + 230},610 ${W / 2 + 120},660 ${W / 2 - 120},660`} fill="#0b1016" stroke={TIG.amber} strokeWidth={3} />
           {props.hosts.slice(0, 4).map((h, i, arr) => {
             const hx = W / 2 + (i - (arr.length - 1) / 2) * 150;

@@ -119,21 +119,37 @@ function drawLabels(canvas: HTMLCanvasElement, teams: ArenaTeam[], family: strin
     ctx.textAlign = "left";
     ctx.textBaseline = "alphabetic";
     if (!t.online) {
-      ctx.font = `800 44px ${family}`;
-      ctx.fillStyle = "#ff8f8f";
-      ctx.fillText("OFFLINE", tx, y + 92);
+      // tavolo offline: badge rosso su una riga sua, il nome sotto su una riga (mai sovrapposti)
+      ctx.font = `800 36px ${family}`;
+      const bw = ctx.measureText("OFFLINE").width + 28;
+      ctx.fillStyle = "rgba(255,70,80,0.18)";
+      ctx.strokeStyle = "#ff6b74";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.roundRect(tx, y + 34, bw, 52, 12);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = "#ff9aa1";
+      ctx.textBaseline = "middle";
+      ctx.fillText("OFFLINE", tx + 14, y + 62);
+      ctx.textBaseline = "alphabetic";
     }
-    let size = 74;
+    let size = t.online ? 74 : 58;
     let lines: string[] = [];
-    for (; size >= 44; size -= 4) {
+    for (; size >= 40; size -= 4) {
       ctx.font = `800 ${size}px ${family}`;
-      lines = twoLines(ctx, t.name.toUpperCase(), maxW);
-      if (lines.every((l) => !l.endsWith("…"))) break;
+      lines = t.online ? twoLines(ctx, t.name.toUpperCase(), maxW) : [t.name.toUpperCase()];
+      if (lines.every((l) => ctx.measureText(l).width <= maxW && !l.endsWith("…"))) break;
+    }
+    if (!t.online) {
+      let one = lines[0];
+      while (ctx.measureText(one).width > maxW && one.length > 2) one = `${one.slice(0, -2)}…`;
+      lines = [one];
     }
     ctx.fillStyle = t.online ? "#f6f8fb" : "#9aa3ad";
     const lh = size * 0.98;
     const total = lines.length * lh;
-    const baseY = t.online ? y + CELL.h / 2 - total / 2 + size * 0.8 : y + 150;
+    const baseY = t.online ? y + CELL.h / 2 - total / 2 + size * 0.8 : y + 100 + size * 0.85;
     lines.slice(0, t.online ? 2 : 1).forEach((l, k) => ctx.fillText(l, tx, baseY + k * lh));
   });
 }
@@ -414,7 +430,9 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       L.anchors[k + 3] = p.yaw;
       L.anchors[k + 4] = POD.mascotHeight * sc;
       // targhetta sopra la mascotte
-      const ly = top + CAP_H + POD.mascotHeight * sc + 0.62;
+      // durante l'evoluzione la mascotte sale e si ingrandisce: targa e punteggio del tavolo salgono più in alto
+      const lift = focus && L.dir.mood === "evolve" ? 1.35 * sc : 0;
+      const ly = top + CAP_H + POD.mascotHeight * sc + 0.62 + lift;
       lc.setXYZ(i, p.x, ly, p.z);
       ls.setXY(i, lblW * lblScale * crop, lblW * lblScale * (CELL.h / CELL.w));
       la.setX(i, podiumDim ? 0.18 : fade);
