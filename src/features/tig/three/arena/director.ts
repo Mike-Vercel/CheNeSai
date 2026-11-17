@@ -48,7 +48,7 @@ export interface ShotSpec {
 
 export type HostAction = "idle" | "talk" | "saluto" | "presenta" | "indica" | "applauso" | "sorpresa" | "pensiero" | "vittoria";
 
-export type LedMode = "logo" | "manche" | "title" | "leaderboard" | "alarm" | "vs" | "evolve" | "break" | "final" | "awards";
+export type LedMode = "ambient" | "logo" | "manche" | "title" | "leaderboard" | "alarm" | "vs" | "evolve" | "break" | "final" | "awards";
 
 export interface ArenaDirection {
   shot: ShotSpec;
@@ -68,14 +68,31 @@ export const SPOT_MS: Record<ArenaSpotlight["kind"], number> = {
   shield: 3600,
 };
 
-/** Premiazione: istanti (ms dall'inizio della fase) in cui si svelano 3°, 2° e 1° posto (dal basso verso l'alto). */
+/** Premiazione: istanti (ms dall'inizio del podio) in cui si svelano 3°, 2° e 1° posto (dal basso verso l'alto). */
 export const AWARDS_REVEAL_MS = [1600, 4800, 8200] as const;
+/** Premiazione: prima si svelano, dall'ultimo, i tavoli fuori dal podio, uno ogni AWARDS_STEP_MS; poi il podio. */
+export const AWARDS_STEP_MS = 1200;
+
+/** Ms dall'inizio della premiazione in cui comincia il podio (dopo i tavoli fuori dal podio). */
+export function awardsPodiumOffset(teamCount: number): number {
+  return Math.max(0, teamCount - 3) * AWARDS_STEP_MS;
+}
 
 /** Quanti posti del podio sono svelati (0..3) dopo `elapsedMs` dall'inizio della premiazione. */
-export function awardsRevealed(elapsedMs: number): number {
+export function awardsRevealed(elapsedMs: number, teamCount = 3): number {
+  const off = awardsPodiumOffset(teamCount);
   let n = 0;
-  for (const t of AWARDS_REVEAL_MS) if (elapsedMs >= t) n++;
+  for (const t of AWARDS_REVEAL_MS) if (elapsedMs >= off + t) n++;
   return n;
+}
+
+/**
+ * Ms dall'inizio della premiazione in cui si svela il tavolo in posizione `pos` (1 = primo) su `teamCount`:
+ * lo stesso calendario per l'arena (podio 3D) e per l'HUD della TV (classifica finale), così niente anticipa il vincitore.
+ */
+export function awardsRevealAt(pos: number, teamCount: number): number {
+  if (pos <= 3) return awardsPodiumOffset(teamCount) + AWARDS_REVEAL_MS[Math.max(0, 3 - pos)];
+  return (teamCount - pos) * AWARDS_STEP_MS;
 }
 
 /** Lo spotlight è ancora "in scena" (la fase dedicata lo tiene acceso per tutta la sua durata). */
@@ -107,6 +124,8 @@ export interface DirectInput {
   spotAgeMs: number;
   speaking: boolean;
   hostCount: number;
+  /** squadre in gara (calendario della premiazione) */
+  teamCount?: number;
 }
 
 export function directArena(inp: DirectInput): ArenaDirection {
@@ -165,10 +184,12 @@ export function directArena(inp: DirectInput): ArenaDirection {
       if (t < 5000) return { shot: shot("led", { pitch: 8, fov: 34, ease: 2.2 }), mood: "final", led: "final", hostAction: talk("idle") };
       return { shot: shot("arena", { pitch: 12, fov: 36, orbit: { amp: 4, period: 30 }, ease: 2.4 }), mood: "final", led: "final", hostAction: talk("pensiero") };
     case "awards": {
-      const shown = awardsRevealed(t);
-      if (t < 1400) return { shot: shot("led", { pitch: 8, fov: 34, ease: 1.2 }), mood: "awards", led: "awards", hostAction: talk("presenta") };
+      const shown = awardsRevealed(t, inp.teamCount);
+      // prima del podio (tavoli fuori dal podio svelati dall'HUD) la camera resta sullo schermo
+      const off = awardsPodiumOffset(inp.teamCount ?? 3);
+      if (t < off + 1400) return { shot: shot("led", { pitch: 8, fov: 34, ease: 1.2 }), mood: "awards", led: "awards", hostAction: talk("presenta") };
       return {
-        shot: shot("podium", { pitch: t > 10_500 ? 7 : 9, fov: 34, orbit: shown >= 3 ? { amp: 14, period: 16 } : { amp: 3, period: 18 }, ease: 1.8, withLed: t < 10_500 }),
+        shot: shot("podium", { pitch: t > off + 10_500 ? 7 : 9, fov: 34, orbit: shown >= 3 ? { amp: 14, period: 16 } : { amp: 3, period: 18 }, ease: 1.8, withLed: t < off + 10_500 }),
         mood: "awards",
         led: "awards",
         hostAction: talk(shown >= 3 ? "applauso" : shown > 0 ? "presenta" : "idle"),
@@ -206,6 +227,8 @@ export function mascotActionFor(input: {
   deltaAge: number;
   /** posti del podio svelati (premiazione) */
   podiumRank?: number | null;
+  /** squadre in gara (calendario della premiazione) */
+  teamCount?: number;
 }): MascotProps["action"] {
   const { team, phase, spotlight: spot, spotAgeMs: age } = input;
   if (!team.online) return "idle";
@@ -233,7 +256,7 @@ export function mascotActionFor(input: {
     }
   }
   if (phase === "awards" && input.podiumRank) {
-    const shown = awardsRevealed(input.elapsedMs);
+    const shown = awardsRevealed(input.elapsedMs, input.teamCount);
     // dal basso: si svela il 3° (rank 3) per primo
     if (input.podiumRank >= 4 - shown) return input.podiumRank === 1 && shown >= 3 ? "win" : "cheer";
     return "idle";

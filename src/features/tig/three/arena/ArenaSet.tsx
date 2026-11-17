@@ -234,7 +234,7 @@ export interface LedStatic {
   mancheNo: number | null;
 }
 
-const LED_MODES = ["logo", "manche", "title", "leaderboard", "alarm", "vs", "evolve", "break", "final", "awards"] as const;
+const LED_MODES = ["ambient", "logo", "manche", "title", "leaderboard", "alarm", "vs", "evolve", "break", "final", "awards"] as const;
 
 /**
  * Contenuto dello schermo ricavato a ogni fotogramma dallo stato vivo (classifica animata, spotlight, premiazione)
@@ -246,7 +246,7 @@ function updateLedContent(L: ArenaLive, st: LedStatic, c: LedContent, pool: Map<
   c.subtitle = st.subtitle;
   c.mancheNo = st.mancheNo;
   c.scale = L.ranks.scale;
-  c.awardsShown = L.mood.mood === "awards" ? awardsRevealed(L.elapsedMs) : 0;
+  c.awardsShown = L.mood.mood === "awards" ? awardsRevealed(L.elapsedMs, L.teams.length) : 0;
   c.teams.length = 0;
   c.focus.length = 0;
   let sig = LED_MODES.indexOf(c.mode) * 7919 + c.awardsShown * 131 + Math.round(c.scale);

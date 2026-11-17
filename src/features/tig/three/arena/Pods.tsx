@@ -383,6 +383,8 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       const h = a?.height ?? POD.minHeight;
       const focus = spotOn && spot ? spot.teamIds.includes(team.teamId) : false;
       const podiumDim = L.dir.mood === "awards" && L.podium > 0.5 && !L.podiumIds.includes(team.teamId);
+      // sul podio della premiazione targhette e punteggi delle torri si spengono: li dicono la classifica e il LED
+      const podiumUp = L.dir.mood === "awards" && L.podium > 0.5;
       const fade = podiumDim ? 0.28 : dim && !focus ? 0.45 : 1;
       // colonna
       tmp.position.set(p.x, BASE_H, p.z);
@@ -435,7 +437,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       const ly = top + CAP_H + POD.mascotHeight * sc + 0.62 + lift;
       lc.setXYZ(i, p.x, ly, p.z);
       ls.setXY(i, lblW * lblScale * crop, lblW * lblScale * (CELL.h / CELL.w));
-      la.setX(i, podiumDim ? 0.18 : fade);
+      la.setX(i, podiumUp ? 0 : fade);
       // punteggio (sotto la targhetta, sopra la testa della mascotte)
       const shown = a?.score ?? team.score;
       const ds = scoreDigits(shown, SCORE_GLYPHS);
@@ -444,7 +446,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
         const gi = i * (SCORE_GLYPHS + DELTA_GLYPHS) + d;
         if (d < ds.length) {
           gGlyph.setX(gi, ds[d]);
-          gAlpha.setX(gi, (team.online ? 1 : 0.55) * fade);
+          gAlpha.setX(gi, podiumUp ? 0 : (team.online ? 1 : 0.55) * fade);
           gCenter.setXYZ(gi, p.x, ly, p.z);
           gOffset.setXY(gi, (d - (ds.length - 1) / 2) * 0.64, -1.45);
           gSize.setX(gi, gsz);

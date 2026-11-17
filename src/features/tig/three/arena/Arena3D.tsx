@@ -59,9 +59,11 @@ function Director({ liveRef, propsRef, reduced, onDir }: { liveRef: RefObject<Ar
     const L = liveRef.current;
     const P = propsRef.current;
     const now = P.now();
-    if (P.phase !== L.phaseKey) {
-      L.phaseKey = P.phase;
-      L.phaseSince = now;
+    // inizio della fase: dall'orologio del server se la pagina lo passa (chi si collega a metà vede il punto giusto)
+    const pk = `${P.phase}|${P.phaseStartedAt ?? ""}`;
+    if (pk !== L.phaseKey) {
+      L.phaseKey = pk;
+      L.phaseSince = P.phaseStartedAt != null && P.phaseStartedAt <= now ? P.phaseStartedAt : now;
     }
     const sk = P.spotlight?.eventId ?? "";
     if (sk !== L.spotKey) {
@@ -72,19 +74,21 @@ function Director({ liveRef, propsRef, reduced, onDir }: { liveRef: RefObject<Ar
     L.elapsedMs = Math.max(0, now - L.phaseSince);
     L.spotAgeMs = Math.max(0, now - L.spotSince);
     L.t += reduced ? 0 : dt;
-    const d = directArena({ phase: P.phase, elapsedMs: L.elapsedMs, spotlight: P.spotlight, spotAgeMs: L.spotAgeMs, speaking: false, hostCount: P.hosts.length });
+    const d0 = directArena({ phase: P.phase, elapsedMs: L.elapsedMs, spotlight: P.spotlight, spotAgeMs: L.spotAgeMs, speaking: false, hostCount: P.hosts.length, teamCount: L.teams.length });
+    // HUD della pagina al centro: lo schermo resta d'ambiente, senza testo
+    const d = P.ledwall === "ambient" && d0.led !== "ambient" ? { ...d0, led: "ambient" as const } : d0;
     if (d.mood !== L.mood.mood) L.mood = { mood: d.mood, since: 0 };
     else L.mood.since += dt;
     L.dir = d;
     L.busy.scores = L.ranks.step(L.teams, dt, first.current || reduced);
     first.current = false;
-    const shown = awardsRevealed(L.elapsedMs);
+    const shown = awardsRevealed(L.elapsedMs, L.teams.length);
     const spotOn0 = spotlightLive(P.phase, P.spotlight, L.spotAgeMs);
     for (let i = 0; i < L.teams.length; i++) {
       const t = L.teams[i];
       const a = L.ranks.get(t.teamId);
       const place = d.mood === "awards" ? L.podiumIds.indexOf(t.teamId) + 1 : 0;
-      L.mascotActions[i] = mascotActionFor({ team: t, phase: P.phase, elapsedMs: L.elapsedMs, spotlight: P.spotlight, spotAgeMs: L.spotAgeMs, delta: a?.delta ?? 0, deltaAge: a?.deltaAge ?? 99, podiumRank: place > 0 ? place : null });
+      L.mascotActions[i] = mascotActionFor({ team: t, phase: P.phase, elapsedMs: L.elapsedMs, spotlight: P.spotlight, spotAgeMs: L.spotAgeMs, delta: a?.delta ?? 0, deltaAge: a?.deltaAge ?? 99, podiumRank: place > 0 ? place : null, teamCount: L.teams.length });
       const inSpot = !!P.spotlight && P.spotlight.teamIds.includes(t.teamId);
       L.mascotShield[i] = inSpot && P.spotlight?.kind === "shield" && L.spotAgeMs < 3600;
       L.mascotDim[i] = d.mood === "awards" && shown > 0 && place === 0 ? 0.3 : (d.mood === "duel" || d.mood === "chaos") && spotOn0 && !inSpot ? 0.5 : 1;
@@ -557,7 +561,7 @@ function PodiumMascots({ liveRef, teams, order }: { liveRef: RefObject<ArenaLive
   useFrame((_, rawDt) => {
     const dt = Math.min(0.1, rawDt);
     const L = liveRef.current;
-    const shown = L.mood.mood === "awards" ? awardsRevealed(L.elapsedMs) : 0;
+    const shown = L.mood.mood === "awards" ? awardsRevealed(L.elapsedMs, L.teams.length) : 0;
     for (let place = 1; place <= 3; place++) {
       const t = order[place - 1];
       if (!t) continue;

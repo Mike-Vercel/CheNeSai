@@ -206,10 +206,31 @@ function drawLogo(ctx: CanvasRenderingContext2D, w: number, h: number, fam: stri
   ctx.fillRect(w * 0.22, h * 0.66, w * 0.56, 4);
   ctx.fillStyle = hexA(TIG.cyan, 0.7);
   ctx.fillRect(w * 0.47, h * 0.66 - 3, w * 0.06, 10);
+  // il nome del gioco è già la riga grande: un titolo uguale non si ripete sotto
+  if (title && title.replace(/[^A-Z]/gi, "").toUpperCase() === "TAVOLIINGUERRA") title = null;
   const tag = (title ?? sub ?? "OGNI TAVOLO CONTA").toUpperCase();
   glow(ctx, tag, w / 2, h * 0.78, "white", fit(ctx, tag, fam, "800", 70, w * 0.62), fam, "800", "center", 6);
   if (title && sub) glow(ctx, sub.toUpperCase(), w / 2, h * 0.91, "cyan", fit(ctx, sub.toUpperCase(), fam, "700", 40, w * 0.6), fam, "700");
   brackets(ctx, w * 0.12, h * 0.1, w * 0.76, h * 0.8, hexA(TIG.cyan, 0.5));
+}
+
+/**
+ * Schermo "d'ambiente": quando l'HUD della pagina occupa il centro (prova in corso, risultati, QR) il LED non mostra
+ * testo, così niente si sovrappone ai pannelli. Restano luce, griglia e un equalizzatore tenue nei colori del gioco.
+ */
+function drawAmbient(ctx: CanvasRenderingContext2D, w: number, h: number) {
+  background(ctx, w, h, TIG.amber, TIG.cyan, 0.8);
+  const n = 48;
+  const gap = w / n;
+  for (let i = 0; i < n; i++) {
+    const k = Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.37) * 0.4);
+    const bh = h * (0.08 + 0.3 * k);
+    ctx.fillStyle = hexA(i < n / 2 ? TIG.amber : TIG.cyan, 0.16 + 0.14 * k);
+    ctx.fillRect(i * gap + gap * 0.18, h / 2 - bh / 2, gap * 0.64, bh);
+  }
+  ctx.fillStyle = hexA(TIG.amber, 0.35);
+  ctx.fillRect(w * 0.3, h * 0.88, w * 0.4, 3);
+  brackets(ctx, w * 0.12, h * 0.1, w * 0.76, h * 0.8, hexA(TIG.cyan, 0.3));
 }
 
 function drawManche(ctx: CanvasRenderingContext2D, w: number, h: number, fam: string, c: LedContent) {
@@ -455,6 +476,9 @@ export function drawLed(canvas: HTMLCanvasElement, c: LedContent, family: string
   switch (c.mode) {
     case "logo":
       drawLogo(ctx, W, H, family, c.subtitle, c.title);
+      break;
+    case "ambient":
+      drawAmbient(ctx, W, H);
       break;
     case "manche":
       drawManche(ctx, W, H, family, c);

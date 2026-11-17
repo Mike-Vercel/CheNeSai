@@ -38,6 +38,18 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
   const h = 250;
   let body: React.ReactNode;
   switch (mode) {
+    case "ambient":
+      // l'HUD della pagina occupa il centro: schermo senza testo
+      body = (
+        <g opacity={0.5}>
+          {Array.from({ length: 24 }, (_, i) => {
+            const k = Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.37) * 0.4);
+            const bh = 30 + 110 * k;
+            return <rect key={i} x={x + 30 + i * 41.5} y={y + h / 2 - bh / 2} width={26} height={bh} rx={4} fill={i < 12 ? TIG.amber : TIG.cyan} opacity={0.25 + 0.3 * k} />;
+          })}
+        </g>
+      );
+      break;
     case "leaderboard": {
       const rows = ranked.slice(0, 6);
       body = (
@@ -138,7 +150,8 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
     default: {
       const big = mode === "logo" ? "TAVOLI IN GUERRA!" : mode === "break" ? (title ?? "PAUSA") : mode === "final" ? (title ?? "TUTTO O NIENTE!") : mode === "evolve" ? (title ?? "EVOLUZIONE!") : (title ?? "TAVOLI IN GUERRA!");
       const over = mode === "manche" || (mode === "title" && props.mancheNo) ? `MANCHE ${props.mancheNo ?? ""}` : null;
-      const small = mode === "logo" ? (title ?? sub ?? "OGNI TAVOLO CONTA") : mode === "evolve" && focus[0] ? `TAVOLO ${focus[0].tableNo} · LIVELLO ${focus[0].mascotLevel}` : sub;
+      const own = title && title.replace(/[^A-Z]/g, "") !== "TAVOLIINGUERRA" ? title : null;
+      const small = mode === "logo" ? (own ?? sub ?? "OGNI TAVOLO CONTA") : mode === "evolve" && focus[0] ? `TAVOLO ${focus[0].tableNo} · LIVELLO ${focus[0].mascotLevel}` : sub;
       const tone = mode === "final" ? TIG.gold : mode === "break" ? "#b9c7ff" : mode === "evolve" ? "#e4c4ff" : "#fff";
       body = (
         <g>
@@ -171,8 +184,10 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
 export default function Arena2D(props: ArenaProps) {
   const teams = useMemo(() => tableOrder(props.teams), [props.teams]);
   const layout = useMemo(() => podLayout(teams.length), [teams.length]);
-  const [since, setSince] = useState(() => ({ phase: props.phase, at: props.now() }));
-  if (since.phase !== props.phase) setSince({ phase: props.phase, at: props.now() });
+  // inizio della fase: dall'orologio del server se la pagina lo passa (come l'arena 3D)
+  const phaseKey = `${props.phase}|${props.phaseStartedAt ?? ""}`;
+  const [since, setSince] = useState(() => ({ key: phaseKey, at: props.phaseStartedAt ?? props.now() }));
+  if (since.key !== phaseKey) setSince({ key: phaseKey, at: props.phaseStartedAt ?? props.now() });
   // battito (2 al secondo) per le scene a tempo: intro, premiazione
   const [, setTick] = useState(0);
   const timed = props.phase === "awards" || props.phase === "intro" || props.phase === "manche-intro" || props.phase === "reveal";
@@ -182,7 +197,8 @@ export default function Arena2D(props: ArenaProps) {
     return () => clearInterval(id);
   }, [timed]);
   const elapsed = Math.max(0, props.now() - since.at);
-  const dir = directArena({ phase: props.phase, elapsedMs: elapsed, spotlight: props.spotlight, spotAgeMs: 0, speaking: false, hostCount: props.hosts.length });
+  const dir0 = directArena({ phase: props.phase, elapsedMs: elapsed, spotlight: props.spotlight, spotAgeMs: 0, speaking: false, hostCount: props.hosts.length, teamCount: teams.length });
+  const dir = props.ledwall === "ambient" ? { ...dir0, led: "ambient" as const } : dir0;
   const scale = scoreScale(Math.max(0, ...teams.map((t) => t.score)));
   const win = normalizeSafeArea(props.safeArea);
   const focus = new Set(props.spotlight?.teamIds ?? []);
@@ -193,7 +209,7 @@ export default function Arena2D(props: ArenaProps) {
   useEffect(() => {
     readyCb.current?.();
   }, []);
-  const awardsShown = props.phase === "awards" ? awardsRevealed(elapsed) : 0;
+  const awardsShown = props.phase === "awards" ? awardsRevealed(elapsed, teams.length) : 0;
   const pods = layout.pods
     .map((p, i) => ({ p, t: teams[i], s: podScreen(p.x, p.z, layout.radius) }))
     .filter((x) => x.t)

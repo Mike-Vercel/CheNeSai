@@ -38,13 +38,16 @@ async function open(browser: Browser, opts: Parameters<Browser["newContext"]>[0]
   return page;
 }
 
+// TIG_E2E_GPU=1: usa la scheda grafica (arena 3D vera negli screenshot invece della riserva 2D del browser senza GPU)
+if (process.env.TIG_E2E_GPU) test.use({ launchOptions: { args: ["--use-angle=d3d11", "--enable-gpu", "--ignore-gpu-blocklist"] } });
+
 test.afterAll(async () => {
   if (created.users.length) await q((sql) => sql`delete from tig_events where owner_user_id in ${sql(created.users)}`);
   for (const id of created.users.splice(0)) await admin.auth.admin.deleteUser(id).catch(() => undefined);
 });
 
 test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, TV, pausa, Caos, premiazione", async ({ browser }) => {
-  test.setTimeout(420_000);
+  test.setTimeout(process.env.TIG_E2E_GPU ? 720_000 : 420_000); // con la GPU tre pagine 3D girano insieme
   const org = await makeUser("tigorg");
   const [u1, u2, u3, u4] = await Promise.all([makeUser("tig1"), makeUser("tig2"), makeUser("tig3"), makeUser("tig4")]);
 
@@ -84,7 +87,7 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   const tvCtx = await browser.newContext(TV);
   const tv = await tvCtx.newPage();
   await tv.goto(`/tavoli-in-guerra/tv/${display_key}`);
-  await expect(tv.getByText("Scansiona il QR del tuo tavolo")).toBeVisible({ timeout: 30_000 });
+  await expect(tv.getByText("Scansiona il QR del tuo tavolo").first()).toBeVisible({ timeout: 30_000 });
   await expect(tv.getByRole("img", { name: "QR del tavolo 2" })).toBeVisible();
 
   // vista per la diretta: niente QR né codici

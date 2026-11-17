@@ -3,7 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import type { ArenaPhase, ArenaSpotlight, ArenaTeam, HostId } from "@/features/tig/arena-contract";
 import { FULL_WINDOW, fitDistance, lensShift, normalizeSafeArea, projectToCanvas, smoothDamp, type FrameWindow, type Vec3 } from "@/features/tig/three/arena/camera-math";
-import { AWARDS_REVEAL_MS, awardsRevealed, directArena, mascotActionFor, spotlightLive, type ShotKind, type ShotSpec } from "@/features/tig/three/arena/director";
+import { AWARDS_REVEAL_MS, awardsRevealAt, awardsRevealed, directArena, mascotActionFor, spotlightLive, type ShotKind, type ShotSpec } from "@/features/tig/three/arena/director";
 import { MIN_HALF_WIDTH, POD, STAGE, U_BACK, U_FRONT, columnHeight, hostMarks, podLayout, podScale, podSpacing, scoreScale, uDepth } from "@/features/tig/three/arena/layout";
 import { RankAnimator, deltaFlash, formatScore, rankOrder, scoreDigits, tableOrder } from "@/features/tig/three/arena/rank-anim";
 import { shotSubject } from "@/features/tig/three/arena/shots";
@@ -250,6 +250,23 @@ describe("regia per fase", () => {
     const t1 = { teamId: "t1", rank: 1, online: true };
     expect(mascotActionFor({ team: t1, phase: "awards", elapsedMs: AWARDS_REVEAL_MS[1] + 10, spotlight: null, spotAgeMs: 0, delta: 0, deltaAge: 99, podiumRank: 1 })).toBe("idle");
     expect(mascotActionFor({ team: t1, phase: "awards", elapsedMs: AWARDS_REVEAL_MS[2] + 10, spotlight: null, spotAgeMs: 0, delta: 0, deltaAge: 99, podiumRank: 1 })).toBe("win");
+  });
+
+  it("premiazione con molti tavoli: prima quelli fuori dal podio, poi il podio, stesso calendario per arena e HUD", () => {
+    for (const n of [2, 3, 8, 20]) {
+      const times = Array.from({ length: n }, (_, i) => awardsRevealAt(n - i, n)); // dall'ultimo al primo
+      for (let i = 1; i < n; i++) expect(times[i]).toBeGreaterThan(times[i - 1]);
+      // quando l'HUD svela il 3°, il 2° e il 1°, il podio dell'arena li ha appena svelati (e non prima)
+      for (const pos of [3, 2, 1].filter((p) => p <= n)) {
+        const at = awardsRevealAt(pos, n);
+        expect(awardsRevealed(at, n)).toBe(4 - pos);
+        expect(awardsRevealed(at - 1, n)).toBe(3 - pos);
+      }
+    }
+    const t1 = { teamId: "t1", rank: 1, online: true };
+    // con 12 tavoli il vincitore non si vede al tempo del podio "breve"
+    expect(mascotActionFor({ team: t1, phase: "awards", elapsedMs: AWARDS_REVEAL_MS[2] + 10, spotlight: null, spotAgeMs: 0, delta: 0, deltaAge: 99, podiumRank: 1, teamCount: 12 })).toBe("idle");
+    expect(directArena({ phase: "awards", elapsedMs: 2000, spotlight: null, spotAgeMs: 0, speaking: false, hostCount: 2, teamCount: 12 }).shot.kind).toBe("led");
   });
 
   it("spotlight: dura un attimo nelle fasi normali, tutta la fase in quelle dedicate", () => {

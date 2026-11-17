@@ -18,7 +18,7 @@ export { preloadTigArena } from "./preload";
 export { HOST_MODELS, HOST_IDS, hostModelUrl, hostModelFiles, type HostModel } from "./characters/host-models";
 export { podLayout, podSpacing, podScale, uDepth, columnHeight, scoreScale, hostMarks, type ArenaLayout, type PodPlacement } from "./arena/layout";
 export { normalizeSafeArea, type FrameWindow } from "./arena/camera-math";
-export { directArena, mascotActionFor, awardsRevealed, type ArenaDirection, type Mood, type ShotKind } from "./arena/director";
+export { directArena, mascotActionFor, awardsRevealed, awardsRevealAt, type ArenaDirection, type Mood, type ShotKind } from "./arena/director";
 export { MASCOTS, MASCOT_SLOT_COUNT, mascotInfo, mascotLabel, mascotModelUrl, listMascots, type MascotSlotInfo } from "../mascots/registry";
 export { TIG as TIG_PALETTE, TIG_FONT_VAR } from "./palette";
 

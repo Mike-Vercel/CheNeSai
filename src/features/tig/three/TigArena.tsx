@@ -30,7 +30,8 @@ export function TigArena(props: ArenaProps) {
 
   if (q === "2d" || failed) return <Arena2D {...props} />;
   return (
-    <div className={props.className}>
+    // senza className riempie il contenitore come l'arena 2D (altrimenti la tela resterebbe alta 150 px)
+    <div className={props.className} style={props.className ? undefined : { position: "relative", width: "100%", height: "100%" }}>
       <div style={{ position: "relative", width: "100%", height: "100%" }}>
         <div style={{ position: "absolute", inset: 0, opacity: ready ? 0 : 1, transition: "opacity 600ms ease", pointerEvents: "none" }} aria-hidden={ready}>
           {!ready && <Arena2D {...props} className="" onReady={undefined} />}

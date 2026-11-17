@@ -94,6 +94,13 @@ export interface ArenaProps {
   safeArea?: { left: number; top: number; right: number; bottom: number };
   className?: string;
   onReady?: () => void;
+  /**
+   * Inizio della fase sull'orologio del server (ms epoch): regia, premiazione e animazioni partono da lì, uguali su
+   * tutti gli schermi e anche dopo un ricaricamento. Senza, l'arena conta da quando vede la fase.
+   */
+  phaseStartedAt?: number | null;
+  /** "ambient": l'HUD della pagina occupa il centro, lo schermo LED non mostra testo (default "auto") */
+  ledwall?: "auto" | "ambient";
 }
 
 export interface MascotProps {
