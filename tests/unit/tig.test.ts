@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import type { MechanicDef } from "@/lib/tig/games/contract";
-import { provaRapida } from "@/lib/tig/games/index";
+import { provaRapida } from "../support/tig-fixture";
 import {
   applyFloor,
   assignMascots,

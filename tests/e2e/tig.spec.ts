@@ -161,45 +161,34 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await shot(tv, "tv-04-intro-manche");
   await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
   await waitState(eventId, ["GAME_ACTIVE"]);
-  await expect(tv.getByText("PROVA RAPIDA (fixture)").first()).toBeVisible({ timeout: 20_000 });
+
+  // ---- prova 1: TEMPO FANTASMA (dev server con TIG_TEST_FORCE_CODES=tempo-fantasma,prevedi-la-maggioranza,sincronizzati)
+  await expect(tv.getByText("Tempo fantasma").first()).toBeVisible({ timeout: 20_000 });
   await shot(tv, "tv-05-regola-prova");
   await shot(p2, "phone-04-regola-prova");
-  // fine della regola: si parte subito
-  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
-  const g = await evRow(eventId);
-  const [{ content }] = await q((sql) => sql<{ content: { answer: number; options: string[] } }[]>`select content from tig_games where id = ${g.current_game_id}`);
-
-  // telefono: tocco sull'opzione giusta, poi INVIA
-  await expect(p1.getByRole("button", { name: new RegExp(content.options[content.answer].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) })).toBeEnabled({ timeout: 20_000 });
-  await expect(tv.getByText(content.options[0]).first()).toBeVisible({ timeout: 20_000 });
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click(); // fine della regola: si parte subito
+  // il secondo telefono dello stesso tavolo non ferma il tempo: lo fa il capitano
+  await expect(p4.getByText("Il tempo scorre: contate insieme, il capitano tocca STOP.")).toBeVisible({ timeout: 20_000 });
+  const stop1 = p1.getByRole("button", { name: "Stop" });
+  await expect(stop1).toBeEnabled({ timeout: 20_000 }); // dopo il conto alla rovescia di 3 secondi
   await shot(tv, "tv-06-prova-in-corso");
-  // il secondo telefono dello stesso tavolo non invia (lo fa il capitano)
-  await expect(p4.getByText("La risposta della squadra la invia il capitano")).toBeVisible({ timeout: 15_000 });
-  await p1.getByRole("button", { name: new RegExp(content.options[content.answer].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) }).click();
+  // la TV non mostra il cronometro in questa prova (nessun timer del core sopra la schermata)
+  await expect(tv.getByRole("timer")).toHaveCount(0);
   await shot(p1, "phone-05-prova-scelta");
-  await p1.getByRole("button", { name: /^INVIA [ABCD]$/ }).click();
-  await expect(p1.getByText("Risposta inviata ✓")).toBeVisible({ timeout: 15_000 });
-  // il secondo telefono dello stesso tavolo, dopo l'invio del capitano, vede la risposta della squadra già inviata
-  await expect(p4.getByText("Risposta inviata ✓")).toBeVisible({ timeout: 15_000 });
-  // PC: tastiera (numero + Invio)
-  await expect(p3.getByText(content.options[0]).first()).toBeVisible({ timeout: 20_000 });
+  await stop1.click();
+  await expect(p1.getByText("Fermato")).toBeVisible({ timeout: 15_000 });
+  // PC: barra spaziatrice
   await shot(p3, "pc-06-prova-pc");
-  await p3.keyboard.press(String(((content.answer + 1) % 4) + 1));
-  await p3.keyboard.press("Enter");
-  await expect(p3.getByText("Risposta inviata ✓")).toBeVisible({ timeout: 15_000 });
-  // terzo tavolo: risposta giusta dal telefono
-  await p2.getByRole("button", { name: new RegExp(content.options[content.answer].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) }).click();
-  await p2.getByRole("button", { name: /^INVIA [ABCD]$/ }).click();
-  // tutti hanno risposto: risultati
+  await p3.keyboard.press("Space");
+  await expect(p3.getByText("Fermato")).toBeVisible({ timeout: 15_000 });
+  await p2.getByRole("button", { name: "Stop" }).click();
   await waitState(eventId, ["GAME_RESULTS"]);
-  await expect(tv.getByText("RISULTATI").first()).toBeVisible({ timeout: 20_000 });
+  await expect(tv.getByText("Bersaglio:", { exact: false }).first()).toBeVisible({ timeout: 20_000 });
   await shot(tv, "tv-07-risultati");
-  await expect(p1.getByText("Il vostro esito")).toBeVisible({ timeout: 20_000 });
-  await expect(p1.getByText(/^\+1\d\d$/).filter({ visible: true })).toBeVisible();
+  await expect(p1.getByText("Il vostro esito").first()).toBeVisible({ timeout: 20_000 });
   await shot(p1, "phone-06-esito");
-  const scores = await q((sql) => sql<{ table_no: number; score: number }[]>`select table_no, score from tig_teams where event_id = ${eventId} order by table_no`);
-  expect(scores[0].score).toBeGreaterThanOrEqual(100);
-  expect(scores[2].score).toBe(0);
+  const ledger1 = await q((sql) => sql<{ n: number }[]>`select count(*)::int as n from tig_submissions s join tig_events e on e.current_game_id = s.game_id where e.id = ${eventId}`);
+  expect(ledger1[0].n).toBe(3);
 
   // classifica sulla TV
   await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
@@ -207,6 +196,52 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await expect(tv.getByRole("list", { name: "Classifica" })).toBeVisible({ timeout: 20_000 });
   await tv.waitForTimeout(800);
   await shot(tv, "tv-08-classifica");
+
+  // ---- prova 2: PREVEDI LA MAGGIORANZA (voto del tavolo + previsione; un voto per tavolo)
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
+  await waitState(eventId, ["GAME_ACTIVE"]);
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
+  for (const page of [p1, p2]) {
+    const vote = page.getByRole("group", { name: "Il vostro voto" });
+    await expect(vote.getByRole("button").first()).toBeEnabled({ timeout: 20_000 });
+    await vote.getByRole("button").first().click();
+    await page.getByRole("group", { name: "La vostra previsione" }).getByRole("button").nth(1).click();
+    if (page === p1) await shot(p1, "phone-07-prevedi-maggioranza");
+    await page.getByRole("button", { name: /Vota e prevedi/ }).click();
+  }
+  // PC con la tastiera: 1 (voto), 2 (previsione), Invio
+  await expect(p3.getByRole("group", { name: "Il vostro voto" }).getByRole("button").first()).toBeEnabled({ timeout: 20_000 });
+  await shot(tv, "tv-09-prevedi-maggioranza");
+  await p3.keyboard.press("1");
+  await p3.keyboard.press("2");
+  await p3.keyboard.press("Enter");
+  await waitState(eventId, ["GAME_RESULTS"]);
+  await shot(tv, "tv-10-prevedi-reveal");
+
+  // ---- prova 3: SINCRONIZZATI (voto segreto di OGNI telefono: conta la percentuale del tavolo, non la somma)
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
+  await waitState(eventId, ["LEADERBOARD"]);
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
+  await waitState(eventId, ["GAME_ACTIVE"]);
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
+  for (const page of [p1, p4, p2]) {
+    const opt = page.getByRole("group").getByRole("button").first();
+    await expect(opt).toBeEnabled({ timeout: 20_000 });
+    await opt.click();
+    if (page === p4) await shot(p4, "phone-08-sincronizzati-secondo-telefono");
+    await page.getByRole("button", { name: /Invia il mio voto/ }).click();
+  }
+  await expect(p3.getByRole("group").getByRole("button").first()).toBeEnabled({ timeout: 20_000 });
+  await p3.keyboard.press("1");
+  await p3.keyboard.press("Enter");
+  await waitState(eventId, ["GAME_RESULTS"]);
+  await shot(tv, "tv-11-sincronizzati-reveal");
+  const votes = await q((sql) => sql<{ n: number }[]>`select count(*)::int as n from tig_submissions s join tig_events e on e.current_game_id = s.game_id where e.id = ${eventId}`);
+  expect(votes[0].n).toBe(4); // due telefoni al tavolo 1, uno agli altri
+  const played = await q((sql) => sql<{ mechanic_code: string }[]>`select mechanic_code from tig_games where event_id = ${eventId} and status = 'scored' order by created_at`);
+  expect(played.map((x) => x.mechanic_code)).toEqual(["tempo-fantasma", "prevedi-la-maggioranza", "sincronizzati"]);
+  await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
+  await waitState(eventId, ["LEADERBOARD"]);
 
   // ------------------------------------------------------------------ pausa e ripresa
   await regia.getByRole("button", { name: "⏸ PAUSA" }).click();
@@ -222,12 +257,12 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await p1.reload();
   const caosBtn = p1.getByRole("button", { name: "BOTTONE DEL CAOS" });
   await expect(caosBtn).toBeEnabled({ timeout: 20_000 });
-  await shot(p1, "phone-07-poteri");
+  await shot(p1, "phone-09-poteri");
   await caosBtn.click();
   await p1.getByRole("button", { name: /TAVOLO 2/ }).click();
   await waitState(eventId, ["GAME_ACTIVE"]);
   await expect(tv.getByText("ALLARME CAOS!").first()).toBeVisible({ timeout: 20_000 });
-  await shot(tv, "tv-09-allarme-caos");
+  await shot(tv, "tv-12-allarme-caos");
   await shot(p3, "pc-08-caos-spettatore");
   await expect(p1.getByRole("button", { name: "CAOS USATO" })).toBeDisabled({ timeout: 20_000 });
   const caosCount = await q(async (sql) => (await sql<{ n: number }[]>`select count(*)::int as n from tig_powers where event_id = ${eventId} and kind = 'caos'`)[0].n);
@@ -246,7 +281,7 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await regia.getByRole("button", { name: "🏁 Vai al finale e alla premiazione" }).click();
   await waitState(eventId, ["FINAL"]);
   await expect(tv.getByText("TUTTO O NIENTE!").first()).toBeVisible({ timeout: 20_000 });
-  await shot(tv, "tv-10-finale");
+  await shot(tv, "tv-13-finale");
   await regia.getByRole("button", { name: "AVANTI ⏭" }).click();
   await waitState(eventId, ["AWARDS", "GAME_ACTIVE"]);
   if ((await evRow(eventId)).state === "GAME_ACTIVE") {
@@ -260,8 +295,8 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
     await waitState(eventId, ["AWARDS"]);
   }
   await expect(tv.getByText("CAMPIONI!")).toBeVisible({ timeout: 30_000 });
-  await shot(tv, "tv-11-premiazione");
-  await shot(p1, "phone-08-premiazione");
+  await shot(tv, "tv-14-premiazione");
+  await shot(p1, "phone-10-premiazione");
   await shot(regia, "pc-09-regia-premiazione");
   await regia.getByRole("button", { name: "CONCLUDI LA SERATA" }).click();
   await waitState(eventId, ["COMPLETED"]);

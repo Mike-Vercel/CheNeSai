@@ -1,8 +1,11 @@
 import { randomUUID } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
-import { afterAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { getSql } from "@/lib/database/db";
-import { provaRapida } from "@/lib/tig/games/index";
+import { MECHANIC_EXTRAS } from "@/lib/tig/games/index";
+import type { PhaseCtx, TeamRef } from "@/lib/tig/games/contract";
+import { setTigRegistryForTests } from "@/lib/server/tig/registry";
+import { fixtureRegistry, provaRapida } from "../support/tig-fixture";
 import type { TigAction } from "@/lib/tig/types";
 import type { TigUser } from "@/lib/server/tig/auth";
 import { _testing, runAction, SYSTEM_ACTOR } from "@/lib/server/tig/engine";
@@ -26,7 +29,11 @@ async function makeUser(label: string): Promise<TigUser> {
   return { userId: r.data.user.id, ip: null, username: label };
 }
 
+// la maggior parte dei test usa la meccanica di prova (risposte note); l'ultimo blocco usa la libreria vera
+beforeAll(() => setTigRegistryForTests(fixtureRegistry()));
+
 afterAll(async () => {
+  setTigRegistryForTests(null);
   if (users.length) await sql`delete from tig_events where owner_user_id in ${sql(users)}`;
   for (const id of users) await auth.auth.admin.deleteUser(id).catch(() => undefined);
 });
@@ -516,3 +523,63 @@ describe("TAVOLI IN GUERRA! · isolamento tra serate", () => {
     await expectCode(act(s.eventId, s.owner, { action: "resume" }), "CLOSED");
   });
 });
+
+describe("TAVOLI IN GUERRA! · serata intera con la libreria vera dei minigiochi", () => {
+  beforeAll(() => setTigRegistryForTests(null));
+  afterAll(() => setTigRegistryForTests(fixtureRegistry()));
+
+  it("19 prove diverse in 5 manche: invii plausibili, punteggi, reveal, scudo, saldi per la puntata; mai soluzioni in anticipo", async () => {
+    const s = await setupEvent(3, { extraPerTable: [2, 1, 0], start: true });
+    const members = await sql<{ id: string; user_id: string }[]>`select id, user_id from tig_members where event_id = ${s.eventId}`;
+    const all = [s.owner, ...s.captains, ...s.extra];
+    const userOf = new Map(members.map((m) => [m.id, all.find((u) => u.userId === m.user_id)!]));
+    const [{ display_key }] = await sql<{ display_key: string }[]>`select display_key from tig_events where id = ${s.eventId}`;
+    const seen = new Set<string>();
+    for (let step = 0; step < 600; step++) {
+      const e = await ev(s.eventId);
+      if (e.state === "COMPLETED") break;
+      if (e.state === "GAME_ACTIVE" && e.current_game_id && !seen.has(e.current_game_id)) {
+        seen.add(e.current_game_id);
+        await goPlay(s.eventId);
+        const [g] = await sql<{ id: string; mechanic_code: string; content: Record<string, unknown>; seed: string; teams: TeamRef[]; participants: string[]; starts_at: Date; deadline_at: Date; kind: string }[]>`select * from tig_games where id = ${e.current_game_id}`;
+        // la TV non riceve mai la soluzione durante la prova
+        const tv = JSON.stringify(await getDisplayState(display_key));
+        for (const k of ["solution", "explain", "answerIndex", "correctId"]) expect(tv.includes(`"${k}"`), `${g.mechanic_code}: ${k} nello stato pubblico`).toBe(false);
+        if (g.mechanic_code === "puntata-nascosta") expect(Object.keys((g.content.balances as Record<string, number>) ?? {})).toHaveLength(3);
+        const ctx: PhaseCtx = { gameInstanceId: g.id, startsAt: g.starts_at.getTime(), deadlineAt: g.deadline_at.getTime(), teams: g.teams, participants: g.participants, seed: g.seed };
+        const demo = MECHANIC_EXTRAS[g.mechanic_code]?.demoSubmissions(g.content as never, ctx, `test:${g.id}`) ?? [];
+        for (const d of demo) {
+          const u = userOf.get(d.memberId);
+          if (u) await act(s.eventId, u, { action: "submit", gameId: g.id, payload: d.payload, idempotencyKey: key() }).catch(() => undefined);
+        }
+      }
+      await expire(s.eventId);
+    }
+    expect((await ev(s.eventId)).state).toBe("COMPLETED");
+    const games = await sql<{ manche_no: number; mechanic_code: string; kind: string; status: string; reveal: unknown; outcome: { outcomes: unknown[] } | null }[]>`select manche_no, mechanic_code, kind, status, reveal, outcome from tig_games where event_id = ${s.eventId} and kind = 'regular'`;
+    expect(games).toHaveLength(19);
+    expect(new Set(games.map((g) => g.mechanic_code)).size).toBe(19); // nessuna meccanica ripetuta
+    for (const n of [1, 2, 3, 4, 5]) expect(games.filter((g) => g.manche_no === n).length, `manche ${n}`).toBe(n === 5 ? 3 : 4);
+    for (const g of games) {
+      expect(g.status, g.mechanic_code).toBe("scored");
+      expect(g.reveal, g.mechanic_code).not.toBe(null);
+      expect(g.outcome?.outcomes.length, g.mechanic_code).toBe(3);
+    }
+    const [{ errors }] = await sql<{ errors: number }[]>`select count(*)::int as errors from tig_log where event_id = ${s.eventId} and kind = 'score_error'`;
+    expect(errors).toBe(0);
+    // saldi coerenti con il registro (mai negativi)
+    for (const t of await teamsOf(s.eventId)) {
+      const [{ sum }] = await sql<{ sum: number }[]>`select coalesce(sum(applied),0)::int as sum from tig_score_ledger where team_id = ${t.id}`;
+      expect(t.score).toBe(sum);
+      expect(t.score).toBeGreaterThanOrEqual(0);
+    }
+    // lo scudo rapido dà davvero uno scudo a chi risponde giusto
+    const scudo = games.find((g) => g.mechanic_code === "scudo-rapido");
+    if (scudo) {
+      const correct = (scudo.outcome?.outcomes as { correct: boolean | null }[]).filter((o) => o.correct === true).length;
+      const [{ n }] = await sql<{ n: number }[]>`select count(*)::int as n from tig_powers where event_id = ${s.eventId} and kind = 'shield' and idempotency_key like 'scudo:%'`;
+      expect(n).toBe(correct);
+    }
+  });
+});
+

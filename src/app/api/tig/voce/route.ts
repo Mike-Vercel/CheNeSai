@@ -41,7 +41,7 @@ export const POST = route(async (req: Request) => {
   }
   if (!eventId) throw new TigError("FORBIDDEN", "Voce riservata alla serata");
   // il titolo del minigioco lo prende il server dal registro (qui arriva solo il codice)
-  const { mechanicByCode } = await import("@/lib/tig/games/index");
-  const minigioco = body.vars.minigioco ? (mechanicByCode(body.vars.minigioco)?.title ?? null) : null;
+  const { mechanicOf } = await import("@/lib/server/tig/registry");
+  const minigioco = body.vars.minigioco ? (mechanicOf(body.vars.minigioco)?.title ?? null) : null;
   return ok(await tigVoiceUrl(eventId, body.characterId, body.lineId, { ...body.vars, minigioco }));
 });

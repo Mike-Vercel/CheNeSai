@@ -34,6 +34,8 @@ export interface SelectionInput {
   /** tempo che resta nella manche (null = nessun limite, es. duello del Caos/spareggio) */
   remainingMs: number | null;
   seed: string;
+  /** varianti di contenuto della meccanica (predefinito: proprietà facoltativa `variants`, vedi games/variants.ts) */
+  variantsOf?: (def: MechanicDef) => ContentVariant[];
 }
 
 export interface Selection {
@@ -82,7 +84,8 @@ export function fitsKind(def: MechanicDef, kind: GameKind): boolean {
 export function selectGame(i: SelectionInput): Selection | null {
   const rnd = seededRandom(`${i.seed}|${i.mancheNo}|${i.slotNo}|${i.kind}`);
   const target = i.kind === "regular" ? difficultyFor(i.mancheNo, i.slotNo, i.gamesInManche) : "media";
-  const ready = i.mechanics.map((def) => ({ def, variants: validVariants(def) })).filter((m) => m.variants.length > 0);
+  const variantsOf = i.variantsOf ?? validVariants;
+  const ready = i.mechanics.map((def) => ({ def, variants: variantsOf(def) })).filter((m) => m.variants.length > 0);
   const compatible = ready.filter((m) => (!i.oneDevice || m.def.oneDeviceOk) && (i.remainingMs === null || gameNeedMs(m.def.timerSec) <= i.remainingMs + 90_000));
   // duello del Caos: meccaniche «duel»; se non ce ne sono, una prova di squadra giocabile con un telefono
   let pool = compatible.filter((m) => fitsKind(m.def, i.kind));

@@ -367,18 +367,14 @@ function GameCard({
     );
   }
   const stage: UiStage = g.stage === "reveal" ? "reveal" : g.stage === "locked" || paused ? "locked" : "play";
+  // la schermata del minigioco ha già titolo e timer (alcune prove, come TEMPO FANTASMA, non devono mostrare il tempo)
   return (
-    <section className="tig-panel flex flex-col gap-3 rounded-3xl p-3 sm:p-4" aria-label={g.title}>
-      <div className="flex items-center gap-3">
-        <div className="min-w-0 flex-1">
-          <p className="tig-label truncate">{caos ? "Duello del Caos" : `Manche ${g.mancheNo} · prova ${g.slotNo}`}</p>
-          <p className="tig-display truncate text-2xl">{g.title}</p>
-        </div>
-        <Countdown deadlineAt={g.deadlineAt} totalMs={g.timerMs} now={now} size="sm" paused={paused} />
-      </div>
+    <section className="flex flex-col gap-3" aria-label={g.title}>
+      {caos && <p className="tig-chip self-center !border-[#ff2d3d]/70 !text-[#ffb3ba]">⚡ Duello del Caos · +50 a chi vince</p>}
       {pv.bet.allowed && <BetPanel view={view} gameId={g.id} act={act} keyFor={keyFor} />}
       {pv.bet.amount !== null && <p className="rounded-xl bg-[#ffb020]/12 px-3 py-2 text-center text-sm font-extrabold text-[#ffd98a]">Puntata del tavolo: {pv.bet.amount} punti</p>}
       {ui ? (
+        <div className="tig-game-slot -mx-3 sm:mx-0">
         <ui.Player
           view={g.view}
           memberView={pv.memberView}
@@ -392,8 +388,9 @@ function GameCard({
           reveal={null}
           myOutcome={null}
         />
+        </div>
       ) : (
-        <p className="text-center font-bold text-white/70">Questo minigioco si gioca guardando la TV.</p>
+        <p className="tig-panel rounded-3xl p-4 text-center font-bold text-white/70">Questo minigioco si gioca guardando la TV.</p>
       )}
     </section>
   );
@@ -446,9 +443,10 @@ function ResultCard({ state, view, now }: { state: TigPublicState; view: PlayerV
     captainId: null,
   };
   return (
-    <section className="tig-panel flex flex-col gap-3 rounded-3xl p-4">
-      {pv.participant ? (
-        <div className={clsx("tig-pop rounded-2xl px-4 py-3 text-center", out?.correct || won ? "bg-[#7cff4f]/12" : "bg-white/5")}>
+    <section className="flex flex-col gap-3">
+      {/* il reveal della meccanica mostra già l'esito della squadra: il riquadro serve solo ai duelli e senza schermata */}
+      {pv.participant && (g.kind !== "regular" || !ui) ? (
+        <div className={clsx("tig-panel tig-pop rounded-3xl px-4 py-3 text-center", out?.correct || won ? "bg-[#7cff4f]/12" : "")}>
           <p className="tig-label">{g.kind === "caos" ? "Duello del Caos" : "Il vostro esito"}</p>
           <p className={clsx("tig-display text-5xl tabular-nums", (out?.points ?? 0) > 0 ? "text-[#7cff4f]" : "text-white/80")}>{(out?.points ?? 0) > 0 ? `+${out!.points}` : (out?.points ?? 0)}</p>
           <p className="font-bold text-white/80">{won ? "Duello vinto!" : (out?.label ?? "Nessuna risposta")}</p>
@@ -458,10 +456,11 @@ function ResultCard({ state, view, now }: { state: TigPublicState; view: PlayerV
             </p>
           ))}
         </div>
-      ) : (
-        <p className="text-center font-bold text-white/70">Risultato del duello sulla TV.</p>
-      )}
+      ) : !pv.participant ? (
+        <p className="tig-panel rounded-3xl p-4 text-center font-bold text-white/70">Risultato del duello sulla TV.</p>
+      ) : null}
       {ui && pv.participant && (
+        <div className="tig-game-slot -mx-3 sm:mx-0">
         <ui.Player
           view={g.view}
           memberView={pv.memberView}
@@ -475,6 +474,7 @@ function ResultCard({ state, view, now }: { state: TigPublicState; view: PlayerV
           reveal={g.reveal}
           myOutcome={out}
         />
+        </div>
       )}
       {state.spotlight?.kind === "evolve" && state.spotlight.teamIds.includes(view.team.teamId) && (
         <p className="tig-pop rounded-2xl bg-[#9b5cff]/20 px-4 py-3 text-center text-xl font-extrabold text-[#e3d4ff]">La vostra mascotte è evoluta: {LEVEL_NAME[view.team.level]}!</p>

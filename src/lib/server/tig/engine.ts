@@ -1,8 +1,6 @@
 import "server-only";
 import { getSql, type Tx } from "@/lib/database/db";
 import type { AcceptedSubmission, MechanicDef, ScoreOutput, TeamOutcome } from "@/lib/tig/games/contract";
-import { MECHANICS, mechanicByCode } from "@/lib/tig/games/index";
-import { validVariants } from "@/lib/tig/games/variants";
 import {
   applyFloor,
   assignMascots,
@@ -36,7 +34,7 @@ import {
   BREAK_AFTER_MANCHE,
   type MascotVote,
 } from "@/lib/tig/rules";
-import { seededRandom, selectGame } from "@/lib/tig/selection";
+import { pickVariant, seededRandom, selectGame } from "@/lib/tig/selection";
 import { segmentsSchema, MANCHE_TITLES, SEGMENT_KEYS, type EventConfig, type EventState, type GameKind, type Spotlight, type TigAction, type TigEventNote, type TigPublicState } from "@/lib/tig/types";
 import { TigError, tigFail } from "./errors";
 import { broadcastTig } from "./realtime";
@@ -58,6 +56,7 @@ import {
   type MemberRow,
   type TeamRow,
 } from "./state";
+import { forcedCode, mechanicOf, tigRegistry } from "./registry";
 import { newSeed } from "./tokens";
 
 /**
@@ -290,7 +289,8 @@ function gamesInManche(ctx: Ctx, n: number) {
 async function startEvent(ctx: Ctx) {
   const playing = ctx.teams.filter(inGame);
   if (playing.length < 2) tigFail("NOT_AVAILABLE", "Servono almeno 2 tavoli convalidati dallo staff per partire");
-  if (!MECHANICS.some((m) => validVariants(m).length > 0)) tigFail("NOT_AVAILABLE", "Nessun minigioco con contenuti pronti: impossibile partire");
+  const reg = tigRegistry();
+  if (!reg.mechanics.some((m) => reg.variantsOf(m).length > 0)) tigFail("NOT_AVAILABLE", "Nessun minigioco con contenuti pronti: impossibile partire");
   await finalizeMascots(ctx);
   ctx.ev.plan = segments(ctx)
     .filter((s) => s.mancheNo)
@@ -341,8 +341,15 @@ async function startNextGame(ctx: Ctx) {
   if (refs.length < 1) return endManche(ctx);
   const hist = await usedHistory(ctx);
   const slot = e.game_index + 1;
-  const sel = selectGame({
-    mechanics: MECHANICS,
+  const reg = tigRegistry();
+  // solo sviluppo/test e2e: prove imposte in ordine (TIG_TEST_FORCE_CODES)
+  const [{ played }] = await ctx.tx<{ played: number }[]>`select count(*)::int as played from tig_games where event_id = ${e.id} and kind = 'regular' and status <> 'voided'`;
+  const forced = forcedCode(played);
+  const forcedDef = forced ? mechanicOf(forced) : undefined;
+  const forcedSel = forcedDef && reg.variantsOf(forcedDef).length ? { def: forcedDef, variant: pickVariant(forcedDef.code, reg.variantsOf(forcedDef), hist, "media", seededRandom(`${e.id}|${slot}`)), repeated: false, difficulty: null } : null;
+  const sel = forcedSel ?? selectGame({
+    mechanics: reg.mechanics,
+    variantsOf: reg.variantsOf,
     mancheNo: e.manche_no,
     slotNo: slot,
     gamesInManche: total,
@@ -369,6 +376,12 @@ async function createGame(
   const startsAt = at(ctx, g.leadMs);
   const deadlineAt = new Date(startsAt.getTime() + g.timerMs);
   const refs = teamRefs(ctx.teams, ctx.members);
+  // contenuto congelato: chi lo prevede riceve i saldi dei tavoli (es. la puntata nascosta: tetto del 25%)
+  if (g.content && typeof g.content === "object" && !Array.isArray(g.content)) {
+    const balances = Object.fromEntries(ctx.teams.filter((t) => g.participants.includes(t.id)).map((t) => [t.id, t.score]));
+    const withBalances = g.def.contentSchema.safeParse({ ...(g.content as Record<string, unknown>), balances });
+    if (withBalances.success && (withBalances.data as Record<string, unknown>).balances) g.content = withBalances.data;
+  }
   const [row] = await ctx.tx<GameRow[]>`
     insert into tig_games (event_id, manche_no, slot_no, kind, attempt, mechanic_code, variant_key, difficulty, content, seed, teams, participants, bet_enabled, status, starts_at, deadline_at, timer_ms, caos_source, caos_target)
     values (${ctx.ev.id}, ${ctx.ev.manche_no}, ${g.slotNo}, ${g.kind}, ${g.attempt ?? 1}, ${g.def.code}, ${g.variantKey}, ${g.difficulty}, ${ctx.tx.json(g.content as never)}, ${newSeed()},
@@ -438,7 +451,7 @@ async function afterFinal(ctx: Ctx) {
 
 async function startTiebreak(ctx: Ctx, ids: string[], n: number) {
   const hist = await usedHistory(ctx);
-  const sel = selectGame({ mechanics: MECHANICS, mancheNo: 5, slotNo: 100 + n, gamesInManche: 1, kind: "tiebreak", ...hist, oneDevice: true, remainingMs: null, seed: `${ctx.ev.id}|tb|${newSeed()}` });
+  const sel = selectGame({ mechanics: tigRegistry().mechanics, variantsOf: tigRegistry().variantsOf, mancheNo: 5, slotNo: 100 + n, gamesInManche: 1, kind: "tiebreak", ...hist, oneDevice: true, remainingMs: null, seed: `${ctx.ev.id}|tb|${newSeed()}` });
   if (!sel) return startAwards(ctx);
   await createGame(ctx, { def: sel.def, variantKey: sel.variant.key, difficulty: sel.difficulty, content: sel.variant.content, kind: "tiebreak", slotNo: 100 + n, participants: ids, timerMs: CAOS_DUEL_MS, leadMs: PHASE_MS.ruleLead });
   ctx.ev.spotlight = { kind: "duel", teamIds: ids, eventId: ctx.ev.current_game_id! };
@@ -557,7 +570,7 @@ async function closeGame(ctx: Ctx) {
     setState(ctx, "GAME_RESULTS", PHASE_MS.reveal);
     return;
   }
-  const def = mechanicByCode(game.mechanic_code);
+  const def = mechanicOf(game.mechanic_code);
   const subs = await ctx.tx<{ team_id: string; member_id: string; elapsed_ms: number; payload: unknown }[]>`
     select team_id, member_id, elapsed_ms, payload from tig_submissions where game_id = ${game.id} and not void order by created_at`;
   const accepted: AcceptedSubmission<unknown>[] = subs.map((s) => ({ teamId: s.team_id, memberId: s.member_id, elapsedMs: s.elapsed_ms, payload: s.payload }));
@@ -644,11 +657,27 @@ async function closeGame(ctx: Ctx) {
     }
   }
 
-  const outcome = { outcomes: applied, stats };
+  // effetti non in punti dichiarati dalla meccanica: lo scudo (uno per manche, non cumulabile, scade a fine manche)
+  const effect = tigRegistry().extras(game.mechanic_code)?.effect;
+  if (game.kind === "regular" && effect?.kind === "scudo") {
+    for (const o of applied) {
+      if (o.correct !== true || !(CAOS_MANCHES as readonly number[]).includes(ctx.ev.manche_no)) continue;
+      const [ins] = await ctx.tx<{ id: string }[]>`
+        insert into tig_powers (event_id, team_id, kind, manche_no, status, idempotency_key)
+        values (${ctx.ev.id}, ${o.teamId}, 'shield', ${ctx.ev.manche_no}, 'active', ${`scudo:${game.id}:${o.teamId}`})
+        on conflict do nothing returning id`;
+      if (ins) {
+        o.label = `${o.label ? `${o.label} · ` : ""}scudo attivo fino a fine manche`;
+        await log(ctx, "shield", { data: { teamId: o.teamId, from: game.mechanic_code } });
+      }
+    }
+  }
+  // l'esito pubblico conserva i campi in più di score() (es. `summary`), con i punti effettivamente applicati
+  const outcome = { ...proposed, outcomes: applied, stats };
   let reveal: unknown = null;
   if (def) {
     try {
-      reveal = def.reveal(game.content as never, { outcomes: applied });
+      reveal = def.reveal(game.content as never, proposed);
     } catch {
       reveal = null;
     }
@@ -1001,7 +1030,7 @@ async function submit(ctx: Ctx, gameId: string, payload: unknown, key: string) {
     return;
   }
   if (ctx.ev.state !== "GAME_ACTIVE" || game.status !== "active") tigFail("TOO_LATE", "Tempo scaduto: le risposte sono chiuse");
-  const def = mechanicByCode(game.mechanic_code);
+  const def = mechanicOf(game.mechanic_code);
   if (!def) tigFail("NOT_AVAILABLE", "Minigioco non disponibile");
   if (!game.participants.includes(t.id)) tigFail("FORBIDDEN", "Il tuo tavolo non partecipa a questa sfida");
   if (!t.approved) tigFail("FORBIDDEN", "Aspetta la convalida dello staff");
@@ -1105,7 +1134,7 @@ async function pressCaos(ctx: Ctx, targetId: string, key: string) {
   t.caos_used = true;
   // il duello: una meccanica da duello registrata; altrimenti una prova di squadra giocabile con un telefono
   const hist = await usedHistory(ctx);
-  const sel = selectGame({ mechanics: MECHANICS, mancheNo: ctx.ev.manche_no, slotNo: 200 + ctx.ev.game_index, gamesInManche: 1, kind: "caos", ...hist, oneDevice: true, remainingMs: null, seed: `${ctx.ev.id}|caos|${newSeed()}` });
+  const sel = selectGame({ mechanics: tigRegistry().mechanics, variantsOf: tigRegistry().variantsOf, mancheNo: ctx.ev.manche_no, slotNo: 200 + ctx.ev.game_index, gamesInManche: 1, kind: "caos", ...hist, oneDevice: true, remainingMs: null, seed: `${ctx.ev.id}|caos|${newSeed()}` });
   if (!sel) tigFail("NOT_AVAILABLE", "Nessun duello disponibile");
   await ctx.tx`
     insert into tig_attacks (event_id, source_team_id, target_team_id, kind, game_id, manche_no, outcome, amount)
@@ -1172,7 +1201,7 @@ async function rollback(ctx: Ctx, reason: string) {
     setState(ctx, "LEADERBOARD", PHASE_MS.leaderboardMin);
   } else {
     // stessa prova, stesso contenuto, timer pieno (nuovo tentativo)
-    const def = mechanicByCode(game.mechanic_code);
+    const def = mechanicOf(game.mechanic_code);
     if (!def) tigFail("NOT_AVAILABLE", "Minigioco non disponibile");
     if (ctx.ev.state === "LEADERBOARD") ctx.ev.state = "GAME_RESULTS";
     await createGame(ctx, { def, variantKey: game.variant_key, difficulty: game.difficulty, content: game.content, kind: game.kind, slotNo: game.slot_no, participants: game.participants.filter((id) => ctx.teams.some((t) => t.id === id && inGame(t))), timerMs: game.timer_ms, leadMs: PHASE_MS.ruleLead, betEnabled: game.bet_enabled, attempt: game.attempt + 1 });

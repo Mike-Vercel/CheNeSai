@@ -19,8 +19,8 @@
   --tig-ice: #f3f5fa;
   --tig-violet: #9b5cff;
   --tig-cyan: #39e0ff;
-  --font-tig: var(--font-tig-display), "Anton", Impact, "Arial Narrow", sans-serif;
-  --font-tig-text: var(--font-tig-body), "Barlow", system-ui, sans-serif;
+  --font-tig: var(--font-tig-display), "Big Shoulders", "Arial Narrow", Impact, sans-serif;
+  --font-tig-text: var(--font-tig-body), "Manrope", system-ui, sans-serif;
   position: relative;
   isolation: isolate;
   font-family: var(--font-tig-text);
@@ -35,7 +35,7 @@
 @layer components {
   .tig-display {
     font-family: var(--font-tig);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.015em;
     text-transform: uppercase;
     line-height: 0.92;
@@ -44,6 +44,7 @@
   /* logo testuale (in attesa del logo grafico): stencil d'ambra con il punto esclamativo rosso */
   .tig-logo {
     font-family: var(--font-tig);
+    font-weight: 900;
     text-transform: uppercase;
     line-height: 0.86;
     letter-spacing: 0.01em;
@@ -96,6 +97,7 @@
     padding: 0 1.6rem;
     border-radius: 0.9rem;
     font-family: var(--font-tig);
+    font-weight: 800;
     font-size: 1.45rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -175,6 +177,7 @@
   /* ledwall: titolo grande con puntinatura LED */
   .tig-led {
     font-family: var(--font-tig);
+    font-weight: 900;
     text-transform: uppercase;
     color: #ffe9b8;
     text-shadow:

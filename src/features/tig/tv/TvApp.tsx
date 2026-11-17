@@ -137,6 +137,9 @@ function TopStrip({ state, live }: { state: TigPublicState; live: boolean }) {
           {state.manche.gameIndex > 0 ? ` · PROVA ${Math.min(state.manche.gameIndex, state.manche.gamesTotal)}/${state.manche.gamesTotal}` : ""}
         </span>
       )}
+      {state.game && state.state === "GAME_ACTIVE" && state.game.kind !== "regular" && (
+        <span className="tig-chip tig-pulse !border-[#ff2d3d]/70 !text-[1.7vmin] !text-[#ffb3ba]">{state.game.kind === "caos" ? "⚡ DUELLO DEL CAOS · +50 A CHI VINCE" : "⚖ SPAREGGIO · 45 SECONDI"}</span>
+      )}
       <span className="flex-1" />
       {!live && (state.state === "LOBBY_OPEN" || state.lateJoin) && <span className="tig-chip !text-[1.5vmin]">Ingresso aperto</span>}
     </div>
@@ -146,7 +149,7 @@ function TopStrip({ state, live }: { state: TigPublicState; live: boolean }) {
 function Captions({ speech }: { speech: ReturnType<typeof useSpeech> }) {
   if (!speech.caption) return null;
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-[17.5vmin] z-30 flex justify-center px-[4vmin]" aria-live="polite">
+    <div className="pointer-events-none absolute inset-x-0 bottom-[1.5vmin] z-30 flex justify-center px-[4vmin]" aria-live="polite">
       <p className="tig-rise max-w-[86vw] rounded-2xl bg-black/80 px-[2.4vmin] py-[1.2vmin] text-center text-[clamp(1rem,2.9vmin,2.4rem)] font-bold leading-snug shadow-2xl ring-1 ring-white/10">
         <span className="mr-2 font-black uppercase tracking-wider text-[#ffb020]">{speech.name}:</span>
         {speech.caption}
@@ -312,14 +315,26 @@ function GameHud({ state, now }: { state: TigPublicState; now: () => number }) {
       color: t.color,
       submitted: g.submittedTeamIds.includes(t.teamId),
     }));
+  // la schermata del minigioco occupa tutto il palco (titolo, timer quando serve, invii dei tavoli): niente
+  // cronometro del core sopra (TEMPO FANTASMA, per esempio, non deve mostrare il tempo)
+  if (ui) return <GameStage>{<ui.Tv view={g.view} stage={stage} deadlineAt={Date.parse(g.deadlineAt)} now={now} teams={tvTeams} reveal={null} outcome={null} />}</GameStage>;
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-[2vmin]">
-      <div className="flex w-full items-center justify-center gap-[3vmin]">
-        <p className={clsx("tig-display text-[5vmin]", caos && "text-[#ff6b78]")}>{caos ? "DUELLO DEL CAOS" : g.title}</p>
-        <Countdown deadlineAt={g.deadlineAt} totalMs={g.timerMs} now={now} size="lg" />
-      </div>
-      {ui ? <ui.Tv view={g.view} stage={stage} deadlineAt={Date.parse(g.deadlineAt)} now={now} teams={tvTeams} reveal={null} outcome={null} /> : <p className="text-[3vmin] font-bold">Guardate i telefoni!</p>}
+      <p className={clsx("tig-display text-[5vmin]", caos && "text-[#ff6b78]")}>{caos ? "DUELLO DEL CAOS" : g.title}</p>
+      <p className="text-[3vmin] font-bold">Guardate i telefoni!</p>
       <SubmittedRow teams={tvTeams} />
+    </div>
+  );
+}
+
+/** Palco della schermata del minigioco: contenitore posizionato a tutta area tra la barra in alto e le postazioni. */
+function GameStage({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="absolute inset-x-[1.5vmin] bottom-[16vmin] top-0 flex items-center justify-center [container-type:size]" data-tig-game-stage>
+      {/* le schermate dei minigiochi sono pensate in 16:9 (unità cqw): il palco resta 16:9 dentro lo spazio libero */}
+      <div className="tig-pop relative" style={{ width: "min(100cqw, 177.78cqh)", aspectRatio: "16 / 9" }}>
+        {children}
+      </div>
     </div>
   );
 }
@@ -374,6 +389,8 @@ function ResultsHud({ state, now }: { state: TigPublicState; now: () => number }
       );
   }
   const outs = (g.outcome?.outcomes ?? []).map((o) => ({ o, t: state.teams.find((x) => x.teamId === o.teamId) })).filter((x) => x.t);
+  // il reveal della meccanica (soluzione, spiegazione, esiti per tavolo) a tutto palco; per i duelli si annuncia il vincitore
+  if (ui && g.kind === "regular") return <GameStage>{<ui.Tv view={g.view} stage="reveal" deadlineAt={Date.parse(g.deadlineAt)} now={now} teams={tvTeams} reveal={g.reveal} outcome={g.outcome} />}</GameStage>;
   return (
     <div className="flex w-full flex-col items-center gap-[2vmin]">
       {g.kind !== "regular" && g.winnerTeamId ? (
@@ -381,7 +398,6 @@ function ResultsHud({ state, now }: { state: TigPublicState; now: () => number }
       ) : (
         <p className="tig-display text-[5vmin] text-[#ffd15c]">{g.title} · RISULTATI</p>
       )}
-      {ui && <ui.Tv view={g.view} stage="reveal" deadlineAt={Date.parse(g.deadlineAt)} now={now} teams={tvTeams} reveal={g.reveal} outcome={g.outcome} />}
       <div className="flex flex-wrap justify-center gap-[1vmin]">
         {outs.map(({ o, t }) => (
           <div

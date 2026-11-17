@@ -1,8 +1,7 @@
 import "server-only";
 import { iso, type Db } from "@/lib/database/db";
 import type { PhaseCtx, MemberCtx, ScoreOutput, TeamRef, TeamOutcome } from "@/lib/tig/games/contract";
-import { CATALOG, MECHANICS, mechanicByCode } from "@/lib/tig/games/index";
-import { validVariants } from "@/lib/tig/games/variants";
+import { mechanicOf, tigRegistry } from "./registry";
 import {
   betCap,
   caosTargetCheck,
@@ -218,16 +217,25 @@ export function gameStage(g: GameRow, nowMs: number): GameStage {
 }
 
 /** Contenuto della prova a schermo: MAI prima del via (stessa partenza per tutti), mai la soluzione. */
-function safePublicView(g: GameRow, stage: GameStage): unknown {
+function safePublicView(g: GameRow, stage: GameStage, nowMs: number): unknown {
   if (stage === "rule") return null;
-  const def = mechanicByCode(g.mechanic_code);
+  const def = mechanicOf(g.mechanic_code);
   if (!def) return null;
   try {
+    // prove a tempo (indizi che si aprono, scena che sparisce): solo ciò che è già visibile a quest'istante
+    const at = tigRegistry().extras(g.mechanic_code)?.publicViewAt;
+    if (at && g.status !== "scored") return at(g.content as never, phaseCtx(g), Math.max(0, Math.min(g.timer_ms, nowMs - g.starts_at.getTime())));
     return def.publicView(g.content as never, phaseCtx(g));
   } catch (e) {
     console.warn("[tig] publicView non riuscita", g.mechanic_code, e instanceof Error ? e.message : e);
     return null;
   }
+}
+
+/** Esito per la TV e i telefoni: l'uscita di score() (con `summary`) e i punti applicati, senza statistiche interne. */
+function publicOutcome(o: NonNullable<GameRow["outcome"]>): ScoreOutput {
+  const { stats: _stats, ...rest } = o;
+  return rest;
 }
 
 /** Il capitano invia; con un solo telefono (o capitano assente da tempo) può inviare chiunque della squadra. */
@@ -289,7 +297,7 @@ export async function buildPublicState(db: Db, ev: EventRow): Promise<TigPublicS
 
   let publicGame: PublicGame | null = null;
   if (game && game.status !== "voided" && ["GAME_ACTIVE", "GAME_RESULTS", "LEADERBOARD", "FINAL", "PAUSED"].includes(ev.state)) {
-    const def = mechanicByCode(game.mechanic_code);
+    const def = mechanicOf(game.mechanic_code);
     const stage = gameStage(game, now);
     const submittedTeamIds = [...new Set(subs.map((s) => s.team_id))];
     publicGame = {
@@ -306,10 +314,10 @@ export async function buildPublicState(db: Db, ev: EventRow): Promise<TigPublicS
       deadlineAt: game.deadline_at.toISOString(),
       timerMs: game.timer_ms,
       stage,
-      view: safePublicView(game, stage),
+      view: safePublicView(game, stage, now),
       submittedTeamIds,
       reveal: game.status === "scored" ? (game.reveal ?? null) : null,
-      outcome: game.status === "scored" && game.outcome ? { outcomes: game.outcome.outcomes } : null,
+      outcome: game.status === "scored" && game.outcome ? publicOutcome(game.outcome) : null,
       winnerTeamId: game.winner_team_id,
       betEnabled: game.bet_enabled,
     };
@@ -393,7 +401,7 @@ export async function buildPlayerView(db: Db, ev: EventRow, member: MemberRow): 
   // prova in corso
   let gameView: PlayerView["game"] = null;
   if (game && game.status !== "voided" && ["GAME_ACTIVE", "GAME_RESULTS", "LEADERBOARD", "PAUSED", "FINAL"].includes(ev.state)) {
-    const def = mechanicByCode(game.mechanic_code);
+    const def = mechanicOf(game.mechanic_code);
     const participant = game.participants.includes(team.id);
     const stage = gameStage(game, now);
     const scope = def && (def.input === "vote" || def.input === "coop") ? member.id : team.id;
@@ -493,8 +501,9 @@ export async function buildRegiaView(db: Db, ev: EventRow): Promise<RegiaView> {
   ]);
   const t = thresholds(config);
   const segs = runOfShow(config.durationMin, config.segments);
-  const implemented = CATALOG.filter((c) => c.status === "implementata").length;
-  const available = MECHANICS.filter((m) => validVariants(m).length > 0).length;
+  const reg = tigRegistry();
+  const implemented = reg.catalog.filter((c) => c.status === "implementata").length;
+  const available = reg.mechanics.filter((m) => reg.variantsOf(m).length > 0).length;
   const game = games.find((g) => g.id === ev.current_game_id) ?? null;
   return {
     role: "organizer",
@@ -528,7 +537,7 @@ export async function buildRegiaView(db: Db, ev: EventRow): Promise<RegiaView> {
     }),
     log: log.map((l) => ({ id: Number(l.id), kind: l.kind, audit: l.audit, reason: l.reason, fromState: l.from_state, toState: l.to_state, at: l.created_at.toISOString(), data: l.data })),
     games: games.map((g) => {
-      const def = mechanicByCode(g.mechanic_code);
+      const def = mechanicOf(g.mechanic_code);
       const perMember = def?.input === "vote" || def?.input === "coop";
       const expected = perMember ? g.teams.filter((x) => g.participants.includes(x.teamId)).reduce((s, x) => s + x.members.length, 0) : g.participants.length;
       return { id: g.id, mancheNo: g.manche_no, slotNo: g.slot_no, kind: g.kind, code: g.mechanic_code, title: def?.title ?? g.mechanic_code, status: g.status, submissions: g.submissions, expected };
@@ -537,6 +546,6 @@ export async function buildRegiaView(db: Db, ev: EventRow): Promise<RegiaView> {
     displayOnline: !!ev.display_seen_at && now - ev.display_seen_at.getTime() <= ONLINE_MS,
     canRollback: (ev.state === "GAME_ACTIVE" || ev.state === "GAME_RESULTS" || ev.state === "LEADERBOARD") && !!game && game.status !== "voided",
     canSkip: ["INTRO", "ROUND_INTRO", "GAME_ACTIVE", "GAME_RESULTS", "LEADERBOARD", "BREAK", "FINAL", "AWARDS"].includes(ev.state),
-    catalog: { implemented, total: CATALOG.length, available },
+    catalog: { implemented, total: reg.catalog.length, available },
   };
 }
