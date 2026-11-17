@@ -114,7 +114,7 @@ const def: MechanicDef<BuiaContent, BuiaSubmission> = {
       const ok = p.optionId === content.solution.optionId;
       const loss = riskLoss(balanceOf(content.balances, t.teamId), RISK_LOSS_MAX);
       return outcome(t.teamId, {
-        points: ok ? RISK_WIN : -loss,
+        points: ok ? RISK_WIN : 0 - loss,
         chaos: CHAOS.partecipa + CHAOS.rischio + (ok ? CHAOS.centro : 0),
         correct: ok,
         accuracy: ok ? 1 : 0,

@@ -114,7 +114,7 @@ const def: MechanicDef<DecisioneContent, DecisioneSubmission> = {
       const risky = s.payload.choice === "rischio";
       const ok = s.payload.optionId === content.solution.optionId;
       const stake = stakeOf(balanceOf(content.balances, t.teamId));
-      const points = ok ? (risky ? POINTS.finalRisk : POINTS.finalSafe) : risky ? -stake : 0;
+      const points = ok ? (risky ? POINTS.finalRisk : POINTS.finalSafe) : risky ? 0 - stake : 0;
       ladder.push({ teamId: t.teamId, choice: s.payload.choice, points });
       return outcome(t.teamId, {
         points,

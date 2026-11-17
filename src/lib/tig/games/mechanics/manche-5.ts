@@ -20,9 +20,9 @@ import { ultimaChiamata } from "./ultima-chiamata";
 export const NUOVE_MANCHE_5 = [
   ultimaChiamata,
   laCassaChiusa,
-  // soloUnDettaglio, (in corso: contenuti da completare)
-  // puntoDiRottura, (in corso: contenuti da completare)
-  // duelloSilenzioso, (in corso: contenuti da completare)
+  soloUnDettaglio,
+  puntoDiRottura,
+  duelloSilenzioso,
   lImboscata,
   treCarteUnDestino,
   ilMercatoFinale,
@@ -32,6 +32,3 @@ export const NUOVE_MANCHE_5 = [
   falsoFinale,
   lUltimaDecisione,
 ] as unknown as MechanicModule[];
-
-/** In corso (contenuti da completare): fuori dal registro finché non sono pronte. */
-export const IN_CORSO_MANCHE_5 = [soloUnDettaglio, puntoDiRottura, duelloSilenzioso] as unknown as MechanicModule[];
