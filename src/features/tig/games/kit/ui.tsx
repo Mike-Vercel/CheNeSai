@@ -328,7 +328,8 @@ export function MyOutcome({ outcome }: { outcome: TeamOutcome | null }) {
   return (
     <Panel tone={neg ? "red" : pos ? "lime" : undefined} className="tg-pop flex items-center gap-4">
       {pos ? (
-        <Doubloon className="h-[4.6rem] min-w-[4.6rem] px-1 text-[2rem]">+{outcome.points}</Doubloon>
+        // il doblone resta tondo: con 3 cifre il numero scende di corpo
+        <Doubloon className={clsx("h-[4.6rem] w-[4.6rem]", String(outcome.points).length >= 3 ? "text-[1.45rem]" : "text-[2rem]")}>+{outcome.points}</Doubloon>
       ) : (
         <div className={clsx("tg-num text-6xl leading-none", neg ? "text-(--tg-red-hi)" : "text-(--tg-cream)/70")}>
           {neg ? "−" : ""}

@@ -459,7 +459,7 @@ function ResultCard({ state, view, now }: { state: TigPublicState; view: PlayerV
         <div className={clsx("tig-panel tig-pop flex flex-col items-center rounded-2xl px-4 py-3 text-center", (out?.correct || won) && "tig-panel-hot")}>
           <p className="tig-label">{g.kind === "caos" ? "Duello del Caos" : "Il vostro esito"}</p>
           {(out?.points ?? 0) > 0 ? (
-            <Doubloon className="my-1 h-20 min-w-20 px-2 text-[2.4rem]">+{out!.points}</Doubloon>
+            <Doubloon className={clsx("my-1 h-20 w-20", String(out!.points).length >= 3 ? "text-[1.6rem]" : "text-[2.3rem]")}>+{out!.points}</Doubloon>
           ) : (
             <p className="tig-display text-5xl tabular-nums text-[#f6ead2]/85">{out?.points ?? 0}</p>
           )}
