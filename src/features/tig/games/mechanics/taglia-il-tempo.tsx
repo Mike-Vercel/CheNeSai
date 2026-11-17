@@ -157,14 +157,14 @@ function Tv(p: T) {
           </p>
           {done ? (
             <>
-              <div className="flex min-h-0 flex-col gap-[0.4cqw] overflow-hidden">
+              <div className={clsx("grid min-h-0 gap-[0.4cqw] overflow-hidden", cuts.length > 6 ? "grid-cols-2" : "grid-cols-1")}>
                 {cuts.length === 0 && <p className="text-[1.6cqw] font-bold text-white/60">Nessun taglio: lampo sbagliato per tutti.</p>}
                 {cuts.map((c, i) => (
                   <div key={c.from} className="tg-rise flex items-center gap-[0.7cqw] rounded-[0.8cqw] bg-white/[0.05] px-[0.8cqw] py-[0.4cqw]" style={{ animationDelay: `${i * 90}ms` }}>
-                    <TvChip teams={p.teams} id={c.from} size={2.6} />
+                    <TvChip teams={p.teams} id={c.from} size={cuts.length > 6 ? 2 : 2.6} />
                     <Scissors className="h-[1.7cqw] w-[1.7cqw] text-[#ff3b4e]" />
-                    <TvChip teams={p.teams} id={c.to} size={2.6} />
-                    <span className="ml-auto text-right text-[1.3cqw] font-extrabold">
+                    <TvChip teams={p.teams} id={c.to} size={cuts.length > 6 ? 2 : 2.6} />
+                    <span className={clsx("ml-auto text-right font-extrabold", cuts.length > 6 ? "text-[1cqw]" : "text-[1.3cqw]")}>
                       {c.applied ? <span className="text-[#ff8c97]">−3 s{knocked.has(c.to) ? " · fuori tempo!" : ""}</span> : <span className="text-white/55">a vuoto</span>}
                     </span>
                   </div>

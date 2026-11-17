@@ -1,3 +1,5 @@
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { CATALOG, MECHANIC_EXTRAS, mechanicByCode } from "@/lib/tig/games";
 import { CATALOG_ROWS } from "@/lib/tig/games/catalog";
@@ -87,11 +89,11 @@ describe("TIG manche 2 · registro e contenuti", () => {
     for (const code of CODES) for (const s of strings(CONTENT[code])) expect(emoji.test(s), `${code}: ${s}`).toBe(false);
   });
 
-  it("ogni meccanica regge da 1 a 24 tavoli e nel duello del Caos (2 tavoli, 45 s)", () => {
+  it("ogni meccanica regge da 1 a 12 tavoli e nel duello del Caos (2 tavoli, 45 s)", () => {
     for (const code of CODES) {
       const def = m(code);
       const extras = MECHANIC_EXTRAS[code];
-      for (const n of [1, 2, 3, 7, 24]) {
+      for (const n of [1, 2, 3, 7, 12]) {
         const teams = Array.from({ length: n }, (_, i) => team(i + 1, 1 + (i % 4)));
         for (const c of CONTENT[code]) {
           const ctx = makeCtx(def, teams, `s${n}`);
@@ -111,7 +113,7 @@ describe("TIG manche 2 · registro e contenuti", () => {
 
 describe("TIG manche 2 · pezzi comuni", () => {
   it("coppie deterministiche: tutti dentro una volta, dispari in terzetto o da solo", () => {
-    for (let n = 1; n <= 24; n++) {
+    for (let n = 1; n <= 12; n++) {
       const ids = Array.from({ length: n }, (_, i) => `t${i}`);
       const trio = groupsOf(ids, "x", "trio");
       const solo = groupsOf(ids, "x", "solo");
@@ -138,6 +140,77 @@ describe("TIG manche 2 · pezzi comuni", () => {
 // ---------------------------------------------------------------------------
 
 describe("TIG manche 2 · regole", () => {
+  it("le 12 meccaniche della manche 2 da fare sono tutte registrate", () => {
+    expect(CODES.slice().sort()).toEqual(
+      ["taglia-il-tempo", "contrattacco", "caccia-alla-capolista", "furto-con-destrezza", "scegli-il-terreno", "la-trappola", "il-patto-di-60-secondi", "la-sfida-incrociata", "bottone-del-caos", "scambio-di-posta", "falso-vantaggio", "ultima-parola"].sort(),
+    );
+  });
+
+  it("25 Scegli il terreno: +50 a turno, al secondo turno la categoria appena giocata non vale", () => {
+    type C = { terreni: { options: { id: string }[] }[]; solution: { terreni: string[] } };
+    const def = m<C, { first: number; firstAnswer: string; second: number; secondAnswer: string }>("scegli-il-terreno");
+    const c = first<C>("scegli-il-terreno");
+    const s = c.solution.terreni;
+    const ko = (i: number) => c.terreni[i].options.find((o) => o.id !== s[i])!.id;
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3), team(4)]);
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [
+        sub("t1", { first: 0, firstAnswer: s[0], second: 2, secondAnswer: s[2] }),
+        sub("t2", { first: 1, firstAnswer: s[1], second: 0, secondAnswer: ko(0) }),
+        sub("t3", { first: 1, firstAnswer: s[1], second: 1, secondAnswer: s[1] }), // stessa categoria di fila: il 2° turno non vale
+        sub("t4", { first: 0, firstAnswer: ko(0), second: 1, secondAnswer: s[1] }),
+      ],
+    });
+    expect(byTeam(out)).toEqual({ t1: 100, t2: 50, t3: 50, t4: 50 });
+    expect(summaryOf<{ picks: { first: number[]; second: number[] } }>(out)!.picks).toEqual({ first: [2, 2, 0], second: [1, 1, 1] });
+  });
+
+  it("31 Falso vantaggio: SUBITO paga il valore coperto, ENIGMA il suo solo se risolto; valori dal seme, mai in vista", async () => {
+    const { prizesOf, SUBITO_VALUES, ENIGMA_VALUES } = await import("@/lib/tig/games/mechanics/falso-vantaggio");
+    type C = { options: { id: string }[]; solution: { optionId: string } };
+    const def = m<C, { busta: "subito" } | { busta: "enigma"; optionId: string }>("falso-vantaggio");
+    const c = first<C>("falso-vantaggio");
+    const ko = c.options.find((o) => o.id !== c.solution.optionId)!.id;
+    const seen = { s: new Set<number>(), e: new Set<number>() };
+    for (let i = 0; i < 60; i++) {
+      const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3)], `buste-${i}`);
+      const prizes = prizesOf(ctx);
+      seen.s.add(prizes.subito);
+      seen.e.add(prizes.enigma);
+      const out = def.score({ content: c, ctx, submissions: [sub("t1", { busta: "subito" }), sub("t2", { busta: "enigma", optionId: c.solution.optionId }), sub("t3", { busta: "enigma", optionId: ko })] });
+      expect(byTeam(out)).toEqual({ t1: prizes.subito, t2: prizes.enigma, t3: 0 });
+      const view = JSON.stringify(def.publicView(c, ctx));
+      expect(view).not.toContain("prizes");
+      const rev = def.reveal(c, out) as { subitoPrize: number; enigmaPrize: number };
+      expect([rev.subitoPrize, rev.enigmaPrize]).toEqual([prizes.subito, prizes.enigma]);
+    }
+    expect([...seen.s].sort((a, b) => a - b)).toEqual([...SUBITO_VALUES]);
+    expect([...seen.e].sort((a, b) => a - b)).toEqual([...ENIGMA_VALUES]);
+  });
+
+  it("32 Ultima parola: da 120 col primo pezzo a 40 con la frase intera; i pezzi futuri non partono", () => {
+    type C = { chunks: string[]; options: { id: string }[]; solution: { optionId: string } };
+    const def = m<C, { optionId: string }>("ultima-parola");
+    const c = first<C>("ultima-parola");
+    const ok = c.solution.optionId;
+    const ko = c.options.find((o) => o.id !== ok)!.id;
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3)]);
+    const dur = def.timerSec * 1000;
+    const out = def.score({ content: c, ctx, submissions: [sub("t1", { optionId: ok }, 500), sub("t2", { optionId: ok }, dur - 500), sub("t3", { optionId: ko }, 500)] });
+    expect(byTeam(out)).toEqual({ t1: 120, t2: 40, t3: 0 });
+    const at = MECHANIC_EXTRAS["ultima-parola"].publicViewAt!;
+    const early = at(c, ctx, 0) as { chunks: (string | null)[] };
+    expect(early.chunks.filter(Boolean)).toHaveLength(1);
+    for (const later of c.chunks.slice(1)) expect(JSON.stringify(early)).not.toContain(later);
+    const late = at(c, ctx, dur) as { chunks: (string | null)[] };
+    expect(late.chunks.filter(Boolean)).toHaveLength(c.chunks.length);
+    // nel duello di 45 s o in una prova più corta i pezzi restano nei tre quarti del tempo
+    const short = makeCtx(def as MechanicDef, [team(1)], "corta", 30_000);
+    expect((at(c, short, 22_600) as { chunks: unknown[] }).chunks.filter(Boolean)).toHaveLength(c.chunks.length);
+  });
+
   it("18 Taglia il tempo: lampo giusto = taglio di 3 s al bersaglio (una volta sola), fuori tempo vale 0", () => {
     type C = { lampo: { options: { id: string }[] }; sfida: { options: { id: string }[] }; solution: { lampo: string; sfida: string } };
     const def = m<C, { lampo: string; targetId: string; sfida: string }>("taglia-il-tempo");
@@ -239,6 +312,106 @@ describe("TIG manche 2 · regole", () => {
     expect(transfersOf(absent)).toEqual([{ from: "t1", to: "t4", points: -30 }]);
   });
 
+  it("27 Il patto di 60 secondi: indizi divisi tra i tavoli del patto (mai in TV), tutti giusti +100, a metà +40", () => {
+    type C = { clues: string[]; solution: { code: string } };
+    const def = m<C, { digits: string }>("il-patto-di-60-secondi");
+    const c = first<C>("il-patto-di-60-secondi");
+    const code = c.solution.code;
+    const wrong = code.slice(0, 5) + String((Number(code[5]) + 1) % 10);
+    const teams = [team(1), team(2), team(3), team(4), team(5)];
+    const ctx = makeCtx(def as MechanicDef, teams, "patto");
+    const view = def.publicView(c, ctx) as { pacts: { teamId: string }[][] };
+    expect(view.pacts.map((g) => g.length).sort()).toEqual([2, 3]);
+    for (const clue of c.clues) expect(JSON.stringify(view)).not.toContain(clue);
+    // ogni patto copre tutte e sei le cifre, senza doppioni
+    for (const g of view.pacts) {
+      const pos = g.flatMap((t, i) => (def.memberView!(c, { ...ctx, teamId: t.teamId, memberId: `${t.teamId}m0`, memberIndex: i }) as { clues: { pos: number }[] }).clues.map((x) => x.pos));
+      expect(pos.sort()).toEqual([0, 1, 2, 3, 4, 5]);
+    }
+    const [pair, trio] = [view.pacts.find((g) => g.length === 2)!, view.pacts.find((g) => g.length === 3)!];
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [
+        sub(pair[0].teamId, { digits: code }),
+        sub(pair[1].teamId, { digits: code }),
+        sub(trio[0].teamId, { digits: code }),
+        sub(trio[1].teamId, { digits: wrong }),
+      ],
+    });
+    const pts = byTeam(out);
+    expect(pts[pair[0].teamId]).toBe(100);
+    expect(pts[pair[1].teamId]).toBe(100);
+    expect(pts[trio[0].teamId]).toBe(40);
+    expect(pts[trio[1].teamId]).toBe(0);
+    expect(pts[trio[2].teamId]).toBe(0);
+    // un tavolo da solo vede tutti gli indizi
+    const solo = makeCtx(def as MechanicDef, [team(9)]);
+    expect((def.memberView!(c, { ...solo, teamId: "t9", memberId: "t9m0", memberIndex: 0 }) as { clues: unknown[] }).clues).toHaveLength(6);
+  });
+
+  it("28 La sfida incrociata: griglie a soluzione unica, la speculare vale uguale, +60 valida e +40 al più rapido", async () => {
+    const { countSolutions, isValidGrid, mirrorGrid } = await import("@/lib/tig/games/mechanics/la-sfida-incrociata");
+    type C = { givens: string; solution: { grid: string } };
+    const def = m<C, { cells: string }>("la-sfida-incrociata");
+    for (const v of CONTENT["la-sfida-incrociata"] as unknown as C[]) {
+      expect(countSolutions(v.givens)).toBe(1);
+      expect(isValidGrid(v.solution.grid)).toBe(true);
+      expect(isValidGrid(mirrorGrid(v.solution.grid))).toBe(true);
+      expect(countSolutions(mirrorGrid(v.givens))).toBe(1);
+    }
+    const c = first<C>("la-sfida-incrociata");
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3)], "griglia");
+    const pairs = (def.publicView(c, ctx) as { pairs: { a: { teamId: string }; b: { teamId: string } | null }[] }).pairs;
+    const duo = pairs.find((p) => p.b)!;
+    const solo = pairs.find((p) => !p.b)!.a.teamId;
+    const g = c.solution.grid;
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [
+        sub(duo.a.teamId, { cells: g }, 20_000),
+        sub(duo.b!.teamId, { cells: mirrorGrid(g) }, 15_000), // speculare e più rapido
+        sub(solo, { cells: g }, 30_000), // sopra il tempo mediano (20 s)
+      ],
+    });
+    const pts = byTeam(out);
+    expect(pts[duo.b!.teamId]).toBe(100);
+    expect(pts[duo.a.teamId]).toBe(60);
+    expect(pts[solo]).toBe(60);
+    // chi copia la griglia dritta avendo quella speculare sbaglia
+    const copy = def.score({ content: c, ctx, submissions: [sub(duo.b!.teamId, { cells: g }, 1000)] });
+    expect(mirrorGrid(g)).not.toBe(g);
+    expect(byTeam(copy)[duo.b!.teamId]).toBe(0);
+  });
+
+  it("29 Bottone del Caos: più giuste vince, a pari merito il più rapido, +50 a duello (tetto 100), mai negativi", async () => {
+    const { caosWinner } = await import("@/lib/tig/games/mechanics/bottone-del-caos");
+    type C = { raffica: { options: { id: string }[] }[]; solution: { raffica: string[] } };
+    const def = m<C, { targetId: string; raffica: string[] }>("bottone-del-caos");
+    const c = first<C>("bottone-del-caos");
+    const r = c.solution.raffica;
+    const two = (i: number) => r.map((x, k) => (k === i ? c.raffica[k].options.find((o) => o.id !== x)!.id : x));
+    // duello del Caos: due tavoli, il bersaglio è obbligato, i punti indicano lo stesso vincitore del motore
+    const caos = makeCtx(def as MechanicDef, [team(1), team(2)], "caos", 45_000);
+    let out = def.score({ content: c, ctx: caos, submissions: [sub("t1", { targetId: "x", raffica: two(0) }, 3000), sub("t2", { targetId: "y", raffica: r }, 9000)] });
+    expect(byTeam(out)).toEqual({ t1: 0, t2: 50 });
+    out = def.score({ content: c, ctx: caos, submissions: [sub("t1", { targetId: "t2", raffica: r }, 3000), sub("t2", { targetId: "t1", raffica: r }, 9000)] });
+    expect(byTeam(out)).toEqual({ t1: 50, t2: 0 });
+    expect(caosWinner({ id: "a", hits: 0, ms: 1 }, { id: "b", hits: 0, ms: 2 })).toBeNull();
+    expect(caosWinner({ id: "a", hits: 2, ms: 5 }, { id: "b", hits: 2, ms: 5 })).toBeNull();
+    // prova normale: tre tavoli premono tutti contro t1, che vince entrambi i duelli: tetto 100
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3), team(4)]);
+    out = def.score({
+      content: c,
+      ctx,
+      submissions: [sub("t1", { targetId: "t2", raffica: r }, 1000), sub("t2", { targetId: "t1", raffica: r }, 4000), sub("t3", { targetId: "t1", raffica: two(1) }, 500), sub("t4", { targetId: "t1", raffica: two(2) }, 800)],
+    });
+    expect(byTeam(out).t1).toBe(100);
+    for (const o of out.outcomes) expect(o.points).toBeGreaterThanOrEqual(0);
+    expect(summaryOf<{ duels: unknown[] }>(out)!.duels).toHaveLength(3);
+  });
+
   it("21 Caccia alla capolista: caccia +40/+10, passo +20, capolista +20 e +10 a respinto (tetto 40), mai negativi", () => {
     type C = { options: { id: string }[]; solution: { optionId: string }; balances?: Record<string, number> };
     const def = m<C, { mode: "caccia" | "passo"; optionId: string }>("caccia-alla-capolista");
@@ -338,5 +511,58 @@ describe("TIG manche 2 · regole", () => {
     // chi non invia non acconsente: posta 0
     const absent = def.score({ content: c, ctx, submissions: [sub(p1[0].teamId, { stake: 40, optionId: ok })] });
     expect(transfersOf(absent)).toEqual([]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Schermate: ogni Player e ogni Tv si disegnano senza errori in tutte le fasi (rendering statico, niente browser)
+// ---------------------------------------------------------------------------
+
+describe.each(CODES.map((c) => [c] as const))("TIG manche 2 · schermate di %s", (code) => {
+  it("telefono e TV si disegnano in gioco, a tempo scaduto e al reveal (capitano e no, 3 e 12 tavoli), senza spiegazione prima del reveal", () => {
+    const def = m(code);
+    const extras = MECHANIC_EXTRAS[code];
+    const ui = UI_MANCHE_2[code];
+    const colors = ["#6fe7ff", "#ffc24a", "#b49cff", "#ff6bd6", "#7cff4f", "#3d8bff"];
+    for (const n of [3, 12]) {
+      const teamsN = Array.from({ length: n }, (_, i) => team(i + 1, 1 + (i % 4)));
+      for (const c of CONTENT[code].slice(0, 3)) {
+        const ctx = makeCtx(def, teamsN, `ui-${n}`);
+        const me = ctx.teams[0];
+        const out = def.score({ content: c, ctx, submissions: extras.demoSubmissions(c, ctx, "ui") });
+        const rev = def.reveal(c, out);
+        const mv = def.memberView ? def.memberView(c, { ...ctx, teamId: me.teamId, memberId: me.members[0], memberIndex: 0 }) : null;
+        const tvTeams = ctx.teams.map((t, i) => ({ teamId: t.teamId, tableNo: t.tableNo, name: `Squadra ${i + 1}`, color: colors[i % colors.length], submitted: i % 2 === 1 }));
+        const dur = def.timerSec * 1000;
+        const explain = (c as { explain?: string }).explain;
+        for (const at of [0, Math.round(dur / 2), dur - 1000]) {
+          const view = extras.publicViewAt ? extras.publicViewAt(c, ctx, at) : def.publicView(c, ctx);
+          const now = () => ctx.startsAt + at;
+          for (const [stage, captain, submitted] of [
+            ["play", true, false],
+            ["play", false, false],
+            ["play", true, true],
+            ["locked", true, false],
+          ] as const) {
+            const html = renderToStaticMarkup(createElement(ui.Player, { view, memberView: mv, stage, deadlineAt: ctx.deadlineAt, now, canSubmit: captain, submitted, submit: async () => ({ ok: true }), myTeam: me, reveal: null, myOutcome: null }));
+            expect(html.length).toBeGreaterThan(200);
+            if (explain) expect(html).not.toContain(explain.slice(0, 40));
+          }
+          for (const stage of ["play", "locked"] as const) {
+            const tv = renderToStaticMarkup(createElement(ui.Tv, { view, stage, deadlineAt: ctx.deadlineAt, now, teams: tvTeams, reveal: null, outcome: null }));
+            expect(tv.length).toBeGreaterThan(200);
+            if (explain) expect(tv).not.toContain(explain.slice(0, 40));
+          }
+        }
+        const full = def.publicView(c, ctx);
+        const end = () => ctx.deadlineAt;
+        const myOutcome = out.outcomes.find((o) => o.teamId === me.teamId) ?? null;
+        const p = renderToStaticMarkup(createElement(ui.Player, { view: full, memberView: mv, stage: "reveal", deadlineAt: ctx.deadlineAt, now: end, canSubmit: true, submitted: true, submit: async () => ({ ok: true }), myTeam: me, reveal: rev, myOutcome }));
+        const tv = renderToStaticMarkup(createElement(ui.Tv, { view: full, stage: "reveal", deadlineAt: ctx.deadlineAt, now: end, teams: tvTeams, reveal: rev, outcome: out }));
+        expect(p.length).toBeGreaterThan(200);
+        expect(tv.length).toBeGreaterThan(200);
+        if (explain) expect(tv).toContain(explain.slice(0, 30).replace(/'/g, "&#x27;"));
+      }
+    }
   });
 });

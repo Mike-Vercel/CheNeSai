@@ -133,7 +133,7 @@ function Tv(p: T) {
           </p>
           {done && reveal.summary ? (
             reveal.summary.heists.length ? (
-              <div className="grid min-h-0 grid-cols-1 gap-[0.4cqw] overflow-hidden">
+              <div className={clsx("grid min-h-0 gap-[0.4cqw] overflow-hidden", reveal.summary.heists.length > 6 ? "grid-cols-2" : "grid-cols-1")}>
                 {reveal.summary.heists.map((h, i) => {
                   const tr = applied.find((a) => a.from === h.from && a.to === h.to);
                   const right = h.second ? (

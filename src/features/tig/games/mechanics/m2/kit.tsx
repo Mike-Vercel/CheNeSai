@@ -130,6 +130,27 @@ export function TrapGlyph({ className }: { className?: string }) {
   );
 }
 
+/** I quattro simboli della griglia incrociata (1 boccale, 2 pizza, 3 dado, 4 nota), disegnati. */
+export const GRID_SYMBOLS: Record<string, { name: string; color: string }> = {
+  "1": { name: "boccale", color: "#ffc24a" },
+  "2": { name: "pizza", color: "#ff6b5a" },
+  "3": { name: "dado", color: "#6fe7ff" },
+  "4": { name: "nota", color: "#b49cff" },
+};
+
+export function GridSymbol({ v, className }: { v: string; className?: string }) {
+  const s = GRID_SYMBOLS[v];
+  if (!s) return null;
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={s.color} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" role="img" aria-label={s.name}>
+      {v === "1" && <path d="M6 7h9v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM15 10h2.5a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H15M6 7c0-2 1.5-3 3-3 .8-1 2.5-1 3.3 0 1.5 0 2.7 1 2.7 3M9 11v6M12 11v6" />}
+      {v === "2" && <path d="M12 21L3.5 6.5C8.5 3.5 15.5 3.5 20.5 6.5zM5.5 9.5c4-2 9-2 13 0M10 11.5h.01M14 13h.01M12 16.5h.01" />}
+      {v === "3" && <path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zM8.5 8.5h.01M15.5 8.5h.01M12 12h.01M8.5 15.5h.01M15.5 15.5h.01" />}
+      {v === "4" && <path d="M9 18V5l11-2v13M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM20 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM9 9l11-2" />}
+    </svg>
+  );
+}
+
 /** Numero con segno (+40, −30, 0). */
 export function signed(n: number): string {
   return n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : "0";
