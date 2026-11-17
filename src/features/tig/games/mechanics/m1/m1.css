@@ -137,7 +137,7 @@
 }
 @keyframes tg1-ticker {
   from {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
   to {
     transform: translateX(-100%);
@@ -164,5 +164,20 @@
   .tg1-flash {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* coriandoli (Il dettaglio da 100) */
+.tg1-fall {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tg1-fall linear infinite;
+}
+@keyframes tg1-fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(100px) rotate(320deg);
   }
 }

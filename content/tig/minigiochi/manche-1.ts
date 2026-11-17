@@ -1,5 +1,8 @@
 import effettoDomino from "./effetto-domino";
+import feedIn5Secondi from "./feed-in-5-secondi";
+import ilDettaglioDa100 from "./il-dettaglio-da-100";
 import laSequenzaSporca from "./la-sequenza-sporca";
+import nonEQuelloCheSembra from "./non-e-quello-che-sembra";
 import sottoLaSuperficie from "./sotto-la-superficie";
 import titoliTagliati from "./titoli-tagliati";
 
@@ -10,7 +13,10 @@ import titoliTagliati from "./titoli-tagliati";
  */
 export const CONTENUTI_MANCHE_1: Record<string, readonly unknown[]> = {
   "titoli-tagliati": titoliTagliati,
+  "non-e-quello-che-sembra": nonEQuelloCheSembra,
   "la-sequenza-sporca": laSequenzaSporca,
+  "il-dettaglio-da-100": ilDettaglioDa100,
+  "feed-in-5-secondi": feedIn5Secondi,
   "effetto-domino": effettoDomino,
   "sotto-la-superficie": sottoLaSuperficie,
 };
