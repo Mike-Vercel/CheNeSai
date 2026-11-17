@@ -82,7 +82,11 @@ autocontenuta e simultanea:
 
 - 56 e 55 usano lo stesso giro dei tavoli di 49 (componenti `ring`/`ringColors`): con un solo tavolo non ci sono
   collegamenti e si gioca solo la parte «propria».
-- La TV dei duelli (giro con frecce) è pensata fino a 12 tavoli; oltre, le etichette delle frecce si fanno piccole.
+- La TV dei duelli mostra il giro con le frecce fino a 8 tavoli; da 9 a 12 diventa un elenco «tavolo → tavolo» a due
+  colonne con lo stesso colore ed esito (sul cerchio le etichette sarebbero illeggibili da 5 metri).
+- Controllo visivo fatto con 3 e con 12 tavoli (telefono, PC, TV; in gioco, a tempo scaduto, al reveal): con 12 tavoli
+  la striscia delle squadre va su due righe, quindi al reveal alcune schermate si compattano (in 50, 57 e 62 resta
+  solo la risposta giusta o il «perché» prende il posto dei fatti già ripetuti nelle note).
 - Le testimonianze e i casi sono scritti a mano: dove la soluzione non è verificabile in automatico (58, 60, 62, 50,
   56, 63) ogni variante ha la spiegazione del perché nel reveal; dove è possibile la verifica è nello schema
   (52 maggioranza, 53/61/64 eliminazioni, 55 numero di bugie).

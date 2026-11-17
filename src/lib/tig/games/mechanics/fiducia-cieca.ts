@@ -79,7 +79,8 @@ export const fiduciaSubmission = z
 export type FiduciaSubmission = z.infer<typeof fiduciaSubmission>;
 
 export interface FiduciaView extends BaseView {
-  title: string;
+  /** titolo del rompicapo (il titolo della meccanica resta `title`) */
+  puzzleTitle: string;
   act: string;
   liars: number;
   people: Option[];
@@ -154,7 +155,7 @@ const def: MechanicDef<FiduciaContent, FiduciaSubmission> = {
     const name = new Map(c.people.map((p) => [p.id, p.text]));
     return {
       ...baseView(def, ctx),
-      title: c.title,
+      puzzleTitle: c.title,
       act: c.act,
       liars: c.liars,
       people: publicOptions(c.people, `${ctx.seed}:persone`),

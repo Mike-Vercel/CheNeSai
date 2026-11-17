@@ -96,15 +96,19 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Il testimone affidabile e le due testimonianze che non reggono" : view.question}>
       <div className="grid h-full grid-cols-[1fr_1.2fr] gap-[1.4cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          <TvPanel className="flex flex-col gap-[0.8cqw]">
-            <p className="tg-display text-[2.2cqw]">{view.caseTitle}</p>
-            <FactList facts={view.facts} tv title="Fatti certi" />
+          <TvPanel className={clsx("flex shrink-0 flex-col", done ? "gap-[0.5cqw] py-[1.2cqw]" : "gap-[0.8cqw]")}>
+            <p className={clsx("tg-display", done ? "text-[1.8cqw]" : "text-[2.2cqw]")}>{view.caseTitle}</p>
+            <div className={clsx(done && "[&_li]:text-[1.2cqw]")}>
+              <FactList facts={view.facts} tv title="Fatti certi" />
+            </div>
           </TvPanel>
-          <TvPanel className="grid grid-cols-1 content-start gap-[0.5cqw]">
-            {view.options.map((o, i) => (
-              <TvOption key={o.id} index={i} text={o.text} size="sm" state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
-            ))}
+          <TvPanel className="grid shrink-0 grid-cols-1 content-start gap-[0.5cqw]">
+            {view.options.map((o, i) =>
+              // al reveal resta solo la risposta giusta: la spiegazione sta sotto, anche con 12 tavoli in basso
+              done && o.id !== reveal.solutionId ? null : <TvOption key={o.id} index={i} text={o.text} size="sm" state={done ? "right" : "idle"} />,
+            )}
           </TvPanel>
+          {done && <TvExplain text={reveal.explain} className="shrink-0 py-[0.8cqw]" />}
         </div>
         <div className="flex min-h-0 flex-col gap-[0.8cqw]">
           {view.sources.map((s, i) => {
@@ -113,7 +117,8 @@ function Tv(p: T) {
               <div
                 key={s.id}
                 className={clsx(
-                  "tg-rise flex min-h-0 items-start gap-[1cqw] rounded-[1.1cqw] border-[0.18cqw] px-[1.2cqw] py-[0.9cqw]",
+                  "tg-rise flex shrink-0 items-start gap-[1cqw] rounded-[1.1cqw] border-[0.18cqw] px-[1.2cqw]",
+                  r ? "py-[0.6cqw]" : "py-[0.9cqw]",
                   !r && "border-dashed border-[#c6ff3d]/50 bg-[repeating-linear-gradient(135deg,rgba(198,255,61,0.05)_0_1cqw,transparent_1cqw_2cqw)]",
                   r?.reliable && "tg-pop border-[#c6ff3d] bg-[#c6ff3d]/12",
                   r && !r.reliable && "border-[#ff3b4e]/70 bg-[#ff3b4e]/10",
@@ -122,10 +127,13 @@ function Tv(p: T) {
               >
                 <Icon name={r ? (r.reliable ? "check" : "x") : "lock"} className={clsx("mt-[0.2cqw] h-[2.4cqw] w-[2.4cqw] shrink-0", r ? (r.reliable ? "text-[#c6ff3d]" : "text-[#ff3b4e]") : "text-[#c6ff3d]/70")} />
                 <div className="min-w-0">
-                  <p className="tg-display text-[1.9cqw]">{s.source}</p>
+                  <p className="flex items-baseline gap-[0.8cqw]">
+                    <span className="tg-display text-[1.9cqw] leading-tight">{s.source}</span>
+                    {r && <span className={clsx("tg-display rounded-[0.4cqw] px-[0.5cqw] text-[1.3cqw]", r.reliable ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#ff3b4e] text-white")}>{r.reliable ? "Vera" : "Falsa"}</span>}
+                  </p>
                   {r ? (
                     <>
-                      <p className="text-[1.3cqw] font-semibold leading-snug">«{r.text}»</p>
+                      <p className="text-[1.25cqw] font-semibold leading-snug">«{r.text}»</p>
                       <p className={clsx("mt-[0.2cqw] text-[1.1cqw] font-bold leading-snug", r.reliable ? "text-[#dfff9a]" : "text-[#ff9aa4]")}>{r.note}</p>
                     </>
                   ) : (
@@ -135,9 +143,7 @@ function Tv(p: T) {
               </div>
             );
           })}
-          {done ? (
-            <TvExplain text={reveal.explain} className="py-[0.8cqw]" />
-          ) : (
+          {!done && (
             <p className="text-center text-[1.2cqw] font-bold text-white/70">
               Una sola testimonianza è vera · risposta giusta +{view.payoff.risposta} · testimone giusto +{view.payoff.testimone}
             </p>

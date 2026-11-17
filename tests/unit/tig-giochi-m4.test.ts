@@ -113,6 +113,19 @@ describe("TIG manche 4 · registro e contenuti", () => {
     }
   });
 
+  it("la vista pubblica conserva titolo e numero della meccanica (la cornice della TV li mostra)", () => {
+    for (const code of CODES) {
+      const def = m(code);
+      const extras = MECHANIC_EXTRAS[code];
+      const c = variants<unknown>(code)[0];
+      const ctx = makeCtx(def);
+      for (const v of [def.publicView(c, ctx), ...(extras.publicViewAt ? [extras.publicViewAt(c, ctx, 30_000)] : [])] as { title: string; number: number }[]) {
+        expect(v.title, code).toBe(def.title);
+        expect(v.number, code).toBe(def.number);
+      }
+    }
+  });
+
   it("nessuna vista pubblica (anche a tempo) né privata contiene chiavi vietate, con 2 e con 12 tavoli", () => {
     for (const code of CODES) {
       const def = m(code);

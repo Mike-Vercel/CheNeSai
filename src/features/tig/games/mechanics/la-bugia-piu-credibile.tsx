@@ -183,12 +183,12 @@ function Tv(p: T) {
                   <TvPanel key={c.id} className="flex min-h-0 flex-col gap-[0.5cqw] p-[1.1cqw]">
                     <p className="tg-display text-[1.6cqw] leading-none">{c.title}</p>
                     {c.parts.map((part, j) => (
-                      <p key={part.id} className="text-[1.15cqw] font-bold leading-snug">
+                      <p key={part.id} className="text-[1.4cqw] font-bold leading-snug">
                         <span className="text-white/55">{part.label}: </span>
                         <span className="text-[#c6ff3d]">{part.options.find((o) => o.id === c.real[j])?.text}</span>
                       </p>
                     ))}
-                    <p className="mt-auto text-[1cqw] font-semibold leading-snug text-white/75">{c.why}</p>
+                    <p className="mt-auto text-[1.1cqw] font-semibold leading-snug text-white/80">{c.why}</p>
                   </TvPanel>
                 ))}
               </div>

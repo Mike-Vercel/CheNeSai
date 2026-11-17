@@ -9,7 +9,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { BigToggle, ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { RingTv } from "./m4/kit";
+import { RING_MAX, RingTv } from "./m4/kit";
 
 type P = PlayerGameProps<DoppioView, null, DoppioSubmission, DoppioReveal>;
 type T = TvGameProps<DoppioView, DoppioReveal>;
@@ -95,8 +95,8 @@ function Player(p: P) {
           onChange={setGive}
           disabled={!editable}
           options={[
-            { id: "sicura", title: "Sicura", sub: `+${view.payoff.scelta.pulito} a voi, comunque vada`, tone: "lime", icon: "shield" },
-            { id: "rischiosa", title: "Rischiosa", sub: `+${view.payoff.scelta.trappola} a voi se sbagliano`, tone: "red", icon: "flame" },
+            { id: "sicura", title: "Sicura", sub: `+${view.payoff.scelta.pulito} a voi, comunque vada`, tone: "lime" },
+            { id: "rischiosa", title: "Rischiosa", sub: `+${view.payoff.scelta.trappola} a voi se sbagliano`, tone: "red" },
           ]}
         />
       </Panel>
@@ -112,12 +112,13 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const team = new Map(p.teams.map((x) => [x.teamId, x]));
   const links = new Map((done ? (reveal.summary?.links ?? []) : []).map((l) => [l.from, l]));
+  const many = view.seats.length > RING_MAX;
   const card = (k: ProvaKind) => (
     <TvPanel key={k} tone={k === "rischiosa" ? "red" : "lime"} className="flex min-h-0 flex-col gap-[0.6cqw]">
-      <p className="flex items-baseline justify-between gap-[0.6cqw]">
-        <span className={clsx("tg-display text-[2.1cqw]", k === "rischiosa" ? "text-[#ff8c97]" : "text-[#c6ff3d]")}>{LABEL[k]}</span>
-        <span className="text-[1.05cqw] font-extrabold uppercase tracking-wide text-white/75">{score(view, k)}</span>
-      </p>
+      <div className="flex flex-col gap-[0.3cqw]">
+        <span className={clsx("tg-display whitespace-nowrap text-[2.1cqw] leading-none", k === "rischiosa" ? "text-[#ff8c97]" : "text-[#c6ff3d]")}>{LABEL[k]}</span>
+        <span className="self-start rounded-[0.4cqw] bg-white/10 px-[0.6cqw] py-[0.15cqw] text-[1.05cqw] font-extrabold uppercase tracking-wide text-white/85">{score(view, k)}</span>
+      </div>
       <p className="text-[1.35cqw] font-bold leading-snug">{view[k].prompt}</p>
       <div className="mt-auto grid grid-cols-1 gap-[0.4cqw]">
         {view[k].options.map((o, i) =>
@@ -129,9 +130,9 @@ function Tv(p: T) {
     </TvPanel>
   );
   return (
-    <TvFrame view={view} p={p} subtitle={done ? "Chi ha dato quale prova, e com'è andata" : "Ogni tavolo sceglie in segreto la prova che vale per il successivo: sicura o rischiosa."}>
+    <TvFrame view={view} p={p} subtitle={done ? "Chi ha dato quale prova, e com'è andata" : `${view.setTitle} · ogni tavolo sceglie in segreto la prova che vale per il successivo: sicura o rischiosa.`}>
       <div className="flex h-full flex-col gap-[1cqw]">
-        <div className="grid min-h-0 flex-1 grid-cols-[1fr_1fr_0.8fr] gap-[1.2cqw]">
+        <div className={clsx("grid min-h-0 flex-1 gap-[1.2cqw]", many ? "grid-cols-3" : "grid-cols-[1fr_1fr_0.8fr]")}>
           {card("sicura")}
           {card("rischiosa")}
           <TvPanel className="flex min-h-0 flex-col items-center justify-center gap-[0.6cqw] p-[0.8cqw]">
@@ -143,7 +144,8 @@ function Tv(p: T) {
                   const l = links.get(from);
                   if (!l) return null;
                   const col = l.ok === null ? "rgba(238,242,246,0.45)" : l.ok ? "#c6ff3d" : "#ff3b4e";
-                  return { color: col, text: l.give === "rischiosa" ? "RISCHIOSA" : "SICURA", dashed: l.give === "sicura" };
+                  // etichette corte: con 12 tavoli l'elenco ha poco spazio per riga
+                  return { color: col, text: l.give === "rischiosa" ? "RISCHIO" : "SICURA", dashed: l.give === "sicura" };
                 }}
                 label="Chi sceglie la prova per chi"
               />

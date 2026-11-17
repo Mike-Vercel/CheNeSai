@@ -40,6 +40,7 @@ export function DocCard({
   index,
   children,
   footer,
+  compact = false,
 }: {
   kind: DocKind;
   title: string;
@@ -53,6 +54,8 @@ export function DocCard({
   /** contenuto aggiuntivo (es. campi toccabili) */
   children?: ReactNode;
   footer?: ReactNode;
+  /** versione bassa (TV al reveal: foto più piccola) */
+  compact?: boolean;
 }) {
   const p = PAPER[kind];
   const mono = kind === "scontrino" || kind === "biglietto" || kind === "tessera";
@@ -84,7 +87,7 @@ export function DocCard({
       </div>
 
       {kind === "foto" && (
-        <div className={clsx("mx-auto flex items-center justify-center bg-[#1d2330]", s("mt-2 h-36 w-[calc(100%-1.5rem)] rounded-sm", "mt-[0.5cqw] h-[7cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]"))} role="img" aria-label={`Foto: ${title}${iconLabel ? `, si legge «${iconLabel}»` : ""}`}>
+        <div className={clsx("mx-auto flex items-center justify-center bg-[#1d2330]", s("mt-2 h-36 w-[calc(100%-1.5rem)] rounded-sm", compact ? "mt-[0.4cqw] h-[4.6cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]" : "mt-[0.5cqw] h-[7cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]"))} role="img" aria-label={`Foto: ${title}${iconLabel ? `, si legge «${iconLabel}»` : ""}`}>
           {icon ? (
             <svg viewBox="0 0 100 100" className="h-[86%]" aria-hidden>
               <SceneIcon kind={icon} tone="amber" label={iconLabel} />

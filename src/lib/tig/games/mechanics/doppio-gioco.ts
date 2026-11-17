@@ -61,7 +61,8 @@ export const doppioSubmission = z.object({
 export type DoppioSubmission = z.infer<typeof doppioSubmission>;
 
 export interface DoppioView extends BaseView {
-  title: string;
+  /** titolo della coppia di prove (il titolo della meccanica resta `title`) */
+  setTitle: string;
   sicura: { prompt: string; options: Option[] };
   rischiosa: { prompt: string; options: Option[] };
   seats: { teamId: string; tableNo: number; tellsTo: string | null; hearsFrom: string | null }[];
@@ -104,7 +105,7 @@ const def: MechanicDef<DoppioContent, DoppioSubmission> = {
   submissionSchema: doppioSubmission,
   publicView: (c, ctx): DoppioView => ({
     ...baseView(def, ctx),
-    title: c.title,
+    setTitle: c.title,
     sicura: { prompt: c.sicura.prompt, options: publicOptions(c.sicura.options, `${ctx.seed}:sicura`) },
     rischiosa: { prompt: c.rischiosa.prompt, options: publicOptions(c.rischiosa.options, `${ctx.seed}:rischiosa`) },
     seats: seatsOf(ctx).map((s) => ({ teamId: s.teamId, tableNo: s.tableNo, tellsTo: s.tellsTo, hearsFrom: s.hearsFrom })),
