@@ -20,9 +20,14 @@ import { sincronizzati } from "./sincronizzati";
 import { sogliaDiRischio } from "./soglia-di-rischio";
 import { tempoFantasma } from "./tempo-fantasma";
 import { treVersioni } from "./tre-versioni";
+import { NUOVE_MANCHE_1 } from "./manche-1";
+import { NUOVE_MANCHE_2 } from "./manche-2";
+import { NUOVE_MANCHE_3 } from "./manche-3";
+import { NUOVE_MANCHE_4 } from "./manche-4";
+import { NUOVE_MANCHE_5 } from "./manche-5";
 
-/** Moduli delle meccaniche IMPLEMENTATE, in ordine di catalogo. Nessun contenuto qui (resta sul server). */
-export const MECHANIC_MODULES = [
+/** Prime 21 meccaniche (ramo dei minigiochi). */
+const PRIME_21 = [
   memoriaLampo,
   screenshotTraditore,
   tempoFantasma,
@@ -45,3 +50,8 @@ export const MECHANIC_MODULES = [
   sogliaDiRischio,
   sicuroORischio,
 ] as unknown as MechanicModule[];
+
+/** Moduli delle meccaniche IMPLEMENTATE, in ordine di catalogo. Nessun contenuto qui (resta sul server). */
+export const MECHANIC_MODULES: MechanicModule[] = [...PRIME_21, ...NUOVE_MANCHE_1, ...NUOVE_MANCHE_2, ...NUOVE_MANCHE_3, ...NUOVE_MANCHE_4, ...NUOVE_MANCHE_5].sort(
+  (a, b) => a.def.number - b.def.number,
+);

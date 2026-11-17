@@ -20,6 +20,11 @@ import { sincronizzatiUi } from "./mechanics/sincronizzati";
 import { sogliaDiRischioUi } from "./mechanics/soglia-di-rischio";
 import { tempoFantasmaUi } from "./mechanics/tempo-fantasma";
 import { treVersioniUi } from "./mechanics/tre-versioni";
+import { UI_MANCHE_1 } from "./manche-1";
+import { UI_MANCHE_2 } from "./manche-2";
+import { UI_MANCHE_3 } from "./manche-3";
+import { UI_MANCHE_4 } from "./manche-4";
+import { UI_MANCHE_5 } from "./manche-5";
 
 /**
  * TAVOLI IN GUERRA! — schermate dei minigiochi (telefono/PC e TV) per `code` di meccanica.
@@ -49,6 +54,11 @@ export const MECHANIC_UIS: Record<string, MechanicUi> = {
   "puntata-nascosta": puntataNascostaUi,
   "soglia-di-rischio": sogliaDiRischioUi,
   "sicuro-o-rischio": sicuroORischioUi,
+  ...UI_MANCHE_1,
+  ...UI_MANCHE_2,
+  ...UI_MANCHE_3,
+  ...UI_MANCHE_4,
+  ...UI_MANCHE_5,
 };
 
 export type { MechanicUi } from "./ui-contract";

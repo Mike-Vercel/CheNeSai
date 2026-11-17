@@ -193,8 +193,8 @@ function LobbyHud({ state, lobby, live }: { state: TigPublicState; lobby: LobbyT
   const qr = state.accessMode === "qr" && !live && lobby;
   // il titolo e l'istruzione sono sullo schermo LED: qui solo i QR, in basso, al massimo due righe
   const n = lobby?.length ?? 0;
-  const cols = n <= 6 ? Math.max(3, n) : n <= 12 ? 6 : 10;
-  const qrSize = n <= 6 ? "max-w-[19vmin]" : n <= 12 ? "max-w-[13vmin]" : "max-w-[10vmin]";
+  const cols = n <= 6 ? Math.max(3, n) : n <= 12 ? 6 : Math.ceil(n / 2); // fino a 24 tavoli: al massimo 2 righe
+  const qrSize = n <= 6 ? "max-w-[19vmin]" : n <= 12 ? "max-w-[13vmin]" : "max-w-[9vmin]";
   return (
     <div className="flex h-full w-full flex-col items-center justify-end gap-[2vmin]">
       {qr && (
