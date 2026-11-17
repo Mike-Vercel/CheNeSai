@@ -51,8 +51,12 @@ const NAMES = [
   "Mai Una Gioia",
   "Quelli di Passaggio",
   "La Rimonta",
+  "Gin Tonic Club",
+  "I Ritardatari",
+  "Le Sette Note",
+  "Tavolo Ventiquattro",
 ];
-const COLORS = ["#ff8a1f", "#2de2ff", "#ff4fa3", "#7dff6b", "#ffd23f", "#a46bff", "#ff5a4f", "#3d8bff", "#00e0a4", "#ff9ad5", "#c6ff3d", "#ffb35c", "#5ce1ff", "#e05cff", "#ffe07a", "#5cffb0", "#ff7a7a", "#8aa0ff", "#ffc4e1", "#b4ff8a"];
+const COLORS = ["#ff8a1f", "#2de2ff", "#ff4fa3", "#7dff6b", "#ffd23f", "#a46bff", "#ff5a4f", "#3d8bff", "#00e0a4", "#ff9ad5", "#c6ff3d", "#ffb35c", "#5ce1ff", "#e05cff", "#ffe07a", "#5cffb0", "#ff7a7a", "#8aa0ff", "#ffc4e1", "#b4ff8a", "#ff6f3d", "#3dffe0", "#d08aff", "#f2ff6b"];
 
 function rng(seed: number) {
   let s = seed >>> 0 || 1;
@@ -141,7 +145,7 @@ export function ArenaPreview({ params }: { params: Record<string, string> }) {
   const view = params.view === "mascotte" ? "mascotte" : params.view === "galleria" ? "galleria" : "arena";
   const [quality, setQuality] = useState<VisualQuality>(() => (params.q === "high" || params.q === "low" || params.q === "2d" ? params.q : detectVisualQuality()));
   const [phase, setPhase] = useState<ArenaPhase>((PHASES as string[]).includes(params.phase ?? "") ? (params.phase as ArenaPhase) : "lobby");
-  const [count, setCount] = useState(() => Math.min(20, Math.max(2, Number(params.teams ?? 12) || 12)));
+  const [count, setCount] = useState(() => Math.min(24, Math.max(2, Number(params.teams ?? 12) || 12)));
   const seed = Number(params.seed ?? 7) || 7;
   const [teams, setTeams] = useState<ArenaTeam[]>(() => makeTeams(count, seed));
   const [auto, setAuto] = useState(params.auto === "1");
@@ -284,7 +288,7 @@ export function ArenaPreview({ params }: { params: Record<string, string> }) {
         <div className="absolute left-2 top-2 z-10 flex max-h-[calc(100dvh-16px)] w-[min(420px,calc(100vw-16px))] flex-col gap-2 overflow-auto rounded-xl border border-white/10 bg-[#070a10]/85 p-3 text-sm backdrop-blur" style={{ fontFamily: "system-ui, sans-serif" }}>
           <div className="flex items-center justify-between">
             <b className="tracking-wider" style={{ fontFamily: "var(--font-tig-display)" }}>
-              ARENA · TAVOLI IN GUERRA!
+              ARENA · TAVERNA DEI PIRATI
             </b>
             <button className={btn} onClick={() => setUi(false)}>
               nascondi
@@ -298,7 +302,7 @@ export function ArenaPreview({ params }: { params: Record<string, string> }) {
             ))}
           </div>
           <label className="flex items-center gap-2">
-            Tavoli <input type="range" min={2} max={20} value={count} onChange={(e) => changeCount(Number(e.target.value))} className="flex-1" /> <b className="w-6 text-right">{count}</b>
+            Tavoli <input type="range" min={2} max={24} value={count} onChange={(e) => changeCount(Number(e.target.value))} className="flex-1" /> <b className="w-6 text-right">{count}</b>
           </label>
           <div className="flex flex-wrap gap-1">
             <button className={btn} onClick={randomScores}>

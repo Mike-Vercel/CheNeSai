@@ -4,7 +4,10 @@ import { describe, expect, it } from "vitest";
 import type { ArenaPhase, ArenaSpotlight, ArenaTeam, HostId } from "@/features/tig/arena-contract";
 import { FULL_WINDOW, fitDistance, lensShift, normalizeSafeArea, projectToCanvas, smoothDamp, type FrameWindow, type Vec3 } from "@/features/tig/three/arena/camera-math";
 import { AWARDS_REVEAL_MS, awardsRevealAt, awardsRevealed, directArena, mascotActionFor, spotlightLive, type ShotKind, type ShotSpec } from "@/features/tig/three/arena/director";
-import { MIN_HALF_WIDTH, POD, STAGE, U_BACK, U_FRONT, columnHeight, hostMarks, podLayout, podScale, podSpacing, scoreScale, uDepth } from "@/features/tig/three/arena/layout";
+import { BACK_ROW, MAX_TEAMS, MIN_HALF_WIDTH, ONE_ROW_MAX, POD, STAGE, U_BACK, U_FRONT, columnHeight, hostMarks, minPodGap, podLayout, podScale, podSpacing, scoreScale, uDepth } from "@/features/tig/three/arena/layout";
+import { GAME_NAME, isGameName, ledLeaderboardCols } from "@/features/tig/three/arena/led-texture";
+import { PerfGovernor, classifyGpu, initialLevel, profileAt, renderDpr } from "@/features/tig/three/arena/perf";
+import { displayCase } from "@/features/tig/three/palette";
 import { RankAnimator, deltaFlash, formatScore, rankOrder, scoreDigits, tableOrder } from "@/features/tig/three/arena/rank-anim";
 import { shotSubject } from "@/features/tig/three/arena/shots";
 import { BUMBARINO, HOST_IDS, HOST_MODELS, hostModelFiles, hostModelUrl } from "@/features/tig/three/characters/host-models";
@@ -25,44 +28,59 @@ const team = (i: number, score: number, over: Partial<ArenaTeam> = {}): ArenaTea
   ...over,
 });
 
-describe("pianta dell'arena: torri a U per 2–20 squadre", () => {
+describe("pianta dell'arena: torri a U per 2–24 squadre (due file oltre 14)", () => {
   it("una torre per squadra, da sinistra a destra, simmetriche", () => {
-    for (let n = 0; n <= 20; n++) {
+    for (let n = 0; n <= MAX_TEAMS; n++) {
       const l = podLayout(n);
       expect(l.pods).toHaveLength(n);
       for (let i = 1; i < n; i++) expect(l.pods[i].x).toBeGreaterThan(l.pods[i - 1].x);
-      for (let i = 0; i < n; i++) {
-        expect(l.pods[i].x).toBeCloseTo(-l.pods[n - 1 - i].x, 6);
-        expect(l.pods[i].z).toBeCloseTo(l.pods[n - 1 - i].z, 6);
-      }
+      for (let i = 0; i < n; i++) expect(l.pods[i].x).toBeCloseTo(-l.pods[n - 1 - i].x, 6);
+      // una fila: specchio esatto; due file: specchio esatto per n dispari, con n pari l'insieme resta centrato
+      if (l.rows === 1 || n % 2 === 1) for (let i = 0; i < n; i++) expect(l.pods[i].z).toBeCloseTo(l.pods[n - 1 - i].z, 6);
     }
+    expect(podLayout(30).pods).toHaveLength(MAX_TEAMS);
   });
 
-  it("le torri non si toccano mai e non entrano nel palco", () => {
-    for (let n = 2; n <= 20; n++) {
+  it("le torri non si toccano mai (tutte le coppie, anche tra le due file) e non entrano nel palco", () => {
+    for (let n = 2; n <= MAX_TEAMS; n++) {
       const l = podLayout(n);
       const base = POD.baseRadius * l.scale;
-      for (let i = 1; i < n; i++) {
-        const a = l.pods[i - 1];
-        const b = l.pods[i];
-        expect(Math.hypot(a.x - b.x, a.z - b.z)).toBeGreaterThan(2 * base * 0.98);
-      }
+      expect(minPodGap(l)).toBeGreaterThan(2 * base * 0.98);
       // gradino basso del palco: raggio STAGE.radius + 0.56
       for (const p of l.pods) expect(Math.hypot(p.x, p.z)).toBeGreaterThan(STAGE.radius + 0.56 + base);
     }
   });
 
-  it("passo costante in larghezza (viste dalla camera non si sovrappongono) e scala solo oltre 12", () => {
-    for (let n = 2; n <= 20; n++) {
+  it("una fila fino a 14 (passo costante), poi due file a zig-zag sulla pedana; torri mai rimpicciolite", () => {
+    for (let n = 2; n <= MAX_TEAMS; n++) {
       const l = podLayout(n);
-      const dx = l.pods[1].x - l.pods[0].x;
-      for (let i = 2; i < n; i++) expect(l.pods[i].x - l.pods[i - 1].x).toBeCloseTo(dx, 6);
       expect(l.halfWidth).toBeGreaterThanOrEqual(MIN_HALF_WIDTH);
-      expect(l.scale).toBeLessThanOrEqual(1);
-      if (n <= 12) expect(l.scale).toBe(1);
+      expect(l.scale).toBe(1);
+      expect(podScale(n)).toBe(1);
+      if (n <= ONE_ROW_MAX) {
+        expect(l.rows).toBe(1);
+        const dx = l.pods[1].x - l.pods[0].x;
+        for (let i = 2; i < n; i++) expect(l.pods[i].x - l.pods[i - 1].x).toBeCloseTo(dx, 6);
+        for (const p of l.pods) expect(p).toMatchObject({ y: 0, row: 0 });
+      } else {
+        expect(l.rows).toBe(2);
+        for (const p of l.pods) {
+          // tavolo 1 dietro (sulla pedana), 2 davanti, 3 dietro…
+          expect(p.row).toBe(p.index % 2 === 0 ? 1 : 0);
+          expect(p.y).toBe(p.row === 1 ? BACK_ROW.riser : 0);
+        }
+        // al massimo 12 torri per fila, passo dentro la fila costante e mai sotto 1,75 m
+        const back = l.pods.filter((p) => p.row === 1);
+        const front = l.pods.filter((p) => p.row === 0);
+        expect(back.length).toBeLessThanOrEqual(12);
+        expect(front.length).toBeLessThanOrEqual(12);
+        for (const row of [back, front]) for (let i = 1; i < row.length; i++) expect(row[i].x - row[i - 1].x).toBeCloseTo(podSpacing(n), 6);
+        expect(podSpacing(n)).toBeGreaterThanOrEqual(1.75 - 1e-9);
+        // la fila davanti sta davanti a quella dietro (al centro)
+        const mid = (row: typeof back) => row.reduce((a, p) => (Math.abs(p.x) < Math.abs(a.x) ? p : a));
+        expect(mid(front).z).toBeGreaterThan(mid(back).z + 1.5);
+      }
     }
-    expect(podScale(20)).toBeGreaterThan(0.7);
-    expect(podSpacing(20)).toBeLessThan(podSpacing(12));
   });
 
   it("la U: fondo dietro il palco, punte ai lati un po' avanti; le torri guardano il pubblico", () => {
@@ -359,5 +377,114 @@ describe("personaggi: HostId → modello", () => {
     expect(HOST_MODELS.mammusss.snake).toBe(true);
     expect(HOST_MODELS.mordicchio.offsetX).toBeCloseTo(0.12);
     expect(HOST_MODELS.franca.noBrows).toBe(true);
+  });
+});
+
+describe("profilo di resa (perf.ts): gradini, scheda video, regolatore", () => {
+  it("classe della scheda video dal nome del renderer", () => {
+    expect(classifyGpu("ANGLE (Intel, Intel(R) UHD Graphics 620 (0x00005917) Direct3D11 vs_5_0 ps_5_0, D3D11)")).toBe("integrated");
+    expect(classifyGpu("ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 Direct3D11 vs_5_0 ps_5_0, D3D11)")).toBe("dedicated");
+    expect(classifyGpu("ANGLE (AMD, AMD Radeon(TM) Graphics Direct3D11 vs_5_0 ps_5_0, D3D11)")).toBe("integrated");
+    expect(classifyGpu("ANGLE (AMD, AMD Radeon RX 6600 Direct3D11 vs_5_0 ps_5_0, D3D11)")).toBe("dedicated");
+    expect(classifyGpu("Adreno (TM) 650")).toBe("mobile");
+    expect(classifyGpu("Apple GPU")).toBe("mobile");
+    expect(classifyGpu("Apple M2")).toBe("dedicated");
+    expect(classifyGpu("")).toBe("unknown");
+    expect(classifyGpu(null)).toBe("unknown");
+  });
+
+  it("gradino di partenza: integrata 3, dedicata 4, telefono e low 2", () => {
+    expect(initialLevel("high", "integrated")).toBe(3);
+    expect(initialLevel("high", "unknown")).toBe(3);
+    expect(initialLevel("high", "dedicated")).toBe(4);
+    expect(initialLevel("high", "mobile")).toBe(2);
+    expect(initialLevel("low", "integrated")).toBe(2);
+    expect(initialLevel("low", "dedicated")).toBe(3);
+  });
+
+  it("scendendo di gradino i pixel non aumentano mai e gli effetti si tolgono a poco a poco", () => {
+    for (let l = 1; l <= 4; l++) {
+      const hi = profileAt(l);
+      const lo = profileAt(l - 1);
+      expect(lo.maxDpr).toBeLessThanOrEqual(hi.maxDpr);
+      expect(lo.maxPixels).toBeLessThanOrEqual(hi.maxPixels);
+      expect(lo.reflect).toBeLessThanOrEqual(hi.reflect);
+      expect(lo.fixtures).toBeLessThanOrEqual(hi.fixtures);
+      expect(lo.idleFps).toBeLessThanOrEqual(hi.idleFps);
+    }
+    // dal gradino 2 in su: 60 fps anche a riposo, bagliore e antialiasing sempre presenti dal gradino 1
+    for (let l = 2; l <= 4; l++) expect(profileAt(l).idleFps).toBe(60);
+    for (let l = 1; l <= 4; l++) {
+      expect(profileAt(l).bloom).toBeGreaterThan(0);
+      expect(profileAt(l).msaa > 0 || profileAt(l).postAA !== "none").toBe(true);
+    }
+    expect(profileAt(9).level).toBe(4);
+    expect(profileAt(-3).level).toBe(0);
+  });
+
+  it("densità di pixel: tetto del gradino, del dispositivo e dei pixel totali", () => {
+    // TV 1080p (dpr 1) al gradino 3: piena risoluzione
+    expect(renderDpr(profileAt(3), 1, 1920, 1080)).toBe(1);
+    // portatile ad alta densità: limitato dal numero di pixel
+    const d = renderDpr(profileAt(3), 2, 1536, 864);
+    expect(1536 * 864 * d * d).toBeLessThanOrEqual(profileAt(3).maxPixels * 1.01);
+    // telefono (dpr 3): 1,5 al massimo
+    expect(renderDpr(profileAt(2), 3, 390, 844)).toBe(1.5);
+    // TV 4K a dpr 1 al gradino 3: sotto i 2,4 milioni di pixel
+    const k = renderDpr(profileAt(3), 1, 3840, 2160);
+    expect(3840 * 2160 * k * k).toBeLessThanOrEqual(profileAt(3).maxPixels * 1.01);
+  });
+
+  it("regolatore: scende se lento per 2,5 s (mai sotto il pavimento), risale quando torna veloce (mai sopra la partenza)", () => {
+    const g = new PerfGovernor(3, 1);
+    // lento ma non a piena velocità: non conta
+    for (let i = 0; i < 20; i++) expect(g.update(30, 0.5, false)).toBe(false);
+    expect(g.level).toBe(3);
+    let changed = false;
+    for (let i = 0; i < 6 && !changed; i++) changed = g.update(30, 0.5, true);
+    expect(changed).toBe(true);
+    expect(g.level).toBe(2);
+    // pausa dopo il cambio, poi ancora lento: 1, e non scende sotto il pavimento
+    for (let i = 0; i < 60; i++) g.update(40, 0.5, true);
+    expect(g.level).toBe(1);
+    // torna veloce: risale fino alla partenza e non oltre
+    for (let i = 0; i < 200; i++) g.update(12, 0.5, true);
+    expect(g.level).toBe(3);
+    // né lento né veloce: resta
+    for (let i = 0; i < 40; i++) g.update(17, 0.5, true);
+    expect(g.level).toBe(3);
+  });
+});
+
+describe("vela: nome del gioco", () => {
+  it("il logo è TAVERNA DEI PIRATI e un titolo uguale (nuovo o vecchio nome) non si ripete sotto", () => {
+    expect(GAME_NAME).toBe("Taverna dei Pirati");
+    for (const t of ["TAVERNA DEI PIRATI", "Taverna dei Pirati", "la taverna dei pirati!", "TAVOLI IN GUERRA!", "Tavoli in guerra"]) expect(isGameName(t)).toBe(true);
+    for (const t of ["MANCHE 1", "PAUSA", "TAVERNA", "", null, undefined]) expect(isGameName(t)).toBe(false);
+  });
+});
+
+describe("titoli in gotico: mai tutto maiuscolo", () => {
+  it("i titoli tutti in maiuscolo diventano maiuscole/minuscole, le parole brevi restano minuscole", () => {
+    expect(displayCase("TAVERNA DEI PIRATI")).toBe("Taverna dei Pirati");
+    expect(displayCase("ALLARME CAOS!")).toBe("Allarme Caos!");
+    expect(displayCase("TUTTO O NIENTE!")).toBe("Tutto o Niente!");
+    expect(displayCase("CHI PARTE MALE...")).toBe("Chi Parte Male...");
+    expect(displayCase("OGNI TAVOLO È UNA CIURMA")).toBe("Ogni Tavolo è una Ciurma");
+    expect(displayCase("«IL GRANDE INGANNO»")).toBe("«Il Grande Inganno»");
+    // chi ha già scelto le minuscole decide lui
+    expect(displayCase("Memoria lampo")).toBe("Memoria lampo");
+    expect(displayCase("")).toBe("");
+  });
+});
+
+describe("LED: classifica fino a 24 squadre", () => {
+  it("1 colonna fino a 6, 2 fino a 16, 3 colonne da 8 righe fino a 24", () => {
+    expect(ledLeaderboardCols(4)).toBe(1);
+    expect(ledLeaderboardCols(6)).toBe(1);
+    expect(ledLeaderboardCols(12)).toBe(2);
+    expect(ledLeaderboardCols(16)).toBe(2);
+    expect(ledLeaderboardCols(17)).toBe(3);
+    expect(Math.ceil(24 / ledLeaderboardCols(24))).toBe(8);
   });
 });

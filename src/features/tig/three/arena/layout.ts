@@ -10,8 +10,10 @@
  *
  * I TAVOLI (torri delle squadre) stanno su una U attorno al palco, aperta verso la camera, con le torri a passo
  * COSTANTE in larghezza: viste dalla camera non si sovrappongono mai (un arco di cerchio oltre i 90° le farebbe
- * impilare ai lati). Larghezza e passo dipendono dal numero di squadre (2–20); oltre 12 le torri si stringono un po'
- * e rimpiccioliscono (scala). Ogni torre guarda un punto davanti al palco (il pubblico).
+ * impilare ai lati). Fino a 14 squadre una sola U (passo pieno, torri a grandezza piena); da 15 a 24 DUE file
+ * sfalsate a zig-zag (tavoli dispari dietro, su una pedana, pari davanti, a mezzo passo): ogni fila ha al massimo
+ * 12 torri e le torri non si rimpiccioliscono mai, così mascotte e targhette restano grandi e leggibili anche con
+ * 24 tavoli. Ogni torre guarda un punto davanti al palco (il pubblico).
  */
 
 export const STAGE = {
@@ -44,6 +46,15 @@ export const MIN_HALF_WIDTH = 4.7;
 /** Profondità del fondo della U (dietro il palco) e delle punte (ai lati, un po' avanti). */
 export const U_BACK = -5.6;
 export const U_FRONT = 0.9;
+/** Oltre questo numero di squadre: due file (fino a 14 la U singola sta in MAX_WIDTH a passo pieno). */
+export const ONE_ROW_MAX = 14;
+/** Due file: passo minimo dentro una fila, mezza larghezza minima, profondità delle due U e pedana della fila dietro. */
+export const ROW_SPACING = 1.75;
+export const TWO_ROW_MIN_HALF = 9;
+export const BACK_ROW = { back: -6.7, front: -0.8, riser: 0.5 } as const;
+export const FRONT_ROW = { back: -4.35, front: 2.3 } as const;
+/** Squadre gestite dall'arena (come MAX_TABLES del core). */
+export const MAX_TEAMS = 24;
 /** Curvatura della U (esponente: più alto = fondo più piatto). */
 const U_POWER = 2.2;
 
@@ -57,7 +68,27 @@ export const LED = {
   arcDeg: 130,
 } as const;
 
-/** Americana circolare con i fari, sopra lo schermo. */
+/**
+ * LA GRANDE VELA (edizione pirati): al posto dello schermo LED, una vela quadra appesa al pennone dell'albero maestro
+ * piantato in fondo al ponte di comando. La tela fa pancia verso la camera (vento da dietro); i testi sono "dipinti"
+ * sulla tela (canvas) e restano nitidi. Il bordo basso sta sopra le linee di vista verso le postazioni del fondo.
+ */
+export const SAIL = {
+  /** larghezza in alto (lungo il pennone) e in basso */
+  width: 11.6,
+  bottomWidth: 12.2,
+  height: 4.3,
+  /** quota del bordo basso */
+  bottom: 6.0,
+  /** piano del pennone (z) e pancia massima della tela verso la camera */
+  z: -1.25,
+  belly: 0.95,
+} as const;
+
+/** Albero maestro (in fondo al ponte di comando, dietro il podio) e coffa. */
+export const MAST = { x: 0, z: -1.9, height: 15.2, radius: 0.2 } as const;
+
+/** Anello dei fari (lanterne di bordo appese al sartiame), sopra la vela. */
 export const TRUSS_Y = 10.6;
 
 export interface PodPlacement {
@@ -65,6 +96,10 @@ export interface PodPlacement {
   index: number;
   x: number;
   z: number;
+  /** quota della base (0 a terra; la fila dietro sta su una pedana) */
+  y: number;
+  /** fila: 0 = unica o davanti, 1 = dietro */
+  row: 0 | 1;
   /** rotazione attorno a Y perché la faccia (+Z locale) guardi il pubblico */
   yaw: number;
 }
@@ -77,20 +112,33 @@ export interface ArenaLayout {
   halfWidth: number;
   /** passo orizzontale tra due torri */
   spacing: number;
-  /** scala delle torri e delle mascotte (1 fino a 12 squadre) */
+  /** scala delle torri e delle mascotte */
   scale: number;
+  /** quante file (1 fino a 14 squadre, poi 2) */
+  rows: 1 | 2;
   pods: PodPlacement[];
 }
 
-/** Passo orizzontale per n squadre. */
+/** Torri della fila dietro (due file): una in più della fila davanti se n è dispari. */
+function backCount(n: number): number {
+  return Math.ceil(n / 2);
+}
+
+/** Mezza larghezza delle due file (n > ONE_ROW_MAX): larga almeno come la U singola piena, mai oltre MAX_WIDTH. */
+function twoRowHalfWidth(n: number): number {
+  return Math.min(MAX_WIDTH / 2, Math.max(TWO_ROW_MIN_HALF, (ROW_SPACING * (backCount(n) - 1)) / 2));
+}
+
+/** Passo orizzontale per n squadre (dentro la fila). */
 export function podSpacing(n: number): number {
   if (n <= 1) return POD_SPACING;
+  if (n > ONE_ROW_MAX) return (2 * twoRowHalfWidth(n)) / (backCount(n) - 1);
   return Math.min(POD_SPACING, MAX_WIDTH / (n - 1));
 }
 
 /** Scala delle torri per n squadre (si rimpiccioliscono solo quando il passo si stringe). */
 export function podScale(n: number): number {
-  return Math.min(1, podSpacing(n) / POD_SPACING);
+  return Math.min(1, podSpacing(n) / (n > ONE_ROW_MAX ? ROW_SPACING : POD_SPACING));
 }
 
 /** Punto che le torri guardano (davanti al palco, verso il pubblico). */
@@ -99,36 +147,70 @@ export function facingPoint(halfWidth: number): { x: number; z: number } {
 }
 
 /** Profondità della U alla larghezza x (punte avanti, fondo dietro il palco). */
-export function uDepth(x: number, halfWidth: number): number {
+export function uDepth(x: number, halfWidth: number, back: number = U_BACK, front: number = U_FRONT): number {
   const u = halfWidth > 0 ? Math.min(1, Math.abs(x) / halfWidth) : 0;
-  return U_BACK + (U_FRONT - U_BACK) * Math.pow(u, U_POWER);
+  return back + (front - back) * Math.pow(u, U_POWER);
 }
 
-/** Posizioni delle torri per n squadre (n ≥ 0), in ordine di tavolo da sinistra a destra (visto dalla camera). */
+/**
+ * Posizioni delle torri per n squadre (0–24), in ordine di tavolo da sinistra a destra (visto dalla camera).
+ * Due file (n > 14): zig-zag — tavolo 1 dietro, 2 davanti, 3 dietro… — con la fila davanti a metà passo.
+ */
 export function podLayout(n: number): ArenaLayout {
-  const count = Math.max(0, Math.floor(n));
+  const count = Math.max(0, Math.min(MAX_TEAMS, Math.floor(n)));
   const spacing = podSpacing(count);
-  const halfWidth = count <= 1 ? 0 : Math.max(MIN_HALF_WIDTH, (spacing * (count - 1)) / 2);
-  const look = facingPoint(halfWidth);
   const pods: PodPlacement[] = [];
-  let radius = Math.abs(U_BACK);
+  if (count <= ONE_ROW_MAX) {
+    const halfWidth = count <= 1 ? 0 : Math.max(MIN_HALF_WIDTH, (spacing * (count - 1)) / 2);
+    const look = facingPoint(halfWidth);
+    let radius = Math.abs(U_BACK);
+    for (let i = 0; i < count; i++) {
+      const x = count === 1 ? 0 : -halfWidth + (2 * halfWidth * i) / (count - 1);
+      const z = uDepth(x, halfWidth);
+      const yaw = Math.atan2(look.x - x, look.z - z);
+      radius = Math.max(radius, Math.hypot(x, z));
+      pods.push({ index: i, x, z, y: 0, row: 0, yaw });
+    }
+    return { n: count, radius, halfWidth, spacing, scale: podScale(count), rows: 1, pods };
+  }
+  // due file a zig-zag: indice pari dietro (pedana), dispari davanti a mezzo passo. Con n pari le file hanno lo
+  // stesso numero di torri e si spostano di un quarto di passo (dietro a sinistra, davanti a destra): l'insieme resta
+  // centrato e simmetrico (il tavolo 1 è lo specchio dell'ultimo)
+  const halfWidth = twoRowHalfWidth(count);
+  const shift = count % 2 === 0 ? spacing / 4 : 0;
+  const xs: number[] = [];
+  let backHalf = 0;
+  let frontHalf = 0;
   for (let i = 0; i < count; i++) {
-    const x = count === 1 ? 0 : -halfWidth + (2 * halfWidth * i) / (count - 1);
-    const z = uDepth(x, halfWidth);
+    const back = i % 2 === 0;
+    const k = Math.floor(i / 2);
+    const x = back ? -halfWidth - shift + spacing * k : -halfWidth + shift + spacing * (k + 0.5) - (shift ? spacing / 2 : 0);
+    xs.push(x);
+    if (back) backHalf = Math.max(backHalf, Math.abs(x));
+    else frontHalf = Math.max(frontHalf, Math.abs(x));
+  }
+  const look = facingPoint(halfWidth);
+  let radius = Math.abs(BACK_ROW.back);
+  for (let i = 0; i < count; i++) {
+    const back = i % 2 === 0;
+    const x = xs[i];
+    const z = back ? uDepth(x, backHalf, BACK_ROW.back, BACK_ROW.front) : uDepth(x, frontHalf, FRONT_ROW.back, FRONT_ROW.front);
     const yaw = Math.atan2(look.x - x, look.z - z);
     radius = Math.max(radius, Math.hypot(x, z));
-    pods.push({ index: i, x, z, yaw });
+    pods.push({ index: i, x, z, y: back ? BACK_ROW.riser : 0, row: back ? 1 : 0, yaw });
   }
-  return { n: count, radius, halfWidth, spacing, scale: podScale(count), pods };
+  return { n: count, radius, halfWidth, spacing, scale: podScale(count), rows: 2, pods };
 }
 
-/** Distanza minima tra due torri vicine nel layout (per i test e per le scritte). */
+/** Distanza minima tra due torri qualsiasi del layout (per i test e per le scritte). */
 export function minPodGap(layout: ArenaLayout): number {
   let min = Infinity;
-  for (let i = 1; i < layout.pods.length; i++) {
-    const a = layout.pods[i - 1];
-    const b = layout.pods[i];
-    min = Math.min(min, Math.hypot(a.x - b.x, a.z - b.z));
+  for (let i = 0; i < layout.pods.length; i++) {
+    for (let j = i + 1; j < layout.pods.length; j++) {
+      const a = layout.pods[i];
+      const b = layout.pods[j];
+      min = Math.min(min, Math.hypot(a.x - b.x, a.z - b.z));
+    }
   }
   return min;
 }

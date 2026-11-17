@@ -2,12 +2,11 @@
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Component, Suspense, useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from "react";
-import { AdditiveBlending, type Group, type PerspectiveCamera } from "three";
+import { AdditiveBlending, Color, type Group, type PerspectiveCamera, type WebGLRenderer } from "three";
 import type { ArenaHost, ArenaProps, ArenaTeam, MascotProps } from "../../arena-contract";
-import { HostCharacter } from "../characters/HostCharacter";
-import { RoomEnvironmentLight } from "../characters/room-env";
+import { HOST_RIM, HostCharacter } from "../characters/HostCharacter";
 import { MascotSwarm, type MascotEntry } from "../mascot/MascotSwarm";
-import { readTigFont, TIG } from "../palette";
+import { readTigFont, readTigNumFont, TIG } from "../palette";
 import { prefersReducedMotion } from "../quality";
 import { ArenaLighting, ArenaSet, PODIUM_SPOTS, PODIUM_Z, type LedStatic } from "./ArenaSet";
 import { cameraPosition, fitDistance, FULL_WINDOW, lensShift, normalizeSafeArea, smoothDamp, type FrameWindow, type Vec3 } from "./camera-math";
@@ -19,18 +18,24 @@ import { RankAnimator, rankOrder, tableOrder } from "./rank-anim";
 import { shotSubject } from "./shots";
 import { SpotFx } from "./SpotFx";
 import { readArenaDebug, type ArenaDebug } from "./debug";
-import { shadowTexture } from "./textures";
+import { glowTexture, shadowTexture } from "./textures";
+import { classifyGpu, initialLevel, PerfGovernor, profileAt, renderDpr, type GpuClass, type RenderProfile } from "./perf";
+import { DirectRender, PostFx, type PostOverrides } from "./PostFx";
 
 /**
  * L'ARENA 3D di TAVOLI IN GUERRA!: UNA scena persistente per pagina (TV, telefono/PC sotto l'HUD, menu), mai
  * ricaricata tra le fasi. Regia per fase (director.ts), camera smorzata che inquadra nella finestra libera dall'HUD
  * (safeArea → view offset), set + torri + mascotte istanziate + presentatori GLB.
  *
- * Prestazioni («super fluido»): disegno a richiesta; 60 fps quando qualcosa si muove davvero (camera, punteggi,
- * azioni, allarme, chi parla), 30 fps (high) o 24 (low) quando la scena "respira" e basta; fermo a scheda nascosta;
- * dpr adattivo; parti ripetute istanziate; nessuna allocazione per fotogramma nei cicli caldi. "low": niente
- * riflesso vero né ombre, meno luci, fari e particelle, modelli -low, dpr ≤ 1,5. Movimento ridotto: camera ferma,
- * luci ferme, disegno solo quando cambia qualcosa.
+ * Resa "broadcast" (v2): buffer HDR + bagliore selettivo + tone mapping neutro + antialiasing (PostFx), ambiente
+ * di studio generato in codice (riflessi su metalli e personaggi), pavimento lucido col riflesso del set
+ * (FloorReflector), controluce sui presentatori.
+ *
+ * Prestazioni: PROFILO DI RESA a gradini (perf.ts) scelto da qualità del contratto + scheda video (integrata,
+ * dedicata, telefono) e regolato a partita in corso dal PerfGovernor (scende di un gradino se i fotogrammi restano
+ * sotto ~50 fps, risale quando tornano veloci). 60 fps anche a riposo nei profili 2–4 (la scena "respira" fluida),
+ * 45/30 nei profili d'emergenza; fermo a scheda nascosta; parti ripetute istanziate; nessuna allocazione per
+ * fotogramma nei cicli caldi. Movimento ridotto: camera ferma, luci ferme, disegno solo quando cambia qualcosa.
  */
 
 export type Arena3DProps = Omit<ArenaProps, "quality"> & { quality: "high" | "low"; onFail?: (reason: string) => void };
@@ -49,6 +54,7 @@ class Boundary extends Component<{ onError: (r: string) => void; children: React
 }
 
 const hostKey = (hosts: ArenaHost[]) => hosts.map((h) => h.who).join(",");
+const NO_HOSTS: ArenaHost[] = [];
 
 // ------------------------------------------------------------------ regia (ogni fotogramma, prima di tutto)
 function Director({ liveRef, propsRef, reduced, onDir }: { liveRef: RefObject<ArenaLive>; propsRef: RefObject<Arena3DProps>; reduced: boolean; onDir: (d: ArenaDirection) => void }) {
@@ -150,7 +156,7 @@ function CameraRig({ liveRef, propsRef, reduced }: { liveRef: RefObject<ArenaLiv
       const L2 = liveRef.current;
       const subj = shotSubject(d, {
         layout: L2.layout,
-        podTop: (i) => BASE_H + (L2.ranks.get(L2.teams[i]?.teamId ?? "")?.height ?? POD.minHeight),
+        podTop: (i) => (L2.layout.pods[i]?.y ?? 0) + BASE_H + (L2.ranks.get(L2.teams[i]?.teamId ?? "")?.height ?? POD.minHeight),
         teamIndex: (id) => L2.teams.findIndex((tm) => tm.teamId === id),
         hostCount: propsRef.current.hosts.length,
         compact,
@@ -208,6 +214,21 @@ function ContactShadow({ radius = 0.45 }: { radius?: number }) {
   );
 }
 
+/**
+ * Pozza di luce del "seguipersona" sotto ogni presentatore: il pubblico (e la camera) li trova subito anche nei campi
+ * larghi. Additiva, calda, un filo pulsante quando parlano.
+ */
+function HostPool({ speaking }: { speaking: boolean }) {
+  const tex = useMemo(() => glowTexture(), []);
+  useEffect(() => () => tex.dispose(), [tex]);
+  return (
+    <mesh rotation-x={-Math.PI / 2} position-y={0.008} renderOrder={1}>
+      <planeGeometry args={[2.1, 2.1]} />
+      <meshBasicMaterial map={tex} color={speaking ? "#ffd7a0" : "#c9a27a"} transparent opacity={speaking ? 0.5 : 0.36} blending={AdditiveBlending} depthWrite={false} toneMapped={false} />
+    </mesh>
+  );
+}
+
 const WALK_SPEED = 1.1;
 
 function angleTo(from: number, to: number): number {
@@ -255,6 +276,7 @@ function HostSlot({ host, index, total, quality, action, liveRef, busy, onLoaded
   });
   return (
     <group ref={root}>
+      <HostPool speaking={!!host.speaking} />
       <ContactShadow />
       <Boundary
         onError={(r) => {
@@ -299,34 +321,39 @@ function Hosts({ hosts, quality, dir, liveRef, onLoaded, reduced }: { hosts: Are
   );
 }
 
-// ------------------------------------------------------------------ ritmo dei fotogrammi
-function Pace({ liveRef, quality, reduced, propsRef, onDegrade }: { liveRef: RefObject<ArenaLive>; quality: "high" | "low"; reduced: boolean; propsRef: RefObject<Arena3DProps>; onDegrade?: () => void }) {
-  const degradeRef = useRef(onDegrade);
+// ------------------------------------------------------------------ ritmo dei fotogrammi e regolatore
+function Pace({ liveRef, reduced, propsRef, profile, governor, onLevel, dprOverride }: { liveRef: RefObject<ArenaLive>; reduced: boolean; propsRef: RefObject<Arena3DProps>; profile: RenderProfile; governor: PerfGovernor | null; onLevel: (l: RenderProfile["level"]) => void; dprOverride: number | null }) {
+  const onLevelRef = useRef(onLevel);
   useEffect(() => {
-    degradeRef.current = onDegrade;
+    onLevelRef.current = onLevel;
   });
   const invalidate = useThree((s) => s.invalidate);
   const setDpr = useThree((s) => s.setDpr);
   const setFrameloop = useThree((s) => s.setFrameloop);
+  const size = useThree((s) => s.size);
+  // densità di pixel del profilo (tetto del gradino e del numero di pixel: una TV 4K non affoga la scheda integrata)
+  useEffect(() => {
+    setDpr(dprOverride ?? renderDpr(profile, window.devicePixelRatio || 1, size.width, size.height));
+  }, [profile, size.width, size.height, setDpr, dprOverride]);
+  // durata media dei fotogrammi davvero disegnati (media mobile)
   const render = useRef({ last: 0, avg: 16.7 });
   useFrame(() => {
     const r = render.current;
     const t = performance.now();
-    if (r.last > 0) r.avg += (Math.min(200, t - r.last) - r.avg) * 0.05;
+    if (r.last > 0) r.avg += (Math.min(200, t - r.last) - r.avg) * 0.06;
     r.last = t;
   });
   useEffect(() => {
     let id = 0;
     let last = -Infinity;
     let mode: "always" | "demand" = "demand";
-    const maxDpr = Math.min(window.devicePixelRatio || 1, quality === "high" ? 1.75 : 1.5);
-    const minDpr = quality === "high" ? 0.9 : 0.65;
-    let dpr = maxDpr;
-    let checkAt = performance.now() + 3000;
-    let slow = 0;
+    let checkAt = performance.now() + 2500;
+    let lastCheck = performance.now();
     const setMode = (m: "always" | "demand") => {
       if (m === mode) return;
       mode = m;
+      // al cambio di ritmo la media riparte (gli intervalli lunghi della modalità "a richiesta" non sono lentezza)
+      render.current.last = 0;
       setFrameloop(m);
     };
     const loop = (t: number) => {
@@ -352,31 +379,24 @@ function Pace({ liveRef, quality, reduced, propsRef, onDegrade }: { liveRef: Ref
         }
         return;
       }
-      if (busy) setMode("always");
+      // a riposo la scena "respira" al ritmo del profilo (60 = sempre fluido)
+      if (busy || profile.idleFps >= 60) setMode("always");
       else {
         setMode("demand");
-        const interval = 1000 / (quality === "high" ? 30 : 24);
-        if (t - last >= interval - 3) {
+        if (t - last >= 1000 / profile.idleFps - 3) {
           last = t;
           invalidate();
         }
       }
-      if (t > checkAt) {
-        checkAt = t + 2000;
-        const avg = render.current.avg;
-        const full = mode === "always";
-        // già al dpr minimo e ancora lento per 2 controlli di fila: si spegne il riflesso vero del pavimento (una volta)
-        if (full && avg > 1000 / 42 && dpr <= minDpr + 0.01) {
-          slow += 1;
-          if (slow >= 2 && degradeRef.current) {
-            degradeRef.current();
-            degradeRef.current = undefined;
-          }
-        } else slow = 0;
-        if (full && avg > 1000 / 40 && dpr > minDpr) dpr = Math.max(minDpr, dpr - 0.15);
-        else if (full && avg < 1000 / 57 && dpr < maxDpr) dpr = Math.min(maxDpr, dpr + 0.1);
-        else return;
-        setDpr(dpr);
+      if (governor && t > checkAt) {
+        const dt = (t - lastCheck) / 1000;
+        lastCheck = t;
+        checkAt = t + 500;
+        // si misura solo a piena velocità (in "a richiesta" gli intervalli sono voluti)
+        if (governor.update(render.current.avg, dt, mode === "always" && render.current.last > 0)) {
+          render.current.last = 0;
+          onLevelRef.current(governor.level);
+        }
       }
     };
     id = requestAnimationFrame(loop);
@@ -384,7 +404,7 @@ function Pace({ liveRef, quality, reduced, propsRef, onDegrade }: { liveRef: Ref
       cancelAnimationFrame(id);
       setFrameloop("demand");
     };
-  }, [liveRef, quality, reduced, invalidate, setDpr, setFrameloop, propsRef]);
+  }, [liveRef, reduced, invalidate, setFrameloop, propsRef, profile, governor]);
   return null;
 }
 
@@ -427,6 +447,21 @@ function ContextGuard({ onFail }: { onFail?: (r: string) => void }) {
   return null;
 }
 
+const RIM_TMP = new Color();
+
+/** Controluce dei presentatori (HostCharacter.HOST_RIM): ambra/ciano di solito, rosso nel caos, oro sul podio. */
+function HostRim({ liveRef }: { liveRef: RefObject<ArenaLive> }) {
+  useFrame(() => {
+    const m = liveRef.current.mood.mood;
+    // lanterne calde da un lato, chiaro di luna dall'altro; rosso nell'allarme, oro sul podio
+    const a = m === "chaos" ? TIG.alarm : m === "final" || m === "awards" ? TIG.gold : TIG.amber;
+    const b = m === "chaos" ? TIG.alarm : m === "evolve" ? TIG.gold : m === "final" || m === "awards" ? TIG.amber : TIG.chill;
+    HOST_RIM.a.value.lerp(RIM_TMP.set(a), 0.08);
+    HOST_RIM.b.value.lerp(RIM_TMP.set(b), 0.08);
+  });
+  return null;
+}
+
 /** Bagliore del palco (fa da "bloom" sotto i presentatori, gratis). */
 function StageGlow({ liveRef }: { liveRef: RefObject<ArenaLive> }) {
   const g = useRef<Group>(null);
@@ -445,12 +480,46 @@ function StageGlow({ liveRef }: { liveRef: RefObject<ArenaLive> }) {
 }
 
 // ------------------------------------------------------------------ la scena
-function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: ArenaDebug }) {
-  const { quality, reduced, family, debug } = props;
-  // riflesso vero del pavimento (solo high): si spegne da solo se il dispositivo non regge
-  const [reflect, setReflect] = useState(true);
-  const setDebug = useMemo(() => ({ ...debug, noReflect: debug.noReflect || !reflect }), [debug, reflect]);
+/** Nome del renderer WebGL (per la classe della scheda video). */
+function rendererName(gl: WebGLRenderer): string {
+  try {
+    const ctx = gl.getContext();
+    const ext = ctx.getExtension("WEBGL_debug_renderer_info");
+    return String(ext ? ctx.getParameter(ext.UNMASKED_RENDERER_WEBGL) : ctx.getParameter(ctx.RENDERER));
+  } catch {
+    return "";
+  }
+}
+
+function Scene(props: Arena3DProps & { reduced: boolean; family: string; numFamily: string; debug: ArenaDebug }) {
+  const { quality, reduced, family, numFamily, debug } = props;
   const high = quality === "high";
+  // profilo di resa: qualità del contratto + scheda video; `?lvl=0..4` lo fissa (diagnostica, niente regolatore)
+  const gl = useThree((s) => s.gl);
+  const [gpu] = useState<GpuClass>(() => classifyGpu(rendererName(gl)));
+  const [start] = useState<RenderProfile["level"]>(() => (debug.level != null ? debug.level : initialLevel(quality, gpu)));
+  const [level, setLevel] = useState<RenderProfile["level"]>(start);
+  const [governor] = useState(() => (debug.level != null ? null : new PerfGovernor(start, high ? 1 : 0)));
+  // interruttori di misura (`?dbg=`): buffer, antialiasing, bagliore, pulviscolo, presentatori
+  const flags = debug.flags;
+  const profile = useMemo(() => {
+    const p = profileAt(level);
+    return flags.includes("nodust") ? { ...p, dust: 0 } : p;
+  }, [level, flags]);
+  const overrides = useMemo<PostOverrides>(
+    () => ({
+      buffer: flags.includes("ldr") ? "ldr" : flags.includes("hdr") ? "hdr" : undefined,
+      aa: flags.includes("fxaa") ? "fxaa" : flags.includes("smaa") ? "smaa" : flags.includes("noaa") ? "none" : undefined,
+      bloom: flags.includes("nobloom") ? false : undefined,
+      msaa: flags.includes("msaa4") ? 4 : flags.includes("msaa2") ? 2 : flags.includes("nomsaa") ? 0 : undefined,
+    }),
+    [flags],
+  );
+  const noHosts = flags.includes("nohosts");
+  useEffect(() => {
+    // diagnostica leggera (nessun dato personale): gradino corrente e classe della scheda
+    (window as unknown as { __tigArena?: object }).__tigArena = { level, gpu, start };
+  }, [level, gpu, start]);
   const teams = useMemo(() => tableOrder(props.teams), [props.teams]);
   const layout = useMemo(() => podLayout(teams.length), [teams.length]);
   const propsRef = useRef(props);
@@ -520,21 +589,22 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: 
 
   return (
     <>
-      <color attach="background" args={["#020306"]} />
-      <fog attach="fog" args={["#020306", 22, 70]} />
+      {/* notte di mare: la nebbia del porto sfuma il galeone e l'isola verso l'orizzonte */}
+      <color attach="background" args={[TIG.ink]} />
+      <fog attach="fog" args={["#0a2029", 34, 150]} />
       <Director liveRef={liveRef} propsRef={propsRef} reduced={reduced} onDir={setDir} />
       <CameraRig liveRef={liveRef} propsRef={propsRef} reduced={reduced} />
-      <RoomEnvironmentLight intensity={high ? 0.32 : 0.26} />
       <ArenaLighting liveRef={liveRef} high={high} />
-      <ArenaSet liveRef={liveRef} ledStatic={ledStatic} family={family} quality={quality} reduced={reduced} radius={layout.radius} debug={setDebug} />
+      <HostRim liveRef={liveRef} />
+      <ArenaSet liveRef={liveRef} ledStatic={ledStatic} family={family} numFamily={numFamily} quality={quality} reduced={reduced} layout={layout} debug={debug} profile={profile} />
       <StageGlow liveRef={liveRef} />
-      <Pods liveRef={liveRef} teams={teams} layout={layout} family={family} low={!high} shadows={high} compact={compact} />
+      {!flags.includes("nopods") && <Pods liveRef={liveRef} teams={teams} layout={layout} family={family} numFamily={numFamily} low={!high} shadows={high} compact={compact} />}
       <PodiumMascots liveRef={liveRef} teams={teams} order={order} />
-      <MascotSwarm entries={entries} anchorsRef={anchorsRef} actionsRef={actionsRef} dimRef={dimRef} shieldRef={shieldRef} low={!high} reduced={reduced} family={family} busyRef={mascotBusy} />
+      {!flags.includes("nomascots") && <MascotSwarm entries={entries} anchorsRef={anchorsRef} actionsRef={actionsRef} dimRef={dimRef} shieldRef={shieldRef} low={!high} reduced={reduced} family={numFamily} busyRef={mascotBusy} />}
       <SpotFx liveRef={liveRef} low={!high} />
       <Hosts
         key={hostKey(props.hosts)}
-        hosts={props.hosts}
+        hosts={noHosts ? NO_HOSTS : props.hosts}
         quality={quality}
         dir={dir}
         liveRef={liveRef}
@@ -545,7 +615,8 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; debug: 
         }}
       />
       {props.onReady && <ReadySignal loaded={hostsLoaded} onReady={props.onReady} />}
-      <Pace liveRef={liveRef} quality={quality} reduced={reduced} propsRef={propsRef} onDegrade={reflect ? () => setReflect(false) : undefined} />
+      <Pace liveRef={liveRef} reduced={reduced} propsRef={propsRef} profile={profile} governor={governor} onLevel={setLevel} dprOverride={debug.dpr} />
+      {flags.includes("nopost") ? <DirectRender /> : <PostFx profile={profile} exposure={1.05} overrides={overrides} />}
       <ContextGuard onFail={props.onFail} />
       {process.env.NODE_ENV !== "production" && <FrameCounter />}
     </>
@@ -596,8 +667,12 @@ export default function Arena3D(props: Arena3DProps) {
   const [reduced] = useState(prefersReducedMotion);
   const [debug] = useState(readArenaDebug);
   const [family, setFamily] = useState(readTigFont);
+  const [numFamily, setNumFamily] = useState(readTigNumFont);
   useEffect(() => {
-    const f = () => setFamily(readTigFont());
+    const f = () => {
+      setFamily(readTigFont());
+      setNumFamily(readTigNumFont());
+    };
     document.fonts?.ready.then(f).catch(() => undefined);
   }, []);
   return (
@@ -606,15 +681,16 @@ export default function Arena3D(props: Arena3DProps) {
         className={props.className}
         frameloop="demand"
         shadows={false}
-        dpr={high ? [1, 1.75] : [0.75, 1.5]}
-        gl={{ antialias: true, alpha: false, powerPreference: high ? "high-performance" : "default", stencil: false }}
+        dpr={1}
+        // l'antialiasing lo fa il postprocessing (MSAA nel buffer HDR o SMAA/FXAA): il canvas non ne ha bisogno
+        gl={{ antialias: false, alpha: false, powerPreference: high ? "high-performance" : "default", stencil: false, depth: true }}
         camera={{ position: [0, 6, 24], fov: 38, near: 0.2, far: 140 }}
         onCreated={({ gl }) => {
           gl.toneMappingExposure = 1.05;
         }}
         style={{ pointerEvents: "none" }}
       >
-        <Scene {...props} reduced={reduced} family={family} debug={debug} />
+        <Scene {...props} reduced={reduced} family={family} numFamily={numFamily} debug={debug} />
       </Canvas>
     </Boundary>
   );

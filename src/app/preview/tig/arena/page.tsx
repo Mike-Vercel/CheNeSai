@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
-import { Big_Shoulders } from "next/font/google";
+import { Grenze, Manrope, Pirata_One } from "next/font/google";
 import { ClientOnly } from "../../tv-question/ClientOnly";
 import { ArenaPreview } from "./ArenaPreview";
 
 export const metadata: Metadata = {
-  title: "Anteprima · Arena 3D di TAVOLI IN GUERRA!",
+  title: "Anteprima · Arena 3D di TAVERNA DEI PIRATI",
   robots: { index: false, follow: false },
 };
 
-const display = Big_Shoulders({ weight: ["600", "700", "800", "900"], subsets: ["latin"], variable: "--font-tig-display", display: "swap" });
+// stessi caratteri e variabili del kit della grafica 2D (src/features/tig/games/kit/fonts.ts): Pirata One SOLO per i
+// titoli grandi (mai tutto maiuscolo), Grenze per numeri, punteggi, nomi delle squadre ed etichette, Manrope per i
+// testi lunghi. L'arena legge le variabili e basta (licenza OFL per tutti e tre).
+const display = Pirata_One({ weight: "400", subsets: ["latin"], variable: "--font-tig-display", display: "swap" });
+const numbers = Grenze({ weight: ["500", "600", "700", "800", "900"], subsets: ["latin"], variable: "--font-tig-num", display: "swap" });
+const body = Manrope({ subsets: ["latin"], variable: "--font-tig-body", display: "swap" });
 
 type SearchParams = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 /**
  * /preview/tig/arena — arena 3D con dati finti (noindex). Parametri per prove e screenshot:
- *   ?view=arena|mascotte|galleria   ?phase=<ArenaPhase>   ?teams=2..20   ?q=high|low|2d   ?hud=none|tel|tv|pc
+ *   ?view=arena|mascotte|galleria   ?phase=<ArenaPhase>   ?teams=2..24   ?q=high|low|2d   ?hud=none|tel|tv|pc
  *   ?hosts=professore,regina   ?speak=1 (parla il primo)   ?spot=duel|chaos|evolve|winner|attack|sabotage|shield
  *   ?auto=1 (punti che cambiano da soli)   ?ui=0 (senza pannello)   ?seed=n   ?glb=/models/…glb (prova del percorso GLB delle mascotte)
+ *   ?lvl=0..4 (gradino di resa fisso)   ?dpr=…   ?dbg=… (interruttori di misura, vedi arena/debug.ts)
  */
 export default async function Page({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const sp = await searchParams;
@@ -27,7 +33,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Sea
     if (s !== undefined) params[k] = s;
   }
   return (
-    <div className={`${display.variable} min-h-dvh bg-[#020306] text-[#f3f6fa]`} data-tig-font="" style={{ fontFamily: "var(--font-tig-display), 'Arial Narrow', sans-serif" }}>
+    <div className={`${display.variable} ${numbers.variable} ${body.variable} min-h-dvh bg-[#07131a] text-[#f6ead2]`} data-tig-font="" style={{ fontFamily: "var(--font-tig-body), system-ui, sans-serif" }}>
       <ClientOnly>
         <ArenaPreview params={params} />
       </ClientOnly>

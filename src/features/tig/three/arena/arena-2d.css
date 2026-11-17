@@ -1,14 +1,15 @@
-/* ARENA 2D di TAVOLI IN GUERRA! (qualità "2d" e anteprima durante il caricamento del 3D). */
+/* ARENA 2D di TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!), la taverna sul molo (qualità "2d" e anteprima durante il
+   caricamento del 3D). Titoli col carattere del gioco, numeri ed etichette col carattere dei numeri. */
 .tig2d {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   background:
-    radial-gradient(60% 45% at 50% 70%, rgba(255, 138, 31, 0.1), transparent 70%),
-    radial-gradient(50% 40% at 85% 20%, rgba(45, 226, 255, 0.08), transparent 70%),
-    #020306;
-  font-family: var(--font-tig-display), "Big Shoulders", "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    radial-gradient(40% 35% at 12% 14%, rgba(159, 180, 224, 0.16), transparent 70%),
+    radial-gradient(60% 45% at 50% 72%, rgba(255, 154, 60, 0.12), transparent 70%),
+    linear-gradient(#050d14, #0b1f2a 55%, #07131a);
+  font-family: var(--font-tig-num), Grenze, "Roboto Slab", Rockwell, Georgia, serif;
 }
 .tig2d-frame {
   position: absolute;
@@ -20,11 +21,11 @@
 }
 .tig2d-led-title {
   font-size: 104px;
-  font-weight: 900;
+  font-weight: 400;
   text-anchor: middle;
   paint-order: stroke;
-  stroke: rgba(0, 0, 0, 0.7);
-  stroke-width: 5px;
+  stroke: rgba(33, 22, 14, 0.25);
+  stroke-width: 3px;
 }
 .tig2d-led-head {
   font-size: 40px;
@@ -33,14 +34,18 @@
   letter-spacing: 6px;
 }
 .tig2d-led-sub {
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 800;
   text-anchor: middle;
   letter-spacing: 2px;
 }
 .tig2d-small {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 800;
+}
+.tig2d-flagnum {
+  font-size: 16px;
+  font-weight: 900;
 }
 .tig2d-num {
   font-size: 24px;
@@ -50,7 +55,7 @@
   font-size: 26px;
   font-weight: 900;
   paint-order: stroke;
-  stroke: #000;
+  stroke: #1b1410;
   stroke-width: 4px;
 }
 .tig2d-name {
@@ -72,21 +77,22 @@
   opacity: 0.6;
 }
 .tig2d-lit .tig2d-tower {
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.55));
+  filter: drop-shadow(0 0 10px rgba(255, 213, 107, 0.7));
 }
 .tig2d[data-mood="chaos"] {
-  box-shadow: inset 0 0 0 4px rgba(255, 35, 64, 0.55);
+  box-shadow: inset 0 0 0 4px rgba(200, 49, 43, 0.6);
 }
 .tig2d[data-mood="final"],
 .tig2d[data-mood="awards"] {
   background:
-    radial-gradient(60% 45% at 50% 70%, rgba(255, 201, 74, 0.14), transparent 70%),
-    #020306;
+    radial-gradient(40% 35% at 12% 14%, rgba(159, 180, 224, 0.14), transparent 70%),
+    radial-gradient(60% 45% at 50% 70%, rgba(242, 177, 52, 0.18), transparent 70%),
+    linear-gradient(#050d14, #0b1f2a 55%, #07131a);
 }
 .tig2d[data-mood="break"] {
   background:
-    radial-gradient(60% 45% at 50% 70%, rgba(74, 107, 255, 0.14), transparent 70%),
-    #020306;
+    radial-gradient(45% 40% at 12% 14%, rgba(159, 180, 224, 0.22), transparent 70%),
+    linear-gradient(#040a10, #081822 55%, #050e14);
 }
 .tig2d-speaking rect {
   stroke-width: 4px;
@@ -116,7 +122,7 @@
 }
 @keyframes tig2d-alarm {
   50% {
-    box-shadow: inset 0 0 0 10px rgba(255, 35, 64, 0.35);
+    box-shadow: inset 0 0 0 10px rgba(200, 49, 43, 0.4);
   }
 }
 

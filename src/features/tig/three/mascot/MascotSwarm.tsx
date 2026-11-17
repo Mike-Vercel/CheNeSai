@@ -13,12 +13,13 @@ import {
   InstancedBufferAttribute,
   InstancedMesh,
   Matrix4,
+  MeshStandardMaterial,
   Object3D,
-  OctahedronGeometry,
   PlaneGeometry,
   SphereGeometry,
   TorusGeometry,
   Vector3,
+  type Material,
   type ShaderMaterial,
 } from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
@@ -27,15 +28,17 @@ import { mascotHasLevelModel, mascotModelUrl } from "../../mascots/registry";
 import { TIG } from "../palette";
 import { additiveMapMaterial, coneMaterial, glyphMaterial, hologramMaterial, spriteMaterial } from "../arena/fx-materials";
 import { bandTexture, canvasTex, digitAtlas, glowTexture, ringTexture } from "../arena/textures";
+import { coinFaceTexture } from "../arena/pirate-textures";
 import { EVOLVE_BURST_S, actionIsLively, mascotPose, restPose, shownLevel, type MascotPose } from "./mascot-motion";
 import { MascotGlb } from "./MascotGlb";
 
 /**
  * LE MASCOTTE (tutte insieme, istanziate): una sola draw call per ogni parte, che ci siano 1 o 20 mascotte.
  *
- * SEGNAPOSTO DICHIARATO (finché non arrivano i 12 GLB): totem olografico astratto — proiettore a terra con fascio
- * di luce, gemma sfaccettata che galleggia, numero dello slot dentro, fascia «MASCOTTE IN ARRIVO» che gira — tinto
- * col colore della squadra. Non è un personaggio finto: è chiaramente un ologramma provvisorio.
+ * SEGNAPOSTO DICHIARATO (finché non arrivano i 12 GLB) — edizione pirati: un DOBLONE D'ORO grande come un medaglione
+ * che galleggia sopra la pila, col bordo luminoso nel colore della ciurma e il numero dello slot inciso, una luce
+ * d'oro che sale dal doblone della pila e la fascia «MASCOTTE IN ARRIVO» che gira. Non è un personaggio finto: è
+ * chiaramente un segnaposto (niente nomi, aspetto o sesso inventati). L'oro prende i riflessi delle lanterne.
  *
  * EVOLUZIONE (generica: vale anche per i GLB futuri):
  *  - livello 2 «Potenziata»: luce propria più forte, aura, scintille che orbitano, anello esterno;
@@ -74,6 +77,9 @@ const ZERO = new Matrix4().makeScale(0, 0, 0);
 const cTmp = new Color();
 const WHITE = new Color("#ffffff");
 const GOLD = new Color(TIG.gold);
+/** Numero inciso sul doblone (bronzo scuro). */
+const COIN_INK = new Color("#3a2408");
+const vCam = new Vector3();
 
 interface EntryState {
   action: MascotProps["action"];
@@ -153,7 +159,23 @@ function crownGeometry(): BufferGeometry {
   return merged ?? new TorusGeometry(0.17, 0.02, 6, 32);
 }
 
-function makeMesh(geo: BufferGeometry, mat: ShaderMaterial, count: number, colors = true): InstancedMesh {
+/** Doblone del segnaposto: oro lucido con la faccia della moneta, un filo di luce propria (si vede anche al buio). */
+function gemMaterial(face: CanvasTexture): MeshStandardMaterial {
+  const m = new MeshStandardMaterial({ color: "#ffffff", map: face, metalness: 0.75, roughness: 0.3, envMapIntensity: 1.9, emissive: new Color(0.5, 0.33, 0.08), emissiveMap: face });
+  m.onBeforeCompile = (shader) => {
+    shader.fragmentShader = shader.fragmentShader.replace(
+      "#include <emissivemap_fragment>",
+      `#include <emissivemap_fragment>
+      #if defined( USE_COLOR ) || defined( USE_INSTANCING_COLOR )
+        totalEmissiveRadiance += vColor.rgb * 0.16;
+      #endif`,
+    );
+  };
+  m.customProgramCacheKey = () => "tig-mascot-gem";
+  return m;
+}
+
+function makeMesh(geo: BufferGeometry, mat: Material, count: number, colors = true): InstancedMesh {
   const m = new InstancedMesh(geo, mat, Math.max(1, count));
   m.frustumCulled = false;
   m.count = count;
@@ -182,7 +204,7 @@ export interface MascotSwarmProps {
 
 export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef, low, reduced, family, busyRef }: MascotSwarmProps) {
   const n = entries.length;
-  const textures = useMemo(() => ({ glow: glowTexture(), ring: ringTexture(), band: bandTexture(family), digits: digitAtlas(family), wing: wingTexture(), dome: hexDomeTexture() }), [family]);
+  const textures = useMemo(() => ({ glow: glowTexture(), ring: ringTexture(), band: bandTexture(family), digits: digitAtlas(family), wing: wingTexture(), dome: hexDomeTexture(), coin: coinFaceTexture() }), [family]);
   useEffect(
     () => () => {
       for (const t of Object.values(textures)) t.dispose();
@@ -192,14 +214,14 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
 
   const parts = useMemo(() => {
     const holo = hologramMaterial();
-    const coreGeo = new OctahedronGeometry(0.3, 0);
-    coreGeo.scale(1, 1.55, 1);
-    const innerGeo = new OctahedronGeometry(0.13, 0);
-    innerGeo.scale(1, 1.4, 1);
+    // bordo luminoso del doblone (anello nel colore della ciurma) e il doblone vero (faccia verso il pubblico)
+    const coreGeo = new TorusGeometry(0.335, 0.022, 8, 48);
+    const innerGeo = new CylinderGeometry(0.32, 0.32, 0.055, 48, 1);
+    innerGeo.rotateX(Math.PI / 2);
     const fxAttr = (count: number) => new InstancedBufferAttribute(new Float32Array(Math.max(1, count) * 4).fill(1), 4);
     const core = makeMesh(coreGeo, holo, n);
     coreGeo.setAttribute("aFx", fxAttr(n));
-    const inner = makeMesh(innerGeo, holo, n);
+    const inner = makeMesh(innerGeo, gemMaterial(textures.coin), n);
     innerGeo.setAttribute("aFx", fxAttr(n));
     // proiettore: disco con anelli + fascio verso l'alto
     const padMat = additiveMapMaterial(textures.ring);
@@ -267,10 +289,10 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
   }, [n, textures]);
   useEffect(
     () => () => {
-      const mats = new Set<ShaderMaterial>();
+      const mats = new Set<Material>();
       for (const m of parts.all) {
         m.geometry.dispose();
-        mats.add(m.material as ShaderMaterial);
+        mats.add(m.material as Material);
         m.dispose();
       }
       for (const m of mats) m.dispose();
@@ -289,8 +311,9 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
   });
   const clock = useRef(0);
 
-  useFrame((_, rawDt) => {
+  useFrame((state, rawDt) => {
     const dt = Math.min(0.1, rawDt);
+    const camPos = state.camera.position;
     clock.current += reduced ? 0 : dt;
     const t = clock.current;
     const list = entriesRef.current;
@@ -377,7 +400,7 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
       tmpObj.updateMatrix();
       mB.multiplyMatrices(mA, tmpObj.matrix);
       P.pad.setMatrixAt(i, mB);
-      P.pad.setColorAt(i, cTmp.set(e.color).multiplyScalar(0.9 * glow));
+      P.pad.setColorAt(i, cTmp.set(e.color).lerp(GOLD, 0.6).multiplyScalar(0.8 * glow));
       if (placeholder) {
         tmpObj.position.set(0, 0.02, 0);
         tmpObj.rotation.set(0, 0, 0);
@@ -385,34 +408,35 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
         tmpObj.updateMatrix();
         mB.multiplyMatrices(mA, tmpObj.matrix);
         P.beam.setMatrixAt(i, mB);
-        P.beam.setColorAt(i, cTmp.set(e.color).multiplyScalar(0.55 * glow));
+        P.beam.setColorAt(i, cTmp.copy(GOLD).lerp(color.set(e.color), 0.2).multiplyScalar(0.42 * glow));
       } else P.beam.setMatrixAt(i, ZERO);
       color.set(e.color);
 
       // gemma, nucleo, fascia, numero (solo segnaposto)
       if (placeholder) {
+        // il doblone guarda il pubblico e ondeggia piano (mai di taglio: il numero resta leggibile)
         tmpObj.position.set(0, 0.56, 0);
-        tmpObj.rotation.set(0, t * 0.7 + pose.rotY, 0);
+        tmpObj.rotation.set(0.08 * Math.sin(t * 0.8 + i), 0.45 * Math.sin(t * 0.55 + i * 1.3) + pose.rotY, 0.05 * Math.sin(t * 0.7 + i));
         tmpObj.scale.setScalar(1);
         tmpObj.updateMatrix();
         mB.multiplyMatrices(mP, tmpObj.matrix);
         P.core.setMatrixAt(i, mB);
         P.core.setColorAt(i, color);
         coreFx.setXYZW(i, glow, pose.flash, pose.hurt, e.online ? 1 : 0);
-        tmpObj.rotation.set(0, -t * 1.3 - pose.rotY, 0);
-        tmpObj.updateMatrix();
-        mB.multiplyMatrices(mP, tmpObj.matrix);
         P.inner.setMatrixAt(i, mB);
-        P.inner.setColorAt(i, cTmp.set(e.color).lerp(WHITE, 0.45));
+        // oro (spento se offline), più luce col livello e nei lampi
+        P.inner.setColorAt(i, cTmp.set(e.online ? "#ffe2a0" : "#8a8478").lerp(WHITE, pose.flash * 0.5).multiplyScalar(0.8 + 0.25 * glow));
         innerFx.setXYZW(i, glow * 1.3, pose.flash, pose.hurt, e.online ? 1 : 0);
         tmpObj.position.set(0, 0.18, 0);
         tmpObj.rotation.set(0, 0, 0);
         tmpObj.updateMatrix();
         mB.multiplyMatrices(mA, tmpObj.matrix);
         P.band.setMatrixAt(i, mB);
-        P.band.setColorAt(i, cTmp.set(e.color).lerp(WHITE, 0.35).multiplyScalar(1.1 * (e.online ? 1 : 0.5) * (e.dim ?? 1)));
-        // numero dello slot al centro della gemma
+        P.band.setColorAt(i, cTmp.copy(GOLD).lerp(WHITE, 0.35).multiplyScalar(0.9 * (e.online ? 1 : 0.5) * (e.dim ?? 1)));
+        // numero dello slot inciso al centro del doblone (un filo davanti alla faccia, verso la camera)
         vT.set(0, 0.56, 0).applyMatrix4(mP);
+        vCam.copy(camPos).sub(vT).normalize().multiplyScalar(0.07 * sc);
+        vT.add(vCam);
         const label = e.slot ? String(e.slot).padStart(2, "0") : "··";
         for (let k = 0; k < 2; k++) {
           const gi = i * 2 + k;
@@ -420,9 +444,9 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
           gGlyph.setX(gi, ch === "·" ? 12 : Number(ch));
           gAlpha.setX(gi, (e.online ? 0.95 : 0.5) * (1 - pose.flash * 0.6) * (0.35 + 0.65 * (e.dim ?? 1)));
           gCenter.setXYZ(gi, vT.x, vT.y, vT.z);
-          gOffset.setXY(gi, (k - 0.5) * 0.62, 0);
-          gSize.setX(gi, 0.2 * sc * pose.scale);
-          P.glyphs.setColorAt(gi, cTmp.set(e.color).lerp(WHITE, 0.7));
+          gOffset.setXY(gi, (k - 0.5) * 0.6, 0);
+          gSize.setX(gi, 0.17 * sc * pose.scale);
+          P.glyphs.setColorAt(gi, COIN_INK);
         }
       } else {
         P.core.setMatrixAt(i, ZERO);
@@ -442,7 +466,7 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
         tmpObj.scale.setScalar(sc * (1.5 + 0.6 * l3 + pose.flash * 1.6) * (1 + 0.05 * Math.sin(t * 3 + i)));
         tmpObj.updateMatrix();
         P.aura.setMatrixAt(i, tmpObj.matrix);
-        P.aura.setColorAt(i, cTmp.set(e.color).lerp(l3 ? GOLD : WHITE, 0.15 + pose.flash * 0.6).multiplyScalar((0.32 + 0.3 * l3) * glow + pose.flash * 1.2));
+        P.aura.setColorAt(i, cTmp.set(e.color).lerp(GOLD, 0.55 + pose.flash * 0.3).multiplyScalar((0.32 + 0.3 * l3) * glow + pose.flash * 1.2));
       } else P.aura.setMatrixAt(i, ZERO);
       for (let k = 0; k < ORBITERS; k++) {
         const oi = i * ORBITERS + k;
@@ -457,7 +481,7 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
         tmpObj.scale.setScalar(sc * (0.07 + 0.03 * Math.sin(t * 5 + k)));
         tmpObj.updateMatrix();
         P.orbiters.setMatrixAt(oi, tmpObj.matrix);
-        P.orbiters.setColorAt(oi, cTmp.set(e.color).lerp(l3 ? GOLD : WHITE, 0.5).multiplyScalar(1.6 * glow));
+        P.orbiters.setColorAt(oi, cTmp.copy(GOLD).lerp(WHITE, 0.3).multiplyScalar(1.6 * glow));
       }
       if (l2) {
         tmpObj.position.set(0, 0.56 + 0.03 * Math.sin(t * 1.3), 0);
@@ -519,14 +543,14 @@ export function MascotSwarm({ entries, anchorsRef, actionsRef, dimRef, shieldRef
         tmpObj.updateMatrix();
         mB.multiplyMatrices(mA, tmpObj.matrix);
         P.shock.setMatrixAt(i, burstT >= 0 ? mB : ZERO);
-        P.shock.setColorAt(i, cTmp.set(e.color).lerp(WHITE, 0.4).multiplyScalar(2 * Math.max(0, 1 - k / 1.6)));
+        P.shock.setColorAt(i, cTmp.copy(GOLD).lerp(WHITE, 0.4).multiplyScalar(2 * Math.max(0, 1 - k / 1.6)));
         const pil = burstT < 0 ? (1.2 + burstT) / 1.2 : Math.max(0, 1 - burstT / 1.4);
         tmpObj.position.set(0, 0, 0);
         tmpObj.scale.set(1, 4.5, 1);
         tmpObj.updateMatrix();
         mB.multiplyMatrices(mA, tmpObj.matrix);
         P.pillar.setMatrixAt(i, mB);
-        P.pillar.setColorAt(i, cTmp.set(e.color).lerp(WHITE, 0.3).multiplyScalar(1.4 * pil));
+        P.pillar.setColorAt(i, cTmp.copy(GOLD).lerp(WHITE, 0.3).multiplyScalar(1.4 * pil));
       } else {
         P.shock.setMatrixAt(i, ZERO);
         P.pillar.setMatrixAt(i, ZERO);

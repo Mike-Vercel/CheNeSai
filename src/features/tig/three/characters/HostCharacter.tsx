@@ -7,6 +7,7 @@ import {
   AnimationClip,
   AnimationMixer,
   Box3,
+  Color,
   LoopRepeat,
   Matrix4,
   Plane,
@@ -181,6 +182,42 @@ function faceMeshesOf(root: Object3D): Mesh[] {
   return list;
 }
 
+/**
+ * CONTROLUCE DA STUDIO sui presentatori (gratis: niente luci vere in più): un filo di luce sui contorni, ambra da
+ * sinistra e ciano da destra (in vista), che li stacca dal fondo buio come le luci di taglio di uno show. Uniform
+ * condivise: l'arena le cambia con l'atmosfera (rosso nel caos, oro sul podio). Intensità 0 = spento.
+ */
+export const HOST_RIM = {
+  a: { value: new Color("#ff9a3c") },
+  b: { value: new Color("#8fb4ff") },
+  k: { value: 1.2 },
+};
+const RIM_DONE = new WeakSet<Material>();
+
+function addRim(mat: MeshStandardMaterial) {
+  if (RIM_DONE.has(mat)) return;
+  RIM_DONE.add(mat);
+  const prev = mat.onBeforeCompile;
+  mat.onBeforeCompile = (shader, renderer) => {
+    prev?.call(mat, shader, renderer);
+    shader.uniforms.uRimA = HOST_RIM.a;
+    shader.uniforms.uRimB = HOST_RIM.b;
+    shader.uniforms.uRimK = HOST_RIM.k;
+    shader.fragmentShader = shader.fragmentShader
+      .replace("#include <common>", "#include <common>\nuniform vec3 uRimA;\nuniform vec3 uRimB;\nuniform float uRimK;")
+      .replace(
+        "#include <lights_fragment_end>",
+        `#include <lights_fragment_end>
+        {
+          float tigRim = pow(1.0 - saturate(dot(geometryNormal, geometryViewDir)), 3.0);
+          vec3 tigRimCol = mix(uRimA, uRimB, smoothstep(-0.35, 0.35, geometryNormal.x));
+          totalEmissiveRadiance += tigRimCol * tigRim * uRimK * (0.35 + 0.65 * diffuseColor.rgb);
+        }`,
+      );
+  };
+  mat.customProgramCacheKey = () => "tig-host-rim";
+}
+
 function prepMaterials(root: Object3D, castShadow: boolean) {
   root.traverse((o) => {
     const mesh = o as Mesh;
@@ -191,7 +228,9 @@ function prepMaterials(root: Object3D, castShadow: boolean) {
     mesh.morphTargetInfluences?.fill(0);
     const mat = mesh.material as MeshStandardMaterial;
     if (mat?.isMeshStandardMaterial) {
-      mat.envMapIntensity = 0.45;
+      // ambiente di studio (softbox): riflessi morbidi su giacche, capelli e pelle
+      mat.envMapIntensity = 0.7;
+      addRim(mat);
       mat.needsUpdate = true;
     }
   });
