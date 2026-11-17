@@ -9,7 +9,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { DigitPad } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { silentTeams, teamMap, TvTeamTag } from "./m5-kit";
+import { silentTeams, teamMap, TvTeamTag, TvWhy } from "./m5-kit";
 
 type P = PlayerGameProps<DuelloView, null, DuelloSubmission, DuelloReveal>;
 type T = TvGameProps<DuelloView, DuelloReveal>;
@@ -158,7 +158,9 @@ function Tv(p: T) {
               <p className="tg-num tg-pop text-[5cqw] leading-none tracking-[0.25em] text-(--tg-gold)">{reveal.pin}</p>
             </div>
           ) : (
-            <p className="text-[1.5cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.story}</p>
+            <div className="tg-parch px-[1.3cqw] py-[0.8cqw]">
+              <p className="text-[1.4cqw] font-semibold leading-snug">{view.story}</p>
+            </div>
           )}
           <div className="flex flex-col gap-[0.6cqw]">
             {view.rows.map((r) => (
@@ -194,7 +196,7 @@ function Tv(p: T) {
             })}
           </div>
           {done ? (
-            <p className="mt-auto text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal.explain}</p>
+            <TvWhy text={reveal.explain} size="sm" className="mt-auto" />
           ) : (
             <p className="mt-auto text-[1.15cqw] font-bold leading-snug text-(--tg-cream)/65">Pallino pieno: cifra giusta al posto giusto. Pallino vuoto: cifra giusta ma fuori posto.</p>
           )}

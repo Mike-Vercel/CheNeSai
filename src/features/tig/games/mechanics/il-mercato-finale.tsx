@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { BalanceCard } from "./m5-kit";
+import { BalanceCard, CoinTag } from "./m5-kit";
 
 type P = PlayerGameProps<MercatoView, MercatoMemberView, MercatoSubmission, MercatoReveal>;
 type T = TvGameProps<MercatoView, MercatoReveal>;
@@ -61,7 +61,7 @@ function Player(p: P) {
           <Eyebrow>Il banco, svelato</Eyebrow>
           {reveal.hints.map((h) => (
             <p key={h.id} className={clsx("rounded-xl border px-3 py-2 text-sm font-semibold leading-snug", h.id === buy ? "border-(--tg-gold)/60 bg-(--tg-gold)/10" : "border-(--tg-cream)/10")}>
-              <b className="tg-num mr-1 text-(--tg-teal-hi)">{h.price}</b> {h.label}: <span className="text-(--tg-cream)/80">{h.text}</span>
+              <b className="tg-num mr-1 text-(--tg-gold)">{h.price}</b> {h.label}: <span className="text-(--tg-cream)/80">{h.text}</span>
             </p>
           ))}
         </Panel>
@@ -113,7 +113,7 @@ function Player(p: P) {
                 off && !mine && "opacity-45",
               )}
             >
-              <span className="tg-num grid h-11 w-14 shrink-0 place-items-center rounded-lg bg-(--tg-teal) text-2xl text-(--tg-ink)">{h.price}</span>
+              <CoinTag className="h-12 w-12 text-xl">{h.price}</CoinTag>
               <span className="min-w-0 flex-1 text-base font-bold leading-snug">{h.label}</span>
               <span className="shrink-0 text-xs font-extrabold uppercase tracking-wide text-(--tg-cream)/70">{mine ? "Comprato" : tooDear ? "Troppo caro" : arming === h.id ? "Tocca ancora: definitivo" : buy ? "" : "Compra"}</span>
             </button>
@@ -164,7 +164,7 @@ function Tv(p: T) {
             return (
               <div key={h.id} className="tg-rise flex flex-col gap-[0.4cqw] rounded-[1cqw] border border-(--tg-cream)/12 bg-(--tg-cream)/[0.05] p-[0.9cqw]">
                 <div className="flex items-center gap-[0.8cqw]">
-                  <span className="tg-num grid h-[3.4cqw] w-[4.4cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-(--tg-teal) text-[2.2cqw] text-(--tg-ink)">{h.price}</span>
+                  <CoinTag className="h-[4cqw] w-[4cqw] text-[1.9cqw]">{h.price}</CoinTag>
                   <p className="min-w-0 flex-1 text-[1.45cqw] font-extrabold leading-tight">{h.label}</p>
                   {done && <span className="tg-num shrink-0 text-[1.3cqw] text-(--tg-cream)/70">{n} tavol{n === 1 ? "o" : "i"}</span>}
                 </div>

@@ -85,14 +85,15 @@ function Player(p: P) {
               disabled={!o}
               onClick={() => setTab(i)}
               className={clsx(
-                "flex h-14 flex-col items-center justify-center rounded-xl border-2 leading-none",
+                "flex h-[4.25rem] min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl border-2 px-1 leading-none",
                 i === tab ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/12 text-(--tg-cream)/75",
                 answers[c.id] && "bg-(--tg-gold)/10",
                 !o && "border-dashed opacity-60",
               )}
             >
-              <span className="tg-display text-xl">Chiamata {c.n}</span>
-              <span className="mt-1 text-[11px] font-extrabold uppercase tracking-wide">{o ? (answers[c.id] ? "risposta data" : c.kind) : `tra ${secsTo(c.opensAtMs, elapsed)} s`}</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.14em]">Chiamata</span>
+              <span className="tg-num text-2xl leading-none">{c.n}</span>
+              <span className="max-w-full truncate text-[10px] font-extrabold uppercase tracking-wide">{o ? (answers[c.id] ? "risposta data" : c.kind) : `tra ${secsTo(c.opensAtMs, elapsed)} s`}</span>
             </button>
           );
         })}

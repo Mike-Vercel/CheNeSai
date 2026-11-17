@@ -7,36 +7,45 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
+import { canEdit, elapsedOf, Explain, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
 import { secsTo } from "./m5-kit";
 
 type P = PlayerGameProps<FalsoView, null, FalsoSubmission, FalsoReveal>;
 type T = TvGameProps<FalsoView, FalsoReveal>;
 type Board = FalsoView["board"];
 
-/** Animazioni proprie del falso finale (coriandoli e crepa), con prefisso tg5- per non toccare il kit. */
+/** Animazioni proprie del falso finale (pioggia di dobloni e crepa), con prefisso tg5- per non toccare il kit. */
 const FX = `
-@keyframes tg5-fall { from { transform: translate3d(0,-12vh,0) rotate(0deg); } to { transform: translate3d(var(--dx),112vh,0) rotate(540deg); } }
+@keyframes tg5-fall { from { transform: translate3d(0,-12vh,0); } to { transform: translate3d(var(--dx),112vh,0); } }
+@keyframes tg5-flip { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.18); } }
 @keyframes tg5-glitch { 0%,100% { transform: none; } 20% { transform: translate(-0.4%,0.3%) skewX(-4deg); } 40% { transform: translate(0.5%,-0.2%) skewX(3deg); } 60% { transform: translate(-0.2%,0.1%); } }
-.tg5-confetti { position:absolute; top:0; width:0.9%; height:1.6%; border-radius:2px; animation: tg5-fall linear infinite; }
+.tg5-coin { position:absolute; top:0; width:var(--sz); height:var(--sz); animation: tg5-fall linear infinite; }
+.tg5-coin > span { display:block; width:100%; height:100%; border-radius:9999px; animation: tg5-flip 0.9s ease-in-out infinite;
+  background: radial-gradient(circle at 34% 28%, #fff4c8 0 7%, transparent 30%), radial-gradient(circle at 50% 50%, #ffd56b 0 50%, #e2a12a 62%, #b97c1c 78%, #8a5514 100%);
+  box-shadow: inset 0 0 0 0.12em rgba(122,78,16,.55), 0 0.15em 0.3em rgba(0,0,0,.45); }
 .tg5-glitch { animation: tg5-glitch 420ms steps(2) 3; }
-@media (prefers-reduced-motion: reduce) { .tg5-confetti { display:none; } .tg5-glitch { animation:none; } }
+@media (prefers-reduced-motion: reduce) { .tg5-coin { display:none; } .tg5-glitch { animation:none; } }
 `;
 
-const CONFETTI = Array.from({ length: 36 }, (_, i) => ({
-  left: (i * 37) % 100,
-  delay: (i * 0.29) % 3.6,
-  dur: 3.2 + ((i * 7) % 10) / 5,
+/** Pioggia di dobloni d'oro (al posto dei coriandoli): posizioni e tempi fissi, uguali su ogni schermo. */
+const COINS = Array.from({ length: 30 }, (_, i) => ({
+  left: (i * 37 + 3) % 100,
+  delay: (i * 0.31) % 3.6,
+  dur: 3 + ((i * 7) % 10) / 5,
   dx: `${((i * 13) % 9) - 4}vw`,
-  color: ["var(--tg-gold)", "var(--tg-red-hi)", "var(--tg-teal-hi)", "var(--tg-sky)", "var(--tg-violet)"][i % 5],
+  size: `${1.1 + ((i * 5) % 4) * 0.25}cqw`,
+  flip: `${(i * 0.17) % 0.9}s`,
 }));
 
-/** La classifica finta: righe nell'ordine scritto (alcuni enigmi dipendono proprio dall'ordine). */
-function BoardTable({ board, tv = false, dim = false }: { board: Board; tv?: boolean; dim?: boolean }) {
+/**
+ * La classifica finta su pergamena (la «mappa» dei punteggi), righe nell'ordine scritto: alcuni enigmi dipendono
+ * proprio dall'ordine. La prima riga ha il bagliore d'oro della vittoria (finta).
+ */
+function BoardTable({ board, tv = false }: { board: Board; tv?: boolean }) {
   return (
-    <table className={clsx("w-full border-separate", tv ? "border-spacing-y-[0.35cqw]" : "border-spacing-y-1", dim && "opacity-90")} aria-label={board.title}>
+    <table className={clsx("w-full border-separate", tv ? "border-spacing-y-[0.3cqw]" : "border-spacing-y-1")} aria-label={board.title}>
       <thead>
-        <tr className={clsx("text-left font-extrabold uppercase text-(--tg-cream)/55", tv ? "text-[0.95cqw] tracking-[0.18em]" : "text-[11px] tracking-[0.14em]")}>
+        <tr className={clsx("text-left font-extrabold uppercase text-(--tg-burnt-ink)", tv ? "text-[0.95cqw] tracking-[0.18em]" : "text-[11px] tracking-[0.14em]")}>
           <th className={tv ? "w-[3cqw] px-[0.5cqw]" : "w-8 px-1"}>#</th>
           <th className={tv ? "px-[0.5cqw]" : "px-1"}>Squadra</th>
           {board.noteLabel && <th className={tv ? "px-[0.5cqw]" : "px-1"}>{board.noteLabel}</th>}
@@ -45,15 +54,25 @@ function BoardTable({ board, tv = false, dim = false }: { board: Board; tv?: boo
       </thead>
       <tbody>
         {board.rows.map((r, i) => (
-          <tr key={i} className={clsx("bg-(--tg-cream)/[0.05]", tv ? "text-[1.7cqw]" : "text-base", i === 0 && "bg-(--tg-teal)/15")}>
-            <td className={clsx("tg-num rounded-l-[0.6em] text-(--tg-cream)/70", tv ? "px-[0.5cqw] py-[0.35cqw]" : "px-1 py-1.5")}>{i + 1}</td>
+          <tr key={i} className={clsx(tv ? "text-[1.7cqw]" : "text-base", i === 0 ? "bg-(--tg-gold)/45" : "bg-(--tg-burnt)/12")}>
+            <td className={clsx("tg-num rounded-l-[0.6em] text-(--tg-burnt-ink)", tv ? "px-[0.5cqw] py-[0.3cqw]" : "px-1 py-1.5")}>{i + 1}</td>
             <td className={clsx("font-extrabold", tv ? "px-[0.5cqw]" : "px-1")}>{r.name}</td>
-            {board.noteLabel && <td className={clsx("font-bold text-(--tg-cream)/75", tv ? "px-[0.5cqw]" : "px-1")}>{r.note ?? ""}</td>}
-            <td className={clsx("tg-num rounded-r-[0.6em] text-right text-(--tg-teal-hi)", tv ? "px-[0.8cqw]" : "px-2")}>{r.pts.toLocaleString("it-IT")}</td>
+            {board.noteLabel && <td className={clsx("font-bold text-(--tg-burnt-ink)", tv ? "px-[0.5cqw]" : "px-1")}>{r.note ?? ""}</td>}
+            <td className={clsx("tg-num rounded-r-[0.6em] text-right", tv ? "px-[0.8cqw]" : "px-2")}>{r.pts.toLocaleString("it-IT")}</td>
           </tr>
         ))}
       </tbody>
     </table>
+  );
+}
+
+/** Foglio di pergamena con titolo e classifica (telefono). */
+function BoardSheet({ board, title = true }: { board: Board; title?: boolean }) {
+  return (
+    <section className="tg-parch px-3 py-3">
+      {title && <p className="tg-title mb-1 text-2xl leading-tight">{board.title}</p>}
+      <BoardTable board={board} />
+    </section>
   );
 }
 
@@ -71,9 +90,7 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
-        <Panel>
-          <BoardTable board={reveal.board} />
-        </Panel>
+        <BoardSheet board={reveal.board} />
         <Panel className="flex flex-col gap-2">
           <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
           <ChoiceList options={reveal.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
@@ -87,16 +104,14 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <Panel tone="lime" className="tg-pop flex flex-col items-center gap-2 py-6 text-center">
-          <Icon name="crown" className="h-14 w-14 text-(--tg-teal-hi)" />
-          <p className="tg-display text-5xl">È finita?</p>
+          <Icon name="crown" className="h-14 w-14 text-(--tg-gold)" />
+          <p className="tg-title text-5xl">È finita?</p>
           <p className="max-w-xs text-base font-semibold text-(--tg-cream)/80">Guardate la TV: è uscita la «{view.board.title.toLowerCase()}».</p>
           <p className="tg-num text-5xl text-(--tg-gold)" aria-live="polite">
             {secsTo(view.fakeMs, elapsed)}
           </p>
         </Panel>
-        <Panel>
-          <BoardTable board={view.board} />
-        </Panel>
+        <BoardSheet board={view.board} title={false} />
       </PlayerFrame>
     );
   }
@@ -113,10 +128,7 @@ function Player(p: P) {
           <p className="mt-1 text-base font-bold leading-snug">{view.twist}</p>
         </div>
       )}
-      <Panel>
-        <Eyebrow className="mb-1">{view.board.title}</Eyebrow>
-        <BoardTable board={view.board} />
-      </Panel>
+      <BoardSheet board={view.board} />
       {view.prompt && view.options && (
         <Panel className="tg-rise flex flex-col gap-3">
           <p className="text-xl font-extrabold leading-snug">{view.prompt}</p>
@@ -139,17 +151,19 @@ function Tv(p: T) {
       <TvFrame view={view} p={p} hideTimer subtitle="Signore e signori, i risultati definitivi…">
         <style>{FX}</style>
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          {CONFETTI.map((c, i) => (
-            <span key={i} className="tg5-confetti" style={{ left: `${c.left}%`, background: c.color, animationDelay: `${c.delay}s`, animationDuration: `${c.dur}s`, ["--dx" as string]: c.dx }} />
+          {COINS.map((c, i) => (
+            <span key={i} className="tg5-coin" style={{ left: `${c.left}%`, animationDelay: `${c.delay}s`, animationDuration: `${c.dur}s`, ["--dx" as string]: c.dx, ["--sz" as string]: c.size }}>
+              <span style={{ animationDelay: c.flip }} />
+            </span>
           ))}
         </div>
         <div className="mx-auto flex h-full w-[62%] flex-col items-center justify-center gap-[1.2cqw]">
-          <p className="tg-display tg-pop flex items-center gap-[1cqw] text-center text-[4cqw] leading-none text-(--tg-teal-hi)">
+          <p className="tg-title tg-pop flex items-center gap-[1cqw] text-center text-[4.4cqw] leading-none text-(--tg-gold-hi) drop-shadow-[0_0.3cqw_0.6cqw_rgba(0,0,0,.8)]">
             <Icon name="crown" className="h-[4cqw] w-[4cqw] shrink-0" /> {view.board.title}
           </p>
-          <TvPanel className="w-full p-[1.2cqw]">
+          <div className="tg-parch w-full px-[1.4cqw] py-[1cqw]">
             <BoardTable board={view.board} tv />
-          </TvPanel>
+          </div>
         </div>
       </TvFrame>
     );
@@ -159,10 +173,10 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Prova bonus: la soluzione" : "FALSO FINALE: parte la prova bonus annunciata dal regolamento"}>
       <style>{FX}</style>
       <div className="grid h-full grid-cols-[1fr_1.1fr] gap-[1.4cqw]">
-        <TvPanel className={clsx("flex min-h-0 flex-col gap-[0.6cqw] p-[1.2cqw]", !done && "tg5-glitch")}>
-          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">{view.board.title} (?)</p>
-          <BoardTable board={view.board} tv dim />
-        </TvPanel>
+        <div className={clsx("tg-parch flex min-h-0 flex-col gap-[0.5cqw] self-start px-[1.4cqw] py-[1cqw]", !done && "tg5-glitch")}>
+          <p className="tg-title text-[2.4cqw] leading-none">{view.board.title} (?)</p>
+          <BoardTable board={view.board} tv />
+        </div>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           {!done && view.twist && (
             <TvPanel tone="red" className="tg-pop tg-stripes-red p-[1.2cqw]">
