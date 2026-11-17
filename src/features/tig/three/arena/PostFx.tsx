@@ -44,11 +44,12 @@ export function PostFx({ profile, exposure = 1, overrides }: { profile: RenderPr
       effects.push(
         new BloomEffect({
           mipmapBlur: true,
-          luminanceThreshold: ldr ? 0.9 : 0.92,
-          luminanceSmoothing: ldr ? 0.08 : 0.25,
-          intensity: ldr ? 1.25 : 1.0,
+          // a 8 bit tutto si ferma a 1: soglia appena sopra i testi nitidi (CRISP), sfumatura stretta
+          luminanceThreshold: ldr ? 0.84 : 0.92,
+          luminanceSmoothing: ldr ? 0.06 : 0.25,
+          intensity: ldr ? 1.15 : 1.0,
           radius: 0.7,
-          levels: profile.level >= 4 ? 6 : 5,
+          levels: profile.level >= 4 ? 6 : profile.level >= 3 ? 5 : 4,
           resolutionScale: Math.max(0.25, profile.bloom),
         }),
       );

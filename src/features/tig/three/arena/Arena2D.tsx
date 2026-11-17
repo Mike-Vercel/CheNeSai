@@ -8,12 +8,13 @@ import { Mascot2DGlyph } from "../mascot/Mascot2D";
 import { normalizeSafeArea } from "./camera-math";
 import { awardsRevealed, directArena } from "./director";
 import { columnHeight, podLayout, POD, scoreScale } from "./layout";
+import { GAME_MOTTO, GAME_NAME, isGameName } from "./led-texture";
 import { rankOrder, tableOrder } from "./rank-anim";
 import "./arena-2d.css";
 
 /**
  * ARENA 2D (qualità "2d": niente WebGL, renderer software o movimento ridotto; anche come anteprima mentre il 3D si
- * carica), edizione pirati: «LA TAVERNA DEL MOLO» in SVG/CSS con le stesse informazioni dell'arena 3D — la grande
+ * carica) di TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!): la taverna sul molo in SVG/CSS con le stesse informazioni dell'arena 3D — la grande
  * VELA con titolo/classifica (mappa del tesoro)/allarme (vela rossa)/sfida/premiazione (casse), il ponte di comando
  * col timone, le postazioni delle ciurme sulla U (tamburo, PILA DI DOBLONI alta quanto il punteggio, stendardo col
  * colore e il numero del tavolo, punti, Energia Caos, doblone segnaposto della mascotte), la baia di notte con la
@@ -180,10 +181,10 @@ function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode
       break;
     }
     default: {
-      const big = mode === "logo" ? "TAVOLI IN GUERRA!" : mode === "break" ? (title ?? "PAUSA") : mode === "final" ? (title ?? "TUTTO O NIENTE!") : mode === "evolve" ? (title ?? "EVOLUZIONE!") : (title ?? "TAVOLI IN GUERRA!");
+      const big = mode === "logo" ? GAME_NAME : mode === "break" ? (title ?? "PAUSA") : mode === "final" ? (title ?? "TUTTO O NIENTE!") : mode === "evolve" ? (title ?? "EVOLUZIONE!") : (title ?? GAME_NAME);
       const over = mode === "manche" || (mode === "title" && props.mancheNo) ? `MANCHE ${props.mancheNo ?? ""}` : null;
-      const own = title && title.replace(/[^A-Z]/g, "") !== "TAVOLIINGUERRA" ? title : null;
-      const small = mode === "logo" ? (own ?? sub ?? "OGNI TAVOLO CONTA") : mode === "evolve" && focus[0] ? `TAVOLO ${focus[0].tableNo} · LIVELLO ${focus[0].mascotLevel}` : sub;
+      const own = title && !isGameName(title) ? title : null;
+      const small = mode === "logo" ? (own ?? sub ?? GAME_MOTTO) : mode === "evolve" && focus[0] ? `TAVOLO ${focus[0].tableNo} · LIVELLO ${focus[0].mascotLevel}` : sub;
       const tone = mode === "final" ? OCHRE : mode === "evolve" ? "#5a3a08" : mode === "break" ? "#1d2a3a" : INK;
       body = (
         <g>
@@ -264,7 +265,7 @@ export default function Arena2D(props: ArenaProps) {
         className="tig2d-frame"
         style={{ left: `${win.x0 * 100}%`, top: `${win.y0 * 100}%`, width: `${(win.x1 - win.x0) * 100}%`, height: `${(win.y1 - win.y0) * 100}%` }}
       >
-        <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Arena di TAVOLI IN GUERRA!: ${props.title ?? props.phase}`}>
+        <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Arena di ${GAME_NAME}: ${props.title ?? props.phase}`}>
           <defs>
             <linearGradient id="tig2d-sail" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#d9c69c" />

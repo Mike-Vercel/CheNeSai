@@ -1,5 +1,6 @@
 /**
- * Identità visiva dell'arena di TAVOLI IN GUERRA! — EDIZIONE PIRATI (originale): «LA TAVERNA DEL MOLO», un porto
+ * Identità visiva dell'arena di TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!; identificatori interni `tig`), stile
+ * pirati originale: una taverna sul molo di un porto
  * caraibico di notte. Luce CALDA delle lanterne e delle torce contro il FREDDO della notte di mare; ORO dei dobloni
  * per punti, vincitori e premiazione; turchese caraibico come accento freddo; rosso bandiera solo per allarme e Caos;
  * verde-acqua "fuoco fatuo" per l'Energia Caos. Legno, ottone, pergamena e corda come materiali. I colori delle

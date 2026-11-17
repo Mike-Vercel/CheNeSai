@@ -239,7 +239,7 @@ export function commandDeckTexture(family: string): CanvasTexture {
     ctx.arc(c, c, 300, 0, Math.PI * 2);
     ctx.stroke();
     // scritta circolare
-    const text = "TAVOLI IN GUERRA! · OGNI TAVOLO CONTA · ";
+    const text = "TAVERNA DEI PIRATI · OGNI TAVOLO È UNA CIURMA · ";
     ctx.save();
     ctx.translate(c, c);
     ctx.font = `400 40px ${family}`;

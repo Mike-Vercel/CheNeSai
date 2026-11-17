@@ -161,7 +161,7 @@ function crownGeometry(): BufferGeometry {
 
 /** Doblone del segnaposto: oro lucido con la faccia della moneta, un filo di luce propria (si vede anche al buio). */
 function gemMaterial(face: CanvasTexture): MeshStandardMaterial {
-  const m = new MeshStandardMaterial({ color: "#ffffff", map: face, metalness: 1, roughness: 0.26, envMapIntensity: 1.9 });
+  const m = new MeshStandardMaterial({ color: "#ffffff", map: face, metalness: 0.75, roughness: 0.3, envMapIntensity: 1.9, emissive: new Color(0.5, 0.33, 0.08), emissiveMap: face });
   m.onBeforeCompile = (shader) => {
     shader.fragmentShader = shader.fragmentShader.replace(
       "#include <emissivemap_fragment>",

@@ -4,7 +4,7 @@ import { ClientOnly } from "../../tv-question/ClientOnly";
 import { ArenaPreview } from "./ArenaPreview";
 
 export const metadata: Metadata = {
-  title: "Anteprima · Arena 3D di TAVOLI IN GUERRA!",
+  title: "Anteprima · Arena 3D di TAVERNA DEI PIRATI",
   robots: { index: false, follow: false },
 };
 

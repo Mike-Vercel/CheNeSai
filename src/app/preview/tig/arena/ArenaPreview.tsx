@@ -288,7 +288,7 @@ export function ArenaPreview({ params }: { params: Record<string, string> }) {
         <div className="absolute left-2 top-2 z-10 flex max-h-[calc(100dvh-16px)] w-[min(420px,calc(100vw-16px))] flex-col gap-2 overflow-auto rounded-xl border border-white/10 bg-[#070a10]/85 p-3 text-sm backdrop-blur" style={{ fontFamily: "system-ui, sans-serif" }}>
           <div className="flex items-center justify-between">
             <b className="tracking-wider" style={{ fontFamily: "var(--font-tig-display)" }}>
-              ARENA · TAVOLI IN GUERRA!
+              ARENA · TAVERNA DEI PIRATI
             </b>
             <button className={btn} onClick={() => setUi(false)}>
               nascondi

@@ -90,8 +90,9 @@ export function goldStackMaterial(): ShaderMaterial {
         float spec = pow(max(dot(R, normalize(vec3(0.45, 0.55, 0.7))), 0.0), 18.0);
         float spec2 = pow(max(dot(R, normalize(vec3(-0.6, 0.3, 0.75))), 0.0), 30.0);
         float rim = pow(1.0 - facing, 3.0);
-        vec3 col = uGold * (0.07 + 0.55 * band * uWarm + 1.7 * spec + 0.9 * spec2);
-        col += uRim * rim * 0.22;
+        float diff = clamp(dot(N, normalize(vec3(0.3, 0.5, 0.8))), 0.0, 1.0);
+        vec3 col = uGold * (0.3 + 0.35 * diff + 0.75 * band * uWarm + 1.6 * spec + 0.8 * spec2);
+        col += uRim * rim * 0.25;
         col *= (1.0 - 0.7 * groove) * (0.9 + 0.1 * reed);
         // fuori linea: oro spento, quasi bronzo
         float online = vState.x;
@@ -264,10 +265,10 @@ export function seaMaterial(): ShaderMaterial {
   return new ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
-      uDeep: { value: lin("#04141c") },
-      uHorizon: { value: lin("#173d4c") },
+      uDeep: { value: lin("#03101a") },
+      uHorizon: { value: lin("#12333f") },
       uZenith: { value: lin("#061019") },
-      uMoonDir: { value: new Vector3(-0.42, 0.33, -0.84).normalize() },
+      uMoonDir: { value: new Vector3(-0.5, 0.2, -0.84).normalize() },
       uMoonCol: { value: lin("#cfdcff") },
       uFog: { value: lin(TIG.ink) },
       uFogNear: { value: 30 },
@@ -318,7 +319,7 @@ export function seaMaterial(): ShaderMaterial {
         vec3 R = reflect(-V, N);
         vec3 sky = mix(uHorizon, uZenith, smoothstep(0.0, 0.45, R.y));
         float m = max(dot(R, uMoonDir), 0.0);
-        float glitter = pow(m, 300.0) * 5.0 + pow(m, 40.0) * 0.25;
+        float glitter = pow(m, 300.0) * 2.4 + pow(m, 40.0) * 0.1;
         vec3 col = uDeep * (0.5 + 0.5 * N.y) + sky * fres * 0.9 + uMoonCol * glitter;
         if (uReflect > 0.0) {
           vec4 ru = uTexMatrix * vec4(vWPos, 1.0);
@@ -339,8 +340,8 @@ export function skyMaterial(): ShaderMaterial {
     uniforms: {
       uTime: { value: 0 },
       uZenith: { value: lin("#03080f") },
-      uHorizon: { value: lin("#12313d") },
-      uMoonDir: { value: new Vector3(-0.42, 0.33, -0.84).normalize() },
+      uHorizon: { value: lin("#0f2a35") },
+      uMoonDir: { value: new Vector3(-0.5, 0.2, -0.84).normalize() },
       uMoonGlow: { value: lin("#9db6e6") },
       uDim: { value: 1 },
     },

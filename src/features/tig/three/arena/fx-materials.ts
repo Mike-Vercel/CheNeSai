@@ -22,7 +22,7 @@ const INSTANCE_MAT = /* glsl */ `
 /** Uscita: da valori "da schermo" a lineare (il passaggio finale del postprocessing riconverte in sRGB). */
 export const OUT_LINEAR = /* glsl */ `gl_FragColor.rgb = pow(max(gl_FragColor.rgb, vec3(0.0)), vec3(2.2));`;
 /** Tetto dei testi nitidi: sotto la soglia del bagliore. */
-export const CRISP = 0.88;
+export const CRISP = 0.8;
 
 const INSTANCE_COLOR = /* glsl */ `
   #ifdef USE_INSTANCING_COLOR

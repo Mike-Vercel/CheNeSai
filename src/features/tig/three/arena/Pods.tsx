@@ -52,6 +52,7 @@ const cT = new Color();
 const WHITE = new Color("#ffffff");
 const GOLD = new Color(TIG.goldLight);
 const CREAM = new Color(TIG.white);
+const POOL_WARM = new Color(TIG.amber);
 /** Stendardo: larghezza, altezza e quota dell'asta sopra il tamburo (m). */
 const BANNER_W = 0.6;
 const BANNER_H = 0.9;
@@ -361,15 +362,15 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     const pool = instanced(poolGeo, additiveMapMaterial(ring), n, true);
     pool.renderOrder = 1;
     // pila di dobloni (altezza = punteggio): tanti segmenti in altezza per la pila un po' storta
-    const colGeo = new CylinderGeometry(POD.radius * 0.74, POD.radius * 0.74, 1, 28, 40, true);
+    const colGeo = new CylinderGeometry(POD.radius * 0.84, POD.radius * 0.84, 1, 28, 40, true);
     colGeo.translate(0, 0.5, 0);
     colGeo.setAttribute("aState", new InstancedBufferAttribute(new Float32Array(Math.max(1, n) * 3), 3));
     const colMat = goldStackMaterial();
     const column = instanced(colGeo, colMat, n, true);
     // doblone grande in cima (la mascotte ci sta sopra)
-    const capGeo = new CylinderGeometry(0.5, 0.5, CAP_H, 36, 1);
+    const capGeo = new CylinderGeometry(0.54, 0.54, CAP_H, 36, 1);
     capGeo.translate(0, CAP_H / 2, 0);
-    const capMat = new MeshStandardMaterial({ color: "#ffd27a", map: tex.coin, metalness: 1, roughness: 0.3, envMapIntensity: 1.6 });
+    const capMat = new MeshStandardMaterial({ color: "#ffd27a", map: tex.coin, metalness: 0.8, roughness: 0.32, envMapIntensity: 1.6, emissive: new Color(0.42, 0.27, 0.06), emissiveMap: tex.coin });
     const cap = instanced(capGeo, capMat, n);
     // stendardo della ciurma su un'asta accanto alla pila
     const poleGeo = new CylinderGeometry(0.03, 0.035, 1, 6);
@@ -557,10 +558,11 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       tmp.updateMatrix();
       parts.rim.setMatrixAt(i * 2 + 1, tmp.matrix);
       // corda colorata della ciurma: un filo di luce (appena sopra la soglia del bagliore), spenta se offline
-      cT.set(team.online ? team.color : "#39414b").multiplyScalar((team.online ? 1.9 : 0.5) * fade);
+      cT.set(team.online ? team.color : "#39414b").multiplyScalar((team.online ? 1.35 : 0.45) * fade);
       parts.rim.setColorAt(i * 2, cT);
       parts.rim.setColorAt(i * 2 + 1, cT);
-      parts.pool.setColorAt(i, cT.set(team.online ? team.color : "#1b2027").multiplyScalar((focus ? 1.4 : 0.6) * fade));
+      // pozza di luce calda delle lanterne, appena tinta del colore della ciurma
+      parts.pool.setColorAt(i, cT.set(team.online ? team.color : "#1b2027").lerp(POOL_WARM, 0.55).multiplyScalar((focus ? 1.2 : 0.38) * fade));
       // anello dell'Energia Caos
       tmp.position.set(p.x, top + CAP_H + 0.012, p.z);
       tmp.rotation.set(-Math.PI / 2, 0, -p.yaw);

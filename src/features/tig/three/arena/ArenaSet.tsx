@@ -962,8 +962,8 @@ function Rig({ liveRef, radius, low, reduced, fixtures: shown, cones: showCones 
     cones.renderOrder = 2;
     for (let i = 0; i < count; i++) cones.setColorAt(i, C.white);
     // lanterna: cappello d'ottone + vetro acceso + alone
-    const body = new InstancedMesh(new CylinderGeometry(0.2, 0.26, 0.16, 8), brass, count);
-    const glass = new InstancedMesh(new CylinderGeometry(0.17, 0.17, 0.34, 8), new MeshBasicMaterial({ toneMapped: false }), count);
+    const body = new InstancedMesh(new CylinderGeometry(0.14, 0.19, 0.12, 8), brass, count);
+    const glass = new InstancedMesh(new CylinderGeometry(0.11, 0.11, 0.24, 8), new MeshBasicMaterial({ toneMapped: false }), count);
     const halo = new InstancedMesh(new PlaneGeometry(1, 1), spriteMaterial(glowTex), count);
     for (const m of [body, glass, halo]) m.frustumCulled = false;
     for (let i = 0; i < count; i++) {
@@ -1183,17 +1183,17 @@ function Rig({ liveRef, radius, low, reduced, fixtures: shown, cones: showCones 
       P.cones.setColorAt(i, cT.copy(S.c).multiplyScalar(S.i));
       tmpO.quaternion.identity();
       tmpO.scale.setScalar(1);
-      tmpO.position.y = f.pos.y + 0.24;
+      tmpO.position.y = f.pos.y + 0.18;
       tmpO.updateMatrix();
       P.body.setMatrixAt(i, tmpO.matrix);
       tmpO.position.y = f.pos.y;
       tmpO.updateMatrix();
       P.glass.setMatrixAt(i, tmpO.matrix);
-      P.glass.setColorAt(i, cT.copy(S.c).lerp(C.warm, 0.5).multiplyScalar(1.4 + S.i * 3));
-      tmpO.scale.setScalar(1.1 + S.i * 1.4);
+      P.glass.setColorAt(i, cT.copy(C.amber).lerp(S.c, 0.3).multiplyScalar(1.2 + S.i * 2));
+      tmpO.scale.setScalar(0.8 + S.i * 1.0);
       tmpO.updateMatrix();
       P.halo.setMatrixAt(i, tmpO.matrix);
-      P.halo.setColorAt(i, cT.copy(S.c).lerp(C.warm, 0.4).multiplyScalar(0.5 + S.i));
+      P.halo.setColorAt(i, cT.copy(C.amber).lerp(S.c, 0.3).multiplyScalar(0.35 + S.i * 0.7));
     });
     for (const m of [P.cones, P.body, P.glass, P.halo]) {
       m.instanceMatrix.needsUpdate = true;
@@ -1368,7 +1368,7 @@ export function ArenaSet({ liveRef, ledStatic, family, numFamily, quality, reduc
       wood: woodMaterial(planks, "#b58e68"),
       brass: new MeshStandardMaterial({ color: TIG.brass, metalness: 0.9, roughness: 0.32 }),
       iron: new MeshStandardMaterial({ color: "#26221e", metalness: 0.7, roughness: 0.45 }),
-      gold: new MeshStandardMaterial({ color: "#ffd27a", map: coin, metalness: 1, roughness: 0.28, envMapIntensity: 1.6 }),
+      gold: new MeshStandardMaterial({ color: "#ffd27a", map: coin, metalness: 0.8, roughness: 0.32, envMapIntensity: 1.6, emissive: new Color(0.42, 0.27, 0.06), emissiveMap: coin }),
     };
   }, []);
   useEffect(
@@ -1393,22 +1393,24 @@ export function ArenaSet({ liveRef, ledStatic, family, numFamily, quality, reduc
     ],
     [halfW, back],
   );
+  // interruttori di misura (`?dbg=`): quanto costa ogni parte della baia e del set
+  const off = (k: string) => debug.flags.includes(k);
   return (
     <group>
       <HarborEnvironment intensity={1} />
-      <Sky liveRef={liveRef} />
-      <Moon />
-      <Sea liveRef={liveRef} reflect={debug.noReflect ? 0 : profile.reflect} every={profile.reflectEvery} />
-      <Galleon liveRef={liveRef} />
-      <Island />
-      <Palms spots={palms} />
-      <Deck layout={layout} pbr={debug.flags.includes("stdfloor")} torches={torches} />
-      <Flames liveRef={liveRef} spots={flameSpots} />
-      <CommandDeck liveRef={liveRef} family={family} brass={mats.brass} wood={mats.wood} />
+      {!off("nosky") && <Sky liveRef={liveRef} />}
+      {!off("nosky") && <Moon />}
+      {!off("nosea") && <Sea liveRef={liveRef} reflect={debug.noReflect ? 0 : profile.reflect} every={profile.reflectEvery} />}
+      {!off("noship") && <Galleon liveRef={liveRef} />}
+      {!off("nopalms") && <Island />}
+      {!off("nopalms") && <Palms spots={palms} />}
+      <Deck layout={layout} pbr={off("stdfloor")} torches={torches} />
+      {!off("noflames") && <Flames liveRef={liveRef} spots={flameSpots} />}
+      {!off("nodeck") && <CommandDeck liveRef={liveRef} family={family} brass={mats.brass} wood={mats.wood} />}
       <MastAndSail liveRef={liveRef} ledStatic={ledStatic} family={family} numFamily={numFamily} canvasW={ledW} wood={mats.wood} brass={mats.brass} />
       <Podium liveRef={liveRef} numFamily={numFamily} wood={mats.wood} iron={mats.iron} />
       <Chest liveRef={liveRef} wood={mats.wood} iron={mats.iron} gold={mats.gold} />
-      <Rig liveRef={liveRef} radius={radius} low={!high} reduced={reduced} fixtures={profile.fixtures} cones={!debug.noCones} brass={mats.brass} />
+      {!off("norig") && <Rig liveRef={liveRef} radius={radius} low={!high} reduced={reduced} fixtures={profile.fixtures} cones={!debug.noCones} brass={mats.brass} />}
       {profile.dust > 0 && <Fireflies count={Math.round(profile.dust * 0.45)} area={[halfW * 2, 3.2, Math.abs(back) + 8]} center={[0, 0, back / 2 + 2]} />}
       <CoinRain liveRef={liveRef} count={280} shown={profile.confetti} gold={mats.gold} />
       <CannonFx liveRef={liveRef} />

@@ -5,7 +5,7 @@ import type { ArenaPhase, ArenaSpotlight, ArenaTeam, HostId } from "@/features/t
 import { FULL_WINDOW, fitDistance, lensShift, normalizeSafeArea, projectToCanvas, smoothDamp, type FrameWindow, type Vec3 } from "@/features/tig/three/arena/camera-math";
 import { AWARDS_REVEAL_MS, awardsRevealAt, awardsRevealed, directArena, mascotActionFor, spotlightLive, type ShotKind, type ShotSpec } from "@/features/tig/three/arena/director";
 import { BACK_ROW, MAX_TEAMS, MIN_HALF_WIDTH, ONE_ROW_MAX, POD, STAGE, U_BACK, U_FRONT, columnHeight, hostMarks, minPodGap, podLayout, podScale, podSpacing, scoreScale, uDepth } from "@/features/tig/three/arena/layout";
-import { ledLeaderboardCols } from "@/features/tig/three/arena/led-texture";
+import { GAME_NAME, isGameName, ledLeaderboardCols } from "@/features/tig/three/arena/led-texture";
 import { PerfGovernor, classifyGpu, initialLevel, profileAt, renderDpr } from "@/features/tig/three/arena/perf";
 import { RankAnimator, deltaFlash, formatScore, rankOrder, scoreDigits, tableOrder } from "@/features/tig/three/arena/rank-anim";
 import { shotSubject } from "@/features/tig/three/arena/shots";
@@ -452,6 +452,14 @@ describe("profilo di resa (perf.ts): gradini, scheda video, regolatore", () => {
     // né lento né veloce: resta
     for (let i = 0; i < 40; i++) g.update(17, 0.5, true);
     expect(g.level).toBe(3);
+  });
+});
+
+describe("vela: nome del gioco", () => {
+  it("il logo è TAVERNA DEI PIRATI e un titolo uguale (nuovo o vecchio nome) non si ripete sotto", () => {
+    expect(GAME_NAME).toBe("TAVERNA DEI PIRATI");
+    for (const t of ["TAVERNA DEI PIRATI", "Taverna dei Pirati", "la taverna dei pirati!", "TAVOLI IN GUERRA!", "Tavoli in guerra"]) expect(isGameName(t)).toBe(true);
+    for (const t of ["MANCHE 1", "PAUSA", "TAVERNA", "", null, undefined]) expect(isGameName(t)).toBe(false);
   });
 });
 

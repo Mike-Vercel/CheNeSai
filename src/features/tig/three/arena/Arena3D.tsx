@@ -598,9 +598,9 @@ function Scene(props: Arena3DProps & { reduced: boolean; family: string; numFami
       <HostRim liveRef={liveRef} />
       <ArenaSet liveRef={liveRef} ledStatic={ledStatic} family={family} numFamily={numFamily} quality={quality} reduced={reduced} layout={layout} debug={debug} profile={profile} />
       <StageGlow liveRef={liveRef} />
-      <Pods liveRef={liveRef} teams={teams} layout={layout} family={family} numFamily={numFamily} low={!high} shadows={high} compact={compact} />
+      {!flags.includes("nopods") && <Pods liveRef={liveRef} teams={teams} layout={layout} family={family} numFamily={numFamily} low={!high} shadows={high} compact={compact} />}
       <PodiumMascots liveRef={liveRef} teams={teams} order={order} />
-      <MascotSwarm entries={entries} anchorsRef={anchorsRef} actionsRef={actionsRef} dimRef={dimRef} shieldRef={shieldRef} low={!high} reduced={reduced} family={numFamily} busyRef={mascotBusy} />
+      {!flags.includes("nomascots") && <MascotSwarm entries={entries} anchorsRef={anchorsRef} actionsRef={actionsRef} dimRef={dimRef} shieldRef={shieldRef} low={!high} reduced={reduced} family={numFamily} busyRef={mascotBusy} />}
       <SpotFx liveRef={liveRef} low={!high} />
       <Hosts
         key={hostKey(props.hosts)}

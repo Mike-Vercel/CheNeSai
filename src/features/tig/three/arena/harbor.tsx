@@ -20,7 +20,7 @@ import {
   Matrix4,
   Mesh,
   MeshBasicMaterial,
-  MeshStandardMaterial,
+  MeshLambertMaterial,
   NormalBlending,
   Object3D,
   PMREMGenerator,
@@ -39,6 +39,7 @@ import { fireflyMaterial, seaMaterial, skyMaterial } from "./pirate-materials";
 import { frondTexture, seeded, smokeTexture } from "./pirate-textures";
 import { canvasTex, glowTexture } from "./textures";
 import { useLatestRef } from "./use-latest";
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 /**
  * LA BAIA attorno alla TAVERNA DEL MOLO (edizione pirati, disegno originale): cielo con le stelle e la luna, mare con
@@ -49,7 +50,7 @@ import { useLatestRef } from "./use-latest";
  */
 
 /** Direzione della luna (dal centro della scena): alta a sinistra, dietro la baia. */
-export const MOON_DIR = new Vector3(-0.42, 0.33, -0.84).normalize();
+export const MOON_DIR = new Vector3(-0.5, 0.2, -0.84).normalize();
 /** Quota del mare (il piano del molo è a 0). */
 export const SEA_Y = -0.75;
 /** Galeone: posizione (sul mare, a destra della vela), rotazione e lunghezza. */
@@ -77,7 +78,8 @@ export function Sky({ liveRef }: { liveRef: RefObject<ArenaLive> }) {
     m.uniforms.uTime.value = L.t;
     m.uniforms.uDim.value += ((L.mood.mood === "chaos" ? 0.7 : 1) - m.uniforms.uDim.value) * 0.05;
   });
-  return <mesh geometry={geo} material={mat} renderOrder={-10} frustumCulled={false} />;
+  // disegnato per ultimo tra gli opachi (profondità al fondo): i pixel già coperti li scarta il test di profondità
+  return <mesh geometry={geo} material={mat} renderOrder={100} frustumCulled={false} />;
 }
 
 function moonTexture() {
@@ -152,7 +154,7 @@ export function Sea({ liveRef, reflect, every }: { liveRef: RefObject<ArenaLive>
     mat.uniforms.uCalm.value += (calm - mat.uniforms.uCalm.value) * 0.02;
   });
   return (
-    <mesh ref={meshRef} rotation-x={-Math.PI / 2} position-y={SEA_Y} material={mat} renderOrder={-5}>
+    <mesh ref={meshRef} rotation-x={-Math.PI / 2} position-y={SEA_Y} material={mat} renderOrder={90}>
       <planeGeometry args={[420, 420]} />
     </mesh>
   );
@@ -236,12 +238,12 @@ function buildGalleon(): { group: Group; dispose: () => void } {
     pos.setZ(i, z * beam);
   }
   hullGeo.computeVertexNormals();
-  const hullMat = new MeshStandardMaterial({ color: "#2a1a0f", roughness: 0.85, metalness: 0.05 });
+  const hullMat = new MeshLambertMaterial({ color: "#2a1a0f" });
   const hull = new Mesh(hullGeo, hullMat);
   group.add(hull);
   disposables.push(hullGeo, hullMat);
   // fascia scura e fascia ocra lungo il fianco (si leggono sotto la luna)
-  const stripeMat = new MeshStandardMaterial({ color: "#6a4a1c", roughness: 0.7 });
+  const stripeMat = new MeshLambertMaterial({ color: "#6a4a1c" });
   disposables.push(stripeMat);
   for (const side of [-1, 1]) {
     const g = new BoxGeometry(L * 0.7, 0.35, 0.05);
@@ -273,8 +275,8 @@ function buildGalleon(): { group: Group; dispose: () => void } {
     group.add(m);
   }
   // alberi, pennoni, vele imbrogliate
-  const woodMat = new MeshStandardMaterial({ color: "#2b1d12", roughness: 0.8 });
-  const furlMat = new MeshStandardMaterial({ color: "#8f8670", roughness: 0.95 });
+  const woodMat = new MeshLambertMaterial({ color: "#2b1d12" });
+  const furlMat = new MeshLambertMaterial({ color: "#8f8670" });
   disposables.push(woodMat, furlMat);
   const masts = [
     { x: -9, h: 17 },
@@ -315,7 +317,7 @@ function buildGalleon(): { group: Group; dispose: () => void } {
       p.setZ(i, Math.cos((x / 9) * Math.PI) * 0.9 * (0.6 + 0.4 * (0.5 - y / 5.2)));
     }
     g.computeVertexNormals();
-    const sailMat = new MeshStandardMaterial({ color: "#b8ad92", roughness: 0.95, side: DoubleSide });
+    const sailMat = new MeshLambertMaterial({ color: "#b8ad92", side: DoubleSide });
     disposables.push(g, sailMat);
     const sail = new Mesh(g, sailMat);
     sail.position.set(0.25, 2.5 + 23 * 0.55, 0);
@@ -419,25 +421,20 @@ export function Galleon({ liveRef }: { liveRef: RefObject<ArenaLive> }) {
 }
 
 // ------------------------------------------------------------------ palme e isola
-function buildPalm(seed: number, height: number, lean: number): { group: Group; dispose: () => void } {
+/** Tronco e chioma di una palma come DUE geometrie (fronde unite in una: poche chiamate di disegno). */
+function buildPalm(seed: number, height: number, lean: number): { trunk: BufferGeometry; fronds: BufferGeometry } {
   const rnd = seeded(seed);
-  const group = new Group();
-  const d: { dispose: () => void }[] = [];
   const pts: Vector3[] = [];
   for (let i = 0; i <= 6; i++) {
     const u = i / 6;
     pts.push(new Vector3(Math.sin(u * 1.4) * lean, u * height, Math.sin(u * 2.1) * lean * 0.25));
   }
   const curve = new CatmullRomCurve3(pts);
-  const trunkGeo = new TubeGeometry(curve, 12, 0.2, 7, false);
-  const trunkMat = new MeshStandardMaterial({ color: "#3a2a1c", roughness: 0.9 });
-  d.push(trunkGeo, trunkMat);
-  group.add(new Mesh(trunkGeo, trunkMat));
+  const trunk = new TubeGeometry(curve, 12, 0.2, 7, false);
   const top = curve.getPoint(1);
-  const frondTex = frondTexture();
-  const frondMat = new MeshStandardMaterial({ map: frondTex, alphaTest: 0.5, side: DoubleSide, roughness: 0.85, color: "#7f9a7a" });
-  d.push(frondTex, frondMat);
   const n = 9;
+  const parts: BufferGeometry[] = [];
+  const m = new Matrix4();
   for (let i = 0; i < n; i++) {
     const a = (i / n) * Math.PI * 2 + rnd() * 0.4;
     const len = 2.8 + rnd() * 1.2;
@@ -449,19 +446,18 @@ function buildPalm(seed: number, height: number, lean: number): { group: Group; 
       p.setZ(k, 0);
       p.setY(k, p.getY(k) - (x / len) * (x / len) * len * 0.55);
     }
-    g.computeVertexNormals();
-    d.push(g);
-    const m = new Mesh(g, frondMat);
-    m.position.copy(top);
-    m.rotation.set(-0.15 - rnd() * 0.2, a, 0, "YXZ");
-    group.add(m);
+    tmpO.position.copy(top);
+    tmpO.rotation.set(-0.15 - rnd() * 0.2, a, 0, "YXZ");
+    tmpO.scale.setScalar(1);
+    tmpO.updateMatrix();
+    g.applyMatrix4(m.copy(tmpO.matrix));
+    parts.push(g);
   }
-  return {
-    group,
-    dispose: () => {
-      for (const x of d) x.dispose();
-    },
-  };
+  tmpO.rotation.set(0, 0, 0);
+  const fronds = mergeGeometries(parts) ?? parts[0];
+  fronds.computeVertexNormals();
+  for (const g of parts) if (g !== fronds) g.dispose();
+  return { trunk, fronds };
 }
 
 /** Palme: in vaso agli angoli del molo e sull'isola in fondo alla baia. */
@@ -477,12 +473,36 @@ export interface PalmSpot {
 /** Palme (i punti arrivano già memorizzati dal chiamante: si ricostruiscono solo se cambiano). */
 export function Palms({ spots }: { spots: PalmSpot[] }) {
   const built = useMemo(() => spots.map((s, i) => ({ s, b: buildPalm(31 + i * 7, s.h, s.lean) })), [spots]);
-  useEffect(() => () => built.forEach((x) => x.b.dispose()), [built]);
+  const mats = useMemo(() => {
+    const frondTex = frondTexture();
+    return {
+      frondTex,
+      trunk: new MeshLambertMaterial({ color: "#3a2a1c" }),
+      fronds: new MeshLambertMaterial({ map: frondTex, alphaTest: 0.5, side: DoubleSide, color: "#7f9a7a" }),
+    };
+  }, []);
+  useEffect(
+    () => () => {
+      mats.frondTex.dispose();
+      mats.trunk.dispose();
+      mats.fronds.dispose();
+    },
+    [mats],
+  );
+  useEffect(
+    () => () =>
+      built.forEach((x) => {
+        x.b.trunk.dispose();
+        x.b.fronds.dispose();
+      }),
+    [built],
+  );
   return (
     <group>
       {built.map(({ s, b }, i) => (
         <group key={i} position={[s.x, s.y ?? 0, s.z]} rotation-y={s.yaw}>
-          <primitive object={b.group} />
+          <mesh geometry={b.trunk} material={mats.trunk} />
+          <mesh geometry={b.fronds} material={mats.fronds} />
         </group>
       ))}
     </group>
@@ -496,7 +516,8 @@ export function Island() {
     g.scale(34, 5, 11);
     return g;
   }, []);
-  const mat = useMemo(() => new MeshStandardMaterial({ color: "#0b1814", roughness: 1 }), []);
+  // sagoma: non prende luce (di notte, contro il cielo, si legge come una macchia scura)
+  const mat = useMemo(() => new MeshBasicMaterial({ color: "#06100e" }), []);
   useEffect(
     () => () => {
       geo.dispose();

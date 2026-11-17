@@ -43,6 +43,19 @@ export interface LedContent {
 /** Misure del canvas: proporzioni della vela (≈ 11,9 × 4,3 m). */
 export const LED_CANVAS = { w: 2048, h: 740 } as const;
 
+/** Nome del gioco sul logo della vela (senza punto esclamativo) e motto di riserva sotto il nome. */
+export const GAME_NAME = "TAVERNA DEI PIRATI";
+export const GAME_MOTTO = "OGNI TAVOLO È UNA CIURMA";
+
+/**
+ * Il titolo passato dalla pagina è il nome del gioco (nuovo o vecchio)? Allora sotto il logo non si ripete.
+ * Confronto sulle sole lettere, senza maiuscole/minuscole né punteggiatura.
+ */
+export function isGameName(title: string | null | undefined): boolean {
+  const k = (title ?? "").replace(/[^A-Z]/gi, "").toUpperCase();
+  return k === "TAVERNADEIPIRATI" || k === "LATAVERNADEIPIRATI" || k === "TAVOLIINGUERRA";
+}
+
 /** Colonne della classifica sulla vela: 1 fino a 6 squadre, 2 fino a 16, poi 3 (24 tavoli = 3 × 8 righe). */
 export function ledLeaderboardCols(n: number): 1 | 2 | 3 {
   return n <= 6 ? 1 : n <= 16 ? 2 : 3;
@@ -336,13 +349,14 @@ function drawLogo(ctx: CanvasRenderingContext2D, w: number, h: number, fam: stri
   cloth(ctx, w, h);
   compassRose(ctx, w * 0.5, h * 0.47, h * 0.62, INK, 0.1);
   swords(ctx, w * 0.5, h * 0.16, 0.95, OCHRE);
-  const line = "TAVOLI IN GUERRA!";
+  const line = GAME_NAME;
   const size = fit(ctx, line, fam, "400", 250, w * 0.8);
   paint(ctx, line, w / 2, h * 0.47, size, fam, INK);
   ctx.fillStyle = OCHRE;
   ctx.fillRect(w * 0.26, h * 0.67, w * 0.48, 5);
-  if (title && title.replace(/[^A-Z]/gi, "").toUpperCase() === "TAVOLIINGUERRA") title = null;
-  const tag = (title ?? sub ?? "OGNI TAVOLO CONTA").toUpperCase();
+  // il nome del gioco è già la riga grande: un titolo uguale non si ripete sotto
+  if (isGameName(title)) title = null;
+  const tag = (title ?? sub ?? GAME_MOTTO).toUpperCase();
   paint(ctx, tag, w / 2, h * 0.79, fit(ctx, tag, num, "700", 66, w * 0.66), num, INK, { weight: "700", track: 4 });
   if (title && sub) paint(ctx, sub.toUpperCase(), w / 2, h * 0.91, fit(ctx, sub.toUpperCase(), num, "700", 38, w * 0.6), num, OCHRE, { weight: "700" });
 }

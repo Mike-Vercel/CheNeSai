@@ -2,7 +2,8 @@
  * Interruttori diagnostici dell'arena (`?dbg=noreflect,nocones` oppure `?dbg=all`): servono a misurare quanto costa
  * ogni parte sul dispositivo. `?lvl=0..4` fissa il gradino del profilo di resa (perf.ts) e spegne il regolatore.
  * Altri interruttori per misurare il postprocessing: `nopost` (disegno diretto), `ldr` (buffer a 8 bit),
- * `hdr` (buffer a mezza precisione), `fxaa` / `smaa` / `noaa`, `nobloom`, `nodust`, `nohosts`.
+ * `hdr` (buffer a mezza precisione), `fxaa` / `smaa` / `noaa`, `nobloom`, `nodust`, `nohosts`; parti della baia
+ * e del set: `nosky`, `nosea`, `noship`, `nopalms`, `noflames`, `nodeck`, `norig`, `nopods`, `nomascots`.
  * `?dpr=0.5..2` fissa la densità di pixel. Senza i parametri non cambiano nulla.
  */
 export interface ArenaDebug {

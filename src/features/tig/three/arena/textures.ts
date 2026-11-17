@@ -190,7 +190,7 @@ export function stageDecal(family: string): CanvasTexture {
     hex(300);
     ctx.stroke();
     // scritta circolare
-    const text = "TAVOLI IN GUERRA! · OGNI TAVOLO CONTA · ";
+    const text = "TAVERNA DEI PIRATI · OGNI TAVOLO È UNA CIURMA · ";
     ctx.save();
     ctx.translate(c, c);
     ctx.font = `800 38px ${family}`;
