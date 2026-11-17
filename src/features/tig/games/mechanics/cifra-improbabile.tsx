@@ -14,10 +14,10 @@ type T = TvGameProps<CifraView, CifraReveal>;
 function Legend({ view, tv = false }: { view: CifraView; tv?: boolean }) {
   return (
     <div className={tv ? "flex items-center gap-[1.6cqw] text-[1.5cqw] font-extrabold" : "flex flex-wrap items-center gap-x-4 gap-y-1 text-base font-extrabold"}>
-      <span className="flex items-center gap-2 text-[#c6ff3d]">
+      <span className="flex items-center gap-2 text-(--tg-gold)">
         <GlyphIcon kind={view.glyph} className={tv ? "h-[2.4cqw] w-[2.4cqw]" : "h-7 w-7"} /> Contate: {view.unit}
       </span>
-      <span className="flex items-center gap-2 text-white/55">
+      <span className="flex items-center gap-2 text-(--tg-cream)/55">
         <GlyphIcon kind={view.decoyGlyph} className={tv ? "h-[2cqw] w-[2cqw]" : "h-6 w-6"} /> Non contate: {view.decoyUnit}
       </span>
     </div>
@@ -39,7 +39,7 @@ function Player(p: P) {
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
         <Panel tone="lime" className="flex items-baseline justify-center gap-3">
-          <span className="tg-num text-8xl text-[#c6ff3d]">{reveal.total}</span>
+          <span className="tg-num text-8xl text-(--tg-gold)">{reveal.total}</span>
           <span className="tg-display text-3xl">{reveal.unit}</span>
         </Panel>
         <Panel className="p-2">
@@ -70,7 +70,7 @@ function Player(p: P) {
         <Legend view={view} />
       </Panel>
       <NumberField label="La vostra stima" value={guess} onChange={setGuess} maxDigits={4} unit={view.unit} disabled={!editable} onEnter={submit} />
-      <p className="text-sm font-semibold text-white/60">Esatto vale 100; sbagliare della metà vale zero. Conta solo quanto siete vicini.</p>
+      <p className="text-sm font-semibold text-(--tg-cream)/60">Esatto vale 100; sbagliare della metà vale zero. Conta solo quanto siete vicini.</p>
     </PlayerFrame>
   );
 }
@@ -90,7 +90,7 @@ function Tv(p: T) {
           </TvPanel>
           <div className="flex flex-col gap-[1.2cqw]">
             <TvPanel tone="lime" className="tg-pop flex flex-col items-center">
-              <span className="tg-num text-[11cqw] leading-none text-[#c6ff3d]">{reveal.total}</span>
+              <span className="tg-num text-[11cqw] leading-none text-(--tg-gold)">{reveal.total}</span>
               <span className="tg-display text-[2.6cqw]">{reveal.unit}</span>
             </TvPanel>
             <TvExplain text={reveal.explain} />
@@ -107,9 +107,9 @@ function Tv(p: T) {
         <div className="flex h-full flex-col items-center gap-[1cqw]">
           <Legend view={view} tv />
           <div className="relative min-h-0 flex-1 aspect-video">
-            <ScatterArt art={view.art!} label={`Nuvola di ${view.unit} e ${view.decoyUnit}`} className="tg-pop h-full w-full rounded-[1.4cqw] border border-white/10" />
+            <ScatterArt art={view.art!} label={`Nuvola di ${view.unit} e ${view.decoyUnit}`} className="tg-pop h-full w-full rounded-[1.4cqw] border border-(--tg-cream)/10" />
             <div className="tg-glass tg-glass-lime absolute right-[1cqw] top-[1cqw] grid h-[5.5cqw] w-[5.5cqw] place-items-center rounded-full">
-              <span className="tg-num text-[3.2cqw] text-[#c6ff3d]">{left}</span>
+              <span className="tg-num text-[3.2cqw] text-(--tg-gold)">{left}</span>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ function Tv(p: T) {
           <p className="text-[3cqw] font-extrabold leading-tight">{view.prompt}</p>
           <Legend view={view} tv />
         </TvPanel>
-        <span className="tg-num tg-pulse text-[14cqw] leading-none text-white/15" aria-hidden>
+        <span className="tg-num tg-pulse text-[14cqw] leading-none text-(--tg-cream)/15" aria-hidden>
           ?
         </span>
       </div>

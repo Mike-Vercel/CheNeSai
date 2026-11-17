@@ -39,7 +39,7 @@ function Player(p: P) {
             <Eyebrow className="flex items-center gap-1.5">
               {SPOT_LABEL[r.spot]}
               {sent && shield === r.spot && (
-                <span className="inline-flex items-center gap-1 text-[#c6ff3d]">
+                <span className="inline-flex items-center gap-1 text-(--tg-gold)">
                   · <Icon name="shield" className="h-3.5 w-3.5" /> la vostra difesa
                 </span>
               )}
@@ -73,7 +73,7 @@ function Player(p: P) {
       }
     >
       <Panel className="flex flex-col gap-2">
-        <Eyebrow className="flex items-center gap-1.5 text-[#ffc24a]">
+        <Eyebrow className="flex items-center gap-1.5 text-(--tg-teal-hi)">
           <Icon name="shield" className="h-4 w-4" /> La vostra unica difesa {secondOpen ? "· bloccata" : ""}
         </Eyebrow>
         <BigToggle<ShieldSpot>
@@ -104,8 +104,8 @@ function Player(p: P) {
             <ChoiceList options={r2.options} picked={answers[r2.id] ? [answers[r2.id]] : []} onToggle={set(r2.id)} disabled={!editable} onConfirm={done ? submit : null} />
           </>
         ) : (
-          <p className="flex items-center gap-2 py-3 text-base font-bold text-white/70">
-            <Icon name="lock" className="h-5 w-5" /> Arriva tra <span className="tg-num text-2xl text-[#c6ff3d]">{secsTo(view.round2AtMs, elapsed)}</span> s
+          <p className="flex items-center gap-2 py-3 text-base font-bold text-(--tg-cream)/70">
+            <Icon name="lock" className="h-5 w-5" /> Arriva tra <span className="tg-num text-2xl text-(--tg-gold)">{secsTo(view.round2AtMs, elapsed)}</span> s
           </p>
         )}
       </Panel>
@@ -131,7 +131,7 @@ function Tv(p: T) {
             return (
               <TvPanel key={r.id} tone={!done && open && (i === 1 || !secondOpen) ? "lime" : undefined} className={clsx("flex min-h-0 flex-col gap-[0.8cqw]", open && "tg-rise")}>
                 <p className="tg-display text-[2.6cqw]">
-                  {SPOT_LABEL[r.spot]} <span className="tg-num text-[1.6cqw] text-white/60">+{view.rightPoints} / {view.wrongPoints}</span>
+                  {SPOT_LABEL[r.spot]} <span className="tg-num text-[1.6cqw] text-(--tg-cream)/60">+{view.rightPoints} / {view.wrongPoints}</span>
                 </p>
                 {open && r.prompt ? (
                   <>
@@ -144,10 +144,10 @@ function Tv(p: T) {
                   </>
                 ) : (
                   <div className="flex flex-1 flex-col items-center justify-center gap-[0.6cqw] text-center">
-                    <Icon name="lock" className="h-[5cqw] w-[5cqw] text-white/45" />
-                    <p className="tg-display text-[2.6cqw] text-white/80">Arriva tra</p>
-                    <p className="tg-num text-[5cqw] leading-none text-[#c6ff3d]">{secsTo(view.round2AtMs, elapsed)}</p>
-                    <p className="max-w-[80%] text-[1.3cqw] font-bold text-white/65">Chi gioca la difesa adesso, sull&apos;ultima resta scoperto.</p>
+                    <Icon name="lock" className="h-[5cqw] w-[5cqw] text-(--tg-cream)/45" />
+                    <p className="tg-display text-[2.6cqw] text-(--tg-cream)/80">Arriva tra</p>
+                    <p className="tg-num text-[5cqw] leading-none text-(--tg-gold)">{secsTo(view.round2AtMs, elapsed)}</p>
+                    <p className="max-w-[80%] text-[1.3cqw] font-bold text-(--tg-cream)/65">Chi gioca la difesa adesso, sull&apos;ultima resta scoperto.</p>
                   </div>
                 )}
               </TvPanel>
@@ -156,8 +156,8 @@ function Tv(p: T) {
         </div>
         {done && (
           <TvPanel className="flex flex-col gap-[0.6cqw] p-[1cqw]">
-            <p className="text-[1.2cqw] font-semibold leading-snug text-white/85">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
+            <p className="text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">
+              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
               {reveal.explain}
             </p>
             <TvOutcomeGrid

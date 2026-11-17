@@ -32,17 +32,17 @@ function TerrainPicker({ view, allowed, value, onChange, disabled, locked }: { v
             onClick={() => onChange(i)}
             className={clsx(
               "relative flex min-h-24 flex-col items-start justify-between gap-1 rounded-2xl border-2 p-3 text-left transition-transform active:scale-[0.98]",
-              isLocked ? "border-dashed border-white/15 bg-white/[0.02] opacity-50" : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]",
+              isLocked ? "border-dashed border-(--tg-cream)/15 bg-(--tg-cream)/[0.02] opacity-50" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
             )}
           >
-            <span className="tg-num text-lg text-white/50">{LETTER[i]}</span>
-            <span className={clsx("tg-display leading-[0.95]", view.terreni[i].name.length > 12 ? "text-[1.4rem]" : "text-3xl", on && "text-[#c6ff3d]")}>{view.terreni[i].name}</span>
+            <span className="tg-num text-lg text-(--tg-cream)/50">{LETTER[i]}</span>
+            <span className={clsx("tg-display leading-[0.95]", view.terreni[i].name.length > 12 ? "text-[1.4rem]" : "text-3xl", on && "text-(--tg-gold)")}>{view.terreni[i].name}</span>
             {isLocked && (
-              <span className="flex items-center gap-1 text-xs font-extrabold uppercase text-white/70">
+              <span className="flex items-center gap-1 text-xs font-extrabold uppercase text-(--tg-cream)/70">
                 <Icon name="lock" className="h-4 w-4" /> appena giocata
               </span>
             )}
-            {on && <Icon name="check" className="absolute right-2 top-2 h-6 w-6 text-[#c6ff3d]" />}
+            {on && <Icon name="check" className="absolute right-2 top-2 h-6 w-6 text-(--tg-gold)" />}
           </button>
         );
       })}
@@ -116,7 +116,7 @@ function Player(p: P) {
       </Step>
       <Step n={2} title={`2° turno · +${view.perTurno} · mai la stessa di fila`} icon="swap" done={second !== null && !!a2} className={clsx(first === null && "opacity-60")}>
         {first === null ? (
-          <p className="flex items-center gap-2 text-base font-bold text-white/60">
+          <p className="flex items-center gap-2 text-base font-bold text-(--tg-cream)/60">
             <Icon name="lock" className="h-5 w-5" /> Prima scegliete il 1° turno: quella categoria qui sarà bloccata.
           </p>
         ) : (
@@ -146,8 +146,8 @@ function Tv(p: T) {
           {view.terreni.map((t, i) => (
             <TvPanel key={i} tone={i === 2 ? "lime" : undefined} className="tg-rise flex min-h-0 flex-col gap-[0.6cqw]" >
               <div className="flex items-baseline justify-between">
-                <span className="tg-num text-[3.4cqw] leading-none text-white/40">{LETTER[i]}</span>
-                <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.16em] text-white/60">{i === 2 ? "entra al 2° turno" : "1° e 2° turno"}</span>
+                <span className="tg-num text-[3.4cqw] leading-none text-(--tg-cream)/40">{LETTER[i]}</span>
+                <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.16em] text-(--tg-cream)/60">{i === 2 ? "entra al 2° turno" : "1° e 2° turno"}</span>
               </div>
               <p className="tg-display text-[3cqw] leading-none">{t.name}</p>
               {done ? (
@@ -159,15 +159,15 @@ function Tv(p: T) {
                     ))}
                   </div>
                   {picks && (
-                    <p className="mt-auto text-[1.2cqw] font-extrabold text-white/75">
-                      Scelta al 1° turno: <span className="tg-num text-[#c6ff3d]">{picks.first[i]}</span> · al 2°: <span className="tg-num text-[#c6ff3d]">{picks.second[i]}</span>
+                    <p className="mt-auto text-[1.2cqw] font-extrabold text-(--tg-cream)/75">
+                      Scelta al 1° turno: <span className="tg-num text-(--tg-gold)">{picks.first[i]}</span> · al 2°: <span className="tg-num text-(--tg-gold)">{picks.second[i]}</span>
                     </p>
                   )}
                 </>
               ) : (
                 <div className="flex flex-1 flex-col items-center justify-center gap-[0.6cqw] text-center">
-                  <Icon name="lock" className="h-[3cqw] w-[3cqw] text-white/35" />
-                  <p className="text-[1.3cqw] font-bold text-white/60">La domanda si apre sul telefono di chi sceglie questo terreno</p>
+                  <Icon name="lock" className="h-[3cqw] w-[3cqw] text-(--tg-cream)/35" />
+                  <p className="text-[1.3cqw] font-bold text-(--tg-cream)/60">La domanda si apre sul telefono di chi sceglie questo terreno</p>
                 </div>
               )}
             </TvPanel>

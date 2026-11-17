@@ -24,14 +24,14 @@ function Chat({ title, subtitle, messages, fill, fillState = "guess", tv = false
     .slice(0, 2)
     .toUpperCase();
   return (
-    <figure className={clsx("flex flex-col overflow-hidden border border-white/10 bg-[#0f131b]", tv ? "rounded-[1.4cqw]" : "rounded-3xl")} aria-label={`Chat ${title}`}>
-      <figcaption className={clsx("flex items-center border-b border-white/10 bg-[#161b25]", tv ? "gap-[0.8cqw] px-[1.1cqw] py-[0.7cqw]" : "gap-3 px-3 py-2.5")}>
-        <span className={clsx("tg-num grid shrink-0 place-items-center rounded-full bg-[#2a3242] text-[#c6ff3d]", tv ? "h-[2.8cqw] w-[2.8cqw] text-[1.3cqw]" : "h-10 w-10 text-lg")} aria-hidden>
+    <figure className={clsx("flex flex-col overflow-hidden border border-(--tg-cream)/10 bg-(--tg-night-2)", tv ? "rounded-[1.4cqw]" : "rounded-3xl")} aria-label={`Chat ${title}`}>
+      <figcaption className={clsx("flex items-center border-b border-(--tg-cream)/10 bg-(--tg-raised)", tv ? "gap-[0.8cqw] px-[1.1cqw] py-[0.7cqw]" : "gap-3 px-3 py-2.5")}>
+        <span className={clsx("tg-num grid shrink-0 place-items-center rounded-full bg-(--tg-raised-2) text-(--tg-gold)", tv ? "h-[2.8cqw] w-[2.8cqw] text-[1.3cqw]" : "h-10 w-10 text-lg")} aria-hidden>
           {initials}
         </span>
         <span className="min-w-0">
           <span className={clsx("block truncate font-extrabold", tv ? "text-[1.45cqw]" : "text-base")}>{title}</span>
-          <span className={clsx("block truncate font-semibold text-white/55", tv ? "text-[1cqw]" : "text-xs")}>{subtitle}</span>
+          <span className={clsx("block truncate font-semibold text-(--tg-cream)/55", tv ? "text-[1cqw]" : "text-xs")}>{subtitle}</span>
         </span>
       </figcaption>
       <ol className={clsx("flex flex-col", tv ? "gap-[0.5cqw] p-[0.9cqw]" : "gap-2 p-3")}>
@@ -46,19 +46,19 @@ function Chat({ title, subtitle, messages, fill, fillState = "guess", tv = false
                 "max-w-[88%]",
                 m.mine ? "self-end" : "self-start",
                 tv ? "rounded-[0.9cqw] px-[0.9cqw] py-[0.45cqw]" : "rounded-2xl px-3 py-2",
-                !gap && (m.mine ? "bg-[#2b3a12] text-[#f3ffd6]" : "bg-[#1d2330]"),
-                gap && !shown && "border-2 border-dashed border-[#ffc24a]/70 bg-[#ffc24a]/[0.06]",
-                gap && shown && fillState === "guess" && "tg-pop border-2 border-dashed border-[#c6ff3d] bg-[#c6ff3d]/10",
-                onLime && "tg-pop border-2 border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]",
-                gap && shown && fillState === "wrong" && "tg-stripes-red border-2 border-[#ff3b4e]",
+                !gap && (m.mine ? "bg-(--tg-gold-dark) text-(--tg-gold-pale)" : "bg-(--tg-raised)"),
+                gap && !shown && "border-2 border-dashed border-(--tg-teal)/70 bg-(--tg-teal)/[0.06]",
+                gap && shown && fillState === "guess" && "tg-pop border-2 border-dashed border-(--tg-gold) bg-(--tg-gold)/10",
+                onLime && "tg-pop border-2 border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)",
+                gap && shown && fillState === "wrong" && "tg-stripes-red border-2 border-(--tg-red-hi)",
               )}
             >
               <span className={clsx("flex items-baseline justify-between", tv ? "gap-[1cqw]" : "gap-3")}>
-                <span className={clsx("font-extrabold", onLime ? "text-[#0b0d12]/70" : "text-[#6fe7ff]", tv ? "text-[0.95cqw]" : "text-xs")}>{m.mine ? "" : m.from}</span>
+                <span className={clsx("font-extrabold", onLime ? "text-(--tg-ink)/70" : "text-(--tg-sky)", tv ? "text-[0.95cqw]" : "text-xs")}>{m.mine ? "" : m.from}</span>
                 <span className={clsx("opacity-55", tv ? "text-[0.85cqw]" : "text-[11px]")}>{m.time}</span>
               </span>
               {gap && !shown ? (
-                <span className={clsx("flex items-center gap-2 font-extrabold uppercase tracking-wide text-[#ffc24a]", tv ? "text-[1.3cqw]" : "text-sm")}>
+                <span className={clsx("flex items-center gap-2 font-extrabold uppercase tracking-wide text-(--tg-teal-hi)", tv ? "text-[1.3cqw]" : "text-sm")}>
                   <Icon name="dots" className={tv ? "h-[1.6cqw] w-[1.6cqw]" : "h-5 w-5"} /> Messaggio sparito
                 </span>
               ) : (

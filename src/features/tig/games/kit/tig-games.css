@@ -1,81 +1,251 @@
 /* =====================================================================
-   TAVOLI IN GUERRA! — minigiochi. Notte profonda, lime elettrico, rosso segnale, bianco freddo.
-   Pannelli di vetro scuro sopra l'arena 3D; strisce «zona di guerra» per i blocchi.
+   TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!) — «La taverna del molo»: minigiochi e palette comune.
+   Notte di mare e legno scuro con fili d'ottone, oro dei dobloni come accento principale, turchese
+   caraibico come accento freddo, rosso bandiera per errori e Caos, pergamena con i bordi bruciati.
+   Tutto disegnato in codice (gradienti, SVG): nessuna immagine presa dal web.
    Solo classi con prefisso tg-: nessun effetto sul resto del sito.
    ===================================================================== */
 
-.tg-root {
-  --tg-night: #0b0d12;
-  --tg-night-2: #12161f;
-  --tg-steel: #1b212c;
-  --tg-line: rgba(238, 242, 246, 0.1);
-  --tg-lime: #c6ff3d;
-  --tg-lime-deep: #6f9a00;
-  --tg-red: #ff3b4e;
-  --tg-ice: #eef2f6;
-  --tg-mute: #9aa4b2;
-  --tg-amber: #ffc24a;
-  --tg-cyan: #6fe7ff;
-  --tg-violet: #b49cff;
-  --tg-display: var(--font-tig-display), "Big Shoulders", "Arial Narrow", Impact, sans-serif;
+/* --- palette (token del tema) — vale anche per la shell (.tig-root) ------ */
+.tg-root,
+.tig-root {
+  /* notte di mare (fondi) */
+  --tg-night: #07131a;
+  --tg-night-2: #0b1f2a;
+  --tg-raised: #123241;
+  --tg-raised-2: #1a4354;
+  --tg-deep: #0f3b4a;
+  /* oro dei dobloni: accento principale (scelte, risposte giuste, punti, vincitori) */
+  --tg-gold: #f2b134;
+  --tg-gold-hi: #ffd56b;
+  --tg-gold-pale: #fbe7b5;
+  --tg-gold-deep: #a06a14;
+  --tg-gold-dark: #3d2b0c;
+  /* turchese caraibico: accento freddo (titoletti, avvisi, capitano, «a metà») */
+  --tg-teal: #1fb5a8;
+  --tg-teal-hi: #62d9cc;
+  --tg-teal-pale: #b5f0e8;
+  /* azzurro laguna (informazioni, nomi degli altri) e ametista (quinto colore delle serie) */
+  --tg-sky: #6cc4ec;
+  --tg-sky-pale: #cdeefc;
+  --tg-violet: #c4a6ff;
+  /* rosso bandiera: fondi e bordi; «-hi» per i testi su fondo scuro (contrasto AA) */
+  --tg-red: #c8312b;
+  --tg-red-hi: #ff7b6b;
+  --tg-red-deep: #7e1a14;
+  --tg-red-ink: #2a0806;
+  /* pergamena, legno, ottone, inchiostro */
+  --tg-parch: #f1e2bf;
+  --tg-parch-2: #d9c08a;
+  --tg-burnt: #8a5a2b;
+  --tg-burnt-ink: #6e4116;
+  --tg-wood: #5a3a22;
+  --tg-wood-dark: #3b2414;
+  --tg-brass: #c9a24a;
+  --tg-ink: #1b1410;
+  /* testo su fondo scuro e testo secondario */
+  --tg-cream: #f6ead2;
+  --tg-mute: #b9ad94;
+  --tg-line: rgba(201, 162, 74, 0.28);
+  /* caratteri: titoli (Pirata One), numeri ed etichette (Grenze), testi (Manrope) */
+  --tg-title: var(--font-tig-display), "Pirata One", Georgia, serif;
+  --tg-display: var(--font-tig-num), "Grenze", Georgia, "Times New Roman", serif;
   --tg-body: var(--font-tig-body), "Manrope", system-ui, sans-serif;
+  /* grana della carta e del legno (rumore SVG generato, niente immagini) */
+  --tg-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .34 0 0 0 0 .2 0 0 0 0 .08 0 0 0 .55 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --tg-burn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.03' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .26 0 0 0 0 .13 0 0 0 0 .04 0 0 0 -4.2 2.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+  --tg-fibers: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .28 0 0 0 0 .1 0 0 0 .6 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+.tg-root {
   font-family: var(--tg-body);
-  color: var(--tg-ice);
+  color: var(--tg-cream);
   -webkit-tap-highlight-color: transparent;
 }
 
+/* --- caratteri --------------------------------------------------------- */
+/* etichette, pulsanti, parole grandi: Grenze maiuscolo; interlinea 1 per non tagliare gli accenti delle maiuscole */
 .tg-display {
   font-family: var(--tg-display);
   font-weight: 800;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  line-height: 0.92;
+  line-height: 1;
+  font-feature-settings: "lnum" 1;
 }
 
 .tg-num {
   font-family: var(--tg-display);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
   font-weight: 800;
 }
 
-/* --- pannelli di vetro --------------------------------------------------- */
+/* --- materiali --------------------------------------------------------- */
+/* tavola di notte: legno scuro laccato blu mare con il filo d'ottone (il pannello dei minigiochi) */
 .tg-glass {
-  background: linear-gradient(180deg, rgba(22, 27, 37, 0.82), rgba(11, 13, 18, 0.78));
-  -webkit-backdrop-filter: blur(18px) saturate(1.25);
-  backdrop-filter: blur(18px) saturate(1.25);
-  border: 1px solid var(--tg-line);
+  background:
+    linear-gradient(180deg, rgba(255, 213, 107, 0.06), transparent 38%),
+    linear-gradient(180deg, rgba(15, 43, 56, 0.9), rgba(7, 21, 29, 0.93));
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  backdrop-filter: blur(12px) saturate(1.15);
+  border: 1px solid rgba(201, 162, 74, 0.32);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    inset 0 1px 0 rgba(255, 228, 160, 0.1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.28),
     0 24px 60px -24px rgba(0, 0, 0, 0.85);
 }
 
-.tg-glass-lime {
-  border-color: rgba(198, 255, 61, 0.55);
+/* bordo d'oro (scelta inviata, esito positivo): «tg-glass-lime» resta come nome storico */
+.tg-glass-lime,
+.tg-glass-gold {
+  border-color: rgba(242, 177, 52, 0.8);
   box-shadow:
-    0 0 0 1px rgba(198, 255, 61, 0.25) inset,
-    0 0 40px -12px rgba(198, 255, 61, 0.45),
+    inset 0 0 0 1px rgba(242, 177, 52, 0.3),
+    inset 0 1px 0 rgba(255, 228, 160, 0.2),
+    0 0 36px -12px rgba(242, 177, 52, 0.55),
     0 24px 60px -24px rgba(0, 0, 0, 0.85);
 }
 
 .tg-glass-red {
-  border-color: rgba(255, 59, 78, 0.6);
+  border-color: rgba(214, 64, 56, 0.9);
   box-shadow:
-    0 0 0 1px rgba(255, 59, 78, 0.25) inset,
-    0 0 40px -12px rgba(255, 59, 78, 0.5),
+    inset 0 0 0 1px rgba(200, 49, 43, 0.35),
+    0 0 36px -12px rgba(200, 49, 43, 0.65),
     0 24px 60px -24px rgba(0, 0, 0, 0.85);
 }
 
-/* strisce diagonali (blocchi, invii chiusi) */
+/* strisce diagonali «da mappa» (blocchi, invii chiusi) */
 .tg-stripes {
-  background-image: repeating-linear-gradient(-45deg, rgba(198, 255, 61, 0.16) 0 10px, transparent 10px 20px);
+  background-image: repeating-linear-gradient(-45deg, rgba(242, 177, 52, 0.16) 0 10px, transparent 10px 20px);
 }
 .tg-stripes-red {
-  background-image: repeating-linear-gradient(-45deg, rgba(255, 59, 78, 0.18) 0 10px, transparent 10px 20px);
+  background-image: repeating-linear-gradient(-45deg, rgba(200, 49, 43, 0.24) 0 10px, transparent 10px 20px);
 }
 
-/* selezione: motivo a righe oltre al colore (il colore non è mai l'unico segnale) */
+/* selezione: tratteggio d'oro oltre al colore (il colore non è mai l'unico segnale) */
 .tg-picked {
-  background-image: repeating-linear-gradient(-45deg, rgba(198, 255, 61, 0.14) 0 6px, rgba(198, 255, 61, 0.05) 6px 12px);
+  background-image: repeating-linear-gradient(-45deg, rgba(242, 177, 52, 0.16) 0 6px, rgba(242, 177, 52, 0.05) 6px 12px);
+}
+
+/* materiali nuovi nello strato «components»: le classi di Tailwind sullo stesso elemento li possono ritoccare */
+@layer components {
+/* titoli in Pirata One: mai in maiuscolo forzato, interlinea che lascia spazio agli accenti (PIÙ, È) */
+.tg-title {
+  font-family: var(--tg-title);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.04;
+  text-transform: none;
+}
+
+/* pergamena con i bordi bruciati: inchiostro scuro, contrasto alto (regole, spiegazioni, intestazioni) */
+.tg-parch {
+  color: var(--tg-ink);
+  background-color: #eedcb4;
+  background-image:
+    var(--tg-fibers),
+    var(--tg-grain),
+    radial-gradient(120% 85% at 45% 35%, rgba(255, 249, 228, 0.7), transparent 62%),
+    radial-gradient(70% 60% at 0% 100%, rgba(138, 90, 43, 0.3), transparent 70%),
+    radial-gradient(60% 55% at 100% 0%, rgba(138, 90, 43, 0.24), transparent 70%),
+    linear-gradient(180deg, #f4e7c7, #e6d1a1);
+  background-size:
+    240px 240px,
+    180px 180px,
+    auto,
+    auto,
+    auto,
+    auto;
+  border-radius: 14px 10px 15px 9px / 10px 15px 9px 14px;
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 54, 18, 0.62),
+    inset 0 0 5px 1px rgba(80, 40, 10, 0.55),
+    inset 0 0 14px 2px rgba(110, 62, 20, 0.55),
+    inset 0 0 38px 4px rgba(138, 90, 43, 0.28),
+    0 1px 0 rgba(255, 240, 200, 0.12),
+    0 18px 40px -18px rgba(0, 0, 0, 0.85);
+  /* gruppo isolato: la bruciatura dei bordi (::before) sta sopra la carta ma sotto le scritte */
+  position: relative;
+  isolation: isolate;
+}
+/* bordi bruciati irregolari: macchie di rumore scuro, visibili solo verso i margini */
+.tg-parch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: var(--tg-burn);
+  background-size: 260px 260px;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(118% 112% at 50% 50%, transparent 50%, #000 74%);
+  mask-image: radial-gradient(118% 112% at 50% 50%, transparent 50%, #000 74%);
+}
+/* testi «secondari» sulla pergamena (sempre ≥ 4.5:1) */
+.tg-parch .tg-ink-2 {
+  color: #4a3420;
+}
+
+/* doblone d'oro con il numero inciso (numero della prova, posizioni) */
+.tg-coin {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 9999px;
+  color: var(--tg-ink);
+  background:
+    radial-gradient(circle at 34% 28%, #fff4c8 0 6%, transparent 30%),
+    radial-gradient(circle at 50% 50%, #ffd56b 0 52%, #e2a12a 64%, #b97c1c 78%, #8a5514 100%);
+  box-shadow:
+    inset 0 0 0 0.09em rgba(122, 78, 16, 0.55),
+    inset 0 0 0 0.16em rgba(255, 231, 160, 0.55),
+    inset 0 -0.08em 0.18em rgba(90, 52, 8, 0.55),
+    0 0.07em 0 #6b4210,
+    0 0.25em 0.6em -0.18em rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 0 rgba(255, 238, 190, 0.7);
+  font-family: var(--tg-display);
+  font-weight: 900;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  line-height: 1;
+}
+
+/* pulsante d'invio: placca d'oro con il bordo d'ottone (stato pronto) */
+.tg-btn-gold {
+  color: var(--tg-ink);
+  background: linear-gradient(180deg, #ffe597 0%, #f8c652 38%, #eaa82a 68%, #cf8a17 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -3px 0 rgba(122, 78, 16, 0.4),
+    inset 0 0 0 1px rgba(122, 78, 16, 0.35),
+    0 4px 0 #7a4e10,
+    0 16px 34px -12px rgba(242, 177, 52, 0.6);
+  text-shadow: 0 1px 0 rgba(255, 240, 200, 0.55);
+}
+.tg-btn-gold:active {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -2px 0 rgba(122, 78, 16, 0.4),
+    0 1px 0 #7a4e10,
+    0 8px 20px -10px rgba(242, 177, 52, 0.6);
+  transform: translateY(3px);
+}
+/* tavola di legno spenta (invio non ancora pronto) */
+.tg-btn-wood {
+  color: rgba(246, 234, 210, 0.55);
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.14) 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(90deg, rgba(255, 220, 170, 0.04) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, #3e2817, #2a190d);
+  border: 1px solid rgba(201, 162, 74, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 220, 170, 0.08);
+}
+
+/* filo d'ottone come separatore */
+.tg-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 74, 0.65) 18%, rgba(201, 162, 74, 0.65) 82%, transparent);
+}
 }
 
 /* PC: il giocatore si ingrandisce sugli schermi grandi (stessa composizione, più leggibile) */
@@ -169,6 +339,11 @@
     transform: scaleX(0);
   }
 }
+@keyframes tg-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .tg-rise {
   animation: tg-rise 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -182,6 +357,7 @@
 .tg-shake {
   animation: tg-shake 240ms ease-in-out 2;
 }
+/* riflesso dell'oro che passa (risposta giusta) */
 .tg-shine {
   position: relative;
   overflow: hidden;
@@ -191,7 +367,7 @@
   position: absolute;
   inset: 0;
   width: 40%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 246, 214, 0.45), transparent);
   animation: tg-sweep 1.4s ease-out 0.2s both;
   pointer-events: none;
 }
@@ -206,29 +382,26 @@
   }
 }
 
-/* --- arena finta per l'anteprima ------------------------------------- */
+/* --- arena finta per l'anteprima: la baia di notte vista dal molo ---- */
 .tg-arena-fake {
   background:
-    radial-gradient(ellipse 70% 55% at 50% 115%, rgba(198, 255, 61, 0.22), transparent 70%),
-    radial-gradient(ellipse 45% 40% at 0% 0%, rgba(255, 59, 78, 0.18), transparent 70%),
-    radial-gradient(ellipse 45% 40% at 100% 0%, rgba(111, 231, 255, 0.12), transparent 70%),
-    linear-gradient(180deg, #0b0d12 0%, #10141c 60%, #0b0d12 100%);
+    radial-gradient(circle at 80% 15%, #fff4d6 0 1.6%, rgba(255, 236, 190, 0.5) 1.9%, rgba(255, 236, 190, 0.08) 6%, transparent 13%),
+    radial-gradient(ellipse 60% 40% at 12% 108%, rgba(242, 177, 52, 0.26), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 92% 110%, rgba(242, 160, 52, 0.2), transparent 70%),
+    linear-gradient(180deg, #091a24 0%, #0d2834 48%, #10313d 55%, #0a222c 60%, #06121a 100%);
 }
 .tg-arena-fake::before {
   content: "";
   position: absolute;
-  inset: 45% -20% -10% -20%;
-  background-image:
-    linear-gradient(rgba(198, 255, 61, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(198, 255, 61, 0.14) 1px, transparent 1px);
-  background-size: 64px 64px;
-  transform: perspective(600px) rotateX(62deg);
-  transform-origin: 50% 0;
-  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  inset: 55% 0 0 0;
+  background:
+    radial-gradient(ellipse 5% 70% at 80% 0%, rgba(255, 236, 190, 0.32), transparent 72%),
+    repeating-linear-gradient(180deg, transparent 0 9px, rgba(108, 196, 236, 0.07) 9px 10px);
+  mask-image: linear-gradient(180deg, #000, transparent 85%);
   pointer-events: none;
 }
 
-/* range della puntata */
+/* --- range della puntata: binario di corda, cursore a doblone --------- */
 .tg-range {
   -webkit-appearance: none;
   appearance: none;
@@ -239,17 +412,18 @@
 .tg-range::-webkit-slider-runnable-track {
   height: 10px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--tg-lime) var(--tg-fill, 0%), rgba(238, 242, 246, 0.14) var(--tg-fill, 0%));
+  background: linear-gradient(90deg, var(--tg-gold) var(--tg-fill, 0%), rgba(246, 234, 210, 0.14) var(--tg-fill, 0%));
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 .tg-range::-moz-range-track {
   height: 10px;
   border-radius: 999px;
-  background: rgba(238, 242, 246, 0.14);
+  background: rgba(246, 234, 210, 0.14);
 }
 .tg-range::-moz-range-progress {
   height: 10px;
   border-radius: 999px;
-  background: var(--tg-lime);
+  background: var(--tg-gold);
 }
 .tg-range::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -257,20 +431,20 @@
   height: 34px;
   margin-top: -12px;
   border-radius: 999px;
-  background: var(--tg-ice);
-  border: 4px solid var(--tg-night);
-  box-shadow: 0 0 0 2px var(--tg-lime);
+  background: radial-gradient(circle at 35% 30%, #fff4c8 0 8%, #ffd56b 30%, #e2a12a 70%, #9a6216 100%);
+  border: 3px solid var(--tg-night);
+  box-shadow: 0 0 0 2px var(--tg-gold);
 }
 .tg-range::-moz-range-thumb {
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  background: var(--tg-ice);
-  border: 4px solid var(--tg-night);
-  box-shadow: 0 0 0 2px var(--tg-lime);
+  background: radial-gradient(circle at 35% 30%, #fff4c8 0 8%, #ffd56b 30%, #e2a12a 70%, #9a6216 100%);
+  border: 3px solid var(--tg-night);
+  box-shadow: 0 0 0 2px var(--tg-gold);
 }
 .tg-range:focus-visible {
-  outline: 2px solid var(--tg-lime);
+  outline: 2px solid var(--tg-gold);
   outline-offset: 4px;
   border-radius: 999px;
 }

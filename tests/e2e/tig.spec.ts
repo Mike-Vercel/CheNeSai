@@ -94,7 +94,7 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   const liveCtx = await browser.newContext(TV);
   const live = await liveCtx.newPage();
   await live.goto(`/tavoli-in-guerra/tv/${display_key}?live=1`);
-  await expect(live.getByText("TAVOLI IN GUERRA!").first()).toBeVisible({ timeout: 30_000 });
+  await expect(live.getByText("TAVERNA DEI PIRATI").first()).toBeVisible({ timeout: 30_000 });
   await live.waitForTimeout(1500);
   const liveText = await live.locator("body").innerText();
   for (const t of tables) expect(liveText).not.toContain(t.join_code);

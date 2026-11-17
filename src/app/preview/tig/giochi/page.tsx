@@ -6,7 +6,7 @@ import { ClientOnly } from "../../tv-question/ClientOnly";
 import { GiochiPreview, type PreviewSurface } from "./GiochiPreview";
 
 export const metadata: Metadata = {
-  title: "Anteprima · TAVOLI IN GUERRA! minigiochi",
+  title: "Anteprima · TAVERNA DEI PIRATI minigiochi",
   robots: { index: false, follow: false },
 };
 

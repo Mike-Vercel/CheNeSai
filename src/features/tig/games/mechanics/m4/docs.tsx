@@ -17,7 +17,7 @@ export type DocState = "idle" | "picked" | "fake" | "genuine" | "dim";
 const PAPER: Record<DocKind, { bg: string; ink: string; label: string }> = {
   scontrino: { bg: "#f4f1e8", ink: "#16181d", label: "Scontrino" },
   biglietto: { bg: "#ffd36b", ink: "#1a1406", label: "Biglietto" },
-  messaggio: { bg: "#1d2330", ink: "#eef2f6", label: "Messaggio" },
+  messaggio: { bg: "var(--tg-raised)", ink: "var(--tg-cream)", label: "Messaggio" },
   nota: { bg: "#ffe680", ink: "#221c05", label: "Appunto" },
   tessera: { bg: "#e8f7ff", ink: "#0b1a22", label: "Tessera" },
   verbale: { bg: "#f7f4ee", ink: "#1a1a1a", label: "Verbale" },
@@ -66,9 +66,9 @@ export function DocCard({
         "relative flex flex-col overflow-hidden transition-[transform,box-shadow,opacity] duration-300",
         s("rounded-xl", "rounded-[0.8cqw]"),
         kind === "nota" && "rotate-[-0.6deg]",
-        state === "picked" && s("outline outline-[4px] outline-offset-2 outline-[#c6ff3d]", "outline outline-[0.3cqw] outline-offset-[0.2cqw] outline-[#c6ff3d]"),
-        state === "fake" && s("outline outline-[4px] outline-offset-2 outline-[#ff3b4e]", "outline outline-[0.35cqw] outline-offset-[0.2cqw] outline-[#ff3b4e]"),
-        state === "genuine" && s("outline outline-[3px] outline-offset-2 outline-[#c6ff3d]/70", "outline outline-[0.22cqw] outline-offset-[0.2cqw] outline-[#c6ff3d]/70"),
+        state === "picked" && s("outline outline-[4px] outline-offset-2 outline-(--tg-gold)", "outline outline-[0.3cqw] outline-offset-[0.2cqw] outline-(--tg-gold)"),
+        state === "fake" && s("outline outline-[4px] outline-offset-2 outline-(--tg-red-hi)", "outline outline-[0.35cqw] outline-offset-[0.2cqw] outline-(--tg-red-hi)"),
+        state === "genuine" && s("outline outline-[3px] outline-offset-2 outline-(--tg-gold)/70", "outline outline-[0.22cqw] outline-offset-[0.2cqw] outline-(--tg-gold)/70"),
         state === "dim" && "opacity-45",
       )}
       style={{ background: p.bg, color: p.ink, boxShadow: "0 18px 40px -18px rgba(0,0,0,0.9)" }}
@@ -76,7 +76,7 @@ export function DocCard({
       {/* fascia del tipo di documento */}
       <div
         className={clsx("flex items-center justify-between font-extrabold uppercase", s("gap-2 px-3 pt-2 text-[10px] tracking-[0.18em]", "gap-[0.6cqw] px-[1cqw] pt-[0.6cqw] text-[0.8cqw] tracking-[0.2em]"))}
-        style={{ color: kind === "messaggio" ? "#6fe7ff" : `${p.ink}99` }}
+        style={{ color: kind === "messaggio" ? "var(--tg-sky)" : `${p.ink}99` }}
       >
         <span>{p.label}</span>
         {index !== undefined && (
@@ -87,7 +87,7 @@ export function DocCard({
       </div>
 
       {kind === "foto" && (
-        <div className={clsx("mx-auto flex items-center justify-center bg-[#1d2330]", s("mt-2 h-36 w-[calc(100%-1.5rem)] rounded-sm", compact ? "mt-[0.4cqw] h-[4.6cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]" : "mt-[0.5cqw] h-[7cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]"))} role="img" aria-label={`Foto: ${title}${iconLabel ? `, si legge «${iconLabel}»` : ""}`}>
+        <div className={clsx("mx-auto flex items-center justify-center bg-(--tg-raised)", s("mt-2 h-36 w-[calc(100%-1.5rem)] rounded-sm", compact ? "mt-[0.4cqw] h-[4.6cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]" : "mt-[0.5cqw] h-[7cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]"))} role="img" aria-label={`Foto: ${title}${iconLabel ? `, si legge «${iconLabel}»` : ""}`}>
           {icon ? (
             <svg viewBox="0 0 100 100" className="h-[86%]" aria-hidden>
               <SceneIcon kind={icon} tone="amber" label={iconLabel} />
@@ -108,7 +108,7 @@ export function DocCard({
               "leading-snug",
               mono ? "font-mono font-bold" : kind === "nota" ? "font-bold italic" : "font-semibold",
               kind === "agenda" && "border-b border-[#c22a3a]/25",
-              kind === "messaggio" && i === 0 && "rounded-xl bg-white/[0.07] px-2 py-1",
+              kind === "messaggio" && i === 0 && "rounded-xl bg-(--tg-cream)/[0.07] px-2 py-1",
               s("text-[15px]", "text-[1.3cqw]"),
             )}
           >

@@ -31,7 +31,7 @@ function Player(p: P) {
           ))}
         </div>
         <Panel tone="lime" className="flex items-center gap-4">
-          <TokenFace token={reveal.expected} className="h-16 w-16 shrink-0 text-[#c6ff3d]" />
+          <TokenFace token={reveal.expected} className="h-16 w-16 shrink-0 text-(--tg-gold)" />
           <div>
             <Eyebrow>Al posto del n. {reveal.index + 1} doveva esserci</Eyebrow>
             <p className="text-lg font-extrabold leading-snug">{reveal.law}</p>
@@ -96,11 +96,11 @@ function Tv(p: T) {
                 <TokenTile token={t} index={i} tv state={done ? (bad ? "wrong" : "dim") : "idle"} className="w-full" />
                 {bad && (
                   <span className="tg-pop flex flex-col items-center">
-                    <Icon name="up" className="h-[2cqw] w-[2cqw] text-[#c6ff3d]" />
-                    <span className="tg-glass tg-glass-lime grid h-[8cqw] w-[8cqw] place-items-center rounded-[1cqw] text-[#c6ff3d]">
+                    <Icon name="up" className="h-[2cqw] w-[2cqw] text-(--tg-gold)" />
+                    <span className="tg-glass tg-glass-lime grid h-[8cqw] w-[8cqw] place-items-center rounded-[1cqw] text-(--tg-gold)">
                       <TokenFace token={reveal.expected} className="h-[78%] w-[78%]" />
                     </span>
-                    <span className="mt-[0.3cqw] text-[1cqw] font-extrabold uppercase tracking-[0.16em] text-[#c6ff3d]">doveva essere</span>
+                    <span className="mt-[0.3cqw] text-[1cqw] font-extrabold uppercase tracking-[0.16em] text-(--tg-gold)">doveva essere</span>
                   </span>
                 )}
               </li>
@@ -110,7 +110,7 @@ function Tv(p: T) {
         {done && <TvExplain text={reveal.explain} className="mx-auto max-w-[70cqw]" />}
         {!done && (
           <TvPanel className="mx-auto flex items-center gap-[1cqw] px-[2cqw] py-[1cqw]">
-            <Icon name="target" className="h-[2.2cqw] w-[2.2cqw] text-[#c6ff3d]" />
+            <Icon name="target" className="h-[2.2cqw] w-[2.2cqw] text-(--tg-gold)" />
             <p className="text-[1.6cqw] font-extrabold">Dal telefono: toccate l&apos;elemento che rompe la regola</p>
           </TvPanel>
         )}

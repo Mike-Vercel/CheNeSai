@@ -35,7 +35,7 @@ function Board({
   label: string;
 }) {
   return (
-    <div role="group" aria-label={label} className={clsx("grid grid-cols-2 rounded-2xl border-2 border-white/25 bg-[#0b0d12]/70", tv ? "gap-[0.6cqw] p-[0.45cqw]" : "gap-2.5 p-1.5")}>
+    <div role="group" aria-label={label} className={clsx("grid grid-cols-2 rounded-2xl border-2 border-(--tg-cream)/25 bg-(--tg-night)/70", tv ? "gap-[0.6cqw] p-[0.45cqw]" : "gap-2.5 p-1.5")}>
       {[0, 1, 2, 3].map((b) => (
         <div key={b} className={clsx("grid grid-cols-2", tv ? "gap-[0.3cqw]" : "gap-1")}>
           {[0, 1, 2, 3].map((k) => {
@@ -57,11 +57,11 @@ function Board({
                 className={clsx(
                   "relative grid aspect-square place-items-center border-2 transition-colors",
                   tv ? "rounded-[0.6cqw]" : "rounded-xl",
-                  given ? "border-white/10 bg-white/[0.13]" : "border-white/12 bg-white/[0.03]",
-                  selected === i && "tg-picked border-[#c6ff3d]",
-                  wrong && "tg-stripes-red border-[#ff3b4e]",
-                  missing && "border-dashed border-[#ffc24a]/60",
-                  solution && tv && !given && "tg-pop border-[#c6ff3d]/60 bg-[#c6ff3d]/10",
+                  given ? "border-(--tg-cream)/10 bg-(--tg-cream)/[0.13]" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.03]",
+                  selected === i && "tg-picked border-(--tg-gold)",
+                  wrong && "tg-stripes-red border-(--tg-red-hi)",
+                  missing && "border-dashed border-(--tg-teal)/60",
+                  solution && tv && !given && "tg-pop border-(--tg-gold)/60 bg-(--tg-gold)/10",
                 )}
                 style={solution && tv && !given ? { animationDelay: `${i * 40}ms` } : undefined}
               >
@@ -157,7 +157,7 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-2">
           <Eyebrow>Il duello</Eyebrow>
           {rivalBanner}
-          <p className="text-base font-bold text-white/80">
+          <p className="text-base font-bold text-(--tg-cream)/80">
             {mySec !== undefined ? `Griglia valida in ${mySec} s` : "Griglia non valida"}
             {reveal.summary?.medianMs != null ? ` · tempo mediano del locale ${Math.round(reveal.summary.medianMs / 1000)} s` : ""}
             {d ? (d.winner === p.myTeam.teamId ? " · duello vinto" : d.winner ? " · duello perso" : " · nessun vincitore") : ""}
@@ -168,7 +168,7 @@ function Player(p: P) {
           <div className="mx-auto w-full max-w-[340px]">
             <Board givens={givens} values={sent ? values : "0".repeat(16)} solution={sol} label="Soluzione con le vostre caselle" />
           </div>
-          <p className="text-sm font-semibold text-white/65">Caselle a righe: sbagliate. Tratteggiate: lasciate vuote (in trasparenza il simbolo giusto).</p>
+          <p className="text-sm font-semibold text-(--tg-cream)/65">Caselle a righe: sbagliate. Tratteggiate: lasciate vuote (in trasparenza il simbolo giusto).</p>
         </Panel>
         <Explain text={reveal.explain} />
       </PlayerFrame>
@@ -182,7 +182,7 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Griglia fatta!" hint={!ready ? `Mancano ${merged.split("").filter((x) => x === "0").length} caselle` : undefined} />}
     >
       <Panel tone="red" className="flex items-center gap-3">
-        <Icon name="swap" className="h-8 w-8 shrink-0 text-[#ff3b4e]" />
+        <Icon name="swap" className="h-8 w-8 shrink-0 text-(--tg-red-hi)" />
         {rivalBanner}
       </Panel>
       <Panel className="flex flex-col gap-3">
@@ -193,17 +193,17 @@ function Player(p: P) {
         {editable && (
           <div className="grid grid-cols-5 gap-2" role="group" aria-label="Simboli">
             {SYMS.map((v) => (
-              <button key={v} type="button" onClick={() => put(v)} className="flex h-16 flex-col items-center justify-center rounded-xl border-2 border-white/12 bg-white/[0.05] transition-transform active:scale-95" aria-label={`Metti ${GRID_SYMBOLS[v].name}`}>
+              <button key={v} type="button" onClick={() => put(v)} className="flex h-16 flex-col items-center justify-center rounded-xl border-2 border-(--tg-cream)/12 bg-(--tg-cream)/[0.05] transition-transform active:scale-95" aria-label={`Metti ${GRID_SYMBOLS[v].name}`}>
                 <GridSymbol v={v} className="h-8 w-8" />
-                <span className="hidden text-[10px] font-extrabold text-white/50 lg:block">{v}</span>
+                <span className="hidden text-[10px] font-extrabold text-(--tg-cream)/50 lg:block">{v}</span>
               </button>
             ))}
-            <button type="button" onClick={() => put("0")} className="grid h-16 place-items-center rounded-xl border-2 border-white/12 bg-white/[0.05] transition-transform active:scale-95" aria-label="Cancella la casella">
+            <button type="button" onClick={() => put("0")} className="grid h-16 place-items-center rounded-xl border-2 border-(--tg-cream)/12 bg-(--tg-cream)/[0.05] transition-transform active:scale-95" aria-label="Cancella la casella">
               <Icon name="back" className="h-7 w-7" />
             </button>
           </div>
         )}
-        <p className="hidden text-center text-xs font-semibold text-[#9aa4b2] lg:block">Tastiera: frecce per muoversi, 1–4 per i simboli, Canc per cancellare, Invio per inviare.</p>
+        <p className="hidden text-center text-xs font-semibold text-(--tg-mute) lg:block">Tastiera: frecce per muoversi, 1–4 per i simboli, Canc per cancellare, Invio per inviare.</p>
       </Panel>
     </PlayerFrame>
   );
@@ -222,7 +222,7 @@ function Tv(p: T) {
           <div className="grid grid-cols-2 gap-[1.6cqw]">
             {[false, true].map((m) => (
               <div key={String(m)} className="flex flex-col items-center gap-[0.6cqw]">
-                <p className="text-[1.2cqw] font-extrabold uppercase tracking-[0.2em] text-white/75">{m ? "Griglia B · speculare" : "Griglia A"}</p>
+                <p className="text-[1.2cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/75">{m ? "Griglia B · speculare" : "Griglia A"}</p>
                 <div className="w-[21cqw]">
                   <Board givens={m ? mirrorGrid(view.givens) : view.givens} values={"0".repeat(16)} solution={done ? (m ? mirrorGrid(reveal.grid) : reveal.grid) : null} tv label={m ? "Griglia speculare" : "Griglia"} />
                 </div>
@@ -231,7 +231,7 @@ function Tv(p: T) {
           </div>
           <div className="flex items-center justify-center gap-[1.6cqw]">
             {SYMS.map((v) => (
-              <span key={v} className="flex items-center gap-[0.4cqw] text-[1.2cqw] font-extrabold capitalize text-white/80">
+              <span key={v} className="flex items-center gap-[0.4cqw] text-[1.2cqw] font-extrabold capitalize text-(--tg-cream)/80">
                 <GridSymbol v={v} className="h-[2.2cqw] w-[2.2cqw]" /> {GRID_SYMBOLS[v].name}
               </span>
             ))}
@@ -239,35 +239,35 @@ function Tv(p: T) {
           {done && <TvExplain text={reveal.explain} className="mt-auto" />}
         </TvPanel>
         <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">
+          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
             <Icon name="swap" className="h-[1.6cqw] w-[1.6cqw]" /> Sfide incrociate
           </p>
           <div className={clsx("grid min-h-0 gap-[0.45cqw]", many ? "grid-cols-2" : "grid-cols-1")}>
             {view.pairs.map((pr, i) => {
               const d = s?.duels.find((x) => x.a === pr.a.teamId);
               return (
-                <div key={pr.a.teamId} className="tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-white/[0.05] px-[0.7cqw] py-[0.45cqw]" style={{ animationDelay: `${i * 70}ms` }}>
+                <div key={pr.a.teamId} className="tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.7cqw] py-[0.45cqw]" style={{ animationDelay: `${i * 70}ms` }}>
                   <TvChip teams={p.teams} id={pr.a.teamId} size={many ? 2.2 : 2.6} />
                   {pr.b ? (
                     <>
-                      <Icon name="swap" className="h-[1.5cqw] w-[1.5cqw] rotate-90 text-[#ff3b4e]" />
+                      <Icon name="swap" className="h-[1.5cqw] w-[1.5cqw] rotate-90 text-(--tg-red-hi)" />
                       <TvChip teams={p.teams} id={pr.b.teamId} size={many ? 2.2 : 2.6} />
                     </>
                   ) : (
-                    <span className="text-[1.1cqw] font-extrabold uppercase text-white/70">contro il tempo mediano</span>
+                    <span className="text-[1.1cqw] font-extrabold uppercase text-(--tg-cream)/70">contro il tempo mediano</span>
                   )}
                   <span className={clsx("ml-auto text-right font-extrabold leading-tight", many ? "text-[1cqw]" : "text-[1.25cqw]")}>
                     {done ? (
                       <>
-                        <span className="text-white/70">
+                        <span className="text-(--tg-cream)/70">
                           {sec(pr.a.teamId)}
                           {pr.b ? ` · ${sec(pr.b.teamId)}` : ""}
                         </span>
                         <br />
-                        {d?.winner ? <span className="text-[#c6ff3d]">vince il {p.teams.find((t) => t.teamId === d.winner)?.tableNo} +{view.points.duel}</span> : <span className="text-white/55">nessun vincitore</span>}
+                        {d?.winner ? <span className="text-(--tg-gold)">vince il {p.teams.find((t) => t.teamId === d.winner)?.tableNo} +{view.points.duel}</span> : <span className="text-(--tg-cream)/55">nessun vincitore</span>}
                       </>
                     ) : (
-                      <span className="text-white/45">{pr.b ? "A contro B" : "griglia A"}</span>
+                      <span className="text-(--tg-cream)/45">{pr.b ? "A contro B" : "griglia A"}</span>
                     )}
                   </span>
                 </div>

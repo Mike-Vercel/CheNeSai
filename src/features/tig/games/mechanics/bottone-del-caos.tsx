@@ -20,17 +20,17 @@ function CaosButton({ className, pressed = false }: { className?: string; presse
     <svg viewBox="0 0 120 90" className={className} role="img" aria-label="Bottone del Caos">
       <defs>
         <pattern id={`${uid}-s`} width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width="6" height="12" fill="#ffc24a" />
-          <rect x="6" width="6" height="12" fill="#0b0d12" />
+          <rect width="6" height="12" fill="var(--tg-gold)" />
+          <rect x="6" width="6" height="12" fill="var(--tg-ink)" />
         </pattern>
         <radialGradient id={`${uid}-l`} cx="40%" cy="30%" r="70%">
-          <stop offset="0" stopColor="#ff8c97" />
-          <stop offset="1" stopColor="#c4122a" />
+          <stop offset="0" stopColor="var(--tg-red-hi)" />
+          <stop offset="1" stopColor="var(--tg-red)" />
         </radialGradient>
       </defs>
-      <rect x="8" y="58" width="104" height="24" rx="6" fill={`url(#${uid}-s)`} stroke="#0b0d12" strokeWidth="3" />
-      <rect x="26" y={pressed ? 48 : 40} width="68" height="20" rx="6" fill="#7a0a17" />
-      <ellipse cx="60" cy={pressed ? 48 : 40} rx="34" ry="14" fill={`url(#${uid}-l)`} stroke="#2a0207" strokeWidth="2" />
+      <rect x="8" y="58" width="104" height="24" rx="6" fill={`url(#${uid}-s)`} stroke="var(--tg-ink)" strokeWidth="3" />
+      <rect x="26" y={pressed ? 48 : 40} width="68" height="20" rx="6" fill="var(--tg-red-deep)" />
+      <ellipse cx="60" cy={pressed ? 48 : 40} rx="34" ry="14" fill={`url(#${uid}-l)`} stroke="var(--tg-red-ink)" strokeWidth="2" />
       <ellipse cx="50" cy={pressed ? 44 : 36} rx="12" ry="4" fill="#fff" fillOpacity="0.35" />
     </svg>
   );
@@ -57,14 +57,14 @@ function Player(p: P) {
         <MyOutcome outcome={p.myOutcome} />
         <Panel className="flex flex-col gap-2">
           <Eyebrow>I vostri duelli</Eyebrow>
-          {mine.length === 0 && <p className="text-base font-extrabold text-white/70">Nessun duello.</p>}
+          {mine.length === 0 && <p className="text-base font-extrabold text-(--tg-cream)/70">Nessun duello.</p>}
           {mine.map((d) => {
             const other = d.a === p.myTeam.teamId ? d.b : d.a;
             const won = d.winner === p.myTeam.teamId;
             return (
               <p key={`${d.a}${d.b}`} className="flex flex-wrap items-center gap-2 text-base font-extrabold">
                 Contro il tavolo <PhoneChip tableNo={table.get(other) ?? 0} tone="red" /> ({hits[p.myTeam.teamId] ?? 0} a {hits[other] ?? 0}):{" "}
-                <span className={won ? "text-[#c6ff3d]" : d.winner ? "text-[#ff8c97]" : "text-white/60"}>{won ? `vinto +${view.prize}` : d.winner ? "perso, nessun malus" : "pari"}</span>
+                <span className={won ? "text-(--tg-gold)" : d.winner ? "text-(--tg-red-hi)" : "text-(--tg-cream)/60"}>{won ? `vinto +${view.prize}` : d.winner ? "perso, nessun malus" : "pari"}</span>
               </p>
             );
           })}
@@ -90,7 +90,7 @@ function Player(p: P) {
       <Panel tone="red" className="flex items-center gap-3">
         <CaosButton className="h-14 w-20 shrink-0" pressed={p.submitted} />
         <p className="text-base font-extrabold leading-snug">
-          Duello identico: vince chi fa più risposte giuste, a pari merito il più rapido. <span className="text-[#c6ff3d]">+{view.prize}</span>, chi perde non perde nulla.
+          Duello identico: vince chi fa più risposte giuste, a pari merito il più rapido. <span className="text-(--tg-gold)">+{view.prize}</span>, chi perde non perde nulla.
         </p>
       </Panel>
       <Step n={1} title="Contro chi premete il bottone?" icon="target" done={!!target} tone="red">
@@ -98,9 +98,9 @@ function Player(p: P) {
       </Step>
       <Step n={2} title="La raffica (uguale per tutti)" icon="bolt" done={done === view.raffica.length}>
         {view.raffica.map((q, i) => (
-          <div key={i} className={clsx("flex flex-col gap-2 rounded-2xl border border-white/10 p-3", ans[i] && "border-[#c6ff3d]/40")}>
+          <div key={i} className={clsx("flex flex-col gap-2 rounded-2xl border border-(--tg-cream)/10 p-3", ans[i] && "border-(--tg-gold)/40")}>
             <p className="text-base font-extrabold leading-snug">
-              <span className="tg-num mr-2 text-[#ff3b4e]">{i + 1}</span>
+              <span className="tg-num mr-2 text-(--tg-red-hi)">{i + 1}</span>
               {q.prompt}
             </p>
             <ChoiceList
@@ -132,7 +132,7 @@ function Tv(p: T) {
             const sol = done ? reveal.raffica[i].solutionId : null;
             return (
               <TvPanel key={i} className="tg-rise flex flex-col gap-[0.6cqw]" tone={i === 1 ? "red" : undefined}>
-                <p className="tg-num text-[2.4cqw] leading-none text-[#ff3b4e]">{i + 1}</p>
+                <p className="tg-num text-[2.4cqw] leading-none text-(--tg-red-hi)">{i + 1}</p>
                 <p className="text-[1.6cqw] font-extrabold leading-tight">{q.prompt}</p>
                 <div className="flex flex-col gap-[0.4cqw]">
                   {q.options.map((o, j) => (
@@ -145,19 +145,19 @@ function Tv(p: T) {
         </div>
         <div className="grid min-h-0 flex-1 grid-cols-[1.4fr_1fr] gap-[1.2cqw]">
           <TvPanel tone="red" className="flex min-h-0 flex-col gap-[0.5cqw] overflow-hidden">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">Duelli del Caos</p>
+            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Duelli del Caos</p>
             {s ? (
               <div className={clsx("grid min-h-0 gap-[0.35cqw] overflow-hidden", many ? "grid-cols-2" : "grid-cols-1")}>
-                {s.duels.length === 0 && <p className="text-[1.5cqw] font-bold text-white/60">Nessun duello.</p>}
+                {s.duels.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/60">Nessun duello.</p>}
                 {s.duels.map((d, i) => (
-                  <div key={`${d.a}${d.b}`} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-white/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 90}ms` }}>
+                  <div key={`${d.a}${d.b}`} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 90}ms` }}>
                     <TvChip teams={p.teams} id={d.a} size={many ? 2 : 2.5} />
-                    <span className="tg-num text-[1.4cqw] text-white/80">
+                    <span className="tg-num text-[1.4cqw] text-(--tg-cream)/80">
                       {s.hits[d.a] ?? 0}–{s.hits[d.b] ?? 0}
                     </span>
                     <TvChip teams={p.teams} id={d.b} size={many ? 2 : 2.5} />
                     <span className={clsx("ml-auto text-right font-extrabold", many ? "text-[1cqw]" : "text-[1.3cqw]")}>
-                      {d.winner ? <span className="text-[#c6ff3d]">vince il {p.teams.find((t) => t.teamId === d.winner)?.tableNo} · +{view.prize}</span> : <span className="text-white/55">pari</span>}
+                      {d.winner ? <span className="text-(--tg-gold)">vince il {p.teams.find((t) => t.teamId === d.winner)?.tableNo} · +{view.prize}</span> : <span className="text-(--tg-cream)/55">pari</span>}
                     </span>
                   </div>
                 ))}
@@ -165,7 +165,7 @@ function Tv(p: T) {
             ) : (
               <div className="flex flex-1 items-center gap-[1.6cqw]">
                 <CaosButton className="tg-pulse h-[10cqw] w-[13cqw] shrink-0" />
-                <p className="text-[1.6cqw] font-bold leading-snug text-white/85">Ogni tavolo preme il bottone contro un rivale: chi contro chi si scopre al reveal.</p>
+                <p className="text-[1.6cqw] font-bold leading-snug text-(--tg-cream)/85">Ogni tavolo preme il bottone contro un rivale: chi contro chi si scopre al reveal.</p>
               </div>
             )}
           </TvPanel>
@@ -173,8 +173,8 @@ function Tv(p: T) {
             <TvExplain text={reveal.explain} />
           ) : (
             <TvPanel className="flex flex-col items-center justify-center gap-[0.4cqw] text-center">
-              <Icon name="bolt" className="h-[3.6cqw] w-[3.6cqw] text-[#c6ff3d]" />
-              <p className="tg-num text-[5cqw] leading-none text-[#c6ff3d]">+{view.prize}</p>
+              <Icon name="bolt" className="h-[3.6cqw] w-[3.6cqw] text-(--tg-gold)" />
+              <p className="tg-num text-[5cqw] leading-none text-(--tg-gold)">+{view.prize}</p>
               <p className="tg-display text-[1.8cqw]">a duello vinto · nessun malus</p>
             </TvPanel>
           )}

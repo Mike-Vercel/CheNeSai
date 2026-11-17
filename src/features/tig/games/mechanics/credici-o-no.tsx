@@ -18,8 +18,8 @@ function CaseBox({ c }: { c: PublicCase }) {
       <p className="tg-display text-2xl">{c.title}</p>
       <ul className="flex flex-col gap-1">
         {c.facts.map((f, i) => (
-          <li key={i} className="flex gap-2 text-sm font-semibold leading-snug text-white/85">
-            <span className="text-[#6fe7ff]">—</span> {f}
+          <li key={i} className="flex gap-2 text-sm font-semibold leading-snug text-(--tg-cream)/85">
+            <span className="text-(--tg-sky)">—</span> {f}
           </li>
         ))}
       </ul>
@@ -53,12 +53,12 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-2 text-base font-bold">
           {out && (
             <p>
-              Voi al tavolo {table.get(out.to)}: <span className={out.honest ? "text-[#c6ff3d]" : "text-[#ff8c97]"}>{out.honest ? "verità" : "bluff"}</span> · {out.trusted === null ? "non ha risposto" : out.trusted ? "si è fidato" : "non si è fidato"}
+              Voi al tavolo {table.get(out.to)}: <span className={out.honest ? "text-(--tg-gold)" : "text-(--tg-red-hi)"}>{out.honest ? "verità" : "bluff"}</span> · {out.trusted === null ? "non ha risposto" : out.trusted ? "si è fidato" : "non si è fidato"}
             </p>
           )}
           {inc && (
             <p>
-              Il tavolo {table.get(inc.from)} a voi: <span className={inc.honest ? "text-[#c6ff3d]" : "text-[#ff8c97]"}>{inc.honest === null ? "nessun suggerimento" : inc.honest ? "verità" : "bluff"}</span>
+              Il tavolo {table.get(inc.from)} a voi: <span className={inc.honest ? "text-(--tg-gold)" : "text-(--tg-red-hi)"}>{inc.honest === null ? "nessun suggerimento" : inc.honest ? "verità" : "bluff"}</span>
             </p>
           )}
         </Panel>
@@ -68,7 +68,7 @@ function Player(p: P) {
             <Panel key={c.id} className="flex flex-col gap-2">
               <CaseBox c={c} />
               <ChoiceList options={c.options} picked={sent && answer ? [answer] : []} onToggle={() => {}} keys={false} reveal={{ solution: [c.solutionId] }} />
-              <p className="text-sm font-semibold text-white/80">{c.why}</p>
+              <p className="text-sm font-semibold text-(--tg-cream)/80">{c.why}</p>
             </Panel>
           ))}
         <Explain text={reveal.explain} />
@@ -95,7 +95,7 @@ function Player(p: P) {
     >
       {mv.tellsTo && (
         <Panel tone="red" className="flex flex-col gap-3">
-          <Eyebrow className="flex items-center gap-2 text-[#ff8c97]">
+          <Eyebrow className="flex items-center gap-2 text-(--tg-red-hi)">
             <Icon name="eye" className="h-4 w-4" /> 1 · Al tavolo {mv.tellsTo.tableNo}: voi conoscete la soluzione
           </Eyebrow>
           <p className="text-base font-extrabold leading-snug">{mv.tellsTo.case.question}</p>
@@ -103,13 +103,13 @@ function Player(p: P) {
             {mv.tellsTo.case.options.map((o) => (
               <OptionButton key={o.id} text={o.text} state={tip === o.id ? "picked" : "idle"} disabled={!editable} onClick={() => setTip(o.id)}>
                 {o.id === truth && (
-                  <span className="tg-display shrink-0 rounded-md bg-[#c6ff3d] px-2 py-0.5 text-sm text-[#0b0d12]">La verità</span>
+                  <span className="tg-display shrink-0 rounded-md bg-(--tg-gold) px-2 py-0.5 text-sm text-(--tg-ink)">La verità</span>
                 )}
               </OptionButton>
             ))}
           </div>
           {tip && (
-            <p className={clsx("tg-display text-2xl", tip === truth ? "text-[#c6ff3d]" : "text-[#ff3b4e]")}>{tip === truth ? "Mandate la verità" : "State bluffando"}</p>
+            <p className={clsx("tg-display text-2xl", tip === truth ? "text-(--tg-gold)" : "text-(--tg-red-hi)")}>{tip === truth ? "Mandate la verità" : "State bluffando"}</p>
           )}
         </Panel>
       )}
@@ -154,7 +154,7 @@ function Tv(p: T) {
               const r = 150;
               const [x1, y1, x2, y2] = [200 + r * Math.cos(a), 200 + r * Math.sin(a), 200 + r * Math.cos(b), 200 + r * Math.sin(b)];
               const res = result.get(l.teamId);
-              const col = !res ? "rgba(238,242,246,0.35)" : res.honest ? "#c6ff3d" : "#ff3b4e";
+              const col = !res ? "color-mix(in srgb, var(--tg-cream) 35%, transparent)" : res.honest ? "var(--tg-gold)" : "var(--tg-red-hi)";
               if (n < 2) return null;
               const mx = (x1 + x2) / 2;
               const my = (y1 + y2) / 2;
@@ -176,7 +176,7 @@ function Tv(p: T) {
             })}
             <defs>
               <marker id="tg-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M0 0L10 5L0 10z" fill="#eef2f6" />
+                <path d="M0 0L10 5L0 10z" fill="var(--tg-cream)" />
               </marker>
             </defs>
             {view.links.map((l, i) => {
@@ -185,8 +185,8 @@ function Tv(p: T) {
               const y = 200 + 150 * Math.sin(a);
               return (
                 <g key={`c-${l.teamId}`}>
-                  <circle cx={x} cy={y} r={26} fill={team.get(l.teamId)?.color ?? "#eef2f6"} stroke="#0b0d12" strokeWidth={4} />
-                  <text x={x} y={y + 1} textAnchor="middle" dominantBaseline="central" fontSize={26} fontWeight={900} fill="#0b0d12" style={{ fontFamily: "var(--tg-display)" }}>
+                  <circle cx={x} cy={y} r={26} fill={team.get(l.teamId)?.color ?? "var(--tg-cream)"} stroke="var(--tg-ink)" strokeWidth={4} />
+                  <text x={x} y={y + 1} textAnchor="middle" dominantBaseline="central" fontSize={26} fontWeight={900} fill="var(--tg-ink)" style={{ fontFamily: "var(--tg-display)" }}>
                     {l.tableNo}
                   </text>
                 </g>
@@ -196,20 +196,20 @@ function Tv(p: T) {
         </TvPanel>
         <div className="flex min-h-0 flex-col gap-[1.2cqw]">
           <TvPanel className="grid grid-cols-2 gap-[0.8cqw] text-[1.35cqw] font-bold leading-snug">
-            <p className="col-span-2 text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Punti per ogni coppia</p>
+            <p className="col-span-2 text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Punti per ogni coppia</p>
             <p>
-              <b className="text-[#c6ff3d]">Vero + fiducia</b>: chi riceve +{view.payoff.alleanza.receiver}, chi suggerisce +{view.payoff.alleanza.teller}
+              <b className="text-(--tg-gold)">Vero + fiducia</b>: chi riceve +{view.payoff.alleanza.receiver}, chi suggerisce +{view.payoff.alleanza.teller}
             </p>
             <p>
-              <b className="text-[#ff3b4e]">Bluff + fiducia</b>: chi suggerisce +{view.payoff.bluffRiuscito.teller}
+              <b className="text-(--tg-red-hi)">Bluff + fiducia</b>: chi suggerisce +{view.payoff.bluffRiuscito.teller}
             </p>
             <p>
-              <b className="text-[#c6ff3d]">Vero + sospetto</b>: chi suggerisce +{view.payoff.onesti.teller}; chi riceve +{view.payoff.daSoli.receiver} se risolve
+              <b className="text-(--tg-gold)">Vero + sospetto</b>: chi suggerisce +{view.payoff.onesti.teller}; chi riceve +{view.payoff.daSoli.receiver} se risolve
             </p>
             <p>
-              <b className="text-[#ff3b4e]">Bluff + sospetto</b>: chi riceve +{view.payoff.smascherato.receiver} (+{view.payoff.daSoli.receiver} se risolve)
+              <b className="text-(--tg-red-hi)">Bluff + sospetto</b>: chi riceve +{view.payoff.smascherato.receiver} (+{view.payoff.daSoli.receiver} se risolve)
             </p>
-            <p className="col-span-2 text-white/60">Tetto: {view.cap} a tavolo. Bugie solo sui casi inventati.</p>
+            <p className="col-span-2 text-(--tg-cream)/60">Tetto: {view.cap} a tavolo. Bugie solo sui casi inventati.</p>
           </TvPanel>
           {done && <TvExplain text={reveal.explain} />}
         </div>

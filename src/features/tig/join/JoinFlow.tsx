@@ -4,8 +4,9 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { api, ApiError } from "@/lib/realtime/api-client";
+import { teamColor } from "@/lib/tig/rules";
 import type { JoinPreview } from "@/lib/tig/types";
-import { Logo } from "../ui";
+import { CrewFlag, Logo, WaxSeal } from "../ui";
 import { TigArena } from "../visuals";
 
 /**
@@ -50,14 +51,14 @@ export function JoinFlow({ token, username }: { token?: string; username: string
         <Logo size="md" />
         {!token && !preview && (
           <form
-            className="tig-panel tig-pop flex w-full flex-col gap-3 rounded-3xl p-5"
+            className="tg-parch tig-pop flex w-full flex-col gap-3 p-5"
             onSubmit={(e) => {
               e.preventDefault();
               void load({ code });
             }}
           >
             <p className="tig-label">Codice del tavolo</p>
-            <h1 className="tig-display text-4xl">Entra al tavolo</h1>
+            <h1 className="tig-title text-[2.7rem] text-[#1b1410]">Entra al tavolo</h1>
             <input
               className="tig-input text-center font-mono text-3xl tracking-[0.35em] uppercase"
               value={code}
@@ -72,13 +73,14 @@ export function JoinFlow({ token, username }: { token?: string; username: string
             <button type="submit" className="tig-btn w-full" disabled={code.length !== 6 || loading}>
               {loading ? "Cerco…" : "AVANTI"}
             </button>
-            <p className="text-center text-sm font-bold text-white/55">Il codice è sotto il QR del tuo tavolo o te lo dà lo staff.</p>
+            <p className="text-center text-sm font-bold text-[#4a3420]">Il codice è sotto il QR del tuo tavolo o te lo dà lo staff.</p>
           </form>
         )}
         {loading && token && <p className="tig-panel rounded-2xl px-5 py-4 text-lg font-bold">Controllo il QR del tavolo…</p>}
         {err && (
-          <div className="tig-panel tig-pop w-full rounded-3xl border-[#ff2d3d]/50 p-5 text-center" role="alert">
-            <p className="text-lg font-extrabold text-[#ffd5d9]">{err}</p>
+          <div className="tg-parch tig-pop relative w-full p-5 pt-8 text-center" role="alert">
+            <WaxSeal mark="x" className="absolute -top-6 left-1/2 h-12 w-12 -translate-x-1/2 drop-shadow-[0_3px_4px_rgba(0,0,0,.4)]" />
+            <p className="text-lg font-extrabold text-[#7e1a14]">{err}</p>
             {!token && (
               <button type="button" className="tig-btn tig-btn-ghost mt-3 w-full" onClick={() => setErr(null)}>
                 Riprova
@@ -92,7 +94,8 @@ export function JoinFlow({ token, username }: { token?: string; username: string
   );
 }
 
-function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPreview; username: string | null; token?: string; code?: string; onBack?: () => void }) {
+/** Scheda d'ingresso a un tavolo (esportata anche per il banco di prova /preview/tig/schermate). */
+export function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPreview; username: string | null; token?: string; code?: string; onBack?: () => void }) {
   const [nickname, setNickname] = useState(preview.suggestedNickname ?? username ?? "");
   const [teamName, setTeamName] = useState("");
   const [pin, setPin] = useState("");
@@ -104,10 +107,10 @@ function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPre
 
   if (preview.mine?.sameTable) {
     return (
-      <section className="tig-panel tig-panel-hot tig-pop flex w-full flex-col items-center gap-3 rounded-3xl p-5 text-center">
+      <section className="tg-parch tig-pop flex w-full flex-col items-center gap-3 p-5 text-center">
         <p className="tig-label">{preview.venue}</p>
-        <h1 className="tig-display text-4xl">Sei già al tavolo {preview.tableNo}</h1>
-        {preview.team && <p className="text-lg font-bold text-white/80">Squadra «{preview.team.name}»</p>}
+        <h1 className="tig-title text-[2.6rem] text-[#1b1410]">Sei già al tavolo {preview.tableNo}</h1>
+        {preview.team && <p className="text-lg font-bold text-[#2b1d12]">Squadra «{preview.team.name}»</p>}
         <button type="button" className="tig-btn tig-btn-red w-full" onClick={go}>
           GIOCA
         </button>
@@ -116,9 +119,9 @@ function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPre
   }
   if (preview.blockedReason) {
     return (
-      <section className="tig-panel tig-pop flex w-full flex-col items-center gap-3 rounded-3xl p-5 text-center" role="alert">
+      <section className="tg-parch tig-pop flex w-full flex-col items-center gap-3 p-5 text-center" role="alert">
         <p className="tig-label">{preview.venue} · tavolo {preview.tableNo}</p>
-        <p className="text-xl font-extrabold">{preview.blockedReason}</p>
+        <p className="text-xl font-extrabold text-[#1b1410]">{preview.blockedReason}</p>
         {preview.mine && (
           <a className="tig-btn w-full" href={`/tavoli-in-guerra/gioca/${preview.eventId}`}>
             Vai alla tua squadra (tavolo {preview.mine.tableNo})
@@ -153,26 +156,27 @@ function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPre
   };
   return (
     <form
-      className="tig-panel tig-panel-hot tig-pop flex w-full flex-col gap-4 rounded-3xl p-5"
+      className="tg-parch tig-pop flex w-full flex-col gap-4 p-5"
       onSubmit={(e) => {
         e.preventDefault();
         void submit();
       }}
     >
-      <div className="text-center">
+      <div className="flex flex-col items-center text-center">
+        <CrewFlag color={teamColor(preview.tableNo)} n={preview.tableNo} className="mb-1 h-12 w-16 drop-shadow-[0_3px_3px_rgba(0,0,0,.3)]" />
         <p className="tig-label">
           {preview.venue} · tavolo {preview.tableNo}
         </p>
         {creating ? (
           <>
-            <h1 className="tig-display mt-1 text-4xl">Sei il primo del tavolo {preview.tableNo}!</h1>
-            <p className="mt-1 font-bold text-white/70">Scegli il nome della squadra: sarai il capitano (lo staff lo convalida).</p>
+            <h1 className="tig-title mt-1 text-[2.6rem] text-[#1b1410]">Sei il primo del tavolo {preview.tableNo}!</h1>
+            <p className="mt-1 font-bold text-[#4a3420]">Scegli il nome della squadra: sarai il capitano (lo staff lo convalida).</p>
           </>
         ) : (
           <>
-            <h1 className="tig-display mt-1 text-[clamp(2rem,9vw,2.8rem)]">Entra nella squadra</h1>
-            <p className="mt-1 text-2xl font-extrabold text-[#ffd15c]">«{preview.team!.name}»</p>
-            <p className="text-sm font-bold text-white/60">
+            <h1 className="tig-title mt-1 text-[clamp(2.3rem,10vw,3rem)] text-[#1b1410]">Entra nella squadra</h1>
+            <p className="tig-display mt-1 text-[1.9rem] font-black normal-case text-[#7a4e10]">«{preview.team!.name}»</p>
+            <p className="text-sm font-bold text-[#4a3420]">
               {preview.team!.members} {preview.team!.members === 1 ? "telefono" : "telefoni"} già dentro{preview.team!.approved ? "" : " · in attesa di convalida"}
             </p>
           </>
@@ -194,13 +198,13 @@ function JoinCard({ preview, username, token, code, onBack }: { preview: JoinPre
           <input className="tig-input text-center font-mono text-3xl tracking-[0.5em]" value={pin} onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 4))} inputMode="numeric" placeholder="••••" autoComplete="one-time-code" />
         </label>
       )}
-      {err && <p className="rounded-xl border border-[#ff2d3d]/50 bg-[#2a0509]/80 px-3 py-2 text-sm font-bold text-[#ffd5d9]">{err}</p>}
-      {info && <p className="rounded-xl border border-[#7cff4f]/50 bg-[#0b1f08]/80 px-3 py-2 text-sm font-bold text-[#dfffd2]">{info}</p>}
+      {err && <p className="rounded-xl border border-[#c8312b]/60 bg-[#c8312b]/12 px-3 py-2 text-sm font-bold text-[#7e1a14]">{err}</p>}
+      {info && <p className="rounded-xl border border-[#0b6e66]/50 bg-[#1fb5a8]/15 px-3 py-2 text-sm font-bold text-[#0a4c46]">{info}</p>}
       <button type="submit" className={clsx("tig-btn w-full text-2xl", creating && "tig-btn-red")} disabled={busy || nickname.trim().length < 2 || (creating && teamName.trim().length < 2) || (preview.needsPin && pin.length !== 4)}>
         {busy ? "Un attimo…" : creating ? "CREA LA SQUADRA" : "ENTRA"}
       </button>
       {onBack && (
-        <button type="button" className="text-sm font-bold text-white/60 underline" onClick={onBack}>
+        <button type="button" className="text-sm font-bold text-[#4a3420] underline" onClick={onBack}>
           Un altro codice
         </button>
       )}

@@ -41,14 +41,14 @@ function Player(p: P) {
           <Eyebrow>Attacco e rivincita</Eyebrow>
           {out && myAttack ? (
             <p className="flex flex-wrap items-center gap-2 text-base font-extrabold">
-              Il vostro colpo sul tavolo <PhoneChip tableNo={myAttack.to.tableNo} tone="red" /> {out.hit ? <span className="text-[#c6ff3d]">a segno (fino a {view.steal})</span> : <span className="text-white/60">a vuoto</span>}
+              Il vostro colpo sul tavolo <PhoneChip tableNo={myAttack.to.tableNo} tone="red" /> {out.hit ? <span className="text-(--tg-gold)">a segno (fino a {view.steal})</span> : <span className="text-(--tg-cream)/60">a vuoto</span>}
             </p>
           ) : (
-            <p className="text-base font-extrabold text-white/70">Nessun bersaglio per voi.</p>
+            <p className="text-base font-extrabold text-(--tg-cream)/70">Nessun bersaglio per voi.</p>
           )}
           {inn && attacker && (
             <p className="flex flex-wrap items-center gap-2 text-base font-extrabold">
-              Il colpo del tavolo <PhoneChip tableNo={attacker.from.tableNo} /> {inn.hit ? <span className="text-[#ff8c97]">vi ha preso</span> : <span className="text-[#c6ff3d]">è andato a vuoto</span>}
+              Il colpo del tavolo <PhoneChip tableNo={attacker.from.tableNo} /> {inn.hit ? <span className="text-(--tg-red-hi)">vi ha preso</span> : <span className="text-(--tg-gold)">è andato a vuoto</span>}
             </p>
           )}
         </Panel>
@@ -77,14 +77,14 @@ function Player(p: P) {
       <Panel tone="red" className="flex flex-col gap-2">
         {myAttack ? (
           <p className="flex flex-wrap items-center gap-2 text-base font-extrabold">
-            <Icon name="sword" className="h-5 w-5 text-[#ff3b4e]" /> Attaccate il tavolo <PhoneChip tableNo={myAttack.to.tableNo} tone="red" />
+            <Icon name="sword" className="h-5 w-5 text-(--tg-red-hi)" /> Attaccate il tavolo <PhoneChip tableNo={myAttack.to.tableNo} tone="red" />
           </p>
         ) : (
           <p className="text-base font-extrabold">Siete soli: niente attacchi, solo la rivincita.</p>
         )}
         {attacker && (
           <p className="flex flex-wrap items-center gap-2 text-base font-extrabold">
-            <Icon name="shield" className="h-5 w-5 text-[#c6ff3d]" /> Vi attacca il tavolo <PhoneChip tableNo={attacker.from.tableNo} />
+            <Icon name="shield" className="h-5 w-5 text-(--tg-gold)" /> Vi attacca il tavolo <PhoneChip tableNo={attacker.from.tableNo} />
           </p>
         )}
       </Panel>
@@ -113,7 +113,7 @@ function Player(p: P) {
             <ChoiceList key={`l-${riv}`} options={q.options} picked={risposta ? [risposta] : []} onToggle={(id) => editable && setRisposta(id)} disabled={!editable} keys={!!colpo} onConfirm={submit} label="Rivincita" />
           </>
         ) : (
-          <p className="flex items-center gap-2 text-base font-bold text-white/60">
+          <p className="flex items-center gap-2 text-base font-bold text-(--tg-cream)/60">
             <Icon name="lock" className="h-5 w-5" /> Compare quando scegliete sicura o piena.
           </p>
         )}
@@ -132,7 +132,7 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1.4fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel className="flex flex-col gap-[0.7cqw]">
-            <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">
+            <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
               <Icon name="sword" className="h-[1.5cqw] w-[1.5cqw]" /> Il colpo · giusto = −{view.steal} al bersaglio
             </p>
             <p className="text-[2cqw] font-extrabold leading-tight">{view.colpo.prompt}</p>
@@ -150,7 +150,7 @@ function Tv(p: T) {
                 <TvPanel key={k} tone={k === "piena" ? "red" : "lime"} className="flex min-h-0 flex-col gap-[0.5cqw]">
                   <p className="flex items-center justify-between text-[1.1cqw] font-extrabold uppercase tracking-[0.2em]">
                     <span>Rivincita {k}</span>
-                    <span className={clsx("tg-num text-[2cqw]", k === "piena" ? "text-[#ff3b4e]" : "text-[#c6ff3d]")}>+{view.bonus[k]}</span>
+                    <span className={clsx("tg-num text-[2cqw]", k === "piena" ? "text-(--tg-red-hi)" : "text-(--tg-gold)")}>+{view.bonus[k]}</span>
                   </p>
                   <p className="text-[1.4cqw] font-extrabold leading-tight">{q.prompt}</p>
                   <div className={clsx("grid gap-[0.4cqw]", k === "sicura" ? "grid-cols-1" : "grid-cols-2")}>
@@ -164,19 +164,19 @@ function Tv(p: T) {
           </div>
         </div>
         <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">Il giro degli attacchi</p>
+          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Il giro degli attacchi</p>
           {done ? (
             <>
               <div className={clsx("grid min-h-0 gap-[0.35cqw] overflow-hidden", many ? "grid-cols-2" : "grid-cols-1")}>
                 {links.map((l, i) => (
-                  <div key={l.from} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-white/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 60}ms` }}>
+                  <div key={l.from} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 60}ms` }}>
                     <TvChip teams={p.teams} id={l.from} size={many ? 1.9 : 2.4} />
-                    <Icon name="sword" className={clsx("h-[1.4cqw] w-[1.4cqw]", l.hit ? "text-[#ff3b4e]" : "text-white/35")} />
+                    <Icon name="sword" className={clsx("h-[1.4cqw] w-[1.4cqw]", l.hit ? "text-(--tg-red-hi)" : "text-(--tg-cream)/35")} />
                     <TvChip teams={p.teams} id={l.to} size={many ? 1.9 : 2.4} />
                     <span className={clsx("ml-auto text-right font-extrabold leading-tight", many ? "text-[0.95cqw]" : "text-[1.2cqw]")}>
-                      <span className={l.hit ? "text-[#ff8c97]" : "text-white/50"}>{l.hit ? `−${view.steal}` : "a vuoto"}</span>
-                      <span className="text-white/40"> · </span>
-                      <span className={l.revengeOk ? "text-[#c6ff3d]" : "text-white/50"}>{l.revenge ? (l.revengeOk ? `rivincita +${view.bonus[l.revenge]}` : `${l.revenge} fallita`) : "nessuna rivincita"}</span>
+                      <span className={l.hit ? "text-(--tg-red-hi)" : "text-(--tg-cream)/50"}>{l.hit ? `−${view.steal}` : "a vuoto"}</span>
+                      <span className="text-(--tg-cream)/40"> · </span>
+                      <span className={l.revengeOk ? "text-(--tg-gold)" : "text-(--tg-cream)/50"}>{l.revenge ? (l.revengeOk ? `rivincita +${view.bonus[l.revenge]}` : `${l.revenge} fallita`) : "nessuna rivincita"}</span>
                     </span>
                   </div>
                 ))}
@@ -188,20 +188,20 @@ function Tv(p: T) {
               {view.ring.map((l, i) => (
                 <span key={l.from.teamId} className="tg-rise flex items-center gap-[0.5cqw]" style={{ animationDelay: `${i * 50}ms` }}>
                   <TvChip teams={p.teams} id={l.from.teamId} size={view.ring.length > 12 ? 2.3 : 3} />
-                  <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-[#ff3b4e]" />
+                  <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-(--tg-red-hi)" />
                 </span>
               ))}
               {view.ring[0] && <TvChip teams={p.teams} id={view.ring[0].from.teamId} size={view.ring.length > 12 ? 2.3 : 3} />}
-              {view.ring.length === 0 && <p className="text-[1.6cqw] font-bold text-white/60">Un tavolo solo: niente attacchi.</p>}
+              {view.ring.length === 0 && <p className="text-[1.6cqw] font-bold text-(--tg-cream)/60">Un tavolo solo: niente attacchi.</p>}
             </div>
           )}
           {!done && (
             <div className="mt-auto flex flex-col gap-[0.6cqw]">
               <p className="flex items-center gap-[0.6cqw] text-[1.5cqw] font-extrabold">
-                <Icon name="sword" className="h-[1.8cqw] w-[1.8cqw] text-[#ff3b4e]" /> Colpo giusto: {view.steal} punti passano a chi colpisce
+                <Icon name="sword" className="h-[1.8cqw] w-[1.8cqw] text-(--tg-red-hi)" /> Colpo giusto: {view.steal} punti passano a chi colpisce
               </p>
               <p className="flex items-center gap-[0.6cqw] text-[1.5cqw] font-extrabold">
-                <Icon name="shield" className="h-[1.8cqw] w-[1.8cqw] text-[#c6ff3d]" /> La rivincita è un bonus: nessuna catena di attacchi
+                <Icon name="shield" className="h-[1.8cqw] w-[1.8cqw] text-(--tg-gold)" /> La rivincita è un bonus: nessuna catena di attacchi
               </p>
             </div>
           )}

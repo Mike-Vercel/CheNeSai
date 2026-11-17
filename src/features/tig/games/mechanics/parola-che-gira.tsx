@@ -51,30 +51,30 @@ function WordGrid({
         const n = counts?.[w.id];
         const body = (
           <>
-            <span className={clsx("tg-num shrink-0 rounded text-center", tv ? "w-[2cqw] text-[1.3cqw] text-white/50" : "w-5 text-sm text-white/50")}>{i + 1}</span>
+            <span className={clsx("tg-num shrink-0 rounded text-center", tv ? "w-[2cqw] text-[1.3cqw] text-(--tg-cream)/50" : "w-5 text-sm text-(--tg-cream)/50")}>{i + 1}</span>
             {/* mai troncare: nel quiz contano tutte le lettere */}
             <span
               className={clsx(
                 "min-w-0 flex-1 break-all font-extrabold leading-tight",
                 tv ? (w.text.length > 11 ? "text-[1.55cqw]" : w.text.length > 8 ? "text-[1.85cqw]" : "text-[2.1cqw]") : w.text.length > 11 ? "text-[13px]" : "text-base",
-                rule && "line-through decoration-[#ff3b4e] decoration-2 opacity-55",
-                survivor && "text-[#0b0d12]",
+                rule && "line-through decoration-(--tg-red-hi) decoration-2 opacity-55",
+                survivor && "text-(--tg-ink)",
               )}
             >
               {w.text}
             </span>
-            {rule !== undefined && <span className={clsx("tg-num shrink-0 rounded bg-[#ff3b4e]/20 text-[#ff8c97]", tv ? "px-[0.4cqw] text-[1.1cqw]" : "px-1 text-xs")}>R{rule}</span>}
+            {rule !== undefined && <span className={clsx("tg-num shrink-0 rounded bg-(--tg-red)/20 text-(--tg-red-hi)", tv ? "px-[0.4cqw] text-[1.1cqw]" : "px-1 text-xs")}>R{rule}</span>}
             {n !== undefined && n > 0 && (
-              <span className={clsx("shrink-0 font-extrabold", tv ? "text-[1cqw]" : "text-[11px]", survivor ? "text-[#0b0d12]/70" : n === 1 ? "text-[#ffc24a]" : "text-white/60")}>{n === 1 ? "unica" : `${n} tav.`}</span>
+              <span className={clsx("shrink-0 font-extrabold", tv ? "text-[1cqw]" : "text-[11px]", survivor ? "text-(--tg-ink)/70" : n === 1 ? "text-(--tg-teal-hi)" : "text-(--tg-cream)/60")}>{n === 1 ? "unica" : `${n} tav.`}</span>
             )}
-            {on && !reveal && <Icon name="check" className="h-5 w-5 shrink-0 text-[#c6ff3d]" />}
+            {on && !reveal && <Icon name="check" className="h-5 w-5 shrink-0 text-(--tg-gold)" />}
             <span className="sr-only">{survivor ? " · sopravvive" : rule ? ` · tolta dalla regola ${rule}` : on ? " · scelta" : ""}</span>
           </>
         );
         const cls = clsx(
           "flex items-center gap-2 border-2 text-left transition-[transform,background-color,border-color] duration-200",
           tv ? "rounded-[0.8cqw] px-[0.9cqw] py-[0.9cqw]" : "min-h-12 rounded-xl px-2.5 py-2",
-          survivor ? "tg-shine border-[#c6ff3d] bg-[#c6ff3d]" : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]",
+          survivor ? "tg-shine border-(--tg-gold) bg-(--tg-gold)" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
         );
         return onPick ? (
           <button key={w.id} type="button" role="radio" aria-checked={on} disabled={disabled} onClick={() => onPick(w.id)} className={clsx(cls, "active:scale-[0.97]", disabled && !on && "opacity-60")}>
@@ -95,7 +95,7 @@ function Rules({ rules, tv = false }: { rules: string[]; tv?: boolean }) {
     <ol className={clsx("flex flex-col", tv ? "gap-[0.6cqw]" : "gap-1.5")}>
       {rules.map((r, i) => (
         <li key={i} className={clsx("flex items-start font-bold leading-snug", tv ? "gap-[0.8cqw] text-[1.6cqw]" : "gap-2 text-[15px]")}>
-          <span className={clsx("tg-num grid shrink-0 place-items-center rounded bg-[#ff3b4e] text-white", tv ? "h-[2.2cqw] w-[2.6cqw] text-[1.3cqw]" : "h-6 w-7 text-sm")}>R{i + 1}</span>
+          <span className={clsx("tg-num grid shrink-0 place-items-center rounded bg-(--tg-red) text-white", tv ? "h-[2.2cqw] w-[2.6cqw] text-[1.3cqw]" : "h-6 w-7 text-sm")}>R{i + 1}</span>
           {r}
         </li>
       ))}
@@ -161,15 +161,15 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Le eliminazioni e le parole proposte dal locale" : "Una parola della lista che nessun altro sceglie (+30), poi la parola che sopravvive (+70)."}>
       <div className="mx-auto flex h-full max-w-[88cqw] flex-col gap-[1.2cqw]">
         <TvPanel className="tg-rise flex items-center justify-between gap-[1cqw]">
-          <p className="tg-display text-[3.4cqw] text-[#c6ff3d]">{view.theme}</p>
-          <p className="text-[1.2cqw] font-extrabold uppercase tracking-[0.2em] text-white/60">Solo parole della lista</p>
+          <p className="tg-display text-[3.4cqw] text-(--tg-gold)">{view.theme}</p>
+          <p className="text-[1.2cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">Solo parole della lista</p>
         </TvPanel>
         <TvPanel>
           <WordGrid words={view.words} label="Le parole" reveal={done ? reveal : null} counts={s?.proposals ?? null} tv />
         </TvPanel>
         <div className={clsx("grid min-h-0 flex-1 gap-[1.2cqw]", done ? "grid-cols-[1.1fr_1fr]" : "grid-cols-1")}>
           <TvPanel className="flex flex-col justify-center gap-[0.6cqw]">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">Le tre eliminazioni, in ordine</p>
+            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Le tre eliminazioni, in ordine</p>
             <Rules rules={view.rules} tv />
           </TvPanel>
           {done && <TvExplain text={reveal.explain} />}

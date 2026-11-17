@@ -57,7 +57,7 @@ function Player(p: P) {
         onPointerUp={() => setShowOriginal(false)}
         onPointerLeave={() => setShowOriginal(false)}
         onClick={(e) => e.detail === 0 && setShowOriginal((v) => !v)}
-        className={clsx("tg-display flex h-12 items-center justify-center gap-2 rounded-xl border-2 text-xl select-none", showOriginal ? "border-[#6fe7ff] text-[#6fe7ff]" : "border-white/15 text-white/80")}
+        className={clsx("tg-display flex h-12 items-center justify-center gap-2 rounded-xl border-2 text-xl select-none", showOriginal ? "border-(--tg-sky) text-(--tg-sky)" : "border-(--tg-cream)/15 text-(--tg-cream)/80")}
         aria-pressed={showOriginal}
       >
         <Icon name="eye" className="h-6 w-6" /> {showOriginal ? "Stai guardando l'originale" : "Tieni premuto: originale"}

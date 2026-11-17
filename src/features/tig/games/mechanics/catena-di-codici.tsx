@@ -28,7 +28,7 @@ function Player(p: P) {
           <Eyebrow>Cifra per cifra</Eyebrow>
           {reveal.steps.map((s, i) => (
             <p key={i} className="flex gap-2 text-sm font-bold leading-snug">
-              <span className="tg-num w-7 shrink-0 text-xl text-[#c6ff3d]">{reveal.digits[i]}</span> {s}
+              <span className="tg-num w-7 shrink-0 text-xl text-(--tg-gold)">{reveal.digits[i]}</span> {s}
             </p>
           ))}
         </Panel>
@@ -44,20 +44,20 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Prova il codice" hint="Leggete ad alta voce i vostri indizi: le cifre vanno in ordine di posizione" />}
     >
       <Panel tone="lime" className="flex flex-col gap-2">
-        <Eyebrow className="flex items-center gap-2 text-[#c6ff3d]">
+        <Eyebrow className="flex items-center gap-2 text-(--tg-gold)">
           <Icon name="users" className="h-4 w-4" /> I tuoi indizi {memberView ? `· siete ${memberView.phones} telefon${memberView.phones === 1 ? "o" : "i"}` : ""}
         </Eyebrow>
         {memberView ? (
           memberView.fragments.map((f) => (
-            <div key={f.pos} className="flex items-start gap-3 rounded-xl bg-white/[0.05] px-3 py-2.5">
-              <span className="tg-num grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-[#c6ff3d] text-2xl text-[#0b0d12]" aria-label={`Posizione ${f.pos + 1}`}>
+            <div key={f.pos} className="flex items-start gap-3 rounded-xl bg-(--tg-cream)/[0.05] px-3 py-2.5">
+              <span className="tg-num grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-(--tg-gold) text-2xl text-(--tg-ink)" aria-label={`Posizione ${f.pos + 1}`}>
                 {f.pos + 1}
               </span>
               <p className="text-base font-bold leading-snug">{f.clue}</p>
             </div>
           ))
         ) : (
-          <p className="text-sm font-bold text-white/70">Indizi in arrivo…</p>
+          <p className="text-sm font-bold text-(--tg-cream)/70">Indizi in arrivo…</p>
         )}
       </Panel>
       <Panel className="flex flex-col gap-2">
@@ -79,10 +79,10 @@ function Tv(p: T) {
           <div className="flex gap-[0.8cqw]">
             {Array.from({ length: view.length }, (_, i) => (
               <div key={i} className="flex flex-col items-center gap-[0.3cqw]">
-                <span className={`tg-num grid h-[8cqw] w-[6cqw] place-items-center rounded-[1cqw] border-[0.25cqw] text-[5.4cqw] ${done ? "tg-pop border-[#c6ff3d] text-[#c6ff3d]" : "border-white/20 text-white/20"}`} style={{ animationDelay: `${i * 140}ms` }}>
+                <span className={`tg-num grid h-[8cqw] w-[6cqw] place-items-center rounded-[1cqw] border-[0.25cqw] text-[5.4cqw] ${done ? "tg-pop border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/20 text-(--tg-cream)/20"}`} style={{ animationDelay: `${i * 140}ms` }}>
                   {done ? reveal.digits[i] : "?"}
                 </span>
-                <span className="tg-num text-[1.3cqw] text-white/50">{i + 1}</span>
+                <span className="tg-num text-[1.3cqw] text-(--tg-cream)/50">{i + 1}</span>
               </div>
             ))}
           </div>
@@ -92,7 +92,7 @@ function Tv(p: T) {
             <TvPanel className="grid grid-cols-2 content-start gap-x-[1.4cqw] gap-y-[0.6cqw]">
               {reveal.steps.map((s, i) => (
                 <p key={i} className="tg-rise flex gap-[0.6cqw] text-[1.3cqw] font-bold leading-snug" style={{ animationDelay: `${i * 100}ms` }}>
-                  <span className="tg-num text-[1.8cqw] text-[#c6ff3d]">{reveal.digits[i]}</span>
+                  <span className="tg-num text-[1.8cqw] text-(--tg-gold)">{reveal.digits[i]}</span>
                   {s}
                 </p>
               ))}

@@ -59,9 +59,9 @@ export function arenaTitle(s: TigPublicState): { title: string | null; subtitle:
     case "DRAFT":
     case "LOBBY_OPEN":
     case "LOBBY_LOCKED":
-      return { title: "TAVOLI IN GUERRA!", subtitle: s.venue };
+      return { title: "TAVERNA DEI PIRATI", subtitle: s.venue };
     case "INTRO":
-      return { title: "TAVOLI IN GUERRA!", subtitle: "Si comincia" };
+      return { title: "TAVERNA DEI PIRATI", subtitle: "Si comincia" };
     case "ROUND_INTRO":
       return { title: s.manche?.title ?? null, subtitle: s.manche?.tagline ?? null };
     case "GAME_ACTIVE":

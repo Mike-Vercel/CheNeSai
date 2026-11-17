@@ -4,11 +4,11 @@ import { getHostUser } from "@/lib/server/gioco-libero";
 import { listMyEvents } from "@/lib/server/tig/events";
 
 export const metadata: Metadata = {
-  title: { absolute: "TAVOLI IN GUERRA! · Il game show per pub" },
-  description: "TAVOLI IN GUERRA! – il game show per pub che trasforma ogni tavolo in una squadra: cinque manche, sfide tra tavoli, bluff, Bottone del Caos e mascotte che evolvono. TV del locale, telefoni e PC.",
+  title: { absolute: "TAVERNA DEI PIRATI · Il game show per pub" },
+  description: "TAVERNA DEI PIRATI – il game show per pub dove ogni tavolo è una ciurma: cinque manche, sfide tra tavoli, bluff, Bottone del Caos e mascotte che evolvono. TV del locale, telefoni e PC.",
 };
 
-/** Aprire TAVOLI IN GUERRA! = entrare nell'arena: menu da videogioco (CREA SERATA, ENTRA, REGOLAMENTO, RIPRENDI). */
+/** Aprire TAVERNA DEI PIRATI = entrare nella taverna: menu da videogioco (CREA SERATA, ENTRA, REGOLAMENTO, RIPRENDI). */
 export default async function TigHome() {
   const host = await getHostUser().catch(() => null);
   const events = host ? await listMyEvents(host.userId).catch(() => []) : [];

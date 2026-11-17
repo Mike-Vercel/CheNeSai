@@ -27,13 +27,13 @@ function DominoPiece({ n, className, lit = false }: { n: number; className?: str
   const top = Math.min(n, 5);
   return (
     <svg viewBox="0 0 22 44" className={className} aria-hidden>
-      <rect x={1} y={1} width={20} height={42} rx={4} fill={lit ? "#c6ff3d" : "#eef2f6"} stroke="#0b0d12" strokeWidth={1.5} />
-      <line x1={4} y1={22} x2={18} y2={22} stroke="#0b0d12" strokeWidth={1.4} />
+      <rect x={1} y={1} width={20} height={42} rx={4} fill={lit ? "var(--tg-gold)" : "var(--tg-cream)"} stroke="var(--tg-ink)" strokeWidth={1.5} />
+      <line x1={4} y1={22} x2={18} y2={22} stroke="var(--tg-ink)" strokeWidth={1.4} />
       {PIPS[top].map(([x, y], i) => (
-        <circle key={`a${i}`} cx={x + 1} cy={y + 1} r={2} fill="#0b0d12" />
+        <circle key={`a${i}`} cx={x + 1} cy={y + 1} r={2} fill="var(--tg-ink)" />
       ))}
       {PIPS[top].map(([x, y], i) => (
-        <circle key={`b${i}`} cx={x + 1} cy={y + 23} r={2} fill="#0b0d12" />
+        <circle key={`b${i}`} cx={x + 1} cy={y + 23} r={2} fill="var(--tg-ink)" />
       ))}
     </svg>
   );
@@ -54,7 +54,7 @@ function Chain({ chain, tv = false }: { chain: string[]; tv?: boolean }) {
               {c}
             </p>
           </div>
-          {tv && i < chain.length - 1 && <Icon name="arrow" className="h-[2.2cqw] w-[2.2cqw] shrink-0 text-[#c6ff3d]" />}
+          {tv && i < chain.length - 1 && <Icon name="arrow" className="h-[2.2cqw] w-[2.2cqw] shrink-0 text-(--tg-gold)" />}
         </li>
       ))}
     </ol>
@@ -88,7 +88,7 @@ function Player(p: P) {
       p={p}
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={!!picked} pending={pending} error={error} onSubmit={submit} label="Fate cadere l'ultima" />}
     >
-      <Eyebrow className="px-1 text-[#c6ff3d]">{view.situation}</Eyebrow>
+      <Eyebrow className="px-1 text-(--tg-gold)">{view.situation}</Eyebrow>
       <Chain chain={view.chain} />
       <Panel className="flex flex-col gap-3">
         <p className="text-xl font-extrabold leading-snug">{view.prompt}</p>
@@ -111,10 +111,10 @@ function Tv(p: T) {
           </div>
           {right && (
             <>
-              <Icon name="arrow" className="h-[2.2cqw] w-[2.2cqw] shrink-0 self-center text-[#c6ff3d]" />
+              <Icon name="arrow" className="h-[2.2cqw] w-[2.2cqw] shrink-0 self-center text-(--tg-gold)" />
               <div className="tg1-tile-land tg-glass tg-glass-lime flex w-[24cqw] shrink-0 items-center gap-[1cqw] rounded-[1.1cqw] p-[1cqw]">
                 <DominoPiece n={view.chain.length + 1} lit className="h-[5.6cqw] w-auto shrink-0" />
-                <p className="text-[1.55cqw] font-extrabold leading-snug text-[#c6ff3d]">{right.text}</p>
+                <p className="text-[1.55cqw] font-extrabold leading-snug text-(--tg-gold)">{right.text}</p>
               </div>
             </>
           )}

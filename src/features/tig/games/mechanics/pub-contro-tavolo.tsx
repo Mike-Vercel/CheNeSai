@@ -19,7 +19,7 @@ function ChampionBanner({ view, mine }: { view: PubView; mine: boolean }) {
   if (!view.champion) return null;
   return (
     <Panel tone={mine ? "lime" : "red"} className="flex items-center gap-3">
-      <Icon name={mine ? "target" : "users"} className={clsx("h-9 w-9 shrink-0", mine ? "text-[#c6ff3d]" : "text-[#ff3b4e]")} />
+      <Icon name={mine ? "target" : "users"} className={clsx("h-9 w-9 shrink-0", mine ? "text-(--tg-gold)" : "text-(--tg-red-hi)")} />
       <p className="text-base font-extrabold leading-snug">
         {mine ? "Siete lo sfidante: fate più della media del pub e prendete +40." : `Il tavolo ${view.champion.tableNo} sfida tutto il pub: rispondete bene e tenete alta la media.`}
       </p>
@@ -65,22 +65,22 @@ function Player(p: P) {
             </div>
           </Panel>
         )}
-        {myRight !== undefined && <p className="px-1 text-base font-bold text-white/80">Il vostro tavolo: {myRight} risposte giuste su 5.</p>}
+        {myRight !== undefined && <p className="px-1 text-base font-bold text-(--tg-cream)/80">Il vostro tavolo: {myRight} risposte giuste su 5.</p>}
         <Panel className="flex flex-col gap-3">
           <Eyebrow>Le risposte</Eyebrow>
           {reveal.questions.map((q, i) => {
             const right = q.options.find((o) => o.id === q.solutionId)?.text;
             const myPick = sent ? picks[q.id] : undefined;
             return (
-              <div key={q.id} className="flex flex-col gap-0.5 border-b border-white/10 pb-2 last:border-0 last:pb-0">
-                <p className="text-sm font-bold text-white/70">
+              <div key={q.id} className="flex flex-col gap-0.5 border-b border-(--tg-cream)/10 pb-2 last:border-0 last:pb-0">
+                <p className="text-sm font-bold text-(--tg-cream)/70">
                   {i + 1}. {q.prompt}
                 </p>
-                <p className="flex items-center gap-1.5 text-base font-extrabold text-[#c6ff3d]">
+                <p className="flex items-center gap-1.5 text-base font-extrabold text-(--tg-gold)">
                   <Icon name="check" className="h-4 w-4" /> {right}
-                  {myPick && myPick !== q.solutionId && <span className="text-sm font-bold text-[#ff8c97] line-through">{q.options.find((o) => o.id === myPick)?.text}</span>}
+                  {myPick && myPick !== q.solutionId && <span className="text-sm font-bold text-(--tg-red-hi) line-through">{q.options.find((o) => o.id === myPick)?.text}</span>}
                 </p>
-                <p className="text-sm font-semibold text-white/75">{q.note}</p>
+                <p className="text-sm font-semibold text-(--tg-cream)/75">{q.note}</p>
               </div>
             );
           })}
@@ -99,14 +99,14 @@ function Player(p: P) {
       <ChampionBanner view={view} mine={mine} />
       <Panel className="flex items-center justify-between gap-3">
         <p className="tg-display text-2xl">{view.theme}</p>
-        <span className="tg-num text-2xl text-[#c6ff3d]" aria-label={`${done} risposte su ${view.questions.length}`}>
+        <span className="tg-num text-2xl text-(--tg-gold)" aria-label={`${done} risposte su ${view.questions.length}`}>
           {done}/{view.questions.length}
         </span>
       </Panel>
       {view.questions.map((q, i) => (
-        <Panel key={q.id} className={clsx("flex scroll-mt-4 flex-col gap-2", i === current && editable && "outline outline-2 outline-[#c6ff3d]/50")}>
+        <Panel key={q.id} className={clsx("flex scroll-mt-4 flex-col gap-2", i === current && editable && "outline outline-2 outline-(--tg-gold)/50")}>
           <span id={`pct-q-${q.id}`} className="sr-only" />
-          <Eyebrow className={clsx(picks[q.id] && "text-[#c6ff3d]")}>Domanda {i + 1}</Eyebrow>
+          <Eyebrow className={clsx(picks[q.id] && "text-(--tg-gold)")}>Domanda {i + 1}</Eyebrow>
           <p className="text-lg font-extrabold leading-snug">{q.prompt}</p>
           <ChoiceList
             options={q.options}
@@ -136,17 +136,17 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[0.85fr_1.4fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel tone={s ? (s.beaten ? "lime" : "red") : undefined} className="flex flex-col items-center gap-[0.8cqw] text-center">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-white/60">{view.theme}</p>
+            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">{view.theme}</p>
             <div className="flex w-full items-center justify-around">
               <div className="flex flex-col items-center gap-[0.4cqw]">
                 <TableChip tableNo={view.champion?.tableNo ?? "?"} color={champ?.color} tv className={s ? "!h-[4.2cqw] !min-w-[4.2cqw] !rounded-[0.8cqw] !text-[2.8cqw]" : "!h-[6cqw] !min-w-[6cqw] !rounded-[1cqw] !text-[4cqw]"} />
                 <p className="tg-display text-[1.6cqw]">Sfidante</p>
                 {s && <p className="tg-num text-[3.8cqw] leading-none">{s.championRight ?? "–"}</p>}
               </div>
-              <p className="tg-display text-[4cqw] text-[#ff3b4e]">VS</p>
+              <p className="tg-display text-[4cqw] text-(--tg-red-hi)">VS</p>
               <div className="flex flex-col items-center gap-[0.4cqw]">
-                <div className={clsx("grid place-items-center rounded-[1cqw] bg-white/10", s ? "h-[4.2cqw] w-[4.2cqw]" : "h-[6cqw] w-[6cqw]")}>
-                  <Icon name="users" className={s ? "h-[2.8cqw] w-[2.8cqw] text-[#c6ff3d]" : "h-[4cqw] w-[4cqw] text-[#c6ff3d]"} />
+                <div className={clsx("grid place-items-center rounded-[1cqw] bg-(--tg-cream)/10", s ? "h-[4.2cqw] w-[4.2cqw]" : "h-[6cqw] w-[6cqw]")}>
+                  <Icon name="users" className={s ? "h-[2.8cqw] w-[2.8cqw] text-(--tg-gold)" : "h-[4cqw] w-[4cqw] text-(--tg-gold)"} />
                 </div>
                 <p className="tg-display text-[1.6cqw]">Il pub</p>
                 {s && <p className="tg-num text-[3.8cqw] leading-none">{s.rivalsAvg === null ? "3" : fmt(s.rivalsAvg)}</p>}
@@ -167,20 +167,20 @@ function Tv(p: T) {
             return (
               <div key={q.id} className="tg-rise flex flex-col gap-[0.3cqw]" style={{ animationDelay: `${i * 80}ms` }}>
                 <p className="text-[1.45cqw] font-extrabold leading-tight">
-                  <span className="tg-num mr-[0.5cqw] text-[#c6ff3d]">{i + 1}</span>
+                  <span className="tg-num mr-[0.5cqw] text-(--tg-gold)">{i + 1}</span>
                   {q.prompt}
                 </p>
                 <div className="flex flex-wrap items-center gap-[0.5cqw]">
                   {q.options.map((o) => {
                     const right = done && o.id === q.solutionId;
                     return (
-                      <span key={o.id} className={clsx("rounded-[0.5cqw] border-[0.12cqw] px-[0.7cqw] py-[0.2cqw] text-[1.15cqw] font-bold", right ? "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : done ? "border-white/10 text-white/40" : "border-white/15 bg-white/[0.05]")}>
+                      <span key={o.id} className={clsx("rounded-[0.5cqw] border-[0.12cqw] px-[0.7cqw] py-[0.2cqw] text-[1.15cqw] font-bold", right ? "border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : done ? "border-(--tg-cream)/10 text-(--tg-cream)/40" : "border-(--tg-cream)/15 bg-(--tg-cream)/[0.05]")}>
                         {o.text}
                       </span>
                     );
                   })}
                   {n !== undefined && total > 0 && (
-                    <span className="ml-auto text-[1.05cqw] font-extrabold text-white/70">
+                    <span className="ml-auto text-[1.05cqw] font-extrabold text-(--tg-cream)/70">
                       {n}/{total} tavoli giusti
                     </span>
                   )}

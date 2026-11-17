@@ -17,7 +17,7 @@ function Facts({ facts, tv = false }: { facts: string[]; tv?: boolean }) {
     <ul className={clsx("flex flex-col", tv ? "gap-[0.6cqw]" : "gap-1.5")}>
       {facts.map((f, i) => (
         <li key={i} className={clsx("flex font-bold leading-snug", tv ? "gap-[0.6cqw] text-[1.6cqw]" : "gap-2 text-base")}>
-          <Icon name="check" className={clsx("shrink-0 text-[#c6ff3d]", tv ? "mt-[0.2cqw] h-[1.6cqw] w-[1.6cqw]" : "mt-0.5 h-5 w-5")} /> {f}
+          <Icon name="check" className={clsx("shrink-0 text-(--tg-gold)", tv ? "mt-[0.2cqw] h-[1.6cqw] w-[1.6cqw]" : "mt-0.5 h-5 w-5")} /> {f}
         </li>
       ))}
     </ul>
@@ -57,17 +57,17 @@ function Player(p: P) {
             aria-pressed={on}
             className={clsx(
               "flex flex-col gap-1.5 rounded-2xl border-2 p-4 text-left transition-transform active:scale-[0.99]",
-              r ? (r.ok ? "border-[#c6ff3d] bg-[#c6ff3d]/10" : "border-white/10 opacity-80") : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]",
+              r ? (r.ok ? "border-(--tg-gold) bg-(--tg-gold)/10" : "border-(--tg-cream)/10 opacity-80") : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
             )}
           >
             <span className="flex items-center gap-2">
-              <span className="tg-num grid h-8 w-8 place-items-center rounded-lg bg-white/10 text-lg">{i + 1}</span>
+              <span className="tg-num grid h-8 w-8 place-items-center rounded-lg bg-(--tg-cream)/10 text-lg">{i + 1}</span>
               <span className="tg-display text-2xl">{v.who}</span>
-              {(on || r?.ok) && <Icon name={r && !r.ok ? "x" : "check"} className={clsx("ml-auto h-6 w-6", r && !r.ok ? "text-[#ff3b4e]" : "text-[#c6ff3d]")} />}
+              {(on || r?.ok) && <Icon name={r && !r.ok ? "x" : "check"} className={clsx("ml-auto h-6 w-6", r && !r.ok ? "text-(--tg-red-hi)" : "text-(--tg-gold)")} />}
             </span>
-            <span className="text-base font-semibold leading-snug text-white/90">{v.text}</span>
-            {r && !r.ok && r.note && <span className="rounded-lg bg-[#ff3b4e]/12 px-2 py-1.5 text-sm font-bold text-[#ff9aa4]">{r.note}</span>}
-            {r?.ok && <span className="text-sm font-extrabold uppercase text-[#c6ff3d]">Rispetta tutti i fatti</span>}
+            <span className="text-base font-semibold leading-snug text-(--tg-cream)/90">{v.text}</span>
+            {r && !r.ok && r.note && <span className="rounded-lg bg-(--tg-red)/12 px-2 py-1.5 text-sm font-bold text-(--tg-red-hi)">{r.note}</span>}
+            {r?.ok && <span className="text-sm font-extrabold uppercase text-(--tg-gold)">Rispetta tutti i fatti</span>}
           </button>
         );
       })}
@@ -83,7 +83,7 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={view.event}>
       <div className="flex h-full flex-col gap-[1.2cqw]">
         <TvPanel className={clsx("tg-rise shrink-0", rev ? "py-[0.8cqw]" : "py-[1.2cqw]")}>
-          <p className="mb-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Fatti certi</p>
+          <p className="mb-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Fatti certi</p>
           <div className={clsx(rev && "[&_li]:text-[1.25cqw]")}>
             <Facts facts={view.facts} tv />
           </div>
@@ -94,12 +94,12 @@ function Tv(p: T) {
             return (
               <TvPanel key={v.id} tone={r?.ok ? "lime" : undefined} className={clsx("tg-rise flex min-h-0 flex-col gap-[0.6cqw]", r && !r.ok && "opacity-60")}>
                 <p className="flex items-center gap-[0.6cqw]">
-                  <span className="tg-num grid h-[2.6cqw] w-[2.6cqw] place-items-center rounded-[0.5cqw] bg-white/10 text-[1.6cqw]">{i + 1}</span>
+                  <span className="tg-num grid h-[2.6cqw] w-[2.6cqw] place-items-center rounded-[0.5cqw] bg-(--tg-cream)/10 text-[1.6cqw]">{i + 1}</span>
                   <span className="tg-display text-[2.2cqw]">{v.who}</span>
                 </p>
                 <p className={clsx("font-semibold leading-snug", rev ? "text-[1.2cqw]" : "text-[1.45cqw]")}>{v.text}</p>
-                {r && !r.ok && r.note && <p className="mt-auto rounded-[0.6cqw] bg-[#ff3b4e]/15 px-[0.8cqw] py-[0.5cqw] text-[1.2cqw] font-bold text-[#ff9aa4]">{r.note}</p>}
-                {r?.ok && <p className="tg-display mt-auto text-[1.8cqw] text-[#c6ff3d]">Regge tutto</p>}
+                {r && !r.ok && r.note && <p className="mt-auto rounded-[0.6cqw] bg-(--tg-red)/15 px-[0.8cqw] py-[0.5cqw] text-[1.2cqw] font-bold text-(--tg-red-hi)">{r.note}</p>}
+                {r?.ok && <p className="tg-display mt-auto text-[1.8cqw] text-(--tg-gold)">Regge tutto</p>}
               </TvPanel>
             );
           })}

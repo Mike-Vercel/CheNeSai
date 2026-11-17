@@ -27,23 +27,23 @@ function Tiles({ options, picked, onPick, disabled, summary, mine, tv = false }:
         const on = picked === o.id || mine === o.id;
         const body = (
           <>
-            {pct !== undefined && <span className="absolute inset-x-0 bottom-0 bg-[#c6ff3d]/25 transition-[height] duration-1000" style={{ height: `${pct}%` }} aria-hidden />}
-            <span className={clsx("tg-num absolute rounded bg-white/10 text-white/60", tv ? "left-[0.5cqw] top-[0.5cqw] px-[0.4cqw] text-[1.1cqw]" : "left-1.5 top-1.5 px-1 text-xs")}>{i + 1}</span>
-            {win && <Icon name="crown" className={clsx("absolute text-[#c6ff3d]", tv ? "right-[0.5cqw] top-[0.5cqw] h-[2cqw] w-[2cqw]" : "right-1.5 top-1.5 h-4 w-4")} />}
+            {pct !== undefined && <span className="absolute inset-x-0 bottom-0 bg-(--tg-gold)/25 transition-[height] duration-1000" style={{ height: `${pct}%` }} aria-hidden />}
+            <span className={clsx("tg-num absolute rounded bg-(--tg-cream)/10 text-(--tg-cream)/60", tv ? "left-[0.5cqw] top-[0.5cqw] px-[0.4cqw] text-[1.1cqw]" : "left-1.5 top-1.5 px-1 text-xs")}>{i + 1}</span>
+            {win && <Icon name="crown" className={clsx("absolute text-(--tg-gold)", tv ? "right-[0.5cqw] top-[0.5cqw] h-[2cqw] w-[2cqw]" : "right-1.5 top-1.5 h-4 w-4")} />}
             <span className={clsx("relative font-extrabold leading-tight", short ? (tv ? "tg-num text-[4cqw]" : "tg-num text-4xl") : tv ? "text-[1.9cqw]" : "text-base")}>{o.text}</span>
             {pct !== undefined && (
-              <span className={clsx("relative tg-num leading-none", tv ? "text-[2.2cqw]" : "text-xl", win && "text-[#c6ff3d]")}>
-                {pct}% <span className={clsx("font-sans font-bold text-white/55", tv ? "text-[1cqw]" : "text-[11px]")}>{n} tav.</span>
+              <span className={clsx("relative tg-num leading-none", tv ? "text-[2.2cqw]" : "text-xl", win && "text-(--tg-gold)")}>
+                {pct}% <span className={clsx("font-sans font-bold text-(--tg-cream)/55", tv ? "text-[1cqw]" : "text-[11px]")}>{n} tav.</span>
               </span>
             )}
-            {on && <span className={clsx("relative font-extrabold uppercase text-[#c6ff3d]", tv ? "text-[0.9cqw]" : "text-[10px]")}>{summary ? "la vostra" : ""}</span>}
+            {on && <span className={clsx("relative font-extrabold uppercase text-(--tg-gold)", tv ? "text-[0.9cqw]" : "text-[10px]")}>{summary ? "la vostra" : ""}</span>}
             <span className="sr-only">{on ? " · scelta" : ""}</span>
           </>
         );
         const cls = clsx(
           "relative flex flex-col items-center justify-center gap-1 overflow-hidden border-2 text-center transition-[transform,border-color] duration-200",
           tv ? (short ? "min-h-[9cqw] rounded-[1cqw] p-[0.8cqw]" : "min-h-[7.5cqw] rounded-[1cqw] p-[1cqw]") : short ? "min-h-20 rounded-2xl p-2" : "min-h-[4.5rem] rounded-2xl px-2 py-3",
-          win ? "border-[#c6ff3d]" : on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]",
+          win ? "border-(--tg-gold)" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
         );
         return onPick ? (
           <button key={o.id} type="button" role="radio" aria-checked={on} disabled={disabled} onClick={() => onPick(o.id)} className={clsx(cls, "active:scale-[0.97]")}>
@@ -104,7 +104,7 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Ecco dove si è allineato il locale" : "Nessuna risposta giusta. Scegliete quello che sceglieranno gli altri tavoli."}>
       <div className="mx-auto flex h-full max-w-[90cqw] flex-col gap-[1.2cqw]">
         <TvPanel className="tg-rise flex items-center gap-[1.2cqw]">
-          <Icon name="target" className="h-[4cqw] w-[4cqw] shrink-0 text-[#c6ff3d]" />
+          <Icon name="target" className="h-[4cqw] w-[4cqw] shrink-0 text-(--tg-gold)" />
           <p className="text-[2.6cqw] font-extrabold leading-tight">{view.prompt}</p>
         </TvPanel>
         <TvPanel>
@@ -113,8 +113,8 @@ function Tv(p: T) {
         {done && (
           <div className="grid min-h-0 flex-1 grid-cols-[1fr_1.6fr] gap-[1.2cqw]">
             <TvPanel tone="lime" className="tg-pop flex flex-col justify-center gap-[0.4cqw] text-center">
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-white/70">Il punto d&apos;incontro</p>
-              <p className="tg-display text-[3cqw] leading-none text-[#c6ff3d]">{top || "Nessuno"}</p>
+              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/70">Il punto d&apos;incontro</p>
+              <p className="tg-display text-[3cqw] leading-none text-(--tg-gold)">{top || "Nessuno"}</p>
             </TvPanel>
             <TvExplainCompact text={reveal.explain} title="Il punto d'incontro" />
           </div>

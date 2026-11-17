@@ -16,10 +16,10 @@ function Clues({ clues }: { clues: FiloView["clues"] }) {
   return (
     <ol className="flex flex-col gap-2" aria-label="Indizi raccolti">
       {clues.map((c) => (
-        <li key={c.n} className="flex gap-3 rounded-2xl border border-[#ff3b4e]/35 bg-[#ff3b4e]/[0.07] px-3 py-2.5">
-          <span className="tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#ff3b4e] text-xl text-white">{c.n}</span>
+        <li key={c.n} className="flex gap-3 rounded-2xl border border-(--tg-red-hi)/35 bg-(--tg-red)/[0.07] px-3 py-2.5">
+          <span className="tg-num grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-(--tg-red) text-xl text-white">{c.n}</span>
           <div className="min-w-0">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#ff8c97]">{c.from}</p>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-red-hi)">{c.from}</p>
             <p className="text-base font-semibold leading-snug">{c.text}</p>
           </div>
         </li>
@@ -78,8 +78,8 @@ function Player(p: P) {
       }
     >
       <Panel className="py-3">
-        <Eyebrow className="text-[#ffc24a]">{view.heading}</Eyebrow>
-        <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.intro}</p>
+        <Eyebrow className="text-(--tg-teal-hi)">{view.heading}</Eyebrow>
+        <p className="mt-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/85">{view.intro}</p>
       </Panel>
       <Clues clues={view.clues} />
       <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Tessere">
@@ -90,10 +90,10 @@ function Player(p: P) {
             role="tab"
             aria-selected={i === tab}
             onClick={() => setTab(i)}
-            className={clsx("flex h-14 flex-col items-center justify-center rounded-xl border-2 px-1 leading-none", i === tab ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/12 text-white/75", answers[s.id] && "bg-[#c6ff3d]/10")}
+            className={clsx("flex h-14 flex-col items-center justify-center rounded-xl border-2 px-1 leading-none", i === tab ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/12 text-(--tg-cream)/75", answers[s.id] && "bg-(--tg-gold)/10")}
           >
             <span className="tg-display text-xl">{s.label}</span>
-            <span className="mt-1 max-w-full truncate text-[11px] font-bold text-white/70">{s.options.find((o) => o.id === answers[s.id])?.text ?? "da scegliere"}</span>
+            <span className="mt-1 max-w-full truncate text-[11px] font-bold text-(--tg-cream)/70">{s.options.find((o) => o.id === answers[s.id])?.text ?? "da scegliere"}</span>
           </button>
         ))}
       </div>
@@ -113,20 +113,20 @@ function Tv(p: T) {
       <div className="grid h-full grid-rows-[auto_auto_minmax(0,1fr)] gap-[1cqw]">
         <TvPanel className="tg-rise px-[1.6cqw] py-[0.9cqw]">
           {done ? (
-            <p className="text-[1.3cqw] font-semibold leading-snug text-white/90">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
+            <p className="text-[1.3cqw] font-semibold leading-snug text-(--tg-cream)/90">
+              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
               {reveal.explain}
             </p>
           ) : (
-            <p className="text-[1.45cqw] font-semibold leading-snug text-white/90">{view.intro}</p>
+            <p className="text-[1.45cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.intro}</p>
           )}
         </TvPanel>
         <div className="grid grid-cols-3 gap-[1cqw]">
           {view.clues.map((c, i) => (
-            <div key={c.n} className="tg-glass tg-rise flex gap-[0.8cqw] rounded-[1.2cqw] border-[#ff3b4e]/45 p-[0.9cqw]" style={{ animationDelay: `${i * 140}ms` }}>
-              <span className="tg-num grid h-[2.8cqw] w-[2.8cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-[#ff3b4e] text-[1.7cqw] text-white">{c.n}</span>
+            <div key={c.n} className="tg-glass tg-rise flex gap-[0.8cqw] rounded-[1.2cqw] border-(--tg-red-hi)/45 p-[0.9cqw]" style={{ animationDelay: `${i * 140}ms` }}>
+              <span className="tg-num grid h-[2.8cqw] w-[2.8cqw] shrink-0 place-items-center rounded-[0.6cqw] bg-(--tg-red) text-[1.7cqw] text-white">{c.n}</span>
               <div className="min-w-0">
-                <p className="text-[0.9cqw] font-extrabold uppercase tracking-[0.14em] text-[#ff8c97]">{c.from}</p>
+                <p className="text-[0.9cqw] font-extrabold uppercase tracking-[0.14em] text-(--tg-red-hi)">{c.from}</p>
                 <p className="text-[1.25cqw] font-semibold leading-snug">{c.text}</p>
               </div>
             </div>

@@ -35,17 +35,17 @@ function ClueLadder({ clues, open, elapsed, schedule, tv = false }: { clues: (st
             className={clsx(
               "flex items-start border-2",
               tv ? "gap-[1cqw] rounded-[1cqw] px-[1.2cqw] py-[0.9cqw]" : "gap-3 rounded-2xl px-3 py-3",
-              isOpen ? (i === open - 1 ? "tg-rise border-[#c6ff3d]/70 bg-[#c6ff3d]/[0.07]" : "border-white/12 bg-white/[0.04]") : "border-dashed border-white/12",
+              isOpen ? (i === open - 1 ? "tg-rise border-(--tg-gold)/70 bg-(--tg-gold)/[0.07]" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]") : "border-dashed border-(--tg-cream)/12",
             )}
           >
-            <span className={clsx("tg-num shrink-0 rounded-lg text-center", tv ? "w-[5cqw] text-[1.6cqw]" : "w-14 text-base", isOpen ? "text-[#c6ff3d]" : "text-white/35")}>
+            <span className={clsx("tg-num shrink-0 rounded-lg text-center", tv ? "w-[5cqw] text-[1.6cqw]" : "w-14 text-base", isOpen ? "text-(--tg-gold)" : "text-(--tg-cream)/35")}>
               {cluePoints(i)}
               <span className={clsx("block font-extrabold uppercase tracking-wide", tv ? "text-[0.75cqw]" : "text-[10px]")}>punti</span>
             </span>
             {isOpen && c ? (
               <p className={clsx("font-bold leading-snug", tv ? "text-[2cqw]" : "text-lg")}>{c}</p>
             ) : (
-              <p className={clsx("flex items-center gap-2 font-bold text-white/40", tv ? "text-[1.6cqw]" : "text-base")}>
+              <p className={clsx("flex items-center gap-2 font-bold text-(--tg-cream)/40", tv ? "text-[1.6cqw]" : "text-base")}>
                 <Icon name="lock" className={tv ? "h-[1.6cqw] w-[1.6cqw]" : "h-5 w-5"} /> Indizio {i + 1} tra {inSec} s
               </p>
             )}
@@ -86,7 +86,7 @@ function Player(p: P) {
     >
       <Panel className="flex items-center justify-between py-3">
         <p className="tg-display text-2xl">{view.category}</p>
-        <p className="tg-num text-3xl text-[#c6ff3d]" aria-live="polite">
+        <p className="tg-num text-3xl text-(--tg-gold)" aria-live="polite">
           ora vale {worth}
         </p>
       </Panel>

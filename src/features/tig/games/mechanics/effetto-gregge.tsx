@@ -45,7 +45,7 @@ function Player(p: P) {
           </Panel>
         )}
         {mine && (
-          <p className="px-1 text-base font-bold text-white/85">
+          <p className="px-1 text-base font-bold text-(--tg-cream)/85">
             Avete scelto {mine.follow ? "il gregge" : "l'istinto"}: valeva «{textOf(mine.effective)}».
           </p>
         )}
@@ -108,17 +108,17 @@ function Tv(p: T) {
         ) : (
           <div className="grid grid-rows-2 gap-[1.2cqw]">
             <TvPanel tone="lime" className="flex items-center gap-[1.2cqw]">
-              <Icon name="bolt" className="h-[5cqw] w-[5cqw] shrink-0 text-[#c6ff3d]" />
+              <Icon name="bolt" className="h-[5cqw] w-[5cqw] shrink-0 text-(--tg-gold)" />
               <div>
                 <p className="tg-display text-[3.4cqw] leading-none">Istinto</p>
-                <p className="text-[1.5cqw] font-bold text-white/80">La vostra risposta · giusta 100</p>
+                <p className="text-[1.5cqw] font-bold text-(--tg-cream)/80">La vostra risposta · giusta 100</p>
               </div>
             </TvPanel>
             <TvPanel className="flex items-center gap-[1.2cqw]">
-              <Icon name="users" className="h-[5cqw] w-[5cqw] shrink-0 text-white" />
+              <Icon name="users" className="h-[5cqw] w-[5cqw] shrink-0 text-(--tg-cream)" />
               <div>
                 <p className="tg-display text-[3.4cqw] leading-none">Gregge</p>
-                <p className="text-[1.5cqw] font-bold text-white/80">La più votata dal locale · giusta 60</p>
+                <p className="text-[1.5cqw] font-bold text-(--tg-cream)/80">La più votata dal locale · giusta 60</p>
               </div>
             </TvPanel>
           </div>

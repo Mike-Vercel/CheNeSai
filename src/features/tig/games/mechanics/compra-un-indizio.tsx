@@ -31,12 +31,12 @@ function Player(p: P) {
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
         <Panel className="flex flex-col gap-3">
-          <ClueList clues={reveal.clues.map((c) => c.text)} extra={(i) => (reveal.clues[i].clears.length ? <span className="block text-xs font-extrabold uppercase text-white/50">Scagiona: {reveal.clues[i].clears.map((id) => name.get(id)).join(", ")}</span> : null)} />
-          <div className="rounded-xl border-2 border-[#ffc24a] bg-[#ffc24a]/10 px-3 py-2">
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#ffc24a]">Il dettaglio in vendita</p>
+          <ClueList clues={reveal.clues.map((c) => c.text)} extra={(i) => (reveal.clues[i].clears.length ? <span className="block text-xs font-extrabold uppercase text-(--tg-cream)/50">Scagiona: {reveal.clues[i].clears.map((id) => name.get(id)).join(", ")}</span> : null)} />
+          <div className="rounded-xl border-2 border-(--tg-teal) bg-(--tg-teal)/10 px-3 py-2">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-(--tg-teal-hi)">Il dettaglio in vendita</p>
             <p className="font-bold leading-snug">{reveal.extra.text}</p>
           </div>
-          <p className="text-sm font-bold text-white/75">
+          <p className="text-sm font-bold text-(--tg-cream)/75">
             {reveal.freeSolvable ? "Bastavano gli indizi gratuiti: comprarlo era una spesa evitabile." : "Senza il dettaglio restavano due sospettati: era testa o croce."} {`L'hanno comprato ${n} tavol${n === 1 ? "o" : "i"}.`}
           </p>
         </Panel>
@@ -96,10 +96,10 @@ function Tv(p: T) {
             <ClueList clues={view.clues} tv />
           </TvPanel>
           {done ? (
-            <div className="tg-pop rounded-[1.2cqw] border-[0.2cqw] border-[#ffc24a] bg-[#ffc24a]/12 px-[1.4cqw] py-[1cqw]">
-              <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">Il dettaglio in vendita · −{view.price}</p>
+            <div className="tg-pop rounded-[1.2cqw] border-[0.2cqw] border-(--tg-teal) bg-(--tg-teal)/12 px-[1.4cqw] py-[1cqw]">
+              <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Il dettaglio in vendita · −{view.price}</p>
               <p className="mt-[0.3cqw] text-[1.6cqw] font-bold leading-snug">{reveal.extra.text}</p>
-              <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.15cqw] font-bold text-white/80">
+              <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.15cqw] font-bold text-(--tg-cream)/80">
                 {reveal.summary?.bought.length && reveal.summary.bought.length > 6 ? (
                   `Comprato da ${reveal.summary.bought.length} tavoli su ${p.teams.length}`
                 ) : reveal.summary?.bought.length ? (
@@ -109,15 +109,15 @@ function Tv(p: T) {
                 ) : (
                   "Nessun tavolo l'ha comprato."
                 )}
-                <span className="text-white/60">{reveal.freeSolvable ? " · bastavano gli indizi gratuiti" : " · senza, restavano due sospettati"}</span>
+                <span className="text-(--tg-cream)/60">{reveal.freeSolvable ? " · bastavano gli indizi gratuiti" : " · senza, restavano due sospettati"}</span>
               </p>
             </div>
           ) : (
-            <div className="flex items-center gap-[1.2cqw] rounded-[1.2cqw] border-[0.2cqw] border-dashed border-[#ffc24a]/70 bg-[repeating-linear-gradient(135deg,rgba(255,194,74,0.08)_0_1cqw,transparent_1cqw_2cqw)] px-[1.4cqw] py-[1.1cqw]">
-              <Icon name="lock" className="h-[3.2cqw] w-[3.2cqw] shrink-0 text-[#ffc24a]" />
+            <div className="flex items-center gap-[1.2cqw] rounded-[1.2cqw] border-[0.2cqw] border-dashed border-(--tg-teal)/70 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-teal)_8%,transparent)_0_1cqw,transparent_1cqw_2cqw)] px-[1.4cqw] py-[1.1cqw]">
+              <Icon name="lock" className="h-[3.2cqw] w-[3.2cqw] shrink-0 text-(--tg-teal-hi)" />
               <div>
-                <p className="tg-display text-[2.2cqw] text-[#ffc24a]">In vendita: un dettaglio</p>
-                <p className="text-[1.3cqw] font-bold text-white/85">Costa {view.price} punti potenziali: la risposta giusta vale 80 invece di 100. Sbagliata: 0, mai punti in meno.</p>
+                <p className="tg-display text-[2.2cqw] text-(--tg-teal-hi)">In vendita: un dettaglio</p>
+                <p className="text-[1.3cqw] font-bold text-(--tg-cream)/85">Costa {view.price} punti potenziali: la risposta giusta vale 80 invece di 100. Sbagliata: 0, mai punti in meno.</p>
               </div>
             </div>
           )}

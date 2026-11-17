@@ -16,20 +16,20 @@ type T = TvGameProps<FraseView, FraseReveal>;
 function Matrix({ view, tv = false }: { view: FraseView; tv?: boolean }) {
   const p = view.payoff;
   const cell = clsx("rounded-lg text-center font-bold leading-tight", tv ? "px-[0.6cqw] py-[0.5cqw] text-[1.2cqw]" : "px-2 py-1.5 text-sm");
-  const head = clsx("text-center font-extrabold uppercase text-white/60", tv ? "text-[0.9cqw] tracking-[0.12em]" : "text-[10px] tracking-[0.1em]");
+  const head = clsx("text-center font-extrabold uppercase text-(--tg-cream)/60", tv ? "text-[0.9cqw] tracking-[0.12em]" : "text-[10px] tracking-[0.1em]");
   return (
     <div className={clsx("grid grid-cols-[auto_1fr_1fr] items-center", tv ? "gap-[0.5cqw]" : "gap-1.5")} role="table" aria-label="Punti per la vostra mossa">
       <span />
       <span className={head}>L&apos;altro condivide</span>
       <span className={head}>L&apos;altro inganna</span>
-      <span className={clsx("tg-display", tv ? "text-[1.5cqw]" : "text-lg", "text-[#c6ff3d]")}>Condivido</span>
-      <span className={clsx(cell, "bg-[#c6ff3d]/15")}>+{p.patto}</span>
-      <span className={clsx(cell, "bg-white/[0.06]")}>ipotesi giusta +{p.ipotesi}</span>
-      <span className={clsx("tg-display", tv ? "text-[1.5cqw]" : "text-lg", "text-[#ff8c97]")}>Inganno</span>
-      <span className={clsx(cell, "bg-[#ff3b4e]/20")}>
+      <span className={clsx("tg-display", tv ? "text-[1.5cqw]" : "text-lg", "text-(--tg-gold)")}>Condivido</span>
+      <span className={clsx(cell, "bg-(--tg-gold)/15")}>+{p.patto}</span>
+      <span className={clsx(cell, "bg-(--tg-cream)/[0.06]")}>ipotesi giusta +{p.ipotesi}</span>
+      <span className={clsx("tg-display", tv ? "text-[1.5cqw]" : "text-lg", "text-(--tg-red-hi)")}>Inganno</span>
+      <span className={clsx(cell, "bg-(--tg-red)/20")}>
         +{p.patto} +{p.inganno}
       </span>
-      <span className={clsx(cell, "bg-white/[0.06]")}>ipotesi giusta +{p.ipotesi}</span>
+      <span className={clsx(cell, "bg-(--tg-cream)/[0.06]")}>ipotesi giusta +{p.ipotesi}</span>
     </div>
   );
 }
@@ -37,16 +37,16 @@ function Matrix({ view, tv = false }: { view: FraseView; tv?: boolean }) {
 function Half({ side, text, big = false }: { side: "inizio" | "fine"; text: string; big?: boolean }) {
   return (
     <p className={clsx("font-extrabold leading-snug", big ? "text-2xl" : "text-lg")}>
-      {side === "fine" && <span className="text-white/35">… </span>}
+      {side === "fine" && <span className="text-(--tg-cream)/35">… </span>}
       {text}
-      {side === "inizio" && <span className="text-white/35"> …</span>}
+      {side === "inizio" && <span className="text-(--tg-cream)/35"> …</span>}
     </p>
   );
 }
 
 function MoveBadge({ move, tv = false }: { move: Mossa | null; tv?: boolean }) {
   return (
-    <span className={clsx("tg-display rounded-md", tv ? "px-[0.5cqw] text-[1.25cqw]" : "px-1.5 text-sm", move === "condividi" ? "bg-[#c6ff3d] text-[#0b0d12]" : move === "inganna" ? "bg-[#ff3b4e] text-white" : "bg-white/10 text-white/60")}>
+    <span className={clsx("tg-display rounded-md", tv ? "px-[0.5cqw] text-[1.25cqw]" : "px-1.5 text-sm", move === "condividi" ? "bg-(--tg-gold) text-(--tg-ink)" : move === "inganna" ? "bg-(--tg-red) text-white" : "bg-(--tg-cream)/10 text-(--tg-cream)/60")}>
       {move === "condividi" ? "Condivide" : move === "inganna" ? "Inganna" : "Nessuna mossa"}
     </span>
   );
@@ -91,7 +91,7 @@ function Player(p: P) {
               {s.start} {s.end}
             </p>
           )}
-          {s && <p className="text-sm font-semibold text-white/80">{s.why}</p>}
+          {s && <p className="text-sm font-semibold text-(--tg-cream)/80">{s.why}</p>}
         </Panel>
         <ChoiceList options={mv.candidates} picked={sent && guess ? [guess] : []} onToggle={() => {}} keys={false} reveal={solId ? { solution: [solId] } : null} />
         <Explain text={reveal.explain} />
@@ -112,7 +112,7 @@ function Player(p: P) {
         <Half side={mv.side} text={mv.mine} big />
       </Panel>
       <Panel tone="red" className="flex flex-col gap-3">
-        <Eyebrow className="text-[#ff8c97]">1 · La vostra mossa con {other}</Eyebrow>
+        <Eyebrow className="text-(--tg-red-hi)">1 · La vostra mossa con {other}</Eyebrow>
         <BigToggle
           label="Mossa"
           value={move}
@@ -128,7 +128,7 @@ function Player(p: P) {
       <Panel className="flex flex-col gap-2">
         <Eyebrow>2 · La vostra ipotesi (vale se {other} inganna)</Eyebrow>
         {guessText && (
-          <p className="rounded-xl border-2 border-dashed border-[#c6ff3d]/60 px-3 py-2 text-base font-bold leading-snug">
+          <p className="rounded-xl border-2 border-dashed border-(--tg-gold)/60 px-3 py-2 text-base font-bold leading-snug">
             {mv.side === "inizio" ? `${mv.mine} ${guessText}` : `${guessText} ${mv.mine}`}
           </p>
         )}
@@ -153,11 +153,11 @@ function Tv(p: T) {
             const s = done ? reveal.sentences[reveal.pairSentence[reveal.summary!.pairs.findIndex((x) => x.index === pr.index)] ?? 0] : null;
             return (
               <TvPanel key={pr.index} className={clsx("tg-rise flex min-h-0 flex-col gap-[0.4cqw]", many ? "p-[0.9cqw]" : "p-[1.2cqw]")}>
-                <p className={clsx("font-extrabold uppercase tracking-[0.14em] text-white/60", many ? "text-[0.85cqw]" : "text-[1cqw]")}>{pr.topic}</p>
+                <p className={clsx("font-extrabold uppercase tracking-[0.14em] text-(--tg-cream)/60", many ? "text-[0.85cqw]" : "text-[1cqw]")}>{pr.topic}</p>
                 <div className="flex flex-wrap items-center gap-[0.5cqw]">
                   <TableTag tv no={pr.a.tableNo} color={team.get(pr.a.teamId)?.color} />
                   {r && <MoveBadge tv move={r.moveA} />}
-                  <span className="tg-display text-[1.4cqw] text-white/50">vs</span>
+                  <span className="tg-display text-[1.4cqw] text-(--tg-cream)/50">vs</span>
                   {pr.b ? <TableTag tv no={pr.b.tableNo} color={team.get(pr.b.teamId)?.color} /> : <span className="tg-display text-[1.4cqw]">Il banco</span>}
                   {r && <MoveBadge tv move={r.moveB} />}
                 </div>
@@ -170,7 +170,7 @@ function Tv(p: T) {
           <TvPanel className="flex flex-col gap-[0.8cqw]">
             <p className="tg-display text-[2cqw]">Le regole, uguali per tutti</p>
             <Matrix view={view} tv />
-            <p className="text-[1.1cqw] font-semibold leading-snug text-white/70">Ognuno vede metà frase. Se l&apos;altro inganna, vale la vostra ipotesi sulla metà mancante. Il banco sceglie a caso e non prende punti.</p>
+            <p className="text-[1.1cqw] font-semibold leading-snug text-(--tg-cream)/70">Ognuno vede metà frase. Se l&apos;altro inganna, vale la vostra ipotesi sulla metà mancante. Il banco sceglie a caso e non prende punti.</p>
           </TvPanel>
           {done && <TvExplain text={reveal.explain} className="py-[0.9cqw]" />}
         </div>

@@ -35,12 +35,12 @@ function Player(p: P) {
           <ChoiceList options={reveal.safe.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.safe.solutionId] }} />
         </Panel>
         <Panel tone="red" className="flex flex-col gap-2">
-          <Eyebrow className="text-[#ff8c97]">Rischio · {view.risky.points}</Eyebrow>
+          <Eyebrow className="text-(--tg-red-hi)">Rischio · {view.risky.points}</Eyebrow>
           <p className="text-base font-extrabold leading-snug">{reveal.risky.prompt}</p>
-          <p className="tg-num text-5xl text-[#c6ff3d]">
-            {reveal.risky.solution} <span className="tg-display text-2xl text-white/70">{reveal.risky.unit}</span>
+          <p className="tg-num text-5xl text-(--tg-gold)">
+            {reveal.risky.solution} <span className="tg-display text-2xl text-(--tg-cream)/70">{reveal.risky.unit}</span>
           </p>
-          <p className="text-sm font-semibold text-white/80">{reveal.risky.why}</p>
+          <p className="text-sm font-semibold text-(--tg-cream)/80">{reveal.risky.why}</p>
         </Panel>
         <Explain text={reveal.explain} />
       </PlayerFrame>
@@ -90,32 +90,32 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-2 gap-[1.6cqw]">
         <TvPanel tone="lime" className="tg-rise flex flex-col gap-[1cqw]">
           <div className="flex items-center gap-[1cqw]">
-            <Icon name="shield" className="h-[3.4cqw] w-[3.4cqw] text-[#c6ff3d]" />
+            <Icon name="shield" className="h-[3.4cqw] w-[3.4cqw] text-(--tg-gold)" />
             <p className="tg-display text-[3.4cqw]">Sicuro</p>
-            <p className="tg-num ml-auto text-[4.4cqw] text-[#c6ff3d]">{view.safe.points}</p>
+            <p className="tg-num ml-auto text-[4.4cqw] text-(--tg-gold)">{view.safe.points}</p>
           </div>
           <p className="text-[1.9cqw] font-extrabold leading-tight">{view.safe.prompt}</p>
           {(done ? reveal.safe.options : view.safe.options).map((o, i) => (
             <TvOption key={o.id} index={i} text={o.text} state={done ? (o.id === reveal.safe.solutionId ? "right" : "dim") : "idle"} />
           ))}
-          {done && <p className="mt-auto text-[1.4cqw] font-semibold leading-snug text-white/85">{reveal.explain}</p>}
+          {done && <p className="mt-auto text-[1.4cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal.explain}</p>}
         </TvPanel>
         <TvPanel tone="red" className="tg-rise flex flex-col gap-[1cqw]" >
           <div className="flex items-center gap-[1cqw]">
-            <Icon name="flame" className="h-[3.4cqw] w-[3.4cqw] text-[#ff3b4e]" />
+            <Icon name="flame" className="h-[3.4cqw] w-[3.4cqw] text-(--tg-red-hi)" />
             <p className="tg-display text-[3.4cqw]">Rischio</p>
-            <p className="tg-num ml-auto text-[4.4cqw] text-[#ff3b4e]">{view.risky.points}</p>
+            <p className="tg-num ml-auto text-[4.4cqw] text-(--tg-red-hi)">{view.risky.points}</p>
           </div>
           <p className="text-[1.9cqw] font-extrabold leading-tight">{view.risky.prompt}</p>
           {done ? (
             <div className="tg-pop mt-auto flex flex-col gap-[0.5cqw]">
-              <p className="tg-num text-[6cqw] leading-none text-[#c6ff3d]">
-                {reveal.risky.solution} <span className="tg-display text-[2.4cqw] text-white/70">{reveal.risky.unit}</span>
+              <p className="tg-num text-[6cqw] leading-none text-(--tg-gold)">
+                {reveal.risky.solution} <span className="tg-display text-[2.4cqw] text-(--tg-cream)/70">{reveal.risky.unit}</span>
               </p>
-              <p className="text-[1.4cqw] font-semibold leading-snug text-white/85">{reveal.risky.why}</p>
+              <p className="text-[1.4cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal.risky.why}</p>
             </div>
           ) : (
-            <p className="mt-auto text-[1.5cqw] font-bold text-white/60">Risposta esatta in {view.risky.unit}: niente opzioni, niente fortuna.</p>
+            <p className="mt-auto text-[1.5cqw] font-bold text-(--tg-cream)/60">Risposta esatta in {view.risky.unit}: niente opzioni, niente fortuna.</p>
           )}
         </TvPanel>
       </div>

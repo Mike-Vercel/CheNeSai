@@ -1,6 +1,7 @@
 import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { tigTitleFont } from "@/features/tig/games/kit/fonts-title";
 import type { CoverMark, GameEntry } from "./games";
 
 /**
@@ -84,27 +85,55 @@ function GiramenteCover() {
   );
 }
 
-/** TAVOLI IN GUERRA!: copertina provvisoria in CSS (notte da pub, luci rosse e ambra, tavoli in prospettiva, titolo stencil). */
+/**
+ * TAVERNA DEI PIRATI (ex TAVOLI IN GUERRA!): copertina provvisoria disegnata in codice — la baia di notte vista dal molo:
+ * luna sul mare, un galeone ancorato con le finestre accese (disegno originale), le lanterne della taverna,
+ * il titolo in foglia d'oro (Pirata One) e il nastro di ceralacca.
+ */
 export function TigCover({ large = false }: { large?: boolean }) {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#06070c]">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,rgba(255,45,61,.55),transparent_55%),radial-gradient(ellipse_at_85%_0%,rgba(255,176,32,.5),transparent_55%),radial-gradient(ellipse_at_50%_110%,rgba(155,92,255,.45),transparent_60%)]" />
-      <div className="absolute inset-x-[-30%] bottom-[-8%] h-[55%] origin-bottom [transform:perspective(500px)_rotateX(60deg)] bg-[linear-gradient(rgba(255,176,32,.35)_1px,transparent_1px),linear-gradient(90deg,rgba(255,176,32,.35)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:linear-gradient(180deg,transparent,#000_40%)]" />
-      <div className="absolute inset-x-0 top-[44%] flex justify-center gap-[6%] transition duration-700 group-hover:-translate-y-1">
-        {["#ff3b4e", "#ffb020", "#38d9ff", "#b46cff"].map((c, i) => (
-          <span key={c} className="grid aspect-square w-[14%] place-items-center rounded-full border-[3px] bg-black/60 font-display text-[clamp(1rem,4vw,3.5rem)] leading-none" style={{ borderColor: c, boxShadow: `0 0 18px ${c}`, color: c }}>
-            {i + 1}
-          </span>
-        ))}
-      </div>
-      <div className={large ? "absolute inset-x-0 top-[10%] text-center" : "absolute inset-x-0 top-[12%] text-center"}>
-        <p className="-rotate-3 font-display uppercase leading-[0.85] text-[#fff4dc] [text-shadow:0_3px_0_#3a0a10,0_0_24px_rgba(255,176,32,.55)]">
-          <span className={large ? "block text-[2.2rem] md:text-5xl" : "block text-[1.7rem] md:text-3xl"}>Tavoli in</span>
-          <span className={large ? "block text-[3.6rem] text-[#ffb020] md:text-[5.5rem]" : "block text-[2.9rem] text-[#ffb020] md:text-[3.4rem]"}>
-            Guerra<span className="text-[#ff2d3d]">!</span>
+    <div className={clsx(tigTitleFont.variable, "absolute inset-0 overflow-hidden bg-[#07131a]")}>
+      {/* cielo, stelle, luna */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#081a24_0%,#0d2a37_50%,#123a47_58%,#0a2029_62%,#06121a_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_14%,rgba(255,244,214,.9)_0_1px,transparent_1.6px),radial-gradient(circle_at_33%_8%,rgba(255,244,214,.7)_0_1px,transparent_1.6px),radial-gradient(circle_at_58%_19%,rgba(255,244,214,.8)_0_1px,transparent_1.6px),radial-gradient(circle_at_88%_34%,rgba(255,244,214,.6)_0_1px,transparent_1.6px),radial-gradient(circle_at_6%_40%,rgba(255,244,214,.6)_0_1px,transparent_1.6px),radial-gradient(circle_at_46%_33%,rgba(255,244,214,.5)_0_1px,transparent_1.6px)]" />
+      <div className={clsx("absolute aspect-square rounded-full bg-[radial-gradient(circle_at_40%_38%,#fffaf0,#f6e3b4_60%,#e2c48a)] shadow-[0_0_30px_8px_rgba(255,236,190,.35),0_0_90px_30px_rgba(255,236,190,.12)]", large ? "right-[13%] top-[38%] w-[11%] md:right-[17%] md:top-[30%] md:w-[6%]" : "right-[13%] top-[38%] w-[11%]")} />
+      {/* il galeone sull'orizzonte (silhouette originale, finestre accese); nella hero larga del PC è più piccolo e lontano */}
+      <svg viewBox="0 0 200 120" aria-hidden className={clsx("absolute transition duration-700 group-hover:-translate-y-1", large ? "bottom-[34%] left-[8%] w-[62%] md:bottom-[37.5%] md:left-[8%] md:w-[34%]" : "bottom-[34%] left-[8%] w-[62%]")}>
+        <g fill="#0a1820">
+          <path d="M62 86V10M102 86V4M140 86V16" stroke="#0a1820" strokeWidth="2.4" />
+          <path d="M176 79L199 62" stroke="#0a1820" strokeWidth="2" />
+          <path d="M14 80l-2-16h30l2 16zM12 80c8 14 30 18 58 18h80c20 0 30-6 36-20l-10 3H40z" />
+        </g>
+        <g fill="#16303d" stroke="#284b59" strokeWidth=".6">
+          <path d="M46 18q16-4 32 0q-3 11 0 22q-16-4-32 0q3-11 0-22z" />
+          <path d="M44 44q18-4 36 0q-3 12 0 24q-18-4-36 0q3-12 0-24z" />
+          <path d="M84 12q18-4 36 0q-3 12 0 24q-18-4-36 0q3-12 0-24z" />
+          <path d="M82 40q20-4 40 0q-3 13 0 26q-20-4-40 0q3-13 0-26z" />
+          <path d="M126 24q14-4 28 0q-3 10 0 20q-14-4-28 0q3-10 0-20z" />
+          <path d="M124 48q16-4 32 0q-3 11 0 22q-16-4-32 0q3-11 0-22z" />
+        </g>
+        <path d="M102 4l12 3-12 3zM62 10l9 2.5-9 2.5zM140 16l9 2.5-9 2.5z" fill="#c8312b" />
+        <g fill="#ffd56b">
+          <rect x="17" y="69" width="3" height="3" rx=".6" />
+          <rect x="23" y="69" width="3" height="3" rx=".6" />
+          <rect x="29" y="69" width="3" height="3" rx=".6" />
+          <rect x="50" y="88" width="2.6" height="2.6" rx=".6" opacity=".8" />
+          <rect x="70" y="89" width="2.6" height="2.6" rx=".6" opacity=".8" />
+          <rect x="130" y="89" width="2.6" height="2.6" rx=".6" opacity=".7" />
+        </g>
+      </svg>
+      {/* mare: riflesso della luna e onde */}
+      <div className="absolute inset-x-0 bottom-0 h-[38%] bg-[radial-gradient(ellipse_6%_70%_at_82%_0%,rgba(255,236,190,.4),transparent_72%),repeating-linear-gradient(180deg,transparent_0_7px,rgba(108,196,236,.08)_7px_8px)]" />
+      {/* lanterne del molo */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_4%_104%,rgba(242,177,52,.55),transparent_42%),radial-gradient(ellipse_at_98%_106%,rgba(242,160,52,.42),transparent_40%)]" />
+      <div className={large ? "absolute inset-x-0 top-[7%] text-center" : "absolute inset-x-0 top-[6%] text-center"}>
+        <p className="-rotate-2 font-[family-name:var(--font-tig-display),Georgia,serif] leading-[0.9] text-[#f6ead2] [text-shadow:0_3px_0_#2a190d,0_0_24px_rgba(0,0,0,.6)]">
+          <span className={large ? "block text-[2.4rem] md:text-[3.4rem]" : "block text-[1.9rem] md:text-[2.2rem]"}>Taverna dei</span>
+          <span className={clsx("block bg-[linear-gradient(180deg,#fff6d6_0%,#ffe08a_22%,#f2b134_48%,#c07f1a_63%,#ffd56b_82%,#fff0bf_100%)] bg-clip-text px-[0.05em] text-transparent [filter:drop-shadow(0_0.035em_0_#5a3416)_drop-shadow(0_0.035em_0_#2a190d)_drop-shadow(0_0_0.3em_rgba(242,177,52,.4))] [text-shadow:none]", large ? "text-[4.6rem] md:text-[6.6rem]" : "text-[3.8rem] md:text-[4.2rem]")}>
+            Pirati
           </span>
         </p>
-        <p className="mx-auto mt-3 w-fit rotate-1 rounded bg-[#ff2d3d] px-2 py-0.5 text-xs font-black uppercase tracking-wider text-white">Ogni tavolo è una squadra</p>
+        <p className="mx-auto mt-2 w-fit rotate-1 rounded-sm border border-[#5c120e] bg-[linear-gradient(180deg,#dc4a40,#c8312b_55%,#9c231e)] px-2.5 py-0.5 text-xs font-black uppercase tracking-wider text-[#fff4e6] shadow-[0_3px_8px_rgba(0,0,0,.5)]">Ogni tavolo è una ciurma</p>
       </div>
     </div>
   );

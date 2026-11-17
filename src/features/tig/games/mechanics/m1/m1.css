@@ -7,22 +7,22 @@
 .tg1-paper {
   background:
     radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(11, 13, 18, 0.025) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--tg-ink) 2.5%, transparent) 0 2px, transparent 2px 5px),
     #f2eee4;
-  color: #12161f;
+  color: var(--tg-night-2);
 }
 .tg1-serif {
   font-family: Georgia, "Times New Roman", "Liberation Serif", serif;
 }
 .tg1-blank {
-  background: repeating-linear-gradient(-45deg, rgba(11, 13, 18, 0.14) 0 6px, rgba(11, 13, 18, 0.05) 6px 12px);
-  border-bottom: 0.12em solid #12161f;
+  background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--tg-ink) 14%, transparent) 0 6px, color-mix(in srgb, var(--tg-ink) 5%, transparent) 6px 12px);
+  border-bottom: 0.12em solid var(--tg-night-2);
   animation: tg1-blink 1.4s ease-in-out infinite;
 }
 .tg1-filled {
-  background: #c6ff3d;
-  color: #0b0d12;
-  box-shadow: 0 0 0 0.12em #0b0d12 inset;
+  background: var(--tg-gold);
+  color: var(--tg-ink);
+  box-shadow: 0 0 0 0.12em var(--tg-ink) inset;
 }
 @keyframes tg1-blink {
   0%,

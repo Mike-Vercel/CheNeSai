@@ -14,10 +14,10 @@ type T = TvGameProps<CambiaView, CambiaReveal>;
 
 function Evidence({ text, tv = false }: { text: string; tv?: boolean }) {
   return (
-    <div className={clsx("tg-pop flex items-start border-2 border-[#ffc24a] bg-[#ffc24a]/12", tv ? "gap-[1cqw] rounded-[1.2cqw] px-[1.4cqw] py-[0.9cqw]" : "gap-3 rounded-2xl px-4 py-3")} role="status">
-      <Icon name="eye" className={clsx("shrink-0 text-[#ffc24a]", tv ? "h-[2.6cqw] w-[2.6cqw]" : "h-7 w-7")} />
+    <div className={clsx("tg-pop flex items-start border-2 border-(--tg-teal) bg-(--tg-teal)/12", tv ? "gap-[1cqw] rounded-[1.2cqw] px-[1.4cqw] py-[0.9cqw]" : "gap-3 rounded-2xl px-4 py-3")} role="status">
+      <Icon name="eye" className={clsx("shrink-0 text-(--tg-teal-hi)", tv ? "h-[2.6cqw] w-[2.6cqw]" : "h-7 w-7")} />
       <div>
-        <p className={clsx("tg-display text-[#ffc24a]", tv ? "text-[1.8cqw]" : "text-xl")}>Nuova prova</p>
+        <p className={clsx("tg-display text-(--tg-teal-hi)", tv ? "text-[1.8cqw]" : "text-xl")}>Nuova prova</p>
         <p className={clsx("font-bold leading-snug", tv ? "text-[1.7cqw]" : "text-base")}>{text}</p>
       </div>
     </div>
@@ -26,9 +26,9 @@ function Evidence({ text, tv = false }: { text: string; tv?: boolean }) {
 
 function Countdown({ secs, tv = false }: { secs: number; tv?: boolean }) {
   return (
-    <div className={clsx("flex items-center justify-between border-2 border-dashed border-[#6fe7ff]/60 bg-[#6fe7ff]/[0.07]", tv ? "gap-[1cqw] rounded-[1.2cqw] px-[1.4cqw] py-[0.8cqw]" : "gap-3 rounded-2xl px-4 py-3")} role="status" aria-live="polite">
-      <p className={clsx("font-extrabold leading-snug text-[#bdf4ff]", tv ? "text-[1.6cqw]" : "text-base")}>1° giro · memorizzate cosa dice ognuno: tra poco queste frasi spariscono</p>
-      <p className={clsx("tg-num shrink-0 text-[#6fe7ff]", tv ? "text-[3.4cqw]" : "text-4xl")}>{secs}</p>
+    <div className={clsx("flex items-center justify-between border-2 border-dashed border-(--tg-sky)/60 bg-(--tg-sky)/[0.07]", tv ? "gap-[1cqw] rounded-[1.2cqw] px-[1.4cqw] py-[0.8cqw]" : "gap-3 rounded-2xl px-4 py-3")} role="status" aria-live="polite">
+      <p className={clsx("font-extrabold leading-snug text-(--tg-sky-pale)", tv ? "text-[1.6cqw]" : "text-base")}>1° giro · memorizzate cosa dice ognuno: tra poco queste frasi spariscono</p>
+      <p className={clsx("tg-num shrink-0 text-(--tg-sky)", tv ? "text-[3.4cqw]" : "text-4xl")}>{secs}</p>
     </div>
   );
 }
@@ -54,18 +54,18 @@ function Player(p: P) {
           return (
             <Panel key={x.id} tone={bad ? "red" : undefined} className={clsx("flex flex-col gap-2", !bad && "opacity-85")}>
               <p className="flex items-center gap-2">
-                <span className="tg-num grid h-8 w-8 place-items-center rounded-lg bg-white/10 text-lg">{i + 1}</span>
+                <span className="tg-num grid h-8 w-8 place-items-center rounded-lg bg-(--tg-cream)/10 text-lg">{i + 1}</span>
                 <span className="tg-display text-2xl">{x.name}</span>
-                {bad && <span className="tg-display ml-auto rounded-md bg-[#ff3b4e] px-2 py-0.5 text-base">Ha cambiato</span>}
-                {sent && picked === x.id && !bad && <span className="ml-auto text-xs font-extrabold uppercase text-[#ff8c97]">la vostra scelta</span>}
+                {bad && <span className="tg-display ml-auto rounded-md bg-(--tg-red) px-2 py-0.5 text-base">Ha cambiato</span>}
+                {sent && picked === x.id && !bad && <span className="ml-auto text-xs font-extrabold uppercase text-(--tg-red-hi)">la vostra scelta</span>}
               </p>
-              <p className="text-sm font-semibold leading-snug text-white/75">
-                <b className="text-white/55">1° giro:</b> {x.first}
+              <p className="text-sm font-semibold leading-snug text-(--tg-cream)/75">
+                <b className="text-(--tg-cream)/55">1° giro:</b> {x.first}
               </p>
               <p className="text-sm font-semibold leading-snug">
-                <b className="text-white/55">2° giro:</b> {x.second}
+                <b className="text-(--tg-cream)/55">2° giro:</b> {x.second}
               </p>
-              {bad && <p className="rounded-lg bg-[#ff3b4e]/15 px-2 py-1.5 text-sm font-bold text-[#ff9aa4]">{reveal.contradiction}</p>}
+              {bad && <p className="rounded-lg bg-(--tg-red)/15 px-2 py-1.5 text-sm font-bold text-(--tg-red-hi)">{reveal.contradiction}</p>}
             </Panel>
           );
         })}
@@ -97,15 +97,15 @@ function Player(p: P) {
               disabled={!editable}
               onClick={() => setPicked(x.id)}
               aria-pressed={round2 ? on : undefined}
-              className={clsx("flex flex-col gap-1 rounded-2xl border-2 px-3 py-3 text-left transition-transform active:scale-[0.99]", on ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]", !round2 && "cursor-default")}
+              className={clsx("flex flex-col gap-1 rounded-2xl border-2 px-3 py-3 text-left transition-transform active:scale-[0.99]", on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]", !round2 && "cursor-default")}
             >
               <span className="flex items-baseline gap-2">
-                <span className="tg-num grid h-8 w-8 shrink-0 place-items-center self-center rounded-lg bg-white/10 text-lg">{i + 1}</span>
+                <span className="tg-num grid h-8 w-8 shrink-0 place-items-center self-center rounded-lg bg-(--tg-cream)/10 text-lg">{i + 1}</span>
                 <span className="tg-display text-2xl">{x.name}</span>
-                <span className="min-w-0 truncate text-xs font-bold text-white/55">{x.role}</span>
-                {on && <Icon name="check" className="ml-auto h-6 w-6 shrink-0 text-[#c6ff3d]" />}
+                <span className="min-w-0 truncate text-xs font-bold text-(--tg-cream)/55">{x.role}</span>
+                {on && <Icon name="check" className="ml-auto h-6 w-6 shrink-0 text-(--tg-gold)" />}
               </span>
-              <span className="text-base font-semibold leading-snug text-white/90">«{said ?? "…"}»</span>
+              <span className="text-base font-semibold leading-snug text-(--tg-cream)/90">«{said ?? "…"}»</span>
             </button>
           );
         })}
@@ -133,18 +133,18 @@ function Tv(p: T) {
             return (
               <TvPanel key={x.id} tone={bad ? "red" : undefined} className={clsx("tg-rise flex min-h-0 flex-col", done ? "gap-[0.3cqw] py-[0.7cqw]" : "gap-[0.5cqw] py-[1cqw]", done && !bad && "opacity-55")}>
                 <p className="flex items-baseline gap-[0.8cqw]">
-                  <span className={clsx("tg-num grid shrink-0 place-items-center self-center rounded-[0.5cqw] bg-white/10", done ? "h-[2.2cqw] w-[2.2cqw] text-[1.3cqw]" : "h-[2.6cqw] w-[2.6cqw] text-[1.6cqw]")}>{i + 1}</span>
+                  <span className={clsx("tg-num grid shrink-0 place-items-center self-center rounded-[0.5cqw] bg-(--tg-cream)/10", done ? "h-[2.2cqw] w-[2.2cqw] text-[1.3cqw]" : "h-[2.6cqw] w-[2.6cqw] text-[1.6cqw]")}>{i + 1}</span>
                   <span className={clsx("tg-display", done ? "text-[1.9cqw]" : "text-[2.4cqw]")}>{x.name}</span>
-                  <span className="truncate text-[1.1cqw] font-bold text-white/55">{x.role}</span>
-                  {bad && <span className="tg-display ml-auto rounded-[0.4cqw] bg-[#ff3b4e] px-[0.6cqw] text-[1.4cqw]">Ha cambiato</span>}
+                  <span className="truncate text-[1.1cqw] font-bold text-(--tg-cream)/55">{x.role}</span>
+                  {bad && <span className="tg-display ml-auto rounded-[0.4cqw] bg-(--tg-red) px-[0.6cqw] text-[1.4cqw]">Ha cambiato</span>}
                 </p>
                 {r ? (
                   <>
-                    <p className="text-[1.05cqw] font-semibold leading-snug text-white/70">
-                      <b className="text-white/50">1°</b> «{r.first}»
+                    <p className="text-[1.05cqw] font-semibold leading-snug text-(--tg-cream)/70">
+                      <b className="text-(--tg-cream)/50">1°</b> «{r.first}»
                     </p>
                     <p className="text-[1.2cqw] font-bold leading-snug">
-                      <b className="text-white/50">2°</b> «{r.second}»
+                      <b className="text-(--tg-cream)/50">2°</b> «{r.second}»
                     </p>
                   </>
                 ) : (

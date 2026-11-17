@@ -42,7 +42,7 @@ function Player(p: P) {
           elapsed={view.durationMs}
           schedule={view.schedule}
           worth={view.worth}
-          extra={(i) => <p className="mt-1 text-xs font-extrabold uppercase tracking-wide text-white/55">Scagiona: {clearedNames(reveal, i)}</p>}
+          extra={(i) => <p className="mt-1 text-xs font-extrabold uppercase tracking-wide text-(--tg-cream)/55">Scagiona: {clearedNames(reveal, i)}</p>}
         />
         <div className="flex flex-col gap-2">
           {view.suspects.map((s, i) => (
@@ -64,7 +64,7 @@ function Player(p: P) {
         <Eyebrow>{view.caseTitle}</Eyebrow>
         <div className="flex items-end justify-between gap-3">
           <p className="text-lg font-extrabold leading-snug">{view.question}</p>
-          <p className="tg-num shrink-0 text-right text-3xl leading-none text-[#c6ff3d]" aria-live="polite">
+          <p className="tg-num shrink-0 text-right text-3xl leading-none text-(--tg-gold)" aria-live="polite">
             {worth}
             <span className="block text-[10px] font-extrabold uppercase tracking-wide">ora vale</span>
           </p>
@@ -107,7 +107,7 @@ function Tv(p: T) {
                 state={done ? (s.id === reveal.solutionId ? "right" : "cleared") : "idle"}
                 badge={
                   done && by !== undefined ? (
-                    <span className={clsx("tg-display shrink-0 rounded-[0.5cqw] bg-white/10 px-[0.6cqw] py-[0.2cqw] text-[1.1cqw]")}>indizio {by + 1}</span>
+                    <span className={clsx("tg-display shrink-0 rounded-[0.5cqw] bg-(--tg-cream)/10 px-[0.6cqw] py-[0.2cqw] text-[1.1cqw]")}>indizio {by + 1}</span>
                   ) : undefined
                 }
               />

@@ -23,14 +23,14 @@ function DataCard({ data, tv = false }: { data: TortoData; tv?: boolean }) {
   const alt = `${data.caption}: ${data.rows.map((r) => `${r.label} ${r.shown}`).join("; ")}${data.footnote ? `. ${data.footnote}` : ""}`;
   return (
     <figure role="img" aria-label={alt} className={clsx("flex flex-col", tv ? "gap-[0.7cqw]" : "gap-2")}>
-      <figcaption className={clsx("font-extrabold uppercase tracking-[0.14em] text-white/65", tv ? "text-[1.1cqw]" : "text-[11px]")}>{data.caption}</figcaption>
+      <figcaption className={clsx("font-extrabold uppercase tracking-[0.14em] text-(--tg-cream)/65", tv ? "text-[1.1cqw]" : "text-[11px]")}>{data.caption}</figcaption>
       {data.kind === "barre" && (
         <div className={clsx("flex flex-col", tv ? "gap-[0.5cqw]" : "gap-1.5")} aria-hidden>
           {data.rows.map((r) => (
             <div key={r.label} className={clsx("grid items-center", tv ? "grid-cols-[11cqw_1fr] gap-[0.8cqw]" : "grid-cols-[5.5rem_1fr] gap-2")}>
               <span className={clsx("truncate font-bold", tv ? "text-[1.35cqw]" : "text-sm")}>{r.label}</span>
               <div className="flex items-center gap-2">
-                <div className={clsx("rounded-r-md bg-[#6fe7ff]/80", tv ? "h-[2cqw]" : "h-5")} style={{ width: `${((r.bar ?? 0) / max) * 78}%` }} />
+                <div className={clsx("rounded-r-md bg-(--tg-sky)/80", tv ? "h-[2cqw]" : "h-5")} style={{ width: `${((r.bar ?? 0) / max) * 78}%` }} />
                 <span className={clsx("tg-num shrink-0", tv ? "text-[1.6cqw]" : "text-base")}>{r.shown}</span>
               </div>
             </div>
@@ -41,7 +41,7 @@ function DataCard({ data, tv = false }: { data: TortoData; tv?: boolean }) {
         <table className="w-full border-collapse" aria-hidden>
           <tbody>
             {data.rows.map((r) => (
-              <tr key={r.label} className="border-b border-white/10 last:border-0">
+              <tr key={r.label} className="border-b border-(--tg-cream)/10 last:border-0">
                 <td className={clsx("font-bold", tv ? "py-[0.5cqw] text-[1.45cqw]" : "py-1.5 text-sm")}>{r.label}</td>
                 <td className={clsx("tg-num text-right", tv ? "py-[0.5cqw] text-[1.7cqw]" : "py-1.5 text-lg")}>{r.shown}</td>
               </tr>
@@ -62,7 +62,7 @@ function DataCard({ data, tv = false }: { data: TortoData; tv?: boolean }) {
           <p className={clsx("mt-1 text-center tracking-widest opacity-60", tv ? "text-[1cqw]" : "text-[10px]")}>GRAZIE E ARRIVEDERCI</p>
         </div>
       )}
-      {data.footnote && <p className={clsx("font-semibold italic text-white/80", tv ? "text-[1.25cqw]" : "text-sm")}>{data.footnote}</p>}
+      {data.footnote && <p className={clsx("font-semibold italic text-(--tg-cream)/80", tv ? "text-[1.25cqw]" : "text-sm")}>{data.footnote}</p>}
     </figure>
   );
 }
@@ -137,7 +137,7 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Il dato, la risposta giusta e il verdetto sul pub" : "Risposta giusta +60. Indovinate se la maggioranza dei tavoli sbaglierà: +40."}>
       <div className="grid h-full grid-cols-[1.05fr_1fr] gap-[1.6cqw]">
         <TvPanel className="flex min-h-0 flex-col gap-[0.8cqw]">
-          <p className="tg-display text-[3cqw] text-[#c6ff3d]">{view.caseTitle}</p>
+          <p className="tg-display text-[3cqw] text-(--tg-gold)">{view.caseTitle}</p>
           <DataCard data={view.data} tv />
         </TvPanel>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
@@ -158,7 +158,7 @@ function Tv(p: T) {
             </>
           ) : (
             <TvPanel className="flex flex-1 items-center justify-center gap-[1.2cqw]">
-              <Icon name="users" className="h-[5cqw] w-[5cqw] text-[#ff3b4e]" />
+              <Icon name="users" className="h-[5cqw] w-[5cqw] text-(--tg-red-hi)" />
               <p className="tg-display text-[3.2cqw] leading-none">
                 Il pub
                 <br />

@@ -41,21 +41,21 @@ function Meters({ resources, use, goal, gain }: { resources: Res[]; use: Record<
         const v = use[r.id] ?? 0;
         const over = v > r.limit;
         return (
-          <div key={r.id} className={clsx("rounded-xl border px-3 py-2", over ? "tg-stripes-red border-[#ff3b4e]" : "border-white/12 bg-white/[0.04]")}>
-            <p className="text-[11px] font-extrabold uppercase tracking-wide text-[#9aa4b2]">{r.label}</p>
-            <p className={clsx("tg-num text-xl leading-tight", over ? "text-[#ff8c97]" : "text-white")}>
+          <div key={r.id} className={clsx("rounded-xl border px-3 py-2", over ? "tg-stripes-red border-(--tg-red-hi)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]")}>
+            <p className="text-[11px] font-extrabold uppercase tracking-wide text-(--tg-mute)">{r.label}</p>
+            <p className={clsx("tg-num text-xl leading-tight", over ? "text-(--tg-red-hi)" : "text-(--tg-cream)")}>
               {v.toLocaleString("it-IT")}
-              <span className="text-sm text-white/55"> / {amount(r.limit, r)}</span>
+              <span className="text-sm text-(--tg-cream)/55"> / {amount(r.limit, r)}</span>
             </p>
-            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div className={clsx("h-full rounded-full", over ? "bg-[#ff3b4e]" : "bg-[#c6ff3d]")} style={{ width: `${Math.min(100, (v / r.limit) * 100)}%` }} />
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-(--tg-cream)/10">
+              <div className={clsx("h-full rounded-full", over ? "bg-(--tg-red)" : "bg-(--tg-gold)")} style={{ width: `${Math.min(100, (v / r.limit) * 100)}%` }} />
             </div>
           </div>
         );
       })}
-      <div className="rounded-xl border border-[#ffc24a]/40 bg-[#ffc24a]/10 px-3 py-2">
-        <p className="text-[11px] font-extrabold uppercase tracking-wide text-[#ffd68a]">{goal.label}</p>
-        <p className="tg-num text-xl leading-tight text-[#ffc24a]">
+      <div className="rounded-xl border border-(--tg-teal)/40 bg-(--tg-teal)/10 px-3 py-2">
+        <p className="text-[11px] font-extrabold uppercase tracking-wide text-(--tg-teal-pale)">{goal.label}</p>
+        <p className="tg-num text-xl leading-tight text-(--tg-teal-hi)">
           {gain} <span className="text-sm">{goal.unit}</span>
         </p>
       </div>
@@ -67,11 +67,11 @@ function Costs({ node, resources, goal }: { node: RotturaLeaf; resources: Res[];
   return (
     <span className="flex shrink-0 flex-col items-end gap-0.5 text-right">
       {resources.map((r) => (
-        <span key={r.id} className="tg-num text-sm leading-none text-white/75">
+        <span key={r.id} className="tg-num text-sm leading-none text-(--tg-cream)/75">
           {node.use[r.id] ? `−${amount(node.use[r.id], r)}` : `0 ${r.unit}`}
         </span>
       ))}
-      <span className="tg-num text-sm leading-none text-[#ffc24a]">
+      <span className="tg-num text-sm leading-none text-(--tg-teal-hi)">
         +{node.gain} {goal.unit}
       </span>
     </span>
@@ -104,7 +104,7 @@ function Player(p: P) {
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
         <Panel tone="lime" className="flex flex-col gap-2">
-          <Eyebrow className="text-[#c6ff3d]">Il percorso migliore</Eyebrow>
+          <Eyebrow className="text-(--tg-gold)">Il percorso migliore</Eyebrow>
           {best.map((n, i) => (
             <p key={n.id} className="text-base font-extrabold leading-snug">
               {i + 1}. {n.text}
@@ -116,14 +116,14 @@ function Player(p: P) {
           <Panel tone={mineOk ? undefined : "red"} className="flex flex-col gap-2">
             <Eyebrow>Il vostro percorso {mineOk ? "" : "· si è rotto"}</Eyebrow>
             {mine.map((n, i) => (
-              <p key={n.id} className="text-sm font-bold leading-snug text-white/85">
+              <p key={n.id} className="text-sm font-bold leading-snug text-(--tg-cream)/85">
                 {i + 1}. {n.text}
               </p>
             ))}
             <Meters resources={reveal.resources} use={mineTot.use} goal={reveal.goal} gain={mineTot.gain} />
           </Panel>
         )}
-        <p className="px-1 text-sm font-bold text-white/65">
+        <p className="px-1 text-sm font-bold text-(--tg-cream)/65">
           Percorsi validi: {reveal.validCount} su {reveal.totalPaths}.
         </p>
         <Explain text={reveal.explain} />
@@ -152,7 +152,7 @@ function Player(p: P) {
     >
       <Panel className="py-3">
         <Eyebrow>{view.heading}</Eyebrow>
-        <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.intro}</p>
+        <p className="mt-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/85">{view.intro}</p>
       </Panel>
       <Meters resources={view.resources} use={tot.use} goal={view.goal} gain={tot.gain} />
       <div className="flex flex-wrap items-center gap-2" aria-label="Percorso scelto">
@@ -162,7 +162,7 @@ function Player(p: P) {
             type="button"
             disabled={!editable || i > chosen.length}
             onClick={() => setPath((old) => old.slice(0, i))}
-            className={clsx("flex min-w-0 max-w-full items-center gap-1 rounded-lg border px-2 py-1 text-sm font-bold", chosen[i] ? "border-[#c6ff3d]/50 bg-[#c6ff3d]/10" : i === step ? "border-white/40" : "border-white/10 text-white/45")}
+            className={clsx("flex min-w-0 max-w-full items-center gap-1 rounded-lg border px-2 py-1 text-sm font-bold", chosen[i] ? "border-(--tg-gold)/50 bg-(--tg-gold)/10" : i === step ? "border-(--tg-cream)/40" : "border-(--tg-cream)/10 text-(--tg-cream)/45")}
             aria-label={chosen[i] ? `Cambia la scelta ${i + 1}: ${chosen[i].text}` : `Scelta ${i + 1}`}
           >
             <span className="tg-num">{i + 1}</span>
@@ -173,7 +173,7 @@ function Player(p: P) {
       </div>
       {!done && (
         <Panel className="tg-rise flex flex-col gap-2" key={step}>
-          <Eyebrow className="text-[#ffc24a]">
+          <Eyebrow className="text-(--tg-teal-hi)">
             Scelta {step + 1} di 3 · {view.steps[step]}
           </Eyebrow>
           {options.map((o, i) => (
@@ -194,20 +194,20 @@ function TvMeter({ label, used = null, limit, unit, text, goal = false }: { labe
   const over = limit !== undefined && used !== null && used > limit;
   const big = used ?? limit;
   return (
-    <div className={clsx("tg-glass flex flex-col justify-center gap-[0.4cqw] rounded-[1.2cqw] px-[1.2cqw] py-[0.9cqw]", goal && "border-[#ffc24a]/50")}>
-      <p className={clsx("text-[1.05cqw] font-extrabold uppercase tracking-[0.2em]", goal ? "text-[#ffc24a]" : "text-white/65")}>{label}</p>
+    <div className={clsx("tg-glass flex flex-col justify-center gap-[0.4cqw] rounded-[1.2cqw] px-[1.2cqw] py-[0.9cqw]", goal && "border-(--tg-teal)/50")}>
+      <p className={clsx("text-[1.05cqw] font-extrabold uppercase tracking-[0.2em]", goal ? "text-(--tg-teal-hi)" : "text-(--tg-cream)/65")}>{label}</p>
       {text ? (
-        <p className={clsx("text-[1.9cqw] font-extrabold leading-tight", goal ? "text-[#ffc24a]" : "text-white")}>{text}</p>
+        <p className={clsx("text-[1.9cqw] font-extrabold leading-tight", goal ? "text-(--tg-teal-hi)" : "text-(--tg-cream)")}>{text}</p>
       ) : (
-        <p className={clsx("tg-num text-[3.2cqw] leading-none", goal ? "text-[#ffc24a]" : over ? "text-[#ff3b4e]" : "text-white")}>
+        <p className={clsx("tg-num text-[3.2cqw] leading-none", goal ? "text-(--tg-teal-hi)" : over ? "text-(--tg-red-hi)" : "text-(--tg-cream)")}>
           {big?.toLocaleString("it-IT")}
-          {used !== null && limit !== undefined && <span className="text-[1.8cqw] text-white/55"> / {limit.toLocaleString("it-IT")}</span>}
-          {unit && <span className="ml-[0.4cqw] text-[1.5cqw] text-white/60">{unit}</span>}
+          {used !== null && limit !== undefined && <span className="text-[1.8cqw] text-(--tg-cream)/55"> / {limit.toLocaleString("it-IT")}</span>}
+          {unit && <span className="ml-[0.4cqw] text-[1.5cqw] text-(--tg-cream)/60">{unit}</span>}
         </p>
       )}
       {limit !== undefined && used !== null && (
-        <div className="h-[0.5cqw] overflow-hidden rounded-full bg-white/10">
-          <div className={clsx("h-full rounded-full", over ? "bg-[#ff3b4e]" : "bg-[#c6ff3d]")} style={{ width: `${Math.min(100, (used / limit) * 100)}%` }} />
+        <div className="h-[0.5cqw] overflow-hidden rounded-full bg-(--tg-cream)/10">
+          <div className={clsx("h-full rounded-full", over ? "bg-(--tg-red)" : "bg-(--tg-gold)")} style={{ width: `${Math.min(100, (used / limit) * 100)}%` }} />
         </div>
       )}
     </div>
@@ -217,13 +217,13 @@ function TvMeter({ label, used = null, limit, unit, text, goal = false }: { labe
 /** Un'opzione grande sulla TV: testo e costi leggibili da lontano. */
 function TvChoice({ node, resources, goal, best = false, n }: { node: RotturaLeaf; resources: Res[]; goal: RotturaView["goal"]; best?: boolean; n?: number }) {
   return (
-    <div className={clsx("flex min-w-0 flex-1 flex-col gap-[0.5cqw] rounded-[1.2cqw] border-[0.18cqw] p-[1.1cqw]", best ? "tg-shine border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : "border-white/14 bg-white/[0.05]")}>
-      {n !== undefined && <span className={clsx("tg-num text-[1.2cqw]", best ? "text-[#0b0d12]/70" : "text-white/55")}>{n}</span>}
+    <div className={clsx("flex min-w-0 flex-1 flex-col gap-[0.5cqw] rounded-[1.2cqw] border-[0.18cqw] p-[1.1cqw]", best ? "tg-shine border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]")}>
+      {n !== undefined && <span className={clsx("tg-num text-[1.2cqw]", best ? "text-(--tg-ink)/70" : "text-(--tg-cream)/55")}>{n}</span>}
       <p className="tg-display text-[2.3cqw] leading-[0.95]">{node.text}</p>
-      <p className={clsx("tg-num mt-auto text-[1.45cqw] leading-tight", best ? "text-[#0b0d12]" : "text-white/80")}>
+      <p className={clsx("tg-num mt-auto text-[1.45cqw] leading-tight", best ? "text-(--tg-ink)" : "text-(--tg-cream)/80")}>
         {resources.map((r) => amount(node.use[r.id] ?? 0, r)).join(" · ")}
       </p>
-      <p className={clsx("tg-num text-[1.6cqw] leading-none", best ? "text-[#0b0d12]" : "text-[#ffc24a]")}>
+      <p className={clsx("tg-num text-[1.6cqw] leading-none", best ? "text-(--tg-ink)" : "text-(--tg-teal-hi)")}>
         +{node.gain} {goal.unit}
       </p>
     </div>
@@ -244,12 +244,12 @@ function Tv(p: T) {
             {best.map((n, i) => (
               <div key={n.id} className="tg-rise flex min-w-0 flex-1 items-stretch gap-[0.6cqw]" style={{ animationDelay: `${i * 220}ms` }}>
                 <div className="flex min-w-0 flex-1 flex-col gap-[0.4cqw]">
-                  <p className="text-[1cqw] font-extrabold uppercase tracking-[0.18em] text-[#ffc24a]">
+                  <p className="text-[1cqw] font-extrabold uppercase tracking-[0.18em] text-(--tg-teal-hi)">
                     {i + 1} · {reveal.steps[i]}
                   </p>
                   <TvChoice node={n} resources={reveal.resources} goal={reveal.goal} best />
                 </div>
-                {i < best.length - 1 && <Icon name="arrow" className="h-[2.4cqw] w-[2.4cqw] shrink-0 self-center text-[#c6ff3d]" />}
+                {i < best.length - 1 && <Icon name="arrow" className="h-[2.4cqw] w-[2.4cqw] shrink-0 self-center text-(--tg-gold)" />}
               </div>
             ))}
           </div>
@@ -260,8 +260,8 @@ function Tv(p: T) {
             <TvMeter label={reveal.goal.label} used={reveal.best.gain} unit={reveal.goal.unit} goal />
           </div>
           <TvPanel className="tg-rise p-[1.1cqw]">
-            <p className="text-[1.35cqw] font-semibold leading-snug text-white/90">
-              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Perché</span>
+            <p className="text-[1.35cqw] font-semibold leading-snug text-(--tg-cream)/90">
+              <span className="mr-[0.6cqw] text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Perché</span>
               {reveal.explain}
             </p>
           </TvPanel>
@@ -279,17 +279,17 @@ function Tv(p: T) {
           ))}
           <TvMeter label="Obiettivo" text={`Più ${view.goal.label.toLowerCase()} possibile`} goal />
         </div>
-        <p className="text-[1.45cqw] font-semibold leading-snug text-white/90">{view.intro}</p>
+        <p className="text-[1.45cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.intro}</p>
         <div className="flex min-h-0 flex-col gap-[0.6cqw]">
-          <p className="text-[1.15cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">1 · {view.steps[0]}</p>
+          <p className="text-[1.15cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">1 · {view.steps[0]}</p>
           <div className="flex min-h-0 flex-1 gap-[1cqw]">
             {view.tree.map((a, i) => (
               <TvChoice key={a.id} node={a} resources={res} goal={view.goal} n={i + 1} />
             ))}
           </div>
         </div>
-        <p className="flex items-center justify-center gap-[0.6cqw] text-[1.35cqw] font-bold text-white/80">
-          <Icon name="flame" className="h-[1.7cqw] w-[1.7cqw] shrink-0 text-[#ff3b4e]" />
+        <p className="flex items-center justify-center gap-[0.6cqw] text-[1.35cqw] font-bold text-(--tg-cream)/80">
+          <Icon name="flame" className="h-[1.7cqw] w-[1.7cqw] shrink-0 text-(--tg-red-hi)" />
           Poi «{view.steps[1]}» e «{view.steps[2]}»: le opzioni cambiano con la prima scelta (sul telefono). Chi sfora si rompe: 0. Valido +{view.validPoints}, il migliore +{view.optimalPoints}.
         </p>
       </div>

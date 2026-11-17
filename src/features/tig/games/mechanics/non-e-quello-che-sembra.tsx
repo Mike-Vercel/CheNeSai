@@ -16,9 +16,9 @@ type T = TvGameProps<NonEView, NonEReveal>;
 function Description({ text, tv = false }: { text: string; tv?: boolean }) {
   return (
     <div className={clsx("tg-glass tg-glass-lime flex items-start", tv ? "gap-[1cqw] rounded-[1.2cqw] px-[1.6cqw] py-[1cqw]" : "gap-3 rounded-2xl p-3")}>
-      <Icon name="eye" className={clsx("shrink-0 text-[#c6ff3d]", tv ? "mt-[0.2cqw] h-[2.4cqw] w-[2.4cqw]" : "mt-0.5 h-6 w-6")} />
+      <Icon name="eye" className={clsx("shrink-0 text-(--tg-gold)", tv ? "mt-[0.2cqw] h-[2.4cqw] w-[2.4cqw]" : "mt-0.5 h-6 w-6")} />
       <div>
-        <p className={clsx("font-extrabold uppercase tracking-[0.18em] text-[#c6ff3d]", tv ? "text-[0.95cqw]" : "text-[11px]")}>La descrizione esatta</p>
+        <p className={clsx("font-extrabold uppercase tracking-[0.18em] text-(--tg-gold)", tv ? "text-[0.95cqw]" : "text-[11px]")}>La descrizione esatta</p>
         <p className={clsx("font-extrabold leading-snug", tv ? "text-[2cqw]" : "text-lg")}>{text}</p>
       </div>
     </div>
@@ -46,17 +46,17 @@ function Player(p: P) {
             <Panel key={img.id} tone={right ? "lime" : undefined} className={clsx("flex flex-col gap-2 p-2", !right && "opacity-80")}>
               <div className="relative">
                 <ArtSvg art={img.art} label={img.alt} className="block w-full rounded-xl" />
-                <span className={clsx("tg-num absolute left-2 top-2 grid h-9 w-9 place-items-center rounded-lg text-xl", right ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#0b0d12]/80 text-white")}>{i + 1}</span>
-                {sent && picked === img.id && <span className="tg-display absolute right-2 top-2 rounded-md bg-[#0b0d12]/85 px-2 py-0.5 text-sm text-white">La vostra</span>}
+                <span className={clsx("tg-num absolute left-2 top-2 grid h-9 w-9 place-items-center rounded-lg text-xl", right ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-night)/80 text-(--tg-cream)")}>{i + 1}</span>
+                {sent && picked === img.id && <span className="tg-display absolute right-2 top-2 rounded-md bg-(--tg-night)/85 px-2 py-0.5 text-sm text-(--tg-cream)">La vostra</span>}
               </div>
               {right ? (
-                <p className="flex items-center gap-2 px-1 text-base font-extrabold text-[#c6ff3d]">
+                <p className="flex items-center gap-2 px-1 text-base font-extrabold text-(--tg-gold)">
                   <Icon name="check" className="h-5 w-5" /> Rispetta tutta la descrizione
                 </p>
               ) : (
                 <ul className="flex flex-col gap-1 px-1">
                   {r.broken.map((j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm font-bold text-[#ff8c97]">
+                    <li key={j} className="flex items-start gap-2 text-sm font-bold text-(--tg-red-hi)">
                       <Icon name="x" className="mt-0.5 h-4 w-4 shrink-0" /> Non vale: «{reveal.parts[j]}»
                     </li>
                   ))}
@@ -89,7 +89,7 @@ function Player(p: P) {
         />
       }
     >
-      <Eyebrow className="px-1 text-[#c6ff3d]">{view.scene}</Eyebrow>
+      <Eyebrow className="px-1 text-(--tg-gold)">{view.scene}</Eyebrow>
       <Description text={view.description} />
       <div role="radiogroup" aria-label="Immagini" className="flex flex-col gap-3">
         {view.images.map((img, i) => {
@@ -103,11 +103,11 @@ function Player(p: P) {
               aria-label={`Immagine ${i + 1}: ${img.alt}`}
               disabled={!editable}
               onClick={() => editable && setPicked(img.id)}
-              className={clsx("relative overflow-hidden rounded-2xl border-[3px] transition-transform active:scale-[0.99]", on ? "border-[#c6ff3d] shadow-[0_0_30px_-6px_rgba(198,255,61,0.7)]" : "border-white/12")}
+              className={clsx("relative overflow-hidden rounded-2xl border-[3px] transition-transform active:scale-[0.99]", on ? "border-(--tg-gold) shadow-[0_0_30px_-6px_color-mix(in_srgb,var(--tg-gold)_70%,transparent)]" : "border-(--tg-cream)/12")}
             >
               <ArtSvg art={img.art} label={img.alt} className="block w-full" />
-              <span className={clsx("tg-num absolute left-2 top-2 grid h-10 w-10 place-items-center rounded-lg text-2xl", on ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#0b0d12]/80 text-white")}>{i + 1}</span>
-              {on && <Icon name="check" className="absolute right-2 top-2 h-9 w-9 rounded-full bg-[#c6ff3d] p-1.5 text-[#0b0d12]" />}
+              <span className={clsx("tg-num absolute left-2 top-2 grid h-10 w-10 place-items-center rounded-lg text-2xl", on ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-night)/80 text-(--tg-cream)")}>{i + 1}</span>
+              {on && <Icon name="check" className="absolute right-2 top-2 h-9 w-9 rounded-full bg-(--tg-gold) p-1.5 text-(--tg-ink)" />}
             </button>
           );
         })}
@@ -133,24 +133,24 @@ function Tv(p: T) {
                 {/* contenitore «a misura»: l'immagine 4:3 si adatta alla cella (larghezza E altezza), anche con 12 tavoli sotto */}
                 <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
                   <div
-                    className={clsx("absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[4cqw] border-[0.8cqw]", right ? "tg-pop border-[#c6ff3d] shadow-[0_0_50px_-10px_rgba(198,255,61,0.8)]" : "border-white/12")}
+                    className={clsx("absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[4cqw] border-[0.8cqw]", right ? "tg-pop border-(--tg-gold) shadow-[0_0_50px_-10px_color-mix(in_srgb,var(--tg-gold)_80%,transparent)]" : "border-(--tg-cream)/12")}
                     style={{ width: "min(100cqw, 133.33cqh)", height: "min(75cqw, 100cqh)" }}
                   >
                     <ArtSvg art={img.art} label={img.alt} className="block h-full w-full" />
-                    <span className={clsx("tg-num absolute left-[2.6cqw] top-[2.6cqw] grid h-[11cqw] w-[11cqw] place-items-center rounded-[2.4cqw] text-[7cqw]", right ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#0b0d12]/85 text-white")}>{i + 1}</span>
-                    {right && <Icon name="check" className="absolute right-[2.6cqw] top-[2.6cqw] h-[11cqw] w-[11cqw] rounded-full bg-[#c6ff3d] p-[1.6cqw] text-[#0b0d12]" />}
+                    <span className={clsx("tg-num absolute left-[2.6cqw] top-[2.6cqw] grid h-[11cqw] w-[11cqw] place-items-center rounded-[2.4cqw] text-[7cqw]", right ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-night)/85 text-(--tg-cream)")}>{i + 1}</span>
+                    {right && <Icon name="check" className="absolute right-[2.6cqw] top-[2.6cqw] h-[11cqw] w-[11cqw] rounded-full bg-(--tg-gold) p-[1.6cqw] text-(--tg-ink)" />}
                   </div>
                 </div>
                 {done && r && !right && (
                   <figcaption className="flex flex-col gap-[0.3cqw]">
                     {r.broken.map((j) => (
-                      <span key={j} className="flex items-start gap-[0.4cqw] text-[1.25cqw] font-extrabold leading-tight text-[#ff8c97]">
+                      <span key={j} className="flex items-start gap-[0.4cqw] text-[1.25cqw] font-extrabold leading-tight text-(--tg-red-hi)">
                         <Icon name="x" className="mt-[0.15cqw] h-[1.3cqw] w-[1.3cqw] shrink-0" /> {reveal.parts[j]}: no
                       </span>
                     ))}
                   </figcaption>
                 )}
-                {done && right && <figcaption className="text-[1.25cqw] font-extrabold text-[#c6ff3d]">Rispetta tutto</figcaption>}
+                {done && right && <figcaption className="text-[1.25cqw] font-extrabold text-(--tg-gold)">Rispetta tutto</figcaption>}
               </figure>
             );
           })}

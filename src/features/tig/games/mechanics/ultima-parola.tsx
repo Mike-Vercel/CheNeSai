@@ -26,15 +26,15 @@ function Sentence({ chunks, open, answer, tv = false }: { chunks: (string | null
   return (
     <p className={clsx("font-extrabold leading-snug", tv ? "text-[2.6cqw]" : "text-2xl")} aria-live="polite">
       {chunks.slice(0, open).map((c, i) => (
-        <span key={i} className={clsx(i === open - 1 && !answer && "tg-rise text-[#c6ff3d]")}>
+        <span key={i} className={clsx(i === open - 1 && !answer && "tg-rise text-(--tg-gold)")}>
           {c}{" "}
         </span>
       ))}
-      {open < chunks.length && <span className={clsx("text-white/30", tv ? "text-[2cqw]" : "text-lg")}>{"· ".repeat(Math.min(3, chunks.length - open))}</span>}
+      {open < chunks.length && <span className={clsx("text-(--tg-cream)/30", tv ? "text-[2cqw]" : "text-lg")}>{"· ".repeat(Math.min(3, chunks.length - open))}</span>}
       {answer ? (
-        <span className={clsx("tg-pop rounded-[0.3em] bg-[#c6ff3d] px-[0.25em] text-[#0b0d12]")}>{answer}</span>
+        <span className={clsx("tg-pop rounded-[0.3em] bg-(--tg-gold) px-[0.25em] text-(--tg-ink)")}>{answer}</span>
       ) : (
-        <span className={clsx("inline-block border-b-4 border-dashed border-[#c6ff3d]/70 align-baseline", tv ? "w-[10cqw]" : "w-24")} aria-label="parola mancante">
+        <span className={clsx("inline-block border-b-4 border-dashed border-(--tg-gold)/70 align-baseline", tv ? "w-[10cqw]" : "w-24")} aria-label="parola mancante">
           &nbsp;
         </span>
       )}
@@ -46,9 +46,9 @@ function WorthBar({ worth, open, tv = false }: { worth: number[]; open: number; 
   return (
     <div className={clsx("grid", tv ? "gap-[0.4cqw]" : "gap-1")} style={{ gridTemplateColumns: `repeat(${worth.length}, minmax(0, 1fr))` }} aria-label={`Ora vale ${worth[open - 1]}`}>
       {worth.map((w, i) => (
-        <div key={i} className={clsx("flex flex-col items-center rounded-lg border-2", tv ? "py-[0.3cqw]" : "py-1", i === open - 1 ? "border-[#c6ff3d] bg-[#c6ff3d]/15" : i < open - 1 ? "border-white/5 opacity-35" : "border-white/12")}>
-          <span className={clsx("tg-num leading-none", tv ? "text-[1.8cqw]" : "text-xl", i === open - 1 ? "text-[#c6ff3d]" : "text-white/70")}>{w}</span>
-          <span className={clsx("font-extrabold uppercase text-white/50", tv ? "text-[0.7cqw]" : "text-[9px]")}>{i + 1}° pezzo</span>
+        <div key={i} className={clsx("flex flex-col items-center rounded-lg border-2", tv ? "py-[0.3cqw]" : "py-1", i === open - 1 ? "border-(--tg-gold) bg-(--tg-gold)/15" : i < open - 1 ? "border-(--tg-cream)/5 opacity-35" : "border-(--tg-cream)/12")}>
+          <span className={clsx("tg-num leading-none", tv ? "text-[1.8cqw]" : "text-xl", i === open - 1 ? "text-(--tg-gold)" : "text-(--tg-cream)/70")}>{w}</span>
+          <span className={clsx("font-extrabold uppercase text-(--tg-cream)/50", tv ? "text-[0.7cqw]" : "text-[9px]")}>{i + 1}° pezzo</span>
         </div>
       ))}
     </div>
@@ -86,7 +86,7 @@ function Player(p: P) {
       <Panel className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <Eyebrow>La frase · manca l&apos;ultima parola</Eyebrow>
-          <p className="tg-num text-2xl text-[#c6ff3d]">ora vale {worth}</p>
+          <p className="tg-num text-2xl text-(--tg-gold)">ora vale {worth}</p>
         </div>
         <Sentence chunks={view.chunks} open={open} />
         <WorthBar worth={view.worth} open={open} />

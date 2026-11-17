@@ -101,7 +101,7 @@ export function TokenFace({ token, className }: { token: Token; className?: stri
       <svg viewBox="0 0 100 100" className={className} role="img" aria-label={label}>
         <rect x={10} y={10} width={80} height={80} rx={16} fill="currentColor" />
         {PIPS[token.n].map(([x, y], i) => (
-          <circle key={i} cx={x} cy={y} r={8} fill="#0b0d12" />
+          <circle key={i} cx={x} cy={y} r={8} fill="var(--tg-ink)" />
         ))}
       </svg>
     );
@@ -141,15 +141,15 @@ export function TokenTile({
       className={clsx(
         "relative flex aspect-square flex-col items-center justify-center border-2 transition-[transform,border-color,background-color] duration-200",
         tv ? "rounded-[1.2cqw] border-[0.2cqw]" : "rounded-2xl",
-        state === "idle" && "border-white/14 bg-white/[0.05] text-[#eef2f6]",
-        state === "picked" && "tg-picked border-[#c6ff3d] text-[#c6ff3d]",
-        state === "right" && "border-[#c6ff3d] bg-[#c6ff3d]/12 text-[#eef2f6]",
-        state === "wrong" && "tg-stripes-red border-[#ff3b4e] text-[#ff8c97]",
-        state === "dim" && "border-white/8 bg-white/[0.03] text-white/45",
+        state === "idle" && "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05] text-(--tg-cream)",
+        state === "picked" && "tg-picked border-(--tg-gold) text-(--tg-gold)",
+        state === "right" && "border-(--tg-gold) bg-(--tg-gold)/12 text-(--tg-cream)",
+        state === "wrong" && "tg-stripes-red border-(--tg-red-hi) text-(--tg-red-hi)",
+        state === "dim" && "border-(--tg-cream)/8 bg-(--tg-cream)/[0.03] text-(--tg-cream)/45",
         className,
       )}
     >
-      <span className={clsx("tg-num absolute left-[8%] top-[5%] leading-none text-white/45", tv ? "text-[1.1cqw]" : "text-xs")} aria-hidden>
+      <span className={clsx("tg-num absolute left-[8%] top-[5%] leading-none text-(--tg-cream)/45", tv ? "text-[1.1cqw]" : "text-xs")} aria-hidden>
         {index + 1}
       </span>
       <TokenFace token={token} className="h-[72%] w-[72%]" />

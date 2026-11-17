@@ -6,6 +6,7 @@ import { MECHANIC_EXTRAS, MECHANICS } from "@/lib/tig/games";
 import type { AcceptedSubmission, CatalogEntry, MemberCtx, PhaseCtx, ScoreOutput, TeamRef } from "@/lib/tig/games/contract";
 import { MECHANIC_UIS } from "@/features/tig/games";
 import type { GameStage } from "@/features/tig/games/ui-contract";
+import { teamColor } from "@/lib/tig/rules";
 import "@/features/tig/games/kit/tig-games.css";
 
 export type PreviewSurface = "all" | "phone" | "pc" | "tv";
@@ -21,11 +22,11 @@ interface Initial {
   sent: boolean;
 }
 
-/** Tre tavoli finti di dimensioni diverse (2, 4 e 3 telefoni): il «mio» è il primo. */
+/** Tre tavoli finti di dimensioni diverse (2, 4 e 3 telefoni): il «mio» è il primo. Colori veri dei tavoli. */
 const TEAMS: (TeamRef & { name: string; color: string })[] = [
-  { teamId: "t-a", tableNo: 3, members: ["a1", "a2"], captainId: "a1", name: "I Ritardatari", color: "#6fe7ff" },
-  { teamId: "t-b", tableNo: 7, members: ["b1", "b2", "b3", "b4"], captainId: "b1", name: "Divano Club", color: "#ffc24a" },
-  { teamId: "t-c", tableNo: 11, members: ["c1", "c2", "c3"], captainId: "c1", name: "Gruppo Calcetto", color: "#b49cff" },
+  { teamId: "t-a", tableNo: 3, members: ["a1", "a2"], captainId: "a1", name: "I Ritardatari", color: teamColor(3) },
+  { teamId: "t-b", tableNo: 7, members: ["b1", "b2", "b3", "b4"], captainId: "b1", name: "Divano Club", color: teamColor(7) },
+  { teamId: "t-c", tableNo: 11, members: ["c1", "c2", "c3"], captainId: "c1", name: "Gruppo Calcetto", color: teamColor(11) },
 ];
 const ME = TEAMS[0];
 const MY_MEMBER = "a1";
@@ -142,7 +143,7 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
 
   if (initial.surface === "phone" || initial.surface === "pc") {
     return (
-      <div className="min-h-dvh bg-[radial-gradient(ellipse_80%_40%_at_50%_0%,rgba(198,255,61,0.08),transparent_70%)]">
+      <div className="min-h-dvh bg-[radial-gradient(ellipse_80%_40%_at_50%_0%,color-mix(in_srgb,var(--tg-gold)_8%,transparent),transparent_70%)]">
         <Player key={key} {...playerProps} />
       </div>
     );
@@ -159,9 +160,9 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
     <div className="flex flex-col gap-6 p-4 md:p-6">
       <header className="flex flex-wrap items-end gap-x-6 gap-y-2">
         <h1 className="tg-display text-5xl">
-          Tavoli in guerra! <span className="text-[#c6ff3d]">minigiochi</span>
+          Taverna dei Pirati <span className="text-(--tg-gold)">minigiochi</span>
         </h1>
-        <p className="text-sm font-semibold text-white/60">
+        <p className="text-sm font-semibold text-(--tg-cream)/60">
           {MECHANICS.length} meccaniche implementate su {catalog.length} · banco di prova con 3 tavoli finti (2, 4 e 3 telefoni) e score() vero
         </p>
       </header>
@@ -200,7 +201,7 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
             </div>
           </Field>
           <Field label={`Tempo trascorso: ${elapsedSec}s / ${def.timerSec}s`}>
-            <input type="range" min={0} max={def.timerSec} value={elapsedSec} onChange={(e) => jump(Number(e.target.value))} className="w-56 accent-[#c6ff3d]" />
+            <input type="range" min={0} max={def.timerSec} value={elapsedSec} onChange={(e) => jump(Number(e.target.value))} className="w-56 accent-(--tg-gold)" />
           </Field>
           <Field label="Telefono">
             <div className="flex gap-1">
@@ -214,11 +215,11 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
           </Field>
           <Btn onClick={() => reset()}>ricomincia</Btn>
         </div>
-        <p className="text-sm font-semibold text-white/70">
-          <b className="text-[#c6ff3d]">Regola:</b> {def.rule} <span className="text-white/40">({def.rule.length}/140)</span> · timer {def.timerSec}s · ingresso {def.input} · un solo telefono: {def.oneDeviceOk ? "sì" : "no"}
+        <p className="text-sm font-semibold text-(--tg-cream)/70">
+          <b className="text-(--tg-gold)">Regola:</b> {def.rule} <span className="text-(--tg-cream)/40">({def.rule.length}/140)</span> · timer {def.timerSec}s · ingresso {def.input} · un solo telefono: {def.oneDeviceOk ? "sì" : "no"}
           {extras.effect ? ` · effetto: ${extras.effect.note}` : ""}
         </p>
-        {lastError && <pre className="overflow-auto rounded-lg bg-[#ff3b4e]/15 p-2 text-xs text-[#ff9aa4]">{lastError}</pre>}
+        {lastError && <pre className="overflow-auto rounded-lg bg-(--tg-red)/15 p-2 text-xs text-(--tg-red-hi)">{lastError}</pre>}
       </section>
 
       <div className="flex flex-wrap items-start gap-6">
@@ -238,9 +239,9 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
       </div>
 
       <section className="tg-glass rounded-2xl p-4">
-        <h2 className="tg-display mb-3 text-3xl">Esito di score() {stage !== "reveal" && <span className="text-base text-white/50">(calcolato ora; i tavoli lo vedono al reveal)</span>}</h2>
+        <h2 className="tg-display mb-3 text-3xl">Esito di score() {stage !== "reveal" && <span className="text-base text-(--tg-cream)/50">(calcolato ora; i tavoli lo vedono al reveal)</span>}</h2>
         <table className="w-full text-left text-sm">
-          <thead className="text-xs uppercase tracking-wide text-white/50">
+          <thead className="text-xs uppercase tracking-wide text-(--tg-cream)/50">
             <tr>
               <th className="py-1">Tavolo</th>
               <th>Punti</th>
@@ -256,7 +257,7 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
               const t = TEAMS.find((x) => x.teamId === o.teamId)!;
               const subs = submissions.filter((s) => s.teamId === o.teamId);
               return (
-                <tr key={o.teamId} className="border-t border-white/10 align-top">
+                <tr key={o.teamId} className="border-t border-(--tg-cream)/10 align-top">
                   <td className="py-1.5 font-bold">
                     {t.tableNo} · {t.name}
                     {t.teamId === ME.teamId ? " (voi)" : ""} · {t.members.length} tel.
@@ -267,7 +268,7 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
                   <td>{o.accuracy === null ? "—" : o.accuracy}</td>
                   <td>{o.label}</td>
                   <td className="max-w-[28rem]">
-                    <code className="break-all text-[11px] text-white/60">{subs.map((s) => `${s.memberId}@${(s.elapsedMs / 1000).toFixed(1)}s ${JSON.stringify(s.payload)}`).join(" | ")}</code>
+                    <code className="break-all text-[11px] text-(--tg-cream)/60">{subs.map((s) => `${s.memberId}@${(s.elapsedMs / 1000).toFixed(1)}s ${JSON.stringify(s.payload)}`).join(" | ")}</code>
                   </td>
                 </tr>
               );
@@ -285,12 +286,12 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
               type="button"
               disabled={c.status !== "implementata"}
               onClick={() => reset({ code: c.code, variant: 0 })}
-              className={clsx("flex items-center gap-2 rounded-lg border px-2 py-1.5 text-left text-sm", c.status === "implementata" ? "border-[#c6ff3d]/50 hover:bg-[#c6ff3d]/10" : "border-white/8 opacity-55")}
+              className={clsx("flex items-center gap-2 rounded-lg border px-2 py-1.5 text-left text-sm", c.status === "implementata" ? "border-(--tg-gold)/50 hover:bg-(--tg-gold)/10" : "border-(--tg-cream)/8 opacity-55")}
               title={`${c.description} · ${c.pointsRule}`}
             >
-              <span className="tg-num w-7 text-white/60">{String(c.number).padStart(2, "0")}</span>
+              <span className="tg-num w-7 text-(--tg-cream)/60">{String(c.number).padStart(2, "0")}</span>
               <span className="min-w-0 flex-1 truncate font-bold">{c.title}</span>
-              <span className={clsx("shrink-0 rounded px-1.5 text-[10px] font-extrabold uppercase", c.status === "implementata" ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-white/10 text-white/60")}>
+              <span className={clsx("shrink-0 rounded px-1.5 text-[10px] font-extrabold uppercase", c.status === "implementata" ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-cream)/10 text-(--tg-cream)/60")}>
                 {c.status === "implementata" ? "pronta" : "da fare"}
               </span>
             </button>
@@ -301,12 +302,12 @@ export function GiochiPreview({ content, catalog, initial }: { content: Record<s
   );
 }
 
-const selectCls = "h-10 rounded-lg border border-white/15 bg-[#12161f] px-2 text-sm font-bold";
+const selectCls = "h-10 rounded-lg border border-(--tg-cream)/15 bg-(--tg-night-2) px-2 text-sm font-bold";
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label className="flex flex-col gap-1">
-      <span className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-white/55">{label}</span>
+      <span className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-cream)/55">{label}</span>
       {children}
     </label>
   );
@@ -314,7 +315,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 
 function Btn({ on = false, onClick, children }: { on?: boolean; onClick: () => void; children: ReactNode }) {
   return (
-    <button type="button" onClick={onClick} className={clsx("h-10 rounded-lg border px-3 text-sm font-extrabold uppercase tracking-wide", on ? "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : "border-white/15 bg-[#12161f] hover:border-[#c6ff3d]")}>
+    <button type="button" onClick={onClick} className={clsx("h-10 rounded-lg border px-3 text-sm font-extrabold uppercase tracking-wide", on ? "border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : "border-(--tg-cream)/15 bg-(--tg-night-2) hover:border-(--tg-gold)")}>
       {children}
     </button>
   );
@@ -324,9 +325,9 @@ function Btn({ on = false, onClick, children }: { on?: boolean; onClick: () => v
 function Surface({ title, w, h, scale, arena = false, children }: { title: string; w: number; h: number; scale: number; arena?: boolean; children: ReactNode }) {
   return (
     <figure className="flex flex-col gap-2">
-      <figcaption className="text-xs font-extrabold uppercase tracking-[0.16em] text-white/55">{title}</figcaption>
-      <div style={{ width: w * scale, height: h * scale }} className="overflow-hidden rounded-xl border border-white/15">
-        <div style={{ width: w, height: h, transform: `scale(${scale})`, transformOrigin: "0 0" }} className={clsx("relative", arena ? "tg-arena-fake" : "bg-[#0b0d12]")}>
+      <figcaption className="text-xs font-extrabold uppercase tracking-[0.16em] text-(--tg-cream)/55">{title}</figcaption>
+      <div style={{ width: w * scale, height: h * scale }} className="overflow-hidden rounded-xl border border-(--tg-cream)/15">
+        <div style={{ width: w, height: h, transform: `scale(${scale})`, transformOrigin: "0 0" }} className={clsx("relative", arena ? "tg-arena-fake" : "bg-(--tg-night)")}>
           {children}
         </div>
       </div>

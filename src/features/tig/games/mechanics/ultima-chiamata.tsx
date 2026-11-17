@@ -86,8 +86,8 @@ function Player(p: P) {
               onClick={() => setTab(i)}
               className={clsx(
                 "flex h-14 flex-col items-center justify-center rounded-xl border-2 leading-none",
-                i === tab ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/12 text-white/75",
-                answers[c.id] && "bg-[#c6ff3d]/10",
+                i === tab ? "border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/12 text-(--tg-cream)/75",
+                answers[c.id] && "bg-(--tg-gold)/10",
                 !o && "border-dashed opacity-60",
               )}
             >
@@ -99,7 +99,7 @@ function Player(p: P) {
       </div>
       {open && call.prompt && call.options ? (
         <Panel className="tg-rise flex flex-col gap-3" key={call.id}>
-          <Eyebrow className="text-[#ffc24a]">
+          <Eyebrow className="text-(--tg-teal-hi)">
             Chiamata {call.n} · {call.kind}
           </Eyebrow>
           <p className="text-xl font-extrabold leading-snug">{call.prompt}</p>
@@ -107,10 +107,10 @@ function Player(p: P) {
         </Panel>
       ) : (
         <Panel className="flex flex-col items-center gap-2 py-10 text-center">
-          <Icon name="clock" className="h-12 w-12 text-[#ffc24a]" />
+          <Icon name="clock" className="h-12 w-12 text-(--tg-teal-hi)" />
           <p className="tg-display text-4xl">Chiamata {call.n} in arrivo</p>
-          <p className="text-base font-bold text-white/75">{call.kind}</p>
-          <p className="tg-num text-6xl text-[#c6ff3d]" aria-live="polite">
+          <p className="text-base font-bold text-(--tg-cream)/75">{call.kind}</p>
+          <p className="tg-num text-6xl text-(--tg-gold)" aria-live="polite">
             {secsTo(call.opensAtMs, elapsed)}
           </p>
         </Panel>
@@ -140,13 +140,13 @@ function Tv(p: T) {
           </div>
           <div className="grid grid-cols-[1fr_1.2fr] gap-[1.2cqw]">
             <TvPanel className="flex flex-col gap-[0.5cqw] p-[1.2cqw]">
-              <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Ordine d&apos;arrivo · spareggio</p>
+              <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Ordine d&apos;arrivo · spareggio</p>
               <ol className="grid grid-cols-2 gap-x-[1cqw] gap-y-[0.35cqw]">
                 {ranking.map((r, i) => (
                   <li key={r.teamId} className="flex min-w-0 items-center gap-[0.5cqw]">
-                    <span className="tg-num w-[1.6cqw] text-[1.3cqw] text-white/60">{i + 1}</span>
+                    <span className="tg-num w-[1.6cqw] text-[1.3cqw] text-(--tg-cream)/60">{i + 1}</span>
                     <TvTeamTag team={map.get(r.teamId)} className="min-w-0 flex-1" />
-                    <span className="tg-num shrink-0 text-[1.3cqw] text-[#c6ff3d]">{r.right}/3</span>
+                    <span className="tg-num shrink-0 text-[1.3cqw] text-(--tg-gold)">{r.right}/3</span>
                   </li>
                 ))}
               </ol>
@@ -165,7 +165,7 @@ function Tv(p: T) {
           const o = isOpen(c, elapsed, playing);
           return (
             <TvPanel key={c.id} tone={o && i === latest && playing ? "lime" : undefined} className={clsx("flex min-h-0 flex-col gap-[0.7cqw]", o && "tg-rise")}>
-              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">
+              <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">
                 Chiamata {c.n} · {c.kind}
               </p>
               {o && c.prompt && c.options ? (
@@ -179,9 +179,9 @@ function Tv(p: T) {
                 </>
               ) : (
                 <div className="flex flex-1 flex-col items-center justify-center gap-[0.6cqw] text-center">
-                  <Icon name="lock" className="h-[4.5cqw] w-[4.5cqw] text-white/50" />
-                  <p className="tg-display text-[2.6cqw] text-white/80">In arrivo</p>
-                  <p className="tg-num text-[4.6cqw] leading-none text-[#c6ff3d]">{secsTo(c.opensAtMs, elapsed)}</p>
+                  <Icon name="lock" className="h-[4.5cqw] w-[4.5cqw] text-(--tg-cream)/50" />
+                  <p className="tg-display text-[2.6cqw] text-(--tg-cream)/80">In arrivo</p>
+                  <p className="tg-num text-[4.6cqw] leading-none text-(--tg-gold)">{secsTo(c.opensAtMs, elapsed)}</p>
                 </div>
               )}
             </TvPanel>

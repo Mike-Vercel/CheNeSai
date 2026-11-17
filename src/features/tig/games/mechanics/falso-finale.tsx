@@ -28,7 +28,7 @@ const CONFETTI = Array.from({ length: 36 }, (_, i) => ({
   delay: (i * 0.29) % 3.6,
   dur: 3.2 + ((i * 7) % 10) / 5,
   dx: `${((i * 13) % 9) - 4}vw`,
-  color: ["#c6ff3d", "#ff3b4e", "#ffc24a", "#6fe7ff", "#b49cff"][i % 5],
+  color: ["var(--tg-gold)", "var(--tg-red-hi)", "var(--tg-teal-hi)", "var(--tg-sky)", "var(--tg-violet)"][i % 5],
 }));
 
 /** La classifica finta: righe nell'ordine scritto (alcuni enigmi dipendono proprio dall'ordine). */
@@ -36,7 +36,7 @@ function BoardTable({ board, tv = false, dim = false }: { board: Board; tv?: boo
   return (
     <table className={clsx("w-full border-separate", tv ? "border-spacing-y-[0.35cqw]" : "border-spacing-y-1", dim && "opacity-90")} aria-label={board.title}>
       <thead>
-        <tr className={clsx("text-left font-extrabold uppercase text-white/55", tv ? "text-[0.95cqw] tracking-[0.18em]" : "text-[11px] tracking-[0.14em]")}>
+        <tr className={clsx("text-left font-extrabold uppercase text-(--tg-cream)/55", tv ? "text-[0.95cqw] tracking-[0.18em]" : "text-[11px] tracking-[0.14em]")}>
           <th className={tv ? "w-[3cqw] px-[0.5cqw]" : "w-8 px-1"}>#</th>
           <th className={tv ? "px-[0.5cqw]" : "px-1"}>Squadra</th>
           {board.noteLabel && <th className={tv ? "px-[0.5cqw]" : "px-1"}>{board.noteLabel}</th>}
@@ -45,11 +45,11 @@ function BoardTable({ board, tv = false, dim = false }: { board: Board; tv?: boo
       </thead>
       <tbody>
         {board.rows.map((r, i) => (
-          <tr key={i} className={clsx("bg-white/[0.05]", tv ? "text-[1.7cqw]" : "text-base", i === 0 && "bg-[#ffc24a]/15")}>
-            <td className={clsx("tg-num rounded-l-[0.6em] text-white/70", tv ? "px-[0.5cqw] py-[0.35cqw]" : "px-1 py-1.5")}>{i + 1}</td>
+          <tr key={i} className={clsx("bg-(--tg-cream)/[0.05]", tv ? "text-[1.7cqw]" : "text-base", i === 0 && "bg-(--tg-teal)/15")}>
+            <td className={clsx("tg-num rounded-l-[0.6em] text-(--tg-cream)/70", tv ? "px-[0.5cqw] py-[0.35cqw]" : "px-1 py-1.5")}>{i + 1}</td>
             <td className={clsx("font-extrabold", tv ? "px-[0.5cqw]" : "px-1")}>{r.name}</td>
-            {board.noteLabel && <td className={clsx("font-bold text-white/75", tv ? "px-[0.5cqw]" : "px-1")}>{r.note ?? ""}</td>}
-            <td className={clsx("tg-num rounded-r-[0.6em] text-right text-[#ffc24a]", tv ? "px-[0.8cqw]" : "px-2")}>{r.pts.toLocaleString("it-IT")}</td>
+            {board.noteLabel && <td className={clsx("font-bold text-(--tg-cream)/75", tv ? "px-[0.5cqw]" : "px-1")}>{r.note ?? ""}</td>}
+            <td className={clsx("tg-num rounded-r-[0.6em] text-right text-(--tg-teal-hi)", tv ? "px-[0.8cqw]" : "px-2")}>{r.pts.toLocaleString("it-IT")}</td>
           </tr>
         ))}
       </tbody>
@@ -87,10 +87,10 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <Panel tone="lime" className="tg-pop flex flex-col items-center gap-2 py-6 text-center">
-          <Icon name="crown" className="h-14 w-14 text-[#ffc24a]" />
+          <Icon name="crown" className="h-14 w-14 text-(--tg-teal-hi)" />
           <p className="tg-display text-5xl">È finita?</p>
-          <p className="max-w-xs text-base font-semibold text-white/80">Guardate la TV: è uscita la «{view.board.title.toLowerCase()}».</p>
-          <p className="tg-num text-5xl text-[#c6ff3d]" aria-live="polite">
+          <p className="max-w-xs text-base font-semibold text-(--tg-cream)/80">Guardate la TV: è uscita la «{view.board.title.toLowerCase()}».</p>
+          <p className="tg-num text-5xl text-(--tg-gold)" aria-live="polite">
             {secsTo(view.fakeMs, elapsed)}
           </p>
         </Panel>
@@ -108,8 +108,8 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={!!picked} pending={pending} error={error} onSubmit={submit} label="Invia" hint="Prova bonus: giusta +100 e rapidità, sbagliata non toglie nulla" />}
     >
       {view.twist && (
-        <div className="tg-pop tg-stripes-red rounded-2xl border-2 border-[#ff3b4e] px-4 py-3">
-          <p className="tg-display text-4xl text-[#ff3b4e]">Falso finale!</p>
+        <div className="tg-pop tg-stripes-red rounded-2xl border-2 border-(--tg-red-hi) px-4 py-3">
+          <p className="tg-display text-4xl text-(--tg-red-hi)">Falso finale!</p>
           <p className="mt-1 text-base font-bold leading-snug">{view.twist}</p>
         </div>
       )}
@@ -144,7 +144,7 @@ function Tv(p: T) {
           ))}
         </div>
         <div className="mx-auto flex h-full w-[62%] flex-col items-center justify-center gap-[1.2cqw]">
-          <p className="tg-display tg-pop flex items-center gap-[1cqw] text-center text-[4cqw] leading-none text-[#ffc24a]">
+          <p className="tg-display tg-pop flex items-center gap-[1cqw] text-center text-[4cqw] leading-none text-(--tg-teal-hi)">
             <Icon name="crown" className="h-[4cqw] w-[4cqw] shrink-0" /> {view.board.title}
           </p>
           <TvPanel className="w-full p-[1.2cqw]">
@@ -160,13 +160,13 @@ function Tv(p: T) {
       <style>{FX}</style>
       <div className="grid h-full grid-cols-[1fr_1.1fr] gap-[1.4cqw]">
         <TvPanel className={clsx("flex min-h-0 flex-col gap-[0.6cqw] p-[1.2cqw]", !done && "tg5-glitch")}>
-          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{view.board.title} (?)</p>
+          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">{view.board.title} (?)</p>
           <BoardTable board={view.board} tv dim />
         </TvPanel>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           {!done && view.twist && (
             <TvPanel tone="red" className="tg-pop tg-stripes-red p-[1.2cqw]">
-              <p className="tg-display text-[3.4cqw] leading-none text-[#ff3b4e]">Falso finale!</p>
+              <p className="tg-display text-[3.4cqw] leading-none text-(--tg-red-hi)">Falso finale!</p>
               <p className="mt-[0.4cqw] text-[1.45cqw] font-bold leading-snug">{view.twist}</p>
             </TvPanel>
           )}

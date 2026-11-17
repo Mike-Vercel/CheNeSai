@@ -23,13 +23,13 @@ function Chip({ text, state, onClick, disabled, tag }: { text: string; state: Ch
       aria-pressed={onClick ? state === "picked" || state === "fake" : undefined}
       className={clsx(
         "flex min-h-11 items-center gap-1.5 rounded-xl border-2 px-3 py-1.5 text-left text-[15px] font-bold leading-tight transition-transform active:scale-[0.98]",
-        state === "idle" && "border-white/12 bg-white/[0.04]",
-        state === "picked" && "tg-picked border-[#c6ff3d]",
-        state === "real" && "border-[#c6ff3d]/60 bg-[#c6ff3d]/10",
-        state === "fake" && "border-[#ff3b4e] bg-[#ff3b4e] text-white",
-        state === "right" && "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]",
-        state === "wrong" && "tg-stripes-red border-[#ff3b4e]",
-        state === "missed" && "border-dashed border-[#c6ff3d] text-white",
+        state === "idle" && "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
+        state === "picked" && "tg-picked border-(--tg-gold)",
+        state === "real" && "border-(--tg-gold)/60 bg-(--tg-gold)/10",
+        state === "fake" && "border-(--tg-red-hi) bg-(--tg-red) text-white",
+        state === "right" && "border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)",
+        state === "wrong" && "tg-stripes-red border-(--tg-red-hi)",
+        state === "missed" && "border-dashed border-(--tg-gold) text-(--tg-cream)",
       )}
     >
       <span>{text}</span>
@@ -89,12 +89,12 @@ function Player(p: P) {
         <Panel className="flex flex-col gap-1.5 text-base font-bold">
           {out && (
             <p>
-              La vostra bugia al tavolo {table.get(out.to)}: {out.part === null ? "non valida" : <>«{out.fake}» · <span className={out.believed ? "text-[#c6ff3d]" : "text-white/70"}>{out.believed ? "creduta, +40" : out.believed === false ? "scartata" : "nessuna risposta"}</span></>}
+              La vostra bugia al tavolo {table.get(out.to)}: {out.part === null ? "non valida" : <>«{out.fake}» · <span className={out.believed ? "text-(--tg-gold)" : "text-(--tg-cream)/70"}>{out.believed ? "creduta, +40" : out.believed === false ? "scartata" : "nessuna risposta"}</span></>}
             </p>
           )}
           {inc && inc.part !== null && (
             <p>
-              Il tavolo {table.get(inc.from)} vi ha teso una bugia: «{inc.fake}» · <span className={inc.believed ? "text-[#ff8c97]" : "text-[#c6ff3d]"}>{inc.believed ? "ci siete cascati" : "l'avete scansata"}</span>
+              Il tavolo {table.get(inc.from)} vi ha teso una bugia: «{inc.fake}» · <span className={inc.believed ? "text-(--tg-red-hi)" : "text-(--tg-gold)"}>{inc.believed ? "ci siete cascati" : "l'avete scansata"}</span>
             </p>
           )}
         </Panel>
@@ -113,7 +113,7 @@ function Player(p: P) {
                 </div>
               </div>
             ))}
-            <p className="text-sm font-semibold text-white/80">{mine.why}</p>
+            <p className="text-sm font-semibold text-(--tg-cream)/80">{mine.why}</p>
           </Panel>
         )}
         <Explain text={reveal.explain} />
@@ -129,11 +129,11 @@ function Player(p: P) {
     >
       {mv.tellsTo && lieRow && (
         <Panel tone="red" className="flex flex-col gap-3">
-          <Eyebrow className="flex items-center gap-2 text-[#ff8c97]">
+          <Eyebrow className="flex items-center gap-2 text-(--tg-red-hi)">
             <Icon name="eye" className="h-4 w-4" /> 1 · La bugia per il tavolo {mv.tellsTo.tableNo}: voi conoscete la verità
           </Eyebrow>
           <CaseHead c={mv.tellsTo.case} />
-          <p className="text-sm font-semibold text-white/75">Cambiate UN pezzo con il falso più credibile: se il tavolo {mv.tellsTo.tableNo} sceglie proprio quello, +{view.payoff.creduta} a voi.</p>
+          <p className="text-sm font-semibold text-(--tg-cream)/75">Cambiate UN pezzo con il falso più credibile: se il tavolo {mv.tellsTo.tableNo} sceglie proprio quello, +{view.payoff.creduta} a voi.</p>
           {mv.tellsTo.case.parts.map((part, j) => (
             <div key={part.id} className="flex flex-col gap-1.5">
               <Eyebrow>{part.label}</Eyebrow>
@@ -184,11 +184,11 @@ function Tv(p: T) {
                     <p className="tg-display text-[1.6cqw] leading-none">{c.title}</p>
                     {c.parts.map((part, j) => (
                       <p key={part.id} className="text-[1.4cqw] font-bold leading-snug">
-                        <span className="text-white/55">{part.label}: </span>
-                        <span className="text-[#c6ff3d]">{part.options.find((o) => o.id === c.real[j])?.text}</span>
+                        <span className="text-(--tg-cream)/55">{part.label}: </span>
+                        <span className="text-(--tg-gold)">{part.options.find((o) => o.id === c.real[j])?.text}</span>
                       </p>
                     ))}
-                    <p className="mt-auto text-[1.1cqw] font-semibold leading-snug text-white/80">{c.why}</p>
+                    <p className="mt-auto text-[1.1cqw] font-semibold leading-snug text-(--tg-cream)/80">{c.why}</p>
                   </TvPanel>
                 ))}
               </div>
@@ -199,16 +199,16 @@ function Tv(p: T) {
               <p className="tg-display text-[2.6cqw]">Verità o bugia, un pezzo alla volta</p>
               <ol className="flex flex-col gap-[0.9cqw] text-[1.6cqw] font-bold leading-snug">
                 <li className="flex gap-[0.8cqw]">
-                  <span className="tg-num text-[#c6ff3d]">1</span> Ogni tavolo ha un caso: chi, dove, quando… tre pezzi, tre opzioni ciascuno.
+                  <span className="tg-num text-(--tg-gold)">1</span> Ogni tavolo ha un caso: chi, dove, quando… tre pezzi, tre opzioni ciascuno.
                 </li>
                 <li className="flex gap-[0.8cqw]">
-                  <span className="tg-num text-[#c6ff3d]">2</span> Ricostruite la verità dai fatti: {view.payoff.pezzo} punti a pezzo, {view.payoff.tutto} se sono giusti tutti e tre.
+                  <span className="tg-num text-(--tg-gold)">2</span> Ricostruite la verità dai fatti: {view.payoff.pezzo} punti a pezzo, {view.payoff.tutto} se sono giusti tutti e tre.
                 </li>
                 <li className="flex gap-[0.8cqw]">
-                  <span className="tg-num text-[#ff3b4e]">3</span> Conoscete la verità del caso del tavolo dopo: cambiatene un pezzo. Se ci cascano, +{view.payoff.creduta} a voi.
+                  <span className="tg-num text-(--tg-red-hi)">3</span> Conoscete la verità del caso del tavolo dopo: cambiatene un pezzo. Se ci cascano, +{view.payoff.creduta} a voi.
                 </li>
               </ol>
-              <p className="text-[1.25cqw] font-semibold text-white/65">Niente testo libero: le bugie si compongono solo con le opzioni del gioco, sui casi inventati.</p>
+              <p className="text-[1.25cqw] font-semibold text-(--tg-cream)/65">Niente testo libero: le bugie si compongono solo con le opzioni del gioco, sui casi inventati.</p>
             </TvPanel>
           )}
         </div>
@@ -219,8 +219,8 @@ function Tv(p: T) {
             arrow={(from) => {
               const l = links.get(from);
               if (!l) return null;
-              if (l.part === null) return { color: "rgba(238,242,246,0.45)", text: "NESSUNA", dashed: true };
-              return l.believed ? { color: "#ff3b4e", text: "CREDUTA" } : { color: "#c6ff3d", text: "SCARTATA", dashed: true };
+              if (l.part === null) return { color: "color-mix(in srgb, var(--tg-cream) 45%, transparent)", text: "NESSUNA", dashed: true };
+              return l.believed ? { color: "var(--tg-red-hi)", text: "CREDUTA" } : { color: "var(--tg-gold)", text: "SCARTATA", dashed: true };
             }}
             label="Chi prepara la bugia per chi"
           />

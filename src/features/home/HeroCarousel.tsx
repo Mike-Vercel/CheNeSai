@@ -31,7 +31,8 @@ const ACCENT = {
   gold: { vars: {}, btn: "bg-gold text-ink hover:bg-[#ffe066]", glow: "shadow-[0_30px_80px_-30px_rgba(131,43,255,0.55)]", dot: "bg-gold" },
   red: { vars: { "--cta-edge": "#7a0a10", "--cta-glow": "rgba(224,22,31,0.5)", "--cta-halo": "rgba(255,60,70,0.9)" }, btn: "bg-[#e0161f] text-white hover:bg-[#ff2a33]", glow: "shadow-[0_30px_80px_-30px_rgba(224,22,31,0.6)]", dot: "bg-[#e0161f]" },
   green: { vars: { "--cta-edge": "#178a06", "--cta-glow": "rgba(57,255,20,0.45)", "--cta-halo": "rgba(120,255,90,0.9)" }, btn: "bg-[#39ff14] text-[#06210a] hover:bg-[#7dff63]", glow: "shadow-[0_30px_80px_-30px_rgba(57,255,20,0.5)]", dot: "bg-[#39ff14]" },
-  amber: { vars: { "--cta-edge": "#8a4b00", "--cta-glow": "rgba(255,176,32,0.5)", "--cta-halo": "rgba(255,209,92,0.9)" }, btn: "bg-[#ffb020] text-[#1d0a00] hover:bg-[#ffc54d]", glow: "shadow-[0_30px_80px_-30px_rgba(255,45,61,0.6)]", dot: "bg-[#ffb020]" },
+  // TAVERNA DEI PIRATI: oro dei dobloni con l'inchiostro scuro, bagliore delle lanterne
+  amber: { vars: { "--cta-edge": "#7a4e10", "--cta-glow": "rgba(242,177,52,0.5)", "--cta-halo": "rgba(255,213,107,0.9)" }, btn: "bg-[#f2b134] text-[#1b1410] hover:bg-[#ffd56b]", glow: "shadow-[0_30px_80px_-30px_rgba(242,177,52,0.55)]", dot: "bg-[#f2b134]" },
 } as const;
 
 function PlayIcon({ className }: { className?: string }) {

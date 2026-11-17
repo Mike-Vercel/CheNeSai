@@ -64,11 +64,11 @@ function Ladder({ view, shown, elapsed, tv = false, done = false }: { view: Pixe
             className={clsx(
               "flex flex-col items-center border-2 text-center",
               tv ? "rounded-[0.9cqw] px-[0.6cqw] py-[0.5cqw]" : "rounded-xl px-1 py-1.5",
-              now ? "tg-glass-lime border-[#c6ff3d] bg-[#c6ff3d]/10" : open ? "border-white/15 bg-white/[0.04]" : "border-dashed border-white/12",
+              now ? "tg-glass-lime border-(--tg-gold) bg-(--tg-gold)/10" : open ? "border-(--tg-cream)/15 bg-(--tg-cream)/[0.04]" : "border-dashed border-(--tg-cream)/12",
             )}
           >
-            <span className={clsx("tg-num leading-none", tv ? "text-[2.4cqw]" : "text-2xl", now ? "text-[#c6ff3d]" : open ? "text-white/70" : "text-white/35")}>{cluePoints(i)}</span>
-            <span className={clsx("font-extrabold uppercase tracking-wide", tv ? "text-[0.8cqw]" : "text-[10px]", open ? "text-white/60" : "text-white/35")}>
+            <span className={clsx("tg-num leading-none", tv ? "text-[2.4cqw]" : "text-2xl", now ? "text-(--tg-gold)" : open ? "text-(--tg-cream)/70" : "text-(--tg-cream)/35")}>{cluePoints(i)}</span>
+            <span className={clsx("font-extrabold uppercase tracking-wide", tv ? "text-[0.8cqw]" : "text-[10px]", open ? "text-(--tg-cream)/60" : "text-(--tg-cream)/35")}>
               {open ? `${view.levels[i]?.cols ?? ""}×${view.levels[i]?.rows ?? ""}` : `tra ${inSec} s`}
             </span>
           </li>
@@ -101,7 +101,7 @@ function Player(p: P) {
           {reveal.levels.map((l, i) => (
             <figure key={i} className="flex flex-col gap-1">
               <PixelCanvas level={l} className="aspect-video w-full rounded-lg" />
-              <figcaption className="text-center text-xs font-extrabold text-white/60">
+              <figcaption className="text-center text-xs font-extrabold text-(--tg-cream)/60">
                 {cluePoints(i)} punti · {l.cols}×{l.rows}
               </figcaption>
             </figure>
@@ -140,7 +140,7 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1.45fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2cqw] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
               {done ? (
                 <ArtSvg art={reveal.art} label={reveal.alt} className="tg1-sharpen block h-full w-full" />
               ) : (
@@ -153,7 +153,7 @@ function Tv(p: T) {
         </div>
         <TvPanel className="flex flex-col justify-center gap-[0.9cqw]">
           <p className="flex items-center gap-[0.6cqw] text-[1.9cqw] font-extrabold leading-tight">
-            <Icon name="eye" className="h-[2.2cqw] w-[2.2cqw] text-[#c6ff3d]" /> Cosa c&apos;è nella foto?
+            <Icon name="eye" className="h-[2.2cqw] w-[2.2cqw] text-(--tg-gold)" /> Cosa c&apos;è nella foto?
           </p>
           {view.options.map((o, i) => (
             <TvOption key={o.id} index={i} text={o.text} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />

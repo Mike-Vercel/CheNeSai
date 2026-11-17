@@ -14,10 +14,10 @@ type T = TvGameProps<AstaView, AstaReveal>;
 function Envelope({ worth, tv = false }: { worth: number | null; tv?: boolean }) {
   return (
     <div className={clsx("relative mx-auto aspect-[1.55] w-full", tv ? "max-w-[30cqw]" : "max-w-[260px]")} aria-label={worth === null ? "Busta chiusa" : `Busta aperta: ${worth} punti`}>
-      <div className="absolute inset-0 rounded-[8%] border-2 border-[#c6ff3d]/60 bg-gradient-to-br from-[#1f2733] to-[#11161f]" />
-      <div className={clsx("absolute inset-x-0 top-0 h-[55%] origin-top border-b-2 border-[#c6ff3d]/40 transition-transform duration-700", worth !== null && "opacity-0 [transform:rotateX(90deg)]")} style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)", background: "#273041" }} />
+      <div className="absolute inset-0 rounded-[8%] border-2 border-(--tg-gold)/60 bg-gradient-to-br from-(--tg-raised) to-(--tg-night-2)" />
+      <div className={clsx("absolute inset-x-0 top-0 h-[55%] origin-top border-b-2 border-(--tg-gold)/40 transition-transform duration-700", worth !== null && "opacity-0 [transform:rotateX(90deg)]")} style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)", background: "var(--tg-raised-2)" }} />
       <div className="absolute inset-0 grid place-items-center">
-        <span className={clsx("tg-num leading-none", tv ? "text-[7cqw]" : "text-6xl", worth === null ? "text-white/25" : "tg-pop text-[#c6ff3d]")}>{worth === null ? "?" : worth}</span>
+        <span className={clsx("tg-num leading-none", tv ? "text-[7cqw]" : "text-6xl", worth === null ? "text-(--tg-cream)/25" : "tg-pop text-(--tg-gold)")}>{worth === null ? "?" : worth}</span>
       </div>
     </div>
   );
@@ -58,7 +58,7 @@ function Player(p: P) {
         <ul className="flex flex-col gap-1.5">
           {view.hints.map((h, i) => (
             <li key={i} className="flex gap-2 text-base font-bold leading-snug">
-              <span className="tg-num text-[#c6ff3d]">{i + 1}</span> {h}
+              <span className="tg-num text-(--tg-gold)">{i + 1}</span> {h}
             </li>
           ))}
         </ul>
@@ -81,15 +81,15 @@ function Tv(p: T) {
         <TvPanel tone={done ? "lime" : undefined} className="flex flex-col items-center justify-center gap-[1.2cqw]">
           <p className="tg-display text-[3cqw]">{view.lot}</p>
           <Envelope worth={done ? reveal.worth : null} tv />
-          {done && <p className="text-[1.6cqw] font-extrabold text-white/80">La busta valeva {reveal.worth} punti</p>}
+          {done && <p className="text-[1.6cqw] font-extrabold text-(--tg-cream)/80">La busta valeva {reveal.worth} punti</p>}
         </TvPanel>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           {!done ? (
             <TvPanel className="flex flex-col gap-[0.9cqw]">
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Indizi sul valore</p>
+              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Indizi sul valore</p>
               {view.hints.map((h, i) => (
                 <p key={i} className="tg-rise text-[2cqw] font-bold leading-snug" style={{ animationDelay: `${i * 150}ms` }}>
-                  <span className="tg-num mr-[0.8cqw] text-[#c6ff3d]">{i + 1}</span>
+                  <span className="tg-num mr-[0.8cqw] text-(--tg-gold)">{i + 1}</span>
                   {h}
                 </p>
               ))}
@@ -100,8 +100,8 @@ function Tv(p: T) {
                 {bids.map((b, i) => {
                   const win = reveal.summary?.winner === b.teamId;
                   return (
-                    <div key={b.teamId} className={clsx("tg-rise flex items-center gap-[1cqw] rounded-[0.8cqw] px-[1cqw] py-[0.4cqw]", win ? "tg-shine bg-[#c6ff3d] text-[#0b0d12]" : "bg-white/[0.05]")} style={{ animationDelay: `${i * 100}ms` }}>
-                      <span className="tg-num grid h-[2.8cqw] w-[2.8cqw] place-items-center rounded-[0.6cqw] text-[1.6cqw] text-[#0b0d12]" style={{ background: team.get(b.teamId)?.color }}>
+                    <div key={b.teamId} className={clsx("tg-rise flex items-center gap-[1cqw] rounded-[0.8cqw] px-[1cqw] py-[0.4cqw]", win ? "tg-shine bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-cream)/[0.05]")} style={{ animationDelay: `${i * 100}ms` }}>
+                      <span className="tg-num grid h-[2.8cqw] w-[2.8cqw] place-items-center rounded-[0.6cqw] text-[1.6cqw] text-(--tg-ink)" style={{ background: team.get(b.teamId)?.color }}>
                         {team.get(b.teamId)?.tableNo}
                       </span>
                       <span className="min-w-0 flex-1 truncate text-[1.5cqw] font-extrabold">{team.get(b.teamId)?.name}</span>

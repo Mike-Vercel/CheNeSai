@@ -8,7 +8,8 @@ import type { LobbyTable, PublicTeam, TigPublicState } from "@/lib/tig/types";
 import { arenaHostsFor, arenaPhase, arenaTeams, arenaTitle } from "../arena-map";
 import { MECHANIC_UIS } from "../games/index";
 import type { GameStage as UiStage } from "../games/ui-contract";
-import { Countdown, Leaderboard, Logo, PausedBanner, QrCode, useSecondsLeft } from "../ui";
+import { teamColor } from "@/lib/tig/rules";
+import { Countdown, CrewFlag, Doubloon, GAME_NAME, Leaderboard, Logo, PausedBanner, QrCode, SkullMark, useSecondsLeft, WaxSeal } from "../ui";
 import { useTick, useTig } from "../use-tig";
 import { useTigMusic } from "../music";
 import { getTigVoice, useSpeech, useTigShowAudio } from "../voice";
@@ -47,7 +48,8 @@ export function TvApp({ displayKey, live }: { displayKey: string; live: boolean 
   return <TvShow state={state} lobby={lobby} live={live} now={now} quality={quality} speech={speech} unlocked={unlocked} />;
 }
 
-function TvShow({
+/** Lo show sulla TV a partire da uno stato (esportato anche per il banco di prova /preview/tig/schermate). */
+export function TvShow({
   state,
   lobby,
   live,
@@ -84,14 +86,14 @@ function TvShow({
     (st === "LEADERBOARD" && state.hideScores);
   const qrLobby = lobbyState && state.accessMode === "qr" && !live && !!lobby;
   const led = lobbyState
-    ? { title: "TAVOLI IN GUERRA!", subtitle: st === "DRAFT" ? "La lobby apre tra poco" : qrLobby ? "Scansiona il QR del tuo tavolo" : "Chiedi allo staff il codice della squadra" }
+    ? { title: GAME_NAME, subtitle: st === "DRAFT" ? "La lobby apre tra poco" : qrLobby ? "Scansiona il QR del tuo tavolo" : "Chiedi allo staff il codice della squadra" }
     : st === "GAME_ACTIVE" && state.game?.kind === "regular"
       ? { title, subtitle: state.manche ? `Prova ${state.game.slotNo} di ${state.manche.gamesTotal}` : `Prova ${state.game.slotNo}` }
       : { title, subtitle };
   // inizio della fase sull'orologio del server: podio 3D e classifica finale dell'HUD si svelano insieme
   const phaseStartedAt = state.state === "COMPLETED" ? 0 : !paused && state.timer?.startedAt ? Date.parse(state.timer.startedAt) : null;
   return (
-    <div className="fixed inset-0 overflow-hidden bg-[#06070c]">
+    <div className="fixed inset-0 overflow-hidden bg-[#07131a]">
       <TigArena
         phase={phase}
         teams={(lobbyPhase && !live) || state.hideScores ? [] : teams}
@@ -118,9 +120,9 @@ function TvShow({
         <TopStrip state={state} live={live} />
         <div className="relative flex min-h-0 flex-1 items-center justify-center px-[3vmin] pb-[17vmin]">
           {closed ? (
-            <div className="tig-panel flex flex-col items-center gap-3 rounded-3xl px-[6vmin] py-[4vmin] text-center" role="alert">
+            <div className="tg-parch flex flex-col items-center gap-3 px-[6vmin] py-[4vmin] text-center" role="alert">
               <Logo size="lg" />
-              <p className="tig-display text-[7vmin]">Serata chiusa</p>
+              <p className="tig-title text-[8vmin] text-[#1b1410]">Serata chiusa</p>
             </div>
           ) : paused ? (
             <PausedBanner big />
@@ -147,7 +149,7 @@ function TvShow({
       </div>
       <Captions speech={speech} />
       {!unlocked && (
-        <button type="button" className="tig-chip tig-pulse absolute right-[2vmin] top-[9vmin] z-30 !border-[#ffb020]/70 !px-4 !py-2 !text-base" onClick={() => void getSoundEngine().unlock()}>
+        <button type="button" className="tig-chip tig-pulse absolute right-[2vmin] top-[9vmin] z-30 !border-[#f2b134] !px-4 !py-2 !text-base" onClick={() => void getSoundEngine().unlock()}>
           🔊 Tocca per attivare voce e musica
         </button>
       )}
@@ -158,29 +160,30 @@ function TvShow({
 function TopStrip({ state, live }: { state: TigPublicState; live: boolean }) {
   return (
     <div className="relative z-20 flex items-center gap-[1.5vmin] px-[2vmin] pt-[1.6vmin]">
-      <Logo size="sm" className="[&_.tig-logo]:!text-[3.2vmin]" />
-      <span className="tig-chip !text-[1.6vmin]">{state.venue}</span>
+      <Logo size="sm" className="[&_.tig-logo]:!text-[3.6vmin]" />
+      <span className="tig-chip !text-[1.7vmin]">{state.venue}</span>
       {state.manche && !["FINAL", "AWARDS", "COMPLETED"].includes(state.state) && (
-        <span className="tig-chip !border-[#ffb020]/50 !text-[1.6vmin] !text-[#ffd15c]">
+        <span className="tig-chip !border-[#f2b134]/80 !text-[1.7vmin] !text-[#ffd56b]">
           MANCHE {state.manche.no} · {state.manche.title}
           {state.manche.gameIndex > 0 ? ` · PROVA ${Math.min(state.manche.gameIndex, state.manche.gamesTotal)}/${state.manche.gamesTotal}` : ""}
         </span>
       )}
       {state.game && state.state === "GAME_ACTIVE" && state.game.kind !== "regular" && (
-        <span className="tig-chip tig-pulse !border-[#ff2d3d]/70 !text-[1.7vmin] !text-[#ffb3ba]">{state.game.kind === "caos" ? "⚡ DUELLO DEL CAOS · +50 A CHI VINCE" : "⚖ SPAREGGIO · 45 SECONDI"}</span>
+        <span className="tig-chip tig-pulse !border-[#e0483f] !bg-[#2a0806]/90 !text-[1.8vmin] !text-[#ffb3a7]">{state.game.kind === "caos" ? "⚡ DUELLO DEL CAOS · +50 A CHI VINCE" : "⚖ SPAREGGIO · 45 SECONDI"}</span>
       )}
       <span className="flex-1" />
-      {!live && (state.state === "LOBBY_OPEN" || state.lateJoin) && <span className="tig-chip !text-[1.5vmin]">Ingresso aperto</span>}
+      {!live && (state.state === "LOBBY_OPEN" || state.lateJoin) && <span className="tig-chip !border-[#1fb5a8] !text-[1.6vmin] !text-[#b5f0e8]">Ingresso aperto</span>}
     </div>
   );
 }
 
+/** Sottotitoli dei presentatori: targa di legno scuro col filo d'ottone, nome in oro. */
 function Captions({ speech }: { speech: ReturnType<typeof useSpeech> }) {
   if (!speech.caption) return null;
   return (
     <div className="pointer-events-none absolute inset-x-0 bottom-[1.5vmin] z-30 flex justify-center px-[4vmin]" aria-live="polite">
-      <p className="tig-rise max-w-[86vw] rounded-2xl bg-black/80 px-[2.4vmin] py-[1.2vmin] text-center text-[clamp(1rem,2.9vmin,2.4rem)] font-bold leading-snug shadow-2xl ring-1 ring-white/10">
-        <span className="mr-2 font-black uppercase tracking-wider text-[#ffb020]">{speech.name}:</span>
+      <p className="tig-rise max-w-[86vw] rounded-xl border border-[#c9a24a]/55 bg-[linear-gradient(180deg,rgba(26,16,9,.92),rgba(7,19,26,.92))] px-[2.4vmin] py-[1.2vmin] text-center text-[clamp(1rem,2.9vmin,2.4rem)] font-bold leading-snug text-[#f6ead2] shadow-[0_18px_40px_-12px_rgba(0,0,0,.9),inset_0_1px_0_rgba(255,228,160,.12)]">
+        <span className="tig-display mr-2 font-black tracking-wider text-[#ffd56b]">{speech.name}:</span>
         {speech.caption}
       </p>
     </div>
@@ -196,27 +199,31 @@ function LobbyHud({ state, lobby, live }: { state: TigPublicState; lobby: LobbyT
   // il titolo e l'istruzione sono sullo schermo LED: qui solo i QR, in basso, al massimo due righe
   const n = lobby?.length ?? 0;
   const cols = n <= 6 ? Math.max(3, n) : n <= 12 ? 6 : Math.ceil(n / 2); // fino a 24 tavoli: al massimo 2 righe
-  const qrSize = n <= 6 ? "max-w-[19vmin]" : n <= 12 ? "max-w-[13vmin]" : "max-w-[9vmin]";
+  // la riga del codice sotto il QR (Grenze è più largo del vecchio carattere): con 7–12 tavoli il QR cala di un soffio
+  const qrSize = n <= 6 ? "max-w-[19vmin]" : n <= 12 ? "max-w-[11.5vmin]" : "max-w-[9vmin]";
   return (
     <div className="flex h-full w-full flex-col items-center justify-end gap-[2vmin]">
       {qr && (
         <div className="grid w-[min(94vw,170vmin)] gap-[1.4vmin]" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
           {lobby!.map((t) => (
-            <div key={t.tableNo} className={clsx("tig-panel flex flex-col items-center gap-[0.6vmin] rounded-2xl p-[1vmin]", t.approved && "tig-panel-hot")}>
-              <div className="flex w-full items-center justify-between">
-                <span className="tig-display text-[3vmin]">TAVOLO {t.tableNo}</span>
-                <span className="font-mono text-[1.7vmin] font-bold tracking-[0.2em] text-white/70">{t.code}</span>
+            // una «taglia» di pergamena per tavolo: bandiera e numero, QR, codice, nome della ciurma (sigillo quando è convalidata)
+            <div key={t.tableNo} className={clsx("tg-parch relative flex flex-col items-center gap-[0.5vmin] p-[1vmin]", t.approved && "shadow-[inset_0_0_0_0.3vmin_rgba(160,106,20,.85),inset_0_0_2vmin_rgba(110,62,20,.5),0_0_3vmin_-0.6vmin_rgba(242,177,52,.7)]")}>
+              <div className="flex w-full min-w-0 items-center justify-center gap-[0.6vmin]">
+                <CrewFlag color={teamColor(t.tableNo)} n={t.tableNo} className={clsx("shrink-0", n <= 6 ? "h-[3.6vmin] w-[4.8vmin]" : "h-[3vmin] w-[4vmin]")} />
+                <span className={clsx("tig-display truncate font-black text-[#1b1410]", n <= 6 ? "text-[2.8vmin]" : "text-[2.3vmin]")}>TAVOLO {t.tableNo}</span>
               </div>
               <QrCode text={`${origin}/tavoli-in-guerra/t/${t.token}`} className={clsx("w-full", qrSize)} label={`QR del tavolo ${t.tableNo}`} />
-              <span className="w-full truncate text-center text-[1.8vmin] font-extrabold text-white/85">{t.teamName ?? (t.members ? "In attesa di convalida" : "Libero")}</span>
+              <span className="font-mono text-[1.8vmin] font-bold tracking-[0.2em] text-[#4a3420]">{t.code}</span>
+              <span className="w-full truncate text-center text-[1.8vmin] font-extrabold text-[#2b1d12]">{t.teamName ?? (t.members ? "In attesa di convalida" : "Libero")}</span>
+              {t.approved && <WaxSeal mark="check" className="absolute -right-[1vmin] -top-[1.2vmin] h-[4.4vmin] w-[4.4vmin] drop-shadow-[0_0.3vmin_0.4vmin_rgba(0,0,0,.45)]" />}
             </div>
           ))}
         </div>
       )}
       {!qr && <TeamsWall teams={state.teams} pending={state.pendingTeams} />}
       {!live && (
-        <p className="text-[2vmin] font-bold text-white/60">
-          Oppure: <span className="font-black text-white">{origin.replace(/^https?:\/\//, "")}/tavoli-in-guerra/entra</span> · {state.teams.length} tavoli convalidati
+        <p className="rounded-full bg-[#07131a]/75 px-[2vmin] py-[0.5vmin] text-[2vmin] font-bold text-[#f6ead2]/80">
+          Oppure: <span className="font-black text-[#ffd56b]">{origin.replace(/^https?:\/\//, "")}/tavoli-in-guerra/entra</span> · {state.teams.length} tavoli convalidati
           {state.pendingTeams ? ` · ${state.pendingTeams} in attesa` : ""}
         </p>
       )}
@@ -229,13 +236,13 @@ function TeamsWall({ teams, pending }: { teams: PublicTeam[]; pending: number })
     <div className="flex flex-col items-center gap-[1.6vmin]">
       <div className="flex max-w-[90vw] flex-wrap justify-center gap-[1.2vmin]">
         {teams.map((t) => (
-          <div key={t.teamId} className="tig-panel tig-pop flex items-center gap-[1vmin] rounded-2xl px-[1.6vmin] py-[1vmin]" style={{ boxShadow: `inset 0 -4px 0 ${t.color}` }}>
-            <span className="tig-display text-[2.6vmin] text-white/70">T{t.tableNo}</span>
+          <div key={t.teamId} className="tig-panel tig-pop flex items-center gap-[1vmin] rounded-xl py-[0.8vmin] pl-[1vmin] pr-[1.8vmin]">
+            <CrewFlag color={t.color} n={t.tableNo} className="h-[4vmin] w-[5.2vmin] shrink-0" />
             <span className="text-[2.6vmin] font-extrabold">{t.name}</span>
           </div>
         ))}
       </div>
-      {pending > 0 && <p className="text-[2vmin] font-bold text-white/55">{pending} tavoli in attesa di convalida</p>}
+      {pending > 0 && <p className="text-[2vmin] font-bold text-[#f6ead2]/70">{pending} tavoli in attesa di convalida</p>}
     </div>
   );
 }
@@ -249,11 +256,11 @@ function IntroHud({ state, now }: { state: TigPublicState; now: () => number }) 
     <div className="flex h-full w-full items-end justify-center gap-[1.6vmin]">
       <ol className="flex gap-[1.2vmin]">
         {state.plan.map((p) => (
-          <li key={p.mancheNo} className="tig-panel tig-rise flex w-[19vmin] items-center gap-[1vmin] rounded-2xl px-[1.2vmin] py-[0.9vmin] text-left" style={{ animationDelay: `${p.mancheNo * 0.15}s` }}>
-            <span className="tig-display text-[4.2vmin] leading-none text-[#ffb020]">{p.mancheNo}</span>
+          <li key={p.mancheNo} className="tig-panel tig-rise flex w-[24vmin] items-center gap-[1vmin] rounded-xl px-[1vmin] py-[0.9vmin] text-left" style={{ animationDelay: `${p.mancheNo * 0.15}s` }}>
+            <Doubloon className="h-[5vmin] w-[5vmin] text-[2.8vmin]">{p.mancheNo}</Doubloon>
             <span className="flex min-w-0 flex-col">
-              <span className="tig-display truncate text-[2vmin] leading-tight">{p.title}</span>
-              <span className="text-[1.5vmin] font-bold text-white/60">
+              <span className="tig-display line-clamp-2 pt-[0.2vmin] text-[1.9vmin] leading-[1.05]">{p.title}</span>
+              <span className="text-[1.5vmin] font-bold text-[#f6ead2]/75">
                 {p.games} prove · {p.minutes}′
               </span>
             </span>
@@ -285,15 +292,15 @@ function DuelNames({ state }: { state: TigPublicState }) {
   const [a, b] = (state.game?.participants ?? []).map((id) => state.teams.find((t) => t.teamId === id));
   const side = (t: PublicTeam | undefined) =>
     t ? (
-      <span className="tig-panel flex items-center gap-[1vmin] rounded-2xl px-[1.6vmin] py-[0.8vmin]" style={{ boxShadow: `inset 0 -4px 0 ${t.color}` }}>
-        <span className="tig-display text-[3vmin]">T{t.tableNo}</span>
-        <span className="max-w-[30vmin] truncate text-[2.4vmin] font-extrabold text-white/85">{t.name}</span>
+      <span className="tig-panel flex items-center gap-[1vmin] rounded-xl py-[0.8vmin] pl-[1vmin] pr-[1.8vmin]">
+        <CrewFlag color={t.color} n={t.tableNo} className="h-[4.4vmin] w-[5.8vmin] shrink-0" />
+        <span className="max-w-[30vmin] truncate text-[2.4vmin] font-extrabold text-[#f6ead2]">{t.name}</span>
       </span>
     ) : null;
   return (
     <div className="flex items-center gap-[2vmin]">
       {side(a)}
-      <span className="tig-display text-[4vmin] text-[#ff2d3d]">VS</span>
+      <span className="tig-display text-[4.4vmin] font-black text-[#ff7b6b] drop-shadow-[0_0.3vmin_0_#2a0806]">VS</span>
       {side(b)}
     </div>
   );
@@ -311,13 +318,14 @@ function GameHud({ state, now }: { state: TigPublicState; now: () => number }) {
         {caos ? (
           <>
             <DuelNames state={state} />
-            <p className="tig-panel rounded-3xl px-[3vmin] py-[1.4vmin] text-[3vmin] font-bold">Duello identico di 45 secondi · chi vince prende +50</p>
+            <p className="tg-parch px-[3vmin] py-[1.4vmin] text-[3vmin] font-bold text-[#1b1410]">Duello identico di 45 secondi · chi vince prende +50</p>
           </>
         ) : (
           <>
             {g.kind === "tiebreak" && <p className="tig-chip !text-[2vmin]">SPAREGGIO · 45 SECONDI</p>}
-            <p className="tig-panel max-w-[72vw] rounded-3xl px-[3vmin] py-[1.6vmin] text-[3.4vmin] font-bold">{g.rule}</p>
-            {g.betEnabled && <p className="text-[2.6vmin] font-extrabold text-[#ffd15c]">Puntata finale aperta: fino al 25% del saldo, mai oltre 250</p>}
+            {/* la regola come un foglio di pergamena: inchiostro scuro, grande, leggibile da lontano */}
+            <p className="tg-parch max-w-[72vw] px-[3.4vmin] py-[1.8vmin] text-[3.4vmin] font-bold leading-snug text-[#1b1410]">{g.rule}</p>
+            {g.betEnabled && <p className="rounded-full bg-[#07131a]/80 px-[2vmin] py-[0.4vmin] text-[2.6vmin] font-extrabold text-[#ffd56b]">Puntata finale aperta: fino al 25% del saldo, mai oltre 250</p>}
           </>
         )}
         </div>
@@ -340,7 +348,7 @@ function GameHud({ state, now }: { state: TigPublicState; now: () => number }) {
   if (ui) return <GameStage>{<ui.Tv view={g.view} stage={stage} deadlineAt={Date.parse(g.deadlineAt)} now={now} teams={tvTeams} reveal={null} outcome={null} />}</GameStage>;
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-[2vmin]">
-      <p className={clsx("tig-display text-[5vmin]", caos && "text-[#ff6b78]")}>{caos ? "DUELLO DEL CAOS" : g.title}</p>
+      <p className={clsx(caos ? "tig-display text-[5vmin] font-black text-[#ff7b6b]" : "tig-title text-[6vmin]")}>{caos ? "DUELLO DEL CAOS" : g.title}</p>
       <p className="text-[3vmin] font-bold">Guardate i telefoni!</p>
       <SubmittedRow teams={tvTeams} />
     </div>
@@ -372,7 +380,7 @@ function SubmittedRow({
   return (
     <div className="flex flex-wrap justify-center gap-[1vmin]">
       {teams.map((t) => (
-        <span key={t.teamId} className={clsx("tig-chip !text-[1.9vmin] transition", t.submitted ? "!border-[#7cff4f]/70 !bg-[#7cff4f]/15" : "opacity-60")} style={{ borderColor: t.submitted ? undefined : t.color }}>
+        <span key={t.teamId} className={clsx("tig-chip !text-[1.9vmin] transition", t.submitted ? "!border-[#f2b134] !bg-[#f2b134]/20 !text-[#ffd56b]" : "opacity-70")} style={{ borderColor: t.submitted ? undefined : t.color }}>
           T{t.tableNo} {t.submitted ? "✓" : "…"}
         </span>
       ))}
@@ -400,7 +408,7 @@ function ResultsHud({ state, now }: { state: TigPublicState; now: () => number }
     if (t)
       return (
         <div className="flex h-full w-full flex-col items-center justify-end text-center">
-          <p className="tig-panel rounded-3xl px-[3vmin] py-[1.4vmin] text-[2.6vmin] font-bold text-white/85">L’Energia Caos fa evolvere la mascotte. I punti non c’entrano.</p>
+          <p className="tig-panel tig-panel-hot rounded-2xl px-[3vmin] py-[1.4vmin] text-[2.6vmin] font-bold text-[#fff1c9]">L’Energia Caos fa evolvere la mascotte. I punti non c’entrano.</p>
         </div>
       );
   }
@@ -412,18 +420,14 @@ function ResultsHud({ state, now }: { state: TigPublicState; now: () => number }
       {g.kind !== "regular" && g.winnerTeamId ? (
         <p className="tig-led tig-slam text-[9vmin]">VINCE IL TAVOLO {state.teams.find((t) => t.teamId === g.winnerTeamId)?.tableNo}!</p>
       ) : (
-        <p className="tig-display text-[5vmin] text-[#ffd15c]">{g.title} · RISULTATI</p>
+        <p className="tig-display text-[5vmin] text-[#ffd56b] drop-shadow-[0_0.4vmin_0.6vmin_rgba(0,0,0,.9)]">{g.title} · RISULTATI</p>
       )}
       <div className="flex flex-wrap justify-center gap-[1vmin]">
         {outs.map(({ o, t }) => (
-          <div
-            key={o.teamId}
-            className={clsx("tig-panel tig-rise flex items-center gap-[1vmin] rounded-xl px-[1.4vmin] py-[0.8vmin]", o.points > 0 && "tig-panel-hot")}
-            style={{ boxShadow: `inset 0 -3px 0 ${t!.color}` }}
-          >
-            <span className="tig-display text-[2.4vmin] text-white/70">T{t!.tableNo}</span>
-            <span className={clsx("tig-display text-[3vmin] tabular-nums", o.points > 0 ? "text-[#7cff4f]" : "text-white/60")}>{o.points > 0 ? `+${o.points}` : o.points}</span>
-            <span className="text-[1.7vmin] font-bold text-white/70">{o.label}</span>
+          <div key={o.teamId} className={clsx("tig-panel tig-rise flex items-center gap-[1vmin] rounded-xl py-[0.7vmin] pl-[0.8vmin] pr-[1.4vmin]", o.points > 0 && "tig-panel-hot")}>
+            <CrewFlag color={t!.color} n={t!.tableNo} className="h-[3.6vmin] w-[4.8vmin] shrink-0" />
+            <span className={clsx("tig-display text-[3vmin] tabular-nums", o.points > 0 ? "text-[#ffd56b]" : "text-[#f6ead2]/75")}>{o.points > 0 ? `+${o.points}` : o.points}</span>
+            <span className="text-[1.7vmin] font-bold text-[#f6ead2]/85">{o.label}</span>
           </div>
         ))}
       </div>
@@ -436,7 +440,7 @@ function LeaderboardHud({ state }: { state: TigPublicState }) {
     return (
       <div className="flex flex-col items-center gap-[2vmin] text-center">
         <p className="tig-led text-[11vmin]">CLASSIFICA BUIA</p>
-        <p className="max-w-[60vw] text-[3vmin] font-bold text-white/75">Ogni tavolo vede solo il proprio saldo. Si scopre tutto alla premiazione.</p>
+        <p className="max-w-[60vw] rounded-2xl bg-[#07131a]/75 px-[2.4vmin] py-[1vmin] text-[3vmin] font-bold text-[#f6ead2]/90">Ogni tavolo vede solo il proprio saldo. Si scopre tutto alla premiazione.</p>
       </div>
     );
   }
@@ -446,7 +450,12 @@ function LeaderboardHud({ state }: { state: TigPublicState }) {
       <div className="sr-only">
         <Leaderboard teams={state.teams} max={state.teams.length} />
       </div>
-      {state.caosWindow && <p className="tig-panel tig-rise rounded-2xl px-[2.4vmin] py-[1vmin] text-center text-[2.4vmin] font-extrabold text-[#ff8a95]">Finestra del Bottone del Caos aperta: chi osa?</p>}
+      {state.caosWindow && (
+        <p className="tig-panel tig-rise flex items-center gap-[1.2vmin] rounded-2xl !border-[#e0483f]/80 px-[2.4vmin] py-[1vmin] text-center text-[2.4vmin] font-extrabold text-[#ff9a8a]">
+          <SkullMark className="h-[4vmin] w-[4vmin] shrink-0 text-[#f6ead2]" />
+          Finestra del Bottone del Caos aperta: chi osa?
+        </p>
+      )}
     </div>
   );
 }
@@ -456,11 +465,11 @@ function BreakHud({ state, now }: { state: TigPublicState; now: () => number }) 
   return (
     <div className="flex h-full w-full flex-col items-center justify-end gap-[1vmin] text-center">
       {left !== null && (
-        <p className="tig-display text-[9vmin] leading-none tabular-nums text-[#ffd15c] drop-shadow-[0_4px_24px_rgba(0,0,0,.9)]">
+        <p className="tig-led text-[10vmin] leading-none tabular-nums">
           {Math.floor(left / 60)}:{String(left % 60).padStart(2, "0")}
         </p>
       )}
-      <p className="tig-panel rounded-2xl px-[2.4vmin] py-[1vmin] text-[2.6vmin] font-bold text-white/85">Ordini, respiro, strategia. Poi: IL GRANDE INGANNO.</p>
+      <p className="tg-parch px-[2.6vmin] py-[1.1vmin] text-[2.6vmin] font-bold text-[#1b1410]">Ordini, respiro, strategia. Poi: IL GRANDE INGANNO.</p>
     </div>
   );
 }
@@ -468,7 +477,7 @@ function BreakHud({ state, now }: { state: TigPublicState; now: () => number }) 
 function FinalHud() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-end text-center">
-      <p className="tig-panel rounded-3xl px-[3vmin] py-[1.4vmin] text-[3vmin] font-bold text-white/85">Le prove sono finite. Tra pochi secondi la classifica, dall’ultimo al primo.</p>
+      <p className="tg-parch px-[3vmin] py-[1.4vmin] text-[3vmin] font-bold text-[#1b1410]">Le prove sono finite. Tra pochi secondi la classifica, dall’ultimo al primo.</p>
     </div>
   );
 }
@@ -494,10 +503,12 @@ function AwardsHud({ state, now }: { state: TigPublicState; now: () => number })
   const compact = n > 8;
   return (
     <div className="flex h-full w-full items-center justify-start">
-      <div className="flex w-[min(40vw,74vmin)] flex-col gap-[0.8vmin] rounded-3xl bg-[#06070c]/80 p-[1.8vmin] backdrop-blur-sm">
+      {/* tavola di legno scuro con il titolo in foglia d'oro; ogni tavolo è una striscia di pergamena */}
+      <div className="tig-panel flex w-[min(40vw,74vmin)] flex-col gap-[0.8vmin] rounded-2xl p-[1.8vmin]">
         <p className={clsx("tig-led leading-none", winner ? "tig-slam text-[7vmin]" : "text-[5vmin]")}>{winner ? "CAMPIONI!" : "CLASSIFICA FINALE"}</p>
         {winner && (
-          <p className="tig-display truncate text-[3.4vmin] text-[#ffd15c]">
+          <p className="tig-display flex items-center gap-[1vmin] truncate text-[3.4vmin] text-[#ffd56b]">
+            <CrewFlag color={winner.color} n={winner.tableNo} className="h-[4.4vmin] w-[5.8vmin] shrink-0" />
             TAVOLO {winner.tableNo} · {winner.name}
           </p>
         )}
@@ -505,13 +516,16 @@ function AwardsHud({ state, now }: { state: TigPublicState; now: () => number })
           {revealed.slice(-12).map((t) => (
             <div
               key={t.teamId}
-              className={clsx("tig-panel tig-rise flex items-center gap-[1.2vmin] rounded-2xl px-[1.4vmin]", compact ? "py-[0.4vmin]" : "py-[0.9vmin]", t.rank === 1 && "tig-panel-hot")}
-              style={{ boxShadow: `inset 6px 0 0 ${t.color}` }}
+              className={clsx("tg-parch tig-rise flex items-center gap-[1.2vmin] px-[1.2vmin]", compact ? "py-[0.3vmin]" : "py-[0.8vmin]", t.rank === 1 && "shadow-[inset_0_0_0_0.3vmin_rgba(160,106,20,.9),0_0_3vmin_-0.6vmin_rgba(242,177,52,.85)]")}
             >
-              <span className={clsx("tig-display w-[3ch] text-center", compact ? "text-[3vmin]" : "text-[4vmin]", t.rank === 1 ? "text-[#ffd15c]" : "text-white/70")}>{t.rank}°</span>
-              <span className="tig-display text-[2.4vmin] text-white/70">T{t.tableNo}</span>
-              <span className={clsx("min-w-0 flex-1 truncate font-extrabold", compact ? "text-[2.3vmin]" : "text-[2.8vmin]")}>{t.name}</span>
-              <span className={clsx("tig-display tabular-nums", compact ? "text-[3vmin]" : "text-[3.6vmin]")}>{(t.score ?? 0).toLocaleString("it-IT")}</span>
+              {t.rank === 1 ? (
+                <Doubloon className={compact ? "h-[3.6vmin] w-[3.6vmin] text-[2vmin]" : "h-[4.8vmin] w-[4.8vmin] text-[2.6vmin]"}>1°</Doubloon>
+              ) : (
+                <span className={clsx("tig-display w-[3ch] text-center font-black text-[#6e4116]", compact ? "text-[3vmin]" : "text-[3.8vmin]")}>{t.rank}°</span>
+              )}
+              <CrewFlag color={t.color} n={t.tableNo} className={clsx("shrink-0", compact ? "h-[3vmin] w-[4vmin]" : "h-[3.8vmin] w-[5vmin]")} />
+              <span className={clsx("min-w-0 flex-1 truncate font-extrabold text-[#1b1410]", compact ? "text-[2.3vmin]" : "text-[2.8vmin]")}>{t.name}</span>
+              <span className={clsx("tig-display font-black tabular-nums text-[#1b1410]", compact ? "text-[3vmin]" : "text-[3.6vmin]")}>{(t.score ?? 0).toLocaleString("it-IT")}</span>
             </div>
           ))}
         </div>

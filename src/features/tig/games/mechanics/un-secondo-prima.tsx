@@ -49,7 +49,7 @@ function ClipFrame({ clip, poses, extra, label, className, children }: { clip: C
 /** Banda «fermo immagine» sopra il fotogramma bloccato. */
 function Paused({ tv = false }: { tv?: boolean }) {
   return (
-    <span className={clsx("tg-display absolute left-[3%] top-[5%] flex items-center gap-[0.3em] rounded-md bg-[#ff3b4e] px-[0.5em] py-[0.15em] text-white", tv ? "text-[1.6cqw]" : "text-sm")}>
+    <span className={clsx("tg-display absolute left-[3%] top-[5%] flex items-center gap-[0.3em] rounded-md bg-(--tg-red) px-[0.5em] py-[0.15em] text-white", tv ? "text-[1.6cqw]" : "text-sm")}>
       <svg viewBox="0 0 10 10" className="h-[0.8em] w-[0.8em]" aria-hidden>
         <rect x={1} y={1} width={3} height={8} fill="currentColor" />
         <rect x={6} y={1} width={3} height={8} fill="currentColor" />
@@ -66,17 +66,17 @@ function OptionFrame({ clip, o, index, state, tv = false }: { clip: Clip; o: Fra
         className={clsx(
           "relative shrink-0 overflow-hidden border-2",
           tv ? "w-[13cqw] rounded-[0.8cqw] border-[0.2cqw]" : "w-[44%] rounded-xl",
-          state === "picked" && "border-[#c6ff3d]",
-          state === "right" && "border-[#c6ff3d] shadow-[0_0_30px_-6px_rgba(198,255,61,0.8)]",
-          state === "wrong" && "border-[#ff3b4e]",
-          (state === "idle" || state === "dim") && "border-white/15",
+          state === "picked" && "border-(--tg-gold)",
+          state === "right" && "border-(--tg-gold) shadow-[0_0_30px_-6px_color-mix(in_srgb,var(--tg-gold)_80%,transparent)]",
+          state === "wrong" && "border-(--tg-red-hi)",
+          (state === "idle" || state === "dim") && "border-(--tg-cream)/15",
         )}
       >
         <ClipFrame clip={clip} poses={posesOf(clip, o)} extra={o.extra} label={o.text} className="block aspect-video w-full" />
-        <span className={clsx("tg-num absolute left-[4%] top-[6%] grid place-items-center rounded-md", tv ? "h-[2.4cqw] w-[2.4cqw] text-[1.5cqw]" : "h-7 w-7 text-lg", state === "right" || state === "picked" ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#0b0d12]/85 text-white")}>{index + 1}</span>
+        <span className={clsx("tg-num absolute left-[4%] top-[6%] grid place-items-center rounded-md", tv ? "h-[2.4cqw] w-[2.4cqw] text-[1.5cqw]" : "h-7 w-7 text-lg", state === "right" || state === "picked" ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-night)/85 text-(--tg-cream)")}>{index + 1}</span>
       </span>
       <span className={clsx("min-w-0 flex-1 font-extrabold leading-snug", tv ? "text-[1.55cqw]" : "text-base", state === "dim" && "opacity-50", state === "wrong" && "line-through decoration-2")}>{o.text}</span>
-      {state === "right" && <Icon name="check" className={clsx("shrink-0 text-[#c6ff3d]", tv ? "h-[2.4cqw] w-[2.4cqw]" : "h-6 w-6")} />}
+      {state === "right" && <Icon name="check" className={clsx("shrink-0 text-(--tg-gold)", tv ? "h-[2.4cqw] w-[2.4cqw]" : "h-6 w-6")} />}
     </span>
   );
 }
@@ -99,13 +99,13 @@ function Player(p: P) {
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
         <div className="grid grid-cols-2 gap-2">
-          <figure className="relative overflow-hidden rounded-xl border-2 border-white/15">
+          <figure className="relative overflow-hidden rounded-xl border-2 border-(--tg-cream)/15">
             <ClipFrame clip={reveal.clip} poses={last} label="Fermo immagine" className="block aspect-video w-full" />
-            <figcaption className="bg-white/[0.06] py-1 text-center text-xs font-extrabold uppercase tracking-wide text-white/70">Fermo immagine</figcaption>
+            <figcaption className="bg-(--tg-cream)/[0.06] py-1 text-center text-xs font-extrabold uppercase tracking-wide text-(--tg-cream)/70">Fermo immagine</figcaption>
           </figure>
-          <figure className="relative overflow-hidden rounded-xl border-2 border-[#c6ff3d]">
+          <figure className="relative overflow-hidden rounded-xl border-2 border-(--tg-gold)">
             <ClipFrame clip={reveal.clip} poses={posesOf(reveal.clip, right)} extra={right.extra} label={right.text} className="tg1-freeze block aspect-video w-full" />
-            <figcaption className="bg-[#c6ff3d] py-1 text-center text-xs font-extrabold uppercase tracking-wide text-[#0b0d12]">Un secondo dopo</figcaption>
+            <figcaption className="bg-(--tg-gold) py-1 text-center text-xs font-extrabold uppercase tracking-wide text-(--tg-ink)">Un secondo dopo</figcaption>
           </figure>
         </div>
         <div className="flex flex-col gap-2">
@@ -147,7 +147,7 @@ function Player(p: P) {
         />
       }
     >
-      <figure className="relative overflow-hidden rounded-2xl border-2 border-white/15">
+      <figure className="relative overflow-hidden rounded-2xl border-2 border-(--tg-cream)/15">
         <ClipFrame clip={view.clip} poses={last} label={`Fermo immagine. ${view.alt}`} className="tg1-freeze block aspect-video w-full" />
         <Paused />
       </figure>
@@ -161,7 +161,7 @@ function Player(p: P) {
             aria-checked={picked === o.id}
             disabled={!editable}
             onClick={() => editable && setPicked(o.id)}
-            className={clsx("rounded-2xl border-2 p-2 transition-transform active:scale-[0.99]", picked === o.id ? "tg-picked border-[#c6ff3d]" : "border-white/12 bg-white/[0.04]")}
+            className={clsx("rounded-2xl border-2 p-2 transition-transform active:scale-[0.99]", picked === o.id ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]")}
           >
             <OptionFrame clip={view.clip} o={o} index={i} state={picked === o.id ? "picked" : "idle"} />
           </button>
@@ -182,18 +182,18 @@ function Tv(p: T) {
     return (
       <TvFrame view={view} p={p} hideTimer subtitle={`«${view.clipTitle}»: guardate bene, tra poco si ferma.`}>
         <div className="relative h-full" style={{ containerType: "size" }}>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.6cqw] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.6cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
             {clipT < 0 ? (
-              <div className="grid h-full w-full place-items-center bg-[#0b0d12]">
-                <p className="tg-num tg-pop text-[18cqh] text-[#c6ff3d]" key={lead}>
+              <div className="grid h-full w-full place-items-center bg-(--tg-night)">
+                <p className="tg-num tg-pop text-[18cqh] text-(--tg-gold)" key={lead}>
                   {lead}
                 </p>
               </div>
             ) : (
               <ClipFrame clip={view.clip} poses={posesAt(view.clip, clipT)} label={view.alt} className="block h-full w-full" />
             )}
-            <span className="tg-display absolute right-[2%] top-[3%] flex items-center gap-[0.4em] rounded-md bg-[#0b0d12]/75 px-[0.6em] py-[0.2em] text-[4cqh] text-white">
-              <span className="tg-pulse inline-block h-[0.6em] w-[0.6em] rounded-full bg-[#ff3b4e]" /> Video
+            <span className="tg-display absolute right-[2%] top-[3%] flex items-center gap-[0.4em] rounded-md bg-(--tg-night)/75 px-[0.6em] py-[0.2em] text-[4cqh] text-(--tg-cream)">
+              <span className="tg-pulse inline-block h-[0.6em] w-[0.6em] rounded-full bg-(--tg-red)" /> Video
             </span>
           </div>
         </div>
@@ -209,16 +209,16 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1.25fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2cqw] border border-white/10" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2cqw] border border-(--tg-cream)/10" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
               {right ? (
                 <ClipFrame clip={view.clip} poses={posesOf(view.clip, right)} extra={right.extra} label={right.text} className="tg1-freeze block h-full w-full" />
               ) : (
                 <ClipFrame clip={view.clip} poses={last} label={`Fermo immagine. ${view.alt}`} className="tg1-freeze block h-full w-full" />
               )}
               {right ? (
-                <span className="tg-display absolute left-[3%] top-[5%] rounded-md bg-[#c6ff3d] px-[0.5em] py-[0.15em] text-[5cqh] text-[#0b0d12]">Un secondo dopo</span>
+                <span className="tg-display absolute left-[3%] top-[5%] rounded-md bg-(--tg-gold) px-[0.5em] py-[0.15em] text-[5cqh] text-(--tg-ink)">Un secondo dopo</span>
               ) : (
-                <span className="tg-display absolute left-[3%] top-[5%] rounded-md bg-[#ff3b4e] px-[0.5em] py-[0.15em] text-[5cqh] text-white">Fermo immagine</span>
+                <span className="tg-display absolute left-[3%] top-[5%] rounded-md bg-(--tg-red) px-[0.5em] py-[0.15em] text-[5cqh] text-white">Fermo immagine</span>
               )}
             </div>
           </div>

@@ -19,7 +19,7 @@ export function Step({ n, title, icon, children, tone, done, className }: { n: n
   return (
     <Panel tone={tone} className={clsx("flex flex-col gap-3", className)}>
       <Eyebrow className="flex items-center gap-2">
-        <span className={clsx("tg-num grid h-6 w-6 place-items-center rounded-md text-sm", done ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-white/12 text-white")}>{done ? <Icon name="check" className="h-4 w-4" /> : n}</span>
+        <span className={clsx("tg-num grid h-6 w-6 place-items-center rounded-md text-sm", done ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-cream)/12 text-(--tg-cream)")}>{done ? <Icon name="check" className="h-4 w-4" /> : n}</span>
         {icon && <Icon name={icon} className="h-4 w-4" />}
         {title}
       </Eyebrow>
@@ -44,7 +44,7 @@ export function TablePicker({
   label: string;
   tone?: "red" | "lime";
 }) {
-  const accent = tone === "red" ? "border-[#ff3b4e]" : "border-[#c6ff3d]";
+  const accent = tone === "red" ? "border-(--tg-red-hi)" : "border-(--tg-gold)";
   return (
     <div className="grid grid-cols-4 gap-2 sm:grid-cols-6" role="radiogroup" aria-label={label}>
       {tables.map((r) => (
@@ -56,10 +56,10 @@ export function TablePicker({
           aria-label={`Tavolo ${r.tableNo}`}
           disabled={disabled}
           onClick={() => onChange(r.teamId)}
-          className={clsx("tg-num flex h-16 flex-col items-center justify-center rounded-xl border-2 text-3xl leading-none transition-transform active:scale-95", value === r.teamId ? clsx("tg-picked text-white", accent) : "border-white/12 bg-white/[0.04] text-white/80")}
+          className={clsx("tg-num flex h-16 flex-col items-center justify-center rounded-xl border-2 text-3xl leading-none transition-transform active:scale-95", value === r.teamId ? clsx("tg-picked text-(--tg-cream)", accent) : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] text-(--tg-cream)/80")}
         >
           {r.tableNo}
-          <span className="text-[10px] font-extrabold uppercase tracking-wide text-white/60">tavolo</span>
+          <span className="text-[10px] font-extrabold uppercase tracking-wide text-(--tg-cream)/60">tavolo</span>
         </button>
       ))}
     </div>
@@ -71,8 +71,8 @@ export function TvChip({ teams, id, size = 3.2 }: { teams: TvTeams; id: string; 
   const t = teams.find((x) => x.teamId === id);
   return (
     <span
-      className="tg-num inline-grid shrink-0 place-items-center rounded-[0.6cqw] text-[#0b0d12]"
-      style={{ background: t?.color ?? "#eef2f6", width: `${size}cqw`, height: `${size}cqw`, fontSize: `${size * 0.6}cqw` }}
+      className="tg-num inline-grid shrink-0 place-items-center rounded-[0.6cqw] text-(--tg-ink)"
+      style={{ background: t?.color ?? "var(--tg-cream)", width: `${size}cqw`, height: `${size}cqw`, fontSize: `${size * 0.6}cqw` }}
       aria-label={`Tavolo ${t?.tableNo ?? "?"}`}
     >
       {t?.tableNo ?? "?"}
@@ -82,9 +82,9 @@ export function TvChip({ teams, id, size = 3.2 }: { teams: TvTeams; id: string; 
 
 /** Gettone neutro di un tavolo per il telefono. */
 export function PhoneChip({ tableNo, tone = "ice" }: { tableNo: number; tone?: "ice" | "red" | "lime" | "amber" }) {
-  const bg = tone === "red" ? "#ff3b4e" : tone === "lime" ? "#c6ff3d" : tone === "amber" ? "#ffc24a" : "#eef2f6";
+  const bg = tone === "red" ? "var(--tg-red-hi)" : tone === "lime" ? "var(--tg-gold)" : tone === "amber" ? "var(--tg-teal-hi)" : "var(--tg-cream)";
   return (
-    <span className="tg-num inline-grid h-9 min-w-9 shrink-0 place-items-center rounded-lg px-1 text-xl text-[#0b0d12]" style={{ background: bg }} aria-label={`Tavolo ${tableNo}`}>
+    <span className="tg-num inline-grid h-9 min-w-9 shrink-0 place-items-center rounded-lg px-1 text-xl text-(--tg-ink)" style={{ background: bg }} aria-label={`Tavolo ${tableNo}`}>
       {tableNo}
     </span>
   );
@@ -98,9 +98,9 @@ export function appliedTransfers(outcome: { outcomes: TeamOutcome[] } | null): {
 }
 
 /** Riga «A → B» per la TV, con esito a destra. */
-export function TvVsRow({ teams, a, b, icon = "sword", right, delay = 0, iconClass = "text-[#ff3b4e]", joiner = "contro" }: { teams: TvTeams; a: string; b: string; icon?: IconName; right?: ReactNode; delay?: number; iconClass?: string; joiner?: string }) {
+export function TvVsRow({ teams, a, b, icon = "sword", right, delay = 0, iconClass = "text-(--tg-red-hi)", joiner = "contro" }: { teams: TvTeams; a: string; b: string; icon?: IconName; right?: ReactNode; delay?: number; iconClass?: string; joiner?: string }) {
   return (
-    <div className="tg-rise flex items-center gap-[0.8cqw] rounded-[0.8cqw] bg-white/[0.05] px-[0.8cqw] py-[0.45cqw]" style={{ animationDelay: `${delay}ms` }}>
+    <div className="tg-rise flex items-center gap-[0.8cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.8cqw] py-[0.45cqw]" style={{ animationDelay: `${delay}ms` }}>
       <TvChip teams={teams} id={a} size={2.6} />
       <Icon name={icon} className={clsx("h-[1.7cqw] w-[1.7cqw] shrink-0", iconClass)} />
       <span className="sr-only">{joiner}</span>
@@ -132,10 +132,10 @@ export function TrapGlyph({ className }: { className?: string }) {
 
 /** I quattro simboli della griglia incrociata (1 boccale, 2 pizza, 3 dado, 4 nota), disegnati. */
 export const GRID_SYMBOLS: Record<string, { name: string; color: string }> = {
-  "1": { name: "boccale", color: "#ffc24a" },
+  "1": { name: "boccale", color: "var(--tg-teal-hi)" },
   "2": { name: "pizza", color: "#ff6b5a" },
-  "3": { name: "dado", color: "#6fe7ff" },
-  "4": { name: "nota", color: "#b49cff" },
+  "3": { name: "dado", color: "var(--tg-sky)" },
+  "4": { name: "nota", color: "var(--tg-violet)" },
 };
 
 export function GridSymbol({ v, className }: { v: string; className?: string }) {

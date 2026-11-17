@@ -42,13 +42,13 @@ function Player(p: P) {
           <p className="flex flex-wrap items-center gap-2 text-base font-extrabold">
             {mine ? (
               <>
-                Avete tagliato il tavolo <PhoneChip tableNo={table.get(mine.to) ?? 0} tone="red" /> {mine.applied ? <span className="text-[#c6ff3d]">a segno</span> : <span className="text-white/60">a vuoto (già tagliato)</span>}
+                Avete tagliato il tavolo <PhoneChip tableNo={table.get(mine.to) ?? 0} tone="red" /> {mine.applied ? <span className="text-(--tg-gold)">a segno</span> : <span className="text-(--tg-cream)/60">a vuoto (già tagliato)</span>}
               </>
             ) : (
-              <span className="text-white/70">Lampo sbagliato: niente forbici.</span>
+              <span className="text-(--tg-cream)/70">Lampo sbagliato: niente forbici.</span>
             )}
           </p>
-          <p className="flex flex-wrap items-center gap-2 text-sm font-bold text-white/75">
+          <p className="flex flex-wrap items-center gap-2 text-sm font-bold text-(--tg-cream)/75">
             {onMe ? (
               <>
                 Vi ha tagliato il tavolo <PhoneChip tableNo={table.get(onMe.from) ?? 0} /> : la vostra sfida scadeva {cutSec} secondi prima.
@@ -81,7 +81,7 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Taglia e rispondi" hint={!lampo ? "Prima il lampo" : !target ? "Chi tagliate?" : !sfida ? "Poi la sfida" : undefined} />}
     >
       {p.stage === "play" && !p.submitted && left <= cutSec + 5 && (
-        <div role="alert" className="tg-stripes-red tg-pulse flex items-center gap-2 rounded-xl border border-[#ff3b4e]/70 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide text-[#ff8c97]">
+        <div role="alert" className="tg-stripes-red tg-pulse flex items-center gap-2 rounded-xl border border-(--tg-red-hi)/70 px-4 py-2.5 text-sm font-extrabold uppercase tracking-wide text-(--tg-red-hi)">
           <Scissors className="h-5 w-5" /> Zona taglio: se vi hanno tagliato, gli ultimi {cutSec} secondi non valgono
         </div>
       )}
@@ -91,7 +91,7 @@ function Player(p: P) {
       </Step>
       <Step n={2} title={`Chi tagliate (−${cutSec} s)?`} done={!!target}>
         <TablePicker tables={rivals} value={target} onChange={setTarget} disabled={!editable} label="Tavolo a cui tagliare il tempo" />
-        <p className="text-sm font-semibold text-white/65">Le forbici funzionano solo se il lampo è giusto. Un taglio a testa: se il tavolo è già stato tagliato, il vostro va a vuoto.</p>
+        <p className="text-sm font-semibold text-(--tg-cream)/65">Le forbici funzionano solo se il lampo è giusto. Un taglio a testa: se il tavolo è già stato tagliato, il vostro va a vuoto.</p>
       </Step>
       <Step n={3} title="La sfida (uguale per tutti)" done={!!sfida}>
         <p className="text-lg font-extrabold leading-snug">{view.sfida.prompt}</p>
@@ -108,11 +108,11 @@ function CutBar({ durationMs, cutMs, elapsed, stage }: { durationMs: number; cut
   const inZone = stage === "play" && durationMs - elapsed <= cutMs;
   return (
     <div className="flex flex-col gap-[0.6cqw]">
-      <div className="relative h-[3.2cqw] overflow-hidden rounded-[0.8cqw] border border-white/15 bg-white/[0.05]" role="img" aria-label={`Tempo trascorso, zona taglio negli ultimi ${Math.round(cutMs / 1000)} secondi`}>
-        <div className="absolute inset-y-0 left-0 bg-[#c6ff3d]/80" style={{ width: `${frac * 100}%`, transition: "width 200ms linear" }} />
-        <div className={clsx("tg-stripes-red absolute inset-y-0 right-0 border-l-[0.25cqw] border-dashed border-[#ff3b4e]", inZone && "tg-pulse")} style={{ width: `${zone}%` }} />
+      <div className="relative h-[3.2cqw] overflow-hidden rounded-[0.8cqw] border border-(--tg-cream)/15 bg-(--tg-cream)/[0.05]" role="img" aria-label={`Tempo trascorso, zona taglio negli ultimi ${Math.round(cutMs / 1000)} secondi`}>
+        <div className="absolute inset-y-0 left-0 bg-(--tg-gold)/80" style={{ width: `${frac * 100}%`, transition: "width 200ms linear" }} />
+        <div className={clsx("tg-stripes-red absolute inset-y-0 right-0 border-l-[0.25cqw] border-dashed border-(--tg-red-hi)", inZone && "tg-pulse")} style={{ width: `${zone}%` }} />
       </div>
-      <div className="flex items-center justify-end gap-[0.5cqw] text-[1.2cqw] font-extrabold uppercase tracking-wide text-[#ff8c97]">
+      <div className="flex items-center justify-end gap-[0.5cqw] text-[1.2cqw] font-extrabold uppercase tracking-wide text-(--tg-red-hi)">
         <Scissors className="h-[1.6cqw] w-[1.6cqw]" /> Zona taglio: ultimi {Math.round(cutMs / 1000)} s
       </div>
     </div>
@@ -131,7 +131,7 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1.4fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <TvPanel className="flex flex-col gap-[0.6cqw]">
-            <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">
+            <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">
               <Icon name="bolt" className="h-[1.5cqw] w-[1.5cqw]" /> Prova lampo
             </p>
             <p className="text-[1.8cqw] font-extrabold leading-tight">{view.lampo.prompt}</p>
@@ -142,7 +142,7 @@ function Tv(p: T) {
             </div>
           </TvPanel>
           <TvPanel className="flex min-h-0 flex-1 flex-col gap-[0.8cqw]">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-white/70">La sfida</p>
+            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/70">La sfida</p>
             <p className="text-[2cqw] font-extrabold leading-tight">{view.sfida.prompt}</p>
             <div className="grid grid-cols-2 gap-[0.6cqw]">
               {view.sfida.options.map((o, i) => (
@@ -152,20 +152,20 @@ function Tv(p: T) {
           </TvPanel>
         </div>
         <TvPanel tone="red" className="flex min-h-0 flex-col gap-[0.8cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#ff3b4e]">
+          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
             <Scissors className="h-[1.6cqw] w-[1.6cqw]" /> Forbici
           </p>
           {done ? (
             <>
               <div className={clsx("grid min-h-0 gap-[0.4cqw] overflow-hidden", cuts.length > 6 ? "grid-cols-2" : "grid-cols-1")}>
-                {cuts.length === 0 && <p className="text-[1.6cqw] font-bold text-white/60">Nessun taglio: lampo sbagliato per tutti.</p>}
+                {cuts.length === 0 && <p className="text-[1.6cqw] font-bold text-(--tg-cream)/60">Nessun taglio: lampo sbagliato per tutti.</p>}
                 {cuts.map((c, i) => (
-                  <div key={c.from} className="tg-rise flex items-center gap-[0.7cqw] rounded-[0.8cqw] bg-white/[0.05] px-[0.8cqw] py-[0.4cqw]" style={{ animationDelay: `${i * 90}ms` }}>
+                  <div key={c.from} className="tg-rise flex items-center gap-[0.7cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.8cqw] py-[0.4cqw]" style={{ animationDelay: `${i * 90}ms` }}>
                     <TvChip teams={p.teams} id={c.from} size={cuts.length > 6 ? 2 : 2.6} />
-                    <Scissors className="h-[1.7cqw] w-[1.7cqw] text-[#ff3b4e]" />
+                    <Scissors className="h-[1.7cqw] w-[1.7cqw] text-(--tg-red-hi)" />
                     <TvChip teams={p.teams} id={c.to} size={cuts.length > 6 ? 2 : 2.6} />
                     <span className={clsx("ml-auto text-right font-extrabold", cuts.length > 6 ? "text-[1cqw]" : "text-[1.3cqw]")}>
-                      {c.applied ? <span className="text-[#ff8c97]">−3 s{knocked.has(c.to) ? " · fuori tempo!" : ""}</span> : <span className="text-white/55">a vuoto</span>}
+                      {c.applied ? <span className="text-(--tg-red-hi)">−3 s{knocked.has(c.to) ? " · fuori tempo!" : ""}</span> : <span className="text-(--tg-cream)/55">a vuoto</span>}
                     </span>
                   </div>
                 ))}
@@ -175,10 +175,10 @@ function Tv(p: T) {
           ) : (
             <div className="flex flex-1 flex-col gap-[1.2cqw]">
               <div className="flex flex-1 items-center justify-center gap-[1.2cqw]">
-                <Scissors className="h-[7cqw] w-[7cqw] -rotate-12 text-[#ff3b4e]" />
-                <p className="tg-num text-[8cqw] leading-none text-[#ff3b4e]">−{Math.round(view.cutMs / 1000)} s</p>
+                <Scissors className="h-[7cqw] w-[7cqw] -rotate-12 text-(--tg-red-hi)" />
+                <p className="tg-num text-[8cqw] leading-none text-(--tg-red-hi)">−{Math.round(view.cutMs / 1000)} s</p>
               </div>
-              <p className="text-[1.6cqw] font-bold leading-snug text-white/80">Chi taglia chi resta segreto fino al reveal. Ogni tavolo può essere tagliato una volta sola.</p>
+              <p className="text-[1.6cqw] font-bold leading-snug text-(--tg-cream)/80">Chi taglia chi resta segreto fino al reveal. Ogni tavolo può essere tagliato una volta sola.</p>
               <CutBar durationMs={view.durationMs} cutMs={view.cutMs} elapsed={elapsed} stage={p.stage} />
             </div>
           )}

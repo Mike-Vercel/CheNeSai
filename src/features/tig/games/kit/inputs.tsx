@@ -120,7 +120,7 @@ export function DigitPad({
               key={i}
               className={clsx(
                 "tg-num grid h-16 w-12 place-items-center rounded-xl border-2 text-4xl sm:h-20 sm:w-16 sm:text-5xl",
-                reveal ? (ok ? "border-[#c6ff3d] bg-[#c6ff3d]/15 text-[#c6ff3d]" : "tg-stripes-red border-[#ff3b4e]") : ch ? "border-[#c6ff3d] text-white" : i === value.length && !disabled ? "border-white/50" : "border-white/12",
+                reveal ? (ok ? "border-(--tg-gold) bg-(--tg-gold)/15 text-(--tg-gold-hi)" : "tg-stripes-red border-(--tg-red-hi)") : ch ? "border-(--tg-gold) bg-(--tg-night-2) text-(--tg-cream)" : i === value.length && !disabled ? "border-(--tg-cream)/55 bg-(--tg-night-2)/60" : "border-(--tg-cream)/14 bg-(--tg-night-2)/60",
               )}
             >
               {ch ?? ""}
@@ -136,7 +136,10 @@ export function DigitPad({
               key={d}
               type="button"
               onClick={() => press(d)}
-              className={clsx("tg-num flex h-14 items-center justify-center rounded-xl border border-white/12 bg-white/[0.05] text-3xl transition-transform active:scale-95 sm:h-16", d === "0" && "col-start-2")}
+              className={clsx(
+                "tg-num flex h-14 items-center justify-center rounded-xl border border-(--tg-brass)/35 bg-[linear-gradient(180deg,rgba(26,67,84,.75),rgba(11,31,42,.9))] text-3xl text-(--tg-cream) shadow-[inset_0_1px_0_rgba(255,228,160,.12),0_3px_0_rgba(0,0,0,.45)] transition-transform active:scale-95 sm:h-16",
+                d === "0" && "col-start-2",
+              )}
               aria-label={d === "del" ? "Cancella" : d}
             >
               {d === "del" ? <Icon name="back" className="h-7 w-7" /> : d}
@@ -171,8 +174,8 @@ export function NumberField({
 }) {
   return (
     <label className="flex flex-col gap-2">
-      <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-[#9aa4b2]">{label}</span>
-      <span className="flex items-center gap-3 rounded-2xl border-2 border-white/15 bg-white/[0.04] px-4 focus-within:border-[#c6ff3d]">
+      <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-(--tg-mute)">{label}</span>
+      <span className="flex items-center gap-3 rounded-2xl border-2 border-(--tg-cream)/16 bg-(--tg-night-2)/80 px-4 shadow-[inset_0_2px_8px_rgba(0,0,0,.45)] focus-within:border-(--tg-gold)">
         <input
           inputMode="numeric"
           pattern="[0-9]*"
@@ -184,9 +187,9 @@ export function NumberField({
             if (e.key === "Enter") onEnter?.();
           }}
           placeholder="0"
-          className="tg-num h-20 min-w-0 flex-1 bg-transparent text-6xl text-white outline-none placeholder:text-white/20"
+          className="tg-num h-20 min-w-0 flex-1 bg-transparent text-6xl text-(--tg-cream) outline-none placeholder:text-(--tg-cream)/20"
         />
-        {unit && <span className="tg-display text-2xl text-white/60">{unit}</span>}
+        {unit && <span className="tg-display text-2xl text-(--tg-cream)/65">{unit}</span>}
       </span>
     </label>
   );
@@ -227,20 +230,20 @@ export function ReorderList({
             key={id}
             className={clsx(
               "flex items-center gap-2 rounded-2xl border-2 py-2 pl-2 pr-1 transition-[border-color,background-color] duration-200",
-              ok === true && "border-[#c6ff3d] bg-[#c6ff3d]/10",
-              ok === false && "tg-stripes-red border-[#ff3b4e]",
-              ok === null && "border-white/12 bg-white/[0.04]",
+              ok === true && "border-(--tg-gold) bg-(--tg-gold)/10",
+              ok === false && "tg-stripes-red border-(--tg-red-hi)",
+              ok === null && "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]",
             )}
           >
-            <span className="tg-num grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white/10 text-2xl">{i + 1}</span>
+            <span className="tg-num grid h-10 w-10 shrink-0 place-items-center rounded-full border border-(--tg-brass)/50 bg-(--tg-night-2) text-2xl text-(--tg-gold-hi)">{i + 1}</span>
             <span className="min-w-0 flex-1 text-base font-bold leading-snug sm:text-lg">{byId.get(id)?.text}</span>
-            {ok !== null && <Icon name={ok ? "check" : "x"} className={clsx("h-6 w-6 shrink-0", ok ? "text-[#c6ff3d]" : "text-[#ff3b4e]")} />}
+            {ok !== null && <Icon name={ok ? "check" : "x"} className={clsx("h-6 w-6 shrink-0", ok ? "text-(--tg-gold-hi)" : "text-(--tg-red-hi)")} />}
             {!disabled && !reveal && (
               <span className="flex shrink-0 flex-col gap-1">
-                <button type="button" onClick={() => move(i, i - 1)} disabled={i === 0} className="grid h-9 w-11 place-items-center rounded-lg bg-white/10 disabled:opacity-25" aria-label={`Sposta su: ${byId.get(id)?.text}`}>
+                <button type="button" onClick={() => move(i, i - 1)} disabled={i === 0} className="grid h-9 w-11 place-items-center rounded-lg border border-(--tg-brass)/35 bg-(--tg-raised) disabled:opacity-25" aria-label={`Sposta su: ${byId.get(id)?.text}`}>
                   <Icon name="up" className="h-6 w-6" />
                 </button>
-                <button type="button" onClick={() => move(i, i + 1)} disabled={i === order.length - 1} className="grid h-9 w-11 place-items-center rounded-lg bg-white/10 disabled:opacity-25" aria-label={`Sposta giù: ${byId.get(id)?.text}`}>
+                <button type="button" onClick={() => move(i, i + 1)} disabled={i === order.length - 1} className="grid h-9 w-11 place-items-center rounded-lg border border-(--tg-brass)/35 bg-(--tg-raised) disabled:opacity-25" aria-label={`Sposta giù: ${byId.get(id)?.text}`}>
                   <Icon name="down" className="h-6 w-6" />
                 </button>
               </span>
@@ -280,18 +283,18 @@ export function AmountPicker({
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-end justify-between">
-        <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-[#9aa4b2]">{label}</span>
-        <span className="text-sm font-bold text-white/60">max {max}</span>
+        <span className="text-sm font-extrabold uppercase tracking-[0.14em] text-(--tg-mute)">{label}</span>
+        <span className="text-sm font-bold text-(--tg-cream)/65">max {max}</span>
       </div>
       <div className="flex items-center gap-3">
-        <button type="button" disabled={disabled || value <= 0} onClick={() => set(value - step)} className="tg-num grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-white/10 text-4xl disabled:opacity-30" aria-label={`Meno ${step}`}>
+        <button type="button" disabled={disabled || value <= 0} onClick={() => set(value - step)} className="tg-num grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-(--tg-brass)/60 bg-(--tg-raised) text-4xl text-(--tg-gold-hi) disabled:opacity-30" aria-label={`Meno ${step}`}>
           −
         </button>
         <div className="flex-1 text-center" aria-live="polite">
-          <span className="tg-num text-7xl leading-none text-[#c6ff3d]">{value}</span>
-          <span className="tg-display ml-2 text-2xl text-white/60">{unit}</span>
+          <span className="tg-num text-7xl leading-none text-(--tg-gold-hi)">{value}</span>
+          <span className="tg-display ml-2 text-2xl text-(--tg-cream)/65">{unit}</span>
         </div>
-        <button type="button" disabled={disabled || value >= max} onClick={() => set(value + step)} className="tg-num grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-white/10 text-4xl disabled:opacity-30" aria-label={`Più ${step}`}>
+        <button type="button" disabled={disabled || value >= max} onClick={() => set(value + step)} className="tg-num grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-(--tg-brass)/60 bg-(--tg-raised) text-4xl text-(--tg-gold-hi) disabled:opacity-30" aria-label={`Più ${step}`}>
           +
         </button>
       </div>
@@ -310,7 +313,7 @@ export function AmountPicker({
       {presets && (
         <div className="grid grid-cols-4 gap-2">
           {presets.map((p) => (
-            <button key={p} type="button" disabled={disabled} onClick={() => set(p)} className={clsx("tg-num h-11 rounded-lg border text-xl", value === p ? "border-[#c6ff3d] text-[#c6ff3d]" : "border-white/12 text-white/80")}>
+            <button key={p} type="button" disabled={disabled} onClick={() => set(p)} className={clsx("tg-num h-11 rounded-lg border text-xl", value === p ? "border-(--tg-gold) bg-(--tg-gold)/10 text-(--tg-gold-hi)" : "border-(--tg-cream)/14 text-(--tg-cream)/85")}>
               {p === 0 ? "Zero" : p === max ? "Max" : p}
             </button>
           ))}
@@ -341,7 +344,7 @@ export function BigToggle<T extends string>({
     <div role="radiogroup" aria-label={label} className={clsx("grid gap-2", options.length === 3 ? "grid-cols-3" : "grid-cols-2")}>
       {options.map((o) => {
         const on = value === o.id;
-        const accent = o.tone === "red" ? "#ff3b4e" : o.tone === "ice" ? "#eef2f6" : "#c6ff3d";
+        const accent = o.tone === "red" ? "var(--tg-red-hi)" : o.tone === "ice" ? "var(--tg-cream)" : "var(--tg-gold)";
         return (
           <button
             key={o.id}
@@ -350,7 +353,7 @@ export function BigToggle<T extends string>({
             aria-checked={on}
             disabled={disabled}
             onClick={() => onChange(o.id)}
-            className={clsx("relative flex min-h-24 flex-col items-start justify-between gap-1 rounded-2xl border-2 p-3 text-left transition-transform active:scale-[0.98]", on ? "tg-picked" : "border-white/12 bg-white/[0.04]")}
+            className={clsx("relative flex min-h-24 flex-col items-start justify-between gap-1 rounded-2xl border-2 p-3 text-left transition-transform active:scale-[0.98]", on ? "tg-picked" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]")}
             style={on ? { borderColor: accent } : undefined}
           >
             <span className="flex w-full items-center justify-between gap-2">
@@ -359,7 +362,7 @@ export function BigToggle<T extends string>({
               </span>
               {o.icon && <Icon name={o.icon} className="h-7 w-7 opacity-80" />}
             </span>
-            {o.sub && <span className="text-sm font-bold leading-snug text-white/80">{o.sub}</span>}
+            {o.sub && <span className="text-sm font-bold leading-snug text-(--tg-cream)/85">{o.sub}</span>}
             {on && <Icon name="check" className="absolute bottom-2 right-2 h-6 w-6" />}
             <span className="sr-only">{on ? " · selezionato" : ""}</span>
           </button>

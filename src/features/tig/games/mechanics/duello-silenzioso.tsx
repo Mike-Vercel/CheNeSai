@@ -28,7 +28,7 @@ function Row({ row, pin, tv = false }: { row: DuelloRow; pin?: string; tv?: bool
               className={clsx(
                 "tg-num grid place-items-center border-2",
                 tv ? "h-[3.1cqw] w-[2.5cqw] rounded-[0.5cqw] text-[2.1cqw]" : "h-11 w-9 rounded-lg text-[1.7rem]",
-                spot ? "border-[#c6ff3d] bg-[#c6ff3d] text-[#0b0d12]" : near ? "border-dashed border-[#ffc24a] text-[#ffc24a]" : pin ? "border-white/10 text-white/35" : "border-white/20 bg-white/[0.04]",
+                spot ? "border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : near ? "border-dashed border-(--tg-teal) text-(--tg-teal-hi)" : pin ? "border-(--tg-cream)/10 text-(--tg-cream)/35" : "border-(--tg-cream)/20 bg-(--tg-cream)/[0.04]",
               )}
             >
               {d}
@@ -38,11 +38,11 @@ function Row({ row, pin, tv = false }: { row: DuelloRow; pin?: string; tv?: bool
       </div>
       <div className={clsx("flex flex-col", tv ? "gap-[0.2cqw]" : "gap-0.5")}>
         <span className={clsx("flex items-center font-extrabold", tv ? "gap-[0.4cqw] text-[1.45cqw]" : "gap-1.5 text-base")}>
-          <span className={clsx("inline-block rounded-full bg-[#c6ff3d]", tv ? "h-[1cqw] w-[1cqw]" : "h-3 w-3")} aria-hidden />
+          <span className={clsx("inline-block rounded-full bg-(--tg-gold)", tv ? "h-[1cqw] w-[1cqw]" : "h-3 w-3")} aria-hidden />
           {row.spot} al posto giusto
         </span>
-        <span className={clsx("flex items-center font-extrabold text-white/80", tv ? "gap-[0.4cqw] text-[1.45cqw]" : "gap-1.5 text-base")}>
-          <span className={clsx("inline-block rounded-full border-2 border-[#ffc24a]", tv ? "h-[1cqw] w-[1cqw]" : "h-3 w-3")} aria-hidden />
+        <span className={clsx("flex items-center font-extrabold text-(--tg-cream)/80", tv ? "gap-[0.4cqw] text-[1.45cqw]" : "gap-1.5 text-base")}>
+          <span className={clsx("inline-block rounded-full border-2 border-(--tg-teal)", tv ? "h-[1cqw] w-[1cqw]" : "h-3 w-3")} aria-hidden />
           {row.near} fuori posto
         </span>
       </div>
@@ -68,8 +68,8 @@ function Player(p: P) {
         <MyOutcome outcome={p.myOutcome} />
         <Panel tone="lime" className="flex flex-col items-center gap-2 py-4">
           <Eyebrow>La combinazione</Eyebrow>
-          <p className="tg-num text-6xl leading-none tracking-[0.25em] text-[#c6ff3d]">{reveal.pin}</p>
-          {sent && pin !== reveal.pin && <p className="tg-num text-xl text-white/60 line-through">{pin}</p>}
+          <p className="tg-num text-6xl leading-none tracking-[0.25em] text-(--tg-gold)">{reveal.pin}</p>
+          {sent && pin !== reveal.pin && <p className="tg-num text-xl text-(--tg-cream)/60 line-through">{pin}</p>}
         </Panel>
         {g && g.teams.length > 1 && (
           <Panel className="flex flex-col gap-1">
@@ -83,7 +83,7 @@ function Player(p: P) {
                     {id === p.myTeam.teamId ? " (voi)" : ""}
                     {g.winners.includes(id) ? (g.tie ? " · pari" : " · vince") : ""}
                   </span>
-                  <span className="tg-num text-lg text-white/75">{g.times[id] === null ? "nessuna risposta" : `${g.right[id] ? "giusta" : "sbagliata"} · ${secLabel(g.times[id] ?? 0)}`}</span>
+                  <span className="tg-num text-lg text-(--tg-cream)/75">{g.times[id] === null ? "nessuna risposta" : `${g.right[id] ? "giusta" : "sbagliata"} · ${secLabel(g.times[id] ?? 0)}`}</span>
                 </p>
               );
             })}
@@ -119,17 +119,17 @@ function Player(p: P) {
       }
     >
       <Panel className="flex items-center gap-3 py-3">
-        <Icon name="sword" className="h-8 w-8 shrink-0 text-[#ff3b4e]" />
+        <Icon name="sword" className="h-8 w-8 shrink-0 text-(--tg-red-hi)" />
         <div className="min-w-0">
           <Eyebrow>{rivalText}</Eyebrow>
-          <p className="text-sm font-bold text-white/75">In silenzio: non saprete se ha già finito.</p>
+          <p className="text-sm font-bold text-(--tg-cream)/75">In silenzio: non saprete se ha già finito.</p>
         </div>
       </Panel>
       <Panel className="flex flex-col gap-3">
         <div>
-          <Eyebrow className="text-[#ffc24a]">{view.heading}</Eyebrow>
-          <p className="mt-1 text-[15px] font-semibold leading-snug text-white/85">{view.story}</p>
-          <p className="mt-1 text-sm font-bold text-white/65">{view.digits} cifre, tutte diverse.</p>
+          <Eyebrow className="text-(--tg-teal-hi)">{view.heading}</Eyebrow>
+          <p className="mt-1 text-[15px] font-semibold leading-snug text-(--tg-cream)/85">{view.story}</p>
+          <p className="mt-1 text-sm font-bold text-(--tg-cream)/65">{view.digits} cifre, tutte diverse.</p>
         </div>
         {view.rows.map((r) => (
           <Row key={r.guess} row={r} />
@@ -154,11 +154,11 @@ function Tv(p: T) {
         <TvPanel className="tg-rise flex min-h-0 flex-col gap-[1cqw]">
           {done ? (
             <div className="flex items-center gap-[1.2cqw]">
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-[#c6ff3d]">Combinazione</p>
-              <p className="tg-num tg-pop text-[5cqw] leading-none tracking-[0.25em] text-[#c6ff3d]">{reveal.pin}</p>
+              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Combinazione</p>
+              <p className="tg-num tg-pop text-[5cqw] leading-none tracking-[0.25em] text-(--tg-gold)">{reveal.pin}</p>
             </div>
           ) : (
-            <p className="text-[1.5cqw] font-semibold leading-snug text-white/90">{view.story}</p>
+            <p className="text-[1.5cqw] font-semibold leading-snug text-(--tg-cream)/90">{view.story}</p>
           )}
           <div className="flex flex-col gap-[0.6cqw]">
             {view.rows.map((r) => (
@@ -167,24 +167,24 @@ function Tv(p: T) {
           </div>
         </TvPanel>
         <TvPanel className="flex min-h-0 flex-col gap-[0.7cqw]">
-          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-[#ffc24a]">{done ? "Esito dei duelli" : "Duelli in corso"}</p>
+          <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">{done ? "Esito dei duelli" : "Duelli in corso"}</p>
           <div className={clsx("grid content-start gap-[0.6cqw]", view.groups.length > 3 ? "grid-cols-2" : "grid-cols-1")}>
             {view.groups.map((g, i) => {
               const r = groups?.[i];
               return (
-                <div key={g.map((t) => t.teamId).join("-")} className="tg-rise flex flex-col gap-[0.3cqw] rounded-[0.8cqw] border border-white/10 bg-white/[0.05] px-[0.8cqw] py-[0.5cqw]" style={{ animationDelay: `${i * 60}ms` }}>
+                <div key={g.map((t) => t.teamId).join("-")} className="tg-rise flex flex-col gap-[0.3cqw] rounded-[0.8cqw] border border-(--tg-cream)/10 bg-(--tg-cream)/[0.05] px-[0.8cqw] py-[0.5cqw]" style={{ animationDelay: `${i * 60}ms` }}>
                   {g.map((t) => {
                     const won = !!r?.winners.includes(t.teamId);
                     return (
                       <div key={t.teamId} className="flex min-w-0 items-center gap-[0.5cqw]">
                         <TvTeamTag team={map.get(t.teamId)} className="min-w-0 flex-1" />
                         {r ? (
-                          <span className={clsx("tg-num shrink-0 text-[1.2cqw]", won ? "text-[#c6ff3d]" : "text-white/50")}>
+                          <span className={clsx("tg-num shrink-0 text-[1.2cqw]", won ? "text-(--tg-gold)" : "text-(--tg-cream)/50")}>
                             {r.times[t.teamId] === null ? "—" : `${r.right[t.teamId] ? "" : "× "}${secLabel(r.times[t.teamId] ?? 0)}`}
                             {won ? (r.tie ? " · pari" : " · vince") : ""}
                           </span>
                         ) : (
-                          <Icon name="dots" className="h-[1.4cqw] w-[1.4cqw] shrink-0 text-white/40" />
+                          <Icon name="dots" className="h-[1.4cqw] w-[1.4cqw] shrink-0 text-(--tg-cream)/40" />
                         )}
                       </div>
                     );
@@ -194,9 +194,9 @@ function Tv(p: T) {
             })}
           </div>
           {done ? (
-            <p className="mt-auto text-[1.2cqw] font-semibold leading-snug text-white/85">{reveal.explain}</p>
+            <p className="mt-auto text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal.explain}</p>
           ) : (
-            <p className="mt-auto text-[1.15cqw] font-bold leading-snug text-white/65">Pallino pieno: cifra giusta al posto giusto. Pallino vuoto: cifra giusta ma fuori posto.</p>
+            <p className="mt-auto text-[1.15cqw] font-bold leading-snug text-(--tg-cream)/65">Pallino pieno: cifra giusta al posto giusto. Pallino vuoto: cifra giusta ma fuori posto.</p>
           )}
         </TvPanel>
       </div>

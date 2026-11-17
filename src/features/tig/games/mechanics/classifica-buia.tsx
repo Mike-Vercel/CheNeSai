@@ -68,7 +68,7 @@ function Player(p: P) {
       <BalanceCard balance={mv?.balance ?? null} note="Classifica buia: le posizioni degli altri non si vedono. Si scopre tutto alla fine." />
       <Panel className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
-          <Icon name="eye" className="h-8 w-8 shrink-0 text-[#ffc24a]" />
+          <Icon name="eye" className="h-8 w-8 shrink-0 text-(--tg-teal-hi)" />
           <div className="min-w-0">
             <Eyebrow>Categoria della domanda</Eyebrow>
             <p className="tg-display text-3xl leading-none">{view.category}</p>
@@ -84,7 +84,7 @@ function Player(p: P) {
             { id: "rischio", title: "Rischio", sub: `Giusta +${view.riskWin}, sbagliata −${loss}`, tone: "red" },
           ]}
         />
-        {!choosing && !choice && p.stage === "play" && <p className="text-sm font-bold text-[#ffd68a]">Tempo di scelta finito: per voi vale la prudenza.</p>}
+        {!choosing && !choice && p.stage === "play" && <p className="text-sm font-bold text-(--tg-teal-pale)">Tempo di scelta finito: per voi vale la prudenza.</p>}
       </Panel>
       {question && (
         <Panel tone="red" className="tg-rise flex flex-col gap-3">
@@ -131,13 +131,13 @@ function Tv(p: T) {
       <TvFrame view={view} p={p} subtitle="Le posizioni sono al buio: ogni tavolo vede solo il proprio saldo.">
         <div className="grid h-full grid-cols-[1fr_1.1fr] gap-[1.4cqw]">
           <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw]">
-            <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-white/60">Classifica</p>
+            <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">Classifica</p>
             <div className="grid content-start gap-[0.5cqw]" style={{ gridTemplateColumns: p.teams.length > 8 ? "1fr 1fr" : "1fr" }}>
               {p.teams.map((tm, i) => (
-                <div key={tm.teamId} className="flex min-w-0 items-center gap-[0.6cqw] rounded-[0.7cqw] border border-white/8 bg-white/[0.03] px-[0.7cqw] py-[0.4cqw]">
-                  <span className="tg-num w-[1.6cqw] text-[1.3cqw] text-white/40">?</span>
+                <div key={tm.teamId} className="flex min-w-0 items-center gap-[0.6cqw] rounded-[0.7cqw] border border-(--tg-cream)/8 bg-(--tg-cream)/[0.03] px-[0.7cqw] py-[0.4cqw]">
+                  <span className="tg-num w-[1.6cqw] text-[1.3cqw] text-(--tg-cream)/40">?</span>
                   <TvTeamTag team={tm} className="min-w-0 flex-1 opacity-80" />
-                  <span className="tg-num shrink-0 text-[1.5cqw] tracking-[0.2em] text-white/35" style={{ animationDelay: `${i * 40}ms` }}>
+                  <span className="tg-num shrink-0 text-[1.5cqw] tracking-[0.2em] text-(--tg-cream)/35" style={{ animationDelay: `${i * 40}ms` }}>
                     •••
                   </span>
                 </div>
@@ -159,7 +159,7 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={`${view.category} · rispondono solo i tavoli che hanno scelto il rischio`}>
       <div className="flex h-full flex-col justify-center gap-[1.4cqw]">
         <TvPanel tone="red" className="tg-rise flex flex-col gap-[1cqw] p-[2.2cqw]">
-          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.25em] text-[#ff8c97]">
+          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.25em] text-(--tg-red-hi)">
             Rischio: +{view.riskWin} o fino a −{view.riskLossMax}
           </p>
           <p className="text-[2.8cqw] font-extrabold leading-tight">{view.prompt}</p>
