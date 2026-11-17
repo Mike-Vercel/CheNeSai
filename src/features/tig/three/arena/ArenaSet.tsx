@@ -1,8 +1,7 @@
 "use client";
 
-import { MeshReflectorMaterial } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, type RefObject } from "react";
+import { useEffect, useMemo, useRef, type ReactNode, type RefObject } from "react";
 import {
   AdditiveBlending,
   BufferAttribute,
@@ -14,6 +13,7 @@ import {
   DoubleSide,
   InstancedMesh,
   LinearFilter,
+  LinearMipmapLinearFilter,
   Matrix4,
   MeshBasicMaterial,
   MeshStandardMaterial,
@@ -31,6 +31,8 @@ import {
 import { TIG } from "../palette";
 import { awardsRevealed } from "./director";
 import { coneMaterial, dustMaterial, ledMaterial, ribbonMaterial } from "./fx-materials";
+import { REFLECT_LAYER, useFloorMaterial } from "./FloorReflector";
+import type { RenderProfile } from "./perf";
 import { useLatestRef } from "./use-latest";
 import type { ArenaDebug } from "./debug";
 import type { ArenaLive } from "./live";
@@ -39,10 +41,11 @@ import { LED_CANVAS, drawLed, type LedContent, type LedTeam } from "./led-textur
 import { canvasTex, floorDecal, stageDecal } from "./textures";
 
 /**
- * IL SET dell'arena: pavimento nero lucido con la mappa tattica (riflesso vero solo in qualità alta), palco
- * esagonale a due gradini con i bordi ambra, HALO LED sospeso (schermo curvo dei contenuti + anello luminoso),
- * americana circolare con i fari e i coni nella foschia, nastro LED attorno all'arena, torri LED sul fondo,
- * pulviscolo, coriandoli, podio della premiazione. Le luci seguono l'atmosfera della fase (`live.mood`).
+ * IL SET dell'arena: pavimento nero lucido con la mappa tattica (riflesso vero del set nei profili ricchi, vedi
+ * FloorReflector), palco esagonale a due gradini con i bordi ambra, HALO LED sospeso (schermo curvo dei contenuti +
+ * anello luminoso), americana circolare con i fari e i coni nella foschia, nastro LED attorno all'arena, torri LED
+ * sul fondo, pulviscolo, coriandoli, podio della premiazione. Le luci seguono l'atmosfera della fase (`live.mood`).
+ * I neon escono in HDR (sopra la soglia del bagliore): brillano davvero col bloom del postprocessing.
  */
 
 const C = {
@@ -56,38 +59,45 @@ const C = {
   warm: new Color("#ffd9a8"),
 };
 
+/** Colore al neon in HDR: `k` volte sopra il bianco, così il bagliore lo prende. */
+function neon(hex: string, k: number): Color {
+  return new Color(hex).multiplyScalar(k);
+}
+const NEON = {
+  amber: neon(TIG.amber, 3.2),
+  amberSoft: neon(TIG.amber, 2.2),
+  cyan: neon(TIG.cyan, 2.6),
+  gold: neon(TIG.gold, 2.6),
+  silver: neon("#cfd6de", 2.0),
+  bronze: neon("#d98a4e", 2.4),
+};
+
+/** Mette nel riflesso del pavimento tutti gli oggetti del gruppo (montati una volta: il set è statico). */
+export function Reflected({ children }: { children: ReactNode }) {
+  const g = useRef<Group>(null);
+  useEffect(() => {
+    g.current?.traverse((o) => o.layers.enable(REFLECT_LAYER));
+  });
+  return <group ref={g}>{children}</group>;
+}
+
 const rnd = (n: number) => {
   const h = Math.sin(n * 12.9898 + 78.233) * 43758.5453;
   return h - Math.floor(h);
 };
 
 // ------------------------------------------------------------------ pavimento
-function Floor({ high, radius }: { high: boolean; radius: number }) {
+function Floor({ reflect, every, radius }: { reflect: number; every: number; radius: number }) {
   const decal = useMemo(() => floorDecal(), []);
   useEffect(() => () => decal.dispose(), [decal]);
   const size = Math.max(26, radius * 3.6);
+  // resina nera lucida: riflesso vero (solo il set luminoso, a bassa risoluzione, sfocato) o, nei profili leggeri,
+  // solo i riflessi dell'ambiente di studio
+  const { material: floorMat, meshRef: floorRef } = useFloorMaterial({ scale: reflect, every, strength: 0.62, color: "#06080c" });
   return (
     <group>
-      <mesh rotation-x={-Math.PI / 2} receiveShadow={high}>
+      <mesh ref={floorRef} rotation-x={-Math.PI / 2} material={floorMat}>
         <planeGeometry args={[90, 90]} />
-        {high ? (
-          <MeshReflectorMaterial
-            resolution={256}
-            blur={[160, 50]}
-            mixBlur={1}
-            mixStrength={4.2}
-            mixContrast={1.05}
-            roughness={0.62}
-            depthScale={1.1}
-            minDepthThreshold={0.4}
-            maxDepthThreshold={1.4}
-            color="#07090d"
-            metalness={0.55}
-            mirror={0.8}
-          />
-        ) : (
-          <meshStandardMaterial color="#07090d" metalness={0.6} roughness={0.3} />
-        )}
       </mesh>
       <mesh rotation-x={-Math.PI / 2} position-y={0.004} renderOrder={1}>
         <planeGeometry args={[size, size]} />
@@ -107,7 +117,9 @@ function hexRing(r: number, y: number): Vector3[] {
   return pts;
 }
 
-function NeonHex({ r, y, color, width = 0.025 }: { r: number; y: number; color: string; width?: number }) {
+function NeonHex({ r, y, color, width = 0.025 }: { r: number; y: number; color: Color; width?: number }) {
+  const mat = useMemo(() => new MeshBasicMaterial({ color, toneMapped: false }), [color]);
+  useEffect(() => () => mat.dispose(), [mat]);
   const segs = useMemo(() => {
     const pts = hexRing(r, y);
     return pts.slice(0, 6).map((p, i) => {
@@ -121,9 +133,8 @@ function NeonHex({ r, y, color, width = 0.025 }: { r: number; y: number; color: 
   return (
     <group>
       {segs.map((s, i) => (
-        <mesh key={i} position={s.mid} rotation={[0, -s.ang, 0]}>
+        <mesh key={i} position={s.mid} rotation={[0, -s.ang, 0]} material={mat}>
           <boxGeometry args={[s.len, width, width]} />
-          <meshBasicMaterial color={color} toneMapped={false} />
         </mesh>
       ))}
     </group>
@@ -154,9 +165,9 @@ function Stage({ family, shadows }: { family: string; shadows: boolean }) {
         <planeGeometry args={[STAGE.radius * 2.04, STAGE.radius * 2.04]} />
         <meshBasicMaterial map={decal} transparent depthWrite={false} blending={AdditiveBlending} toneMapped={false} />
       </mesh>
-      <NeonHex r={STAGE.radius + 0.02} y={STAGE.height} color={TIG.amber} />
-      <NeonHex r={STAGE.radius + 0.56} y={0.012} color={TIG.amber} width={0.02} />
-      <NeonHex r={STAGE.radius + 0.51} y={low} color={TIG.cyan} width={0.016} />
+      <NeonHex r={STAGE.radius + 0.02} y={STAGE.height} color={NEON.amber} width={0.03} />
+      <NeonHex r={STAGE.radius + 0.56} y={0.012} color={NEON.amberSoft} width={0.022} />
+      <NeonHex r={STAGE.radius + 0.51} y={low} color={NEON.cyan} width={0.018} />
     </group>
   );
 }
@@ -198,7 +209,7 @@ function Podium({ liveRef, family }: { liveRef: RefObject<ArenaLive>; family: st
   return (
     <group ref={g} position={[0, STAGE.height, PODIUM_Z]} visible={false}>
       {PODIUM_SPOTS.map((s, i) => {
-        const trim = s.place === 1 ? TIG.gold : s.place === 2 ? "#cfd6de" : "#d98a4e";
+        const trim = s.place === 1 ? NEON.gold : s.place === 2 ? NEON.silver : NEON.bronze;
         return (
           <group key={s.place} position-x={s.x}>
             <mesh position-y={s.h / 2}>
@@ -212,7 +223,7 @@ function Podium({ liveRef, family }: { liveRef: RefObject<ArenaLive>; family: st
             </mesh>
             <mesh position={[0, 0.015, 0]}>
               <boxGeometry args={[PODIUM_W + 0.03, 0.03, PODIUM_W + 0.03]} />
-              <meshBasicMaterial color={TIG.amber} toneMapped={false} />
+              <meshBasicMaterial color={NEON.amberSoft} toneMapped={false} />
             </mesh>
             {/* numero del posto sulla faccia davanti */}
             <mesh position={[0, s.h * 0.5, PODIUM_W / 2 + 0.004]}>
@@ -281,18 +292,20 @@ function updateLedContent(L: ArenaLive, st: LedStatic, c: LedContent, pool: Map<
   return sig;
 }
 
-function LedHalo({ liveRef, ledStatic, family, low }: { liveRef: RefObject<ArenaLive>; ledStatic: LedStatic; family: string; low: boolean }) {
+function LedHalo({ liveRef, ledStatic, family, canvasW }: { liveRef: RefObject<ArenaLive>; ledStatic: LedStatic; family: string; canvasW: number }) {
   const tex = useMemo(() => {
     const c = document.createElement("canvas");
-    c.width = low ? 1280 : LED_CANVAS.w;
+    c.width = canvasW;
     c.height = Math.round((c.width * LED_CANVAS.h) / LED_CANVAS.w);
     const t = new CanvasTexture(c);
     t.colorSpace = SRGBColorSpace;
+    // mipmap + anisotropia: lo schermo curvo visto di scorcio e da lontano resta pulito (niente moiré sulle scritte)
     t.anisotropy = 8;
-    t.minFilter = LinearFilter;
-    t.generateMipmaps = false;
+    t.minFilter = LinearMipmapLinearFilter;
+    t.magFilter = LinearFilter;
+    t.generateMipmaps = true;
     return t;
-  }, [low]);
+  }, [canvasW]);
   const mat = useMemo(() => ledMaterial(tex), [tex]);
   useEffect(
     () => () => {
@@ -399,8 +412,8 @@ function LedHalo({ liveRef, ledStatic, family, low }: { liveRef: RefObject<Arena
             <meshStandardMaterial color="#141a22" metalness={0.9} roughness={0.3} />
           </mesh>
           <mesh rotation-x={Math.PI / 2} position-y={s * 0.05}>
-            <torusGeometry args={[LED.radius + 0.07, 0.014, 6, 128]} />
-            <meshBasicMaterial color={s > 0 ? TIG.amber : TIG.cyan} toneMapped={false} />
+            <torusGeometry args={[LED.radius + 0.07, 0.016, 6, 128]} />
+            <meshBasicMaterial color={s > 0 ? NEON.amber : NEON.cyan} toneMapped={false} />
           </mesh>
         </group>
       ))}
@@ -460,13 +473,18 @@ const vDir = new Vector3();
 const qT = new Quaternion();
 const cT = new Color();
 
-function Rig({ liveRef, radius, low, reduced, cones: showCones = true }: { liveRef: RefObject<ArenaLive>; radius: number; low: boolean; reduced: boolean; cones?: boolean }) {
+const MAX_FIXTURES = 12;
+
+function Rig({ liveRef, radius, low, reduced, fixtures: shown, cones: showCones = true }: { liveRef: RefObject<ArenaLive>; radius: number; low: boolean; reduced: boolean; fixtures: number; cones?: boolean }) {
   const trussR = Math.max(LED.radius + 1.6, radius + 0.4);
-  const count = low ? 6 : 10;
+  // allocati una volta (niente shader ricompilati quando il profilo cambia): si disegnano i primi `shown`
+  const count = MAX_FIXTURES;
   const fixtures = useMemo<Fixture[]>(
     () =>
       Array.from({ length: count }, (_, i) => {
-        const a = (i / count) * Math.PI * 2 + 0.1;
+        // ordine "a ventaglio": i primi N fari restano distribuiti su tutto l'anello qualunque sia N
+        const k = (i * 5) % count;
+        const a = (k / count) * Math.PI * 2 + 0.1;
         return { pos: new Vector3(Math.sin(a) * trussR, TRUSS_Y - 0.35, Math.cos(a) * trussR), phase: i * 0.83, angle: a };
       }),
     [count, trussR],
@@ -509,10 +527,12 @@ function Rig({ liveRef, radius, low, reduced, cones: showCones = true }: { liveR
     [cones, lenses],
   );
   const smooth = useRef(fixtures.map(() => ({ x: 0, z: 0, i: 0.3, c: new Color("#ffffff"), init: false })));
-  const objRef = useLatestRef({ cones, lenses });
+  const objRef = useLatestRef({ cones, lenses, shown });
 
   useFrame((_, rawDt) => {
-    const { cones, lenses } = objRef.current;
+    const { cones, lenses, shown } = objRef.current;
+    // quanti fari si vedono: lo decide il profilo (gli altri restano allocati, nessuno shader da ricompilare)
+    cones.count = lenses.body.count = lenses.glow.count = Math.max(1, Math.min(count, shown));
     const dt = Math.min(0.1, rawDt);
     const L = liveRef.current;
     const t = reduced ? 0 : L.t;
@@ -680,7 +700,8 @@ function Rig({ liveRef, radius, low, reduced, cones: showCones = true }: { liveR
       mT.makeTranslation(0, -0.23, 0);
       tmpO.matrix.multiply(mT);
       lenses.glow.setMatrixAt(i, tmpO.matrix);
-      lenses.glow.setColorAt(i, cT.copy(S.c).multiplyScalar(0.6 + S.i * 3));
+      // lente del faro: sopra la soglia del bagliore (brilla)
+      lenses.glow.setColorAt(i, cT.copy(S.c).multiplyScalar(1.2 + S.i * 5));
     });
     cones.instanceMatrix.needsUpdate = true;
     if (cones.instanceColor) cones.instanceColor.needsUpdate = true;
@@ -775,7 +796,7 @@ function Ribbon({ liveRef, radius }: { liveRef: RefObject<ArenaLive>; radius: nu
 }
 
 // ------------------------------------------------------------------ pulviscolo e coriandoli
-function Dust({ count, size }: { count: number; size: number }) {
+function Dust({ count, shown, size }: { count: number; shown: number; size: number }) {
   const geo = useMemo(() => {
     const g = new BufferGeometry();
     const seed = new Float32Array(count * 3);
@@ -784,6 +805,9 @@ function Dust({ count, size }: { count: number; size: number }) {
     g.setAttribute("seed", new BufferAttribute(seed, 3));
     return g;
   }, [count]);
+  useEffect(() => {
+    geo.setDrawRange(0, Math.max(0, Math.min(count, shown)));
+  }, [geo, count, shown]);
   const mat = useMemo(() => {
     const m = dustMaterial();
     m.uniforms.uSize.value = size;
@@ -806,7 +830,7 @@ function Dust({ count, size }: { count: number; size: number }) {
   return <points geometry={geo} material={mat} frustumCulled={false} />;
 }
 
-function Confetti({ liveRef, count }: { liveRef: RefObject<ArenaLive>; count: number }) {
+function Confetti({ liveRef, count, shown }: { liveRef: RefObject<ArenaLive>; count: number; shown: number }) {
   const mesh = useMemo(() => {
     const m = new InstancedMesh(new PlaneGeometry(0.07, 0.12), new MeshBasicMaterial({ side: DoubleSide, toneMapped: false }), count);
     m.frustumCulled = false;
@@ -832,6 +856,7 @@ function Confetti({ liveRef, count }: { liveRef: RefObject<ArenaLive>; count: nu
     const on = (L.mood.mood === "awards" && L.elapsedMs > 7800) || winner;
     mesh.visible = on;
     if (!on) return;
+    mesh.count = Math.max(1, Math.min(count, shown));
     const t = L.t;
     seeds.forEach((s, i) => {
       const fall = 0.9 + s[1] * 0.8;
@@ -920,31 +945,40 @@ export function ArenaLighting({ liveRef }: { liveRef: RefObject<ArenaLive>; high
     rimL.current?.color.lerp(amberRim, 0.08);
     rimR.current?.color.lerp(cyanRim, 0.08);
   });
+  const g = useRef<Group>(null);
+  useEffect(() => {
+    // le luci valgono anche per la camera del riflesso del pavimento
+    g.current?.traverse((o) => o.layers.enable(REFLECT_LAYER));
+  }, []);
   return (
-    <>
+    <group ref={g}>
       <hemisphereLight args={["#c4d6ff", "#0a0c10", 0.62]} />
       <ambientLight intensity={0.14} color="#ffe6cf" />
       <directionalLight ref={key} position={[4, 11, 10]} intensity={2.3} color="#fff0e0" />
       <pointLight ref={rimL} position={[-7, 5, -5]} intensity={80} distance={22} decay={2} color={TIG.amber} />
       <pointLight ref={rimR} position={[7, 5, -5]} intensity={80} distance={22} decay={2} color={TIG.cyan} />
       <pointLight ref={mood} position={[0, 5.5, 4]} intensity={14} distance={22} decay={2} />
-    </>
+    </group>
   );
 }
 
-/** Il set completo (senza torri, mascotte e presentatori). */
-export function ArenaSet({ liveRef, ledStatic, family, quality, reduced, radius, debug }: { liveRef: RefObject<ArenaLive>; ledStatic: LedStatic; family: string; quality: "high" | "low"; reduced: boolean; radius: number; debug: ArenaDebug }) {
+/** Il set completo (senza torri, mascotte e presentatori). Quanto è ricco lo decide il profilo di resa (perf.ts). */
+export function ArenaSet({ liveRef, ledStatic, family, quality, reduced, radius, debug, profile }: { liveRef: RefObject<ArenaLive>; ledStatic: LedStatic; family: string; quality: "high" | "low"; reduced: boolean; radius: number; debug: ArenaDebug; profile: RenderProfile }) {
   const high = quality === "high";
+  // canvas del LED: più pixel in qualità alta (le scritte restano nitide anche da vicino); fisso per tutta la serata
+  const ledW = high ? 2560 : 1600;
   return (
     <group>
-      <Floor high={high && !debug.noReflect} radius={radius} />
-      <Stage family={family} shadows={high} />
-      <Podium liveRef={liveRef} family={family} />
-      <LedHalo liveRef={liveRef} ledStatic={ledStatic} family={family} low={!high} />
-      <Rig liveRef={liveRef} radius={radius} low={!high} reduced={reduced} cones={!debug.noCones} />
-      <Ribbon liveRef={liveRef} radius={radius} />
-      <Dust count={high ? 320 : 120} size={radius * 2.6} />
-      <Confetti liveRef={liveRef} count={high ? 260 : 110} />
+      <Floor reflect={debug.noReflect ? 0 : profile.reflect} every={profile.reflectEvery} radius={radius} />
+      <Reflected>
+        <Stage family={family} shadows={false} />
+        <Podium liveRef={liveRef} family={family} />
+        <LedHalo liveRef={liveRef} ledStatic={ledStatic} family={family} canvasW={ledW} />
+        <Ribbon liveRef={liveRef} radius={radius} />
+      </Reflected>
+      <Rig liveRef={liveRef} radius={radius} low={!high} reduced={reduced} fixtures={profile.fixtures} cones={!debug.noCones} />
+      <Dust count={360} shown={profile.dust} size={radius * 2.6} />
+      <Confetti liveRef={liveRef} count={280} shown={profile.confetti} />
     </group>
   );
 }

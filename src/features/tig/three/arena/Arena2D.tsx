@@ -16,14 +16,21 @@ import "./arena-2d.css";
  * carica). Stesse informazioni dell'arena 3D in SVG/CSS: schermo con titolo/classifica/allarme/sfida, palco, torri
  * delle squadre sull'arco (altezza = punteggio, numero, nome, punti, Energia Caos, mascotte), presentatori come
  * targhette (dichiaratamente 2D, non il personaggio). Inquadrata dentro la finestra libera dall'HUD (safeArea).
+ * Con più di 12 squadre le torri stanno su due file come nel 3D (la fila dietro più in alto, sfalsata di mezzo passo:
+ * scritte e torri delle due file non si coprono).
  */
 
 const W = 1600;
 const H = 900;
 
-function podScreen(x: number, z: number, radius: number) {
-  const k = 640 / Math.max(6.5, radius + 1.2);
-  return { sx: W / 2 + x * k, sy: 700 + z * k * 0.3, depth: z };
+/** Scala della pianta (pixel SVG per metro). */
+function planScale(radius: number) {
+  return 640 / Math.max(6.5, radius + 1.2);
+}
+
+function podScreen(x: number, z: number, radius: number, backRow: boolean) {
+  const k = planScale(radius);
+  return { sx: W / 2 + x * k, sy: 700 + z * k * 0.3 - (backRow ? 110 : 0), depth: z };
 }
 
 function LedPanel({ props, mode, teams, awardsShown }: { props: ArenaProps; mode: string; teams: ArenaTeam[]; awardsShown: number }) {
@@ -210,12 +217,14 @@ export default function Arena2D(props: ArenaProps) {
     readyCb.current?.();
   }, []);
   const awardsShown = props.phase === "awards" ? awardsRevealed(elapsed, teams.length) : 0;
+  const twoRows = layout.rows === 2;
   const pods = layout.pods
-    .map((p, i) => ({ p, t: teams[i], s: podScreen(p.x, p.z, layout.radius) }))
+    .map((p, i) => ({ p, t: teams[i], s: podScreen(p.x, p.z, layout.radius, twoRows && p.row === 1) }))
     .filter((x) => x.t)
     .sort((a, b) => a.s.depth - b.s.depth);
-  const towerScale = 120 / (POD.maxHeight - POD.minHeight + 0.6);
-  const podW = Math.max(46, Math.min(96, 1100 / Math.max(1, teams.length)));
+  const towerScale = (twoRows ? 90 : 120) / (POD.maxHeight - POD.minHeight + 0.6);
+  // due file: tra una torre e la vicina (dell'altra fila) c'è mezzo passo
+  const podW = twoRows ? Math.max(40, Math.min(70, ((layout.spacing * planScale(layout.radius)) / 2) * 0.95)) : Math.max(46, Math.min(96, 1100 / Math.max(1, teams.length)));
 
   return (
     <div className={`tig2d ${props.className ?? ""}`} data-mood={dir.mood}>

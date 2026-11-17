@@ -4,7 +4,12 @@ import { DIGIT_CELLS } from "./textures";
 /**
  * Materiali-shader dell'arena (tutti compatibili con InstancedMesh: `instanceMatrix` e `instanceColor` arrivano
  * dal prefisso di three quando la mesh è istanziata). Niente luci vere per gli elementi luminosi: neon, ologrammi,
- * coni di luce, cifre e schermi sono "emissivi" e costano pochissimo anche con 20 torri.
+ * coni di luce, cifre e schermi sono "emissivi" e costano pochissimo anche con 24 torri.
+ *
+ * COLORE E BAGLIORE (v2): la scena si disegna in un buffer HDR lineare e il bagliore (bloom) prende solo ciò che
+ * supera ~0,92 di luminanza. Regola di casa: ciò che deve restare NITIDO (testi del LED, targhette, cifre) esce
+ * sotto 0,9; neon, spigoli, ologrammi e fasci escono sopra 1 e "brillano". Gli effetti sono scritti in valori
+ * "da schermo" (sRGB) e convertiti in lineare all'uscita (`OUT_LINEAR`), così l'aspetto resta quello disegnato.
  */
 
 const INSTANCE_MAT = /* glsl */ `
@@ -14,6 +19,11 @@ const INSTANCE_MAT = /* glsl */ `
     mat4 im = mat4(1.0);
   #endif
 `;
+/** Uscita: da valori "da schermo" a lineare (il passaggio finale del postprocessing riconverte in sRGB). */
+export const OUT_LINEAR = /* glsl */ `gl_FragColor.rgb = pow(max(gl_FragColor.rgb, vec3(0.0)), vec3(2.2));`;
+/** Tetto dei testi nitidi: sotto la soglia del bagliore. */
+export const CRISP = 0.88;
+
 const INSTANCE_COLOR = /* glsl */ `
   #ifdef USE_INSTANCING_COLOR
     vec3 ic = instanceColor;
@@ -64,8 +74,9 @@ export function glyphMaterial(atlas: Texture, billboard: boolean): ShaderMateria
         vec4 t = texture2D(uAtlas, vec2((floor(vGlyph + 0.5) + vUv.x) / uCells, vUv.y));
         float a = t.a * vAlpha;
         if (a < 0.02) discard;
-        // il bianco dell'atlante diventa il colore della cifra, il contorno scuro resta scuro
-        vec3 col = vColor * t.rgb * 1.35;
+        // il bianco dell'atlante diventa il colore della cifra, il contorno scuro resta scuro; sotto la soglia del
+        // bagliore: le cifre restano nitide
+        vec3 col = min(vColor * t.rgb, vec3(1.0)) * ${CRISP.toFixed(2)};
         gl_FragColor = vec4(col, a);
       }
     `,
@@ -122,26 +133,39 @@ export function columnMaterial(): ShaderMaterial {
       void main() {
         float online = vState.x;
         vec3 team = mix(vec3(dot(vColor, vec3(0.3, 0.59, 0.11))) * 0.35, vColor, online);
-        // spigoli dell'esagono (uv.x da 0 a 1 attorno, 6 facce): linee sottili al neon
-        float f = fract(vUv.x * 6.0);
-        float edge = smoothstep(0.045, 0.0, f) + smoothstep(0.955, 1.0, f);
-        // tacche ogni 25 cm (in metri veri)
-        float tick = smoothstep(0.47, 0.5, abs(fract(vWy * 4.0) - 0.5));
+        // spigoli dell'esagono (uv.x da 0 a 1 attorno, 6 facce): linee al neon larghe almeno un pixel, con
+        // l'energia che resta costante da lontano (fwidth: niente scalette né sfarfallio)
+        float fx = vUv.x * 6.0;
+        float f = fract(fx);
+        float fw = max(fwidth(fx), 1e-4);
+        float d = min(f, 1.0 - f);
+        float ew = 0.04;
+        float edge = (1.0 - smoothstep(ew - fw, ew + fw, d)) * min(1.0, ew / fw);
+        // tacche ogni 25 cm (in metri veri), antialiasate allo stesso modo
+        float ty = vWy * 4.0;
+        float tw = max(fwidth(ty), 1e-4);
+        float td = 0.5 - abs(fract(ty) - 0.5);
+        float tick = (1.0 - smoothstep(0.035 - tw, 0.035 + tw, td)) * min(1.0, 0.035 / tw);
         // fascia luminosa in cima, luce interna che sale dal basso verso il tappo
         float top = smoothstep(0.9, 1.0, vUv.y);
         float inner = smoothstep(0.15, 1.0, vUv.y);
         float facing = clamp(dot(vN, vV), 0.0, 1.0);
         float rim = pow(1.0 - facing, 3.0);
         float lit = uAmb + 0.6 * clamp(dot(vN, normalize(vec3(0.3, 0.6, 0.75))), 0.0, 1.0);
-        // vetro fumé: quasi nero, un riflesso freddo verticale sulle facce verso la luce
-        float streak = smoothstep(0.35, 0.5, fract(vUv.x * 6.0)) * smoothstep(0.65, 0.5, fract(vUv.x * 6.0));
-        vec3 base = vec3(0.02, 0.026, 0.036) * (0.6 + lit * 1.6) + vec3(0.06, 0.07, 0.085) * streak * lit;
+        // vetro fumé: quasi nero, un riflesso freddo verticale sulle facce verso la luce e un filo di luce fredda di taglio
+        float streak = smoothstep(0.35, 0.5, f) * smoothstep(0.65, 0.5, f);
+        vec3 base = vec3(0.02, 0.026, 0.036) * (0.6 + lit * 1.6) + vec3(0.06, 0.07, 0.085) * streak * lit + vec3(0.05, 0.065, 0.09) * rim;
+        // anima luminosa: una striscia LED al centro di ogni faccia, con un'onda di luce che sale piano
+        float cd = abs(f - 0.5);
+        float strip = (1.0 - smoothstep(0.07 - fw, 0.07 + fw, cd)) * min(1.0, 0.07 / fw);
+        float sweep = pow(max(0.0, 1.0 - abs(fract(vWy * 0.32 - uTime * 0.22) - 0.5) * 5.0), 3.0);
         float pulse = 0.88 + 0.12 * sin(uTime * 2.0 + vWy * 3.0);
-        vec3 glow = team * (edge * 2.0 * pulse + tick * 0.22 + top * 1.9 + rim * 0.12 + inner * 0.16);
+        vec3 glow = team * (edge * 2.0 * pulse + tick * 0.22 + top * 1.9 + rim * 0.12 + inner * 0.1 + strip * (0.2 + 0.8 * sweep) * inner);
         glow *= 0.5 + 0.5 * online;
         glow += team * vState.y * (0.55 + 0.45 * sin(uTime * 6.0)) * 0.55;
         glow += vec3(1.0) * vState.z * 1.2;
         gl_FragColor = vec4(base + glow, 1.0);
+        ${OUT_LINEAR}
       }
     `,
     toneMapped: false,
@@ -195,6 +219,7 @@ export function chaosRingMaterial(chaosColor: string): ShaderMaterial {
         vec3 col = mix(track, fill, max(filled, step(2.5, vL))) * seg;
         float a = mix(0.45, 1.0, max(filled, step(2.5, vL))) * seg * (0.35 + 0.65 * vO);
         gl_FragColor = vec4(col, a);
+        ${OUT_LINEAR}
       }
     `,
     transparent: true,
@@ -251,6 +276,9 @@ export function hologramMaterial(): ShaderMaterial {
         col = mix(col, vec3(1.0, 0.12, 0.15) * 1.6, vFx.z * 0.8);
         float a = clamp(0.35 + fres * 0.65, 0.0, 1.0) * (0.55 + 0.45 * vFx.w);
         gl_FragColor = vec4(col, a);
+        ${OUT_LINEAR}
+        // gli strati additivi si sommano in lineare (più tenui che "a schermo"): un po' di guadagno, i bordi brillano
+        gl_FragColor.rgb *= 1.6;
       }
     `,
     transparent: true,
@@ -287,6 +315,7 @@ export function spriteMaterial(map: Texture): ShaderMaterial {
       void main() {
         vec4 t = texture2D(uMap, vUv);
         gl_FragColor = vec4(vColor * t.rgb * t.a, t.a);
+        ${OUT_LINEAR}
       }
     `,
     transparent: true,
@@ -324,6 +353,7 @@ export function additiveMapMaterial(map: Texture, scroll = 0): ShaderMaterial {
       void main() {
         vec4 t = texture2D(uMap, vec2(vUv.x + uTime * uScroll + vPhase, vUv.y));
         gl_FragColor = vec4(vColor * t.rgb * t.a, t.a);
+        ${OUT_LINEAR}
       }
     `,
     transparent: true,
@@ -366,7 +396,8 @@ export function coneMaterial(): ShaderMaterial {
         // solo le facce davanti (metà dei pixel): si compensa la luminosità
         float a = edge * along * uHaze * 1.55;
         if (a < 0.002) discard;
-        gl_FragColor = vec4(vColor * a, a);
+        gl_FragColor = vec4(min(vColor * a, vec3(0.8)), a);
+        ${OUT_LINEAR}
       }
     `,
     transparent: true,
@@ -407,18 +438,22 @@ export function ledMaterial(map: Texture): ShaderMaterial {
       uniform vec2 uGrid;
       varying vec2 vUv;
       void main() {
-        vec3 c = texture2D(uMap, vUv).rgb;
-        // pixel del LED (griglia procedurale: nitida a ogni distanza)
-        vec2 g = fract(vUv * uGrid);
+        // un filo di contrasto: fondi più neri, bianchi e colori pieni
+        vec3 c = pow(texture2D(uMap, vUv).rgb, vec3(1.3));
+        // pixel del LED (griglia procedurale): si vede solo quando ogni pixel del LED è grande almeno ~3 pixel
+        // dello schermo, da lontano sparisce (niente moiré sulle scritte)
+        vec2 gp = vUv * uGrid;
+        vec2 g = fract(gp);
+        float gw = max(fwidth(gp.x), fwidth(gp.y));
         float px = smoothstep(0.0, 0.18, g.x) * smoothstep(1.0, 0.82, g.x) * smoothstep(0.0, 0.18, g.y) * smoothstep(1.0, 0.82, g.y);
-        c *= 0.9 + 0.1 * px;
+        c *= 1.0 - 0.1 * (1.0 - px) * (1.0 - smoothstep(0.2, 0.45, gw));
         // banda di scansione lenta
         float scan = smoothstep(0.0, 0.04, abs(fract(vUv.y * 0.5 - uTime * 0.12) - 0.5) - 0.0);
         c *= 0.94 + 0.06 * scan;
         // allarme: il rosso pulsa a 2,5 Hz
         float alarm = uAlarm * (0.55 + 0.45 * step(0.5, fract(uTime * 2.5)));
         c = mix(c, c * vec3(1.35, 0.55, 0.55) + vec3(0.18, 0.0, 0.01), alarm * 0.6);
-        c *= uTint * uBright;
+        c *= uTint * uBright * ${CRISP.toFixed(2)};
         gl_FragColor = vec4(c, 1.0);
       }
     `,
@@ -455,6 +490,7 @@ export function ribbonMaterial(): ShaderMaterial {
         float al = uAlarm * step(0.5, fract(uTime * 2.5));
         col = mix(col, vec3(1.0, 0.08, 0.12) * dotm * 1.6, al);
         gl_FragColor = vec4(col, 1.0);
+        ${OUT_LINEAR}
       }
     `,
     toneMapped: false,
@@ -488,6 +524,7 @@ export function dustMaterial(): ShaderMaterial {
         float d = length(gl_PointCoord - 0.5);
         float a = smoothstep(0.5, 0.0, d) * vA * 0.5;
         gl_FragColor = vec4(uColor * a, a);
+        ${OUT_LINEAR}
       }
     `,
     transparent: true,

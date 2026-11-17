@@ -9,6 +9,7 @@ import {
   InstancedBufferAttribute,
   InstancedMesh,
   LinearFilter,
+  LinearMipmapLinearFilter,
   Matrix4,
   MeshBasicMaterial,
   MeshStandardMaterial,
@@ -23,7 +24,8 @@ import {
 } from "three";
 import type { ArenaTeam } from "../../arena-contract";
 import { TIG, inkOn } from "../palette";
-import { additiveMapMaterial, chaosRingMaterial, columnMaterial, glyphMaterial } from "./fx-materials";
+import { additiveMapMaterial, chaosRingMaterial, columnMaterial, CRISP, glyphMaterial } from "./fx-materials";
+import { REFLECT_LAYER } from "./FloorReflector";
 import { BASE_H, CAP_H, type ArenaLive } from "./live";
 import { POD, type ArenaLayout } from "./layout";
 import { deltaFlash, scoreDigits } from "./rank-anim";
@@ -37,6 +39,8 @@ import { useLatestRef } from "./use-latest";
  * (spigoli al neon, tacche ogni 25 cm) · tappo con l'anello dell'Energia Caos · targhetta sempre rivolta alla camera
  * (numero del tavolo nel colore della squadra + nome) · punteggio a cifre grandi che conta su/giù · lampo «+40».
  * Tavolo offline: colori spenti, neon al minimo, «OFFLINE» sulla targhetta.
+ * Con più di 12 squadre la fila dietro sta su una pedana (zoccolo esagonale sotto la base, `PodPlacement.y`).
+ * Neon e spigoli escono sopra la soglia del bagliore; targhette e cifre sotto (nitide, con mipmap e anisotropia).
  */
 
 const ZERO = new Matrix4().makeScale(0, 0, 0);
@@ -92,14 +96,18 @@ function drawLabels(canvas: HTMLCanvasElement, teams: ArenaTeam[], family: strin
     const y = Math.floor(i / ATLAS_COLS) * CELL.h;
     const color = t.online ? t.color : "#4a525c";
     const pad = 10;
-    // piastra scura (vetro) con filo del colore della squadra
-    ctx.fillStyle = "rgba(5,8,13,0.84)";
+    // piastra scura (vetro fumé con un velo di luce dall'alto) e filo del colore della squadra
+    const plate = ctx.createLinearGradient(0, y + pad, 0, y + CELL.h - pad);
+    plate.addColorStop(0, "rgba(22,28,38,0.92)");
+    plate.addColorStop(0.5, "rgba(7,10,16,0.9)");
+    plate.addColorStop(1, "rgba(3,5,9,0.9)");
+    ctx.fillStyle = plate;
     ctx.beginPath();
     ctx.roundRect(x + pad, y + pad, CELL.w - pad * 2, CELL.h - pad * 2, 30);
     ctx.fill();
     ctx.strokeStyle = color;
-    ctx.globalAlpha = 0.9;
-    ctx.lineWidth = 5;
+    ctx.globalAlpha = 0.95;
+    ctx.lineWidth = 6;
     ctx.stroke();
     ctx.globalAlpha = 1;
     // numero del tavolo: quadrato pieno nel colore della squadra
@@ -157,20 +165,20 @@ function drawLabels(canvas: HTMLCanvasElement, teams: ArenaTeam[], family: strin
 /** Targhette sempre rivolte alla camera, una cella dell'atlante per istanza. */
 function labelMaterial(map: CanvasTexture, rows: number): ShaderMaterial {
   return new ShaderMaterial({
-    uniforms: { uMap: { value: map }, uGrid: { value: [ATLAS_COLS, rows] }, uCrop: { value: 1 } },
+    uniforms: { uMap: { value: map }, uGrid: { value: [ATLAS_COLS, rows] } },
     vertexShader: /* glsl */ `
       attribute vec3 aCenter;
       attribute float aCell;
       attribute vec2 aSize;
       attribute float aAlpha;
+      attribute float aCrop;
       uniform vec2 uGrid;
-      uniform float uCrop;
       varying vec2 vUv;
       varying float vAlpha;
       void main() {
         float col = mod(aCell, uGrid.x);
         float row = floor(aCell / uGrid.x);
-        vUv = vec2((col + uv.x * uCrop) / uGrid.x, 1.0 - (row + 1.0 - uv.y) / uGrid.y);
+        vUv = vec2((col + uv.x * aCrop) / uGrid.x, 1.0 - (row + 1.0 - uv.y) / uGrid.y);
         vAlpha = aAlpha;
         vec4 mv = viewMatrix * vec4(aCenter, 1.0);
         mv.xy += position.xy * aSize;
@@ -184,7 +192,8 @@ function labelMaterial(map: CanvasTexture, rows: number): ShaderMaterial {
       void main() {
         vec4 t = texture2D(uMap, vUv);
         if (t.a * vAlpha < 0.02) discard;
-        gl_FragColor = vec4(t.rgb, t.a * vAlpha);
+        // sotto la soglia del bagliore: le scritte restano nitide
+        gl_FragColor = vec4(t.rgb * ${CRISP.toFixed(2)}, t.a * vAlpha);
       }
     `,
     transparent: true,
@@ -224,12 +233,18 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     c.height = s.h;
     const t = new CanvasTexture(c);
     t.colorSpace = SRGBColorSpace;
-    t.minFilter = LinearFilter;
-    t.generateMipmaps = false;
-    t.anisotropy = 4;
+    // mipmap + anisotropia: da lontano le scritte si rimpiccioliscono pulite (niente sfarfallio né scalette)
+    t.minFilter = LinearMipmapLinearFilter;
+    t.magFilter = LinearFilter;
+    t.generateMipmaps = true;
+    t.anisotropy = 8;
     return t;
   }, [n]);
-  const digits = useMemo(() => digitAtlas(family), [family]);
+  const digits = useMemo(() => {
+    const d = digitAtlas(family);
+    d.anisotropy = 8;
+    return d;
+  }, [family]);
   const ring = useMemo(() => ringTexture(), []);
   useEffect(
     () => () => {
@@ -268,6 +283,10 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     const base = instanced(baseGeo, baseMat, n);
     base.castShadow = false;
     base.receiveShadow = shadows;
+    // zoccolo esagonale della fila dietro (altezza = pedana, scala Y)
+    const plinthGeo = new CylinderGeometry(0.86, 0.94, 1, 6, 1);
+    plinthGeo.translate(0, 0.5, 0);
+    const plinth = instanced(plinthGeo, new MeshStandardMaterial({ color: "#0a0e14", metalness: 0.8, roughness: 0.36 }), n);
     const rimGeo = new TorusGeometry(0.75, 0.022, 6, 6);
     rimGeo.rotateX(Math.PI / 2);
     rimGeo.rotateY(Math.PI / 6);
@@ -301,6 +320,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     lblGeo.setAttribute("aCell", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)).map((_, i) => i), 1));
     lblGeo.setAttribute("aSize", new InstancedBufferAttribute(new Float32Array(Math.max(1, n) * 2), 2));
     lblGeo.setAttribute("aAlpha", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)).fill(1), 1));
+    lblGeo.setAttribute("aCrop", new InstancedBufferAttribute(new Float32Array(Math.max(1, n)).fill(1), 1));
     const labels = instanced(lblGeo, labelMaterial(atlas, labelAtlasSize(Math.max(1, n)).rows), n);
     labels.renderOrder = 8;
     // cifre del punteggio + lampo del cambio di punti, sempre rivolte alla camera
@@ -313,8 +333,10 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     gGeo.setAttribute("aSize", new InstancedBufferAttribute(new Float32Array(gN), 1));
     const glyphs = instanced(gGeo, glyphMaterial(digits, true), n * (SCORE_GLYPHS + DELTA_GLYPHS), true);
     glyphs.renderOrder = 9;
-    const all = [base, rim, pool, column, cap, chaos, labels, glyphs];
-    return { base, rim, pool, column, colMat, cap, chaos, chaosMat, labels, glyphs, all };
+    const all = [plinth, base, rim, pool, column, cap, chaos, labels, glyphs];
+    // nel pavimento lucido si riflettono le torri (non targhette, cifre e pozze)
+    for (const m of [plinth, base, rim, column, cap, chaos]) m.layers.enable(REFLECT_LAYER);
+    return { plinth, base, rim, pool, column, colMat, cap, chaos, chaosMat, labels, glyphs, all };
   }, [n, atlas, digits, ring, shadows]);
   useEffect(
     () => () => {
@@ -332,17 +354,24 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
   useEffect(() => {
     const parts = partsRef.current;
     layout.pods.forEach((p, i) => {
-      tmp.position.set(p.x, 0, p.z);
+      tmp.position.set(p.x, p.y, p.z);
       tmp.rotation.set(0, p.yaw, 0);
       tmp.scale.setScalar(layout.scale);
       tmp.updateMatrix();
       parts.base.setMatrixAt(i, tmp.matrix);
+      if (p.y > 0.01) {
+        tmp.position.set(p.x, 0, p.z);
+        tmp.scale.set(layout.scale, p.y, layout.scale);
+        tmp.updateMatrix();
+        parts.plinth.setMatrixAt(i, tmp.matrix);
+      } else parts.plinth.setMatrixAt(i, ZERO);
       tmp.position.set(p.x, 0.015, p.z);
       tmp.scale.setScalar(2.6 * layout.scale);
       tmp.updateMatrix();
       parts.pool.setMatrixAt(i, tmp.matrix);
     });
     parts.base.instanceMatrix.needsUpdate = true;
+    parts.plinth.instanceMatrix.needsUpdate = true;
     parts.pool.instanceMatrix.needsUpdate = true;
   }, [layout, parts, partsRef]);
 
@@ -359,6 +388,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     const lc = parts.labels.geometry.getAttribute("aCenter") as InstancedBufferAttribute;
     const ls = parts.labels.geometry.getAttribute("aSize") as InstancedBufferAttribute;
     const la = parts.labels.geometry.getAttribute("aAlpha") as InstancedBufferAttribute;
+    const lcr = parts.labels.geometry.getAttribute("aCrop") as InstancedBufferAttribute;
     const g = parts.glyphs.geometry;
     const gGlyph = g.getAttribute("aGlyph") as InstancedBufferAttribute;
     const gAlpha = g.getAttribute("aAlpha") as InstancedBufferAttribute;
@@ -372,8 +402,9 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
     const dim = L.dir.mood === "duel" || L.dir.mood === "chaos" ? 1 : 0;
     const camDist = state.camera.position.length();
     const lblScale = compact ? Math.min(3.2, Math.max(1, camDist / 11)) : Math.min(1.5, Math.max(0.85, camDist / 16));
-    const crop = compact ? 0.375 : 1;
-    (parts.labels.material as ShaderMaterial).uniforms.uCrop.value = crop;
+    // due file (fino a 24 tavoli): le torri vicine sono a mezzo passo, la targhetta intera non ci sta. Si mostra il
+    // numero del tavolo (grande, nel colore della squadra) e il punteggio; nome intero per le torri in primo piano
+    const twoRows = layout.rows === 2;
 
     const sc = layout.scale;
     L.teams.forEach((team, i) => {
@@ -386,8 +417,9 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       // sul podio della premiazione targhette e punteggi delle torri si spengono: li dicono la classifica e il LED
       const podiumUp = L.dir.mood === "awards" && L.podium > 0.5;
       const fade = podiumDim ? 0.28 : dim && !focus ? 0.45 : 1;
-      // colonna
-      tmp.position.set(p.x, BASE_H, p.z);
+      // colonna (la fila dietro parte dalla pedana)
+      const y0 = p.y;
+      tmp.position.set(p.x, y0 + BASE_H, p.z);
       tmp.rotation.set(0, p.yaw, 0);
       tmp.scale.set(sc, h, sc);
       tmp.updateMatrix();
@@ -396,14 +428,14 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       parts.column.setColorAt(i, cT);
       const flash = a && a.deltaAge < 0.5 && a.delta > 0 ? (1 - a.deltaAge / 0.5) * 0.5 : 0;
       colState.setXYZ(i, team.online ? 1 : 0, focus ? 1 : 0, flash);
-      const top = BASE_H + h;
+      const top = y0 + BASE_H + h;
       // tappo
       tmp.position.set(p.x, top, p.z);
       tmp.scale.set(sc, 1, sc);
       tmp.updateMatrix();
       parts.cap.setMatrixAt(i, tmp.matrix);
       // neon: bordo della base e bordo del tappo
-      tmp.position.set(p.x, BASE_H, p.z);
+      tmp.position.set(p.x, y0 + BASE_H, p.z);
       tmp.scale.set(sc, 1, sc);
       tmp.updateMatrix();
       parts.rim.setMatrixAt(i * 2, tmp.matrix);
@@ -411,10 +443,11 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       tmp.scale.set(0.78 * sc, 1, 0.78 * sc);
       tmp.updateMatrix();
       parts.rim.setMatrixAt(i * 2 + 1, tmp.matrix);
-      cT.set(team.online ? team.color : "#39414b").multiplyScalar((team.online ? 1.6 : 0.6) * fade);
+      // neon sopra la soglia del bagliore (brilla), spento se il tavolo è offline
+      cT.set(team.online ? team.color : "#39414b").multiplyScalar((team.online ? 3.2 : 0.6) * fade);
       parts.rim.setColorAt(i * 2, cT);
       parts.rim.setColorAt(i * 2 + 1, cT);
-      parts.pool.setColorAt(i, cT.set(team.online ? team.color : "#1b2027").multiplyScalar((focus ? 1.4 : 0.55) * fade));
+      parts.pool.setColorAt(i, cT.set(team.online ? team.color : "#1b2027").multiplyScalar((focus ? 1.4 : 0.6) * fade));
       // anello dell'Energia Caos
       tmp.position.set(p.x, top + CAP_H + 0.012, p.z);
       tmp.rotation.set(-Math.PI / 2, 0, -p.yaw);
@@ -435,9 +468,11 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       // durante l'evoluzione la mascotte sale e si ingrandisce: targa e punteggio del tavolo salgono più in alto
       const lift = focus && L.dir.mood === "evolve" ? 1.35 * sc : 0;
       const ly = top + CAP_H + POD.mascotHeight * sc + 0.62 + lift;
+      const crop = compact || (twoRows && !focus) ? 0.375 : 1;
       lc.setXYZ(i, p.x, ly, p.z);
       ls.setXY(i, lblW * lblScale * crop, lblW * lblScale * (CELL.h / CELL.w));
       la.setX(i, podiumUp ? 0 : fade);
+      lcr.setX(i, crop);
       // punteggio (sotto la targhetta, sopra la testa della mascotte)
       const shown = a?.score ?? team.score;
       const ds = scoreDigits(shown, SCORE_GLYPHS);
@@ -474,7 +509,7 @@ export function Pods({ liveRef, teams, layout, family, low, shadows, compact = f
       if (m.instanceColor) m.instanceColor.needsUpdate = true;
     }
     colState.needsUpdate = prog.needsUpdate = lvl.needsUpdate = onl.needsUpdate = true;
-    lc.needsUpdate = ls.needsUpdate = la.needsUpdate = true;
+    lc.needsUpdate = ls.needsUpdate = la.needsUpdate = lcr.needsUpdate = true;
     gGlyph.needsUpdate = gAlpha.needsUpdate = gCenter.needsUpdate = gOffset.needsUpdate = gSize.needsUpdate = true;
   }, -1);
 

@@ -40,6 +40,11 @@ export interface LedContent {
 /** Misure del canvas: proporzioni della parte dello schermo con i contenuti (arco 130°, raggio 5,4 m, alto 3,4 m). */
 export const LED_CANVAS = { w: 2048, h: 600 } as const;
 
+/** Colonne della classifica sul LED: 1 fino a 6 squadre, 2 fino a 16, poi 3 (24 tavoli = 3 × 8 righe). */
+export function ledLeaderboardCols(n: number): 1 | 2 | 3 {
+  return n <= 6 ? 1 : n <= 16 ? 2 : 3;
+}
+
 type Tone = "amber" | "cyan" | "alarm" | "gold" | "white" | "chaos" | "chill";
 const TONES: Record<Tone, { fill: string; glow: string }> = {
   amber: { fill: "#ffe2bf", glow: TIG.amber },
@@ -263,17 +268,18 @@ function drawLeaderboard(ctx: CanvasRenderingContext2D, w: number, h: number, fa
   background(ctx, w, h, TIG.gold, TIG.amber, 0.8);
   const teams = c.teams;
   const n = teams.length;
-  const cols = n <= 6 ? 1 : 2;
-  const perCol = cols === 1 ? Math.max(1, n) : Math.ceil(Math.min(n, 20) / 2);
+  // 1 colonna fino a 6 squadre, 2 fino a 16, poi 3 colonne da 8 righe (24 tavoli tutti in classifica)
+  const cols = ledLeaderboardCols(n);
+  const perCol = Math.max(1, Math.ceil(Math.min(n, 24) / cols));
   const header = (c.title ?? "CLASSIFICA").toUpperCase();
   glow(ctx, header, w / 2, 56, "gold", fit(ctx, header, fam, "900", 74, w * 0.5), fam, "900", "center", 6);
   const top = 108;
   const bottom = h - 26;
   const rowH = Math.min(cols === 1 ? 82 : 78, (bottom - top) / perCol);
   // tutto dentro il 75% centrale: ai bordi lo schermo curvo scorcia troppo
-  const colW = cols === 1 ? w * 0.56 : w * 0.33;
-  const gap = w * 0.03;
-  const x0s = cols === 1 ? [(w - colW) / 2] : [w / 2 - gap / 2 - colW, w / 2 + gap / 2];
+  const gap = cols === 3 ? w * 0.016 : w * 0.03;
+  const colW = cols === 1 ? w * 0.56 : cols === 2 ? w * 0.33 : (w * 0.72 - gap * 2) / 3;
+  const x0s = cols === 1 ? [(w - colW) / 2] : cols === 2 ? [w / 2 - gap / 2 - colW, w / 2 + gap / 2] : [w / 2 - colW * 1.5 - gap, w / 2 - colW / 2, w / 2 + colW / 2 + gap];
   ctx.save();
   ctx.beginPath();
   ctx.rect(0, top - 4, w, bottom - top + 8);
