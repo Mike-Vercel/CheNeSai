@@ -110,6 +110,26 @@ export function TvVsRow({ teams, a, b, icon = "sword", right, delay = 0, iconCla
   );
 }
 
+/** Forbici disegnate (tratto come le icone del kit). */
+export function Scissors({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="6" cy="6" r="3" />
+      <circle cx="6" cy="18" r="3" />
+      <path d="M8.6 7.6L20 18M8.6 16.4L20 6M13.5 12h.01" />
+    </svg>
+  );
+}
+
+/** Trappola a molla disegnata. */
+export function TrapGlyph({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M3 18h18M5 18l2-6h10l2 6M7 12l-1-4M10 12l-.5-5M14 12l.5-5M17 12l1-4M12 12V6" />
+    </svg>
+  );
+}
+
 /** Numero con segno (+40, −30, 0). */
 export function signed(n: number): string {
   return n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : "0";

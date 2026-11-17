@@ -138,6 +138,107 @@ describe("TIG manche 2 · pezzi comuni", () => {
 // ---------------------------------------------------------------------------
 
 describe("TIG manche 2 · regole", () => {
+  it("18 Taglia il tempo: lampo giusto = taglio di 3 s al bersaglio (una volta sola), fuori tempo vale 0", () => {
+    type C = { lampo: { options: { id: string }[] }; sfida: { options: { id: string }[] }; solution: { lampo: string; sfida: string } };
+    const def = m<C, { lampo: string; targetId: string; sfida: string }>("taglia-il-tempo");
+    const c = first<C>("taglia-il-tempo");
+    const { lampo: L, sfida: S } = c.solution;
+    const badL = c.lampo.options.find((o) => o.id !== L)!.id;
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3), team(4)]);
+    const dur = def.timerSec * 1000;
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [
+        sub("t1", { lampo: L, targetId: "t2", sfida: S }, 5000), // taglia t2 per primo
+        sub("t3", { lampo: L, targetId: "t2", sfida: S }, 6000), // taglio a vuoto: t2 è già tagliato
+        sub("t2", { lampo: L, targetId: "t4", sfida: S }, dur - 2000), // in tempo, ma tagliato: fuori
+        sub("t4", { lampo: badL, targetId: "t1", sfida: S }, dur - 2000), // tagliato da t2? sì: anche lui fuori
+      ],
+    });
+    const s = summaryOf<{ cuts: { from: string; to: string; applied: boolean }[]; knockedOut: string[] }>(out)!;
+    expect(s.cuts).toEqual([
+      { from: "t1", to: "t2", applied: true },
+      { from: "t2", to: "t4", applied: true },
+      { from: "t3", to: "t2", applied: false },
+    ]);
+    expect(s.knockedOut.sort()).toEqual(["t2", "t4"]);
+    const pts = byTeam(out);
+    expect(pts.t2).toBe(0);
+    expect(pts.t4).toBe(0);
+    expect(pts.t1).toBeGreaterThan(100);
+    expect(pts.t1).toBeLessThanOrEqual(120);
+    // tagliato ma rapido: valido, con 3 secondi in più sul bonus velocità
+    const fast = def.score({ content: c, ctx, submissions: [sub("t1", { lampo: L, targetId: "t2", sfida: S }, 1000), sub("t2", { lampo: badL, targetId: "t1", sfida: S }, 1000)] });
+    expect(byTeam(fast).t2).toBeLessThan(byTeam(fast).t1);
+    expect(byTeam(fast).t2).toBeGreaterThanOrEqual(100);
+    // duello del Caos (45 s): la zona taglio segue la durata vera della prova
+    const caos = makeCtx(def as MechanicDef, [team(1), team(2)], "caos", 45_000);
+    const late = def.score({ content: c, ctx: caos, submissions: [sub("t1", { lampo: L, targetId: "x", sfida: S }, 1000), sub("t2", { lampo: badL, targetId: "x", sfida: S }, 43_000)] });
+    expect(byTeam(late).t2).toBe(0);
+  });
+
+  it("20 Contrattacco: giro di attacchi (uno a testa), colpo giusto = furto di 20, rivincita sicura +20 o piena +40", () => {
+    type C = { colpo: { options: { id: string }[] }; sicura: { options: { id: string }[] }; piena: { options: { id: string }[] }; solution: { colpo: string; sicura: string; piena: string } };
+    const def = m<C, { colpo: string; rivincita: "sicura" | "piena"; risposta: string }>("contrattacco");
+    const c = first<C>("contrattacco");
+    const sol = c.solution;
+    const koColpo = c.colpo.options.find((o) => o.id !== sol.colpo)!.id;
+    const koPiena = c.piena.options.find((o) => o.id !== sol.piena)!.id;
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3)]);
+    const ring = (def.publicView(c, ctx) as { ring: { from: { teamId: string }; to: { teamId: string } }[] }).ring;
+    expect(ring).toHaveLength(3);
+    expect(new Set(ring.map((l) => l.to.teamId)).size).toBe(3);
+    const targetOf = (id: string) => ring.find((l) => l.from.teamId === id)!.to.teamId;
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [
+        sub("t1", { colpo: sol.colpo, rivincita: "piena", risposta: sol.piena }),
+        sub("t2", { colpo: koColpo, rivincita: "sicura", risposta: sol.sicura }),
+        sub("t3", { colpo: sol.colpo, rivincita: "piena", risposta: koPiena }),
+      ],
+    });
+    expect(byTeam(out)).toEqual({ t1: 40, t2: 20, t3: 0 });
+    expect(transfersOf(out).sort((a, b) => (a.from < b.from ? -1 : 1))).toEqual([
+      { from: "t1", to: targetOf("t1"), points: 20 },
+      { from: "t3", to: targetOf("t3"), points: 20 },
+    ]);
+    // un tavolo solo: niente attacchi, solo rivincita
+    const solo = def.score({ content: c, ctx: makeCtx(def as MechanicDef, [team(5)]), submissions: [sub("t5", { colpo: sol.colpo, rivincita: "sicura", risposta: sol.sicura })] });
+    expect(byTeam(solo).t5).toBe(20);
+    expect(transfersOf(solo)).toEqual([]);
+  });
+
+  it("26 La trappola: +20 a trappola disinnescata, −30 se il bersaglio sbaglia quella armata, una sola trappola per tavolo", () => {
+    type C = { traps: { options: { id: string }[] }[]; solution: { traps: string[] } };
+    const def = m<C, { targetId: string; trap: number; defuse: string[] }>("la-trappola");
+    const c = first<C>("la-trappola");
+    const right = c.solution.traps;
+    const wrong = (i: number) => c.traps[i].options.find((o) => o.id !== right[i])!.id;
+    const ctx = makeCtx(def as MechanicDef, [team(1), team(2), team(3), team(4)]);
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [
+        sub("t1", { targetId: "t2", trap: 1, defuse: right }, 2000), // prima trappola su t2, che sbaglia la 1: scatta
+        sub("t3", { targetId: "t2", trap: 0, defuse: [right[0], wrong(1), right[2]] }, 3000), // seconda su t2: a vuoto
+        sub("t2", { targetId: "t1", trap: 2, defuse: [right[0], wrong(1), right[2]] }, 4000), // t1 ha risposto giusto: disinnescata
+        sub("t4", { targetId: "t3", trap: 1, defuse: [wrong(0), wrong(1), wrong(2)] }, 5000), // t3 sbaglia la 1: scatta
+      ],
+    });
+    expect(byTeam(out)).toEqual({ t1: 60, t2: 40, t3: 40, t4: 0 });
+    expect(transfersOf(out)).toEqual([
+      { from: "t1", to: "t2", points: -30 },
+      { from: "t4", to: "t3", points: -30 },
+    ]);
+    const pl = summaryOf<{ placements: { from: string; armed: boolean; sprung: boolean }[] }>(out)!.placements;
+    expect(pl.find((x) => x.from === "t3")).toMatchObject({ armed: false, sprung: false });
+    // chi non risponde non disinnesca: la trappola armata scatta
+    const absent = def.score({ content: c, ctx, submissions: [sub("t1", { targetId: "t4", trap: 0, defuse: right })] });
+    expect(transfersOf(absent)).toEqual([{ from: "t1", to: "t4", points: -30 }]);
+  });
+
   it("21 Caccia alla capolista: caccia +40/+10, passo +20, capolista +20 e +10 a respinto (tetto 40), mai negativi", () => {
     type C = { options: { id: string }[]; solution: { optionId: string }; balances?: Record<string, number> };
     const def = m<C, { mode: "caccia" | "passo"; optionId: string }>("caccia-alla-capolista");
