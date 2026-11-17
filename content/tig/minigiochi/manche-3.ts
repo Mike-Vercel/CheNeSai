@@ -7,6 +7,9 @@ import indovinaIlPreferito from "./indovina-il-preferito";
 import questioneDiIstinto from "./questione-di-istinto";
 import allineamentoPerfetto from "./allineamento-perfetto";
 import ilPubHaTorto from "./il-pub-ha-torto";
+import alleanzaEspressa from "./alleanza-espressa";
+import effettoGregge from "./effetto-gregge";
+import giraLaScelta from "./gira-la-scelta";
 
 /**
  * Contenuti (CON LE SOLUZIONI, solo server) delle meccaniche nuove della MANCHE 3: `codice -> varianti`.
@@ -23,4 +26,7 @@ export const CONTENUTI_MANCHE_3: Record<string, readonly unknown[]> = {
   "questione-di-istinto": questioneDiIstinto,
   "allineamento-perfetto": allineamentoPerfetto,
   "il-pub-ha-torto": ilPubHaTorto,
+  "alleanza-espressa": alleanzaEspressa,
+  "effetto-gregge": effettoGregge,
+  "gira-la-scelta": giraLaScelta,
 };

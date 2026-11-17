@@ -57,6 +57,9 @@ const CODES = [
   ["questione-di-istinto", 43],
   ["allineamento-perfetto", 44],
   ["il-pub-ha-torto", 45],
+  ["alleanza-espressa", 46],
+  ["effetto-gregge", 47],
+  ["gira-la-scelta", 48],
 ] as const;
 
 describe("TIG manche 3 · registro e contenuti", () => {
@@ -76,6 +79,11 @@ describe("TIG manche 3 · registro e contenuti", () => {
     expect(diffs.has("facile") && diffs.has("media") && diffs.has("difficile"), code).toBe(true);
     for (const v of vs) expect(v.id).toMatch(/^[a-z0-9][a-z0-9-]*$/);
     expect(MECHANIC_EXTRAS[code]?.demoSubmissions).toBeTypeOf("function");
+  });
+
+  it("tutte e 12 le meccaniche mancanti della manche 3 sono registrate (la manche ora è completa: 16 su 16)", () => {
+    expect(NUOVE_MANCHE_3.map((x) => x.def.code).sort()).toEqual(CODES.map(([code]) => code).sort());
+    expect(MECHANICS.filter((d) => d.manche === 3)).toHaveLength(16);
   });
 
   it("le varianti non finiscono nel bundle del browser (niente `variants` nelle definizioni)", () => {
@@ -581,4 +589,170 @@ describe.each(NUOVE_MANCHE_3.map((x) => [x.def.code, x] as const))("TIG manche 3
       }
     });
   }
+});
+
+// ---------------------------------------------------------------------------
+// 46 · Alleanza espressa
+// ---------------------------------------------------------------------------
+
+describe("46 Alleanza espressa", () => {
+  type C = { steps: { row: number; col: number }[]; transform?: { op: string } };
+  type MV = { role: string; partners: { teamId: string }[]; grid: { cells: number[][] } | null; clues: string[] | null; transform: string | null };
+  const def = m<C, { digits: string }>("alleanza-espressa");
+  const c = first<C>("alleanza-espressa");
+  const mv = (ctx: PhaseCtx, teamId: string) => def.memberView!(c, { ...ctx, teamId, memberId: `${teamId}m0`, memberIndex: 0 }) as MV;
+  const codeFor = (ctx: PhaseCtx, teamId: string) => {
+    const groups = summaryOf<{ groups: { teamIds: string[]; digits: string }[] }>(def.score({ content: c, ctx, submissions: [] }))!.groups;
+    return groups.find((g) => g.teamIds.includes(teamId))!.digits;
+  };
+
+  it("ogni tavolo ha solo metà: griglia o coordinate; il codice si ricava unendo le due metà", () => {
+    const ctx = makeCtx(def, [team(1, 2), team(2, 3), team(3, 2), team(4, 4)]);
+    const groups = (def.publicView(c, ctx) as { groups: { teamIds: string[] }[] }).groups;
+    expect(groups.map((g) => g.teamIds.length)).toEqual([2, 2]);
+    for (const g of groups) {
+      const [a, b] = g.teamIds.map((id) => mv(ctx, id));
+      expect([a.role, b.role].sort()).toEqual(["coordinate", "griglia"]);
+      const grid = (a.grid ?? b.grid)!;
+      expect(a.clues ?? b.clues).toHaveLength(4);
+      expect(a.grid && b.grid).toBeFalsy();
+      const digits = c.steps.map((s) => grid.cells[s.row][s.col]).join("");
+      expect(codeFor(ctx, g.teamIds[0])).toBe(digits);
+    }
+  });
+
+  it("entrambi giusti 100 a testa; uno sbaglia o non risponde: 0 a entrambi", () => {
+    const ctx = makeCtx(def, [team(1, 2), team(2, 3), team(3, 2), team(4, 4)]);
+    const groups = (def.publicView(c, ctx) as { groups: { teamIds: string[] }[] }).groups;
+    const [[a, b], [x, y]] = groups.map((g) => g.teamIds);
+    const ok1 = codeFor(ctx, a);
+    const ok2 = codeFor(ctx, x);
+    const wrong = (d: string) => d.slice(0, 3) + String((Number(d[3]) + 1) % 10);
+    const out = def.score({ content: c, ctx, submissions: [sub(a, { digits: ok1 }), sub(b, { digits: ok1 }), sub(x, { digits: ok2 }), sub(y, { digits: wrong(ok2) })] });
+    expect(byTeam(out)).toEqual({ [a]: 100, [b]: 100, [x]: 0, [y]: 0 });
+    const missing = def.score({ content: c, ctx, submissions: [sub(a, { digits: ok1 })] });
+    expect(byTeam(missing)[a]).toBe(0);
+  });
+
+  it("griglie diverse tra le alleanze (copiare da un'altra coppia non serve); dispari = alleanza a tre; solo = 60", () => {
+    const ctx = makeCtx(def, [1, 2, 3, 4, 5, 6, 7, 8].map((n) => team(n, 2)), "griglie");
+    const groups = (def.publicView(c, ctx) as { groups: { teamIds: string[] }[] }).groups;
+    const grids = groups.map((g) => JSON.stringify(g.teamIds.map((id) => mv(ctx, id).grid).find(Boolean)));
+    expect(new Set(grids).size).toBe(groups.length);
+    const odd = makeCtx(def, [team(1, 2), team(2, 2), team(3, 2)]);
+    const g3 = (def.publicView(c, odd) as { groups: { teamIds: string[] }[] }).groups;
+    expect(g3).toHaveLength(1);
+    expect(g3[0].teamIds).toHaveLength(3);
+    expect(g3[0].teamIds.map((id) => mv(odd, id).role).sort()).toEqual(["coordinate", "griglia", "griglia"]);
+    const solo = makeCtx(def, [team(9, 1)]);
+    const s = mv(solo, "t9");
+    expect(s.role).toBe("solo");
+    expect(s.grid && s.clues).toBeTruthy();
+    expect(byTeam(def.score({ content: c, ctx: solo, submissions: [sub("t9", { digits: codeFor(solo, "t9") })] })).t9).toBe(60);
+  });
+
+  it("il passaggio finale (più uno, al contrario) è applicato al codice e sta solo nella metà della griglia", () => {
+    for (const v of variants<C & { id: string }>("alleanza-espressa").filter((x) => x.transform)) {
+      const ctx = makeCtx(def, [team(1, 2), team(2, 2)], `tr-${v.id}`);
+      const [g] = (def.publicView(v, ctx) as { groups: { teamIds: string[] }[] }).groups;
+      const views = g.teamIds.map((id) => def.memberView!(v, { ...ctx, teamId: id, memberId: `${id}m0`, memberIndex: 0 }) as MV);
+      const holder = views.find((x) => x.role === "griglia")!;
+      expect(holder.transform).toBeTruthy();
+      expect(views.find((x) => x.role === "coordinate")!.transform).toBeNull();
+      let d = v.steps.map((s) => holder.grid!.cells[s.row][s.col]);
+      if (v.transform!.op === "piu-uno") d = d.map((n) => (n + 1) % 10);
+      if (v.transform!.op === "inverti") d = d.reverse();
+      const out = def.score({ content: v, ctx, submissions: g.teamIds.map((id) => sub(id, { digits: d.join("") })) });
+      for (const id of g.teamIds) expect(byTeam(out)[id], v.id).toBe(100);
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 47 · Effetto gregge
+// ---------------------------------------------------------------------------
+
+describe("47 Effetto gregge", () => {
+  type C = { options: { id: string }[]; solution: { optionId: string } };
+  const def = m<C, { optionId: string; follow: boolean }>("effetto-gregge");
+  const c = first<C>("effetto-gregge");
+  const ok = c.solution.optionId;
+  const [ko, ko2] = c.options.filter((o) => o.id !== ok).map((o) => o.id);
+
+  it("istinto giusto 100; gregge vale la risposta più data: 60 se giusta, 0 se il gregge sbaglia", () => {
+    // il locale risponde ko, ko, ok, ok2... → gregge su ko (sbagliato)
+    const ctx = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2), team(4, 2)]);
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [sub("t1", { optionId: ko, follow: false }), sub("t2", { optionId: ko, follow: true }), sub("t3", { optionId: ok, follow: false }), sub("t4", { optionId: ok, follow: true })],
+    });
+    // parità ko/ok: gregge diviso, vale la propria risposta pagata come gregge
+    expect(byTeam(out)).toEqual({ t1: 0, t2: 0, t3: 100, t4: 60 });
+    expect(summaryOf<{ herdRight: boolean | null }>(out)!.herdRight).toBeNull();
+    const ctx5 = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2), team(4, 2), team(5, 3)]);
+    const herdWrong = def.score({
+      content: c,
+      ctx: ctx5,
+      submissions: [sub("t1", { optionId: ko, follow: false }), sub("t2", { optionId: ko, follow: false }), sub("t5", { optionId: ko, follow: false }), sub("t3", { optionId: ok, follow: true }), sub("t4", { optionId: ok, follow: false })],
+    });
+    // il gregge (ko, 3 tavoli) sbaglia: chi lo segue perde anche se aveva la risposta giusta
+    expect(byTeam(herdWrong)).toEqual({ t1: 0, t2: 0, t3: 0, t4: 100, t5: 0 });
+    expect(labelOf(herdWrong, "t3")).toBe("Il gregge sbagliava");
+    const herdRight = def.score({
+      content: c,
+      ctx,
+      submissions: [sub("t1", { optionId: ok, follow: false }), sub("t2", { optionId: ok, follow: false }), sub("t3", { optionId: ko2 ?? ko, follow: true }), sub("t4", { optionId: ko, follow: false })],
+    });
+    expect(byTeam(herdRight)).toEqual({ t1: 100, t2: 100, t3: 60, t4: 0 });
+  });
+
+  it("ogni variante ha la soluzione tra le opzioni", () => {
+    for (const v of variants<C>("effetto-gregge")) expect(v.options.map((o) => o.id)).toContain(v.solution.optionId);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// 48 · Gira la scelta
+// ---------------------------------------------------------------------------
+
+describe("48 Gira la scelta", () => {
+  type C = { cards: { id: string; options: { id: string }[] }[]; solution: { answers: Record<string, string> } };
+  const def = m<C, { cardId: string; optionId: string }>("gira-la-scelta");
+  const c = first<C>("gira-la-scelta");
+  const [k1, k2, k3] = c.cards.map((k) => k.id);
+  const right = (k: string) => c.solution.answers[k];
+  const wrong = (k: string) => c.cards.find((x) => x.id === k)!.options.find((o) => o.id !== right(k))!.id;
+
+  it("prima dei 15 secondi le domande non partono verso i telefoni", () => {
+    const at = MECHANIC_EXTRAS["gira-la-scelta"].publicViewAt!;
+    const ctx = makeCtx(def);
+    const before = at(c, ctx, 14_999) as { cards: { question: string | null; options: unknown }[] };
+    for (const k of before.cards) {
+      expect(k.question).toBeNull();
+      expect(k.options).toBeNull();
+    }
+    const after = at(c, ctx, 15_000) as { cards: { question: string | null }[] };
+    for (const k of after.cards) expect(k.question).toBeTruthy();
+  });
+
+  it("giusta 80 su qualunque carta; +20 sulla carta scelta da meno tavoli; sbagliata 0", () => {
+    const ctx = makeCtx(def, [team(1, 8), team(2, 2), team(3, 2), team(4, 2)]);
+    // carte: k1 ×2, k2 ×1, k3 ×1 → strada meno battuta: k2 e k3
+    const out = def.score({
+      content: c,
+      ctx,
+      submissions: [sub("t1", { cardId: k1, optionId: right(k1) }), sub("t2", { cardId: k1, optionId: wrong(k1) }), sub("t3", { cardId: k2, optionId: right(k2) }), sub("t4", { cardId: k3, optionId: wrong(k3) })],
+    });
+    expect(byTeam(out)).toEqual({ t1: 80, t2: 0, t3: 100, t4: 0 });
+    expect(summaryOf<{ minority: string[] }>(out)!.minority.sort()).toEqual([k2, k3].sort());
+    // tutti sulla stessa carta: nessuna strada meno battuta
+    const same = def.score({ content: c, ctx: makeCtx(def, [team(1, 2), team(2, 2)]), submissions: [sub("t1", { cardId: k1, optionId: right(k1) }), sub("t2", { cardId: k1, optionId: right(k1) })] });
+    expect(byTeam(same)).toEqual({ t1: 80, t2: 80 });
+  });
+
+  it("risposta di un'altra carta: invio ignorato", () => {
+    const out = def.score({ content: c, ctx: makeCtx(def), submissions: [sub("t1", { cardId: k1, optionId: "zz" })] });
+    expect(byTeam(out).t1).toBe(0);
+  });
 });

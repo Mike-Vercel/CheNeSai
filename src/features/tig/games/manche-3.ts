@@ -8,6 +8,9 @@ import { indovinaIlPreferitoUi } from "./mechanics/indovina-il-preferito";
 import { questioneDiIstintoUi } from "./mechanics/questione-di-istinto";
 import { allineamentoPerfettoUi } from "./mechanics/allineamento-perfetto";
 import { ilPubHaTortoUi } from "./mechanics/il-pub-ha-torto";
+import { alleanzaEspressaUi } from "./mechanics/alleanza-espressa";
+import { effettoGreggeUi } from "./mechanics/effetto-gregge";
+import { giraLaSceltaUi } from "./mechanics/gira-la-scelta";
 
 /** Schermate (telefono/PC e TV) delle meccaniche nuove della MANCHE 3, per `code`. Vedi src/lib/tig/games/mechanics/manche-3.ts. */
 export const UI_MANCHE_3: Record<string, MechanicUi> = {
@@ -20,4 +23,7 @@ export const UI_MANCHE_3: Record<string, MechanicUi> = {
   "questione-di-istinto": questioneDiIstintoUi,
   "allineamento-perfetto": allineamentoPerfettoUi,
   "il-pub-ha-torto": ilPubHaTortoUi,
+  "alleanza-espressa": alleanzaEspressaUi,
+  "effetto-gregge": effettoGreggeUi,
+  "gira-la-scelta": giraLaSceltaUi,
 };
