@@ -1,0 +1,302 @@
+import type { SottoInput } from "@/lib/tig/games/mechanics/sotto-la-superficie";
+
+/**
+ * 16 · SOTTO LA SUPERFICIE — varianti. Chat INVENTATE (persone e gruppi di fantasia). Il messaggio
+ * evidenziato è ironico o allusivo; i messaggi prima lo rendono chiaro. Le tre letture sbagliate sono
+ * quelle «alla lettera» o smentite dal contesto. Temi leggeri: casa, lavoro, amici, sport, vacanze.
+ */
+const varianti: SottoInput[] = [
+  {
+    id: "padella-nel-lavello",
+    difficulty: "facile",
+    chat: {
+      title: "Casa dei quattro",
+      subtitle: "Marta, Ivo, Bea, tu",
+      messages: [
+        { id: "m1", from: "Marta", text: "Chi ha usato la mia padella stasera?", time: "21:02" },
+        { id: "m2", from: "Ivo", text: "Io ho fatto solo la pasta col sugo...", time: "21:05" },
+        { id: "m3", from: "Marta", text: "Nel lavello c'è la mia padella con dentro un dito di sugo", time: "21:06" },
+        { id: "m4", from: "Ivo", text: "Ah. Allora forse sì", time: "21:08" },
+        { id: "m5", from: "Marta", text: "Grazie Ivo, è sempre un piacere ritrovarla così", time: "21:10" },
+      ],
+    },
+    targetId: "m5",
+    prompt: "Cosa intende davvero Marta?",
+    options: [
+      { id: "infastidita", text: "È seccata: voleva ritrovare la padella lavata." },
+      { id: "ringrazia-cena", text: "Ringrazia Ivo per averle preparato la cena." },
+      { id: "felice-prestito", text: "È contenta che Ivo usi le sue padelle." },
+      { id: "chiede-padella", text: "Chiede a Ivo di prestarle una padella." },
+    ],
+    solution: { optionId: "infastidita" },
+    explain: "Il «grazie» arriva subito dopo la padella lasciata sporca nel lavello: è ironico. Marta sta dicendo che avrebbe voluto ritrovarla pulita.",
+  },
+  {
+    id: "pallone-calcetto",
+    difficulty: "facile",
+    chat: {
+      title: "Calcetto del giovedì",
+      subtitle: "gruppo · 11 membri",
+      messages: [
+        { id: "m1", from: "Luca", text: "Stasera chi porta il pallone?", time: "18:30" },
+        { id: "m2", from: "Gabri", text: "Io l'ho portato le ultime cinque volte", time: "18:31" },
+        { id: "m3", from: "Luca", text: "Dai, l'ultima volta e poi facciamo i turni, giuro", time: "18:32" },
+        { id: "m4", from: "Gabri", text: "Certo. Come le altre cinque «ultime volte»", time: "18:33" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa intende davvero Gabri?",
+    options: [
+      { id: "non-ci-crede", text: "Non crede che stavolta i turni partiranno davvero." },
+      { id: "felice", text: "È felice di portare il pallone anche stasera." },
+      { id: "conto-partite", text: "Ha perso il conto delle partite giocate." },
+      { id: "smettere", text: "Propone di smettere di giocare a calcetto." },
+    ],
+    solution: { optionId: "non-ci-crede" },
+    explain: "Gabri ricorda che l'«ultima volta» gli è già stata promessa cinque volte: non si fida della promessa di Luca.",
+  },
+  {
+    id: "piccola-modifica",
+    difficulty: "media",
+    chat: {
+      title: "Ufficio · presentazione",
+      subtitle: "gruppo · 5 membri",
+      messages: [
+        { id: "m1", from: "Sandra (capa)", text: "Ragazzi, piccola modifica alla presentazione di domattina", time: "17:55" },
+        { id: "m2", from: "Sandra (capa)", text: "Cambiamo tutte le slide e l'ordine dei capitoli", time: "17:56" },
+        { id: "m3", from: "Tu", mine: true, text: "Quindi... la rifacciamo da capo?", time: "17:58" },
+        { id: "m4", from: "Dario", text: "«Piccola», certo. Avviso a casa che stasera non torno per cena", time: "18:01" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa vuole dire Dario?",
+    options: [
+      { id: "lavoro-enorme", text: "La modifica è enorme e li terrà in ufficio fino a tardi." },
+      { id: "davvero-piccola", text: "La modifica è davvero piccola e la finiranno in fretta." },
+      { id: "cena-capa", text: "Vuole invitare la capa a cena." },
+      { id: "rifiuta", text: "Si rifiuta di lavorare alla modifica." },
+    ],
+    solution: { optionId: "lavoro-enorme" },
+    explain: "Cambiare tutte le slide non è «piccolo»: Dario lo sottolinea con le virgolette e avvisa che salterà la cena perché lavorerà fino a tardi.",
+  },
+  {
+    id: "impegno-sei-mesi",
+    difficulty: "media",
+    chat: {
+      title: "Giorgia",
+      subtitle: "online",
+      messages: [
+        { id: "m1", from: "Giorgia", text: "Allora? Com'è andata la cena con quello conosciuto in palestra?", time: "23:15" },
+        { id: "m2", from: "Tu", mine: true, text: "Ha parlato per due ore della sua moto", time: "23:40" },
+        { id: "m3", from: "Tu", mine: true, text: "Poi mi ha chiesto se ci vediamo anche sabato", time: "23:41" },
+        { id: "m4", from: "Giorgia", text: "E tu?", time: "23:42" },
+        { id: "m5", from: "Tu", mine: true, text: "Gli ho detto che sono impegnata. Per i prossimi sei mesi", time: "23:44" },
+      ],
+    },
+    targetId: "m5",
+    prompt: "Cosa intende davvero il messaggio evidenziato?",
+    options: [
+      { id: "non-rivederlo", text: "Non ha nessuna voglia di rivederlo." },
+      { id: "impegno-vero", text: "Ha davvero un impegno di lavoro lungo sei mesi." },
+      { id: "tra-sei-mesi", text: "Vuole rivederlo tra sei mesi esatti." },
+      { id: "moto", text: "Le è piaciuta molto la moto." },
+    ],
+    solution: { optionId: "non-rivederlo" },
+    explain: "Dopo due ore di monologo sulla moto, un «impegno» di sei mesi è un modo gentile per dire di no: non vuole rivederlo.",
+  },
+  {
+    id: "lasagne-della-mamma",
+    difficulty: "facile",
+    chat: {
+      title: "Mamma",
+      subtitle: "ultimo accesso alle 12:31",
+      messages: [
+        { id: "m1", from: "Mamma", text: "Domenica vieni a pranzo da noi?", time: "12:02" },
+        { id: "m2", from: "Tu", mine: true, text: "Non so, sono un po' pieno di cose", time: "12:30" },
+        { id: "m3", from: "Mamma", text: "Ho fatto le lasagne come piacciono a te", time: "12:31" },
+        { id: "m4", from: "Mamma", text: "Ma se sei così impegnato le mangia tutte tuo fratello", time: "12:31" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa vuole ottenere la mamma?",
+    options: [
+      { id: "convincerlo", text: "Convincerlo a venire a pranzo domenica." },
+      { id: "fratello", text: "Che il fratello mangi tutte le lasagne." },
+      { id: "annullare", text: "Annullare il pranzo di domenica." },
+      { id: "impegni", text: "Sapere quali impegni ha domenica." },
+    ],
+    solution: { optionId: "convincerlo" },
+    explain: "Prima le lasagne «come piacciono a te», poi il rischio che le mangi il fratello: la mamma fa leva sulla gola per farlo venire.",
+  },
+  {
+    id: "una-foto-sola",
+    difficulty: "media",
+    chat: {
+      title: "Vacanze agosto",
+      subtitle: "gruppo · 6 membri",
+      messages: [
+        { id: "m1", from: "Pietro", text: "Trovato l'appartamento al mare: 40 euro a testa a notte!", time: "22:10" },
+        { id: "m2", from: "Bea", text: "Foto?", time: "22:12" },
+        { id: "m3", from: "Pietro", text: "Nell'annuncio ce n'è una sola: la vista dal balcone", time: "22:13" },
+        { id: "m4", from: "Bea", text: "Una sola foto, ed è della vista. Sicuramente dentro è una reggia", time: "22:14" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa pensa davvero Bea?",
+    options: [
+      { id: "sospetta", text: "Sospetta che l'interno sia brutto e lo nascondano." },
+      { id: "sicura-bello", text: "È sicura che l'appartamento sia bellissimo." },
+      { id: "prenota", text: "Vuole prenotare subito, prima che lo prendano altri." },
+      { id: "solo-vista", text: "Le interessa solo il panorama." },
+    ],
+    solution: { optionId: "sospetta" },
+    explain: "Un annuncio con una sola foto, e per giunta del panorama, fa pensare che l'interno non sia da mostrare: la «reggia» è ironica.",
+  },
+  {
+    id: "basso-di-notte",
+    difficulty: "difficile",
+    chat: {
+      title: "Casa (2 piano)",
+      subtitle: "Ale, Nico, tu",
+      messages: [
+        { id: "m1", from: "Ale", text: "Domattina ho l'esame alle 9, vado a dormire", time: "23:50" },
+        { id: "m2", from: "Ale", text: "Buonanotte a tutti", time: "23:51" },
+        { id: "m3", from: "Nico", text: "Qualcuno ha mai suonato il basso? Sto imparando adesso", time: "00:40" },
+        { id: "m4", from: "Ale", text: "Bellissimo il tuo basso, Nico. Lo sento benissimo da camera mia", time: "00:42" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa sta dicendo davvero Ale?",
+    options: [
+      { id: "smetti", text: "Il basso lo tiene sveglio: Nico deve smettere." },
+      { id: "imparare", text: "Vuole imparare anche lui a suonare il basso." },
+      { id: "complimenti", text: "Gli fa i complimenti sinceri per come suona." },
+      { id: "dorme-gia", text: "Sta già dormendo profondamente." },
+    ],
+    solution: { optionId: "smetti" },
+    explain: "Ale era andato a dormire per l'esame delle 9 e alle 00:42 è ancora sveglio a causa del basso: i complimenti sono una richiesta di silenzio.",
+  },
+  {
+    id: "logo-coraggioso",
+    difficulty: "media",
+    chat: {
+      title: "Fabio · cliente",
+      subtitle: "ultimo accesso alle 16:01",
+      messages: [
+        { id: "m1", from: "Fabio", text: "Ho visto il logo nuovo. Interessante.", time: "15:50" },
+        { id: "m2", from: "Tu", mine: true, text: "Ti piace?", time: "15:52" },
+        { id: "m3", from: "Fabio", text: "Diciamo che è coraggioso. Mia zia dice che sembra una macchia di caffè", time: "15:58" },
+        { id: "m4", from: "Fabio", text: "Ma l'esperto sei tu, io mi fido. Più o meno", time: "16:01" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa pensa il cliente del logo?",
+    options: [
+      { id: "non-piace", text: "Non gli piace e vorrebbe che fosse cambiato." },
+      { id: "adora", text: "Lo adora e vuole stamparlo subito." },
+      { id: "zia", text: "L'ha disegnato sua zia." },
+      { id: "fiducia-totale", text: "Si fida completamente del grafico." },
+    ],
+    solution: { optionId: "non-piace" },
+    explain: "«Interessante», «coraggioso», la macchia di caffè e quel «più o meno»: il cliente non osa dirlo, ma il logo non gli piace.",
+  },
+  {
+    id: "colazione-per-ritardatari",
+    difficulty: "difficile",
+    chat: {
+      title: "Compleanno di Sofi",
+      subtitle: "gruppo · 9 membri",
+      messages: [
+        { id: "m1", from: "Sofi", text: "Ricordate: stasera da me alle 20:30!", time: "18:00" },
+        { id: "m2", from: "Matti", text: "Partiamo adesso da casa", time: "20:25" },
+        { id: "m3", from: "Sofi", text: "Ma voi abitate a un'ora e mezza da qui", time: "20:26" },
+        { id: "m4", from: "Matti", text: "Arriviamo prestissimo", time: "20:27" },
+        { id: "m5", from: "Sofi", text: "Perfetto, vi tengo da parte il caffè per la colazione", time: "20:28" },
+      ],
+    },
+    targetId: "m5",
+    prompt: "Cosa intende davvero Sofi?",
+    options: [
+      { id: "tardissimo", text: "Arriveranno tardissimo, a festa quasi finita." },
+      { id: "colazione-vera", text: "Li invita anche a colazione domattina." },
+      { id: "caffe-finito", text: "Il caffè è finito e chiede di portarne." },
+      { id: "nuovo-orario", text: "Sposta l'orario della festa." },
+    ],
+    solution: { optionId: "tardissimo" },
+    explain: "Partono alle 20:25 da un'ora e mezza di distanza per una festa delle 20:30: la «colazione» è una battuta su quanto arriveranno tardi.",
+  },
+  {
+    id: "gambe-spinning",
+    difficulty: "facile",
+    chat: {
+      title: "Spinning del martedì",
+      subtitle: "gruppo · 14 membri",
+      messages: [
+        { id: "m1", from: "Paola (istruttrice)", text: "Lezione di oggi: un'ora tutta in salita. Sarà una passeggiata!", time: "07:00" },
+        { id: "m2", from: "Fede", text: "Lezione finita. Sono vivo, credo", time: "08:05" },
+        { id: "m3", from: "Fede", text: "Paola, una passeggiata sul Monte Bianco?", time: "08:05" },
+        { id: "m4", from: "Fede", text: "Ci vediamo giovedì, se le gambe mi portano fino alla porta", time: "08:06" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa intende Fede?",
+    options: [
+      { id: "gambe-a-pezzi", text: "La lezione è stata durissima e ha le gambe a pezzi." },
+      { id: "impegno", text: "Giovedì non può venire per un impegno." },
+      { id: "passaggio", text: "Chiede un passaggio fino alla palestra." },
+      { id: "troppo-facile", text: "La lezione è stata troppo facile." },
+    ],
+    solution: { optionId: "gambe-a-pezzi" },
+    explain: "«Sono vivo, credo» e la battuta sul Monte Bianco dicono che la lezione è stata massacrante: le gambe forse non lo porteranno nemmeno alla porta.",
+  },
+  {
+    id: "bici-nell-androne",
+    difficulty: "media",
+    chat: {
+      title: "Condominio scala B",
+      subtitle: "gruppo · 22 membri",
+      messages: [
+        { id: "m1", from: "Elsa (int. 3)", text: "Chi ha lasciato la bici nell'androne?", time: "09:15" },
+        { id: "m2", from: "Elsa (int. 3)", text: "Stamattina ci sono finita contro con le borse della spesa", time: "09:15" },
+        { id: "m3", from: "Tommi (int. 7)", text: "È mia, scusate! La sposto stasera", time: "09:30" },
+        { id: "m4", from: "Elsa (int. 3)", text: "Stasera. Ottimo. Così domattina ci sbatto di nuovo, che mi era piaciuto", time: "09:31" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa vuole Elsa?",
+    options: [
+      { id: "subito", text: "Che la bici venga spostata subito, non stasera." },
+      { id: "resti-li", text: "Che la bici resti nell'androne fino a domani." },
+      { id: "comprarla", text: "Comprare la bici di Tommi." },
+      { id: "ringrazia", text: "Ringraziare Tommi per la gentilezza." },
+    ],
+    solution: { optionId: "subito" },
+    explain: "Elsa ci è già finita contro e il «mi era piaciuto» è ironico: aspettare stasera non le va bene, la vuole fuori dall'androne subito.",
+  },
+  {
+    id: "prestito-per-aperitivo",
+    difficulty: "difficile",
+    chat: {
+      title: "Aperitivo sempre",
+      subtitle: "gruppo · 7 membri",
+      messages: [
+        { id: "m1", from: "Chiara", text: "Aperitivo stasera?", time: "19:00" },
+        { id: "m2", from: "Luca", text: "Ci sono! Ma il posto lo scelgo io", time: "19:02" },
+        { id: "m3", from: "Chiara", text: "L'ultima volta hai scelto quello dove un calice costava 15 euro", time: "19:03" },
+        { id: "m4", from: "Chiara", text: "Scegli pure, Luca. Io intanto chiedo un prestito in banca", time: "19:03" },
+      ],
+    },
+    targetId: "m4",
+    prompt: "Cosa intende Chiara?",
+    options: [
+      { id: "troppo-caro", text: "Teme che Luca scelga di nuovo un posto troppo caro." },
+      { id: "prestito-vero", text: "Le serve davvero un prestito per un altro motivo." },
+      { id: "posto-ottimo", text: "È felice che scelga Luca: l'ultimo posto era ottimo." },
+      { id: "non-viene", text: "Non vuole venire all'aperitivo." },
+    ],
+    solution: { optionId: "troppo-caro" },
+    explain: "Chiara ricorda il calice da 15 euro e scherza sul prestito: ha paura che Luca scelga di nuovo un locale carissimo.",
+  },
+];
+
+export default varianti;
