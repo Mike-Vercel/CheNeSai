@@ -45,7 +45,8 @@ export const PALETTE = {
 } as const;
 export type ColorName = keyof typeof PALETTE;
 export const COLOR_NAMES = Object.keys(PALETTE) as ColorName[];
-const color = z.enum(COLOR_NAMES as [ColorName, ...ColorName[]]);
+export const colorSchema = z.enum(COLOR_NAMES as [ColorName, ...ColorName[]]);
+const color = colorSchema;
 
 const num = z.number().min(-400).max(400);
 const pos = z.number().min(0.1).max(400);

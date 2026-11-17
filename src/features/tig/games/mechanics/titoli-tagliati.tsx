@@ -37,7 +37,7 @@ function Clipping({
         <p className={clsx("tg1-serif font-black italic tracking-tight", tv ? "text-[2cqw]" : "text-lg")}>{outlet}</p>
         <p className={clsx("font-extrabold uppercase tracking-[0.18em] text-[#ff3b4e]", tv ? "text-[1cqw]" : "text-[11px]")}>{section}</p>
       </header>
-      <h2 className={clsx("tg1-serif font-black leading-[1.08] tracking-tight", tv ? (fill && final ? "text-[2.5cqw]" : "text-[3.1cqw]") : "text-[1.55rem] sm:text-3xl")}>
+      <h2 className={clsx("tg1-serif font-black leading-[1.08] tracking-tight", tv ? (fill && final ? "text-[2.3cqw]" : "text-[3cqw]") : "text-[1.55rem] sm:text-3xl")}>
         {headline[0]}
         {fill ? (
           <mark className={clsx("tg1-filled rounded-[0.2em] px-[0.2em] [-webkit-box-decoration-break:clone] [box-decoration-break:clone]", final && "tg-shine")}>{fill}</mark>
@@ -48,7 +48,7 @@ function Clipping({
         )}
         {headline[1]}
       </h2>
-      <p className={clsx("font-semibold leading-snug text-[#12161f]/80", tv ? (fill && final ? "mt-[0.9cqw] text-[1.4cqw]" : "mt-[1.2cqw] text-[1.6cqw]") : "mt-3 text-[15px]")}>{lead}</p>
+      <p className={clsx("font-semibold leading-snug text-[#12161f]/80", tv ? (fill && final ? "mt-[0.8cqw] text-[1.3cqw]" : "mt-[1.2cqw] text-[1.6cqw]") : "mt-3 text-[15px]")}>{lead}</p>
     </article>
   );
 }

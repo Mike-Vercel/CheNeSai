@@ -131,7 +131,7 @@ function frigo(o: { tortaInBasso?: boolean; borracce: number; postit: string }):
     { kind: "pizza", x: 78, y: o.tortaInBasso ? 21 : 72, s: 24, label: "AVANZI", tone: "red" },
     ...b,
     { kind: "tazza", x: 84, y: 48, s: 16, label: "YOGURT", tone: "white" },
-    { kind: "postit", x: 108, y: 16, s: 16, label: o.postit, tone: "amber", rot: 6 },
+    { kind: "postit", x: 100, y: 15, s: 16, label: o.postit, tone: "amber", rot: 6 },
   ], "acciaio");
 }
 
@@ -206,10 +206,10 @@ function spesa(o: { tazze: number; scambia?: boolean }): ArtInput {
   const cups: It[] = [
     { kind: "tazza", x: 14, y: 58, s: 18, label: "LATTE", tone: "white" },
     { kind: "tazza", x: 32, y: 58, s: 18, label: "TÈ", tone: "lime" },
-    { kind: "tazza", x: 26, y: 26, s: 16, label: "OSPITI", tone: "red" },
+    { kind: "tazza", x: 24, y: 29.5, s: 16, label: "OSPITI", tone: "red" },
   ];
-  return art(TAVOLO, [
-    { kind: "pianta", x: 44, y: 26, s: 18, tone: "lime" },
+  return art([...TAVOLO, { k: "rect", x: 4, y: 37, w: 54, h: 3, r: 1, c: "legno" }], [
+    { kind: "pianta", x: 46, y: 28, s: 18, tone: "lime" },
     ...cups.slice(0, o.tazze),
     { kind: "pizza", x: o.scambia ? 94 : 60, y: 58, s: 24, label: "SURGELATA", tone: "red" },
     { kind: "torta", x: o.scambia ? 60 : 94, y: 58, s: 24, label: "CROSTATA", tone: "amber" },
@@ -432,7 +432,7 @@ const varianti: NonEInput[] = [
   },
   {
     id: "gatto-sul-divano",
-    difficulty: "facile",
+    difficulty: "media",
     scene: "Il gatto sul divano",
     description: "La coda del gatto è sul lato destro, il libro sta a destra del gatto e la tazza dice «TÈ».",
     parts: ["la coda del gatto è sul lato destro", "il libro sta a destra del gatto", "la tazza dice «TÈ»"],

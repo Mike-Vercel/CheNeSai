@@ -130,10 +130,16 @@ function Tv(p: T) {
             const r = byId?.get(img.id);
             return (
               <figure key={img.id} className={clsx("tg-rise flex min-h-0 flex-col gap-[0.6cqw]", done && !right && "opacity-70")} style={{ animationDelay: `${i * 120}ms` }}>
-                <div className={clsx("relative min-h-0 overflow-hidden rounded-[1.2cqw] border-[0.25cqw]", right ? "tg-pop border-[#c6ff3d] shadow-[0_0_50px_-10px_rgba(198,255,61,0.8)]" : "border-white/12")}>
-                  <ArtSvg art={img.art} label={img.alt} className="block h-full w-full" />
-                  <span className={clsx("tg-num absolute left-[0.8cqw] top-[0.8cqw] grid h-[3.4cqw] w-[3.4cqw] place-items-center rounded-[0.7cqw] text-[2.2cqw]", right ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#0b0d12]/85 text-white")}>{i + 1}</span>
-                  {right && <Icon name="check" className="absolute right-[0.8cqw] top-[0.8cqw] h-[3.4cqw] w-[3.4cqw] rounded-full bg-[#c6ff3d] p-[0.5cqw] text-[#0b0d12]" />}
+                {/* contenitore «a misura»: l'immagine 4:3 si adatta alla cella (larghezza E altezza), anche con 12 tavoli sotto */}
+                <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
+                  <div
+                    className={clsx("absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[4cqw] border-[0.8cqw]", right ? "tg-pop border-[#c6ff3d] shadow-[0_0_50px_-10px_rgba(198,255,61,0.8)]" : "border-white/12")}
+                    style={{ width: "min(100cqw, 133.33cqh)", height: "min(75cqw, 100cqh)" }}
+                  >
+                    <ArtSvg art={img.art} label={img.alt} className="block h-full w-full" />
+                    <span className={clsx("tg-num absolute left-[2.6cqw] top-[2.6cqw] grid h-[11cqw] w-[11cqw] place-items-center rounded-[2.4cqw] text-[7cqw]", right ? "bg-[#c6ff3d] text-[#0b0d12]" : "bg-[#0b0d12]/85 text-white")}>{i + 1}</span>
+                    {right && <Icon name="check" className="absolute right-[2.6cqw] top-[2.6cqw] h-[11cqw] w-[11cqw] rounded-full bg-[#c6ff3d] p-[1.6cqw] text-[#0b0d12]" />}
+                  </div>
                 </div>
                 {done && r && !right && (
                   <figcaption className="flex flex-col gap-[0.3cqw]">

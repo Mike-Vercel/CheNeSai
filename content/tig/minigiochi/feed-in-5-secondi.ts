@@ -237,7 +237,7 @@ const varianti: FeedInput[] = [
       post("@paolo.e.paolo", "Spiaggia libera", "2 h", 1544, "Castello di sabbia: crollato", foto("mare", [{ kind: "borraccia", tone: "amber", x: 36, y: 80, s: 30 }]), "Una borraccia arancione sulla sabbia."),
       post("@studio.legale.no", "Ufficio", "3 h", 32, "Riunione che poteva essere una mail", foto("ufficio", [{ kind: "laptop", label: "47 MAIL", tone: "cyan", x: 50, y: 62, s: 52 }]), "Un portatile con scritto «47 mail» in ufficio."),
       post("@paola.e.basta", "Casa", "5 h", 2600, "Il letto oggi vince 3 a 0", foto("stanza", [{ kind: "lampada", tone: "violet", x: 34, y: 58, s: 44 }]), "Una lampada viola in camera."),
-      post("@giro.in.moto", "Passo dello Stelvio", "ieri", 1999, "Quarantotto tornanti, zero rimpianti", foto("neve", [{ kind: "chiavi", tone: "white", x: 50, y: 82, s: 32 }]), "Delle chiavi sulla neve, montagne dietro."),
+      post("@giro.in.moto", "Passo dello Stelvio", "ieri", 1999, "Quarantotto tornanti, zero rimpianti", foto("neve", [{ kind: "chiavi", tone: "amber", x: 50, y: 82, s: 32 }]), "Delle chiavi sulla neve, montagne dietro."),
     ],
     prompt: "Chi aveva pubblicato il quarto post del feed?",
     options: [

@@ -24,14 +24,15 @@ export function SurfaceChatView({ chat, targetId, size = "phone", className }: {
           <span className={clsx("block truncate font-semibold text-white/55", tv ? "text-[1.05cqw]" : "text-xs")}>{chat.subtitle}</span>
         </span>
       </div>
-      <ol className={clsx("flex min-h-0 flex-col", tv ? "gap-[0.55cqw] p-[0.9cqw] pt-[1.1cqw]" : "gap-2 p-3 pt-3.5")}>
+      {/* in TV, se lo spazio non basta (molti tavoli sotto), si tagliano i messaggi più vecchi in alto: mai quello da interpretare */}
+      <ol className={clsx("flex min-h-0 flex-col", tv ? "flex-1 justify-end gap-[0.5cqw] overflow-hidden p-[0.9cqw] pt-[1.1cqw]" : "gap-2 p-3 pt-3.5")}>
         {chat.messages.map((m) => {
           const hit = m.id === targetId;
           return (
             <li
               key={m.id}
               className={clsx(
-                "relative max-w-[88%]",
+                "relative max-w-[88%] shrink-0",
                 m.mine ? "self-end bg-[#2b3a12] text-[#f3ffd6]" : "self-start bg-[#1d2330]",
                 tv ? "rounded-[0.9cqw] px-[1cqw] py-[0.55cqw]" : "rounded-2xl px-3 py-2",
                 hit && (tv ? "outline outline-[0.25cqw] outline-offset-[0.25cqw] outline-[#c6ff3d]" : "outline outline-[3px] outline-offset-2 outline-[#c6ff3d]"),
