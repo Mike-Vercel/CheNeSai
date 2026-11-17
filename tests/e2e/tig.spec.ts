@@ -167,10 +167,10 @@ test("serata completa: wizard, QR, convalida, mascotte, prova da telefono e PC, 
   await shot(tv, "tv-05-regola-prova");
   await shot(p2, "phone-04-regola-prova");
   await regia.getByRole("button", { name: "AVANTI ⏭" }).click(); // fine della regola: si parte subito
-  // il secondo telefono dello stesso tavolo non ferma il tempo: lo fa il capitano
-  await expect(p4.getByText("Il tempo scorre: contate insieme, il capitano tocca STOP.")).toBeVisible({ timeout: 20_000 });
   const stop1 = p1.getByRole("button", { name: "Stop" });
   await expect(stop1).toBeEnabled({ timeout: 20_000 }); // dopo il conto alla rovescia di 3 secondi
+  // il secondo telefono dello stesso tavolo non ferma il tempo: lo fa il capitano
+  await expect(p4.getByRole("button", { name: "Stop" })).toBeDisabled({ timeout: 8_000 });
   await shot(tv, "tv-06-prova-in-corso");
   // la TV non mostra il cronometro in questa prova (nessun timer del core sopra la schermata)
   await expect(tv.getByRole("timer")).toHaveCount(0);
