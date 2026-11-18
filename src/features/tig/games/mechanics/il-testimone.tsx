@@ -7,6 +7,7 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
+import { WaxSeal } from "../kit/ornaments";
 import { canEdit, Explain, Eyebrow, MyOutcome, OptionButton, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
 import { FactList } from "./m4/kit";
 
@@ -92,6 +93,8 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const rev = done ? new Map(reveal.witnesses.map((w) => [w.id, w])) : null;
+  // con più di 7 tavoli la striscia in basso va su due righe: le risposte si dispongono su due colonne
+  const many = p.teams.length > 7;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Il testimone affidabile e le due testimonianze che non reggono" : view.question}>
       <div className="grid h-full grid-cols-[1fr_1.2fr] gap-[1.4cqw]">
@@ -102,7 +105,7 @@ function Tv(p: T) {
               <FactList facts={view.facts} tv title="Fatti certi" />
             </div>
           </TvPanel>
-          <TvPanel className="grid shrink-0 grid-cols-1 content-start gap-[0.5cqw]">
+          <TvPanel className={clsx("grid shrink-0 content-start gap-[0.5cqw]", many && !done ? "grid-cols-2" : "grid-cols-1")}>
             {view.options.map((o, i) =>
               // al reveal resta solo la risposta giusta: la spiegazione sta sotto, anche con 12 tavoli in basso
               done && o.id !== reveal.solutionId ? null : <TvOption key={o.id} index={i} text={o.text} size="sm" state={done ? "right" : "idle"} />,
@@ -120,12 +123,17 @@ function Tv(p: T) {
                   "tg-rise flex shrink-0 items-start gap-[1cqw] rounded-[1.1cqw] border-[0.18cqw] px-[1.2cqw]",
                   r ? "py-[0.6cqw]" : "py-[0.9cqw]",
                   !r && "border-dashed border-(--tg-gold)/50 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-gold)_5%,transparent)_0_1cqw,transparent_1cqw_2cqw)]",
-                  r?.reliable && "tg-pop border-(--tg-gold) bg-(--tg-gold)/12",
+                  r?.reliable && "tg-pop border-(--tg-gold) bg-(--tg-gold-dark)/75",
                   r && !r.reliable && "border-(--tg-red-hi)/70 bg-(--tg-red)/10",
                 )}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <Icon name={r ? (r.reliable ? "check" : "x") : "lock"} className={clsx("mt-[0.2cqw] h-[2.4cqw] w-[2.4cqw] shrink-0", r ? (r.reliable ? "text-(--tg-gold)" : "text-(--tg-red-hi)") : "text-(--tg-gold)/70")} />
+                {r ? (
+                  <Icon name={r.reliable ? "check" : "x"} className={clsx("mt-[0.2cqw] h-[2.4cqw] w-[2.4cqw] shrink-0", r.reliable ? "text-(--tg-gold)" : "text-(--tg-red-hi)")} />
+                ) : (
+                  // testimonianza ancora chiusa: sigillo di ceralacca
+                  <WaxSeal mark="anchor" tone="gold" className="h-[3.2cqw] w-[3.2cqw] shrink-0" />
+                )}
                 <div className="min-w-0">
                   <p className="flex items-baseline gap-[0.8cqw]">
                     <span className="tg-display text-[1.9cqw] leading-tight">{s.source}</span>
@@ -133,11 +141,11 @@ function Tv(p: T) {
                   </p>
                   {r ? (
                     <>
-                      <p className="text-[1.25cqw] font-semibold leading-snug">«{r.text}»</p>
-                      <p className={clsx("mt-[0.2cqw] text-[1.1cqw] font-bold leading-snug", r.reliable ? "text-(--tg-gold-hi)" : "text-(--tg-red-hi)")}>{r.note}</p>
+                      <p className="text-[1.35cqw] font-semibold leading-snug">«{r.text}»</p>
+                      <p className={clsx("mt-[0.2cqw] text-[1.2cqw] font-bold leading-snug", r.reliable ? "text-(--tg-gold-hi)" : "text-(--tg-red-hi)")}>{r.note}</p>
                     </>
                   ) : (
-                    <p className="text-[1.25cqw] font-bold text-(--tg-cream)/65">Testimonianza sigillata: è sul telefono di qualcuno al vostro tavolo.</p>
+                    <p className="text-[1.3cqw] font-bold text-(--tg-cream)/70">Testimonianza sigillata: è sul telefono di qualcuno al vostro tavolo.</p>
                   )}
                 </div>
               </div>

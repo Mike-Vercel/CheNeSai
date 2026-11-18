@@ -188,7 +188,7 @@ function Tv(p: T) {
                         <span className="text-(--tg-gold)">{part.options.find((o) => o.id === c.real[j])?.text}</span>
                       </p>
                     ))}
-                    <p className="mt-auto text-[1.1cqw] font-semibold leading-snug text-(--tg-cream)/80">{c.why}</p>
+                    <p className="mt-auto border-t border-(--tg-brass)/30 pt-[0.5cqw] text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{c.why}</p>
                   </TvPanel>
                 ))}
               </div>
@@ -219,7 +219,7 @@ function Tv(p: T) {
             arrow={(from) => {
               const l = links.get(from);
               if (!l) return null;
-              if (l.part === null) return { color: "color-mix(in srgb, var(--tg-cream) 45%, transparent)", text: "NESSUNA", dashed: true };
+              if (l.part === null) return { color: "color-mix(in srgb, var(--tg-cream) 62%, transparent)", text: "NESSUNA", dashed: true };
               return l.believed ? { color: "var(--tg-red-hi)", text: "CREDUTA" } : { color: "var(--tg-gold)", text: "SCARTATA", dashed: true };
             }}
             label="Chi prepara la bugia per chi"

@@ -5,9 +5,9 @@ import { useState } from "react";
 import type { FraseMemberView, FraseReveal, FraseSubmission, FraseView, Mossa } from "@/lib/tig/games/mechanics/la-frase-a-meta";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { TableTag } from "./m4/kit";
+import { PactToggle, TableTag } from "./m4/kit";
 
 type P = PlayerGameProps<FraseView, FraseMemberView, FraseSubmission, FraseReveal>;
 type T = TvGameProps<FraseView, FraseReveal>;
@@ -23,7 +23,7 @@ function Matrix({ view, tv = false }: { view: FraseView; tv?: boolean }) {
       <span className={head}>L&apos;altro condivide</span>
       <span className={head}>L&apos;altro inganna</span>
       <span className={clsx("tg-display", tv ? "text-[1.5cqw]" : "text-lg", "text-(--tg-gold)")}>Condivido</span>
-      <span className={clsx(cell, "bg-(--tg-gold)/15")}>+{p.patto}</span>
+      <span className={clsx(cell, "bg-(--tg-gold-dark)/80 text-(--tg-gold-hi)")}>+{p.patto}</span>
       <span className={clsx(cell, "bg-(--tg-cream)/[0.06]")}>ipotesi giusta +{p.ipotesi}</span>
       <span className={clsx("tg-display", tv ? "text-[1.5cqw]" : "text-lg", "text-(--tg-red-hi)")}>Inganno</span>
       <span className={clsx(cell, "bg-(--tg-red)/20")}>
@@ -44,9 +44,9 @@ function Half({ side, text, big = false }: { side: "inizio" | "fine"; text: stri
   );
 }
 
-function MoveBadge({ move, tv = false }: { move: Mossa | null; tv?: boolean }) {
+function MoveBadge({ move, tv = false, small = false }: { move: Mossa | null; tv?: boolean; small?: boolean }) {
   return (
-    <span className={clsx("tg-display rounded-md", tv ? "px-[0.5cqw] text-[1.25cqw]" : "px-1.5 text-sm", move === "condividi" ? "bg-(--tg-gold) text-(--tg-ink)" : move === "inganna" ? "bg-(--tg-red) text-white" : "bg-(--tg-cream)/10 text-(--tg-cream)/60")}>
+    <span className={clsx("tg-display whitespace-nowrap rounded-md", tv ? (small ? "px-[0.4cqw] py-[0.1cqw] text-[1.05cqw]" : "px-[0.5cqw] text-[1.25cqw]") : "px-1.5 text-sm", move === "condividi" ? "bg-(--tg-gold) text-(--tg-ink)" : move === "inganna" ? "bg-(--tg-red) text-white" : "bg-(--tg-cream)/10 text-(--tg-cream)/60")}>
       {move === "condividi" ? "Condivide" : move === "inganna" ? "Inganna" : "Nessuna mossa"}
     </span>
   );
@@ -113,13 +113,13 @@ function Player(p: P) {
       </Panel>
       <Panel tone="red" className="flex flex-col gap-3">
         <Eyebrow className="text-(--tg-red-hi)">1 · La vostra mossa con {other}</Eyebrow>
-        <BigToggle
+        <PactToggle
           label="Mossa"
           value={move}
           onChange={setMove}
           disabled={!editable}
           options={[
-            { id: "condividi", title: "Condivido", sub: "Gli passate la vostra vera metà", tone: "lime", icon: "handshake" },
+            { id: "condividi", title: "Condivido", sub: "Gli passate la vostra vera metà", tone: "gold", icon: "handshake" },
             { id: "inganna", title: "Inganno", sub: "Gli passate una metà falsa", tone: "red", icon: "sword" },
           ]}
         />
@@ -152,16 +152,17 @@ function Tv(p: T) {
             const r = res.get(pr.index);
             const s = done ? reveal.sentences[reveal.pairSentence[reveal.summary!.pairs.findIndex((x) => x.index === pr.index)] ?? 0] : null;
             return (
-              <TvPanel key={pr.index} className={clsx("tg-rise flex min-h-0 flex-col gap-[0.4cqw]", many ? "p-[0.9cqw]" : "p-[1.2cqw]")}>
-                <p className={clsx("font-extrabold uppercase tracking-[0.14em] text-(--tg-cream)/60", many ? "text-[0.85cqw]" : "text-[1cqw]")}>{pr.topic}</p>
-                <div className="flex flex-wrap items-center gap-[0.5cqw]">
-                  <TableTag tv no={pr.a.tableNo} color={team.get(pr.a.teamId)?.color} />
-                  {r && <MoveBadge tv move={r.moveA} />}
-                  <span className="tg-display text-[1.4cqw] text-(--tg-cream)/50">vs</span>
-                  {pr.b ? <TableTag tv no={pr.b.tableNo} color={team.get(pr.b.teamId)?.color} /> : <span className="tg-display text-[1.4cqw]">Il banco</span>}
-                  {r && <MoveBadge tv move={r.moveB} />}
+              <TvPanel key={pr.index} className={clsx("tg-rise flex min-h-0 flex-col", many ? "gap-[0.3cqw] p-[0.8cqw]" : "gap-[0.4cqw] p-[1.2cqw]")}>
+                <p className={clsx("font-extrabold uppercase tracking-[0.14em] text-(--tg-cream)/65", many ? "text-[0.85cqw]" : "text-[1cqw]")}>{pr.topic}</p>
+                {/* con 6 coppie (12 tavoli) bandiere e mosse più piccole: tutto su una riga, la frase resta intera */}
+                <div className={clsx("flex flex-wrap items-center", many ? "gap-[0.4cqw]" : "gap-[0.5cqw]")}>
+                  <TableTag tv small={many} no={pr.a.tableNo} color={team.get(pr.a.teamId)?.color} />
+                  {r && <MoveBadge tv small={many} move={r.moveA} />}
+                  <span className={clsx("tg-display text-(--tg-cream)/55", many ? "text-[1.15cqw]" : "text-[1.4cqw]")}>vs</span>
+                  {pr.b ? <TableTag tv small={many} no={pr.b.tableNo} color={team.get(pr.b.teamId)?.color} /> : <span className={clsx("tg-display", many ? "text-[1.15cqw]" : "text-[1.4cqw]")}>Il banco</span>}
+                  {r && <MoveBadge tv small={many} move={r.moveB} />}
                 </div>
-                {s && <p className={clsx("font-bold leading-snug", many ? "text-[1.2cqw]" : "text-[1.5cqw]")}>{s.start} {s.end}</p>}
+                {s && <p className={clsx("font-bold", many ? "text-[1.15cqw] leading-tight" : "text-[1.5cqw] leading-snug")}>{s.start} {s.end}</p>}
               </TvPanel>
             );
           })}

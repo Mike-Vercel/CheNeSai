@@ -7,9 +7,9 @@ import type { Option } from "@/lib/tig/games/components/choice";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { RING_MAX, RingTv } from "./m4/kit";
+import { PactToggle, RING_MAX, RingTv } from "./m4/kit";
 
 type P = PlayerGameProps<DoppioView, null, DoppioSubmission, DoppioReveal>;
 type T = TvGameProps<DoppioView, DoppioReveal>;
@@ -89,13 +89,13 @@ function Player(p: P) {
         <Eyebrow className="flex items-center gap-2 text-(--tg-red-hi)">
           <Icon name="sword" className="h-4 w-4" /> 1 · {tells ? `Quale prova vale per il tavolo ${tells}?` : "Quale prova vale per voi?"}
         </Eyebrow>
-        <BigToggle
+        <PactToggle
           label="Prova da assegnare"
           value={give}
           onChange={setGive}
           disabled={!editable}
           options={[
-            { id: "sicura", title: "Sicura", sub: `+${view.payoff.scelta.pulito} a voi, comunque vada`, tone: "lime" },
+            { id: "sicura", title: "Sicura", sub: `+${view.payoff.scelta.pulito} a voi, comunque vada`, tone: "gold" },
             { id: "rischiosa", title: "Rischiosa", sub: `+${view.payoff.scelta.trappola} a voi se sbagliano`, tone: "red" },
           ]}
         />
@@ -126,7 +126,7 @@ function Tv(p: T) {
           done && o.id !== reveal[k].solutionId ? null : <TvOption key={o.id} index={i} text={o.text} size="sm" state={done ? "right" : "idle"} />,
         )}
       </div>
-      {done && <p className="text-[1.1cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal[k].why}</p>}
+      {done && <p className="text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{reveal[k].why}</p>}
     </TvPanel>
   );
   return (
@@ -143,7 +143,7 @@ function Tv(p: T) {
                 arrow={(from) => {
                   const l = links.get(from);
                   if (!l) return null;
-                  const col = l.ok === null ? "color-mix(in srgb, var(--tg-cream) 45%, transparent)" : l.ok ? "var(--tg-gold)" : "var(--tg-red-hi)";
+                  const col = l.ok === null ? "color-mix(in srgb, var(--tg-cream) 62%, transparent)" : l.ok ? "var(--tg-gold)" : "var(--tg-red-hi)";
                   // etichette corte: con 12 tavoli l'elenco ha poco spazio per riga
                   return { color: col, text: l.give === "rischiosa" ? "RISCHIO" : "SICURA", dashed: l.give === "sicura" };
                 }}

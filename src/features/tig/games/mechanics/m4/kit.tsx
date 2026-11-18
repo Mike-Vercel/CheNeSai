@@ -4,12 +4,19 @@ import { clsx } from "clsx";
 import { useCallback, useState, type ReactNode } from "react";
 import type { Option } from "@/lib/tig/games/components/choice";
 import { Icon } from "../../kit/icons";
+import { CompassRose, CrewFlag, Doubloon, WaxSeal } from "../../kit/ornaments";
 
 /**
  * Pezzi grafici comuni alle schermate della MANCHE 4 «IL GRANDE INGANNO» (solo queste meccaniche li usano):
- * scheda dei sospettati, scala degli indizi a tempo, cartellino del tavolo, giro dei tavoli per la TV,
- * acquisti sigillati ricordati dal telefono.
+ * scheda dei sospettati, scala degli indizi a tempo (dobloni), bandiera del tavolo, giro dei tavoli per la TV,
+ * acquisti sigillati (ceralacca) ricordati dal telefono, scelta a due carte.
  */
+
+/**
+ * Fondo «alla luce della lanterna» per ciò che è vero/confermato (bordo, fondo, testo): l'oro trasparente sul blu
+ * del mare diventerebbe verde oliva, quindi si usa l'oro scuro (caldo) del tema con il testo oro chiaro.
+ */
+export const LIT = "border-(--tg-gold)/60 bg-(--tg-gold-dark)/80 text-(--tg-gold-pale)";
 
 /** «Nome · dettaglio» → [nome, dettaglio]. */
 export function splitProfile(text: string): [string, string | null] {
@@ -92,7 +99,21 @@ export function useCrossed() {
   return { crossed, toggle };
 }
 
-export function TvSuspect({ option, index, state = "idle", badge, compact = false }: { option: Option; index: number; state?: "idle" | "right" | "cleared"; badge?: ReactNode; compact?: boolean }) {
+export function TvSuspect({
+  option,
+  index,
+  state = "idle",
+  badge,
+  compact = false,
+  className,
+}: {
+  option: Option;
+  index: number;
+  state?: "idle" | "right" | "cleared";
+  badge?: ReactNode;
+  compact?: boolean;
+  className?: string;
+}) {
   const [name, detail] = splitProfile(option.text);
   return (
     <div
@@ -100,6 +121,7 @@ export function TvSuspect({ option, index, state = "idle", badge, compact = fals
         "relative flex min-h-0 items-center rounded-[1cqw] border-[0.18cqw] transition-all duration-700",
         compact ? "gap-[0.7cqw] px-[0.9cqw] py-[0.35cqw]" : "gap-[0.9cqw] px-[1cqw] py-[0.7cqw]",
         state === "right" ? "tg-shine border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : state === "cleared" ? "border-(--tg-cream)/8 bg-(--tg-cream)/[0.03] opacity-40" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]",
+        className,
       )}
     >
       <span className={clsx("tg-num grid shrink-0 place-items-center rounded-[0.6cqw]", compact ? "h-[2.2cqw] w-[2.2cqw] text-[1.3cqw]" : "h-[2.8cqw] w-[2.8cqw] text-[1.6cqw]", state === "right" ? "bg-(--tg-night) text-(--tg-gold)" : "bg-(--tg-cream)/10")}>{index + 1}</span>
@@ -153,15 +175,18 @@ export function Ladder({
           <li
             key={i}
             className={clsx(
-              "flex items-start border-2",
-              tv ? "gap-[0.9cqw] rounded-[1cqw] px-[1cqw] py-[0.7cqw]" : "gap-3 rounded-2xl px-3 py-2.5",
-              isOpen ? (i === open - 1 ? "tg-rise border-(--tg-gold)/70 bg-(--tg-gold)/[0.07]" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]") : "border-dashed border-(--tg-cream)/12",
+              "flex items-center border-2",
+              tv ? "gap-[1cqw] rounded-[1cqw] px-[0.9cqw] py-[0.55cqw]" : "gap-3 rounded-2xl px-2.5 py-2",
+              isOpen ? (i === open - 1 ? "tg-rise border-(--tg-gold)/70 bg-(--tg-gold-dark)/55" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]") : "border-dashed border-(--tg-cream)/12",
             )}
           >
-            <span className={clsx("tg-num shrink-0 text-center", tv ? "w-[4.4cqw] text-[1.7cqw] leading-none" : "w-12 text-xl leading-none", isOpen ? "text-(--tg-gold)" : "text-(--tg-cream)/35")}>
+            {/* il valore dell'indizio è un doblone: acceso quando l'indizio è arrivato, spento finché è sigillato */}
+            <Doubloon
+              label={`${worth[i]} punti`}
+              className={clsx(tv ? "h-[3.4cqw] w-[3.4cqw] text-[1.25cqw]" : "h-11 w-11 text-[0.95rem]", !isOpen && "opacity-40 grayscale")}
+            >
               {worth[i]}
-              <span className={clsx("block font-extrabold uppercase tracking-wide", tv ? "text-[0.7cqw]" : "text-[10px]")}>punti</span>
-            </span>
+            </Doubloon>
             <div className="min-w-0 flex-1">
               {isOpen && c ? (
                 <p className={clsx("font-bold leading-snug", tv ? "text-[1.6cqw]" : "text-base sm:text-lg")}>{c}</p>
@@ -183,14 +208,11 @@ export function Ladder({
 // Tavoli
 // ---------------------------------------------------------------------------
 
-/** Cartellino col numero del tavolo (colore della squadra se noto). */
-export function TableTag({ no, color, tv = false, className }: { no: number | string; color?: string; tv?: boolean; className?: string }) {
+/** Bandiera della ciurma col numero del tavolo (colore della squadra se noto), come nella striscia dei tavoli. */
+export function TableTag({ no, color, tv = false, small = false, className }: { no: number | string; color?: string; tv?: boolean; small?: boolean; className?: string }) {
   return (
-    <span
-      className={clsx("tg-num inline-grid shrink-0 place-items-center text-(--tg-ink)", tv ? "h-[2.6cqw] min-w-[2.6cqw] rounded-[0.5cqw] px-[0.3cqw] text-[1.5cqw]" : "h-7 min-w-7 rounded-md px-1 text-base", className)}
-      style={{ background: color ?? "var(--tg-cream)" }}
-    >
-      {no}
+    <span className={clsx("inline-flex shrink-0", className)} role="img" aria-label={`Tavolo ${no}`}>
+      <CrewFlag color={color ?? "var(--tg-cream)"} n={no} className={tv ? (small ? "h-[2.25cqw] w-[3cqw]" : "h-[2.7cqw] w-[3.6cqw]") : "h-9 w-12"} />
     </span>
   );
 }
@@ -217,19 +239,19 @@ export function RingTv({
   const n = seats.length;
   if (n > RING_MAX) {
     return (
-      <ol className="grid w-full grid-cols-2 content-center gap-x-[1.2cqw] gap-y-[0.55cqw]" aria-label={label}>
+      <ol className="grid w-full grid-cols-2 content-center gap-x-[1.2cqw] gap-y-[0.45cqw]" aria-label={label}>
         {seats.map((s, i) => {
           const to = seats[(i + 1) % n];
           const a = arrow?.(s.teamId) ?? null;
           return (
-            <li key={s.teamId} className="flex items-center gap-[0.5cqw]">
+            <li key={s.teamId} className="flex items-center gap-[0.4cqw]">
               <TableTag tv no={s.tableNo} color={colorOf(s.teamId)} />
-              <span className="tg-display text-[1.6cqw] leading-none" style={{ color: a?.color ?? "color-mix(in srgb, var(--tg-cream) 55%, transparent)" }} aria-label="dà a">
+              <span className="tg-display text-[1.6cqw] leading-none" style={{ color: a?.color ?? "color-mix(in srgb, var(--tg-cream) 60%, transparent)" }} aria-label="dà a">
                 →
               </span>
               <TableTag tv no={to.tableNo} color={colorOf(to.teamId)} />
               {a?.text && (
-                <span className="tg-display truncate text-[1.35cqw]" style={{ color: a.color }}>
+                <span className="tg-display truncate text-[1.3cqw]" style={{ color: a.color }}>
                   {a.text}
                 </span>
               )}
@@ -241,7 +263,7 @@ export function RingTv({
   }
   const r = 150;
   const small = n > 6;
-  const cr = small ? 21 : 25;
+  const cr = small ? 20 : 24;
   const at = (i: number) => {
     const a = (i / Math.max(1, n)) * Math.PI * 2 - Math.PI / 2;
     return [200 + r * Math.cos(a), 200 + r * Math.sin(a)] as const;
@@ -255,8 +277,16 @@ export function RingTv({
     const W = small ? 6 : 8;
     return `${x},${y} ${x - ux * L - uy * W},${y - uy * L + ux * W} ${x - ux * L + uy * W},${y - uy * L - ux * W}`;
   };
+  /** scritta sulla freccia: alone scuro sotto le lettere, leggibile anche sopra le linee e la rosa dei venti */
+  const halo = { stroke: "var(--tg-night)", strokeWidth: 5, paintOrder: "stroke" as const, strokeLinejoin: "round" as const };
+  const fs = small ? 15 : 20;
+  // margini ai lati: le scritte delle frecce laterali non vengono tagliate
   return (
-    <svg viewBox="0 0 400 400" className="h-full max-h-full w-full" role="img" aria-label={label}>
+    <svg viewBox="-30 -10 460 420" className="h-full max-h-full w-full" role="img" aria-label={label}>
+      {/* rosa dei venti d'ottone al centro del giro (decorazione) */}
+      <g transform="translate(130 130) scale(0.35)" opacity={0.2}>
+        <CompassRose className="text-(--tg-brass)" />
+      </g>
       {n > 1 &&
         seats.map((s, i) => {
           const [x1, y1] = at(i);
@@ -268,14 +298,14 @@ export function RingTv({
             // due archi: a sinistra dall'alto in basso, a destra dal basso in alto
             const side = i === 0 ? 1 : -1;
             const cx = 200 + side * 120;
-            const sy = y1 + (y2 > y1 ? cr + 6 : -(cr + 6));
-            const ey = y2 + (y2 > y1 ? -(cr + 8) : cr + 8);
+            const sy = y1 + (y2 > y1 ? cr + 10 : -(cr + 10));
+            const ey = y2 + (y2 > y1 ? -(cr + 12) : cr + 12);
             return (
               <g key={s.teamId}>
                 <path d={`M${x1} ${sy} Q ${cx} 200 ${x2} ${ey}`} fill="none" stroke={col} strokeWidth={sw} strokeDasharray={a?.dashed ? "10 7" : undefined} />
                 <polygon points={head(x2, ey, x2 - cx, ey - 200)} fill={col} />
                 {a?.text && (
-                  <text x={200 + side * 75} y={200} fill={col} fontSize={18} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
+                  <text x={200 + side * 75} y={200} fill={col} fontSize={fs} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }} {...halo}>
                     {a.text}
                   </text>
                 )}
@@ -285,10 +315,10 @@ export function RingTv({
           const dx = x2 - x1;
           const dy = y2 - y1;
           const d = Math.hypot(dx, dy) || 1;
-          const sx = x1 + (dx / d) * (cr + 5);
-          const sy = y1 + (dy / d) * (cr + 5);
-          const ex = x2 - (dx / d) * (cr + 6);
-          const ey = y2 - (dy / d) * (cr + 6);
+          const sx = x1 + (dx / d) * (cr + 9);
+          const sy = y1 + (dy / d) * (cr + 9);
+          const ex = x2 - (dx / d) * (cr + 10);
+          const ey = y2 - (dy / d) * (cr + 10);
           const mx = (x1 + x2) / 2;
           const my = (y1 + y2) / 2;
           const len = Math.hypot(mx - 200, my - 200) || 1;
@@ -298,7 +328,7 @@ export function RingTv({
               <line x1={sx} y1={sy} x2={ex} y2={ey} stroke={col} strokeWidth={sw} strokeDasharray={a?.dashed ? "9 6" : undefined} />
               <polygon points={head(ex, ey, dx, dy)} fill={col} />
               {a?.text && (
-                <text x={mx + ((mx - 200) / len) * push} y={my + ((my - 200) / len) * push} fill={col} fontSize={small ? 14 : 17} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }}>
+                <text x={mx + ((mx - 200) / len) * push} y={my + ((my - 200) / len) * push} fill={col} fontSize={fs} fontWeight={800} textAnchor="middle" dominantBaseline="central" style={{ fontFamily: "var(--tg-display)" }} {...halo}>
                   {a.text}
                 </text>
               )}
@@ -307,10 +337,13 @@ export function RingTv({
         })}
       {seats.map((s, i) => {
         const [x, y] = at(i);
+        // gettone della ciurma: disco del colore del tavolo dentro un anello d'ottone
         return (
           <g key={`c-${s.teamId}`}>
-            <circle cx={x} cy={y} r={cr} fill={colorOf(s.teamId) ?? "var(--tg-cream)"} stroke="var(--tg-ink)" strokeWidth={4} />
-            <text x={x} y={y + 1} textAnchor="middle" dominantBaseline="central" fontSize={small ? 18 : 24} fontWeight={900} fill="var(--tg-ink)" style={{ fontFamily: "var(--tg-display)" }}>
+            <circle cx={x} cy={y + 2} r={cr + 6} fill="rgba(0,0,0,.45)" />
+            <circle cx={x} cy={y} r={cr + 5} fill="var(--tg-wood-dark)" stroke="var(--tg-brass)" strokeWidth={2.5} />
+            <circle cx={x} cy={y} r={cr} fill={colorOf(s.teamId) ?? "var(--tg-cream)"} stroke="rgba(27,20,16,.6)" strokeWidth={1.5} />
+            <text x={x} y={y + 1} textAnchor="middle" dominantBaseline="central" fontSize={small ? 18 : 23} fontWeight={900} fill="var(--tg-ink)" style={{ fontFamily: "var(--tg-display)", fontFeatureSettings: '"lnum" 1' }}>
               {s.tableNo}
             </text>
           </g>
@@ -357,7 +390,7 @@ export function usePurchases(key: string | null) {
   return { items, buy };
 }
 
-/** Busta sigillata (acquisto con conferma in due tocchi). */
+/** Busta sigillata con la ceralacca e il prezzo in dobloni (acquisto con conferma in due tocchi). */
 export function SealedOffer({
   title,
   price,
@@ -387,11 +420,16 @@ export function SealedOffer({
       </div>
     );
   return (
-    <div className="flex flex-col gap-2 rounded-2xl border-2 border-dashed border-(--tg-teal)/60 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-teal)_7%,transparent)_0_10px,transparent_10px_20px)] px-4 py-3">
-      <p className="flex items-center gap-2">
-        <Icon name="lock" className="h-5 w-5 shrink-0 text-(--tg-teal-hi)" />
-        <span className="min-w-0 flex-1 text-base font-extrabold leading-tight">{title}</span>
-        <span className="tg-num shrink-0 text-2xl text-(--tg-teal-hi)">−{price}</span>
+    <div className="flex flex-col gap-2.5 rounded-2xl border-2 border-dashed border-(--tg-teal)/60 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-teal)_7%,transparent)_0_10px,transparent_10px_20px)] px-3.5 py-3">
+      <p className="flex items-center gap-2.5">
+        <WaxSeal mark="anchor" className="h-9 w-9 shrink-0" />
+        <span className="min-w-0 flex-1 text-base font-extrabold leading-tight">
+          {title}
+          <span className="block text-xs font-bold text-(--tg-cream)/65">sigillata</span>
+        </span>
+        <Doubloon label={`costa ${price} punti`} className="h-11 w-11 text-[1.05rem]">
+          {price}
+        </Doubloon>
       </p>
       {canBuy ? (
         confirm ? (
@@ -399,18 +437,81 @@ export function SealedOffer({
             <button type="button" onClick={() => setConfirm(false)} className="h-12 rounded-xl border border-(--tg-cream)/15 text-sm font-extrabold uppercase">
               Annulla
             </button>
-            <button type="button" onClick={onBuy} className="tg-display h-12 rounded-xl bg-(--tg-teal) text-xl text-(--tg-ink)">
+            <button type="button" onClick={onBuy} className="tg-display h-12 whitespace-nowrap rounded-xl bg-(--tg-teal) text-xl text-(--tg-ink)">
               Sì, compra
             </button>
           </div>
         ) : (
-          <button type="button" onClick={() => setConfirm(true)} className="tg-display flex h-12 items-center justify-center gap-2 rounded-xl border-2 border-(--tg-teal) text-xl text-(--tg-teal-hi)">
-            <Icon name="coins" className="h-5 w-5" /> Compra per {price} punti potenziali
+          // Grenze è largo: l'etichetta lunga sta su una riga a parte, piccola (niente parole spezzate nel pulsante)
+          <button type="button" onClick={() => setConfirm(true)} className="flex min-h-14 flex-col items-center justify-center rounded-xl border-2 border-(--tg-teal) px-3 py-1.5 text-(--tg-teal-hi)">
+            <span className="tg-display flex items-center gap-2 whitespace-nowrap text-xl">
+              <Icon name="coins" className="h-5 w-5" /> Compra
+            </span>
+            <span className="mt-1 text-xs font-bold text-(--tg-cream)/80">costa {price} punti potenziali</span>
           </button>
         )
       ) : (
         <p className="text-sm font-semibold text-(--tg-cream)/70">{lockedNote ?? "Può comprarlo solo il capitano."}</p>
       )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Scelta a due carte (fidarsi/da soli, sicura/rischiosa, condivido/inganno)
+// ---------------------------------------------------------------------------
+
+/**
+ * Due grandi carte affiancate per una scelta secca. Il titolo in Grenze resta su una riga (corpo in base alla
+ * lunghezza: «Ci fidiamo», «Condivido», «Rischiosa» stanno anche su un telefono stretto); la carta scelta riceve il
+ * sigillo di ceralacca nell'angolo, fuori dal testo.
+ */
+export function PactToggle<T extends string>({
+  options,
+  value,
+  onChange,
+  disabled = false,
+  label,
+}: {
+  options: { id: T; title: string; sub?: ReactNode; tone?: "gold" | "red" | "cream"; icon?: Parameters<typeof Icon>[0]["name"] }[];
+  value: T | null;
+  onChange: (v: T) => void;
+  disabled?: boolean;
+  label: string;
+}) {
+  return (
+    <div role="radiogroup" aria-label={label} className="grid grid-cols-2 gap-2.5">
+      {options.map((o) => {
+        const on = value === o.id;
+        const accent = o.tone === "red" ? "var(--tg-red-hi)" : o.tone === "cream" ? "var(--tg-cream)" : "var(--tg-gold)";
+        return (
+          <button
+            key={o.id}
+            type="button"
+            role="radio"
+            aria-checked={on}
+            disabled={disabled}
+            onClick={() => onChange(o.id)}
+            className={clsx(
+              "relative flex min-h-24 min-w-0 flex-col items-start justify-between gap-1.5 rounded-2xl border-2 p-3 text-left transition-transform active:scale-[0.98]",
+              on ? "tg-picked shadow-[0_0_26px_-10px_rgba(242,177,52,.75)]" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]",
+            )}
+            style={on ? { borderColor: accent } : undefined}
+          >
+            <span className={clsx("tg-display whitespace-nowrap leading-none", o.title.length > 7 ? "text-[1.3rem] sm:text-[1.6rem]" : "text-[1.65rem] sm:text-3xl")} style={on ? { color: accent } : undefined}>
+              {o.title}
+            </span>
+            {o.sub && (
+              <span className="flex items-start gap-1.5 text-sm font-bold leading-snug text-(--tg-cream)/85">
+                {o.icon && <Icon name={o.icon} className="mt-px h-4 w-4 shrink-0 opacity-75" />}
+                <span className="min-w-0">{o.sub}</span>
+              </span>
+            )}
+            {on && <WaxSeal mark="check" tone={o.tone === "red" ? "red" : "gold"} className="tg-pop absolute -right-2.5 -top-2.5 h-10 w-10 drop-shadow-[0_3px_4px_rgba(0,0,0,.6)]" />}
+            <span className="sr-only">{on ? " · selezionato" : ""}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }

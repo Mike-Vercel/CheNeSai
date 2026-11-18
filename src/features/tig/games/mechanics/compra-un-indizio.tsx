@@ -5,7 +5,7 @@ import type { CompraMemberView, CompraReveal, CompraSubmission, CompraView } fro
 import { useAnswerKeys } from "@/features/shared/keyboard";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
-import { Icon } from "../kit/icons";
+import { Doubloon, WaxSeal } from "../kit/ornaments";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
 import { ClueList, SealedOffer, splitProfile, SuspectButton, TableTag, TvSuspect, useCrossed, usePurchases, type SuspectState } from "./m4/kit";
 
@@ -99,7 +99,7 @@ function Tv(p: T) {
             <div className="tg-pop rounded-[1.2cqw] border-[0.2cqw] border-(--tg-teal) bg-(--tg-teal)/12 px-[1.4cqw] py-[1cqw]">
               <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Il dettaglio in vendita · −{view.price}</p>
               <p className="mt-[0.3cqw] text-[1.6cqw] font-bold leading-snug">{reveal.extra.text}</p>
-              <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.15cqw] font-bold text-(--tg-cream)/80">
+              <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.2cqw] font-bold text-(--tg-cream)/80">
                 {reveal.summary?.bought.length && reveal.summary.bought.length > 6 ? (
                   `Comprato da ${reveal.summary.bought.length} tavoli su ${p.teams.length}`
                 ) : reveal.summary?.bought.length ? (
@@ -114,11 +114,15 @@ function Tv(p: T) {
             </div>
           ) : (
             <div className="flex items-center gap-[1.2cqw] rounded-[1.2cqw] border-[0.2cqw] border-dashed border-(--tg-teal)/70 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-teal)_8%,transparent)_0_1cqw,transparent_1cqw_2cqw)] px-[1.4cqw] py-[1.1cqw]">
-              <Icon name="lock" className="h-[3.2cqw] w-[3.2cqw] shrink-0 text-(--tg-teal-hi)" />
-              <div>
+              {/* busta sigillata con la ceralacca; il prezzo è un doblone */}
+              <WaxSeal mark="anchor" className="h-[4.2cqw] w-[4.2cqw] shrink-0" />
+              <div className="min-w-0 flex-1">
                 <p className="tg-display text-[2.2cqw] text-(--tg-teal-hi)">In vendita: un dettaglio</p>
                 <p className="text-[1.3cqw] font-bold text-(--tg-cream)/85">Costa {view.price} punti potenziali: la risposta giusta vale 80 invece di 100. Sbagliata: 0, mai punti in meno.</p>
               </div>
+              <Doubloon label={`costa ${view.price} punti`} className="h-[4.4cqw] w-[4.4cqw] text-[1.7cqw]">
+                {view.price}
+              </Doubloon>
             </div>
           )}
         </div>
