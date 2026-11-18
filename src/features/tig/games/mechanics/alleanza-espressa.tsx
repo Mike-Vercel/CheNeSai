@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { DigitPad } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { TableChip, teamMap, TvExplainCompact } from "./_m3-kit";
+import { CrewTag, teamMap, ThemeBanner, TvExplainCompact } from "./_m3-kit";
 
 type P = PlayerGameProps<AlleanzaView, AlleanzaMemberView, AlleanzaSubmission, AlleanzaReveal>;
 type T = TvGameProps<AlleanzaView, AlleanzaReveal>;
@@ -47,12 +47,21 @@ function GridTable({ grid }: { grid: AlleanzaGrid }) {
   );
 }
 
+/** «il tavolo 7» oppure «i tavoli 7 e 11». */
+function tablesText(nos: number[]): string {
+  return nos.length === 1 ? `il tavolo ${nos[0]}` : `i tavoli ${nos.slice(0, -1).join(", ")} e ${nos[nos.length - 1]}`;
+}
+
 function roleText(mv: AlleanzaMemberView | null): string {
   if (!mv) return "Metà in arrivo…";
-  const who = mv.partners.map((x) => `tavolo ${x.tableNo}`).join(" e ");
-  if (mv.role === "solo") return "Nessun alleato in gara: avete tutte e due le metà.";
-  if (mv.role === "griglia") return `Voi avete la GRIGLIA. Le coordinate le ha il ${who}: andate a parlarvi.`;
-  return `Voi avete le COORDINATE. La griglia ce l'ha il ${who}: leggetegliele e fatevi dire le cifre.`;
+  if (mv.role === "solo" || !mv.partners.length) return "Nessun alleato in gara: avete tutte e due le metà.";
+  if (mv.role === "griglia") {
+    const coords = mv.partners.filter((x) => x.role === "coordinate").map((x) => x.tableNo);
+    const twins = mv.partners.filter((x) => x.role === "griglia").map((x) => x.tableNo);
+    return `Voi avete la griglia. Le coordinate le ha ${tablesText(coords)}: andate a parlarvi.${twins.length ? ` Anche ${tablesText(twins)} ha la griglia.` : ""}`;
+  }
+  const grids = mv.partners.filter((x) => x.role === "griglia").map((x) => x.tableNo);
+  return `Voi avete le coordinate. La griglia ce l'${grids.length > 1 ? "hanno" : "ha"} ${tablesText(grids)}: leggetegliele e fatevi dire le cifre.`;
 }
 
 function Player(p: P) {
@@ -112,12 +121,10 @@ function Player(p: P) {
       p={p}
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Prova il codice" hint="Il codice è lo stesso per tutta l'alleanza: lo inviano tutti i tavoli" />}
     >
+      <ThemeBanner eyebrow="Il codice apre" title={view.lockName} size="sm" />
       <Panel tone="lime" className="flex items-start gap-3">
         <Icon name="handshake" className="mt-0.5 h-8 w-8 shrink-0 text-(--tg-gold)" />
-        <div>
-          <p className="tg-display text-2xl leading-none">{view.lockName}</p>
-          <p className="mt-1 text-base font-bold leading-snug">{roleText(mv)}</p>
-        </div>
+        <p className="text-base font-bold leading-snug">{roleText(mv)}</p>
       </Panel>
       {halves}
       <Panel className="flex flex-col gap-2">
@@ -136,41 +143,38 @@ function Tv(p: T) {
   const cols = view.groups.length > 4 ? "grid-cols-3" : view.groups.length > 1 ? "grid-cols-2" : "grid-cols-1";
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Le alleanze e i loro codici" : "Un tavolo ha la griglia, l'alleato le coordinate. Alzatevi e parlatevi: o vincete insieme, o niente."}>
-      <div className="flex h-full flex-col gap-[1.2cqw]">
-        <TvPanel className="tg-rise flex items-center gap-[1.2cqw]">
-          <Icon name="handshake" className="h-[4cqw] w-[4cqw] shrink-0 text-(--tg-gold)" />
-          <p className="tg-display text-[3.2cqw] leading-none">{view.lockName}</p>
-          <p className="ml-auto text-[1.4cqw] font-bold text-(--tg-cream)/70">Codice di {view.length} cifre</p>
-        </TvPanel>
-        <div className={clsx("grid min-h-0 flex-1 content-start gap-[1cqw]", cols)}>
+      <div className="flex h-full flex-col gap-[1cqw]">
+        <ThemeBanner tv size="sm" eyebrow="Il codice apre" title={view.lockName} aside={`Codice di ${view.length} cifre`} className="tg-rise" />
+        <div className={clsx("grid min-h-0 flex-1 content-start gap-[0.9cqw]", cols)}>
           {view.groups.map((g, i) => {
             const r = results.get(g.teamIds.join("|"));
             return (
-              <TvPanel key={g.teamIds.join("|")} tone={r ? (r.ok ? "lime" : "red") : undefined} className="tg-rise flex flex-col items-center gap-[0.7cqw] !p-[1.2cqw]">
-                <div className="flex items-center gap-[0.6cqw]">
+              <TvPanel key={g.teamIds.join("|")} tone={r ? (r.ok ? "lime" : "red") : undefined} className="tg-rise flex items-center gap-[1cqw] !px-[1.1cqw] !py-[0.8cqw]" >
+                {/* le bandiere dell'alleanza, con chi ha la griglia e chi le coordinate */}
+                <div className="flex shrink-0 items-center gap-[0.4cqw]">
                   {g.teamIds.map((id, k) => {
                     const t = teams.get(id);
                     return (
-                      <span key={id} className="flex items-center gap-[0.6cqw]">
-                        {k > 0 && <Icon name="swap" className="h-[1.8cqw] w-[1.8cqw] rotate-90 text-(--tg-cream)/60" />}
-                        <span className="flex flex-col items-center gap-[0.2cqw]">
-                          <TableChip tableNo={g.tableNos[k]} color={t?.color} tv className="!h-[3.4cqw] !min-w-[3.4cqw] !text-[2.2cqw]" />
-                          <span className={clsx("text-[0.85cqw] font-extrabold uppercase", t?.submitted ? "text-(--tg-gold)" : "text-(--tg-cream)/45")}>{t?.submitted ? "inviato" : k === 1 ? "coordinate" : g.teamIds.length === 1 ? "da solo" : "griglia"}</span>
+                      <span key={id} className="flex items-center gap-[0.4cqw]">
+                        {k > 0 && <Icon name="handshake" className="h-[1.6cqw] w-[1.6cqw] text-(--tg-brass)" />}
+                        <span className="flex flex-col items-center">
+                          <CrewTag tableNo={g.tableNos[k]} color={t?.color} className="h-[3cqw]" />
+                          <span className={clsx("text-[0.8cqw] font-extrabold uppercase leading-tight", t?.submitted && !r ? "text-(--tg-gold-hi)" : "text-(--tg-cream)/60")}>{t?.submitted && !r ? "inviato" : k === 1 ? "coordinate" : g.teamIds.length === 1 ? "da solo" : "griglia"}</span>
                         </span>
                       </span>
                     );
                   })}
                 </div>
-                {r ? (
-                  <>
-                    <p className="tg-num text-[3cqw] leading-none tracking-[0.2em]">{r.digits}</p>
-                    <p className={clsx("tg-display text-[1.6cqw]", r.ok ? "text-(--tg-gold)" : "text-(--tg-red-hi)")}>{r.ok ? "Alleanza riuscita" : "Alleanza saltata"}</p>
-                  </>
-                ) : (
-                  <p className="text-[1.2cqw] font-bold text-(--tg-cream)/60" style={{ animationDelay: `${i * 60}ms` }}>
-                    Alleanza {i + 1}
-                  </p>
-                )}
+                <div className="min-w-0 flex-1 text-right" style={{ animationDelay: `${i * 60}ms` }}>
+                  {r ? (
+                    <>
+                      <p className={clsx("tg-num text-[2.6cqw] leading-none tracking-[0.18em]", r.ok ? "text-(--tg-gold-hi)" : "text-(--tg-cream)")}>{r.digits}</p>
+                      <p className={clsx("tg-display text-[1.2cqw]", r.ok ? "text-(--tg-gold-hi)" : "text-(--tg-red-hi)")}>{r.ok ? "Alleanza riuscita" : "Alleanza saltata"}</p>
+                    </>
+                  ) : (
+                    <p className="tg-display text-[1.3cqw] text-(--tg-cream)/70">Alleanza {i + 1}</p>
+                  )}
+                </div>
               </TvPanel>
             );
           })}

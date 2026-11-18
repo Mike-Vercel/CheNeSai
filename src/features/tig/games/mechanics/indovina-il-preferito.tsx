@@ -8,8 +8,8 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { IconBadge } from "../kit/scene";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { PromptCard, Step } from "./_m3-kit";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, useSubmit } from "../kit/ui";
+import { LIT, nTavoli, PromptCard, Step, TvExplainCompact } from "./_m3-kit";
 
 type P = PlayerGameProps<PreferitoView, null, PreferitoSubmission, PreferitoReveal>;
 type T = TvGameProps<PreferitoView, PreferitoReveal>;
@@ -23,15 +23,15 @@ function ScenarioCard({ s, index, on, onPick, disabled, summary, tv = false }: {
     <>
       <span className={clsx("tg-num absolute rounded bg-(--tg-cream)/10 text-(--tg-cream)/70", tv ? "left-[0.7cqw] top-[0.7cqw] px-[0.5cqw] text-[1.3cqw]" : "left-2 top-2 px-1.5 text-sm")}>{index + 1}</span>
       {win && <Icon name="crown" className={clsx("absolute text-(--tg-gold)", tv ? "right-[0.7cqw] top-[0.7cqw] h-[2.4cqw] w-[2.4cqw]" : "right-2 top-2 h-5 w-5")} />}
-      <IconBadge kind={s.icon} tone={s.tone} className={clsx("shrink-0", tv ? (summary ? "h-[5.5cqw] w-[5.5cqw]" : "h-[8cqw] w-[8cqw]") : "h-14 w-14")} />
-      <span className={clsx("font-extrabold leading-tight", tv ? "text-[1.7cqw]" : "text-sm")}>{s.text}</span>
+      <IconBadge kind={s.icon} tone={s.tone} className={clsx("shrink-0 drop-shadow-[0_0.3cqw_0.4cqw_rgba(0,0,0,.6)]", tv ? (summary ? "h-[4.2cqw] w-[4.2cqw]" : "h-[7.5cqw] w-[7.5cqw]") : "h-14 w-14")} />
+      <span className={clsx("font-extrabold leading-tight", tv ? (summary ? "text-[1.45cqw]" : "text-[1.7cqw]") : "text-sm", win && "text-(--tg-gold-pale)")}>{s.text}</span>
       {pct !== undefined && (
-        <span className={clsx("tg-num leading-none", tv ? "text-[3.4cqw]" : "text-3xl", win ? "text-(--tg-gold)" : last ? "text-(--tg-red-hi)" : "text-(--tg-cream)")}>
-          {pct}%<span className={clsx("ml-1 font-sans font-bold text-(--tg-cream)/55", tv ? "text-[1.1cqw]" : "text-xs")}>{summary?.counts[s.id] ?? 0} tav.</span>
+        <span className={clsx("tg-num whitespace-nowrap leading-none", tv ? "text-[2.8cqw]" : "text-3xl", win ? "text-(--tg-gold-hi)" : last ? "text-(--tg-red-hi)" : "text-(--tg-cream)")}>
+          {pct}%<span className={clsx("ml-1 font-sans font-bold text-(--tg-cream)/60", tv ? "text-[1.05cqw]" : "text-xs")}>{summary?.counts[s.id] ?? 0} tav.</span>
         </span>
       )}
       {(win || last) && (
-        <span className={clsx("tg-display rounded px-2", tv ? "text-[1.6cqw]" : "text-base", win ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-red)/80 text-(--tg-cream)")}>{win ? "Il preferito" : "Lo snobbato"}</span>
+        <span className={clsx("tg-display rounded px-2 py-0.5", tv ? "text-[1.35cqw]" : "text-base", win ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-red) text-white")}>{win ? "Il preferito" : "Lo snobbato"}</span>
       )}
       {on && <Icon name="check" className="absolute bottom-2 right-2 h-6 w-6 text-(--tg-gold)" />}
       <span className="sr-only">{on ? " · scelto" : ""}</span>
@@ -39,8 +39,8 @@ function ScenarioCard({ s, index, on, onPick, disabled, summary, tv = false }: {
   );
   const cls = clsx(
     "relative flex flex-col items-center justify-start border-2 text-center transition-[transform,border-color] duration-200",
-    tv ? "gap-[0.6cqw] rounded-[1.2cqw] px-[1cqw] pb-[1cqw] pt-[2.4cqw]" : "min-h-[9.5rem] gap-2 rounded-2xl px-2 pb-3 pt-6",
-    win ? "tg-shine border-(--tg-gold) bg-(--tg-gold)/10" : last ? "border-(--tg-red-hi)/70" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
+    tv ? (summary ? "gap-[0.4cqw] rounded-[1.2cqw] px-[0.9cqw] pb-[0.8cqw] pt-[1.8cqw]" : "gap-[0.6cqw] rounded-[1.2cqw] px-[1cqw] pb-[1cqw] pt-[2.4cqw]") : "min-h-[9.5rem] gap-2 rounded-2xl px-2 pb-3 pt-6",
+    win ? clsx("tg-shine", LIT) : last ? "border-(--tg-red-hi)/80 bg-(--tg-red-ink)/60" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
   );
   return onPick ? (
     <button type="button" role="radio" aria-checked={!!on} disabled={disabled} onClick={onPick} className={clsx(cls, "active:scale-[0.97]")}>
@@ -125,7 +125,7 @@ function Player(p: P) {
         <MyOutcome outcome={p.myOutcome} />
         {reveal.summary && (
           <Panel className="flex flex-col gap-2">
-            <Eyebrow>Il pubblico · {reveal.summary.tables} tavoli</Eyebrow>
+            <Eyebrow>Il pubblico · {nTavoli(reveal.summary.tables)}</Eyebrow>
             <div className="grid grid-cols-2 gap-2">
               {view.scenarios.map((s, i) => (
                 <ScenarioCard key={s.id} s={s} index={i} summary={reveal.summary} />
@@ -170,16 +170,16 @@ function Tv(p: T) {
   const s = done ? reveal.summary : null;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Il preferito e lo snobbato del pubblico" : "Un voto per tavolo, poi la previsione: il preferito del pubblico vale 70, il meno votato 30."}>
-      <div className="mx-auto flex h-full max-w-[90cqw] flex-col gap-[1.2cqw]">
-        <TvPanel className="tg-rise">
-          <p className="text-center text-[2.7cqw] font-extrabold leading-tight">{view.prompt}</p>
-        </TvPanel>
+      <div className="mx-auto flex h-full max-w-[90cqw] flex-col gap-[1cqw]">
+        <div className={clsx("tg-parch tg-rise text-center", s ? "px-[1.6cqw] py-[0.7cqw]" : "px-[2cqw] py-[1.2cqw]")}>
+          <p className={clsx("font-extrabold leading-tight text-(--tg-ink)", s ? "text-[2cqw]" : "text-[2.6cqw]")}>{view.prompt}</p>
+        </div>
         <div className="grid grid-cols-4 gap-[1.2cqw]">
           {view.scenarios.map((x, i) => (
             <ScenarioCard key={x.id} s={x} index={i} summary={s} tv />
           ))}
         </div>
-        {done && <TvExplain text={reveal.explain} />}
+        {done && <TvExplainCompact text={reveal.explain} />}
       </div>
     </TvFrame>
   );

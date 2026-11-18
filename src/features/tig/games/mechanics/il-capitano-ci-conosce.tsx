@@ -7,8 +7,8 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { PromptCard, TableChip, teamMap, TvWaiting } from "./_m3-kit";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
+import { CrewTag, PromptCard, teamMap, TvExplainCompact, TvWaiting } from "./_m3-kit";
 
 type P = PlayerGameProps<CapitanoView, CapitanoMemberView, CapitanoSubmission, CapitanoReveal>;
 type T = TvGameProps<CapitanoView, CapitanoReveal>;
@@ -100,23 +100,23 @@ function Tv(p: T) {
   const many = rows.length > 8;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Il capitano conosce il suo tavolo? Ecco tavolo per tavolo" : "Il capitano prevede, i compagni votano in segreto. Vietato suggerire!"}>
-      <div className="grid h-full grid-cols-[1fr_1.25fr] gap-[1.6cqw]">
+      <div className={clsx("grid h-full gap-[1.6cqw]", done ? "grid-cols-[0.8fr_1.5fr]" : "grid-cols-[1fr_1.25fr]")}>
         <TvPanel className="flex flex-col gap-[0.8cqw]">
-          <p className="text-[2.4cqw] font-extrabold leading-tight">{view.prompt}</p>
+          <p className={clsx("font-extrabold leading-tight", done ? "text-[2cqw]" : "text-[2.4cqw]")}>{view.prompt}</p>
           {view.options.map((o, i) => (
-            <TvOption key={o.id} index={i} text={o.text} size={view.options.length > 3 ? "sm" : "md"} />
+            <TvOption key={o.id} index={i} text={o.text} size={done || view.options.length > 3 ? "sm" : "md"} />
           ))}
         </TvPanel>
         {done ? (
           <div className="flex min-h-0 flex-col gap-[1cqw]">
-            <TvPanel className={clsx("grid min-h-0 content-start gap-x-[1.2cqw] gap-y-[0.5cqw] overflow-hidden", many ? "grid-cols-2" : "grid-cols-1")}>
+            <TvPanel className={clsx("grid min-h-0 content-start gap-x-[1.2cqw] gap-y-[0.55cqw] overflow-hidden !py-[1.2cqw]", many ? "grid-cols-2" : "grid-cols-1")}>
               {rows.map((r, i) => {
                 const t = teams.get(r.teamId);
                 const ok = r.points >= 100;
                 const tie = r.points === 60;
                 return (
                   <div key={r.teamId} className="tg-rise flex items-center gap-[0.7cqw]" style={{ animationDelay: `${i * 70}ms` }}>
-                    <TableChip tableNo={t?.tableNo ?? "?"} color={t?.color} tv />
+                    <CrewTag tableNo={t?.tableNo ?? "?"} color={t?.color} className={many ? "h-[2.4cqw]" : "h-[3cqw]"} />
                     <div className="min-w-0 flex-1">
                       <p className={clsx("truncate font-extrabold leading-tight", many ? "text-[1.05cqw]" : "text-[1.35cqw]")}>
                         <Icon name="crown" className="mr-[0.3cqw] inline h-[1.1cqw] w-[1.1cqw] text-(--tg-teal-hi)" />
@@ -131,7 +131,7 @@ function Tv(p: T) {
                 );
               })}
             </TvPanel>
-            <TvExplain text={reveal.explain} />
+            <TvExplainCompact text={reveal.explain} />
           </div>
         ) : (
           <TvPanel>

@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { TableChip, teamMap, TvExplainCompact, TvStamp } from "./_m3-kit";
+import { CrewTag, teamMap, ThemeBanner, TvExplainCompact, TvStamp } from "./_m3-kit";
 
 type P = PlayerGameProps<PubView, null, PubSubmission, PubReveal>;
 type T = TvGameProps<PubView, PubReveal>;
@@ -97,12 +97,16 @@ function Player(p: P) {
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label={`Invia ${done}/${view.questions.length}`} hint={ready ? undefined : `Mancano ${view.questions.length - done} risposte`} />}
     >
       <ChampionBanner view={view} mine={mine} />
-      <Panel className="flex items-center justify-between gap-3">
-        <p className="tg-display text-2xl">{view.theme}</p>
-        <span className="tg-num text-2xl text-(--tg-gold)" aria-label={`${done} risposte su ${view.questions.length}`}>
-          {done}/{view.questions.length}
-        </span>
-      </Panel>
+      <ThemeBanner
+        eyebrow="Il quiz"
+        title={view.theme}
+        size="sm"
+        aside={
+          <span className="tg-num text-2xl text-(--tg-ink)" aria-label={`${done} risposte su ${view.questions.length}`}>
+            {done}/{view.questions.length}
+          </span>
+        }
+      />
       {view.questions.map((q, i) => (
         <Panel key={q.id} className={clsx("flex scroll-mt-4 flex-col gap-2", i === current && editable && "outline outline-2 outline-(--tg-gold)/50")}>
           <span id={`pct-q-${q.id}`} className="sr-only" />
@@ -135,25 +139,27 @@ function Tv(p: T) {
     <TvFrame view={view} p={p} subtitle={done ? "Com'è finita la sfida" : "Tutti rispondono alle stesse 5 domande. Lo sfidante prende +40 se batte la media del pub."}>
       <div className="grid h-full grid-cols-[0.85fr_1.4fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          <TvPanel tone={s ? (s.beaten ? "lime" : "red") : undefined} className="flex flex-col items-center gap-[0.8cqw] text-center">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">{view.theme}</p>
+          {/* al reveal il tema lascia spazio al verdetto e al «perché» (con 12 tavoli serve tutto lo spazio) */}
+          {!done && <ThemeBanner tv size="sm" eyebrow="Il quiz" title={view.theme} className="tg-rise" />}
+          {/* il duello: la bandiera della ciurma sfidante contro tutto il locale */}
+          <TvPanel tone={s ? (s.beaten ? "lime" : "red") : undefined} className={clsx("flex flex-col items-center text-center", s ? "gap-[0.5cqw] !py-[1.1cqw]" : "gap-[0.8cqw]")}>
             <div className="flex w-full items-center justify-around">
-              <div className="flex flex-col items-center gap-[0.4cqw]">
-                <TableChip tableNo={view.champion?.tableNo ?? "?"} color={champ?.color} tv className={s ? "!h-[4.2cqw] !min-w-[4.2cqw] !rounded-[0.8cqw] !text-[2.8cqw]" : "!h-[6cqw] !min-w-[6cqw] !rounded-[1cqw] !text-[4cqw]"} />
-                <p className="tg-display text-[1.6cqw]">Sfidante</p>
-                {s && <p className="tg-num text-[3.8cqw] leading-none">{s.championRight ?? "–"}</p>}
+              <div className="flex flex-col items-center gap-[0.3cqw]">
+                <CrewTag tableNo={view.champion?.tableNo ?? "?"} color={champ?.color} className={s ? "h-[3.6cqw]" : "h-[5.6cqw]"} />
+                <p className="tg-display text-[1.4cqw] text-(--tg-gold-hi)">Sfidante</p>
+                {s && <p className="tg-num text-[3.4cqw] leading-none">{s.championRight ?? "–"}</p>}
               </div>
-              <p className="tg-display text-[4cqw] text-(--tg-red-hi)">VS</p>
-              <div className="flex flex-col items-center gap-[0.4cqw]">
-                <div className={clsx("grid place-items-center rounded-[1cqw] bg-(--tg-cream)/10", s ? "h-[4.2cqw] w-[4.2cqw]" : "h-[6cqw] w-[6cqw]")}>
-                  <Icon name="users" className={s ? "h-[2.8cqw] w-[2.8cqw] text-(--tg-gold)" : "h-[4cqw] w-[4cqw] text-(--tg-gold)"} />
+              <p className={clsx("tg-title text-(--tg-red-hi)", s ? "text-[3.4cqw]" : "text-[4.6cqw]")}>contro</p>
+              <div className="flex flex-col items-center gap-[0.3cqw]">
+                <div className={clsx("grid place-items-center rounded-full border-[0.18cqw] border-(--tg-brass)/70 bg-(--tg-night)", s ? "h-[3.6cqw] w-[3.6cqw]" : "h-[5.6cqw] w-[5.6cqw]")}>
+                  <Icon name="users" className={s ? "h-[2.2cqw] w-[2.2cqw] text-(--tg-gold)" : "h-[3.4cqw] w-[3.4cqw] text-(--tg-gold)"} />
                 </div>
-                <p className="tg-display text-[1.6cqw]">Il pub</p>
-                {s && <p className="tg-num text-[3.8cqw] leading-none">{s.rivalsAvg === null ? "3" : fmt(s.rivalsAvg)}</p>}
+                <p className="tg-display text-[1.4cqw] text-(--tg-gold-hi)">Il pub</p>
+                {s && <p className="tg-num text-[3.4cqw] leading-none">{s.rivalsAvg === null ? "3" : fmt(s.rivalsAvg)}</p>}
               </div>
             </div>
             {s && (
-              <TvStamp size="sm" tone={s.beaten ? "lime" : "red"} sub={s.rivalsAvg === null ? "Nessun rivale: serviva almeno 3 su 5" : `Media di ${s.rivals} tavoli rivali`}>
+              <TvStamp size="sm" tone={s.beaten ? "lime" : "red"} sub={s.rivalsAvg === null ? "Nessun rivale: serviva almeno 3 su 5" : s.rivals === 1 ? "Un solo tavolo rivale" : `Media di ${s.rivals} tavoli rivali`}>
                 {s.beaten ? "Lo sfidante vince" : "Il pub resiste"}
               </TvStamp>
             )}

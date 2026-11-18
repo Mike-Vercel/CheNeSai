@@ -5,14 +5,117 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { isTypingTarget } from "@/features/shared/keyboard";
 import type { TvGameProps } from "../ui-contract";
 import { Icon, type IconName } from "../kit/icons";
+import { CrewFlag } from "../kit/ornaments";
 import { Eyebrow, Panel } from "../kit/ui";
 
 /**
- * Pezzi comuni delle schermate della MANCHE 3 «IL PUB DECIDE!» (solo per le meccaniche nuove di questa manche).
- * Stessi colori e caratteri del kit (edizione pirati): oro --tg-gold, rosso --tg-red / --tg-red-hi, inchiostro --tg-ink.
+ * Pezzi comuni delle schermate della MANCHE 3 «IL PUB DECIDE!» (solo per le meccaniche nuove di questa manche),
+ * nello stile TAVERNA DEI PIRATI: oro = scelte, vincitori e punti; turchese = accento; rosso bandiera = errori;
+ * pergamena con inchiostro scuro = titoli e spiegazioni. Titoli in Pirata One (`tg-title`, mai in maiuscolo),
+ * etichette e numeri in Grenze (`tg-display`/`tg-num`), testi in Manrope.
  */
 
 export type TvTeams = TvGameProps["teams"];
+
+/**
+ * Fondo «alla luce della lanterna» per ciò che vince o è confermato: l'oro trasparente sopra il blu del mare
+ * diventerebbe verde oliva, quindi si usa l'oro scuro e caldo del tema con il bordo d'oro.
+ */
+export const LIT = "border-(--tg-gold) bg-(--tg-gold-dark)/85";
+
+/** Bandiera della ciurma (colore del tavolo, numero inciso) per le righe della TV. */
+export function CrewTag({ tableNo, color, className }: { tableNo: number | string; color?: string; className?: string }) {
+  return (
+    <span className={clsx("inline-flex shrink-0", className)} aria-label={`Tavolo ${tableNo}`} role="img">
+      <CrewFlag color={color ?? "var(--tg-cream)"} n={tableNo} className="h-full w-auto" />
+    </span>
+  );
+}
+
+/**
+ * Cartiglio di pergamena con un titolo in Pirata One (temi, situazioni, cose da aprire): stesso materiale
+ * dell'intestazione della prova. `eyebrow` è la riga piccola sopra, `aside` sta a destra (es. «Codice di 4 cifre»).
+ */
+export function ThemeBanner({ eyebrow, title, aside, tv = false, size = "md", className }: { eyebrow?: ReactNode; title: ReactNode; aside?: ReactNode; tv?: boolean; size?: "sm" | "md"; className?: string }) {
+  return (
+    <div className={clsx("tg-parch flex items-center", tv ? "gap-[1.2cqw] px-[1.6cqw] py-[0.8cqw]" : "gap-3 px-4 py-3", className)}>
+      <div className="min-w-0 flex-1">
+        {eyebrow && <p className={clsx("font-extrabold uppercase tracking-[0.18em] text-(--tg-burnt-ink)", tv ? "text-[0.95cqw]" : "text-[11px]")}>{eyebrow}</p>}
+        <p className={clsx("tg-title text-(--tg-ink)", tv ? (size === "sm" ? "text-[2.4cqw]" : "text-[3cqw]") : size === "sm" ? "text-[1.6rem]" : "text-[1.9rem]")}>{title}</p>
+      </div>
+      {aside && <div className={clsx("shrink-0 text-right font-extrabold text-(--tg-burnt-ink)", tv ? "text-[1.2cqw]" : "text-xs")}>{aside}</div>}
+    </div>
+  );
+}
+
+/** «1 tavolo», «3 tavoli» (anche con un tavolo solo la frase resta giusta). */
+export const nTavoli = (n: number) => `${n} ${n === 1 ? "tavolo" : "tavoli"}`;
+
+/**
+ * Due scelte grandi affiancate (sì/no, istinto/gregge…). L'icona sta in una riga sua con la spunta, così il titolo
+ * ha tutta la larghezza; il corpo è lo stesso per entrambe e si adatta alla parola più lunga rispetto alla
+ * larghezza vera del riquadro (unità cqi): il Grenze è largo e le parole non vanno mai spezzate a metà.
+ */
+export function DuoToggle<T extends string>({
+  options,
+  value,
+  onChange,
+  disabled = false,
+  label,
+}: {
+  options: { id: T; title: string; sub?: ReactNode; tone?: "gold" | "red" | "teal"; icon?: IconName }[];
+  value: T | null;
+  onChange: (v: T) => void;
+  disabled?: boolean;
+  label: string;
+}) {
+  const longest = Math.max(...options.map((o) => Math.max(...o.title.split(/\s+/).map((w) => w.length))));
+  const total = Math.max(...options.map((o) => o.title.length));
+  // maiuscole Grenze: al massimo ~0,75 em a lettera; frasi lunghe un po' più piccole per stare su due righe
+  const cap = total > 16 ? 1.25 : total > 11 ? 1.45 : 1.6;
+  const fontSize = `clamp(1rem, ${(100 / (0.75 * longest)).toFixed(2)}cqi, ${cap}rem)`;
+  const icons = options.some((o) => o.icon);
+  return (
+    <div role="radiogroup" aria-label={label} className="grid grid-cols-2 gap-2">
+      {options.map((o) => {
+        const on = value === o.id;
+        const accent = o.tone === "red" ? "var(--tg-red-hi)" : o.tone === "teal" ? "var(--tg-teal-hi)" : "var(--tg-gold-hi)";
+        return (
+          <button
+            key={o.id}
+            type="button"
+            role="radio"
+            aria-checked={on}
+            disabled={disabled}
+            onClick={() => onChange(o.id)}
+            className={clsx(
+              "relative flex min-h-[5.5rem] flex-col items-stretch justify-center gap-1 rounded-2xl border-2 px-3 py-2.5 text-left transition-[transform,border-color] active:scale-[0.98]",
+              on ? "tg-picked shadow-[0_0_24px_-10px_rgba(242,177,52,.8)]" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]",
+              disabled && !on && "opacity-60",
+            )}
+            style={on ? { borderColor: accent } : undefined}
+          >
+            {icons ? (
+              <span className="flex h-6 items-center justify-between" style={on ? { color: accent } : undefined}>
+                {o.icon ? <Icon name={o.icon} className="h-6 w-6 shrink-0" /> : <span />}
+                {on && <Icon name="check" className="h-5 w-5 shrink-0" />}
+              </span>
+            ) : (
+              on && <Icon name="check" className="absolute right-2 top-2 h-5 w-5" />
+            )}
+            <span className={clsx("@container block w-full", !icons && "pr-5")}>
+              <span className="tg-display block break-words leading-[1.05]" style={{ fontSize, color: on ? accent : undefined }}>
+                {o.title}
+              </span>
+            </span>
+            {o.sub && <span className="text-[13px] font-bold leading-snug text-(--tg-cream)/80">{o.sub}</span>}
+            <span className="sr-only">{on ? " · selezionato" : ""}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
 
 /** Tavoli per id (numero, colore, nome scritto dai giocatori: in TV si usa solo il numero). */
 export function teamMap(teams: TvTeams) {
@@ -102,7 +205,7 @@ export function PercentPicker({ value, onChange, disabled = false, label, onEnte
       </div>
       <input
         type="range"
-        className="tg-range"
+        className={clsx("tg-range", value === null && "opacity-55")}
         min={0}
         max={100}
         step={1}
@@ -110,8 +213,9 @@ export function PercentPicker({ value, onChange, disabled = false, label, onEnte
         disabled={disabled}
         onChange={(e) => set(Number(e.target.value))}
         aria-label={label}
-        aria-valuetext={`${v} per cento`}
-        style={{ ["--tg-fill" as string]: `${v}%` }}
+        aria-valuetext={value === null ? "nessuna previsione" : `${v} per cento`}
+        // finché non si sceglie, il binario resta vuoto: il cursore a metà non è una risposta
+        style={{ ["--tg-fill" as string]: value === null ? "0%" : `${v}%` }}
       />
       <div className="grid grid-cols-5 gap-2">
         {[0, 25, 50, 75, 100].map((p) => (
@@ -138,12 +242,12 @@ export function TvStamp({ children, tone = "lime", sub, size = "lg" }: { childre
   );
 }
 
-/** Spiegazione del reveal in TV in formato compatto (per colonne strette). */
+/** Spiegazione del reveal in TV in formato compatto (colonne strette, 12 tavoli): foglio di pergamena come quella del kit. */
 export function TvExplainCompact({ text, className, title = "Perché" }: { text: string; className?: string; title?: string }) {
   return (
-    <div className={clsx("tg-glass tg-rise min-h-0 overflow-hidden rounded-[1.6cqw] p-[1.4cqw]", className)}>
-      <p className="mb-[0.3cqw] text-[0.95cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">{title}</p>
-      <p className="text-[1.3cqw] font-semibold leading-snug text-(--tg-cream)/90">{text}</p>
+    <div className={clsx("tg-parch tg-rise min-h-0 overflow-hidden px-[1.4cqw] py-[1cqw]", className)}>
+      <p className="mb-[0.2cqw] text-[0.9cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-burnt-ink)">{title}</p>
+      <p className={clsx("font-semibold leading-snug text-(--tg-ink)", text.length > 190 ? "text-[1.2cqw]" : "text-[1.35cqw]")}>{text}</p>
     </div>
   );
 }
@@ -153,7 +257,7 @@ export function TvWaiting({ icon, title, children }: { icon: IconName; title: Re
   return (
     <div className="flex h-full flex-col items-center justify-center gap-[1cqw] text-center">
       <Icon name={icon} className="h-[7cqw] w-[7cqw] text-(--tg-gold)" />
-      <p className="tg-display text-[3.6cqw]">{title}</p>
+      <p className="tg-title text-[4.2cqw] text-(--tg-gold-hi)">{title}</p>
       {children && <div className="max-w-[60cqw] text-[1.6cqw] font-bold leading-snug text-(--tg-cream)/75">{children}</div>}
     </div>
   );
@@ -163,7 +267,7 @@ export function TvWaiting({ icon, title, children }: { icon: IconName; title: Re
 export function MiniBar({ pct, win = false, tv = false, label }: { pct: number; win?: boolean; tv?: boolean; label?: ReactNode }) {
   return (
     <div className={clsx("relative overflow-hidden", tv ? "h-[2.4cqw] rounded-[0.5cqw]" : "h-8 rounded-lg", "bg-(--tg-cream)/[0.07]")}>
-      <div className={clsx("absolute inset-y-0 left-0 transition-[width] duration-1000 ease-out", win ? "bg-(--tg-gold)/40" : "bg-(--tg-cream)/15")} style={{ width: `${Math.max(0, Math.min(100, pct))}%` }} aria-hidden />
+      <div className={clsx("absolute inset-y-0 left-0 transition-[width] duration-1000 ease-out", win ? "bg-(--tg-gold-deep)/80" : "bg-(--tg-cream)/15")} style={{ width: `${Math.max(0, Math.min(100, pct))}%` }} aria-hidden />
       <div className={clsx("relative flex h-full items-center justify-between gap-2", tv ? "px-[0.7cqw] text-[1.2cqw]" : "px-2.5 text-sm")}>
         <span className="min-w-0 truncate font-extrabold">{label}</span>
         <span className={clsx("tg-num shrink-0", tv ? "text-[1.5cqw]" : "text-lg", win && "text-(--tg-gold)")}>{pct}%</span>
