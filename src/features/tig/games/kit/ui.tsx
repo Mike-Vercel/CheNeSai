@@ -102,7 +102,8 @@ export function PlayerFrame({
         <Doubloon className="h-12 w-12 text-xl sm:h-14 sm:w-14 sm:text-2xl">{String(view.number).padStart(2, "0")}</Doubloon>
         <div className="min-w-0 flex-1">
           <h1 className="tg-title line-clamp-2 pt-0.5 text-[1.8rem] leading-[1.02] sm:text-[2.6rem]">{view.title}</h1>
-          <p className="mt-0.5 truncate text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-burnt-ink) sm:text-xs">
+          {/* con il timer acceso lo spazio è poco: due righe invece di troncare («Tavolo 3 · Tavolo contro t…») */}
+          <p className="mt-0.5 line-clamp-2 break-words text-[11px] font-extrabold uppercase leading-snug tracking-[0.12em] text-(--tg-burnt-ink) sm:text-xs">
             Tavolo {p.myTeam.tableNo} · {INPUT_LABEL[view.input]}
           </p>
         </div>
@@ -491,7 +492,8 @@ export function TvOption({ index, text, state = "idle", note, size = "md" }: { i
       )}
     >
       <span className={clsx("tg-num grid shrink-0 place-items-center rounded-full", sm ? "h-[2.2cqw] w-[2.2cqw] text-[1.3cqw]" : "h-[3cqw] w-[3cqw] text-[1.7cqw]", state === "right" ? "bg-(--tg-ink) text-(--tg-gold-hi)" : "border-[0.12cqw] border-(--tg-brass)/55 bg-(--tg-night)")}>{index + 1}</span>
-      <span className={clsx("min-w-0 flex-1 font-extrabold leading-tight", sm ? "text-[1.35cqw]" : "text-[1.75cqw]")}>{text}</span>
+      {/* parole lunghe: vanno a capo dentro il riquadro (mai sotto la spunta) */}
+      <span lang="it" className={clsx("min-w-0 flex-1 font-extrabold leading-tight break-words hyphens-auto", sm ? "text-[1.35cqw]" : "text-[1.75cqw]")}>{text}</span>
       {state === "right" && <Icon name="check" className={clsx("shrink-0", sm ? "h-[1.8cqw] w-[1.8cqw]" : "h-[2.4cqw] w-[2.4cqw]")} />}
       {note}
     </div>
