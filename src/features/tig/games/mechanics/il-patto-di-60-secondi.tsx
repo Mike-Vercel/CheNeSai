@@ -1,31 +1,80 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useState } from "react";
+import { useId, useState } from "react";
 import type { PattoMemberView, PattoReveal, PattoSubmission, PattoView } from "@/lib/tig/games/mechanics/il-patto-di-60-secondi";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { DigitPad } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { PhoneChip, Step, TvChip } from "./m2/kit";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
+import { PhoneChip, Step, TvChip, tvCompact, TvLabel, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<PattoView, PattoMemberView, PattoSubmission, PattoReveal>;
 type T = TvGameProps<PattoView, PattoReveal>;
 
-/** Porta della cassaforte disegnata: maniglia a ruota e quadrante; `open` la socchiude. */
-function Vault({ open, className }: { open: boolean; className?: string }) {
+/** Forziere col lucchetto d'ottone, disegnato in codice: chiuso durante la prova, aperto (con l'oro) se un patto apre. */
+function Chest({ open, className }: { open: boolean; className?: string }) {
+  const uid = useId().replace(/:/g, "");
   return (
-    <svg viewBox="0 0 120 120" className={className} role="img" aria-label={open ? "Cassaforte aperta" : "Cassaforte chiusa"}>
-      <rect x="6" y="6" width="108" height="108" rx="14" fill="var(--tg-night-2)" stroke="var(--tg-cream)" strokeOpacity="0.25" strokeWidth="3" />
-      <g style={{ transformOrigin: "16px 60px", transform: open ? "perspective(300px) rotateY(-55deg)" : "none", transition: "transform 900ms cubic-bezier(.2,.9,.2,1)" }}>
-        <rect x="16" y="16" width="88" height="88" rx="10" fill="var(--tg-raised)" stroke={open ? "var(--tg-gold)" : "var(--tg-teal-hi)"} strokeWidth="3" />
-        <circle cx="60" cy="60" r="24" fill="none" stroke={open ? "var(--tg-gold)" : "var(--tg-teal-hi)"} strokeWidth="4" />
-        <circle cx="60" cy="60" r="5" fill={open ? "var(--tg-gold)" : "var(--tg-teal-hi)"} />
-        {[0, 60, 120, 180, 240, 300].map((a) => (
-          <line key={a} x1="60" y1="60" x2={60 + 22 * Math.cos((a * Math.PI) / 180)} y2={60 + 22 * Math.sin((a * Math.PI) / 180)} stroke={open ? "var(--tg-gold)" : "var(--tg-teal-hi)"} strokeWidth="3" strokeLinecap="round" />
-        ))}
-        <rect x="92" y="50" width="6" height="20" rx="3" fill="var(--tg-cream)" fillOpacity="0.5" />
+    <svg viewBox="0 0 140 120" className={className} role="img" aria-label={open ? "Forziere aperto" : "Forziere chiuso col lucchetto"}>
+      <defs>
+        <linearGradient id={`${uid}-w`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#7a5030" />
+          <stop offset="1" stopColor="#3b2414" />
+        </linearGradient>
+        <radialGradient id={`${uid}-g`} cx="0.5" cy="0.55" r="0.6">
+          <stop offset="0" stopColor="#fff1b8" stopOpacity="0.95" />
+          <stop offset="0.45" stopColor="#ffd56b" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#ffd56b" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <ellipse cx="70" cy="112" rx="58" ry="6" fill="#000" opacity="0.35" />
+      {open && (
+        // coperchio aperto, ribaltato all'indietro: se ne vede l'interno scuro dietro alle monete (tutto dentro il disegno)
+        <g className="tg-rise">
+          <path d="M18 58V32Q18 8 70 8Q122 8 122 32V58Z" fill="#2a190d" stroke="#1b1410" strokeWidth="2.2" />
+          <path d="M31 58V17M109 58V17" stroke="#c9a24a" strokeWidth="5" opacity="0.75" />
+          <path d="M18 32Q18 8 70 8Q122 8 122 32" fill="none" stroke="#c9a24a" strokeWidth="4" />
+        </g>
+      )}
+      {open && <ellipse cx="70" cy="52" rx="62" ry="40" fill={`url(#${uid}-g)`} />}
+      {open && (
+        <g>
+          {[
+            [44, 58],
+            [58, 52],
+            [72, 55],
+            [86, 50],
+            [98, 57],
+            [64, 46],
+            [80, 44],
+          ].map(([x, y], i) => (
+            <g key={i}>
+              <ellipse cx={x} cy={y} rx="8" ry="5" fill="#e2a12a" stroke="#8a5514" strokeWidth="1.2" />
+              <ellipse cx={x} cy={y - 1} rx="5" ry="2.6" fill="#ffd56b" />
+            </g>
+          ))}
+        </g>
+      )}
+      <rect x="14" y="58" width="112" height="52" rx="6" fill={`url(#${uid}-w)`} stroke="#1b1410" strokeWidth="2.2" />
+      <path d="M14 74H126" stroke="#c9a24a" strokeWidth="5" />
+      <rect x="28" y="58" width="9" height="52" fill="#c9a24a" />
+      <rect x="103" y="58" width="9" height="52" fill="#c9a24a" />
+      {[34, 108].map((x) => [64, 84, 102].map((y) => <circle key={`${x}-${y}`} cx={x - 1.5} cy={y} r="1.6" fill="#6b4210" />))}
+      {!open && (
+        <g>
+          <path d="M14 58V46Q14 22 70 22Q126 22 126 46V58Z" fill={`url(#${uid}-w)`} stroke="#1b1410" strokeWidth="2.2" />
+          <path d="M28.5 58V31Q30 28 37 26V58Z" fill="#c9a24a" />
+          <path d="M103 58V26Q110 28 111.5 31V58Z" fill="#c9a24a" />
+          <path d="M14 52H126" stroke="#c9a24a" strokeWidth="4" />
+        </g>
+      )}
+      <g transform={open ? "translate(0 6)" : undefined}>
+        <path d={open ? "M63 66V58a7 7 0 0 1 14 0" : "M63 66V56a7 7 0 0 1 14 0v10"} fill="none" stroke="#c9a24a" strokeWidth="4" strokeLinecap="round" />
+        <rect x="58" y="64" width="24" height="20" rx="4" fill="#d9b25a" stroke="#6b4210" strokeWidth="2" />
+        <circle cx="70" cy="72" r="2.6" fill="#3b2414" />
+        <path d="M70 73.5V79" stroke="#3b2414" strokeWidth="2.4" strokeLinecap="round" />
       </g>
     </svg>
   );
@@ -60,7 +109,8 @@ function Player(p: P) {
         )}
         <Panel className="flex flex-col gap-3">
           <Eyebrow>Il codice</Eyebrow>
-          <DigitPad value={sent ? digits : ""} length={view.codeLength} onChange={() => {}} disabled reveal={reveal.codeDigits} />
+          {/* il codice digitato si confronta solo se è ancora in memoria; dopo un ricaricamento si mostra il codice giusto, neutro */}
+          <DigitPad value={sent ? digits : reveal.codeDigits} length={view.codeLength} onChange={() => {}} disabled reveal={sent ? reveal.codeDigits : null} />
           <ol className="flex flex-col gap-1.5">
             {reveal.clues.map((c) => (
               <li key={c.pos} className="flex items-start gap-3 text-sm font-semibold text-(--tg-cream)/85">
@@ -79,22 +129,25 @@ function Player(p: P) {
     <PlayerFrame
       view={view}
       p={p}
-      footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Apri la cassaforte" hint={!ready ? `Servono tutte le ${view.codeLength} cifre: anche quelle dell'altro tavolo` : undefined} />}
+      footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={ready} pending={pending} error={error} onSubmit={submit} label="Apri il lucchetto" hint={!ready ? `Servono tutte le ${view.codeLength} cifre${partners.length > 1 ? ": anche quelle degli altri tavoli" : partners.length ? ": anche quelle dell'altro tavolo" : ""}` : undefined} />}
     >
       <Panel tone="lime" className="flex items-center gap-3">
         <Icon name="handshake" className="h-9 w-9 shrink-0 text-(--tg-gold)" />
         <div className="min-w-0">
-          <p className="tg-display text-2xl leading-none">{view.theme}</p>
+          <p className="tg-title text-[1.7rem] leading-none text-(--tg-gold-hi)">{view.theme}</p>
           {partners.length ? (
-            <p className="mt-1 flex flex-wrap items-center gap-2 text-base font-extrabold">
-              In patto col tavolo {partners.map((t) => <PhoneChip key={t.teamId} tableNo={t.tableNo} tone="lime" />)}: andate a parlarvi!
-            </p>
+            <>
+              <p className="mt-1.5 flex flex-wrap items-center gap-2 text-base font-extrabold">
+                {partners.length > 1 ? "In patto coi tavoli" : "In patto col tavolo"} {partners.map((t) => <PhoneChip key={t.teamId} tableNo={t.tableNo} tone="lime" />)}
+              </p>
+              <p className="mt-1 text-sm font-bold text-(--tg-cream)/85">Andate a parlarvi: le altre cifre le hanno loro.</p>
+            </>
           ) : (
             <p className="mt-1 text-base font-extrabold">Siete soli: tutti gli indizi sono vostri.</p>
           )}
         </div>
       </Panel>
-      <Step n={1} title="I vostri indizi (gli altri li ha il patto)" icon="eye" done={false}>
+      <Step n={1} title="I vostri indizi" icon="eye" done={false}>
         <ol className="flex flex-col gap-2">
           {(mv?.clues ?? []).map((c) => (
             <li key={c.pos} className="flex items-start gap-3 rounded-xl border border-(--tg-cream)/10 bg-(--tg-cream)/[0.04] px-3 py-2.5">
@@ -116,40 +169,48 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const groups = done ? (reveal.summary?.groups ?? []) : [];
   const anyOpen = groups.some((g) => g.correct.length === g.teams.length);
-  const many = view.pacts.length > 6;
+  const compact = tvCompact(p.teams);
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Patto rispettato: tutti i tavoli del patto con il codice giusto" : "Ogni tavolo ha solo una parte degli indizi: alzatevi e parlate col tavolo del patto"}>
       <div className="grid h-full grid-cols-[1fr_1.15fr] gap-[1.6cqw]">
-        <TvPanel tone={done && anyOpen ? "lime" : undefined} className="flex min-h-0 flex-col items-center gap-[1cqw]">
-          <p className="tg-display text-center text-[2.6cqw] leading-none">{view.theme}</p>
-          <Vault open={!!done && anyOpen} className="h-[16cqw] w-[16cqw]" />
-          <div className="flex gap-[0.6cqw]" aria-label={done ? `Codice ${reveal.codeDigits.split("").join(" ")}` : "Codice nascosto"}>
+        <TvPanel tone={done && anyOpen ? "lime" : undefined} className={clsx("flex min-h-0 flex-col items-center", compact ? "gap-[0.6cqw] py-[1.2cqw]" : "gap-[0.9cqw]")}>
+          <p className={clsx("tg-title shrink-0 text-center leading-none text-(--tg-gold-hi)", compact ? "text-[2.3cqw]" : "text-[2.8cqw]")}>{view.theme}</p>
+          <Chest open={!!done && anyOpen} className={clsx("min-h-0 shrink", compact ? "h-[9cqw] w-[10.5cqw]" : "h-[13cqw] w-[15cqw]")} />
+          <div className="flex shrink-0 gap-[0.6cqw]" aria-label={done ? `Codice ${reveal.codeDigits.split("").join(" ")}` : "Codice nascosto"}>
             {Array.from({ length: view.codeLength }, (_, i) => (
-              <span key={i} className={clsx("tg-num grid h-[5cqw] w-[3.8cqw] place-items-center rounded-[0.6cqw] border-[0.2cqw] text-[3.4cqw]", done ? "tg-pop border-(--tg-gold) text-(--tg-gold)" : "border-(--tg-cream)/20 text-(--tg-cream)/30")} style={{ animationDelay: `${i * 90}ms` }}>
+              <span
+                key={i}
+                className={clsx(
+                  "tg-num grid place-items-center rounded-[0.6cqw] border-[0.2cqw] leading-none",
+                  compact ? "h-[4cqw] w-[3.1cqw] text-[2.7cqw]" : "h-[5cqw] w-[3.8cqw] text-[3.4cqw]",
+                  done ? "tg-pop border-(--tg-gold) bg-(--tg-gold)/12 text-(--tg-gold-hi)" : "border-(--tg-brass)/45 bg-(--tg-night)/60 text-(--tg-cream)/35",
+                )}
+                style={{ animationDelay: `${i * 90}ms` }}
+              >
                 {done ? reveal.codeDigits[i] : "?"}
               </span>
             ))}
           </div>
-          {done ? <TvExplain text={reveal.explain} className="mt-auto w-full" /> : <p className="mt-auto text-center text-[1.4cqw] font-bold text-(--tg-cream)/70">Gli indizi sono solo sui telefoni: qui non si vedono.</p>}
+          {done ? <TvWhy text={reveal.explain} compact={compact} className="mt-auto w-full" /> : <p className={clsx("mt-auto text-center font-bold text-(--tg-cream)/80", compact ? "text-[1.2cqw]" : "text-[1.4cqw]")}>Gli indizi sono solo sui telefoni: qui non si vedono.</p>}
         </TvPanel>
-        <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">
-            <Icon name="handshake" className="h-[1.6cqw] w-[1.6cqw]" /> I patti · tutti giusti +{view.points.full} a testa
-          </p>
-          <div className={clsx("grid min-h-0 gap-[0.5cqw]", many ? "grid-cols-2" : "grid-cols-1")}>
+        <TvPanel className={clsx("flex min-h-0 flex-col overflow-hidden", compact ? "gap-[0.5cqw] py-[1.2cqw]" : "gap-[0.7cqw]")}>
+          <TvLabel className="text-(--tg-gold)" icon={<Icon name="handshake" className="h-[1.6cqw] w-[1.6cqw]" />}>
+            I patti · tutti giusti +{view.points.full} a testa
+          </TvLabel>
+          <div className="grid min-h-0 grid-cols-1 content-start gap-[0.5cqw]">
             {view.pacts.map((g, i) => {
               const r = groups.find((x) => x.teams.includes(g[0].teamId));
               const full = r ? r.correct.length === r.teams.length : false;
               return (
-                <div key={g[0].teamId} className={clsx("tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] px-[0.8cqw] py-[0.5cqw]", full ? "bg-(--tg-gold)/15" : "bg-(--tg-cream)/[0.05]")} style={{ animationDelay: `${i * 70}ms` }}>
+                <div key={g[0].teamId} className={clsx("tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] px-[0.8cqw]", compact ? "py-[0.35cqw]" : "py-[0.5cqw]", full ? "bg-(--tg-gold)/15 ring-[0.12cqw] ring-(--tg-gold)/55" : "bg-(--tg-cream)/[0.06]")} style={{ animationDelay: `${i * 70}ms` }}>
                   {g.map((t, k) => (
                     <span key={t.teamId} className="flex items-center gap-[0.6cqw]">
                       {k > 0 && <Icon name="handshake" className="h-[1.5cqw] w-[1.5cqw] text-(--tg-gold)" />}
-                      <TvChip teams={p.teams} id={t.teamId} size={many ? 2.2 : 2.8} />
+                      <TvChip teams={p.teams} id={t.teamId} size={compact ? 2.6 : 3} />
                     </span>
                   ))}
-                  <span className={clsx("ml-auto text-right font-extrabold", many ? "text-[1.05cqw]" : "text-[1.35cqw]")}>
-                    {r ? full ? <span className="text-(--tg-gold)">aperta</span> : r.correct.length ? <span className="text-(--tg-teal-hi)">a metà</span> : <span className="text-(--tg-cream)/55">chiusa</span> : <span className="text-(--tg-cream)/45">al lavoro</span>}
+                  <span className={clsx("tg-num ml-auto text-right", compact ? "text-[1.25cqw]" : "text-[1.45cqw]")}>
+                    {r ? full ? <span className="text-(--tg-gold-hi)">aperto</span> : r.correct.length ? <span className="text-(--tg-teal-hi)">patto a metà</span> : <span className="text-(--tg-cream)/55">resta chiuso</span> : <span className="text-(--tg-cream)/55">al lavoro</span>}
                   </span>
                 </div>
               );

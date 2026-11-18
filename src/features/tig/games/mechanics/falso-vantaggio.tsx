@@ -1,42 +1,61 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useState } from "react";
+import { useId, useState } from "react";
 import type { FalsoReveal, FalsoSubmission, FalsoView } from "@/lib/tig/games/mechanics/falso-vantaggio";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
+import { WaxSeal } from "../kit/ornaments";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
+import { tvCompact, TvLabel, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<FalsoView, null, FalsoSubmission, FalsoReveal>;
 type T = TvGameProps<FalsoView, FalsoReveal>;
 type Busta = FalsoSubmission["busta"];
 
-/** Busta disegnata: chiusa col sigillo, aperta col valore. */
+/** Lettera di pergamena disegnata: chiusa col sigillo di ceralacca (oro = SUBITO, rosso = ENIGMA), aperta col valore. */
 function Envelope({ label, value, open, tone, className }: { label: string; value: string; open: boolean; tone: "lime" | "red"; className?: string }) {
-  const c = tone === "lime" ? "var(--tg-gold)" : "var(--tg-red-hi)";
+  const uid = useId().replace(/:/g, "");
+  const edge = tone === "lime" ? "#c9a24a" : "#c8312b";
+  const [w1, w2, w3] = tone === "lime" ? ["#ffe08a", "#e9a92c", "#9a6216"] : ["#ea6a5f", "#c8312b", "#7e1a14"];
   return (
-    <svg viewBox="0 0 160 120" className={className} role="img" aria-label={`Busta ${label}: ${open ? value : "chiusa"}`}>
-      <rect x="8" y="30" width="144" height="84" rx="8" fill="var(--tg-night-2)" stroke={c} strokeWidth="3" />
-      {open ? (
-        <>
-          <path d="M8 38 L80 6 L152 38" fill="var(--tg-raised)" stroke={c} strokeWidth="3" strokeLinejoin="round" />
-          <rect x="26" y="20" width="108" height="56" rx="6" fill="var(--tg-cream)" />
-          <text x="80" y="60" textAnchor="middle" fontSize="30" fontWeight="800" fill="var(--tg-ink)" fontFamily="var(--tg-display), Impact, sans-serif">
+    <svg viewBox="0 0 160 124" className={className} role="img" aria-label={`Busta ${label}: ${open ? value : "chiusa"}`}>
+      <defs>
+        <linearGradient id={`${uid}-p`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#f4e7c7" />
+          <stop offset="1" stopColor="#d9c08a" />
+        </linearGradient>
+        <radialGradient id={`${uid}-s`} cx="0.38" cy="0.32" r="0.75">
+          <stop offset="0" stopColor={w1} />
+          <stop offset="0.45" stopColor={w2} />
+          <stop offset="1" stopColor={w3} />
+        </radialGradient>
+      </defs>
+      <ellipse cx="80" cy="119" rx="64" ry="4" fill="#000" opacity="0.35" />
+      {open && <path d="M10 36L80 4L150 36" fill="#e2cd9a" stroke="#8a5a2b" strokeWidth="2.2" strokeLinejoin="round" />}
+      <rect x="10" y="34" width="140" height="80" rx="6" fill={`url(#${uid}-p)`} stroke={edge} strokeWidth="3" />
+      <path d="M10 110L66 72M150 110L94 72" fill="none" stroke="#8a5a2b" strokeWidth="1.6" opacity="0.55" />
+      {open && (
+        <g>
+          <rect x="26" y="10" width="108" height="76" rx="5" fill="#fbf3dc" stroke="#8a5a2b" strokeWidth="1.8" />
+          <rect x="31" y="15" width="98" height="66" rx="3" fill="none" stroke={edge} strokeWidth="1.2" strokeDasharray="3 2.5" />
+          <text x="80" y="62" textAnchor="middle" fontSize="40" fontWeight="900" fill="#1b1410" style={{ fontFamily: "var(--tg-display)", fontFeatureSettings: '"lnum" 1' }}>
             {value}
           </text>
-        </>
-      ) : (
+        </g>
+      )}
+      {!open && (
         <>
-          <path d="M8 38 L80 82 L152 38" fill="none" stroke={c} strokeWidth="3" strokeLinejoin="round" />
-          <circle cx="80" cy="80" r="13" fill={c} />
-          <text x="80" y="86" textAnchor="middle" fontSize="17" fontWeight="800" fill="var(--tg-ink)" fontFamily="var(--tg-display), Impact, sans-serif">
+          <path d="M10 38L80 82L150 38" fill="none" stroke="#8a5a2b" strokeWidth="2.2" strokeLinejoin="round" />
+          <circle cx="80" cy="80" r="15" fill={`url(#${uid}-s)`} stroke={w3} strokeWidth="1.5" />
+          <text x="80" y="86.5" textAnchor="middle" fontSize="19" fontWeight="900" fill="#1b1410" opacity="0.8" style={{ fontFamily: "var(--tg-display)" }}>
             ?
           </text>
         </>
       )}
-      <text x="80" y="108" textAnchor="middle" fontSize="13" fontWeight="800" fill={c} letterSpacing="2" fontFamily="var(--tg-body), sans-serif">
+      <text x="80" y="106" textAnchor="middle" fontSize="12.5" fontWeight="800" fill="#1b1410" letterSpacing="2.2" style={{ fontFamily: "var(--tg-display)" }}>
         {label}
       </text>
     </svg>
@@ -62,7 +81,7 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
-        <Panel className="grid grid-cols-2 gap-3">
+        <Panel className="grid grid-cols-2 gap-3 sm:mx-auto sm:w-full sm:max-w-[460px]">
           <Envelope label="SUBITO" value={reveal.subitoPrize === null ? "?" : String(reveal.subitoPrize)} open tone="lime" className="w-full" />
           <Envelope label="ENIGMA" value={reveal.enigmaPrize === null ? "?" : String(reveal.enigmaPrize)} open tone="red" className="w-full" />
           {s && (
@@ -127,45 +146,47 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const s = done ? reveal.summary : null;
+  const compact = tvCompact(p.teams);
+  const tavoli = (n: number) => `${n} ${n === 1 ? "tavolo" : "tavoli"}`;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Valori estratti per questa prova, uguali per tutti i tavoli" : "Due buste coperte: la certezza o l'enigma. Regole e probabilità sono queste, i valori si scoprono alla fine"}>
       <div className="grid h-full grid-cols-[1fr_1.2fr] gap-[1.6cqw]">
-        <TvPanel className="flex min-h-0 flex-col items-center gap-[1cqw]">
-          <div className="grid w-full grid-cols-2 gap-[1.2cqw]">
-            <div className="flex flex-col items-center gap-[0.4cqw]">
-              <Envelope label="SUBITO" value={done && reveal.subitoPrize !== null ? String(reveal.subitoPrize) : ""} open={!!done} tone="lime" className={clsx("w-full", done && "tg-pop")} />
-              <p className="text-center text-[1.2cqw] font-bold text-(--tg-cream)/80">certo: {view.subitoRange.join(" · ")}</p>
-              {s && <p className="tg-num text-[1.8cqw] text-(--tg-gold)">{s.subito} tavoli</p>}
-            </div>
-            <div className="flex flex-col items-center gap-[0.4cqw]">
-              <Envelope label="ENIGMA" value={done && reveal.enigmaPrize !== null ? String(reveal.enigmaPrize) : ""} open={!!done} tone="red" className={clsx("w-full", done && "tg-pop")} />
-              <p className="text-center text-[1.2cqw] font-bold text-(--tg-cream)/80">se risolto: {view.enigmaRange.join(" · ")}</p>
-              {s && (
-                <p className="tg-num text-[1.8cqw] text-(--tg-red-hi)">
-                  {s.enigma} tavoli · {s.solved} giusti
-                </p>
-              )}
-            </div>
+        <TvPanel className={clsx("flex min-h-0 flex-col items-center justify-center", compact ? "gap-[0.6cqw] py-[1.2cqw]" : "gap-[1cqw]")}>
+          <div className="grid w-full grid-cols-2 gap-[1.4cqw]">
+            {(
+              [
+                ["SUBITO", "lime", done ? reveal.subitoPrize : null, `certo: ${view.subitoRange.join(" · ")}`, s ? tavoli(s.subito) : null],
+                ["ENIGMA", "red", done ? reveal.enigmaPrize : null, `se risolto: ${view.enigmaRange.join(" · ")}`, s ? `${tavoli(s.enigma)} · ${s.solved} ${s.solved === 1 ? "giusto" : "giusti"}` : null],
+              ] as const
+            ).map(([label, tone, prize, rule, count]) => (
+              <div key={label} className="flex min-w-0 flex-col items-center gap-[0.4cqw]">
+                <Envelope label={label} value={prize === null ? "" : String(prize)} open={!!done} tone={tone} className={clsx(compact ? "w-[13cqw]" : "w-full", done && "tg-pop")} />
+                <p className={clsx("text-center font-bold text-(--tg-cream)/85", compact ? "text-[1.1cqw]" : "text-[1.25cqw]")}>{rule}</p>
+                {count && <p className={clsx("tg-num text-center", compact ? "text-[1.5cqw]" : "text-[1.8cqw]", tone === "lime" ? "text-(--tg-gold-hi)" : "text-(--tg-red-hi)")}>{count}</p>}
+              </div>
+            ))}
           </div>
-          {!done && <p className="mt-auto text-center text-[1.4cqw] font-bold text-(--tg-cream)/70">Ogni valore della stessa busta ha la stessa probabilità.</p>}
+          {!done && <p className={clsx("mt-[0.6cqw] text-center font-bold text-(--tg-cream)/75", compact ? "text-[1.2cqw]" : "text-[1.4cqw]")}>Ogni valore della stessa busta ha la stessa probabilità.</p>}
         </TvPanel>
-        <TvPanel className="flex min-h-0 flex-col gap-[0.8cqw]">
+        <TvPanel className={clsx("flex min-h-0 flex-col", compact ? "gap-[0.6cqw] py-[1.2cqw]" : "gap-[0.8cqw]")}>
           {done ? (
             <>
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">L&apos;enigma della busta</p>
-              <p className="text-[1.9cqw] font-extrabold leading-tight">{reveal.prompt}</p>
+              <TvLabel className="text-(--tg-red-hi)" icon={<Icon name="eye" className="h-[1.5cqw] w-[1.5cqw]" />}>
+                L&apos;enigma della busta
+              </TvLabel>
+              <p className={clsx("font-extrabold leading-tight", compact ? "text-[1.6cqw]" : "text-[1.9cqw]")}>{reveal.prompt}</p>
               <div className="grid grid-cols-2 gap-[0.6cqw]">
                 {view.options.map((o, i) => (
                   <TvOption key={o.id} size="sm" index={i} text={o.text} state={o.id === reveal.solutionId ? "right" : "dim"} />
                 ))}
               </div>
-              <TvExplain text={reveal.explain} className="mt-auto" />
+              <TvWhy text={reveal.explain} compact={compact} className="mt-auto" />
             </>
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-[1cqw] text-center">
-              <Icon name="lock" className="h-[5cqw] w-[5cqw] text-(--tg-red-hi)" />
-              <p className="tg-display text-[3cqw]">L&apos;enigma è chiuso nella busta</p>
-              <p className="max-w-[40cqw] text-[1.5cqw] font-bold text-(--tg-cream)/70">Lo vede solo chi sceglie la busta ENIGMA, sul telefono. La TV lo mostra alla fine.</p>
+              <WaxSeal mark="x" className={compact ? "h-[6cqw] w-[6cqw]" : "h-[7.5cqw] w-[7.5cqw]"} />
+              <p className={clsx("tg-title leading-none text-(--tg-cream)", compact ? "text-[2.6cqw]" : "text-[3.2cqw]")}>L&apos;enigma è sigillato nella busta</p>
+              <p className={clsx("max-w-[40cqw] font-bold text-(--tg-cream)/80", compact ? "text-[1.3cqw]" : "text-[1.5cqw]")}>Lo vede solo chi sceglie la busta ENIGMA, sul telefono. La TV lo mostra alla fine.</p>
             </div>
           )}
         </TvPanel>

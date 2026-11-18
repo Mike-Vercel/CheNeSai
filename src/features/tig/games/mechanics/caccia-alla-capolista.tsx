@@ -1,13 +1,14 @@
 "use client";
 
+import { clsx } from "clsx";
 import { useState } from "react";
 import type { CacciaReveal, CacciaSubmission, CacciaView } from "@/lib/tig/games/mechanics/caccia-alla-capolista";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { BigToggle, ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { PhoneChip, Step, TvChip } from "./m2/kit";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
+import { PhoneChip, Step, TvChip, tvCompact, TvLabel, tvLongPrompt, tvPromptSize, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<CacciaView, null, CacciaSubmission, CacciaReveal>;
 type T = TvGameProps<CacciaView, CacciaReveal>;
@@ -16,7 +17,7 @@ type Mode = CacciaSubmission["mode"];
 function LeaderBanner({ view, me }: { view: CacciaView; me: boolean }) {
   return (
     <Panel tone={me ? "lime" : undefined} className="flex items-center gap-3">
-      <Icon name="crown" className="h-10 w-10 shrink-0 text-(--tg-teal-hi)" />
+      <Icon name="crown" className="h-10 w-10 shrink-0 text-(--tg-gold) drop-shadow-[0_0_10px_rgba(242,177,52,.55)]" />
       <div className="min-w-0 flex-1">
         <Eyebrow>{view.leaders.length > 1 ? "Capoliste a pari merito" : "La capolista"}</Eyebrow>
         <p className="mt-1 flex flex-wrap items-center gap-2 text-lg font-extrabold">
@@ -114,56 +115,61 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const s = done ? reveal.summary : null;
+  const compact = tvCompact(p.teams);
+  const legend: [string, string][] = [
+    ["Caccia riuscita", `+${view.points.win}`],
+    ["Giusti ma battuti", `+${view.points.beaten}`],
+    ["Passo, giusto", `+${view.points.pass}`],
+    ["Capolista", `fino a +${view.points.leaderCap}`],
+  ];
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Vince la caccia chi è giusto e più rapido della capolista" : "Caccia +40 se battete la capolista · passo +20 · la capolista difende: +10 a cacciatore respinto"}>
       <div className="grid h-full grid-cols-[1.35fr_1fr] gap-[1.6cqw]">
-        <TvPanel className="flex min-h-0 flex-col gap-[1cqw]">
-          <p className="text-[2.3cqw] font-extrabold leading-tight">{view.prompt}</p>
+        <TvPanel className={clsx("flex min-h-0 flex-col", compact ? "gap-[0.7cqw] py-[1.3cqw]" : "gap-[1cqw]")}>
+          <TvLabel className="text-(--tg-cream)/75">L&apos;enigma · uguale per tutti</TvLabel>
+          <p className={clsx("font-extrabold leading-tight", tvPromptSize(view.prompt, compact))}>{view.prompt}</p>
           <div className="grid grid-cols-2 gap-[0.7cqw]">
             {view.options.map((o, i) => (
-              <TvOption key={o.id} index={i} text={o.text} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
+              <TvOption key={o.id} size={compact || tvLongPrompt(view.prompt) ? "sm" : "md"} index={i} text={o.text} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
             ))}
           </div>
-          {done && <TvExplain text={reveal.explain} className="mt-auto" />}
+          {done && <TvWhy text={reveal.explain} compact={compact} className="mt-auto" />}
         </TvPanel>
-        <TvPanel tone="lime" className="flex min-h-0 flex-col items-center gap-[1cqw] overflow-hidden">
-          <Icon name="crown" className="tg-pulse h-[6cqw] w-[6cqw] text-(--tg-teal-hi)" />
-          <p className="tg-display text-[2.6cqw]">{view.leaders.length > 1 ? "Capoliste" : "Capolista"}</p>
-          <div className="flex flex-wrap justify-center gap-[0.6cqw]">
+        <TvPanel tone="lime" className={clsx("flex min-h-0 flex-col items-center overflow-hidden", compact ? "gap-[0.5cqw] py-[1.2cqw]" : "gap-[0.8cqw]")}>
+          <Icon name="crown" className={clsx("shrink-0 text-(--tg-gold) drop-shadow-[0_0_1.2cqw_rgba(242,177,52,.6)]", compact ? "h-[3.6cqw] w-[3.6cqw]" : "h-[5.2cqw] w-[5.2cqw]")} />
+          <p className={clsx("tg-title shrink-0 leading-none text-(--tg-gold-hi)", compact ? "text-[2.6cqw]" : "text-[3.2cqw]")}>{view.leaders.length > 1 ? "Le capoliste" : "La capolista"}</p>
+          <div className="flex shrink-0 flex-wrap justify-center gap-[0.8cqw]">
             {view.leaders.map((l) => (
-              <TvChip key={l.teamId} teams={p.teams} id={l.teamId} size={5} />
+              <TvChip key={l.teamId} teams={p.teams} id={l.teamId} size={compact ? 4 : 5.2} />
             ))}
           </div>
-          {view.drawn && <p className="text-[1.1cqw] font-bold text-(--tg-cream)/60">Classifica in parità: estratta a sorte</p>}
+          {view.drawn && <p className="shrink-0 text-[1.1cqw] font-bold text-(--tg-cream)/70">Classifica in parità: estratta a sorte</p>}
           {s ? (
-            <div className="flex w-full min-h-0 flex-col gap-[0.5cqw] overflow-hidden">
-              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Cacciatori</p>
-              {s.hunts.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/70">Nessuno ha osato.</p>}
+            <div className="flex min-h-0 w-full flex-col gap-[0.5cqw] overflow-hidden">
+              <TvLabel className="text-(--tg-red-hi)" icon={<Icon name="target" className="h-[1.4cqw] w-[1.4cqw]" />}>
+                I cacciatori
+              </TvLabel>
+              {s.hunts.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/75">Nessuno ha osato.</p>}
               <div className="flex flex-wrap gap-[0.5cqw]">
                 {s.hunts.map((h, i) => (
-                  <div key={h.teamId} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.06] px-[0.6cqw] py-[0.35cqw]" style={{ animationDelay: `${i * 90}ms` }}>
-                    <TvChip teams={p.teams} id={h.teamId} size={2.4} />
-                    <span className={h.won ? "text-[1.3cqw] font-extrabold text-(--tg-gold)" : "text-[1.3cqw] font-extrabold text-(--tg-cream)/60"}>{h.won ? "presa +40" : "respinto"}</span>
+                  <div key={h.teamId} className={clsx("tg-rise flex items-center gap-[0.4cqw] rounded-[0.8cqw] px-[0.5cqw] py-[0.3cqw]", h.won ? "bg-(--tg-gold)/18 ring-[0.12cqw] ring-(--tg-gold)/60" : "bg-(--tg-cream)/[0.06]")} style={{ animationDelay: `${i * 90}ms` }}>
+                    <TvChip teams={p.teams} id={h.teamId} size={compact ? 2.2 : 2.6} />
+                    <span className={clsx("tg-num leading-none", compact ? "text-[1.1cqw]" : "text-[1.3cqw]", h.won ? "text-(--tg-gold-hi)" : "text-(--tg-cream)/60")}>{h.won ? "presa +40" : "respinto"}</span>
                   </div>
                 ))}
               </div>
               {s.passed.length > 0 && (
-                <p className="mt-[0.4cqw] flex flex-wrap items-center gap-[0.4cqw] text-[1.2cqw] font-bold text-(--tg-cream)/70">
-                  Hanno passato: {s.passed.map((id) => <TvChip key={id} teams={p.teams} id={id} size={2} />)}
+                <p className="mt-[0.2cqw] flex flex-wrap items-center gap-[0.4cqw] text-[1.15cqw] font-bold text-(--tg-cream)/75">
+                  Hanno passato: {s.passed.map((id) => <TvChip key={id} teams={p.teams} id={id} size={2.1} />)}
                 </p>
               )}
             </div>
           ) : (
             <div className="mt-auto grid w-full grid-cols-2 gap-[0.6cqw] text-center">
-              {[
-                ["Caccia riuscita", `+${view.points.win}`],
-                ["Giusti ma battuti", `+${view.points.beaten}`],
-                ["Passo, giusto", `+${view.points.pass}`],
-                ["Capolista", `fino a +${view.points.leaderCap}`],
-              ].map(([k, v]) => (
-                <div key={k} className="rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.5cqw]">
-                  <p className="tg-num text-[2.4cqw] text-(--tg-gold)">{v}</p>
-                  <p className="text-[1cqw] font-extrabold uppercase tracking-wide text-(--tg-cream)/70">{k}</p>
+              {legend.map(([k, v]) => (
+                <div key={k} className={clsx("rounded-[0.8cqw] border-[0.1cqw] border-(--tg-brass)/30 bg-(--tg-night)/50 px-[0.6cqw]", compact ? "py-[0.35cqw]" : "py-[0.55cqw]")}>
+                  <p className={clsx("tg-num leading-tight text-(--tg-gold-hi)", compact ? "text-[1.9cqw]" : "text-[2.3cqw]")}>{v}</p>
+                  <p className="text-[0.95cqw] font-extrabold uppercase tracking-wide text-(--tg-cream)/75">{k}</p>
                 </div>
               ))}
             </div>

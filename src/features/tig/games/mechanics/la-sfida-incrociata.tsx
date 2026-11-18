@@ -7,8 +7,8 @@ import { isMirrored, mirrorGrid, type IncrociataReveal, type IncrociataSubmissio
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { GRID_SYMBOLS, GridSymbol, PhoneChip, TvChip } from "./m2/kit";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
+import { GRID_SYMBOLS, GridSymbol, PhoneChip, TvChip, tvCompact, TvLabel, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<IncrociataView, null, IncrociataSubmission, IncrociataReveal>;
 type T = TvGameProps<IncrociataView, IncrociataReveal>;
@@ -213,68 +213,70 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const s = done ? reveal.summary : null;
-  const many = view.pairs.length > 6;
-  const sec = (id: string) => (s?.times[id] !== undefined ? `${s.times[id]} s` : "non valida");
+  const compact = tvCompact(p.teams);
+  const sec = (id: string) => (s?.times[id] !== undefined ? `${s.times[id]} s` : "—");
+  const tableNo = (id: string | null | undefined) => p.teams.find((t) => t.teamId === id)?.tableNo;
+  const boardW = compact ? "w-[15.5cqw]" : done ? "w-[16cqw]" : "w-[20.5cqw]";
+  const flag = (id: string, win: boolean) => (
+    <span className={clsx("rounded-[0.5cqw] p-[0.15cqw]", win && "bg-(--tg-gold)/25 ring-[0.15cqw] ring-(--tg-gold)")}>
+      <TvChip teams={p.teams} id={id} size={compact ? 2.2 : 2.8} />
+    </span>
+  );
   return (
     <TvFrame view={view} p={p} subtitle={done ? `Tempo mediano delle griglie valide: ${s?.medianMs != null ? Math.round(s.medianMs / 1000) + " s" : "nessuna griglia valida"}` : `${view.theme} · coppie con griglie speculari: valida +${view.points.valid}, più rapidi del rivale +${view.points.duel}`}>
-      <div className="grid h-full grid-cols-[1.35fr_1fr] gap-[1.6cqw]">
-        <TvPanel className="flex min-h-0 flex-col gap-[1cqw]">
-          <div className="grid grid-cols-2 gap-[1.6cqw]">
-            {[false, true].map((m) => (
-              <div key={String(m)} className="flex flex-col items-center gap-[0.6cqw]">
-                <p className="text-[1.2cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/75">{m ? "Griglia B · speculare" : "Griglia A"}</p>
-                <div className="w-[21cqw]">
-                  <Board givens={m ? mirrorGrid(view.givens) : view.givens} values={"0".repeat(16)} solution={done ? (m ? mirrorGrid(reveal.grid) : reveal.grid) : null} tv label={m ? "Griglia speculare" : "Griglia"} />
+      <div className="flex h-full min-h-0 flex-col gap-[1.2cqw]">
+        <div className="grid min-h-0 flex-1 grid-cols-[1.35fr_1fr] gap-[1.6cqw]">
+          <TvPanel className={clsx("flex min-h-0 flex-col items-center justify-center", compact ? "gap-[0.7cqw] py-[1.2cqw]" : "gap-[1cqw]")}>
+            <div className="grid grid-cols-2 gap-[1.8cqw]">
+              {[false, true].map((m) => (
+                <div key={String(m)} className="flex flex-col items-center gap-[0.6cqw]">
+                  <p className="text-[1.15cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/80">{m ? "Griglia B · speculare" : "Griglia A"}</p>
+                  <div className={boardW}>
+                    <Board givens={m ? mirrorGrid(view.givens) : view.givens} values={"0".repeat(16)} solution={done ? (m ? mirrorGrid(reveal.grid) : reveal.grid) : null} tv label={m ? "Griglia speculare" : "Griglia"} />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center justify-center gap-[1.6cqw]">
-            {SYMS.map((v) => (
-              <span key={v} className="flex items-center gap-[0.4cqw] text-[1.2cqw] font-extrabold capitalize text-(--tg-cream)/80">
-                <GridSymbol v={v} className="h-[2.2cqw] w-[2.2cqw]" /> {GRID_SYMBOLS[v].name}
-              </span>
-            ))}
-          </div>
-          {done && <TvExplain text={reveal.explain} className="mt-auto" />}
-        </TvPanel>
-        <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
-            <Icon name="swap" className="h-[1.6cqw] w-[1.6cqw]" /> Sfide incrociate
-          </p>
-          <div className={clsx("grid min-h-0 gap-[0.45cqw]", many ? "grid-cols-2" : "grid-cols-1")}>
-            {view.pairs.map((pr, i) => {
-              const d = s?.duels.find((x) => x.a === pr.a.teamId);
-              return (
-                <div key={pr.a.teamId} className="tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.7cqw] py-[0.45cqw]" style={{ animationDelay: `${i * 70}ms` }}>
-                  <TvChip teams={p.teams} id={pr.a.teamId} size={many ? 2.2 : 2.6} />
-                  {pr.b ? (
-                    <>
-                      <Icon name="swap" className="h-[1.5cqw] w-[1.5cqw] rotate-90 text-(--tg-red-hi)" />
-                      <TvChip teams={p.teams} id={pr.b.teamId} size={many ? 2.2 : 2.6} />
-                    </>
-                  ) : (
-                    <span className="text-[1.1cqw] font-extrabold uppercase text-(--tg-cream)/70">contro il tempo mediano</span>
-                  )}
-                  <span className={clsx("ml-auto text-right font-extrabold leading-tight", many ? "text-[1cqw]" : "text-[1.25cqw]")}>
-                    {done ? (
+              ))}
+            </div>
+            <div className="flex shrink-0 items-center justify-center gap-[1.6cqw] rounded-full border-[0.1cqw] border-(--tg-brass)/35 bg-(--tg-night)/50 px-[1.4cqw] py-[0.4cqw]">
+              {SYMS.map((v) => (
+                <span key={v} className="flex items-center gap-[0.4cqw] text-[1.2cqw] font-extrabold capitalize text-(--tg-cream)/90">
+                  <GridSymbol v={v} className="h-[2.1cqw] w-[2.1cqw]" /> {GRID_SYMBOLS[v].name}
+                </span>
+              ))}
+            </div>
+          </TvPanel>
+          <TvPanel className={clsx("flex min-h-0 flex-col overflow-hidden", compact ? "gap-[0.45cqw] py-[1.2cqw]" : "gap-[0.6cqw]")}>
+            <TvLabel className="text-(--tg-red-hi)" icon={<Icon name="swap" className="h-[1.6cqw] w-[1.6cqw]" />}>
+              Sfide incrociate
+            </TvLabel>
+            <div className={clsx("grid min-h-0 grid-cols-1 content-start", compact ? "gap-[0.3cqw]" : "gap-[0.4cqw]")}>
+              {view.pairs.map((pr, i) => {
+                const d = s?.duels.find((x) => x.a === pr.a.teamId);
+                const win = d?.winner ?? null;
+                return (
+                  <div key={pr.a.teamId} className={clsx("tg-rise flex items-center gap-[0.6cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.06] px-[0.7cqw]", compact ? "py-[0.15cqw]" : "py-[0.4cqw]")} style={{ animationDelay: `${i * 70}ms` }}>
+                    {flag(pr.a.teamId, win === pr.a.teamId)}
+                    {done && <span className="tg-num w-[3.6cqw] text-center text-[1.3cqw] text-(--tg-cream)/85">{sec(pr.a.teamId)}</span>}
+                    {pr.b ? (
                       <>
-                        <span className="text-(--tg-cream)/70">
-                          {sec(pr.a.teamId)}
-                          {pr.b ? ` · ${sec(pr.b.teamId)}` : ""}
-                        </span>
-                        <br />
-                        {d?.winner ? <span className="text-(--tg-gold)">vince il {p.teams.find((t) => t.teamId === d.winner)?.tableNo} +{view.points.duel}</span> : <span className="text-(--tg-cream)/55">nessun vincitore</span>}
+                        <Icon name="swap" className="h-[1.4cqw] w-[1.4cqw] shrink-0 rotate-90 text-(--tg-red-hi)" />
+                        {done && <span className="tg-num w-[3.6cqw] text-center text-[1.3cqw] text-(--tg-cream)/85">{sec(pr.b.teamId)}</span>}
+                        {flag(pr.b.teamId, win === pr.b.teamId)}
                       </>
                     ) : (
-                      <span className="text-(--tg-cream)/45">{pr.b ? "A contro B" : "griglia A"}</span>
+                      <span className="text-[1.05cqw] font-extrabold uppercase tracking-wide text-(--tg-cream)/75">contro il tempo mediano</span>
                     )}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </TvPanel>
+                    <span className={clsx("tg-num ml-auto text-right leading-tight", compact ? "text-[1.15cqw]" : "text-[1.35cqw]")}>
+                      {done ? win ? <span className="text-(--tg-gold-hi)">+{view.points.duel} al {tableNo(win)}</span> : <span className="text-(--tg-cream)/55">nessuno</span> : <span className="text-(--tg-cream)/55">{pr.b ? "A e B" : "griglia A"}</span>}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </TvPanel>
+        </div>
+        {/* a tutta larghezza: con 12 tavoli e una spiegazione lunga non copre più le ultime sfide */}
+        {done && <TvWhy text={reveal.explain} compact={compact} />}
       </div>
     </TvFrame>
   );
