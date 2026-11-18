@@ -99,9 +99,9 @@ function Tv(p: T) {
             <div className="tg-pop rounded-[1.2cqw] border-[0.2cqw] border-(--tg-teal) bg-(--tg-teal)/12 px-[1.4cqw] py-[1cqw]">
               <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Il dettaglio in vendita · −{view.price}</p>
               <p className="mt-[0.3cqw] text-[1.6cqw] font-bold leading-snug">{reveal.extra.text}</p>
-              <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.2cqw] font-bold text-(--tg-cream)/80">
+              <p className="mt-[0.6cqw] flex flex-wrap items-center gap-[0.5cqw] text-[1.2cqw] font-bold text-(--tg-cream)/85">
                 {reveal.summary?.bought.length && reveal.summary.bought.length > 6 ? (
-                  `Comprato da ${reveal.summary.bought.length} tavoli su ${p.teams.length}`
+                  `Comprato da ${reveal.summary.bought.length} tavoli su ${p.teams.length}.`
                 ) : reveal.summary?.bought.length ? (
                   <>
                     Comprato da: {reveal.summary.bought.map((id) => <TableTag key={id} tv no={team.get(id)?.tableNo ?? "?"} color={team.get(id)?.color} />)}
@@ -109,8 +109,9 @@ function Tv(p: T) {
                 ) : (
                   "Nessun tavolo l'ha comprato."
                 )}
-                <span className="text-(--tg-cream)/60">{reveal.freeSolvable ? " · bastavano gli indizi gratuiti" : " · senza, restavano due sospettati"}</span>
               </p>
+              {/* su una riga sua: con molte bandiere non resta un «·» spaiato a inizio riga */}
+              <p className="mt-[0.3cqw] text-[1.2cqw] font-bold text-(--tg-cream)/65">{reveal.freeSolvable ? "Bastavano gli indizi gratuiti." : "Senza il dettaglio restavano due sospettati."}</p>
             </div>
           ) : (
             <div className="flex items-center gap-[1.2cqw] rounded-[1.2cqw] border-[0.2cqw] border-dashed border-(--tg-teal)/70 bg-[repeating-linear-gradient(135deg,color-mix(in_srgb,var(--tg-teal)_8%,transparent)_0_1cqw,transparent_1cqw_2cqw)] px-[1.4cqw] py-[1.1cqw]">

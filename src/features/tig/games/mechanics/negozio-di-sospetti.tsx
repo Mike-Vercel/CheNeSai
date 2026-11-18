@@ -37,9 +37,11 @@ function Player(p: P) {
           <Eyebrow>Le tre prove</Eyebrow>
           {reveal.proofs.map((x) => (
             <div key={x.id} className={clsx("rounded-xl border-2 px-3 py-2", reveal.cheapest.ids.includes(x.id) ? "border-(--tg-teal)" : "border-(--tg-cream)/12")}>
-              <p className="flex justify-between gap-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-teal-hi)">
+              <p className="flex items-center justify-between gap-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-(--tg-teal-hi)">
                 <span>{x.name}</span>
-                <span className="tg-num text-base">{x.price}</span>
+                <Doubloon label={`costava ${x.price} punti`} className="h-8 w-8 text-[0.8rem] tracking-normal">
+                  {x.price}
+                </Doubloon>
               </p>
               <p className="font-bold leading-snug">{x.text}</p>
               <p className="text-xs font-extrabold uppercase text-(--tg-cream)/50">Scagiona: {x.clears.map((id) => name.get(id)).join(", ")}</p>
@@ -168,8 +170,9 @@ function Tv(p: T) {
           )}
         </div>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          {/* al reveal con molti tavoli (striscia su due righe) i sospettati scagionati stanno su due colonne: spazio al «perché» */}
-          <TvPanel className={clsx("grid shrink-0 content-start", done && many ? "grid-cols-2 gap-[0.5cqw] p-[1.2cqw]" : "grid-cols-1 gap-[0.6cqw]")}>
+          {/* con molti tavoli (striscia su due righe) i sospettati stanno su due colonne: in gioco non toccano la striscia,
+              al reveal lasciano spazio al «perché» */}
+          <TvPanel className={clsx("grid shrink-0 content-start", many ? "grid-cols-2 gap-[0.5cqw] p-[1.2cqw]" : "grid-cols-1 gap-[0.6cqw]")}>
             {view.suspects.map((s, i) => {
               const right = done && s.id === reveal.solutionId;
               return <TvSuspect key={s.id} option={s} index={i} compact={!!done} state={done ? (right ? "right" : "cleared") : "idle"} className={right && many ? "order-first col-span-2" : undefined} />;

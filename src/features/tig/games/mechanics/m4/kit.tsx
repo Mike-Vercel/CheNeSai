@@ -155,6 +155,7 @@ export function Ladder({
   schedule,
   worth,
   tv = false,
+  dense = false,
   extra,
 }: {
   clues: readonly (string | null)[];
@@ -163,11 +164,13 @@ export function Ladder({
   schedule: readonly number[];
   worth: readonly number[];
   tv?: boolean;
+  /** TV con 12 tavoli al reveal: righe più basse, così sotto c'è posto per il «perché» */
+  dense?: boolean;
   /** riga aggiuntiva per indizio (es. al reveal: chi scagiona) */
   extra?: (i: number) => ReactNode;
 }) {
   return (
-    <ol className={clsx("flex flex-col", tv ? "gap-[0.6cqw]" : "gap-2")}>
+    <ol className={clsx("flex flex-col", tv ? (dense ? "gap-[0.4cqw]" : "gap-[0.6cqw]") : "gap-2")}>
       {clues.map((c, i) => {
         const isOpen = i < open;
         const inSec = Math.max(0, Math.ceil((schedule[i] - elapsed) / 1000));
@@ -176,20 +179,20 @@ export function Ladder({
             key={i}
             className={clsx(
               "flex items-center border-2",
-              tv ? "gap-[1cqw] rounded-[1cqw] px-[0.9cqw] py-[0.55cqw]" : "gap-3 rounded-2xl px-2.5 py-2",
+              tv ? clsx("gap-[1cqw] rounded-[1cqw] px-[0.9cqw]", dense ? "py-[0.3cqw]" : "py-[0.55cqw]") : "gap-3 rounded-2xl px-2.5 py-2",
               isOpen ? (i === open - 1 ? "tg-rise border-(--tg-gold)/70 bg-(--tg-gold-dark)/55" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]") : "border-dashed border-(--tg-cream)/12",
             )}
           >
             {/* il valore dell'indizio è un doblone: acceso quando l'indizio è arrivato, spento finché è sigillato */}
             <Doubloon
               label={`${worth[i]} punti`}
-              className={clsx(tv ? "h-[3.4cqw] w-[3.4cqw] text-[1.25cqw]" : "h-11 w-11 text-[0.95rem]", !isOpen && "opacity-40 grayscale")}
+              className={clsx(tv ? (dense ? "h-[2.9cqw] w-[2.9cqw] text-[1.1cqw]" : "h-[3.4cqw] w-[3.4cqw] text-[1.25cqw]") : "h-11 w-11 text-[0.95rem]", !isOpen && "opacity-40 grayscale")}
             >
               {worth[i]}
             </Doubloon>
             <div className="min-w-0 flex-1">
               {isOpen && c ? (
-                <p className={clsx("font-bold leading-snug", tv ? "text-[1.6cqw]" : "text-base sm:text-lg")}>{c}</p>
+                <p className={clsx("font-bold leading-snug", tv ? (dense ? "text-[1.45cqw]" : "text-[1.6cqw]") : "text-base sm:text-lg")}>{c}</p>
               ) : (
                 <p className={clsx("flex items-center gap-2 font-bold text-(--tg-cream)/40", tv ? "text-[1.45cqw]" : "text-base")}>
                   <Icon name="lock" className={tv ? "h-[1.5cqw] w-[1.5cqw]" : "h-5 w-5"} /> Indizio {i + 1} tra {inSec} s
@@ -238,20 +241,23 @@ export function RingTv({
 }) {
   const n = seats.length;
   if (n > RING_MAX) {
+    const arrows = seats.map((s) => arrow?.(s.teamId) ?? null);
+    // con le scritte (reveal) bandiere più piccole: la parola resta intera anche nella colonna stretta di «Doppio gioco»
+    const labeled = arrows.some((a) => !!a?.text);
     return (
-      <ol className="grid w-full grid-cols-2 content-center gap-x-[1.2cqw] gap-y-[0.45cqw]" aria-label={label}>
+      <ol className={clsx("grid w-full grid-cols-2 content-center gap-x-[1.2cqw] gap-y-[0.45cqw]", !labeled && "justify-items-center")} aria-label={label}>
         {seats.map((s, i) => {
           const to = seats[(i + 1) % n];
-          const a = arrow?.(s.teamId) ?? null;
+          const a = arrows[i];
           return (
-            <li key={s.teamId} className="flex items-center gap-[0.4cqw]">
-              <TableTag tv no={s.tableNo} color={colorOf(s.teamId)} />
+            <li key={s.teamId} className="flex min-w-0 items-center gap-[0.4cqw]">
+              <TableTag tv small={labeled} no={s.tableNo} color={colorOf(s.teamId)} />
               <span className="tg-display text-[1.6cqw] leading-none" style={{ color: a?.color ?? "color-mix(in srgb, var(--tg-cream) 60%, transparent)" }} aria-label="dà a">
                 →
               </span>
-              <TableTag tv no={to.tableNo} color={colorOf(to.teamId)} />
+              <TableTag tv small={labeled} no={to.tableNo} color={colorOf(to.teamId)} />
               {a?.text && (
-                <span className="tg-display truncate text-[1.3cqw]" style={{ color: a.color }}>
+                <span className="tg-display min-w-0 truncate text-[1.2cqw]" style={{ color: a.color }}>
                   {a.text}
                 </span>
               )}
@@ -479,6 +485,8 @@ export function PactToggle<T extends string>({
   disabled?: boolean;
   label: string;
 }) {
+  // stesso corpo per le due carte (deciso dal titolo più lungo): «Sicura» e «Rischiosa» si leggono alla pari
+  const long = options.some((o) => o.title.length > 7);
   return (
     <div role="radiogroup" aria-label={label} className="grid grid-cols-2 gap-2.5">
       {options.map((o) => {
@@ -498,7 +506,7 @@ export function PactToggle<T extends string>({
             )}
             style={on ? { borderColor: accent } : undefined}
           >
-            <span className={clsx("tg-display whitespace-nowrap leading-none", o.title.length > 7 ? "text-[1.3rem] sm:text-[1.6rem]" : "text-[1.65rem] sm:text-3xl")} style={on ? { color: accent } : undefined}>
+            <span className={clsx("tg-display whitespace-nowrap leading-none", long ? "text-[1.4rem] sm:text-[1.75rem]" : "text-[1.65rem] sm:text-3xl")} style={on ? { color: accent } : undefined}>
               {o.title}
             </span>
             {o.sub && (

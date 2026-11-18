@@ -156,10 +156,10 @@ function Tv(p: T) {
                 <p className={clsx("font-extrabold uppercase tracking-[0.14em] text-(--tg-cream)/65", many ? "text-[0.85cqw]" : "text-[1cqw]")}>{pr.topic}</p>
                 {/* con 6 coppie (12 tavoli) bandiere e mosse più piccole: tutto su una riga, la frase resta intera */}
                 <div className={clsx("flex flex-wrap items-center", many ? "gap-[0.4cqw]" : "gap-[0.5cqw]")}>
-                  <TableTag tv small={many} no={pr.a.tableNo} color={team.get(pr.a.teamId)?.color} />
+                  <TableTag tv small={many && !!r} no={pr.a.tableNo} color={team.get(pr.a.teamId)?.color} />
                   {r && <MoveBadge tv small={many} move={r.moveA} />}
-                  <span className={clsx("tg-display text-(--tg-cream)/55", many ? "text-[1.15cqw]" : "text-[1.4cqw]")}>vs</span>
-                  {pr.b ? <TableTag tv small={many} no={pr.b.tableNo} color={team.get(pr.b.teamId)?.color} /> : <span className={clsx("tg-display", many ? "text-[1.15cqw]" : "text-[1.4cqw]")}>Il banco</span>}
+                  <span className={clsx("tg-display text-(--tg-cream)/55", many && r ? "text-[1.15cqw]" : "text-[1.4cqw]")}>vs</span>
+                  {pr.b ? <TableTag tv small={many && !!r} no={pr.b.tableNo} color={team.get(pr.b.teamId)?.color} /> : <span className={clsx("tg-display", many && r ? "text-[1.15cqw]" : "text-[1.4cqw]")}>Il banco</span>}
                   {r && <MoveBadge tv small={many} move={r.moveB} />}
                 </div>
                 {s && <p className={clsx("font-bold", many ? "text-[1.15cqw] leading-tight" : "text-[1.5cqw] leading-snug")}>{s.start} {s.end}</p>}
