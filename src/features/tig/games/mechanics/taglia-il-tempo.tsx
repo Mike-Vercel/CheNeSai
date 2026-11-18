@@ -7,8 +7,8 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, secondsLeft, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { PhoneChip, Scissors, Step, TablePicker, TvChip } from "./m2/kit";
+import { canEdit, elapsedOf, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, secondsLeft, SubmitBar, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
+import { PhoneChip, Scissors, Step, TablePicker, TvChip, tvCompact, TvLabel, tvLongPrompt, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<TagliaView, null, TagliaSubmission, TagliaReveal>;
 type T = TvGameProps<TagliaView, TagliaReveal>;
@@ -126,59 +126,62 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const cuts = done ? (reveal.summary?.cuts ?? []) : [];
   const knocked = new Set(done ? (reveal.summary?.knockedOut ?? []) : []);
+  const compact = tvCompact(p.teams);
+  const two = cuts.length > 6;
+  const cutSec = Math.round(view.cutMs / 1000);
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Taglio a segno = sfida scaduta 3 secondi prima per quel tavolo" : "Lampo giusto = forbici: 3 secondi in meno alla sfida di un tavolo a scelta"}>
       <div className="grid h-full grid-cols-[1.4fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          <TvPanel className="flex flex-col gap-[0.6cqw]">
-            <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">
-              <Icon name="bolt" className="h-[1.5cqw] w-[1.5cqw]" /> Prova lampo
-            </p>
-            <p className="text-[1.8cqw] font-extrabold leading-tight">{view.lampo.prompt}</p>
+          <TvPanel className={clsx("flex shrink-0 flex-col", compact ? "gap-[0.45cqw] py-[1.2cqw]" : "gap-[0.6cqw]")}>
+            <TvLabel className="text-(--tg-gold)" icon={<Icon name="bolt" className="h-[1.5cqw] w-[1.5cqw]" />}>
+              Prova lampo
+            </TvLabel>
+            <p className={clsx("font-extrabold leading-tight", compact ? "text-[1.55cqw]" : "text-[1.8cqw]")}>{view.lampo.prompt}</p>
             <div className="grid grid-cols-3 gap-[0.6cqw]">
               {view.lampo.options.map((o, i) => (
                 <TvOption key={o.id} size="sm" index={i} text={o.text} state={done ? (o.id === reveal.lampo.solutionId ? "right" : "dim") : "idle"} />
               ))}
             </div>
           </TvPanel>
-          <TvPanel className="flex min-h-0 flex-1 flex-col gap-[0.8cqw]">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/70">La sfida</p>
-            <p className="text-[2cqw] font-extrabold leading-tight">{view.sfida.prompt}</p>
+          <TvPanel className={clsx("flex min-h-0 flex-1 flex-col", compact ? "gap-[0.5cqw] py-[1.2cqw]" : "gap-[0.8cqw]")}>
+            <TvLabel className="text-(--tg-cream)/75">La sfida · uguale per tutti</TvLabel>
+            <p className={clsx("font-extrabold leading-tight", tvLongPrompt(view.sfida.prompt) ? (compact ? "text-[1.45cqw]" : "text-[1.8cqw]") : compact ? "text-[1.6cqw]" : "text-[2cqw]")}>{view.sfida.prompt}</p>
             <div className="grid grid-cols-2 gap-[0.6cqw]">
               {view.sfida.options.map((o, i) => (
-                <TvOption key={o.id} index={i} text={o.text} state={done ? (o.id === reveal.sfida.solutionId ? "right" : "dim") : "idle"} />
+                <TvOption key={o.id} size={compact || tvLongPrompt(view.sfida.prompt) ? "sm" : "md"} index={i} text={o.text} state={done ? (o.id === reveal.sfida.solutionId ? "right" : "dim") : "idle"} />
               ))}
             </div>
           </TvPanel>
         </div>
-        <TvPanel tone="red" className="flex min-h-0 flex-col gap-[0.8cqw] overflow-hidden">
-          <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
-            <Scissors className="h-[1.6cqw] w-[1.6cqw]" /> Forbici
-          </p>
+        <TvPanel tone="red" className={clsx("flex min-h-0 flex-col overflow-hidden", compact ? "gap-[0.6cqw] py-[1.2cqw]" : "gap-[0.8cqw]")}>
+          <TvLabel className="text-(--tg-red-hi)" icon={<Scissors className="h-[1.6cqw] w-[1.6cqw]" />}>
+            Le forbici
+          </TvLabel>
           {done ? (
             <>
-              <div className={clsx("grid min-h-0 gap-[0.4cqw] overflow-hidden", cuts.length > 6 ? "grid-cols-2" : "grid-cols-1")}>
-                {cuts.length === 0 && <p className="text-[1.6cqw] font-bold text-(--tg-cream)/60">Nessun taglio: lampo sbagliato per tutti.</p>}
+              <div className={clsx("grid min-h-0 content-start gap-[0.4cqw] overflow-hidden", two ? "grid-cols-2" : "grid-cols-1")}>
+                {cuts.length === 0 && <p className="text-[1.6cqw] font-bold text-(--tg-cream)/70">Nessun taglio: lampo sbagliato per tutti.</p>}
                 {cuts.map((c, i) => (
-                  <div key={c.from} className="tg-rise flex items-center gap-[0.7cqw] rounded-[0.8cqw] bg-(--tg-cream)/[0.05] px-[0.8cqw] py-[0.4cqw]" style={{ animationDelay: `${i * 90}ms` }}>
-                    <TvChip teams={p.teams} id={c.from} size={cuts.length > 6 ? 2 : 2.6} />
-                    <Scissors className="h-[1.7cqw] w-[1.7cqw] text-(--tg-red-hi)" />
-                    <TvChip teams={p.teams} id={c.to} size={cuts.length > 6 ? 2 : 2.6} />
-                    <span className={clsx("ml-auto text-right font-extrabold", cuts.length > 6 ? "text-[1cqw]" : "text-[1.3cqw]")}>
-                      {c.applied ? <span className="text-(--tg-red-hi)">−3 s{knocked.has(c.to) ? " · fuori tempo!" : ""}</span> : <span className="text-(--tg-cream)/55">a vuoto</span>}
+                  <div key={c.from} className={clsx("tg-rise flex items-center rounded-[0.8cqw] bg-(--tg-cream)/[0.06]", two ? "gap-[0.4cqw] px-[0.5cqw] py-[0.3cqw]" : "gap-[0.7cqw] px-[0.8cqw] py-[0.4cqw]")} style={{ animationDelay: `${i * 90}ms` }}>
+                    <TvChip teams={p.teams} id={c.from} size={two ? 2.3 : 2.7} />
+                    <Scissors className={clsx("shrink-0", two ? "h-[1.3cqw] w-[1.3cqw]" : "h-[1.7cqw] w-[1.7cqw]", c.applied ? "text-(--tg-red-hi)" : "text-(--tg-cream)/35")} />
+                    <TvChip teams={p.teams} id={c.to} size={two ? 2.3 : 2.7} />
+                    <span className={clsx("tg-num ml-auto text-right leading-tight", two ? "text-[1.05cqw]" : "text-[1.4cqw]")}>
+                      {c.applied ? <span className="text-(--tg-red-hi)">−{cutSec} s{knocked.has(c.to) ? (two ? " · fuori!" : " · fuori tempo!") : ""}</span> : <span className="text-(--tg-cream)/55">a vuoto</span>}
                     </span>
                   </div>
                 ))}
               </div>
-              <TvExplain text={reveal.explain} className="mt-auto" />
+              <TvWhy text={reveal.explain} compact={compact} className="mt-auto" />
             </>
           ) : (
-            <div className="flex flex-1 flex-col gap-[1.2cqw]">
-              <div className="flex flex-1 items-center justify-center gap-[1.2cqw]">
-                <Scissors className="h-[7cqw] w-[7cqw] -rotate-12 text-(--tg-red-hi)" />
-                <p className="tg-num text-[8cqw] leading-none text-(--tg-red-hi)">−{Math.round(view.cutMs / 1000)} s</p>
+            <div className="flex min-h-0 flex-1 flex-col gap-[1cqw]">
+              <div className="flex min-h-0 flex-1 items-center justify-center gap-[1cqw]">
+                <Scissors className={clsx("shrink-0 -rotate-12 text-(--tg-red-hi) drop-shadow-[0_0.3cqw_0.6cqw_rgba(0,0,0,.6)]", compact ? "h-[5cqw] w-[5cqw]" : "h-[7cqw] w-[7cqw]")} />
+                <p className={clsx("tg-num leading-none tracking-tight text-(--tg-red-hi) drop-shadow-[0_0.3cqw_0.6cqw_rgba(0,0,0,.6)]", compact ? "text-[6cqw]" : "text-[8cqw]")}>−{cutSec} s</p>
               </div>
-              <p className="text-[1.6cqw] font-bold leading-snug text-(--tg-cream)/80">Chi taglia chi resta segreto fino al reveal. Ogni tavolo può essere tagliato una volta sola.</p>
+              <p className={clsx("font-bold leading-snug text-(--tg-cream)/85", compact ? "text-[1.35cqw]" : "text-[1.6cqw]")}>Chi taglia chi resta segreto fino al reveal. Ogni tavolo può essere tagliato una volta sola.</p>
               <CutBar durationMs={view.durationMs} cutMs={view.cutMs} elapsed={elapsed} stage={p.stage} />
             </div>
           )}

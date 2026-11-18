@@ -7,8 +7,9 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { Step } from "./m2/kit";
+import { CompassRose, Doubloon } from "../kit/ornaments";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
+import { Step, TvAnswers, tvCompact, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<TerrenoView, null, TerrenoSubmission, TerrenoReveal>;
 type T = TvGameProps<TerrenoView, TerrenoReveal>;
@@ -35,8 +36,8 @@ function TerrainPicker({ view, allowed, value, onChange, disabled, locked }: { v
               isLocked ? "border-dashed border-(--tg-cream)/15 bg-(--tg-cream)/[0.02] opacity-50" : on ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]",
             )}
           >
-            <span className="tg-num text-lg text-(--tg-cream)/50">{LETTER[i]}</span>
-            <span className={clsx("tg-display leading-[0.95]", view.terreni[i].name.length > 12 ? "text-[1.4rem]" : "text-3xl", on && "text-(--tg-gold)")}>{view.terreni[i].name}</span>
+            <Doubloon className="h-7 w-7 text-base">{LETTER[i]}</Doubloon>
+            <span className={clsx("tg-title leading-none", view.terreni[i].name.length > 12 ? "text-[1.55rem]" : "text-[1.9rem]", on ? "text-(--tg-gold-hi)" : "text-(--tg-cream)")}>{view.terreni[i].name}</span>
             {isLocked && (
               <span className="flex items-center gap-1 text-xs font-extrabold uppercase text-(--tg-cream)/70">
                 <Icon name="lock" className="h-4 w-4" /> appena giocata
@@ -114,7 +115,7 @@ function Player(p: P) {
           </div>
         )}
       </Step>
-      <Step n={2} title={`2° turno · +${view.perTurno} · mai la stessa di fila`} icon="swap" done={second !== null && !!a2} className={clsx(first === null && "opacity-60")}>
+      <Step n={2} title={`2° turno · +${view.perTurno}`} icon="swap" done={second !== null && !!a2} className={clsx(first === null && "opacity-60")}>
         {first === null ? (
           <p className="flex items-center gap-2 text-base font-bold text-(--tg-cream)/60">
             <Icon name="lock" className="h-5 w-5" /> Prima scegliete il 1° turno: quella categoria qui sarà bloccata.
@@ -139,41 +140,44 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const picks = done ? reveal.summary?.picks : null;
+  const compact = tvCompact(p.teams);
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Categorie con difficoltà e punti uguali: contava scegliere il terreno giusto" : `1° turno: A o B. 2° turno: una delle due rimaste. +${view.perTurno} a risposta giusta`}>
       <div className="flex h-full min-h-0 flex-col gap-[1.2cqw]">
         <div className="grid min-h-0 flex-1 grid-cols-3 gap-[1.2cqw]">
           {view.terreni.map((t, i) => (
-            <TvPanel key={i} tone={i === 2 ? "lime" : undefined} className="tg-rise flex min-h-0 flex-col gap-[0.6cqw]" >
-              <div className="flex items-baseline justify-between">
-                <span className="tg-num text-[3.4cqw] leading-none text-(--tg-cream)/40">{LETTER[i]}</span>
-                <span className="text-[1.05cqw] font-extrabold uppercase tracking-[0.16em] text-(--tg-cream)/60">{i === 2 ? "entra al 2° turno" : "1° e 2° turno"}</span>
+            <TvPanel key={i} tone={i === 2 ? "lime" : undefined} className={clsx("tg-rise relative flex min-h-0 flex-col", compact ? "gap-[0.45cqw] py-[1.2cqw]" : "gap-[0.6cqw]")}>
+              <div className="flex shrink-0 items-center gap-[0.8cqw]">
+                <Doubloon className={compact ? "h-[3cqw] w-[3cqw] text-[1.5cqw]" : "h-[3.6cqw] w-[3.6cqw] text-[1.8cqw]"}>{LETTER[i]}</Doubloon>
+                <p className={clsx("tg-title min-w-0 flex-1 truncate leading-[1.3] text-(--tg-gold-hi)", compact ? "text-[2.5cqw]" : "text-[3cqw]")}>{t.name}</p>
               </div>
-              <p className="tg-display text-[3cqw] leading-none">{t.name}</p>
+              {!done && <p className="shrink-0 text-[1cqw] font-extrabold uppercase tracking-[0.16em] text-(--tg-cream)/70">{i === 2 ? "Entra al 2° turno" : "1° e 2° turno"}</p>}
               {done ? (
                 <>
-                  <p className="text-[1.35cqw] font-extrabold leading-tight">{reveal.terreni[i].prompt}</p>
-                  <div className="flex flex-col gap-[0.35cqw]">
-                    {t.options.map((o, j) => (
-                      <TvOption key={o.id} size="sm" index={j} text={o.text} state={o.id === reveal.terreni[i].solutionId ? "right" : "dim"} />
-                    ))}
-                  </div>
+                  <p className={clsx("font-extrabold leading-tight", compact ? "text-[1.2cqw]" : "text-[1.35cqw]")}>{reveal.terreni[i].prompt}</p>
+                  <TvAnswers options={t.options} solutionId={reveal.terreni[i].solutionId} compact={compact} />
                   {picks && (
-                    <p className="mt-auto text-[1.2cqw] font-extrabold text-(--tg-cream)/75">
-                      Scelta al 1° turno: <span className="tg-num text-(--tg-gold)">{picks.first[i]}</span> · al 2°: <span className="tg-num text-(--tg-gold)">{picks.second[i]}</span>
+                    <p className="mt-auto flex shrink-0 flex-wrap items-baseline gap-x-[0.8cqw] text-[1.15cqw] font-extrabold text-(--tg-cream)/80">
+                      <span>
+                        1° turno <span className="tg-num text-[1.5cqw] text-(--tg-gold-hi)">{picks.first[i]}</span>
+                      </span>
+                      <span>
+                        2° turno <span className="tg-num text-[1.5cqw] text-(--tg-gold-hi)">{picks.second[i]}</span>
+                      </span>
                     </p>
                   )}
                 </>
               ) : (
-                <div className="flex flex-1 flex-col items-center justify-center gap-[0.6cqw] text-center">
-                  <Icon name="lock" className="h-[3cqw] w-[3cqw] text-(--tg-cream)/35" />
-                  <p className="text-[1.3cqw] font-bold text-(--tg-cream)/60">La domanda si apre sul telefono di chi sceglie questo terreno</p>
+                <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center gap-[0.6cqw] overflow-hidden text-center">
+                  <CompassRose className="pointer-events-none absolute left-1/2 top-1/2 h-[14cqw] w-[14cqw] -translate-x-1/2 -translate-y-1/2 text-(--tg-brass) opacity-[0.16]" />
+                  <Icon name="lock" className="relative h-[2.8cqw] w-[2.8cqw] text-(--tg-gold)" />
+                  <p className={clsx("relative max-w-[22cqw] font-bold leading-snug text-(--tg-cream)/80", compact ? "text-[1.2cqw]" : "text-[1.35cqw]")}>La domanda si apre sul telefono di chi sceglie questo terreno</p>
                 </div>
               )}
             </TvPanel>
           ))}
         </div>
-        {done && <TvExplain text={reveal.explain} />}
+        {done && <TvWhy text={reveal.explain} compact={compact} />}
       </div>
     </TvFrame>
   );

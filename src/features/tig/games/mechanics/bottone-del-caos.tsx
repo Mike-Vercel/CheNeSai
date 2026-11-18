@@ -5,33 +5,44 @@ import { useId, useState } from "react";
 import type { CaosReveal, CaosSubmission, CaosView } from "@/lib/tig/games/mechanics/bottone-del-caos";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
-import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { PhoneChip, Step, TablePicker, TvChip } from "./m2/kit";
+import { Doubloon, SkullMark } from "../kit/ornaments";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
+import { PhoneChip, Step, TablePicker, TvAnswers, TvChip, tvCompact, TvLabel, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<CaosView, null, CaosSubmission, CaosReveal>;
 type T = TvGameProps<CaosView, CaosReveal>;
 
-/** Il Bottone del Caos disegnato: pulsante rosso su base a strisce. */
+/** Il Bottone del Caos disegnato: cupola rossa col teschio simpatico su una base di legno con le borchie d'ottone. */
 function CaosButton({ className, pressed = false }: { className?: string; pressed?: boolean }) {
   const uid = useId().replace(/:/g, "");
+  const y = pressed ? 47 : 39;
   return (
     <svg viewBox="0 0 120 90" className={className} role="img" aria-label="Bottone del Caos">
       <defs>
-        <pattern id={`${uid}-s`} width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width="6" height="12" fill="var(--tg-gold)" />
-          <rect x="6" width="6" height="12" fill="var(--tg-ink)" />
-        </pattern>
+        <linearGradient id={`${uid}-w`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#7a5030" />
+          <stop offset="1" stopColor="#3b2414" />
+        </linearGradient>
         <radialGradient id={`${uid}-l`} cx="40%" cy="30%" r="70%">
-          <stop offset="0" stopColor="var(--tg-red-hi)" />
-          <stop offset="1" stopColor="var(--tg-red)" />
+          <stop offset="0" stopColor="#ff9a8c" />
+          <stop offset="0.45" stopColor="var(--tg-red)" />
+          <stop offset="1" stopColor="var(--tg-red-deep)" />
         </radialGradient>
       </defs>
-      <rect x="8" y="58" width="104" height="24" rx="6" fill={`url(#${uid}-s)`} stroke="var(--tg-ink)" strokeWidth="3" />
-      <rect x="26" y={pressed ? 48 : 40} width="68" height="20" rx="6" fill="var(--tg-red-deep)" />
-      <ellipse cx="60" cy={pressed ? 48 : 40} rx="34" ry="14" fill={`url(#${uid}-l)`} stroke="var(--tg-red-ink)" strokeWidth="2" />
-      <ellipse cx="50" cy={pressed ? 44 : 36} rx="12" ry="4" fill="#fff" fillOpacity="0.35" />
+      <ellipse cx="60" cy="84" rx="54" ry="5" fill="#000" opacity="0.4" />
+      <rect x="8" y="58" width="104" height="24" rx="6" fill={`url(#${uid}-w)`} stroke="#c9a24a" strokeWidth="2.5" />
+      {[18, 40, 80, 102].map((x) => (
+        <circle key={x} cx={x} cy="70" r="2.4" fill="#ffd56b" stroke="#6b4210" strokeWidth="0.8" />
+      ))}
+      <rect x="26" y={y} width="68" height="20" rx="6" fill="var(--tg-red-deep)" />
+      <ellipse cx="60" cy={y} rx="34" ry="14" fill={`url(#${uid}-l)`} stroke="var(--tg-red-ink)" strokeWidth="2" />
+      <ellipse cx="49" cy={y - 5} rx="11" ry="3.5" fill="#fff" fillOpacity="0.3" />
+      <g transform={`translate(60 ${y - 1})`}>
+        <path d="M-6.5 0a6.5 6 0 0 1 13 0c0 2.2-1.1 3.6-2.4 4.3v2.2h-8.2V4.3C-5.4 3.6-6.5 2.2-6.5 0Z" fill="#f6ead2" opacity="0.92" />
+        <circle cx="-2.4" cy="0.2" r="1.6" fill="var(--tg-red-ink)" />
+        <circle cx="2.4" cy="0.2" r="1.6" fill="var(--tg-red-ink)" />
+      </g>
     </svg>
   );
 }
@@ -123,59 +134,73 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const s = done ? reveal.summary : null;
-  const many = (s?.duels.length ?? 0) > 6;
+  const compact = tvCompact(p.teams);
+  const many = (s?.duels.length ?? 0) > 2;
+  const three = (s?.duels.length ?? 0) > 6;
+  // domande lunghe (o risposte lunghe): risposte compatte, così le tre schede non tagliano niente
+  const dense = view.raffica.some((q) => q.prompt.length > (compact ? 70 : 110) || q.options.some((o) => o.text.length > 16));
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Più risposte giuste vince; a pari merito il più rapido. Chi perde: nessun malus" : `Allarme Caos! Tre domande uguali per tutti, duello vinto +${view.prize}`}>
-      <div className="flex h-full min-h-0 flex-col gap-[1.2cqw]">
-        <div className="grid grid-cols-3 gap-[1.2cqw]">
+      <div className="flex h-full min-h-0 flex-col gap-[1.1cqw]">
+        <div className="grid min-h-0 flex-1 grid-cols-3 gap-[1.2cqw]">
           {view.raffica.map((q, i) => {
             const sol = done ? reveal.raffica[i].solutionId : null;
             return (
-              <TvPanel key={i} className="tg-rise flex flex-col gap-[0.6cqw]" tone={i === 1 ? "red" : undefined}>
-                <p className="tg-num text-[2.4cqw] leading-none text-(--tg-red-hi)">{i + 1}</p>
-                <p className="text-[1.6cqw] font-extrabold leading-tight">{q.prompt}</p>
-                <div className="flex flex-col gap-[0.4cqw]">
-                  {q.options.map((o, j) => (
-                    <TvOption key={o.id} size="sm" index={j} text={o.text} state={sol ? (o.id === sol ? "right" : "dim") : "idle"} />
-                  ))}
+              <TvPanel key={i} className={clsx("tg-rise flex min-h-0 flex-col", compact ? "gap-[0.4cqw] py-[1.1cqw]" : "gap-[0.6cqw]")} tone={i === 1 ? "red" : undefined}>
+                <div className="flex shrink-0 items-start gap-[0.7cqw]">
+                  <Doubloon className={compact ? "h-[2.6cqw] w-[2.6cqw] text-[1.3cqw]" : "h-[3cqw] w-[3cqw] text-[1.5cqw]"}>{i + 1}</Doubloon>
+                  <p className={clsx("font-extrabold leading-tight", compact ? "text-[1.35cqw]" : "text-[1.6cqw]")}>{q.prompt}</p>
                 </div>
+                {dense ? (
+                  <TvAnswers options={q.options} solutionId={sol} compact={compact} className="mt-auto" />
+                ) : (
+                  <div className="mt-auto flex flex-col gap-[0.35cqw]">
+                    {q.options.map((o, j) => (
+                      <TvOption key={o.id} size="sm" index={j} text={o.text} state={sol ? (o.id === sol ? "right" : "dim") : "idle"} />
+                    ))}
+                  </div>
+                )}
               </TvPanel>
             );
           })}
         </div>
-        <div className="grid min-h-0 flex-1 grid-cols-[1.4fr_1fr] gap-[1.2cqw]">
-          <TvPanel tone="red" className="flex min-h-0 flex-col gap-[0.5cqw] overflow-hidden">
-            <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">Duelli del Caos</p>
+        <div className={clsx("grid shrink-0 gap-[1.2cqw]", done ? (three ? "grid-cols-[1.7fr_1fr]" : "grid-cols-[1.25fr_1fr]") : "grid-cols-[1.4fr_1fr]", done && three ? "h-[15cqw]" : compact ? "h-[12.5cqw]" : "h-[14cqw]")}>
+          <TvPanel tone="red" className={clsx("flex min-h-0 flex-col overflow-hidden", compact ? "gap-[0.4cqw] py-[1cqw]" : "gap-[0.5cqw] py-[1.3cqw]")}>
+            <TvLabel className="text-(--tg-red-hi)" icon={<SkullMark className="h-[1.9cqw] w-[1.9cqw] text-(--tg-cream)" />}>
+              Duelli del Caos
+            </TvLabel>
             {s ? (
-              <div className={clsx("grid min-h-0 gap-[0.35cqw] overflow-hidden", many ? "grid-cols-2" : "grid-cols-1")}>
-                {s.duels.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/60">Nessun duello.</p>}
+              <div className={clsx("grid min-h-0 content-start gap-[0.3cqw] overflow-hidden", three ? "grid-cols-3" : many ? "grid-cols-2" : "grid-cols-1")}>
+                {s.duels.length === 0 && <p className="text-[1.5cqw] font-bold text-(--tg-cream)/70">Nessun duello.</p>}
                 {s.duels.map((d, i) => (
-                  <div key={`${d.a}${d.b}`} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 90}ms` }}>
-                    <TvChip teams={p.teams} id={d.a} size={many ? 2 : 2.5} />
-                    <span className="tg-num text-[1.4cqw] text-(--tg-cream)/80">
+                  <div key={`${d.a}${d.b}`} className={clsx("tg-rise flex items-center rounded-[0.7cqw] bg-(--tg-cream)/[0.06]", three ? "gap-[0.35cqw] px-[0.45cqw] py-[0.12cqw]" : many ? "gap-[0.35cqw] px-[0.45cqw] py-[0.2cqw]" : "gap-[0.5cqw] px-[0.6cqw] py-[0.3cqw]")} style={{ animationDelay: `${i * 90}ms` }}>
+                    <TvChip teams={p.teams} id={d.a} size={three ? 1.9 : many ? 2.1 : 2.6} />
+                    <span className={clsx("tg-num text-(--tg-cream)/85", many ? "text-[1.1cqw]" : "text-[1.4cqw]")}>
                       {s.hits[d.a] ?? 0}–{s.hits[d.b] ?? 0}
                     </span>
-                    <TvChip teams={p.teams} id={d.b} size={many ? 2 : 2.5} />
-                    <span className={clsx("ml-auto text-right font-extrabold", many ? "text-[1cqw]" : "text-[1.3cqw]")}>
-                      {d.winner ? <span className="text-(--tg-gold)">vince il {p.teams.find((t) => t.teamId === d.winner)?.tableNo} · +{view.prize}</span> : <span className="text-(--tg-cream)/55">pari</span>}
+                    <TvChip teams={p.teams} id={d.b} size={three ? 1.9 : many ? 2.1 : 2.6} />
+                    <span className={clsx("tg-num ml-auto text-right", many ? "text-[1cqw]" : "text-[1.3cqw]")}>
+                      {d.winner ? <span className="text-(--tg-gold-hi)">+{view.prize} al {p.teams.find((t) => t.teamId === d.winner)?.tableNo}</span> : <span className="text-(--tg-cream)/55">pari</span>}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="flex flex-1 items-center gap-[1.6cqw]">
-                <CaosButton className="tg-pulse h-[10cqw] w-[13cqw] shrink-0" />
-                <p className="text-[1.6cqw] font-bold leading-snug text-(--tg-cream)/85">Ogni tavolo preme il bottone contro un rivale: chi contro chi si scopre al reveal.</p>
+              <div className="flex min-h-0 flex-1 items-center gap-[1.4cqw]">
+                <CaosButton className={clsx("tg-pulse shrink-0", compact ? "h-[7cqw] w-[9.5cqw]" : "h-[8.5cqw] w-[11.5cqw]")} />
+                <p className={clsx("font-bold leading-snug text-(--tg-cream)/90", compact ? "text-[1.35cqw]" : "text-[1.6cqw]")}>Ogni tavolo preme il bottone contro un rivale: chi contro chi si scopre al reveal.</p>
               </div>
             )}
           </TvPanel>
           {done ? (
-            <TvExplain text={reveal.explain} />
+            <TvWhy text={reveal.explain} compact={compact} className="h-full" />
           ) : (
-            <TvPanel className="flex flex-col items-center justify-center gap-[0.4cqw] text-center">
-              <Icon name="bolt" className="h-[3.6cqw] w-[3.6cqw] text-(--tg-gold)" />
-              <p className="tg-num text-[5cqw] leading-none text-(--tg-gold)">+{view.prize}</p>
-              <p className="tg-display text-[1.8cqw]">a duello vinto · nessun malus</p>
+            <TvPanel tone="lime" className="flex min-h-0 items-center justify-center gap-[1.2cqw]">
+              <Doubloon className={compact ? "h-[6.5cqw] w-[6.5cqw] text-[2.6cqw]" : "h-[7.5cqw] w-[7.5cqw] text-[3cqw]"}>+{view.prize}</Doubloon>
+              <div>
+                <p className={clsx("tg-title leading-none text-(--tg-gold-hi)", compact ? "text-[2.2cqw]" : "text-[2.6cqw]")}>a duello vinto</p>
+                <p className="mt-[0.4cqw] text-[1.2cqw] font-bold text-(--tg-cream)/80">chi perde non perde nulla</p>
+              </div>
             </TvPanel>
           )}
         </div>

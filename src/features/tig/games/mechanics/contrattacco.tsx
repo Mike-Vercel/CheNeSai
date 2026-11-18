@@ -7,8 +7,8 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { BigToggle, ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { PhoneChip, Step, TvChip } from "./m2/kit";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
+import { PhoneChip, Step, TvAnswers, TvChip, tvCompact, TvLabel, TvWhy } from "./m2/kit";
 
 type P = PlayerGameProps<ContrattaccoView, null, ContrattaccoSubmission, ContrattaccoReveal>;
 type T = TvGameProps<ContrattaccoView, ContrattaccoReveal>;
@@ -126,84 +126,83 @@ function Tv(p: T) {
   const { view, reveal } = p;
   const done = p.stage === "reveal" && reveal;
   const links = done ? (reveal.summary?.links ?? []) : [];
-  const many = view.ring.length > 8;
+  const compact = tvCompact(p.teams);
+  const two = view.ring.length > 6;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Colpo a segno: −20 al bersaglio · la rivincita è un bonus, mai un altro attacco" : `Ognuno colpisce il tavolo dopo di lui nel giro. Rivincita: sicura +${view.bonus.sicura} o piena +${view.bonus.piena}`}>
-      <div className="grid h-full grid-cols-[1.4fr_1fr] gap-[1.6cqw]">
+      <div className="grid h-full grid-cols-[1.6fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          <TvPanel className="flex flex-col gap-[0.7cqw]">
-            <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-red-hi)">
-              <Icon name="sword" className="h-[1.5cqw] w-[1.5cqw]" /> Il colpo · giusto = −{view.steal} al bersaglio
-            </p>
-            <p className="text-[2cqw] font-extrabold leading-tight">{view.colpo.prompt}</p>
-            <div className="grid grid-cols-4 gap-[0.6cqw]">
-              {view.colpo.options.map((o, i) => (
-                <TvOption key={o.id} size="sm" index={i} text={o.text} state={done ? (o.id === reveal.colpo.solutionId ? "right" : "dim") : "idle"} />
-              ))}
-            </div>
+          <TvPanel className={clsx("flex shrink-0 flex-col", compact ? "gap-[0.45cqw] py-[1.2cqw]" : "gap-[0.7cqw]")}>
+            <TvLabel className="text-(--tg-red-hi)" icon={<Icon name="sword" className="h-[1.5cqw] w-[1.5cqw]" />}>
+              Il colpo · giusto = −{view.steal} al bersaglio
+            </TvLabel>
+            <p className={clsx("font-extrabold leading-tight", compact ? "text-[1.6cqw]" : "text-[2cqw]")}>{view.colpo.prompt}</p>
+            <TvAnswers options={view.colpo.options} solutionId={done ? reveal.colpo.solutionId : null} compact={compact} cols={4} />
           </TvPanel>
-          <div className="grid min-h-0 flex-1 grid-cols-2 gap-[1cqw]">
+          <div className="grid min-h-0 flex-1 grid-cols-[1fr_1.45fr] gap-[1cqw]">
             {(["sicura", "piena"] as const).map((k) => {
               const q = view[k];
               const sol = done ? reveal[k].solutionId : null;
               return (
-                <TvPanel key={k} tone={k === "piena" ? "red" : "lime"} className="flex min-h-0 flex-col gap-[0.5cqw]">
-                  <p className="flex items-center justify-between text-[1.1cqw] font-extrabold uppercase tracking-[0.2em]">
-                    <span>Rivincita {k}</span>
-                    <span className={clsx("tg-num text-[2cqw]", k === "piena" ? "text-(--tg-red-hi)" : "text-(--tg-gold)")}>+{view.bonus[k]}</span>
-                  </p>
-                  <p className="text-[1.4cqw] font-extrabold leading-tight">{q.prompt}</p>
-                  <div className={clsx("grid gap-[0.4cqw]", k === "sicura" ? "grid-cols-1" : "grid-cols-2")}>
-                    {q.options.map((o, i) => (
-                      <TvOption key={o.id} size="sm" index={i} text={o.text} state={sol ? (o.id === sol ? "right" : "dim") : "idle"} />
-                    ))}
+                <TvPanel key={k} tone={k === "piena" ? "red" : "lime"} className={clsx("flex min-h-0 flex-col", compact ? "gap-[0.4cqw] py-[1.1cqw]" : "gap-[0.6cqw]")}>
+                  <div className="flex shrink-0 items-center justify-between gap-[0.6cqw]">
+                    <TvLabel className={k === "piena" ? "text-(--tg-red-hi)" : "text-(--tg-gold)"} icon={<Icon name={k === "piena" ? "flame" : "shield"} className="h-[1.4cqw] w-[1.4cqw]" />}>
+                      Rivincita {k}
+                    </TvLabel>
+                    <span className={clsx("tg-num leading-none", compact ? "text-[2cqw]" : "text-[2.4cqw]", k === "piena" ? "text-(--tg-red-hi)" : "text-(--tg-gold-hi)")}>+{view.bonus[k]}</span>
                   </div>
+                  <p className={clsx("font-extrabold leading-tight", q.prompt.length > 80 ? (compact ? "text-[1.15cqw]" : "text-[1.3cqw]") : compact ? "text-[1.25cqw]" : "text-[1.45cqw]")}>{q.prompt}</p>
+                  <TvAnswers options={q.options} solutionId={sol} compact={compact} cols={k === "piena" || q.options.every((o) => o.text.length <= 4) ? 2 : 1} />
                 </TvPanel>
               );
             })}
           </div>
         </div>
-        <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] overflow-hidden">
-          <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Il giro degli attacchi</p>
+        <TvPanel className={clsx("flex min-h-0 flex-col overflow-hidden", compact ? "gap-[0.5cqw] py-[1.2cqw]" : "gap-[0.7cqw]")}>
+          <TvLabel className="text-(--tg-gold)" icon={<Icon name="sword" className="h-[1.5cqw] w-[1.5cqw]" />}>
+            Il giro degli attacchi
+          </TvLabel>
           {done ? (
             <>
-              <div className={clsx("grid min-h-0 gap-[0.35cqw] overflow-hidden", many ? "grid-cols-2" : "grid-cols-1")}>
+              <div className={clsx("grid min-h-0 content-start gap-[0.35cqw] overflow-hidden", two ? "grid-cols-2" : "grid-cols-1")}>
                 {links.map((l, i) => (
-                  <div key={l.from} className="tg-rise flex items-center gap-[0.5cqw] rounded-[0.7cqw] bg-(--tg-cream)/[0.05] px-[0.6cqw] py-[0.3cqw]" style={{ animationDelay: `${i * 60}ms` }}>
-                    <TvChip teams={p.teams} id={l.from} size={many ? 1.9 : 2.4} />
-                    <Icon name="sword" className={clsx("h-[1.4cqw] w-[1.4cqw]", l.hit ? "text-(--tg-red-hi)" : "text-(--tg-cream)/35")} />
-                    <TvChip teams={p.teams} id={l.to} size={many ? 1.9 : 2.4} />
-                    <span className={clsx("ml-auto text-right font-extrabold leading-tight", many ? "text-[0.95cqw]" : "text-[1.2cqw]")}>
-                      <span className={l.hit ? "text-(--tg-red-hi)" : "text-(--tg-cream)/50"}>{l.hit ? `−${view.steal}` : "a vuoto"}</span>
-                      <span className="text-(--tg-cream)/40"> · </span>
-                      <span className={l.revengeOk ? "text-(--tg-gold)" : "text-(--tg-cream)/50"}>{l.revenge ? (l.revengeOk ? `rivincita +${view.bonus[l.revenge]}` : `${l.revenge} fallita`) : "nessuna rivincita"}</span>
+                  <div key={l.from} className={clsx("tg-rise flex items-center rounded-[0.7cqw] bg-(--tg-cream)/[0.06]", two ? "gap-[0.35cqw] px-[0.45cqw] py-[0.15cqw]" : "gap-[0.6cqw] px-[0.7cqw] py-[0.35cqw]")} style={{ animationDelay: `${i * 60}ms` }}>
+                    <TvChip teams={p.teams} id={l.from} size={two ? 2.1 : 2.7} />
+                    <Icon name="sword" className={clsx("shrink-0", two ? "h-[1.15cqw] w-[1.15cqw]" : "h-[1.5cqw] w-[1.5cqw]", l.hit ? "text-(--tg-red-hi)" : "text-(--tg-cream)/35")} />
+                    <TvChip teams={p.teams} id={l.to} size={two ? 2.1 : 2.7} />
+                    <span className="ml-auto flex shrink-0 items-center gap-[0.3cqw]">
+                      <span className={clsx("tg-num rounded-[0.4cqw] px-[0.4cqw] leading-tight", two ? "text-[1.15cqw]" : "text-[1.35cqw]", l.hit ? "bg-(--tg-red)/30 text-(--tg-red-hi)" : "text-(--tg-cream)/50")}>{l.hit ? `−${view.steal}` : "vuoto"}</span>
+                      <span className={clsx("tg-num rounded-[0.4cqw] px-[0.4cqw] leading-tight", two ? "text-[1.15cqw]" : "text-[1.35cqw]", l.revengeOk ? "bg-(--tg-gold)/20 text-(--tg-gold-hi)" : "text-(--tg-cream)/50")}>
+                        {l.revenge ? (l.revengeOk ? `+${view.bonus[l.revenge]}` : <Icon name="x" className={two ? "h-[1cqw] w-[1cqw]" : "h-[1.3cqw] w-[1.3cqw]"} />) : "—"}
+                      </span>
                     </span>
                   </div>
                 ))}
               </div>
-              <TvExplain text={reveal.explain} className="mt-auto" />
+              <p className="shrink-0 text-[1cqw] font-bold text-(--tg-cream)/65">Primo valore: il colpo · secondo: la rivincita di chi è stato colpito</p>
+              <TvWhy text={reveal.explain} compact={compact} className="mt-auto" />
             </>
           ) : (
-            <div className="flex flex-wrap items-center gap-[0.5cqw]">
-              {view.ring.map((l, i) => (
-                <span key={l.from.teamId} className="tg-rise flex items-center gap-[0.5cqw]" style={{ animationDelay: `${i * 50}ms` }}>
-                  <TvChip teams={p.teams} id={l.from.teamId} size={view.ring.length > 12 ? 2.3 : 3} />
-                  <Icon name="arrow" className="h-[1.4cqw] w-[1.4cqw] text-(--tg-red-hi)" />
-                </span>
-              ))}
-              {view.ring[0] && <TvChip teams={p.teams} id={view.ring[0].from.teamId} size={view.ring.length > 12 ? 2.3 : 3} />}
-              {view.ring.length === 0 && <p className="text-[1.6cqw] font-bold text-(--tg-cream)/60">Un tavolo solo: niente attacchi.</p>}
-            </div>
-          )}
-          {!done && (
-            <div className="mt-auto flex flex-col gap-[0.6cqw]">
-              <p className="flex items-center gap-[0.6cqw] text-[1.5cqw] font-extrabold">
-                <Icon name="sword" className="h-[1.8cqw] w-[1.8cqw] text-(--tg-red-hi)" /> Colpo giusto: {view.steal} punti passano a chi colpisce
-              </p>
-              <p className="flex items-center gap-[0.6cqw] text-[1.5cqw] font-extrabold">
-                <Icon name="shield" className="h-[1.8cqw] w-[1.8cqw] text-(--tg-gold)" /> La rivincita è un bonus: nessuna catena di attacchi
-              </p>
-            </div>
+            <>
+              <div className="flex flex-wrap items-center gap-[0.5cqw]">
+                {view.ring.map((l, i) => (
+                  <span key={l.from.teamId} className="tg-rise flex items-center gap-[0.4cqw]" style={{ animationDelay: `${i * 50}ms` }}>
+                    <TvChip teams={p.teams} id={l.from.teamId} size={view.ring.length > 8 ? 2.6 : 3.2} />
+                    <Icon name="arrow" className="h-[1.3cqw] w-[1.3cqw] text-(--tg-red-hi)" />
+                  </span>
+                ))}
+                {view.ring[0] && <TvChip teams={p.teams} id={view.ring[0].from.teamId} size={view.ring.length > 8 ? 2.6 : 3.2} />}
+                {view.ring.length === 0 && <p className="text-[1.6cqw] font-bold text-(--tg-cream)/70">Un tavolo solo: niente attacchi.</p>}
+              </div>
+              <div className="mt-auto flex flex-col gap-[0.6cqw]">
+                <p className={clsx("flex items-center gap-[0.6cqw] font-extrabold", compact ? "text-[1.3cqw]" : "text-[1.5cqw]")}>
+                  <Icon name="sword" className="h-[1.8cqw] w-[1.8cqw] shrink-0 text-(--tg-red-hi)" /> Colpo giusto: {view.steal} punti passano a chi colpisce
+                </p>
+                <p className={clsx("flex items-center gap-[0.6cqw] font-extrabold", compact ? "text-[1.3cqw]" : "text-[1.5cqw]")}>
+                  <Icon name="shield" className="h-[1.8cqw] w-[1.8cqw] shrink-0 text-(--tg-gold)" /> La rivincita è un bonus: nessuna catena di attacchi
+                </p>
+              </div>
+            </>
           )}
         </TvPanel>
       </div>
