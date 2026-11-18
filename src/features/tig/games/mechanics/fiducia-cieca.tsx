@@ -6,9 +6,9 @@ import type { FiduciaReveal, FiduciaSubmission, FiduciaView } from "@/lib/tig/ga
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
+import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { RingTv } from "./m4/kit";
+import { PactToggle, RingTv } from "./m4/kit";
 
 type P = PlayerGameProps<FiduciaView, null, FiduciaSubmission, FiduciaReveal>;
 type T = TvGameProps<FiduciaView, FiduciaReveal>;
@@ -24,7 +24,7 @@ function Statements({ items, tv = false, lies }: { items: { by: string; text: st
             className={clsx(
               "flex items-baseline border-2",
               tv ? "gap-[0.9cqw] rounded-[0.9cqw] px-[1cqw] py-[0.6cqw]" : "gap-3 rounded-xl px-3 py-2",
-              lie === undefined ? "border-(--tg-cream)/10 bg-(--tg-cream)/[0.04]" : lie ? "tg-stripes-red border-(--tg-red-hi)" : "border-(--tg-gold)/50 bg-(--tg-gold)/[0.06]",
+              lie === undefined ? "border-(--tg-cream)/10 bg-(--tg-cream)/[0.04]" : lie ? "tg-stripes-red border-(--tg-red-hi)" : "border-(--tg-gold)/50 bg-(--tg-gold-dark)/45",
             )}
           >
             <span className={clsx("tg-display shrink-0", tv ? "w-[7cqw] text-[1.9cqw]" : "w-20 text-xl")}>{s.by}</span>
@@ -99,14 +99,14 @@ function Player(p: P) {
           <Eyebrow className="flex items-center gap-2">
             <Icon name="handshake" className="h-4 w-4" /> Il tavolo {hears} vi passa la sua risposta, ma non la vedrete
           </Eyebrow>
-          <BigToggle
+          <PactToggle
             label="Fiducia"
             value={mode}
             onChange={setMode}
             disabled={!editable}
             options={[
-              { id: "fido", title: "Ci fidiamo", sub: `Giusta: +${view.payoff.fiducia}`, tone: "lime", icon: "handshake" },
-              { id: "soli", title: "Da soli", sub: `Giusta: +${view.payoff.soli}`, tone: "ice", icon: "eye" },
+              { id: "fido", title: "Ci fidiamo", sub: `Giusta: +${view.payoff.fiducia}`, tone: "gold", icon: "handshake" },
+              { id: "soli", title: "Da soli", sub: `Giusta: +${view.payoff.soli}`, tone: "cream", icon: "eye" },
             ]}
           />
         </Panel>
@@ -158,7 +158,7 @@ function Tv(p: T) {
                 const to = tellsTo.get(from);
                 const l = to ? links.get(to) : undefined;
                 if (!l) return null;
-                if (!l.trusted) return { color: "color-mix(in srgb, var(--tg-cream) 45%, transparent)", text: "DA SOLI", dashed: true };
+                if (!l.trusted) return { color: "color-mix(in srgb, var(--tg-cream) 62%, transparent)", text: "DA SOLI", dashed: true };
                 return { color: l.correct ? "var(--tg-gold)" : "var(--tg-red-hi)", text: l.correct ? "FIDUCIA OK" : "FIDUCIA KO" };
               }}
               label="Giro dei suggerimenti: ogni tavolo passa la risposta al successivo"

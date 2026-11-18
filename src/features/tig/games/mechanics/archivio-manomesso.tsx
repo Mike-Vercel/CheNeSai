@@ -22,7 +22,8 @@ function FieldRow({ f, state, dark, tv = false, onPick, disabled }: { f: Archivi
     state === "picked" && "border-(--tg-night) bg-(--tg-gold) text-(--tg-ink) shadow-[0_0_0_3px_var(--tg-gold)]",
     state === "tampered" && "border-(--tg-red-hi) bg-(--tg-red) text-white",
     state === "missed" && "border-(--tg-red-hi) border-dashed bg-(--tg-red)/80 text-(--tg-cream)",
-    state === "witness" && "border-(--tg-gold-deep) bg-(--tg-gold)/40",
+    // conferma: carta dorata con l'inchiostro scuro, uguale sulla carta chiara e sul messaggio scuro (niente oliva)
+    state === "witness" && "border-(--tg-gold-deep) bg-(--tg-gold-pale) text-(--tg-ink)",
   );
   const body = (
     <>

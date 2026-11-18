@@ -7,6 +7,7 @@ import { useAnswerKeys } from "@/features/shared/keyboard";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
+import { Doubloon } from "../kit/ornaments";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
 import { SealedOffer, splitProfile, SuspectButton, TableTag, TvSuspect, useCrossed, usePurchases, type SuspectState } from "./m4/kit";
 
@@ -108,6 +109,7 @@ function Tv(p: T) {
   const team = new Map(p.teams.map((x) => [x.teamId, x]));
   const proofs = done ? reveal.proofs : null;
   const spent = done ? (reveal.summary?.spent ?? []) : [];
+  const many = p.teams.length > 7;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Le prove, e quanto bastava spendere" : view.question}>
       <div className="grid h-full grid-cols-[1.15fr_1fr] gap-[1.6cqw]">
@@ -130,9 +132,10 @@ function Tv(p: T) {
                   )}
                   style={{ animationDelay: `${i * 90}ms` }}
                 >
-                  <span className={clsx("grid shrink-0 place-items-center rounded-[0.8cqw] bg-(--tg-teal) text-(--tg-ink)", r ? "h-[3.6cqw] w-[3.6cqw]" : "h-[4.6cqw] w-[4.6cqw]")}>
-                    <span className="tg-num text-[2.2cqw] leading-none">{s.price}</span>
-                  </span>
+                  {/* il prezzo è un doblone */}
+                  <Doubloon label={`costa ${s.price} punti`} className={r ? "h-[3.6cqw] w-[3.6cqw] text-[1.5cqw]" : "h-[4.6cqw] w-[4.6cqw] text-[1.9cqw]"}>
+                    {s.price}
+                  </Doubloon>
                   <div className="min-w-0 flex-1">
                     <p className={clsx("tg-display text-(--tg-teal-hi)", r ? "text-[1.5cqw]" : "text-[1.7cqw]")}>{s.name}</p>
                     {r ? <p className="text-[1.2cqw] font-bold leading-snug">{r.text}</p> : <p className="flex items-center gap-[0.4cqw] text-[1.15cqw] font-bold text-(--tg-cream)/60"><Icon name="lock" className="h-[1.2cqw] w-[1.2cqw]" /> sigillata · costa {s.price} punti potenziali</p>}
@@ -142,19 +145,22 @@ function Tv(p: T) {
             })}
           </div>
           {done ? (
-            <TvPanel className="flex shrink-0 flex-wrap items-center gap-[0.6cqw] py-[0.8cqw] text-[1.3cqw] font-bold">
-              <span className="text-(--tg-teal-hi)">Spesa minima per essere sicuri: {reveal.cheapest.cost}</span>
+            <TvPanel className="flex shrink-0 flex-col gap-[0.5cqw] py-[0.8cqw] text-[1.3cqw] font-bold">
+              <p className="text-(--tg-teal-hi)">
+                Spesa minima per essere sicuri: <span className="tg-num text-[1.6cqw]">{reveal.cheapest.cost}</span>
+              </p>
               {spent.length > 0 && spent.length <= 6 ? (
-                <>
-                  <span className="text-(--tg-cream)/50">· spesa dei tavoli:</span>
+                <p className="flex flex-wrap items-center gap-x-[1cqw] gap-y-[0.4cqw]">
+                  <span className="text-(--tg-cream)/65">Spesa dei tavoli:</span>
                   {spent.map((x) => (
-                    <span key={x.teamId} className="flex items-center gap-[0.3cqw]">
-                      <TableTag tv no={team.get(x.teamId)?.tableNo ?? "?"} color={team.get(x.teamId)?.color} /> {x.cost}
+                    <span key={x.teamId} className="flex items-center gap-[0.4cqw]">
+                      <TableTag tv no={team.get(x.teamId)?.tableNo ?? "?"} color={team.get(x.teamId)?.color} />
+                      <span className="tg-num text-[1.5cqw]">{x.cost}</span>
                     </span>
                   ))}
-                </>
+                </p>
               ) : spent.length > 6 ? (
-                <span className="text-(--tg-cream)/75">· spesa media dei tavoli: {Math.round(spent.reduce((t, x) => t + x.cost, 0) / spent.length)}</span>
+                <p className="text-(--tg-cream)/80">Spesa media dei tavoli: {Math.round(spent.reduce((t, x) => t + x.cost, 0) / spent.length)}</p>
               ) : null}
             </TvPanel>
           ) : (
@@ -162,10 +168,12 @@ function Tv(p: T) {
           )}
         </div>
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          <TvPanel className="grid grid-cols-1 content-start gap-[0.6cqw]">
-            {view.suspects.map((s, i) => (
-              <TvSuspect key={s.id} option={s} index={i} compact={!!done} state={done ? (s.id === reveal.solutionId ? "right" : "cleared") : "idle"} />
-            ))}
+          {/* al reveal con molti tavoli (striscia su due righe) i sospettati scagionati stanno su due colonne: spazio al «perché» */}
+          <TvPanel className={clsx("grid shrink-0 content-start", done && many ? "grid-cols-2 gap-[0.5cqw] p-[1.2cqw]" : "grid-cols-1 gap-[0.6cqw]")}>
+            {view.suspects.map((s, i) => {
+              const right = done && s.id === reveal.solutionId;
+              return <TvSuspect key={s.id} option={s} index={i} compact={!!done} state={done ? (right ? "right" : "cleared") : "idle"} className={right && many ? "order-first col-span-2" : undefined} />;
+            })}
           </TvPanel>
           {done && <TvExplain text={reveal.explain} className="py-[0.9cqw]" />}
         </div>

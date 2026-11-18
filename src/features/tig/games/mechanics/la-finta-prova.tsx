@@ -8,7 +8,7 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, useSubmit } from "../kit/ui";
 import { DocCard, type DocState } from "./m4/docs";
-import { FactList } from "./m4/kit";
+import { FactList, LIT } from "./m4/kit";
 
 type P = PlayerGameProps<FintaView, null, FintaSubmission, FintaReveal>;
 type T = TvGameProps<FintaView, FintaReveal>;
@@ -50,8 +50,8 @@ function Player(p: P) {
           </button>
         )}
         {r && (
-          <p className={clsx("rounded-xl px-3 py-2 text-sm font-bold leading-snug", r.fake ? "bg-(--tg-red)/15 text-(--tg-red-hi)" : "bg-(--tg-gold)/10 text-(--tg-gold-hi)")}>
-            <span className="tg-display mr-1 text-base">{r.fake ? "Falsa:" : "Vera:"}</span>
+          <p className={clsx("rounded-xl border px-3 py-2 text-sm font-bold leading-snug", r.fake ? "border-(--tg-red-hi)/60 bg-(--tg-red)/15 text-(--tg-red-hi)" : LIT)}>
+            <span className={clsx("tg-display mr-1 text-base", !r.fake && "text-(--tg-gold-hi)")}>{r.fake ? "Falsa:" : "Vera:"}</span>
             {r.note}
             {r.fake && sent && picked === it.id ? " · l'avete smascherata" : ""}
           </p>
@@ -104,8 +104,8 @@ function Tv(p: T) {
                   {!r && <Suggests text={it.suggests} tv />}
                 </DocCard>
                 {r && (
-                  <p className={clsx("tg-pop rounded-[0.8cqw] px-[0.9cqw] py-[0.6cqw] text-[1.2cqw] font-bold leading-snug", r.fake ? "bg-(--tg-red) text-white" : "bg-(--tg-gold)/15 text-(--tg-gold-hi)")}>
-                    <span className="tg-display mr-[0.4cqw] text-[1.5cqw]">{r.fake ? "FALSA" : "Regge"}</span>
+                  <p className={clsx("tg-pop rounded-[0.8cqw] border-[0.14cqw] px-[0.9cqw] py-[0.6cqw] text-[1.25cqw] font-bold leading-snug", r.fake ? "border-(--tg-red-hi) bg-(--tg-red) text-white" : LIT)}>
+                    <span className={clsx("tg-display mr-[0.4cqw] text-[1.5cqw]", !r.fake && "text-(--tg-gold-hi)")}>{r.fake ? "Falsa" : "Regge"}</span>
                     {r.note}
                   </p>
                 )}

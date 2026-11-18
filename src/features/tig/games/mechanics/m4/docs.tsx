@@ -14,15 +14,16 @@ import { IconBadge, SceneIcon } from "../../kit/scene";
 
 export type DocState = "idle" | "picked" | "fake" | "genuine" | "dim";
 
+/** Carte dei documenti: toni caldi da carta vecchia alla luce delle lanterne (inchiostro scuro, contrasto alto). */
 const PAPER: Record<DocKind, { bg: string; ink: string; label: string }> = {
-  scontrino: { bg: "#f4f1e8", ink: "#16181d", label: "Scontrino" },
+  scontrino: { bg: "#f5eedd", ink: "#1b1410", label: "Scontrino" },
   biglietto: { bg: "#ffd36b", ink: "#1a1406", label: "Biglietto" },
   messaggio: { bg: "var(--tg-raised)", ink: "var(--tg-cream)", label: "Messaggio" },
   nota: { bg: "#ffe680", ink: "#221c05", label: "Appunto" },
-  tessera: { bg: "#e8f7ff", ink: "#0b1a22", label: "Tessera" },
-  verbale: { bg: "#f7f4ee", ink: "#1a1a1a", label: "Verbale" },
-  agenda: { bg: "#fbfbf6", ink: "#1b1b22", label: "Agenda" },
-  foto: { bg: "#f6f6f2", ink: "#16181d", label: "Foto" },
+  tessera: { bg: "#ddefe9", ink: "#0b1a22", label: "Tessera" },
+  verbale: { bg: "#f3ead6", ink: "#1b1410", label: "Verbale" },
+  agenda: { bg: "#f8f1df", ink: "#1b1410", label: "Agenda" },
+  foto: { bg: "#f4ecda", ink: "#1b1410", label: "Foto" },
 };
 
 export function docKindLabel(kind: DocKind): string {
@@ -54,7 +55,7 @@ export function DocCard({
   /** contenuto aggiuntivo (es. campi toccabili) */
   children?: ReactNode;
   footer?: ReactNode;
-  /** versione bassa (TV al reveal: foto più piccola) */
+  /** versione bassa (TV al reveal: riquadro della foto più basso, ma l'oggetto lo riempie e resta leggibile) */
   compact?: boolean;
 }) {
   const p = PAPER[kind];
@@ -87,9 +88,10 @@ export function DocCard({
       </div>
 
       {kind === "foto" && (
-        <div className={clsx("mx-auto flex items-center justify-center bg-(--tg-raised)", s("mt-2 h-36 w-[calc(100%-1.5rem)] rounded-sm", compact ? "mt-[0.4cqw] h-[4.6cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]" : "mt-[0.5cqw] h-[7cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]"))} role="img" aria-label={`Foto: ${title}${iconLabel ? `, si legge «${iconLabel}»` : ""}`}>
+        <div className={clsx("mx-auto flex items-center justify-center bg-(--tg-raised)", s("mt-2 h-36 w-[calc(100%-1.5rem)] rounded-sm", compact ? "mt-[0.4cqw] h-[5.6cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]" : "mt-[0.5cqw] h-[7cqw] w-[calc(100%-2cqw)] rounded-[0.2cqw]"))} role="img" aria-label={`Foto: ${title}${iconLabel ? `, si legge «${iconLabel}»` : ""}`}>
           {icon ? (
-            <svg viewBox="0 0 100 100" className="h-[86%]" aria-hidden>
+            // riquadro basso: l'oggetto lo riempie tutto (al reveal l'ora dell'orologio deve leggersi da lontano)
+            <svg viewBox={compact ? "4 4 92 92" : "0 0 100 100"} className={compact ? "h-full" : "h-[86%]"} aria-hidden>
               <SceneIcon kind={icon} tone="amber" label={iconLabel} />
             </svg>
           ) : (
@@ -100,14 +102,14 @@ export function DocCard({
 
       <div className={clsx("flex flex-1 flex-col", s("gap-1 px-3 pb-3 pt-1.5", "gap-[0.35cqw] px-[1cqw] pb-[0.9cqw] pt-[0.4cqw]"))}>
         <p className={clsx("font-extrabold leading-tight", mono && "uppercase", kind === "scontrino" && "text-center", s("text-base", "text-[1.55cqw]"))}>{title}</p>
-        {kind === "verbale" && <span className={clsx("self-start rounded border-2 border-[#c22a3a] font-extrabold uppercase text-[#c22a3a]", s("px-1.5 text-[10px] tracking-widest", "px-[0.4cqw] text-[0.75cqw] tracking-[0.2em]"))}>Protocollo</span>}
+        {kind === "verbale" && <span className={clsx("self-start rounded border-2 border-(--tg-red) font-extrabold uppercase text-(--tg-red)", s("px-1.5 text-[10px] tracking-widest", "px-[0.4cqw] text-[0.75cqw] tracking-[0.2em]"))}>Protocollo</span>}
         {lines?.map((l, i) => (
           <p
             key={i}
             className={clsx(
               "leading-snug",
               mono ? "font-mono font-bold" : kind === "nota" ? "font-bold italic" : "font-semibold",
-              kind === "agenda" && "border-b border-[#c22a3a]/25",
+              kind === "agenda" && "border-b border-(--tg-red)/25",
               kind === "messaggio" && i === 0 && "rounded-xl bg-(--tg-cream)/[0.07] px-2 py-1",
               s("text-[15px]", "text-[1.3cqw]"),
             )}
