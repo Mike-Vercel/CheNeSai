@@ -108,7 +108,8 @@ const def: MechanicDef<FiloContent, FiloSubmission> = {
           chaos: CHAOS.partecipa + (all ? CHAOS.centro : 0),
           correct: all,
           accuracy: right / 3,
-          label: all ? "Filo completo: 3 tessere su 3" : `${right} tessere su 3`,
+          // spazio fisso prima dell'ultimo «3»: andando a capo, «su 3» resta unito (mai un 3 da solo sulla riga)
+          label: all ? "Filo completo: 3 tessere su 3" : `${right} tessere su 3`,
         });
       }),
     };

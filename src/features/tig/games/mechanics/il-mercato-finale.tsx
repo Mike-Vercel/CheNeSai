@@ -155,20 +155,21 @@ function Tv(p: T) {
           </TvPanel>
           {done && <TvExplain text={reveal.explain} />}
         </div>
-        <TvPanel className="flex min-h-0 flex-col gap-[0.8cqw]">
+        <TvPanel className={clsx("flex min-h-0 flex-col", done ? "gap-[0.6cqw] self-start" : "gap-[0.8cqw]")}>
           <p className="flex items-center gap-[0.6cqw] text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">
             <Icon name="coins" className="h-[1.8cqw] w-[1.8cqw]" /> Il banco
           </p>
           {(done ? reveal.hints : view.hints).map((h) => {
             const n = buys.filter((b) => b.hintId === h.id).length;
             return (
-              <div key={h.id} className="tg-rise flex flex-col gap-[0.4cqw] rounded-[1cqw] border border-(--tg-cream)/12 bg-(--tg-cream)/[0.05] p-[0.9cqw]">
+              // al reveal, con il testo svelato, la casella si stringe: sta tutta anche con i 12 tavoli in fondo
+              <div key={h.id} className={clsx("tg-rise flex flex-col rounded-[1cqw] border border-(--tg-cream)/12 bg-(--tg-cream)/[0.05]", done ? "gap-[0.3cqw] p-[0.7cqw]" : "gap-[0.4cqw] p-[0.9cqw]")}>
                 <div className="flex items-center gap-[0.8cqw]">
-                  <CoinTag className="h-[4cqw] w-[4cqw] text-[1.9cqw]">{h.price}</CoinTag>
-                  <p className="min-w-0 flex-1 text-[1.45cqw] font-extrabold leading-tight">{h.label}</p>
-                  {done && <span className="tg-num shrink-0 text-[1.3cqw] text-(--tg-cream)/70">{n} tavol{n === 1 ? "o" : "i"}</span>}
+                  <CoinTag className={done ? "h-[3.2cqw] w-[3.2cqw] text-[1.55cqw]" : "h-[4cqw] w-[4cqw] text-[1.9cqw]"}>{h.price}</CoinTag>
+                  <p className={clsx("min-w-0 flex-1 font-extrabold leading-tight", done ? "text-[1.3cqw]" : "text-[1.45cqw]")}>{h.label}</p>
+                  {done && <span className="tg-num shrink-0 text-[1.2cqw] text-(--tg-cream)/70">{n} tavol{n === 1 ? "o" : "i"}</span>}
                 </div>
-                {done && <p className="text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{h.text}</p>}
+                {done && <p className="line-clamp-3 text-[1.1cqw] font-semibold leading-snug text-(--tg-cream)/85">{h.text}</p>}
               </div>
             );
           })}

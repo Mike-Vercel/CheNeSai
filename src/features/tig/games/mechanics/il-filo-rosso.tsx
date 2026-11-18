@@ -141,7 +141,7 @@ function Tv(p: T) {
             </div>
           ))}
         </div>
-        <div className="grid min-h-0 grid-cols-3 gap-[1cqw]">
+        <div className="grid min-h-0 grid-cols-3 items-start gap-[1cqw]">
           {view.slots.map((s) => {
             const r = done ? reveal.slots.find((x) => x.id === s.id) : null;
             return (

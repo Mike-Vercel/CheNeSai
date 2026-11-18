@@ -146,8 +146,15 @@ function Tv(p: T) {
                 </div>
                 {r ? (
                   <>
-                    <p className="tg-num tg-pop text-[5.4cqw] leading-none tracking-[0.25em] text-(--tg-gold)">{r.combination}</p>
                     <p className="text-[1.6cqw] font-semibold leading-snug text-(--tg-cream)/90">{r.step}</p>
+                    {/* le stesse caselle del gioco, ora con le cifre d'oro: la serratura che scatta */}
+                    <p className="tg-pop mt-auto flex gap-[0.6cqw]" aria-label={`Combinazione ${r.combination}`}>
+                      {r.combination.split("").map((d, k) => (
+                        <span key={k} aria-hidden className="tg-num grid h-[6.2cqw] w-[4.6cqw] place-items-center rounded-[0.8cqw] border-[0.2cqw] border-(--tg-gold)/70 bg-(--tg-gold)/12 text-[4.2cqw] leading-none text-(--tg-gold)">
+                          {d}
+                        </span>
+                      ))}
+                    </p>
                   </>
                 ) : (
                   <>
