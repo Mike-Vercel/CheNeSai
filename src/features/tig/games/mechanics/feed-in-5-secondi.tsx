@@ -1,5 +1,6 @@
 "use client";
 
+import "./m1/m1.css";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { likesText, type FeedReveal, type FeedView, type Post } from "@/lib/tig/games/mechanics/feed-in-5-secondi";
@@ -17,38 +18,41 @@ type T = TvGameProps<FeedView, FeedReveal>;
 function Heart({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>
-      <path d="M12 20.5C6.5 16.4 3 13.3 3 9.3 3 6.6 5.1 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.3 1-1.4 2.6-2.3 4.3-2.3 2.6 0 4.7 2.1 4.7 4.8 0 4-3.5 7.1-9 11.2z" fill="var(--tg-red-hi)" />
+      <path d="M12 20.5C6.5 16.4 3 13.3 3 9.3 3 6.6 5.1 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.3 1-1.4 2.6-2.3 4.3-2.3 2.6 0 4.7 2.1 4.7 4.8 0 4-3.5 7.1-9 11.2z" fill="var(--tg-red)" />
     </svg>
   );
 }
 
 /**
- * Un post inventato. Tutte le misure sono in unità del contenitore (cqw = 1% della larghezza del post):
+ * Un post inventato, su un biglietto di carta come quelli appuntati alla bacheca della taverna (inchiostro
+ * scuro, foto col bordino). Tutte le misure sono in unità del contenitore (cqw = 1% della larghezza del post):
  * la stessa scheda funziona in TV e sul telefono.
  */
 function PostCard({ post, index, mark = false, className }: { post: Post; index: number; mark?: boolean; className?: string }) {
   const initials = post.author.replace("@", "").slice(0, 2).toUpperCase();
   return (
     <article
-      className={clsx("@container overflow-hidden rounded-[1rem] border-2 bg-(--tg-night-2)", mark ? "border-(--tg-gold) shadow-[0_0_40px_-8px_color-mix(in_srgb,var(--tg-gold)_70%,transparent)]" : "border-(--tg-cream)/12", className)}
+      className={clsx("tg1-post @container overflow-hidden rounded-[0.7rem]", mark && "outline outline-[0.35rem] outline-offset-0 outline-(--tg-gold) shadow-[0_0_40px_-8px_color-mix(in_srgb,var(--tg-gold)_70%,transparent)]", className)}
       aria-label={`Post ${index + 1} di ${post.author}, ${post.place}, ${post.ago} fa, ${post.likes} mi piace: ${post.caption}. Foto: ${post.alt}`}
     >
       <header className="flex items-center gap-[3cqw] px-[4cqw] py-[3cqw]">
-        <span className="tg-num grid h-[11cqw] w-[11cqw] shrink-0 place-items-center rounded-full bg-(--tg-raised-2) text-[5cqw] text-(--tg-gold)">{initials}</span>
+        <span className="tg-num grid h-[11cqw] w-[11cqw] shrink-0 place-items-center rounded-full bg-(--tg-ink) text-[5cqw] text-(--tg-gold-hi)">{initials}</span>
         <span className="min-w-0 flex-1">
           <span className="block truncate text-[5.6cqw] font-extrabold leading-tight">{post.author}</span>
-          <span className="block truncate text-[4.4cqw] font-semibold leading-tight text-(--tg-cream)/60">
+          <span className="block truncate text-[4.4cqw] font-semibold leading-tight text-[#4a3420]">
             {post.place} · {post.ago}
           </span>
         </span>
-        <span className="tg-num shrink-0 rounded-md bg-(--tg-cream)/10 px-[2cqw] text-[4.4cqw] text-(--tg-cream)/70">{index + 1}/5</span>
+        <span className="tg-num shrink-0 rounded-md bg-(--tg-ink)/10 px-[2cqw] text-[4.4cqw] text-(--tg-ink)/75">{index + 1}/5</span>
       </header>
-      <ArtSvg art={post.art} label={post.alt} className="block aspect-square w-full" />
+      <div className="mx-[3cqw] overflow-hidden rounded-[1.5cqw] ring-[0.8cqw] ring-(--tg-ink)/80">
+        <ArtSvg art={post.art} label={post.alt} className="block aspect-square w-full" />
+      </div>
       <footer className="flex flex-col gap-[1.5cqw] px-[4cqw] py-[3cqw]">
         <span className="flex items-center gap-[2cqw] text-[5.4cqw] font-extrabold">
           <Heart className="h-[6.5cqw] w-[6.5cqw]" /> {likesText(post.likes)} mi piace
         </span>
-        <span className="line-clamp-2 text-[4.8cqw] font-semibold leading-snug text-(--tg-cream)/85">{post.caption}</span>
+        <span className="line-clamp-2 text-[4.8cqw] font-semibold leading-snug text-(--tg-ink)/85">{post.caption}</span>
       </footer>
     </article>
   );
@@ -67,11 +71,13 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
-        <PostCard post={reveal.posts[reveal.post]} index={reveal.post} mark className="mx-auto w-full max-w-[420px]" />
-        <Panel className="flex flex-col gap-2">
-          <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
-          <ChoiceList options={view.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
-        </Panel>
+        <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1fr_1.15fr] lg:items-start">
+          <PostCard post={reveal.posts[reveal.post]} index={reveal.post} mark className="mx-auto w-full max-w-[420px]" />
+          <Panel className="flex flex-col gap-2">
+            <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
+            <ChoiceList options={view.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
+          </Panel>
+        </div>
         <Explain text={reveal.explain} />
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3" aria-label="Tutto il feed">
           {reveal.posts.map((post, i) => (i === reveal.post ? null : <PostCard key={post.author} post={post} index={i} className="opacity-80" />))}

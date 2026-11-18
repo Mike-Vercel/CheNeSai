@@ -1,5 +1,6 @@
 "use client";
 
+import "./m1.css";
 import { clsx } from "clsx";
 import type { ReactNode } from "react";
 import type { SymbolKind, Token } from "@/lib/tig/games/mechanics/la-sequenza-sporca";
@@ -141,15 +142,16 @@ export function TokenTile({
       className={clsx(
         "relative flex aspect-square flex-col items-center justify-center border-2 transition-[transform,border-color,background-color] duration-200",
         tv ? "rounded-[1.2cqw] border-[0.2cqw]" : "rounded-2xl",
-        state === "idle" && "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05] text-(--tg-cream)",
-        state === "picked" && "tg-picked border-(--tg-gold) text-(--tg-gold)",
+        // targhette di legno scuro col bordo d'ottone; scelta = oro, intruso al reveal = rosso bandiera a strisce
+        state === "idle" && "tg1-plaque text-(--tg-cream)",
+        state === "picked" && "tg-picked border-(--tg-gold) bg-(--tg-gold)/10 text-(--tg-gold-hi) shadow-[0_0_24px_-8px_color-mix(in_srgb,var(--tg-gold)_80%,transparent)]",
         state === "right" && "border-(--tg-gold) bg-(--tg-gold)/12 text-(--tg-cream)",
-        state === "wrong" && "tg-stripes-red border-(--tg-red-hi) text-(--tg-red-hi)",
-        state === "dim" && "border-(--tg-cream)/8 bg-(--tg-cream)/[0.03] text-(--tg-cream)/45",
+        state === "wrong" && "tg-stripes-red border-(--tg-red) bg-(--tg-red-deep)/35 text-(--tg-red-hi)",
+        state === "dim" && "tg1-plaque text-(--tg-cream)/55 opacity-60",
         className,
       )}
     >
-      <span className={clsx("tg-num absolute left-[8%] top-[5%] leading-none text-(--tg-cream)/45", tv ? "text-[1.1cqw]" : "text-xs")} aria-hidden>
+      <span className={clsx("tg-num absolute left-[8%] top-[5%] leading-none text-(--tg-gold-pale)/70", tv ? "text-[1.25cqw]" : "text-[13px]")} aria-hidden>
         {index + 1}
       </span>
       <TokenFace token={token} className="h-[72%] w-[72%]" />

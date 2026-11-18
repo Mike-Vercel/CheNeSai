@@ -237,21 +237,24 @@ describe("TIG manche 1 · media disegnati e sintetizzati", () => {
     expect(poseAt(clip as never, "a", 500)).toMatchObject({ x: 5, y: 10, rot: 45, s: 1, o: 1 });
   });
 
-  it("08 Non è quello che sembra: solo la soluzione rispetta tutta la descrizione; 100 + rapidità, le immagini sono mescolate", () => {
+  it("08 Non è quello che sembra: solo la soluzione rispetta tutta la descrizione; 100 + rapidità; immagini nell'ordine del contenuto", () => {
     const def = m("non-e-quello-che-sembra");
-    const orders = new Set<string>();
+    const positions = new Set<number>();
     for (const c of variants<{ id: string; conditions: Condition[]; images: { id: string; art: Art }[]; solution: { imageId: string } }>("non-e-quello-che-sembra")) {
       for (const img of c.images) {
         const all = c.conditions.every((k) => holds(img.art, k) === true);
         expect(all, `${c.id}/${img.id}`).toBe(img.id === c.solution.imageId);
       }
+      // la spiegazione dice «la prima», «la seconda»…: l'ordine sullo schermo è quello del contenuto, per ogni seme
       for (const seed of ["a", "b", "c", "d"]) {
         const v = def.publicView(c, makeCtx(def, undefined, seed)) as { images: { id: string }[] };
         expect(deepKeys(v)).not.toContain("conditions");
-        orders.add(v.images.map((x) => x.id).join(""));
+        expect(v.images.map((x) => x.id), c.id).toEqual(c.images.map((x) => x.id));
       }
+      positions.add(c.images.findIndex((x) => x.id === c.solution.imageId));
     }
-    expect(orders.size).toBeGreaterThan(1);
+    // la posizione della risposta giusta cambia tra le varianti (prima, seconda e terza)
+    expect(positions).toEqual(new Set([0, 1, 2]));
     const c = variants<{ images: { id: string }[]; solution: { imageId: string } }>("non-e-quello-che-sembra")[0];
     const ko = c.images.find((x) => x.id !== c.solution.imageId)!.id;
     const out = def.score({ content: c, ctx: makeCtx(def), submissions: [sub("t1", { imageId: c.solution.imageId }, 0), sub("t2", { imageId: c.solution.imageId }, 25000), sub("t3", { imageId: ko }, 100)] });

@@ -93,10 +93,13 @@ function Player(p: P) {
                   <div className="min-w-0 flex-1">
                     <p className={clsx("font-extrabold leading-tight", right && "text-(--tg-gold)")}>
                       {o.text}
-                      {right && <Icon name="check" className="ml-1 inline h-5 w-5" />}
+
                       {sent && picked === o.id && !right && <span className="ml-2 text-sm text-(--tg-red-hi)">(la vostra)</span>}
                     </p>
-                    <p className="text-xs font-bold uppercase tracking-wide text-(--tg-cream)/55">{o.present ? (o.loud ? "c'era · il più forte" : "c'era") : "non c'era"}</p>
+                    <p className={clsx("flex items-center gap-1 text-xs font-bold uppercase tracking-wide", right ? "text-(--tg-gold-hi)" : "text-(--tg-cream)/60")}>
+                      {right && <Icon name="check" className="h-4 w-4" />}
+                      {o.present ? (o.loud ? "c'era · il più forte" : right ? "c'era · fuori posto" : "c'era") : "non c'era"}
+                    </p>
                   </div>
                   <ListenButton events={o.solo} label="Senti" small />
                 </li>
@@ -191,9 +194,11 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[0.8fr_1.2fr] gap-[2cqw]">
         <div className="flex min-h-0 flex-col items-center justify-center gap-[1.4cqw]">
           <Speaker on={listening} tv />
-          <p className="tg-display text-center text-[2.6cqw] leading-none">
-            {done ? "Ecco i suoni" : listening ? `Ascolto ${which + 1} di ${plays.length}` : elapsed < plays[0] ? "Silenzio in sala…" : "Riascoltate dal telefono"}
-          </p>
+          {done ? (
+            <p className="tg-title text-center text-[3.4cqw]">Ecco i suoni</p>
+          ) : (
+            <p className="tg-display text-center text-[2.4cqw] leading-none">{p.stage === "locked" ? "Tempo scaduto" : listening ? `Ascolto ${which + 1} di ${plays.length}` : elapsed < plays[0] ? "Silenzio in sala…" : "Riascoltate dal telefono"}</p>
+          )}
           {!ready && play && (
             <button type="button" onClick={() => void playMix(mix.ev).then((s) => s && (stops.current.push(s), setReady(true)))} className="tg-pulse rounded-[1cqw] border-2 border-(--tg-teal) px-[1.4cqw] py-[0.6cqw] text-[1.4cqw] font-extrabold text-(--tg-teal-hi)">
               Audio bloccato: tocca per far partire i suoni
@@ -205,13 +210,14 @@ function Tv(p: T) {
           <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">{view.mode === "dominante" ? "Il suono più forte" : "Il suono che non c'entra"}</p>
           {view.options.map((o, i) => {
             const r = byId?.get(o.id);
+            const right = done ? o.id === reveal.solutionId : false;
             return (
               <TvOption
                 key={o.id}
                 index={i}
                 text={o.text}
-                state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"}
-                note={r ? <span className="shrink-0 text-[1.1cqw] font-extrabold uppercase tracking-wide">{r.present ? (r.loud ? "il più forte" : "c'era") : "non c'era"}</span> : undefined}
+                state={done ? (right ? "right" : "dim") : "idle"}
+                note={r ? <span className="shrink-0 text-[1.1cqw] font-extrabold uppercase tracking-wide">{r.present ? (r.loud ? "il più forte" : right ? "c'era · fuori posto" : "c'era") : "non c'era"}</span> : undefined}
               />
             );
           })}
