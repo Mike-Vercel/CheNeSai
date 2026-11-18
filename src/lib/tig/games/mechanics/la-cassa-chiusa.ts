@@ -109,7 +109,8 @@ const def: MechanicDef<CassaContent, CassaSubmission> = {
           chaos: CHAOS.partecipa + (all ? CHAOS.centro : 0),
           correct: all,
           accuracy: opened / content.locks.length,
-          label: all ? "Cassa aperta: 3 serrature su 3" : `${opened} serratur${opened === 1 ? "a" : "e"} su 3`,
+          // spazio fisso prima dell'ultimo «3»: andando a capo, «su 3» resta unito
+          label: all ? "Cassa aperta: 3 serrature su 3" : `${opened} serratur${opened === 1 ? "a" : "e"} su 3`,
         });
       }),
     };

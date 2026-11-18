@@ -94,6 +94,19 @@ function ItemAt({ kind, tone, label, x, y, s, r, o = 1 }: { kind: SceneItem["kin
   );
 }
 
+/** margini del cerchio dal bordo della scena (in % di larghezza e di altezza: c'è anche l'anello scuro attorno) */
+const RING_MX = 1.6;
+const RING_MY = 2.4;
+
+/**
+ * Raggio del cerchio del reveal in % della larghezza della scena: quello del contenuto (in scala con gli oggetti), ma
+ * stretto quanto serve perché il cerchio stia tutto nella scena anche quando il dettaglio è vicino a un bordo.
+ */
+function ringRadius(f: { x: number; y: number; r: number }): number {
+  const k = ART_H / ART_W;
+  return Math.max(4, Math.min(f.r * CLIP_SCALE, f.x - RING_MX, 100 - f.x - RING_MX, (f.y - RING_MY) * k, (100 - f.y - RING_MY) * k));
+}
+
 /**
  * La clip: sfondo del kit, oggetti fermi e oggetti animati alla posa dell'istante `t` (ms dall'inizio della clip).
  * Stesso istante → stesso fotogramma su ogni schermo. `focus` disegna il cerchio del reveal; `zoom` ingrandisce
@@ -101,8 +114,9 @@ function ItemAt({ kind, tone, label, x, y, s, r, o = 1 }: { kind: SceneItem["kin
  */
 export function ClipStage({ clip, t, alt, focus, caption = true, zoom = 1, className }: { clip: Clip; t: number; alt: string; focus?: { x: number; y: number; r: number } | null; caption?: boolean; zoom?: number; className?: string }) {
   const text = caption ? captionAt(clip, t) : null;
-  // ingrandimento centrato sul dettaglio, senza mai mostrare il fuori-scena
-  const z = focus && zoom > 1 ? zoom : 1;
+  const ring = focus ? ringRadius(focus) : 0;
+  // ingrandimento centrato sul dettaglio, senza mai mostrare il fuori-scena né tagliare il cerchio
+  const z = focus && zoom > 1 ? Math.max(1, Math.min(zoom, 50 / (ring + RING_MX), 50 / ((ring * ART_W) / ART_H + RING_MY))) : 1;
   const tx = z > 1 && focus ? Math.min(0, Math.max(100 - 100 * z, 50 - z * focus.x)) : 0;
   const ty = z > 1 && focus ? Math.min(0, Math.max(100 - 100 * z, 50 - z * focus.y)) : 0;
   return (
@@ -120,8 +134,8 @@ export function ClipStage({ clip, t, alt, focus, caption = true, zoom = 1, class
           })}
           {focus && (
             <g>
-              <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(focus.r / 100) * ART_W * CLIP_SCALE} fill="none" stroke="var(--tg-gold)" strokeWidth={10} strokeDasharray="28 16" />
-              <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(focus.r / 100) * ART_W * CLIP_SCALE + 14} fill="none" stroke="var(--tg-ink)" strokeOpacity={0.6} strokeWidth={6} />
+              <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(ring / 100) * ART_W} fill="none" stroke="var(--tg-gold)" strokeWidth={10} strokeDasharray="28 16" />
+              <circle cx={(focus.x / 100) * ART_W} cy={(focus.y / 100) * ART_H} r={(ring / 100) * ART_W + 14} fill="none" stroke="var(--tg-ink)" strokeOpacity={0.6} strokeWidth={6} />
             </g>
           )}
         </svg>
@@ -187,7 +201,8 @@ function Player(p: P) {
         <Icon name="eye" className="h-8 w-8 shrink-0 text-(--tg-teal-hi)" />
         <div>
           <Eyebrow>La clip è finita</Eyebrow>
-          <p className="tg-display text-2xl">«{view.heading}»</p>
+          {/* titolo della clip nel carattere dei titoli (senza «»: nel Pirata One sembrano due frecce) */}
+          <p className="tg-title text-3xl leading-tight">{view.heading}</p>
         </div>
       </Panel>
       {view.prompt && view.options ? (

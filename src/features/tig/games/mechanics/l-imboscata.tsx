@@ -168,7 +168,7 @@ function Tv(p: T) {
             ))}
           </div>
           <TvWhy text={reveal.explain} size="sm" />
-          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
+          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] self-start p-[1cqw]">
             <TvOutcomeGrid
               teams={p.teams}
               outcome={p.outcome}

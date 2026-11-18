@@ -56,13 +56,16 @@ export function BalanceCard({ balance, note }: { balance: number | null; note: R
   );
 }
 
-/** Targhetta di un tavolo sulla TV: bandiera della ciurma col numero e nome (che si accorcia, mai sopra ad altro). */
-export function TvTeamTag({ team, className, children, numberOnly = false }: { team: TvTeam | undefined; className?: string; children?: ReactNode; numberOnly?: boolean }) {
+/**
+ * Targhetta di un tavolo sulla TV: bandiera della ciurma col numero e nome (che si accorcia, mai sopra ad altro).
+ * `compact` per le liste lunghe (12 tavoli in colonna).
+ */
+export function TvTeamTag({ team, className, children, numberOnly = false, compact = false }: { team: TvTeam | undefined; className?: string; children?: ReactNode; numberOnly?: boolean; compact?: boolean }) {
   if (!team) return null;
   return (
     <span className={clsx("flex min-w-0 max-w-full items-center gap-[0.45cqw]", className)} title={team.name}>
-      <CrewFlag color={team.color} n={team.tableNo} className="h-[2.5cqw] w-[3.3cqw] shrink-0" />
-      {!numberOnly && <span className="min-w-0 flex-1 truncate text-[1.15cqw] font-extrabold">{team.name}</span>}
+      <CrewFlag color={team.color} n={team.tableNo} className={clsx("shrink-0", compact ? "h-[2cqw] w-[2.65cqw]" : "h-[2.5cqw] w-[3.3cqw]")} />
+      {!numberOnly && <span className={clsx("min-w-0 flex-1 truncate font-extrabold", compact ? "text-[1.05cqw]" : "text-[1.15cqw]")}>{team.name}</span>}
       {children}
     </span>
   );
@@ -156,20 +159,20 @@ export function TvLadder({ teams, rows, stepMs = 320 }: { teams: readonly TvTeam
   const n = sorted.length;
   const dense = n > 8;
   return (
-    <ol className={clsx("flex flex-col", dense ? "gap-[0.3cqw]" : "gap-[0.5cqw]")}>
+    <ol className={clsx("flex flex-col", dense ? "gap-[0.25cqw]" : "gap-[0.5cqw]")}>
       {sorted.map((r, i) => {
         const t = map.get(r.teamId);
         if (!t) return null;
         return (
           <li
             key={r.teamId}
-            className={clsx("tg-rise flex min-w-0 items-center gap-[0.8cqw] rounded-[0.8cqw] border border-(--tg-cream)/10 bg-(--tg-cream)/[0.05] px-[0.8cqw]", dense ? "py-[0.25cqw]" : "py-[0.5cqw]", i === 0 && "border-(--tg-gold)/60 bg-(--tg-gold)/10")}
+            className={clsx("tg-rise flex min-w-0 items-center gap-[0.8cqw] rounded-[0.8cqw] border border-(--tg-cream)/10 bg-(--tg-cream)/[0.05] px-[0.8cqw]", dense ? "py-[0.2cqw]" : "py-[0.5cqw]", i === 0 && "border-(--tg-gold)/60 bg-(--tg-gold)/10")}
             style={{ animationDelay: `${(n - 1 - i) * stepMs}ms` }}
           >
-            <span className="tg-num w-[2cqw] shrink-0 text-center text-[1.4cqw] text-(--tg-cream)/55">{i + 1}</span>
-            <TvTeamTag team={t} className="min-w-0 flex-1" />
+            <span className={clsx("tg-num w-[2cqw] shrink-0 text-center text-(--tg-cream)/55", dense ? "text-[1.2cqw]" : "text-[1.4cqw]")}>{i + 1}</span>
+            <TvTeamTag team={t} compact={dense} className="min-w-0 flex-1" />
             {r.note && <span className="shrink-0 text-[1.05cqw] font-bold text-(--tg-cream)/70">{r.note}</span>}
-            <span className={clsx("tg-num w-[5cqw] shrink-0 text-right text-[1.8cqw] leading-none", r.points > 0 ? "text-(--tg-gold)" : r.points < 0 ? "text-(--tg-red-hi)" : "text-(--tg-cream)/50")}>{signed(r.points)}</span>
+            <span className={clsx("tg-num w-[5cqw] shrink-0 text-right leading-none", dense ? "text-[1.6cqw]" : "text-[1.8cqw]", r.points > 0 ? "text-(--tg-gold)" : r.points < 0 ? "text-(--tg-red-hi)" : "text-(--tg-cream)/50")}>{signed(r.points)}</span>
           </li>
         );
       })}

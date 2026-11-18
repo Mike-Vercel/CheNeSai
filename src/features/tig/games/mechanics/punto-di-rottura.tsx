@@ -212,17 +212,22 @@ function TvMeter({ label, used = null, limit, unit, text, goal = false }: { labe
   );
 }
 
-/** Un'opzione grande sulla TV: testo e costi leggibili da lontano. */
+/**
+ * Un'opzione grande sulla TV: testo e costi leggibili da lontano. Numero accanto al titolo e costi con il guadagno
+ * sulla stessa riga: la casella resta bassa e ci sta anche quando sotto ci sono i 12 tavoli.
+ */
 function TvChoice({ node, resources, goal, best = false, n }: { node: RotturaLeaf; resources: Res[]; goal: RotturaView["goal"]; best?: boolean; n?: number }) {
   return (
-    <div className={clsx("flex min-w-0 flex-1 flex-col gap-[0.5cqw] rounded-[1.2cqw] border-[0.18cqw] p-[1.1cqw]", best ? "tg-shine border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]")}>
-      {n !== undefined && <span className={clsx("tg-num text-[1.2cqw]", best ? "text-(--tg-ink)/70" : "text-(--tg-cream)/55")}>{n}</span>}
-      <p className="tg-display text-[2.3cqw] leading-[0.95]">{node.text}</p>
-      <p className={clsx("tg-num mt-auto text-[1.45cqw] leading-tight", best ? "text-(--tg-ink)" : "text-(--tg-cream)/80")}>
-        {resources.map((r) => amount(node.use[r.id] ?? 0, r)).join(" · ")}
+    <div className={clsx("flex min-w-0 flex-1 flex-col gap-[0.7cqw] rounded-[1.2cqw] border-[0.18cqw] p-[1.1cqw]", best ? "tg-shine border-(--tg-gold) bg-(--tg-gold) text-(--tg-ink)" : "border-(--tg-cream)/14 bg-(--tg-cream)/[0.05]")}>
+      <p className="flex items-baseline gap-[0.7cqw]">
+        {n !== undefined && <span className={clsx("tg-num shrink-0 text-[1.5cqw]", best ? "text-(--tg-ink)/70" : "text-(--tg-gold)")}>{n}</span>}
+        <span className="tg-display min-w-0 text-[2.3cqw] leading-[0.95]">{node.text}</span>
       </p>
-      <p className={clsx("tg-num text-[1.6cqw] leading-none", best ? "text-(--tg-ink)" : "text-(--tg-teal-hi)")}>
-        +{node.gain} {goal.unit}
+      <p className="tg-num mt-auto flex flex-wrap items-baseline justify-between gap-x-[1cqw] leading-tight">
+        <span className={clsx("text-[1.45cqw]", best ? "text-(--tg-ink)" : "text-(--tg-cream)/80")}>{resources.map((r) => amount(node.use[r.id] ?? 0, r)).join(" · ")}</span>
+        <span className={clsx("text-[1.6cqw]", best ? "text-(--tg-ink)" : "text-(--tg-teal-hi)")}>
+          +{node.gain} {goal.unit}
+        </span>
       </p>
     </div>
   );

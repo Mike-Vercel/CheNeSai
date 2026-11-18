@@ -118,7 +118,7 @@ function Tv(p: T) {
             </TvPanel>
             <TvExplain text={reveal.explain} />
           </div>
-          <TvPanel className="min-h-0 p-[1cqw]">
+          <TvPanel className="min-h-0 self-start p-[1cqw]">
             <TvOutcomeGrid cols={2} teams={p.teams} outcome={p.outcome} note={(id) => (choiceOf.get(id) === "rischio" ? "Rischio" : choiceOf.get(id) === "prudenza" ? "Prudenza" : "Nessuna scelta")} />
           </TvPanel>
         </div>
@@ -130,7 +130,7 @@ function Tv(p: T) {
     return (
       <TvFrame view={view} p={p} subtitle="Le posizioni sono al buio: ogni tavolo vede solo il proprio saldo.">
         <div className="grid h-full grid-cols-[1fr_1.1fr] gap-[1.4cqw]">
-          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw]">
+          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] self-center">
             <p className="text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">Classifica</p>
             <div className="grid content-start gap-[0.5cqw]" style={{ gridTemplateColumns: p.teams.length > 8 ? "1fr 1fr" : "1fr" }}>
               {p.teams.map((tm, i) => (

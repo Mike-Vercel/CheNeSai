@@ -56,7 +56,7 @@ function Player(p: P) {
           pending={pending}
           error={error}
           onSubmit={submit}
-          label={effective === "rischio" ? `Rischio: ${view.riskPoints}` : `Sicuro: ${view.safePoints}`}
+          label={effective === "rischio" ? `Rischio: +${view.riskPoints}` : `Sicuro: +${view.safePoints}`}
           hint={choosing ? `L'enigma arriva tra ${secsTo(view.choiceWindowMs, elapsed)} s: la scelta si blocca lì` : !picked ? "Risolvete l'enigma" : undefined}
         />
       }
@@ -129,7 +129,7 @@ function Tv(p: T) {
             </TvPanel>
             <TvWhy text={reveal.explain} />
           </div>
-          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] p-[1cqw]">
+          <TvPanel className="flex min-h-0 flex-col gap-[0.6cqw] self-start p-[1cqw]">
             <p className="flex items-center gap-[0.5cqw] text-[1.05cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">
               <Icon name="up" className="h-[1.4cqw] w-[1.4cqw]" /> Dal fondo alla vetta
             </p>
