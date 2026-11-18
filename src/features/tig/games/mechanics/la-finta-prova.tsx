@@ -83,6 +83,8 @@ function Player(p: P) {
 function Tv(p: T) {
   const { view, reveal } = p;
   const rev = p.stage === "reveal" && reveal ? new Map(reveal.items.map((i) => [i.id, i])) : null;
+  // con più di 7 tavoli (striscia su due righe) la foto usa il riquadro basso anche in gioco: l'oggetto lo riempie
+  const many = p.teams.length > 7;
   return (
     <TvFrame view={view} p={p} subtitle={rev ? "Il dettaglio che tradisce la prova falsa" : view.story}>
       <div className="flex h-full flex-col gap-[1.1cqw]">
@@ -100,7 +102,7 @@ function Tv(p: T) {
             const r = rev?.get(it.id);
             return (
               <div key={it.id} className="tg-rise flex min-h-0 flex-col gap-[0.6cqw]" style={{ animationDelay: `${i * 90}ms` }}>
-                <DocCard kind={it.kind} title={it.title} lines={it.lines} icon={it.icon} iconLabel={it.iconLabel} state={r ? (r.fake ? "fake" : "genuine") : "idle"} index={i} tv compact={!!r}>
+                <DocCard kind={it.kind} title={it.title} lines={it.lines} icon={it.icon} iconLabel={it.iconLabel} state={r ? (r.fake ? "fake" : "genuine") : "idle"} index={i} tv compact={!!r || many}>
                   {!r && <Suggests text={it.suggests} tv />}
                 </DocCard>
                 {r && (

@@ -89,11 +89,13 @@ function Tv(p: T) {
   const open = openCount(view.schedule, view.clues, elapsed, p.stage !== "play");
   const clearedBy = new Map<string, number>();
   if (done) reveal.clues.forEach((c, i) => c.clears.forEach((id) => clearedBy.set(id, i)));
+  // con più di 7 tavoli (striscia su due righe) il reveal si compatta: indizi più bassi, scagionati senza dettaglio
+  const many = p.teams.length > 7;
   return (
     <TvFrame view={view} p={p} subtitle={`${view.caseTitle} · ${view.question}`}>
       <div className="grid h-full grid-cols-[1.1fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
-          <Ladder clues={done ? reveal.clues.map((c) => c.text) : view.clues} open={open} elapsed={elapsed} schedule={view.schedule} worth={view.worth} tv />
+          <Ladder clues={done ? reveal.clues.map((c) => c.text) : view.clues} open={open} elapsed={elapsed} schedule={view.schedule} worth={view.worth} tv dense={!!done && many} />
           {done && <TvExplain text={reveal.explain} className="py-[1cqw]" />}
         </div>
         <TvPanel className="grid grid-cols-1 content-start gap-[0.6cqw]">
@@ -104,6 +106,7 @@ function Tv(p: T) {
                 key={s.id}
                 option={s}
                 index={i}
+                compact={!!done && many}
                 state={done ? (s.id === reveal.solutionId ? "right" : "cleared") : "idle"}
                 badge={
                   done && by !== undefined ? (

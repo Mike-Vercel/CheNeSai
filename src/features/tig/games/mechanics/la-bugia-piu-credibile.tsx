@@ -172,6 +172,7 @@ function Tv(p: T) {
   const done = p.stage === "reveal" && reveal;
   const team = new Map(p.teams.map((x) => [x.teamId, x]));
   const links = new Map((done ? (reveal.summary?.links ?? []) : []).map((l) => [l.from, l]));
+  const many = p.teams.length > 7;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Le verità dei tre casi e le bugie che hanno funzionato" : "Ogni tavolo ricostruisce il suo caso e compone una bugia per il tavolo successivo."}>
       <div className="grid h-full grid-cols-[1.4fr_1fr] gap-[1.4cqw]">
@@ -180,15 +181,16 @@ function Tv(p: T) {
             <>
               <div className="grid min-h-0 flex-1 grid-cols-3 gap-[0.9cqw]">
                 {reveal.cases.map((c) => (
-                  <TvPanel key={c.id} className="flex min-h-0 flex-col gap-[0.5cqw] p-[1.1cqw]">
+                  <TvPanel key={c.id} className={clsx("flex min-h-0 flex-col p-[1.1cqw]", many ? "gap-[0.35cqw]" : "gap-[0.5cqw]")}>
                     <p className="tg-display text-[1.6cqw] leading-none">{c.title}</p>
                     {c.parts.map((part, j) => (
-                      <p key={part.id} className="text-[1.4cqw] font-bold leading-snug">
-                        <span className="text-(--tg-cream)/55">{part.label}: </span>
+                      <p key={part.id} className={clsx("font-bold leading-snug", many ? "text-[1.3cqw]" : "text-[1.4cqw]")}>
+                        <span className="text-(--tg-cream)/60">{part.label}: </span>
                         <span className="text-(--tg-gold)">{part.options.find((o) => o.id === c.real[j])?.text}</span>
                       </p>
                     ))}
-                    <p className="mt-auto border-t border-(--tg-brass)/30 pt-[0.5cqw] text-[1.2cqw] font-semibold leading-snug text-(--tg-cream)/85">{c.why}</p>
+                    {/* con 12 tavoli (striscia su due righe) il «perché» del caso scende di corpo e non viene tagliato */}
+                    <p className={clsx("mt-auto border-t border-(--tg-brass)/30 pt-[0.5cqw] font-semibold leading-snug text-(--tg-cream)/85", many ? "text-[1.1cqw]" : "text-[1.2cqw]")}>{c.why}</p>
                   </TvPanel>
                 ))}
               </div>
