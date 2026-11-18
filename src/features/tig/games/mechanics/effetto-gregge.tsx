@@ -6,9 +6,9 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { VoteBars } from "../kit/bars";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
-import { BigToggle, ChoiceList } from "../kit/inputs";
-import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
-import { PromptCard, Step, TvExplainCompact, TvStamp } from "./_m3-kit";
+import { ChoiceList } from "../kit/inputs";
+import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useSubmit } from "../kit/ui";
+import { DuoToggle, nTavoli, PromptCard, Step, TvStamp } from "./_m3-kit";
 
 type P = PlayerGameProps<GreggeView, null, GreggeSubmission, GreggeReveal>;
 type T = TvGameProps<GreggeView, GreggeReveal>;
@@ -17,6 +17,12 @@ type Strategy = "istinto" | "gregge";
 function herdVerdict(s: NonNullable<GreggeReveal["summary"]>): { text: string; tone: "lime" | "red" | "ice" } {
   if (s.herdRight === null) return { text: "Gregge diviso", tone: "ice" };
   return s.herdRight ? { text: "Il gregge aveva ragione", tone: "lime" } : { text: "Il gregge sbagliava", tone: "red" };
+}
+
+/** «6 tavoli su 12 hanno seguito il gregge», al singolare con un tavolo solo, «Nessun tavolo…» con zero. */
+function followersText(s: NonNullable<GreggeReveal["summary"]>) {
+  if (s.followers === 0) return `Nessun tavolo su ${s.tables} ha seguito il gregge`;
+  return `${nTavoli(s.followers)} su ${s.tables} ${s.followers === 1 ? "ha" : "hanno"} seguito il gregge`;
 }
 
 function Player(p: P) {
@@ -39,9 +45,7 @@ function Player(p: P) {
         {s && v && (
           <Panel tone={v.tone === "ice" ? undefined : v.tone} className="text-center">
             <p className="tg-display text-4xl">{v.text}</p>
-            <p className="text-base font-bold">
-              {s.followers} tavoli su {s.tables} hanno seguito il gregge
-            </p>
+            <p className="text-base font-bold">{followersText(s)}</p>
           </Panel>
         )}
         {mine && (
@@ -71,14 +75,14 @@ function Player(p: P) {
         <ChoiceList options={view.options} picked={answer ? [answer] : []} onToggle={(id) => editable && setAnswer(id)} disabled={!editable} onConfirm={ready ? submit : null} label="La vostra risposta" />
       </Step>
       <Step n={2} title="Su cosa scommettete?" done={!!strategy}>
-        <BigToggle<Strategy>
+        <DuoToggle<Strategy>
           label="Istinto o gregge"
           value={strategy}
           onChange={(v) => editable && setStrategy(v)}
           disabled={!editable}
           options={[
-            { id: "istinto", title: "Istinto", sub: "Vale la vostra risposta: giusta 100", tone: "lime", icon: "bolt" },
-            { id: "gregge", title: "Gregge", sub: "Vale la più votata dal locale: giusta 60", tone: "ice", icon: "users" },
+            { id: "istinto", title: "Istinto", sub: "Vale la vostra risposta: giusta 100", tone: "gold", icon: "bolt" },
+            { id: "gregge", title: "Gregge", sub: "Vale la più votata dal locale: giusta 60", tone: "teal", icon: "users" },
           ]}
         />
       </Step>
@@ -100,25 +104,25 @@ function Tv(p: T) {
         </TvPanel>
         {s && v ? (
           <div className="flex min-h-0 flex-col gap-[1cqw]">
-            <TvStamp size="sm" tone={v.tone} sub={`${s.followers} tavoli su ${s.tables} hanno seguito il gregge`}>
+            <TvStamp size="sm" tone={v.tone} sub={followersText(s)}>
               {v.text}
             </TvStamp>
-            <TvExplainCompact text={reveal!.explain} className="flex-1" />
+            <TvExplain text={reveal!.explain} className="self-start" />
           </div>
         ) : (
           <div className="grid grid-rows-2 gap-[1.2cqw]">
-            <TvPanel tone="lime" className="flex items-center gap-[1.2cqw]">
+            <TvPanel tone="lime" className="flex items-center gap-[1.4cqw]">
               <Icon name="bolt" className="h-[5cqw] w-[5cqw] shrink-0 text-(--tg-gold)" />
               <div>
-                <p className="tg-display text-[3.4cqw] leading-none">Istinto</p>
-                <p className="text-[1.5cqw] font-bold text-(--tg-cream)/80">La vostra risposta · giusta 100</p>
+                <p className="tg-title text-[4.2cqw] text-(--tg-gold-hi)">Istinto</p>
+                <p className="text-[1.5cqw] font-bold text-(--tg-cream)/85">La vostra risposta · giusta 100</p>
               </div>
             </TvPanel>
-            <TvPanel className="flex items-center gap-[1.2cqw]">
-              <Icon name="users" className="h-[5cqw] w-[5cqw] shrink-0 text-(--tg-cream)" />
+            <TvPanel className="flex items-center gap-[1.4cqw]">
+              <Icon name="users" className="h-[5cqw] w-[5cqw] shrink-0 text-(--tg-teal-hi)" />
               <div>
-                <p className="tg-display text-[3.4cqw] leading-none">Gregge</p>
-                <p className="text-[1.5cqw] font-bold text-(--tg-cream)/80">La più votata dal locale · giusta 60</p>
+                <p className="tg-title text-[4.2cqw] text-(--tg-teal-hi)">Gregge</p>
+                <p className="text-[1.5cqw] font-bold text-(--tg-cream)/85">La più votata dal locale · giusta 60</p>
               </div>
             </TvPanel>
           </div>

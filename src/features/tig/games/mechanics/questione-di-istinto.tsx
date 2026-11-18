@@ -8,7 +8,7 @@ import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
 import { canEdit, Explain, Eyebrow, MyOutcome, Panel, PlayerFrame, SubmitBar, TvFrame, TvPanel, useSubmit } from "../kit/ui";
-import { TvExplainCompact } from "./_m3-kit";
+import { LIT, TvExplainCompact } from "./_m3-kit";
 
 type P = PlayerGameProps<IstintoView, null, IstintoSubmission, IstintoReveal>;
 type T = TvGameProps<IstintoView, IstintoReveal>;
@@ -63,7 +63,7 @@ function Player(p: P) {
                 const i = styleIndex.get(st) ?? 0;
                 const on = mine[s.id] === o.id;
                 return (
-                  <div key={o.id} className={clsx("flex items-center gap-2 rounded-xl border-2 px-3 py-2", on ? "border-(--tg-gold) bg-(--tg-gold)/10" : "border-(--tg-cream)/10")}>
+                  <div key={o.id} className={clsx("flex items-center gap-2 rounded-xl border-2 px-3 py-2", on ? LIT : "border-(--tg-cream)/10")}>
                     <StyleChip name={reveal.styles[i].name} index={i} />
                     <span className="min-w-0 flex-1 text-sm font-bold leading-snug">{o.text}</span>
                     {on && <Icon name="check" className="h-5 w-5 shrink-0 text-(--tg-gold)" />}
@@ -117,43 +117,47 @@ function Tv(p: T) {
   const top = s ? view.styles.slice().sort((a, b) => (s.styleTotals[b.id] ?? 0) - (s.styleTotals[a.id] ?? 0))[0] : null;
   return (
     <TvFrame view={view} p={p} subtitle={done ? "Ecco lo stile di ogni reazione" : "Un voto per tavolo. Ogni reazione ha uno stile nascosto: restate coerenti."}>
-      <div className="flex h-full flex-col gap-[1.2cqw]">
-        <TvPanel className="tg-rise flex items-center justify-between gap-[1.2cqw]">
-          <div className="flex items-center gap-[1cqw]">
-            <p className="text-[1.2cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/60">Tre stili</p>
-            <StylesLegend styles={view.styles} tv />
+      <div className="flex h-full flex-col gap-[1cqw]">
+        {done && s && top ? (
+          // al reveal: in alto il riassunto del locale e il «perché» (così le reazioni restano tutte visibili)
+          <div className="grid grid-cols-[auto_1fr] gap-[1cqw]">
+            <TvPanel tone="lime" className="tg-pop flex flex-col justify-center gap-[0.2cqw] !px-[1.4cqw] !py-[0.8cqw]">
+              <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold-hi)">Tavoli coerenti</p>
+              <p className="tg-num text-[2.8cqw] leading-none text-(--tg-gold-hi)">
+                {s.coherent}
+                <span className="text-[1.6cqw] text-(--tg-cream)/60">/{s.tables}</span>
+              </p>
+              <p className="text-[1.1cqw] font-bold text-(--tg-cream)/85">
+                Il locale è «{top.name}» · {s.stylePercent[top.id] ?? 0}%
+              </p>
+            </TvPanel>
+            <TvExplainCompact text={reveal.explain} title="Gli stili" />
           </div>
-          {s && top ? (
-            <p className="tg-pop text-[1.6cqw] font-extrabold">
-              Coerenti: <span className="tg-num text-[2.4cqw] text-(--tg-gold)">{s.coherent}</span>/{s.tables} · il locale è soprattutto «{top.name}» ({s.stylePercent[top.id] ?? 0}%)
-            </p>
-          ) : (
-            <p className="text-[1.5cqw] font-bold text-(--tg-cream)/75">3 su 3 = 100 · 2 su 3 = 50</p>
-          )}
-        </TvPanel>
+        ) : (
+          <TvPanel className="tg-rise flex items-center justify-between gap-[1.2cqw] !py-[0.9cqw]">
+            <div className="flex items-center gap-[1cqw]">
+              <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-cream)/70">Tre stili nascosti</p>
+              <StylesLegend styles={view.styles} tv />
+            </div>
+            <p className="tg-num text-[1.5cqw] text-(--tg-gold-hi)">3 su 3 = 100 · 2 su 3 = 50</p>
+          </TvPanel>
+        )}
         <div className="grid min-h-0 flex-1 grid-cols-3 gap-[1.2cqw]">
           {view.situations.map((x) => ({ ...x, styleOf: (done ? reveal.situations.find((r) => r.id === x.id)?.styleOf : null) ?? ({} as Record<string, string>) })).map((sit, k) => {
             const counts = s?.perSituation[sit.id] ?? {};
             const total = Object.values(counts).reduce((x, n) => x + n, 0);
             return (
-              <TvPanel key={sit.id} className="tg-rise flex min-h-0 flex-col gap-[0.7cqw]">
-                <p className="text-[1.1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-gold)">Situazione {k + 1}</p>
-                <p className="text-[1.75cqw] font-extrabold leading-tight">{sit.prompt}</p>
+              <TvPanel key={sit.id} className="tg-rise flex min-h-0 flex-col gap-[0.5cqw] !p-[1.2cqw]">
+                <p className="text-[1cqw] font-extrabold uppercase tracking-[0.2em] text-(--tg-teal-hi)">Situazione {k + 1}</p>
+                <p className="text-[1.55cqw] font-extrabold leading-tight">{sit.prompt}</p>
                 {sit.options.map((o, i) => {
                   const st = sit.styleOf[o.id];
                   const si = st ? (styleIndex.get(st) ?? 0) : -1;
                   return (
-                    <div key={o.id} className="flex items-start gap-[0.6cqw] rounded-[0.8cqw] border-[0.15cqw] border-(--tg-cream)/12 bg-(--tg-cream)/[0.04] px-[0.8cqw] py-[0.6cqw]">
-                      <span className="tg-num grid h-[2cqw] w-[2cqw] shrink-0 place-items-center rounded-[0.4cqw] bg-(--tg-cream)/10 text-[1.2cqw]">{i + 1}</span>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[1.35cqw] font-bold leading-snug">{o.text}</p>
-                        {si >= 0 && (
-                          <div className="mt-[0.3cqw] flex items-center gap-[0.5cqw]">
-                            <StyleChip name={view.styles[si].name} index={si} tv />
-                            {total > 0 && <span className="tg-num text-[1.3cqw] text-(--tg-cream)/80">{Math.round(((counts[o.id] ?? 0) * 100) / total)}%</span>}
-                          </div>
-                        )}
-                      </div>
+                    <div key={o.id} className="flex items-center gap-[0.6cqw] rounded-[0.8cqw] border-[0.15cqw] border-(--tg-cream)/12 bg-(--tg-night-2)/70 px-[0.7cqw] py-[0.45cqw]">
+                      {si >= 0 ? <StyleChip name={view.styles[si].name} index={si} tv /> : <span className="tg-num grid h-[2cqw] w-[2cqw] shrink-0 place-items-center rounded-full border-[0.12cqw] border-(--tg-brass)/55 text-[1.15cqw]">{i + 1}</span>}
+                      <p className="min-w-0 flex-1 text-[1.25cqw] font-bold leading-snug">{o.text}</p>
+                      {si >= 0 && total > 0 && <span className="tg-num shrink-0 text-[1.35cqw] text-(--tg-cream)/85">{Math.round(((counts[o.id] ?? 0) * 100) / total)}%</span>}
                     </div>
                   );
                 })}
@@ -161,7 +165,6 @@ function Tv(p: T) {
             );
           })}
         </div>
-        {done && <TvExplainCompact text={reveal.explain} title="Gli stili" />}
       </div>
     </TvFrame>
   );
