@@ -10,8 +10,8 @@ import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
 import { ChoiceList } from "../kit/inputs";
-import { canEdit, elapsedOf, Explain, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
-import { ArtSvg } from "./m1/art";
+import { canEdit, elapsedOf, Explain, MyOutcome, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit } from "../kit/ui";
+import { ArtSvg, framed } from "./m1/art";
 
 type P = PlayerGameProps<PixelView, null, OptionSubmission, PixelReveal>;
 type T = TvGameProps<PixelView, PixelReveal>;
@@ -45,7 +45,7 @@ function PixelCanvas({ level, className }: { level: PixelLevel; className?: stri
   return (
     <div className={clsx("relative overflow-hidden", className)}>
       <canvas ref={ref} width={level.cols} height={level.rows} className="tg1-pixels block h-full w-full" role="img" aria-label={`Immagine a quadrettoni ${level.cols} per ${level.rows}: ${level.hint}`} />
-      <div className="tg1-scan absolute inset-0" aria-hidden />
+      <div className="tg1-vignette absolute inset-0" aria-hidden />
     </div>
   );
 }
@@ -64,11 +64,11 @@ function Ladder({ view, shown, elapsed, tv = false, done = false }: { view: Pixe
             className={clsx(
               "flex flex-col items-center border-2 text-center",
               tv ? "rounded-[0.9cqw] px-[0.6cqw] py-[0.5cqw]" : "rounded-xl px-1 py-1.5",
-              now ? "tg-glass-lime border-(--tg-gold) bg-(--tg-gold)/10" : open ? "border-(--tg-cream)/15 bg-(--tg-cream)/[0.04]" : "border-dashed border-(--tg-cream)/12",
+              now ? "tg-glass-lime border-(--tg-gold) bg-(--tg-gold)/12" : open ? "tg1-plaque" : "border-dashed border-(--tg-brass)/35 bg-(--tg-night)/40",
             )}
           >
-            <span className={clsx("tg-num leading-none", tv ? "text-[2.4cqw]" : "text-2xl", now ? "text-(--tg-gold)" : open ? "text-(--tg-cream)/70" : "text-(--tg-cream)/35")}>{cluePoints(i)}</span>
-            <span className={clsx("font-extrabold uppercase tracking-wide", tv ? "text-[0.8cqw]" : "text-[10px]", open ? "text-(--tg-cream)/60" : "text-(--tg-cream)/35")}>
+            <span className={clsx("tg-num leading-none", tv ? "text-[2.4cqw]" : "text-2xl", now ? "text-(--tg-gold-hi)" : open ? "text-(--tg-cream)/75" : "text-(--tg-cream)/45")}>{cluePoints(i)}</span>
+            <span className={clsx("font-extrabold uppercase tracking-wide", tv ? "text-[0.85cqw]" : "text-[10px]", now ? "text-(--tg-gold-pale)" : open ? "text-(--tg-cream)/65" : "text-(--tg-cream)/55")}>
               {open ? `${view.levels[i]?.cols ?? ""}×${view.levels[i]?.rows ?? ""}` : `tra ${inSec} s`}
             </span>
           </li>
@@ -94,20 +94,26 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
-        <Panel className="p-2">
-          <ArtSvg art={reveal.art} label={reveal.alt} className="tg1-sharpen block aspect-video w-full rounded-xl" />
-        </Panel>
-        <div className="grid grid-cols-3 gap-2" aria-label="I tre livelli">
-          {reveal.levels.map((l, i) => (
-            <figure key={i} className="flex flex-col gap-1">
-              <PixelCanvas level={l} className="aspect-video w-full rounded-lg" />
-              <figcaption className="text-center text-xs font-extrabold text-(--tg-cream)/60">
-                {cluePoints(i)} punti · {l.cols}×{l.rows}
-              </figcaption>
-            </figure>
-          ))}
+        <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1.25fr_1fr] lg:items-start">
+          <div className="flex flex-col gap-2.5">
+            <div className="tg1-frame tg1-frame-gold">
+              <div className="tg1-pic">
+                <ArtSvg art={reveal.art} label={reveal.alt} className="tg1-sharpen block aspect-video w-full" />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-2" aria-label="I tre livelli">
+              {reveal.levels.map((l, i) => (
+                <figure key={i} className="flex flex-col gap-1">
+                  <PixelCanvas level={l} className="aspect-video w-full rounded-md ring-2 ring-(--tg-brass)/60" />
+                  <figcaption className="text-center text-xs font-extrabold text-(--tg-cream)/60">
+                    {cluePoints(i)} punti · {l.cols}×{l.rows}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+          <ChoiceList options={view.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
         </div>
-        <ChoiceList options={view.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
         <Explain text={reveal.explain} />
       </PlayerFrame>
     );
@@ -119,11 +125,15 @@ function Player(p: P) {
       p={p}
       footer={<SubmitBar kbd="Invio" canSubmit={p.canSubmit} submitted={p.submitted} stage={p.stage} ready={!!picked} pending={pending} error={error} onSubmit={submit} label={`Blocca a ${worth}`} />}
     >
-      <Panel className="flex flex-col gap-2 p-2">
-        {level && <PixelCanvas key={shown} level={level} className="tg-pop aspect-video w-full rounded-xl" />}
-        <Ladder view={view} shown={shown} elapsed={elapsed} />
-      </Panel>
-      <ChoiceList label="Cosa c'è nella foto?" options={view.options} picked={picked ? [picked] : []} onToggle={(id) => editable && setPicked(id)} disabled={!editable} onConfirm={submit} />
+      <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1.25fr_1fr] lg:items-start">
+        <div className="flex flex-col gap-2.5">
+          <div className="tg1-frame">
+            <div className="tg1-pic">{level && <PixelCanvas key={shown} level={level} className="tg-pop aspect-video w-full" />}</div>
+          </div>
+          <Ladder view={view} shown={shown} elapsed={elapsed} />
+        </div>
+        <ChoiceList label="Cosa c'è nella foto?" options={view.options} picked={picked ? [picked] : []} onToggle={(id) => editable && setPicked(id)} disabled={!editable} onConfirm={submit} />
+      </div>
     </PlayerFrame>
   );
 }
@@ -136,16 +146,14 @@ function Tv(p: T) {
   const shown = shownLevel(view, elapsed, p.stage !== "play");
   const level = view.levels[shown];
   return (
-    <TvFrame view={view} p={p} subtitle={done ? "Ecco la foto vera" : `Ora vale ${cluePoints(shown)}: chi la riconosce, blocchi dal telefono.`}>
+    <TvFrame view={view} p={p} subtitle={done ? "Ecco la foto vera" : p.stage === "locked" ? "Tempo scaduto: tra poco la foto vera." : `Ora vale ${cluePoints(shown)}: chi la riconosce, blocchi dal telefono.`}>
       <div className="grid h-full grid-cols-[1.45fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
-              {done ? (
-                <ArtSvg art={reveal.art} label={reveal.alt} className="tg1-sharpen block h-full w-full" />
-              ) : (
-                level && <PixelCanvas key={shown} level={level} className="tg-pop h-full w-full" />
-              )}
+            <div className={clsx("tg1-frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2", done && "tg1-frame-gold")} style={framed(16 / 9, 1.5)}>
+              <div className="tg1-pic h-full w-full">
+                {done ? <ArtSvg art={reveal.art} label={reveal.alt} className="tg1-sharpen block h-full w-full" /> : level && <PixelCanvas key={shown} level={level} className="tg-pop h-full w-full" />}
+              </div>
             </div>
           </div>
           {!done && <Ladder view={view} shown={shown} elapsed={elapsed} tv />}

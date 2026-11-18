@@ -27,7 +27,7 @@ function DominoPiece({ n, className, lit = false }: { n: number; className?: str
   const top = Math.min(n, 5);
   return (
     <svg viewBox="0 0 22 44" className={className} aria-hidden>
-      <rect x={1} y={1} width={20} height={42} rx={4} fill={lit ? "var(--tg-gold)" : "var(--tg-cream)"} stroke="var(--tg-ink)" strokeWidth={1.5} />
+      <rect x={1} y={1} width={20} height={42} rx={4} fill={lit ? "var(--tg-gold)" : "#fffaf0"} stroke="var(--tg-ink)" strokeWidth={1.5} />
       <line x1={4} y1={22} x2={18} y2={22} stroke="var(--tg-ink)" strokeWidth={1.4} />
       {PIPS[top].map(([x, y], i) => (
         <circle key={`a${i}`} cx={x + 1} cy={y + 1} r={2} fill="var(--tg-ink)" />
@@ -45,7 +45,7 @@ function Chain({ chain, tv = false }: { chain: string[]; tv?: boolean }) {
       {chain.map((c, i) => (
         <li key={i} className={clsx("flex min-w-0", tv ? "flex-1 items-center gap-[0.8cqw]" : "items-stretch gap-2")}>
           <div
-            className={clsx("tg-glass flex min-w-0 flex-1 items-center", tv ? "tg1-tile gap-[1cqw] rounded-[1.1cqw] p-[1cqw]" : "tg-rise gap-3 rounded-2xl p-3")}
+            className={clsx("tg-parch flex min-w-0 flex-1 items-center", tv ? "tg1-tile gap-[1cqw] p-[1cqw]" : "tg-rise gap-3 p-3")}
             style={{ animationDelay: `${i * (tv ? 450 : 90)}ms` }}
           >
             <DominoPiece n={i + 1} className={tv ? "h-[5.6cqw] w-auto shrink-0" : "h-14 w-auto shrink-0"} />
@@ -121,6 +121,7 @@ function Tv(p: T) {
         </div>
         <div className={clsx("grid min-h-0 flex-1 gap-[1.4cqw]", done ? "grid-cols-[1.4fr_1fr]" : "grid-cols-1")}>
           <TvPanel className="grid grid-cols-2 content-center gap-[0.9cqw]">
+            <p className={clsx("col-span-2 font-extrabold leading-tight", done ? "text-[1.5cqw]" : "text-[1.9cqw]")}>{view.prompt}</p>
             {view.options.map((o, i) => (
               <TvOption key={o.id} index={i} text={o.text} size={done ? "sm" : "md"} state={done ? (o.id === reveal.solutionId ? "right" : "dim") : "idle"} />
             ))}

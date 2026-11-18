@@ -1,8 +1,7 @@
 import { z } from "zod";
-import type { MechanicDef, PhaseCtx } from "../contract";
+import type { MechanicDef } from "../contract";
 import { ICON_KINDS } from "../components/art";
 import { idSchema } from "../components/choice";
-import { seededShuffle } from "../components/rng";
 import { noAnswer, rightWrong } from "../components/scoring";
 import { durationOf, firstPerTeam, scopeTeams } from "../components/submissions";
 import { baseView, demoPerTeam, demoSkill, pickAnswer, type BaseView, type MechanicModule } from "../extras";
@@ -106,7 +105,7 @@ export type NonESubmission = z.infer<typeof nonESubmission>;
 export interface NonEView extends BaseView {
   scene: string;
   description: string;
-  /** in ordine mescolato col seme della prova (uguale per tutti i tavoli) */
+  /** nell'ordine del contenuto: la spiegazione le chiama «la prima», «la seconda»… */
   images: { id: string; art: Art; alt: string }[];
 }
 
@@ -119,11 +118,13 @@ export interface NonEReveal {
   explain: string;
 }
 
-function shuffled(c: NonEContent, ctx: PhaseCtx) {
-  return seededShuffle(
-    c.images.map((img, i) => ({ id: img.id, art: img.art, alt: c.alts[i] })),
-    `${ctx.seed}:immagini`,
-  );
+/**
+ * Immagini nell'ORDINE DEL CONTENUTO (non mescolate): la spiegazione del reveal le chiama «la prima», «la
+ * seconda», «la terza», quindi i numeri sullo schermo devono essere quelli. La posizione della soluzione
+ * cambia da una variante all'altra (scritta così nei contenuti), e il motore non ripete le varianti già viste.
+ */
+function ordered(c: NonEContent) {
+  return c.images.map((img, i) => ({ id: img.id, art: img.art, alt: c.alts[i] }));
 }
 
 const def: MechanicDef<NonEContent, NonESubmission> = {
@@ -138,7 +139,7 @@ const def: MechanicDef<NonEContent, NonESubmission> = {
   rule: "Tre immagini quasi uguali, una descrizione esatta: solo una la rispetta in tutto. Toccatela, prima è meglio.",
   contentSchema: nonEContent,
   submissionSchema: nonESubmission,
-  publicView: (c, ctx): NonEView => ({ ...baseView(def, ctx), scene: c.scene, description: c.description, images: shuffled(c, ctx) }),
+  publicView: (c, ctx): NonEView => ({ ...baseView(def, ctx), scene: c.scene, description: c.description, images: ordered(c) }),
   score: ({ content, ctx, submissions }) => {
     const firsts = firstPerTeam(submissions, ctx);
     const windowMs = durationOf(ctx);

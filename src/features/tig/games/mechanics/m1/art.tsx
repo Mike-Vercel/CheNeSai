@@ -1,6 +1,8 @@
 "use client";
 
-import type { ReactNode } from "react";
+import "./m1.css";
+import { clsx } from "clsx";
+import type { CSSProperties, ReactNode } from "react";
 import { hexOf, type Art, type Shape } from "@/lib/tig/games/mechanics/m1/draw";
 import { SceneIcon } from "../../kit/scene";
 
@@ -50,9 +52,20 @@ export function ShapeSvg({ s }: { s: Shape }): ReactNode {
   }
 }
 
+/**
+ * Misure di un quadro con la cornice di legno (`.tg1-frame`) dentro un contenitore «a misura»
+ * (`container-type: size`): il più grande che entra in larghezza E in altezza. `ratio` = larghezza/altezza del
+ * quadro, `fw` = spessore della cornice in unità del contenitore (cqw). Il quadro interno resta esattamente `ratio`.
+ */
+export function framed(ratio: number, fw: number): CSSProperties {
+  const f2 = `${2 * fw}cqw`;
+  const w = `min(100cqw, calc((100cqh - ${f2}) * ${ratio} + ${f2}))`;
+  return { width: w, height: `calc((${w} - ${f2}) / ${ratio} + ${f2})`, ["--tg1-fw" as string]: `${fw}cqw` } as CSSProperties;
+}
+
 export function ArtSvg({ art, label, className, children }: { art: Art; label: string; className?: string; children?: ReactNode }) {
   return (
-    <svg viewBox={`0 0 ${art.w} ${art.h}`} className={className} role="img" aria-label={label} preserveAspectRatio="xMidYMid meet">
+    <svg viewBox={`0 0 ${art.w} ${art.h}`} className={clsx("tg1-art", className)} role="img" aria-label={label} preserveAspectRatio="xMidYMid meet">
       <rect width={art.w} height={art.h} fill={hexOf(art.bg)} />
       {art.shapes.map((s, i) => (
         <ShapeSvg key={i} s={s} />

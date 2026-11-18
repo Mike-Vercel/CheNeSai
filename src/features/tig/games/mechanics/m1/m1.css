@@ -1,22 +1,104 @@
 /* =====================================================================
-   TAVOLI IN GUERRA! — minigiochi della MANCHE 1 («Chi parte male...»).
-   Classi con prefisso tg1-: solo per queste schermate, stessi colori del kit.
+   TAVERNA DEI PIRATI — minigiochi della MANCHE 1 («Chi parte male...»).
+   Classi con prefisso tg1-: solo per queste schermate, stessi token del kit (--tg-*).
+   Materiali della taverna: cornici di legno col filo d'ottone, carta di giornale ingiallita, targhette di
+   legno scuro, ritagli appuntati col chiodo d'ottone. Tutto in CSS/SVG, nessuna immagine.
    ===================================================================== */
 
-/* --- giornale (Titoli tagliati) ------------------------------------- */
-.tg1-paper {
+/* --- disegni generati (foto, scene, video): i toni delle icone restano «colori veri» ---------------
+   Il kit ha ridipinto l'ambra delle icone in turchese (accento freddo dell'interfaccia): dentro un disegno
+   un gatto, una fiamma o un post-it turchesi sembrano un errore. Qui le due variabili tornano arancio e
+   rosso pieno, SOLO dentro i disegni. */
+.tg1-art {
+  --tg-teal-hi: #f0a23a;
+  --tg-red-hi: #e5483f;
+}
+
+/* --- cornice di legno con il filo d'ottone (quadri appesi nella taverna) ----------------------------- */
+.tg1-frame {
+  --tg1-fw: 8px;
+  position: relative;
+  padding: var(--tg1-fw);
+  border-radius: calc(var(--tg1-fw) * 1.4);
   background:
-    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 0 2px, transparent 2px 9px),
+    repeating-linear-gradient(90deg, rgba(255, 214, 160, 0.05) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, #7a5030 0%, #5a3a22 45%, #3b2414 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 222, 170, 0.22),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 22px 50px -20px rgba(0, 0, 0, 0.9);
+}
+/* il quadro dentro la cornice: filo d'ottone e ombra interna */
+.tg1-frame > .tg1-pic {
+  display: block;
+  overflow: hidden;
+  border-radius: calc(var(--tg1-fw) * 0.45);
+  box-shadow:
+    0 0 0 calc(var(--tg1-fw) * 0.28) #c9a24a,
+    0 0 0 calc(var(--tg1-fw) * 0.45) rgba(36, 20, 8, 0.85);
+}
+/* cornice d'oro: l'immagine scelta o quella giusta (oltre al colore c'è sempre un segno o una scritta) */
+.tg1-frame.tg1-frame-gold {
+  background:
+    radial-gradient(120% 90% at 30% 0%, rgba(255, 245, 205, 0.45), transparent 60%),
+    linear-gradient(180deg, #ffe08a 0%, #f2b134 45%, #b97c1c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 0 rgba(122, 78, 16, 0.5),
+    0 0 0 1px rgba(90, 52, 8, 0.7),
+    0 0 40px -10px rgba(242, 177, 52, 0.75),
+    0 22px 50px -20px rgba(0, 0, 0, 0.9);
+}
+/* vecchia foto: vignetta calda ai bordi (sopra l'immagine, sotto i badge) */
+.tg1-vignette {
+  pointer-events: none;
+  background: radial-gradient(120% 110% at 50% 45%, transparent 58%, rgba(40, 20, 6, 0.42) 100%);
+}
+
+/* --- chiodo d'ottone (ritagli e foglietti appuntati sulla bacheca della taverna) ------------------------ */
+.tg1-pin {
+  position: absolute;
+  left: 50%;
+  top: 0.45em;
+  width: 0.95em;
+  height: 0.95em;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, #fff1c2 0 12%, #e2b552 34%, #9c6f1e 70%, #5e3f0c 100%);
+  box-shadow:
+    0 0.12em 0.18em rgba(0, 0, 0, 0.6),
+    inset 0 -0.06em 0.08em rgba(60, 36, 6, 0.6);
+}
+
+/* --- giornale (Titoli tagliati): carta di giornale ingiallita, inchiostro scuro ------------------------ */
+.tg1-paper {
+  color: var(--tg-ink);
+  background-color: #efe4c8;
+  background-image:
+    var(--tg-grain),
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 250, 232, 0.7), transparent 62%),
+    radial-gradient(70% 60% at 100% 100%, rgba(138, 90, 43, 0.2), transparent 70%),
     repeating-linear-gradient(0deg, color-mix(in srgb, var(--tg-ink) 2.5%, transparent) 0 2px, transparent 2px 5px),
-    #f2eee4;
-  color: var(--tg-night-2);
+    linear-gradient(180deg, #f4ead0, #e4d4ae);
+  background-size:
+    180px 180px,
+    auto,
+    auto,
+    auto,
+    auto;
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 54, 18, 0.35),
+    inset 0 0 26px 2px rgba(138, 90, 43, 0.22),
+    0 24px 60px -24px rgba(0, 0, 0, 0.9);
 }
 .tg1-serif {
   font-family: Georgia, "Times New Roman", "Liberation Serif", serif;
 }
 .tg1-blank {
   background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--tg-ink) 14%, transparent) 0 6px, color-mix(in srgb, var(--tg-ink) 5%, transparent) 6px 12px);
-  border-bottom: 0.12em solid var(--tg-night-2);
+  border-bottom: 0.12em solid var(--tg-ink);
   animation: tg1-blink 1.4s ease-in-out infinite;
 }
 .tg1-filled {
@@ -34,6 +116,19 @@
   }
 }
 
+/* --- targhetta di legno scuro col bordo d'ottone (elementi della Sequenza sporca) ---------------------- */
+.tg1-plaque {
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0 2px, transparent 2px 10px),
+    radial-gradient(120% 80% at 50% 0%, rgba(255, 213, 150, 0.1), transparent 60%),
+    linear-gradient(180deg, #3e2817, #23150b);
+  border-color: rgba(201, 162, 74, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 222, 170, 0.14),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 10px 24px -14px rgba(0, 0, 0, 0.9);
+}
+
 /* --- domino (Effetto domino) ----------------------------------------- */
 .tg1-tile {
   transform-origin: 50% 100%;
@@ -44,13 +139,13 @@
     transform: rotate(0deg);
   }
   60% {
-    transform: rotate(5deg);
+    transform: rotate(4deg);
   }
   80% {
-    transform: rotate(2deg);
+    transform: rotate(1deg);
   }
   100% {
-    transform: rotate(3deg);
+    transform: rotate(1.5deg);
   }
 }
 .tg1-tile-land {
@@ -71,11 +166,6 @@
 .tg1-pixels {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-}
-.tg1-scan {
-  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 2px, transparent 2px 4px);
-  mix-blend-mode: multiply;
-  pointer-events: none;
 }
 .tg1-sharpen {
   animation: tg1-sharpen 1600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -155,18 +245,6 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .tg1-tile,
-  .tg1-tile-land,
-  .tg1-blank,
-  .tg1-eq > span,
-  .tg1-ring,
-  .tg1-flash {
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
 /* coriandoli (Il dettaglio da 100) */
 .tg1-fall {
   transform-box: fill-box;
@@ -179,5 +257,38 @@
   }
   to {
     transform: translateY(100px) rotate(320deg);
+  }
+}
+
+/* --- post del feed: biglietto di carta appuntato (Feed in 5 secondi) ------------------------------------- */
+.tg1-post {
+  color: var(--tg-ink);
+  background-color: #f1e3c0;
+  background-image:
+    var(--tg-grain),
+    radial-gradient(120% 80% at 50% 0%, rgba(255, 249, 228, 0.65), transparent 60%),
+    linear-gradient(180deg, #f5e9cb, #e3cf9f);
+  background-size:
+    180px 180px,
+    auto,
+    auto;
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 54, 18, 0.5),
+    inset 0 0 18px 1px rgba(138, 90, 43, 0.3),
+    0 18px 40px -18px rgba(0, 0, 0, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tg1-tile,
+  .tg1-tile-land,
+  .tg1-blank,
+  .tg1-eq > span,
+  .tg1-ring,
+  .tg1-flash,
+  .tg1-fall,
+  .tg1-sharpen,
+  .tg1-freeze {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

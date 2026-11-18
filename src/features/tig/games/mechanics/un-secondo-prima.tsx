@@ -10,8 +10,9 @@ import { useAnswerKeys } from "@/features/shared/keyboard";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { Icon } from "../kit/icons";
+import { Doubloon } from "../kit/ornaments";
 import { canEdit, Explain, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvPanel, elapsedOf, useClock, useSubmit, WatchTv } from "../kit/ui";
-import { ShapeSvg } from "./m1/art";
+import { framed, ShapeSvg } from "./m1/art";
 
 type P = PlayerGameProps<SecondoView, null, OptionSubmission, SecondoReveal>;
 type T = TvGameProps<SecondoView, SecondoReveal>;
@@ -19,7 +20,7 @@ type T = TvGameProps<SecondoView, SecondoReveal>;
 /** Un fotogramma del video: scenografia, attori nelle pose date, forme in più, primo piano. */
 function ClipFrame({ clip, poses, extra, label, className, children }: { clip: Clip; poses: Record<string, Required<Pose>>; extra?: Shape[]; label: string; className?: string; children?: ReactNode }) {
   return (
-    <svg viewBox={`0 0 ${clip.w} ${clip.h}`} className={className} role="img" aria-label={label}>
+    <svg viewBox={`0 0 ${clip.w} ${clip.h}`} className={clsx("tg1-art", className)} role="img" aria-label={label}>
       <rect width={clip.w} height={clip.h} fill={hexOf(clip.bg)} />
       {clip.back.map((s, i) => (
         <ShapeSvg key={`b${i}`} s={s} />
@@ -64,19 +65,19 @@ function OptionFrame({ clip, o, index, state, tv = false }: { clip: Clip; o: Fra
     <span className={clsx("flex w-full items-center text-left", tv ? "gap-[1cqw]" : "gap-3")}>
       <span
         className={clsx(
-          "relative shrink-0 overflow-hidden border-2",
-          tv ? "w-[13cqw] rounded-[0.8cqw] border-[0.2cqw]" : "w-[44%] rounded-xl",
-          state === "picked" && "border-(--tg-gold)",
-          state === "right" && "border-(--tg-gold) shadow-[0_0_30px_-6px_color-mix(in_srgb,var(--tg-gold)_80%,transparent)]",
-          state === "wrong" && "border-(--tg-red-hi)",
-          (state === "idle" || state === "dim") && "border-(--tg-cream)/15",
+          "relative shrink-0 overflow-hidden",
+          tv ? "w-[13cqw] rounded-[0.6cqw] ring-[0.22cqw]" : "w-[44%] rounded-lg ring-[3px]",
+          (state === "picked" || state === "right") && "ring-(--tg-gold)",
+          state === "right" && "shadow-[0_0_30px_-6px_color-mix(in_srgb,var(--tg-gold)_80%,transparent)]",
+          state === "wrong" && "ring-(--tg-red)",
+          (state === "idle" || state === "dim") && "ring-(--tg-brass)/60",
         )}
       >
         <ClipFrame clip={clip} poses={posesOf(clip, o)} extra={o.extra} label={o.text} className="block aspect-video w-full" />
-        <span className={clsx("tg-num absolute left-[4%] top-[6%] grid place-items-center rounded-md", tv ? "h-[2.4cqw] w-[2.4cqw] text-[1.5cqw]" : "h-7 w-7 text-lg", state === "right" || state === "picked" ? "bg-(--tg-gold) text-(--tg-ink)" : "bg-(--tg-night)/85 text-(--tg-cream)")}>{index + 1}</span>
+        <Doubloon className={clsx("absolute left-[4%] top-[6%]", tv ? "h-[2.6cqw] w-[2.6cqw] text-[1.4cqw]" : "h-8 w-8 text-base")}>{index + 1}</Doubloon>
       </span>
       <span className={clsx("min-w-0 flex-1 font-extrabold leading-snug", tv ? "text-[1.55cqw]" : "text-base", state === "dim" && "opacity-50", state === "wrong" && "line-through decoration-2")}>{o.text}</span>
-      {state === "right" && <Icon name="check" className={clsx("shrink-0 text-(--tg-gold)", tv ? "h-[2.4cqw] w-[2.4cqw]" : "h-6 w-6")} />}
+      {state === "right" && <Icon name="check" className={clsx("shrink-0 text-(--tg-gold-hi)", tv ? "h-[2.4cqw] w-[2.4cqw]" : "h-6 w-6")} />}
     </span>
   );
 }
@@ -98,22 +99,33 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
-        <div className="grid grid-cols-2 gap-2">
-          <figure className="relative overflow-hidden rounded-xl border-2 border-(--tg-cream)/15">
-            <ClipFrame clip={reveal.clip} poses={last} label="Fermo immagine" className="block aspect-video w-full" />
-            <figcaption className="bg-(--tg-cream)/[0.06] py-1 text-center text-xs font-extrabold uppercase tracking-wide text-(--tg-cream)/70">Fermo immagine</figcaption>
-          </figure>
-          <figure className="relative overflow-hidden rounded-xl border-2 border-(--tg-gold)">
-            <ClipFrame clip={reveal.clip} poses={posesOf(reveal.clip, right)} extra={right.extra} label={right.text} className="tg1-freeze block aspect-video w-full" />
-            <figcaption className="bg-(--tg-gold) py-1 text-center text-xs font-extrabold uppercase tracking-wide text-(--tg-ink)">Un secondo dopo</figcaption>
-          </figure>
-        </div>
-        <div className="flex flex-col gap-2">
-          {view.options.map((o, i) => (
-            <Panel key={o.id} className="p-2">
-              <OptionFrame clip={view.clip} o={o} index={i} state={o.id === reveal.solutionId ? "right" : sent && picked === o.id ? "wrong" : "dim"} />
-            </Panel>
-          ))}
+        {/* sul PC: i due fotogrammi uno sopra l'altro a sinistra, le risposte a destra */}
+        <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-start">
+          <div className="grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-3">
+            <figure className="flex flex-col gap-1.5">
+              <div className="tg1-frame" style={{ ["--tg1-fw" as string]: "5px" }}>
+                <div className="tg1-pic">
+                  <ClipFrame clip={reveal.clip} poses={last} label="Fermo immagine" className="block aspect-video w-full" />
+                </div>
+              </div>
+              <figcaption className="text-center text-xs font-extrabold uppercase tracking-wide text-(--tg-cream)/75">Fermo immagine</figcaption>
+            </figure>
+            <figure className="flex flex-col gap-1.5">
+              <div className="tg1-frame tg1-frame-gold" style={{ ["--tg1-fw" as string]: "5px" }}>
+                <div className="tg1-pic">
+                  <ClipFrame clip={reveal.clip} poses={posesOf(reveal.clip, right)} extra={right.extra} label={right.text} className="tg1-freeze block aspect-video w-full" />
+                </div>
+              </div>
+              <figcaption className="text-center text-xs font-extrabold uppercase tracking-wide text-(--tg-gold-hi)">Un secondo dopo</figcaption>
+            </figure>
+          </div>
+          <div className="flex flex-col gap-2">
+            {view.options.map((o, i) => (
+              <Panel key={o.id} className="p-2">
+                <OptionFrame clip={view.clip} o={o} index={i} state={o.id === reveal.solutionId ? "right" : sent && picked === o.id ? "wrong" : "dim"} />
+              </Panel>
+            ))}
+          </div>
         </div>
         <Explain text={reveal.explain} />
       </PlayerFrame>
@@ -147,25 +159,32 @@ function Player(p: P) {
         />
       }
     >
-      <figure className="relative overflow-hidden rounded-2xl border-2 border-(--tg-cream)/15">
-        <ClipFrame clip={view.clip} poses={last} label={`Fermo immagine. ${view.alt}`} className="tg1-freeze block aspect-video w-full" />
-        <Paused />
-      </figure>
-      <p className="px-1 text-lg font-extrabold leading-snug">{view.prompt}</p>
-      <div role="radiogroup" aria-label="Fotogrammi" className="flex flex-col gap-2">
-        {view.options.map((o, i) => (
-          <button
-            key={o.id}
-            type="button"
-            role="radio"
-            aria-checked={picked === o.id}
-            disabled={!editable}
-            onClick={() => editable && setPicked(o.id)}
-            className={clsx("rounded-2xl border-2 p-2 transition-transform active:scale-[0.99]", picked === o.id ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]")}
-          >
-            <OptionFrame clip={view.clip} o={o} index={i} state={picked === o.id ? "picked" : "idle"} />
-          </button>
-        ))}
+      {/* sul telefono tutto in colonna; sul PC il fermo immagine a sinistra e i fotogrammi a destra */}
+      <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <figure className="tg1-frame">
+          <div className="tg1-pic relative">
+            <ClipFrame clip={view.clip} poses={last} label={`Fermo immagine. ${view.alt}`} className="tg1-freeze block aspect-video w-full" />
+            <Paused />
+          </div>
+        </figure>
+        <div className="flex flex-col gap-2">
+          <p className="px-1 text-lg font-extrabold leading-snug">{view.prompt}</p>
+          <div role="radiogroup" aria-label="Fotogrammi" className="flex flex-col gap-2">
+            {view.options.map((o, i) => (
+              <button
+                key={o.id}
+                type="button"
+                role="radio"
+                aria-checked={picked === o.id}
+                disabled={!editable}
+                onClick={() => editable && setPicked(o.id)}
+                className={clsx("rounded-2xl border-2 p-2 transition-transform active:scale-[0.99]", picked === o.id ? "tg-picked border-(--tg-gold)" : "border-(--tg-cream)/12 bg-(--tg-cream)/[0.04]")}
+              >
+                <OptionFrame clip={view.clip} o={o} index={i} state={picked === o.id ? "picked" : "idle"} />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </PlayerFrame>
   );
@@ -182,7 +201,8 @@ function Tv(p: T) {
     return (
       <TvFrame view={view} p={p} hideTimer subtitle={`«${view.clipTitle}»: guardate bene, tra poco si ferma.`}>
         <div className="relative h-full" style={{ containerType: "size" }}>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.6cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
+          <div className="tg1-frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={framed(16 / 9, 1.2)}>
+            <div className="tg1-pic relative h-full w-full">
             {clipT < 0 ? (
               <div className="grid h-full w-full place-items-center bg-(--tg-night)">
                 <p className="tg-num tg-pop text-[18cqh] text-(--tg-gold)" key={lead}>
@@ -195,6 +215,7 @@ function Tv(p: T) {
             <span className="tg-display absolute right-[2%] top-[3%] flex items-center gap-[0.4em] rounded-md bg-(--tg-night)/75 px-[0.6em] py-[0.2em] text-[4cqh] text-(--tg-cream)">
               <span className="tg-pulse inline-block h-[0.6em] w-[0.6em] rounded-full bg-(--tg-red)" /> Video
             </span>
+            </div>
           </div>
         </div>
       </TvFrame>
@@ -209,7 +230,8 @@ function Tv(p: T) {
       <div className="grid h-full grid-cols-[1.25fr_1fr] gap-[1.6cqw]">
         <div className="flex min-h-0 flex-col gap-[1cqw]">
           <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[2cqw] border border-(--tg-cream)/10" style={{ width: "min(100cqw, 177.78cqh)", height: "min(56.25cqw, 100cqh)" }}>
+            <div className={clsx("tg1-frame absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2", right && "tg1-frame-gold")} style={framed(16 / 9, 1.2)}>
+              <div className="tg1-pic relative h-full w-full">
               {right ? (
                 <ClipFrame clip={view.clip} poses={posesOf(view.clip, right)} extra={right.extra} label={right.text} className="tg1-freeze block h-full w-full" />
               ) : (
@@ -220,6 +242,7 @@ function Tv(p: T) {
               ) : (
                 <span className="tg-display absolute left-[3%] top-[5%] rounded-md bg-(--tg-red) px-[0.5em] py-[0.15em] text-[5cqh] text-white">Fermo immagine</span>
               )}
+              </div>
             </div>
           </div>
           {done && <TvExplain text={reveal.explain} />}

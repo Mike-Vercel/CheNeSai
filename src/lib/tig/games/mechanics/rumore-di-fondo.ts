@@ -73,6 +73,7 @@ export interface RumoreReveal {
   mode: "dominante" | "estraneo";
   prompt: string;
   /** risposte con il loro suono da riascoltare da solo */
+  /** `loud` solo nelle varianti «dominante» (nelle «estraneo» i volumi sono simili apposta) */
   options: (Option & { solo: SynthEvent[]; present: boolean; loud: boolean })[];
   solutionId: string;
   explain: string;
@@ -124,7 +125,7 @@ const def: MechanicDef<RumoreContent, OptionSubmission> = {
       prompt: c.prompt,
       options: c.options.map((o) => {
         const layer = c.layers.find((l) => l.sound === o.sound);
-        return { id: o.id, text: o.text, solo: compileOne(o.sound, 2.5, c.id), present: !!layer, loud: !!layer && layer.gain === max };
+        return { id: o.id, text: o.text, solo: compileOne(o.sound, 2.5, c.id), present: !!layer, loud: c.mode === "dominante" && !!layer && layer.gain === max };
       }),
       solutionId: c.solution.optionId,
       explain: c.explain,

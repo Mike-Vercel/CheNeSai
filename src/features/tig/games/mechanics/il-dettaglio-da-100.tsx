@@ -1,6 +1,7 @@
 "use client";
 
 import "./m1/m1.css";
+import { clsx } from "clsx";
 import { useState } from "react";
 import type { DettaglioReveal, DettaglioView } from "@/lib/tig/games/mechanics/il-dettaglio-da-100";
 import type { OptionSubmission } from "@/lib/tig/games/mechanics/m1/common";
@@ -8,37 +9,33 @@ import type { Scene } from "@/lib/tig/games/components/art";
 import type { PlayerGameProps, TvGameProps } from "../ui-contract";
 import { defineUi } from "../kit/define";
 import { ChoiceList } from "../kit/inputs";
+import { Doubloon } from "../kit/ornaments";
 import { SceneArt } from "../kit/scene";
+import { framed } from "./m1/art";
 import { canEdit, elapsedOf, Explain, MyOutcome, Panel, PlayerFrame, SubmitBar, TvExplain, TvFrame, TvOption, TvPanel, useClock, useSubmit, WatchTv } from "../kit/ui";
 
 type P = PlayerGameProps<DettaglioView, null, OptionSubmission, DettaglioReveal>;
 type T = TvGameProps<DettaglioView, DettaglioReveal>;
 
-const CONFETTI = ["var(--tg-gold)", "var(--tg-red-hi)", "var(--tg-teal-hi)", "var(--tg-sky)", "var(--tg-violet)", "var(--tg-cream)"];
+/** coriandoli della festa: dentro la scena (classe tg1-art) il rosso e l'arancio sono colori pieni */
+const CONFETTI = ["var(--tg-red-hi)", "var(--tg-teal-hi)", "var(--tg-sky)", "var(--tg-violet)", "var(--tg-cream)"];
 
 /** Scena + stimoli: coriandoli che cadono e la striscia di testo che scorre (solo durante i 6 secondi). */
 function BusyScene({ scene, alt, ticker, showMs, live, className }: { scene: Scene; alt: string; ticker: string | null; showMs: number; live: boolean; className?: string }) {
   return (
-    <div className={className}>
+    <div className={clsx("tg1-art", className)}>
       <div className="@container relative h-full w-full overflow-hidden rounded-[inherit]">
         <SceneArt scene={scene} alt={alt} className="h-full w-full" />
         {live && (
           <svg viewBox="0 0 160 90" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
-            {Array.from({ length: 34 }, (_, i) => {
+            {Array.from({ length: 28 }, (_, i) => {
               const x = (i * 37) % 160;
-              const d = 1.6 + ((i * 13) % 10) / 6;
-              return (
-                <rect
-                  key={i}
-                  x={x}
-                  y={-6}
-                  width={1.6}
-                  height={3}
-                  rx={0.4}
-                  fill={CONFETTI[i % CONFETTI.length]}
-                  className="tg1-fall"
-                  style={{ animationDuration: `${d}s`, animationDelay: `${-((i * 7) % 20) / 10}s` }}
-                />
+              const d = 1.8 + ((i * 13) % 10) / 6;
+              const style = { animationDuration: `${d}s`, animationDelay: `${-((i * 7) % 20) / 10}s` };
+              return i % 5 < 3 ? (
+                <ellipse key={i} cx={x} cy={-5} rx={1.15} ry={1.15} fill="var(--tg-gold)" stroke="#8a5514" strokeWidth={0.32} opacity={0.88} className="tg1-fall" style={style} />
+              ) : (
+                <rect key={i} x={x} y={-6} width={1.3} height={2.5} rx={0.35} fill={CONFETTI[i % CONFETTI.length]} opacity={0.8} className="tg1-fall" style={style} />
               );
             })}
           </svg>
@@ -68,13 +65,19 @@ function Player(p: P) {
     return (
       <PlayerFrame view={view} p={p}>
         <MyOutcome outcome={p.myOutcome} />
-        <Panel className="p-2">
-          <BusyScene scene={reveal.scene} alt={reveal.alt} ticker={reveal.ticker} showMs={view.showMs} live={false} className="aspect-video w-full rounded-xl" />
-        </Panel>
-        <Panel className="flex flex-col gap-2">
-          <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
-          <ChoiceList options={view.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
-        </Panel>
+        <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1.3fr_1fr] lg:items-start">
+          <Panel className="p-2">
+            <div className="tg1-frame">
+              <div className="tg1-pic">
+                <BusyScene scene={reveal.scene} alt={reveal.alt} ticker={reveal.ticker} showMs={view.showMs} live={false} className="aspect-video w-full" />
+              </div>
+            </div>
+          </Panel>
+          <Panel className="flex flex-col gap-2">
+            <p className="text-lg font-extrabold leading-snug">{reveal.prompt}</p>
+            <ChoiceList options={view.options} picked={sent && picked ? [picked] : []} onToggle={() => {}} keys={false} reveal={{ solution: [reveal.solutionId] }} />
+          </Panel>
+        </div>
         <Explain text={reveal.explain} />
       </PlayerFrame>
     );
@@ -116,9 +119,13 @@ function Tv(p: T) {
       <TvFrame view={view} p={p} subtitle={`«${reveal.sceneTitle}» · ecco il dettaglio`}>
         <div className="grid h-full grid-cols-[1.15fr_1fr] gap-[1.4cqw]">
           <div className="flex min-h-0 flex-col gap-[1.2cqw]">
-            <TvPanel className="tg-pop flex min-h-0 flex-1 items-center justify-center p-[0.6cqw]">
-              <BusyScene scene={reveal.scene} alt={reveal.alt} ticker={reveal.ticker} showMs={view.showMs} live={false} className="aspect-video max-h-full w-full rounded-[1cqw]" />
-            </TvPanel>
+            <div className="relative min-h-0 flex-1" style={{ containerType: "size" }}>
+              <div className="tg1-frame tg1-frame-gold tg-pop absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={framed(16 / 9, 1.2)}>
+                <div className="tg1-pic h-full w-full">
+                  <BusyScene scene={reveal.scene} alt={reveal.alt} ticker={reveal.ticker} showMs={view.showMs} live={false} className="h-full w-full" />
+                </div>
+              </div>
+            </div>
             <TvExplain text={reveal.explain} />
           </div>
           <TvPanel className="flex flex-col justify-center gap-[0.9cqw]">
@@ -136,11 +143,13 @@ function Tv(p: T) {
     const left = Math.max(0, Math.ceil((view.showMs - elapsed) / 1000));
     return (
       <TvFrame view={view} p={p} hideTimer subtitle={`«${view.sceneTitle}»: 6 secondi. Guardate TUTTO.`}>
-        <div className="flex h-full items-center justify-center">
-          <div className="tg-pop relative aspect-video h-full max-h-full">
-            <BusyScene scene={view.scene!} alt={view.alt ?? view.sceneTitle} ticker={view.ticker} showMs={view.showMs} live className="h-full w-full rounded-[1.4cqw] border border-(--tg-cream)/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]" />
-            <div className="tg-glass tg-glass-lime absolute right-[1.2cqw] top-[1.2cqw] grid h-[6cqw] w-[6cqw] place-items-center rounded-full">
-              <span className="tg-num text-[3.6cqw] text-(--tg-gold)">{left}</span>
+        <div className="relative h-full" style={{ containerType: "size" }}>
+          <div className="tg1-frame tg-pop absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={framed(16 / 9, 1)}>
+            <div className="tg1-pic relative h-full w-full">
+              <BusyScene scene={view.scene!} alt={view.alt ?? view.sceneTitle} ticker={view.ticker} showMs={view.showMs} live className="h-full w-full" />
+              <Doubloon className="absolute right-[2%] top-[3%] h-[11cqh] w-[11cqh] text-[6cqh]" label={`${left} secondi`}>
+                {left}
+              </Doubloon>
             </div>
           </div>
         </div>
